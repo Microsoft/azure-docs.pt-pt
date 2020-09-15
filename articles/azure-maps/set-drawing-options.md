@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 4c00639c02f8834a24a3828ac5b8ba828d0e1733
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 82c5d87be084e85b6de9f890bd042babca9df476
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282828"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090504"
 ---
 # <a name="use-the-drawing-tools-module"></a>Utilizar o módulo de ferramentas de desenho
 
-O Azure Maps Web SDK fornece um módulo de *ferramentas de desenho.* Este módulo facilita a desenhei e edita formas no mapa utilizando um dispositivo de entrada, como um rato ou um ecrã tátil. A classe central deste módulo é o [gestor de desenho.](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-) O gestor de desenho fornece todas as capacidades necessárias para desenhar e editar formas no mapa. Pode ser usado diretamente, e é integrado com uma barra de ferramentas personalizada UI. Também pode utilizar a aula de barra de [ferramentas](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) incorporada. 
+O Azure Maps Web SDK fornece um módulo de *ferramentas de desenho.* Este módulo facilita a desenhei e edita formas no mapa utilizando um dispositivo de entrada, como um rato ou um ecrã tátil. A classe central deste módulo é o [gestor de desenho.](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-) O gestor de desenho fornece todas as capacidades necessárias para desenhar e editar formas no mapa. Pode ser usado diretamente, e é integrado com uma barra de ferramentas personalizada UI. Também pode utilizar a aula de barra de [ferramentas](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) incorporada. 
 
 ## <a name="loading-the-drawing-tools-module-in-a-webpage"></a>Carregar o módulo de ferramentas de desenho numa página web
 
@@ -44,13 +44,13 @@ O Azure Maps Web SDK fornece um módulo de *ferramentas de desenho.* Este módul
 
 ## <a name="use-the-drawing-manager-directly"></a>Use o gestor de desenho diretamente
 
-Uma vez que o módulo de ferramentas de desenho é carregado na sua aplicação, pode ativar as capacidades de desenho e edição utilizando o [gestor de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-). Pode especificar opções para o gestor de desenho durante a instantânea ou utilizar a `drawingManager.setOptions()` função em alternativa.
+Uma vez que o módulo de ferramentas de desenho é carregado na sua aplicação, pode ativar as capacidades de desenho e edição utilizando o [gestor de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). Pode especificar opções para o gestor de desenho durante a instantânea ou utilizar a `drawingManager.setOptions()` função em alternativa.
 
 ### <a name="set-the-drawing-mode"></a>Definir o modo de desenho
 
 O código a seguir cria uma instância do gestor de desenho e define a opção **de modo** de desenho. 
 
-```Javascript
+```javascript
 //Create an instance of the drawing manager and set drawing mode.
 drawingManager = new atlas.drawing.DrawingManager(map,{
     mode: "draw-polygon"
@@ -70,13 +70,13 @@ Consulte a Pen <a href='https://codepen.io/azuremaps/pen/YzKVKRa/'>Draw a polygo
 
 O gestor de desenho suporta três maneiras diferentes de interagir com o mapa para desenhar formas.
 
-* `click`- As coordenadas são adicionadas quando o rato ou o toque são clicados.
-* `freehand `- As coordenadas são adicionadas quando o rato ou o toque são arrastados no mapa. 
-* `hybrid`- As coordenadas são adicionadas quando o rato ou o toque são clicados ou arrastados.
+* `click` - As coordenadas são adicionadas quando o rato ou o toque são clicados.
+* `freehand ` - As coordenadas são adicionadas quando o rato ou o toque são arrastados no mapa. 
+* `hybrid` - As coordenadas são adicionadas quando o rato ou o toque são clicados ou arrastados.
 
 O código a seguir permite o modo de desenho do polígono e define o tipo de interação de desenho a que o gestor de desenho deve aderir `freehand` . 
 
-```Javascript
+```javascript
 //Create an instance of the drawing manager and set drawing mode.
 drawingManager = new atlas.drawing.DrawingManager(map,{
     mode: "draw-polygon",
@@ -122,10 +122,10 @@ Saiba como utilizar características adicionais do módulo de ferramentas de des
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Mapa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Gestor de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [Gestor de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [Barra de ferramentas de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
+> [Barra de ferramentas de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

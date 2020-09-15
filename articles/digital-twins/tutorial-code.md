@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: c000d48043a46ecdbdfee263cc5c8ce877f66b4b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9c9f286b9d81c89844582698ac98833f10bcaade
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923709"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086662"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codificação com as APIs de Gémeos Digitais Azure
 
@@ -322,12 +322,13 @@ Note que não se comete nenhum erro quando os gémeos são criados pela segunda 
 
 Em seguida, pode criar **relações** entre os gémeos que criou, para ligá-los a um **gráfico gémeo.** [Os gráficos gémeos](concepts-twins-graph.md) são usados para representar todo o seu ambiente.
 
-Para ser capaz de criar relacionamentos, adicione uma `using` declaração para o tipo de base de relacionamento no SDK:ignore isto se já adicionado.
+Para ser capaz de criar relacionamentos, você precisará do espaço de `Azure.DigitalTwins.Core.Serialization` nome. Acrescentou isto ao projeto mais cedo com esta `using` declaração:
+
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
 
-Em seguida, adicione um novo método estático à `Program` classe, por baixo do `Main` método:
+Adicione um novo método estático à `Program` classe, por baixo do `Main` método:
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {

@@ -11,13 +11,13 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 08/11/2020
-ms.openlocfilehash: 18e1ff05d76937f8809408da0ed25f55120e456a
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/15/2020
+ms.openlocfilehash: ff56ef55066fd0f56b5b8dc7507bfb63b8b8baa0
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440580"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090606"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalize a configuração para um tempo de execução de integração Azure-SSIS
 
@@ -40,7 +40,7 @@ Pode instalar componentes gratuitos (não licenciados) e pagos (licenciados) com
 
 As seguintes limitações aplicam-se apenas às configurações personalizadas padrão:
 
-- Se pretender utilizar *gacutil.exe* no seu script para instalar conjuntos na cache de montagem global (GAC), tem de fornecer *gacutil.exe* como parte da sua configuração personalizada. Ou pode utilizar a cópia fornecida no nosso recipiente *de pré-visualização pública,* discutida mais tarde na secção "Instruções".
+- Se pretender utilizar *gacutil.exe* no seu script para instalar conjuntos na cache de montagem global (GAC), tem de fornecer *gacutil.exe* como parte da sua configuração personalizada. Ou pode utilizar a cópia fornecida na pasta *amostra* do nosso recipiente de *pré-visualização pública,* consulte a secção **de amostras de configuração personalizada padrão** abaixo.
 
 - Se pretender fazer referência a uma sub-dobradeira no seu script, *msiexec.exe* não suporta a `.\` notação para fazer referência à pasta raiz. Utilize um comando como `msiexec /i "MySubfolder\MyInstallerx64.msi" ...` em vez de `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...` .
 
@@ -343,7 +343,7 @@ Para visualizar e reutilizar algumas amostras de configurações personalizadas 
 
 1. Depois de terminar a configuração personalizada padrão e o seu Azure-SSIS IR começar, pode encontrar todos os registos de configuração personalizados na pasta *principal.cmd.log* do seu recipiente. Incluem a saída padrão do *main.cmd* e outros registos de execução.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar a Edição Empresarial da Azure-SSIS IR](how-to-configure-azure-ssis-ir-enterprise-edition.md)
 - [Desenvolver componentes pagos ou licenciados para a Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md)

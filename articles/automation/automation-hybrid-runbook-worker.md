@@ -3,14 +3,14 @@ title: Visão geral do trabalhador do runbook híbrido da Azure Automation
 description: Este artigo fornece uma visão geral do Trabalhador de Runbook Híbrido, que pode usar para executar livros de execução em máquinas no seu datacenter local ou fornecedor de nuvem.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/16/2020
+ms.date: 09/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4d29979e28140b728478d405db934cb41783f4b0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: f5dc9305df8ce0e26e13738d605849fa75cc53a7
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448089"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087898"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Descrição geral das Funções de Trabalho de Runbook Híbridas (Hybrid Runbook Worker overview)
 
@@ -42,7 +42,7 @@ O processo de instalação de um Trabalhador De Runbook Híbrido depende do sist
 
 O método de instalação recomendado é utilizar um manual de automação Azure para automatizar completamente o processo de configuração de uma máquina Windows. Se isso não for viável, pode seguir um procedimento passo a passo para instalar e configurar manualmente o papel. Para máquinas Linux, você executou um script Python para instalar o agente na máquina.
 
-## <a name="network-planning"></a><a name="network-planning"></a>Planeamento de rede
+## <a name="network-planning"></a><a name="network-planning"></a>Planeamento da rede
 
 Para que o Trabalhador de Runbook Híbrido se conecte e registe com a Azure Automation, deve ter acesso ao número de porta e URLs descritos nesta secção. O trabalhador também deve ter acesso às [portas e URLs necessários para](../azure-monitor/platform/agent-windows.md) que o agente Log Analytics se conecte ao espaço de trabalho Azure Monitor Log Analytics.
 
@@ -51,9 +51,9 @@ Para que o Trabalhador de Runbook Híbrido se conecte e registe com a Azure Auto
 São necessários os seguintes portos e URLs para o Trabalhador de Runbook Híbrido:
 
 * Porto: Apenas TCP 443 necessário para acesso à Internet de saída
-* URL global:`*.azure-automation.net`
-* URL global de Us Gov Virginia:`*.azure-automation.us`
-* Serviço de agente:`https://<workspaceId>.agentsvc.azure-automation.net`
+* URL global: `*.azure-automation.net`
+* URL global de Us Gov Virginia: `*.azure-automation.us`
+* Serviço de agente: `https://<workspaceId>.agentsvc.azure-automation.net`
 
 Se tiver uma conta Automation que está definida para uma região específica, pode restringir a comunicação do Trabalhador Do Runbook Híbrido a esse datacenter regional. Reveja os [registos DNS utilizados pela Azure Automation](how-to/automation-region-dns-records.md) para obter os registos DNS necessários.
 
@@ -63,11 +63,11 @@ Se utilizar um servidor proxy para comunicação entre a Azure Automation e as m
 
 ### <a name="firewall-use"></a>Uso de firewall
 
-Se utilizar uma firewall para restringir o acesso à internet, tem de configurar a firewall para permitir o acesso. Se utilizar o gateway Log Analytics como procuração, certifique-se de que está configurado para trabalhadores híbridos runbook. Consulte a porta de [entrada do Log Analytics para trabalhadores híbridos automations.](../azure-monitor/platform/gateway.md)
+Se utilizar uma firewall para restringir o acesso à internet, tem de configurar a firewall para permitir o acesso. Se utilizar o gateway Log Analytics como procuração, certifique-se de que está configurado para trabalhadores híbridos runbook. Consulte a porta de [entrada do Log Analytics para trabalhadores híbridos da Automação.](../azure-monitor/platform/gateway.md)
 
 ### <a name="service-tags"></a>Etiquetas de serviço
 
-A Azure Automation suporta tags de serviço de rede virtual Azure, começando com a tag de serviço [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Pode utilizar tags de serviço para definir controlos de acesso à rede em [grupos de segurança](../virtual-network/security-overview.md#security-rules) de rede ou [Azure Firewall](../firewall/service-tags.md). As etiquetas de serviço podem ser utilizadas no lugar de endereços IP específicos quando cria regras de segurança. Ao especificar o nome da etiqueta de serviço **GuestAndHybridManagement** no campo de origem ou destino apropriado de uma regra, pode permitir ou negar o tráfego para o serviço Dem automação. Esta etiqueta de serviço não suporta permitir um maior controlo granular limitando as gamas IP a uma região específica.
+A Azure Automation suporta tags de serviço de rede virtual Azure, começando com a tag de serviço [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). Pode utilizar tags de serviço para definir controlos de acesso à rede em [grupos de segurança](../virtual-network/security-overview.md#security-rules) de rede ou [Azure Firewall](../firewall/service-tags.md). As etiquetas de serviço podem ser utilizadas no lugar de endereços IP específicos quando cria regras de segurança. Ao especificar o nome da etiqueta de serviço **GuestAndHybridManagement**  no campo de origem ou destino apropriado de uma regra, pode permitir ou negar o tráfego para o serviço Dem automação. Esta etiqueta de serviço não suporta permitir um maior controlo granular limitando as gamas IP a uma região específica.
 
 A etiqueta de serviço para o serviço Azure Automation apenas fornece IPs utilizados para os seguintes cenários:
 
@@ -115,6 +115,20 @@ Se a máquina de anfitrião Do Trabalhador Do Runbook Híbrido reiniciar, qualqu
 ### <a name="runbook-permissions-for-a-hybrid-runbook-worker"></a>Permissões de runbook para um trabalhador de runbook híbrido
 
 Uma vez que acedem a recursos não-Azure, os runbooks em execução num Trabalhador De Runbook Híbrido não podem usar o mecanismo de autenticação normalmente utilizado por runbooks autenticando recursos Azure. Um livro de aplicação fornece a sua própria autenticação aos recursos locais, ou configura a autenticação utilizando [identidades geridas para recursos Azure](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager). Também pode especificar uma conta Run As para fornecer um contexto de utilizador para todos os livros.
+
+## <a name="view-hybrid-runbook-workers"></a>Ver Trabalhadores de Runbook Híbridos
+
+Depois da funcionalidade de Gestão de Atualização estar ativada em servidores windows ou VMs, pode inventariar a lista do grupo de Trabalhadores de Runbook Híbridos do sistema no portal Azure. Pode visualizar até 2.000 trabalhadores no portal selecionando o grupo de **trabalhadores híbridos do sistema** de separadores a partir da opção Grupo de **Trabalhadores Híbridos** do painel de trabalho à esquerda para a conta de Automação selecionada.
+
+:::image type="content" source="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png" alt-text="Página de grupos de trabalhadores híbridos do sistema de contas de automação" border="false" lightbox="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png":::
+
+Se tiver mais de 2.000 trabalhadores híbridos, para obter uma lista de todos eles, pode executar o seguinte script PowerShell:
+
+```powershell
+"Get-AzSubscription -SubscriptionName "<subscriptionName>" | Set-AzContext
+$workersList = (Get-AzAutomationHybridWorkerGroup -ResourceGroupName "<resourceGroupName>" -AutomationAccountName "<automationAccountName>").Runbookworker
+$workersList | export-csv -Path "<Path>\output.csv" -NoClobber -NoTypeInformation"
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: 080952752dc5abfd7cf61ae1c5b00b539af58b99
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 5a85efc5de0d99904da568c97672adf40ce8a414
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646567"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088923"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Monitor Azure para redes (pré-visualização)
 O Azure Monitor for Network fornece uma visão abrangente da saúde e métricas para todos os recursos de rede implantados sem qualquer configuração. A capacidade avançada de pesquisa ajuda a identificar dependências de recursos que permitem cenários como identificar recursos que estão hospedando o seu site, procurando o nome do site hospedado.
@@ -30,7 +30,7 @@ A visão de saúde e alertas de recursos pode ser personalizada usando filtros c
 
 A caixa de pesquisa pode ser usada para procurar recursos e recursos associados. Por exemplo, um IP público está associado a um Gateway de aplicação. Procurar o nome DNS do IPs Público identificará tanto o IP público como o Gateway de Aplicação associado.
 
-![Pesquisar](media/network-insights-overview/search.png)
+![A screenshot mostra os resultados de uma pesquisa por um nome DNS.](media/network-insights-overview/search.png)
 
 
 ## <a name="resource-health-and-metric"></a>Saúde e Métrica de Recursos
@@ -68,6 +68,6 @@ Filtros diferentes ajudam a reduzir-se a um caminho e estado específicos. Por e
 
 Clique em **Métrica Detalhada para** lançar um livro pré-configurado com métricas detalhadas para o gateway de aplicação, todos os recursos de backend pool e IPs front-end. 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
 - Saiba mais sobre a monitorização da rede no Que é [o Observador da Rede Azure?](../../network-watcher/network-watcher-monitoring-overview.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: b9d27e602062ff2638d8eea23fe64497fd66512d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: dccd953d2a31b306994c06ae644959e18332f5da
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322912"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090181"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solução de Monitorização VMware (Preprecada) no Azure Monitor
 
@@ -66,7 +66,7 @@ Crie um VM do sistema operativo Linux para receber todos os dados syslog dos anf
 
 1. No portal Azure, realize uma consulta de registo para `VMware_CL` . Quando o Azure Monitor recolhe os dados do syslog, mantém o formato syslog. No portal, alguns campos específicos são capturados, tais como *o Nome anfitrião* e *o Nome de Processo.*  
 
-    ![tipo](./media/vmware/type.png)  
+    ![A screenshot mostra uma consulta de registo para Tipo = VMware_CL com um resultado com um tempotado.](./media/vmware/type.png)  
 
     Se os resultados da pesquisa de registo de visualização forem semelhantes à imagem acima, está definido para utilizar o painel de solução de monitorização VMware.  
 
@@ -75,7 +75,7 @@ A solução VMware Monitoring recolhe várias métricas de desempenho e regista 
 
 A tabela seguinte mostra métodos de recolha de dados e outros detalhes sobre a forma como os dados são recolhidos.
 
-| plataforma | Agente de Log Analytics para Linux | Agente SCOM | Storage do Azure | SCOM necessário? | Dados de agente SCOM enviados através do grupo de gestão | frequência de coleção |
+| plataforma | Agente de Log Analytics para Linux | Agente gestor de operações do Centro de Sistema | Storage do Azure | Diretor de Operações necessário? | Dados de agente do Gestor de Operações enviados através do grupo de gestão | frequência de coleção |
 | --- | --- | --- | --- | --- | --- | --- |
 | Linux |&#8226; |  |  |  |  |a cada 3 minutos |
 
@@ -105,7 +105,7 @@ A tabela que se segue mostra exemplos de campos de dados recolhidos pela soluç�
 ## <a name="vmware-monitoring-solution-overview"></a>Visão geral da solução de monitorização VMware
 O azulejo VMware aparece no seu espaço de trabalho Log Analytics. Proporciona uma visão de alto nível de quaisquer falhas. Quando clica no azulejo, entra-se numa vista de painel.
 
-![mosaicos](./media/vmware/tile.png)
+![A screenshot mostra o azulejo VMware, exibindo nove falhas.](./media/vmware/tile.png)
 
 #### <a name="navigate-the-dashboard-view"></a>Navegue pela vista do painel
 Na vista do painel **VMware,** as lâminas são organizadas por:
@@ -147,13 +147,13 @@ Se quiser ver dados adicionais de criação de VM do anfitrião ESXi, clique num
 #### <a name="common-log-queries"></a>Consultas de log comuns
 A solução inclui outras consultas úteis que podem ajudá-lo a gerir os seus anfitriões ESXi, tais como espaço de armazenamento elevado, latência de armazenamento e falha de caminho.
 
-![consultas](./media/vmware/queries.png)
+![A screenshot mostra pesquisas recomendadas, que são consultas armazenadas úteis.](./media/vmware/queries.png)
 
 
 #### <a name="save-queries"></a>Guardar consultas
 Guardar consultas de registo é uma funcionalidade padrão no Azure Monitor e pode ajudá-lo a manter quaisquer consultas que tenha achado úteis. Depois de criar uma consulta que ache útil, guarde-a clicando nos **Favoritos.** Uma consulta guardada permite-lhe reutilizá-la facilmente mais tarde a partir da página [My Dashboard,](../learn/tutorial-logs-dashboards.md) onde pode criar os seus próprios dashboards personalizados.
 
-![DockerDashboardView](./media/vmware/dockerdashboardview.png)
+![O screenshot mostra parte de um dashboard personalizado com a marca De registo com ícones para Undo, Exportação, Alerta, Salvar, Favoritos e História.](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Criar alertas de consultas
 Depois de criar as suas consultas, talvez queira usar as consultas para alertá-lo quando ocorrerem eventos específicos. Consulte [alertas no Log Analytics](../platform/alerts-overview.md) para obter informações sobre como criar alertas. Para exemplos de consultas de alerta e outros exemplos de consultas, consulte o [Monitor VMware utilizando](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) o post de blog do Log Analytics.

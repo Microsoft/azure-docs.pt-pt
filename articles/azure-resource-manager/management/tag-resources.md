@@ -4,12 +4,12 @@ description: Mostra como aplicar tags para organizar recursos Azure para fatura�
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1eaf9b735e65811b242fa7198b3545c9c68a4d46
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 3ffcb4a0f2f5dc64b165fcdec03f7c3ced258cc1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425998"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086764"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Use etiquetas para organizar os seus recursos Azure e hierarquia de gestão
 
@@ -307,7 +307,27 @@ az group list --tag Dept=IT
 
 ### <a name="handling-spaces"></a>Espaços de manuseamento
 
-Se os nomes ou valores da sua etiqueta incluir espaços, deve dar alguns passos extras. O exemplo a seguir aplica todas as tags de um grupo de recursos aos seus recursos quando as etiquetas podem conter espaços.
+Se os seus nomes ou valores incluem espaços, deve dar alguns passos extras. 
+
+Os `--tags` parâmetros no CLI Azure podem aceitar uma corda que consiste numa matriz de cordas. O exemplo a seguir substitui as etiquetas num grupo de recursos onde as etiquetas têm espaços e hífen: 
+
+```azurecli-interactive
+TAGS=("Cost Center=Finance-1222" "Location=West US")
+az group update --name examplegroup --tags "${TAGS[@]}"
+```
+
+Pode utilizar a mesma sintaxe quando criar ou atualizar um grupo de recursos ou recursos utilizando o `--tags` parâmetro.
+
+Para atualizar as etiquetas utilizando o `--set` parâmetro, tem de passar a chave e o valor como uma cadeia. O exemplo a seguir anexa uma única etiqueta a um grupo de recursos:
+
+```azurecli-interactive
+TAG="Cost Center='Account-56'"
+az group update --name examplegroup --set tags."$TAG"
+```
+
+Neste caso, o valor da etiqueta é marcado com cotações únicas porque o valor tem um hífen.
+
+Também pode precisar de aplicar etiquetas a muitos recursos. O exemplo a seguir aplica todas as tags de um grupo de recursos aos seus recursos quando as tags podem conter espaços:
 
 ```azurecli-interactive
 jsontags=$(az group show --name examplegroup --query tags -o json)
@@ -600,7 +620,7 @@ As seguintes limitações aplicam-se às etiquetas:
    >
    > A Azure Automation e a Azure CDN suportam apenas 15 tags em recursos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Nem todos os tipos de recursos suportam tags. Para determinar se pode aplicar uma etiqueta a um tipo de recurso, consulte [o suporte da Tag para os recursos do Azure.](tag-support.md)
 * Para obter recomendações sobre como implementar uma estratégia de marcação, consulte [o guia de decisão de nomeação de recursos e marcação.](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)

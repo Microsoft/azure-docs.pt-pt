@@ -1,30 +1,28 @@
 ---
 title: Azure Notification Hubs Secure Push for Windows
 description: Saiba como enviar notificações push seguras em Azure. Exemplos de código escrito em C# utilizando a API .NET.
-documentationcenter: windows
 author: sethmanheim
 manager: femila
-editor: jwargo
+editor: thsomasu
 services: notification-hubs
-ms.assetid: 5aef50f4-80b3-460e-a9a7-7435001273bd
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 09/14/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4c75af054a342e74606696f09c227822f385e096
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 98e587103e63cd5cc26eab5b00864d00e0b9007f
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017996"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089956"
 ---
-# <a name="securely-push-notifications-from-azure-notification-hubs"></a>As notificações de aviso de Azure
+# <a name="send-secure-push-notifications-from-azure-notification-hubs"></a>Enviar notificações push seguras dos hubs de notificação do Azure
 
 > [!div class="op_single_selector"]
 > * [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
@@ -48,21 +46,22 @@ A um nível elevado, o fluxo é o seguinte:
 
 É importante notar que no fluxo anterior (e neste tutorial), assumimos que o dispositivo armazena um token de autenticação no armazenamento local, após o registo do utilizador. Isto garante uma experiência completamente perfeita, uma vez que o dispositivo pode recuperar a carga útil segura da notificação utilizando este token. Se a sua aplicação não armazenar fichas de autenticação no dispositivo, ou se estas fichas puderem ser expiradas, a aplicação do dispositivo, ao receber a notificação, deverá apresentar uma notificação genérica que o leva o utilizador a lançar a aplicação. A aplicação autentica então o utilizador e mostra a carga útil da notificação.
 
-Este tutorial Secure Push mostra como enviar uma notificação push de forma segura. O tutorial baseia-se no tutorial de [Notificação dos Utilizadores,](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) pelo que deve completar primeiro os passos nesse tutorial.
+Este tutorial mostra como enviar uma notificação push de forma segura. O tutorial baseia-se no tutorial de [utilizadores da Notificação,](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) pelo que deve completar primeiro os passos nesse tutorial.
 
 > [!NOTE]
-> Este tutorial pressupõe que criou e configura o seu centro de notificações como descrito em ["Começar com os Centros de Notificação" (Windows Store)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
+> Este tutorial pressupõe que criou e configura o seu centro de notificações como descrito no [Enviar notificações para as aplicações da Plataforma Universal windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
 > Além disso, note que o Windows Phone 8.1 requer credenciais do Windows (não do Windows Phone) e que as tarefas de fundo não funcionam no Windows Phone 8.0 ou Silverlight 8.1. Para aplicações windows Store, só pode receber notificações através de uma tarefa de fundo se a aplicação estiver ativada no ecrã de bloqueio (clique na caixa de verificação no Appmanifest).
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
-## <a name="modify-the-windows-phone-project"></a>Modificar o Projeto Windows Phone
+## <a name="modify-the-windows-phone-project"></a>Modificar o projeto Windows Phone
 
 1. No projeto **NotifyUserWindowsPhone,** adicione o seguinte código a App.xaml.cs para registar a tarefa de fundo de push. Adicione a seguinte linha de código no final do método `OnLaunched()`:
 
     ```csharp
     RegisterBackgroundTask();
     ```
+
 2. Ainda em App.xaml.cs, adicione o seguinte código imediatamente após o `OnLaunched()` método:
 
     ```csharp
@@ -80,15 +79,17 @@ Este tutorial Secure Push mostra como enviar uma notificação push de forma seg
         }
     }
     ```
+
 3. Adicione as `using` seguintes declarações no topo do ficheiro App.xaml.cs:
 
     ```csharp
     using Windows.Networking.PushNotifications;
     using Windows.ApplicationModel.Background;
     ```
+
 4. A partir do menu **Ficheiro** no Visual Studio, clique em **Guardar Tudo**.
 
-## <a name="create-the-push-background-component"></a>Criar o componente de fundo push
+## <a name="create-the-push-background-component"></a>Crie o componente de fundo push
 
 O próximo passo é criar o componente de fundo de impulso.
 
@@ -143,6 +144,7 @@ O próximo passo é criar o componente de fundo de impulso.
             }
         }
     ```
+
 5. No Solution Explorer, clique com o botão direito no projeto **PushBackgroundComponent (Windows Phone 8.1)** e, em seguida, clique em **Gerir Pacotes NuGet**.
 6. No lado esquerdo, clique em **Online**.
 7. Na caixa **Procurar**, escreva **Cliente HTTP**.
@@ -160,6 +162,7 @@ O próximo passo é criar o componente de fundo de impulso.
     using Windows.UI.Notifications;
     using Windows.Data.Xml.Dom;
     ```
+
 11. No Solution Explorer, no projeto **NotifyUserWindowsPhone (Windows Phone 8.1),** clique com o botão direito **Referências,** em seguida, clique em **Adicionar Referência...**. No diálogo do Gestor de Referência, verifique a caixa ao lado do **PushBackgroundComponent**e, em seguida, clique **em OK**.
 12. No Solution Explorer, clique duplo **em Package.appxmanifest** no projeto **NotifyUserWindowsPhone (Windows Phone 8.1).** Em **Notificações**, definir **Torrada capaz** de **sim**.
 
@@ -171,7 +174,7 @@ O próximo passo é criar o componente de fundo de impulso.
     ![Screenshot da janela Solution Explorer focada no Package.appxmanifest com as declarações disponíveis, declarações apoiadas, notificações push e opções de ponto de entrada delineadas a vermelho.][13]
 16. No menu **Ficheiro**, clique em **Guardar Tudo**.
 
-## <a name="run-the-application"></a>Executar a Aplicação
+## <a name="run-the-application"></a>Executar a aplicação
 
 Para executar a aplicação, faça o seguinte:
 

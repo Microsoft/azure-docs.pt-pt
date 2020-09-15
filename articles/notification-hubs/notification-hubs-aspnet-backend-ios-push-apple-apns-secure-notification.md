@@ -10,16 +10,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/17/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: d7dc3212007e9b9ec67d0d235135d4d46f20b950
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a6c85ba017656bd312ddfe3d5f6d98014a3dc89a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022128"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090351"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Hubs de notificação Azure Secure Push
 
@@ -43,7 +43,7 @@ A um nível elevado, o fluxo é o seguinte:
    * O dispositivo contacta a parte de trás solicitando a carga útil segura.
    * A aplicação pode mostrar a carga útil como uma notificação no dispositivo.
 
-É importante notar que no fluxo anterior (e neste tutorial), assumimos que o dispositivo armazena um token de autenticação no armazenamento local, após o registo do utilizador. Isto garante uma experiência perfeita, uma vez que o dispositivo pode recuperar a carga útil segura da notificação utilizando este token. Se a sua aplicação não armazenar fichas de autenticação no dispositivo, ou se estas fichas puderem ser expiradas, a aplicação do dispositivo, ao receber a notificação, deverá apresentar uma notificação genérica que o leva o utilizador a lançar a aplicação. A aplicação autentica então o utilizador e mostra a carga útil da notificação.
+É importante notar que no fluxo anterior (e neste tutorial), assumimos que o dispositivo armazena um token de autenticação no armazenamento local, após o registo do utilizador. Isto garante uma experiência perfeita, uma vez que o dispositivo pode recuperar a carga útil segura da notificação utilizando este token. Se a sua aplicação não armazenar fichas de autenticação no dispositivo, ou se estas fichas puderem ser expiradas, a aplicação do dispositivo, ao receber a notificação, deverá apresentar uma notificação genérica que o levou o utilizador a lançar a aplicação. A aplicação autentica então o utilizador e mostra a carga útil da notificação.
 
 Este tutorial Secure Push mostra como enviar uma notificação push de forma segura. O tutorial baseia-se no tutorial de [Notificação dos Utilizadores,](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) pelo que deve completar primeiro os passos nesse tutorial.
 
@@ -119,8 +119,8 @@ Para atingir este objetivo, temos de escrever a lógica para recuperar o conteú
 
     Este método chama a sua app de back-end para recuperar o conteúdo da notificação usando as credenciais armazenadas nas preferências partilhadas.
 
-4. Agora temos de lidar com a notificação recebida e usar o método acima para recuperar o conteúdo para exibição. Em primeiro lugar, temos de permitir que a sua aplicação iOS seja executada em segundo plano ao receber uma notificação push. No **XCode,** selecione o seu projeto de aplicação no painel esquerdo e, em seguida, clique no seu alvo principal de aplicação na secção **Alvos** a partir do painel central.
-5. Em seguida, clique no separador **Capabilities** na parte superior do painel central e verifique a caixa de **verificação de Notificações Remotas.**
+4. Agora, manuseie a notificação de entrada e utilize o método acima para recuperar o conteúdo para visualizar. Em primeiro lugar, permita que a sua aplicação iOS seja executada em segundo plano ao receber uma notificação push. No **XCode,** selecione o seu projeto de aplicação no painel esquerdo e, em seguida, clique no seu alvo principal de aplicação na secção **Alvos** a partir do painel central.
+5. Em seguida, clique no separador **Capabilites** na parte superior do painel central e verifique a caixa **de Notificações Remotas.**
 
     ![Screenshot do XCode, com o projeto da aplicação selecionado e o separador Capabilities aberto. A caixa de verificação de notificações remotas é selecionada.][IOS1]
 

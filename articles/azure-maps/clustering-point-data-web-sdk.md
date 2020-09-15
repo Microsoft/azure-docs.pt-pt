@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 207106d8daab4d5d2a6d8d681aad5a20923a5a48
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 9247d6bed8f4ca6ec5e51d0d64eb4fe94dc89af7
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009057"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089501"
 ---
 # <a name="clustering-point-data"></a>Dados de pontos de agrupamento
 
@@ -48,7 +48,7 @@ var datasource = new atlas.source.DataSource(null, {
 
 Aqui estão os métodos adicionais que a `DataSource` classe prevê para o agrupamento:
 
-| Método | Tipo de retorno | Descrição |
+| Método | Tipo de retorno | Description |
 |--------|-------------|-------------|
 | getClusterChildren (clusterId: número) | Prometa &lt; &lt; geometria de característica &lt; de matriz, qualquer &gt; \| forma&gt;&gt; | Recupera as crianças do aglomerado dado no próximo nível de zoom. Estas crianças podem ser uma combinação de formas e subclusters. Os subclusters serão funcionalidades com propriedades correspondentes a ClusteredProperties. |
 | getClusterExpansionZoom (clusterId: número) | &lt;Número de promessa&gt; | Calcula um nível de zoom no qual o cluster começará a expandir-se ou a separar-se. |
@@ -92,7 +92,7 @@ Consulte o <a href='https://codepen.io/azuremaps/pen/VRJrgO/'>Mapa de Calor pond
 
 Quando os eventos do rato ocorrem numa camada que contém pontos de dados agrupados, o ponto de dados agrupado volta ao evento como um objeto de característica de ponto GeoJSON. Esta função de ponto terá as seguintes propriedades:
 
-| Nome da propriedade             | Tipo    | Descrição   |
+| Nome da propriedade             | Tipo    | Description   |
 |---------------------------|---------|---------------|
 | `cluster`                 | boolean | Indica se a característica representa um cluster. |
 | `cluster_id`              | string  | Um ID único para o cluster que pode ser usado com o `getClusterExpansionZoom` DataSource, `getClusterChildren` e `getClusterLeaves` métodos. |
@@ -132,13 +132,13 @@ Consulte os <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>agregados</a> pen
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 
 > [!div class="nextstepaction"]
-> [DataSource classe](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)
+> [DataSource classe](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource)
 
 > [!div class="nextstepaction"]
-> [Objeto DataSourceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions?view=azure-iot-typescript-latest)
+> [Objeto DataSourceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions)
 
 > [!div class="nextstepaction"]
-> [atlas.math namespace](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math?view=azure-iot-typescript-latest)
+> [atlas.math namespace](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math)
 
 Consulte exemplos de código para adicionar funcionalidade à sua aplicação:
 

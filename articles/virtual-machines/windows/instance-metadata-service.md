@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2020
 ms.author: sukumari
 ms.reviewer: azmetadatadev
-ms.openlocfilehash: adeba1964ab802a903e82b3ea71bc3248b86cea9
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 2e0788b6a7eb6f1d43185d8b484adddd76374ea3
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705066"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086713"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados Azure Instance
 
@@ -239,7 +239,7 @@ API | Descrição | Versão introduzida
 
 A API de caso expõe os metadados importantes para as instâncias VM, incluindo o VM, a rede e o armazenamento. As seguintes categorias podem ser acedidas através de exemplo/cálculo:
 
-Dados | Descrição | Versão introduzida
+Dados | Description | Versão introduzida
 -----|-------------|-----------------------
 azEnvironment | Ambiente azul onde o VM está em execução | 2018-10-01
 customData | Esta funcionalidade encontra-se atualmente desativada. Atualizaremos esta documentação quando estiver disponível | 2019-02-01
@@ -433,7 +433,7 @@ A nuvem e os valores do Ambiente Azure estão listados abaixo.
 
 Os metadados de rede fazem parte do caso API. As seguintes categorias de Rede estão disponíveis através do ponto final de instância/rede.
 
-Dados | Descrição | Versão introduzida
+Dados | Description | Versão introduzida
 -----|-------------|-----------------------
 ipv4/privateIpAddress | Endereço IPv4 local do VM | 2017-04-02
 ipv4/publicIpAddress | Endereço IPv4 público do VM | 2017-04-02
@@ -501,7 +501,7 @@ O perfil de armazenamento de um VM é dividido em três categorias: referência 
 
 O objeto de referência de imagem contém as seguintes informações sobre a imagem do SO:
 
-Dados    | Descrição
+Dados    | Description
 --------|-----------------
 ID      | ID do Recurso
 oferta   | Oferta da plataforma ou imagem de mercado
@@ -511,22 +511,7 @@ versão | Versão da plataforma ou imagem do mercado
 
 O objeto do disco OS contém as seguintes informações sobre o disco de oss utilizado pelo VM:
 
-Dados    | Descrição
---------|-----------------
-caching | Requisitos de caching
-criar Opção | Informação sobre como o VM foi criado
-difusasDiskSettings | Definições de disco efémero
-diskSizeGB | Tamanho do disco em GB
-image   | Disco rígido virtual de imagem de utilizador de origem
-lun     | Número de unidade lógica do disco
-geridoDisk | Parâmetros de disco geridos
-name    | Nome do disco
-vhd     | Disco rígido virtual
-writeAcceleratorEnabled | Se escrever Ou não OAccelerador está ativado no disco
-
-A matriz de discos de dados contém uma lista de discos de dados anexados ao VM. Cada objeto de disco de dados contém as seguintes informações:
-
-Dados    | Descrição
+Dados    | Description
 --------|-----------------
 caching | Requisitos de caching
 criar Opção | Informação sobre como o VM foi criado
@@ -537,6 +522,21 @@ image   | Disco rígido virtual de imagem de utilizador de origem
 geridoDisk | Parâmetros de disco geridos
 name    | Nome do disco
 osTipos  | Tipo de SO incluído no disco
+vhd     | Disco rígido virtual
+writeAcceleratorEnabled | Se escrever Ou não OAccelerador está ativado no disco
+
+A matriz de discos de dados contém uma lista de discos de dados anexados ao VM. Cada objeto de disco de dados contém as seguintes informações:
+
+Dados    | Description
+--------|-----------------
+caching | Requisitos de caching
+criar Opção | Informação sobre como o VM foi criado
+difusasDiskSettings | Definições de disco efémero
+diskSizeGB | Tamanho do disco em GB
+image   | Disco rígido virtual de imagem de utilizador de origem
+lun     | Número de unidade lógica do disco
+geridoDisk | Parâmetros de disco geridos
+name    | Nome do disco
 vhd     | Disco rígido virtual
 writeAcceleratorEnabled | Se escrever Ou não OAccelerador está ativado no disco
 
@@ -688,7 +688,7 @@ Nonce é uma corda opcional de 10 dígitos. Se não for fornecida, o IMDS devolv
 A bolha de assinatura é uma versão assinada por [pkcs7](https://aka.ms/pkcs7) do documento. Contém o certificado utilizado para a assinatura juntamente com certos detalhes específicos da VM. Para os VMs ARM, isto inclui vmId, sku, nonce, subscriçãoId, timeStamp para criação e expiração do documento e informação do plano sobre a imagem. A informação do plano só é preenchida para imagens do Azure Marketplace. Para VMs clássicos (não-ARM), apenas o vmId é garantido para ser povoado. O certificado pode ser extraído da resposta e usado para validar que a resposta é válida e vem do Azure.
 O documento contém os seguintes campos:
 
-Dados | Descrição
+Dados | Description
 -----|------------
 nonce | Uma corda que pode ser opcionalmente fornecida com o pedido. Se não for fornecido nenhum nonce, o atual calendário UTC é usado
 plano | O [plano Azure Marketplace Image](/rest/api/compute/virtualmachines/createorupdate#plan). Contém o id do plano (nome), imagem ou oferta do produto (produto) e id editor (editor).
@@ -828,7 +828,7 @@ C#            | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
 Ir            | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Java          | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
 NodeJS        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
-Rio Perl          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+Perl          | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
 PowerShell    | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Puppet        | https://github.com/keirans/azuremetadata
 Python        | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py

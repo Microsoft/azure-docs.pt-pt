@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 07e8f1d0cf173a8ab41f8feb105743a7559cdd2f
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 0c30b5305fb5496db86a20be7a37f36b894ecc8b
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005796"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089756"
 ---
 # <a name="publisher-verification"></a>Verificação de editores
 
@@ -33,7 +33,7 @@ A verificação do editor proporciona os seguintes benefícios:
 
 - **Melhor marca**- um crachá "verificado" aparece no [pedido](application-consent-experience.md)de consentimento Azure AD, página de Aplicações empresariais e superfícies UX adicionais usadas pelos utilizadores finais e administradores. 
 
-- **Adoção mais suave da empresa**- os administradores podem configurar novas políticas de consentimento do utilizador, e o estado de verificação do editor será um dos principais critérios de política. 
+- **Adoção mais suave da empresa**- os administradores podem configurar políticas de consentimento do [utilizador,](../manage-apps/configure-user-consent.md)com o estado de verificação do editor como um dos principais critérios de política. 
 
 - **Melhor avaliação de risco**- As deteções da Microsoft para pedidos de consentimento "arriscados" incluirão a verificação do editor como um sinal. 
 
@@ -52,6 +52,8 @@ Existem alguns pré-requisitos para a verificação de editores, alguns dos quai
 
     -  No Partner Center este utilizador deve ter as seguintes [funções](/partner-center/permissions-overview): MPN Admin, Accounts Admin ou um Administrador Global (este é um papel partilhado dominado em Azure AD).
     
+-  A verificação de efetuações do utilizador deve iniciar sação com a [autenticação de vários fatores](../authentication/howto-mfa-getstarted.md).
+
 -  A editora concorda com a plataforma de identidade da [Microsoft para os desenvolvedores Termos de Utilização.](/legal/microsoft-identity-platform/terms-of-use)
 
 Os desenvolvedores que já cumpriram estes pré-requisitos podem ser verificados em questão de minutos. Se os requisitos não tiverem sido cumpridos, a instalação é gratuita. 
@@ -69,6 +71,6 @@ Abaixo estão algumas perguntas frequentes sobre o programa de verificação de 
 
 - **É a mesma coisa que a Galeria de Aplicações AD AZure?** A verificação de não editores é um programa complementar, mas separado, para a galeria de candidaturas do [Azure Ative Directory.](../azuread-dev/howto-app-gallery-listing.md) Os desenvolvedores que se enquadrarem nos critérios acima devem completar o processo de verificação do editor independentemente da participação nesse programa. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como [marcar uma aplicação como editor verificado.](mark-app-as-publisher-verified.md)
 * [Verificação de](troubleshoot-publisher-verification.md) editor de resolução de problemas.

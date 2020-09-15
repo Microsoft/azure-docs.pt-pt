@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 09/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: c95bd7523a57c2de02686d3cd06190e60550de0a
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: ab2c584b1e62ac8296c4e9489a72489cd815fc3c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024148"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089858"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
@@ -108,7 +108,7 @@ Os agentes do Windows devem ser configurados para comunicar com um servidor WSUS
 
 Pode utilizar a Gestão de Atualização com o Gestor de Configuração do Ponto Final do Microsoft. Para saber mais sobre cenários de integração, consulte [integrar a gestão de atualização com o Gestor de Configuração de Pontos finais do Windows](update-mgmt-mecmintegration.md). O [agente Log Analytics para Windows](../../azure-monitor/platform/agent-windows.md) é necessário para servidores Windows geridos por sites no ambiente de Gestor de Configuração. 
 
-Por predefinição, os VMs do Windows que são implantados a partir do Mercado Azure estão definidos para receber atualizações automáticas do Windows Update Service. Este comportamento não muda quando adiciona VMs do Windows ao seu espaço de trabalho. Se não gerir ativamente as atualizações utilizando a Gestão de Atualização, o comportamento padrão (para aplicar automaticamente atualizações) aplica-se.
+Por predefinição, os VMs do Windows que são implantados a partir do Azure Marketplace estão definidos para receber atualizações automáticas do Windows Update Service. Este comportamento não muda quando adiciona VMs do Windows ao seu espaço de trabalho. Se não gerir ativamente as atualizações utilizando a Gestão de Atualização, o comportamento padrão (para aplicar automaticamente atualizações) aplica-se.
 
 > [!NOTE]
 > Pode modificar a Política de Grupo para que as reinicializações da máquina só possam ser realizadas pelo utilizador, e não pelo sistema. As máquinas geridas podem ficar presas se a Update Management não tiver o direito de reiniciar a máquina sem interação manual do utilizador. Para obter mais informações, consulte [as definições de Política de Grupo configurada para atualizações automáticas](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates).
@@ -136,7 +136,7 @@ A Atualização Gestão utiliza os recursos descritos nesta secção. Estes recu
 
 Depois de ativar a Gestão de Atualizações, qualquer máquina do Windows que esteja diretamente ligada ao seu espaço de trabalho Log Analytics é automaticamente configurada como Um Trabalhador De Runbook Híbrido para suportar os livros de execução que suportam a Gestão de Atualização.
 
-Cada máquina Windows gerida pela Update Management está listada no painel de trabalhadores híbridos como um grupo de trabalhadores híbridos do Sistema para a conta Automation. Os grupos usam a `Hostname FQDN_GUID` convenção de nomeação. Não podes visar estes grupos com livros na tua conta. Se tentar, a tentativa falha. Estes grupos destinam-se a suportar apenas a Gestão de Atualização.
+Cada máquina Windows gerida pela Update Management está listada no painel de trabalhadores híbridos como um grupo de trabalhadores híbridos do Sistema para a conta Automation. Os grupos usam a `Hostname FQDN_GUID` convenção de nomeação. Não podes visar estes grupos com livros na tua conta. Se tentar, a tentativa falha. Estes grupos destinam-se a suportar apenas a Gestão de Atualização. Para saber mais sobre a visualização da lista de máquinas windows configuradas como Um Trabalhador de Runbook Híbrido, consulte [os Trabalhadores de Runbook Híbridos.](../automation-hybrid-runbook-worker.md#view-hybrid-runbook-workers)
 
 Pode adicionar a máquina Do Windows a um grupo híbrido de trabalhador runbook na sua conta Automation para suportar os runbooks da Automação se utilizar a mesma conta para a Gestão de Atualização e a filiação do grupo Híbrido Runbook Worker. Esta funcionalidade foi adicionada na versão 7.2.12024.0 do Híbrido Runbook Worker.
 
@@ -162,11 +162,11 @@ Para obter mais informações sobre atualizações de pacotes de gestão, consul
 
 A tabela a seguir descreve as fontes ligadas que a Atualização de Gestão suporta:
 
-| Origem ligada | Suportado | Descrição |
+| Origem ligada | Suportado | Description |
 | --- | --- | --- |
-| Agentes do Windows |Yes |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
-| Agentes do Linux |Yes |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
-| Grupo de gestão do Operations Manager |Yes |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
+| Agentes do Windows |Sim |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
+| Agentes do Linux |Sim |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
+| Grupo de gestão do Operations Manager |Sim |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 
@@ -257,7 +257,7 @@ Aqui estão as formas de permitir a gestão de atualização e selecionar máqui
 * [De uma conta de Automação Azure](update-mgmt-enable-automation-account.md)
 * Para as máquinas ativadas pelo Arc (pré-visualização) ou não-Azure, instale o [agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) e, em seguida, ative as [máquinas no espaço de trabalho](update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace) para atualizar a Gestão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter detalhes sobre o trabalho com a Gestão de Atualização, consulte [Gerir as atualizações para os seus VMs](update-mgmt-manage-updates-for-vm.md).
 

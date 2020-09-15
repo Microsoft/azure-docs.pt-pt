@@ -10,18 +10,18 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c0121c42c5d498aa79109c874981b9de0f8f4b7c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 2781ef69ce85e82dab45a9f890ef5e6862949d98
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588879"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087988"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Use Aplicativos Lógicos para receber e-mail sobre alterações de estado dos segredos chave do cofre
 
 Neste guia você aprenderá a responder aos eventos Azure Key Vault que são recebidos através da [Azure Event Grid](../../event-grid/index.yml) utilizando [apps Azure Logic.](../../logic-apps/index.yml) No final, terá uma aplicação lógica Azure configurada para enviar um e-mail de notificação sempre que um segredo é criado no Azure Key Vault.
 
-Para uma visão geral da integração do Azure Key Vault / Azure Event Grid, consulte [o Cofre de Chaves de Monitorização com Azure Event Grid (pré-visualização)](event-grid-overview.md).
+Para uma visão geral da integração do Azure Key Vault / Azure Event Grid, consulte [o Cofre de Chaves de Monitorização com Azure Event Grid](event-grid-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,7 +56,7 @@ Para criar uma subscrição da Azure Event Grid, siga estes passos:
 1. Procure por **E-mail**. Com base no seu fornecedor de e-mail, localize e selecione o conector correspondente. Este tutorial utiliza **o Office 365 Outlook**. Os passos para outros fornecedores de e-mail são semelhantes.
 1. Selecione a ação **Enviar um e-mail (V2).**
 
-   ![Logic App Designer - adicione e-mail](../media/eventgrid-logicappdesigner3.png)
+   ![Logic App Designer - envie e-mail](../media/eventgrid-logicappdesigner3.png)
 
 1. Construa o seu modelo de e-mail:
     - **Para:** Insira o endereço de e-mail para receber os e-mails de notificação. Neste tutorial, utilize uma conta de e-mail a que pode aceder para fazer o teste.
@@ -64,18 +64,18 @@ Para criar uma subscrição da Azure Event Grid, siga estes passos:
 
     O seu modelo de e-mail pode parecer este exemplo.
 
-    ![Logic App Designer - adicione e-mail](../media/eventgrid-logicappdesigner4.png)
+    ![Logic App Designer - corpo de e-mail](../media/eventgrid-logicappdesigner4.png)
 
 8. Clique **em Guardar como**.
 9. Introduza um **nome** para nova aplicação lógica e clique em **Criar**.
     
-    ![Logic App Designer - adicione e-mail](../media/eventgrid-logicappdesigner5.png)
+    ![Logic App Designer - criar](../media/eventgrid-logicappdesigner5.png)
 
 ## <a name="test-and-verify"></a>Testar e verificar
 
 1.  Vá ao cofre chave no portal Azure e selecione **Eventos > Subscrições de Eventos.**  Verifique se uma nova subscrição foi criada
     
-    ![Logic App Designer - adicione e-mail](../media/eventgrid-logicapps-kvnewsubs.png)
+    ![Logic App Designer - teste e verificar](../media/eventgrid-logicapps-kvnewsubs.png)
 
 1.  Vá ao cofre de chaves, selecione **Secrets,** e selecione **+ Gerar/Importar**. Crie um novo segredo para fins de teste nomeie a chave e mantenha os parâmetros restantes nas definições predefinidos.
 
@@ -87,8 +87,8 @@ Quando o segredo for criado, um e-mail será recebido nos endereços configurado
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Visão geral: [Monitoring Key Vault com Azure Event Grid (pré-visualização)](event-grid-overview.md)
+- Visão geral: [Cofre de chaves de monitorização com grade de eventos Azure](event-grid-overview.md)
 - Como: [Encaminhar notificações de cofre chave para a Azure Automation](event-grid-tutorial.md).
-- [Esquema de eventos Azure Event Grid para Azure Key Vault (pré-visualização)](../../event-grid/event-schema-key-vault.md)
+- [Esquema de eventos Azure Event Grid para Azure Key Vault](../../event-grid/event-schema-key-vault.md)
 - Saiba mais sobre o [Azure Event Grid](../../event-grid/index.yml).
 - Saiba mais sobre a [funcionalidade Logic Apps do Serviço de Aplicações do Azure](../../logic-apps/index.yml).

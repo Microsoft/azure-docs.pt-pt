@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: b9478d3b171189decb4e2cca7fc93ba2fa75e32e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: f1a29866715c746e7a7eef82f11237bcbd159925
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89482787"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086832"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos com dois conjuntos de credenciais de autenticação
 
@@ -204,7 +204,7 @@ az storage account keys list -n akvrotationstorage
 - [Cache de Redis](https://github.com/jlichwa/KeyVault-Rotation-RedisCacheKey-PowerShell)
 
 ## <a name="learn-more"></a>Saiba mais
-- Visão geral: [Monitoring Key Vault com Azure Event Grid (pré-visualização)](../general/event-grid-overview.md)
+- Visão geral: [Cofre de chaves de monitorização com grade de eventos Azure](../general/event-grid-overview.md)
 - Como: Criar a [sua primeira função no portal Azure](../../azure-functions/functions-create-first-azure-function.md)
 - Como: [Receber e-mail quando um segredo de cofre chave muda](../general/event-grid-logicapps.md)
-- [Esquema de eventos Azure Event Grid para Azure Key Vault (pré-visualização)](../../event-grid/event-schema-key-vault.md)
+- [Esquema de eventos Azure Event Grid para Azure Key Vault](../../event-grid/event-schema-key-vault.md)

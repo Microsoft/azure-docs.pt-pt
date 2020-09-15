@@ -1,50 +1,47 @@
 ---
 title: Utilize controladores de interface de armazenamento de contentores (CSI) para discos Azure no Serviço Azure Kubernetes (AKS)
-description: Saiba como utilizar os controladores da Interface de Armazenamento de Contentores (CSI) para Discos Azure num cluster Azure Kubernetes Service (AKS).
+description: Saiba como utilizar os controladores da Interface de Armazenamento de Contentores (CSI) para discos Azure num cluster Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 4b5ccd2712a95f5f020daa0161f1b5908a38a62e
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: edb38b0884629ebddb646df9d12d8b2e8d07b403
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89422090"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089552"
 ---
 # <a name="use-the-azure-disk-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Utilize os controladores da Interface de Armazenamento de Contentores de Disco Azure (CSI) no Serviço Azure Kubernetes (AKS) (pré-visualização)
-O Controlador CSI disco Azure é um controlador compatível com [a especificação CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md) utilizado pela AKS para gerir o ciclo de vida dos Discos Azure. 
+O controlador Azure Disk Container Storage Interface (CSI) é um controlador de [especificações CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md)utilizado pelo Azure Kubernetes Service (AKS) para gerir o ciclo de vida dos discos Azure.
 
-A Interface de Armazenamento de Contentores (CSI) é uma norma para expor sistemas arbitrários de blocos e ficheiros a cargas de trabalho contentorizadas em Kubernetes. Ao adotar e utilizar o CSI, o Azure Kubernetes Service (AKS) pode escrever, implementar e iterar plugins expondo novos ou melhorando os sistemas de armazenamento existentes em Kubernetes sem ter de tocar no código base de Kubernetes e esperar pelos seus ciclos de libertação.
+O CSI é um padrão para expor sistemas arbitrários de blocos e ficheiros a cargas de trabalho contentorizadas em Kubernetes. Ao adotar e utilizar o CSI, a AKS pode escrever, implementar e iterar plug-ins para expor novos ou melhorar os sistemas de armazenamento existentes em Kubernetes sem ter de tocar no código de Kubernetes e esperar pelos seus ciclos de libertação.
 
-Para criar um cluster AKS com suporte ao controlador CSI, consulte [ativar os controladores CSI para Discos Azure e Ficheiros Azure em AKS](csi-storage-drivers.md).
+Para criar um cluster AKS com suporte ao controlador CSI, consulte [ativar os controladores CSI para discos Azure e Ficheiros Azure em AKS](csi-storage-drivers.md).
 
 >[!NOTE]
-> *"Condutores de árvores" refere-se* aos atuais condutores de armazenamento que fazem parte do código de kubernetes de núcleo vs. os novos controladores CSI que são plugins.
+> *Os condutores de árvores referem-se* aos atuais condutores de armazenamento que fazem parte do código de Kubernetes contra os novos condutores do CSI, que são plug-ins.
 
-## <a name="use-csi-persistent-volumes-pv-with-azure-disks"></a>Utilize volumes persistentes csi (PV) com discos Azure 
+## <a name="use-csi-persistent-volumes-with-azure-disks"></a>Utilize volumes persistentes do CSI com discos Azure
 
-Um [volume persistente](concepts-storage.md#persistent-volumes) representa um pedaço de armazenamento que é previsto para uso com cápsulas Kubernetes. Um volume persistente pode ser usado por uma ou muitas cápsulas, e pode ser dinamicamente ou estáticamente a provisionado. Este artigo mostra-lhe como criar dinamicamente volumes persistentes com discos Azure para uso por uma única cápsula num cluster Azure Kubernetes Service (AKS). Para o provisionamento estático, consulte [Manualmente criar e utilizar um volume com discos Azure](azure-disk-volume.md).
+Um [volume persistente](concepts-storage.md#persistent-volumes) (PV) representa um pedaço de armazenamento que é previsto para uso com cápsulas Kubernetes. Um PV pode ser usado por uma ou muitas cápsulas e pode ser alocatado dinamicamente ou estático. Este artigo mostra-lhe como criar dinâmicamente PVs com discos Azure para uso por uma única cápsula num cluster AKS. Para o provisionamento estático, consulte [Manualmente criar e utilizar um volume com discos Azure](azure-disk-volume.md).
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 Para obter mais informações sobre volumes kubernetes, consulte [as opções de Armazenamento para aplicações em AKS][concepts-storage].
 
-## <a name="dynamically-create-azure-disk-pvs-using-the-built-in-storage-classes"></a>Criar dinâmicamente PVs de disco Azure usando as classes de armazenamento incorporado
+## <a name="dynamically-create-azure-disk-pvs-by-using-the-built-in-storage-classes"></a>Criar dinâmicamente PVs de disco Azure utilizando as classes de armazenamento incorporado
 
-Uma classe de armazenamento é usada para definir como uma unidade de armazenamento é criada dinamicamente com um volume persistente. Para obter mais informações sobre as aulas de armazenamento de Kubernetes, consulte [as Classes de Armazenamento Kubernetes.][kubernetes-storage-classes] Ao utilizar o armazenamento CSI Drivers em AKS, existem 2 incorporados adicionais `StorageClasses` que alavancam **os controladores de armazenamento CSI do disco Azure**. As classes adicionais de armazenamento de CSI são criadas com o cluster ao lado das classes de armazenamento padrão na árvore.
+Uma classe de armazenamento é usada para definir como uma unidade de armazenamento é criada dinamicamente com um volume persistente. Para obter mais informações sobre as aulas de armazenamento de Kubernetes, consulte [as aulas de armazenamento de Kubernetes.][kubernetes-storage-classes] Quando utiliza os controladores CSI de armazenamento em AKS, existem dois incorporados adicionais `StorageClasses` que utilizam os controladores de armazenamento CSI do disco Azure. As classes adicionais de armazenamento de CSI são criadas com o cluster ao lado das classes de armazenamento padrão na árvore.
 
->[!NOTE]
-> *"Condutores de árvores" refere-se* aos atuais condutores de armazenamento que fazem parte do código de kubernetes do núcleo vs. condutores CSI que são plugins.
+- `managed-csi`: Utiliza o armazenamento SSD padrão Azure localmente redundante (LRS) para criar um disco gerido.
+- `managed-csi-premium`: Utiliza LRS Azure Premium para criar um disco gerido.
 
-- `managed-csi` - Utiliza o armazenamento localmente redundante (LRS) da Azure StandardSSD para criar um Disco Gerido.
-- `managed-csi-premium` - Utiliza o armazenamento localmente redundante (LRS) do Azure Premium para criar o Disco Gerido. 
+A política de recuperação em ambas as classes de armazenamento garante que o disco Azure subjacente é eliminado quando o respetivo PV é eliminado. As aulas de armazenamento também configuram os PVs para serem expansíveis. Basta editar a reivindicação de volume persistente (PVC) com o novo tamanho.
 
-A política de recuperação em ambas as classes de armazenamento garante que o Disco Azure subjacente é eliminado quando o respetivo volume persistente é eliminado. As aulas de armazenamento também configuram os volumes persistentes para serem expansíveis, basta editar a reivindicação de volume persistente com o novo tamanho.
+Para alavancar estas classes de armazenamento, crie um [PVC](concepts-storage.md#persistent-volume-claims) e respetivas cápsulas que as refira e as utilize. Um PVC é utilizado para provisões automáticas de armazenamento com base numa classe de armazenamento. Um PVC pode usar uma das classes de armazenamento pré-criadas ou uma classe de armazenamento definida pelo utilizador para criar um disco gerido pelo Azure para o SKU e tamanho desejados. Quando cria uma definição de pod, o PVC é especificado para solicitar o armazenamento pretendido.
 
-Para alavancar estas classes de armazenamento, basta criar uma [Reivindicação de Volume Persistente (PVC)](concepts-storage.md#persistent-volume-claims) e respetiva vagem que as faça referências e alavancas. Uma reivindicação de volume persistente (PVC) é usada para provisões automáticas de armazenamento com base numa classe de armazenamento. Um PVC pode usar uma das classes de armazenamento pré-criadas ou uma classe de armazenamento definida pelo utilizador para criar um disco gerido pelo Azure para o SKU e tamanho desejados. Quando se cria uma definição de pod, a reivindicação de volume persistente é especificada para solicitar o armazenamento pretendido.
-
-Crie um pod de exemplo e uma respetiva reivindicação de volume persistente com o comando [de aplicação kubectl:][kubectl-apply]
+Crie um pod de exemplo e o respetivo PVC com o comando [de aplicação kubectl:][kubectl-apply]
 
 ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/pvc-azuredisk-csi.yaml
@@ -60,7 +57,7 @@ Depois de a cápsula estar em funcionamento, crie um novo ficheiro chamado `test
 $ kubectl exec nginx-azuredisk -- touch /mnt/azuredisk/test.txt
 ```
 
-Pode agora validar que o disco está montado corretamente executando o comando abaixo e verificando se vê o `test.txt` ficheiro na saída: 
+Pode agora validar que o disco está corretamente montado executando o seguinte comando e verificando que vê o `test.txt` ficheiro na saída:
 
 ```console
 $ kubectl exec nginx-azuredisk -- ls /mnt/azuredisk
@@ -72,14 +69,14 @@ test.txt
 
 ## <a name="create-a-custom-storage-class"></a>Criar uma classe de armazenamento personalizado
 
-As aulas de armazenamento padrão combinam com os cenários mais comuns, mas não todos. Em alguns casos, talvez queira ter a sua própria classe de armazenamento personalizada com os seus próprios parâmetros. Para exemplificar, temos um cenário em que talvez queira mudar o `volumeBindingMode` . 
+As aulas de armazenamento padrão combinam com os cenários mais comuns, mas não todos. Em alguns casos, talvez queira ter a sua própria classe de armazenamento personalizada com os seus próprios parâmetros. Por exemplo, temos um cenário em que talvez queira mudar a `volumeBindingMode` classe.
 
-As classes de armazenamento predefinido utilizam um `volumeBindingMode: Immediate` que garante que ocorrem imediatamente após a criação do PersistentVolumeClaim. Nos casos em que as piscinas de nó são limitadas, por exemplo, utilizando Zonas de Disponibilidade, os Volumes Persistentes seriam vinculados ou a provisionados sem conhecimento dos requisitos de agendamento da Pod (neste caso, para estar em uma zona específica).
+As classes de armazenamento predefinido utilizam uma `volumeBindingMode: Immediate` classe que garante que ocorre imediatamente após a criação do PVC. Nos casos em que as piscinas de nó são limitadas, por exemplo, utilizando zonas de disponibilidade, os PVs seriam vinculados ou alobrados sem conhecimento dos requisitos de agendamento da cápsula (neste caso, para estar em uma zona específica).
 
-Para resolver este cenário, pode `volumeBindingMode: WaitForFirstConsumer` utilizar- que irá atrasar a ligação e provisão de um PersistenteVolume até que seja criado um Pod utilizando o PersistenteVolumeClaim. Desta forma, o PV estará em conformidade e será alotado na zona de disponibilidade (ou outra topologia) que é especificada pelas restrições de agendamento da Pod. 
+Para resolver este cenário, pode utilizar `volumeBindingMode: WaitForFirstConsumer` - o que atrasa a ligação e o provisionamento de um PV até que seja criado um casulo que utiliza o PVC. Desta forma, o PV estará em conformidade e será alotado na zona de disponibilidade (ou outra topologia) que é especificada pelas restrições de agendamento da cápsula.
 
-Crie um ficheiro chamado `sc-azuredisk-csi-waitforfirstconsumer.yaml` , e cole o manifesto abaixo.
-A classe de armazenamento é a mesma da nossa `managed-csi` aula de armazenamento, mas com uma `volumeBindingMode` outra. 
+Crie um ficheiro chamado `sc-azuredisk-csi-waitforfirstconsumer.yaml` , e cole o seguinte manifesto.
+A aula de armazenamento é a mesma da nossa `managed-csi` aula de armazenamento, mas com uma `volumeBindingMode` classe diferente.
 
 ```yaml
 kind: StorageClass
@@ -104,13 +101,13 @@ storageclass.storage.k8s.io/azuredisk-csi-waitforfirstconsumer created
 
 ## <a name="volume-snapshots"></a>Instantâneos de volume
 
-O controlador CSI do disco Azure suporta a criação [de instantâneos de volumes persistentes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html). Como parte desta capacidade, o controlador pode executar instantâneos *completos* ou [ *incrementais* ](../virtual-machines/windows/disks-incremental-snapshots.md) dependendo do valor definido no `incremental` parâmetro (por padrão é verdade). 
+O controlador CSI do disco Azure suporta a criação [de instantâneos de volumes persistentes](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html). Como parte desta capacidade, o controlador pode executar instantâneos *completos* ou [ *incrementais* ](../virtual-machines/windows/disks-incremental-snapshots.md) dependendo do valor definido no `incremental` parâmetro (por padrão, é verdade).
 
-Para obter mais informações sobre todos os parâmetros, consulte os [parâmetros da classe Volume Snapshot](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/docs/driver-parameters.md#volumesnapshotclass).
+Para obter detalhes sobre todos os parâmetros, consulte os [parâmetros da classe snapshot de volume](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/docs/driver-parameters.md#volumesnapshotclass).
 
 ### <a name="create-a-volume-snapshot"></a>Criar um instantâneo de volume
 
-Para exemplificar esta capacidade, crie uma [classe instantânea de volume](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/storageclass-azuredisk-snapshot.yaml) com o comando de [aplicação de kubectl:][kubectl-apply]
+Para um exemplo desta capacidade, crie uma [classe instantânea de volume](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/storageclass-azuredisk-snapshot.yaml) com o comando de [aplicação de kubectl:][kubectl-apply]
 
 ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/snapshot/storageclass-azuredisk-snapshot.yaml
@@ -118,7 +115,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-c
 volumesnapshotclass.snapshot.storage.k8s.io/csi-azuredisk-vsc created
 ```
 
-Agora vamos criar um instantâneo de [volume](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/azuredisk-volume-snapshot.yaml) a partir do PVC [que criamos dinamicamente no início deste tutorial,](#dynamically-create-azure-disk-pvs-using-the-built-in-storage-classes) `pvc-azuredisk` .
+Agora vamos criar um instantâneo de [volume](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/azuredisk-volume-snapshot.yaml) a partir do PVC que [criamos dinamicamente no início deste tutorial,](#dynamically-create-azure-disk-pvs-by-using-the-built-in-storage-classes) `pvc-azuredisk` .
 
 
 ```bash
@@ -160,7 +157,7 @@ Events:                                <none>
 
 ### <a name="create-a-new-pvc-based-on-a-volume-snapshot"></a>Criar um novo PVC baseado num instantâneo de volume
 
-Pode criar um novo PVC com base num instantâneo de volume. Use o instantâneo criado no passo anterior e crie um [novo PVC](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/pvc-azuredisk-snapshot-restored.yaml) e [uma nova cápsula](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/nginx-pod-restored-snapshot.yaml) para consumi-lo.
+Pode criar um novo PVC com base num instantâneo de volume. Use o instantâneo criado no passo anterior e crie um [novo PVC](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/pvc-azuredisk-snapshot-restored.yaml) e uma [nova cápsula](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/snapshot/nginx-pod-restored-snapshot.yaml) para consumi-lo.
 
 ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/snapshot/pvc-azuredisk-snapshot-restored.yaml
@@ -171,7 +168,7 @@ persistentvolumeclaim/pvc-azuredisk-snapshot-restored created
 pod/nginx-restored created
 ```
 
-Finalmente, certifique-se de que é o mesmo PVC criado antes, verificando o conteúdo.
+Finalmente, vamos certificar-nos de que é o mesmo PVC criado antes, verificando o conteúdo.
 
 ```console
 $ kubectl exec nginx-restored -- ls /mnt/azuredisk
@@ -183,12 +180,11 @@ test.txt
 
 Como esperado, ainda podemos ver o nosso ficheiro previamente `test.txt` criado.
 
-## <a name="clone-volumes"></a>Volumes de Clones
+## <a name="clone-volumes"></a>Volumes de clones
 
-Um volume clonado é definido como uma duplicação de um volume Kubernetes existente. Para obter mais informações sobre os volumes de clonagem em Kubernetes, consulte a documentação conceptual para [a clonagem de volume.](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#volume-cloning)
+Um volume clonado é definido como uma duplicação de um volume kubernetes existente. Para obter mais informações sobre os volumes de clonagem em Kubernetes, consulte a documentação conceptual para [a clonagem de volume.](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#volume-cloning)
 
-O controlador CSI da Azure Disks suporta a clonagem de volume. Para demonstrar, crie um [volume clonado](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml) do [anteriormente criado](#dynamically-create-azure-disk-pvs-using-the-built-in-storage-classes) `azuredisk-pvc` e uma nova cápsula para [consumi-lo](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml).
-
+O controlador CSI dos discos Azure suporta a clonagem de volume. Para demonstrar, crie um [volume clonado](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml) do [anteriormente criado](#dynamically-create-azure-disk-pvs-by-using-the-built-in-storage-classes) `azuredisk-pvc` e uma nova cápsula para [consumi-lo](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/cloning/nginx-pod-restored-cloning.yaml).
 
 
 ```console
@@ -200,7 +196,7 @@ persistentvolumeclaim/pvc-azuredisk-cloning created
 pod/nginx-restored-cloning created
 ```
 
-Agora podemos verificar o conteúdo do volume clonado executando o abaixo e confirmando que ainda vemos o nosso `test.txt` ficheiro criado.
+Agora podemos verificar o conteúdo do volume clonado executando o seguinte comando e confirmando que ainda vemos o nosso `test.txt` ficheiro criado.
 
 ```console
 $ kubectl exec nginx-restored-cloning -- ls /mnt/azuredisk
@@ -210,14 +206,14 @@ outfile
 test.txt
 ```
 
-## <a name="resize-a-persistent-volume-pv"></a>Redimensionar um Volume Persistente (PV)
+## <a name="resize-a-persistent-volume"></a>Redimensionar um volume persistente
 
-Em vez disso, pode solicitar um volume maior para um PVC. Edite o objeto de PVC e especifique um tamanho maior. Esta alteração desencadeia a expansão do volume subjacente que apoia o PersistenteVolume. 
+Em vez disso, pode solicitar um volume maior para um PVC. Editar o objeto de PVC e especificar um tamanho maior. Esta alteração desencadeia a expansão do volume subjacente que apoia o PV.
 
-> [!NOTE] 
-> Um novo PersistentVolume nunca é criado para satisfazer a reivindicação. Em vez disso, um volume existente é redimensionado.
+> [!NOTE]
+> Um novo PV nunca é criado para satisfazer a reivindicação. Em vez disso, um volume existente é redimensionado.
 
-Na AKS, a classe de armazenamento incorporada `managed-csi` já permite a expansão, por isso alavancar o [PVC criado anteriormente com esta classe de armazenamento.](#dynamically-create-azure-disk-pvs-using-the-built-in-storage-classes) O PVC solicitou um volume persistente de 10Gi, podemos confirmar que, executando:
+Na AKS, a classe de armazenamento incorporada `managed-csi` já permite a expansão, por isso use o [PVC criado anteriormente com esta classe de armazenamento.](#dynamically-create-azure-disk-pvs-by-using-the-built-in-storage-classes) O PVC solicitou um volume persistente de 10 Gi. Podemos confirmar isso correndo:
 
 ```console 
 $ kubectl exec -it nginx-azuredisk -- df -h /mnt/azuredisk
@@ -225,10 +221,11 @@ $ kubectl exec -it nginx-azuredisk -- df -h /mnt/azuredisk
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdc        9.8G   42M  9.8G   1% /mnt/azuredisk
 ```
+
 > [!IMPORTANT]
 > Atualmente, o controlador CSI do disco Azure só suporta a redimensionamento de PVCs sem cápsulas associadas (e o volume não montado num nó específico).
 
-Como tal, permite eliminar o pod criado anteriormente:
+Como tal, vamos apagar o pod que criamos anteriormente:
 
 ```console
 $ kubectl delete -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/nginx-pod-azuredisk.yaml
@@ -254,7 +251,7 @@ pvc-391ea1a6-0191-4022-b915-c8dc4216174a   15Gi       RWO            Delete     
 (...)
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > O PVC não refletirá o novo tamanho até ter uma cápsula associada a ele novamente.
 
 Vamos criar uma nova cápsula:
@@ -265,7 +262,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-c
 pod/nginx-azuredisk created
 ```
 
-E finalmente confirmar o tamanho do PVC e dentro da cápsula: 
+E, finalmente, confirmar o tamanho do PVC e dentro da cápsula:
 ```console
 $ kubectl get pvc pvc-azuredisk
 NAME            STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
@@ -280,9 +277,9 @@ Filesystem      Size  Used Avail Use% Mounted on
 
 [Azure shared disks](../virtual-machines/windows/disks-shared.md) is an Azure managed disks feature that enables attaching an Azure disk to agent nodes simultaneously. Attaching a managed disk to multiple agent nodes allows you, for example, to deploy new or migrate existing clustered applications to Azure.
 
-> [!IMPORTANT] Currently, only raw block device (`volumeMode: Block`) is supported by the Azure disk CSI driver. Applications should manage the coordination and control of writes, reads, locks, caches, mounts and fencing on the shared disk which is exposed as raw block device.
+> [!IMPORTANT] Currently, only raw block device (`volumeMode: Block`) is supported by the Azure disk CSI driver. Applications should manage the coordination and control of writes, reads, locks, caches, mounts, and fencing on the shared disk, which is exposed as a raw block device.
 
-Let's create file called `shared-disk.yaml` by copying the below that contains the shared disk storage class and PVC:
+Let's create a file called `shared-disk.yaml` by copying the following command that contains the shared disk storage class and PVC:
 
 ```yaml
 apiVersion: storage.k8s.io/v1
@@ -310,7 +307,7 @@ spec:
   storageClassName: managed-csi-shared
 ```
 
-Create the storage class with the [kubectl apply][kubectl-apply] command and specify your `shared-disk.yaml` file:
+Create the storage class with the [kubectl apply][kubectl-apply] command, and specify your `shared-disk.yaml` file:
 
 ```console
 $ kubectl apply -f shared-disk.yaml
@@ -319,7 +316,7 @@ storageclass.storage.k8s.io/managed-csi-shared created
 persistentvolumeclaim/pvc-azuredisk-shared created
 ``` 
 
-Now let's create a file called `deployment-shared.yml` by copying the below:
+Now let's create a file called `deployment-shared.yml` by copying the following command:
 
 ```yaml
 apiVersion: apps/v1
@@ -351,7 +348,7 @@ spec:
             claimName: pvc-azuredisk-shared
 ```
 
-Create the deployment with the [kubectl apply][kubectl-apply] command and specify your `deployment-shared.yml` file:
+Create the deployment with the [kubectl apply][kubectl-apply] command, and specify your `deployment-shared.yml` file:
 
 ```console
 $ kubectl apply -f deployment-shared.yml
@@ -372,9 +369,9 @@ root@deployment-sharedisk-7454978bc6-xh7jp:/# dd if=/dev/zero of=/dev/sdx bs=102
 
 ## <a name="windows-containers"></a>Contentores do Windows
 
-O controlador CSI do disco Azure também suporta nós e contentores windows. Se desejar utilizar recipientes de janelas, siga o tutorial dos [Recipientes](windows-container-cli.md) windows para adicionar uma piscina de nó windows.
+O controlador CSI do disco Azure também suporta nós e contentores windows. Se pretender utilizar recipientes Windows, siga o tutorial dos [recipientes windows](windows-container-cli.md) para adicionar uma piscina de nó windows.
 
-Uma vez que você tem uma piscina de nó de janelas, você pode agora apenas aproveitar as aulas de armazenamento embutido como `managed-csi` . Pode implementar um [conjunto stateful baseado em](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) exemplo por janelas que salva os picos de tempo num `data.txt` ficheiro, implantando o seguinte com o comando [de aplicação kubectl:][kubectl-apply]
+Depois de ter uma piscina de nó windows, pode agora utilizar as aulas de armazenamento incorporadas como `managed-csi` . Pode implementar um [conjunto stateful baseado no Windows](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) que guarda os picos de tempo no `data.txt` ficheiro, implantando o seguinte comando com o comando [de aplicação kubectl:][kubectl-apply]
 
  ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azuredisk-csi-driver/master/deploy/example/windows/statefulset.yaml
@@ -394,10 +391,10 @@ $ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Win
 (...)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Para aprender a utilizar o controlador CSI para ficheiros Azure, consulte [ficheiros Use Azure com controladores CSI](azure-files-csi.md).
-- Para obter mais informações sobre as melhores práticas de armazenamento, consulte [as melhores práticas de armazenamento e backups no Serviço Azure Kubernetes (AKS)][operator-best-practices-storage]
+- Para aprender a utilizar controladores CSI para ficheiros Azure, consulte [Use Azure Files com controladores CSI](azure-files-csi.md).
+- Para obter mais informações sobre as melhores práticas de armazenamento, consulte [as melhores práticas de armazenamento e backups no Serviço Azure Kubernetes.][operator-best-practices-storage]
 
 
 <!-- LINKS - external -->

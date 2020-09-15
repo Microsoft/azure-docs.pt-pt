@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common
+ms.subservice: blobs
 ms.custom: contperfq1
-ms.openlocfilehash: 6b02f017e08b224f05c372aab834c5dec0cc077f
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 4a9f243ce32dee9948cd2f2410b5c7f1382bf7c8
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020397"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088855"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-in-the-azure-portal"></a>Escolha como autorizar o acesso aos dados blob no portal Azure
 
@@ -108,7 +108,7 @@ Para especificar como autorizar uma operação de upload de bolhas, siga estes p
 
     :::image type="content" source="media/authorize-blob-access-portal/auth-blob-upload.png" alt-text="Screenshot mostrando como alterar método de autorização no upload de blob":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Autenticar acesso a bolhas e filas Azure usando o Azure Ative Directory](../common/storage-auth-aad.md)
 - [Conceder acesso a contentores e filas Azure com RBAC no portal Azure](../common/storage-auth-aad-rbac-portal.md)

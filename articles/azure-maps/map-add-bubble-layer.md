@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 47ee9e67c6885829e3cb0082aea63367da4aa626
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 3545701fddeb9573b19327769cb495845def7f64
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88006184"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086254"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Adicione uma camada de bolha a um mapa
 
@@ -25,7 +25,7 @@ Este artigo mostra-lhe como fazer dados pontuais a partir de uma fonte de dados 
 
 ## <a name="add-a-bubble-layer"></a>Adicionar uma camada de bolha
 
-O código seguinte carrega uma série de pontos numa fonte de dados. Em seguida, liga os pontos de dados a uma [camada de bolha.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest) A camada de bolha torna o raio de cada bolha com cinco pixéis e uma cor de preenchimento de branco. E, uma cor de traçado de azul, e uma largura de curso de seis píxeis. 
+O código seguinte carrega uma série de pontos numa fonte de dados. Em seguida, liga os pontos de dados a uma [camada de bolha.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer) A camada de bolha torna o raio de cada bolha com cinco pixéis e uma cor de preenchimento de branco. E, uma cor de traçado de azul, e uma largura de curso de seis píxeis. 
 
 ```javascript
 //Add point locations.
@@ -57,7 +57,7 @@ Abaixo está a amostra completa do código de execução da funcionalidade acima
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Fonte de dados bubblelayer' src='//codepen.io/azuremaps/embed/mzqaKB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte o Pen <a href='https://codepen.io/azuremaps/pen/mzqaKB/'>BubbleLayer DataSource</a> by Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Fonte de dados bubblelayer' src='//codepen.io/azuremaps/embed/mzqaKB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte o Pen <a href='https://codepen.io/azuremaps/pen/mzqaKB/'>BubbleLayer DataSource</a> by Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="show-labels-with-a-bubble-layer"></a>Mostrar rótulos com uma camada de bolha
@@ -66,7 +66,7 @@ Este código mostra como usar uma camada de bolha para tornar um ponto no mapa. 
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Fonte de dados multi-layer' src='//codepen.io/azuremaps/embed/rqbQXy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Pen <a href='https://codepen.io/azuremaps/pen/rqbQXy/'>MultiLayer DataSource</a> by Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Fonte de dados multi-layer' src='//codepen.io/azuremaps/embed/rqbQXy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Pen <a href='https://codepen.io/azuremaps/pen/rqbQXy/'>MultiLayer DataSource</a> by Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="customize-a-bubble-layer"></a>Personalize uma camada de bolha
@@ -75,7 +75,7 @@ A camada Bolha tem apenas algumas opções de estilo. Aqui está uma ferramenta 
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Opções de camada de bolha' src='//codepen.io/azuremaps/embed/eQxbGm/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as <a href='https://codepen.io/azuremaps/pen/eQxbGm/'>opções de camada de bolha de caneta</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Opções de camada de bolha' src='//codepen.io/azuremaps/embed/eQxbGm/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as <a href='https://codepen.io/azuremaps/pen/eQxbGm/'>opções de camada de bolha de caneta</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -83,10 +83,10 @@ A camada Bolha tem apenas algumas opções de estilo. Aqui está uma ferramenta 
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 
 > [!div class="nextstepaction"]
-> [BubbleLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)
+> [BubbleLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer)
 
 > [!div class="nextstepaction"]
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions?view=azure-iot-typescript-latest)
+> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
 Consulte os seguintes artigos para obter mais amostras de código para adicionar aos seus mapas:
 

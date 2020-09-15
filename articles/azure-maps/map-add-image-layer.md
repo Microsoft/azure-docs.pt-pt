@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 4a804272a92d98156122397ee7427dcb467fbdf0
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 9bf34b9abd78b62a5ded16ae41b028bf61a3b51d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010230"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086101"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Adicione uma camada de imagem a um mapa
 
@@ -27,7 +27,7 @@ Este artigo mostra como sobrepor uma imagem a um conjunto fixo de coordenadas. A
 * Imagens de radar meteorológico
 
 > [!TIP]
-> Um [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) é uma maneira fácil de sobrepor uma imagem num mapa. Note que os navegadores podem ter dificuldade em carregar uma grande imagem. Neste caso, considere dividir a sua imagem em azulejos e carregá-las no mapa como um [TileLayer.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest)
+> Um [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer) é uma maneira fácil de sobrepor uma imagem num mapa. Note que os navegadores podem ter dificuldade em carregar uma grande imagem. Neste caso, considere dividir a sua imagem em azulejos e carregá-las no mapa como um [TileLayer.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer)
 
 A camada de imagem suporta os seguintes formatos de imagem:
 
@@ -38,7 +38,7 @@ A camada de imagem suporta os seguintes formatos de imagem:
 
 ## <a name="add-an-image-layer"></a>Adicionar uma camada de imagem
 
-O seguinte código sobrepõe uma imagem de um [mapa de Newark, Nova Jersey, de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) no mapa. Um [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) é criado passando um URL para uma imagem, e coordena para os quatro cantos no formato `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]` .
+O seguinte código sobrepõe uma imagem de um [mapa de Newark, Nova Jersey, de 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) no mapa. Um [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer) é criado passando um URL para uma imagem, e coordena para os quatro cantos no formato `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]` .
 
 ```javascript
 //Create an image layer and add it to the map.
@@ -57,18 +57,18 @@ Aqui está a amostra completa do código de execução do código anterior.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Camada de imagem simples' src='//codepen.io/azuremaps/embed/eQodRo/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a <a href='https://codepen.io/azuremaps/pen/eQodRo/'>camada de imagem simples pen</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Camada de imagem simples' src='//codepen.io/azuremaps/embed/eQodRo/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a <a href='https://codepen.io/azuremaps/pen/eQodRo/'>camada de imagem simples pen</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="import-a-kml-file-as-ground-overlay"></a>Importar um ficheiro KML como sobreposição de solo
 
 Esta amostra demonstra como adicionar informações sobrepostas ao solo KML como uma camada de imagem no mapa. As sobreposições de terra kml fornecem coordenadas norte, sul, leste e oeste, e uma rotação no sentido contrário ao dos ponteiros do relógio. Mas, a camada de imagem espera coordenadas para cada canto da imagem. A sobreposição de terra KML nesta amostra é para a catedral de Chartres, e é proveniente da [Wikimedia.](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml)
 
-O código utiliza a função estática `getCoordinatesFromEdges` da classe [ImageLayer.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) Calcula os quatro cantos da imagem usando a informação de norte, sul, leste, oeste e rotação da sobreposição do solo KML.
+O código utiliza a função estática `getCoordinatesFromEdges` da classe [ImageLayer.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer) Calcula os quatro cantos da imagem usando a informação de norte, sul, leste, oeste e rotação da sobreposição do solo KML.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Sobreposição de solo KML como camada de imagem' src='//codepen.io/azuremaps/embed/EOJgpj/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a sobreposição do solo de Pen <a href='https://codepen.io/azuremaps/pen/EOJgpj/'>KML como Camada de Imagem</a> por Azure Maps ( ) em <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Sobreposição de solo KML como camada de imagem' src='//codepen.io/azuremaps/embed/EOJgpj/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a sobreposição do solo de Pen <a href='https://codepen.io/azuremaps/pen/EOJgpj/'>KML como Camada de Imagem</a> por Azure Maps ( ) em <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="customize-an-image-layer"></a>Personalize uma camada de imagem
@@ -77,7 +77,7 @@ A camada de imagem tem muitas opções de estilo. Aqui está uma ferramenta para
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Opções de camada de imagem' src='//codepen.io/azuremaps/embed/RqOGzx/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as <a href='https://codepen.io/azuremaps/pen/RqOGzx/'>opções de camada de imagem de caneta</a> por Azure Maps ( ) em <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Opções de camada de imagem' src='//codepen.io/azuremaps/embed/RqOGzx/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as <a href='https://codepen.io/azuremaps/pen/RqOGzx/'>opções de camada de imagem de caneta</a> por Azure Maps ( ) em <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -85,10 +85,10 @@ A camada de imagem tem muitas opções de estilo. Aqui está uma ferramenta para
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 
 > [!div class="nextstepaction"]
-> [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest)
+> [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer)
 
 > [!div class="nextstepaction"]
-> [Opções ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagelayeroptions?view=azure-iot-typescript-latest)
+> [Opções ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagelayeroptions)
 
 Consulte os seguintes artigos para obter mais amostras de código para adicionar aos seus mapas:
 

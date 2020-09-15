@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 7f3f71f11c741e5e9108d945b60c4465f9cec7da
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.subservice: blobs
+ms.openlocfilehash: 3a585bc2bf3872a21bde9be036628922ee5743fa
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594786"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087359"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurar o público anónimo ler acesso a contentores e bolhas
 
@@ -298,7 +299,7 @@ $ctx = $storageAccount.Context
 Get-AzStorageContainer -Context $ctx | Select Name, PublicAccess
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Impedir que o público anónimo leia o acesso a contentores e bolhas](anonymous-read-access-prevent.md)
 - [Aceda a contentores públicos e bolhas de forma anónima com .NET](anonymous-read-access-client.md)

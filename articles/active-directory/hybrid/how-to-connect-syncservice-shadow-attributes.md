@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c57ab03f72f0f59dd18a873ddc7cd98d3c36ef9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 128303cb51b39db8442fdda71f949db17923bfa2
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356666"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088975"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atributos de sombra de sincronização Azure AD Connect
 A maioria dos atributos são representados da mesma forma em Azure AD como estão no seu Ative Directory no local. Mas alguns atributos têm algum manuseamento especial e o valor do atributo em Azure AD pode ser diferente do que o Azure AD Connect sincroniza.
@@ -32,7 +32,7 @@ Alguns atributos têm duas representações em Azure AD. Tanto o valor no local 
 Não é possível ver os atributos de sombra utilizando o portal Azure ou com o PowerShell. Mas compreender o conceito ajuda-o a resolver determinados cenários em que o atributo tem valores diferentes no local e na nuvem.
 
 Para entender melhor o comportamento, veja este exemplo de Fabrikam:  
-![Domínios](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
+![O Screenshot mostra o Sufixo upn do Ative Directory para vários exemplos com um valor correspondente de domínio AD AD de Não Adicionado, Não Verificado e Verificado.](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
 Têm vários sufixos UPN nos seus locais de Diretório Ativo, mas só verificaram um.
 
 ### <a name="userprincipalname"></a>userPrincipalName

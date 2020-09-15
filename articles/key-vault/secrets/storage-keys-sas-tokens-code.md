@@ -9,14 +9,14 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: afe7d5ce3dd1756ddb9e33fe402fb2eb699ce8f7
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 0f81ffb5279e10c71f7d7cccfb6b738bc12e5cf4
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007422"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086781"
 ---
-# <a name="fetch-shared-access-signature-tokens-in-code"></a>Obter tokens de assinatura de acesso partilhado no código
+# <a name="create-sas-definition-and-fetch-shared-access-signature-tokens-in-code"></a>Crie a definição SAS e pegue fichas de assinatura de acesso partilhado em código
 
 Pode gerir a sua conta de armazenamento com fichas de acesso partilhado (SAS) armazenadas no cofre da chave. Para obter mais informações, consulte [Grant acesso limitado aos recursos de armazenamento Azure usando SAS](../../storage/common/storage-sas-overview.md).
 
@@ -41,9 +41,9 @@ Uma vez criada a definição SAS, pode recuperar fichas SAS como segredos usando
 
 Se o seu token de assinatura de acesso partilhado estiver prestes a expirar, pode obter o mesmo segredo novamente para gerar um novo.
 
+Para obter um guia sobre como utilizar o token SAS do Key Vault SAS para aceder aos serviços de Armazenamento Azure, consulte [utilizar uma conta SAS para aceder ao serviço Blob](https://docs.microsoft.com/azure/storage/common/storage-account-sas-create-dotnet#use-an-account-sas-from-a-client)
+
 ## <a name="next-steps"></a>Passos seguintes
 - Saiba como [conceder acesso limitado aos recursos de armazenamento Azure utilizando SAS.](../../storage/common/storage-sas-overview.md)
 - Saiba como [gerir as chaves da conta de armazenamento com o Key Vault e o Azure CLI](overview-storage-keys.md) ou [a Azure PowerShell](overview-storage-keys-powershell.md).
-- Consulte a amostra completa do [ShareLink.](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/share-link/)
-- Mais [amostras do Cofre chave](https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault)
 - Ver [amostras-chave da conta de armazenamento gerida](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)

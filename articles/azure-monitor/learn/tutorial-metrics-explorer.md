@@ -6,12 +6,12 @@ ms.author: bwren
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 03/09/2020
-ms.openlocfilehash: d8f72471dd3109bf584d18f032ec2f4d949a4993
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 72f90918afa275e56528016539ecb2eec93d5db0
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "79082817"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090096"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>Tutorial: Criar um gráfico de métricas no Azure Monitor
 O explorador de métricas é uma característica do Azure Monitor no portal Azure que permite criar gráficos a partir de valores métricos, correlacionar visualmente tendências e investigar picos e mergulhos em valores métricos. Use o explorador de métricas para investigar a saúde e utilização dos seus recursos Azure ou para traçar gráficos a partir de métricas personalizadas. 
@@ -52,7 +52,7 @@ Pode abrir métricas exploradores a partir do menu Azure Monitor ou a partir do 
 
 4. Opcionalmente, altere a **agregação**métrica. Isto define como os valores métricos serão agregados ao longo do tempo granularidade para o gráfico. Por exemplo, se a granularidade do tempo estiver definida para 15 minutos e a agregação for definida para resumir, então cada ponto do gráfico será a soma de todos os valores recolhidos ao longo de cada segmento de 15 minutos.
 
-    ![Gráfico](media/tutorial-metrics-explorer/chart.png)
+    ![A screenshot mostra um gráfico intitulado Sum Ingress para contosoretailweb.](media/tutorial-metrics-explorer/chart.png)
 
 5. Utilize o botão **métrico Adicionar** e repita estes passos se quiser ver várias métricas traçadas no mesmo gráfico. Para vários gráficos numa vista, selecione o **botão New chart.**
 

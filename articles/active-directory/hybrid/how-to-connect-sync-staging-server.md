@@ -16,12 +16,12 @@ ms.date: 02/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18c982b09aa8a28d520c709c9b8db2c9be4c7bb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 48584fa4042cf53fa1084e519dca0e64f530ca59
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356955"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090130"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: Servidor de encenação e recuperação de desastres
 Com um servidor em modo de fase, pode estóxia a configuração e pré-visualizar as alterações antes de tornar o servidor ativo. Também permite executar a importação completa e a sincronização completa para verificar se todas as alterações são esperadas antes de fazer estas alterações no seu ambiente de produção.
@@ -57,7 +57,7 @@ Para aplicar este método, siga estes passos:
 
 #### <a name="prepare"></a>Preparação
 1. Instale O Azure AD Connect, selecione **modo de preparação**e desescolte a **sincronização** inicial na última página do assistente de instalação. Este modo permite-lhe executar o motor de sincronização manualmente.
-   ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
+   ![A screenshot mostra a página Ready to configure na caixa de diálogo Azure AD Connect.](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
 2. Iniciar súmis/iniciar súmis e a partir do menu inicial **selecione Serviço de Sincronização**.
 
 #### <a name="configuration"></a>Configuração
@@ -71,9 +71,9 @@ Se tiver feito alterações personalizadas no servidor primário e quiser compar
 
 Já encenou alterações de exportação para Azure AD e no local AD (se estiver a utilizar a implementação híbrida exchange). Os próximos passos permitem-lhe inspecionar o que está prestes a mudar antes de iniciar a exportação para os diretórios.
 
-#### <a name="verify"></a>Verificar
-1. Inicie um pedido cmd e vá para`%ProgramFiles%\Microsoft Azure AD Sync\bin`
-2. Execução: `csexport "Name of Connector" %temp%\export.xml /f:x` O nome do Conector pode ser encontrado no Serviço de Sincronização. Tem um nome semelhante ao "contoso.com – AAD" para Azure AD.
+#### <a name="verify"></a>Verificação
+1. Inicie um pedido cmd e vá para `%ProgramFiles%\Microsoft Azure AD Sync\bin`
+2. Execução: `csexport "Name of Connector" %temp%\export.xml /f:x` O nome do Conector pode ser encontrado no Serviço de Sincronização. Tem um nome semelhante ao "contoso.com – Azure AD" para Azure AD.
 3. Executar: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` Tem um ficheiro em %temperatura% nomeado export.csv que pode ser examinado no Microsoft Excel. Este ficheiro contém todas as alterações que estão prestes a ser exportadas.
 4. Faça as alterações necessárias aos dados ou configuração e execute novamente estes passos (Importar e Sincronizar e Verificar) até que as alterações que estão prestes a ser exportadas sejam esperadas.
 
@@ -267,7 +267,7 @@ Write-Host Writing processedusers${outputfilecount}.csv -ForegroundColor Yellow
 $objOutputUsers | Export-Csv -path processedusers${outputfilecount}.csv -NoTypeInformation
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 **Tópicos de visão geral**  
 
 * [Azure AD Connect sync: Entenda e personalize a sincronização](how-to-connect-sync-whatis.md)  

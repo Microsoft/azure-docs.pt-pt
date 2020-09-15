@@ -5,24 +5,23 @@ services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 11d2131b-f683-47fd-a691-4cdfc696f62b
+editor: thsomasu
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 09/14/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 10/02/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3acfc9e3a856ec777bfada68d535b6a1e9878a08
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bf9670ae8fd22342a05f8d506f743c7a5c395e5f
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017928"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088141"
 ---
 # <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Enviar notificações inter-plataformas com os Hubs de Notificação Azure
 
@@ -31,16 +30,16 @@ Este tutorial baseia-se no tutorial anterior, [Enviar notificações a utilizado
 Este artigo demonstra como aproveitar os modelos para enviar uma notificação que visa todas as plataformas. Este artigo utiliza um único pedido para enviar uma notificação neutra da plataforma. Para obter informações mais detalhadas sobre os modelos, consulte [a visão geral dos Centros de Notificação][Templates].
 
 > [!IMPORTANT]
-> Os projetos Windows Phone 8.1 e anteriores não são suportados no Visual Studio 2019. Para mais informações, consulte [Visual Studio 2019 Plataforma Targeting and Compatibilidade.](/visualstudio/releases/2019/compatibility)
+> Os projetos Windows Phone 8.1 e anteriores não são suportados no Visual Studio 2019. Para mais informações, consulte [a plataforma visual Studio 2019, visando e compatibilidade.](/visualstudio/releases/2019/compatibility)
 
 > [!NOTE]
 > Com os Centros de Notificação, um dispositivo pode registar vários modelos utilizando a mesma etiqueta. Neste caso, uma mensagem de entrada que visa a etiqueta resulta em múltiplas notificações a serem entregues no dispositivo, uma para cada modelo. Este processo permite-lhe exibir a mesma mensagem em várias notificações visuais, como tanto como um crachá como como uma notificação de torradas numa aplicação da Windows Store.
 
 ## <a name="send-cross-platform-notifications-using-templates"></a>Enviar notificações de plataforma cruzada usando modelos
 
-Esta secção utiliza o código de amostra que construiu nas notificações enviar a utilizadores específicos utilizando o tutorial [de Azure Notification Hubs.] Pode transferir o exemplo do [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
+Esta secção utiliza o código de amostra que construiu nas notificações enviar a utilizadores específicos utilizando o tutorial [de Azure Notification Hubs.] Você pode [baixar a amostra completa do GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
 
-Para enviar notificações de plataformas cruzadas utilizando modelos, faça os seguintes passos:
+Para enviar notificações de plataformas cruzadas utilizando modelos, faça o seguinte:
 
 1. No Estúdio Visual no **Solution Explorer,** expanda a pasta **Controladores** e, em seguida, abra o ficheiro *RegisterController.cs.*
 
@@ -77,7 +76,7 @@ Para enviar notificações de plataformas cruzadas utilizando modelos, faça os 
 
     Este código chama o método específico da plataforma para criar um registo de modelo em vez de um registo nativo. Como os registos de modelos derivam de registos nativos, não é necessário modificar os registos existentes.
 
-1. No **Solution Explorer,** na pasta **Controladores,** abra o *ficheiro NotificationsController.cs.* Substitua o método `Post` pelo código abaixo:
+1. No **Solution Explorer,** na pasta **Controladores,** abra o **ficheiro NotificationsController.cs.** Substitua o método `Post` pelo código abaixo:
 
     ```csharp
     public async Task<HttpResponseMessage> Post()

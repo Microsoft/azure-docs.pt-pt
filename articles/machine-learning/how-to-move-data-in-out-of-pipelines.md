@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 08/20/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: 6744bbf2e77fa0ec275350678e75ff094eec82e0
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 806b25fea208afae63ca6be704b22808578d5ba2
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650382"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090674"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Mover dados para e entre os passos de pipeline de ML (Python)
 
@@ -85,7 +85,7 @@ Uma vez criada uma entrada com o nome, pode escolher o seu modo de acesso: `as_m
 
 Para passar um conjunto de dados para o seu passo de pipeline:
 
-1. Use `TabularDataset.as_named_inputs()` ou `FileDataset.as_named_input()` (não 's' no final) para criar um `DatasetConsumptionConfig` objeto
+1. Use `TabularDataset.as_named_input()` ou `FileDataset.as_named_input()` (não 's' no final) para criar um `DatasetConsumptionConfig` objeto
 1. Utilizar `as_mount()` ou definir o modo de `as_download()` acesso
 1. Passe os conjuntos de dados para os seus passos de pipeline usando o `arguments` argumento ou o `inputs` argumento
 
@@ -97,7 +97,7 @@ train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
-    inputs=[iris_dataset.as_named_inputs('iris').as_mount()]
+    inputs=[iris_dataset.as_named_input('iris').as_mount()]
 )
 ```
 
@@ -112,7 +112,7 @@ train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
-    inputs=[train.as_named_inputs('train').as_download(), test.as_named_inputs('test').as_download()]
+    inputs=[train.as_named_input('train').as_download(), test.as_named_input('test').as_download()]
 )
 ```
 
@@ -127,8 +127,8 @@ train_step = PythonScriptStep(
     name="train_data",
     script_name="train.py",
     compute_target=cluster,
-    arguments=['--training-folder', train.as_named_inputs('train').as_download()]
-    inputs=[test.as_named_inputs('test').as_download()]
+    arguments=['--training-folder', train.as_named_input('train').as_download()]
+    inputs=[test.as_named_input('test').as_download()]
 )
 
 # In pipeline script
@@ -252,7 +252,7 @@ step1_output_ds.register(name="processed_data", create_new_version=True)
 > [!TIP]
 > Uma experiência melhorada para persistir os seus dados intermédios fora do seu pipeline runs está disponível com a classe de pré-visualização pública, [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py&preserve-view=true) . Para obter um exemplo de código `OutputFileDatasetConfig` utilizando, consulte como [construir um gasoduto ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb)de dois passos .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar um conjunto de dados de aprendizagem de máquinas Azure](how-to-create-register-datasets.md)
 * [Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK](how-to-create-your-first-pipeline.md)

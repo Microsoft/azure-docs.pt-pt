@@ -3,12 +3,12 @@ title: Configure Azure Arc permitiu o agrupamento kubernetes com monitor Azure p
 description: Este artigo descreve como configurar a monitorização com o Azure Monitor para contentores em Azure Arc ativados aglomerados kubernetes.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: f8002b20f37ca5149c58ca3e29402916ebbc1333
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 54a8fea6ddb46dc00fff29ad83a2a348d9218380
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092886"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090623"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Permitir a monitorização do cluster Kubernetes habilitado pelo Arco Azure
 
@@ -124,7 +124,7 @@ Para permitir a monitorização do seu cluster utilizando o script PowerShell ou
 4. Se pretender utilizar o espaço de trabalho Azure Monitor Log Analytics, configuure a variável `$logAnalyticsWorkspaceResourceId` com o valor correspondente representando o ID de recurso do espaço de trabalho. Caso contrário, desacorde a variável `""` e o script cria um espaço de trabalho predefinido no grupo de recursos predefinidos da subscrição do cluster se já não existir na região. O espaço de trabalho padrão criado assemelha-se ao formato *defaultWorkspace- \<SubscriptionID> - \<Region> *.
 
     ```powershell
-    $logAnalyticsWorkspaceResourceId = “/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
+    $logAnalyticsWorkspaceResourceId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>"
     ```
 
 5. Se o seu cluster Kubernetes ativado pelo Arco comunicar através de um servidor proxy, configuure a variável `$proxyEndpoint` com o URL do servidor proxy. Se o cluster não comunicar através de um servidor proxy, então pode definir o valor para `""` .  Para mais informações, consulte [o ponto final de proxy Configure mais](#configure-proxy-endpoint) tarde neste artigo.
@@ -199,7 +199,7 @@ Depois de ter ativado a monitorização, pode demorar cerca de 15 minutos até p
 
 Com o agente contentorizado para o Azure Monitor para contentores, pode configurar um ponto final de procuração para permitir que ele se comunique através do seu servidor proxy. A comunicação entre o agente contentorizado e o Azure Monitor pode ser um servidor de procuração HTTP ou HTTPS, e a autenticação anónima e básica (nome de utilizador/palavra-passe) é suportada.
 
-O valor de configuração proxy tem a seguinte sintaxe:`[protocol://][user:password@]proxyhost[:port]`
+O valor de configuração proxy tem a seguinte sintaxe: `[protocol://][user:password@]proxyhost[:port]`
 
 > [!NOTE]
 >Se o seu servidor proxy não necessitar de autenticação, ainda precisa de especificar um nome de utilizador/palavra-passe psuedo. Este pode ser qualquer nome de utilizador ou senha.

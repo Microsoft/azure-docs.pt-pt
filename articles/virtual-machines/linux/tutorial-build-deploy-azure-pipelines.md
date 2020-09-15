@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-javascript
-ms.openlocfilehash: c83a67f7d524a062485f2c68e0adb7fdd2855a84
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 6025e1c257ad7b94586ceb4f89c02c3a44c59c3e
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462178"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090317"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutorial: Implemente a sua aplicação para máquinas virtuais Linux em Azure utilizando serviços Azure DevOps e Pipelines Azure
 
@@ -147,6 +147,7 @@ Você precisará de um pipeline de integração contínua (CI) que publique a su
 Selecione o modelo **de arranque** e copie o snippet abaixo do YAML que constrói o seu projeto Java e executa testes com Apache Maven:
 
 ```YAML
+jobs:
 - job: Build
   displayName: Build Maven Project
   steps:
@@ -203,13 +204,13 @@ Para obter mais orientação, siga os passos na [Build your Node.js app com gole
 
 - **Selecione Guardar e executar,** em seguida, selecione **Comprometa-se diretamente no ramo principal**e, em seguida, escolha Guardar e **executar** novamente.
 
-- Uma nova corrida começou. Espere que a corrida termine.
+- Uma nova corrida começou. Aguarde a conclusão da execução.
 
 * * * 
 
 ## <a name="define-cd-steps-to-deploy-to-the-linux-vm"></a>Definir passos de CD para implementar no Linux VM
 
-1. Edite o pipeline acima e inclua um [trabalho de implantação](/azure/devops/pipelines/process/deployment-jobs) referindo o ambiente e os recursos VM que você tem anteriormente usando a sintaxe YAML abaixo:
+1. Altere o ficheiro YAML para o pipeline acima indicado para incluir um [trabalho de implantação,](/azure/devops/pipelines/process/deployment-jobs) referindo-se ao ambiente e aos recursos VM que tem anteriormente utilizando a sintaxe YAML abaixo:
 
    ```YAML
    jobs:  
@@ -218,8 +219,7 @@ Para obter mais orientação, siga os passos na [Build your Node.js app com gole
      environment:
        name:  <environment name>
        resourceType: VirtualMachine
-       tags: web1
-     strategy:
+       tags: web
    ```
 2. Pode selecionar conjuntos específicos de máquinas virtuais do ambiente para receber a implementação especificando as **etiquetas** que definiu para cada máquina virtual no ambiente.
 [Aqui](/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema#deployment-job) está o esquema YAML completo para o trabalho de implantação.

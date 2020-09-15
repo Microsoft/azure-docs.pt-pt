@@ -9,27 +9,27 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: cd12242367c6f3b5b2c64df28f7f5e52cf1a4f97
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9d7444ec0acd17ae0ad08f4932c109c5cf0d3fb9
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282879"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087257"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Adicione uma camada de extrusão de polígono ao mapa
 
-Este artigo mostra-lhe como usar a camada de extrusão do polígono para tornar áreas `Polygon` e `MultiPolygon` características geometrias como formas extrudidas. O Azure Maps Web SDK suporta a renderização de geometrias circle, tal como definido no [esquema alargado de GeoJSON.](extend-geojson.md#circle) Estes círculos podem ser transformados em polígonos quando renderizados no mapa. Todas as geometrias de características podem ser facilmente atualizadas quando embrulhadas com o [atlas. Classe de](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) forma.
+Este artigo mostra-lhe como usar a camada de extrusão do polígono para tornar áreas `Polygon` e `MultiPolygon` características geometrias como formas extrudidas. O Azure Maps Web SDK suporta a renderização de geometrias circle, tal como definido no [esquema alargado de GeoJSON.](extend-geojson.md#circle) Estes círculos podem ser transformados em polígonos quando renderizados no mapa. Todas as geometrias de características podem ser facilmente atualizadas quando embrulhadas com o [atlas. Classe de](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) forma.
 
 ## <a name="use-a-polygon-extrusion-layer"></a>Use uma camada de extrusão de polígono
 
-Ligue a [camada de extrusão do polígono](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer?view=azure-maps-typescript-latest) a uma fonte de dados. Depois, carreguei-o no mapa. A camada de extrusão do polígono torna as áreas de um `Polygon` e `MultiPolygon` apresenta-se como formas extrudidas. As `height` propriedades e propriedades da camada de `base` extrusão do polígono definem a distância de base do solo e da altura da forma extrudida em **metros**. O código que se segue mostra como criar um polígono, adicioná-lo a uma fonte de dados, e torná-lo usando a classe de camada de extrusão do Polygon.
+Ligue a [camada de extrusão do polígono](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer) a uma fonte de dados. Depois, carreguei-o no mapa. A camada de extrusão do polígono torna as áreas de um `Polygon` e `MultiPolygon` apresenta-se como formas extrudidas. As  `height` propriedades e propriedades da camada de `base` extrusão do polígono definem a distância de base do solo e da altura da forma extrudida em **metros**. O código que se segue mostra como criar um polígono, adicioná-lo a uma fonte de dados, e torná-lo usando a classe de camada de extrusão do Polygon.
 
 > [!Note]
 > O `base` valor definido na camada de extrusão do polígono deve ser inferior ou igual ao da `height` .
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Polígono extrudido" src="https://codepen.io/azuremaps/embed/wvvBpvE?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Polígono extrudido" src="https://codepen.io/azuremaps/embed/wvvBpvE?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Veja o <a href='https://codepen.io/azuremaps/pen/wvvBpvE'>polígono Pen Extruded</a> by Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.</iframe>
 
 
@@ -39,7 +39,7 @@ Um mapa de choropleth pode ser renderizado usando a camada de extrusão do polí
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Mapa do choropleth extrudido" src="https://codepen.io/azuremaps/embed/eYYYNox?height=265&theme-id=0&default-tab=result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Mapa do choropleth extrudido" src="https://codepen.io/azuremaps/embed/eYYYNox?height=265&theme-id=0&default-tab=result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Veja o mapa do choropleth da Pen <a href='https://codepen.io/azuremaps/pen/eYYYNox'>Extruded</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> no <a href='https://codepen.io'>CodePen.</a>
 </iframe>
 
@@ -47,7 +47,7 @@ Veja o mapa do choropleth da Pen <a href='https://codepen.io/azuremaps/pen/eYYYN
 
 O Azure Maps utiliza uma versão estendida do esquema GeoJSON que fornece uma definição para círculos como aqui [se](https://docs.microsoft.com/azure/azure-maps/extend-geojson#circle)nota. Um círculo extrudido pode ser renderizado no mapa criando uma `point` característica com uma propriedade e uma propriedade `subType` `Circle` numerada `Radius` representando o raio em **metros**. Por exemplo:
 
-```Javascript
+```javascript
 {
     "type": "Feature",
     "geometry": {
@@ -65,7 +65,7 @@ O Azure Maps Web SDK converte estas `Point` funcionalidades em `Polygon` funcion
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Polígono do espaço aéreo de drones" src="https://codepen.io/azuremaps/embed/zYYYrxo?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Polígono do espaço aéreo de drones" src="https://codepen.io/azuremaps/embed/zYYYrxo?height=265&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Veja o <a href='https://codepen.io/azuremaps/pen/zYYYrxo'>polígono do espaço aéreo</a> Pen Drone by Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -75,7 +75,7 @@ A camada de extrusão polygon tem várias opções de estilo. Aqui está uma fer
 
 <br/>
 
-<iframe height='700' scrolling='no' title='PoogBRJ' src='//codepen.io/azuremaps/embed/PoogBRJ/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja o Pen <a href='https://codepen.io/azuremaps/pen/PoogBRJ/'>PoogBRJ</a> by Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> ( ) no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='PoogBRJ' src='//codepen.io/azuremaps/embed/PoogBRJ/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja o Pen <a href='https://codepen.io/azuremaps/pen/PoogBRJ/'>PoogBRJ</a> by Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> ( ) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -83,10 +83,10 @@ A camada de extrusão polygon tem várias opções de estilo. Aqui está uma fer
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Polígono](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon?view=azure-iot-typescript-latest)
+> [Polígono](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon)
 
 > [!div class="nextstepaction"]
-> [camada de extrusão de polígono](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer?view=azure-maps-typescript-latest)
+> [camada de extrusão de polígono](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer)
 
 Recursos adicionais:
 

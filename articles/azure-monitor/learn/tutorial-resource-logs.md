@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: f2c780ffb7705575bf1bb5cabb6a09d9dabc0690
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b68d4779d33d2f8a1f1c2bae35f438ad2ccccabb
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505844"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090079"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Tutorial: Recolher e analisar registos de recursos a partir de um recurso Azure
 
@@ -84,7 +84,7 @@ Os dados são obtidos a partir de um espaço de trabalho log Analytics usando um
     > [!NOTE]
     > Se abrisse Logs a partir do menu Azure Monitor, o âmbito seria definido para o espaço de trabalho Log Analytics. Neste caso, quaisquer consultas incluirão todos os registos no espaço de trabalho.
    
-    ![Registos](media/tutorial-resource-logs/logs.png)
+    ![O Screenshot mostra Logs para uma aplicação lógica que exibe uma nova consulta com o nome da aplicação lógica realçada.](media/tutorial-resource-logs/logs.png)
 
 4. O serviço mostrado no exemplo escreve registos de recursos para a tabela **AzureDiagnostics, mas outros serviços** podem escrever para outras tabelas. Consulte [serviços, esquemas e categorias de Registos de Recursos Azure para tabelas utilizadas](../platform/resource-logs-schema.md) por diferentes serviços Azure.
 
@@ -100,7 +100,7 @@ Os dados são obtidos a partir de um espaço de trabalho log Analytics usando um
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que aprendeu a recolher registos de recursos num espaço de trabalho do Log Analytics, preencha um tutorial sobre consultas de registo de escrita para analisar estes dados.
 
 > [!div class="nextstepaction"]

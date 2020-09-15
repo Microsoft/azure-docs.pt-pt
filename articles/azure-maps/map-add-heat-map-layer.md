@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: a6235ee6bbb476c69114e6895403f05e69fd6e19
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 80299b66b614e3d31778902c86e8e43f9f1b95de
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010247"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086118"
 ---
 # <a name="add-a-heat-map-layer"></a>Adicionar uma camada de mapa térmico
 
@@ -60,7 +60,7 @@ Aqui está a amostra completa do código de execução do código anterior.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Camada simples do mapa de calor' src='//codepen.io/azuremaps/embed/gQqdQB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a <a href='https://codepen.io/azuremaps/pen/gQqdQB/'>camada de mapa de calor simples da</a> Pen por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Camada simples do mapa de calor' src='//codepen.io/azuremaps/embed/gQqdQB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a <a href='https://codepen.io/azuremaps/pen/gQqdQB/'>camada de mapa de calor simples da</a> Pen por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="customize-the-heat-map-layer"></a>Personalize a camada do mapa de calor
@@ -83,13 +83,13 @@ O exemplo anterior personalizou o mapa de calor definindo as opções de raio e 
 - `weight`: Por predefinição, todos os pontos de dados têm um peso de 1, e são ponderados igualmente. A opção de peso funciona como um multiplicador, e pode defini-lo como um número ou uma expressão. Se um número é definido como o peso, é a equivalência de colocar cada ponto de dados no mapa duas vezes. Por exemplo, se o peso for 2, então a densidade duplica. Definir a opção de peso para um número torna o mapa de calor de forma semelhante à utilização da opção de intensidade. 
 
   No entanto, se utilizar uma expressão, o peso de cada ponto de dados pode basear-se nas propriedades de cada ponto de dados. Por exemplo, suponha que cada ponto de dados represente um terramoto. O valor de magnitude tem sido uma métrica importante para cada ponto de dados do terramoto. Os terramotos acontecem a toda a hora, mas a maioria tem uma baixa magnitude, e não são notados. Utilize o valor de magnitude numa expressão para atribuir o peso a cada ponto de dados. Ao usar o valor de magnitude para atribuir o peso, obtém-se uma melhor representação da importância dos terramotos dentro do mapa de calor.
-- `source`e `source-layer` : Permitir-lhe atualizar a fonte de dados.
+- `source` e `source-layer` : Permitir-lhe atualizar a fonte de dados.
 
 Aqui está uma ferramenta para testar as diferentes opções de camada de mapa de calor.
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Opções de camada de mapa de calor' src='//codepen.io/azuremaps/embed/WYPaXr/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as <a href='https://codepen.io/azuremaps/pen/WYPaXr/'>opções de camada de mapa de calor da caneta</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Opções de camada de mapa de calor' src='//codepen.io/azuremaps/embed/WYPaXr/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as <a href='https://codepen.io/azuremaps/pen/WYPaXr/'>opções de camada de mapa de calor da caneta</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="consistent-zoomable-heat-map"></a>Mapa de calor zoomável consistente
@@ -102,7 +102,7 @@ Escalar o raio de modo que duplique com cada nível de zoom cria um mapa de calo
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Mapa de calor zoomável consistente" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Mapa de calor zoomável consistente" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte o <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>mapa de calor zoomável pen consistent</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -120,10 +120,10 @@ Consulte o <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>mapa de calor zoom
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 
 > [!div class="nextstepaction"]
-> [HeatMapLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker?view=azure-iot-typescript-latest)
+> [HeatMapLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarker)
 
 > [!div class="nextstepaction"]
-> [Opções HeatMapLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest)
+> [Opções HeatMapLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 Para obter mais exemplos de código para adicionar aos seus mapas, consulte os seguintes artigos:
 

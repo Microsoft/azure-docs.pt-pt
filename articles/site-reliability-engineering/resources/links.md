@@ -2,17 +2,17 @@
 title: SRE liga coleções e digestão / Microsoft Docs
 description: Expanda o seu conhecimento de engenharia de fiabilidade do site com estes recursos
 author: dnblankedelman
-manager: efreeman
+manager: ScottCa
 ms.service: site-reliability-engineering
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 09/14/2020
 ms.author: dnb
-ms.openlocfilehash: a891b580b5cb62d111e5d8a6980f4f547345deb6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: becbc3e59663c1898cc4e635f61f63d54360a6f5
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471256"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086543"
 ---
 # <a name="sources-for-site-reliability-engineering-information"></a>Fontes para informação de engenharia de fiabilidade do site
 

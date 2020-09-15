@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: fb8a1e1a8c29086553500bdad2e4604d1e1ef471
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 429baa4d5dc85476192758e4500f4c1f14610e6d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77198297"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089314"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Tipos de interação e atalhos de teclado no módulo de ferramentas de desenho
 
@@ -21,9 +21,9 @@ Este artigo descreve todas as diferentes formas de desenhar e editar formas usan
 
 O gestor de desenho suporta três maneiras diferentes de interagir com o mapa, para desenhar formas.
 
-* `click`- As coordenadas são adicionadas quando o rato ou o toque são clicados.
-* `freehand `- As coordenadas são adicionadas quando o rato ou o toque são arrastados no mapa.
-* `hybrid`- As coordenadas são adicionadas quando o rato ou o toque são clicados ou arrastados.
+* `click` - As coordenadas são adicionadas quando o rato ou o toque são clicados.
+* `freehand ` - As coordenadas são adicionadas quando o rato ou o toque são arrastados no mapa.
+* `hybrid` - As coordenadas são adicionadas quando o rato ou o toque são clicados ou arrastados.
 
 ## <a name="how-to-draw-shapes"></a>Como desenhar formas
 
@@ -141,12 +141,12 @@ As ferramentas de desenho suportam atalhos de teclado. Estes atalhos de teclado 
 | `Escape` | Cancela qualquer desenho que esteja em andamento e define o modo de desenho para ocioso. O foco passará para o elemento de mapa de nível superior.  |
 | `F` | Adiciona uma coordenada a um ponto, linha ou polígono se o rato estiver sobre o mapa. Ação equivalente de clicar no mapa quando em modo clique ou híbrido. Este atalho permite desenhos mais precisos e mais rápidos. Pode utilizar uma mão para posicionar o rato e outra para premir o botão sem mover o rato do gesto de pressão. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as aulas no módulo de ferramentas de desenho:
 
 > [!div class="nextstepaction"]
-> [Gestor de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [Gestor de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [Barra de ferramentas de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
+> [Barra de ferramentas de desenho](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 62a30fada32a23546323dae34f875ab9c7da228c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c570c43560ad865b8bcc5161cbd0c6731ea4a237
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028554"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090657"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensão de VM de Diagnóstico de Desempenho do Azure para Windows
 
@@ -29,7 +29,15 @@ A extensão VM de diagnóstico de desempenho azul ajuda a recolher dados de diag
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Esta extensão pode ser instalada no Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016. Também pode ser instalado no Windows 8.1 e Windows 10.
+Esta extensão pode ser instalada em
+* Windows Server 2019
+* Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows 10
+* Windows 8.1
+* Windows 8
 
 ## <a name="extension-schema"></a>Esquema de extensão
 O JSON seguinte mostra o esquema para a extensão VM de diagnóstico de desempenho Azure. Esta extensão requer o nome e a chave para uma conta de armazenamento para armazenar a saída e o relatório de diagnóstico. Estes valores são sensíveis. A chave da conta de armazenamento deve ser armazenada dentro de uma configuração de definição protegida. Os dados de definição protegidos por extensão Azure VM são encriptados e apenas são desencriptados na máquina virtual alvo. Note que **o armazenamentoAcolho** e **armazenamentoAcolhokey** são sensíveis a casos. Outros parâmetros necessários estão listados na secção seguinte.
@@ -71,7 +79,7 @@ O JSON seguinte mostra o esquema para a extensão VM de diagnóstico de desempen
 |apiVersion|2015-06-15|A versão da API.
 |publicador|Microsoft.Azure.Performance.Diagnostics|O espaço de nome da editora para a extensão.
 |tipo|AzurePerformanceDiagnósticos|O tipo de extensão VM.
-|typeHandlerVersion|1,0|A versão do manipulador de extensão.
+|typeHandlerVersion|1.0|A versão do manipulador de extensão.
 |performanceScenario|básico|O cenário de desempenho para o qual capturar dados. Os valores válidos são: **básicos, vmslow,** **azurefiles,** e **costumes.** **basic**
 |traceDurationInSeconds|300|A duração dos vestígios, se alguma das opções de rastreio for selecionada.
 |perfCounterTrace|p|Opção para ativar o rastreio do contador de desempenho. Valores válidos são **p** ou valor vazio. Se não quiser capturar este vestígio, deixe o valor vazio.
@@ -208,7 +216,7 @@ As extensões de máquinas virtuais Azure podem ser implementadas com modelos de
 }
 ```
 
-## <a name="powershell-deployment"></a>Implantação powerShell
+## <a name="powershell-deployment"></a>Implementação do PowerShell
 O `Set-AzVMExtension` comando pode ser utilizado para implantar a extensão VM de diagnóstico de desempenho do Azure para uma máquina virtual existente.
 
 PowerShell

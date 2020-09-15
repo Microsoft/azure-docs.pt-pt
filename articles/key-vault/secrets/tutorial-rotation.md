@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5adc2a91df5d394fbed3ff10b0ebc5cb543a3ba3
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: c2d1a46a35ef38791b6a3b47c300aa1b47f70324
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378020"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086918"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos que usam um conjunto de credenciais de autenticação
 
@@ -24,7 +24,7 @@ A melhor forma de autenticar os serviços da Azure é utilizando uma [identidade
 
 Este tutorial mostra como automatizar a rotação periódica de segredos para bases de dados e serviços que utilizam um conjunto de credenciais de autenticação. Especificamente, este tutorial gira as palavras-passe do SQL Server armazenadas no Cofre da Chave Azure utilizando uma função desencadeada pela notificação da Grelha de Eventos Azure:
 
-![Diagrama de solução de rotação](../media/rotate1.png)
+![Diagrama de solução de rotação](../media/rotate-1.png)
 
 1. Trinta dias antes da data de validade de um segredo, Key Vault publica o evento "quase expiração" para a Grade de Eventos.
 1. A Grelha de Eventos verifica as subscrições do evento e utiliza HTTP POST para ligar para o ponto final da aplicação de função subscrito ao evento.
@@ -49,7 +49,7 @@ Abaixo o link de implementação pode ser usado, se não tiver o Cofre de Chaves
 1. Selecione **Rever + criar**.
 1. Selecione **Criar**
 
-    ![Criar um grupo de recursos](../media/rotate2.png)
+    ![Criar um grupo de recursos](../media/rotate-2.png)
 
 Agora terá um Cofre-Chave e uma instância do SQL Server. Pode verificar esta configuração no Azure CLI executando o seguinte comando:
 
@@ -91,7 +91,7 @@ A aplicação de função requer estes componentes:
 1. Selecione **Rever + criar**.
 1. Selecione **Criar**.
 
-   ![Selecione Review+criar](../media/rotate3.png)
+   ![Selecione Review+criar](../media/rotate-3.png)
 
 Depois de completar os passos anteriores, terá uma conta de armazenamento, uma fazenda de servidores e uma aplicação de função. Pode verificar esta configuração no Azure CLI executando o seguinte comando:
 
@@ -207,11 +207,11 @@ Criar um segredo com uma data de validade curta publicará um `SecretNearExpiry`
 
 Para verificar se o segredo gira, vá aos **Segredos do Cofre Chave:**  >  **Secrets**
 
-![Ir para segredos](../media/rotate8.png)
+![Ir para segredos](../media/rotate-8.png)
 
 Abra o **segredo sqlPassword** e veja as versões originais e rotativas:
 
-![Abra o segredo sqluser](../media/rotate9.png)
+![Abra o segredo sqluser](../media/rotate-9.png)
 
 ### <a name="create-a-web-app"></a>Criar uma aplicação Web
 
@@ -245,6 +245,6 @@ Quando a aplicação abrir no navegador, verá o **Valor Secreto Gerado** e um v
 ## <a name="learn-more"></a>Saiba mais
 
 - Tutorial: [Rotação para recursos com dois conjuntos de credenciais](tutorial-rotation-dual.md)
-- Visão geral: [Monitoring Key Vault com Azure Event Grid (pré-visualização)](../general/event-grid-overview.md)
+- Visão geral: [Cofre de chaves de monitorização com grade de eventos Azure](../general/event-grid-overview.md)
 - Como: [Receber e-mail quando um segredo de cofre chave muda](../general/event-grid-logicapps.md)
-- [Esquema de eventos Azure Event Grid para Azure Key Vault (pré-visualização)](../../event-grid/event-schema-key-vault.md)
+- [Esquema de eventos Azure Event Grid para Azure Key Vault](../../event-grid/event-schema-key-vault.md)

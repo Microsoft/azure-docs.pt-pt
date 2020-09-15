@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7abff8c33ea276b8b8aaeffd010d5f5e09440d9b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 52cdf25b4d77fee0a7a2182e3f1ce60865caf066
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526644"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088566"
 ---
 # <a name="how-to-use-perfinsights-in-azure"></a>Como usar PerfInsights em Azure
 
@@ -165,7 +165,15 @@ Diskspd Testes de carga de trabalho de I/O (DISCO DE OS [escrita] e unidades de 
 
 -  Esta ferramenta deve ser executada no VM que tem o problema de desempenho. 
 
--  Os seguintes sistemas operativos são suportados: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016; Windows 8.1 e Windows 10.
+-  São suportados os seguintes sistemas operativos:
+   * Windows Server 2019
+   * Windows Server 2016
+   * Windows Server 2012 R2
+   * Windows Server 2012
+   * Windows Server 2008 R2
+   * Windows 10
+   * Windows 8.1
+   * Windows 8
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Possíveis problemas quando funciona a ferramenta em VMs de produção
 
@@ -247,7 +255,7 @@ Quando os vestígios ou operações estiverem concluídos, um novo ficheiro apar
 
 ## <a name="review-the-diagnostics-report"></a>Reveja o relatório de diagnósticos
 
-Dentro do ficheiro **PerformanceDiagnostics \_ yyyy-MM-dd \_hh-mm-ss-fff.zip,** pode encontrar um relatório HTML que detalha as conclusões do PerfInsights. Para rever o relatório, expanda o ficheiro **PerformanceDiagnostics \_ yyyy-MM-dd \_hh-mm-ss-fff.zipe,** em seguida, abra o ficheiro **PerfInsights Report.html.**
+Dentro do ficheiro **PerformanceDiagnostics \_ yyyy-MM-dd \_hh-mm-ss-fff.zip, ** pode encontrar um relatório HTML que detalha as conclusões do PerfInsights. Para rever o relatório, expanda o ficheiro **PerformanceDiagnostics \_ yyyy-MM-dd \_hh-mm-ss-fff.zipe,** em seguida, abra o ficheiro **PerfInsights Report.html.**
 
 Selecione o **separador Resultados.**
 
@@ -302,7 +310,7 @@ Diskspd é um gerador de carga de armazenamento e uma ferramenta de teste de des
 
 Xperf é uma ferramenta de linha de comando para capturar vestígios do Conjunto de Ferramentas de Desempenho do Windows. Para mais informações, consulte [o Windows Performance Toolkit – Xperf](/archive/blogs/ntdebugging/windows-performance-toolkit-xperf).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode fazer o upload de registos e relatórios de diagnóstico para o Microsoft Support para posterior revisão. O suporte poderá solicitar que transmita a saída gerada pela PerfInsights para ajudar no processo de resolução de problemas.
 
@@ -312,4 +320,4 @@ A imagem que se segue mostra uma mensagem semelhante à que pode receber:
 
 Siga as instruções na mensagem para aceder ao espaço de trabalho de transferência de ficheiros. Para obter segurança adicional, tem de alterar a sua palavra-passe na primeira utilização.
 
-Depois de iniciar sôs, encontrará uma caixa de diálogo para carregar o ficheiro **performanceDiagnostics \_ yyyy-MM-d \_hh-mm-ss-fff.zipd** que foi recolhido pela PerfInsights.
+Depois de iniciar sôs, encontrará uma caixa de diálogo para carregar o ficheiro **performanceDiagnostics \_ yyyy-MM-d \_hh-mm-ss-fff.zipd ** que foi recolhido pela PerfInsights.

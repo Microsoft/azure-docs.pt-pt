@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: f3a48e4434588b2eb64637e6f0a454148cad39f2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e1cce536a9ec498304cbbc591fc56a0ee1b21b13
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036447"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087274"
 ---
 # <a name="interact-with-the-map"></a>Interaja com o mapa
 
@@ -26,7 +26,7 @@ Jogue com o mapa abaixo e veja os eventos correspondentes do rato realçados à 
 
 <br/>
 
-<iframe height='600' scrolling='no' title='Interagindo com o mapa - eventos de rato' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Pen <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>Interact com o mapa – eventos de rato</a> por Azure Maps ( ) no <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interagindo com o mapa - eventos de rato' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Pen <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>Interact com o mapa – eventos de rato</a> por Azure Maps ( ) no <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="interact-with-map-layers"></a>Interaja com as camadas de mapa
@@ -35,21 +35,21 @@ O código seguinte realça o evento disparado à medida que interage com a Camad
 
 <br/>
 
-<iframe height='600' scrolling='no' title='Interagindo com o mapa - Eventos de Camada' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Pen <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>Interagindo com o mapa – Layer Events</a> by Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interagindo com o mapa - Eventos de Camada' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Pen <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>Interagindo com o mapa – Layer Events</a> by Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="interact-with-html-marker"></a>Interaja com o marcador HTML
 
-O código seguinte adiciona eventos de mapa Javascript a um marcador HTML. Também destaca o nome dos eventos que são disparados à medida que interage com o marcador HTML.
+O código seguinte adiciona eventos de mapa JavaScript a um marcador HTML. Também destaca o nome dos eventos que são disparados à medida que interage com o marcador HTML.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Interagindo com o mapa - eventos de marcador HTML' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Pen <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>Interacting com o mapa - HTML Marker events</a> by Azure Maps ( ) em <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Interagindo com o mapa - eventos de marcador HTML' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Pen <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>Interacting com o mapa - HTML Marker events</a> by Azure Maps ( ) em <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 A tabela que se segue lista todos os eventos de classe de mapas suportados.
 
-| Evento               | Descrição |
+| Evento               | Description |
 |---------------------|-------------|
 | `boxzoomend`        | Disparado quando termina uma interação de "zoom de caixa".|
 | `boxzoomstart`      | Disparado quando uma interação de "zoom de caixa" começa.|
@@ -98,11 +98,11 @@ A tabela que se segue lista todos os eventos de classe de mapas suportados.
 | `sourceremoved`     | Disparado quando um `DataSource` ou é removido do `VectorTileSource` mapa.|
 | `styledata`         | Disparado quando o estilo do mapa é carregado ou muda.|
 | `styleimagemissing` | Disparado quando uma camada tenta carregar uma imagem do sprite de imagem que não existe |
-| `tokenacquired`     | Disparado quando um sinal de acesso AAD é obtido.|
-| `touchcancel`       | Disparado quando um evento de touchcancel ocorre dentro do mapa.|
-| `touchend`          | Disparado quando um evento touchend ocorre dentro do mapa.|
-| `touchmove`         | Disparado quando um evento touchmove ocorre dentro do mapa.|
-| `touchstart`        | Disparado quando um evento touchstart ocorre dentro do mapa.|
+| `tokenacquired`     | Disparado quando um token de acesso do Diretório Ativo Azure é obtido.|
+| `touchcancel`       | Disparado quando um `touchcancel` evento ocorre dentro do mapa.|
+| `touchend`          | Disparado quando um `touchend` evento ocorre dentro do mapa.|
+| `touchmove`         | Disparado quando um `touchmove` evento ocorre dentro do mapa.|
+| `touchstart`        | Disparado quando um `touchstart` evento ocorre dentro do mapa.|
 | `wheel`             | Disparado quando ocorre um evento de roda de rato dentro do mapa.|
 | `zoom`              | Disparado repetidamente durante uma transição animada de um nível de zoom para outro, como resultado da interação do utilizador ou dos métodos.|
 | `zoomend`           | Disparado logo após o mapa completar uma transição de um nível de zoom para outro, como resultado da interação do utilizador ou dos métodos.|

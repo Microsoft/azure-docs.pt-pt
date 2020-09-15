@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: ded2f54379e60e8e3fc26d9c2166930a6f953078
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: ae7e85624f5da06603ddc2675787b84203bc987b
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854866"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087218"
 ---
 # <a name="troubleshooting-azure-digital-twins-alerts"></a>Resolução de problemas Azure Digital Twins: Alertas
 
@@ -31,16 +31,16 @@ Eis como ativar alertas para a sua instância Azure Digital Twins:
 3. Na página *de regras de alerta Create* que se segue, pode seguir as instruções para definir condições, ações a serem desencadeadas e alertar detalhes.     
     * **Os** detalhes do âmbito devem preencher automaticamente com os detalhes para o seu exemplo
     * Você definirá detalhes do grupo **de Condições** e **Ação** para personalizar gatilhos e respostas de alerta
-    * Na secção de detalhes da **regra alerta,** insira o _nome da regra de alerta_, _Descrição (opcional)_. Pode selecionar a _regra de alerta Desativar a_ caixa de verificação de criação se quiser que o alerta fique ativo assim que for criado.
-    * Com base em algumas condições e ações que adiciona, terá de selecionar a _regra de alerta de guardar para o grupo_ de recursos e a _Severidade_ a partir das respetivas reduções.
+    * Na secção de detalhes da **regra alerta,** insira um nome e descrição opcional para a sua regra. Pode selecionar a _regra de alerta Desativar a_ caixa de verificação de criação se quiser que o alerta fique ativo assim que for criado.
+        - É também aqui que seleciona um _grupo de recursos_ e um nível de _Severidade._
 
-4. Selecione Criar o botão _de regra de alerta_ para criar a sua regra de alerta.
+4. Selecione o botão _de regra de alerta Criar_ a sua regra de alerta.
 
-:::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Screenshot mostrando a página 'Criar Regra de Alerta' com secções para âmbito, condição e grupo de ação" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
-
-:::image type="content" source="media/troubleshoot-alerts/alert-rule-details.png" alt-text="Screenshot mostrando a secção de detalhes da regra de alerta de criar uma regra de alerta" lightbox="media/troubleshoot-alerts/alert-rule-details.png":::
+:::image type="content" source="media/troubleshoot-alerts/create-alert-rule.png" alt-text="Screenshot mostrando a página 'Criar Regra de Alerta' com secções para âmbito, condição, grupo de ação e detalhes da regra de alerta" lightbox="media/troubleshoot-alerts/create-alert-rule.png":::
 
 Para uma passagem guiada para preencher estes campos, consulte [*a visão geral dos alertas no Microsoft Azure*](../azure-monitor/platform/alerts-overview.md). Abaixo estão alguns exemplos de como serão os passos para a Azure Digital Twins.
+
+### <a name="select-conditions"></a>Selecione condições
 
 Aqui está um excerto do processo *de condição Select* que ilustra quais os tipos de sinais de alerta disponíveis para as Gémeas Digitais Azure. Nesta página pode filtrar o tipo de sinal e selecionar o sinal que deseja de uma lista.
 
@@ -48,12 +48,13 @@ Aqui está um excerto do processo *de condição Select* que ilustra quais os ti
 
 Depois de selecionar um sinal, ser-lhe-á pedido que configuure a lógica do alerta. Pode filtrar uma dimensão, definir um valor de limiar para o seu alerta e definir a frequência de verificações para a circunstância. Aqui está um exemplo de configuração de um alerta para quando a métrica média de taxa de falha de encaminhamento vai acima de 5%.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Screenshot mostrando a segunda página Configure Signal Logic. A página mostra o histórico de métricas, tem uma área para filtrar sobre uma dimensão como operações de Grade de Eventos, e uma secção para definir lógica de alerta como média é superior a 5":::
- 
-Depois de configurar alertas, eles vão aparecer de volta na página *alertas,* para o seu exemplo.
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Screenshot mostrando a segunda página Configure Signal Logic. A página mostra o histórico de métricas, tem uma área para filtrar sobre uma dimensão como operações de Grade de Eventos, e uma secção para definir lógica de alerta como "média é superior a 5"":::
+
+### <a name="verify-success"></a>Verificar o sucesso
+
+Depois de configurar alertas, eles vão aparecer de volta na página *alertas,* para o seu caso.
  
 :::image type="content" source="media/troubleshoot-alerts/alerts-post.png" alt-text="Screenshot mostrando a página e o botão alertas para adicionar. Há um alerta configurado" lightbox="media/troubleshoot-alerts/alerts-post.png":::
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

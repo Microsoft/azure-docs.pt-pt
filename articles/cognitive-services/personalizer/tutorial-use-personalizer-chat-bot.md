@@ -4,24 +4,24 @@ description: Personalize um bot de chat C# .NET com um loop Personalizer para fo
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ee037632b068b0d8d2f3ed3b6ea7a83d157c5083
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 2d95a6999186b964e59ff8f287d917b1f93e1813
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935658"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089892"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Tutorial: Use personalizar em .NET chat bot
 
 Utilize um bot de chat C# .NET com um loop Personalizer para fornecer o conteúdo correto a um utilizador. Este bot de chat sugere um café ou chá específico para um utilizador. O utilizador pode aceitar ou rejeitar essa sugestão. Isto dá informações personalizadas para ajudar a tornar a próxima sugestão mais apropriada.
 
-**Neste tutorial, vai aprender a:**
+**Neste tutorial, ficará a saber como:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Configurar recursos do Azure
 > * Configurar e executar bot
-> * Interaja com bot usando emulador bot
+> * Interaja com bot usando Bot Framework Emulator
 > * Entenda onde e como o bot usa Personalizer
 
 
@@ -174,7 +174,7 @@ Mantenha o site em funcionamento porque o tutorial explica o que o bot está a f
 
 ## <a name="set-up-the-bot-emulator"></a>Configurar o emulador de bot
 
-1. Abra o Emulador Bot e selecione **Open Bot**.
+1. Abra o Emulador De Estrutura bot e selecione **Open Bot**.
 
     :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Screenshot do ecrã de arranque do emulador de bot.":::
 

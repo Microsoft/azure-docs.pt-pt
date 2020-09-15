@@ -1,6 +1,6 @@
 ---
-title: Dimensionar automaticamente os clusters do Azure HDInsight
-description: Utilize a função Azure HDInsight Autoscale para clusters de escala Apache Hadoop automaticamente
+title: Aglomerados de escala automática Azure HDInsight
+description: Utilize a função Azure HDInsight Autoscale para escalar automaticamente os clusters Apache Hadoop.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 08/21/2020
-ms.openlocfilehash: 4c4b9c60eb967b5791af724e5c15bba887263d44
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 7ce4580b366b57e2a1d4904b6ab63bf1834bdb65
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757868"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090113"
 ---
-# <a name="automatically-scale-azure-hdinsight-clusters"></a>Dimensionar automaticamente os clusters do Azure HDInsight
+# <a name="autoscale-azure-hdinsight-clusters"></a>Aglomerados autoscale Azure HDInsight
 
 A funcionalidade autoescala gratuita da Azure HDInsight pode aumentar ou diminuir automaticamente o número de nós de trabalhadores no seu cluster com base em critérios previamente definidos. Você define um número mínimo e máximo de nós durante a criação do cluster, estabelece os critérios de escala usando um horário diurno ou métricas de desempenho específicas, e a plataforma HDInsight faz o resto.
 
@@ -72,12 +72,12 @@ Para uma escala para baixo, a Autoscale emite um pedido para remover um certo n�
 
 A tabela seguinte descreve os tipos e versões de cluster compatíveis com a função Autoscale.
 
-| Versão | Spark | Hive | LLAP | HBase | Kafka | Tempestade | ML |
+| Versão | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 sem ESP | Yes | Yes | Yes | Sim* | No | No | No |
-| HDInsight 4.0 sem ESP | Yes | Yes | Yes | Sim* | No | No | No |
-| HDInsight 3.6 com ESP | Yes | Yes | Yes | Sim* | No | No | No |
-| HDInsight 4.0 com ESP | Yes | Yes | Yes | Sim* | No | No | No |
+| HDInsight 3.6 sem ESP | Sim | Sim | Sim | Sim* | No | No | No |
+| HDInsight 4.0 sem ESP | Sim | Sim | Sim | Sim* | No | No | No |
+| HDInsight 3.6 com ESP | Sim | Sim | Sim | Sim* | No | No | No |
+| HDInsight 4.0 com ESP | Sim | Sim | Sim | Sim* | No | No | No |
 
 \* Os clusters HBase só podem ser configurados para dimensionamento baseado em horários e não à base de carga.
 
@@ -225,7 +225,7 @@ O estado do cluster listado no portal Azure pode ajudá-lo a monitorizar as ativ
 
 Todas as mensagens de estado do cluster que pode ver são explicadas na lista abaixo.
 
-| Estado do cluster | Descrição |
+| Estado do cluster | Description |
 |---|---|
 | Em Execução | O aglomerado está a funcionar normalmente. Todas as atividades anteriores da Autoscale foram concluídas com sucesso. |
 | Atualização  | A configuração de escala automática do cluster está a ser atualizada.  |
@@ -243,41 +243,43 @@ Selecione **métricas** em **monitorização**. Em seguida, **selecione Adiciona
 
 ![Ativar a métrica de autoescala baseada em horários dos trabalhadores](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
-## <a name="other-considerations"></a>Outras considerações
+## <a name="best-practices"></a>Melhores práticas
 
-### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Considere a latência de operações de escala para cima ou para baixo
+### <a name="consider-the-latency-of-scale-up-and-scale-down-operations"></a>Considere a latência de escala para cima e para baixo operações
 
 Pode levar 10 a 20 minutos para uma operação de escalonamento ser concluída. Ao configurar um horário personalizado, planeie este atraso. Por exemplo, se precisar do tamanho do cluster para ser 20 às 9:00 da manhã, defina o gatilho do horário para uma hora anterior, como 8:30 AM, de modo que a operação de escala esteja concluída até às 9:00 da manhã.
 
-### <a name="preparation-for-scaling-down"></a>Preparação para escalonamento
+### <a name="prepare-for-scaling-down"></a>Prepare-se para escalonar
 
-Durante o processo de dimensionamento do cluster, a Autoscale irá desativar os nós para atingir o tamanho do alvo. Se as tarefas estiverem a ser executadas nesses nós, a Autoscale aguardará até que as tarefas estejam concluídas. Uma vez que cada nó de trabalhador também desempenha um papel no HDFS, os dados temporários serão transferidos para os restantes nós. Então deve certificar-se de que há espaço suficiente nos nós restantes para hospedar todos os dados temporários.
+Durante o processo de dimensionamento do cluster, a Autoscale desativa os nós para atingir o tamanho do alvo. Se as tarefas estiverem a ser executadas nesses nós, a Autoscale aguarda até que as tarefas estejam concluídas. Uma vez que cada nó de trabalhador também desempenha um papel no HDFS, os dados temporários são transferidos para os restantes nós. Certifique-se de que há espaço suficiente nos nós restantes para hospedar todos os dados temporários.
 
 Os trabalhos de corrida continuarão. Os postos de trabalho pendentes aguardarão o agendamento com menos nós de trabalhadores disponíveis.
 
-### <a name="minimum-cluster-size"></a>Tamanho mínimo do cluster
+### <a name="be-aware-of-the-minimum-cluster-size"></a>Esteja atento ao tamanho mínimo do cluster
 
-Não reduza o seu aglomerado para menos de três nós. Escalar o seu cluster para menos de três nós pode resultar em ficar preso em modo de segurança devido a uma replicação de ficheiros insuficiente.  Para obter mais informações, consulte [Ficar preso no modo de segurança.](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode)
+Não reduza o seu aglomerado para menos de três nós. Escalar o seu cluster para menos de três nós pode resultar em ficar preso em modo de segurança devido a uma replicação de ficheiros insuficiente. Para obter mais informações, consulte [ficar preso no modo de segurança.](hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode)
+
+### <a name="increase-the-number-of-mappers-and-reducers"></a>Aumentar o número de mappers e redutores
+
+A autoescala para clusters Hadoop também monitoriza a utilização do HDFS. Se o HDFS estiver ocupado, assume que o cluster ainda precisa dos recursos atuais. Quando há dados maciços envolvidos na consulta, você pode aumentar o número de mappers e redutores para aumentar o paralelismo e acelerar as operações do HDFS. Desta forma, a escala adequada será desencadeada quando houver recursos adicionais. 
+
+### <a name="set-the-hive-configuration-maximum-total-concurrent-queries-for-the-peak-usage-scenario"></a>Desaprote as consultas concurrentas totais da configuração da Colmeia para o cenário de utilização máxima
+
+Eventos de autoescala não alteram a configuração *máxima de consultas concurrentas* totais da colmeia em Ambari. Isto significa que o Serviço Interativo Hive Server 2 pode lidar apenas com o número de consultas simultâneas em qualquer momento, mesmo que a contagem de daemons LLAP seja dimensionada para cima e para baixo com base na carga e no horário. A recomendação geral é definir esta configuração para o cenário de utilização máxima para evitar a intervenção manual.
+
+No entanto, poderá experimentar uma falha de reinício do Hive Server 2 se houver apenas um pequeno número de nós de trabalhadores e o valor para consultas máximas simultâneas é configurado demasiado alto. No mínimo, necessita do número mínimo de nós de trabalhadores que possam acomodar o número dado de Tez Ams (igual à configuração máxima total de consultas simultâneas). 
+
+## <a name="limitations"></a>Limitações
+
+### <a name="node-label-file-missing"></a>Arquivo de etiqueta de nó faltando
+
+HDInsight Autoscale utiliza um ficheiro de etiqueta de nó para determinar se um nó está pronto para executar tarefas. O ficheiro da etiqueta do nó é armazenado em HDFS com três réplicas. Se o tamanho do cluster for drasticamente reduzido e houver uma grande quantidade de dados temporários, há uma pequena chance de que as três réplicas possam ser largadas. Se isto acontecer, o cluster entra num estado de erro.
 
 ### <a name="llap-daemons-count"></a>Contagem de Daemons LLAP
 
-No caso de agrupamentos LLAP habilitados para autoescala, o evento de escala automática para cima/para baixo também escala o número de daemons LLAP para o número de nós de trabalhadores ativos. Mas esta mudança no número de daemões não persiste na **num_llap_nodes** config em Ambari. Se os serviços da Hive forem reiniciados manualmente, então o número de daemons LLAP será reposto de acordo com o config em Ambari.
+No caso de clusters LLAP ativados por autoscae, um evento de escala automática para cima/para baixo também escala o número de daemons LLAP para o número de nós de trabalhadores ativos. A mudança no número de daemons não persiste na `num_llap_nodes` configuração em Ambari. Se os serviços da Hive forem reiniciados manualmente, o número de daemons LLAP é reiniciado de acordo com a configuração em Ambari.
 
-Vamos levar o cenário abaixo:
-1. Um cluster habilitado para a autoescala LLAP é criado com 3 nós de trabalhadores e a autoescala baseada em carga é ativada com nós mínimos de trabalhador como 3 e nós máximos de trabalhador como 10.
-2. Os daemons LLAP contam config de acordo com a configuração LLAP e Ambari é 3, uma vez que o cluster foi criado com 3 nós de trabalhadores.
-3. Em seguida, uma autoescalação é acionada devido à carga no cluster, o cluster é agora dimensionado para 10 nós.
-4. A verificação de autoescalação em execução a intervalos regulares nota que a contagem de daemons LLAP é 3, mas o número de nó de trabalhador ativo é de 10, o processo de autoescalação irá agora aumentar a contagem de daemon LLAP para 10, mas esta alteração não persiste no Ambari Config - num_llap_nodes.
-5. A autoescala está agora desativada.
-6. O cluster conta agora com 10 nós operários e 10 daemons LLAP.
-7. O serviço LLAP é reiniciado manualmente.
-8. Durante o reinício, verifica o num_llap_nodes config na configuração LLAP e nota o valor como 3, pelo que gira 3 instâncias de daemons, mas o número de nóiros é de 10. Há agora um desfasamento entre os dois.
-
-Quando isto acontece, precisamos de alterar manualmente a **configuração num_llap_node (Número de nós(s) para a execução do daemon Hive LLAP) em advanced hive-interactive-env** para corresponder à contagem atual do nó do trabalhador ativo.
-
-**Nota**
-
-Eventos de autoescala não alteram as **consultas concurrentes totais totais da** Hive em Ambari. Isto significa que o Serviço Interativo Hive Server 2 **pode lidar apenas com o número de consultas simultâneas em qualquer momento, mesmo que a contagem de daemons LLAP seja dimensionada para cima e para baixo com base na carga/horário**. A recomendação geral é definir este config para o cenário de utilização máxima para evitar a intervenção manual. No entanto, deve-se estar ciente de que **a fixação de um valor elevado para o máximo total de consultas simultâneas config pode falhar o reinício do serviço hive Server 2 Interactive se o número mínimo de nós de trabalhadores não conseguir acomodar o número determinado de Tez Ams (igual ao Total Máximo Total De consultas conig)**
+Se o serviço LLAP for reiniciado manualmente, é necessário alterar manualmente a `num_llap_node` configuração (o número de nós(s) necessários para executar o daemon Hive LLAP) em *função da colmeia-interactiva-env avançada* para corresponder à contagem atual do nó de trabalhador ativo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

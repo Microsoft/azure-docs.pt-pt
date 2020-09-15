@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: f792820b7b0dff20e647031410ba87ac26c2495a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5021b815da1419052ceb4d6114fbb2bc676fe8d6
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80672962"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088404"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Trabalhar com json e estruturas de dados em consultas de log do Azure Monitor
 
@@ -85,7 +85,7 @@ print hosts_object
 | mvexpand hosts_object.hosts[0]
 ```
 
-![mvexpand](media/json-data-structures/mvexpand.png)
+![A screenshot mostra hosts_0 com valores para localização, estado e taxa.](media/json-data-structures/mvexpand.png)
 
 ### <a name="buildschema"></a>buildschema
 Use `buildschema` para obter o esquema que admite todos os valores de um objeto:
@@ -123,7 +123,7 @@ print hosts_object
 
 ![Construir esquema](media/json-data-structures/buildschema.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte outras lições para a utilização de consultas de registo no Azure Monitor:
 
 - [Operações de cadeia](string-operations.md)

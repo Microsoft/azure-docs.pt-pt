@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: c332b960caf7707953069c5252219ca6c51761a8
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: fd49e922e5952f5a7c4b7f477dd33d6518010428
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007558"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088328"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Resolver problemas da verificação do publicador
 Se não conseguir completar o processo ou estiver a experimentar comportamentos inesperados com [a verificação do editor,](publisher-verification-overview.md)deve começar por fazer o seguinte se estiver a receber erros ou a ver comportamentos inesperados: 
@@ -39,10 +39,10 @@ Abaixo estão algumas questões comuns que podem ocorrer durante o processo.
     1. Se uma conta MPN já existir, esta será reconhecida e você será adicionado à conta 
     1. Navegue para a página de perfil do [parceiro](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) onde o ID MPN e o contacto de conta primária serão listados
 
-- **Não sei quem é o meu administrador global da Azure AD (também conhecido como Administrador da Empresa ou Administrador Inquilino) como é que os encontro? E o Administrador da App, ou um papel de administração diferente?**
+- **Não sei quem é o meu administrador global da Azure AD (também conhecido como Administrador da Empresa ou Administrador Inquilino) como é que os encontro? E o Administrador de Aplicações ou Administrador de Aplicações em Nuvem?**
     1. Inscreva-se no [Portal AD Azure](https://aad.portal.azure.com) usando uma conta de utilizador no principal inquilino da sua organização
     1. Navegar para a [Gestão de Papéis](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)
-    1. Clique em "Administrador Global", ou no papel de administrador desejado
+    1. Clique no papel de administração desejado
     1. A lista de utilizadores designados para que o papel será exibida
 
 - **Eu não sei quem são os administradores para a minha conta MPN** Vá à [página mpn User Management](https://partner.microsoft.com/pcv/users) e filtre a lista de utilizadores para ver quais os utilizadores em várias funções de administração.
@@ -51,22 +51,25 @@ Abaixo estão algumas questões comuns que podem ocorrer durante o processo.
     1. Vá ao perfil do seu [parceiro](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) e verifique se: 
         - O ID da MPN está correto. 
         - Não há erros ou "ações pendentes" mostrados, e o estado de verificação no perfil de negócio legal e informações de Parceiro ambos dizem "autorizado" ou "sucesso".
-    1. Vá à [página de gestão](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) de inquilinos da MPN e confirme que o inquilino em que a app está registada e que está a assinar com uma conta de utilizador de que está na lista de inquilinos associados.
-    1. Vá à [página mpn User Management](https://partner.microsoft.com/pcv/users) e confirme o utilizador em que está a iniciar sessão, tal como é um Administrador Global, MPN Admin ou Administração de Contas.
+    1. Vá à [página de gestão](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) de inquilinos da MPN e confirme que o inquilino em que a app está registada e que está a assinar com uma conta de utilizador de que está na lista de inquilinos associados. Se precisar de adicionar um inquilino adicional, siga as instruções [aqui.](https://docs.microsoft.com/partner-center/multi-tenant-account) Por favor, esteja ciente de que todos os Administradores Globais de qualquer inquilino que adicionar receberão privilégios de Administração Global na sua conta partner Center.
+    1. Vá à [página mpn User Management](https://partner.microsoft.com/pcv/users) e confirme o utilizador em que está a iniciar sessão, tal como é um Administrador Global, MPN Admin ou Administração de Contas. Se precisar de adicionar um utilizador a uma função no Partner Center, siga as instruções [aqui](https://docs.microsoft.com/partner-center/create-user-accounts-and-set-permissions).
 
 - **Quando assino no portal AD Azure, não vejo nenhuma aplicação registada. Porquê?** 
-    Os registos da sua aplicação podem ter sido criados usando uma conta de utilizador diferente, ou num inquilino diferente. Certifique-se de que está inscrito com a conta correta no arrendatário onde foram criados os registos da sua aplicação.
+    Os registos da sua aplicação podem ter sido criados utilizando uma conta de utilizador diferente neste inquilino, uma conta pessoal/consumidor, ou num inquilino diferente. Certifique-se de que está inscrito com a conta correta no arrendatário onde foram criados os registos da sua aplicação.
 
-- **Como é que eu sei quem é o dono de uma aplicação no Azure AD?** 
-    Quando se inscrever num inquilino onde a app está registada, navegue para a lâmina de Registos de Aplicações, clique numa aplicação e, em seguida, clique em Proprietários.
+- **Estou a receber um erro relacionado com a autenticação de vários fatores. O que devo fazer?** 
+    Certifique-se de que [a autenticação multi-factor](../fundamentals/concept-fundamentals-mfa-get-started.md) está ativada e necessária para o utilizador com quem está a iniciar sessão e para este cenário. Por exemplo, o MFA pode ser:
+    - Sempre necessário para o utilizador com quem está a iniciar sessão
+    - [Requerido para a gestão do Azure.](../conditional-access/howto-conditional-access-policy-azure-management.md)
+    - [Requerido para o tipo de administrador](../conditional-access/howto-conditional-access-policy-admin-mfa.md) com o que está a iniciar sessão.
 
 ## <a name="making-microsoft-graph-api-calls"></a>Fazer chamadas API do Microsoft Graph 
 
 Se estiver a ter um problema mas não conseguir perceber porquê, com base no que está a ver na UI, poderá ser útil realizar mais resoluções de problemas utilizando chamadas do Microsoft Graph para executar as mesmas operações que pode realizar no portal De Registo de Aplicações.
 
-A forma mais fácil de fazer estes pedidos é usar [o Graph Explorer.](https://developer.microsoft.com/graph/graph-explorer) Também pode considerar outras opções como usar [o Carteiro,](https://www.postman.com/)ou usar o PowerShell para [invocar um pedido web.](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7)  
+A forma mais fácil de fazer estes pedidos é usar [o Graph Explorer.](https://developer.microsoft.com/graph/graph-explorer) Também pode considerar outras opções como usar [o Carteiro,](https://www.postman.com/)ou usar o PowerShell para [invocar um pedido web.](/powershell/module/microsoft.powershell.utility/invoke-webrequest)  
 
-Pode utilizar o Microsoft Graph tanto para definir como para desmarcar o editor verificado da sua aplicação e verificar o resultado depois de efetuar uma destas operações. O resultado pode ser visto tanto no objeto da [aplicação](/graph/api/resources/application?view=graph-rest-beta) correspondente ao registo da sua app como em quaisquer princípios de serviço que tenham sido [instantâneos](/graph/api/resources/serviceprincipal?view=graph-rest-beta) a partir dessa aplicação. Para obter mais informações sobre a relação entre esses objetos, consulte: [Aplicação e serviço principais objetos no Azure Ative Directory](app-objects-and-service-principals.md).  
+Pode utilizar o Microsoft Graph tanto para definir como para desmarcar o editor verificado da sua aplicação e verificar o resultado depois de efetuar uma destas operações. O resultado pode ser visto tanto no objeto da [aplicação](/graph/api/resources/application) correspondente ao registo da sua app como em quaisquer princípios de serviço que tenham sido [instantâneos](/graph/api/resources/serviceprincipal) a partir dessa aplicação. Para obter mais informações sobre a relação entre esses objetos, consulte: [Aplicação e serviço principais objetos no Azure Ative Directory](app-objects-and-service-principals.md).  
 
 Aqui estão exemplos de alguns pedidos úteis:  
 
@@ -105,7 +108,7 @@ Resposta
 ### <a name="get-verified-publisher-info-from-application"></a>Obtenha informações de Editores Verificados da Aplicação 
  
 ```
-GET https://graph.microsoft.com/beta/applications/0cd04273-0d11-4e62-9eb3-5c3971a7cbec 
+GET https://graph.microsoft.com/v1.0/applications/0cd04273-0d11-4e62-9eb3-5c3971a7cbec 
 
 HTTP/1.1 200 OK 
 
@@ -124,7 +127,7 @@ HTTP/1.1 200 OK
 
 ### <a name="get-verified-publisher-info-from-service-principal"></a>Obtenha informações de editores verificados do diretor de serviço 
 ```
-GET https://graph.microsoft.com/beta/servicePrincipals/010422a7-4d77-4f40-9335-b81ef5c23dd4 
+GET https://graph.microsoft.com/v1.0/servicePrincipals/010422a7-4d77-4f40-9335-b81ef5c23dd4 
 
 HTTP/1.1 200 OK 
 
@@ -183,11 +186,7 @@ Esta capacidade não é suportada num inquilino verificado por e-mail.
 
 ### <a name="nopublisherdomainonapplication"></a>NoPublisherDomainOnApplication   
 
-A aplicação-alvo <AppId> () tem de ter um conjunto de Domínio editor. Desaça um domínio de editor e tente novamente. 
-
-### <a name="publisherdomainisnotdnsverified"></a>PublisherDomainIsNotdNSVerified  
-
-O domínio editor da aplicação-alvo <publisherDomain> não é um domínio verificado neste inquilino. Verifique um domínio do inquilino utilizando a verificação de DNS e tente novamente. 
+A aplicação-alvo \<AppId\> () deve ter um conjunto de Domínio editor. Desaça um domínio de editor e tente novamente.
 
 ### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch  
 
@@ -205,7 +204,7 @@ O ID MPN não foi fornecido no órgão de pedido ou o tipo de conteúdo do pedid
 
 Esta funcionalidade não é suportada para contas de consumidores da Microsoft. Apenas as aplicações registadas no Azure AD por um utilizador AZure AD são suportadas. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver revisto todas as informações anteriores e ainda estiver a receber um erro do Microsoft Graph, recolha o máximo de informações possíveis relacionadas com o pedido de falha e contacte o suporte da [Microsoft.](developer-support-help-options.md#open-a-support-request)
 

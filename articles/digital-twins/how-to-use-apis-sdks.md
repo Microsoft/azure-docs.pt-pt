@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e97db598556d10538746242fa67449631394cd55
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: aac5c937ab2f80dcbe1567a3817b056a6285cf17
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030655"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086679"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
 
@@ -59,7 +59,8 @@ Para utilizar as APIs do plano de dados:
    - pode ver a [documentação de referência do SDK.](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview&preserve-view=true)
    - pode ver informações detalhadas e exemplos de utilização continuando na secção [.NET (C#) SDK (plano de dados)](#net-c-sdk-data-plane) deste artigo.
 * Pode utilizar o **JavaScript** SDK. Para utilizar o JavaScript SDK...
-   - você pode ver e instalar o pacote a partir de npm: [Azure Azure Digital Twins biblioteca cliente para JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1)
+   - pode ver e instalar o pacote a partir de npm: [Biblioteca de clientes Azure Azure Digital Twins para JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1).
+   - pode ver a [documentação de referência do SDK.](https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true)
 * Pode gerar um SDK para outro idioma utilizando o AutoRest. Siga as instruções em [*Como-a-: Crie SDKs personalizados para Gémeos Digitais Azure com AutoRest*](how-to-create-custom-sdks.md).
 
 Também pode exercitar APIs de plano de data interagindo com a Azure Digital Twins através do [CLI](how-to-use-cli.md).
@@ -294,7 +295,7 @@ A partir da página inicial do portal, procure a sua instância Azure Digital Tw
 
 A partir daqui, você pode ver as métricas para o seu exemplo e criar vistas personalizadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como usar as APIs para configurar uma instância e autenticação de Gémeos Digitais Azure:
 * [*Como fazer: Configurar um caso e autenticação*](how-to-set-up-instance-scripted.md)

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: fea2c4fab51db59c9159853e9b0bdaec0bcdbb56
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: a6ee36e3aee515b589f1e460626df91a38f79f25
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009091"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089382"
 ---
 # <a name="create-a-data-source"></a>Criar uma origem de dados
 
@@ -27,7 +27,7 @@ O Azure Maps Web SDK armazena dados em fontes de dados. A utilização de fontes
 
 Uma carga de fonte de dados baseada em GeoJSON e armazena dados localmente usando a `DataSource` classe. Os dados da GeoJSON podem ser criados manualmente ou criados utilizando as classes de ajudantes no espaço de [nomes atlas.data.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) A `DataSource` classe fornece funções para importar ficheiros GeoJSON locais ou remotos. Os ficheiros GeoJSON remotos devem ser alojados num ponto final ativado por CORs. A `DataSource` classe fornece funcionalidade para os dados de ponto de agrupamento. E, os dados podem ser facilmente adicionados, removidos e atualizados com a `DataSource` classe. O código que se segue mostra como os dados da GeoJSON podem ser criados no Azure Maps.
 
-```Javascript
+```javascript
 //Create raw GeoJSON object.
 var rawGeoJson = {
      "type": "Feature",
@@ -56,7 +56,7 @@ map.sources.add(dataSource);
 
 O código que se segue mostra as diferentes formas de adicionar dados da GeoJSON a `DataSource` um .
 
-```Javascript
+```javascript
 //GeoJsonData in the following code can be a single or array of GeoJSON features or geometries, a GeoJSON feature colleciton, or a single or array of atlas.Shape objects.
 
 //Add geoJSON object to data source. 
@@ -213,16 +213,16 @@ map.layers.add([polygonLayer, lineLayer, bubbleLayer]);
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Fonte de Dados](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-maps-typescript-latest)
+> [Fonte de Dados](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource)
 
 > [!div class="nextstepaction"]
-> [Opções DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions?view=azure-maps-typescript-latest)
+> [Opções DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions)
 
 > [!div class="nextstepaction"]
-> [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource?view=azure-maps-typescript-latest)
+> [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource)
 
 > [!div class="nextstepaction"]
-> [Opções VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.vectortilesourceoptions?view=azure-maps-typescript-latest)
+> [Opções VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.vectortilesourceoptions)
 
 Consulte os seguintes artigos para obter mais amostras de código para adicionar aos seus mapas:
 

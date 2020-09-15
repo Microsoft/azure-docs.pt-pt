@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: bfb7c94f1a29eaaf849dbf18a2b6137102617be8
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a9e563f32f2b8f38af7ab86be82cd18ef1c2309c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986853"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088413"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Uma visão geral da Base de Dados Azure SQL e capacidades de segurança de instância gerida sql
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -89,7 +89,7 @@ A SQL Database e a SQL Managed Instance auditing rastreia as atividades da base 
 
 ### <a name="advanced-threat-protection"></a>Proteção Avançada Contra Ameaças
 
-A Advanced Threat Protection está a analisar os seus registos para detetar comportamentos incomuns e tentativas potencialmente nocivas de aceder ou explorar bases de dados. São criados alertas para atividades suspeitas como injeção de SQL, potencial infiltração de dados e ataques de força bruta ou para anomalias nos padrões de acesso para capturar escaladas de privilégios e utilização de credenciais violadas. Os alertas são vistos a partir do Centro de [Segurança do Azure,](https://azure.microsoft.com/services/security-center/)onde são fornecidos os detalhes das atividades suspeitas e recomendações para uma investigação mais aprofundada dada juntamente com ações para mitigar a ameaça. A Proteção Avançada de Ameaças pode ser ativada por servidor por uma taxa adicional. Para obter mais informações, consulte [Começar com a SqL Database Advanced Threat Protection](threat-detection-configure.md).
+A Advanced Threat Protection está a analisar os seus registos para detetar comportamentos incomuns e tentativas potencialmente nocivas de aceder ou explorar bases de dados. São criados alertas para atividades suspeitas como injeção de SQL, potencial infiltração de dados e ataques de força bruta ou para anomalias nos padrões de acesso para capturar escaladas de privilégios e utilização de credenciais violadas. Os alertas são vistos a partir do Centro de  [Segurança do Azure,](https://azure.microsoft.com/services/security-center/)onde são fornecidos os detalhes das atividades suspeitas e recomendações para uma investigação mais aprofundada dada juntamente com ações para mitigar a ameaça. A Proteção Avançada de Ameaças pode ser ativada por servidor por uma taxa adicional. Para obter mais informações, consulte [Começar com a SqL Database Advanced Threat Protection](threat-detection-configure.md).
 
 ![azure-database-td.jpg](./media/security-overview/azure-database-td.jpg)
 
@@ -103,7 +103,7 @@ A BASE de Dados SQL e a SQL Managed Instance impõem sempre encriptação (SSL/T
 
 Como melhor prática, recomende que na cadeia de ligação utilizada pela aplicação, especifique uma ligação encriptada e _**não**_ confie no certificado do servidor. Isto força a sua aplicação a verificar o certificado do servidor e assim impede que a sua aplicação seja vulnerável ao homem nos ataques do tipo médio.
 
-Por exemplo, ao utilizar o ADO.NET controlador, isto é realizado através do **Encrypt=True** and **TrustServerCertificate=False**. Se obtiver o fio de ligação a partir do portal Azure, terá as definições corretas.
+Por exemplo, ao utilizar o ADO.NET controlador, isto é realizado através do  **Encrypt=True** and **TrustServerCertificate=False**. Se obtiver o fio de ligação a partir do portal Azure, terá as definições corretas.
 
 > [!IMPORTANT]
 > Note que alguns controladores não Microsoft podem não utilizar OTS por padrão ou confiar numa versão mais antiga do TLS (<1.2) para funcionar. Neste caso, o servidor ainda lhe permite ligar-se à sua base de dados. No entanto, recomendamos que avalie os riscos de segurança de permitir que tais condutores e aplicações se conectem à Base de Dados SQL, especialmente se armazenar dados sensíveis.
@@ -150,9 +150,9 @@ Para mais informações, consulte [Começar com a descoberta e classificação d
 
 ### <a name="compliance"></a>Conformidade
 
-Além das funcionalidades e funcionalidades acima referidas que podem ajudar a sua aplicação a cumprir vários requisitos de segurança, a Azure SQL Database também participa em auditorias regulares, tendo sido certificada contra uma série de normas de conformidade. Para mais informações, consulte o [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde pode encontrar a lista mais atual de certificações de conformidade da Base de Dados SQL.
+Além das funcionalidades e funcionalidades acima referidas que podem ajudar a sua aplicação a cumprir vários requisitos de segurança, a Azure SQL Database também participa em auditorias regulares, tendo sido certificada contra uma série de normas de conformidade. Para mais informações, consulte o [Microsoft Azure Trust Center](https://www.microsoft.com/trust-center/compliance/compliance-overview) onde pode encontrar a lista mais atual de certificações de conformidade da Base de Dados SQL.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma discussão sobre a utilização de logins, contas de utilizador, funções de base de dados e permissões na Base de Dados SQL e na SQL Managed Instance, consulte [Gerir logins e contas de utilizador.](logins-create-manage.md)
 - Para uma discussão sobre a auditoria da base de dados, consulte [a auditoria.](../../azure-sql/database/auditing-overview.md)

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 9566bcc329b4d148fe9454fe70b556a9010fc4ac
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 8f07ad7ff598445c598ff1d86637856cfd6c8f12
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036475"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087291"
 ---
 # <a name="create-a-map"></a>Criar um mapa
 
@@ -26,7 +26,7 @@ Para carregar um mapa, crie uma nova instância da [classe Map](https://docs.mic
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Carga de mapa básico" src="//codepen.io/azuremaps/embed/rXdBXx/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Carga de mapa básico" src="//codepen.io/azuremaps/embed/rXdBXx/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte a <a href='https://codepen.io/azuremaps/pen/rXdBXx/'>carga do mapa básico</a> da Pen por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -39,7 +39,7 @@ Quando o mapa é ampliado num ecrã largo, várias cópias do mundo aparecerão 
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="renderWorldCopies = falso" src="//codepen.io/azuremaps/embed/eqMYpZ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="renderWorldCopies = falso" src="//codepen.io/azuremaps/embed/eqMYpZ/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte a Pen <a href='https://codepen.io/azuremaps/pen/eqMYpZ/'>renderWorldCopies = falso</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -85,7 +85,7 @@ No código seguinte, é criado um [objeto mapa](https://docs.microsoft.com/javas
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Criar um mapa através de CameraOptions' src='//codepen.io/azuremaps/embed/qxKBMN/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Ver a Caneta <a href='https://codepen.io/azuremaps/pen/qxKBMN/'>Criar `CameraOptions` um mapa através de </a>Azure Location Based Services <a href='https://codepen.io/azuremaps'>@azuremaps</a> () em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Criar um mapa através de CameraOptions' src='//codepen.io/azuremaps/embed/qxKBMN/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Ver a Caneta <a href='https://codepen.io/azuremaps/pen/qxKBMN/'>Criar `CameraOptions` um mapa através de </a>Azure Location Based Services <a href='https://codepen.io/azuremaps'>@azuremaps</a> () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <a id="setCameraBoundsOptions"></a>
@@ -105,7 +105,7 @@ No seguinte código, um [objeto mapa](https://docs.microsoft.com/javascript/api/
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Criar um mapa através de CameraBoundsOptions' src='//codepen.io/azuremaps/embed/ZrRbPg/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Ver a Caneta <a href='https://codepen.io/azuremaps/pen/ZrRbPg/'>Criar `CameraBoundsOptions` um mapa via </a>Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Criar um mapa através de CameraBoundsOptions' src='//codepen.io/azuremaps/embed/ZrRbPg/?height=543&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Ver a Caneta <a href='https://codepen.io/azuremaps/pen/ZrRbPg/'>Criar `CameraBoundsOptions` um mapa via </a>Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ### <a name="animate-map-view"></a>Vista de mapa animado
@@ -125,7 +125,7 @@ No código seguinte, o primeiro bloco de código cria um mapa e define os estilo
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Vista do mapa animado' src='//codepen.io/azuremaps/embed/WayvbO/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Vista <a href='https://codepen.io/azuremaps/pen/WayvbO/'>do Mapa Da Caneta Animate</a> by Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Vista do mapa animado' src='//codepen.io/azuremaps/embed/WayvbO/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte a Vista <a href='https://codepen.io/azuremaps/pen/WayvbO/'>do Mapa Da Caneta Animate</a> by Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="request-transforms"></a>Pedido transforma

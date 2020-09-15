@@ -9,13 +9,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/27/2019
-ms.openlocfilehash: d679dbb7a14767b83d6508e4b1e637584f33210a
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 09/14/2020
+ms.openlocfilehash: 5110f5fd09e360d1435e26312dd2ee2db6891cbb
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949966"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087189"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Compreender os preços do Data Factory através de exemplos
 
@@ -130,9 +130,13 @@ Para realizar o cenário, é necessário criar um oleoduto com os seguintes iten
 
 ## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Usando o fluxo de dados de mapeamento depurado para um dia de trabalho normal
 
-Como Engenheiro de Dados, é responsável por conceber, construir e testar fluxos de dados de mapeamento todos os dias. Inicie sessão no UI ADF de manhã e ative o modo Debug para Fluxos de Dados. O TTL predefinido para sessões de Debug é de 60 minutos. Trabalhas durante 8 horas durante o dia, para que a tua sessão de Debug nunca expire. Portanto, a sua cobrança para o dia será:
+Como Engenheiro de Dados, a Sam é responsável por conceber, construir e testar fluxos de dados de mapeamento todos os dias. Sam entra no UI ADF de manhã e permite o modo Debug para Fluxos de Dados. O TTL predefinido para sessões de Debug é de 60 minutos. O Sam trabalha durante 8 horas durante 8 horas, por isso a sessão do Debug nunca expira. Portanto, as acusações de Sam para o dia serão:
 
 **8 (horas) x 8 (núcleos otimizados por computação) x $0,193 = $12,35**
+
+Ao mesmo tempo, Chris, outro Engenheiro de Dados, também entra no UI do navegador ADF para perfis de dados e trabalhos de design ETL. Chris não trabalha na ADF o dia todo como o Sam. Chris só precisa usar o depurar fluxo de dados por 1 hora durante o mesmo período e no mesmo dia que Sam acima. Estas são as acusações que Chris incorre para o uso de depurg:
+
+**1 (hora) x 8 (núcleos de propósito geral) x $0,274 = $2,19**
 
 ## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Transforme os dados na loja blob com fluxos de dados de mapeamento
 

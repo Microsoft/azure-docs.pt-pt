@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 53089fa42c536cbdc59865f80f63a77c76720e2c
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: bfc1a818aeb85eca04faca713d4c7acbbce3626a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752007"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088498"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quais são os tipos de disco disponíveis no Azure?
 
@@ -23,7 +23,7 @@ A azure gere discos atualmente oferece quatro tipos de disco, cada tipo é direc
 
 A tabela seguinte fornece uma comparação de discos ultra, unidades de estado sólido premium (SSD), SSD padrão e drives de disco rígido padrão (HDD) para discos geridos para ajudá-lo a decidir o que usar.
 
-| Detalhes | Disco Ultra | SSD Premium | SSD Standard | HDD Standard |
+| Detalhe | Disco Ultra | SSD Premium | SSD Standard | HDD Standard |
 | ------ | ---------- | ----------- | ------------ | ------------ |
 |Tipo de disco   |SSD   |SSD   |SSD   |HDD   |
 |Cenário   |Cargas de trabalho intensivas em IO, tais como [SAP HANA,](workloads/sap/hana-vm-operations-storage.md)bases de dados de nível superior (por exemplo, SQL, Oráculo) e outras cargas de trabalho pesadas de transações.   |Cargas de trabalho confidenciais de produção e de desempenho   |Servidores Web, aplicações empresariais pouco utilizadas e dev/test   |Cópia de segurança, acesso pouco frequente e não crítico   |
@@ -71,7 +71,7 @@ Se quiser começar a utilizar discos ultra, consulte o nosso artigo sobre o assu
 
 Os SSDs premium Azure oferecem suporte de disco de alto desempenho e baixa latência para máquinas virtuais (VMs) com cargas de trabalho intensivas de entrada/saída (IO). Para aproveitar a velocidade e desempenho dos discos de armazenamento premium, pode migrar discos VM existentes para SSDs Premium. Os SSDs premium são adequados para aplicações de produção críticas da missão. Os SSDs Premium só podem ser utilizados com séries VM compatíveis com armazenamento premium.
 
-Para saber mais sobre os tipos e tamanhos VM individuais em Azure para Windows ou Linux, incluindo quais os tamanhos compatíveis com armazenamento premium, consulte [tamanhos para máquinas virtuais em Azure](sizes.md). Para saber mais sobre os tipos e tamanhos VM individuais em Azure para o Linux, incluindo quais os tamanhos compatíveis com armazenamento premium, consulte [tamanhos para máquinas virtuais em Azure](sizes.md). A partir de qualquer um desses artigos, você precisa verificar cada artigo de tamanho VM individual para determinar se é compatível com armazenamento premium.
+Para saber mais sobre os tipos e tamanhos VM individuais em Azure para Windows ou Linux, incluindo quais os tamanhos compatíveis com armazenamento premium, consulte [tamanhos para máquinas virtuais em Azure](sizes.md). A partir deste artigo, você precisa verificar cada artigo de tamanho VM individual para determinar se é compatível com armazenamento premium.
 
 ### <a name="disk-size"></a>Tamanho do disco
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]

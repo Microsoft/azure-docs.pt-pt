@@ -3,18 +3,18 @@ title: Diagnosticar e resolver problemas ao utilizar o SDK de .NET do Azure Cosm
 description: Utilize funcionalidades como registo do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e resolver problemas problemas problemas com a Azure Cosmos DB quando utilizar .NET SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 06/16/2020
+ms.date: 09/12/2020
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: bc5af781b86ef559abaf33b0cb027ef14adb4262
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d7ed48354b3666a3ec544ffb66724bc605041c90
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021906"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086992"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticar e resolver problemas ao utilizar o SDK de .NET do Azure Cosmos DB
 
@@ -28,6 +28,7 @@ Este artigo abrange questões comuns, soluções alternativas, passos de diagnó
 O .NET SDK fornece representação lógica do lado do cliente para aceder à AZure Cosmos DB SQL API. Este artigo descreve as ferramentas e abordagens para o ajudar se encontrar problemas.
 
 ## <a name="checklist-for-troubleshooting-issues"></a>Lista de verificação para problemas de resolução de problemas
+
 Considere a seguinte lista de verificação antes de transferir a sua aplicação para a produção. A utilização da lista de verificação evitará várias questões comuns que possa ver. Também pode diagnosticar rapidamente quando ocorre um problema:
 
 *    Utilize o [SDK](sql-api-sdk-dotnet-standard.md)mais recente. Os SDKs de pré-visualização não devem ser utilizados para a produção. Isto evitará que se acertem questões conhecidas que já estão corrigidas.
@@ -54,7 +55,7 @@ A verificação das [métricas](monitor-accounts.md) do portal ajudará a determ
 
 ## <a name="common-error-status-codes"></a>Códigos comuns de estado de erro <a id="error-codes"></a>
 
-| Código de Estado | Descrição | 
+| Código de Estado | Description | 
 |----------|-------------|
 | 400 | Mau pedido (Depende da mensagem de erro)| 
 | 401 | [Não autorizado](troubleshoot-unauthorized.md) | 
@@ -99,10 +100,15 @@ Esta latência pode ter múltiplas causas:
     * Ativar [a rede acelerada numa máquina virtual existente.](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms)
     * Considere usar uma [máquina virtual de extremidade superior.](../virtual-machines/windows/sizes.md)
 
-### <a name="slow-query-performance"></a>Desempenho de consulta lenta
-As [métricas de consulta](sql-api-query-metrics.md) ajudarão a determinar onde a consulta está a passar a maior parte do tempo. Pelas métricas de consulta, pode ver quanto está a ser gasto no back-end vs cliente.
+### <a name="common-query-issues"></a>Questões de consulta comuns
+
+As [métricas de consulta](sql-api-query-metrics.md) ajudarão a determinar onde a consulta está a passar a maior parte do tempo. Pelas métricas de consulta, pode ver quanto está a ser gasto no back-end vs cliente. Saiba mais sobre [o desempenho da consulta de resolução de problemas.](troubleshoot-query-performance.md)
+
 * Se a consulta de back-end voltar rapidamente, e passar um grande tempo no cliente verifique a carga na máquina. É provável que não haja recursos suficientes e o SDK está à espera que os recursos estejam disponíveis para lidar com a resposta.
-* Se a consulta de back-end for lenta tente [otimizar a consulta](optimize-cost-queries.md) e olhar para a política de [indexação](index-overview.md) atual 
+* Se a consulta de back-end for lenta, tente [otimizar a consulta](troubleshoot-query-performance.md) e olhar para a política de [indexação](index-overview.md) atual
+
+    > [!NOTE]
+    > Para um melhor desempenho, recomendamos o processamento do anfitrião windows 64 bits. O SQL SDK inclui uma ServiceInterop.dll nativa para analisar e otimizar consultas localmente. ServiceInterop.dll é suportado apenas na plataforma Windows x64. Para o Linux e outras plataformas não suportadas onde ServiceInterop.dll não esteja disponível, será feita uma chamada adicional de rede para o gateway para obter a consulta otimizada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -13,12 +13,12 @@ ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e2c09bcd43b08778324a32cc052fad5b85714c4
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 15bcb0f7ca30c343072da396abeac8d08dee03a9
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279589"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087014"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Fatores a influenciar o desempenho do Azure AD Connect
 
@@ -41,7 +41,7 @@ O objetivo deste documento é descrever os fatores que influenciam o desempenho 
 
 O diagrama seguinte mostra uma arquitetura de alto nível de motor de provisionamento conectando-se a uma única floresta, embora várias florestas são apoiadas. Esta arquitetura mostra como os vários componentes interagem uns com os outros.
 
-![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
+![O diagrama mostra como os Diretórios Conectados e o motor de provisionamento AD AD Connect interagem, incluindo componentes do Espaço do Conector e metaverso numa base de dados SQL. ](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
 O motor de provisionamento liga-se a cada floresta ative de Diretório e a Azure AD. O processo de leitura de informação de cada diretório chama-se Import. Exportação refere-se à atualização dos diretórios do motor de avisão. O Sync avalia as regras de como os objetos fluirão dentro do motor de provisionamento. Para um mergulho mais profundo, pode consultar a [sincronização Azure AD Connect: Compreender a arquitetura](./concept-azure-ad-connect-sync-architecture.md).
 
@@ -189,5 +189,5 @@ Para otimizar o desempenho da sua implementação Azure AD Connect, considere as
 - Esforce-se para completar o ciclo de sincronização delta em 30 minutos. Se o perfil de sincronização delta não estiver completo em 30 minutos, modifique a frequência de sincronização padrão para incluir um ciclo completo de sincronização delta.
 - Monitorize a sua [saúde de sincronização Azure AD Connect](how-to-connect-health-agent-install.md) em Azure AD.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

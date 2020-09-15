@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 2f8d41c8248ab761c6d781263f3978937ad01e22
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 0daa56c03f2a841d59e73d5f47f67a84370ea972
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004138"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086305"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Utilize o módulo de serviços Azure Maps
 
@@ -160,7 +160,7 @@ O Azure Maps Web SDK fornece um *módulo de serviços.* Este módulo é uma bibl
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Utilização do Módulo de Serviços" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Utilização do Módulo de Serviços" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result&editable=true" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte a caneta <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>Utilizando o Módulo de Serviços</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -191,19 +191,19 @@ Se aceder diretamente aos serviços Azure Maps REST, altere o domínio URL para 
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 
 > [!div class="nextstepaction"]
-> [MapsURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.mapsurl?view=azure-maps-typescript-latest)
+> [MapsURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.mapsurl)
 
 > [!div class="nextstepaction"]
-> [SearchURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-maps-typescript-latest)
+> [SearchURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl)
 
 > [!div class="nextstepaction"]
-> [RouteURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-maps-typescript-latest)
+> [RouteURL](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl)
 
 > [!div class="nextstepaction"]
-> [SubscriçãoKeyCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.subscriptionkeycredential?view=azure-maps-typescript-latest)
+> [SubscriçãoKeyCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.subscriptionkeycredential)
 
 > [!div class="nextstepaction"]
-> [TokenCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.tokencredential?view=azure-maps-typescript-latest)
+> [TokenCredential](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.tokencredential)
 
 Para obter mais amostras de código que utilizem o módulo de serviços, consulte estes artigos:
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 09/14/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0313c27666cda785b24f23436f6ad727f337ca8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a9020e364a5c8d7a59dad5549e88036dc9edaad7
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89259358"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089671"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidade do dispositivo e virtualização do ambiente de trabalho
 
@@ -52,12 +52,12 @@ Antes de configurar as identidades do dispositivo em Azure AD para o seu ambient
 |   |   | Corrente do Windows | Não Persistente | Sim<sup>5</sup> |
 |   |   | Dispositivos Windows de nível inferior | Não Persistente | Sim<sup>6</sup> |
 |   | Gerido<sup>4</sup> | Windows current e Windows down-level | Persistente | Sim |
-|   |   | Corrente do Windows | Não Persistente | Não |
+|   |   | Corrente do Windows | Não Persistente | No |
 |   |   | Dispositivos Windows de nível inferior | Não Persistente | Sim<sup>6</sup> |
-| Azure AD associado | Federados | Corrente do Windows | Persistente | Não |
-|   |   |   | Não Persistente | Não |
-|   | Gerido | Corrente do Windows | Persistente | Não |
-|   |   |   | Não Persistente | Não |
+| Azure AD associado | Federados | Corrente do Windows | Persistente | No |
+|   |   |   | Não Persistente | No |
+|   | Gerido | Corrente do Windows | Persistente | No |
+|   |   |   | Não Persistente | No |
 | Azure AD registado | Federado/Gerido | Windows corrente/Windows para baixo nível | Persistente/Não Persistente | Não Aplicável |
 
 <sup>1</sup> Os dispositivos **atuais do Windows** representam o Windows 10, o Windows Server 2016 e o Windows Server 2019.

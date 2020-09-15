@@ -7,15 +7,15 @@ manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 04/22/2020
+ms.date: 09/14/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1c8d1af9bcea6b5e0e43a8928cbcdd907f2fb534
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: bc25a2ada3052689bc9dc4585c238fe19cb2a341
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069038"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087402"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurar firewalls de cofre de chaves Azure e redes virtuais
 
@@ -27,7 +27,6 @@ Este artigo fornece instruções passo a passo para configurar firewalls E redes
 > [!NOTE]
 > Esteja atento às seguintes limitações de configuração:
 > * São permitidas regras de rede virtual no máximo 127 e 127 regras IPv4. 
-> * Não são suportadas pequenas gamas de endereços que utilizem o tamanho do prefixo "/31". Em vez disso, configura estas gamas utilizando regras de endereço IP individuais.
 > * As regras da rede IP só são permitidas para endereços IP públicos. Os intervalos de endereços IP reservados para redes privadas (tal como definido no RFC 1918) não são permitidos nas regras de IP. As redes privadas incluem endereços **172.16-31**que começam com **10.** **192.168.** 
 > * Apenas os endereços IPv4 são suportados neste momento.
 

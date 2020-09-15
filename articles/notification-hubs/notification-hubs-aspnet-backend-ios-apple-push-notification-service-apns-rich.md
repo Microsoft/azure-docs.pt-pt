@@ -5,58 +5,57 @@ documentationcenter: ios
 services: notification-hubs
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 590304df-c0a4-46c5-8ef5-6a6486bb3340
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/17/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d47974554534a0614eb98b473c1e5539ff4d9aa
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 33626b7aee615d07ef88dd9fbca46e6512e2cafc
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018013"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090368"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure Notification Hubs Rich Push
 
 ## <a name="overview"></a>Descrição geral
 
-Para envolver os utilizadores com conteúdos instantâneos e ricos, uma aplicação pode querer ir além do texto simples. Estas notificações promovem interações de utilizadores e apresentam conteúdos como urls, sons, imagens/cupões, entre outros. Este tutorial baseia-se no tópico ['Notificar utilizadores'](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) e mostra como enviar notificações push que incorporam cargas útil (por exemplo, imagem).
+Para envolver os utilizadores com conteúdos instantâneos e ricos, uma aplicação pode querer ir além do texto simples. Estas notificações promovem interações de utilizadores e apresentam conteúdos como URLs, sons, imagens/cupões, entre outros. Este tutorial baseia-se no tutorial de [Notificação dos Utilizadores](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) e mostra como enviar notificações push que incorporam cargas (por exemplo, imagens).
 
-Este tutorial é compatível com o iOS 7 & 8.
+Este tutorial é compatível com iOS 7 e 8.
 
   ![Três imagens: um ecrã de aplicação com um botão Enviar, um ecrã inicial num dispositivo e um logótipo do Windows com um botão Back.][IOS1]
 
 A um nível elevado:
 
 1. O backend da aplicação:
-   * Armazena a carga útil rica (neste caso, imagem) na base de dados de backend/armazenamento local
-   * Envia ID desta rica notificação para o dispositivo
+   * Armazena a carga útil rica (neste caso, imagem) na base de dados de backend/armazenamento local.
+   * Envia identificação desta rica notificação para o dispositivo.
 2. Aplicação no dispositivo:
-   * Contacta o backend solicitando a carga útil rica com o ID que recebe
-   * Envia notificações dos utilizadores no dispositivo quando a recuperação de dados está completa, e mostra a carga útil imediatamente quando os utilizadores tocam para saber mais
+   * Contacta o backend solicitando a carga útil rica com o ID que recebe.
+   * Envia notificações dos utilizadores no dispositivo quando a recuperação de dados está completa, e mostra a carga útil imediatamente quando os utilizadores tocam para saber mais.
 
 ## <a name="webapi-project"></a>Projeto WebAPI
 
 1. No Visual Studio, abra o projeto **AppBackend** que criou no tutorial [de Notifica users.](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
 2. Obtenha uma imagem com a quais gostaria de notificar os utilizadores e colocá-la numa pasta **img** no seu diretório de projeto.
 3. Clique em **Mostrar Todos os Ficheiros** no Explorador de Solução e clique com o botão direito na pasta para **Incluir no Projeto**.
-4. Com a imagem selecionada, altere a sua janela Build Action in Properties para **o Recurso Incorporado.**
+4. Com a imagem selecionada, altere a sua **Build Action** na janela **Propriedades** para o **Recurso Incorporado.**
 
     ![Screenshot do Solution Explorer. O ficheiro de imagem é selecionado e, no seu painel de propriedades, o recurso incorporado é listado como ação de construção.][IOS2]
-5. Em `Notifications.cs` , adicione a seguinte declaração de utilização:
+5. Em `Notifications.cs` , adicione a seguinte `using` declaração:
 
     ```csharp
     using System.Reflection;
     ```
-6. Atualize toda a `Notifications` classe com o seguinte código. Certifique-se de substituir os espaços reservados pelas credenciais do seu centro de notificação e nome de ficheiro de imagem.
+
+6. Substitua a `Notifications` classe pelo seguinte código. Certifique-se de substituir os espaços reservados pelas credenciais do seu centro de notificação e nome de ficheiro de imagem:
 
     ```csharp
     public class Notification {
@@ -103,10 +102,7 @@ A um nível elevado:
     }
     ```
 
-   > [!NOTE]
-   > (opcional) Consulte como [incorporar e aceder aos recursos utilizando o Visual C#](https://support.microsoft.com/kb/319292) para obter mais informações sobre como adicionar e obter recursos do projeto.
-
-7. Em `NotificationsController.cs` , redefinir 'NotificationsController com os seguintes cortes. Isto envia um id de notificação silenciosa e silencioso para o dispositivo e permite a recuperação da imagem do lado do cliente:
+7. Em `NotificationsController.cs` , redefinir com o seguinte `NotificationsController` código. Isto envia um ID de notificação silenciosa e silencioso para o dispositivo e permite a recuperação da imagem do lado do cliente:
 
     ```csharp
     // Return http response with image binary
@@ -137,42 +133,46 @@ A um nível elevado:
         return Request.CreateResponse(HttpStatusCode.OK);
     }
     ```
-8. Agora vamos re-implantar esta aplicação para um Website Azure de forma a torná-la acessível a partir de todos os dispositivos. Clique com o botão direito do rato no projeto **AppBackend** e selecione **Publicar**.
-9. Selecione o Website Azure como o seu alvo de publicação. Faça login com a sua conta Azure e selecione um Website existente ou novo, e tome nota da propriedade URL de **destino** no separador **Ligação.** Vamos referir-nos a este URL como o seu ponto final de *backend* mais tarde neste tutorial. Clique em **Publish** (Publicar).
+
+8. Agora, re-implementar esta aplicação para um Website Azure de forma a torná-la acessível a partir de todos os dispositivos. Clique com o botão direito do rato no projeto **AppBackend** e selecione **Publicar**.
+9. Selecione **o Website Azure** como o seu alvo de publicação. Faça sôr-se com a sua conta Azure e selecione um Website existente ou novo, e tome nota da propriedade URL de **destino** no separador **'Ligação'.** Referimo-nos a este URL como o seu ponto final de *backend* mais tarde neste tutorial. Selecione **Publicar**.
 
 ## <a name="modify-the-ios-project"></a>Modifique o projeto iOS
 
-Agora que modificou o seu backend da app para enviar apenas o *id* de uma notificação, irá alterar a sua aplicação iOS para lidar com esse id e recuperar a mensagem rica do seu backend.
+Agora que modificou o seu backend da app para enviar apenas o *ID* de uma notificação, altere a sua aplicação iOS para lidar com esse ID e recupere a mensagem rica do seu backend:
 
 1. Abra o seu projeto iOS e permita notificações remotas indo para o seu alvo principal de aplicação na secção **Alvos.**
-2. Clique em **Capabilities,** ligue os **modos de fundo**e verifique a caixa **de verificação de Notificações Remotas.**
+2. Selecione **Capabilites**, ative **os modos de fundo**e verifique a caixa de **verificação de Notificações Remotas.**
 
     ![Screenshot do projeto iOS mostrando o ecrã Capabilities. Os modos de fundo estão ligados e a caixa de verificação de notificações remotas é selecionada.][IOS3]
-3. Abra `Main.storyboard` , e certifique-se de que tem um Controlador de Visualização (referido como Controlador de Visualização Doméstica neste tutorial) a partir do tutorial do [Utilizador notificado.](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
-4. Adicione um **Controlador de Navegação** ao seu storyboard e faça o control-drag para o Controlador home view para torná-lo a **visão raiz** da navegação. Certifique-se de que o **controlador de visualização inicial** em Atributos é selecionado apenas para o Controlador de Navegação.
-5. Adicione um **Controlador de visualização** ao storyboard e adicione uma **visualização de imagem**. Esta é a página que os utilizadores verão assim que optarem por saber mais clicando na notificação. O seu storyboard deve parecer o seguinte:
+3. Abra `Main.storyboard` , e certifique-se de que tem um Controlador de Visualização (designado controlador de visualização doméstica neste tutorial) do tutorial do [Utilizador notificado.](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
+4. Adicione um **Controlador de Navegação** ao seu storyboard e arraste o controlador home view para torná-lo a **visão principal** da navegação. Certifique-se de que o **controlador de visualização inicial** no inspetor Atributos é selecionado apenas para o Controlador de Navegação.
+5. Adicione um **controlador de visualização** ao storyboard e adicione uma **visualização de imagem**. Esta é a página que os utilizadores verão assim que optarem por saber mais clicando na notificação. O seu storyboard deve parecer o seguinte:
 
     ![Imagem de um storyboard. Três ecrãs de aplicativos são visíveis: uma vista de navegação, uma vista de casa e uma vista de imagem.][IOS4]
-6. Clique no **Controlador home view** no storyboard e certifique-se de que tem **homeViewController** como o seu **ID de classe personalizada** e **storyboard** sob o inspetor de identidade.
-7. Faça o mesmo para o Controlador de Visualização de Imagem como **imageViewController**.
-8. Em seguida, crie uma nova classe de Controlador de Visualização intitulada **ImagemViewController** para lidar com o UI que acabou de criar.
-9. Em **imageViewController.h,** adicione o seguinte às declarações de interface do controlador. Certifique-se de controlar o arrastar da vista de imagem do storyboard para estas propriedades para ligar as duas:
+6. Clique no **Controlador de Visualização Doméstica** no storyboard e certifique-se de que tem **homeViewController** como o seu **ID de classe personalizada** e **storyboard** sob o inspetor de identidade.
+7. Faça o mesmo para o Controlador de Visualização de Imagem, como **imageViewController**.
+8. Em seguida, crie uma nova classe de Controlador de Visualização chamada **imageViewController** para lidar com o UI que acabou de criar.
+9. Em **imageViewController.h,** adicione o seguinte código às declarações de interface do controlador. Certifique-se de controlar o arrastar da vista de imagem do storyboard para estas propriedades para ligar as duas:
 
     ```objc
     @property (weak, nonatomic) IBOutlet UIImageView *myImage;
     @property (strong) UIImage* imagePayload;
     ```
+
 10. In `imageViewController.m` , adicione o seguinte no final `viewDidload` de:
 
     ```objc
     // Display the UI Image in UI Image View
     [self.myImage setImage:self.imagePayload];
     ```
+
 11. Em `AppDelegate.m` , importe o controlador de imagem que criou:
 
     ```objc
     #import "imageViewController.h"
     ```
+
 12. Adicione uma secção de interface com a seguinte declaração:
 
     ```objc
@@ -190,6 +190,7 @@ Agora que modificou o seu backend da app para enviar apenas o *id* de uma notifi
 
     @end
     ```
+
 13. Em `AppDelegate` , certifique-se de que a sua aplicação regista as notificações silenciosas em `application: didFinishLaunchingWithOptions` :
 
     ```objc
@@ -234,7 +235,7 @@ Agora que modificou o seu backend da app para enviar apenas o *id* de uma notifi
     return YES;
     ```
 
-14. Substitua na seguinte implementação `application:didRegisterForRemoteNotificationsWithDeviceToken` para ter em conta as alterações da UI no storyboard:
+14. Substitua a seguinte implementação `application:didRegisterForRemoteNotificationsWithDeviceToken` para ter em conta as alterações da UI no storyboard:
 
     ```objc
     // Access navigation controller which is at the root of window
@@ -243,6 +244,7 @@ Agora que modificou o seu backend da app para enviar apenas o *id* de uma notifi
     homeViewController *hvc = (homeViewController *)[nc.viewControllers objectAtIndex:0];
     hvc.deviceToken = deviceToken;
     ```
+
 15. Em seguida, adicione os seguintes métodos `AppDelegate.m` para recuperar a imagem do seu ponto final e enviar uma notificação local quando a recuperação estiver completa. Certifique-se de substituir o espaço reservado `{backend endpoint}` pelo seu ponto final de backend:
 
     ```objc
@@ -324,7 +326,8 @@ Agora que modificou o seu backend da app para enviar apenas o *id* de uma notifi
         // Add "else if" here to handle more types of rich content such as url, sound files, etc.
     }
     ```
-16. Manuseie a notificação local acima, abrindo o controlador de visualização de imagem `AppDelegate.m` com os seguintes métodos:
+
+16. Manuseie a notificação local anterior abrindo o controlador de visualização de imagem `AppDelegate.m` com os seguintes métodos:
 
     ```objc
     // Helper: redirect users to image view controller

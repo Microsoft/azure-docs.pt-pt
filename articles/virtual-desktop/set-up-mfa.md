@@ -3,15 +3,15 @@ title: Configurar a autenticação multi-factor Azure para o Windows Virtual Des
 description: Como configurar a autenticação multi-factor Azure para uma maior segurança no Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e8e723aa26ab08c8a09e75f506802101dc07f7e8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e31693eafcf32de1460cfa5b74ae35ffd05b5a67
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017787"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089926"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Ativar o Multi-Factor Authentication do Microsoft Azure para o Windows Virtual Desktop
 
@@ -48,10 +48,19 @@ Eis como criar uma política de acesso condicional que requer autenticação de 
 7. Selecione **Concluído**.
 8. Em **aplicativos ou ações cloud**  >  **Inclua**, **selecione apps Select**.
 9. Selecione uma das seguintes aplicações com base na versão do Windows Virtual Desktop que está a utilizar.
-   - Se estiver a utilizar o Windows Virtual Desktop (clássico), escolha esta aplicação:
+   
+   - Se estiver a utilizar o Windows Virtual Desktop (clássico), escolha estas aplicações:
+       
        - **Windows Virtual Desktop** (App ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
+       - **Cliente virtual do Windows Desktop** (App ID fa4345a4-a730-4230-84a8-7d9651b86739), que lhe permitirá definir políticas no cliente web
+       
+        Depois disso, avance para o passo 11.
+
    - Se estiver a utilizar o Windows Virtual Desktop, escolha esta aplicação em vez disso:
+       
        -  **Windows Virtual Desktop** (App ID 9cdead84-a844-4324-93f2-b2e6bb768d07)
+       
+        Depois disso, vai para o passo 10.
 
    >[!IMPORTANT]
    > Não selecione a aplicação chamada Fornecedor de Gestor de Recursos Virtual Desktop Azure (50e95039-b200-4007-bc97-8d5790743a63). Esta aplicação é usada apenas para recuperar o feed do utilizador e não deve ter MFA.

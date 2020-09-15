@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 9a54ef02677c657d9a86507370344dd335fd497c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a1194b65f7f2cbd79ec5744d92ab65154305f7c1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287006"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086220"
 ---
 # <a name="add-controls-to-a-map"></a>Adicionar controlos a um mapa
 
@@ -35,7 +35,7 @@ Abaixo está a amostra completa do código de execução da funcionalidade acima
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Adicionar um controlo de zoom' src='//codepen.io/azuremaps/embed/WKOQyN/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Ver a Caneta <a href='https://codepen.io/azuremaps/pen/WKOQyN/'>Adicionando um controlo de zoom</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adicionar um controlo de zoom' src='//codepen.io/azuremaps/embed/WKOQyN/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Ver a Caneta <a href='https://codepen.io/azuremaps/pen/WKOQyN/'>Adicionando um controlo de zoom</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="add-pitch-control"></a>Adicione o controlo do tom
@@ -53,7 +53,7 @@ Abaixo está a amostra completa do código de execução da funcionalidade acima
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Adicionar um controlo de arremesso' src='//codepen.io/azuremaps/embed/xJrwaP/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Ver a Caneta <a href='https://codepen.io/azuremaps/pen/xJrwaP/'>Adicionando um controlo de tom</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adicionar um controlo de arremesso' src='//codepen.io/azuremaps/embed/xJrwaP/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Ver a Caneta <a href='https://codepen.io/azuremaps/pen/xJrwaP/'>Adicionando um controlo de tom</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="add-compass-control"></a>Adicionar controlo de bússola
@@ -71,7 +71,7 @@ Abaixo está a amostra completa do código de execução da funcionalidade acima
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Adicionar um controlo rotativo' src='//codepen.io/azuremaps/embed/GBEoRb/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Ver a caneta <a href='https://codepen.io/azuremaps/pen/GBEoRb/'>Adicionar um controlo rotativo</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adicionar um controlo rotativo' src='//codepen.io/azuremaps/embed/GBEoRb/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Ver a caneta <a href='https://codepen.io/azuremaps/pen/GBEoRb/'>Adicionar um controlo rotativo</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="a-map-with-all-controls"></a>Um mapa com todos os controlos
@@ -93,7 +93,7 @@ A amostra de código a seguir adiciona os controlos de zoom, bússola, pitch e e
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Um mapa com todos os controlos' src='//codepen.io/azuremaps/embed/qyjbOM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte o mapa Pen <a href='https://codepen.io/azuremaps/pen/qyjbOM/'>A com todos os controlos</a> de Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Um mapa com todos os controlos' src='//codepen.io/azuremaps/embed/qyjbOM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte o mapa Pen <a href='https://codepen.io/azuremaps/pen/qyjbOM/'>A com todos os controlos</a> de Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 O controlo de picker de estilo é definido pela classe [StyleControl.](/javascript/api/azure-maps-control/atlas.control.stylecontrol) Para obter mais informações sobre a utilização do controlo de picker de estilo, consulte [escolher um estilo de mapa](choose-map-style.md).
@@ -104,7 +104,7 @@ Aqui está uma ferramenta para testar as várias opções para personalizar os c
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="Opções de controlo de navegação" src="//codepen.io/azuremaps/embed/LwBZMx/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="700" style="width: 100%;" scrolling="no" title="Opções de controlo de navegação" src="//codepen.io/azuremaps/embed/LwBZMx/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte as opções de <a href='https://codepen.io/azuremaps/pen/LwBZMx/'>controlo de navegação de</a> canetas por Azure Maps ( ) no <a href='https://codepen.io/azuremaps'>@azuremaps</a> <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

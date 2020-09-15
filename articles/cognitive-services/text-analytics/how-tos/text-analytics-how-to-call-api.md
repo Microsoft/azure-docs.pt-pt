@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: c6fbec35920c8afd08ab60fc380c9f816ae599b0
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: fec85a03b74155b5b18145bfaddc5d326c910bc9
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561013"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087308"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API de Sms Analytics REST
 
@@ -59,10 +59,10 @@ O serviço aceita pedido até 1 MB de tamanho. Se estiver a utilizar o Carteiro 
 
    Os pontos finais de recursos são os seguintes (a sua região pode variar):
 
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v3.0/sentiment`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v3.0/keyPhrases`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v3.0/languages`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v3.0/entities/recognition/general`
 
 2. Desa estação os três cabeçalhos de pedido:
 
@@ -80,9 +80,9 @@ O serviço aceita pedido até 1 MB de tamanho. Se estiver a utilizar o Carteiro 
 
 5. Cole em alguns documentos JSON num formato válido para a análise pretendida. Para obter mais informações sobre uma análise específica, consulte os tópicos abaixo:
 
-  + [Deteção linguística](text-analytics-how-to-language-detection.md)  
-  + [Extração de frase-chave](text-analytics-how-to-keyword-extraction.md)  
-  + [Análise de sentimento](text-analytics-how-to-sentiment-analysis.md)  
+  + [Deteção de idioma](text-analytics-how-to-language-detection.md)  
+  + [Extração de expressões-chave](text-analytics-how-to-keyword-extraction.md)  
+  + [Análise de sentimentos](text-analytics-how-to-sentiment-analysis.md)  
   + [Reconhecimento de entidades](text-analytics-how-to-entity-linking.md)  
 
 
@@ -90,7 +90,7 @@ O serviço aceita pedido até 1 MB de tamanho. Se estiver a utilizar o Carteiro 
 
    No Carteiro, a resposta é exibida na janela seguinte para baixo, como um único documento JSON, com um item para cada documento ID fornecido no pedido.
 
-## <a name="see-also"></a>Ver também 
+## <a name="see-also"></a>Veja também 
 
  [Visão geral da análise de texto](../overview.md)  
  [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)

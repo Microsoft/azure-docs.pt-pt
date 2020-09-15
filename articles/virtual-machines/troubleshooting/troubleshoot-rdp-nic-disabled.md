@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 6bce1616ce0c7f7e42810a551acb2f02165ccf93
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0e79efc9de43fc0a3044e9ae1e3959f63bb6e69f
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078634"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090273"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Não é possível um ambiente de trabalho remoto para um VM porque a interface de rede está desativada
 
@@ -28,6 +28,11 @@ Este artigo explica como resolver um problema no qual não é possível fazer um
 
 Não é possível escoar uma ligação RDP ou qualquer outro tipo de ligação a quaisquer outras portas a um VM em Azure porque a interface de rede no VM está desativada.
 
+![Screenshot que mostra um VM no qual a interface de rede está desligada.](./media/troubleshoot-rdp-nic-disabled/disconnected.png)
+
+![Screenshot que mostra um VM no qual a interface de rede é desativada.](./media/troubleshoot-rdp-nic-disabled/disabled.png)
+
+
 ## <a name="solution"></a>Solução
 
 Antes de seguir estes passos, tire uma foto do disco de SO do VM afetado como cópia de segurança. Para mais informações, consulte [Snapshot um disco](../windows/snapshot-copy-managed-disk.md).
@@ -36,8 +41,7 @@ Para ativar a interface para o VM, utilize o controlo de série ou [reinicie](#r
 
 ### <a name="use-serial-control"></a>Utilizar o controlo em série
 
-1. Ligue-se à [Consola em Série e abra a instância CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). Se a Consola em Série não estiver ativada no seu VM, consulte [a interface de rede de reset](#reset-network-interface).
+1. Ligue-se à [Consola em Série e abra a instância CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Se a Consola em Série não estiver ativada no seu VM, consulte [a interface de rede de reset](#reset-network-interface).
 2. Verifique o estado da interface da rede:
 
     ```console

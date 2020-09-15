@@ -4,25 +4,23 @@ description: Saiba como enviar notificações para utilizadores específicos com
 documentationcenter: windows
 author: sethmanheim
 manager: femila
-editor: jwargo
 services: notification-hubs
-ms.assetid: 012529f2-fdbc-43c4-8634-2698164b5880
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.custom: mvc, devx-track-csharp
-ms.date: 03/22/2019
+ms.custom: mvc
+ms.date: 08/17/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: 865aaf748fd8fad5f10350cb5b57d31b3eadf7a0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 97a6a45ab01fc113b79a48ba7fcb246d528684be
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018047"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090062"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Tutorial: enviar notificações para utilizadores específicos com Hubs de Notificação do Azure
 
@@ -30,7 +28,7 @@ ms.locfileid: "89018047"
 
 ## <a name="overview"></a>Descrição geral
 
-Este tutorial mostra-lhe como utilizar os Hubs de Notificação do Azure para enviar notificações push para um utilizador específico da aplicação num dispositivo específico. Um back-end de ASP.NET WebAPI é utilizado para autenticar clientes. Quando o back-end autentica um utilizador de aplicação de cliente, adiciona automaticamente uma etiqueta ao registo de notificação. O back-end utiliza esta etiqueta para enviar notificações para o utilizador específico.
+Este tutorial descreve como usar os Hubs de Notificação Azure para enviar notificações push a um utilizador de aplicações específicas num dispositivo específico. Um back-end de ASP.NET WebAPI é utilizado para autenticar clientes. Quando o back-end autentica um utilizador de aplicação de cliente, adiciona automaticamente uma etiqueta ao registo de notificação. O back-end utiliza esta etiqueta para enviar notificações para o utilizador específico.
 
 > [!NOTE]
 > O código completo para este tutorial pode ser encontrado no [GitHub.](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers)
@@ -66,7 +64,7 @@ Nesta secção, atualize o código no projeto que concluiu no [Tutorial: enviar 
 5. Na lista de resultados, clique em **System.Net.Http** e clique em **Instalar**. Conclua a instalação.
 6. Na caixa **Procurar** no NuGet, escreva **Json.net**. Instale o pacote **Newtonsoft.json** e, em seguida, feche a janela Gestor de Pacote NuGet.
 7. No Explorador de Soluções, no projeto **WindowsApp**, faça duplo clique em **MainPage.xaml** para o abrir no editor do Visual Studio.
-8. No `MainPage.xaml` código XML, substitua a `<Grid>` secção pelo seguinte código: Este código adiciona um nome de utilizador e caixa de texto de palavra-passe com o que o utilizador autentica. Adiciona ainda caixas de texto para a mensagem de notificação e a etiqueta de nome de utilizador que deve receber a notificação:
+8. No `MainPage.xaml` ficheiro, substitua a `<Grid>` secção pelo seguinte código: Este código adiciona um nome de utilizador e caixa de texto de palavra-passe com o que o utilizador autentica. Adiciona ainda caixas de texto para a mensagem de notificação e a etiqueta de nome de utilizador que deve receber a notificação:
 
     ```xml
     <Grid>
@@ -118,6 +116,7 @@ Nesta secção, atualize o código no projeto que concluiu no [Tutorial: enviar 
         </StackPanel>
     </Grid>
     ```
+
 9. No Solution Explorer, abra o `MainPage.xaml.cs` ficheiro para os projetos **(Windows 8.1)** e **Windows Phone 8.1.** Adicione as seguintes declarações `using` na parte superior dos ficheiros:
 
     ```csharp
@@ -128,11 +127,13 @@ Nesta secção, atualize o código no projeto que concluiu no [Tutorial: enviar 
     using Windows.UI.Popups;
     using System.Threading.Tasks;
     ```
+
 10. Para `MainPage.xaml.cs` o projeto **WindowsApp,** adicione o seguinte membro à `MainPage` classe. Certifique-se de que substitui o `<Enter Your Backend Endpoint>` pelo ponto final de back-end real obtido anteriormente. Por exemplo, `http://mybackend.azurewebsites.net`.
 
     ```csharp
     private static string BACKEND_ENDPOINT = "<Enter Your Backend Endpoint>";
     ```
+
 11. Adicione o código abaixo à classe MainPage `MainPage.xaml.cs` para os projetos **(Windows 8.1)** e **(Windows Phone 8.1).**
 
     O método `PushClick` é o processador de cliques do botão **Enviar Notificação Push**. Chama o back-end para acionar uma notificação para todos os dispositivos com uma etiqueta de nome de utilizador que corresponde ao parâmetro `to_tag`. A mensagem de notificação é enviada como conteúdo JSON no corpo do pedido.
@@ -215,13 +216,15 @@ Nesta secção, atualize o código no projeto que concluiu no [Tutorial: enviar 
         ApplicationData.Current.LocalSettings.Values["AuthenticationToken"] = token;
     }
     ```
-12. Abra `App.xaml.cs` e encontre a chamada para o manipulador de `InitNotificationsAsync()` `OnLaunched()` eventos. Comente ou elimine a chamada para `InitNotificationsAsync()`. O processador de botões inicia os registos de notificações.
+
+12. Abra `App.xaml.cs` e encontre a chamada para o manipulador de `InitNotificationsAsync()` `OnLaunched()` eventos. Comente ou elimine a chamada para `InitNotificationsAsync()`. O manipulador de botões inicializa os registos de notificação:
 
     ```csharp
     protected override void OnLaunched(LaunchActivatedEventArgs e)
     {
         //InitNotificationsAsync();
     ```
+
 13. Clique com o botão direito do rato no projeto **WindowsApp**, clique em **Adicionar** e em **Classe**. Nomeie a classe `RegisterClient.cs` e, em seguida, clique **em OK** para gerar a classe.
 
     Esta classe encapsula as chamadas REST necessárias para contactar o back-end da aplicação, para se registar para receber notificações push. Também armazena localmente os *registrationIds* criados pelo Hub de Notificação conforme detalhado em [Registar-se a partir do back-end da aplicação](/previous-versions/azure/azure-services/dn743807(v=azure.100)). Utiliza um token de autorização guardado no armazenamento local quando clica no botão **Iniciar sessão e registar**.
@@ -236,7 +239,8 @@ Nesta secção, atualize o código no projeto que concluiu no [Tutorial: enviar 
     using System.Threading.Tasks;
     using System.Linq;
     ```
-15. Adicione o código seguinte dentro da definição de classe `RegisterClient`.
+
+15. Adicione o seguinte código dentro da `RegisterClient` definição de classe:
 
     ```csharp
     private string POST_URL;
@@ -323,6 +327,7 @@ Nesta secção, atualize o código no projeto que concluiu no [Tutorial: enviar 
 
     }
     ```
+
 16. Guarde todas as alterações.
 
 ## <a name="test-the-application"></a>Testar a Aplicação
@@ -332,8 +337,8 @@ Nesta secção, atualize o código no projeto que concluiu no [Tutorial: enviar 
 3. Clique em **Iniciar sessão e registar** e verifique se uma caixa de diálogo mostra que iniciou sessão. Este código também ativa o botão **Enviar Notificação Push**.
 
     ![Screenshot da aplicação 'Hubs de Notificação' mostrando o nome de utilizador e a palavra-passe preenchidos.][14]
-5. Em seguida, no campo **Etiqueta de Nome de Utilizador de Destinatário**, introduza o nome de utilizador registado. Introduza a mensagem de notificação e clique em **Enviar Notificação Push**.
-6. Apenas os dispositivos registados com a etiqueta de nome de utilizador correspondente recebem a mensagem de notificação.
+4. Em seguida, no campo **Etiqueta de Nome de Utilizador de Destinatário**, introduza o nome de utilizador registado. Introduza a mensagem de notificação e clique em **Enviar Notificação Push**.
+5. Apenas os dispositivos registados com a etiqueta de nome de utilizador correspondente recebem a mensagem de notificação.
 
     ![Screenshot da aplicação 'Centros de Notificação' mostrando a mensagem que foi empurrada.][15]
 

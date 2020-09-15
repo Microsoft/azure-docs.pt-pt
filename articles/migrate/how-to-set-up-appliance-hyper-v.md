@@ -3,12 +3,12 @@ title: Crie um aparelho Azure Migrate para Hiper-V
 description: Saiba como configurar um aparelho Azure Migrate para avaliar e migrar Os VMs Hiper-V.
 ms.topic: article
 ms.date: 03/23/2020
-ms.openlocfilehash: 21d88c4a2b2095fe677fe479bd7320f7a494db9e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c53f82268bd1a5d94659a8b749a14fd026f91ce1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929949"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087155"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurar um aparelho para Hiper-VMs
 
@@ -59,7 +59,7 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 2. Executar o seguinte comando para gerar o haxixe para o VHD
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Utilização de exemplo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
-3.  Para a versão 2.19.11.12 do aparelho, o haxixe gerado deve coincidir com estas [definições](./tutorial-assess-hyper-v.md#verify-security).
+
 
 
 

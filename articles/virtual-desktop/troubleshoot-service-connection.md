@@ -1,17 +1,17 @@
 ---
 title: Conexão de serviço de resolução de problemas Windows Virtual Desktop - Azure
-description: Como resolver problemas quando configura as ligações com o cliente num ambiente de inquilino virtual do Windows Desktop.
+description: Como resolver problemas ao configurar ligações de serviço num ambiente de inquilino virtual do Windows Desktop.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 06/19/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c6d0360a4fe957f43e38fd892cef6b4ab0a2325a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5eb5602b8330906311df4a0d1f59bc5e5130237e
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009380"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089909"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Conexões de serviço de desktop virtual do Windows
 
@@ -39,6 +39,12 @@ Um utilizador pode iniciar clientes remote desktop e é capaz de autenticar, no 
 3. Se o cliente web estiver a ser utilizado, confirme que não existem problemas de credenciais em cache.
 
 4. Se o utilizador fizer parte de um grupo de utilizadores do Azure Ative Directory (AD), certifique-se de que o grupo de utilizador é um grupo de segurança em vez de um grupo de distribuição. O Windows Virtual Desktop não suporta grupos de distribuição Azure AD.
+
+## <a name="user-loses-existing-feed-and-no-remote-resource-is-displayed-no-feed"></a>O utilizador perde o feed existente e não é apresentado nenhum recurso remoto (sem feed)
+
+Este erro geralmente aparece depois de um utilizador ter mudado a sua subscrição de um inquilino Azure AD para outro. Como resultado, o serviço perde o rasto das suas atribuições de utilizador, uma vez que estas ainda estão ligadas ao antigo inquilino da AD Azure.
+
+Para resolver isto, tudo o que precisa de fazer é transferir os utilizadores para os seus grupos de aplicações.
 
 ## <a name="next-steps"></a>Passos seguintes
 

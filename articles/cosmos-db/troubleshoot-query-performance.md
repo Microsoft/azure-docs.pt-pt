@@ -1,23 +1,23 @@
 ---
-title: Problemas de consulta de resolução de problemas ao utilizar o Azure Cosmos DB
+title: Resolver problemas de consultas ao utilizar o Azure Cosmos DB
 description: Saiba como identificar, diagnosticar e resolver problemas Azure Cosmos DB SQL questões de consulta.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 04/22/2020
+ms.date: 09/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 80e966bf190dcbe4490269ef28a95babadda68d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6833f9d59eca4c2f0b49dd70684ade900226aba
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117918"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089994"
 ---
-# <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Problemas de consulta de resolução de problemas ao utilizar o Azure Cosmos DB
+# <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Resolver problemas de consultas ao utilizar o Azure Cosmos DB
 
-Este artigo percorre uma abordagem geral recomendada para consultas de resolução de problemas em Azure Cosmos DB. Embora não deva considerar os passos descritos neste artigo como uma defesa completa contra potenciais problemas de consulta, incluímos as dicas de desempenho mais comuns aqui. Você deve usar este artigo como um local de partida para resolver consultas lentas ou caras no núcleo Azure Cosmos DB (SQL) API. Também pode usar [registos de diagnóstico](cosmosdb-monitor-resource-logs.md) para identificar consultas que sejam lentas ou que consumam quantidades significativas de produção.
+Este artigo percorre uma abordagem geral recomendada para consultas de resolução de problemas em Azure Cosmos DB. Embora não deva considerar os passos descritos neste artigo como uma defesa completa contra potenciais problemas de consulta, incluímos as dicas de desempenho mais comuns aqui. Deverá utilizar este artigo como ponto de partida para resolver problemas de consultas lentas ou dispendiosas na API do core (SQL) do Azure Cosmos DB. Também pode utilizar os [registos de diagnóstico](cosmosdb-monitor-resource-logs.md) para identificar consultas que são lentas ou que consomem um débito significativo.
 
 Pode categorizar amplamente otimizações de consultas em Azure Cosmos DB:
 
@@ -26,22 +26,21 @@ Pode categorizar amplamente otimizações de consultas em Azure Cosmos DB:
 
 Se reduzir a carga ru de uma consulta, certamente diminuirá a latência também.
 
-Este artigo fornece exemplos que pode recriar utilizando o conjunto de dados [nutricionais.](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json)
+Este artigo fornece exemplos que pode recriar utilizando o conjunto de [dados nutricionais](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
 ## <a name="common-sdk-issues"></a>Questões SDK comuns
 
 Antes de ler este guia, é útil considerar questões SDK comuns que não estejam relacionadas com o motor de consulta.
 
-- Para melhor desempenho, siga estas [dicas de Desempenho](performance-tips.md).
-    > [!NOTE]
-    > Para um melhor desempenho, recomendamos o processamento do anfitrião windows 64 bits. O SQL SDK inclui uma ServiceInterop.dll nativa para analisar e otimizar consultas localmente. ServiceInterop.dll é suportado apenas na plataforma Windows x64. Para o Linux e outras plataformas não suportadas onde ServiceInterop.dll não esteja disponível, será feita uma chamada adicional de rede para o gateway para obter a consulta otimizada.
+- Siga estas [dicas de desempenho da SDK](performance-tips.md).
+    - [.NET SDK guia de resolução de problemas](troubleshoot-dot-net-sdk.md)
+    - [Guia de resolução de problemas java SDK](troubleshoot-java-sdk-v4-sql.md)
 - O SDK permite definir um `MaxItemCount` para as suas consultas, mas não pode especificar uma contagem mínima de item.
     - O código deve lidar com qualquer tamanho de página, de zero a. `MaxItemCount` .
-    - O número de itens numa página será sempre inferior ou igual ao `MaxItemCount` especificado. No entanto, `MaxItemCount` é estritamente um máximo e pode haver menos resultados do que este montante.
 - Por vezes, as consultas podem ter páginas vazias mesmo quando há resultados numa página futura. As razões para tal podem ser:
     - O SDK pode estar a fazer várias chamadas de rede.
     - A consulta pode demorar muito tempo a recuperar os documentos.
-- Todas as consultas têm um token de continuação que permitirá que a consulta continue. Certifique-se de drenar completamente a consulta. Olhe para as amostras de SDK e use um `while` laço `FeedIterator.HasMoreResults` para drenar toda a consulta.
+- Todas as consultas têm um token de continuação que permitirá que a consulta continue. Certifique-se de drenar completamente a consulta. Saiba mais sobre [como lidar com várias páginas de resultados](sql-query-pagination.md#handling-multiple-pages-of-results)
 
 ## <a name="get-query-metrics"></a>Obtenha métricas de consulta
 
@@ -488,7 +487,7 @@ Consultas paralelas funcionam consultando várias divisórias em paralelo. Mas o
 
 As consultas são projetadas para obter resultados pré-obtendos enquanto o lote atual de resultados está sendo processado pelo cliente. A pré-busca ajuda a melhorar a latência geral de uma consulta. A definição de MaxBufferedItemCount limita o número de resultados pré-recedidos. Se definir este valor para o número esperado de resultados devolvidos (ou um número mais elevado), a consulta pode obter o maior benefício da pré-obtenção. Se definir este valor para -1, o sistema determinará automaticamente o número de itens a tampão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos para obter informações sobre como medir RUs por consulta, obter estatísticas de execução para afinar as suas consultas, e muito mais:
 
 * [Obtenha métricas de execução de consulta SQL usando .NET SDK](profile-sql-api-query.md)

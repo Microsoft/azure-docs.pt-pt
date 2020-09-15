@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/12/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: bbb1378419c68db07be5ca14ca6834810f2fc9f5
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: e85937103e94a0fbb8dd8be92bb22ee5078df70a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055469"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087325"
 ---
 # <a name="explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Explore uma amostra do cenário Azure Digital Twins usando o ADT Explorer
 
@@ -107,6 +107,9 @@ Insira as informações importantes que recolheu anteriormente na secção [Pré
 >[!NOTE]
 > Pode revisitar/editar estas informações a qualquer momento selecionando o mesmo ícone para puxar novamente a caixa 'Iniciar' Vai manter os valores que passaste.
 
+> [!TIP]
+> Se uma mensagem de erro SignalRService.subscrever for mostrada quando ligar, certifique-se de que o seu URL ADT está pré-fixado com *https://*.
+
 Se vir uma janela pop-up *solicitada pela Microsoft,* conceda o consentimento para esta aplicação e aceite continuar.
 
 ## <a name="add-the-sample-data"></a>Adicione os dados da amostra
@@ -192,7 +195,7 @@ O ADT Explorer irá agora utilizar o ficheiro carregado para criar os gémeos e 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Caixa de diálogo indicando o sucesso da importação de gráficos. Diz: Importar bem sucedido. 49 gémeos importados. 50 relações importadas." lightbox="media/quickstart-adt-explorer/import-success.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Caixa de diálogo indicando o sucesso da importação de gráficos. Diz: "Importar bem sucedido. 49 gémeos importados. 50 relações importadas." lightbox="media/quickstart-adt-explorer/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -210,7 +213,7 @@ Isto irá executar a consulta predefinitiva para selecionar e exibir todos os g�
 
 Agora, pode ver o gráfico carregado do cenário da amostra:
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vista da caixa 'Graph View' com um gráfico duplo no interior. Um círculo com a marca «piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «sala1»; um círculo com a marca «piso 0» é ligado por uma seta com a etiqueta «contém» a um círculo com a indicação de sala0.":::
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Vista da caixa 'Graph View' com um gráfico duplo no interior. Um círculo com a marca «piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «sala1»; um círculo com a marca «piso 0» é ligado por uma seta com a etiqueta «contém» a um círculo com a indicação de "sala0".":::
 
 Os círculos (gráficos "nós") representam gémeos digitais, e as linhas representam relacionamentos. Você verá que o twin *Floor0* contém *Quarto0,* e o twin *Floor1* contém *Sala1.*
 

@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 58262be34a716a04e9779454a30e845d691f3a6a
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 0d145c08962f736fa0098b340e954b4b22a21946
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037716"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090742"
 ---
 # <a name="add-a-polygon-layer-to-the-map"></a>Adicione uma camada de polígono ao mapa
 
-Este artigo mostra-lhe como tornar as áreas `Polygon` e `MultiPolygon` características geometrias no mapa usando uma camada de polígono. O Azure Maps Web SDK também apoia a criação de geometrias Circle, tal como definidas no [esquema alargado de GeoJSON.](extend-geojson.md#circle) Estes círculos são transformados em polígonos quando renderizados no mapa. Todas as geometrias de características podem ser facilmente atualizadas quando embrulhadas com o [atlas. Classe de](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) forma.
+Este artigo mostra-lhe como tornar as áreas `Polygon` e `MultiPolygon` características geometrias no mapa usando uma camada de polígono. O Azure Maps Web SDK também apoia a criação de geometrias Circle, tal como definidas no [esquema alargado de GeoJSON.](extend-geojson.md#circle) Estes círculos são transformados em polígonos quando renderizados no mapa. Todas as geometrias de características podem ser facilmente atualizadas quando embrulhadas com o [atlas. Classe de](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape) forma.
 
 ## <a name="use-a-polygon-layer"></a>Use uma camada de polígono 
 
-Quando uma camada de polígono é ligada a uma fonte de dados e carregada no mapa, torna a área com `Polygon` e `MultiPolygon` características. Para criar um polígono, adicione-o a uma fonte de dados e torne-o com uma camada de polígono utilizando a classe [PolygonLayer.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest)
+Quando uma camada de polígono é ligada a uma fonte de dados e carregada no mapa, torna a área com `Polygon` e `MultiPolygon` características. Para criar um polígono, adicione-o a uma fonte de dados e torne-o com uma camada de polígono utilizando a classe [PolygonLayer.](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer)
 
 ```javascript
 //Create a data source and add it to the map.
@@ -51,7 +51,7 @@ Abaixo está a amostra completa e de execução do código acima.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Adicione um polígono a um mapa ' src='//codepen.io/azuremaps/embed/yKbOvZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Ver a Caneta <a href='https://codepen.io/azuremaps/pen/yKbOvZ/'>Adicione um polígono a um mapa</a> de Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adicione um polígono a um mapa ' src='//codepen.io/azuremaps/embed/yKbOvZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Ver a Caneta <a href='https://codepen.io/azuremaps/pen/yKbOvZ/'>Adicione um polígono a um mapa </a> de Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="use-a-polygon-and-line-layer-together"></a>Use um polígono e uma camada de linha juntos
@@ -60,7 +60,7 @@ Uma camada de linha é usada para tornar o contorno dos polígonos. A amostra de
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Polígono e camada de linha para adicionar polígono' src='//codepen.io/azuremaps/embed/aRyEPy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte o <a href='https://codepen.io/azuremaps/pen/aRyEPy/'>Polígono pen e a camada de linha para adicionar polígono</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Polígono e camada de linha para adicionar polígono' src='//codepen.io/azuremaps/embed/aRyEPy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte o <a href='https://codepen.io/azuremaps/pen/aRyEPy/'>Polígono pen e a camada de linha para adicionar polígono</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="fill-a-polygon-with-a-pattern"></a>Encha um polígono com um padrão
@@ -69,7 +69,7 @@ Além de encher um polígono com uma cor, pode usar um padrão de imagem para pr
 
 <br/>
 
-<iframe height="500" style="width: 100%;" scrolling="no" title="Padrão de enchimento de polígono" src="//codepen.io/azuremaps/embed/JzQpYX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="500" style="width: 100%;" scrolling="no" title="Padrão de enchimento de polígono" src="//codepen.io/azuremaps/embed/JzQpYX/?height=500&theme-id=0&default-tab=js,result" frameborder='no' loading="lazy" allowtransparency="true" allowfullscreen="true">
 Consulte o <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>padrão de preenchimento de Pen Polygon</a> por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
@@ -83,7 +83,7 @@ A camada de Polígono tem apenas algumas opções de estilo. Aqui está uma ferr
 
 <br/>
 
-<iframe height='700' scrolling='no' title='LXvxpg' src='//codepen.io/azuremaps/embed/LXvxpg/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a Pen <a href='https://codepen.io/azuremaps/pen/LXvxpg/'>LXvxpg</a> by Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='LXvxpg' src='//codepen.io/azuremaps/embed/LXvxpg/?height=700&theme-id=0&default-tab=result' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Veja a Pen <a href='https://codepen.io/azuremaps/pen/LXvxpg/'>LXvxpg</a> by Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <a id="addACircle"></a>
@@ -110,12 +110,12 @@ O Azure Maps Web SDK converte estas `Point` funcionalidades em `Polygon` funcion
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Adicione um círculo a um mapa' src='//codepen.io/azuremaps/embed/PRmzJX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Ver a Caneta <a href='https://codepen.io/azuremaps/pen/PRmzJX/'>Adicione um círculo a um mapa</a> de Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () em <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Adicione um círculo a um mapa' src='//codepen.io/azuremaps/embed/PRmzJX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Ver a Caneta <a href='https://codepen.io/azuremaps/pen/PRmzJX/'>Adicione um círculo a um mapa</a> de Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () em <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="make-a-geometry-easy-to-update"></a>Faça uma geometria fácil de atualizar
 
-Uma `Shape` classe envolve uma [Geometria](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry?view=azure-iot-typescript-latest) ou [Recurso](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) e facilita a atualização e manutenção destas funcionalidades. Para instantaneaizar uma variável de forma, passe uma geometria ou um conjunto de propriedades para o construtor de forma.
+Uma `Shape` classe envolve uma [Geometria](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.geometry) ou [Recurso](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature) e facilita a atualização e manutenção destas funcionalidades. Para instantaneaizar uma variável de forma, passe uma geometria ou um conjunto de propriedades para o construtor de forma.
 
 ```javascript
 //Creating a shape by passing in a geometry and a object containing properties.
@@ -129,7 +129,7 @@ A seguinte amostra de código mostra como embrulhar um objeto GeoJSON de círcul
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Atualizar propriedades de forma' src='//codepen.io/azuremaps/embed/ZqMeQY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as propriedades da <a href='https://codepen.io/azuremaps/pen/ZqMeQY/'>forma de atualização da</a> caneta por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Atualizar propriedades de forma' src='//codepen.io/azuremaps/embed/ZqMeQY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte as propriedades da <a href='https://codepen.io/azuremaps/pen/ZqMeQY/'>forma de atualização da</a> caneta por Azure Maps <a href='https://codepen.io/azuremaps'>@azuremaps</a> () no <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -137,13 +137,13 @@ A seguinte amostra de código mostra como embrulhar um objeto GeoJSON de círcul
 Saiba mais sobre as aulas e métodos utilizados neste artigo:
 
 > [!div class="nextstepaction"]
-> [Polígono](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon?view=azure-iot-typescript-latest)
+> [Polígono](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon)
 
 > [!div class="nextstepaction"]
-> [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest)
+> [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer)
 
 > [!div class="nextstepaction"]
-> [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)
+> [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
 
 Para obter mais exemplos de código para adicionar aos seus mapas, consulte os seguintes artigos:
 
