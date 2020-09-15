@@ -13,12 +13,12 @@ metadata:
   ms.date: 09/10/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 45bad2d581e33ff89dbd28827f81ef26bc835f0a
-  ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+  ms.openlocfilehash: ae4e327b7b4d230bd89baccdd27d5ac416ebb6cb
+  ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/11/2020
-  ms.locfileid: "90019789"
+  ms.lasthandoff: 09/15/2020
+  ms.locfileid: "90087954"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -668,7 +668,7 @@ productDirectory:
     imageSrc: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
     azureCategories:
     - developer-tools
-    url: https://docs.microsoft.com/visualstudio/
+    url: https://docs.microsoft.com/visualstudio/windows
   - title: Visual Studio Code
     summary: Um avançado editor de código leve para desenvolvimento na cloud
     imageSrc: https://docs.microsoft.com/media/logos/logo_vs-code.svg

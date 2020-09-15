@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/14/2019
   ms.author: erhopf
-  ms.openlocfilehash: 26fc174ef0993339487a2edcc32cbb4fd864f96e
-  ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+  ms.openlocfilehash: 275f4d4228e28e3f8c31263001b48fa28d46e353
+  ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83592751"
+  ms.lasthandoff: 09/15/2020
+  ms.locfileid: "90090011"
 landingContent:
 - title: Tradutor
   linkLists:
@@ -40,18 +40,8 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Traduzir texto
-      url: quickstart-translate.md
-    - text: Transliterar texto
-      url: quickstart-transliterate.md
-    - text: Deteção de idioma
-      url: quickstart-detect.md
-    - text: Pesquisa no dicionário
-      url: quickstart-dictionary.md
-    - text: Determinar o comprimento da frase
-      url: quickstart-sentences.md
-    - text: Listar idiomas suportados
-      url: quickstart-languages.md
+    - text: Início Rápido
+      url: quickstart-translator.md
   - linkListType: tutorial
     links:
     - text: Criar uma aplicação de tradução do WPF, C#

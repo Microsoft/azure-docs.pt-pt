@@ -9,12 +9,12 @@ metadata:
   author: anastasia-ms
   ms.author: v-stharr
   ms.date: 1/15/2020
-  ms.openlocfilehash: 01fb176ad6dc2ce097beddf03b724628ba3e1032
-  ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+  ms.openlocfilehash: e37bc2c9a6f6ad48695ce5fe346ef2402f3c6a6c
+  ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/18/2020
-  ms.locfileid: "88509931"
+  ms.lasthandoff: 09/15/2020
+  ms.locfileid: "90086271"
 landingContent:
 - title: Sobre o Azure Maps
   linkLists:
@@ -121,13 +121,13 @@ landingContent:
   - linkListType: reference
     links:
     - text: Controlo de mapa
-      url: https://docs.microsoft.com/javascript/api/azure-maps-control/?view=azure-maps-typescript-latest
+      url: https://docs.microsoft.com/javascript/api/azure-maps-control/
     - text: Módulo de ferramentas de desenho
-      url: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/?view=azure-maps-typescript-latest
+      url: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/
     - text: Módulo de serviço
-      url: https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest
+      url: https://docs.microsoft.com/javascript/api/azure-maps-rest/
     - text: Módulo IO espacial
-      url: https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/?view=azure-maps-typescript-latest
+      url: https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/
 - title: Programar com o SDK Android
   linkLists:
   - linkListType: how-to-guide
