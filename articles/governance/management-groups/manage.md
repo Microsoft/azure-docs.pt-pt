@@ -89,7 +89,7 @@ Para eliminar um grupo de gestão, devem ser cumpridos os seguintes requisitos:
 
 1. Há uma janela que abre confirmando que quer apagar o grupo de gestão.
 
-   :::image type="content" source="./media/delete_confirm.png" alt-text="Screenshot do diálogo de confirmação "Delete group" para eliminar um grupo de gestão." border="false":::
+   :::image type="content" source="./media/delete_confirm.png" alt-text="Screenshot do diálogo de confirmação Delete group para eliminar um grupo de gestão." border="false":::
 
 1. Selecione **Sim**.
 
@@ -298,7 +298,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
    - A seleção de novos irá criar um novo grupo de gestão.
    - A seleção de um existente irá apresentar-lhe uma entrega de todos os grupos de gestão que pode mudar para este grupo de gestão.  
 
-   :::image type="content" source="./media/add_context_MG.png" alt-text="Screenshot das opções do "Add Management Group" para criar um novo grupo de gestão." border="false":::
+   :::image type="content" source="./media/add_context_MG.png" alt-text="Screenshot das opções do Add Management Group para criar um novo grupo de gestão." border="false":::
 
 1. Selecione **Guardar**.
 
