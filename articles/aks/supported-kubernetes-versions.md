@@ -3,19 +3,19 @@ title: Versões do Kubernetes suportadas no Azure Kubernetes Service
 description: Compreenda a política de suporte da versão Kubernetes e o ciclo de vida dos clusters no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 45c60069c27a2bb9b34cc53eb394bd44a04bd0ba
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: fb5b9c446ea5574970b14c683fac258c17199fef
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144622"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565381"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Versões do Kubernetes suportadas no Azure Kubernetes Service [AKS])
 
-A comunidade kubernetes lança versões menores aproximadamente a cada três meses. Estes lançamentos incluem novas funcionalidades e melhorias. Os lançamentos de patch são mais frequentes (por vezes semanais) e destinam-se apenas a correções críticas de bugs numa versão menor. Estes lançamentos de patch incluem correções para vulnerabilidades de segurança ou bugs principais.
+A comunidade kubernetes lança versões menores aproximadamente a cada três meses. Recentemente, a comunidade kubernetes [aumentou a janela de suporte para cada versão de 9 meses para 12 meses](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/), começando com a versão 1.19. Estes lançamentos incluem novas funcionalidades e melhorias. As versões de patch são mais frequentes (por vezes semanais) e destinam-se a correções críticas de erros dentro de uma versão menor. Estes lançamentos de patch incluem correções para vulnerabilidades de segurança ou bugs principais.
 
 ## <a name="kubernetes-versions"></a>Versões Kubernetes
 
@@ -41,8 +41,8 @@ Os utilizadores devem ter como objetivo executar o mais recente patch da versão
 
 A AKS define uma versão geralmente disponível, como uma versão ativada em todas as medições SLO ou SLA e quando disponível em todas as regiões. A AKS suporta três versões menores de Ga de Kubernetes:
 
-* A versão mais recente da GA menor que é lançada em AKS (a que nos referimos como N). 
-* Duas versões menores anteriores. 
+* A versão mais recente da GA menor que é lançada em AKS (a que nos referimos como N).
+* Duas versões menores anteriores.
 * Cada versão menor suportada também suporta um máximo de duas (2) remendos estáveis.
 * A AKS também pode suportar versões de pré-visualização, que estão explicitamente rotuladas e sujeitas a [termos e condições de pré-visualização][preview-terms].
 
@@ -144,6 +144,10 @@ Para a história do lançamento passado, veja [aqui.](https://en.wikipedia.org/w
 
 ## <a name="faq"></a>FAQ
 
+**Quantas vezes devo esperar atualizar as versões de Kubernetes para me manter no suporte?**
+
+Afirmando com Kubernetes 1.19, a [comunidade de open source expandiu](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/)o apoio para 1 ano . A AKS compromete-se a permitir patches e suporte que correspondam, no mínimo, aos compromissos a montante. Isto significa que, a partir dos clusters AKS em 1.19, poderá fazer um upgrade no mínimo de uma vez por ano para se manter numa versão suportada. Para versões em 1.18 ou abaixo, a janela de suporte permanece em 9 meses, o que requer uma atualização uma vez a cada 9 meses para permanecer numa versão suportada. É altamente recomendado testar regularmente novas versões e estar preparado para atualizar para versões mais recentes para capturar as mais recentes melhorias estáveis dentro de Kubernetes.
+
 **O que acontece quando um utilizador atualiza um cluster Kubernetes com uma versão menor que não é suportada?**
 
 Se estiver na versão *n-3* ou mais antiga, significa que está fora do suporte e será solicitado para fazer upgrade. Quando a sua atualização da versão n-3 para n-2 tiver sucesso, está de volta às nossas políticas de apoio. Por exemplo:
@@ -177,7 +181,7 @@ Para atualizar, a partir de *1.12.x*  ->  *1.14.x,* primeiro upgrade a partir de
 
 Saltar várias versões só pode ser feito quando o upgrade de uma versão não suportada de volta para uma versão suportada. Por exemplo, o upgrade a partir de um *1.10.x* não suportado --> um *1.15.x* suportado pode ser concluído.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter informações sobre como atualizar o seu cluster, consulte [upgrade de um cluster Azure Kubernetes Service (AKS).][aks-upgrade]
 

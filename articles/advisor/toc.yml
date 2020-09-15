@@ -41,6 +41,8 @@
       href: advisor-quick-fix.md
     - name: Dados do Assistente no Azure Resource Graph
       href: advisor-azure-resource-graph.md
+    - name: Consumir a classificação do Assistente
+      href: azure-advisor-score.md
 - name: Referência
   items:
     - name: Centro de Segurança

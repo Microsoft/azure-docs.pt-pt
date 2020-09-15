@@ -20,7 +20,7 @@
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
 - name: Guias de procedimentos
   items:
-    - name: Ligar dispositivos
+    - name: Ligar e desenvolver dispositivos
       items:
         - name: "Preparar e ligar um Rigado Cascade\_500"
           href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json

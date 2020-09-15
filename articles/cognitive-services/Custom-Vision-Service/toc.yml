@@ -39,6 +39,8 @@
       href: use-prediction-api.md
     - name: Utilizar a Etiquetadora Inteligente
       href: suggested-tags.md
+    - name: Controlo de acesso baseado em funções
+      href: role-based-access-control.md
     - name: Exportar modelos
       items:
         - name: Exporte o seu modelo para formato móvel

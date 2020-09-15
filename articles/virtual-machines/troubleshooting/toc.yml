@@ -101,6 +101,8 @@
           href: unresponsive-vm-apply-windows-update.md
         - name: A VM não está a responder ao aplicar a política de configuração de auditoria
           href: vm-unresponsive-applying-audit-configuration-policy.md
+        - name: A VM não responde quando se aplica a política de controladores de domínio predefinida
+          href: vm-unresponsive-domain-controllers-policy.md
         - name: A VM não responde ao aplicar a política de grupo
           href: unresponsive-vm-apply-group-policy.md
         - name: A VM não responde ao aplicar a política de segurança

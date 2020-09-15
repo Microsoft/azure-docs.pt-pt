@@ -22,6 +22,8 @@
       href: set-up-service-alerts-2019.md
 - name: Procedimentos
   items:
+    - name: Migrar manualmente
+      href: ../manual-migration.md
     - name: Ligar a recursos do Windows Virtual Desktop
       items:
         - name: Ligar ao cliente de Ambiente de Trabalho do Windows

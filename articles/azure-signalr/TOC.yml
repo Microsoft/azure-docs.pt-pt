@@ -25,6 +25,8 @@
   items:
     - name: Criar uma aplicação sem servidor em tempo real com a autenticação
       href: signalr-tutorial-authenticate-azure-functions.md
+    - name: Criar uma aplicação de chat do Blazor Server
+      href: signalr-tutorial-build-blazor-server-chat-app.md
 - name: Amostras
   items:
     - name: Exemplos de código

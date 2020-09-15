@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure Storage / Microsoft Docs
+title: Monitorização do Armazenamento Azure / Microsoft Docs
 description: Saiba como monitorizar o desempenho e disponibilidade do Azure Storage. Monitorize os dados de Armazenamento Azure, aprenda sobre a configuração e analise dados métricos e de registo.
 author: normesta
 services: storage
@@ -9,14 +9,14 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 2cc275028b64c3df06e2c0275bc0f4ac21fa0f6e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0edb50fd72622d3d7d628e0e02ef2c3737f8713a
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020155"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500424"
 ---
-# <a name="monitor-azure-storage"></a>Monitor Azure Storage
+# <a name="monitoring-azure-storage"></a>Monitorização do Armazenamento Azure
 
 Quando você tem aplicações críticas e processos de negócio que dependem de recursos Azure, você quer monitorizar esses recursos para sua disponibilidade, desempenho e funcionamento. Este artigo descreve os dados de monitorização gerados pelo Azure Storage e como pode utilizar as funcionalidades do Azure Monitor para analisar alertas sobre estes dados.
 
@@ -30,7 +30,7 @@ A página **'Visão Geral'** no portal Azure para cada recurso de armazenamento 
 ## <a name="what-is-azure-monitor"></a>O que é o Azure Monitor?
 O Azure Storage cria dados de monitorização utilizando [o Azure Monitor,](../../azure-monitor/overview.md)que é um serviço de monitorização de pilhas completa em Azure. O Azure Monitor fornece um conjunto completo de funcionalidades para monitorizar os seus recursos e recursos Azure em outras nuvens e no local. 
 
-Para saber mais sobre o Azure Monitor, consulte [os recursos do Azure monitorando com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md). O artigo descreve os seguintes temas:
+Comece com o artigo [Monitorar os recursos do Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) que descreve o seguinte:
 
 - O que é o Azure Monitor?
 - Custos associados à monitorização
@@ -40,7 +40,7 @@ Para saber mais sobre o Azure Monitor, consulte [os recursos do Azure monitorand
 
 As seguintes secções baseiam-se neste artigo descrevendo os dados específicos recolhidos a partir do Azure Storage. Exemplos mostram como configurar a recolha de dados e analisar estes dados com ferramentas Azure.
 
-## <a name="monitor-data-from-azure-storage"></a>Monitorize dados do Azure Storage
+## <a name="monitoring-data-from-azure-storage"></a>Dados de monitorização do Armazenamento Azure
 
 O Azure Storage recolhe os mesmos tipos de dados de monitorização que outros recursos da Azure, que são descritos na [monitorização de dados a partir de recursos Azure](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). Para obter mais informações sobre os registos e métricas criados pela Azure Storage, consulte [a referência de dados de monitorização do armazenamento Azure](monitor-storage-reference.md).
 
@@ -90,7 +90,7 @@ Também tem de especificar as categorias de operações para as quais pretende r
 | ArmazenamentoPorite | Escreva operações em objetos. |
 | StorageDelete | Eliminar operações em objetos. |
 
-## <a name="analyze-metric-data"></a>Analisar dados métricos
+## <a name="analyzing-metric-data"></a>Análise de dados métricos
 
 Pode analisar métricas para armazenamento Azure com métricas de outros serviços Azure utilizando o Metrics Explorer. Open Metrics Explorer escolhendo **métricas** do menu **Azure Monitor.** Para obter detalhes sobre a utilização desta ferramenta, consulte [Começar com o Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). 
 
@@ -115,7 +115,7 @@ Todas as métricas para armazenamento Azure estão localizadas nestes espaços d
 Para obter uma lista de todas as métricas de suporte do Azure Monitor, que inclui o Azure Storage, consulte [as métricas suportadas pelo Monitor Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)
 
 
-### <a name="access-metrics"></a>Métricas de acesso
+### <a name="accessing-metrics"></a>Métricas de acesso
 
 > [!TIP]
 > Para ver exemplos de Azure CLI ou .NET, escolha os separadores correspondentes listados aqui.
@@ -133,7 +133,7 @@ Neste exemplo, substitua o `<resource-ID>` espaço reservado pelo ID de recursos
    Get-AzMetricDefinition -ResourceId $resourceId
 ```
 
-#### <a name="read-metric-values"></a>Ler valores métricos
+#### <a name="reading-metric-values"></a>Valores métricos de leitura
 
 Pode ler os valores métricos ao nível da conta da sua conta de armazenamento ou o serviço de armazenamento individual, como o blob, o ficheiro, a mesa ou o serviço de fila. Utilize o [cmdlet Get-AzMetric.](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric?view=azps-3.3.0)
 
@@ -203,7 +203,7 @@ O exemplo a seguir mostra como listar uma definição métrica ao nível da cont
 
 ```
 
-#### <a name="read-account-level-metric-values"></a>Leia os valores métricos ao nível da conta
+#### <a name="reading-account-level-metric-values"></a>Leitura de valores métricos ao nível da conta
 
 O exemplo a seguir mostra como ler `UsedCapacity` dados ao nível da conta:
 
@@ -249,7 +249,7 @@ O exemplo a seguir mostra como ler `UsedCapacity` dados ao nível da conta:
 
 ```
 
-#### <a name="read-multidimensional-metric-values"></a>Ler valores métricos multidimensionais
+#### <a name="reading-multidimensional-metric-values"></a>Leitura de valores métricos multidimensionais
 
 Para métricas multidimensionais, é necessário definir filtros de metadados se quiser ler dados métricos sobre valores de dimensão específicas.
 
@@ -304,7 +304,7 @@ O exemplo a seguir mostra como ler dados métricos sobre a multidimensional de s
 
 ---
 
-## <a name="analyze-log-data"></a>Analisar dados de registo
+## <a name="analyzing-log-data"></a>Análise de dados de registo
 
 Pode aceder a registos de recursos como uma bolha numa conta de armazenamento, como dados de eventos, ou através de consultas de Log Analytic.
 
@@ -313,7 +313,7 @@ Para obter uma referência detalhada dos campos que aparecem nestes registos, co
 > [!NOTE]
 > Os registos de armazenamento Azure no Azure Monitor estão em pré-visualização pública e estão disponíveis para testes de pré-visualização em todas as regiões de nuvem pública. Para se inscrever na pré-visualização, consulte [esta página](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Esta pré-visualização permite registos para blobs (que inclui Azure Data Lake Storage Gen2), ficheiros, filas, tabelas, contas de armazenamento premium em v1 de uso geral e contas de armazenamento v2 de uso geral. As contas clássicas de armazenamento não são suportadas.
 
-### <a name="access-logs-in-a-storage-account"></a>Aceder a registos numa conta de armazenamento
+### <a name="accessing-logs-in-a-storage-account"></a>Aceder a registos numa conta de armazenamento
 
 Os registos aparecem como bolhas armazenadas num contentor na conta de armazenamento do alvo. Os dados são recolhidos e armazenados dentro de uma única bolha como uma carga de carga JSON delimitada pela linha. O nome da bolha segue esta convenção de nomeação:
 
@@ -323,7 +323,7 @@ Eis um exemplo:
 
 `https://mylogstorageaccount.blob.core.windows.net/insights-logs-storagewrite/resourceId=/subscriptions/`<br>`208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default/y=2019/m=07/d=30/h=23/m=12/PT1H.json`
 
-### <a name="access-logs-in-an-event-hub"></a>Aceder a registos num centro de eventos
+### <a name="accessing-logs-in-an-event-hub"></a>Aceder a troncos num centro de eventos
 
 Os registos enviados para um centro de eventos não são armazenados como um ficheiro, mas pode verificar se o centro de eventos recebeu a informação de registo. No portal Azure, vá ao seu centro de eventos e verifique se a contagem **de mensagens recebidas** é superior a zero. 
 
@@ -331,7 +331,7 @@ Os registos enviados para um centro de eventos não são armazenados como um fic
 
 Pode aceder e ler dados de registo que são enviados para o seu centro de eventos utilizando informações de segurança e ferramentas de gestão e monitorização de eventos. Para mais informações, veja [o que posso fazer com os dados de monitorização que estão a ser enviados para o meu centro de eventos?](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
 
-### <a name="access-logs-in-a-log-analytics-workspace"></a>Aceder a registos num espaço de trabalho do Log Analytics
+### <a name="accessing-logs-in-a-log-analytics-workspace"></a>Aceder a registos num espaço de trabalho do Log Analytics
 
 Pode aceder aos registos enviados para um espaço de trabalho do Log Analytics utilizando consultas de registo do Azure Monitor.
 
@@ -406,7 +406,7 @@ Utilize estas consultas para ajudá-lo a monitorizar as suas contas de Armazenam
 
 Não. O Azure Compute suporta as métricas nos discos. Para obter mais informações, consulte [as métricas de discos por discos geridos e não geridos.](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma referência dos registos e métricas criados pela Azure Storage, consulte [a referência de dados de monitorização do armazenamento Azure](monitor-storage-reference.md).
 - Para obter informações sobre a monitorização dos recursos do Azure, consulte [os recursos do Monitor Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).

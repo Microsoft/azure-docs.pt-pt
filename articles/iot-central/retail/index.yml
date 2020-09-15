@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: f37f876db15e2722907669cd1c1d8390f771034b
-  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+  ms.openlocfilehash: 8469f67967f311d4aca98417e8a5a639665b4641
+  ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/11/2020
-  ms.locfileid: "88080648"
+  ms.lasthandoff: 09/11/2020
+  ms.locfileid: "90014927"
 landingContent:
 - title: Criar soluções de comércio
   linkLists:
@@ -43,18 +43,32 @@ landingContent:
     links:
     - text: Ligar um Rigado Cascade 500
       url: ../core/howto-connect-rigado-cascade-500.md
-- title: Estar ligado
+- title: Ligar e desenvolver dispositivos
   linkLists:
+  - linkListType: overview
+    links:
+    - text: Descrição geral para programadores de dispositivos
+      url: ../core/overview-iot-central-developer.md
   - linkListType: tutorial
     links:
-    - text: Configurar um modelo de dispositivo
-      url: ../core/howto-set-up-template.md
-    - text: Ligar um dispositivo
-      url: ../core/tutorial-connect-device.md
+    - text: Ligar um dispositivo (Node.js)
+      url: ../core/tutorial-connect-device-nodejs.md
+    - text: Ligar um dispositivo (Python)
+      url: ../core/tutorial-connect-device-python.md
+  - linkListType: concept
+    links:
+    - text: Conectividade dos dispositivos
+      url: ../core/concepts-get-connected.md
+    - text: Modelos de dispositivo
+      url: ../core/concepts-device-templates.md
   - linkListType: how-to-guide
     links:
-    - text: Ligar outras clouds de IoT
-      url: ../core/howto-build-iotc-device-bridge.md
+    - text: Configurar um modelo
+      url: ../core/howto-set-up-template.md
+    - text: Ligar um dispositivo do Azure Sphere
+      url: ../core/howto-connect-sphere.md
+    - text: Resolver problemas de conectividade de dispositivo
+      url: ../core/troubleshoot-connection.md
 - title: Manter-se ligado
   linkLists:
   - linkListType: tutorial

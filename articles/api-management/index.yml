@@ -10,12 +10,12 @@ metadata:
   author: georgewallace
   ms.author: gwallace
   ms.date: 03/08/2020
-  ms.openlocfilehash: a714806724d900ff478209f3688ce27d0b20f261
-  ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+  ms.openlocfilehash: 64e0d0e7837cd03e2761d8e79653d9ac8b68f41d
+  ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/11/2020
-  ms.locfileid: "90031471"
+  ms.lasthandoff: 09/13/2020
+  ms.locfileid: "90052822"
 landingContent:
 - title: Acerca da Gestão de API
   linkLists:
@@ -35,6 +35,8 @@ landingContent:
       url: get-started-create-service-instance.md
     - text: Azure PowerShell
       url: powershell-create-service-instance.md
+    - text: Visual Studio Code
+      url: vscode-create-service-instance.md
 - title: Gerir a Gestão de API
   linkLists:
   - linkListType: tutorial

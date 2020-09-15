@@ -6,6 +6,10 @@
       href: overview.md
     - name: Que opção do MySQL devo escolher?
       href: select-right-deployment-type.md
+    - name: Atualizações de serviço
+      items:
+        - name: Expiração do certificado de raiz SSL
+          href: concepts-certificate-rotation.md
 - name: Guias de Início Rápido
   expanded: true
   items:

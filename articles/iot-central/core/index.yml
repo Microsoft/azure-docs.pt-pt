@@ -9,13 +9,13 @@ metadata:
   ms.topic: landing-page
   author: philmea
   ms.author: philmea
-  ms.date: 02/18/2020
-  ms.openlocfilehash: 6f8cabab3b2feaa219c52c4ed8c53d1cccb4b658
-  ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+  ms.date: 06/21/2020
+  ms.openlocfilehash: 870895980c90262a20cfd5ea95a4fdb01b39b4a3
+  ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/28/2020
-  ms.locfileid: "87337199"
+  ms.lasthandoff: 09/11/2020
+  ms.locfileid: "90015879"
 landingContent:
 - title: Acerca do Azure IoT Central
   linkLists:
@@ -25,8 +25,6 @@ landingContent:
       url: overview-iot-central.md
     - text: Visita guiada à IU
       url: overview-iot-central-tour.md
-    - text: Desenvolvimento de dispositivos
-      url: overview-iot-central-developer.md
     - text: Atualizações recentes
       url: https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central
   - linkListType: architecture
@@ -39,18 +37,34 @@ landingContent:
     links:
     - text: Criar uma nova aplicação
       url: quick-deploy-iot-central.md
-- title: Estar ligado
+- title: Ligar e desenvolver dispositivos
   linkLists:
+  - linkListType: overview
+    links:
+    - text: Descrição geral para programadores de dispositivos
+      url: overview-iot-central-developer.md
   - linkListType: tutorial
     links:
-    - text: Ligar um dispositivo
-      url: tutorial-connect-device.md
+    - text: Ligar um dispositivo (Node.js)
+      url: tutorial-connect-device-nodejs.md
+    - text: Ligar um dispositivo (Python)
+      url: tutorial-connect-device-python.md
+  - linkListType: concept
+    links:
+    - text: Conectividade dos dispositivos
+      url: concepts-get-connected.md
+    - text: Modelos de dispositivo
+      url: concepts-device-templates.md
+    - text: Payloads de mensagem
+      url: concepts-telemetry-properties-commands.md
   - linkListType: how-to-guide
     links:
-    - text: Configurar um modelo de dispositivo
+    - text: Configurar um modelo
       url: howto-set-up-template.md
-    - text: Ligar outras clouds de IoT
-      url: howto-build-iotc-device-bridge.md
+    - text: Ligar um dispositivo do Azure Sphere
+      url: howto-connect-sphere.md
+    - text: Resolver problemas de conectividade de dispositivo
+      url: troubleshoot-connection.md
 - title: Manter-se ligado
   linkLists:
   - linkListType: tutorial

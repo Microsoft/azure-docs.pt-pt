@@ -224,12 +224,10 @@
               href: log-query/get-started-queries.md
         - name: Dados de registo
           items:
-            - name: Estrutura dos dados de registo
-              href: log-query/logs-structure.md
             - name: Âmbito de consulta
               href: log-query/scope.md
-            - name: Propriedades padrão
-              href: platform/log-standard-properties.md
+            - name: Colunas padrão
+              href: platform/log-standard-columns.md
             - name: Grupos de computadores
               href: platform/computer-groups.md
         - name: Linguagem da consulta
