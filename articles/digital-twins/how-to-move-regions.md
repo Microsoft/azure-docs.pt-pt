@@ -178,7 +178,7 @@ O ADT Explorer irá agora enviar os seus modelos e gráficos (incluindo os géme
 
 Para verificar se tudo foi carregado com sucesso, carrememe o botão *'Executar consulta'* na caixa *GRAPH EXPLORER* para executar a consulta predefinida que exibe todos os gémeos e relacionamentos no gráfico. Isto irá também refrescar a lista de modelos no *MODEL VIEW*.
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Destaque em torno do mesmo botão 'Run Query' de antes, perto do topo da janela" lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Destaque em torno do mesmo botão Run Query de antes, perto do topo da janela" lightbox="media/how-to-move-regions/run-query.png":::
 
 Deve ver o seu gráfico com todos os seus gémeos e relacionamentos exibidos na caixa *GRAPH EXPLORER.* Também deverá ver os seus modelos listados na caixa *MODEL VIEW.*
 
