@@ -7,15 +7,15 @@ manager: ravijan
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: sudbalas
-ms.openlocfilehash: c75da4c27eae76df51836143c4fb383a1473159a
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: c5509d6a284ab7afe827f67b79b7be027e76f66c
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87564134"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068851"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>A eliminação suave será ativada em todos os cofres-chave
 
@@ -115,7 +115,7 @@ A eliminação suave será ligada para todos os cofres chave até ao final do an
 
 Se não tomar nenhuma ação, a eliminação suave será automaticamente ligada para todos os seus cofres chave no final do ano. Isto pode resultar em erros de conflito se tentar eliminar um objeto de cofre e recriá-lo com o mesmo nome sem o purgar primeiro do estado apagado. Isto pode causar a falha das suas aplicações ou automação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Contacte-nos com quaisquer questões relativas a esta alteração em [akvsoftdelete@microsoft.com](mailto:akvsoftdelete@microsoft.com) .
 - Leia a [visão geral do Soft-delete](soft-delete-overview.md)

@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 09/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 84ab4ba247ef75eec2110edc31cf4e35a705adbf
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 781d88f1862ac20a1212676f29dc022157b3601c
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042858"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061568"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Formato binário na Azure Data Factory
 
@@ -36,7 +36,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 | tipo             | A propriedade do tipo do conjunto de dados deve ser definida como **Binary**. | Sim      |
 | localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . **Consulte os detalhes na secção de propriedades do conector -> Dataset**. | Sim      |
 | compressão | Grupo de propriedades para configurar a compressão do ficheiro. Configure esta secção quando pretender fazer compressão/descompressão durante a execução da atividade. | Não |
-| tipo | O códice de compressão usado para ler/escrever ficheiros binários. <br>Os valores permitidos são **bzip2,** **gzip,** **deflate,** **ZipDeflate**. para utilizar ao guardar o ficheiro.<br>**Note** quando utilizar a atividade de cópia para descomprimir ficheiros **ZipDeflate** e escrever para a loja de dados de lavatórios baseados em ficheiros, por predefinição os ficheiros são extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/` , utilize na fonte de atividade de `preserveZipFileNameAsFolder` [cópia](#binary-as-source) para controlar se deve preservar o nome do ficheiro zip como estrutura de pasta.| Não       |
+| tipo | O códice de compressão usado para ler/escrever ficheiros binários. <br>Os valores permitidos são **bzip2,** **gzip,** **deflate,** **ZipDeflate,** ou **TarGzip**. <br>**Nota** quando utilizar a atividade de cópia para descomprimir os ficheiros **ZipDeflate** / **TarGzip** e escrever para a loja de dados da pia baseada em ficheiros, por predefinição os ficheiros são extraídos para a pasta: , utilize na fonte de atividade de cópia para controlar se deve preservar o nome do `<path specified in dataset>/<folder named as source compressed file>/` ficheiro zip como estrutura de `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` pasta. [copy activity source](#binary-as-source)| Não       |
 | nível | A relação de compressão. Aplicar quando o conjunto de dados for utilizado na pia de atividade do Copy.<br>Os valores permitidos são **ótimos** ou **mais rápidos.**<br>- **Mais rápido:** O funcionamento da compressão deve ser concluído o mais rapidamente possível, mesmo que o ficheiro resultante não seja perfeitamente comprimido.<br>- **Ótimo**: O funcionamento da compressão deve ser perfeitamente comprimido, mesmo que a operação leve mais tempo a ser concluída. Para mais informações, consulte o tópico [nível de compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | Não       |
 
 Abaixo está um exemplo do conjunto de dados binário no Armazenamento Azure Blob:
@@ -87,7 +87,8 @@ Definições **de leitura binária** suportadas em `formatSettings` :
 | ------------- | ------------------------------------------------------------ | -------- |
 | tipo          | O tipo de formatoSettings deve ser definido para **BinaryReadSettings**. | Sim      |
 | compressãoProperties | Um grupo de propriedades sobre como descomprimir dados para um determinado codec de compressão. | Não       |
-| preservarZipFileNameAsFolder<br>*(em) `compressionProperties` * | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **ZipDeflate.** Indica se deve preservar o nome do ficheiro zip de origem como estrutura de pasta durante a cópia.<br>- Quando definido como **verdadeiro (predefinido)**, a Data Factory escreve ficheiros desapertados para `<path specified in dataset>/<folder named as source zip file>/` .<br>- Quando definidos como **falsos,** a Data Factory escreve ficheiros desapertados diretamente para `<path specified in dataset>` . Certifique-se de que não tem nomes de ficheiros duplicados em diferentes ficheiros zip de origem para evitar corridas ou comportamentos inesperados.  | Não |
+| preservarZipFileNameAsFolder<br>*(em `compressionProperties` -> `type` `ZipDeflateReadSettings` conforme) * | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **ZipDeflate.** Indica se deve preservar o nome do ficheiro zip de origem como estrutura de pasta durante a cópia.<br>- Quando definido como **verdadeiro (predefinido)**, a Data Factory escreve ficheiros desapertados para `<path specified in dataset>/<folder named as source zip file>/` .<br>- Quando definidos como **falsos,** a Data Factory escreve ficheiros desapertados diretamente para `<path specified in dataset>` . Certifique-se de que não tem nomes de ficheiros duplicados em diferentes ficheiros zip de origem para evitar corridas ou comportamentos inesperados.  | Não |
+| preservar CompressãoFileNameAsFolder<br>*(em `compressionProperties` -> `type` `TarGZipReadSettings` conforme) * | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **TarGzip.** Indica se deve preservar o nome do ficheiro comprimido de origem como estrutura de pasta durante a cópia.<br>- Quando definido como **verdadeiro (predefinido)**, a Data Factory escreve ficheiros descomprimidos para `<path specified in dataset>/<folder named as source compressed file>/` . <br>- Quando definido como **falso,** a Data Factory escreve ficheiros descomprimidos diretamente para `<path specified in dataset>` . Certifique-se de que não tem nomes de ficheiros duplicados em diferentes ficheiros de origem para evitar corridas ou comportamentos inesperados. | Não |
 
 ```json
 "activities": [
@@ -128,6 +129,6 @@ As seguintes propriedades são suportadas na secção de *** \* lavatório \* **
 
 ## <a name="next-steps"></a>Próximos passos
 
-- [Visão geral da atividade da cópia](copy-activity-overview.md)
+- [Descrição geral da atividade de cópia](copy-activity-overview.md)
 - [Atividade getMetadata](control-flow-get-metadata-activity.md)
 - [Eliminar atividade](delete-activity.md)

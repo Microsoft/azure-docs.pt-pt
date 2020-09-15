@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: sudbalas
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8617b0b71e58d22ccd2cf753e4ddc862932f68da
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 1c8d1af9bcea6b5e0e43a8928cbcdd907f2fb534
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536060"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069038"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>Configurar firewalls de cofre de chaves Azure e redes virtuais
 
@@ -27,7 +27,7 @@ Este artigo fornece instruções passo a passo para configurar firewalls E redes
 > [!NOTE]
 > Esteja atento às seguintes limitações de configuração:
 > * São permitidas regras de rede virtual no máximo 127 e 127 regras IPv4. 
-> * Não são suportadas pequenas gamas de endereços que utilizem os tamanhos do prefixo "/31" ou "/32". Em vez disso, configura estas gamas utilizando regras de endereço IP individuais.
+> * Não são suportadas pequenas gamas de endereços que utilizem o tamanho do prefixo "/31". Em vez disso, configura estas gamas utilizando regras de endereço IP individuais.
 > * As regras da rede IP só são permitidas para endereços IP públicos. Os intervalos de endereços IP reservados para redes privadas (tal como definido no RFC 1918) não são permitidos nas regras de IP. As redes privadas incluem endereços **172.16-31**que começam com **10.** **192.168.** 
 > * Apenas os endereços IPv4 são suportados neste momento.
 

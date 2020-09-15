@@ -7,12 +7,12 @@ author: sarahhubbard
 ms.author: sahubbar
 ms.date: 09/10/2020
 ms.topic: how-to
-ms.openlocfilehash: 82a370bcda2d762abb36e6e43ab755c45348e4c5
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: ae8b830469a9b52ae68310dde2e65dcffdf4e3be
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020002"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060820"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Crie e executar um emprego na sua aplicação Azure IoT Central
 
@@ -38,7 +38,7 @@ O exemplo que se segue mostra como criar e executar um trabalho para definir o l
 
     **Selecione Save and exit** para adicionar o trabalho à lista de empregos guardados na página **Jobs.** Mais tarde pode voltar a trabalhar na lista de empregos salvos.
 
-    Selecione **Seguinte** para mover para a página **'Revisão'.** A página **Review**** mostra os detalhes da configuração do trabalho. Selecione **Executar** para submeter o trabalho.
+    Selecione **Seguinte** para mover para a página **'Revisão'.** A página **'Avaliação'** mostra os detalhes da configuração do trabalho. Selecione **Executar** para submeter o trabalho.
 
     :::image type="content" source="media/howto-run-a-job/job-wizard-review.png" alt-text="Screenshot da página de revisão do assistente de trabalho":::
 

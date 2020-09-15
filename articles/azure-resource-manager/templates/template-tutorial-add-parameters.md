@@ -6,12 +6,12 @@ ms.date: 03/31/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b1454106c4498f4519972633df8a871585d254f1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9e860941c3d782498c12afa12f285f44e7e68f37
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497550"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069446"
 ---
 # <a name="tutorial-add-parameters-to-your-arm-template"></a>Tutorial: Adicione parâmetros ao seu modelo ARM
 
@@ -29,7 +29,7 @@ No final do tutorial anterior, o seu modelo tinha o seguinte JSON:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json":::
 
-Você pode ter reparado que há um problema com este modelo. O nome da conta de armazenamento é codificado. Só pode utilizar este modelo para implementar sempre a mesma conta de armazenamento. Para implementar uma conta de armazenamento com um nome diferente, você teria que criar um novo modelo, o que obviamente não é uma forma prática de automatizar as suas implementações.
+Você pode ter reparado que há um problema com este modelo. O nome da conta de armazenamento está hard-coded. Só pode utilizar este modelo para implementar sempre a mesma conta de armazenamento. Para implementar uma conta de armazenamento com um nome diferente, você teria que criar um novo modelo, o que obviamente não é uma forma prática de automatizar as suas implementações.
 
 ## <a name="make-template-reusable"></a>Tornar o modelo reutilizável
 
@@ -114,7 +114,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se a implementação falhar, utilize o interruptor **de depuração** com o comando de implantação para mostrar os registos de depuração.  Também pode utilizar o interruptor **verboso** para mostrar os registos completos do depurg.
+> Se a implementação falhar, utilize o interruptor **verboso** para obter informações sobre os recursos que estão a ser criados. Use o **interruptor de depuração** para obter mais informações para depurar.
 
 Para ver a flexibilidade do seu modelo, vamos implementar novamente. Desta vez, de definiu o parâmetro SKU para **Standard_GRS**. Pode passar um novo nome para criar uma conta de armazenamento diferente, ou usar o mesmo nome para atualizar a sua conta de armazenamento existente. Ambas as opções funcionam.
 
@@ -168,7 +168,7 @@ az deployment group create \
 
 O comando falha imediatamente com uma mensagem de erro que indica quais os valores permitidos. O Gestor de Recursos identifica o erro antes do início da implantação.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se está a avançar para o próximo tutorial, não precisa de eliminar o grupo de recursos.
 

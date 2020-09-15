@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: fb990b5aa615e37d9893a891143cb04933b603bb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: aaaa073f798998ed97be1bd3cd66795d7b3dfb23
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542620"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069667"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Tutorial: Configure RingCentral para o fornecimento automático de utilizadores
 
@@ -113,7 +113,6 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |userName|String|
    |externoId|String|
    |ativo|Booleano|
-   |displayName|String|
    |título|String|
    |e-mails[tipo eq "work"].value|String|
    |endereços[tipo eq "work"].país|String|
@@ -125,7 +124,6 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |nome.famíliaName|String|
    |números de telefone[tipo eq "mobile"].valor|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
 
 10. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -149,6 +147,10 @@ Depois de configurar o provisionamento, utilize os seguintes recursos para monit
 1. Utilize os [registos de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais os utilizadores que foram a provisionados com sucesso ou sem sucesso
 2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de provisionamento e quão perto está da sua conclusão
 3. Se a configuração do provisionamento parecer estar num estado pouco saudável, a aplicação entrará em quarentena. Saiba mais sobre estados de quarentena [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)
+
+## <a name="change-log"></a>Change log
+
+* 09/10/2020 - Suporte removido para atributos "displayName" e "manager".
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

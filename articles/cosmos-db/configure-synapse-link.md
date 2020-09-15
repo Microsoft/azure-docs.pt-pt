@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
-ms.openlocfilehash: d77922d5957a0f6602e00621ebbabeaa3f3ac8f9
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 50881071380bbe5d245ed458d162e62bfabd108a
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322471"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061500"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configure e use Azure Synapse Link para Azure Cosmos DB (pré-visualização)
 
@@ -48,16 +48,15 @@ Utilize os seguintes passos para executar consultas analíticas com a Ligação 
 
 1. A sua conta está agora habilitada a utilizar o Synapse Link. Em seguida, veja como criar uma loja analítica que permita aos contentores começarem automaticamente a replicar os seus dados operacionais da loja transacional para a loja analítica.
 
-### <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
-
-O [modelo Azure Resource Manager](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) cria uma conta de Link Synapse ativada a Azure Cosmos para a SQL API. Este modelo cria uma conta API core (SQL) numa região com um recipiente configurado com TTL analítico ativado, e uma opção de utilização manual ou de escala automática. Para implementar este modelo, clique em **Implementar para Azure** na página de readme.
+> [!NOTE]
+> Ligar o Synapse Link não liga automaticamente a loja analítica. Assim que ativar o Synapse Link na conta Cosmos DB, ative a loja analítica em contentores quando os criar, para começar a replicar os seus dados de operação para a loja analítica. 
 
 ## <a name="create-an-azure-cosmos-container-with-analytical-store"></a><a id="create-analytical-ttl"></a> Criar um recipiente Azure Cosmos com loja analítica
 
 Pode ligar a loja analítica num recipiente Azure Cosmos enquanto cria o recipiente. Você pode usar o portal Azure ou configurar a propriedade durante a `analyticalTTL` criação de contentores usando os SDKs Azure Cosmos.
 
 > [!NOTE]
-> Atualmente pode ativar a loja analítica para **novos** contentores (tanto em contas novas como existentes).
+> Atualmente pode ativar a loja analítica para **novos** contentores (tanto em contas novas como existentes). Pode migrar dados dos seus recipientes de exisiting para novos contentores utilizando [ferramentas de migração Azure Cosmos DB.](cosmosdb-migrationchoices.md)
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -211,6 +210,10 @@ Utilize as instruções em [Connect to Azure Synapse Link](../synapse-analytics/
 ## <a name="query-using-synapse-spark"></a><a id="query-analytical-store"></a> Consulta usando faísca de sinapse
 
 Utilize as instruções no artigo da [loja analítica Da Consulta Azure Cosmos DB](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) sobre como consultar a Synapse Spark. Este artigo dá alguns exemplos sobre como você pode interagir com a loja analítica a partir de gestos da Sinapse. Esses gestos são visíveis quando clicas à direita num contentor. Com gestos, pode gerar rapidamente código e ajustá-lo às suas necessidades. Também são perfeitos para descobrir dados com um único clique.
+
+## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
+
+O [modelo Azure Resource Manager](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) cria uma conta de Link Synapse ativada a Azure Cosmos para a SQL API. Este modelo cria uma conta API core (SQL) numa região com um recipiente configurado com TTL analítico ativado, e uma opção de utilização manual ou de escala automática. Para implementar este modelo, clique em **Implementar para Azure** na página de readme.
 
 ## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Começando com Azure Synpase Link - Amostras
 

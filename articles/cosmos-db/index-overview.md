@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: 7417515d6f3c293368868e380ac53f0c524b872d
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 3d07657fc3345ddd8dfadd163dc3c9f957d77af3
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760877"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068392"
 ---
-# <a name="indexing-in-azure-cosmos-db---overview"></a>Indexação no Azure Cosmos DB – Descrição geral
+# <a name="indexing-in-azure-cosmos-db---overview"></a>Indexação no Azure Cosmos DB – Descrição geral
 
 Azure Cosmos DB é uma base de dados de esquemas agnósticos que lhe permite iterar a sua aplicação sem ter de lidar com esquemas ou gestão de índices. Por padrão, a Azure Cosmos DB indexa automaticamente todas as propriedades para todos os itens do seu [contentor](databases-containers-items.md#azure-cosmos-containers) sem ter de definir qualquer esquema ou configurar índices secundários.
 
@@ -108,13 +108,13 @@ A Azure Cosmos DB suporta atualmente três tipos de índices.
    SELECT * FROM c WHERE STRINGEQUALS(c.property, "value")
    ```
 
-- `ORDER BY`Consultas:
+- `ORDER BY` Consultas:
 
    ```sql
    SELECT * FROM container c ORDER BY c.property
    ```
 
-- `JOIN`Consultas:
+- `JOIN` Consultas:
 
    ```sql
    SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'
@@ -135,7 +135,7 @@ Os índices **espaciais** permitem consultas eficientes em objetos geoespaciais 
 - Geoespacial dentro de consultas:
 
    ```sql
-   SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })
+   SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] })
    ```
 
 - Consultas intersectais geoespaciais:
@@ -150,7 +150,7 @@ Os índices espaciais podem ser utilizados em objetos [GeoJSON](geospatial.md) c
 
 Os índices **compósitos** aumentam a eficiência quando está a realizar operações em vários campos. O tipo de índice composto é utilizado para:
 
-- `ORDER BY`consultas sobre múltiplas propriedades:
+- `ORDER BY` consultas sobre múltiplas propriedades:
 
 ```sql
  SELECT * FROM container c ORDER BY c.property1, c.property2
@@ -168,7 +168,7 @@ Os índices **compósitos** aumentam a eficiência quando está a realizar opera
  SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
 ```
 
-Enquanto um pré-filtro de filtros utilizar um do tipo indexado, o motor de consulta avaliará primeiro antes de digitalizar o resto. Por exemplo, se tiver uma consulta SQL, como`SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
+Enquanto um pré-filtro de filtros utilizar um do tipo indexado, o motor de consulta avaliará primeiro antes de digitalizar o resto. Por exemplo, se tiver uma consulta SQL, como `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
 
 * A consulta acima filtra-se primeiro para entradas onde primeiro Nome = "Andrew" utilizando o índice. Em seguida, passa todas as entradas do primeiro Nome = "Andrew" através de um pipeline subsequente para avaliar o predicado do filtro CONTAINS.
 

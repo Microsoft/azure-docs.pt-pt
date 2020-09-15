@@ -1,16 +1,16 @@
 ---
 title: Integre Apache Kafka Connect em Azure Event Hubs (Preview) com Debezium para captura de dados de mudança
-description: Este artigo fornece informações sobre como usar Apache Spark com Azure Event Hubs para Kafka.
+description: Este artigo fornece informações sobre como usar Debezium com Azure Event Hubs para Kafka.
 ms.topic: how-to
 author: abhirockzz
 ms.author: abhishgu
 ms.date: 08/11/2020
-ms.openlocfilehash: a11ec882a50d051a34758562ac84dcef5b799f5f
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: cac04bed797bb9956125bc1a38fdfa5c8285050e
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88137012"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061687"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview-with-debezium-for-change-data-capture"></a>Integre o suporte do Apache Kafka Connect nos hubs de eventos Azure (Preview) com Debezium para captura de dados de mudança
 
@@ -51,7 +51,7 @@ Esta secção abrangerá os seguintes tópicos:
 ### <a name="download-and-setup-debezium-connector"></a>Download e configurar o conector Debezium
 Por favor, siga as instruções mais recentes na [documentação de Debezium](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html#postgresql-deploying-a-connector) para descarregar e configurar o conector.
 
-- Descarregue o arquivo plug-in do conector. Por exemplo, para descarregar a versão `1.2.0` do conector, utilize este link -https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.2.0.Final/debezium-connector-postgres-1.2.0.Final-plugin.tar.gz
+- Descarregue o arquivo plug-in do conector. Por exemplo, para descarregar a versão `1.2.0` do conector, utilize este link - https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/1.2.0.Final/debezium-connector-postgres-1.2.0.Final-plugin.tar.gz
 - Extraia os ficheiros JAR e copie-os para o [plugin.path da Kafka Connect](https://kafka.apache.org/documentation/#connectconfigs).
 
 
@@ -133,7 +133,7 @@ Crie um ficheiro de configuração ( `pg-source-connector.json` ) para o conecto
 ```
 
 > [!TIP]
-> `database.server.name`atributo é um nome lógico que identifica e fornece um espaço de nome para o servidor/cluster de base de dados postgreSQL em particular sendo monitorizado.. Para obter informações detalhadas, consulte a [documentação da Debezium](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html#postgresql-property-database-server-name)
+> `database.server.name` atributo é um nome lógico que identifica e fornece um espaço de nome para o servidor/cluster de base de dados postgreSQL em particular sendo monitorizado.. Para obter informações detalhadas, consulte a [documentação da Debezium](https://debezium.io/documentation/reference/1.2/connectors/postgresql.html#postgresql-property-database-server-name)
 
 Para criar uma instância do conector, utilize o ponto final da API kafka Connect REST:
 

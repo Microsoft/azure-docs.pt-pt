@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 6a5ec4644eaed8d525c278c4fc464b4dbc683596
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 838e0a13cb919a5bc17807c2349bb173e4e489f4
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90023844"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068817"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar Definições do Multi-Factor Authentication do Azure
 
@@ -156,7 +156,7 @@ Nos Estados Unidos, se ainda não configuraste o ID do MFA Caller, as chamadas d
 * *+1 (877) 668 6536*
 
 > [!NOTE]
-> Quando as chamadas de autenticação multi-factor Azure são feitas através da rede telefónica pública, por vezes são encaminhadas através de uma transportadora que não suporta o ID do chamador. Por isso, o ID do chamador não está garantido, mesmo que a Autenticação Multi-Factor Azure sempre o envie.
+> Quando as chamadas de autenticação multi-factor Azure são feitas através da rede telefónica pública, por vezes as chamadas são encaminhadas através de uma transportadora que não suporta o ID do chamador. Por isso, o ID do chamador não está garantido, mesmo que a autenticação multi-factor Azure sempre o envie. Isto aplica-se tanto a chamadas telefónicas como a mensagens de texto fornecidas pela Autenticação Multi-Factor Azure. Se precisar de validar que uma mensagem de texto é da Autenticação Multi-Factor Azure, consulte [que códigos curtos SMS são utilizados para o envio de mensagens?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
 
 Para configurar o seu próprio número de identificação de chamada, complete os seguintes passos:
 
@@ -374,6 +374,6 @@ Para permitir e configurar a opção de os utilizadores se lembrarem do seu esta
 
 Depois de ativar a funcionalidade de autenticação multi-factor de ressaltação, os utilizadores podem marcar um dispositivo como confiável quando iniciarem sação selecionando a opção para **Não voltar a perguntar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os métodos disponíveis para utilização na Autenticação Multi-Factor Azure, consulte que métodos de [autenticação e verificação estão disponíveis no Diretório Ativo Azure?](concept-authentication-methods.md)

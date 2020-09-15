@@ -1,6 +1,6 @@
 ---
-title: Resolução de problemas problemas problemas adicionando uma aplicação ao Azure Ative Directory
-description: Resolver problemas comuns que as pessoas enfrentam ao adicionar uma app ao Azure Ative Directory.
+title: Resolução de problemas problemas comuns adicionando ou removendo uma aplicação ao Azure Ative Directory
+description: Resolver problemas comuns que as pessoas enfrentam ao adicionar ou remover uma aplicação ao Azure Ative Directory.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -10,15 +10,15 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 09/11/2018
 ms.author: kenwith
-ms.openlocfilehash: 1502c97e625d3af128772451be8db4dd6187e3a7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e9e97aec66d99d149320938540c48b9ad68eaf0e
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89410449"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068035"
 ---
-# <a name="troubleshoot-common-problem-adding-an-application-to-azure-active-directory"></a>Resolução de problemas problemas problemas adicionando uma aplicação ao Azure Ative Directory
-Este artigo ajuda-o a compreender os problemas comuns que as pessoas enfrentam ao adicionar uma aplicação ao Azure Ative Directory.
+# <a name="troubleshoot-common-problem-adding-or-removing-an-application-to-azure-active-directory"></a>Resolução de problemas problemas comuns adicionando ou removendo uma aplicação ao Azure Ative Directory
+Este artigo ajuda-o a compreender os problemas comuns que as pessoas enfrentam ao adicionar ou remover uma aplicação ao Azure Ative Directory.
 
 ## <a name="i-clicked-the-add-button-and-my-application-took-a-long-time-to-appear"></a>Cliquei no botão "adicionar" e a minha aplicação demorou muito tempo a aparecer
 Em algumas circunstâncias, pode levar 1-2 minutos (e às vezes mais) para que uma aplicação apareça depois de a adicionar ao seu diretório. Embora este não seja o desempenho normal esperado, pode ver que a adição da aplicação está em andamento clicando no ícone **notificações** (o sino) no canto superior direito do [portal Azure](https://portal.azure.com/) e procurando uma aplicação de adicionar com rótulo **em andamento** ou **concluída.** **Adding application.**
@@ -34,6 +34,16 @@ Se encontrar um erro ao clicar no botão **Adicionar,** verá uma **Notificaçã
 Se precisa de ajuda para aprender sobre aplicações, a [Lista de Tutoriais sobre Como Integrar aplicações saas com](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) o artigo do Azure Ative Directory é um bom ponto de partida.
 
 Além disso, a [Azure AD Applications Document Library](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) ajuda-o a aprender mais sobre o sign-on único com a AD Azure e como funciona.
+
+## <a name="i-want-to-delete-an-application-but-the-delete-button-is-disabled"></a>Quero apagar uma aplicação, mas o botão de eliminar está desativado
+
+O botão de eliminação será desativado nos seguintes cenários:
+
+- Para aplicações sob aplicação da Enterprise, se não tiver uma das seguintes funções: Administrador Global, Administrador de Aplicação cloud, Administrador de Aplicação ou proprietário do principal de serviço.
+
+- Para a aplicação da Microsoft, não poderá eliminá-las da UI independentemente do seu papel.
+
+- Para serviçosPrincipals que correspondem a uma identidade gerida. Os principais do serviço de identidades geridas não podem ser eliminados na lâmina de aplicações da Enterprise. Tens de ir ao recurso Azure para o gerires. Lear mais sobre [Identidade Gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
 ## <a name="how-to-see-the-details-of-a-portal-notification"></a>Como ver os detalhes de uma notificação do portal
 Pode ver os detalhes de qualquer notificação do portal seguindo os passos abaixo:

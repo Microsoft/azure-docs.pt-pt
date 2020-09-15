@@ -4,12 +4,12 @@ description: Saiba como resolver problemas e resolver problemas comuns ao utiliz
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 4a28ebd047e4d5e610ea0c895063eb87ce051d45
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 855e5e5e23371f600a7e73139f2e6da1eebc91d0
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460325"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068834"
 ---
 # <a name="aks-troubleshooting"></a>Resolução de problemas do AKS
 
@@ -450,3 +450,15 @@ Nas versões Kubernetes **com mais de 1.15.0,** pode receber um erro como **Erro
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md
 [cluster-autoscaler]: cluster-autoscaler.md
+
+### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>Por que as atualizações para Kubernetes 1.16 falham ao usar etiquetas de nó com um prefixo kubernetes.io
+
+A partir de Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) [apenas um subconjunto definido de etiquetas com o prefixo kubernetes.io](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal) pode ser aplicado pelo kubelet aos nós. A AKS não pode remover etiquetas ativas em seu nome sem consentimento, pois pode causar tempo de inatividade para cargas de trabalho impactadas.
+
+Como resultado, para atenuar isto pode:
+
+1. Atualize o seu plano de controlo de cluster para 1,16 ou mais
+2. Adicione um novo nodepoool em 1.16 ou superior sem as etiquetas de kubernetes.io não suportadas
+3. Eliminar o nodepool mais antigo
+
+A AKS está a investigar a capacidade de mutar rótulos ativos num nodepool para melhorar esta mitigação.

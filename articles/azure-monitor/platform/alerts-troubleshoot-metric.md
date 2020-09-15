@@ -4,14 +4,14 @@ description: Problemas comuns com alertas métricos do Azure Monitor e possívei
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 08/13/2020
+ms.date: 09/14/2020
 ms.subservice: alerts
-ms.openlocfilehash: 1c1fe613721ea2bc2d4b9665d6da73b094487efc
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: b0e39982b3d62e0ef722a139024b499efc254f5f
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190674"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068767"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Problemas de resolução de problemas nos alertas métricos do Monitor Azure 
 
@@ -234,7 +234,7 @@ Considere as seguintes restrições para nomes de regras de alerta métrico:
 - Os nomes das regras de alerta métrico não podem ser alterados (renomeado) uma vez criados
 - Os nomes das regras de alerta métrico devem ser únicos dentro de um grupo de recursos
 - Os nomes das regras de alerta métrico não podem conter os seguintes caracteres: * # & + : < > ? @ % { } \ / 
-- Os nomes das regras de alerta métrico não podem terminar com o seguinte carácter: .
+- Os nomes das regras de alerta métrico não podem terminar com um espaço ou um período
 
 
 ## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>Restrições ao utilizar dimensões numa regra de alerta métrico com múltiplas condições

@@ -3,15 +3,16 @@ title: Usando Akka Streams para Apache Kafka - Azure Event Hubs / Microsoft Docs
 description: Este artigo fornece informações sobre como ligar a Akka Streams a um centro de eventos Azure.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: ae3cc44d854aa0996a6a567e56ff4e70afe0492d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fbbeef37c4cbdd52d2127c5242474ac46e42d25
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320212"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061704"
 ---
 # <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Utilizar o Akka Streams com os Hubs de Eventos para o Apache Kafka
-Este tutorial mostra-lhe como ligar a Akka Streams a um centro de eventos sem alterar os seus clientes de protocolo ou executar os seus próprios clusters. Azure Event Hubs para o Kafka suporta [a versão 1.0 de Apache Kafka.](https://kafka.apache.org/10/documentation.html)
+
+Este tutorial mostra-lhe como conectar a Akka Streams através do suporte do Event Hubs para Apache Kafka sem alterar os seus clientes de protocolo ou executar os seus próprios clusters. 
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -34,7 +35,7 @@ Para completar este tutorial, certifique-se de que tem os seguintes pré-requisi
     * Certifique-se de que define a variável de ambiente JAVA_HOME para apontar para a pasta onde está instalado o JDK.
 * [Faça o download](https://maven.apache.org/download.cgi) e [instale](https://maven.apache.org/install.html) um arquivo binário Maven
     * No Ubuntu, pode executar `apt-get install maven` para instalar o Maven.
-* [Git](https://www.git-scm.com/downloads)
+* [Rio Git](https://www.git-scm.com/downloads)
     * No Ubuntu, pode executar `sudo apt-get install git` para instalar o Git.
 
 ## <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos

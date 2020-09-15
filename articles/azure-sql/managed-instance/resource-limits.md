@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 08/14/2020
-ms.openlocfilehash: 902fa34be149f0b876729409c530186e34c706e5
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.date: 09/14/2020
+ms.openlocfilehash: 3c9389e6063279e214e3650f6364dc25ff773db5
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587315"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069599"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Visão geral dos limites de recursos geridos da Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -65,7 +65,7 @@ Sql Managed Instance tem dois níveis de serviço: [Final geral](../database/ser
 > [!Important]
 > Business Critical o nível de serviço fornece uma cópia adicional incorporada da SQL Managed Instance (réplica secundária) que pode ser usada para carga de trabalho apenas de leitura. Se conseguir separar consultas de leitura-escrita e consultas de leitura/analítica/reporte, está a receber o dobro dos vCores e da memória pelo mesmo preço. A réplica secundária pode ficar alguns segundos atrás da instância primária, por isso é projetada para descarregar cargas de trabalho de reporte/analítico que não precisam do estado exato dos dados atuais. Na tabela abaixo, **as consultas apenas de leitura** são as consultas que são executadas em réplicas secundárias.
 
-| **Funcionalidade** | **Finalidade Geral** | **Critical de negócios** |
+| **Funcionalidade** | **Finalidade Geral** | **Crítico para a Empresa** |
 | --- | --- | --- |
 | Número de vCores\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64, 80 <br/>\*O mesmo número de vCores é dedicado a consultas apenas de leitura. |
 | Memória máxima | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 20.4 GB - 408 GB (5.1GB/vCore)<br/>Adicione mais vCores para obter mais memória. | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 20.4 GB - 408 GB (5.1GB/vCore) para consultas de leitura-escrita<br/>+ mais 20,4 GB - 408 GB (5.1GB/vCore) para consultas só de leitura.<br/>Adicione mais vCores para obter mais memória. |
@@ -99,12 +99,12 @@ Encontre mais informações sobre os [limites de recursos nas piscinas SQL Manag
 
 ### <a name="file-io-characteristics-in-general-purpose-tier"></a>Características de IO de ficheiro no nível de finalidade geral
 
-No nível de serviço De Finalidade Geral todos os ficheiros de base de dados recebem IOPS dedicado e produção que dependem do tamanho do ficheiro. Ficheiros de dados maiores obtêm mais IOPS e produção. As características io dos ficheiros de base de dados são mostradas no quadro seguinte:
+No nível de serviço De Finalidade Geral todos os ficheiros de base de dados recebem IOPS dedicado e produção que dependem do tamanho do ficheiro. Ficheiros maiores obtêm mais IOPS e produção. As características io dos ficheiros de base de dados são mostradas na tabela seguinte:
 
-| Tamanho dos ficheiros | >=0 e <=128 GiB | >128 e <=256 GiB | >256 e <= 512 GiB | >0,5 e <=1 TiB    | >1 e <=2 TiB    | >2 e <=4 TiB | >4 e <=8 TiB |
+| Tamanho dos ficheiros | >=0 e <=128 GiB | >128 e <= 512 GiB | >0,5 e <=1 TiB    | >1 e <=2 TiB    | >2 e <=4 TiB | >4 e <=8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| IOPS por ficheiro       | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500   |
-| Produção por ficheiro | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
+| IOPS por ficheiro       | 500   | 2300              | 5000              | 7500              | 7500              | 12.500   |
+| Produção por ficheiro | 100 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
 
 Se notar uma elevada latência de IO em algum ficheiro de base de dados ou se vir que o IOPS/produção está a atingir o limite, poderá melhorar o desempenho [aumentando o tamanho do ficheiro](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
 

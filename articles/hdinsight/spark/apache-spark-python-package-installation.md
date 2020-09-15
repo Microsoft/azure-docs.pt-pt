@@ -8,18 +8,14 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-python
 ms.date: 04/29/2020
-ms.openlocfilehash: 59de3eb2370029ab9edcb609298c7b1fdf5f8ff8
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 09d1063f704c37eb31546be08765f2b5b6fb8632
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873760"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060752"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>Gerir com segurança o ambiente do Python no Azure HDInsight com a Ação de Script
-
-> [!div class="op_single_selector"]
-> * [Usando magia celular](apache-spark-jupyter-notebook-use-external-packages.md)
-> * [Usando ação do script](apache-spark-python-package-installation.md)
 
 A HDInsight tem duas instalações python incorporadas no cluster Spark, Anaconda Python 2.7 e Python 3.5. Os clientes podem precisar de personalizar o ambiente Python. Como instalar pacotes Python externos ou outra versão Python. Aqui, mostramos a melhor prática de gerir com segurança ambientes Python para aglomerados Apache Spark em HDInsight.
 
@@ -36,7 +32,7 @@ Existem dois tipos de componentes de código aberto que estão disponíveis no s
 |Componente |Descrição |
 |---|---|
 |Incorporado|Estes componentes são pré-instalados em clusters HDInsight e fornecem a funcionalidade central do cluster. Por exemplo, Apache Hadoop YARN Resource Manager, a língua de consulta da Colmeia Apache (HiveQL), e a biblioteca Mahout pertencem a esta categoria. Uma lista completa de componentes de cluster está disponível nas [novidades das versões do cluster Apache Hadoop fornecidas pela HDInsight.](../hdinsight-component-versioning.md)|
-|Personalizar|Você, como utilizador do cluster, pode instalar ou utilizar na sua carga de trabalho qualquer componente disponível na comunidade ou criado por si.|
+|Personalizado|Você, como utilizador do cluster, pode instalar ou utilizar na sua carga de trabalho qualquer componente disponível na comunidade ou criado por si.|
 
 > [!IMPORTANT]
 > Os componentes fornecidos com o cluster HDInsight são totalmente suportados. O Microsoft Support ajuda a isolar e resolver problemas relacionados com estes componentes.
@@ -60,9 +56,9 @@ O cluster HDInsight depende do ambiente python incorporado, tanto python 2.7 com
 
 1. Crie o ambiente virtual Python usando conda. Um ambiente virtual proporciona um espaço isolado para os seus projetos sem quebrar outros. Ao criar o ambiente virtual Python, pode especificar a versão python que pretende utilizar. Você ainda precisa criar ambiente virtual, mesmo que você gostaria de usar Python 2.7 e 3.5. Este requisito é garantir que o ambiente padrão do cluster não se quebre. Execute as ações de script no seu cluster para todos os nós com script abaixo para criar um ambiente virtual Python.
 
-    -   `--prefix`especifica um caminho onde um ambiente virtual conda vive. Há vários configs que precisam de ser alterados mais com base no caminho especificado aqui. Neste exemplo, usamos o py35new, já que o cluster já tem um ambiente virtual existente chamado py35.
-    -   `python=`especifica a versão Python para o ambiente virtual. Neste exemplo, usamos a versão 3.5, a mesma versão do cluster construído numa só. Também pode usar outras versões Python para criar o ambiente virtual.
-    -   `anaconda`especifica a package_spec como anaconda para instalar pacotes Anaconda no ambiente virtual.
+    -   `--prefix` especifica um caminho onde um ambiente virtual conda vive. Há vários configs que precisam de ser alterados mais com base no caminho especificado aqui. Neste exemplo, usamos o py35new, já que o cluster já tem um ambiente virtual existente chamado py35.
+    -   `python=` especifica a versão Python para o ambiente virtual. Neste exemplo, usamos a versão 3.5, a mesma versão do cluster construído numa só. Também pode usar outras versões Python para criar o ambiente virtual.
+    -   `anaconda` especifica a package_spec como anaconda para instalar pacotes Anaconda no ambiente virtual.
     
     ```bash
     sudo /usr/bin/anaconda/bin/conda create --prefix /usr/bin/anaconda/envs/py35new python=3.5 anaconda --yes
@@ -76,8 +72,8 @@ O cluster HDInsight depende do ambiente python incorporado, tanto python 2.7 com
 
     - Use o canal conda:
 
-        -   `seaborn`é o nome do pacote que gostaria de instalar.
-        -   `-n py35new`especificar o nome do ambiente virtual que acaba de ser criado. Certifique-se de alterar o nome correspondentemente com base na sua criação de ambiente virtual.
+        -   `seaborn` é o nome do pacote que gostaria de instalar.
+        -   `-n py35new` especificar o nome do ambiente virtual que acaba de ser criado. Certifique-se de alterar o nome correspondentemente com base na sua criação de ambiente virtual.
 
         ```bash
         sudo /usr/bin/anaconda/bin/conda install seaborn -n py35new --yes
@@ -92,8 +88,8 @@ O cluster HDInsight depende do ambiente python incorporado, tanto python 2.7 com
 
     - Use o canal conda:
 
-        -   `numpy=1.16.1`é o nome e versão do pacote que gostaria de instalar.
-        -   `-n py35new`especificar o nome do ambiente virtual que acaba de ser criado. Certifique-se de alterar o nome correspondentemente com base na sua criação de ambiente virtual.
+        -   `numpy=1.16.1` é o nome e versão do pacote que gostaria de instalar.
+        -   `-n py35new` especificar o nome do ambiente virtual que acaba de ser criado. Certifique-se de alterar o nome correspondentemente com base na sua criação de ambiente virtual.
 
         ```bash
         sudo /usr/bin/anaconda/bin/conda install numpy=1.16.1 -n py35new --yes
@@ -132,7 +128,7 @@ O cluster HDInsight depende do ambiente python incorporado, tanto python 2.7 com
 
     4. Guarde as alterações e reinicie os serviços afetados. Estas alterações precisam de um reinício do serviço Spark2. A Ambari UI irá solicitar um lembrete de reinício necessário, clique em Reiniciar para reiniciar todos os serviços afetados.
 
-        ![Change Spark config através de Ambari](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+        ![Reiniciar serviços](./media/apache-spark-python-package-installation/ambari-restart-services.png)
 
 4. Se quiser usar o novo ambiente virtual criado no Jupyter. Mude jupyter configs e reinicie Jupyter. Executar ações de script em todos os nós de cabeçalho com declaração abaixo para apontar Jupyter para o novo ambiente virtual criado. Certifique-se de modificar o caminho para o prefixo especificado para o seu ambiente virtual. Depois de executar esta ação de script, reinicie o serviço Jupyter através da UI Ambari para disponibilizar esta mudança.
 
@@ -150,7 +146,7 @@ Há um bug conhecido para a versão Anaconda, `4.7.11` `4.7.12` e `4.8.0` . Se v
 
 Para verificar a sua versão Anaconda, pode SSH para o nó do cabeçalho do cluster e correr `/usr/bin/anaconda/bin/conda --v` .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Descrição geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)
 * [Pacotes externos com cadernos Jupyter em Apache Spark](apache-spark-jupyter-notebook-use-external-packages.md)

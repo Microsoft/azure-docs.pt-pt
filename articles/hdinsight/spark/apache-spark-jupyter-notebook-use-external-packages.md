@@ -8,18 +8,14 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/22/2019
-ms.openlocfilehash: 6587a055d672bc309c89ff2a37fabb273a4c4621
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 772b136c00dc9c20f8bc35d7ebb324175a56e885
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084686"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061721"
 ---
 # <a name="use-external-packages-with-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Use pacotes externos com cadernos Jupyter em aglomerados Apache Spark em HDInsight
-
-> [!div class="op_single_selector"]
-> * [Usando magia celular](apache-spark-jupyter-notebook-use-external-packages.md)
-> * [Usando ação do script](apache-spark-python-package-installation.md)
 
 Aprenda a configurar um [Caderno Jupyter](https://jupyter.org/) em aglomerado Apache Spark em HDInsight para usar pacotes apache **maven** externos, contribuídos pela comunidade, que não estão incluídos fora da caixa no cluster.
 

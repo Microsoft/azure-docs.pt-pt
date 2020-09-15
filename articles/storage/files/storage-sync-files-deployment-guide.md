@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 834b3b60a887dadd75e00a7a33abaff15e1a9407
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: deffa5c75cbde4f9d95be549844478d4de87a685
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441481"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069633"
 ---
 # <a name="deploy-azure-file-sync"></a>Implementar o Azure File Sync
 Utilize o Azure File Sync para centralizar as ações de ficheiros da sua organização em Ficheiros Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode utilizar qualquer protocolo disponível no Windows Server para aceder aos dados localmente, incluindo SMB, NFS e FTPS. Podes ter o número de caches que precisares em todo o mundo.
@@ -157,7 +157,7 @@ Para implementar um Serviço de Sincronização de Armazenamento, vá ao [portal
 
 No painel que se abre, introduza as informações seguintes:
 
-- **Nome**: Nome único (por subscrição) para o Serviço de Sincronização de Armazenamento.
+- **Nome**: Nome único (por região) para o Serviço de Sincronização de Armazenamento.
 - **Subscrição**: A subscrição na qual pretende criar o Serviço de Sincronização de Armazenamento. Dependendo da estratégia de configuração da sua organização, poderá ter acesso a uma ou mais subscrições. Uma subscrição Azure é o recipiente mais básico para faturação para cada serviço em nuvem (como ficheiros Azure).
 - **Grupo de recursos**: Um grupo de recursos é um grupo lógico de recursos Azure, como uma conta de armazenamento ou um Serviço de Sincronização de Armazenamento. Pode criar um novo grupo de recursos ou utilizar um grupo de recursos existente para o Azure File Sync. (Recomendamos a utilização de grupos de recursos como contentores para isolar os recursos logicamente para a sua organização, como agrupar recursos de RH ou recursos para um projeto específico.)
 - **Localização**: A região em que pretende implantar O Azure File Sync. Só estão disponíveis nesta lista regiões apoiadas.
@@ -627,7 +627,7 @@ Para migrar uma implementação DFS-R para Azure File Sync:
 
 Para obter mais informações, consulte [o interop Azure File Sync com o Distributed File System (DFS)](storage-sync-files-planning.md#distributed-file-system-dfs).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Adicionar ou remover um ponto de final do servidor de sincronização de ficheiros Azure](storage-sync-files-server-endpoint.md)
 - [Registar ou não registar um servidor com Azure File Sync](storage-sync-files-server-registration.md)
 - [Monitorizar o Azure File Sync](storage-sync-files-monitoring.md)

@@ -3,17 +3,16 @@ title: Use Apache Flink para Apache Kafka - Azure Event Hubs Microsoft Docs
 description: Este artigo fornece informações sobre como ligar a Apache Flink a um centro de eventos Azure
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 43cbf99a6ba2c0384ceffc10b01916f6ad22b26a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2e6eeb74c5a334d1692357edec0fd363349c7c0
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320143"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061653"
 ---
 # <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Utilizar o Apache Flink com os Hubs de Eventos do Azure para Apache Kafka
-Este tutorial mostra-lhe como ligar o Apache Flink a um centro de eventos sem alterar os seus clientes de protocolo ou executar os seus próprios clusters. Azure Event Hubs suporta [a versão Apache Kafka 1.0.](https://kafka.apache.org/10/documentation.html).
+Este tutorial mostra-lhe como ligar o Apache Flink a um centro de eventos sem alterar os seus clientes de protocolo ou executar os seus próprios clusters. Para obter mais informações sobre o apoio do Event Hubs ao protocolo de consumo apache Kafka, consulte [Os Centros de Eventos para Apache Kafka.](event-hubs-for-kafka-ecosystem-overview.md)
 
-Um dos principais benefícios da utilização de Apache Kafka é o ecossistema de estruturas a que se pode ligar. O Event Hubs combina a flexibilidade de Kafka com a escalabilidade, consistência e apoio do ecossistema Azure.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -36,7 +35,7 @@ Para completar este tutorial, certifique-se de que tem os seguintes pré-requisi
     * Certifique-se de que define a variável de ambiente JAVA_HOME para apontar para a pasta onde está instalado o JDK.
 * [Faça o download](https://maven.apache.org/download.cgi) e [instale](https://maven.apache.org/install.html) um arquivo binário Maven
     * No Ubuntu, pode executar `apt-get install maven` para instalar o Maven.
-* [Git](https://www.git-scm.com/downloads)
+* [Rio Git](https://www.git-scm.com/downloads)
     * No Ubuntu, pode executar `sudo apt-get install git` para instalar o Git.
 
 ## <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos
@@ -123,5 +122,5 @@ Para saber mais sobre os Centros de Eventos para Kafka, consulte os seguintes ar
 - [Ligar o Apache Spark a um hub de eventos](event-hubs-kafka-spark-tutorial.md)
 - [Integre kafka Connect com um centro de eventos](event-hubs-kafka-connect-tutorial.md)
 - [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka) (Explorar exemplos no nosso GitHub)
-- [Ligue a Akka Streams a um centro de eventos](event-hubs-kafka-akka-streams-tutorial.md)
+- [Ligar o Akka Streams a um hub de eventos](event-hubs-kafka-akka-streams-tutorial.md)
 - [Guia de desenvolvimento apache Kafka para hubs de eventos Azure](apache-kafka-developer-guide.md)

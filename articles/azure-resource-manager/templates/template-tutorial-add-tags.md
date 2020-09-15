@@ -6,12 +6,12 @@ ms.date: 03/27/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: ce25047ae93a332b62b7e785b23da5794031a98b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ace23e392d90e77c02df7861df96c066c82eee33
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497516"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069072"
 ---
 # <a name="tutorial-add-tags-in-your-arm-template"></a>Tutorial: Adicione etiquetas no seu modelo ARM
 
@@ -33,7 +33,7 @@ Depois de implementar estes recursos, poderá ter de rastrear os custos e encont
 
 ## <a name="add-tags"></a>Adicionar etiquetas
 
-Coloca etiquetas nos recursos para adicionar valores que o ajudam a identificar a sua utilização. Por exemplo, pode adicionar tags que listam o ambiente e o projeto. Pode adicionar tags que identifiquem um centro de custos ou a equipa proprietária do recurso. Adicione todos os valores que façam sentido para a sua organização.
+Coloca etiquetas nos recursos para adicionar valores que o ajudam a identificar a sua utilização. Por exemplo, pode adicionar tags que listam o ambiente e o projeto. Pode adicionar tags que identifiquem um centro de custos ou a equipa proprietária do recurso. Adicione os valores que façam sentido para a sua organização.
 
 O exemplo a seguir destaca as alterações ao modelo. Copie todo o ficheiro e substitua o seu modelo pelo seu conteúdo.
 
@@ -72,7 +72,7 @@ az deployment group create \
 ---
 
 > [!NOTE]
-> Se a implementação falhar, utilize o interruptor **de depuração** com o comando de implantação para mostrar os registos de depuração.  Também pode utilizar o interruptor **verboso** para mostrar os registos completos do depurg.
+> Se a implementação falhar, utilize o interruptor **verboso** para obter informações sobre os recursos que estão a ser criados. Use o **interruptor de depuração** para obter mais informações para depurar.
 
 ## <a name="verify-deployment"></a>Verificar a implementação
 

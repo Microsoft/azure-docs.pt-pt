@@ -6,15 +6,15 @@ author: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
-ms.topic: overview
+ms.topic: reference
 ms.date: 07/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dc7417cafc2a9d6f1abca31da884d55bfac42b75
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 78d0f483bb18213fa7d6718f15dd77733a10049c
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90028938"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069361"
 ---
 # <a name="whats-new-for-azure-key-vault"></a>O que há de novo para Azure Key Vault
 
@@ -158,6 +158,6 @@ A segunda versão de pré-visualização (versão 2015-02-01)foi anunciada a 20 
  
 A primeira versão de pré-visualização (versão 2014-12-08)foi anunciada a 8 de janeiro de 2015.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver dúvidas adicionais, contacte-nos através [do suporte.](https://azure.microsoft.com/support/options/)  

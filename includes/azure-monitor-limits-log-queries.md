@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: bwren
 ms.custom: include file
-ms.openlocfilehash: 627b020ce618a2a1f2646a95e143947876bd6a15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83754842eeb4b5d609596045c11451e898960b9a
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82072642"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90064849"
 ---
 ### <a name="general-query-limits"></a>Limites gerais de consulta
 
@@ -30,8 +30,8 @@ O Azure Monitor tem vários limites de estrangulamento para proteger contra os u
 | Medir | Limite por utilizador | Descrição |
 |:---|:---|:---|
 | Consultas simultâneas | 5 | Se já existem 5 consultas em execução para o utilizador, quaisquer novas consultas são colocadas numa fila de conuncy por utilizador. Quando uma das consultas de execução terminar, a próxima consulta será retirada da fila e iniciada. Isto não inclui consultas de regras de alerta.
-| Tempo na fila da concurrency | 2,5 minutos | Se uma consulta se sentar na fila por mais de 2,5 minutos sem ser iniciada, será terminada com uma resposta de erro HTTP com o código 429. |
-| Total de consultas na fila da concurrency | 40 | Uma vez que o número de consultas na fila atinge 40, quaisquer consultas adicionais serão rejeitadas com um código de erro HTTP 429. Este número é além das 5 consultas que podem ser em execução simultaneamente. |
+| Tempo na fila da concurrency | 3 minutos | Se uma consulta se sentar na fila por mais de 3 minutos sem ser iniciada, será terminada com uma resposta de erro HTTP com o código 429. |
+| Total de consultas na fila da concurrency | 200 | Uma vez que o número de consultas na fila atinge 200, quaisquer consultas adicionais serão rejeitadas com um código de erro HTTP 429. Este número é além das 5 consultas que podem ser em execução simultaneamente. |
 | Taxa de consultas | 200 consultas por 30 segundos | Esta é a taxa global que as consultas podem ser submetidas por um único utilizador a todos os espaços de trabalho.  Este limite aplica-se a consultas programáticas ou consultas iniciadas por peças de visualização como dashboards Azure e a página de resumo do espaço de trabalho Log Analytics. |
 
 - Otimize as suas consultas como descrito nas [consultas de registo otimizado no Azure Monitor](../articles/azure-monitor/log-query/query-optimization.md).

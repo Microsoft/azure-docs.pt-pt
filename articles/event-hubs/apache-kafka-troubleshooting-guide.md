@@ -3,12 +3,12 @@ title: Problemas de resolução de problemas com a Azure Event Hubs para Apache 
 description: Este artigo mostra como resolver problemas com os hubs de eventos da Azure para Apache Kafka
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 034541aa6ea683c0e294ca8790b02f0dc60b5440
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e32e02947b9f004755381d562fd3f3c897b70674
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090574"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061432"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Guia de resolução de problemas de Apache Kafka para centros de eventos
 Este artigo fornece dicas de resolução de problemas para problemas que você pode encontrar ao usar Os Centros de Eventos para Apache Kafka. 
@@ -55,14 +55,14 @@ Verifique os seguintes itens se vê problemas ao utilizar Kafka em Centros de Ev
 - **Autenticação SASL** - Conseguir que a sua estrutura coopere com o protocolo de autenticação SASL exigido pelos Event Hubs pode ser mais difícil do que se vê. Veja se consegue resolver problemas na configuração utilizando os recursos da sua estrutura na autenticação SASL. 
 
 ## <a name="limits"></a>Limites
-Apache Kafka vs. Event Hubs Kafka. Na maior parte dos casos, o Event Hubs Kafka tem os mesmos padrão, propriedades, códigos de erro e comportamento geral que a Apache Kafka tem. Os casos que estes dois diferem explicitamente (ou onde os Centros de Eventos impõem um limite que Kafka não) estão listados abaixo:
+Apache Kafka vs. Event Hubs Kafka. Na maior parte das vezes, a interface kafka do Azure Event Hubs tem os mesmos padrão, propriedades, códigos de erro e comportamento geral que a Apache Kafka tem. Os casos que estes dois diferem explicitamente (ou onde os Centros de Eventos impõem um limite que Kafka não) estão listados abaixo:
 
 - O comprimento máximo da propriedade é de `group.id` 256 caracteres
 - O tamanho máximo de `offset.metadata.max.bytes` 1024 bytes
-- Os compromissos de compensação são acelerados a 4 chamadas/segundo por partição com um tamanho máximo de log interno de 1 MB
+- Os compromissos de compensação são acelerados para 4 chamadas/segundo por partição com um tamanho máximo de log interno de 1 MB
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para saber mais sobre Os Centros de Eventos e Centros de Eventos para Kafka, consulte os seguintes artigos:  
 
 - [Guia de desenvolvedores apache Kafka para centros de eventos](apache-kafka-developer-guide.md)

@@ -3,20 +3,20 @@ title: Guia de desenvolvedores apache Kafka para centros de eventos
 description: Este artigo fornece links para artigos que descrevem como integrar as suas aplicações Kafka com Azure Event Hubs.
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: bbd173a7f81042c0839cec81838172b21f80d5cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 757db4faf2a933e366bc818d5cf6aab04d0b08ba
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314242"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061738"
 ---
 # <a name="apache-kafka-developer-guide-for-azure-event-hubs"></a>Guia de desenvolvimento apache Kafka para hubs de eventos Azure
 Este artigo fornece links para artigos que descrevem como integrar as suas aplicações Apache Kafka com Azure Event Hubs. 
 
 ## <a name="overview"></a>Descrição geral
-O Event Hubs fornece um ponto final kafka que pode ser usado pelas suas aplicações existentes baseadas em Kafka como uma alternativa para executar o seu próprio cluster Kafka. O Event Hubs suporta o protocolo Apache Kafka 1.0 e mais tarde, e trabalha com as aplicações kafka existentes, incluindo o MirrorMaker. Para mais informações, consulte [Os Centros de Eventos para Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+O Event Hubs fornece um ponto final kafka que pode ser usado pelas suas aplicações existentes baseadas em Kafka como uma alternativa para executar o seu próprio cluster Kafka. O Event Hubs trabalha com muitas das suas aplicações kafka existentes. Para mais informações, consulte [Os Centros de Eventos para Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
-## <a name="quickstarts"></a>Guias de Início Rápido
+## <a name="quickstarts"></a>Guias de Introdução
 Você pode encontrar quickstarts no GitHub e neste conjunto de conteúdos que o ajuda rapidamente a subir em Event Hubs para Kafka.
 
 ### <a name="quickstarts-in-github"></a>Quickstarts em GitHub
@@ -37,7 +37,7 @@ Veja os seguintes quickstarts no **azure-event-hubs-for-kafka** repo:
 Consulte o quickstart: [Streaming de dados com Os Centros de Eventos utilizando o protocolo Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md) neste conjunto de conteúdos, que fornece instruções passo a passo sobre como transmitir para Os Centros de Eventos. Aprende a usar os seus produtores e consumidores para falar com o Event Hubs com apenas uma alteração de configuração nas suas aplicações. 
 
 
-## <a name="tutorials"></a>Tutoriais 
+## <a name="tutorials"></a>Tutorials (Tutoriais) 
 
 ### <a name="tutorials-in-github"></a>Tutoriais em GitHub
 Veja os seguintes tutoriais no GitHub:
@@ -60,7 +60,7 @@ Veja os seguintes tutoriais no GitHub:
 ### <a name="tutorials-in-docs"></a>Tutoriais em DOCS
 Além disso, consulte o tutorial: [Processa Apache Kafka para eventos de Event Hubs usando a analytics Stream](event-hubs-kafka-stream-analytics.md) neste conjunto de conteúdos, que mostra como transmitir dados em Centros de Eventos e processá-lo com Azure Stream Analytics.
 
-## <a name="how-to-guides"></a>Guias de procedimentos
+## <a name="how-to-guides"></a>How-to guides (Guias de procedimentos)
 Consulte os seguintes guias de como fazer na nossa documentação:
 
 | Artigo | Descrição | 
@@ -69,7 +69,7 @@ Consulte os seguintes guias de como fazer na nossa documentação:
 | [Ligar o Apache Spark a um hub de eventos](event-hubs-kafka-spark-tutorial.md) | Acompanha-o através da ligação da sua aplicação Spark aos Centros de Eventos para streaming em tempo real. |
 | [Ligar o Apache Flink a um hub de eventos](event-hubs-kafka-flink-tutorial.md) | Mostra-lhe como ligar o Apache Flink a um centro de eventos sem alterar os seus clientes de protocolo ou executar os seus próprios clusters. |
 | [Integre o Apache Kafka Connect com um centro de eventos (Pré-visualização)](event-hubs-kafka-connect-tutorial.md) | Acompanha-o através da integração do Kafka Connect com um centro de eventos e da implementação de conectores básicos FileStreamSource e FileStreamSink. |
-| [Ligue a Akka Streams a um centro de eventos](event-hubs-kafka-akka-streams-tutorial.md) | Mostra-lhe como ligar a Akka Streams a um centro de eventos sem alterar os seus clientes de protocolo ou executar os seus próprios clusters. |
+| [Ligar o Akka Streams a um hub de eventos](event-hubs-kafka-akka-streams-tutorial.md) | Mostra-lhe como ligar a Akka Streams a um centro de eventos sem alterar os seus clientes de protocolo ou executar os seus próprios clusters. |
 | [Use o arranque de botas de mola para Apache Kafka com hubs de eventos Azure](/azure/developer/java/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub) | Demonstra como configurar um Binder de fluxo de nuvem de mola baseado em Java criado com o Inicializador de Botas de Mola para usar Apache Kafka com Azure Event Hubs. |
 
 ## <a name="next-steps"></a>Próximos passos

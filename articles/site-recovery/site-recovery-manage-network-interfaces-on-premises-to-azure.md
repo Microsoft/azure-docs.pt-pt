@@ -1,20 +1,20 @@
 ---
 title: Gerir adaptadores de rede para recuperação de desastres no local com recuperação do local de Azure
 description: Descreve como gerir interfaces de rede para recuperação de desastres no local para Azure com Azure Site Recovery
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
-ms.author: mayg
-ms.openlocfilehash: de55e2d316b6ed7ee51460ce96896ed2ccfe0992
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.author: harshacs
+ms.openlocfilehash: 4dad7f76edf34782131c7c844978763cda53acc7
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86129885"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068120"
 ---
-# <a name="manage-vm-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Gerir interfaces de rede VM para recuperação de desastres no local para Azure
+# <a name="manage-vm-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>Gerir as interfaces de rede da VM para recuperação após desastre no local no Azure
 
 Uma máquina virtual (VM) em Azure deve ter pelo menos uma interface de rede ligada a ela. Pode ter tantas interfaces de rede ligadas a ele como o tamanho VM suporta.
 
@@ -68,5 +68,5 @@ Pode modificar o endereço sub-rede e IP para as interfaces de rede de um item r
 
 6. **Selecione Guardar** para guardar todas as alterações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
   [Saiba mais](../virtual-network/virtual-network-network-interface-vm.md) sobre interfaces de rede para máquinas virtuais Azure.

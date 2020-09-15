@@ -1,20 +1,20 @@
 ---
 title: Mapear redes virtuais entre duas regiões na Recuperação do Sítio Azure
 description: Saiba mapear redes virtuais entre duas regiões do Azure para recuperação de desastres em Azure VM com recuperação do local de Azure.
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.author: mayg
-ms.openlocfilehash: 11cc71a05fb95453553223dcb34839e8a5fc6a3a
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.author: harshacs
+ms.openlocfilehash: b5ae68dea228e834b2449152bd3ef357f2a74e83
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130435"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069497"
 ---
-# <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurar mapeamento de rede e endereço IP para VNets
+# <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurar o mapeamento de rede e o endereçamento IP para VNets
 
 Este artigo descreve como mapear duas instâncias de redes virtuais Azure (VNets) localizadas em diferentes regiões do Azure, e como configurar endereços IP entre redes. O mapeamento da rede fornece um comportamento padrão para a seleção da rede alvo com base na rede de origem no momento de permitir a replicação.
 
@@ -92,7 +92,7 @@ A rede alvo não é o VNet de s falha | - O endereço IP alvo será estático co
 - Pode modificar o endereço IP alvo nas definições **de Computação e Rede** do VM.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Rever [orientação de networking](./azure-to-azure-about-networking.md) para a recuperação de desastres da Azure VM.
 - [Saiba mais](site-recovery-retain-ip-azure-vm-failover.md) sobre a retenção de endereços IP após o failover.

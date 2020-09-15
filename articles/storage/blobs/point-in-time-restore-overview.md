@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 09/11/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 07a1e81f2fe63ea8d34f362627ad79ab6729f3f0
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 1187b01fa623264055edecf21ea5c9d35d59a152
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229128"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068307"
 ---
 # <a name="point-in-time-restore-for-block-blobs-preview"></a>Restauro pontual para bolhas de bloco (pré-visualização)
 
@@ -54,7 +54,7 @@ Tenha em mente as seguintes limitações em operações de restauro:
 
 A restauração pontual requer que estejam ativadas as seguintes funcionalidades de Armazenamento Azure:
 
-- [Eliminação recuperável](soft-delete-overview.md)
+- [Excluir suave](soft-delete-overview.md)
 - [Alterar feed (pré-visualização)](storage-blob-change-feed.md)
 - [Versão blob](versioning-overview.md)
 

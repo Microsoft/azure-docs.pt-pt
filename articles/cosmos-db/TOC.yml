@@ -967,6 +967,8 @@
         - name: Utilizar modelos do Azure Resource Manager
           href: manage-sql-with-resource-manager.md
           displayName: ARM
+        - name: Mover entre regiões
+          href: how-to-move-regions.md
     - name: Distribuição global
       items:
         - name: Configurar multimestre

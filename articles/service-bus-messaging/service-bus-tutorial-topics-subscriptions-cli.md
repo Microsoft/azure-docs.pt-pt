@@ -5,12 +5,12 @@ ms.date: 06/23/2020
 ms.topic: quickstart
 author: spelluru
 ms.author: spelluru
-ms.openlocfilehash: 3a6535a13ab00c4e22ac4cd8c2de5a5bbb02d0a8
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 080b089efa276779420f6d9bc8e76272f1e65788
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189798"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069701"
 ---
 # <a name="use-azure-cli-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Use o CLI Azure para criar um tópico de Service Bus e subscrições para o tema
 Neste quickstart, você usa O CLI Azure para criar um tópico de Service Bus e, em seguida, criar subscrições para esse tópico. 
@@ -32,7 +32,7 @@ Neste arranque rápido, você usa Azure Cloud Shell que você pode lançar após
 ## <a name="create-a-service-bus-topic-and-subscriptions"></a>Criar um tópico do Service Bus e subscrições
 Cada [subscrição de um tópico](service-bus-messaging-overview.md#topics) pode receber uma cópia de cada mensagem. Os tópicos são totalmente compatíveis no que diz respeito a protocolo e semântica com as filas do Service Bus. Os tópicos do Service Bus suportam uma vasta gama de regras de seleção com condições de filtro, com ações opcionais que definem ou modificam propriedades de mensagem. Sempre que uma regra tem correspondência, é criada uma mensagem. Para saber mais sobre regras, filtros e ações, clique nesta [hiperligação](topic-filters.md).
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Lance Azure Cloud Shell selecionando o ícone mostrado na imagem seguinte. Mude para o modo **Bash** se a Cloud Shell estiver no modo **PowerShell.** 
 
     :::image type="content" source="./media/service-bus-quickstart-powershell/launch-cloud-shell.png" alt-text="Lançar Cloud Shell":::
@@ -80,7 +80,7 @@ Cada [subscrição de um tópico](service-bus-messaging-overview.md#topics) pode
 9. Crie um filtro na terceira subscrição com um filtro utilizando propriedades do cliente `StoreId` (não em `Store1` , ou `Store2` `Store3` `Store4` .
 
     ```azurecli-interactive
-    az servicebus topic subscription rule create --resource-group MyResourceGroup --namespace-name $namespaceName --topic-name MyTopic --subscription-name S3 --name MyThirdFilter --filter-sql-expression "StoreId IN ('Store1','Store2','Store3', 'Store4')"     
+    az servicebus topic subscription rule create --resource-group MyResourceGroup --namespace-name $namespaceName --topic-name MyTopic --subscription-name S3 --name MyThirdFilter --filter-sql-expression "StoreId NOT IN ('Store1','Store2','Store3', 'Store4')"     
     ```
 10. Executar o seguinte comando para obter a cadeia de ligação primária para o espaço de nome. Utilize este fio de ligação para ligar à fila e enviar e receber mensagens. 
 

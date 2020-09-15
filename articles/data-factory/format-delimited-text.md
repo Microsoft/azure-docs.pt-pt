@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/10/2020
+ms.date: 09/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 81fdb404b99dc5456e9e544b6ff45dff73a7940d
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 9f7f2974646e047d4523643ad2acd94b27add83b
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042841"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061143"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Formato de textolimtado na Azure Data Factory
 
@@ -39,7 +39,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 | firstRowAsHeader | Especifica se deve tratar/fazer a primeira linha como uma linha de cabeçalho com nomes de colunas.<br>Os valores permitidos são **verdadeiros** e **falsos** (padrão).<br>Quando a primeira linha como cabeçalho é falsa, note que a pré-visualização de dados de UI e a produção automática de atividade geram nomes de colunas como Prop_{n} (a partir de 0), a atividade da cópia requer [mapeamento explícito](copy-activity-schema-and-type-mapping.md#explicit-mapping) de origem para afundar e localizar colunas por ordinal (a partir de 1) e mapear listas de fluxos de dados e localizar colunas com nome como Column_{n} (a partir de 1).  | Não       |
 | nullValue        | Especifica a representação de cadeia de valor nulo. <br>O valor predefinido é **a corda vazia.** | Não       |
 | encodingName     | O tipo de codificação utilizado para ler/escrever ficheiros de teste. <br>Allowed values are as follows: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254",.<br>O fluxo de dados de mapeamento de notas não suporta codificação UTF-7. | Não       |
-| compressãoCodec | O códice de compressão usado para ler/escrever ficheiros de texto. <br>Os valores permitidos são **bzip2,** **gzip,** **deflate,** **ZipDeflate,** **snappy,** ou **lz4**. O padrão não é comprimido. <br>**Nota** atualmente A atividade copy não suporta "snappy" & "lz4", e o fluxo de dados de mapeamento não suporta "ZipDeflate". <br>**Note** quando utilizar a atividade de cópia para descomprimir ficheiros **ZipDeflate** e escrever para a loja de dados de lavatórios baseados em ficheiros, por predefinição os ficheiros são extraídos para a pasta: `<path specified in dataset>/<folder named as source zip file>/` , utilize na fonte de atividade de `preserveZipFileNameAsFolder` [cópia](#delimited-text-as-source) para controlar se deve preservar o nome do ficheiro zip como estrutura de pasta. | Não       |
+| compressãoCodec | O códice de compressão usado para ler/escrever ficheiros de texto. <br>Os valores permitidos são **bzip2**, **gzip,** **deflate,** **ZipDeflate,** **TarGzip,** **snappy,** ou **lz4**. O padrão não é comprimido. <br>**Nota** atualmente A atividade copy não suporta "snappy" & "lz4", e o fluxo de dados de mapeamento não suporta "ZipDeflate". <br>**Nota** quando utilizar a atividade de cópia para descomprimir os ficheiros **ZipDeflate** / **TarGzip** e escrever para a loja de dados da pia baseada em ficheiros, por predefinição os ficheiros são extraídos para a pasta: , utilize na fonte de atividade de cópia para controlar se deve preservar o nome do `<path specified in dataset>/<folder named as source compressed file>/` ficheiro zip como estrutura de `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` pasta. [copy activity source](#delimited-text-as-source) | Não       |
 | compressãoLevel | A relação de compressão. <br>Os valores permitidos são **ótimos** ou **mais rápidos.**<br>- **Mais rápido:** O funcionamento da compressão deve ser concluído o mais rapidamente possível, mesmo que o ficheiro resultante não seja perfeitamente comprimido.<br>- **Ótimo**: O funcionamento da compressão deve ser perfeitamente comprimido, mesmo que a operação leve mais tempo a ser concluída. Para mais informações, consulte o tópico [nível de compressão.](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) | Não       |
 
 Abaixo está um exemplo de conjunto de dados de texto delimitado no armazenamento Azure Blob:
@@ -81,7 +81,7 @@ As seguintes propriedades são suportadas na secção *** \* de origem \* *** da
 | Propriedade       | Descrição                                                  | Obrigatório |
 | -------------- | ------------------------------------------------------------ | -------- |
 | tipo           | A propriedade tipo da fonte de atividade de cópia deve ser definida como **DelimitedTextSource**. | Sim      |
-| formatoStas | Um grupo de propriedades. Consulte a tabela **de definições de texto delimitada** abaixo. | Não       |
+| formatoStas | Um grupo de propriedades. Consulte a tabela **de definições de texto delimitada** abaixo. |  Não       |
 | lojaSs  | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . | Não       |
 
 Definições **de leitura de texto delimited suportadas** em `formatSettings` :
@@ -91,7 +91,8 @@ Definições **de leitura de texto delimited suportadas** em `formatSettings` :
 | tipo          | O tipo de formatoStas devem ser definidas para **DelimitedTextReadSettings**. | Sim      |
 | skipLineCount | Indica o número de linhas **não vazias** a saltar ao ler dados a partir de ficheiros de entrada. <br>Se as propriedades skipLineCount e firstRowAsHeader forem especificadas simultaneamente, as linhas são ignoradas primeiro e, em seguida, as informações de cabeçalho são lidas a partir do ficheiro de entrada. | Não       |
 | compressãoProperties | Um grupo de propriedades sobre como descomprimir dados para um determinado codec de compressão. | Não       |
-| preservarZipFileNameAsFolder<br>*(em) `compressionProperties` * | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **ZipDeflate.** Indica se deve preservar o nome do ficheiro zip de origem como estrutura de pasta durante a cópia.<br>- Quando definido como **verdadeiro (predefinido)**, a Data Factory escreve ficheiros desapertados para `<path specified in dataset>/<folder named as source zip file>/` .<br>- Quando definidos como **falsos,** a Data Factory escreve ficheiros desapertados diretamente para `<path specified in dataset>` . Certifique-se de que não tem nomes de ficheiros duplicados em diferentes ficheiros zip de origem para evitar corridas ou comportamentos inesperados.  | Não |
+| preservarZipFileNameAsFolder<br>*(em `compressionProperties` -> `type` `ZipDeflateReadSettings` conforme) * |  Aplica-se quando o conjunto de dados de entrada é configurado com compressão **ZipDeflate.** Indica se deve preservar o nome do ficheiro zip de origem como estrutura de pasta durante a cópia.<br>- Quando definido como **verdadeiro (predefinido)**, a Data Factory escreve ficheiros desapertados para `<path specified in dataset>/<folder named as source zip file>/` .<br>- Quando definidos como **falsos,** a Data Factory escreve ficheiros desapertados diretamente para `<path specified in dataset>` . Certifique-se de que não tem nomes de ficheiros duplicados em diferentes ficheiros zip de origem para evitar corridas ou comportamentos inesperados.  | Não |
+| preservar CompressãoFileNameAsFolder<br>*(em `compressionProperties` -> `type` `TarGZipReadSettings` conforme) *  | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **TarGzip.** Indica se deve preservar o nome do ficheiro comprimido de origem como estrutura de pasta durante a cópia.<br>- Quando definido como **verdadeiro (predefinido)**, a Data Factory escreve ficheiros descomprimidos para `<path specified in dataset>/<folder named as source compressed file>/` . <br>- Quando definido como **falso,** a Data Factory escreve ficheiros descomprimidos diretamente para `<path specified in dataset>` . Certifique-se de que não tem nomes de ficheiros duplicados em diferentes ficheiros de origem para evitar corridas ou comportamentos inesperados. | Não |
 
 ```json
 "activities": [
@@ -128,7 +129,7 @@ As seguintes propriedades são suportadas na secção de *** \* lavatório \* **
 | Propriedade       | Descrição                                                  | Obrigatório |
 | -------------- | ------------------------------------------------------------ | -------- |
 | tipo           | A propriedade do tipo da fonte de atividade de cópia deve ser definida como **DelimitedTextSink**. | Sim      |
-| formatoStas | Um grupo de propriedades. Consulte a tabela **de definições de texto delimitada** abaixo. |          |
+| formatoStas | Um grupo de propriedades. Consulte a tabela **de definições de texto delimitada** abaixo. |    Não      |
 | lojaSs  | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings` .  | Não       |
 
 Definições **de escrita de texto delimitadas suportadas** em `formatSettings` :
@@ -137,6 +138,8 @@ Definições **de escrita de texto delimitadas suportadas** em `formatSettings` 
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | tipo          | O tipo de formatoStas devem ser definidas com **DelimitedTextWriteSettings**. | Sim                                                   |
 | arquivoExtensão | A extensão do ficheiro utilizada para nomear os ficheiros de saída, por `.csv` exemplo, `.txt` , . Deve ser especificado quando o `fileName` não é especificado no conjunto de dados DelimitedText de saída. Quando o nome do ficheiro estiver configurado no conjunto de dados de saída, será utilizado como nome do ficheiro da pia e a definição de extensão do ficheiro será ignorada.  | Sim, quando o nome do ficheiro não é especificado no conjunto de dados de saída |
+| maxRowsPerFile | Ao escrever dados numa pasta, pode optar por escrever em vários ficheiros e especificar as linhas máximas por ficheiro.  | Não |
+| fileNamePrefix | Especifique o prefixo do nome do ficheiro ao escrever dados em vários ficheiros, resultando neste padrão: `<fileNamePrefix>_00000.<fileExtension>` . Se não for especificado, o prefixo do nome do ficheiro será gerado automaticamente. Esta propriedade não se aplica quando a fonte é loja baseada em ficheiros ou [loja de dados ativada por opção de partição.](copy-activity-performance-features.md)  | Não |
 
 ## <a name="mapping-data-flow-properties"></a>Mapeamento de propriedades de fluxo de dados
 
@@ -151,9 +154,9 @@ A tabela abaixo lista as propriedades suportadas por uma fonte de texto delimita
 | Caminhos de wild card | Todos os ficheiros correspondentes ao caminho wildcard serão processados. Substitui a pasta e o caminho do ficheiro definido no conjunto de dados. | não | Corda[] | wildcardPaths |
 | Caminho da raiz da partição | Para os dados de ficheiros que são divididos, pode introduzir um caminho de raiz de partição para ler pastas partidas como colunas | não | String | partitionRootPath |
 | Lista de ficheiros | Se a sua fonte está a apontar para um ficheiro de texto que lista ficheiros para processar | não | `true` ou `false` | fileList |
-| Linhas multiline | O ficheiro de origem contém linhas que abrangem várias linhas. Os valores multiline devem estar em aspas. | não `true` ou`false` | multiLineRow |
+| Linhas multiline | O ficheiro de origem contém linhas que abrangem várias linhas. Os valores multiline devem estar em aspas. | não `true` ou `false` | multiLineRow |
 | Coluna para armazenar nome de ficheiro | Criar uma nova coluna com o nome e caminho do ficheiro de origem | não | String | rowUrlColumn |
-| Após a conclusão | Elimine ou mova os ficheiros após o processamento. O caminho do arquivo começa a partir da raiz do recipiente | não | Excluir: `true` ou`false` <br> Mover-se:`['<from>', '<to>']` | purgeFiles <br> moveFiles |
+| Após a conclusão | Elimine ou mova os ficheiros após o processamento. O caminho do arquivo começa a partir da raiz do recipiente | não | Excluir: `true` ou `false` <br> Mover-se: `['<from>', '<to>']` | purgeFiles <br> moveFiles |
 | Filtrar por última modificação | Opte por filtrar ficheiros com base na última alteração que foram alterados | não | Timestamp | modificado Depois <br> modificadoSForo antes |
 
 ### <a name="source-example"></a>Exemplo de origem
@@ -179,7 +182,7 @@ A tabela abaixo lista as propriedades suportadas por um lavatório de texto deli
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Limpe a pasta | Se a pasta de destino for apurada antes de escrever | não | `true` ou `false` | truncato |
-| Opção de nome de ficheiro | O formato de nomeação dos dados escritos. Por predefinição, um ficheiro por partição em formato`part-#####-tid-<guid>` | não | Padrão: Corda <br> Por partição: String[] <br> Como dados na coluna: String <br> Saída para um único ficheiro:`['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+| Opção de nome de ficheiro | O formato de nomeação dos dados escritos. Por predefinição, um ficheiro por partição em formato `part-#####-tid-<guid>` | não | Padrão: Corda <br> Por partição: String[] <br> Como dados na coluna: String <br> Saída para um único ficheiro: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
 | Citar tudo | Incluir todos os valores em cotações | não | `true` ou `false` | citaçãoTo |
 
 ### <a name="sink-example"></a>Exemplo de pia
@@ -198,9 +201,9 @@ CSVSource sink(allowSchemaDrift: true,
     skipDuplicateMapOutputs: true) ~> CSVSink
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Visão geral da atividade da cópia](copy-activity-overview.md)
+- [Descrição geral da atividade de cópia](copy-activity-overview.md)
 - [Fluxo de dados de mapeamento](concepts-data-flow-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)
 - [Atividade getMetadata](control-flow-get-metadata-activity.md)

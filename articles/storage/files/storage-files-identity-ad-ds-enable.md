@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 612584a71aa6be54d726ccdd74d9368ba9cddbc9
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: ce6325abf34813a9ca397f5bcbe2e774af3442d4
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535081"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061483"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Parte um: ativar a autenticação AD DS para as suas ações de ficheiroS Azure 
 
@@ -28,7 +28,7 @@ Os cmdlets do módulo PowerShell AzFilesHybrid fazem as modificações necessár
 
 ### <a name="download-azfileshybrid-module"></a>Baixar módulo AzFilesHybrid
 
-- [Descarregue e desaperte o módulo AzFilesHybrid](https://github.com/Azure-Samples/azure-files-samples/releases) (módulo GA: v0.2.0+)
+- [Descarregue e desaperte o módulo AzFilesHybrid (módulo GA: v0.2.0+)](https://github.com/Azure-Samples/azure-files-samples/releases) Note que a encriptação kerberos AES 256 é suportada em v0.2.2 ou superior. Se ativou a funcionalidade com uma versão AzFilesHybrid abaixo de v0.2.2 e pretender atualizar para suportar a encriptação AES 256 Kerberos, consulte [este artigo](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems). 
 - Instale e execute o módulo num dispositivo que seja de domínio associado a AD DS no local com credenciais AD DS que tenham permissões para criar uma conta de início de serviço ou uma conta de computador no AD alvo.
 -  Execute o script utilizando uma credencial AD DS no local que está sincronizada com o seu AD Azure. A credencial AD DS no local deve ter permissões de papel do proprietário da conta de armazenamento ou do contribuinte Azure.
 
@@ -151,7 +151,7 @@ $storageAccount.AzureFilesIdentityBasedAuth.DirectoryServiceOptions
 $storageAccount.AzureFilesIdentityBasedAuth.ActiveDirectoryProperties
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora, conseguiu ativar a funcionalidade na sua conta de armazenamento. Para utilizar a funcionalidade, tem de atribuir permissões de nível de partilha. Continue para a próxima secção.
 

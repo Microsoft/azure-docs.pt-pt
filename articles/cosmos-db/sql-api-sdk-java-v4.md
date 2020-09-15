@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: f88004d219989b06d4bc7e75e76aca1ce1e894fe
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: aabd52d47bfc59de7a1d79bbe5ffbdda90d099bf
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536405"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060701"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 para Core (SQL) API: notas de lançamento e recursos
 > [!div class="op_single_selector"]
@@ -68,27 +68,14 @@ O Azure Cosmos DB Java SDK v4 para Core (SQL) combina uma API Async e uma API sy
 
 ## <a name="release-history"></a>História do lançamento
 
-### <a name="440-beta2-unreleased"></a>4.4.0-beta.2 (Não lançado)
-#### <a name="key-bug-fixes"></a>Correções de erros de chaves
-* Pedido FixoTimeoutExcepção quando ativar o tcnative.
+### <a name="450-beta1-unreleased"></a>4.5.0-beta.1 (Não lançado)
 
-### <a name="440-beta1-2020-08-27"></a>4.4.0-beta.1 (2020-08-27)
-#### <a name="new-features"></a>Novas Funcionalidades
-* Adicionou uma nova API para carregar eficientemente muitos documentos (através da lista de pares pk/id ou de todos os documentos para um conjunto de valores de pk).
-* Acrescentou nova `deleteItem` API.
-* Métricas de consulta ativadas por padrão.
+### <a name="440-2020-09-12"></a>4.4.0 (2020-09-12)
 #### <a name="key-bug-fixes"></a>Correções de erros de chaves
-* NPE fixo em `GatewayAddressCache` .
-* Correção da questão da métrica da consulta para a resposta zero do item.
-* Melhor desempenho (utilização reduzida do CPU) para a análise de endereços e autenticação Master-Key.
-
-### <a name="432-beta2-2020-08-17"></a>4.3.2-beta.2 (2020-08-17)
-#### <a name="key-bug-fixes"></a>Correções de erros de chaves
-* Sem alterações na versão anterior, libertando para problemas de compatibilidade com módulos de dados de mola.
-
-### <a name="432-beta1-2020-08-14"></a>4.3.2-beta.1 (2020-08-14)
-#### <a name="key-bug-fixes"></a>Correções de erros de chaves
-* Problema fixo no RntbdServiceEndpoint para evitar o encerramento antecipado de uma ligação TCP não utilizada.
+* Pedido FixoTimeoutExcepção ao ativar a `netty-tcnative-boringssl` dependência.
+* Problema de fuga de memória fixo `Delete` nas operações em `GATEWAY` modo.
+* Corrigiu uma fuga instantânea `CosmosClient` quando o ponto final uri é inválido.
+* Diagnósticos `CPU History` melhorados.
 
 ### <a name="431-2020-08-13"></a>4.3.1 (2020-08-13)
 #### <a name="key-bug-fixes"></a>Correções de erros de chaves
