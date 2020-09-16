@@ -40,7 +40,7 @@ O simulador do dispositivo baseia-se ** emNode.js**, versão 10.0.x ou posterior
 
 A imagem abaixo ilustra a arquitetura desta solução utilizando as Gémeas Digitais Azure com o Serviço de Provisionamento de Dispositivos. Mostra tanto a provisão do dispositivo como o fluxo de aposentadoria.
 
-:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="Uma visão de um dispositivo e vários serviços Azure num cenário de ponta a ponta. Os dados fluem para trás e para a frente entre um dispositivo termóstato e DPS. Os dados também fluem de DPS para IoT Hub, e para Azure Digital Twins através de uma função Azure com o rótulo de "Atribuição". Os dados de uma ação manual de "Eliminar dispositivo" fluem através do IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins.":::
+:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="Uma visão de um dispositivo e vários serviços Azure num cenário de ponta a ponta. Os dados fluem para trás e para a frente entre um dispositivo termóstato e DPS. Os dados também fluem de DPS para IoT Hub, e para Azure Digital Twins através de uma função Azure com o rótulo de Atribuição. Os dados de uma ação manual de Eliminar dispositivo fluem através do IoT Hub > Event Hubs > Azure Functions > Azure Digital Twins.":::
 
 Este artigo é dividido em duas secções:
 * [*Dispositivo de fornecimento automático utilizando o Serviço de Provisionamento de Dispositivos*](#auto-provision-device-using-device-provisioning-service)
@@ -304,7 +304,7 @@ Deve ver o gémeo do dispositivo encontrado no caso Azure Digital Twins.
 
 Nesta secção, você vai anexar eventos de ciclo de vida IoT Hub a Azure Digital Twins para auto-aposentar dispositivos através do caminho abaixo. Este é um excerto da arquitetura completa mostrada [anteriormente.](#solution-architecture)
 
-:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Retire o fluxo do dispositivo- um excerto do diagrama de arquitetura de solução, com secções de rotulagem de números do fluxo. O dispositivo termóstato é mostrado sem ligações aos serviços Azure no diagrama. Os dados de uma ação manual de "Delete Device" fluem através do IoT Hub (1) > Event Hubs (2) > Funções Azure > Gémeas Digitais Azure (3).":::
+:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Retire o fluxo do dispositivo- um excerto do diagrama de arquitetura de solução, com secções de rotulagem de números do fluxo. O dispositivo termóstato é mostrado sem ligações aos serviços Azure no diagrama. Os dados de uma ação manual de Delete Device fluem através do IoT Hub (1) > Event Hubs (2) > Funções Azure > Gémeas Digitais Azure (3).":::
 
 Aqui está uma descrição do fluxo do processo:
 1. Um processo externo ou manual desencadeia a supressão de um dispositivo no Hub IoT.
