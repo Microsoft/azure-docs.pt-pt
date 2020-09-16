@@ -8,12 +8,12 @@ ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 90d51d7eb5425530ebad0fc9ac66ba2c95776076
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 8082e694c4282759c9c38560c14eb3659fcd55ec
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564974"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708143"
 ---
 # <a name="azure-file-share-protocols"></a>Protocolos de partilha de ficheiros Azure
 
@@ -55,7 +55,7 @@ A montagem de ações de ficheiros Azure com a NFS 4.1 está atualmente em pré-
 NFS com Ficheiros Azure é ideal para:
 
 - Cargas de trabalho que requerem partilhas de ficheiros compatíveis com POSIX, sensibilidade ao caso ou permissões de estilo Unix (UID/GID).
-- Cargas de trabalho centradas no Linux que não requerem acesso SMB.
+- Cargas de trabalho centradas no Linux que não requerem acesso ao Windows.
 
 ### <a name="security"></a>Segurança
 

@@ -1,14 +1,14 @@
 ---
 title: Descrição geral do exemplo de esquema Zona de destino de migração do CAF
 description: Descrição geral e arquitetura do exemplo de esquema da zona de destino da Migração do Framework de Adoção da Cloud (CAF) para o Azure.
-ms.date: 04/15/2020
+ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: 6deb671070a742448560309b1b1a3572f5aa082d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6b8e3484690d263a43d3824c054b28344ea07fb1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852315"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531683"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Descrição geral do exemplo de esquema Zona de destino de migração do Microsoft Cloud Adoption Framework para o Azure
 
@@ -20,7 +20,9 @@ O exemplo de esquema [Fundação do CAF](../caf-foundation/index.md) expande est
 
 O exemplo de esquema Zona de destino de migração do CAF implementa recursos de infraestrutura essenciais no Azure que as organizações podem utilizar para preparar as respetivas subscrições para migrar máquinas virtuais. Também ajuda a aplicar os controlos de governação necessários para gerir os respetivos patrimónios de cloud. Este exemplo irá implementar e impor recursos, políticas e modelos que permitirão a uma organização começar a utilizar o Azure com toda a confiança.
 
-:::image type="content" source="../../media/caf-blueprints/caf-migration-landing-zone-architecture.png" alt-text="Zona de destino de Migração do CAF. A imagem descreve o que é instalado como parte da documentação de orientação do CAF para criar uma zona de destino inicial" border="false":::
+:::image type="complex" source="../../media/caf-blueprints/caf-migration-landing-zone-architecture.png" alt-text="Zona de destino de Migração do C A F. A imagem descreve o que é instalado como parte da documentação de orientação do C A F para criar uma zona de destino inicial." border="false":::
+   Descreve uma arquitetura do Azure que é obtida através da implementação do esquema de migração do C A F.  Aplica-se a uma subscrição com grupos de recursos constituída por uma rede virtual do Azure, uma conta de armazenamento para armazenar registos e o Log Analytics configurado para armazenar na conta de armazenamento.  Também mostra o Azure Key Vault configurado e a configuração inicial do Azure Migrate criada.  Todas estas infraestruturas fundamentais são acedidas através do Azure Active Directory.     
+:::image-end:::
 
 Este ambiente é composto por vários serviços do Azure utilizados para fornecer uma governação segura, completamente monitorizada e preparada para empresas. Este ambiente é composto por:
 

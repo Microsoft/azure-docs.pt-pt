@@ -20,19 +20,11 @@
       href: quickstart-load-balancer-standard-internal-powershell.md
     - name: Criar um balanceador de carga interno - CLI do Azure
       href: quickstart-load-balancer-standard-internal-cli.md
+    - name: Criar um balanceador de carga interno - Modelo do ARM
+      href: quickstart-load-balancer-standard-internal-template.md
   expanded: true
 - name: Tutoriais
   items:
-    - name: Balanceador de Carga Interno
-      items:
-        - name: Criar um Balanceador de Carga interno - Portal
-          href: tutorial-load-balancer-standard-internal-portal.md
-        - name: Criar um Balanceador de Carga interno - Azure CLI
-          href: load-balancer-get-started-ilb-arm-cli.md
-        - name: Criar um Balanceador de Carga interno - Azure PowerShell
-          href: load-balancer-get-started-ilb-arm-ps.md
-        - name: Criar um Balanceador de Carga interno - Modelo ARM
-          href: load-balancer-get-started-ilb-arm-template.md
     - name: Balancear carga de VMs por zonas de disponibilidade
       href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
     - name: Balanceamento de carga de VM dentro de uma zona de disponibilidade específica

@@ -3,9 +3,11 @@
 - name: Descrição geral
   expanded: true
   items:
-    - name: O que é a Pesquisa Cognitiva do Azure?
+    - name: O que é o Cognitive Search?
       href: search-what-is-azure-search.md
-    - name: Novidades
+    - name: Funcionalidades do Cognitive Search
+      href: search-features-list.md
+    - name: Novidades do Cognitive Search
       href: whats-new.md
 - name: Guias de Início Rápido
   items:
@@ -413,25 +415,27 @@
     - name: .NET
       items:
         - name: API de Pesquisa
-          href: /dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet
+          href: /dotnet/api/overview/azure/search.documents-readme
         - name: API de Gestão
-          href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
+          href: /dotnet/api/overview/azure/search/management
     - name: Java
       items:
+        - name: API de Pesquisa
+          href: /java/api/overview/azure/search-documents-readme
         - name: API de Gestão
-          href: /java/api/overview/azure/search/management?view=azure-java-stable
+          href: /java/api/overview/azure/search/management
     - name: JavaScript
       items:
         - name: API de Pesquisa
-          href: /javascript/api/overview/azure/search-documents-readme?view=azure-node-latest
+          href: /javascript/api/overview/azure/search-documents-readme
         - name: API de Gestão
-          href: /javascript/api/overview/azure/search/management?view=azure-node-latest
+          href: /javascript/api/overview/azure/search/management
     - name: Python
       items:
         - name: API de Pesquisa
-          href: /python/api/overview/azure/search-documents-readme?view=azure-python
+          href: /python/api/overview/azure/search-documents-readme
         - name: API de Gestão
-          href: /python/api/overview/azure/search/management?view=azure-python
+          href: /python/api/overview/azure/search/management
     - name: Referência de linguagem OData
       items:
         - name: Descrição geral

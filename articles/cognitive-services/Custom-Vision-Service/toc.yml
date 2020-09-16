@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: O que é a Visão Personalizada?
-      href: home.md
+      href: overview.md
     - name: Novidades
       href: whats-new.md
 - name: Guias de Início Rápido
@@ -49,7 +49,11 @@
           href: custom-vision-onnx-windows-ml.md
         - name: Executar o modelo TensorFlow em Python
           href: export-model-python.md
-    - name: Exportar ou eliminar dados da conta
+    - name: Integrar notificações de armazenamento
+      href: storage-integration.md
+    - name: Copiar e mover projetos
+      href: copy-move-projects.md
+    - name: Ver ou eliminar dados da conta
       href: ./export-delete-data.md
     - name: Atualizar a sua aplicação para a API 3.0
       href: ./update-application-to-3.0-sdk.md

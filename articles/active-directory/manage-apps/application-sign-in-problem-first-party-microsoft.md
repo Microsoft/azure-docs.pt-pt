@@ -1,6 +1,6 @@
 ---
 title: Problemas de sessão numa aplicação da Microsoft Microsoft Docs
-description: Resolver problemas comuns enfrentados ao iniciar sessão em aplicações da Microsoft de primeira parte usando Azure AD (como o Office 365)
+description: Resolver problemas comuns enfrentados ao iniciar sessão em aplicações microsoft de primeira parte usando Azure AD (como o Microsoft 365).
 services: active-directory
 documentationcenter: ''
 author: kenwith
@@ -16,20 +16,20 @@ ms.date: 09/10/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69edf8e8dc51f8a8841ceed94221ed44786e280d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8942a55d880132313e1cdac6bfc025e0b153b410
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84759288"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707956"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas de sessão numa aplicação da Microsoft
 
-As aplicações da Microsoft (como o Office 365 Exchange, SharePoint, Yammer, etc.) são atribuídas e geridas de forma um pouco diferente das aplicações SaaS de terceiros ou outras aplicações que integra com a Azure AD para um único sinal.
+As aplicações da Microsoft (como Exchange, SharePoint, Yammer, etc.) são atribuídas e geridas de forma um pouco diferente das aplicações SaaS de terceiros ou outras aplicações que integra com a AZure AD para um único sinal.
 
 Existem três formas principais de um utilizador ter acesso a uma aplicação publicada pela Microsoft.
 
--   Para aplicações no Office 365 ou outras suites pagas, os utilizadores têm acesso através de uma atribuição de **licenças** diretamente à sua conta de utilizador, ou através de um grupo que utiliza a nossa capacidade de atribuição de licenças baseadas em grupo.
+-   Para aplicações no Microsoft 365 ou outras suites pagas, os utilizadores têm acesso através de **uma atribuição de licenças** diretamente à sua conta de utilizador, ou através de um grupo que utiliza a nossa capacidade de atribuição de licenças baseada no grupo.
 
 -   Para aplicações que a Microsoft ou um Terceiro publica livremente para qualquer pessoa utilizar, os utilizadores podem ter acesso através do **consentimento do utilizador.** Isto significa que eles assinam a aplicação com a sua conta Azure AD Work ou Escola e permitem-lhe ter acesso a algum conjunto limitado de dados na sua conta.
 
@@ -438,7 +438,7 @@ Para verificar ou validar uma única política de acesso condicional:
 7. Reveja que não existem condições, atribuições ou outras configurações específicas que possam estar a bloquear o acesso ao utilizador.
 
    >[!NOTE]
-   >Pode desejar desativar temporariamente esta política para garantir que não está a afetar as entradas de inscrição. Para isso, desace a **política "Ativar"** para **Não** e clique no botão **Guardar.**
+   >Pode desejar desativar temporariamente esta política para garantir que não está a afetar as inscrições. Para isso, desace a **política "Ativar"** para **Não** e clique no botão **Guardar.**
    >
    >
 
@@ -470,7 +470,7 @@ Para verificar ou validar a política de acesso condicional configurada de uma �
 9.  Reveja que não existem condições, atribuições ou outras configurações específicas que possam estar a bloquear o acesso ao utilizador.
 
      >[!NOTE]
-     >Pode desejar desativar temporariamente esta política para garantir que não está a afetar as entradas de inscrição. Para isso, desace a **política "Ativar"** para **Não** e clique no botão **Guardar.**
+     >Pode desejar desativar temporariamente esta política para garantir que não está a afetar as inscrições. Para isso, desace a **política "Ativar"** para **Não** e clique no botão **Guardar.**
      >
      >
 
@@ -528,6 +528,6 @@ O acesso à aplicação pode ser bloqueado porque a operação de consentimento 
 
 -   Pode também aplicar este consentimento ao nível do administrador, seguindo as instruções ao abrigo do **Pedido, as permissões de uma** secção de administração de diretórios de [Utilização do ponto final](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)de consentimento de administração .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Usando o ponto final de consentimento administrativo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
 

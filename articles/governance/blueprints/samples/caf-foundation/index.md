@@ -1,14 +1,14 @@
 ---
 title: Descrição geral do exemplo de esquema Fundação do CAF
 description: Descrição geral e arquitetura do exemplo de esquema da Fundação do Framework de Adoção da Cloud (CAF) para o Azure.
-ms.date: 04/15/2020
+ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: b8bd0015d5f95fc61806197ca21fdaeeb3452700
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: cce5ea001b32ae92542f38f8f11427e85075cee9
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852349"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531700"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Descrição geral do exemplo de esquema Fundação do Microsoft Cloud Adoption Framework para o Azure
 
@@ -18,7 +18,9 @@ O esquema Fundação do Microsoft Cloud Adoption Framework para o Azure (CAF) im
 
 O exemplo de esquema Fundação do CAF implementa recursos de infraestrutura recomendados no Azure que as organizações podem utilizar para aplicar os controlos de fundação que são necessários para gerir o respetivo património de cloud. Este exemplo irá implementar e impor recursos, políticas e modelos que permitirão a uma organização começar a utilizar o Azure com toda a confiança.
 
-:::image type="content" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="Fundação do CAF. A imagem descreve o que é instalado como parte da documentação de orientação do CAF para criar uma fundação para começar a utilizar o Azure" border="false":::
+:::image type="complex" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="Fundação do C A F. A imagem descreve o que é instalado como parte da documentação de orientação do C A F para criar uma fundação para começar a utilizar o Azure." border="false":::
+   Descreve uma arquitetura do Azure que é obtida através da implementação do esquema da Fundação do C A F.  Aplica-se a uma subscrição com grupos de recursos constituída por uma conta de armazenamento para armazenar registos e o Log Analytics configurado para armazenar na conta de armazenamento. Também mostra o Azure Key Vault configurado com a configuração padrão do Centro de Segurança do Azure. Todas estas infraestruturas fundamentais são acedidas através do Azure Active Directory e impostas com o Azure Policy.     
+:::image-end:::
 
 Esta implementação incorpora vários serviços do Azure utilizados para fornecer uma fundação segura, totalmente monitorizada e pronta para empresas. Este ambiente é composto por:
 

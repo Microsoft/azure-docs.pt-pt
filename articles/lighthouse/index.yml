@@ -10,12 +10,12 @@ metadata:
   author: JnHs
   ms.author: jenhayes
   ms.date: 07/20/2020
-  ms.openlocfilehash: 40352965db20c12e589f52f76869032d1f5f1b10
-  ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+  ms.openlocfilehash: b7f8a44b8e2d049a2a558b9a78d896ac638f5d1c
+  ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/20/2020
-  ms.locfileid: "88659879"
+  ms.lasthandoff: 09/16/2020
+  ms.locfileid: "90603191"
 landingContent:
 - title: Acerca do Azure Lighthouse
   linkLists:
@@ -35,6 +35,8 @@ landingContent:
     links:
     - text: Incluir um cliente no Azure Lighthouse
       url: ./how-to/onboard-customer.md
+    - text: Ligar o seu ID para receber crédito ganho pelo parceiro
+      url: ./how-to/partner-earned-credit.md
   - linkListType: concept
     links:
     - text: Práticas de segurança recomendadas
@@ -85,6 +87,8 @@ landingContent:
       url: ./how-to/policy-at-scale.md
     - text: Implementar uma política que pode ser corrigida
       url: ./how-to/deploy-policy-remediation.md
+    - text: Gerir máquinas virtuais híbridas com o Azure Arc
+      url: ./how-to/manage-hybrid-infrastructure-arc.md
 - title: Referência – SDKs
   linkLists:
   - linkListType: reference

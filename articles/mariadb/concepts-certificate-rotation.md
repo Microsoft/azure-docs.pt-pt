@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 89de144ab3d0ac4d8b68749e8c836ea1cf328dae
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: f35a43e9cbffb2613f7a98e02b03840c774e5999
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601063"
+ms.locfileid: "90708160"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Compreender as alterações na alteração do CA raiz para a Base de Dados Azure para MariaDB
 
@@ -29,10 +29,9 @@ O novo certificado será usado a partir de 26 de outubro de 2020 (10/26/2020). S
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Como sei se a minha base de dados vai ser afetada?
 
 Todas as aplicações que utilizam SSL/TLS e verificam o certificado raiz precisam de atualizar o certificado raiz. Pode identificar se as suas ligações verificam o certificado raiz, revendo a sua cadeia de ligação.
--   Se a sua cadeia de ligação inclui `sslmode=verify-ca` ou ''
--   Se a sua cadeia de ligação `sslmode=disable` incluir, não precisa de atualizar certificados.
--   Se a sua cadeia de ligação incluir `sslmode=allow` `sslmode=prefer` , `sslmode=require` ou, não precisa de atualizar certificados. 
--   Se o seu fio de ligação não for específico, não precisa de atualizar certificados.
+-   Se a sua cadeia de ligação incluir `sslmode=verify-ca` `sslmode=verify-full` ou, tem de atualizar o certificado.
+-   Se a sua cadeia de ligação incluir `sslmode=disable` , ou , não precisa de atualizar `sslmode=allow` `sslmode=prefer` `sslmode=require` certificados. 
+-   Se o seu fio de ligação não especificar sslmode, não precisa de atualizar certificados.
 
 Se estiver a utilizar um cliente que abstrate a cadeia de ligação, reveja a documentação do cliente para perceber se verifica os certificados.
 Para compreender a Base de Dados Azure para o sslmode MariaDB, reveja as descrições do [modo SSL](concepts-ssl-connection-security.md#default-settings).

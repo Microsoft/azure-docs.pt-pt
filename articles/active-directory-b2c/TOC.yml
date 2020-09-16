@@ -51,6 +51,18 @@
   href: code-samples.md
 - name: Conceitos
   items:
+    - name: Comparar soluções para Identidades Externas
+      href: 'https://docs.microsoft.com/azure/active-directory/b2b/compare-with-b2c?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+    - name: Aprender as noções básicas
+      items:
+        - name: Autenticação e autorização
+          href: 'https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+        - name: Tokens
+          href: 'https://docs.microsoft.com/azure/active-directory/develop/security-tokens?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+        - name: Protocolos
+          href: 'https://docs.microsoft.com/azure/active-directory/develop/v2-app-types?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
+        - name: Biblioteca de autenticação
+          href: 'https://docs.microsoft.com/azure/active-directory/develop/msal-overview?toc=/azure/active-directory-b2c/TOC.json&bc=/azure/active-directory-b2c/bread/toc.json'
     - name: Melhores práticas do Azure AD B2C
       href: best-practices.md
     - name: Tipos de aplicação
@@ -341,9 +353,11 @@
                       href: aad-sspr-technical-profile.md
                     - name: Transformação de afirmações
                       href: claims-transformation-technical-profile.md
-                    - name: Perfil técnico do Acesso Condicional
+                    - name: Acesso Condicional
                       href: conditional-access-technical-profile.md
                       displayName: ca
+                    - name: Sugestão de token de ID
+                      href: id-token-hint.md
                     - name: Emissor de tokens JWT
                       href: jwt-issuer-technical-profile.md
                     - name: OAuth1

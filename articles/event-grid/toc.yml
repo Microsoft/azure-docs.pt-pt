@@ -48,7 +48,7 @@
       href: resize-images-on-storage-blob-upload-event.md
     - name: Acionar o runbook da Automatização
       href: ensure-tags-exists-on-new-virtual-machines.md
-    - name: Enviar e-mail quando o dispositivo de Hub IoT é adicionado
+    - name: Enviar e-mail quando o dispositivo do Hub IoT se desliga
       href: publish-iot-hub-events-to-logic-apps.md
     - name: Responder a eventos do Service Bus
       href: ../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json

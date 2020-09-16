@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 09/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 763a4f5555e9ea6cdb7e78840251fda5d6861f16
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 8e41e20752e4203bf9916813b86cd901f4f75c09
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90042561"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708228"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli-preview"></a>Quickstart: Criar uma nova instância de serviço AZure API Management utilizando o Azure CLI (pré-visualização)
 
@@ -51,7 +51,7 @@ az apim create --name myapim --resource-group myResourceGroup \
 Por predefinição, o comando cria a instância no nível de Desenvolvedor, uma opção económica para avaliar a Gestão API da Azure. Este nível não é para uso de produção. Para obter mais informações sobre o dimensionamento dos escalões da Gestão de API, consulte [Atualização de versão do software e dimensionamento](upgrade-and-scale.md). 
 
 > [!TIP]
-> Normalmente demora entre 20 a 30 minutos para criar e ativar um serviço de Gestão de API neste nível. O comando anterior utiliza a `--no-wait` opção para que o comando retorne imediatamente enquanto o serviço é criado.
+> Pode levar entre 30 a 40 minutos para criar e ativar um serviço de Gestão API neste nível. O comando anterior utiliza a `--no-wait` opção para que o comando retorne imediatamente enquanto o serviço é criado.
 
 Verifique o estado da implantação executando o comando [az apim show:](/cli/azure/apim#az-apim-show)
 
@@ -85,7 +85,7 @@ Quando já não é necessário, pode utilizar o comando de eliminação do [grup
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Importar e publicar a sua primeira API](import-and-publish.md)

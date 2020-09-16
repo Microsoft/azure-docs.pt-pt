@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-ms.openlocfilehash: bdd0530aa580f8f1a1cfdffb81d070827a714115
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8548e7449056ecb1f211d5dd026544bf7e1375cc
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686076"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708194"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutorial: Integre a nuvem atlassiana com diretório ativo Azure
 
@@ -163,7 +163,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
    ![image](./media/atlassian-cloud-tutorial/default-attributes.png)
    
-   1. Atribuir mapeamento para um inquilino AD Azure com uma licença office 365
+   1. Atribuir mapeamento para um inquilino AD Azure com uma licença Microsoft 365
       
       a. Clique na **reivindicação do identificador de utilizador único (ID nome)**
 
@@ -177,13 +177,13 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
       ![image](common/default-attributes.png)
       
-   1. Atribuir mapeamento para um inquilino AD Azure sem licença office 365 
+   1. Atribuir mapeamento para um inquilino AD Azure sem licença Microsoft 365 
 
       a. Clique na `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` reclamação.
 
       ![image](./media/atlassian-cloud-tutorial/email-address.png)
          
-      b. Embora o Azure não preencha o atributo **user.mail** para os utilizadores criados em Azure AD inquilinos sem licenças office 365 e armazena o e-mail para esses utilizadores no atributo **userprincipalname.** A Atlassian Cloud espera que o identificador de **nomes** (**Identificador de Utilizador Exclusivo)** seja mapeado para o e-mail do utilizador **(user.userprincipalname).**  Editar o **atributo Fonte**  e alterá-lo para **user.userprincipalname**. Guarde as alterações à reclamação.
+      b. Embora o Azure não preencha o atributo **user.mail** para utilizadores criados em Azure AD inquilinos sem licenças Microsoft 365 e armazena o e-mail para esses utilizadores no atributo **userprincipalname.** A Atlassian Cloud espera que o identificador de **nomes** (**Identificador de Utilizador Exclusivo)** seja mapeado para o e-mail do utilizador **(user.userprincipalname).**  Editar o **atributo Fonte**  e alterá-lo para **user.userprincipalname**. Guarde as alterações à reclamação.
 
       ![image](./media/atlassian-cloud-tutorial/set-email.png)
          

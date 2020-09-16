@@ -6,18 +6,18 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: ca4e79977132586c619f323015f9d915e04707f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e6a502ae7ed71beaeefe603e0810264e62187ba
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449520"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708007"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Perguntas frequentes sobre a produção de autoescala abastada na Azure Cosmos DB
 
 Com a produção de autoescala, a Azure Cosmos DB irá gerir e escalar automaticamente o RU/s da sua base de dados ou contentor com base na utilização. Este artigo responde a perguntas comumente sobre autoescala.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="what-is-the-difference-between-autopilot-and-autoscale-in-azure-cosmos-db"></a>Qual é a diferença entre "piloto automático" e "autoescala" em Azure Cosmos DB?
 "Autoscale" ou "autoscale provisioned throughput" é o nome atualizado para a funcionalidade, anteriormente conhecida como "piloto automático". Com o lançamento atual da autoescala, adicionámos novas funcionalidades, incluindo a capacidade de definir max RU/s personalizado e suporte programático. 
@@ -27,7 +27,7 @@ Os recursos criados com o modelo de nível anterior são automaticamente suporta
 
 Por exemplo, se selecionou previamente o nível que escalou entre 400 a 4000 RU/s, a base de dados ou o contentor mostrará agora como tendo um MÁXIMO RU/s de 4000 RU/s, que escala entre 400 a 4000 RU/s. A partir daqui, pode alterar o máximo RU/s para um valor personalizado para se adequar à sua carga de trabalho. 
 
-### <a name="how-quickly-will-autoscale-scale-up-and-down-based-on-spikes-in-traffic"></a>Quão rapidamente a escala automática vai aumentar e descer com base em picos de tráfego?
+### <a name="how-quickly-will-autoscale-scale-up-based-on-spikes-in-traffic"></a>Quão rapidamente irá escalar automaticamente com base em picos de tráfego?
 Com a autoescala, o sistema escala a potência (RU/s) `T` para cima ou para baixo dentro do `0.1 * Tmax` `Tmax` alcance, com base no tráfego de entrada. Como o escalonamento é automático e instantâneo, em qualquer momento, pode consumir até ao provisionado `Tmax` sem demora. 
 
 ### <a name="how-do-i-determine-what-rus-the-system-is-currently-scaled-to"></a>Como determino a que RU/s o sistema é atualmente dimensionado?
@@ -135,7 +135,7 @@ Se o RU/s consumido globalmente exceder o máximo RU/s da base de dados ou do co
 > [!NOTE]
 > O cliente Azure Cosmos DB SDKs e ferramentas de importação de dados (Azure Data Factory, biblioteca executora a granel) voltam automaticamente a tentar em 429s, por isso, ocasionalmente, 429s estão bem. Um número elevado sustentado de 429s pode indicar que precisa aumentar o máximo RU/s ou rever a sua estratégia de partição para uma [partição quente](#autoscale-rate-limiting).
 
-### <a name="is-it-still-possible-to-see-429s-throttlingrate-limiting-when-autoscale-is-enabled"></a><a id="autoscale-rate-limiting"></a>Ainda é possível ver 429s (aceleração/limitação de taxa) quando a autoescala está ativada? 
+### <a name="is-it-still-possible-to-see-429s-throttlingrate-limiting-when-autoscale-is-enabled"></a><a id="autoscale-rate-limiting"></a> Ainda é possível ver 429s (aceleração/limitação de taxa) quando a autoescala está ativada? 
 Sim. É possível ver erros 429 em dois cenários. Em primeiro lugar, quando o RU/s consumido globalmente exceder o máximo RU/s da base de dados ou do contentor, o serviço irá acelerar os pedidos em conformidade. 
 
 Em segundo lugar, se houver uma partição quente, ou seja, um valor-chave de partição lógica que tenha uma quantidade desproporcionalmente maior de pedidos em comparação com outros valores-chave de partição, é possível que a partição física subjacente exceda o seu orçamento RU/s. Como melhor prática, para evitar partições frequentes, [escolha uma boa chave de partição](partitioning-overview.md#choose-partitionkey) que resulte numa distribuição uniforme tanto do armazenamento como do débito. 
@@ -143,7 +143,7 @@ Em segundo lugar, se houver uma partição quente, ou seja, um valor-chave de pa
 Por exemplo, se selecionar a opção de produção máxima de 20.000 RU/s e tiver 200 GB de armazenamento, com quatro divisórias físicas, cada divisória física pode ser autodimensionada até 5000 RU/s. Se houver uma partição quente numa chave de partição lógica específica, verá 429s quando a partição física subjacente reside em mais de 5000 RU/s, ou seja, excede 100% de utilização normalizada.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como permitir a [autoescalação numa base de dados ou contentor Azure Cosmos DB](how-to-provision-autoscale-throughput.md).
 * Conheça os [benefícios da produção aussitada com autoescala.](provision-throughput-autoscale.md#benefits-of-autoscale)

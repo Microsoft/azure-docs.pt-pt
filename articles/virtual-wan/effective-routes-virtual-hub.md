@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0f5481531d23eeb579dcabe80e028ed7b482b09f
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 6592b1a934e732888ef949071d95075d0af61bf6
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762271"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708075"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>Ver rotas efetivas do hub virtual
 
@@ -50,6 +50,8 @@ Utilize a barra de deslocamento na parte inferior da tabela para ver o "Caminho 
 * O campo **Rota Padrão propagação** é visto no portal Azure Virtual WAN quando edita uma ligação de rede virtual, uma ligação VPN ou uma ligação ExpressRoute. Este campo indica a bandeira **activaçãoInternetSecurity,** que é sempre por padrão "falsa" para ligações ExpressRoute e VPN, mas "verdadeira" para ligações de rede virtuais.
 
 * Ao visualizar rotas eficazes num VM NIC, se vir o próximo salto como 'Virtual Network Gateway', isso implica o router de hub Virtual quando o VM está numa fala ligada a um hub VIRTUAL WAN.
+
+* Ver As rotas eficazes para uma tabela de rotas de hub virtual só são povoadas se o hub virtual tiver pelo menos um tipo de ligação (VPN/ER/VNET) ligado a ele.
 
 ## <a name="next-steps"></a>Passos seguintes
 

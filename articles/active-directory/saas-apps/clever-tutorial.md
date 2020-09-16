@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: jeedes
-ms.openlocfilehash: ea66f044664082b547d1b012d7253cd6443e8610
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: bb8eef01e2673c3f84b1678a93b4bd168f1faf63
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052788"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708126"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-clever"></a>Tutorial: Azure Ative Directory integração única (SSO) com Clever
 
@@ -134,7 +134,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
     ![Início de Sessão Instantâneo](./media/clever-tutorial/ic798984.png "Início de Sessão Instantâneo")
 
     > [!NOTE]
-    > Antes de testar um único login, tem de contactar a equipa de [suporte do Cliente Inteligente](https://clever.com/about/contact/) para ativar o Office 365 SSO na parte de trás.
+    > Antes de testar um único login, tem de contactar a equipa de [suporte do Cliente Inteligente](https://clever.com/about/contact/) para ativar o Microsoft 365 SSO na parte de trás.
 
 1. Na página **de Início instantâneo,** execute os seguintes passos:
  

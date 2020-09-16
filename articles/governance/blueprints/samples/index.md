@@ -1,14 +1,14 @@
 ---
 title: Índice de exemplos de esquema
 description: Índice de exemplos de conformidade e normas para a implementação de ambientes, políticas e fundações do Framework de Adoção da Cloud com o Azure Blueprints.
-ms.date: 09/11/2020
+ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: 7ac95dee88cb244ecb4b60738daae26bb0d8831a
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: def5e51a3db7e0733e0d7e1ef5c6895aedb7128d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031879"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530986"
 ---
 # <a name="azure-blueprints-samples"></a>Exemplos do Azure Blueprints
 
@@ -42,7 +42,8 @@ A tabela seguinte inclui ligações para exemplos do Azure Blueprints. Cada exem
 
 ## <a name="samples-strategy"></a>Estratégia de Exemplos
 
-:::image type="content" source="../media/blueprint-samples-strategy.png" alt-text="Estratégia de exemplos de esquema" border="false":::
+:::image type="complex" source="../media/blueprint-samples-strategy.png" alt-text="Diagrama de onde os exemplos de Esquema se enquadram na complexidade da arquitetura vs requisitos de conformidade." border="false":::
+   Descreve um sistema de coordenadas em que a complexidade da arquitetura está no eixo X e os requisitos de conformidade estão no eixo Y.  À medida que a complexidade da arquitetura e os requisitos de conformidade aumentam, adote exemplos de Esquema padrão do portal designado na região E.  Para os clientes que estão a começar a utilizar o Azure, tirem partido dos esquemas da Fundação e da Zona de Destino baseados no Cloud Adoption Framework (C A F) designados pela região A e B.  O espaço restante é atribuído a esquemas personalizados criados por clientes que são parceiros das regiões C, D e F. :::image-end:::
 
 Os esquemas Fundação do CAF e Zona de destino de migração do CAF pressupõem que o cliente está a preparar uma subscrição individual limpa já existente para migrar ativos e cargas de trabalho no local para o Azure.
 (Regiões A e B na figura).  

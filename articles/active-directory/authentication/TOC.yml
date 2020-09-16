@@ -21,7 +21,19 @@
   expanded: true
   items:
     - name: Métodos de autenticação
-      href: concept-authentication-methods.md
+      items:
+        - name: Descrição geral
+          href: concept-authentication-methods.md
+        - name: Aplicação Microsoft Authenticator
+          href: concept-authentication-authenticator-app.md
+        - name: Tokens OATH
+          href: concept-authentication-oath-tokens.md
+        - name: Sem palavra-passe
+          href: concept-authentication-passwordless.md
+        - name: Opções de telefone
+          href: concept-authentication-phone-options.md
+        - name: Perguntas de segurança
+          href: concept-authentication-security-questions.md
     - name: Reposição personalizada de palavra-passe
       items:
         - name: Como Funciona a Reposição de Palavras-passe
@@ -46,8 +58,6 @@
           href: /office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
         - name: FAQ
           href: multi-factor-authentication-faq.md
-    - name: Autenticação sem palavra-passe
-      href: concept-authentication-passwordless.md
     - name: Proteção por palavra-passe
       items:
         - name: Eliminar senhas fracas na cloud
