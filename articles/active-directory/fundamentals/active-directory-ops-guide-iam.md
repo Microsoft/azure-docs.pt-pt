@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: ab4e9f7410954292290b6acf0895197ff013b1d8
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 2312befa5fe534cc2042b7586755ac5322d036db
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321672"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601317"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Guia de referência de operações de gestão de diretório ativo Azure
 
@@ -35,8 +35,8 @@ A Gestão do Diretório Ativo Azure requer a execução contínua de tarefas e p
 | :- | :- |
 | Definir o processo como criar subscrições do Azure | Varia por organização |
 | Decida quem obtém licenças de Mobilidade Empresarial + Segurança | Equipa de Operações do IAM |
-| Decida quem obtém licenças do Office 365 | Equipa de Produtividade |
-| Decida quem obtém outras licenças, por exemplo, Dynamics, VSO | Proprietário de aplicação |
+| Decida quem obtém as licenças microsoft 365 | Equipa de Produtividade |
+| Decida quem obtém outras licenças, por exemplo, Dynamics, Visual Studio Codespaces | Proprietário de aplicação |
 | Atribuir licenças | Equipa de Operações do IAM |
 | Resolução de problemas e corrigir erros de atribuição de licenças | Equipa de Operações do IAM |
 | Provisão de identidades para aplicações em Azure AD | Equipa de Operações do IAM |
@@ -140,7 +140,7 @@ O [Azure AD Connect Configuration Documenter](https://github.com/Microsoft/AADCo
 
 O Azure Ative Directory dinamiza a gestão de licenças através [de licenças baseadas em grupo](./active-directory-licensing-whatis-azure-portal.md) para serviços na nuvem da Microsoft. Desta forma, o IAM fornece a infraestrutura de grupo e a gestão delegada desses grupos às equipas adequadas nas organizações. Existem várias formas de criar a adesão de grupos em Azure AD, incluindo:
 
-- **Sincronizados a partir de instalações** - Os grupos podem vir de diretórios no local, o que pode ser um bom ajuste para organizações que estabeleceram processos de gestão de grupos que podem ser alargados para atribuir licenças no escritório 365.
+- **Sincronizados a partir de instalações** - Os grupos podem vir de diretórios no local, o que pode ser um bom ajuste para organizações que estabeleceram processos de gestão de grupos que podem ser estendidos para atribuir licenças na Microsoft 365.
 
 - **Atributo/dinâmico** - Os grupos podem ser criados na nuvem com base numa expressão baseada em atributos do utilizador, por exemplo, o Departamento é igual a "vendas". A Azure AD mantém os membros do grupo, mantendo-o consistente com a expressão definida. A utilização deste tipo de grupo para atribuição de licenças permite uma atribuição de licença baseada em atributos, o que é um bom ajuste para organizações que têm alta qualidade de dados no seu diretório.
 
@@ -188,7 +188,7 @@ A frequência [de sincronização delta padrão](../hybrid/how-to-connect-sync-f
 
 #### <a name="azure-ad-connect-troubleshooting-recommended-reading"></a>Azure AD Connect leitura recomendada para resolução de problemas
 
-- [Preparar atributos de diretório para sincronização com o Office 365 utilizando a ferramenta IdFix - Office 365](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
+- [Prepare atributos de diretório para sincronização com a Microsoft 365 utilizando a ferramenta IdFix](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
 - [Azure AD Connect: Erros de resolução de problemas durante a sincronização](../hybrid/tshoot-connect-sync-errors.md)
 
 ## <a name="summary"></a>Resumo
@@ -201,6 +201,6 @@ Há cinco aspetos para uma infraestrutura de identidade segura. Esta lista irá 
 - Dinamizar a gestão de licenças e atribuição de apps.
 - Automatizar o fornecimento de utilizadores para apps.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Começar com as [verificações e ações de gestão de autenticação.](active-directory-ops-guide-auth.md)

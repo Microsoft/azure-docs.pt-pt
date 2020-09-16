@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8b1440f34feb1cda2661178e520590cb9ec54f1
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 838d2a1dd1c7b89c1f5c9fec6578312107264958
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948407"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602069"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso Condicional: aplicativos ou ações na nuvem
 
@@ -35,7 +35,7 @@ Os administradores podem atribuir uma política de acesso condicional às seguin
 
 - [Escritório 365 (pré-visualização)](#office-365-preview)
 - Azure Analysis Services
-- Azure DevOps
+- DevOps do Azure
 - [Base de Dados SQL do Azure e Azure SQL Data Warehouse](../../azure-sql/database/conditional-access-configure.md)
 - Dynamics CRM Online
 - Microsoft Application Insights Analytics
@@ -55,9 +55,9 @@ Os administradores podem atribuir uma política de acesso condicional às seguin
 - Microsoft StaffHub
 - Microsoft Stream
 - Microsoft Stream
-- Bolsa de Escritório 365 Online
-- Office 365 SharePoint Online
-- Escritório 365 Yammer
+- Exchange Online
+- SharePoint
+- Yammer
 - Office Delve
 - Balanço de Escritório
 - Grupos do Outlook
@@ -69,7 +69,7 @@ Os administradores podem atribuir uma política de acesso condicional às seguin
 
 ### <a name="office-365-preview"></a>Escritório 365 (pré-visualização)
 
-O Office 365 fornece serviços de produtividade e colaboração baseados na nuvem, como Exchange, SharePoint e Microsoft Teams. Os serviços de cloud do Office 365 estão profundamente integrados para garantir experiências suaves e colaborativas. Esta integração pode causar confusão ao criar políticas, uma vez que algumas aplicações como as Microsoft Teams têm dependências de outras, como o SharePoint ou o Exchange.
+O Microsoft 365 fornece serviços de produtividade e colaboração baseados na nuvem, como Exchange, SharePoint e Microsoft Teams. Os serviços em nuvem da Microsoft 365 estão profundamente integrados para garantir experiências suaves e colaborativas. Esta integração pode causar confusão ao criar políticas, uma vez que algumas aplicações como as Microsoft Teams têm dependências de outras, como o SharePoint ou o Exchange.
 
 A aplicação Office 365 (pré-visualização) permite direcionar estes serviços de uma só vez. Recomendamos a utilização da nova aplicação Office 365 (pré-visualização), em vez de direcionar as aplicações individuais para a nuvem para evitar problemas com [dependências de serviços.](service-dependencies.md) Direcionar este grupo de aplicações ajuda a evitar problemas que possam surgir devido a políticas e dependências inconsistentes.
 
@@ -82,10 +82,10 @@ Aplicações-chave incluídas na aplicação do cliente Office 365 (pré-visuali
    - Microsoft Stream
    - Microsoft To-Do
    - Microsoft Stream
-   - Bolsa de Escritório 365 Online
-   - Office 365 SharePoint Online
-   - Serviço de Pesquisa do Office 365
-   - Escritório 365 Yammer
+   - Exchange Online
+   - SharePoint Online
+   - Serviço de Pesquisa Microsoft 365
+   - Yammer
    - Office Delve
    - Office Online
    - Office.com
@@ -103,7 +103,7 @@ A aplicação Microsoft Azure Management inclui vários serviços subjacentes.
    - APIs modelo de implementação clássico
    - Azure PowerShell
    - Portal de administrador de subscrições de Estúdio Visual
-   - Azure DevOps
+   - DevOps do Azure
    - Portal Azure Data Factory
 
 > [!NOTE]

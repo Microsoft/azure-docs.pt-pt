@@ -4,18 +4,18 @@ description: Começa com o Azure App Service implementando a sua primeira aplica
 ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python
-ms.openlocfilehash: 77aafb53c1346c6723d055a8ae1c96297fdfbd52
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: c64971303a2fefb25a73f0a8e8900c14ef05486c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89568919"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603616"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Quickstart: Criar uma aplicação Python no Azure App Service em Linux
 
 Neste quickstart, você implementa uma aplicação web Python para [o App Service no Linux,](overview.md#app-service-on-linux)o serviço de hospedagem web altamente escalável e auto-remendado da Azure. Utilize a [interface de linha de comando Azure local (CLI)](/cli/azure/install-azure-cli) num computador Mac, Linux ou Windows. A aplicação web que configura utiliza um nível de Serviço de Aplicações gratuito, para que não incorre em custos no decurso deste artigo.
 
-> [!NOTE]
+> [!TIP]
 > Se preferir implementar aplicações através de um IDE, consulte **[aplicações implementar python para o Serviço de Aplicações a partir do Código do Estúdio Visual.](/azure/developer/python/tutorial-deploy-app-service-on-linux-01)**
 
 ## <a name="set-up-your-initial-environment"></a>Configurar o seu ambiente inicial

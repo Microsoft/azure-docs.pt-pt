@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5536c3c427e5b6225d81d649722d8af48c23091
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 161b02ec962df5c5e1c8dee7e124ef78b3ca4db3
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948458"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601984"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Melhores práticas para acesso condicional no Diretório Ativo Azure
 
@@ -97,13 +97,13 @@ Para cada súldista, o Azure Ative Directory avalia todas as políticas e garant
 
 Sim, pode utilizar o Exchange ActiveSync numa política de Acesso Condicional.
 
-Algumas aplicações em nuvem como o SharePoint Online e o Exchange Online também suportam protocolos de autenticação legado. Quando uma aplicação de cliente pode usar um protocolo de autenticação legado para aceder a uma aplicação na nuvem, a Azure AD não pode impor uma política de Acesso Condicional nesta tentativa de acesso. Para evitar que uma aplicação do cliente ignore a aplicação das políticas, deve verificar se é possível apenas ativar a autenticação moderna nas aplicações de nuvem afetadas.
+Algumas aplicações em nuvem como o SharePoint e o Exchange Online também suportam protocolos de autenticação legado. Quando uma aplicação de cliente pode usar um protocolo de autenticação legado para aceder a uma aplicação na nuvem, a Azure AD não pode impor uma política de Acesso Condicional nesta tentativa de acesso. Para evitar que uma aplicação do cliente ignore a aplicação das políticas, deve verificar se é possível apenas ativar a autenticação moderna nas aplicações de nuvem afetadas.
 
-### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Como deve configurar o Acesso Condicional com aplicações do Office 365?
+### <a name="how-should-you-configure-conditional-access-with-microsoft-365-apps"></a>Como deve configurar o Acesso Condicional com aplicações microsoft 365?
 
-Como as aplicações do Office 365 estão interligadas, recomendamos atribuir aplicações comumente usadas em conjunto ao criar políticas.
+Como as aplicações da Microsoft 365 estão interligadas, recomendamos atribuir aplicações comumente usadas em conjunto ao criar políticas.
 
-Aplicações interligadas comuns incluem Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online e Office 365 Yammer.
+Aplicações interligadas comuns incluem Microsoft Flow, Microsoft Planner, Microsoft Teams, Exchange Online, SharePoint e Yammer.
 
 É importante para políticas que exijam interações do utilizador, como a autenticação de vários fatores, quando o acesso é controlado no início de uma sessão ou tarefa. Caso não o faça, os utilizadores não poderão completar algumas tarefas dentro de uma aplicação. Por exemplo, se necessitar de autenticação multi-factor em dispositivos não geridos para aceder ao SharePoint mas não para enviar e-mail, os utilizadores que trabalham no seu e-mail não poderão anexar ficheiros SharePoint a uma mensagem. Mais informações podem ser encontradas no artigo, Quais são as [dependências de serviços no Azure Ative Directory Conditional Access?](service-dependencies.md)
 

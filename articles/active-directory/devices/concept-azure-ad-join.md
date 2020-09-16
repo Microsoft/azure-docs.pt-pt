@@ -1,6 +1,6 @@
 ---
 title: O que é um dispositivo AZure AD?
-description: Saiba como a gestão da identidade do dispositivo pode ajudá-lo a gerir dispositivos que estão a aceder a recursos no seu ambiente.
+description: Saiba mais sobre os dispositivos aderidos ao Azure AD e como a gestão da identidade do dispositivo pode ajudá-lo a gerir dispositivos que estão a aceder a recursos no seu ambiente.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31374b851d90e43e7380024923c3ad025859b7a0
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 2b7cc0535549f2dbcdef4ab043ee506527fdbc5f
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923735"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601457"
 ---
 # <a name="azure-ad-joined-devices"></a>Dispositivos associados ao Azure AD
 
 A ad a ad azure destina-se a organizações que querem ser apenas cloud-first ou cloud-only. Qualquer organização pode implementar dispositivos aderidos a Azure AD independentemente do tamanho ou indústria. A Azure AD junta-se a obras mesmo num ambiente híbrido, permitindo o acesso a apps e recursos em nuvem e no local.
 
-| Associação ao Azure AD | Descrição |
+| Associação ao Azure AD | Description |
 | --- | --- |
 | **Definição** | Juntou-se apenas à Azure AD exigindo conta organizacional para iniciar seduca no dispositivo |
 | **Público primário** | Adequado para organizações apenas em nuvem e híbridas. |
@@ -58,7 +58,7 @@ Embora a associação do Azure AD se destine principalmente a organizações que
 
 - Quer transitar para uma infraestrutura baseada na cloud mediante a utilização do Azure AD e da MDM, como o Intune.
 - Se, por exemplo, tiver de controlar dispositivos móveis, como tablets e telemóveis, não pode utilizar uma associação a um domínio no local.
-- Os utilizadores precisam de aceder essencialmente a aplicações do Office 365 ou a outras aplicações SaaS integradas no Azure AD.
+- Os seus utilizadores precisam principalmente de aceder ao Microsoft 365 ou a outras aplicações SaaS integradas com AZure AD.
 - Quer gerir um grupo de utilizadores no Azure AD em vez de no Active Directory. Este cenário pode aplicar-se, por exemplo, a trabalhadores sazonais, empreiteiros ou estudantes.
 - Quer disponibilizar capacidades de associação aos colaboradores em sucursais remotas com uma infraestrutura no local limitada.
 

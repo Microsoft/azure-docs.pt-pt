@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: edb35986fcfc0e8855fa712b519ee7a8ca2f0ed8
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 921a56dca8f1cda67e6f32458914fef4ac2d324c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321961"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601316"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Referência do guia de operações do Azure Ative Directory
 
@@ -125,9 +125,9 @@ Se a sua organização não tiver atualmente um programa em vigor para monitoriz
 
 ### <a name="notifications"></a>Notificações
 
-A Microsoft envia comunicações por e-mail aos administradores para notificar várias alterações no serviço, atualizações de configuração que são necessárias e erros que requerem intervenção de administração. É importante que os clientes estabeleçam os endereços de e-mail de notificação para que as notificações sejam enviadas aos membros da equipa adequados que possam reconhecer e agir em todas as notificações. Recomendamos que adicione vários destinatários ao [Centro de Mensagens do Office 365](/office365/admin/manage/message-center) e solicite que as notificações (incluindo notificações Azure AD Connect Health) sejam enviadas para uma lista de distribuição ou caixa de correio partilhada. Se tiver apenas uma conta de administração global com um endereço de e-mail, certifique-se de configurar pelo menos duas contas capazes de e-mail.
+A Microsoft envia comunicações por e-mail aos administradores para notificar várias alterações no serviço, atualizações de configuração que são necessárias e erros que requerem intervenção de administração. É importante que os clientes estabeleçam os endereços de e-mail de notificação para que as notificações sejam enviadas aos membros da equipa adequados que possam reconhecer e agir em todas as notificações. Recomendamos que adicione vários destinatários ao [Centro de Mensagens](/office365/admin/manage/message-center) e solicite que as notificações (incluindo notificações Azure AD Connect Health) sejam enviadas para uma lista de distribuição ou caixa de correio partilhada. Se tiver apenas uma conta de administração global com um endereço de e-mail, certifique-se de configurar pelo menos duas contas capazes de e-mail.
 
-Existem dois endereços "From" utilizados pela Azure AD: <o365mc@email2.microsoft.com> , que envia notificações do Office 365 Message Center; e <azure-noreply@microsoft.com> , que envia notificações relacionadas com:
+Existem dois endereços "From" utilizados pela Azure AD: <o365mc@email2.microsoft.com> , que envia notificações do Centro de Mensagens; e <azure-noreply@microsoft.com> , que envia notificações relacionadas com:
 
 - [Comentários de acesso a Ad Azure](../governance/access-reviews-overview.md)
 - [Azure AD Connect Health](../hybrid/how-to-connect-health-operations.md#enable-email-notifications)
@@ -141,14 +141,14 @@ Consulte a tabela seguinte para saber o tipo de notificações enviadas e onde v
 | Fonte de notificação | O que é enviado | Onde verificar |
 |:-|:-|:-|
 | Contacto técnico | Erros de sincronização | Portal Azure - lâmina de propriedades |
-| Centro de Mensagens do Office 365 | Avisos de incidentes e de degradação dos Serviços de Identidade e serviços de backend O365 | Portal do Escritório |
+| Centro de Mensagens | Avisos de incidentes e degradação dos Serviços de Identidade e serviços de backend da Microsoft 365 | Portal do Escritório |
 | Proteção de Identidade Semanal Digest | Proteção de Identidade Digest | Lâmina de proteção de identidade Azure AD |
 | Azure AD Connect Health | Notificações de alerta | Portal Azure - Azure AD Connect Health blade |
 | Notificações de Aplicações empresariais | Notificações quando os certificados estão prestes a expirar e erros de provisionamento | Portal Azure - Lâmina de Aplicação Empresarial (cada aplicação tem a sua própria definição de endereço de e-mail) |
 
 #### <a name="notifications-recommended-reading"></a>Notificações recomendadas de leitura
 
-- [Alterar o endereço da sua organização, contacto técnico e muito mais - Escritório 365](/office365/admin/manage/change-address-contact-and-more)
+- [Altere o endereço da sua organização, contacto técnico e muito mais](/office365/admin/manage/change-address-contact-and-more)
 
 ## <a name="operational-surface-area"></a>Área de superfície operacional
 
@@ -184,6 +184,6 @@ Há sete aspetos para uma infraestrutura de identidade segura. Esta lista irá a
 - Bloqueie o AD FS.
 - Bloqueie o acesso a máquinas com componentes de identidade no local.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os [planos de implementação do AD Azure](active-directory-deployment-plans.md) para obter detalhes de implementação sobre quaisquer capacidades que não tenha implementado.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8dfeb8a38e07d94671691bb797d26a32973c910
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: d0ea9259e701e2ad9a4026401f5aef39c0ecfa51
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042484"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601831"
 ---
 # <a name="conditional-access-conditions"></a>Acesso Condicional: Condições
 
@@ -149,27 +149,27 @@ Esta definição tem impacto nas tentativas de acesso feitas a partir das seguin
 | Aplicações do cliente | Serviço-Alvo | Plataforma |
 | --- | --- | --- |
 | Aplicativo Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS e Android |
-| Mail/Calendar/People app, Outlook 2016, Outlook 2013 (com autenticação moderna)| Bolsa de Escritório 365 Online | Windows 10 |
+| Mail/Calendar/People app, Outlook 2016, Outlook 2013 (com autenticação moderna)| Exchange Online | Windows 10 |
 | MFA e política de localização para aplicações. As políticas baseadas em dispositivos não são apoiadas.| Qualquer serviço de aplicativo My Apps | Android e iOS |
 | Microsoft Teams Services - isto controla todos os serviços que suportam as Equipas microsoft e todas as suas aplicações de clientes - Windows Desktop, iOS, Android, WP e cliente web | Microsoft Stream | Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
-| Aplicativos Office 2016, Office 2013 (com autenticação moderna), [cliente sincronizado OneDrive](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
-| Aplicativos office 2016, aplicativos Universal Office, Office 2013 (com autenticação moderna), [cliente sincronizado OneDrive](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |
-| Office 2016 (Word, Excel, PowerPoint, OneNote only). | Office 365 SharePoint Online | macOS |
-| Escritório 2019| Office 365 SharePoint Online | Windows 10, macOS |
-| Aplicativos móveis de escritório | Office 365 SharePoint Online | Android, iOS |
-| App Office Yammer | Escritório 365 Yammer | Windows 10, iOS, Android |
-| Outlook 2019 | Office 365 SharePoint Online | Windows 10, macOS |
-| Outlook 2016 (Office for macOS) | Bolsa de Escritório 365 Online | macOS |
-| Outlook 2016, Outlook 2013 (com autenticação moderna), Skype para Negócios (com autenticação moderna) | Bolsa de Escritório 365 Online | Windows 8.1, Windows 7 |
-| App móvel outlook | Bolsa de Escritório 365 Online | Android, iOS |
+| Aplicativos Office 2016, Office 2013 (com autenticação moderna), [cliente sincronizado OneDrive](/onedrive/enable-conditional-access) | SharePoint | Windows 8.1, Windows 7 |
+| Aplicativos office 2016, aplicativos Universal Office, Office 2013 (com autenticação moderna), [cliente sincronizado OneDrive](/onedrive/enable-conditional-access) | SharePoint Online | Windows 10 |
+| Office 2016 (Word, Excel, PowerPoint, OneNote only). | SharePoint | macOS |
+| Escritório 2019| SharePoint | Windows 10, macOS |
+| Aplicativos móveis de escritório | SharePoint | Android, iOS |
+| App Office Yammer | Yammer | Windows 10, iOS, Android |
+| Outlook 2019 | SharePoint | Windows 10, macOS |
+| Outlook 2016 (Office for macOS) | Exchange Online | macOS |
+| Outlook 2016, Outlook 2013 (com autenticação moderna), Skype para Negócios (com autenticação moderna) | Exchange Online | Windows 8.1, Windows 7 |
+| App móvel outlook | Exchange Online | Android, iOS |
 | Aplicação Power BI | Serviço Power BI | Windows 10, Windows 8.1, Windows 7, Android e iOS |
-| Skype para Empresas | Bolsa de Escritório 365 Online| Android, iOS |
+| Skype para Empresas | Exchange Online| Android, iOS |
 | Aplicativo Visual Studio Team Services | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS e Android |
 
 ### <a name="exchange-activesync-clients"></a>Troca de clientes ActiveSync
 
 - As organizações só podem selecionar clientes Exchange ActiveSync ao atribuir a política aos utilizadores ou grupos. Selecionando **Todos os utilizadores**, **Todos os utilizadores convidados e externos,** ou **funções de Diretório** farão com que todos os utilizadores fiquem bloqueados.
-- Ao criar uma política atribuída aos clientes Exchange ActiveSync, o **Office 365 Exchange Online** deve ser a única aplicação em nuvem atribuída à apólice. 
+- Ao criar uma política atribuída aos clientes Do Exchange ActiveSync, o **Exchange Online** deve ser a única aplicação em nuvem atribuída à apólice. 
 - As organizações podem reduzir o âmbito desta política a plataformas específicas que utilizam a condição das **plataformas do Dispositivo.**
 
 Se o controlo de acesso atribuído à apólice utilizar **requerer a aplicação de cliente aprovada,** o utilizador é direcionado para instalar e utilizar o cliente móvel do Outlook. No caso de ser necessária **a autenticação multi-factor,** os utilizadores afetados estão bloqueados, porque a autenticação básica não suporta a autenticação de vários fatores.

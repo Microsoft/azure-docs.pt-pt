@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/24/2020
+ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea8bf2407fb533870495dc501a2d740bff9ee968
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 5bcfb21ab15355653780355f1b5e459bc806ec8c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567355"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600726"
 ---
 # <a name="start-using-privileged-identity-management"></a>Começar a utilizar o Privileged Identity Management
 
@@ -35,6 +35,14 @@ Para utilizar a Gestão de Identidade Privilegiada, deve ter uma das seguintes l
 - Enterprise Mobility + Security (EMS) E5
 
 Para mais informações, consulte [os requisitos da Licença para utilizar a Gestão de Identidade Privilegiada.](subscription-requirements.md)
+
+> [!Note]
+> Quando um utilizador que esteja ativo num papel privilegiado numa organização AD Azure com uma licença Premium P2 vai para **Funções e administradores** em AD Azure e seleciona uma função (ou até mesmo apenas visita a Gestão de Identidade Privilegiada):
+>
+> - Ativamos automaticamente a PIM para a organização
+> - A sua experiência é agora que podem atribuir uma atribuição de função "regular" ou uma atribuição de papel elegível
+>
+> Quando o PIM está ativado, não tem qualquer outro efeito na sua organização com o qual tenha de se preocupar. Ele dá-lhe opções de atribuição adicionais, tais como ative vs elegíveis com tempo de início e fim. O PIM também permite definir o âmbito para atribuições de funções utilizando Unidades Administrativas e funções personalizadas. Se você é um Administrador Global ou Administrador de Função Privilegiado, você pode começar a receber alguns e-mails adicionais como a digestão semanal PIM. Você também pode ver o principal do serviço MS-PIM no registo de auditoria relacionado com a atribuição de funções. Esta é uma mudança esperada que não deverá ter qualquer efeito no seu fluxo de trabalho.
 
 ## <a name="prepare-pim-for-azure-ad-roles"></a>Preparar PIM para funções AD Azure
 
@@ -59,7 +67,7 @@ Assim que a Gestão de Identidade Privilegiada estiver configurada, poderá apre
 
 ![Janela de navegação em Gestão de Identidade Privilegiada mostrando tarefas e opções de gestão](./media/pim-getting-started/pim-quickstart-tasks.png)
 
-| Tarefa + Gerir | Descrição |
+| Tarefa + Gerir | Description |
 | --- | --- |
 | **Os meus papéis**  | Apresenta uma lista de funções elegíveis e ativas atribuídas a si. Este é o local onde pode ativar quaisquer funções elegíveis atribuídas. |
 | **Os meus pedidos** | Apresenta os seus pedidos pendentes para ativar atribuições de funções elegíveis. |
@@ -88,7 +96,7 @@ Para facilitar a abertura da Gestão de Identidade Privilegiada, adicione um azu
 
     ![Gestão de Identidade Privilegiada Início rápido azulejo no tablier](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atribuir funções de Azure AD em Gestão de Identidade Privilegiada](pim-how-to-add-role-to-user.md)
 - [Gerir o acesso a recursos Azure na Gestão de Identidade Privilegiada](pim-resource-roles-discover-resources.md)

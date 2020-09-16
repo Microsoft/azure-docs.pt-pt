@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28516482cf154c81912de0f8e3f35b9e54ef2f69
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 034d2410b97562946216815e5bdafd35fe1bc40b
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948271"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601678"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar a gestão de sessões de autenticação com o Acesso Condicional
 
@@ -44,7 +44,7 @@ A definição de frequência de início funciona com aplicações que implementa
 - Word, Excel, PowerPoint Online
 - OneNote Online
 - Office.com
-- Portal de Administração O365
+- Portal microsoft 365 Admin
 - Exchange Online
 - SharePoint e OneDrive
 - Teams cliente web

@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9d2f295394d89432f3c6dd99585cc4363d4ff74
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 3b8a40449d7a2b17adddd55120ab232a5cd3f459
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641369"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600950"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Autenticação de aplicações móveis dos Serviços da Federação de Diretórios Ativos para o Diretório Ativo do Azure
 
@@ -35,7 +35,7 @@ Se tiver um diretório no local que contenha contas de utilizador, é provável 
 
 Os utilizadores também podem autenticar diretamente com o seu Ative Directory no local. Ative Directory Federation Services (AD FS) é um serviço de identidade baseado no local. O AD FS alarga a capacidade de utilizar a funcionalidade de sso (SSO) entre parceiros de negócios de confiança sem exigir que os utilizadores se inscrevam separadamente em cada aplicação. Isto é conhecido como Federação.
 
-Muitas organizações têm aplicações de Software como serviço (SaaS) ou aplicações personalizadas da Linha de Negócios (LOB) federadas diretamente para AD FS, ao lado de aplicações baseadas no Office 365 e Azure AD. 
+Muitas organizações têm aplicações de Software como um Serviço (SaaS) ou aplicações personalizadas da Linha de Negócios (LOB) federadas diretamente para AD FS, juntamente com as aplicações baseadas em AD da Microsoft 365 e Azure. 
 
 ![Aplicações ligadas diretamente no local](media/migrate-adfs-apps-to-azure/app-integration-before-migration1.png)
 
@@ -406,7 +406,7 @@ Nesta tabela, listamos algumas opções úteis de licença e exceto opções e c
 | Com Reclamações Específicas no Pedido| Esta definição não pode ser migrada| Esta definição não pode ser migrada |
 
 
-Um exemplo de como configurar a opção Excluir para localizações fidedignas no Portal Azure:
+Um exemplo de como configurar a opção Excluir para localizações fidedignas no portal Azure:
 
 ![Screenshot das políticas de controlo de acesso de mapeamento](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-3.png)
 

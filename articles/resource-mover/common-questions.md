@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: raynew
-ms.openlocfilehash: 18de210d817ee309ac4970ecea6b62f6ef03ef02
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 68e5f937b8ad8367abf488598bda311a39d462c6
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530408"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600658"
 ---
 # <a name="common-questions"></a>Perguntas comuns
 
@@ -90,6 +90,9 @@ A identidade gerida pela Resource Mover não tem o papel necessário. | Adicione
 A identidade gerida pela Resource Mover foi reposta a *Nenhuma*. | Reenable uma identidade atribuída ao sistema na recolha de movimentos > **Identidade**. Em alternativa, adicione novamente o recurso em **Recursos Adicionais,** o que faz a mesma coisa.  
 A assinatura foi transferida para outro inquilino. | Desative e, em seguida, ative a identidade gerida para a recolha do movimento.
 
+### <a name="how-can-i-do-multiple-moves-together"></a>Como posso fazer vários movimentos juntos?
+
+Altere as combinações fonte/destino conforme necessário utilizando a opção de alteração no portal.
 
 ## <a name="next-steps"></a>Passos seguintes
 

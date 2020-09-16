@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 04a3499da15bc226fe2cada2283d7a115036a48c
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 4e17af8289c68ded282a9c4a9ca2d400d31ca30d
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318301"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602674"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Encriptação de Dados Transparente do SQL do Azure com chave gerida pelo cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -93,6 +93,10 @@ Os auditores podem utilizar o Azure Monitor para rever os registos auditevent do
 - A chave deve estar no estado *ativado.*
 
 - Se estiver a importar a chave existente para o cofre da chave, certifique-se de que a fornece nos formatos de ficheiro suportados (.pfx, .byok ou .backup).
+
+> [!NOTE]
+> O Azure SQL suporta agora a utilização de uma chave RSA armazenada num HSM gerido como Protetor TDE. Esta funcionalidade está em **pré-visualização pública.** Azure Key Vault Managed HSM é um serviço de nuvem totalmente gerido, altamente disponível, de inquilino único, que permite proteger chaves criptográficas para as suas aplicações em nuvem, utilizando HSMs validados FIPS 140-2 Nível 3. Saiba mais sobre [HSMs geridos.](https://aka.ms/mhsm)
+
 
 ## <a name="recommendations-when-configuring-customer-managed-tde"></a>Recomendações ao configurar o TDE gerido pelo cliente
 
@@ -205,7 +209,7 @@ Para evitar problemas durante o estabelecimento ou durante a geo-replicação de
 
 Para testar uma falha, siga os passos na [visão geral da geo-replicação ativa](active-geo-replication-overview.md). Os testes de failover devem ser feitos regularmente para validar que a Base de Dados SQL manteve a permissão de acesso a ambos os cofres-chave.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Também pode querer verificar os seguintes scripts de amostra powerShell para as operações comuns com TDE gerido pelo cliente:
 

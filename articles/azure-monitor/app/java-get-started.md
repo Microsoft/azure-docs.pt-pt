@@ -6,16 +6,20 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: 464bf650cbcaa99e947a21f5a87a5872f7b11178
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f0583af05ae7d8e365b50610bfb812ac7764f223
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326924"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602470"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Quickstart: Começa com a Application Insights num projeto web da Java
 
-Neste arranque rápido, utiliza-se o Application Insights para solicitar automaticamente, rastrear dependências e recolher contadores de desempenho, diagnosticar problemas de desempenho e exceções, e escrever código para rastrear o que os utilizadores fazem com a sua aplicação.
+
+> [!IMPORTANT]
+> A abordagem recomendada para monitorizar as aplicações java é utilizar a auto-instrumentação sem alterar o código. Siga as diretrizes para o [agente Application Insights Java 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+
+Neste arranque rápido, utiliza-se o Application Insights SDK para solicitar instrumentos, rastrear dependências e recolher contadores de desempenho, diagnosticar problemas de desempenho e exceções, e escrever código para acompanhar o que os utilizadores fazem com a sua aplicação.
 
 O Application Insights é um serviço de análise extensível para programadores Web que os ajudam a compreender o desempenho e a utilização da aplicação em direto. O Application Insights suporta aplicações em Java em execução no Linux, Unix ou Windows.
 
@@ -77,9 +81,9 @@ Transfira a [versão mais recente](https://github.com/Microsoft/ApplicationInsig
 
 ### <a name="questions"></a>Perguntas
 * *Qual é a relação entre os `-web-auto` `-web` componentes e os `-core` componentes?*
-  * `applicationinsights-web-auto`dá-lhe métricas que rastreiam as contagens de pedidos de servlet HTTP e tempos de resposta, registando automaticamente o filtro de servlet Application Insights no tempo de execução.
-  * `applicationinsights-web`também lhe dá métricas que rastreiam a contagem de pedidos http servlet e tempos de resposta, mas requer registo manual do filtro de servlet Application Insights na sua aplicação.
-  * `applicationinsights-core`dá-lhe apenas a API nua, por exemplo, se a sua aplicação não for baseada em servidões.
+  * `applicationinsights-web-auto` dá-lhe métricas que rastreiam as contagens de pedidos de servlet HTTP e tempos de resposta, registando automaticamente o filtro de servlet Application Insights no tempo de execução.
+  * `applicationinsights-web` também lhe dá métricas que rastreiam a contagem de pedidos http servlet e tempos de resposta, mas requer registo manual do filtro de servlet Application Insights na sua aplicação.
+  * `applicationinsights-core` dá-lhe apenas a API nua, por exemplo, se a sua aplicação não for baseada em servidões.
   
 * *Como posso atualizar o SDK para a versão mais recente?*
   * Se estás a usar o Gradle ou o Maven...
@@ -193,22 +197,10 @@ Agora publique a aplicação no servidor, permita que as pessoas a utilizem e ve
 
     (Este componente ativa os contadores de desempenho.)
 
-## <a name="azure-app-service-config-spring-boot"></a>Azure App Service config (Bota de primavera)
+## <a name="azure-app-service-aks-vms-config"></a>Azure App Service, AKS, VMs config
 
-As aplicações boot de mola que funcionam no Windows requerem configuração adicional para ser executada nos Serviços de Aplicações Azure. Modifique **web.config** e adicione a seguinte configuração:
+A melhor e mais fácil abordagem para monitorizar as suas aplicações em execução em qualquer um dos fornecedores de recursos da Azure é utilizar a auto-instrumentação do Application Insights através do [agente Java 3.0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-    <system.webServer>
-        <handlers>
-            <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified"/>
-        </handlers>
-        <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\AzureWebAppExample-0.0.1-SNAPSHOT.jar&quot;">
-        </httpPlatform>
-    </system.webServer>
-</configuration>
-```
 
 ## <a name="exceptions-and-request-failures"></a>Exceções e falhas de pedido
 Exceções não tratadas e falhas de pedido são automaticamente recolhidas pelo filtro web Application Insights.
@@ -259,7 +251,7 @@ Pode especificar contadores de desempenho adicionais para recolha.
 * `displayName` – O nome apresentado no portal do Application Insights.
 * `objectName` – O nome do objeto JMX.
 * `attribute` – O atributo do nome do objeto JMX a obter
-* `type`(opcional) - O tipo de atributo do objeto JMX:
+* `type` (opcional) - O tipo de atributo do objeto JMX:
   * Predefinição: um tipo simples, como int ou long.
   * `composite`: os dados de contador de desempenho estão no formato “Attribute.Data”
   * `tabular`: os dados de contador de desempenho estão no formato de uma linha de tabela
@@ -309,7 +301,7 @@ O Application Insights pode testar o seu site em intervalos regulares para verif
 * [Contadores de desempenho Unix do monitor](java-collectd.md)
 * Adicione [monitorização das suas páginas Web](javascript.md), para monitorizar os tempos de carregamento da página, as chamadas AJAX e as exceções de browser.
 * Escreva [telemetria personalizada](./api-custom-events-metrics.md) para controlar a utilização no browser ou no servidor.
-* Use [Analytics](../log-query/log-query-overview.md) para consultas poderosas sobre telemetria a partir da sua app
+* Use  [Analytics](../log-query/log-query-overview.md) para consultas poderosas sobre telemetria a partir da sua app
 * Para obter mais informações, visite [Azure para programadores Java](/java/azure).
 
 <!--Link references-->

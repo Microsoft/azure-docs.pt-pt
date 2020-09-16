@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: raynew
-ms.openlocfilehash: ddb1c68ab417390987ac4873a16b89757ec24789
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: fa71cd502f730844e4f4398d41d06ada56fc2413
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90058738"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602290"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Apoio à deslocação de VMs Azure entre regiões de Azure
 
@@ -115,6 +115,10 @@ Extensões | Não suportado | As extensões não são copiadas para o VM na regi
 
 Esta tabela resumiu o suporte para o disco Azure VM OS, disco de dados e disco temporário. É importante observar os limites e alvos do disco VM para Os VMs [do Linux](../virtual-machines/linux/disk-scalability-targets.md) e [do Windows](../virtual-machines/windows/disk-scalability-targets.md) para evitar quaisquer problemas de desempenho.
 
+> [!NOTE]
+> O tamanho do VM alvo deve ser igual ou maior do que o VM de origem. Os parâmetros utilizados para validação são: Contagem de Discos de Dados, contagem de NICs, CPUs disponíveis, Memória em GB. Se não for um erro, é emitido um erro.
+
+
 **Componente** | **Suporte** | **Detalhes**
 --- | --- | ---
 Tamanho máximo do disco de SO | 2048 GB | [Saiba mais](../virtual-machines/windows/managed-disks-overview.md) sobre discos VM.
@@ -184,6 +188,6 @@ Se estiver a utilizar regras de um grupo de segurança de rede (NSG) para contro
 - Recomendamos que teste regras num ambiente de não produção. [Reveja alguns exemplos.](../site-recovery/azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Tente [mover um Azure VM](tutorial-move-region-virtual-machines.md) para outra região com o Resource Mover.

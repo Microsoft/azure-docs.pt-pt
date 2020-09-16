@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 5e75f7214e3a9aa5b44a763cc3448583b47185f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ed6beec63114f1f157bb24354d77e50ecdaa8255
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253244"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601642"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Perguntas de acesso condicionado a Azure Ative
 
@@ -59,8 +59,8 @@ Para obter mais informações, consulte o artigo, [dependências do serviço de 
 
 Depois de permitir algumas políticas de acesso condicional ao inquilino em Microsoft Teams, certos separadores podem deixar de funcionar no cliente do ambiente de trabalho como esperado. No entanto, os separadores afetados funcionam quando utilizam o cliente web do Microsoft Teams. Os separadores afetados podem incluir Power BI, Forms, VSTS, PowerApps e SharePoint List.
 
-Para ver os separadores afetados tem de utilizar o cliente web do Teams no Edge, No Internet Explorer ou no Chrome com a extensão das Contas Windows 10 instalada. Alguns separadores dependem da autenticação web, o que não funciona no cliente de desktop da Microsoft Teams quando o Acesso Condicional está ativado. A Microsoft está a trabalhar com parceiros para ativar estes cenários. Até à data, permitimos scenrarios envolvendo Planner, OneNote e Stream.
+Para ver os separadores afetados tem de utilizar o cliente web do Teams no Edge, No Internet Explorer ou no Chrome com a extensão das Contas Windows 10 instalada. Alguns separadores dependem da autenticação web, o que não funciona no cliente de desktop da Microsoft Teams quando o Acesso Condicional está ativado. A Microsoft está a trabalhar com parceiros para ativar estes cenários. Até à data, temos ativado cenários envolvendo Planner, OneNote e Stream.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para configurar políticas de acesso condicional para o seu ambiente, consulte as [melhores práticas de acesso condicional no Diretório Ativo Azure.](best-practices.md) 

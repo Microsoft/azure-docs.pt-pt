@@ -5,14 +5,14 @@ description: Saiba como criar um perfil personalizado Intune para implementar pe
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/11/2020
+ms.date: 09/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5a754a14cada1547a83e29d474e9b77aed7a2728
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: fba8433a7964b10901527894eee98722ece970ec
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024354"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602198"
 ---
 # <a name="create-an-intune-profile-to-deploy-vpn-client-profiles"></a>Criar um perfil Intune para implementar perfis de clientes VPN
 
@@ -54,17 +54,7 @@ Para outras opções apoiadas, consulte o artigo [do VPNv2 CSP.](https://docs.mi
     </VPNProfile>
    ```
 1. Modifique a entrada entre ```<ServerUrlList>``` e com a entrada do seu perfil descarregado ```</ServerUrlList>``` (azurevpnconfig.xml). Altere o FQDN "TrustedNetworkDetection" para se adaptar ao seu ambiente.
-1. Abra o perfil descarregado do Azure (azurevpnconfig.xml) e copie o conteúdo para a área de transferência, destacando o texto e pressionando <ctrl> + C. Copie tudo entre as seguintes linhas AzVpnProfile, mas não copie as próprias linhas AzVPNProfile:
-
-   ```
-   <AzVpnProfile xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/">
-     <any xmlns:d2p1="http://schemas.datacontract.org/2004/07/System.Xml"
-       i:nil="true" />
-
-   For example - copy the text in your xml that is located here.
-
-   </AzVpnProfile>
-   ```
+1. Abra o perfil descarregado do Azure (azurevpnconfig.xml) e copie todo o conteúdo para a área de transferência, destacando o texto e pressionando (ctrl) + C. 
 1. Cole o texto copiado do passo anterior para o ficheiro que criou no passo 2 entre as ```<CustomConfiguration>  </CustomConfiguration>``` etiquetas. Guarde o ficheiro com uma extensão xml.
 1. Anota o valor nas ```<name>  </name>``` etiquetas. Este é o nome do perfil. Vai precisar deste nome quando criar o perfil no Intune. Feche o ficheiro e lembre-se do local onde está guardado.
 
@@ -95,6 +85,6 @@ Nesta secção, cria-se um perfil Microsoft Intune com definições personalizad
     :::image type="content" source="./media/create-profile-intune/create-profile.png" alt-text="Criar perfil":::
 1. O seu perfil personalizado está agora criado. Para que os passos do Microsoft Intune implementem este perfil, consulte [perfils de utilizador e dispositivo de atribuição](https://docs.microsoft.com/mem/intune/configuration/device-profile-assign).
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre ponto a local, consulte [Sobre o ponto a local.](point-to-site-about.md)

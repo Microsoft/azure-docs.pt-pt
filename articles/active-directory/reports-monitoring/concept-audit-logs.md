@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01c9449a996929eb20acf35897a100dfbb722e82
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 86eec0cf7108e2d3b47f7b98dbdaffe76be8afd8
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229927"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603515"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatório de atividade de auditoria no portal do Azure Active Directory 
 
@@ -151,7 +151,7 @@ Os valores possíveis são:
 
 - 7 dias
 - 24 horas
-- Personalizar
+- Personalizado
 
 Quando selecionar um período de tempo personalizado, pode configurar uma hora de início e uma hora de fim.
 
@@ -208,11 +208,11 @@ Se pretender rever os dados de auditoria relacionados com as suas aplicações, 
 
 ![Registos de auditoria](./media/concept-audit-logs/enterpriseapplications.png "Registos de auditoria")
 
-## <a name="office-365-activity-logs"></a>Escritório 365 registos de atividades
+## <a name="microsoft-365-activity-logs"></a>Registos de atividades da Microsoft 365
 
-Pode visualizar registos de atividade do Office 365 a partir do [centro de administração Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Embora a atividade do Office 365 e os registos de atividade do AZure AD partilhem muitos dos recursos do diretório, apenas o centro de administração Microsoft 365 fornece uma visão completa dos registos de atividade do Office 365. 
+Pode ver os registos de atividade do Microsoft 365 a partir do [centro de administração Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Apesar de a atividade da Microsoft 365 e os registos de atividade azure aduários partilharem muitos dos recursos do diretório, apenas o centro de administração Microsoft 365 fornece uma visão completa dos registos de atividade da Microsoft 365. 
 
-Também pode aceder aos registos de atividades do Office 365 programáticamente utilizando as [APIs de Gestão do Office 365](/office/office-365-management-api/office-365-management-apis-overview).
+Também pode aceder aos registos de atividades do Microsoft 365 programáticamente utilizando as [APIs de Gestão do Office 365](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Passos seguintes
 

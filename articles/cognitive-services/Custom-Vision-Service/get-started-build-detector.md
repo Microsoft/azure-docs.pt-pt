@@ -1,25 +1,25 @@
 ---
 title: Quickstart Construa um detetor de objetos - Serviço de Visão Personalizada
 titleSuffix: Azure Cognitive Services
-description: Neste arranque rápido, você vai aprender a usar o site Da Visão Personalizada para criar um modelo de classificação de imagem.
+description: Neste arranque rápido, você vai aprender a usar o site Da Visão Personalizada para criar um modelo de detetor de objetos.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 09/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 57fb91e9ead98f6c52fd3f659f4aa12692816297
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 234c80e84e11579a66737c3e5efedfda34182ac5
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549552"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602868"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Quickstart: Como construir um detetor de objetos com visão personalizada
 
-Neste arranque rápido, você vai aprender a construir um detetor de objetos através do site Da Visão Personalizada. Uma vez construído um modelo de detetor, pode utilizar o serviço De Visão Personalizada para deteção de objetos.
+Neste arranque rápido, você vai aprender a construir um detetor de objetos através do site Da Visão Personalizada. Uma vez construído um modelo, pode testar com novas imagens e eventualmente integrá-lo no seu próprio software de reconhecimento de imagem.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
@@ -27,7 +27,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 - Um conjunto de imagens para treinar o seu modelo de detetor. Pode utilizar o conjunto de [imagens](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) de amostra no GitHub. Ou, pode escolher as suas próprias imagens usando as dicas abaixo.
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Criar recursos de Visão Personalizada no portal Azure
+## <a name="create-custom-vision-resources"></a>Criar recursos de visão personalizada
 
 [!INCLUDE [create-resources](includes/create-resources.md)]
 
@@ -45,7 +45,7 @@ No seu navegador web, navegue na página web da [Visão Personalizada](https://c
 1. Insira um nome e uma descrição para o projeto. Em seguida, selecione um Grupo de Recursos. Se a sua conta de súmus estiver associada a uma conta Azure, o dropdown do Grupo de Recursos apresentará todos os seus Grupos de Recursos Azure que incluem um Recurso de Serviço de Visão Personalizada. 
 
    > [!NOTE]
-   > Se não houver nenhum grupo de recursos disponível, por favor confirme que iniciou [sessão](https://customvision.ai) em customvision.ai com a mesma conta que usou para iniciar sessão no [portal Azure](https://portal.azure.com/). Além disso, confirme que selecionou o mesmo "Diretório" no portal Visão Personalizada que o diretório no portal Azure onde estão localizados os seus recursos de Visão Personalizada. Em ambos os sites, pode selecionar o seu diretório a partir do menu de conta drop down no canto superior direito do ecrã. 
+   > Se não houver nenhum grupo de recursos disponível, por favor confirme que iniciou [sessão](https://customvision.ai) em customvision.ai com a mesma conta que usou para iniciar sessão no [portal Azure](https://portal.azure.com/). Além disso, confirme que selecionou o mesmo "Diretório" no website da Visão Personalizada que o diretório no portal Azure onde estão localizados os seus recursos de Visão Personalizada. Em ambos os sites, pode selecionar o seu diretório a partir do menu de conta drop down no canto superior direito do ecrã. 
 
 1. Selecione __a deteção de objetos__ em __tipos de projeto.__
 
@@ -118,3 +118,4 @@ Neste arranque rápido, aprendeu a criar e treinar um modelo de detetor de objet
 > [!div class="nextstepaction"]
 > [Test and retrain a model](test-your-model.md) (Testar e voltar a preparar um modelo)
 
+* [O que é a Visão Personalizada?](./overview.md)

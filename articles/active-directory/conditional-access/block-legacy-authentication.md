@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1973d45197044c325caf2d9938838f438d7755c
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: ca9f4e290c5dad45e5bf87439ebcd1c88a7c540f
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049541"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602008"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Bloquear a autenticação do legado para Azure AD com acesso condicional   
 
@@ -125,4 +125,4 @@ Pode selecionar todos os controlos de subvenção disponíveis para a condição
 - [Determinar o impacto utilizando o modo de relatório de acesso condicional](howto-conditional-access-insights-reporting.md)
 - Se ainda não está familiarizado com a configuração das políticas de Acesso Condicional, consulte [o MFA para aplicações específicas com acesso condicional do Azure Ative Directory,](../authentication/tutorial-enable-azure-mfa.md) por exemplo.
 - Para obter mais informações sobre suporte de autenticação moderna, consulte [como funciona a autenticação moderna para as aplicações de clientes do Office 2013 e office 2016](/office365/enterprise/modern-auth-for-office-2013-and-2016) 
-- [Como configurar um dispositivo ou aplicação multifunções para enviar e-mail usando o Office 365 e o Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)
+- [Como configurar um dispositivo ou aplicação multifunções para enviar e-mail usando o Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

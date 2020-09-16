@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 4ff1905eb164d004af69ce5b0df3278bf3a46884
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 6d6f56fb47bfdaadc6704e2a13ebcf0e893b8b1c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89670769"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602358"
 ---
 # <a name="manage-resources-created-for-the-vm-move"></a>Gerir os recursos criados para o movimento VM
 
@@ -24,7 +24,7 @@ Após a deslocação de VMs através das regiões, há uma série de recursos cr
 
 Elimine manualmente a recolha de movimentos e os recursos de recuperação do local criados para o movimento VM.
 
-1. Na região de origem de onde se moveu VMs, reveja os recursos do grupo de ```RegionMoveRG-<sourceregion>-<target-region>``` recursos.
+1. Reveja os recursos do grupo de ```ResourceMoverRG-<sourceregion>-<target-region>``` recursos.
 2. Verifique se o VM e todos os outros recursos de origem na recolha de movimentos foram movidos/eliminados. Isto garante que não existem recursos pendentes que os utilizem.
 2. Apague estes recursos.
 
@@ -32,6 +32,6 @@ Elimine manualmente a recolha de movimentos e os recursos de recuperação do lo
     - O nome da conta de armazenamento de cache é ```resmovecache<guid>```
     - O nome do cofre ```ResourceMove-<sourceregion>-<target-region>-GUID``` é.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Tente [mover um VM](tutorial-move-region-virtual-machines.md) para outra região com o Resource Mover.

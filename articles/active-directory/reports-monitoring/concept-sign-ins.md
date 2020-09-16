@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e84fb04d967311fede3be7f20b45f01fb442e69e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 99e15c6d1ca33623151b7a2d75e3e28878f673ef
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228771"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603599"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
@@ -147,13 +147,13 @@ A **Localização** - A localização da ligação foi iniciada a partir de:
 |SMTP autenticado| |Usado pelos clientes POP e IMAP para enviar mensagens de correio e-mail.|
 |Autodiscover| |Utilizado pelos clientes Outlook e EAS para encontrar e conectar-se a caixas de correio em Exchange Online.|
 |Exchange ActiveSync| |Este filtro mostra todas as tentativas de inscrição em que o protocolo EAS foi tentado.|
-|Browser|![Marcar](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de inscrição de utilizadores que usam navegadores web|
-|Exchange ActiveSync| | Mostra todas as tentativas de login de utilizadores com aplicações de clientes usando o Exchange ActiceSync para se conectar ao Exchange Online|
+|Browser|![Marca de verificação](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de inscrição de utilizadores que usam navegadores web|
+|Exchange ActiveSync| | Mostra todas as tentativas de login dos utilizadores com aplicações de clientes que usam o Exchange ActiveSync para se conectarem ao Exchange Online|
 |Intercâmbio PowerShell Online| |Usado para ligar a Exchange Online com powerShell remoto. Se bloquear a autenticação básica para Exchange Online PowerShell, tem de utilizar o módulo Exchange Online PowerShell para se ligar. Para obter instruções, consulte [Connect to Exchange Online PowerShell utilizando a autenticação de vários fatores.](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)|
 |Serviços Web Exchange| |Uma interface de programação que é usada pelo Outlook, Outlook para Mac e aplicações de terceiros.|
 |IMAP4| |Um cliente de correio antigo que usa o IMAP para recuperar o e-mail.|
 |MAPI sobre HTTP| |Usado pelo Outlook 2010 e mais tarde.|
-|Aplicativos móveis e clientes de desktop|![Marcar](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de login dos utilizadores que usam aplicações móveis e clientes de desktop.|
+|Aplicativos móveis e clientes de desktop|![Marca de verificação azul](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de login dos utilizadores que usam aplicações móveis e clientes de desktop.|
 |Livro de endereços offline| |Uma cópia das coleções de listas de endereços que são descarregadas e usadas pelo Outlook.|
 |Outlook Anywhere (RPC over HTTP)| |Usado pelo Outlook 2016 e mais cedo.|
 |Serviço Outlook| |Utilizado pelo aplicativo Mail and Calendar para o Windows 10.|
@@ -234,7 +234,7 @@ Ao clicar num item, obtém mais detalhes sobre a operação de início de sessã
 - Cliente
 - Localização
 - Endereço IP
-- Date
+- Data
 - MFA Necessário
 - Estado de início de sessão
 
@@ -269,11 +269,11 @@ Quando clica num dia no gráfico de utilização da aplicação, obtém uma list
 
 A opção **Inícios de sessão** dá uma visão geral completa de todos os eventos de início de sessão nas suas aplicações.
 
-## <a name="office-365-activity-logs"></a>Escritório 365 registos de atividades
+## <a name="microsoft-365-activity-logs"></a>Registos de atividades da Microsoft 365
 
-Pode visualizar registos de atividade do Office 365 a partir do [centro de administração Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Considere-se que, os registos de atividade do Office 365 e da AZure AD partilham um número significativo de recursos do diretório. Apenas o centro de administração Microsoft 365 fornece uma visão completa dos registos de atividade do Office 365. 
+Pode ver os registos de atividade do Microsoft 365 a partir do [centro de administração Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Considere o ponto que, a atividade da Microsoft 365 e os registos de atividade azure AD partilham um número significativo de recursos do diretório. Apenas o centro de administração Microsoft 365 fornece uma visão completa dos registos de atividades da Microsoft 365. 
 
-Também pode aceder aos registos de atividades do Office 365 programáticamente utilizando as [APIs de Gestão do Office 365](/office/office-365-management-api/office-365-management-apis-overview).
+Também pode aceder aos registos de atividades do Microsoft 365 programáticamente utilizando as [APIs de Gestão do Office 365](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Passos seguintes
 

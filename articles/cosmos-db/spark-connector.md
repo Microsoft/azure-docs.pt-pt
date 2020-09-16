@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: ramkris
-ms.openlocfilehash: ce017d1ac92e3aabe7ad0e36b2e8b87dc04b34f6
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 633baafa7f6cb1bc134f07ce64ba98ebd4cb626c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87445932"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603055"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Acelere a análise de big data usando o conector Apache Spark para Azure Cosmos DB
 
@@ -217,7 +217,7 @@ df
 ```
 Mais cortes e mais amostras finais, ver [Jupyter.](https://github.com/Azure/azure-cosmosdb-spark/tree/master/samples/notebooks)
 
-## <a name="working-with-the-connector"></a><a name="bk_working_with_connector"></a>Trabalhar com o conector
+## <a name="working-with-the-connector"></a><a name="bk_working_with_connector"></a> Trabalhar com o conector
 
 Pode construir o conector a partir de fonte no GitHub, ou baixar os frascos uber de Maven nos links abaixo.
 
@@ -245,9 +245,9 @@ spark-shell --master yarn --packages "com.microsoft.azure:azure-cosmosdb-spark_2
 
 ```
 
-### <a name="using-jupyter-notebooks"></a>Usando cadernos Jupyter
+### <a name="using-jupyter-notebooks"></a>Usando cadernos jupyter
 
-Se estiver a usar cadernos Jupyter dentro do HDInsight, pode usar uma célula mágica `%%configure` para especificar as coordenadas maven do conector.
+Se estiver a usar o Jupyter Notebook dentro do HDInsight, pode utilizar uma célula mágica `%%configure` para especificar as coordenadas de maven do conector.
 
 ```python
 { "name":"Spark-to-Cosmos_DB_Connector",
@@ -273,7 +273,7 @@ mvn clean package
 
 O [repositório Cosmos DB Spark GitHub](https://github.com/Azure/azure-cosmosdb-spark) tem os seguintes cadernos e scripts de amostra que você pode experimentar.
 
-* **Performance de voo a tempo com Spark e Cosmos DB (Seattle)** [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/On-Time%20Flight%20Performance%20with%20Spark%20and%20Cosmos%20DB%20-%20Seattle.ipynb)  |  [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/On-Time%20Flight%20Performance%20with%20Spark%20and%20Cosmos%20DB%20-%20Seattle.html): Ligue a Spark à Cosmos DB utilizando o serviço de portátil HDInsight Jupyter para mostrar Spark SQL, GraphFrames e prever atrasos de voo usando gasodutos ML.
+* **Performance de voo a tempo com Spark e Cosmos DB (Seattle)** [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/On-Time%20Flight%20Performance%20with%20Spark%20and%20Cosmos%20DB%20-%20Seattle.ipynb)  |  [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/On-Time%20Flight%20Performance%20with%20Spark%20and%20Cosmos%20DB%20-%20Seattle.html): Ligue a Spark à Cosmos DB utilizando o serviço HDInsight Jupyter Notebook para mostrar Spark SQL, GraphFrames e prever atrasos de voo usando gasodutos ML.
 * **Twitter Source with Apache Spark and Azure Cosmos DB Change Feed**: [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Twitter%20with%20Spark%20and%20Azure%20Cosmos%20DB%20Change%20Feed.ipynb)  |  [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Twitter%20with%20Spark%20and%20Azure%20Cosmos%20DB%20Change%20Feed.html)
 * **Usando Apache Spark para consultar cosmos DB Graphs**: [ipynb](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.ipynb)  |  [html](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/notebooks/Using%20Apache%20Spark%20to%20query%20Cosmos%20DB%20Graphs.html)
 * **[Ligação de dados Azure a Azure Cosmos DB](https://docs.databricks.com/spark/latest/data-sources/azure/cosmosdb-connector.html)** utilizando `azure-cosmosdb-spark` .  Aqui também está uma versão Azure Databricks do caderno de desempenho de voo no [tempo.](https://github.com/dennyglee/databricks/tree/master/notebooks/Users/denny%40databricks.com/azure-databricks)
@@ -295,7 +295,7 @@ Temos mais informações no `azure-cosmosdb-spark` [wiki,](https://github.com/Az
 ### <a name="troubleshooting"></a>Resolução de problemas
 
 * [Usando os agregados DeSB cosmos](https://github.com/Azure/azure-documentdb-spark/wiki/Troubleshooting:-Using-Cosmos-DB-Aggregates)
-* [Questões Conhecidas](https://github.com/Azure/azure-cosmosdb-spark/wiki/Known-Issues)
+* [Problemas Conhecidos](https://github.com/Azure/azure-cosmosdb-spark/wiki/Known-Issues)
 
 ### <a name="performance"></a>Desempenho
 

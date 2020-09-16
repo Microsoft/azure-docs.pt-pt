@@ -1,15 +1,15 @@
 ---
 title: Tipos de recursos suportados do Gestor de Recursos Azure
 description: Forneça uma lista dos tipos de recursos do Azure Resource Manager suportados pelo Azure Resource Graph e Change History.
-ms.date: 09/04/2020
+ms.date: 09/15/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: b81ffcdde074978a9a72c5ab651ec2c5556870bd
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: a52378422c6ee740f30f155cdfb0839a3f281abe
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488325"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600607"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabela de gráfico de recurso Azure e referência do tipo de recurso
 
@@ -63,6 +63,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.aadiam/azureadmetrics
 - microsoft.aadiam/privatelinkforazuread
 - microsoft.aadiam/inquilinos
+- microsoft.agfoodplatform/farmbeats
 - microsoft.aisupercomputador/contas
 - microsoft.aisupercomputador/contas/grupos de trabalho
 - microsoft.aisupercomputador/contas/grupos de emprego/emprego
@@ -80,6 +81,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.automation/automation
 - microsoft.automation/automationaccounts/configurações
 - microsoft.automation/automationaccounts/runbooks
+- microsoft.autonomousdevelopmentplatform/accounts
 - microsoft.autonomoussystems/workspaces
 - microsoft.avs/privateclouds
 - microsoft.azconfig/configurationstores
@@ -94,6 +96,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.azuredata/sqlserverinstances
 - microsoft.azuredata/sqlserverregistrations
 - microsoft.azurestack/edgesubscriptions
+- microsoft.azurestack/linkedsubscriptions
 - microsoft.azurestack/registos
 - microsoft.azurestackhci/clusters
 - microsoft.baremetal/consolas
@@ -168,6 +171,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.containerservice/containerservices
 - microsoft.containerservice/managedclusters
 - microsoft.containerservice/openshiftmanagedclusters
+- microsoft.contoso/clusters
 - microsoft.contoso/empregados
 - microsoft.costmanagement/conectores
 - microsoft.customproviders/resourceproviders
@@ -250,6 +254,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.hybridnetwork/dispositivos
 - microsoft.hybridnetwork/virtualnetworkfunctions
 - microsoft.importexport/jobs
+- microsoft.industrydatalifecycle/basemodels
 - microsoft.industrydatalifecycle/custódiadiancollaboratives
 - microsoft.industrydatalifecycle/modelos derivados
 - microsoft.industrydatalifecycle/membercollaboratives
@@ -265,6 +270,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.insights/grupos de notificações
 - microsoft.insights/regras de notificação
 - microsoft.insights/privatelinkscopes
+- microsoft.insights/consultas
 - microsoft.insights/scheduledqueryrules
 - microsoft.insights/webtests
 - microsoft.insights/livros de trabalho
@@ -414,6 +420,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.resources/templatespecs/vers
 - microsoft.saas/applications
 - microsoft.scheduler/jobcollections
+- microsoft.scvmm/vmmservers
 - microsoft.search/searchservices
 - microsoft.security/automations
 - microsoft.security/iotsecuritysolutions
@@ -523,6 +530,8 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - wandisco.fusion/fusiongroups/managedonpremzones
 - wandisco.fusion/fusiongroups/onpremzones
 - wandisco.fusion/fusiongroups/replicationrules
+- wandisco.fusion/migradores
+- wandisco.fusion/migradores/targets
 
 ## <a name="securityresources"></a>fontes de segurança
 
@@ -536,7 +545,7 @@ O Azure Resource Graph suporta os seguintes tipos de **recursos** do [Azure Reso
 - microsoft.security/securescores
 - microsoft.security/securescores/securescorecontrols
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [língua de consulta.](../concepts/query-language.md)
 - Saiba mais sobre como [explorar recursos.](../concepts/explore-resources.md)

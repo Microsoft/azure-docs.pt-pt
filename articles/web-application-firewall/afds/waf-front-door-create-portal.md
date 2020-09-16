@@ -5,14 +5,14 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 03/10/2020
+ms.date: 09/15/2020
 ms.author: victorh
-ms.openlocfilehash: be66a93ea4a518b26d973d222caf58e73b6986a3
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 7c7ea5297276ed9a1d1f2ca8f4190997dcab57c3
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "79475846"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602222"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Tutorial: Criar uma política de Firewall de aplicação web na porta frontal do Azure usando o portal Azure
 
@@ -68,7 +68,7 @@ Para ver o WAF em ação, pode alterar as definições de modo de **Deteção** 
 
 Pode criar uma regra personalizada selecionando a **regra personalizada De** acordo com a secção de **regras personalizadas.** Isto lança a página de configuração de regras personalizadas. Abaixo está um exemplo de configuração de uma regra personalizada para bloquear um pedido se a cadeia de consulta contiver **blockme**.
 
-![Alterar o modo de política DAA](../media/waf-front-door-create-portal/customquerystring2.png)
+![Regras personalizadas](../media/waf-front-door-create-portal/customquerystring2.png)
 
 ### <a name="default-rule-set-drs"></a>Conjunto de regras predefinidos (DRS)
 
@@ -76,8 +76,11 @@ O Conjunto de Regras Predefinidas geridos pelo Azure é ativado por padrão. Par
 
  ![Alterar conjunto de regras WAF](../media/waf-front-door-create-portal/managed2.png)
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Quando já não for necessário, remova o grupo de recursos e todos os recursos relacionados.
+
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre a firewall de aplicação](../overview.md) 
->  web Azure [Saiba mais sobre a Porta frontal Azure](../../frontdoor/front-door-overview.md)
+> [Saiba mais sobre a Porta frontal Azure](../../frontdoor/front-door-overview.md)

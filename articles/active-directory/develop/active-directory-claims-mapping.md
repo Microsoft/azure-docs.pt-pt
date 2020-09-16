@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: e1c931b37cbe155d62aaffe47e36d84afa547638
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 4fca84c8e5aa562572792968d0438a61be5ab91b
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068648"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601474"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar reclamações emitidas em fichas para uma aplicação específica num inquilino (Preview)
 
@@ -40,11 +40,11 @@ Em Azure AD, um objeto **de política** representa um conjunto de regras aplicad
 
 Uma política de mapeamento de reclamações é um tipo de objeto **de política** que modifica as alegações emitidas em fichas emitidas para aplicações específicas.
 
-## <a name="claim-sets"></a>Conjuntos de reclamação
+## <a name="claim-sets"></a>Conjuntos de afirmações
 
 Há certos conjuntos de afirmações que definem como e quando são usadas em fichas.
 
-| Conjunto de reclamações | Descrição |
+| Conjunto de reclamações | Description |
 |---|---|
 | Conjunto de reclamação do núcleo | Estão presentes em todos os símbolos, independentemente da política. Estas alegações também são consideradas restritas, e não podem ser modificadas. |
 | Conjunto básico de reclamação | Inclui as reclamações que são emitidas por padrão para tokens (além do conjunto de reclamações principais). Pode omitir ou modificar reclamações básicas utilizando as políticas de mapeamento de reclamações. |
@@ -285,7 +285,7 @@ O elemento ID identifica qual o imóvel na fonte que fornece o valor para a recl
 
 #### <a name="table-3-valid-id-values-per-source"></a>Quadro 3: Valores de identificação válidos por fonte
 
-| Origem | ID | Descrição |
+| Origem | ID | Description |
 |-----|-----|-----|
 | Utilizador | surname | Nome da família |
 | Utilizador | givenname | Nome Próprio |
@@ -301,7 +301,7 @@ O elemento ID identifica qual o imóvel na fonte que fornece o valor para a recl
 | Utilizador | nome de empresa| Nome da Organização |
 | Utilizador | streetaddress | Rua |
 | Utilizador | código postal | Código Postal |
-| Utilizador | preferidolanguange | Língua Preferida |
+| Utilizador | preferencialmente língua | Língua Preferida |
 | Utilizador | onpremisesuserprincipalname | UPN no local |*
 | Utilizador | nome de mailnickname | Apelido de correio |
 | Utilizador | extensãotribuição1 | Atributo de extensão 1 |
@@ -362,7 +362,7 @@ Com base no método escolhido, espera-se um conjunto de entradas e saídas. Defi
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Quadro 4: Métodos de transformação e entradas e saídas esperadas
 
-|TransformaçãoMethod|Entrada esperada|Resultado esperado|Descrição|
+|TransformaçãoMethod|Entrada esperada|Resultado esperado|Description|
 |-----|-----|-----|-----|
 |Associar|string1, string2, separador|outputClaim|Junta cordas de entrada utilizando um separador no meio. Por exemplo: string1:" foo@bar.com " " " " " string2:"sandbox", separador:"." resulta em outputClaim:" foo@bar.com.sandbox|
 |ExtratoMailPrefixo|E-mail ou UPN|corda extraída|ExtensãoTribu 1-15 ou quaisquer outras extensões de Esquema que estejam a armazenar um valor de endereço DE UPN ou e-mail para o utilizador, por johndoe@contoso.com exemplo. Extrai a parte local de um endereço de e-mail. Por exemplo: mail:" foo@bar.com " resulta em saídaClaim:"foo". Se não \@ houver sinal, a cadeia de entrada original é devolvida como está.|
@@ -388,7 +388,7 @@ Com base no método escolhido, espera-se um conjunto de entradas e saídas. Defi
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Quadro 5: Atributos permitidos como fonte de dados para SAML NameID
 
-|Origem|ID|Descrição|
+|Origem|ID|Description|
 |-----|-----|-----|
 | Utilizador | correio|Endereço de E-mail|
 | Utilizador | nome do utilizadorprincipal|Nome Principal de Utilizador|

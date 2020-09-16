@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27aabac75516eed2c68b4f14c6593411d0141ef1
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 15f4f5d9eea8f53a894289160df00a1c1d8d8048
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437246"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601763"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -48,26 +48,26 @@ A avaliação contínua do acesso é implementada através da capacitação de s
 - Administrador revoga explicitamente todos os tokens de atualização para um utilizador
 - Risco elevado de utilizador detetado pela Azure AD Identity Protection
 
-Este processo permite o cenário em que os utilizadores perdem acesso a ficheiros organizacionais sharePoint Online, e-mail, calendário ou tarefas, e equipas de aplicações de clientes O365 dentro de mins após um desses eventos críticos. 
+Este processo permite o cenário em que os utilizadores perdem acesso a ficheiros organizacionais sharePoint Online, e-mail, calendário ou tarefas, e equipas de aplicações de clientes microsoft 365 dentro de mins após um desses eventos críticos. 
 
 ### <a name="conditional-access-policy-evaluation-preview"></a>Avaliação da política de acesso condicional (pré-visualização)
 
 O Exchange e o SharePoint são capazes de sincronizar as principais políticas de Acesso Condicional para que possam ser avaliadas dentro do próprio serviço.
 
-Este processo permite o cenário em que os utilizadores perdem acesso a ficheiros organizacionais, e-mail, calendário ou tarefas a partir de aplicações de clientes O365 ou SharePoint Online imediatamente após alterações na localização da rede.
+Este processo permite o cenário em que os utilizadores perdem acesso a ficheiros organizacionais, e-mail, calendário ou tarefas a partir de aplicações de clientes microsoft 365 ou SharePoint Online imediatamente após alterações na localização da rede.
 
 > [!NOTE]
 > Nem todas as combinações de aplicativos e fornecedores de recursos são suportadas. Veja a tabela abaixo. Office refere-se a Word, Excel e PowerPoint
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | Suportado | Suportado | Não suportado | Não suportado | Suportado |
-| Exchange Online | Suportado | Suportado | Suportado | Suportado | Suportado |
+| **SharePoint Online** | Suportado | Suportado | Não suportado | Não suportado | Suportado |
+| **Exchange Online** | Suportado | Suportado | Suportado | Suportado | Suportado |
 
 | | Aplicativos web de escritório | Aplicativos Win32 do Office Win32 | Escritório para iOS | Escritório para Android | Escritório para Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | Suportado | Suportado | Não suportado | Suportado | Suportado |
-| Exchange Online | Suportado | Suportado | Não suportado | Suportado | Suportado |
+| **SharePoint Online** | Suportado | Suportado | Não suportado | Suportado | Suportado |
+| **Exchange Online** | Suportado | Suportado | Não suportado | Suportado | Suportado |
 
 ### <a name="client-side-claim-challenge"></a>Desafio de reclamação do lado do cliente
 
@@ -183,6 +183,6 @@ Se ativar um utilizador logo após o desativar. Haverá alguma latência antes d
 
 A frequência de inscrição será honrada com ou sem CAE.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Anunciando a avaliação contínua do acesso](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933)

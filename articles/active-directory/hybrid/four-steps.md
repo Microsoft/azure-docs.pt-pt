@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b7e394c4227be9ead491fe77457b466b1f62468
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 4543a46c9362ac6d20cc7597de9f59c1a7520163
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279334"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600802"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Quatro passos para uma forte fundação de identidade com Azure Ative Directory
 
@@ -46,7 +46,7 @@ A Azure AD permite aos administradores [adicionar aplicações](../manage-apps/a
 Uma vez que as aplicações são adicionadas à galeria AZure AD, os utilizadores podem ver aplicações que lhes são atribuídas e pesquisar e solicitar outras aplicações conforme necessário. A Azure AD fornece [vários métodos](../manage-apps/end-user-experiences.md) para os utilizadores acederem às suas apps:
 
 * Painel de acesso/Minhas Apps
-* Iniciador da aplicações do Office 365
+* Iniciador de aplicações do Microsoft 365
 * Início de sessão direto em aplicações federadas
 * Links de acesso direto
 
@@ -115,7 +115,7 @@ As organizações com diretório ativo no local devem estender o seu diretório 
 
 O método mais simples e recomendado para permitir a autenticação em nuvem para objetos de diretório no local em Azure AD é para ativar a [sincronização de hash de palavra-passe](./how-to-connect-password-hash-synchronization.md) (PHS). Em alternativa, algumas organizações podem considerar permitir a [autenticação pass-through](./how-to-connect-pta-quick-start.md) (PTA).
 
-Quer escolha PHS ou PTA, não se esqueça de ativar [o Seamless Single Sign-on](./how-to-connect-sso.md) para permitir que os utilizadores acedam a aplicações na nuvem sem introduzir constantemente o seu nome de utilizador e palavra-passe na aplicação quando utilizarem dispositivos Windows 7 e 8 na sua rede corporativa. Sem uma única sincê-in, os utilizadores devem lembrar-se de senhas específicas da aplicação e assinar em cada aplicação. Da mesma forma, o pessoal de TI precisa de criar e atualizar contas de utilizadores para cada aplicação, tais como Office 365, Box e Salesforce. Os utilizadores precisam de se lembrar das suas palavras-passe, além de gastar o tempo para se inscreverem em cada aplicação. Fornecer um mecanismo de inscrição único padronizado a toda a empresa é crucial para a melhor experiência do utilizador, redução de risco, capacidade de reportar e governação.
+Quer escolha PHS ou PTA, não se esqueça de ativar [o Seamless Single Sign-on](./how-to-connect-sso.md) para permitir que os utilizadores acedam a aplicações na nuvem sem introduzir constantemente o seu nome de utilizador e palavra-passe na aplicação quando utilizarem dispositivos Windows 7 e 8 na sua rede corporativa. Sem uma única sincê-in, os utilizadores devem lembrar-se de senhas específicas da aplicação e assinar em cada aplicação. Da mesma forma, o pessoal de TI precisa de criar e atualizar contas de utilizadores para cada aplicação, como o Microsoft 365, Box e Salesforce. Os utilizadores precisam de se lembrar das suas palavras-passe, além de gastar o tempo para se inscreverem em cada aplicação. Fornecer um mecanismo de inscrição único padronizado a toda a empresa é crucial para a melhor experiência do utilizador, redução de risco, capacidade de reportar e governação.
 
 Para organizações que já utilizam FS AD ou outro fornecedor de autenticação no local, mudar-se para a Azure AD como seu fornecedor de identidade pode reduzir a complexidade e melhorar a disponibilidade. A menos que tenha casos de uso específico para usar a federação, recomendamos migrar da autenticação federada para PHS e Seamless SSO ou PTA e Seamless SSO para desfrutar dos benefícios de uma pegada reduzida no local e da flexibilidade que a nuvem oferece com experiências melhoradas do utilizador. Para obter mais informações, consulte [Migrar da federação para sincronização de haxixe de palavra-passe para o Diretório Ativo Azure](./plan-migrate-adfs-password-hash-sync.md).
 
@@ -156,7 +156,7 @@ Atribuir os utilizadores às aplicações é melhor mapeado quando se utilizam g
 * Baseado em atributos usando a adesão dinâmica do grupo
 * Delegação aos proprietários de aplicações
 
-A Azure AD fornece a capacidade de gerir o acesso a recursos usando grupos de segurança e grupos office 365. Estes grupos podem ser geridos por um dono de grupo que pode aprovar ou negar pedidos de adesão e delegar o controlo da adesão ao grupo. Conhecida como [gestão de grupos de self-service,](../users-groups-roles/groups-self-service-management.md)esta funcionalidade poupa tempo ao permitir aos proprietários de grupos que não lhes seja atribuído um papel administrativo para criar e gerir grupos sem terem de confiar nos administradores para lidarem com os seus pedidos.
+O Azure AD fornece a capacidade de gerir o acesso a recursos usando grupos de segurança e grupos Microsoft 365. Estes grupos podem ser geridos por um dono de grupo que pode aprovar ou negar pedidos de adesão e delegar o controlo da adesão ao grupo. Conhecida como [gestão de grupos de self-service,](../users-groups-roles/groups-self-service-management.md)esta funcionalidade poupa tempo ao permitir aos proprietários de grupos que não lhes seja atribuído um papel administrativo para criar e gerir grupos sem terem de confiar nos administradores para lidarem com os seus pedidos.
 
 ## <a name="step-4---operationalize-your-insights"></a>Passo 4 - Operacionalizar as suas ideias
 
@@ -265,7 +265,7 @@ Recomendamos que imprima a seguinte lista de verificação para referência à m
 ||Monitorize o seu uso de apps para impulsionar insights|
 ||Compreenda o seu apoio aos motoristas de chamadas|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como pode aumentar a sua postura segura utilizando as capacidades do Azure Ative Directory e esta lista de verificação de cinco etapas - [Cinco passos para garantir a sua infraestrutura de identidade](https://aka.ms/securitysteps).
 

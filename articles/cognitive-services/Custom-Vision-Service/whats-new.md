@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 6ed8e1deba7b3b2df03fa517a922721bcb8f8ad1
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 019a9264beddafbd4585810967551e064592e94d
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531241"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602528"
 ---
 # <a name="whats-new-in-custom-vision"></a>Novidades na Visão Personalizada
 

@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: tradutor, serviço de tradutor, tradução de texto, texto transliterado, deteção de linguagem
-ms.openlocfilehash: 1cffe99389b3e3e782c53aeae8c29fbc8f55b6a0
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 65f16c9689984a493e3fed041545557688fbc279
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530680"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602256"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Quickstart: Começa com o Tradutor
 
@@ -120,6 +120,10 @@ Ao ligar para o serviço de Tradução via REST, terá de se certificar de que o
     <td><em>Opcional.</em><br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Pode omitir este cabeçalho se incluir o ID de traço na cadeia de consulta utilizando um parâmetro de consulta denominado <code>ClientTraceId</code> .</td>
   </tr>
 </table> 
+
+## <a name="keys-and-endpoints"></a>Keys and endpoints (Chaves e pontos finais)
+
+As amostras desta página utilizam chaves e pontos finais codificados para a simplicidade. Lembre-se **de remover a chave do seu código quando terminar,** e nunca **postá-la publicamente**. Para a produção, considere utilizar uma forma segura de armazenar e aceder às suas credenciais. Consulte o artigo [de segurança](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) dos Serviços Cognitivos para obter mais informações.
 
 ## <a name="translate-text"></a>Traduzir texto 
 

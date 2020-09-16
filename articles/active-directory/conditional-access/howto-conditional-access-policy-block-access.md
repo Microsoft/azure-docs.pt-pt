@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d05aaa7a6bd48c92e863d38dcee9f0bf925bafa
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 68ab302e5c24835174d03b3579c9ec587bfd9006
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049269"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601593"
 ---
 # <a name="conditional-access-block-access"></a>Acesso Condicional: Acesso ao bloco
 
@@ -40,7 +40,7 @@ As políticas de acesso condicional são ferramentas poderosas, recomendamos exc
 
 As seguintes medidas ajudarão a criar políticas de Acesso Condicional para bloquear o acesso a todas as aplicações, com exceção [do Office 365,](concept-conditional-access-cloud-apps.md#office-365-preview) se os utilizadores não estiverem numa rede de confiança. Estas políticas são colocadas no [modo report-only](howto-conditional-access-insights-reporting.md) para iniciar para que os administradores possam determinar o impacto que terão nos utilizadores existentes. Quando os administradores se sentem confortáveis em que as políticas se apliquem como pretendem, podem mudá-las para **On**.
 
-A primeira política bloqueia o acesso a todas as aplicações, com exceção das aplicações do Office 365, caso não se desemosse numa localização fidedigna.
+A primeira política bloqueia o acesso a todas as aplicações, com exceção das aplicações da Microsoft 365, caso não se afirmem numa localização fidedigna.
 
 1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
 1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
@@ -64,7 +64,7 @@ A primeira política bloqueia o acesso a todas as aplicações, com exceção da
 1. Confirme as suas definições e defina **Ativar** a política **apenas para reportar**.
 1. Selecione **Criar** para criar para ativar a sua política.
 
-Uma segunda política é criada abaixo para exigir a autenticação de vários fatores ou um dispositivo em conformidade para os utilizadores do Office 365.
+Uma segunda política é criada abaixo para exigir a autenticação de vários fatores ou um dispositivo em conformidade para os utilizadores da Microsoft 365.
 
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.

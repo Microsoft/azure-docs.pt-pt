@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: beabe9440c37d16ca4a81efdbc9588739f4c7473
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: d5de8da548c2e141eb921aa4f95e82f7199ae1f4
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279351"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602375"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação certo para a sua solução de identidade híbrida Azure Ative Directory
 
@@ -86,7 +86,7 @@ Detalhes sobre questões de decisão:
 
 ### <a name="cloud-authentication-password-hash-synchronization"></a>Autenticação em nuvem: Sincronização de hash de palavra-passe
 
-* **Esforço.** A sincronização de hash de palavra-passe requer o menor esforço no que diz respeito à implantação, manutenção e infraestrutura.  Este nível de esforço aplica-se normalmente a organizações que apenas precisam que os seus utilizadores assinem o Office 365, aplicações SaaS e outros recursos baseados em AD AZure. Quando ligado, a sincronização de hash de palavra-passe faz parte do processo de sincronização Azure AD Connect e funciona a cada dois minutos.
+* **Esforço.** A sincronização de hash de palavra-passe requer o menor esforço no que diz respeito à implantação, manutenção e infraestrutura.  Este nível de esforço aplica-se normalmente a organizações que apenas precisam que os seus utilizadores assinem o microsoft 365, aplicações SaaS e outros recursos baseados em AD AZure. Quando ligado, a sincronização de hash de palavra-passe faz parte do processo de sincronização Azure AD Connect e funciona a cada dois minutos.
 
 * **Experiência do utilizador.** Para melhorar a experiência de entrada de utilizadores, implemente SSO sem costura com sincronização de hash de palavra-passe. O SSO sem emenda elimina solicitações desnecessárias quando os utilizadores estão inscritos.
 
@@ -203,7 +203,7 @@ Utilize ou ative a sincronização de haxixe de palavra-passe para o método de 
 
 2. **No local, a sobrevivência da paralisação.**  As consequências de uma paragem no local devido a um ciberataque ou desastre podem ser substanciais, desde danos reputacionais à marca a uma organização paralisada incapaz de lidar com o ataque. Recentemente, muitas organizações foram vítimas de ataques de malware, incluindo ransomware direcionado, o que fez com que os seus servidores no local fossem abatidos. Quando a Microsoft ajuda os clientes a lidar com este tipo de ataques, vê duas categorias de organizações:
 
-   * As organizações que anteriormente também ligavam a sincronização de hash de palavra-passe em cima da autenticação federada ou pass-through alteraram o seu método de autenticação primária para depois utilizarem a sincronização de hash de palavra-passe. Voltaram a estar online numa questão de horas. Ao utilizar o acesso ao e-mail via Office 365, trabalharam para resolver problemas e aceder a outras cargas de trabalho baseadas na nuvem.
+   * As organizações que anteriormente também ligavam a sincronização de hash de palavra-passe em cima da autenticação federada ou pass-through alteraram o seu método de autenticação primária para depois utilizarem a sincronização de hash de palavra-passe. Voltaram a estar online numa questão de horas. Ao utilizar o acesso ao e-mail através do Microsoft 365, trabalharam para resolver problemas e aceder a outras cargas de trabalho baseadas na nuvem.
 
    * As organizações que não habilitavam anteriormente a sincronização de hash de palavra-passe tiveram de recorrer a sistemas de e-mail externos de consumo externos falsos para as comunicações resolverem problemas. Nesses casos, demoraram semanas a restaurar a sua infraestrutura de identidade no local, antes que os utilizadores pudessem voltar a inscrever-se em aplicações baseadas na nuvem.
 
@@ -215,7 +215,7 @@ Este artigo descreve várias opções de autenticação que as organizações po
 
 Considere cada método de autenticação. O esforço de implantação da solução e a experiência do utilizador no processo de inscrição satisfaz os requisitos do seu negócio? Avalie se a sua organização precisa dos cenários avançados e das características de continuidade do negócio de cada método de autenticação. Finalmente, avalie as considerações de cada método de autenticação. Algum deles impede-o de implementar a sua escolha?
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 No mundo de hoje, as ameaças estão presentes 24 horas por dia e vêm de todo o lado. Implemente o método de autenticação correto e irá mitigar os seus riscos de segurança e proteger as suas identidades.
 

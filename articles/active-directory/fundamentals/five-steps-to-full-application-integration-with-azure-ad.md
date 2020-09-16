@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: bbe813b46b41bf0e2b8bf9c6b3fe3e3e843204ed
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 54a1135931c2be9c6b7941c9ff740fd29f855eee
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319751"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601253"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Cinco passos para integrar todas as suas apps com Azure AD
 
@@ -70,7 +70,7 @@ Durante o seu processo de descoberta, pode ter encontrado aplicações que não 
 
 Publicámos orientações para a gestão do processo de negócio de integração de apps com Azure AD, incluindo um [cartaz](https://aka.ms/AppOnePager) e [apresentação](https://aka.ms/AppGuideline) que pode usar para sensibilizar e interessar os proprietários de empresas e aplicações. Pode modificar essas amostras com a sua própria marca e publicá-las na sua organização através do portal da sua empresa, newsletter ou outro meio à medida que for terminando este processo.
 
-Um bom lugar para começar é avaliando a sua utilização de Serviços da Federação de Diretórios Ativos (ADFS). Muitas organizações usam ADFS para autenticação com aplicações SaaS, aplicações personalizadas da Linha das Empresas e aplicações baseadas no Office 365 e Azure AD:
+Um bom lugar para começar é avaliando a sua utilização de Serviços da Federação de Diretórios Ativos (ADFS). Muitas organizações usam ADFS para autenticação com aplicações SaaS, aplicações personalizadas da Linha das Empresas e aplicações baseadas no Microsoft 365 e AZure AD:
 
 ![O diagrama mostra aplicações no local, linha de aplicações empresariais, aplicações SaaS e, via Azure AD, Office 365, todos conectando-se com linhas pontilhadas em Ative Directory e AD FS.](\media\five-steps-to-full-application-integration-with-azure-ad\adfs-integration-1.png)
 
@@ -107,6 +107,6 @@ Os desenvolvedores podem usar a plataforma tanto para aplicações de uso intern
 
 Temos uma [série de vídeos](https://www.youtube.com/watch?v=zjezqZPPOfc&amp;list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX) que fornece uma introdução abrangente à plataforma, bem como [muitas amostras](../develop/sample-v2-code.md) de código em idiomas e plataformas apoiadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Recursos para aplicações migratórias para o Azure Ative Directory](../manage-apps/migration-resources.md)

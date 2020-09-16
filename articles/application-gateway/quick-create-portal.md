@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4929836b7fb617884008fafea50a10e0212fbd58
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 7c144ddac255087ae48ff2f1c5406ad66d670562
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961963"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601355"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - portal do Azure
 
@@ -25,8 +25,6 @@ O gateway de aplicações direciona o tráfego web da aplicação para recursos 
 Também pode completar este arranque rápido utilizando [a Azure PowerShell](quick-create-powershell.md) ou [a Azure CLI](quick-create-cli.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +38,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com) com a sua conta do
 
 Criará o gateway de aplicações utilizando os separadores na página **Criar um gateway de aplicações.**
 
-1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**. A **nova** janela aparece.
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**. A **nova** janela aparece.
 
 2. Selecione **Networking** e, em seguida, selecione **Application Gateway** na lista **em destaque.**
 
@@ -145,7 +143,7 @@ Para fazer isto, vai:
 
 ### <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**. A **nova** janela aparece.
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**. A **nova** janela aparece.
 2. Selecione **o Centro de Dados do Windows Server 2016** na lista **Popular.** Aparece a página **de máquina virtual Create a.**<br>O Application Gateway pode encaminhar o tráfego para qualquer tipo de máquina virtual utilizada na sua piscina de backend. Neste exemplo, utiliza um Datacenter Windows Server 2016.
 3. Introduza estes valores no separador **Básicos** para as seguintes definições de máquina virtual:
 
@@ -171,7 +169,7 @@ Neste exemplo, instala o IIS nas máquinas virtuais apenas para verificar se o A
 
 2. Executar o seguinte comando para instalar o IIS na máquina virtual. Altere o parâmetro *de localização,* se necessário: 
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
@@ -196,7 +194,6 @@ Neste exemplo, instala o IIS nas máquinas virtuais apenas para verificar se o A
 4. Em **alvos de backend**, **tipo alvo,** selecione **a máquina virtual** da lista de drop-down.
 
 5. No **Target,** selecione as máquinas virtuais **myVM** e **myVM2** e as suas interfaces de rede associadas a partir das listas de drop-down.
-
 
    > [!div class="mx-imgBorder"]
    > ![Adicionar servidores back-end](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: e8aa5515bf8ae8e842a98656167f4198ac652981
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 87d455a77096a2ae9339c578f3405c629d79fa76
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642389"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603344"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planear uma implementação de início de sessão único
 
@@ -28,11 +28,11 @@ Um único sinal de sso significa aceder a todas as aplicações e recursos de qu
 
 O sign-on único (SSO) adiciona segurança e comodidade quando os utilizadores assinam as aplicações no Azure Ative Directory (Azure AD). 
 
-Muitas organizações confiam no software como aplicações de serviço (SaaS), como o Office 365, Box e Salesforce, para a produtividade do utilizador final. Historicamente, o pessoal de TI precisava de criar e atualizar individualmente as contas de utilizador em cada aplicação SaaS, e os utilizadores precisavam de se lembrar de uma palavra-passe para cada um.
+Muitas organizações confiam no software como aplicações de serviço (SaaS), como a Microsoft 365, Box e Salesforce, para a produtividade do utilizador final. Historicamente, o pessoal de TI precisava de criar e atualizar individualmente as contas de utilizador em cada aplicação SaaS, e os utilizadores precisavam de se lembrar de uma palavra-passe para cada um.
 
 O Azure Marketplace tem mais de 3000 aplicações com ligações SSO pré-integradas, facilitando a sua integração no seu inquilino.
 
-## <a name="licensing"></a>Licensing
+## <a name="licensing"></a>Licenciamento
 
 - **O licenciamento Azure AD** - SSO para aplicações SaaS pré-integradas é gratuito. No entanto, o número de objetos no seu diretório e as funcionalidades que pretende implementar podem necessitar de licenças adicionais. Para obter uma lista completa dos requisitos de licença, consulte [o Azure Ative Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 - **Licenciamento de pedidos** - Você precisará das licenças apropriadas para seus pedidos SaaS para atender às suas necessidades de negócio. Trabalhe com o titular da aplicação para determinar se os utilizadores afetados à aplicação têm as licenças adequadas para as suas funções dentro da aplicação. Se a Azure AD gerir o provisionamento automático com base em funções, as funções atribuídas no Azure AD devem alinhar-se com o número de licenças detidas dentro da aplicação. O número indevido de licenças detidas no pedido pode resultar em erros durante o provisionamento/atualização de um utilizador.
@@ -118,7 +118,7 @@ Alguns dos tópicos-chave a planear durante a configuração de avaliações de 
 
 A Azure AD fornece [relatórios que contenham informações técnicas e empresariais.](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/) 
 
-Tanto os relatórios de segurança como de atividade estão disponíveis. Os relatórios de segurança mostram que os utilizadores sinalizados para riscos e logins de risco. Os relatórios de atividade ajudam-no a compreender o comportamento dos utilizadores na sua organização, detalhando a atividade de login e fornecendo pistas de auditoria de todos os logins. Pode utilizar relatórios para gerir o risco, aumentar a produtividade e monitorizar a conformidade.
+Tanto os relatórios de segurança como de atividade estão disponíveis. Relatórios de segurança mostram que os utilizadores sinalizam riscos e insustões de risco. Os relatórios de atividade ajudam-no a compreender o comportamento dos utilizadores na sua organização, detalhando a atividade de login e fornecendo pistas de auditoria de todos os logins. Pode utilizar relatórios para gerir o risco, aumentar a produtividade e monitorizar a conformidade.
 
 | Tipo de relatório | Revisão de acesso | Relatórios de segurança | Relatório de inscrição |
 |-------------|---------------|------------------|----------------|
@@ -285,7 +285,7 @@ Os seguintes links apresentam cenários de resolução de problemas. Pode querer
 
 - [Problemas de sessão a partir de um portal personalizado](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-deeplink)
 
-- [Problemas de sessão a partir de My Apps](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
+- [Problemas ao iniciar sessão em As Minhas Aplicações](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
 
 - [Erro na página de início de sessão da aplicação](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-application-error)
 

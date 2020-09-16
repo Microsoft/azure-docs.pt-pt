@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: b45a0608d78330eafd6afc3656f8a4addbdffd3b
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321723"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601369"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guia de referência de operações de gestão de autenticação ativa do Azure Ative Directory
 
@@ -95,7 +95,7 @@ As palavras-passe por si só não são seguras o suficiente para impedir que os 
 
 ### <a name="on-premises-outage-authentication-resiliency"></a>Resiliência da autenticação em local
 
-Para além dos benefícios da simplicidade e da deteção de credenciais vazadas, a Azure AD Password Hash Sync (PHS) e a Azure MFA permitem aos utilizadores aceder às aplicações do SaaS e ao Office 365, apesar das interrupções no local devido a ciberataques como [o NotPetya.](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/) Também é possível permitir phs enquanto em conjunto com a federação. Ativar phs permite uma redução da autenticação quando os serviços da federação não estão disponíveis.
+Além dos benefícios da simplicidade e permitindo a deteção de credenciais vazadas, a Azure AD Password Hash Sync (PHS) e a Azure MFA permitem aos utilizadores aceder às aplicações saaS e à Microsoft 365, apesar de falhas no local devido a ciberataques como [o NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). Também é possível permitir phs enquanto em conjunto com a federação. Ativar phs permite uma redução da autenticação quando os serviços da federação não estão disponíveis.
 
 Se a sua organização no local não tiver uma estratégia de resiliência de paralisação ou tiver uma que não esteja integrada com a Azure AD, deve implementar phS AD Ad Azure e definir um plano de recuperação de desastres que inclua PHS. Permitir que o Azure AD PHS permita que os utilizadores autentem a autenticação contra a AD Azure caso o seu Ative Directory esteja indisponível.
 
@@ -249,7 +249,7 @@ O Acesso Condicional é uma ferramenta essencial para melhorar a postura de segu
 - Ter um pequeno conjunto de políticas fundamentais que podem aplicar-se a múltiplas aplicações
 - Defina grupos de exceção vazios e adicione-os às políticas para ter uma estratégia de exceção
 - Plano para quebrar contas [de vidro](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) sem controlos de MFA
-- Garantir uma experiência consistente em todas as aplicações de clientes do Office 365, por exemplo, Equipas, OneDrive para Negócios, Outlook, etc.) implementando o mesmo conjunto de controlos para serviços como Exchange Online e Sharepoint Online
+- Garantir uma experiência consistente em aplicações de clientes Microsoft 365, por exemplo, Equipas, OneDrive, Outlook, etc.) implementando o mesmo conjunto de controlos para serviços como Exchange Online e Sharepoint Online
 - A atribuição às políticas deve ser implementada através de grupos, não de indivíduos
 - Faça revisões regulares dos grupos de exceção utilizados nas políticas para limitar o tempo que os utilizadores estão fora da postura de segurança. Se possuir Azure AD P2, então pode usar comentários de acesso para automatizar o processo
 
@@ -302,7 +302,7 @@ Abaixo está uma lista de aplicações com permissões que você pode querer exa
 
 | Recurso | Permissão |
 | :- | :- |
-| Bolsa de Escritório 365 Online | EAS. AccessAsUser.All |
+| Exchange Online | EAS. AccessAsUser.All |
 | | EWS. AccessAsUser.All |
 | | Mail.Read |
 | Microsoft Graph API | Mail.Read |
@@ -339,7 +339,7 @@ Abaixo estão as configurações do utilizador e do grupo que podem ser bloquead
 
 #### <a name="group-settings"></a>Definições de grupo
 
-**Gestão do Grupo self-service / Os utilizadores podem criar grupos de Segurança / O365.** Se não houver uma iniciativa de autosserviço atual para grupos na nuvem, os clientes podem decidir desligá-la até estarem prontos a usar esta capacidade.
+**Gestão do Grupo self-Service / Os utilizadores podem criar grupos de Segurança / Microsoft 365.** Se não houver uma iniciativa de autosserviço atual para grupos na nuvem, os clientes podem decidir desligá-la até estarem prontos a usar esta capacidade.
 
 #### <a name="groups-recommended-reading"></a>Grupos recomendados de leitura
 
@@ -389,6 +389,6 @@ Há 12 aspetos para uma infraestrutura de identidade segura. Esta lista irá aju
 - Bloqueie as definições do utilizador e do grupo.
 - Permitir armazenamento a longo prazo de registos AZure AD para resolução de problemas, análises de uso e investigações forenses.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Começar com os [controlos operacionais e ações operacionais da governação da identidade.](active-directory-ops-guide-govern.md)

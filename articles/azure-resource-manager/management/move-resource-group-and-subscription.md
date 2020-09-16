@@ -2,14 +2,14 @@
 title: Mover recursos para um novo grupo de subscrição ou recursos
 description: Utilize o Azure Resource Manager para mover recursos para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2b278dae956ec0bd17773badbeaa880b7bf901a5
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 43b5cd8c9fa5947ff8f345bd0cd3ad26d9e61923
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056672"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603157"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -172,7 +172,7 @@ Quando vê o grupo de recursos, a opção de movimento é desativada.
 
 :::image type="content" source="./media/move-resource-group-and-subscription/move-first-view.png" alt-text="opção de mudança desativado":::
 
-Para ativar a opção de movimento, selecione os recursos que pretende mover. Para selecionar todos os recursos, selecione a caixa de verificação no topo da lista. Ou, selecione recursos individualmente.
+Para ativar a opção de movimento, selecione os recursos que pretende mover. Para selecionar todos os recursos, selecione a caixa de verificação no topo da lista. Ou, selecione recursos individualmente. Após a seleção dos recursos, a opção de movimento está ativada.
 
 :::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="selecionar recursos":::
 
@@ -293,6 +293,6 @@ Outro exemplo comum envolve mover uma rede virtual. Poderá ter de mover vários
 
 Atualmente, nem todos os recursos no movimento de apoio da Azure. Para obter uma lista de recursos que suportam movimento, consulte [o suporte de operação Move para recursos](move-support-resources.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma lista de recursos que apoiam o movimento, consulte [o suporte de operação move para recursos](move-support-resources.md).
