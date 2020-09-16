@@ -7,18 +7,18 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 72f12ece3c939ee8fbaecbec377d18c5bb3b0a49
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: cd0b73dd22e5e2cab720bb1a33e58e25e517b1f6
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294616"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605044"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Gatilho de ônibus de serviço Azure para funções Azure
 
 Utilize o gatilho do Service Bus para responder a mensagens de uma fila ou tópico do Service Bus. Começando pela versão de extensão 3.1.0, pode ativar uma fila ou tópico ativado por sessão.
 
-Para obter informações sobre detalhes de configuração e configuração, consulte a [visão geral](functions-bindings-service-bus-output.md).
+Para obter informações sobre detalhes de configuração e configuração, consulte a [visão geral](functions-bindings-service-bus.md).
 
 ## <a name="example"></a>Exemplo
 
@@ -290,7 +290,7 @@ Consulte o [exemplo](#example) do gatilho para obter mais detalhes.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `ServiceBusTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido como "serviceBusTrigger". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção** | n/a | Deve ser definido para "dentro". Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
@@ -359,7 +359,7 @@ O `maxAutoRenewDuration` é configurável em *host.jsem*, que mapeia para [OnMes
 
 O gatilho do Service Bus fornece várias [propriedades de metadados.](./functions-bindings-expressions-patterns.md#trigger-metadata) Estas propriedades podem ser usadas como parte de expressões de ligação em outras encadernações ou como parâmetros no seu código. Estas propriedades são membros da classe [Message.](/dotnet/api/microsoft.azure.servicebus.message?view=azure-dotnet)
 
-|Propriedade|Tipo|Descrição|
+|Propriedade|Tipo|Description|
 |--------|----|-----------|
 |`ContentType`|`string`|Um identificador de tipo de conteúdo utilizado pelo remetente e pelo recetor para lógica específica da aplicação.|
 |`CorrelationId`|`string`|A identificação da correlação.|
@@ -378,6 +378,6 @@ O gatilho do Service Bus fornece várias [propriedades de metadados.](./function
 
 Consulte [exemplos de código](#example) que utilizam estas propriedades anteriormente neste artigo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Enviar mensagens de autocarro da Azure Service de Azure Functions (ligação de saída)](./functions-bindings-service-bus-output.md)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
-ms.openlocfilehash: ab4d150d79b2c53ad23d892efacef6a848d97854
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 5c02733167db5071b1f2a9c5e04dc05a069fda3c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469818"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604211"
 ---
 # <a name="single-sign-on-options-in-azure-ad"></a>Opções únicas de inscrição em Azure AD
 
@@ -24,7 +24,7 @@ O sign-on único proporciona muitos benefícios em relação aos métodos tradic
 
 - **Com uma única solução,** os utilizadores assinam uma vez com uma conta para aceder a dispositivos ligados ao domínio, recursos da empresa, software como aplicações de serviço (SaaS) e aplicações web. Após a sessão, o utilizador pode lançar aplicações a partir do portal Office 365 ou my Apps. Os administradores podem centralizar a gestão da conta de utilizador e adicionar ou remover automaticamente o acesso do utilizador a aplicações com base na adesão ao grupo.
 
-- **Sem uma única sincê-in,** os utilizadores devem lembrar-se de senhas específicas da aplicação e iniciar sôs-se em cada aplicação. O pessoal de TI precisa de criar e atualizar contas de utilizador para cada aplicação, como o Office 365, Box e Salesforce. Os utilizadores precisam de se lembrar das suas palavras-passe, além de gastar o tempo para iniciar súm na súmia de cada aplicação.
+- **Sem uma única sincê-in,** os utilizadores devem lembrar-se de senhas específicas da aplicação e iniciar sôs-se em cada aplicação. O pessoal de TI precisa de criar e atualizar contas de utilizadores para cada aplicação, como o Microsoft 365, Box e Salesforce. Os utilizadores precisam de se lembrar das suas palavras-passe, além de gastar o tempo para iniciar súm na súmia de cada aplicação.
 
 Para saber mais sobre um único sign-on, veja [o que é um único sign-on?](what-is-single-sign-on.md)
 
@@ -137,7 +137,7 @@ O sign-on ligado permite que a Azure AD forneça um único sinal de acesso a uma
 
 ### <a name="linked-sign-on-for-application-migration"></a>Inscrição ligada para migração de aplicações
 
-O s-on ligado pode proporcionar uma experiência consistente do utilizador enquanto migra aplicações durante um período de tempo. Se estiver a migrar aplicações para o Azure Ative Directory, pode utilizar o sign-on ligado para publicar rapidamente links para todas as aplicações que pretende migrar.  Os utilizadores podem encontrar todos os links no [portal MyApps](../user-help/active-directory-saas-access-panel-introduction.md) ou no [launcher da aplicação Office 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Os utilizadores não saberão que estão a aceder a uma aplicação ligada ou a uma aplicação migratória.  
+O s-on ligado pode proporcionar uma experiência consistente do utilizador enquanto migra aplicações durante um período de tempo. Se estiver a migrar aplicações para o Azure Ative Directory, pode utilizar o sign-on ligado para publicar rapidamente links para todas as aplicações que pretende migrar.  Os utilizadores podem encontrar todos os links no [portal MyApps](../user-help/active-directory-saas-access-panel-introduction.md) ou no lançador de [aplicações Microsoft 365.](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) Os utilizadores não saberão que estão a aceder a uma aplicação ligada ou a uma aplicação migratória.  
 
 Uma vez que um utilizador tenha autenticado com uma aplicação ligada, é necessário criar um registo de conta antes de o utilizador final ter acesso único de s.a.. O provisionamento deste registo de conta pode ocorrer automaticamente ou pode ocorrer manualmente por um administrador.
 

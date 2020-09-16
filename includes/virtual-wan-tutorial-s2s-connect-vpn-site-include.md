@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8b338f25e9771f5947fd494cfb00d0f6cb9ef67a
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 897e36a6c5165549d7809512d0298fa2cfed2fa8
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "75450838"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606589"
 ---
 1. Selecione **Connect VPN Sites** para abrir a página **de sites Connect.**
 
-    ![ligar](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "ligar")
+    ![O screenshot mostra o painel de Sites Conectados para O HUB Virtual pronto para uma chave pré-partilhada e definições associadas.](./media/virtual-wan-tutorial-connect-vpn-site-include/connect.png "ligar")
 
    Complete os seguintes campos:
 
@@ -28,7 +28,7 @@ ms.locfileid: "75450838"
 2. Selecione **Ligar**.
 3. Em poucos minutos, o site mostrará o estado de ligação e conectividade.
 
-   ![estado](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
+   ![A screenshot mostra um site V P N para a ligação do local e o estado de conectividade.](./media/virtual-wan-tutorial-connect-vpn-site-include/status.png "status")
 
    **Estado de ligação:** Este é o estado do recurso Azure para a ligação que liga o Site VPN ao gateway VPN do hub Azure. Uma vez que esta operação do avião de controlo seja bem sucedida, o gateway Azure VPN e o dispositivo VPN no local procederão para estabelecer conectividade.
 

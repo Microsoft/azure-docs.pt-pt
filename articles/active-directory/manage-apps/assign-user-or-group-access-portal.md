@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/21/2020
 ms.author: kenwith
 ms.reviewer: luleon
-ms.openlocfilehash: 763b5a9f4c471e338dd493c85ce93a67810b5134
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: f49377743521e27c2312e95491762ca48d8448c4
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426304"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604330"
 ---
 # <a name="manage-user-assignment-for-an-app-in-azure-active-directory"></a>Gerir a atribuição do utilizador para uma aplicação no Azure Ative Directory
 
@@ -28,7 +28,7 @@ Para um maior controlo, certos tipos de aplicações empresariais podem ser conf
 > Quando atribui um grupo a uma aplicação, apenas os utilizadores do grupo terão acesso. A atribuição não se cascata para grupos aninhados.
 
 > [!NOTE]
-> A atribuição baseada em grupo requer a edição Azure Ative Directory Premium P1 ou P2. A atribuição baseada em grupo é apoiada apenas para grupos de segurança. Os membros do grupo Aninhado e os grupos do Office 365 não são atualmente apoiados. Para obter mais requisitos de licenciamento para as funcionalidades discutidas neste artigo, consulte a página de preços do [Azure Ative Directory](https://azure.microsoft.com/pricing/details/active-directory). 
+> A atribuição baseada em grupo requer a edição Azure Ative Directory Premium P1 ou P2. A atribuição baseada em grupo é apoiada apenas para grupos de segurança. Os membros do grupo Aninhado e os grupos Microsoft 365 não são suportados atualmente. Para obter mais requisitos de licenciamento para as funcionalidades discutidas neste artigo, consulte a página de preços do [Azure Ative Directory](https://azure.microsoft.com/pricing/details/active-directory). 
 
 ## <a name="configure-an-application-to-require-user-assignment"></a>Configure uma aplicação para exigir a atribuição do utilizador
 
@@ -151,7 +151,7 @@ Este exemplo atribui o utilizador Britta Simon à aplicação [Microsoft Workpla
 - [Planeie uma implementação de Azure AD My Apps](access-panel-deployment-plan.md)
 - [Gerir o acesso a apps](what-is-access-management.md)
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ver todos os meus grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
 - [Remova uma atribuição de utilizador ou grupo de uma aplicação da empresa](remove-user-or-group-access-portal.md)

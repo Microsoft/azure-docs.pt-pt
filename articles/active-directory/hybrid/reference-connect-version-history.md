@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1570f4a8c4fb23b885c1de68c2c8d2440c4f6aae
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: fccbb84647ae9e47afc7bb36eeca97bb41a0d1d8
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018446"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604075"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de versões
 A equipa do Azure Ative Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -159,7 +159,7 @@ Esta construção de hotfix corrige um problema na construção 1.5.20.0 se tive
 ### <a name="release-status"></a>Estado de lançamento
 12/9/2019: Lançamento para download. Não disponível através de upgrade automático.
 ### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias
-- Atualizámos o Password Hash Sync para os Serviços de Domínio AZure AD para contabilizar adequadamente o enchimento em kerberos hashes.  Isto proporcionará uma melhoria de desempenho durante a sincronização de passwords de Azue AD para Azure AD Domain Services.
+- Atualizámos o Password Hash Sync para os Serviços de Domínio AZure AD para contabilizar adequadamente o enchimento em kerberos hashes.  Isto proporcionará uma melhoria de desempenho durante a sincronização de passwords de Azure AD para Azure AD Domain Services.
 - Adicionámos suporte para sessões fiáveis entre o agente de autenticação e o autocarro de serviço.
 - Esta versão impõe TLS 1.2 para comunicação entre o agente de autenticação e os serviços na nuvem.
 - Adicionámos uma cache DNS para ligações websocket entre o agente de autenticação e os serviços de nuvem.
@@ -208,13 +208,13 @@ Corrigimos um bug no utilitário de compressão de erros de sincronização que 
 
 ### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias
 - A nova ferramenta de resolução de problemas ajuda a resolver problemas de cenários de "utilizador não sincronizado", "grupo não sincronizado" ou "membro do grupo que não sincroniza".
-- Adicione suporte para nuvens nacionais em Azure AD Connect roteiro de resolução de problemas 
+- Adicione suporte para nuvens nacionais no roteiro de resolução de problemas do Azure AD Connect.
 - Os clientes devem ser informados de que os pontos finais do WMI precotados para MIIS_Service foram agora removidos. Quaisquer operações de WMI devem agora ser feitas através de cmdlets PS.
-- Melhoria da segurança através da reposição da delegação restrita no objeto AZUREADSSOACC
+- Melhoria da segurança repondo a delegação restrita no objeto AZUREADSSOACC.
 - Ao adicionar/editar uma regra de sincronização, se existirem quaisquer atributos utilizados na regra que estejam no esquema do conector mas não adicionados ao conector, os atributos adicionados automaticamente ao conector. O mesmo se aplica ao tipo de objeto que a regra afeta. Se alguma coisa for adicionada ao conector, o conector será marcado para a importação completa no próximo ciclo de sincronização.
 - A utilização de um administrador enterprise ou de domínio, uma vez que a conta de conector já não é suportada em novas implementações de conexão Ad AD Azure. As atuais implementações de Azure AD Connect utilizando um administrador Enterprise ou Domain, uma vez que a conta de conector não será afetada por esta versão.
 - No Gestor de Sincronização é executado um sincronização completo na criação/edição/eliminação de regras. Aparecerá um pop-up em qualquer alteração de regras que notifique o utilizador se a importação total ou sincronização total forão executadas.
-- Medidas de mitigação adicionais para erros de palavra-passe para "conectores > propriedades > conectividade"
+- Medidas de mitigação adicionais para erros de palavra-passe para "conectores > propriedades > conectividade".
 - Adicionei um aviso de depreciação para o gestor de serviço de sincronização na página de propriedades do conector. Este aviso notifica o utilizador de que as alterações devem ser efetuadas através do assistente Azure AD Connect.
 - Adicionou um novo erro para problemas com a política de senha de um utilizador.
 - Evitar a configuração errada da filtragem de grupo por domínio e filtros U. A filtragem do grupo mostrará um erro quando o domínio/U do grupo introduzido já estiver filtrado e impedirá o utilizador de avançar até que o problema seja resolvido.
@@ -233,7 +233,7 @@ Corrigimos um bug no utilitário de compressão de erros de sincronização que 
 - Ajude os popups agora a aparecer no foco do teclado.
 - Para a atualização automática, se alguma aplicação conflituosa estiver a funcionar a partir de 6 horas, mate-a e continue com o upgrade.
 - Limitar o número de atributos que um cliente pode selecionar para 100 por objeto ao selecionar extensões de diretório. Isto evitará que o erro ocorra durante a exportação, uma vez que o Azure tem um máximo de 100 atributos de extensão por objeto.
-- Fixo um bug para tornar o script de Conectividade AD mais robusto
+- Corrigiu um bug para tornar o script de Conectividade AD mais robusto.
 - Corrigiu um bug para tornar a instalação Azure AD Connect numa máquina utilizando um serviço WCF de tubos denominado existente mais robusto.
 - Diagnósticos melhorados e resolução de problemas em torno de políticas de grupo que não permitem que o serviço ADSync comece quando inicialmente instalado.
 - Corrigiu um erro onde o nome de exibição de um computador Windows foi escrito incorretamente.
@@ -248,7 +248,7 @@ Corrigimos um bug no utilitário de compressão de erros de sincronização que 
 >
 > Para resolver isto, é necessário importar o módulo **AdSync** e, em seguida, executar o `Set-ADSyncDirSyncConfiguration` cmdlet PowerShell no servidor Azure AD Connect.  Pode utilizar os seguintes passos:
 >
->1. Abrir PowerShell no modo administador.
+>1. Abrir PowerShell no modo de administrador.
 >2. Execute `Import-Module "ADSync"`.
 >3. Execute `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`.
  
@@ -261,5 +261,5 @@ Corrigimos um bug no utilitário de compressão de erros de sincronização que 
 - Fixou uma vulnerabilidade de elevação de privilégios que existe no Microsoft Azure Ative Directory Connect construir 1.3.20.0.  Esta vulnerabilidade, sob determinadas condições, pode permitir que um intruso execute dois cmdlets PowerShell no contexto de uma conta privilegiada, e execute ações privilegiadas.  Esta atualização de segurança aborda o problema desativando estes cmdlets. Para mais informações consulte [a atualização de segurança](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1000).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

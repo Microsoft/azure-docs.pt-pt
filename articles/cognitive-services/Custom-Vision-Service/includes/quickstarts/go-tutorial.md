@@ -2,15 +2,18 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
-ms.openlocfilehash: 918ac54836adf6ad12934d7e30cf88f2786e1fba
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.date: 09/15/2020
+ms.openlocfilehash: 481c0d85420ab2cc57f5636ed1862a525ace553b
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508555"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604985"
 ---
-Este artigo fornece informações e código de amostra para ajudá-lo a começar a usar a biblioteca de clientes Custom Vision com Go para construir um modelo de classificação de imagem. Depois de criado, pode adicionar tags, carregar imagens, treinar o projeto, obter o URL de previsão publicado do projeto e usar o ponto final para testar programáticamente uma imagem. Use este exemplo como um modelo para construir a sua própria aplicação Go. Se quiser percorrer o processo de compilar e utilizar um modelo de classificação _sem_ recorrer a código, veja antes as [orientações baseadas no browser](../../getting-started-build-a-classifier.md).
+Este guia fornece instruções e código de amostra para ajudá-lo a começar a usar a biblioteca de clientes Custom Vision para Ir para construir um modelo de classificação de imagem. Você vai criar um projeto, adicionar tags, treinar o projeto, e usar o URL de previsão do projeto para testá-lo programáticamente. Use este exemplo como um modelo para construir a sua própria app de reconhecimento de imagem.
+
+> [!NOTE]
+> Se quiser construir e treinar um modelo de classificação _sem_ escrever código, consulte a [orientação baseada no navegador.](../../getting-started-build-a-classifier.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -19,7 +22,7 @@ Este artigo fornece informações e código de amostra para ajudá-lo a começar
 
 ## <a name="install-the-custom-vision-client-library"></a>Instale a biblioteca de clientes Custom Vision
 
-Para instalar a biblioteca de clientes de serviço De Visão Personalizada para Go, execute o seguinte comando em PowerShell:
+Para escrever uma aplicação de análise de imagem com visão personalizada para ir, você precisará da biblioteca de clientes de serviço de Visão Personalizada. Executar o seguinte comando em PowerShell:
 
 ```shell
 go get -u github.com/Azure/azure-sdk-for-go/...
@@ -38,7 +41,7 @@ dep ensure -add github.com/Azure/azure-sdk-for-go
 
 Crie um novo ficheiro chamado *sample.go* no seu diretório de projeto preferido.
 
-### <a name="create-the-custom-vision-service-project"></a>Criar o projeto do serviço de Visão Personalizada
+## <a name="create-the-custom-vision-project"></a>Criar o projeto Visão Personalizada
 
 Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira as chaves de subscrição nas definições apropriadas. Além disso, obtenha o url do Ponto Final na página de Definições do website Da Visão Personalizada.
 
@@ -80,7 +83,7 @@ func main() {
     }
 ```
 
-### <a name="create-tags-in-the-project"></a>Criar etiquetas no projeto
+## <a name="create-tags-in-the-project"></a>Criar etiquetas no projeto
 
 Para criar etiquetas de classificação ao seu projeto, adicione o seguinte código ao fim da *amostra.go*:
 
@@ -90,7 +93,7 @@ hemlockTag, _ := trainer.CreateTag(ctx, *project.ID, "Hemlock", "Hemlock tree ta
 cherryTag, _ := trainer.CreateTag(ctx, *project.ID, "Japanese Cherry", "Japanese cherry tree tag", string(training.Regular))
 ```
 
-### <a name="upload-and-tag-images"></a>Enviar e marcar imagens
+## <a name="upload-and-tag-images"></a>Enviar e marcar imagens
 
 Para adicionar as imagens de exemplo ao projeto, insira o seguinte código após a criação da etiqueta. Este código carrega cada imagem com a etiqueta correspondente. Pode carregar até 64 imagens num único lote.
 
@@ -123,7 +126,7 @@ for _, file := range japaneseCherryImages {
 }
 ```
 
-### <a name="train-the-classifier-and-publish"></a>Treine o classificador e publique
+## <a name="train-and-publish-the-project"></a>Treine e publique o projeto
 
 Este código cria a primeira iteração do modelo de previsão e, em seguida, publica essa iteração para o ponto final de previsão. O nome dado à iteração publicada pode ser usado para enviar pedidos de previsão. Uma iteração não está disponível no ponto final da previsão até que seja publicada.
 
@@ -143,7 +146,7 @@ fmt.Println("Training status: " + *iteration.Status)
 trainer.PublishIteration(ctx, *project.ID, *iteration.ID, iteration_publish_name, prediction_resource_id))
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e usar a iteração publicada no ponto final da previsão
+## <a name="use-the-prediction-endpoint"></a>Use o ponto final da previsão
 
 Para enviar uma imagem para o ponto final de predição e obter a mesma, adicione o seguinte código no fim do ficheiro:
 
@@ -194,3 +197,7 @@ Agora já viste como cada passo do processo de deteção de objetos pode ser fei
 
 > [!div class="nextstepaction"]
 > [Test and retrain a model](../../test-your-model.md) (Testar e voltar a preparar um modelo)
+
+* [O que é a Visão Personalizada?](../../overview.md)
+* [Documentação de referência SDK (formação)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training)
+* [Documentação de referência SDK (previsão)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction)

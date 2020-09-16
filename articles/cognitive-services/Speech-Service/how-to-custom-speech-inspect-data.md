@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: erhopf
-ms.openlocfilehash: e871d2c8e0fe00fa7db3144a787447163c82e62d
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: d4da9a819d7aa96992259112c75154b1651341ac
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629042"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604773"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspecionar dados da Voz Personalizada
 
@@ -24,9 +24,7 @@ ms.locfileid: "84629042"
 
 A Custom Speech fornece ferramentas que permitem inspecionar visualmente a qualidade de reconhecimento de um modelo, comparando os dados áudio com o resultado correspondente do reconhecimento. A partir do [portal Discurso Personalizado,](https://speech.microsoft.com/customspeech)pode reproduzir áudio carregado e determinar se o resultado do reconhecimento fornecido está correto. Esta ferramenta ajuda-o a inspecionar a qualidade do modelo de linha de base da Microsoft, a inspecionar um modelo personalizado treinado ou a comparar a transcrição por dois modelos.
 
-Neste documento, você vai aprender a inspecionar visualmente a qualidade de um modelo usando os dados de treino que você já carregou.
-
-Nesta página, você aprenderá a inspecionar visualmente a qualidade do modelo de fala-texto da Microsoft e/ou um modelo personalizado que treinou. Utilizará os dados que carregou no separador **Dados** para testes.
+Neste documento, aprende-se a inspecionar visualmente a qualidade do modelo de fala-texto da Microsoft e/ou modelos personalizados que treinou. Também aprende a usar o editor de transcrição online para criar e refinar conjuntos de dados de áudio rotulados.
 
 ## <a name="create-a-test"></a>Criar um teste
 
@@ -51,7 +49,51 @@ Para ajudar a inspecionar a comparação lado a lado, pode alternar vários tipo
 
 Os testes de modelo lado a lado são úteis para validar qual o modelo de reconhecimento de voz melhor para uma aplicação. Para uma medida objetiva de precisão, requerendo áudio transcrito, siga as instruções encontradas na [Avaliação de Precisão](how-to-custom-speech-evaluate-data.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="online-transcription-editor"></a>Editor de transcrição online
+
+O editor de transcrição online permite-lhe trabalhar facilmente com transcrições de áudio em Discurso Personalizado. Os principais casos de utilização do editor são os seguintes: 
+
+* Tem apenas dados áudio, mas pretende construir conjuntos de dados de áudio precisos + com rótulo humano do zero para ser usado no treino de modelos.
+* Já tem conjuntos de dados com rótulo sonoro + humanos, mas existem erros ou defeitos na transcrição. O editor permite-lhe modificar rapidamente as transcrições para obter a melhor precisão de treino.
+
+O único requisito para usar o editor de transcrição é ter dados áudio carregados (apenas áudio, ou áudio + transcrição).
+
+### <a name="import-datasets-to-editor"></a>Conjuntos de dados de importação para editor
+
+Para importar dados para o Editor, navegue primeiro para o **Custom Speech > [O seu projeto] > Editor**.
+
+![Separador Editor](media/custom-speech/custom-speech-editor-detail.png)
+
+Em seguida, utilize os seguintes passos para importar dados.
+
+1. Clique **em dados de importação**
+1. Criar um novo conjunto de dados e dar-lhe uma descrição
+1. Selecione conjuntos de dados. Várias seleções são suportadas, e você pode selecionar apenas dados de áudio, bem como dados áudio + com rótulo humano.
+1. Para dados áudio-only, pode utilizar opcionalmente os modelos predefinidos para gerar automaticamente transcrição de máquina após importar para o Editor
+1. Clique em **Importar**
+
+Depois de os dados terem sido importados com sucesso, pode clicar nos conjuntos de dados e começar a editar.
+
+> [!TIP]
+> Também pode importar conjuntos de dados para o Editor diretamente selecionando conjuntos de dados e clicando em **Exportação para Editor**
+
+### <a name="edit-transcription-by-listening-to-audio"></a>Editar transcrição ouvindo áudio
+
+Depois de o upload de dados ter sido bem sucedido, clique em cada nome de item para ver detalhes dos dados. A página de detalhes lista todos os ficheiros do seu conjunto de dados e pode clicar na expressão desejada. Para cada expressão, pode reproduzir o áudio e examinar as transcrições e editar as transcrições se encontrar erros de inserção, supressão ou substituição. Consulte a [avaliação de dados como fazer para](how-to-custom-speech-evaluate-data.md) obter mais detalhes sobre os tipos de erros.
+
+![Página do editor](media/custom-speech/custom-speech-editor.png)
+
+Se o ficheiro áudio for longo, é automaticamente segmentado em pedaços menores. Pode editá-los um a um usando **Antes** e **Próximo** para mover entre páginas. Depois de fazer edições, clique no botão **Guardar.**
+
+### <a name="export-datasets-from-the-editor"></a>Conjuntos de dados de exportação do Editor
+
+Para exportar conjuntos de dados de volta para o separador **Dados,** navegue na página de detalhes de dados e clique no botão **Exportar** todos os ficheiros como um novo conjunto de dados. Também pode filtrar os ficheiros pelo último tempo editado, durações de áudio, etc. para selecionar parcialmente os ficheiros pretendidos. 
+
+![Exportar os dados](media/custom-speech/custom-speech-editor-export.png)
+
+Os ficheiros exportados para Dados serão utilizados como um conjunto de dados novinho em folha e não afetarão nenhuma das entidades existentes de dados/formação/teste.
+
+## <a name="next-steps"></a>Passos seguintes
 
 - [Avaliar os seus dados](how-to-custom-speech-evaluate-data.md)
 - [Preparar o seu modelo](how-to-custom-speech-train-model.md)

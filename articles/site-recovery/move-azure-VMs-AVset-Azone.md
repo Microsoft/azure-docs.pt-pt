@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: 7957c6a3fdc8cb798292d03092ee1442b2c0a6bc
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: fd541e551102b205acff28b6bc06bc88abd14763
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004515"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605112"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Mover VMs Azure em Zonas de Disponibilidade
 

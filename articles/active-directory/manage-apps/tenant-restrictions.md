@@ -12,22 +12,22 @@ ms.date: 03/28/2019
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f45cc2444a14fc138d201e3d7f81e687f53d3ac
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1cce42cdb63fcfcb9a5841f2f2199daf2bb92304
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285905"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604177"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Use restrições de inquilinos para gerir o acesso a aplicações em nuvem SaaS
 
-Grandes organizações que enfatizam a segurança querem mudar-se para serviços na nuvem como o Office 365, mas precisam de saber que os seus utilizadores só podem aceder a recursos aprovados. Tradicionalmente, as empresas restringem nomes de domínio ou endereços IP quando querem gerir o acesso. Esta abordagem falha num mundo em que as aplicações de software como um serviço (ou SaaS) são hospedadas numa nuvem pública, executando nomes de domínio partilhado como [outlook.office.com](https://outlook.office.com/) e [login.microsoftonline.com](https://login.microsoftonline.com/). Bloquear estes endereços impediria os utilizadores de acederem inteiramente ao Outlook na web, em vez de apenas os restringirem a identidades e recursos aprovados.
+Grandes organizações que enfatizam a segurança querem mudar-se para serviços na nuvem como o Microsoft 365, mas precisam de saber que os seus utilizadores apenas podem aceder a recursos aprovados. Tradicionalmente, as empresas restringem nomes de domínio ou endereços IP quando querem gerir o acesso. Esta abordagem falha num mundo em que as aplicações de software como um serviço (ou SaaS) são hospedadas numa nuvem pública, executando nomes de domínio partilhado como [outlook.office.com](https://outlook.office.com/) e [login.microsoftonline.com](https://login.microsoftonline.com/). Bloquear estes endereços impediria os utilizadores de acederem inteiramente ao Outlook na web, em vez de apenas os restringirem a identidades e recursos aprovados.
 
-A solução Azure Ative Directory (Azure AD) para este desafio é uma característica chamada restrições de inquilinos. Com as restrições de inquilinos, as organizações podem controlar o acesso a aplicações em nuvem SaaS, com base no inquilino Azure AD que as aplicações usam para uma única inscrição. Por exemplo, pode querer permitir o acesso às aplicações do Office 365 da sua organização, ao mesmo tempo que impede o acesso a instâncias de outras organizações destas mesmas aplicações.  
+A solução Azure Ative Directory (Azure AD) para este desafio é uma característica chamada restrições de inquilinos. Com as restrições de inquilinos, as organizações podem controlar o acesso a aplicações em nuvem SaaS, com base no inquilino Azure AD que as aplicações usam para uma única inscrição. Por exemplo, pode querer permitir o acesso às aplicações Microsoft 365 da sua organização, ao mesmo tempo que impede o acesso a instâncias de outras organizações destas mesmas aplicações.  
 
 Com as restrições ao arrendamento, as organizações podem especificar a lista de inquilinos a que os seus utilizadores estão autorizados a aceder. A Azure AD só concede acesso a estes inquilinos autorizados.
 
-Este artigo centra-se nas restrições de inquilinos para o Office 365, mas a funcionalidade deve funcionar com qualquer aplicação em nuvem SaaS que utilize protocolos de autenticação modernos com Azure AD para um único sign-on. Se utilizar aplicativos SaaS com um inquilino AD Azure diferente do inquilino usado pelo Office 365, certifique-se de que todos os inquilinos necessários são permitidos. Para obter mais informações sobre as aplicações em nuvem SaaS, consulte o [Ative Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
+Este artigo centra-se nas restrições de inquilinos para o Microsoft 365, mas a funcionalidade deve funcionar com qualquer aplicação em nuvem SaaS que utilize protocolos de autenticação modernos com Azure AD para um único sign-on. Se utilizar aplicativos SaaS com um inquilino AD Azure diferente do inquilino usado pela Microsoft 365, certifique-se de que todos os inquilinos necessários são permitidos. Para obter mais informações sobre as aplicações em nuvem SaaS, consulte o [Ative Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
 
 ## <a name="how-it-works"></a>Como funciona
 
@@ -37,11 +37,11 @@ A solução global compreende os seguintes componentes:
 
 2. **Infraestrutura de servidor de procuração no local**: Esta infraestrutura é um dispositivo proxy capaz de inspeção de Segurança da Camada de Transporte (TLS). Você deve configurar o representante para inserir o cabeçalho contendo a lista de inquilinos permitidos no tráfego destinado a Azure AD.
 
-3. **Software do cliente**: Para suportar as restrições dos inquilinos, o software do cliente deve solicitar fichas diretamente da Azure AD, para que a infraestrutura proxy possa intercetar tráfego. As aplicações baseadas no navegador Office 365 suportam atualmente restrições de inquilinos, assim como os clientes do Office que utilizam a autenticação moderna (como o OAuth 2.0).
+3. **Software do cliente**: Para suportar as restrições dos inquilinos, o software do cliente deve solicitar fichas diretamente da Azure AD, para que a infraestrutura proxy possa intercetar tráfego. As aplicações microsoft 365 baseadas no navegador suportam atualmente as restrições dos inquilinos, assim como os clientes do Office que usam a autenticação moderna (como o OAuth 2.0).
 
-4. **Autenticação Moderna**: Os serviços em nuvem devem utilizar a autenticação moderna para usar as restrições do arrendatário e bloquear o acesso a todos os inquilinos não permitidos. Tem de configurar os serviços em nuvem do Office 365 para utilizar por padrão protocolos de autenticação modernos. Para obter as informações mais recentes sobre o suporte do Office 365 para a autenticação moderna, leia [a autenticação moderna do Office 365.](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
+4. **Autenticação Moderna**: Os serviços em nuvem devem utilizar a autenticação moderna para usar as restrições do arrendatário e bloquear o acesso a todos os inquilinos não permitidos. Tem de configurar os serviços em nuvem microsoft 365 para utilizar por padrão protocolos de autenticação modernos. Para obter as informações mais recentes sobre o suporte da Microsoft 365 para a autenticação moderna, leia [a autenticação moderna do Office 365.](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
 
-O diagrama que se segue ilustra o fluxo de tráfego de alto nível. As restrições ao arrendamento requerem a inspeção TLS apenas no tráfego para Azure AD, e não para os serviços de nuvem do Office 365. Esta distinção é importante, porque o volume de tráfego para autenticação para Azure AD é tipicamente muito inferior ao volume de tráfego para aplicações SaaS como Exchange Online e SharePoint Online.
+O diagrama que se segue ilustra o fluxo de tráfego de alto nível. As restrições ao arrendamento requerem a inspeção TLS apenas no tráfego para Azure AD, e não para os serviços de cloud Microsoft 365. Esta distinção é importante, porque o volume de tráfego para autenticação para Azure AD é tipicamente muito inferior ao volume de tráfego para aplicações SaaS como Exchange Online e SharePoint Online.
 
 ![Restrições de inquilino fluxo de tráfego - diagrama](./media/tenant-restrictions/traffic-flow.png)
 
@@ -63,7 +63,7 @@ A configuração seguinte é necessária para permitir restrições de inquilino
 
 - Os clientes devem confiar na cadeia de certificados apresentada pelo representante para as comunicações TLS. Por exemplo, se forem utilizados certificados de uma [infraestrutura de chave pública interna (PKI),](/windows/desktop/seccertenroll/public-key-infrastructure) deve ser confiado o certificado interno de autoridade do certificado de emissão de certificados de origem.
 
-- Esta funcionalidade está incluída nas subscrições do Office 365, mas se pretender utilizar as restrições dos inquilinos para controlar o acesso a outras aplicações SaaS, então são necessárias licenças Azure AD Premium 1.
+- Esta funcionalidade está incluída nas subscrições da Microsoft 365, mas se pretender utilizar as restrições dos inquilinos para controlar o acesso a outras aplicações SaaS, então são necessárias licenças Azure AD Premium 1.
 
 #### <a name="configuration"></a>Configuração
 
@@ -129,16 +129,16 @@ O administrador para o inquilino especificado como o inquilino restrito-contexto
 - **Localização**
 - **ID do inquilino alvo**
 
-## <a name="office-365-support"></a>Suporte do Office 365
+## <a name="microsoft-365-support"></a>Suporte do Microsoft 365
 
-Os pedidos do Office 365 devem satisfazer dois critérios para apoiar plenamente as restrições dos inquilinos:
+As aplicações da Microsoft 365 devem cumprir dois critérios para suportar totalmente as restrições dos inquilinos:
 
 1. O cliente usado suporta a autenticação moderna.
 2. A autenticação moderna é ativada como o protocolo de autenticação predefinido para o serviço de nuvem.
 
 Consulte a [autenticação moderna do Office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) atualizada para obter as informações mais recentes sobre as quais os clientes do Office suportam atualmente a autenticação moderna. Essa página também inclui links para instruções para permitir a autenticação moderna em Exchange Online e Skype específico para inquilinos Business Online. O SharePoint Online já permite a autenticação moderna por padrão.
 
-As aplicações baseadas no navegador office 365 (o Portal do Office, Yammer, sites SharePoint, Outlook on the Web, entre outras) suportam atualmente as restrições dos inquilinos. Os clientes grossos (Outlook, Skype for Business, Word, Excel, PowerPoint, entre outros) só podem impor restrições ao arrendatário quando utilizam a autenticação moderna.  
+As aplicações baseadas no navegador Microsoft 365 (o Portal do Office, Yammer, sites SharePoint, Outlook na Web e muito mais) suportam atualmente as restrições dos inquilinos. Os clientes grossos (Outlook, Skype for Business, Word, Excel, PowerPoint, entre outros) só podem impor restrições ao arrendatário quando utilizam a autenticação moderna.  
 
 Outlook e Skype para clientes empresariais que suportem a autenticação moderna podem ainda poder usar protocolos antigos contra inquilinos onde a autenticação moderna não está ativada, efetivamente contornando as restrições dos inquilinos. As restrições ao arrendatário podem bloquear aplicações que utilizem protocolos antigos se contactarem login.microsoftonline.com, login.microsoft.com ou login.windows.net durante a autenticação.
 

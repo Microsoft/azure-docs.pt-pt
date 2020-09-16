@@ -1,34 +1,38 @@
 ---
-title: Descubra servidores no local usando um ficheiro CSV importado com avaliação do servidor Azure Migrate
+title: Avaliar servidores no local utilizando um ficheiro CSV importado com avaliação do servidor Azure Migrate
 description: Descreve como descobrir servidores no local para migração para Azure usando um ficheiro CSV importado na Avaliação do Servidor migratório de Azure
 ms.topic: tutorial
 ms.date: 09/14/2020
-ms.openlocfilehash: 6526961df225e4f347216428141e8217043161df
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 743f18ce72e3f14fe54e0bbadff254ea03fc6278
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90064402"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604228"
 ---
-# <a name="tutorial-discover-servers-using-an-imported-csv-file"></a>Tutorial: Descubra servidores usando um ficheiro CSV importado
+# <a name="tutorial-assess-servers-using-an-imported-csv-file"></a>Tutorial: Avaliar servidores usando um ficheiro CSV importado
 
 Como parte da sua viagem de migração para Azure, você descobre o seu inventário no local e cargas de trabalho. 
 
-Este tutorial mostra-lhe como descobrir no local máquinas virtuais VMware (VMs) com a ferramenta Azure Migrate: Server Assessment, utilizando um ficheiro de valores separados de vírgula importada (CSV). 
+Este tutorial mostra-lhe como avaliar as máquinas no local com a ferramenta Azure Migrate: Server Assessment, utilizando um ficheiro de valores separados de vírgula importada (CSV). 
 
-Se utilizar um ficheiro CSV, não precisa de configurar o aparelho Azure Migrate para descobrir servidores. Pode controlar os dados que partilha no ficheiro, e grande parte dos dados são opcionais. Este método é útil se:
+Se utilizar um ficheiro CSV, não precisa de configurar o aparelho Azure Migrate para descobrir e avaliar servidores. Pode controlar os dados que partilha no ficheiro, e grande parte dos dados são opcionais. Este método é útil se:
 
 - Pretende-se criar uma avaliação rápida e inicial antes de colocar o aparelho.
 - Não pode colocar o aparelho Azure Migrate na sua organização.
 - Não é possível partilhar credenciais que permitam o acesso a servidores no local.
 - As restrições de segurança impedem-no de recolher e enviar dados recolhidos pelo aparelho para a Azure.
 
+> [!NOTE]
+> Não é possível migrar servidores importados usando um ficheiro CSV.
+
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Criar uma conta Azure
-> * Crie um projeto Azure Migrate.
+> * Criar um projeto Azure Migrate
 > * Preparar um ficheiro CSV
-> * Importe o ficheiro.
+> * Importar o ficheiro
+> * Avaliar servidores
 
 > [!NOTE]
 > Os tutoriais mostram o caminho mais rápido para experimentar um cenário e usam opções padrão sempre que possível. 
@@ -43,7 +47,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prepare-an-azure-user-account"></a>Preparar uma conta de utilizador Azure
 
-Para criar um projeto Azure Migrate e registar o aparelho Azure Migrate, precisa de uma conta com:
+Para criar um projeto Azure Migrate, precisa de uma conta com:
 - Permissões de colaborador ou proprietário numa subscrição do Azure.
 - Permissões para registar aplicações do Azure Ative Directory.
 
@@ -73,7 +77,7 @@ Se acabou de criar uma conta Azure gratuita, é o proprietário da sua subscriç
 
 ## <a name="set-up-a-project"></a>Criar um projeto
 
-Crie um novo projeto Azure Migrate.
+Crie um novo projeto Azure Migrate se não tiver um.
 
 1. No portal do Azure > **Todos os serviços**, procure **Azure Migrate**.
 2. Em **Serviços**, selecione **Azure Migrate**.
@@ -113,29 +117,29 @@ A tabela seguinte resume os campos de ficheiros a preencher:
 
 **Nome do campo** | **Obrigatório** | **Detalhes**
 --- | --- | ---
-**Nome do servidor** | Sim | Recomendamos especificar o nome de domínio totalmente qualificado (FQDN).
-**Endereço IP** | Não | Endereço do servidor.
-**Núcleos** | Sim | Número de núcleos de processador atribuídos ao servidor.
-**Memória** | Sim | RAM total, em MB, alocado ao servidor.
-**Nome do SO** | Sim | Sistema operativo do servidor. <br/> Os nomes do sistema operativo que correspondam ou contenham os nomes [desta](#supported-operating-system-names) lista são reconhecidos pela avaliação.
-**Versão OS** | Não | Versão do sistema operativo do servidor.
-**Arquitetura de OS** | Não | Arquitetura de SERVIDOR OS <br/> Valores válidos são: x64, x86, amd64, 32-bit ou 64-bit
-**Número de discos** | Não | Não é necessário se forem fornecidos detalhes individuais do disco.
-**Disco 1 tamanho**  | Não | Tamanho máximo do disco, em GB.<br/>Pode adicionar detalhes para mais discos [adicionando colunas](#add-multiple-disks) no modelo. Pode somar até oito discos.
-**Disk 1 ler ops** | Não | Operações de leitura de disco por segundo.
-**Disk 1 escrever ops** | Não | Operações de escrita de disco por segundo.
-**Produção de leitura de disco 1** | Não | Dados lidos a partir do disco por segundo, em MB por segundo.
-**Saída de escrita do disco 1** | Não | Dados escritos para disco por segundo, em MB por segundo.
-**Percentagem de utilização do CPU** | Não | Percentagem de CPU usado.
-**Percentagem de utilização da memória** | Não | Percentagem de RAM usado.
-**Total de discos lêem ops** | Não | Operações de leitura de discos por segundo.
-**Os discos totais escrevem ops** | Não | Operações de gravação de discos por segundo.
-**Total de discos lêem produção** | Não | Dados lidos a partir do disco, em MB por segundo.
-**Total de discos escrevem produção** | Não | Dados escritos para o disco, em MB por segundo.
-**Rede Em produção** | Não | Dados recebidos pelo servidor, em MB por segundo.
-**Produção de Rede Para Fora** | Não | Dados transmitidos pelo servidor, em MB por segundo.
-**Tipo de firmware** | Não | Firmware do servidor. Os valores podem ser "BIOS" ou "UEFI".
-**Endereço MAC**| Não | Endereço MAC do servidor.
+**Nome do servidor** | Yes | Recomendamos especificar o nome de domínio totalmente qualificado (FQDN).
+**Endereço IP** | No | Endereço do servidor.
+**Núcleos** | Yes | Número de núcleos de processador atribuídos ao servidor.
+**Memória** | Yes | RAM total, em MB, alocado ao servidor.
+**Nome do SO** | Yes | Sistema operativo do servidor. <br/> Os nomes do sistema operativo que correspondam ou contenham os nomes [desta](#supported-operating-system-names) lista são reconhecidos pela avaliação.
+**Versão OS** | No | Versão do sistema operativo do servidor.
+**Arquitetura de OS** | No | Arquitetura de SERVIDOR OS <br/> Valores válidos são: x64, x86, amd64, 32-bit ou 64-bit
+**Número de discos** | No | Não é necessário se forem fornecidos detalhes individuais do disco.
+**Disco 1 tamanho**  | No | Tamanho máximo do disco, em GB.<br/>Pode adicionar detalhes para mais discos [adicionando colunas](#add-multiple-disks) no modelo. Pode somar até oito discos.
+**Disk 1 ler ops** | No | Operações de leitura de disco por segundo.
+**Disk 1 escrever ops** | No | Operações de escrita de disco por segundo.
+**Produção de leitura de disco 1** | No | Dados lidos a partir do disco por segundo, em MB por segundo.
+**Saída de escrita do disco 1** | No | Dados escritos para disco por segundo, em MB por segundo.
+**Percentagem de utilização do CPU** | No | Percentagem de CPU usado.
+**Percentagem de utilização da memória** | No | Percentagem de RAM usado.
+**Total de discos lêem ops** | No | Operações de leitura de discos por segundo.
+**Os discos totais escrevem ops** | No | Operações de gravação de discos por segundo.
+**Total de discos lêem produção** | No | Dados lidos a partir do disco, em MB por segundo.
+**Total de discos escrevem produção** | No | Dados escritos para o disco, em MB por segundo.
+**Rede Em produção** | No | Dados recebidos pelo servidor, em MB por segundo.
+**Produção de Rede Para Fora** | No | Dados transmitidos pelo servidor, em MB por segundo.
+**Tipo de firmware** | No | Firmware do servidor. Os valores podem ser "BIOS" ou "UEFI".
+**Endereço MAC**| No | Endereço MAC do servidor.
 
 
 ### <a name="add-operating-systems"></a>Adicionar sistemas operativos
@@ -157,7 +161,7 @@ Por exemplo, para especificar todos os campos para um segundo disco, adicione es
 
 ## <a name="import-the-server-information"></a>Importar a informação do servidor
 
-Depois de adicionar informações ao modelo CSV, importe os servidores na Avaliação do Servidor.
+Depois de adicionar informações ao modelo CSV, importe o ficheiro CSV para a Avaliação do Servidor.
 
 1. Em Azure Migrate, em **máquinas Discover,** vá para o modelo completo.
 2. Selecione **Import** (Importar).
@@ -169,7 +173,7 @@ Depois de adicionar informações ao modelo CSV, importe os servidores na Avalia
         1. Descarregue o CSV, que agora inclui detalhes de erro.
         1. Reveja e aborde os erros necessários. 
         1. Faça o upload do ficheiro modificado novamente.
-4. Quando o estado de importação estiver **concluído,** a informação do servidor foi importada.
+4. Quando o estado de importação estiver **concluído,** a informação do servidor foi importada. Refresque se o processo de importação não parece estar completo.
 
 ## <a name="update-server-information"></a>Atualizar informações do servidor
 
@@ -193,7 +197,7 @@ Os nomes do sistema operativo fornecidos no CSV devem conter e corresponder. Se 
 --- | --- | --- | ---
 Apple Mac OS X 10<br/>Asianux 3<br/>Asianux 4<br/>Asianux 5<br/>CentOS<br/>CentOS 4/5<br/>CoreOS Linux<br/>Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8<br/>FreeBSD | IBM OS/2<br/>MS-DOS<br/>Novell NetWare 5<br/>Novell NetWare 6<br/>Oracle Linux<br/>Oráculo Linux 4/5<br/>Oráculo Solaris 10<br/>Oracle Solaris 11<br/>Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Chapéu Vermelho Fedora | SCO OpenServer 5<br/>SCO OpenServer 6<br/>SCO UnixWare 7<br/> Serenity Systems eComStation 1<br/>Serenity Systems eComStation <br/>Sun Microsystems Solaris 8<br/>Sun Microsystems Solaris 9<br/><br/>SUSE Linux Enterprise 10<br/>Empresa SUSE Linux 11<br/>Empresa SUSE Linux 12<br/>Empresa SUSE Linux 8/9<br/>Empresa SUSE Linux 11<br/>SUSE abre SUSESUSE | Ubuntu Linux<br/>VMware ESXi 4<br/>VMware ESXi 5<br/>VMware ESXi 6<br/>Windows 10<br/>Windows 2000<br/>Windows 3<br/>Windows 7<br/>Windows 8<br/>Windows 95<br/>Windows 98<br/>Windows NT<br/>Windows Server (R) 2008<br/>Windows Server 2003<br/>Windows Server 2008<br/>Windows Server 2008 R2<br/>Windows Server 2012<br/>Windows Server 2012 R2<br/>Windows Server 2016<br/>Windows Server 2019<br/>Limiar do servidor do Windows<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows 10 Professional
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial:
 

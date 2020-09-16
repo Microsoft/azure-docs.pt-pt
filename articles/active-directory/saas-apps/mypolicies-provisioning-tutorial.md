@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: ea9a0e52ce424459b6c402eb136d06dd370bab7d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fe85dfb39a9787376221cb9beeea11bec35293f4
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548051"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604466"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Tutorial: Configurar as minhas Políticas para o provisionamento automático do utilizador
 
@@ -101,7 +101,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 4. Desa ajuste o **modo de provisionamento** para **automático**.
 
-    ![Separador de provisionamento](common/provisioning-automatic.png)
+    ![Separador de provisionamento Automático](common/provisioning-automatic.png)
 
 5. Sob a secção **de Credenciais de Administrador,** insira `https://<myPoliciesCustomDomain>.mypolicies.com/scim` em URL de **inquilino** onde está o seu domínio `<myPoliciesCustomDomain>` personalizado myPolicies. Pode recuperar o seu domínio de cliente myPolicies, a partir do seu URL.
 Exemplo: `<demo0-qa>` .mypolicies.com.
@@ -122,7 +122,18 @@ Exemplo: `<demo0-qa>` .mypolicies.com.
 
 10. Reveja os atributos do utilizador que são sincronizados do AD AD do Azure para as minhas Políticas na secção **De Mapeamento** de Atributos. Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador no myPolicies para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    ![myPolicies User Mappings](media/mypolicies-provisioning-tutorial/userattribute.png)
+   |Atributo|Tipo|
+   |---|---|
+   |userName|String|
+   |ativo|Booleano|
+   |e-mails[tipo eq "work"].value|String|
+   |nome.dado Nome|String|
+   |nome.famíliaName|String|
+   |nome.formatado|String|
+   |externoId|String|
+   |endereços[tipo eq "work"].país|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
+
 
 11. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -146,6 +157,10 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 
 * myPolicies requer sempre **userName,** **email** e **externalId**.
 * myPolicies não suporta eliminações duras para atributos do utilizador.
+
+## <a name="change-log"></a>Change log
+
+* 09/15/2020 - Apoio adicional ao atributo "país" para utilizadores.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

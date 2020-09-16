@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: c58fdd38c4221c03778b2c769620bf7911aaded8
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: ca22def6bc152d03c3992ed7e94ac2b5ccf179e9
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89670777"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604483"
 ---
 # <a name="modify-target-settings"></a>Modificar as definições de alvo
 
@@ -42,10 +42,10 @@ As definições de configuração que pode modificar são resumidas na tabela.
 **Recursos de rede** | Opções para redes virtuais (VNets)/grupos de segurança de rede/interfaces de rede:<br/><br/> - Criar um novo recurso com o mesmo nome na região alvo.<br/><br/> - Criar um novo recurso com um nome diferente na região alvo.<br/><br/> - Utilize um recurso de rede existente na região alvo.<br/><br/> Se criar um novo recurso-alvo, com exceção das definições modificadas, é atribuído às mesmas definições que o recurso de origem.
 **Nome do endereço IP público** | Especifique o nome.
 **Endereço IP público SKU** | Especificar o [SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku).
-**Zona de endereços IP público** | Especifique a [zona](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) para endereços IP públicos padrão.<br/><br/> Se quiser que seja uma zona redundante, entre como **Regional.**
+**Zona de endereços IP público** | Especifique a [zona](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) para endereços IP públicos padrão.<br/><br/> Se quiser que seja uma zona redundante, entre como **Zona redundante.**
 **Nome do balanceador de carga** | Especifique o nome.
 **Balanceador de carga SKU** | Básico ou Standard. Recomendamos a utilização do Standard.
-**Zona de balançador de carga** | Especifique uma zona para o balançador de carga. <br/><br/> Se quiser que seja uma zona redundante, entre como **Regional.**
+**Zona de balançador de carga** | Especifique uma zona para o balançador de carga. <br/><br/> Se quiser que seja uma zona redundante, entre como **Zona redundante.**
 **Dependências de recursos** | Opções para cada dependência:<br/><br/>- O recurso utiliza recursos dependentes de origem que se deslocarão para a região alvo.<br/><br/> - O recurso utiliza diferentes recursos dependentes localizados na região alvo. Neste caso, pode escolher entre quaisquer recursos semelhantes na região alvo.
 
 ### <a name="edit-vm-target-settings"></a>Editar configurações de alvo VM
@@ -93,6 +93,6 @@ Modifica as definições de destino para um recurso Azure SQL Database da seguin
 1. Em **Regiões ,** para o recurso que pretende modificar, clique na entrada **de configuração Target.**
 2. Nas **definições de configuração**, especifique as definições de destino resumidas na tabela acima.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Mova um VM Azure](tutorial-move-region-virtual-machines.md) para outra região.

@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Este artigo fornece uma visão geral de Azure Arc habilitado Kubernetes.
 keywords: Kubernetes, Arc, Azure, contentores
 ms.custom: references_regions
-ms.openlocfilehash: 885c96b83edb83cfb62fc117d9b4406792827056
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: fb8a7b7c2e1e5b3de7d1ccdb4054e44825231458
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723729"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604806"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>O que é a pré-visualização de Kubernetes ativada por Azure?
 
@@ -51,12 +51,15 @@ Azure Arc habilitado Kubernetes suporta estes cenários:
 
 * Aplicar políticas utilizando a Política Azure para Kubernetes. 
 
+[!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
+
 ## <a name="supported-regions"></a>Regiões suportadas 
 
 Azure Arc habilitado Kubernetes é atualmente apoiado nestas regiões: 
 
 * E.U.A. Leste 
 * Europa Ocidental
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

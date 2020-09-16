@@ -11,19 +11,19 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 556af0c505197170a633cf1f949d87f5d2584690
-  ms.sourcegitcommit: edccc241bc40b8b08f009baf29a5580bf53e220c
+  ms.openlocfilehash: 892a5262c88ed39aefd2f3b2458dfa2aa76ecfd6
+  ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 04/24/2020
-  ms.locfileid: "82131332"
+  ms.lasthandoff: 09/16/2020
+  ms.locfileid: "90604262"
 landingContent:
 - title: Sobre a Visão Personalizada
   linkLists:
   - linkListType: overview
     links:
     - text: O que é a Visão Personalizada?
-      url: home.md
+      url: overview.md
   - linkListType: whats-new
     links:
     - text: Novidades

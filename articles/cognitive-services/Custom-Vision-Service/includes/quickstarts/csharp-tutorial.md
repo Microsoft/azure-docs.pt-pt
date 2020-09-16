@@ -2,25 +2,28 @@
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
-ms.date: 08/17/2020
+ms.date: 09/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba09deda155ac446693a7e1037390a3f1fd2700f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 28bcaa898bbf6621295bc5096a924d39073e727e
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919387"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605033"
 ---
-Este artigo fornece informações e código de amostra para ajudá-lo a começar a usar a biblioteca de clientes Custom Vision com C# para construir um modelo de classificação de imagem. Depois de criado, poderá adicionar etiquetas, carregar imagens, preparar o projeto, obter o URL de ponto final de predição predefinido do projeto e utilizar o ponto final para testar uma imagem de forma programática. Use este exemplo como um modelo para construir a sua própria aplicação .NET. Se quiser passar pelo processo de construção e utilização de um modelo de classificação _sem_ código, consulte a [orientação baseada no navegador.](../../getting-started-build-a-classifier.md)
+Este guia fornece instruções e código de amostra para ajudá-lo a começar a usar a biblioteca de clientes Custom Vision para C# para construir um modelo de classificação de imagem. Você vai criar um projeto, adicionar tags, treinar o projeto, e usar o URL de previsão do projeto para testá-lo programáticamente. Use este exemplo como um modelo para construir a sua própria app de reconhecimento de imagem.
+
+> [!NOTE]
+> Se quiser construir e treinar um modelo de classificação _sem_ escrever código, consulte a [orientação baseada no navegador.](../../getting-started-build-a-classifier.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/)
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## <a name="get-the-custom-vision-client-library-and-sample-code"></a>Obtenha a biblioteca de clientes Visão Personalizada e o código de amostra
+## <a name="install-the-custom-vision-client-library"></a>Instale a biblioteca de clientes Custom Vision
 
-Para escrever uma aplicação .NET que utiliza visão personalizada, vai precisar dos pacotes Custom Vision NuGet. Estes pacotes estão incluídos no projeto de amostra que você vai descarregar, mas você pode acessá-los individualmente aqui.
+Para escrever uma aplicação de análise de imagem com visão personalizada para .NET, você precisará dos pacotes Custom Vision NuGet. Estes pacotes estão incluídos no projeto de amostra que você vai descarregar, mas você pode acessá-los individualmente aqui.
 
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
@@ -31,7 +34,7 @@ Este projeto do Visual Studio cria um projeto de Visão Personalizada novo denom
 
 [!INCLUDE [get-keys](../../includes/get-keys.md)]
 
-## <a name="understand-the-code"></a>Compreender o código
+## <a name="examine-the-code"></a>Examinar o código
 
 Abra o ficheiro _Program.cs_ e inspecione o código. [Crie variáveis ambientais](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para as suas teclas de treino e previsão `CUSTOM_VISION_TRAINING_KEY` nomeadas `CUSTOM_VISION_PREDICTION_KEY` e, respectivamente. O guião procurará estas variáveis.
 
@@ -43,37 +46,37 @@ Além disso, obtenha o url do Ponto Final na página de Definições do website 
 
 As linhas de código seguintes executam a funcionalidade principal do projeto.
 
-### <a name="create-a-new-custom-vision-service-project"></a>Criar um novo projeto do Serviço de Visão Personalizada
+## <a name="create-a-new-custom-vision-service-project"></a>Criar um novo projeto do Serviço de Visão Personalizada
 
 O projeto criado aparece no [site da Visão Personalizada](https://customvision.ai/) ao qual acedeu anteriormente. Consulte o método [CreateProject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclientextensions.createproject?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_CustomVisionTrainingClientExtensions_CreateProject_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_ICustomVisionTrainingClient_System_String_System_String_System_Nullable_System_Guid__System_String_System_Collections_Generic_IList_System_String__) para especificar outras opções quando criar o seu projeto (explicado no guia do portal do [web classificador).](../../getting-started-build-a-classifier.md)   
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_create)]
 
-### <a name="create-tags-in-the-project"></a>Criar etiquetas no projeto
+## <a name="create-tags-in-the-project"></a>Criar etiquetas no projeto
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_tags)]
 
-### <a name="upload-and-tag-images"></a>Enviar e marcar imagens
+## <a name="upload-and-tag-images"></a>Enviar e marcar imagens
 
 As imagens para este projeto estão incluídas. São referenciadas no método **LoadImagesFromDisk** em _Program.cs_. Pode carregar até 64 imagens num único lote.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_upload)]
 
-### <a name="train-the-classifier-and-publish"></a>Treine o classificador e publique
+## <a name="train-the-classifier-and-publish"></a>Treine o classificador e publique
 
 Este código cria a primeira iteração do modelo de previsão e, em seguida, publica essa iteração para o ponto final de previsão. Pode usar o nome da iteração para enviar pedidos de previsão. Uma iteração não está disponível no ponto final da previsão até ser publicada.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_train)]
 
-### <a name="set-the-prediction-endpoint"></a>Definir o ponto final de predição
+## <a name="set-the-prediction-endpoint"></a>Definir o ponto final de predição
 
 O ponto final de predição é a referência que vai servir para submeter uma imagem para o modelo atual e obter uma predição de classificação.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_prediction_endpoint)]
 
-### <a name="submit-an-image-to-the-default-prediction-endpoint"></a>Submeter uma imagem para o ponto final de predição predefinido
+## <a name="test-the-prediction-endpoint"></a>Teste o ponto final de previsão
 
-Neste script, a imagem de teste é carregada no método **LoadImagesFromDisk** e a saída da predição do modelo vai ser apresentada na consola. O valor da `publishedModelName` variável deve corresponder ao valor "Publicado como" encontrado no separador **Performance** do portal Visão Personalizada. 
+Neste script, a imagem de teste é carregada no método **LoadImagesFromDisk** e a saída da predição do modelo vai ser apresentada na consola. O valor da `publishedModelName` variável deve corresponder ao valor "Publicado como" encontrado no separador **Performance** do site da Visão Personalizada. 
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?name=snippet_prediction)]
 
@@ -98,7 +101,10 @@ Depois, pode confirmar se a imagem de teste (que se encontra em **Images/Test/**
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora já viu como fazer cada passo do processo de classificação de imagem em código. Este exemplo executa uma iteração de preparação individual, mas, muitas vezes, terá de preparar e testar o seu modelo várias vezes para torná-lo mais preciso.
+Agora já deu todos os passos do processo de classificação de imagem em código. Esta amostra executa uma única iteração de treino, mas muitas vezes você precisa treinar e testar o seu modelo várias vezes para torná-lo mais preciso.
 
 > [!div class="nextstepaction"]
 > [Test and retrain a model](../../test-your-model.md) (Testar e voltar a preparar um modelo)
+
+* [O que é a Visão Personalizada?](../../overview.md)
+* [Documentação de referência da SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: 8333de5b0139323b352d43a9259bde9d3b514fbe
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: ddd6e08d9be36035b2db02ec5feb3ae4e957ec49
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89611801"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604449"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Criar um FCI com discos partilhados Azure (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,13 +33,13 @@ Para saber mais, consulte uma visão geral da [FCI com o SQL Server em VMs Azure
 Antes de completar as instruções deste artigo, já deve ter:
 
 - Uma subscrição do Azure. Começa de [graça.](https://azure.microsoft.com/free/) 
-- [Duas ou mais máquinas virtuais do Windows Azure preparadas pelos EUA](failover-cluster-instance-prepare-vm.md) no mesmo [conjunto de disponibilidade](../../../virtual-machines/linux/tutorial-availability-sets.md) e um grupo de colocação de [proximidade,](../../../virtual-machines/windows/co-location.md#proximity-placement-groups)com o conjunto de disponibilidade criado com o domínio de falha e o domínio de atualização definido para **1**. 
+- [Duas ou mais máquinas virtuais Windows Azure](failover-cluster-instance-prepare-vm.md). [Os conjuntos de disponibilidade](../../../virtual-machines/windows/tutorial-availability-sets.md) e [os grupos de colocação de proximidade](../../../virtual-machines/windows/co-location.md#proximity-placement-groups) (PPGs) são ambos suportados. Se utilizar um PPG, todos os nós devem existir no mesmo grupo.
 - Uma conta que tem permissões para criar objetos tanto em máquinas virtuais Azure como no Ative Directory.
 - A versão mais recente do [PowerShell.](/powershell/azure/install-az-ps?view=azps-4.2.0) 
 
 
 ## <a name="add-azure-shared-disk"></a>Adicione disco compartilhado Azure
-Implemente um disco SSD Premium gerido com a função de disco partilhado ativada. Definir `maxShares` para **2** para tornar o disco partilhável em ambos os nós FCI. 
+Implemente um disco SSD Premium gerido com a função de disco partilhado ativada. De `maxShares` forma a **alinhar-se com o número de nós de cluster** para tornar o disco partilhável em todos os nós fci. 
 
 Adicione um disco compartilhado Azure fazendo o seguinte: 
 
@@ -213,13 +213,13 @@ New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $v
 
 ## <a name="configure-connectivity"></a>Configurar a conectividade 
 
-Para encaminhar o tráfego adequadamente para o nó primário atual, configufique a opção de conectividade adequada para o seu ambiente. Pode criar um [balanceador de carga Azure](hadr-vnn-azure-load-balancer-configure.md) ou, se estiver a utilizar o SQL Server 2019 e o Windows Server 2016 (ou mais tarde) pode visualizar a funcionalidade [de nome de rede distribuída.](hadr-distributed-network-name-dnn-configure.md) 
+Para encaminhar o tráfego adequadamente para o nó primário atual, configufique a opção de conectividade adequada para o seu ambiente. Pode criar um [balanceador de carga Azure](hadr-vnn-azure-load-balancer-configure.md) ou, se estiver a utilizar o SQL Server 2019 CU2+ e o Windows Server 2016 (ou mais tarde) pode visualizar a funcionalidade [de nome de rede distribuída.](hadr-distributed-network-name-dnn-configure.md) 
 
 ## <a name="limitations"></a>Limitações
 
 - Apenas é suportado o registo com o fornecedor de recursos SQL VM em [modo de gestão leve.](sql-vm-resource-provider-register.md#management-modes)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda não o fez, configugue a conectividade com o seu FCI com um [nome de rede virtual e um equilibrador de carga Azure](hadr-vnn-azure-load-balancer-configure.md) ou nome de rede distribuído [(DNN)](hadr-distributed-network-name-dnn-configure.md). 
 

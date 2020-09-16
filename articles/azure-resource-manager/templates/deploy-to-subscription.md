@@ -2,13 +2,13 @@
 title: Mobilizar recursos para a subscrição
 description: Descreve como criar um grupo de recursos num modelo de Gestor de Recursos Azure. Também mostra como implantar recursos no âmbito de subscrição do Azure.
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: ef4f92d2e113e7cd393c50ba4eb8b47eb4ad9d08
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.date: 09/15/2020
+ms.openlocfilehash: 3889f5a06f138114dfe4511d0957558d6d803c8e
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468645"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605180"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos de recursos e recursos ao nível de subscrição
 
@@ -82,7 +82,7 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 Os comandos para implementações de nível de subscrição são diferentes dos comandos para implementações de grupos de recursos.
 
-Para o Azure CLI, utilize [o sub-imposição Az](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create). O exemplo a seguir implementa um modelo para criar um grupo de recursos:
+Para o Azure CLI, utilize [o sub-imposição Az](/cli/azure/deployment/sub#az-deployment-sub-create). O exemplo a seguir implementa um modelo para criar um grupo de recursos:
 
 ```azurecli-interactive
 az deployment sub create \
@@ -162,9 +162,7 @@ Para implementações de nível de subscrição, existem algumas considerações
 
 * A função [grupo de recursos()](template-functions-resource.md#resourcegroup) **não** é suportada.
 * As funções [de referência](template-functions-resource.md#reference) e [lista são](template-functions-resource.md#list) suportadas.
-* Não utilize [recursosId()](template-functions-resource.md#resourceid) para obter o ID de recursos para recursos que são implantados ao nível da subscrição.
-
-  Em vez disso, utilize a função [subscriçãoResourceId().](template-functions-resource.md#subscriptionresourceid)
+* Não utilize [recursosId()](template-functions-resource.md#resourceid) para obter o ID de recursos para recursos que são implantados ao nível da subscrição. Em vez disso, utilize a função [subscriçãoResourceId().](template-functions-resource.md#subscriptionresourceid)
 
   Por exemplo, para obter o ID de recurso para uma definição de política que é implantada numa subscrição, use:
 
@@ -483,7 +481,7 @@ O exemplo a seguir cria um grupo de recursos, aplica-lhe um bloqueio e atribui-l
 
 :::code language="json" source="~/quickstart-templates/subscription-deployments/create-rg-lock-role-assignment/azuredeploy.json":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para um exemplo de implantação de configurações de espaço de trabalho para o Centro de Segurança Azure, consulte [deployASCwithWorkspaceSettings.jsem](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * Os modelos de amostra podem ser encontrados no [GitHub.](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments)

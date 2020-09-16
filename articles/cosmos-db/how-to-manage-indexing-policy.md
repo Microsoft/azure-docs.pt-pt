@@ -7,19 +7,19 @@ ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-javascript, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 36107f69fb51e16ef8f8a6213afc9b153165ab4c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 6a1848adfd61d9d8f6db0bb16fe75c04b4a22005
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090592"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604279"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gerir políticas de indexação no Azure Cosmos DB
 
 Em Azure Cosmos DB, os dados são indexados seguindo [as políticas de indexação](index-policy.md) definidas para cada recipiente. A política de indexação predefinida para os contentores recém-criados impõe índices de intervalo para qualquer cadeia ou número. Esta política pode ser substituída pela sua própria política de indexação personalizada.
 
 > [!NOTE]
-> O método de atualização das políticas de indexação descritas neste artigo aplica-se apenas à API SQL (Core) da Azure Cosmos DB. Saiba mais sobre a indexação na [API da Azure Cosmos DB para a MongoDB](mongodb-indexing.md).
+> O método de atualização das políticas de indexação descritas neste artigo aplica-se apenas à API SQL (Core) da Azure Cosmos DB. Saiba mais sobre a indexação na [API da Azure Cosmos DB para a MongoDB](mongodb-indexing.md) e [a Indexação Secundária em Azure Cosmos DB Cassandra API.](cassandra-secondary-index.md)
 
 ## <a name="indexing-policy-examples"></a>Exemplos de política de indexação
 

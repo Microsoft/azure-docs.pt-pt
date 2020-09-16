@@ -6,14 +6,14 @@ services: site-recovery
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 09/15/2020
 ms.author: mayg
-ms.openlocfilehash: 281743268364b0e9d39c7bea28afc17d753db2f6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1790ac666d77f14ccadfde56f7b86e05b2c563dd
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130149"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604687"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino principal do Linux para reativação pós-falha
 Depois de falhar as suas máquinas virtuais para o Azure, pode falhar de volta as máquinas virtuais para o local. Para falhar, é necessário reprotegir a máquina virtual de Azure para o local. Para este processo, precisa de um servidor-alvo principal no local para receber o tráfego. 
@@ -48,16 +48,7 @@ Crie o alvo principal de acordo com as seguintes diretrizes de dimensionamento:
 - **Tamanho do disco de SO**: 100 GB ou mais (para instalar o SO)
 - **Tamanho adicional do disco para unidade de retenção**: 1 TB
 - **Núcleos do CPU**: 4 núcleos ou mais
-
-Os seguintes núcleos Ubuntu são suportados.
-
-
-|Série Kernel  |Apoio até  |
-|---------|---------|
-|4.4      |4.4.0-81-genérico         |
-|4.8      |4.8.0-56 genérico         |
-|4.10     |4.10.0-24-genérico        |
-
+- **Kernel**: 4.16.*
 
 ## <a name="deploy-the-master-target-server"></a>Implementar o servidor-alvo principal
 
@@ -360,7 +351,7 @@ Verá que o campo **Versão** dá o número de versão do alvo principal.
 `sudo systemctl restart networking`
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Após a instalação e registo do alvo principal ter terminado, pode ver o alvo principal aparecer na secção **alvo principal** na **Infraestrutura de Recuperação**do Local, sob a visão geral do servidor de configuração.
 
 Pode agora proceder com [reproteção,](vmware-azure-reprotect.md)seguida de recuo.

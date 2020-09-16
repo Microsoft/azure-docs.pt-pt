@@ -2,13 +2,13 @@
 title: Mobilizar recursos para o grupo de gestão
 description: Descreve como implantar recursos no âmbito do grupo de gestão num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: 2265f1d31176052c7e7c358ee8ed4cb06fb50ee7
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.date: 09/15/2020
+ms.openlocfilehash: 2325e9f5a03f7451492c9b9b8e929df95ddc3852
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469801"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605231"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Criar recursos ao nível do grupo de gestão
 
@@ -65,7 +65,7 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 Os comandos para implantações de grupos de gestão são diferentes dos comandos para implantações de grupos de recursos.
 
-Para O Azure CLI, utilize [mg de implantação az:](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create)
+Para O Azure CLI, utilize [mg de implantação az:](/cli/azure/deployment/mg#az-deployment-mg-create)
 
 ```azurecli-interactive
 az deployment mg create \
@@ -361,7 +361,7 @@ A partir de uma implementação de nível de grupo de gestão, você pode direci
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender sobre a atribuição de funções, consulte atribuições de [funções Add Azure utilizando modelos do Gestor de Recursos Azure](../../role-based-access-control/role-assignments-template.md).
 * Para um exemplo de implantação de configurações de espaço de trabalho para o Centro de Segurança Azure, consulte [deployASCwithWorkspaceSettings.jsem](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).

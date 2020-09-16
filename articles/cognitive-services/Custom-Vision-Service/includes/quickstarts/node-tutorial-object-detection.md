@@ -2,16 +2,19 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
+ms.date: 09/15/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 6705e6f1e988a836a3a9b7e7c4950510fcb2b228
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 15c88bed39c58b21464a7b97e54c80752a2552f8
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511360"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604898"
 ---
-Este artigo mostra-lhe como começar a usar a biblioteca de clientes Da Visão Personalizada com Node.js para construir um modelo de deteção de objetos. Depois de criado, pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter o URL de previsão publicado do projeto e usar o ponto final para testar programáticamente uma imagem. Use este exemplo como um modelo para construir a sua própria aplicação Node.js.
+Este guia fornece instruções e código de amostra para ajudá-lo a começar a usar a biblioteca de clientes Da Visão Personalizada para Node.js para construir um modelo de deteção de objetos. Você vai criar um projeto, adicionar tags, treinar o projeto, e usar o URL de previsão do projeto para testá-lo programáticamente. Use este exemplo como um modelo para construir a sua própria app de reconhecimento de imagem.
+
+> [!NOTE]
+> Se quiser construir e treinar um modelo de deteção de _objetos sem_ escrever código, consulte a [orientação baseada no navegador.](../../get-started-build-detector.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -26,7 +29,7 @@ Este artigo mostra-lhe como começar a usar a biblioteca de clientes Da Visão P
 
 ## <a name="install-the-custom-vision-client-library"></a>Instale a biblioteca de clientes Custom Vision
 
-Para instalar as bibliotecas de clientes de serviço De Visão Personalizada para Node.js no seu projeto, execute os seguintes comandos:
+Para escrever uma aplicação de análise de imagem com visão personalizada para Node.js, você precisará dos pacotes NPM de visão personalizada. Para instalá-los, executar o seguinte comando em PowerShell:
 
 ```shell
 npm install @azure/cognitiveservices-customvision-training
@@ -37,7 +40,7 @@ npm install @azure/cognitiveservices-customvision-prediction
 
 Crie um novo ficheiro chamado *sample.js* no seu diretório de projeto preferido.
 
-### <a name="create-the-custom-vision-service-project"></a>Criar o projeto do serviço de Visão Personalizada
+## <a name="create-the-custom-vision-project"></a>Criar o projeto Visão Personalizada
 
 Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira as suas teclas de subscrição nas definições apropriadas e desenrpeça o valor do caminho do percurso do SampleDataRoot para o seu percurso de pasta de imagem. Certifique-se de que o valor endPoint corresponde aos pontos finais de treino e previsão que criou [no Customvision.ai](https://www.customvision.ai/). Note que a diferença entre criar um projeto de deteção de objetos e classificação de imagem é o domínio especificado na chamada **createProject.**
 
@@ -78,7 +81,7 @@ async function asyncForEach (array, callback) {
     const sampleProject = await trainer.createProject("Sample Obj Detection Project", { domainId: objDetectDomain.id });
 ```
 
-### <a name="create-tags-in-the-project"></a>Criar etiquetas no projeto
+## <a name="create-tags-in-the-project"></a>Criar etiquetas no projeto
 
 Para criar etiquetas de classificação ao seu projeto, adicione o seguinte código ao final de *sample.js: *
 
@@ -87,7 +90,7 @@ Para criar etiquetas de classificação ao seu projeto, adicione o seguinte cód
     const scissorsTag = await trainer.createTag(sampleProject.id, "Scissors");
 ```
 
-### <a name="upload-and-tag-images"></a>Enviar e marcar imagens
+## <a name="upload-and-tag-images"></a>Enviar e marcar imagens
 
 Quando marca imagens em projetos de deteção de objetos, é necessário especificar a região de cada objeto marcado utilizando coordenadas normalizadas. 
 
@@ -173,7 +176,7 @@ await asyncForEach(scissorsFiles, async (file) => {
 await Promise.all(fileUploadPromises);
 ```
 
-### <a name="train-the-project-and-publish"></a>Treine o projeto e publique
+## <a name="train-and-publish-the-project"></a>Treine e publique o projeto
 
 Este código cria a primeira iteração do modelo de previsão e, em seguida, publica essa iteração para o ponto final de previsão. O nome dado à iteração publicada pode ser usado para enviar pedidos de previsão. Uma iteração não está disponível no ponto final da previsão até que seja publicada.
 
@@ -229,7 +232,11 @@ A saída da aplicação deverá aparecer na consola. Pode, em seguida, certifica
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora já viste como cada passo do processo de deteção de objetos pode ser feito em código. Esta amostra executa uma única iteração de treino, mas muitas vezes você precisa treinar e testar o seu modelo várias vezes para torná-lo mais preciso. O seguinte guia de formação trata da classificação da imagem, mas os seus princípios são semelhantes à deteção de objetos.
+Agora já fizeste todos os passos do processo de deteção de objetos em código. Esta amostra executa uma única iteração de treino, mas muitas vezes você precisa treinar e testar o seu modelo várias vezes para torná-lo mais preciso. O guia seguinte aborda a classificação de imagens, mas os seus princípios são semelhantes à deteção de objetos.
 
 > [!div class="nextstepaction"]
 > [Test and retrain a model](../../test-your-model.md) (Testar e voltar a preparar um modelo)
+
+* [O que é a Visão Personalizada?](../../overview.md)
+* [Documentação de referência SDK (formação)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-training/?view=azure-node-latest)
+* [Documentação de referência SDK (previsão)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customvision-prediction/?view=azure-node-latest)

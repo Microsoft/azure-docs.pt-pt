@@ -3,15 +3,18 @@ author: areddish
 ms.custom: devx-track-java
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
-ms.openlocfilehash: 1c72415a0d3dd6bc16eab435ad712225e9ec776e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/15/2020
+ms.openlocfilehash: 107cc24cc03c7f8716f4ee0577fc2372668adcd9
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90533163"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604862"
 ---
-Este artigo mostra-lhe como começar a usar a biblioteca de clientes Da Visão Personalizada com a Java para construir um modelo de deteção de objetos. Depois de criado, pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter o URL final de previsão padrão do projeto, e usar o ponto final para testar programáticamente uma imagem. Utilize este exemplo como um modelo para compilar a sua aplicação de Java.
+Este guia fornece instruções e código de amostra para ajudá-lo a começar a usar a biblioteca de clientes Da Visão Personalizada para a Java para construir um modelo de deteção de objetos. Você vai criar um projeto, adicionar tags, treinar o projeto, e usar o URL de previsão do projeto para testá-lo programáticamente. Use este exemplo como um modelo para construir a sua própria app de reconhecimento de imagem.
+
+> [!NOTE]
+> Se quiser construir e treinar um modelo de deteção de _objetos sem_ escrever código, consulte a [orientação baseada no navegador.](../../get-started-build-detector.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -20,9 +23,9 @@ Este artigo mostra-lhe como começar a usar a biblioteca de clientes Da Visão P
 - [Maven](https://maven.apache.org/) instalado
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## <a name="get-the-custom-vision-client-library-and-sample-code"></a>Obtenha a biblioteca de clientes Visão Personalizada e o código de amostra
+## <a name="get-the-custom-vision-client-library"></a>Obtenha a biblioteca de clientes Da Visão Personalizada
 
-Para escrever uma aplicação de Java que utilize a Visão Personalizada, precisa dos pacotes maven da Visão Personalizada. Estes pacotes estão incluídos no projeto de amostra que você vai baixar, mas você pode acessá-los individualmente aqui.
+Para escrever uma aplicação de análise de imagem com visão personalizada para Java, você precisará dos pacotes maven Da Visão Personalizada. Estes pacotes estão incluídos no projeto de amostra que você vai descarregar, mas você pode acessá-los individualmente aqui.
 
 Pode encontrar a biblioteca de clientes Da Visão Personalizada no repositório central maven:
 - [SDK de Preparação](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
@@ -48,7 +51,7 @@ $env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
 
 Carregue o projeto `Vision/CustomVision` no IDE Java e abra o ficheiro _CustomVisionSamples.java_. Encontre o método **runSample** e comente o método **ImageClassification_Sample** chamado &mdash; este método executa o cenário de classificação de imagem, que não está coberto neste guia. O método **ObjectDetection_Sample** implementa a funcionalidade principal deste início rápido; navegue para a respetiva definição e inspecione o código. 
 
-## <a name="create-a-new-custom-vision-service-project"></a>Criar um novo projeto de Serviço de Visão Personalizada
+## <a name="create-a-new-custom-vision-project"></a>Criar um novo projeto de Visão Personalizada
 
 Vá para o bloco de código que cria um cliente de preparação e um projeto de deteção de objetos. O projeto criado aparece no [site da Visão Personalizada](https://customvision.ai/) ao qual acedeu anteriormente. Consulte as sobrecargas do método [CreateProject](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.trainings.createproject?view=azure-java-stable#com_microsoft_azure_cognitiveservices_vision_customvision_training_Trainings_createProject_String_CreateProjectOptionalParameter_&preserve-view=true) para especificar outras opções quando criar o seu projeto (explicado no guia do portal web [do detetor).](../../get-started-build-detector.md)
 
@@ -101,7 +104,10 @@ Veja o resultado da consola para o registo e predição de resultados. Pode, em 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora já viste como cada passo do processo de deteção de objetos pode ser feito em código. Esta amostra executa uma única iteração de treino, mas muitas vezes você precisa treinar e testar o seu modelo várias vezes para torná-lo mais preciso. O seguinte guia de formação trata da classificação da imagem, mas os seus princípios são semelhantes à deteção de objetos.
+Agora já fizeste todos os passos do processo de deteção de objetos em código. Esta amostra executa uma única iteração de treino, mas muitas vezes você precisa treinar e testar o seu modelo várias vezes para torná-lo mais preciso. O guia seguinte aborda a classificação de imagens, mas os seus princípios são semelhantes à deteção de objetos.
 
 > [!div class="nextstepaction"]
 > [Test and retrain a model](../../test-your-model.md) (Testar e voltar a preparar um modelo)
+
+* [O que é a Visão Personalizada?](../../overview.md)
+* [Documentação de referência da SDK](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable)

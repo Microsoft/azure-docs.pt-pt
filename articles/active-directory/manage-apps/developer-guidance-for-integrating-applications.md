@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d662689d44bcdbd468c882de0679fd60c9ab4f4
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 6b24bd190eac9cb6c29ceab6eb597d8d1c48f2ff
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640451"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605095"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Desenvolver aplicativos de linha de negócios para o Azure Ative Directory
-Este guia fornece uma visão geral do desenvolvimento de aplicações de linha de negócios (LoB) para o Azure Ative Directory (AD). O público pretendido é o Ative Directory/Office 365 administradores globais.
+Este guia fornece uma visão geral do desenvolvimento de aplicações de linha de negócios (LoB) para o Azure Ative Directory (AD). O público pretendido é o Ative Directory/Microsoft 365 administradores globais.
 
 ## <a name="overview"></a>Descrição geral
-As aplicações de construção integradas com a Azure AD dão aos utilizadores da sua organização um único sign-on com o Office 365. Ter a aplicação no Azure AD dá-lhe controlo sobre a política de autenticação para a aplicação. Para saber mais sobre o Acesso Condicional e como proteger aplicações com autenticação multi-factor (MFA) consulte [regras de acesso configuradas.](../conditional-access/app-based-mfa.md)
+As aplicações de construção integradas com Azure AD dão aos utilizadores da sua organização um único sign-on com o Microsoft 365. Ter a aplicação no Azure AD dá-lhe controlo sobre a política de autenticação para a aplicação. Para saber mais sobre o Acesso Condicional e como proteger aplicações com autenticação multi-factor (MFA) consulte [regras de acesso configuradas.](../conditional-access/app-based-mfa.md)
 
 Registe a sua candidatura para utilizar o Azure Ative Directory. Registar a aplicação significa que os seus desenvolvedores podem usar a Azure AD para autenticar os utilizadores e solicitar o acesso aos recursos do utilizador, tais como e-mail, calendário e documentos.
 

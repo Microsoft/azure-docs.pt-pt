@@ -4,12 +4,12 @@ description: Saiba como avaliar VMware VMs para migração para AVS com avaliaç
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: 7bd0a4c6d4c447e0d872c2d40ad1f1990289fe84
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 29f7f824d96aedd80e490ba84c390be4d9493683
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90108796"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604245"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-avs"></a>Tutorial: Avaliar VMware VMs para migração para AVS
 
@@ -113,28 +113,37 @@ E executar uma avaliação da seguinte forma:
 
 ## <a name="review-an-assessment"></a>Rever uma avaliação
 
-Uma avaliação descreve:
+Uma avaliação avs descreve:
 
-- **Pronto para AVS**: A máquina pode ser migrada como-é para Azure AVS, sem alterações. A máquina começará em AVS, com suporte AVS completo.
-- **Pronto com condições**: A máquina pode ter problemas de compatibilidade com a versão atual da vSphere. Pode precisar de ferramentas VMware instaladas, ou outras configurações, antes de ter plena funcionalidade em AVS.
-- **Não está pronto para AVS**: O VM não arranca em AVS. Por exemplo, se um VMware VMware VMware no local tiver um dispositivo externo (como um CD-ROM) ligado a ele e estiver a utilizar vMotion VMware VMotion, a operação VMotion falha.
-- **Prontidão desconhecida**: A Azure Migrate não conseguiu determinar a prontidão da máquina, devido a metadados insuficientes recolhidos do ambiente no local.
+- Prontidão AVS: Se os VMs no local são adequados para a migração para Azure VMware Solution (AVS).
+- Número de nós AVS: Número estimado de nós AVS necessários para executar os VMs.
+- Utilização através de nós AVS: CPU projetado, memória e utilização de armazenamento em todos os nós.
+- Estimativa mensal dos custos: Os custos mensais estimados para todos os nós da Azure VMware Solution (AVS) que executam os VMs no local.
+
+## <a name="view-an-assessment"></a>Ver uma avaliação
 
 Para visualizar uma avaliação:
 
 1. Nos **servidores**  >  **Azure Migrate: Avaliação do servidor,** clique no número ao lado **das Avaliações**.
-2. Em **Avaliações,** selecione uma avaliação para abri-la. Como exemplo (estimativas e custos, por exemplo: 
-
-    ![Resumo da avaliação](./media/tutorial-assess-vmware-azure-vm/assessment-summary.png)
-
+2. Em **Avaliações,** selecione uma avaliação para abri-la. 
 3. Reveja o resumo da avaliação. Também pode editar as propriedades de avaliação ou recalcular a avaliação.
  
- 
+
 ### <a name="review-readiness"></a>Revisão de prontidão
 
 1. Clique **em Azure prontidão**.
 2. Em **prontidão Azure,** reveja o estado de VM.
-3. Selecione um estado **de prontidão Azure.** Pode ver detalhes de prontidão em VM. Também pode perfurar para ver detalhes do VM, incluindo configurações de computação, armazenamento e rede.
+
+    - **Pronto para AVS**: A máquina pode ser migrada como-é para Azure AVS, sem alterações. A máquina começará em AVS, com suporte AVS completo.
+    - **Pronto com condições**: A máquina pode ter problemas de compatibilidade com a versão atual da vSphere. Pode precisar de ferramentas VMware instaladas, ou outras configurações, antes de ter plena funcionalidade em AVS.
+    - **Não está pronto para AVS**: O VM não arranca em AVS. Por exemplo, se um VMware VMware VMware no local tiver um dispositivo externo (como um CD-ROM) ligado a ele e estiver a utilizar vMotion VMware VMotion, a operação VMotion falha.
+ - **Prontidão desconhecida**: A Azure Migrate não conseguiu determinar a prontidão da máquina, devido a metadados insuficientes recolhidos do ambiente no local.
+
+3. Reveja a ferramenta sugerida.
+
+    - VMware HCX ou Enterprise: Para máquinas VMware, a solução VMWare Hybrid Cloud Extension (HCX) é a ferramenta de migração sugerida para migrar a sua carga de trabalho no local para a sua nuvem privada Azure VMware Solution (AVS). Saiba mais.
+    - Desconhecida: para as máquinas virtuais importadas através de um ficheiro CSV, a ferramenta de migração predefinida é desconhecida. Embora para máquinas VMware, é sugerido que utilize a solução VMware Hybrid Cloud Extension (HCX).
+4. Clique num estado de prontidão AVS. Pode ver detalhes de prontidão em VM e perfurar para ver detalhes de VM, incluindo configurações de computação, armazenamento e rede.
 
 ### <a name="review-cost-estimates"></a>Rever as estimativas de custos
 
@@ -142,11 +151,11 @@ O resumo da avaliação mostra o custo estimado do cálculo e armazenamento dos 
 
 1. Reveja os custos totais mensais. Os custos são agregados para todos os VMs do grupo avaliado.
 
-    - As estimativas de custos baseiam-se nas recomendações de tamanho para uma máquina, nos seus discos e nas suas propriedades.
-    - São apresentados custos mensais estimados para o cálculo e armazenamento.
-    - A estimativa de custos é para a execução dos VMs no local em VMs Azure. A estimativa não considera os custos do PaaS ou do SaaS.
+    - As estimativas de custos baseiam-se no número de nós AVS necessários, tendo em conta os requisitos de recursos de todos os VMs no total.
+    - Como o preço do AVS é por nó, o custo total não tem custo de computação e distribuição de custos de armazenamento.
+    - A estimativa de custos é para a execução dos VMs no local em AVS. A avaliação do servidor Azure Migrate não considera os custos do PaaS ou do SaaS.
 
-2. Reveja os custos de armazenamento mensais. A vista mostra os custos de armazenamento agregados para o grupo avaliado, divididos sobre diferentes tipos de discos de armazenamento. 
+2. Reveja as estimativas mensais de armazenamento. A vista mostra os custos de armazenamento agregados para o grupo avaliado, divididos sobre diferentes tipos de discos de armazenamento. 
 3. Você pode perfurar para ver detalhes de custos para VMs específicos.
 
 ### <a name="review-confidence-rating"></a>Rever a classificação de confiança

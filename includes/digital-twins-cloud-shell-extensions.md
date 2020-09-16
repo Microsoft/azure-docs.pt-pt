@@ -5,16 +5,16 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/31/2020
 ms.author: baanders
-ms.openlocfilehash: 984739a728f6ac5e28eeb561e0d7b6ec0485ca13
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7e43ab6d419d6a08973864838c66aef0941d74f5
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496870"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90606482"
 ---
 Primeiro, faça este comando para ver uma lista de todas as extensões que já instalou.
 
-```azurecli-interactive
+```azurecli
 az extension list
 ```
 
@@ -23,18 +23,18 @@ A saída é um conjunto de todas as extensões que você tem atualmente. Procure
 Utilize a saída para determinar quais dos seguintes comandos a executar para a configuração da extensão (pode executar mais de um).
 * Se a lista `azure-iot` contiver: Já tem a extensão. Execute este comando para se certificar de que tem a última atualização e não há mais atualizações disponíveis:
 
-   ```azurecli-interactive
+   ```azurecli
    az extension update --name azure-iot
    ```
 
 * Se a lista **não** `azure-iot` contiver: É necessário instalar a extensão. Utilize este comando:
 
-    ```azurecli-interactive
+    ```azurecli
     az extension add --name azure-iot
     ```
 
 * Se a lista `azure-iot-cli-ext` contiver: Esta é a versão antiga da extensão. Apenas uma versão da extensão deve ser instalada de cada vez, pelo que deve desinstalar a extensão do legado. Utilize este comando:
 
-   ```azurecli-interactive
+   ```azurecli
    az extension remove --name azure-cli-iot-ext
    ```

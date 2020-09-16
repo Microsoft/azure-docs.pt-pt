@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: feaf72de1d2c578d2b2d0df9e86ec0fbe0b49445
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 594ad352d5fd8431ffaf6d681c891c967cf9d32a
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79371772"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606680"
 ---
 Devem ser cumpridos os seguintes requisitos para estabelecer com êxito um túnel do dispositivo:
 
@@ -80,7 +80,7 @@ Depois de configurar o gateway de rede virtual e instalar o certificado de clien
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Copie o texto que se segue e guarde-o como ***VPNProfile.xml*** na mesma pasta **quedevicecert.ps1**. Edite o seguinte texto para combinar com o seu ambiente.
+1. Copie o texto que se segue e guarde-o como ***VPNProfile.xml*** na mesma pasta ** quedevicecert.ps1**. Edite o seguinte texto para combinar com o seu ambiente.
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers> <= Can be found in the VpnSettings.xml in the downloaded profile zip file`
    * `<Address>192.168.3.5</Address> <= IP of resource in the vnet or the vnet address space`
@@ -123,18 +123,18 @@ Depois de configurar o gateway de rede virtual e instalar o certificado de clien
    PsExec64.exe Powershell for 64-bit Windows
    ```
 
-   ![powershell](./media/vpn-gateway-vwan-always-on-device/powershell.png)
+   ![A screenshot mostra uma janela de pedido de comando com um comando para iniciar a versão de 64 bits do PowerShell.](./media/vpn-gateway-vwan-always-on-device/powershell.png)
 1. No PowerShell, mude para a pasta onde estão **devicecert.ps1** e **VPNProfile.xml** e execute o seguinte comando:
 
    ```powershell
    .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
    ```
    
-   ![MachineCertTest](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
+   ![A screenshot mostra uma janela PowerShell que executou o MachineCertTest utilizando o script de inserir dispositivos.](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
 1. Executar **rasphone**.
 
-   ![rasfone](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
+   ![A screenshot mostra uma caixa de diálogo run com rasfone selecionado.](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
 1. Procure a entrada **MachineCertTest** e clique em **Connect**.
 
-   ![Ligar](./media/vpn-gateway-vwan-always-on-device/connect.png)
+   ![A screenshot mostra uma caixa de diálogo de Ligações de Rede com o MachineCertTest selecionado e um botão Connect.](./media/vpn-gateway-vwan-always-on-device/connect.png)
 1. Se a ligação for bem sucedida, reinicie o computador. O túnel liga-se automaticamente.

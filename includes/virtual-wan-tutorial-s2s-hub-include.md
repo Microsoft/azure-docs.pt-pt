@@ -8,27 +8,27 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 105ab0c71d9e7e935842550ecdc4c8d2ff2a2d8c
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 64470b42efeea49b7c778d6dffd88465b8445e36
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84977937"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606353"
 ---
 1. Localize o WAN virtual que criou. Na página VIRTUAL WAN, na secção **Conectividade,** selecione **Hubs**.
 2. Na página Hubs, selecione **+New Hub** para abrir a página **do hub virtual Create.**
 
-    ![Noções básicas](./media/virtual-wan-tutorial-hub-include/basics.png "Noções básicas")
+    ![A screenshot mostra o painel de hub virtual Create com o separador Basics selecionado.](./media/virtual-wan-tutorial-hub-include/basics.png "Noções básicas")
 3. No **separador 'Criar** página de centro virtual **Basics',** complete os seguintes campos:
 
     **Detalhes do projeto**
 
    * Região (anteriormente designada por Localização)
-   * Nome
+   * Name
    * Espaço de endereço privado hub. O espaço mínimo de endereço é /24 para criar um hub, o que implica que qualquer coisa varia entre /25 e /32 produzirá um erro durante a criação. Sendo o Azure Virtual WAN um serviço gerido pela Microsoft cria as sub-redes adequadas no centro virtual para os diferentes gateways/serviços (por exemplo, Gateways VPN, Gateways ExpressRoute, User VPN/Point-to-site Gateways, Firewall, Encaminhing etc.). Não é necessário que o utilizador planeie explicitamente o espaço de endereço de sub-rede para os serviços no Virtual Hub, uma vez que a Microsoft o faz como parte do serviço.
 4. Selecione **Seguinte: Site-to-site**.
 
-    ![Site a Site](./media/virtual-wan-tutorial-hub-include/site-to-site.png "Site a Site")
+    ![A screenshot mostra o painel de hub virtual Create com o Site para o site selecionado.](./media/virtual-wan-tutorial-hub-include/site-to-site.png "Site a Site")
 
 5. No **separador Site-to-site,** complete os seguintes campos:
 

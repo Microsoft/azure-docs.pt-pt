@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 2ab74b87b287296c4ff975d5af75714c89001004
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: c2d971c2c9375f58fd5f41a46716fac4bff29f88
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055721"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604313"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Encomendar o Azure Data Box
 
@@ -268,6 +268,8 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
     ![Pedido de caixa de dados para disco gerido](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     A conta de armazenamento especificada para os discos geridos é utilizada como uma conta de armazenamento de teste. O serviço Data Box carrega os VHDs como blobs de páginas na conta de armazenamento de teste antes de os converter em discos geridos e de os mover para os grupos de recursos. Para obter mais informações, veja [Verificar o carregamento de dados no Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
+   > [!NOTE]
+   > Se uma bolha de página não for convertida com sucesso para um disco gerido, fica na conta de armazenamento e é cobrado para armazenamento.
 
     Selecione **Seguinte: Segurança** para continuar.
 
@@ -312,7 +314,7 @@ Faça os seguintes passos utilizando o Azure CLI para encomendar um dispositivo:
 
 1. Anote as suas definições para a sua encomenda de Caixa de Dados. Estas definições incluem as suas informações pessoais/empresariais, nome de subscrição, informações do dispositivo e informações de envio. Terá de utilizar estas definições como parâmetros ao executar o comando CLI para criar a ordem Caixa de Dados. A tabela a seguir mostra as definições de parâmetros utilizadas `az databox job create` para:
 
-   | Definição (parâmetro) | Descrição |  Valor da amostra |
+   | Definição (parâmetro) | Description |  Valor da amostra |
    |---|---|---|
    |resource-group| Utilize um grupo de recursos existente ou crie um novo. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
    |name| O nome da ordem que está a criar. | "mydataboxorder"|
@@ -431,7 +433,7 @@ Faça os seguintes passos utilizando a Azure PowerShell para encomendar um dispo
 
 2. Anote as suas definições para a sua encomenda de Caixa de Dados. Estas definições incluem as suas informações pessoais/empresariais, nome de subscrição, informações do dispositivo e informações de envio. Terá de utilizar estas definições como parâmetros ao executar o comando PowerShell para criar a ordem Caixa de Dados. A tabela seguinte mostra as definições de parâmetros utilizadas para [o New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob).
 
-    | Definição (parâmetro) | Descrição |  Valor da amostra |
+    | Definição (parâmetro) | Description |  Valor da amostra |
     |---|---|---|
     |Nome do Grupo de Recursos [Obrigatório]| Utilize um grupo de recursos existente. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
     |Nome [Obrigatório]| O nome da ordem que está a criar. | "mydataboxorder"|
@@ -806,7 +808,7 @@ PS C:\Windows>
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu sobre artigos da Azure Data Box tais como:
 

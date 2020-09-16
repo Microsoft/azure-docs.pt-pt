@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: dc80141d796b66dd7e610342166f7b88df58f530
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2c309340155bc626d4da94d74aee9be51bde510
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75928040"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606287"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Criar um espaço de nomes no portal do Azure
 Para começar a utilizar as entidades de mensagens do Service Bus no Azure, tem de, primeiro, criar um espaço de nomes que seja exclusivo em todo o Azure. Um espaço de nomes fornece um contentor de âmbito para abordar os recursos do Service Bus na sua aplicação.
 
 Para criar um espaço de nomes:
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com)
 2. No painel de navegação à esquerda do portal, selecione **+ Crie um recurso,** selecione **Integração**e, em seguida, selecione **Service Bus**.
 
     ![Criar um ônibus de serviço de integração > -> recursos](./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png)
@@ -53,10 +53,10 @@ A criação de um espaço de nomes gera automaticamente uma regra inicial de Ass
 2. Na janela de espaço de nomes, clique em **Políticas de acesso partilhado**.
 3. No ecrã **Políticas de acesso partilhado**, clique em **RootManageSharedAccessKey**.
    
-    ![informações-ligação](./media/service-bus-create-namespace-portal/connection-info.png)
+    ![O Screenshot mostra a janela das políticas de acesso partilhado com uma política realçada.](./media/service-bus-create-namespace-portal/connection-info.png)
 4. Na janela **Política: RootManageSharedAccessKey**, clique no botão de copiar junto a **Cadeia de Ligação Primária** para copiar a cadeia de ligação para a sua área de transferência para utilizar mais tarde. Cole este valor no Bloco de Notas ou noutra localização temporária.
    
-    ![cadeia-ligação](./media/service-bus-create-namespace-portal/connection-string.png)
+    ![O Screenshot mostra uma política S A S chamada RootManageSharedAccessKey, que inclui chaves e cordas de conexão.](./media/service-bus-create-namespace-portal/connection-string.png)
 5. Repita o passo anterior, copie e cole o valor da **Chave primária** para uma localização temporária para utilizar mais tarde.
 
 <!--Image references-->

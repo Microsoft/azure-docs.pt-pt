@@ -2,19 +2,21 @@
 title: Eliminações do histórico de implementações
 description: Descreve como o Azure Resource Manager elimina automaticamente as implementações do histórico de implementação. As implementações são eliminadas quando o histórico está perto de ultrapassar o limite de 800.
 ms.topic: conceptual
-ms.date: 08/07/2020
-ms.openlocfilehash: 736a25a3c73f8f4c70c5fb6c686fa2b8bb86666d
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.date: 09/15/2020
+ms.openlocfilehash: 1d4f49fe6b90e672b65aa97971426186384da02f
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986513"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605214"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Supressões automáticas do histórico de implantação
 
 Sempre que implementa um modelo, as informações sobre a implementação são escritas para o histórico de implementação. Cada grupo de recursos está limitado a 800 implementações no seu histórico de implantação.
 
-O Azure Resource Manager elimina automaticamente as implementações do seu histórico à medida que se aproxima do limite. A eliminação automática é uma mudança do comportamento do passado. Anteriormente, tinha de eliminar manualmente as implementações do histórico de implementação para evitar um erro. **Esta alteração foi implementada no dia 6 de agosto de 2020.**
+O Azure Resource Manager elimina automaticamente as implementações do seu histórico à medida que se aproxima do limite. A eliminação automática é uma mudança do comportamento do passado. Anteriormente, tinha de eliminar manualmente as implementações do histórico de implementação para evitar um erro. Esta alteração foi implementada no dia 6 de agosto de 2020.
+
+**As supressões automáticas são suportadas para implantações de grupos de recursos. Atualmente, as implementações no histórico de implantação para [subscrição,](deploy-to-subscription.md) [grupo de gestão](deploy-to-management-group.md)e implantações de [inquilinos](deploy-to-tenant.md) não são eliminadas.**
 
 > [!NOTE]
 > Excluir uma implantação da história não afeta nenhum dos recursos que foram mobilizados.

@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 02/26/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 65fc822250ae8284c9f87af262356730ff1d54c4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d4b31eb59ed0bae2afe408546ece66eacade9ddb
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207520"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603837"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Terminar a notificação das instâncias dos conjuntos de dimensionamento de máquinas virtuais do Azure
 As instâncias definidas em escala podem optar por receber notificações de rescisão de casos e definir um prazo de atraso pré-definido para a operação de encerramento. A notificação de rescisão é enviada através do Azure Metadata Service – [Eventos Agendados,](../virtual-machines/windows/scheduled-events.md)que fornece notificações para e atrasar operações impactantes como reboots e redistribuição. A solução adiciona mais um evento – Terminate – à lista de Eventos Agendados, e o atraso associado do evento de terminação dependerá do limite de atraso especificado pelos utilizadores nas configurações do modelo de escala.
@@ -91,7 +91,7 @@ Utilize o cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) pa
 Update-AzVmss `
   -ResourceGroupName "myResourceGroup" `
   -VMScaleSetName "myScaleSet" `
-  -TerminateScheduledEvents $true
+  -TerminateScheduledEvents $true `
   -TerminateScheduledEventNotBeforeTimeoutInMinutes 15
 ```
 O exemplo acima permite terminar as notificações num conjunto de escala existente e define um intervalo de 15 minutos para o evento de terminação.
@@ -199,5 +199,5 @@ Se não estiver a receber eventos **de terminação** através de Eventos Agenda
 ### <a name="getting-terminate-event-with-incorrect-notbefore-time"></a>Obter evento de rescisão com incorreto não Antes do tempo  
 Depois de ativar *o programadoEventsProfile* no modelo de conjunto de escala e definir o *nãoBeforeTimeout,* atualize as instâncias individuais para o [modelo mais recente](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) para refletir as alterações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba como implementar a [sua aplicação](virtual-machine-scale-sets-deploy-app.md) em conjuntos de escala de máquina virtual.

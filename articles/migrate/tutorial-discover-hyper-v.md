@@ -4,12 +4,12 @@ description: Saiba como descobrir em locais Hiper-VMs com a ferramenta Azure Mig
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: fdf96b5767b461953fa88923aaa5050aff4613bc
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: eb17ba9fc1b68f09f60e857cd20a3f0885bfdb05
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90064372"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603956"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Tutorial: Descubra VMs hiper-V com avaliação do servidor
 
@@ -103,63 +103,74 @@ A ferramenta **Azure Migrate: Server Assessment** é adicionada por defeito ao n
 
 ## <a name="set-up-the-appliance"></a>Configurar o aparelho
 
-Este tutorial instala o aparelho num Hiper-V VM.
-- Descarregue o modelo do aparelho e importe o modelo no vCenter Server para criar o VM do aparelho.
-- Depois de criar o aparelho, instale-o pela primeira vez e registe-o com o projeto Azure Migrate.
+Este tutorial configura o aparelho num Hiper-V VM, da seguinte forma:
 
+- Forneça um nome de aparelho e gere uma chave de projeto Azure Migrate no portal.
+- Faça o download de um Hiper-VHD comprimido do portal Azure.
+- Crie o aparelho e verifique se pode ligar-se à Avaliação do Servidor Azure Migrate.
+- Configure o aparelho pela primeira vez e registe-o com o projeto Azure Migrate utilizando a chave do projeto Azure Migrate.
 > [!NOTE]
 > Se, por alguma razão, não conseguir configurar o aparelho utilizando um modelo, pode 15 000% pode utilizá-lo com um script PowerShell. [Saiba mais](deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).
 
 
-### <a name="download-the-vhd"></a>Descarregue o VHD
+### <a name="generate-the-azure-migrate-project-key"></a>Gere a chave do projeto Azure Migrate
 
 1. In **Migration Goals**  >  **Servers**  >  **Azure Migrate: Server Assessment**, select **Discover**.
 2. In **Discover machines**  >  **Are your machines virtualized?** **Yes, with Hyper-V**
-3. Selecione **Baixar** para descarregar o ficheiro VHD.
+3. Na **tecla de projeto 1:Generate Azure Migrate**, forneça um nome para o aparelho Azure Migrate que irá configurar para a descoberta de VMs Hiper-V.O nome deve ser alfanumérico com 14 caracteres ou menos.
+1. Clique na **chave Gerar** para iniciar a criação dos recursos Azure necessários. Por favor, não feche a página das máquinas Discover durante a criação de recursos.
+1. Após a criação bem sucedida dos recursos Azure, é gerada uma **chave de projeto Azure Migrate.**
+1. Copie a chave pois necessitará para completar o registo do aparelho durante a sua configuração.
 
-   ![Seleções para descarregar um ficheiro OVA](./media/tutorial-discover-hyper-v/download-vhd.png)
+### <a name="download-the-vhd"></a>Descarregue o VHD
+
+Em **2: Descarregue o aparelho Azure Migrate,** selecione o . Ficheiro VHD e clique no **Download**. 
 
 
+### <a name="verify-security"></a>Verificar segurança
 
-### <a name="deploy-the-appliance-vm"></a>Desdobre o aparelho VM
+Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 
-Importe o ficheiro descarregado e crie um VM:
+1. No computador para o qual transferiu o ficheiro, abra uma janela de comando de administrador.
 
-1. Descarregue o ficheiro VHD com fecho para o anfitrião Hyper-V no qual o aparelho VM será colocado.
-2. Extraia o ficheiro com fecho.
+2. Executar o seguinte comando PowerShell para gerar o haxixe para o ficheiro ZIP
+    - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
+    - Utilização de exemplo: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
-    - No local extraído, o ficheiro abre-se numa pasta chamada AzureMigrateAppliance_VersionNumber.
-    - Esta pasta contém uma sub-dobragem, também chamada AzureMigrateAppliance_VersionNumber.
-    - Esta sub-dobradeira contém mais três sub-dobradeiras - Snapshots, Discos Rígidos Virtuais e Máquinas Virtuais.
+3.  Verifique as versões mais recentes do aparelho e os valores do haxixe:
 
-3. Abra o Gestor de Hyper-V. Em **Ações,** clique em **Import Virtual Machine**.
+    - Para a nuvem pública de Azure:
 
-    ![Item do menu em Hyper-V Manager para importar o VHD](./media/tutorial-discover-hyper-v/deploy-vhd.png)
+        **Cenário** | **Transferência** | **SHA256**
+        --- | --- | ---
+        Hiper-V (10,4 GB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc10f61b910d6136e02324dc8d8a14f47772351b46d9127
 
-4. No > do assistente de máquina virtual de importação **Antes de começar,** clique em **seguida**.
-5. Na **Pasta Localizar,** selecione a pasta **Máquinas Virtuais.** Em seguida, clique em **Seguinte**.
-6. Na **Máquina Virtual Selecionada,** clique em **Seguinte**.
-7. No **Choose Import Type,** clique **em Copiar a máquina virtual (crie um novo ID único)**. Em seguida, clique em **Seguinte**.
-8. No **Destino Escolha,** deixe a definição predefinida. Clique em **Seguinte**.
-9. Nas **pastas de armazenamento,** deixe a definição predefinida. Clique em **Seguinte**.
-10. In **Choose Network**, especifique o interruptor virtual que o VM irá utilizar. O switch precisa de conectividade na Internet para enviar dados para o Azure. [Saiba](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) como criar um interruptor virtual.
-11. Em **Resumo,** reveja as definições. Em seguida, clique em **Concluir**.
-12. No Hyper-V Manager > **Máquinas Virtuais,** inicie o VM.
+    - Para o Governo de Azure:
+
+        **Cenário*** | **Transferência** | **SHA256**
+        --- | --- | ---
+        Hiper-V (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140424) |  0769c5f8df1e8c1c4f685296f96f9ee18e1ca63e4a11d9aaaaaa4e6982e069df430d7
+
+### <a name="create-the-appliance-vm"></a>Criar o aparelho VM
+
+Importe o ficheiro descarregado e crie o VM.
+
+1. Extrair o ficheiro VHD com fecho para uma pasta no anfitrião Hyper-V que irá acolher o VM do aparelho. Três pastas são extraídas.
+2. Abra o Gestor de Hyper-V. Em **Ações,** clique em **Import Virtual Machine**.
+2. No > do assistente de máquina virtual de importação **Antes de começar,** clique em **seguida**.
+3. Na **Pasta Localizar**, especifique a pasta que contém o VHD extraído. Em seguida, clique em **Seguinte**.
+1. Na **Máquina Virtual Selecionada,** clique em **Seguinte**.
+2. No **Choose Import Type,** clique **em Copiar a máquina virtual (crie um novo ID único)**. Em seguida, clique em **Seguinte**.
+3. No **Destino Escolha,** deixe a definição predefinida. Clique em **Seguinte**.
+4. Nas **pastas de armazenamento,** deixe a definição predefinida. Clique em **Seguinte**.
+5. In **Choose Network**, especifique o interruptor virtual que o VM irá utilizar. O switch precisa de conectividade na Internet para enviar dados para o Azure.
+6. Em **Resumo,** reveja as definições. Em seguida, clique em **Concluir**.
+7. No Hyper-V Manager > **Máquinas Virtuais,** inicie o VM.
 
 
 ### <a name="verify-appliance-access-to-azure"></a>Verifique o acesso do aparelho ao Azure
 
-Verifique o acesso ao aparelho da seguinte forma:
-
-1. Verifique se o VM pode ligar-se ao Azure.
-    - Na nuvem pública, a máquina do aparelho deve ser capaz de ligar a estes [URLs](migrate-appliance.md#public-cloud-urls).
-    - Na nuvem governamental, o aparelho deve ser capaz de ligar a estes [URLs governamentais.](migrate-appliance.md#government-cloud-urls)
-2. Certifique-se de que estas portas estão abertas na máquina do aparelho:
-
-    - Permitir ligações de entrada na porta TCP 3389, para permitir ligações remotas de ambiente de trabalho ao aparelho.
-    - Permitir que as ligações de entrada na porta 44368 acedam remotamente à aplicação web do aparelho utilizando o URL: https:// \<appliance-ip-or-name> :44368.
-    - Permitir que as ligações de saída na porta 443 (HTTPS) enviem metadados de descoberta e desempenho para Azure Migrate.
-
+Certifique-se de que o aparelho VM pode ligar-se aos URLs Azure para nuvens [públicas](migrate-appliance.md#public-cloud-urls) e [governamentais.](migrate-appliance.md#government-cloud-urls)
 
 ### <a name="configure-the-appliance"></a>Configure o aparelho
 
@@ -173,86 +184,78 @@ Coloque o aparelho pela primeira vez.
 3. Abra um browser em qualquer máquina que possa ligar ao VM e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço*IP*: 44368**.
 
    Em alternativa, pode abrir a aplicação a partir do ambiente de trabalho do aparelho clicando no atalho da aplicação.
+1. Aceite os termos da **licença**e leia as informações de terceiros.
 1. Na aplicação web > **Configurar pré-requisitos,** faça o seguinte:
-    - **Licença**: Aceite os termos da licença e leia as informações de terceiros.
     - **Conectividade**: A aplicação verifica se o VM tem acesso à Internet. Se o VM utilizar um representante:
-      - Clique **nas definições de Procuração**e especifique o endereço de procuração e a porta de audição, no formulário http://ProxyIPAddress ou http://ProxyFQDN .
+      - Clique em **Configurar o representante** para e especificar o endereço proxy (no formulário http://ProxyIPAddress ou na porta de http://ProxyFQDN) escuta.
       - Especifique as credenciais se o proxy precisar de autenticação.
       - Apenas é suportado o proxy HTTP.
+      - Se tiver adicionado detalhes de procuração ou desativado o proxy e/ou autenticação, clique em **Guardar** para ativar novamente a verificação de conectividade.
     - **Sincronização temporal:** O tempo é verificado. O tempo do aparelho deve estar sincronizado com o tempo de internet para que a descoberta de VM funcione corretamente.
-    - **Instalar atualizações**: A Azure Migrate Server Assessment verifica se o aparelho tem as últimas atualizações instaladas.
+    - **Instalar atualizações**: A Azure Migrate Server Assessment verifica se o aparelho tem as últimas atualizações instaladas. Depois de concluída a verificação, pode clicar nos **serviços do aparelho para** ver o estado e as versões dos componentes em funcionamento no aparelho.
 
-### <a name="register-the-appliance"></a>Registar o aparelho 
+### <a name="register-the-appliance-with-azure-migrate"></a>Registe o aparelho com a Azure Migrate
 
-1. In **Register with Azure Migrate**, selecione **Login**. Se não aparecer, certifique-se de ter desativado o bloqueador pop-up no navegador.
+1. Cole a chave do **projeto Azure Migrate** copiada do portal. Se não tiver a chave, vá à Avaliação do Servidor> Descubra> Gerir os **aparelhos existentes**, selecione o nome do aparelho que forneceu no momento da geração de chaves e copie a chave correspondente.
+1. Clique em **Iniciar sessão**. Abrirá um pedido de login do Azure num novo separador de navegador. Se não aparecer, certifique-se de ter desativado o bloqueador pop-up no navegador.
+1. No novo separador, inscreva-se utilizando o seu nome de utilizador E palavra-passe Azure.
+   
+   O s-in com um PIN não é suportado.
+3. Depois de iniciar sessão com sucesso, volte à aplicação web. 
+4. Se a conta de utilizador Azure utilizada para a exploração madeireira tiver as [permissões certas](tutorial-prepare-hyper-v.md#prepare-azure) sobre os recursos Azure criados durante a geração chave, o registo do aparelho será iniciado.
+1. Depois de o aparelho estar registado com sucesso, pode ver os dados do registo clicando nos **detalhes do Ver.**
 
-    ![Clique em Iniciar sessão para começar a registar o aparelho](./media/tutorial-discover-hyper-v/register.png)
-
-1. Na página **Iniciar súmis,** inscreva-se com o seu nome de utilizador E password Azure. O s-in com um PIN não é suportado.
-
-    ![Inscreva-se no botão para registar o aparelho](./media/tutorial-discover-hyper-v/sign-in.png)
-1. Depois de iniciar sins com sucesso, volte para a aplicação.
-1. No **Registo com Azure Migrate,** selecione a subscrição em que o projeto Azure Migrate foi criado e, em seguida, selecione o projeto.
-1. Especifique um nome para o aparelho. O nome deve ser alfanumérico com 14 caracteres ou menos.
-3. Selecione **Registar**. Em seguida, clique **em Continuar**. Uma mensagem mostra o registo como um sucesso.
-
-    ![Preencha o nome de subscrição, projeto e aparelho e registe o aparelho](./media/tutorial-discover-hyper-v/success-register.png)
 
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Credenciais de delegado para VHDs SMB
 
-Se estiver a executar VHDs em SMBs, deve ativar a delegação de credenciais do aparelho para os anfitriões Hiper-V. Para tal, permite que cada hospedeiro atue como delegado do aparelho. Se seguiu os tutoriais por ordem, fê-lo no tutorial anterior, quando preparou o Hyper-V para avaliação e migração. Você deveria ter configurado CredSSP para os anfitriões [manualmente](tutorial-prepare-hyper-v.md#enable-credssp-to-delegate-credentials), ou [executando um script](tutorial-prepare-hyper-v.md#run-the-script) que faz isso.
+Se estiver a executar VHDs em SMBs, deve ativar a delegação de credenciais do aparelho para os anfitriões Hiper-V. Para o fazer a partir do aparelho:
 
-Ativar o aparelho da seguinte forma:
+1. No aparelho VM, este comando. HyperVHost1/HyperVHost2 são nomes de anfitriões exemplo.
 
-#### <a name="option-1"></a>Opção 1
+    ```
+    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+    ```
 
-No aparelho VM, este comando. HyperVHost1/HyperVHost2 são nomes de anfitriões exemplo.
-
-```
-Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
-```
-
-Exemplo: ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force `
-
-#### <a name="option-2"></a>Opção 2
-
-Em alternativa, faça-o no Editor de Política do Grupo Local sobre o aparelho:
-
-1. Na **Local Computer Policy**  >  **configuração**do computador local, clique na delegação de credenciais **de sistema de modelos**  >  **System**  >  **administrativos**.
-2. Clique duas **vezes Em permitir a delegação de credenciais frescas**e selecione **Ativado**.
-3. Em **Opções**, clique em **Mostrar**, e adicione cada anfitrião Hyper-V que pretende descobrir na lista, com **wsman/** como prefixo.
-4. Em seguida, na Delegação de **Credenciais,** clique duplo **Deixe delegar credenciais frescas com autenticação do servidor apenas NTLM**. Mais uma vez, adicione cada anfitrião Hyper-V que pretende descobrir na lista, com **wsman/** como prefixo.
-
-
+2. Em alternativa, faça-o no Editor de Política do Grupo Local sobre o aparelho:
+    - Na **Local Computer Policy**  >  **configuração**do computador local, clique na delegação de credenciais **de sistema de modelos**  >  **System**  >  **administrativos**.
+    - Clique duas **vezes Em permitir a delegação de credenciais frescas**e selecione **Ativado**.
+    - Em **Opções**, clique em **Mostrar**, e adicione cada anfitrião Hyper-V que pretende descobrir na lista, com **wsman/** como prefixo.
+    - Na  **Delegação de Credenciais,** clique duplo **Deixe delegar credenciais frescas com autenticação do servidor apenas NTLM**. Mais uma vez, adicione cada anfitrião Hyper-V que pretende descobrir na lista, com **wsman/** como prefixo.
 
 ## <a name="start-continuous-discovery"></a>Iniciar a descoberta contínua
 
-O aparelho precisa de se ligar aos anfitriões Hiper-V para descobrir VMs.
+Ligue do aparelho a anfitriões ou agrupamentos Hiper-V e inicie a descoberta de VM.
+
+1. No **passo 1: Forneça credenciais de anfitrião Hyper-V**, clique em **Adicionar credenciais** para especificar um nome amigável para credenciais, adicionar **nome de utilizador** e **palavra-passe** para um anfitrião/cluster Hyper-V que o aparelho utilizará para descobrir VMs. Clique em **Guardar**.
+1. Se quiser adicionar várias credenciais de uma só vez, clique em **Adicionar mais** para guardar e adicionar mais credenciais. Várias credenciais são suportadas para a descoberta de Hiper-VMs.
+1. No **passo 2: Forneça detalhes do anfitrião/cluster hyper-V,** clique na **fonte de descoberta Add** para especificar o endereço **IP/cluster/FQDN** do hiper-V e o nome amigável para credenciais de ligação ao hospedeiro/cluster.
+1. Pode **adicionar um único item** de cada vez ou adicionar **vários itens** de uma só vez. Existe também uma opção para fornecer detalhes de anfitrião/cluster Hiper-V através **do Import CSV**.
 
 
-### <a name="connect-to-hyper-v-hosts"></a>Ligar aos anfitriões Hiper-V
+    - Se escolher **Adicionar um único item,** tem de especificar o nome amigável para credenciais e o endereço **IP/cluster/FQDN** do anfitrião Hiper-V/cluster e clicar em **Guardar**.
+    - Se escolher **Adicionar vários itens** _(selecionados por padrão)_, pode adicionar vários registos ao mesmo tempo, especificando **o endereço IP/cluster/FQDN** do Hiper-V com o nome amigável para credenciais na caixa de texto. **Verifique** os registos adicionados e clique em **Guardar**.
+    - Se escolher **O CSV de Importação,** pode descarregar um ficheiro de modelo CSV, preencher o ficheiro com o **endereço IP/FQDN** do anfitrião Hiper-V/cluster e nome amigável para credenciais. Em seguida, importa o ficheiro para o aparelho, **verifique** os registos do ficheiro e clique em **Guardar**.
 
-1. No **nome de utilizador** e na **palavra-passe,** especifique as credenciais de conta que o aparelho utilizará para descobrir VMs. Especifique um nome amigável para as credenciais e clique em **Guardar detalhes.**
-2. Clique **em Adicionar anfitrião**e especifique detalhes do anfitrião/cluster hyper-V.
-3. Clique em **Validar**. Após a validação, é indicado o número de VMs que podem ser descobertos em cada hospedeiro/cluster.
-    - Se a validação falhar para um anfitrião, reveja o erro pairando sobre o ícone na coluna **Status.** Corrija problemas e valide novamente.
-    - Para remover anfitriões ou agrupamentos, selecione > **Eliminar**.
+1. Ao clicar em Guardar, o aparelho tentará validar a ligação aos anfitriões/clusters hiper-V adicionados e mostrar o estado de **Validação** na tabela contra cada hospedeiro/cluster.
+    - Para anfitriões/clusters validados com sucesso, pode ver mais detalhes clicando no seu endereço IP/FQDN.
+    - Se a validação falhar para um anfitrião, reveja o erro clicando na **Validação falhada** na coluna Status da tabela. Corrija o problema e valide novamente.
+    - Para remover anfitriões ou agrupamentos, clique em **Apagar**.
     - Não se pode remover um hospedeiro específico de um aglomerado. Só se pode remover todo o aglomerado.
     - Pode adicionar um cluster, mesmo que existam problemas com anfitriões específicos no cluster.
-4. Após validação, clique em **Guardar e iniciar** a descoberta para iniciar o processo de descoberta.
+1. Pode **revalidar** a conectividade aos anfitriões/agrupamentos a qualquer momento antes de iniciar a descoberta.
+1. Clique em **Iniciar a descoberta**, para iniciar a descoberta de VM a partir dos anfitriões/clusters validados com sucesso. Após a descoberta ter sido iniciada com sucesso, pode verificar o estado de descoberta contra cada hospedeiro/cluster na tabela.
 
-Isto começa a ser descoberto. Demora cerca de 1,5 minutos por anfitrião para que os metadados dos servidores descobertos apareçam no portal Azure.
+Isto começa a ser descoberto. Leva aproximadamente 2 minutos por anfitrião para que os metadados dos servidores descobertos apareçam no portal Azure.
 
+## <a name="verify-vms-in-the-portal"></a>Verificar as VMs no portal
 
-### <a name="verify-discovered-vms-in-the-portal"></a>Verifique os VMs descobertos no portal
-
-Após a descoberta, pode verificar se os VMs aparecem no portal Azure:
+Após o fim da descoberta, pode verificar se os VMs aparecem no portal.
 
 1. Abra o painel Azure Migrate.
-2. Em **Azure Migrate - Servidores**  >  **Azure Migrate: Avaliação**do servidor , selecione o ícone que exibe a contagem para **servidores descobertos**.
+2. Em **Azure Migrate - Servidores**  >  **Azure Migrate:** Página de Avaliação do servidor, clique no ícone que exibe a contagem para **servidores descobertos**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Avaliar VMs hiper-V](tutorial-assess-hyper-v.md) para migração para VMs Azure.
 - [Reveja os dados](migrate-appliance.md#collected-data---hyper-v) que o aparelho recolhe durante a descoberta.

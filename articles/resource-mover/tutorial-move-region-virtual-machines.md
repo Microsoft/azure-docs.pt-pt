@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d00557e2279d236ff96a73c3a090097fbe6e5f1b
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 3a5489241aa15ce105dbe4d89086aff00373ca55
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061784"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603973"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Tutorial: Mover VMs Azure em regiões
 
@@ -68,6 +68,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Selecione os recursos que pretende mover.
 
 - Todos os tipos de recursos suportados em grupos de recursos dentro da região de origem selecionada são apresentados.
+- Não são mostrados recursos que já tenham sido adicionados para atravessar regiões.
 - Você move recursos para uma região alvo na mesma subscrição que a região de origem. Se quiser alterar a subscrição, pode fazê-lo depois de os recursos serem transferidos.
 
 1. No portal Azure, procure *por recursos.* Em seguida, em **Serviços**, selecione **Azure Resource Mover**.
@@ -89,7 +90,7 @@ Selecione os recursos que pretende mover.
     ![Página para selecionar VMs para mover](./media/tutorial-move-region-virtual-machines/select-vm.png)
 
 8.  Em **Recursos a mover- se,** clique em **Seguinte**.
-9. Em **Comentário + Adicionar,** verifique as definições de origem e destino. Verifique se compreende que os metadados sobre a mudança serão armazenados num grupo de recursos criado para o efeito na região dos metadados.
+9. Em **Comentário + Adicionar,** verifique as definições de origem e destino. 
 
     ![Página para rever definições e proceder com movimento](./media/tutorial-move-region-virtual-machines/review.png)
 10. Clique **em Continuar,** para começar a adicionar os recursos.
@@ -234,7 +235,8 @@ Se quiser concluir o processo de mudança, cometa o movimento.
 
 ## <a name="configure-settings-after-the-move"></a>Configurar definições após o movimento
 
-O serviço de Mobilidade não é desinstalado automaticamente a partir de VMs. Desinstale-o manualmente ou deixe-o se planeia mover o servidor novamente.
+- O serviço de Mobilidade não é desinstalado automaticamente a partir de VMs. Desinstale-o manualmente ou deixe-o se planeia mover o servidor novamente.
+- Modifique as regras de controlo de acesso baseado em funções (Azure RBAC) após a mudança.
 
 ## <a name="delete-source-resources-after-commit"></a>Eliminar recursos de origem após cometer
 
@@ -258,7 +260,7 @@ Eliminar da seguinte forma:
     - O nome da coleção move é ```movecollection-<sourceregion>-<target-region>``` .
     - O nome da conta de armazenamento de cache é ```resmovecache<guid>```
     - O nome do cofre ```ResourceMove-<sourceregion>-<target-region>-GUID``` é.
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial:
 

@@ -2,17 +2,19 @@
 title: Definir vários casos de uma propriedade
 description: Utilize a operação de cópia num modelo do Gestor de Recursos Azure para iterar várias vezes ao criar uma propriedade num recurso.
 ms.topic: conceptual
-ms.date: 04/14/2020
-ms.openlocfilehash: 61122b01889da832a73f729833ab0af676904d54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/15/2020
+ms.openlocfilehash: f199872d5bb8a0333bf7bedb9501a6ca1b884691
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678465"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605248"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteração de propriedade em modelos ARM
 
-Este artigo mostra-lhe como criar mais de um caso de propriedade no seu modelo Azure Resource Manager (ARM). Ao adicionar o elemento **de cópia** à secção de propriedades de um recurso no seu modelo, pode definir dinamicamente o número de itens para uma propriedade durante a implantação. Evite também ter de repetir a sintaxe do modelo.
+Este artigo mostra-lhe como criar mais de um exemplo de uma propriedade no seu modelo de Gestor de Recursos Azure (modelo ARM). Ao adicionar o elemento **de cópia** à secção de propriedades de um recurso no seu modelo, pode definir dinamicamente o número de itens para uma propriedade durante a implantação. Evite também ter de repetir a sintaxe do modelo.
+
+Só pode utilizar cópia com recursos de alto nível, mesmo quando se aplica uma cópia a uma propriedade. Para aprender a mudar um recurso para uma criança para um recurso de alto nível, consulte [a Iteração para um recurso infantil](copy-resources.md#iteration-for-a-child-resource).
 
 Também pode utilizar cópia com [recursos,](copy-resources.md) [variáveis](copy-variables.md)e [saídas.](copy-outputs.md)
 
@@ -252,11 +254,11 @@ Pode utilizar a iteração de recursos e propriedades em conjunto. Referenciar a
 
 O exemplo a seguir mostra um cenário comum para criar mais do que um valor para uma propriedade.
 
-|Modelo  |Descrição  |
+|Modelo  |Description  |
 |---------|---------|
 |[Implementação de VM com um número variável de discos de dados](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Implementa vários discos de dados com uma máquina virtual. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para passar por um tutorial, consulte [Tutorial: crie múltiplas instâncias de recursos utilizando modelos ARM](template-tutorial-create-multiple-instances.md).
 * Para outras utilizações do elemento de cópia, consulte:

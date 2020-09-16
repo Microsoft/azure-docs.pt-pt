@@ -2,14 +2,14 @@
 title: Utilize a Galeria de Imagens Partilhadas para criar uma piscina de imagens personalizada
 description: As piscinas de imagem personalizadas são uma forma eficiente de configurar os nós computacional para executar as cargas de trabalho do Lote.
 ms.topic: conceptual
-ms.date: 07/01/2020
+ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: aad8b279ce821496d4c947bc7f9c707243468f07
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 31fcbff50a2a66aec1643f1bac351e0401205861
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852417"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605197"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Utilize a Galeria de Imagens Partilhadas para criar uma piscina de imagens personalizada
 
@@ -43,7 +43,9 @@ A utilização de uma Imagem Partilhada configurada para o seu cenário pode pro
 - **Uma imagem da Galeria de Imagens Partilhada.** Para criar uma Imagem Partilhada, é necessário ter ou criar um recurso de imagem gerido. A imagem deve ser criada a partir de instantâneos do disco de oss do VM e opcionalmente dos seus discos de dados anexados.
 
 > [!NOTE]
-> A sua Imagem Partilhada deve estar na mesma subscrição que a conta Batch. A imagem pode ser em diferentes regiões desde que tenha réplicas na mesma região que a sua conta Batch.
+> Se a Imagem Partilhada não estiver na mesma subscrição que a conta Batch, deverá [registar o fornecedor de recursos ch Microsoft.Bat](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) para essa subscrição. As duas assinaturas devem estar no mesmo inquilino da AD Azure.
+>
+> A imagem pode estar numa região diferente, desde que tenha réplicas na mesma região que a sua conta Batch.
 
 Se utilizar uma aplicação AD Azure para criar um pool de imagens personalizado com uma imagem da Galeria de Imagens Partilhada, essa aplicação deve ter recebido um [papel incorporado Azure](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) que lhe dá acesso à Imagem Partilhada. Pode conceder este acesso no portal Azure navegando na Imagem Partilhada, selecionando o **controlo de acesso (IAM)** e adicionando uma atribuição de funções para a aplicação.
 
@@ -87,7 +89,7 @@ Uma vez criada com sucesso a sua imagem gerida, precisa de criar uma Galeria de 
 
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Criar uma piscina a partir de uma imagem partilhada usando o Azure CLI
 
-Para criar uma piscina a partir da sua Imagem Partilhada utilizando o CLI Azure, utilize o `az batch pool create` comando. Especifique o ID de imagem partilhado no `--image` campo. Certifique-se de que o tipo de SO e SKU correspondem às versões especificadas por`--node-agent-sku-id`
+Para criar uma piscina a partir da sua Imagem Partilhada utilizando o CLI Azure, utilize o `az batch pool create` comando. Especifique o ID de imagem partilhado no `--image` campo. Certifique-se de que o tipo de SO e SKU correspondem às versões especificadas por `--node-agent-sku-id`
 
 > [!NOTE]
 > Você precisa autenticar usando Azure AD. Se utilizar o auth de tecla partilhada, obterá um erro de autenticação.  

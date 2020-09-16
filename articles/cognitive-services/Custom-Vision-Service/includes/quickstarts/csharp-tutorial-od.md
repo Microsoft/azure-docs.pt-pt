@@ -2,24 +2,27 @@
 author: PatrickFarley
 ms.author: pafarley
 ms.service: cognitive-services
-ms.date: 08/17/2020
-ms.openlocfilehash: 8af5d8ad2ed4d623d7128ffa5fba3c9e3647a057
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/15/2020
+ms.openlocfilehash: c9f5b5e84955c1974c19d0ccff1a89560fd3e78a
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90533278"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604889"
 ---
-Este artigo mostra-lhe como começar a usar a biblioteca de clientes Custom Vision com C# para construir um modelo de deteção de objetos. Depois de criado, pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter o URL final de previsão padrão do projeto, e usar o ponto final para testar programáticamente uma imagem. Use este exemplo como um modelo para construir a sua própria aplicação .NET. 
+Este guia fornece instruções e código de amostra para ajudá-lo a começar a usar a biblioteca de clientes Custom Vision para C# para construir um modelo de deteção de objetos. Você vai criar um projeto, adicionar tags, treinar o projeto, e usar o URL de previsão do projeto para testá-lo programáticamente. Use este exemplo como um modelo para construir a sua própria app de reconhecimento de imagem.
+
+> [!NOTE]
+> Se quiser construir e treinar um modelo de deteção de _objetos sem_ escrever código, consulte a [orientação baseada no navegador.](../../get-started-build-detector.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/)
 - [!INCLUDE [create-resources](../../includes/create-resources.md)]
 
-## <a name="get-the-custom-vision-client-library-and-sample-code"></a>Obtenha a biblioteca de clientes Visão Personalizada e o código de amostra
+## <a name="install-the-custom-vision-client-library"></a>Instale a biblioteca de clientes Custom Vision
 
-Para escrever uma aplicação .NET que utiliza visão personalizada, vai precisar dos pacotes Custom Vision NuGet. Estes pacotes estão incluídos no projeto de amostra que você vai descarregar, mas você pode acessá-los individualmente aqui.
+Para escrever uma aplicação de análise de imagem com visão personalizada para .NET, você precisará dos pacotes Custom Vision NuGet. Estes pacotes estão incluídos no projeto de amostra que você vai descarregar, mas você pode acessá-los individualmente aqui.
 
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 - [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
@@ -87,7 +90,7 @@ O nome dado à iteração publicada pode ser usado para enviar pedidos de previs
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?name=snippet_prediction_endpoint)]
 
-## <a name="use-the-prediction-endpoint"></a>Use o ponto final da previsão
+## <a name="test-the-prediction-endpoint"></a>Teste o ponto final de previsão
 
 Esta parte do script carrega a imagem de teste, consulta o ponto final do modelo e produz dados de previsão para a consola.
 
@@ -113,7 +116,10 @@ Pode então verificar se a imagem de teste (encontrada em **Imagens/Teste/** ) e
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora já viste como fazer todos os passos do processo de deteção de objetos em código. Esta amostra executa uma única iteração de treino, mas muitas vezes você precisa treinar e testar o seu modelo várias vezes para torná-lo mais preciso. O guia seguinte aborda a classificação de imagens, mas os seus princípios são semelhantes à deteção de objetos.
+Agora já fizeste todos os passos do processo de deteção de objetos em código. Esta amostra executa uma única iteração de treino, mas muitas vezes você precisa treinar e testar o seu modelo várias vezes para torná-lo mais preciso. O guia seguinte aborda a classificação de imagens, mas os seus princípios são semelhantes à deteção de objetos.
 
 > [!div class="nextstepaction"]
 > [Test and retrain a model](../../test-your-model.md) (Testar e voltar a preparar um modelo)
+
+* [O que é a Visão Personalizada?](../../overview.md)
+* [Documentação de referência da SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet)

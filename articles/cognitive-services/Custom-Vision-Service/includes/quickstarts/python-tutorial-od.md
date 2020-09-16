@@ -2,15 +2,18 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
-ms.openlocfilehash: 21ee22e7a493a6bbc8b5934e353db7c59b4aa17d
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/15/2020
+ms.openlocfilehash: 16fbffa31563920e28538a961e621c894d105173
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90533157"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604908"
 ---
-Este artigo mostra-lhe como começar a usar a biblioteca de clientes Da Visão Personalizada com Python para construir um modelo de deteção de objetos. Depois de criado, pode adicionar regiões marcadas, carregar imagens, treinar o projeto, obter o URL de previsão publicado do projeto e usar o ponto final para testar programáticamente uma imagem. Utilize este exemplo como um modelo para criar a sua aplicação de Python.
+Este guia fornece instruções e código de amostra para ajudá-lo a começar a usar a biblioteca de clientes Custom Vision para Python para construir um modelo de deteção de objetos. Você vai criar um projeto, adicionar tags, treinar o projeto, e usar o URL de previsão do projeto para testá-lo programáticamente. Use este exemplo como um modelo para construir a sua própria app de reconhecimento de imagem.
+
+> [!NOTE]
+> Se quiser construir e treinar um modelo de deteção de _objetos sem_ escrever código, consulte a [orientação baseada no navegador.](../../get-started-build-detector.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -20,7 +23,7 @@ Este artigo mostra-lhe como começar a usar a biblioteca de clientes Da Visão P
 
 ## <a name="install-the-custom-vision-client-library"></a>Instale a biblioteca de clientes Custom Vision
 
-Para instalar a biblioteca de clientes de serviço De Visão Personalizada para Python, executar o seguinte comando em PowerShell:
+Para escrever uma aplicação de análise de imagem com visão personalizada para python, você precisará da biblioteca de clientes Custom Vision. Executar o seguinte comando em PowerShell:
 
 ```powershell
 pip install azure-cognitiveservices-vision-customvision
@@ -36,7 +39,7 @@ Pode transferir as imagens com os [Exemplos de Python](https://github.com/Azure-
 
 Crie um novo ficheiro chamado *sample.py* no seu diretório de projetos preferido.
 
-### <a name="create-the-custom-vision-service-project"></a>Criar o projeto do serviço de Visão Personalizada
+## <a name="create-the-custom-vision-project"></a>Criar o projeto Visão Personalizada
 
 Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira as chaves de subscrição nas definições apropriadas. Além disso, obtenha o url do Ponto Final na página de Definições do website Da Visão Personalizada.
 
@@ -67,7 +70,7 @@ print ("Creating project...")
 project = trainer.create_project("My Detection Project", domain_id=obj_detection_domain.id)
 ```
 
-### <a name="create-tags-in-the-project"></a>Criar etiquetas no projeto
+## <a name="create-tags-in-the-project"></a>Criar etiquetas no projeto
 
 Para criar tags de objetos no seu projeto, adicione o seguinte código ao final de *sample.py:*
 
@@ -77,7 +80,7 @@ fork_tag = trainer.create_tag(project.id, "fork")
 scissors_tag = trainer.create_tag(project.id, "scissors")
 ```
 
-### <a name="upload-and-tag-images"></a>Enviar e marcar imagens
+## <a name="upload-and-tag-images"></a>Enviar e marcar imagens
 
 Quando marca imagens em projetos de deteção de objetos, é necessário especificar a região de cada objeto marcado utilizando coordenadas normalizadas.
 
@@ -170,7 +173,7 @@ if not upload_result.is_batch_successful:
     exit(-1)
 ```
 
-### <a name="train-the-project-and-publish"></a>Treine o projeto e publique
+## <a name="train-and-publish-the-project"></a>Treine e publique o projeto
 
 Este código cria a primeira iteração do modelo de previsão e, em seguida, publica essa iteração para o ponto final de previsão. O nome dado à iteração publicada pode ser usado para enviar pedidos de previsão. Uma iteração não está disponível no ponto final da previsão até que seja publicada.
 
@@ -194,7 +197,7 @@ print ("Done!")
 >
 > Pode treinar opcionalmente apenas um subconjunto das suas etiquetas aplicadas. Podes querer fazer isto se ainda não aplicaste o suficiente de certas etiquetas, mas tens o suficiente de outras. Na **[chamada train_project,](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#train-project-project-id--training-type-none--reserved-budget-in-hours-0--force-train-false--notification-email-address-none--selected-tags-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** desa um parâmetro opcional *selected_tags* a uma lista das cordas de ID das etiquetas que pretende utilizar. O modelo treinará para reconhecer apenas as etiquetas dessa lista.
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e usar a iteração publicada no ponto final da previsão
+## <a name="use-the-prediction-endpoint"></a>Use o ponto final da previsão
 
 Para enviar uma imagem para o ponto final de predição e obter a mesma, adicione o seguinte código no fim do ficheiro:
 
@@ -229,7 +232,10 @@ A saída da aplicação deverá aparecer na consola. Pode, em seguida, certifica
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora já viste como cada passo do processo de deteção de objetos pode ser feito em código. Esta amostra executa uma única iteração de treino, mas muitas vezes você precisa treinar e testar o seu modelo várias vezes para torná-lo mais preciso. O seguinte guia de formação trata da classificação da imagem, mas os seus princípios são semelhantes à deteção de objetos.
+Agora já fizeste todos os passos do processo de deteção de objetos em código. Esta amostra executa uma única iteração de treino, mas muitas vezes você precisa treinar e testar o seu modelo várias vezes para torná-lo mais preciso. O guia seguinte aborda a classificação de imagens, mas os seus princípios são semelhantes à deteção de objetos.
 
 > [!div class="nextstepaction"]
 > [Test and retrain a model](../../test-your-model.md) (Testar e voltar a preparar um modelo)
+
+* [O que é a Visão Personalizada?](../../overview.md)
+* [Documentação de referência da SDK](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)

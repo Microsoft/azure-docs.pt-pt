@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 034f5c487750600910cb32f73bcc6ea243b3ec6f
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: e75cb7d13fb74d32191ab7f076d73ad66976503d
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563460"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90606346"
 ---
 A Azure Files oferece quatro níveis diferentes de armazenamento, premium, transação otimizado, quente e fresco para permitir-lhe adaptar as suas ações aos requisitos de desempenho e preço do seu cenário:
 
@@ -24,6 +24,6 @@ A Azure Files oferece quatro níveis diferentes de armazenamento, premium, trans
 
 As ações de ficheiros premium só estão disponíveis num modelo de faturação provisionado. Para obter mais informações sobre o modelo de faturação previsto para ações de ficheiros premium, consulte [a compreensão das ações de ficheiros premium](../articles/storage/files/storage-files-planning.md#understanding-provisioning-for-premium-file-shares). As ações de ficheiros standard, incluindo ações de ficheiros otimizadas, quentes e legais, estão disponíveis através do pagamento à medida que vai fazendo a faturação.
 
-As ações de ficheiros quentes e frescos estão disponíveis em todas as regiões públicas do Azure. As ações de ficheiros otimizadas de transações estão disponíveis em todas as regiões do Azure, incluindo regiões de nuvem nacionais.
+As ações de ficheiros quentes e frescos estão disponíveis em todas as regiões do Governo Azure Public e Azure. As ações de ficheiros otimizadas de transações estão disponíveis em todas as regiões do Azure, incluindo as regiões da Azure China e Azure Germany.
 
 Para implementar uma partilha de ficheiros quente ou legal, consulte [Criar uma partilha de ficheiros quente ou legal](../articles/storage/files/storage-how-to-create-file-share.md#create-a-hot-or-cool-file-share). 

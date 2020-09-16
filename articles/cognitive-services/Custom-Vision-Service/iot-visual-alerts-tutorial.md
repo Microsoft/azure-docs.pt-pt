@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 5582056f1bae2dbeb69a7d05044f055ff1394bd5
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: ebc6ca630ea3cabb519805ae8505abf336a2a9ea
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88244674"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604296"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Tutorial: Use a Visão Personalizada com um dispositivo IoT para reportar estados visuais
 
@@ -52,11 +52,11 @@ A aplicação IoT Visual Alerts funciona em ciclo contínuo, alternando entre qu
 * **Waiting For Trained Model**: Neste estado, a aplicação chama a API de Visão Personalizada a cada segundo para verificar se o projeto-alvo contém uma iteração treinada. Quando encontra um, descarrega o modelo ONNX correspondente para um ficheiro local e muda para o estado **de Pontuação.**
 * **Pontuação**: Neste estado, a aplicação utiliza o Windows ML para avaliar uma única moldura da câmara contra o modelo ONNX local. A classificação de imagem resultante é exibida no ecrã e enviada como mensagem para o IoT Hub. A aplicação dorme então durante um segundo antes de marcar uma nova imagem.
 
-## <a name="understand-the-code-structure"></a>Compreender a estrutura de código
+## <a name="examine-the-code-structure"></a>Examinar a estrutura de código
 
 Os seguintes ficheiros tratam da funcionalidade principal da aplicação.
 
-| Ficheiro | Descrição |
+| Ficheiro | Description |
 |-------------|-------------|
 | [MainPage.xaml](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml) | Este ficheiro define a interface de utilizador XAML. Acolhe o controlo da câmara web e contém as etiquetas utilizadas para atualizações de estado.|
 | [MainPage.xaml.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml.cs) | Este código controla o comportamento da UI XAML. Contém o código de processamento da máquina estatal.|
@@ -98,13 +98,13 @@ Enquanto a aplicação está a captar imagens, deve expor a câmara aos tipos de
 
 ## <a name="train-the-custom-vision-model"></a>Treine o modelo de visão personalizada
 
-Uma vez terminada a captura de imagens, irá carregá-las e depois mudar para o estado **do Modelo De Espera Treinado.** Neste momento, você precisa ir ao [portal Visão Personalizada](https://www.customvision.ai/) e construir um modelo baseado nas novas imagens de treino. A animação que se segue mostra um exemplo deste processo.
+Uma vez terminada a captura de imagens, irá carregá-las e depois mudar para o estado **do Modelo De Espera Treinado.** Neste momento, você precisa ir ao [site da Visão Personalizada](https://www.customvision.ai/) e construir um modelo baseado nas novas imagens de treino. A animação que se segue mostra um exemplo deste processo.
 
 ![Animação: marcação de múltiplas imagens de bananas](./media/iot-visual-alerts-tutorial/labeling.gif)
 
 Para repetir este processo com o seu próprio cenário:
 
-1. Inscreva-se no [portal Visão Personalizada.](http://customvision.ai)
+1. Inscreva-se no site da [Visão Personalizada.](http://customvision.ai)
 1. Encontre o seu projeto-alvo, que deve agora ter todas as imagens de treino que a aplicação carregou.
 1. Para cada estado visual que pretende identificar, selecione as imagens apropriadas e aplique manualmente a etiqueta.
     * Por exemplo, se o seu objetivo é distinguir entre uma sala vazia e uma sala com pessoas dentro, recomendamos marcar cinco ou mais imagens com as pessoas como uma nova classe, **People**, e marcar cinco ou mais imagens sem pessoas como a etiqueta **Negative.** Isto ajudará o modelo a diferenciar os dois Estados.
@@ -128,7 +128,7 @@ Em qualquer ponto, pode repetir o passo de carregar imagens de treino clicando n
 
 Se estiver a executar a aplicação num dispositivo e precisar de recuperar novamente o endereço IP (para estabelecer uma ligação remota através do [Cliente Remoto Windows IoT,](https://www.microsoft.com/p/windows-iot-remote-client/9nblggh5mnxz#activetab=pivot:overviewtab)por exemplo), pode ligar para o método através do `GetIpAddress` IoT Hub.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Elimine o seu projeto De Visão Personalizada se já não quiser mantê-lo. No site da [Visão Personalizada,](https://customvision.ai)navegue para **Projetos** e selecione o caixote do lixo no âmbito do seu novo projeto.
 

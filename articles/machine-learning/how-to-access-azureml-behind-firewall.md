@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 443649826e821014e0e9918526a363a944b5eceb
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 081c07be49178be2415edccbfc2026336eb8a8a5
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660006"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604415"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Use espaço de trabalho atrás de uma firewall para aprendizagem de máquinas Azure
 
@@ -33,6 +33,10 @@ Na sua firewall, crie uma _regra de aplicação_ que permite o tráfego de e par
 >
 > Para obter mais informações sobre a configuração do Azure Firewall, consulte [implementar e configurar a Firewall Azure](../firewall/tutorial-firewall-deploy-portal.md#configure-an-application-rule).
 
+## <a name="routes"></a>Rotas
+
+Ao configurar a rota de saída para a sub-rede que contém recursos de Aprendizagem de Máquinas Azure, utilize a orientação na secção [de túneis forçados](how-to-secure-training-vnet.md#forced-tunneling) para assegurar o ambiente de treino.
+
 ## <a name="microsoft-hosts"></a>Anfitriões da Microsoft
 
 Se não estiver configurada corretamente, a firewall pode causar problemas utilizando o seu espaço de trabalho. Há uma variedade de nomes hospedeiros que são usados tanto pelo espaço de trabalho Azure Machine Learning.
@@ -41,6 +45,8 @@ Os anfitriões desta secção são propriedade da Microsoft e fornecem serviços
 
 | **Nome do anfitrião** | **Objetivo** |
 | ---- | ---- |
+| **login.microsoftonline.com** | Autenticação |
+| **management.azure.com** | Usado para obter a informação do espaço de trabalho |
 | **\*.batchai.core.windows.net** | Agrupamentos de formação |
 | **ml.azure.com** | Azure Machine Learning studio |
 | **default.exp-tas.com** | Usado pelo estúdio Azure Machine Learning |
@@ -59,13 +65,16 @@ Os anfitriões desta secção são propriedade da Microsoft e fornecem serviços
 | **\*.notebooks.azure.net** | Necessário pelos cadernos no estúdio Azure Machine Learning. |
 | **graph.windows.net** | Necessário para cadernos |
 
+> [!TIP]
+> Se planeia utilizar a identidade federada, siga as Melhores Práticas para garantir o artigo [da Federação de Diretórios Ativos.](/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs)
+
 ## <a name="python-hosts"></a>Anfitriões python
 
 Os anfitriões desta secção são utilizados para instalar pacotes Python. São necessários durante o desenvolvimento, formação e implantação. 
 
 | **Nome do anfitrião** | **Objetivo** |
 | ---- | ---- |
-| **anaconda.com** | Usado para instalar pacotes predefinidos. |
+| **anaconda.com**</br>**\*.anaconda.com** | Usado para instalar pacotes predefinidos. |
 | **\*.anaconda.org** | Usado para obter dados de repo. |
 | **pypi.org** | Usado para listar dependências do índice padrão, se houver, e o índice não é substituído pelas definições do utilizador. Se o índice for substituído, também deve permitir ** \* que .pythonhosted.org**. |
 
@@ -89,7 +98,7 @@ URLs necessários para as regiões do Governo de Azure.
 | **usgovarizona.api.ml.azure.us** | A região EUA-Arizona |
 | **usgovvirginia.api.ml.azure.us** | A região EUA-Virgínia |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Tutorial: Implementar e configurar o Azure Firewall com o portal do Azure](../firewall/tutorial-firewall-deploy-portal.md)
 * [Proteger as tarefas de experimentação e de inferência do Azure ML numa Rede Virtual do Azure](how-to-network-security-overview.md)

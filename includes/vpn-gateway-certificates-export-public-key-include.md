@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 03/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: d2dba0f657b418267db90c07014dc8996ed12a10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f71703dcb6afb5ce7610bf1c5374de1cc98816b0
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80059948"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606297"
 ---
 Depois de criar um certificado de raiz auto-assinado, exporte o certificado de raiz do ficheiro público .cer (não a chave privada). Mais tarde, irá enviar este ficheiro para o Azure. Os seguintes passos ajudam-no a exportar o ficheiro .cer para o seu certificado de raiz auto-assinado:
 
 1. Para obter um ficheiro .cer a partir do certificado, abra **Gerir certificados de utilizador**. Localize o certificado de raiz autoassinado, normalmente em ''Certificates - Current User\Personal\Certificates'', e clique com o botão direito do rato. Clique em **Todas as Tarefas** e, em seguida, clique em **Exportar**. Esta ação abre o **Assistente para Exportar Certificados**. Se não conseguir encontrar o certificado nos termos do Utilizador Atual\Personal\Certificates, poderá ter aberto acidentalmente "Certificados - Computador Local", em vez de "Certificados - Utilizador Atual"). Se pretender abrir o Certificate Manager no âmbito atual do utilizador utilizando o PowerShell, digite *certmgr* na janela da consola.
 
-   ![Exportar](./media/vpn-gateway-certificates-export-public-key-include/export.png)
+   ![O Screenshot mostra a janela certificados para o utilizador atual com certificados selecionados e um menu contextual com todas as tarefas selecionadas.](./media/vpn-gateway-certificates-export-public-key-include/export.png)
 2. No Assistente, clique em **Seguinte**.
 
    ![Exportar o certificado](./media/vpn-gateway-certificates-export-public-key-include/exportwizard.png)
@@ -31,16 +31,16 @@ Depois de criar um certificado de raiz auto-assinado, exporte o certificado de r
    ![Base-64 codificada](./media/vpn-gateway-certificates-export-public-key-include/base64.png)
 5. Para **arquivar para exportar,** **navegue** para o local para onde pretende exportar o certificado. Em **Nome do ficheiro**, atribua um nome ao ficheiro de certificado. Em seguida, clique **em Seguinte**.
 
-   ![Procurar](./media/vpn-gateway-certificates-export-public-key-include/browse.png)
+   ![A screenshot mostra o Assistente de Exportação de Certificados com uma caixa de texto com nome de ficheiro e uma opção Browse.](./media/vpn-gateway-certificates-export-public-key-include/browse.png)
 6. Clique em **Concluir** para exportar o certificado.
 
-   ![Concluir](./media/vpn-gateway-certificates-export-public-key-include/finish.png)
+   ![A screenshot mostra a página final do Certificado De exportação com as definições selecionadas.](./media/vpn-gateway-certificates-export-public-key-include/finish.png)
 7. O seu certificado é exportado com sucesso.
 
-   ![Êxito](./media/vpn-gateway-certificates-export-public-key-include/success.png)
+   ![A screenshot mostra uma mensagem de que a exportação foi bem sucedida.](./media/vpn-gateway-certificates-export-public-key-include/success.png)
 8. O certificado exportado é semelhante a este:
 
-   ![Exportado](./media/vpn-gateway-certificates-export-public-key-include/exported.png)
+   ![A screenshot mostra um ícone de certificado e nome de ficheiro com a extensão do nome do ficheiro c e r.](./media/vpn-gateway-certificates-export-public-key-include/exported.png)
 9. Se abrir o certificado exportado usando o Bloco de Notas, vê algo semelhante a este exemplo. A secção azul contém a informação que é enviada para Azure. Se abrir o certificado com o Notepad e não se parecer com este, normalmente isto significa que não o exportou utilizando o X.509 codificado base-64(. Formato CER). Além disso, se quiser usar um editor de texto diferente, entenda que alguns editores podem introduzir formatação não intencional em segundo plano. Isto pode criar problemas quando enviado o texto deste certificado para Azure.
 
    ![Aberto com Bloco de Notas](./media/vpn-gateway-certificates-export-public-key-include/notepad.png)

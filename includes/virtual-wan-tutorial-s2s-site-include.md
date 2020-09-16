@@ -1,6 +1,6 @@
 ---
-title: incluir ficheiro
-description: incluir ficheiro
+title: ficheiro de inclusão
+description: ficheiro de inclusão
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 06/23/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: bc94f31887526f387413f78fe3270784a4e3bd88
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ba69b94514a0c1b59001011a64a4fb28e5e4a827
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525184"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606259"
 ---
 1. Na página do portal para o seu wan virtual, na secção **Conectividade,** selecione **sites VPN** para abrir a página de sites VPN.
 2. Na página **Sites de VPN**, clique em **+Criar site**.
 
-   ![Informações básicas](./media/virtual-wan-tutorial-site-include/basics.png "Informações básicas")
+   ![A screenshot mostra o site V P N para a janela do local com o painel do Site Create VPN aberto.](./media/virtual-wan-tutorial-site-include/basics.png "Noções básicas")
 3. Na página **do Site Create VPN,** no separador **Básicos,** complete os seguintes campos:
 
     * **Região** - Anteriormente referida como localização. Esta é a localização em que pretende criar este recurso do site.
@@ -29,7 +29,7 @@ ms.locfileid: "86525184"
     * **Hubs** - O hub ao que pretende que o seu Site se conecte. Um site só pode ser conectado aos centros que têm um Gateway VPN. Se não vir um hub, crie uma porta de entrada VPN naquele centro primeiro.
 4. Selecione **Links** para adicionar informações sobre as ligações físicas no ramo. Se tiver um dispositivo CPE parceiro virtual, consulte com eles para ver se esta informação é trocada com o Azure como parte do upload de informações da sucursal configurados a partir dos seus sistemas.
 
-   ![ligações](./media/virtual-wan-tutorial-site-include/links.png "Ligações")
+   ![A screenshot mostra o painel do Site Create V P N com o separador Links selecionado.](./media/virtual-wan-tutorial-site-include/links.png "Ligações")
 
     * **Nome do link** - Um nome que pretende fornecer para o link físico no Site VPN. Exemplo: mylink1.
     * **Nome do Provedor** - O nome do link físico no Site VPN. Exemplo: ATT, Verizon.

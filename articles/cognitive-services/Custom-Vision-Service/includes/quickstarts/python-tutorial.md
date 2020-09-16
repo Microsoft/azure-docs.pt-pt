@@ -2,15 +2,18 @@
 author: areddish
 ms.author: areddish
 ms.service: cognitive-services
-ms.date: 08/17/2020
-ms.openlocfilehash: 1bf0ecbc996fe853a6ca1d0ed5a749c798383146
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.date: 09/15/2020
+ms.openlocfilehash: a091222b01669c6b83c599787c61dcd6b62b05d0
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508589"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605014"
 ---
-Este artigo mostra-lhe como começar a usar a biblioteca de clientes Da Visão Personalizada com Python para construir um modelo de classificação de imagem. Depois de criado, pode adicionar tags, carregar imagens, treinar o projeto, obter o URL de previsão publicado do projeto e usar o ponto final para testar programáticamente uma imagem. Utilize este exemplo como um modelo para criar a sua aplicação de Python. Se quiser percorrer o processo de compilar e utilizar um modelo de classificação _sem_ recorrer a código, veja antes as [orientações baseadas no browser](../../getting-started-build-a-classifier.md).
+Este guia fornece instruções e código de amostra para ajudá-lo a começar a usar a biblioteca de clientes Da Visão Personalizada para Python para construir um modelo de classificação de imagem. Você vai criar um projeto, adicionar tags, treinar o projeto, e usar o URL de previsão do projeto para testá-lo programáticamente. Use este exemplo como um modelo para construir a sua própria app de reconhecimento de imagem.
+
+> [!NOTE]
+> Se quiser construir e treinar um modelo de classificação _sem_ escrever código, consulte a [orientação baseada no navegador.](../../getting-started-build-a-classifier.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -20,7 +23,7 @@ Este artigo mostra-lhe como começar a usar a biblioteca de clientes Da Visão P
 
 ## <a name="install-the-custom-vision-client-library"></a>Instale a biblioteca de clientes Custom Vision
 
-Para instalar a biblioteca de clientes de serviço De Visão Personalizada para Python, executar o seguinte comando em PowerShell:
+Para escrever uma aplicação de análise de imagem com visão personalizada para python, você precisará da biblioteca de clientes Custom Vision. Executar o seguinte comando em PowerShell:
 
 ```powershell
 pip install azure-cognitiveservices-vision-customvision
@@ -34,7 +37,7 @@ pip install azure-cognitiveservices-vision-customvision
 
 Crie um novo ficheiro chamado *sample.py* no seu diretório de projetos preferido.
 
-### <a name="create-the-custom-vision-service-project"></a>Criar o projeto do serviço de Visão Personalizada
+## <a name="create-the-custom-vision-project"></a>Criar o projeto Visão Personalizada
 
 Adicione o código seguinte ao seu script para criar um novo projeto do serviço de Visão Personalizada. Insira as chaves de subscrição nas definições apropriadas. Além disso, obtenha o url do Ponto Final na página de Definições do website Da Visão Personalizada.
 
@@ -62,7 +65,7 @@ print ("Creating project...")
 project = trainer.create_project("My New Project")
 ```
 
-### <a name="create-tags-in-the-project"></a>Criar etiquetas no projeto
+## <a name="create-tags-in-the-project"></a>Criar etiquetas no projeto
 
 Para criar etiquetas de classificação no seu projeto, adicione o seguinte código no fim de *sample.py*:
 
@@ -72,7 +75,7 @@ hemlock_tag = trainer.create_tag(project.id, "Hemlock")
 cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
 ```
 
-### <a name="upload-and-tag-images"></a>Enviar e marcar imagens
+## <a name="upload-and-tag-images"></a>Enviar e marcar imagens
 
 Para adicionar as imagens de exemplo ao projeto, insira o seguinte código após a criação da etiqueta. Este código carrega cada imagem com a etiqueta correspondente. Pode carregar até 64 imagens num único lote.
 
@@ -104,7 +107,7 @@ if not upload_result.is_batch_successful:
     exit(-1)
 ```
 
-### <a name="train-the-classifier-and-publish"></a>Treine o classificador e publique
+## <a name="train-and-publish-the-project"></a>Treine e publique o projeto
 
 Este código cria a primeira iteração do modelo de previsão e, em seguida, publica essa iteração para o ponto final de previsão. O nome dado à iteração publicada pode ser usado para enviar pedidos de previsão. Uma iteração não está disponível no ponto final da previsão até que seja publicada.
 
@@ -123,7 +126,7 @@ trainer.publish_iteration(project.id, iteration.id, publish_iteration_name, pred
 print ("Done!")
 ```
 
-### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obter e usar a iteração publicada no ponto final da previsão
+## <a name="use-the-prediction-endpoint"></a>Use o ponto final da previsão
 
 Para enviar uma imagem para o ponto final de predição e obter a mesma, adicione o seguinte código no fim do ficheiro:
 
@@ -176,3 +179,6 @@ Agora já viste como cada passo do processo de deteção de objetos pode ser fei
 
 > [!div class="nextstepaction"]
 > [Test and retrain a model](../../test-your-model.md) (Testar e voltar a preparar um modelo)
+
+* [O que é a Visão Personalizada?](../../overview.md)
+* [Documentação de referência da SDK](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)

@@ -103,9 +103,9 @@
           displayName: studio
           href: concept-designer.md
         - name: Referência rápida para algoritmos
-          href: /azure/machine-learning/algorithm-cheat-sheet
+          href: algorithm-cheat-sheet.md
         - name: Como selecionar algoritmos
-          href: /azure/machine-learning/how-to-select-algorithms
+          href: how-to-select-algorithms.md
     - name: ML Automatizado
       items:
         - name: Descrição geral de ML Automatizado
