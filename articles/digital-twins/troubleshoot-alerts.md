@@ -48,7 +48,7 @@ Aqui está um excerto do processo *de condição Select* que ilustra quais os ti
 
 Depois de selecionar um sinal, ser-lhe-á pedido que configuure a lógica do alerta. Pode filtrar uma dimensão, definir um valor de limiar para o seu alerta e definir a frequência de verificações para a circunstância. Aqui está um exemplo de configuração de um alerta para quando a métrica média de taxa de falha de encaminhamento vai acima de 5%.
 
-:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Screenshot mostrando a segunda página Configure Signal Logic. A página mostra o histórico de métricas, tem uma área para filtrar sobre uma dimensão como operações de Grade de Eventos, e uma secção para definir lógica de alerta como "média é superior a 5"":::
+:::image type="content" source="media/troubleshoot-alerts/configure-signal-logic-2.png" alt-text="Screenshot mostrando a segunda página Configure Signal Logic. A página mostra o histórico de métricas, tem uma área para filtrar sobre uma dimensão como operações de Grade de Eventos, e uma secção para definir lógica de alerta como média é superior a 5":::
 
 ### <a name="verify-success"></a>Verificar o sucesso
 
