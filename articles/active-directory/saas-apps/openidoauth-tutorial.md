@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: jeedes
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1934b6256ecf4f35c54bbc2ac497c331b2c5ee89
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f36c80b9d08f2fde07483c1dde3afe99ec9f92d7
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543929"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705627"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>Configure uma aplicação OpenID/OAuth da galeria de aplicações AZure AD
 
@@ -76,13 +76,13 @@ Por padrão, a Azure AD promove aplicações multitenantes. São facilmente aced
 ## <a name="consent-framework"></a>Enquadramento do consentimento
 
 Você pode usar o quadro de consentimento Azure AD para desenvolver aplicações multitenantes web e clientes nativos. Estas aplicações permitem a inscrição por conta de utilizador de um inquilino AZure AD, diferente daquele em que a aplicação está registada. Podem também ter de aceder a APIs web, tais como:
-- A Microsoft Graph API, para aceder a Azure AD, Intune e serviços no Office 365.
+- A Microsoft Graph API, para aceder a Azure AD, Intune e serviços na Microsoft 365.
 - APIs de outros serviços da Microsoft.
 - As tuas próprias APIs web.
 
 O quadro baseia-se num utilizador ou administrador que dá consentimento a uma aplicação que pede para ser registada no seu diretório. O registo pode envolver o acesso aos dados do diretório. Após o consentimento ser dado, a aplicação do cliente pode ligar para a API do Gráfico Microsoft em nome do utilizador e utilizar as informações conforme necessário.
 
-A [API do Microsoft Graph](https://developer.microsoft.com/graph/) fornece acesso a dados no Office 365, como:
+A [API do Microsoft Graph](https://developer.microsoft.com/graph/) fornece acesso a dados no Microsoft 365, como:
 
 - Calendários e mensagens de Exchange.
 - Sites e listas do SharePoint.
@@ -121,7 +121,7 @@ Os seguintes passos mostram-lhe como funciona a experiência de consentimento pa
 
 3. Se o utilizador ainda não estiver autenticado, o Azure AD /autoriza as indicações de entrada.
 
-    ![Autenticação](./media/openidoauth-tutorial/authentication.png)
+    ![Uma screenshot do pedido de inscrição para a conta](./media/openidoauth-tutorial/authentication.png)
 
 4. Depois de o utilizador ter assinado, o Azure AD determina se o utilizador precisa de ser mostrado uma página de consentimento. Esta determinação baseia-se no facto de o utilizador (ou administrador da sua organização) já ter concedido o consentimento do pedido.
 

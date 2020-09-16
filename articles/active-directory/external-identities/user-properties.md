@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a61a298b3b1d9e129b0ef3bbfff12f34d0ba09a8
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: b68a4d0c9c33f6a7eb1a2300955e9185bd52d8fb
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89668962"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705474"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um utilizador de colaboração Azure Ative Directory B2B
 
@@ -104,13 +104,13 @@ Pode haver casos em que queira dar aos seus utilizadores convidados privilégios
 ![Screenshot mostrando a opção de utilizadores externos nas definições do utilizador](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Posso tornar os utilizadores convidados visíveis na Lista de Endereços Globais do Exchange?
-Yes. Por predefinição, os objetos convidados não estão visíveis na lista global de endereços da sua organização, mas pode utilizar o Azure Ative Directory PowerShell para os tornar visíveis. Para mais informações, consulte **posso tornar os objetos convidados visíveis na lista global de endereços?** [Manage guest access in Office 365 Groups](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups)
+Sim. Por predefinição, os objetos convidados não estão visíveis na lista global de endereços da sua organização, mas pode utilizar o Azure Ative Directory PowerShell para os tornar visíveis. Para mais informações, consulte **Posso tornar os objetos convidados visíveis na lista global de endereços?** [Manage guest access in Microsoft 365 Groups](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups)
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>Posso atualizar o endereço de e-mail de um utilizador convidado?
 
 Se um utilizador convidado aceitar o seu convite e posteriormente alterar o seu endereço de e-mail, o novo e-mail não sincroniza automaticamente o objeto do utilizador convidado no seu diretório. A propriedade de correio é criada através da [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). Pode atualizar a propriedade de correio através da Microsoft Graph API, do centro de administração Exchange ou [do Exchange Online PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). A alteração será refletida no objeto de utilizador convidado Azure AD.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [O que é a colaboração B2B do Azure AD?](what-is-b2b.md)
 * [Fichas de utilização de colaboração B2B](user-token.md)

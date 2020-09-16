@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77c673ec52873d854647cf49c0efcbd650fb6aa8
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 8c319489fe4c884cd5de48ac2d3e47e7beb3026f
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320652"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705491"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Qual é a pontuação de identidade segura no Azure Ative Directory?
 
@@ -102,7 +102,7 @@ Recebe pontos por configurar funcionalidades recomendadas de segurança ou por r
 
 Para ver o histórico de pontuação, dirija-se ao [centro de segurança Microsoft 365](https://security.microsoft.com/) e reveja a sua pontuação de segurança total da Microsoft. Pode rever as alterações à sua pontuação máxima segura, clicando no Ver Histórico. Escolha uma data específica para ver os controlos que foram ativados nesse dia e quantos pontos obteve por cada um deles.
 
-### <a name="how-does-the-identity-secure-score-relate-to-the-office-365-secure-score"></a>Como é que a classificação de segurança de identidade se relaciona com a classificação de segurança do Office 365?
+### <a name="how-does-the-identity-secure-score-relate-to-the-microsoft-365-secure-score"></a>Como é que a pontuação de segurança de identidade diz respeito à pontuação segura da Microsoft 365?
 
 A [pontuação segura da Microsoft](/office365/securitycompliance/microsoft-secure-score) contém cinco categorias distintas de controlo e pontuação:
 
@@ -114,6 +114,6 @@ A [pontuação segura da Microsoft](/office365/securitycompliance/microsoft-secu
 
 A pontuação de segurança de identidade representa a parte de identidade da pontuação segura da Microsoft. Esta sobreposição significa que as suas recomendações para a pontuação de segurança de identidade e a pontuação de identidade na Microsoft são as mesmas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre a pontuação segura da Microsoft](/office365/securitycompliance/microsoft-secure-score)

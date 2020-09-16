@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 43ed46f56be1ad4fa2aa643a6ed06f8fbe094a5b
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: f8be96fb008471d040839141a230c13b8f1657a5
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352858"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708177"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Monitorize o seu espaço de trabalho de sinapse
 
@@ -48,8 +48,7 @@ Abra o Estúdio Synapse e navegue até ao centro **monitor.** Aqui, você pode v
 1. Encontre um pedido SQL específico e sobressaa o rato sobre esse item. Assim que pairar, verá um ícone de script SQL aparecer.
 1. Clique no ícone de script SQL para ver o texto completo do pedido SQL.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Azure Synapse Analytics (pré-visualização de espaços de trabalho)](overview-what-is.md)
-
+> [Explore o Centro de Conhecimento](get-started-knowledge-center.md)

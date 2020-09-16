@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38f3a6d9cea1aa1ebcb76f61882dcf2615dc4832
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13bb7782f6396466200fbb3e2df77158bb75d8a4
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554643"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705406"
 ---
 # <a name="overview-of-azure-multi-factor-authentication-for-your-organization"></a>Visão geral da autenticação multi-factor Azure para a sua organização
 
@@ -34,10 +34,10 @@ Os clientes que estão a utilizar os benefícios gratuitos do Azure AD podem uti
 
 ## <a name="microsoft-365-business-e3-or-e5"></a>Microsoft 365 Business, E3 ou E5
 
-Para clientes com o Office 365, existem duas opções:
+Para clientes com Microsoft 365, existem duas opções:
 
 * A autenticação multi-factor Azure está ativada ou desativada para todos os utilizadores, para todos os eventos de inscrição. Não existe capacidade de permitir apenas a autenticação de vários fatores para um subconjunto de utilizadores, ou apenas em determinados cenários. A gestão é através do portal do Office 365. 
-* Para uma melhor experiência do utilizador, atualize para Azure AD Premium P1 ou P2 e utilize acesso condicional. Para mais informações, consulte recursos seguros do Office 365 com autenticação multi-factor.
+* Para uma melhor experiência do utilizador, atualize para Azure AD Premium P1 ou P2 e utilize acesso condicional. Para obter mais informações, consulte recursos seguros da Microsoft 365 com autenticação multi-factor.
 
 ## <a name="azure-ad-premium-p1"></a>Azure AD Premium P1
 
@@ -60,7 +60,7 @@ Proporciona a posição de segurança mais forte e uma melhor experiência do ut
 | Mensagem de texto para telefone |   | X |
 | Chamada para telefone |   | X |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar, consulte o tutorial para [garantir eventos de entrada de utilizador com autenticação multi-factor Azure](../authentication/tutorial-enable-azure-mfa.md).
 

@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 104e1873a56d1ecf6e9f11a271344e9b4073e780
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 66d0874536b358b720b43780d6ecce879ac866ee
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033375"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708211"
 ---
 # <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-portal"></a>Quickstart: Criar uma nova instância de serviço AZure API Management utilizando o portal Azure
 
@@ -56,7 +56,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 3. Selecione **Criar**.
 
     > [!TIP]
-    > Normalmente demora entre 20 a 30 minutos para criar e ativar um serviço de Gestão de API. Ao selecionar **Afixar ao dashboard**, é mais fácil localizar um serviço criado recentemente.
+    > Pode levar entre 30 a 40 minutos para criar e ativar um serviço de Gestão API neste nível. Ao selecionar **Afixar ao dashboard**, é mais fácil localizar um serviço criado recentemente.
 
 [!INCLUDE [api-management-navigate-to-instance](../../includes/api-management-navigate-to-instance.md)]
 
@@ -84,7 +84,7 @@ Quando já não for necessário, pode remover o grupo de recursos e todos os rec
 
    :::image type="content" source="media/get-started-create-service-instance/00-DeleteResource-03.png" alt-text="Eliminar grupo de recursos":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Importar e publicar a sua primeira API](import-and-publish.md)
