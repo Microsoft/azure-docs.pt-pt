@@ -34,7 +34,7 @@ Também pode entrar no portal [Azure](https://portal.azure.com/) com a sua conta
 
 Irá anexar o Serviço Azure SignalR às Gémeas Digitais Azure através do caminho abaixo. As secções A, B e C do diagrama são retiradas do diagrama de arquitetura do [pré-requisito tutorial de ponta a ponta;](tutorial-end-to-end.md) neste como-fazer, você vai construir sobre isso adicionando a secção D.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-integration-topology.png" alt-text="Uma visão dos serviços da Azure num cenário de ponta a ponta. Retrata dados que fluem de um dispositivo para o IoT Hub, através de uma função Azure (seta B) para uma instância Azure Digital Twins (secção A), depois através da Grade de Evento para outra função Azure para processamento (seta C). A secção D mostra dados que fluem da mesma grelha de eventos na seta C para uma Função Azure rotulada de "transmissão". A 'difusão' comunica com outra função Azure rotulada de "negociar", e tanto "difusão" como "negociar" comunicam com dispositivos informáticos." lightbox="media/how-to-integrate-azure-signalr/signalr-integration-topology.png":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-integration-topology.png" alt-text="Uma visão dos serviços da Azure num cenário de ponta a ponta. Retrata dados que fluem de um dispositivo para o IoT Hub, através de uma função Azure (seta B) para uma instância Azure Digital Twins (secção A), depois através da Grade de Evento para outra função Azure para processamento (seta C). A secção D mostra dados que fluem da mesma grelha de eventos na seta C para uma Função Azure rotulada de transmissão. A difusão comunica com outra função Azure rotulada de negociar, e tanto difusão como negociar comunicam com dispositivos informáticos." lightbox="media/how-to-integrate-azure-signalr/signalr-integration-topology.png":::
 
 ## <a name="download-the-sample-applications"></a>Descarregue as aplicações da amostra
 
@@ -143,7 +143,7 @@ Em seguida, publique a sua função no Azure, utilizando os passos descritos na 
 
     Hit *Get function URL* e copiar o valor através de ** _/api_ (não inclua o último _/negociar?_)**. Vais usar isto mais tarde.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Vista do portal Azure da função "negociar". O botão 'Obter URL de função' é realçado, e a parte do URL desde o início até '/api'":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Vista do portal Azure da função negociar. O botão Obter URL de função é realçado, e a parte do URL desde o início até /api":::
 
 1. Por fim, adicione a sua cadeia de **ligação** Azure SignalR de anteriormente às definições de aplicação da função, utilizando o seguinte comando Azure CLI. O comando pode ser executado em [Azure Cloud Shell,](https://shell.azure.com)ou localmente se tiver o Azure CLI [instalado na sua máquina:](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
  
