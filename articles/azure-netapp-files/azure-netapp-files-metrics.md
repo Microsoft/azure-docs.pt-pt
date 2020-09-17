@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/17/2020
+ms.date: 09/10/2020
 ms.author: b-juche
-ms.openlocfilehash: 7e6ab90010d4379c1640f73a8deeba874e601daf
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 1690a844ff700a2975be8e972fd90ba71eeb937c
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513813"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707786"
 ---
 # <a name="metrics-for-azure-netapp-files"></a>Métricas do Azure NetApp Files
 
@@ -27,20 +27,18 @@ O Azure NetApp Files fornece métricas sobre armazenamento atribuído, uso real 
 
 ## <a name="usage-metrics-for-capacity-pools"></a><a name="capacity_pools"></a>Métricas de utilização para piscinas de capacidade
 
-<!-- 
-- *Pool Provisioned Size*  
-    The logical space (GiB) the capacity pool is provisioned with.  
-    This size is the size you selected during capacity pool creation. 
---> 
+- *Tamanho atribuído à piscina*   
+    O tamanho da piscina.
+
 - *Piscina atribuída ao tamanho do volume*  
     O total da quota de volume (GiB) num determinado pool de capacidade (isto é, o total dos tamanhos a provisionados dos volumes no pool de capacidade).  
     Este tamanho é o tamanho que selecionou durante a criação de volume.  
+
 - *Tamanho consumido da piscina*  
     O total de espaço lógico (GiB) utilizado em volumes numa piscina de capacidade.  
-<!-- 
-- *Pool Consumed Snapshot Size*  
-    The total of logical space (GiB) used by snapshots across all volumes in a capacity pool. 
--->
+
+- *Tamanho total do instantâneo da piscina*    
+    A soma do tamanho do instantâneo de todos os volumes na piscina.
 
 ## <a name="usage-metrics-for-volumes"></a><a name="volumes"></a>Métricas de utilização de volumes
 
@@ -57,14 +55,37 @@ O Azure NetApp Files fornece métricas sobre armazenamento atribuído, uso real 
 
 ## <a name="performance-metrics-for-volumes"></a>Métricas de desempenho para volumes
 
-- *Média DeOncência*   
+- *Média de leitura de latência*   
     O tempo médio para leituras do volume em milissegundos.
-- *Média Desaquimia*   
+- *Latência de escrita média*   
     O tempo médio para escrever a partir do volume em milissegundos.
-- *ReadIops*   
+- *Ler IOPS*   
     O número de leituras para o volume por segundo.
-- *WriteIops*   
+- *Escrever iops*   
     O número de escreve para o volume por segundo.
+
+## <a name="volume-replication-metrics"></a><a name="replication"></a>Métricas de replicação de volume
+
+- *É o estado de replicação do volume saudável*   
+    A condição da relação de replicação. 
+
+- *É a transferência de replicação de volume*    
+    Se o estado da replicação do volume é "transferência". 
+ 
+- *Tempo de desfasamento da replicação do volume*   
+    A quantidade de tempo em segundos através da qual os dados no espelho ficam atrás da fonte. 
+
+- *Duração da transferência de replicação de volume*   
+    O tempo em segundos que levou para a última transferência ser concluída. 
+
+- *Tamanho da última transferência de replicação de volume*    
+    O número total de bytes transferidos como parte da última transferência. 
+
+- *Progresso da replicação do volume*    
+    A quantidade total de dados transferidos para a operação de transferência em curso. 
+
+- *Transferência total de replicação de volume*   
+    Os bytes cumulativos transferidos para a relação. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

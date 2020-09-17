@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d07450b61558814a99bf85668c55899c8cf9d389
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 21f16a0b9c8b3b603735520d5dcdbf61601e1480
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88234793"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706491"
 ---
 # <a name="no-users-are-being-provisioned"></a>Não existem utilizadores a ser aprovisionados 
 >[!NOTE]
@@ -24,7 +24,7 @@ ms.locfileid: "88234793"
 >
 Depois de o provisionamento automático ter sido configurado para uma aplicação (incluindo verificar se as credenciais de aplicação fornecidas à Azure AD para se conectar à app são válidas), então os utilizadores e/ou grupos são fornecidos à aplicação. O provisionamento é determinado pelas seguintes coisas:
 
--   Quais utilizadores e grupos foram **designados** para a aplicação. Note que não é apoiado o provisionamento de grupos aninhados ou grupos do Office 365. Para obter mais informações sobre a atribuição, consulte [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Ative Directory](../manage-apps/assign-user-or-group-access-portal.md).
+-   Quais utilizadores e grupos foram **designados** para a aplicação. Note que o provisionamento de grupos aninhados ou grupos Microsoft 365 não é suportado. Para obter mais informações sobre a atribuição, consulte [Atribuir um utilizador ou grupo a uma aplicação empresarial no Azure Ative Directory](../manage-apps/assign-user-or-group-access-portal.md).
 -   Se os **mapeamentos de atributos** estão ou não ativados e configurados para sincronizar atributos válidos do AD AD do AZure para a aplicação. Para obter mais informações sobre mapeamentos de atributos, consulte [Personalizar o fornecimento de cartões de pedidos de produtos para aplicações saas no Diretório Ativo Azure](customize-application-attributes.md).
 -   Se existe ou não um **filtro de deteção** presente que está a filtrar os utilizadores com base em valores específicos de atributos. Para obter mais informações sobre filtros de deteção, consulte [o provisionamento de aplicações baseados em Atributos com filtros de escoamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
   
