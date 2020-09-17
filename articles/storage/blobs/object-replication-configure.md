@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 09/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 4fb616860cb1e85c6249329f3679de0d29b72e61
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: e6e6c802da212294594f45d0545c6cf07694760b
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018837"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707922"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurar a replicação do objeto para bolhas de bloco
 
@@ -150,9 +150,11 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 Para criar uma política de replicação com o Azure CLI, instale primeiro a versão 2.11.1 ou posterior do Azure CLI. Para mais informações, consulte [Começar com o Azure CLI.](/cli/azure/get-started-with-azure-cli)
 
-Em seguida, ative a versão blob nas contas de armazenamento de origem e destino e permita alterar o feed na conta de origem. Lembre-se de substituir valores em suportes angulares por seus próprios valores:
+Em seguida, ative a versão blob nas contas de armazenamento de origem e destino, e ativar o feed de alteração na conta de origem, ligando para o comando [de atualização de propriedades de serviço de serviço de armazenamento az.](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) Lembre-se de substituir valores em suportes angulares por seus próprios valores:
 
 ```azurecli
+az login
+
 az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <source-storage-account> \
@@ -174,24 +176,24 @@ Crie os recipientes de origem e destino nas respetivas contas de armazenamento.
 ```azurecli
 az storage container create \
     --account-name <source-storage-account> \
-    --name source-container3 \
+    --name source-container-1 \
     --auth-mode login
 az storage container create \
     --account-name <source-storage-account> \
-    --name source-container4 \
+    --name source-container-2 \
     --auth-mode login
 
 az storage container create \
     --account-name <dest-storage-account> \
-    --name source-container3 \
+    --name dest-container-1 \
     --auth-mode login
 az storage container create \
     --account-name <dest-storage-account> \
-    --name source-container4 \
+    --name dest-container-1 \
     --auth-mode login
 ```
 
-Crie uma nova política de replicação e regras associadas na conta de destino.
+Crie uma nova política de replicação e uma regra associada na conta de destino, chamando a [conta de armazenamento az ou a política criar](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_create).
 
 ```azurecli
 az storage account or-policy create \
@@ -199,21 +201,26 @@ az storage account or-policy create \
     --resource-group <resource-group> \
     --source-account <source-storage-account> \
     --destination-account <dest-storage-account> \
-    --source-container source-container3 \
-    --destination-container dest-container3 \
-    --min-creation-time '2020-05-10T00:00:00Z' \
+    --source-container source-container-1 \
+    --destination-container dest-container-1 \
+    --min-creation-time '2020-09-10T00:00:00Z' \
     --prefix-match a
 
+```
+
+O Azure Storage define a identificação da política para a nova política quando é criada. Para adicionar regras adicionais à apólice, ligue para a [conta de armazenamento az ou regra de política adicionar](/cli/azure/storage/account/or-policy/rule#az_storage_account_or_policy_rule_add) e fornecer o ID da política.
+
+```azurecli
 az storage account or-policy rule add \
     --account-name <dest-storage-account> \
-    --destination-container dest-container4 \
-    --policy-id <policy-id> \
     --resource-group <resource-group> \
-    --source-container source-container4 \
+    --source-container source-container-2 \
+    --destination-container dest-container-2 \
+    --policy-id <policy-id> \
     --prefix-match b
 ```
 
-Crie a política na conta de origem utilizando o ID da política.
+Em seguida, crie a política na conta de origem usando o ID da política.
 
 ```azurecli
 az storage account or-policy show \
@@ -229,16 +236,16 @@ az storage account or-policy show \
 
 ### <a name="configure-object-replication-when-you-have-access-only-to-the-destination-account"></a>Configurar a replicação do objeto quando tiver acesso apenas à conta de destino
 
-Se não tiver permissões na conta de armazenamento de origem, pode configurar a replicação de objetos na conta de destino e fornecer um ficheiro JSON que contenha a definição de política a outro utilizador para criar a mesma política na conta de origem. Por exemplo, se a conta de origem estiver num inquilino AD AZure diferente da conta de destino, use esta abordagem para configurar a replicação de objetos. 
+Se não tiver permissões na conta de armazenamento de origem, pode configurar a replicação de objetos na conta de destino e fornecer um ficheiro JSON que contenha a definição de política a outro utilizador para criar a mesma política na conta de origem. Por exemplo, se a conta de origem estiver num inquilino AD AD diferente da conta de destino, então pode usar esta abordagem para configurar a replicação de objetos.
 
 Tenha em mente que deve ser atribuída a função **de Contribuinte** de Recursos Azure, ao nível da conta de armazenamento de destino ou superior, a fim de criar a política. Para obter mais informações, consulte [as funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md) na documentação do Controlo de Acesso Baseado em Papéis (RBAC) do Azure.
 
-A tabela seguinte resume quais os valores a utilizar para o ID de política no ficheiro JSON em cada cenário.
+A tabela seguinte resume quais os valores a utilizar para o ID da política e iDs de regra no ficheiro JSON em cada cenário.
 
-| Quando estiver a criar o ficheiro JSON para esta conta... | Desa estada a definição de política para este valor... |
+| Quando estiver a criar o ficheiro JSON para esta conta... | Desa estacie o ID da política e regra os IDs a este valor... |
 |-|-|
-| Conta de destino | O *padrão de*valor de cadeia . O Azure Storage irá criar a identificação da apólice para si. |
-| Conta fonte | O ID da apólice devolveu quando descarrega um ficheiro JSON contendo as regras definidas na conta de destino. |
+| Conta de destino | O *padrão de*valor de cadeia . O Azure Storage criará o ID da política e irá remundo iDs para si. |
+| Conta fonte | Os valores do ID da política e iDs de regra devolvidos quando descarrega a política definida na conta de destino como um ficheiro JSON. |
 
 O exemplo a seguir define uma política de replicação na conta de destino com uma única regra que corresponde ao prefixo *b* e define o tempo mínimo de criação para as bolhas que devem ser replicadas. Lembre-se de substituir valores em suportes angulares por seus próprios valores:
 
@@ -307,7 +314,7 @@ $destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 $destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
 ```
 
-Para utilizar o ficheiro JSON para definir a política de replicação na conta de origem com o PowerShell, recupere o ficheiro local e converta-o de JSON para um objeto. Em seguida, ligue para o comando [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) para configurar a política na conta de origem, como mostra o exemplo seguinte. Lembre-se de substituir valores nos suportes angulares e no caminho do ficheiro pelos seus próprios valores:
+Para utilizar o ficheiro JSON para configurar a política de replicação na conta de origem com a PowerShell, recupere o ficheiro local e converta-o de JSON para um objeto. Em seguida, ligue para o comando [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) para configurar a política na conta de origem, como mostra o exemplo seguinte. Lembre-se de substituir valores nos suportes angulares e no caminho do ficheiro pelos seus próprios valores:
 
 ```powershell
 $object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json
@@ -321,7 +328,24 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-N/D
+Para escrever a definição de política de replicação para a conta de destino a um ficheiro JSON da Azure CLI, ligue para o comando [de demonstração de conta de armazenamento az](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_show) e saída para um ficheiro.
+
+O exemplo a seguir escreve a definição de política para um ficheiro JSON nomeado *policy.jsem*. Lembre-se de substituir valores nos suportes angulares e no caminho do ficheiro pelos seus próprios valores:
+
+```azurecli
+az storage account or-policy show \
+    --account-name <dest-account-name> \
+    --policy-id  <policy-id> > policy.json
+```
+
+Para utilizar o ficheiro JSON para configurar a política de replicação na conta de origem com o Azure CLI, ligue para a [conta ou política de armazenamento az criar](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_create) comando e fazer referência aopolicy.js* no* ficheiro. Lembre-se de substituir valores nos suportes angulares e no caminho do ficheiro pelos seus próprios valores:
+
+```azurecli
+az storage account or-policy create \
+    -resource-group <resource-group> \
+    --source-account <source-account-name> \
+    --policy @policy.json
+```
 
 ---
 
@@ -360,19 +384,19 @@ Para remover uma política de replicação, elimine a política tanto da conta d
 
 ```azurecli
 az storage account or-policy delete \
-    --policy-id $policyid \
+    --policy-id <policy-id> \
     --account-name <source-storage-account> \
     --resource-group <resource-group>
 
 az storage account or-policy delete \
-    --policy-id $policyid \
+    --policy-id <policy-id> \
     --account-name <dest-storage-account> \
     --resource-group <resource-group>
 ```
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral da replicação do objeto](object-replication-overview.md)
 - [Ativar e gerir a versão blob](versioning-enable.md)

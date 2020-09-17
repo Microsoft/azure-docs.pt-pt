@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b79a631ba82d0b4a420ef27684e5a62571ddf85a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e58a98f8503c271eec113298a7e7a0cab5e0003e
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034581"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707497"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Crie o seu primeiro pacote de acesso na gestão de direitos Azure AD
 
@@ -41,6 +41,8 @@ Neste tutorial, ficará a saber como:
 Para uma demonstração passo a passo do processo de implementação da gestão de direitos do Azure Ative Directory, incluindo a criação do seu primeiro pacote de acesso, veja o seguinte vídeo:
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
+
+Também pode criar um pacote de acesso programáticamente utilizando o Microsoft Graph. Para um tutorial que mostre como criar um pacote de acesso programáticamente, consulte [a API de gestão de direitos.](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -106,7 +108,7 @@ Um pacote de *acesso* é um pacote de recursos que uma equipa ou projeto precisa
 
 9. No painel de grupos Select, encontre e selecione o grupo **de recursos de Marketing** que criou anteriormente.
 
-    Por predefinição, vê grupos dentro e fora do catálogo **Geral.** Quando selecionar um grupo fora do catálogo **Geral,** este será adicionado ao catálogo **Geral.**
+     Por defeito, vê grupos dentro do catálogo geral. Quando selecionar um grupo fora do catálogo Geral, que pode ver se verifica a caixa de verificação **See,** será adicionado ao catálogo Geral.
 
     ![Novo pacote de acesso - Separador de funções de recursos](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 

@@ -13,12 +13,12 @@ ms.date: 08/31/2020
 ms.author: ryanwi
 ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 5e62472fdccd2ee71a0ef725f34a75492d1b8ffa
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 3ee59226853f4ea5aabf57a8866ba014aa874774
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226646"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706205"
 ---
 # <a name="branding-guidelines-for-applications"></a>Diretrizes de imagem corporativa para aplicações
 
@@ -36,7 +36,7 @@ Neste artigo, vai:
 A Microsoft gere dois tipos de contas de utilizador:
 
 - **Contas pessoais** (anteriormente conhecidas como Windows Live ID). Estas contas representam a relação entre utilizadores *individuais* e a Microsoft e servem para aceder a dispositivos de consumo e a serviços da Microsoft. Estas contas foram concebidas para utilização pessoal.
-- **Contas escolares ou profissionais.** Estas contas são geridas pela Microsoft em nome de organizações que utilizam o Azure Active Directory. Estas contas servem para iniciar sessão no Office 365 e noutros serviços comerciais da Microsoft.
+- **Contas escolares ou profissionais.** Estas contas são geridas pela Microsoft em nome de organizações que utilizam o Azure Active Directory. Estas contas são usadas para iniciar sôms no Microsoft 365 e outros serviços empresariais da Microsoft.
 
 As contas escolares ou profissionais da Microsoft são, normalmente, atribuídas a utilizadores finais (colaboradores, estudantes, colaboradores do governo) pelas suas organizações (empresa, escola, agência governamental). Estas contas são dominadas diretamente na nuvem (na plataforma AD Azure) ou sincronizadas com Azure AD a partir de um diretório no local, como o Windows Server Ative Directory. A Microsoft é o *conservador* das contas escolares ou profissionais, mas as contas são detidas e controladas pela organização.
 
@@ -49,7 +49,7 @@ A Microsoft não expõe os utilizadores finais às marcas Azure ou Active Direct
 
 ## <a name="user-account-pictogram"></a>Pictograma de conta de utilizador
 
-Numa versão anterior destas diretrizes, recomendámos utilizar um pictograma de um "distintivo azul". Com base nos comentários dos utilizadores e programadores, recomendamos agora a utilização do logótipo da Microsoft. O logótipo da Microsoft vai ajudar os utilizadores a compreenderem que podem reutilizar a conta que utilizam com o Office 365 ou outros serviços comerciais da Microsoft para iniciarem sessão na sua aplicação.
+Numa versão anterior destas diretrizes, recomendámos utilizar um pictograma de um "distintivo azul". Com base nos comentários dos utilizadores e programadores, recomendamos agora a utilização do logótipo da Microsoft. O logótipo da Microsoft ajudará os utilizadores a entender que podem reutilizar a conta que utilizam com o Microsoft 365 ou outros serviços empresariais da Microsoft para iniciar scontabilidade na sua aplicação.
 
 ## <a name="signing-up-and-signing-in-with-azure-ad"></a>Inscrever-se e iniciar sessão com o Azure AD
 
@@ -63,13 +63,13 @@ A sua aplicação pode apresentar caminhos diferentes para inscrição e início
 
 A hiperligação "obter a aplicação" tem de redirecionar o utilizador para a página de concessão de acesso (autorização) do Azure AD, para permitir que o administrador de uma organização autorize que a sua aplicação tenha acesso aos dados da respetiva organização, que são alojados pela Microsoft. O artigo [Integrar aplicações com o Azure Active Directory](./quickstart-register-app.md) inclui detalhes sobre como pedir acesso.
 
-Após o consentimento dos administradores para a sua aplicação, podem optar por adicioná-la à experiência do lançador de aplicações Office 365 dos seus utilizadores (acessível a partir do waffle e a partir de [https://portal.office.com/myapps](https://portal.office.com/myapps) ). Se quiser anunciar esta capacidade, pode utilizar termos como "Adicionar esta aplicação à sua organização" e mostrar um botão como no exemplo seguinte:
+Após o consentimento dos administradores para a sua aplicação, podem optar por adicioná-la à experiência do lançador de aplicações Microsoft 365 dos seus utilizadores (acessível a partir do waffle e a partir de [https://portal.office.com/myapps](https://portal.office.com/myapps) ). Se quiser anunciar esta capacidade, pode utilizar termos como "Adicionar esta aplicação à sua organização" e mostrar um botão como no exemplo seguinte:
 
 ![Botão mostrando o logótipo da Microsoft e texto "Adicionar à minha organização"](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
 No entanto, recomendamos que escreva um texto explicativo em vez de utilizar botões. Por exemplo:
 
-> *Se já utilizar o Office 365 ou outro serviço comercial da Microsoft, pode conceder <your_app_name> acesso aos dados da sua organização. Isto permitirá que os seus utilizadores acedam a <your_app_name> com as suas contas de trabalho existentes.*
+> *Se já utilizar o Microsoft 365 ou outro serviço comercial da Microsoft, pode conceder<your_app_name> acesso aos dados da sua organização. Isto permitirá que os seus utilizadores acedam a <your_app_name> com as suas contas de trabalho existentes.*
 
 Para transferir o logótipo oficial da Microsoft para utilizar na sua aplicação, clique com o botão direito do rato naquele que pretende utilizar e, em seguida, guarde-o no seu computador.
 
@@ -102,7 +102,7 @@ Para transferir as imagens oficiais da Microsoft para utilizar na sua aplicaçã
 
 **UTILIZE** "conta escolar ou profissional" em combinação com o botão "Iniciar sessão com a Microsoft" para fornecer uma explicação adicional para ajudar os utilizadores finais a reconhecerem se podem utilizá-lo. **NÃO** utilize outros termos como "conta empresarial", "conta de negócio" ou "conta de empresa".
 
-**NÃO** utilize "ID do Office 365" ou "ID do Azure". Office 365 também é o nome de uma oferta de consumidor da Microsoft, que não utiliza o Azure AD para autenticação.
+**NÃO** utilize "Microsoft 365 ID" ou "Azure ID". O Microsoft 365 é também o nome de uma oferta de consumidores da Microsoft, que não utiliza Azure AD para autenticação.
 
 **NÃO** altere o logótipo da Microsoft.
 

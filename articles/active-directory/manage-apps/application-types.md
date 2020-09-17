@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: 955efe45be27fa2f4e738066bb3b69b3604be33a
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 5229b123986149903d562bc0b3d6902c0136f647
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400726"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707888"
 ---
 # <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>Visualização de aplicativos usando o seu inquilino Azure AD para gestão de identidade
 A [Série Quickstart em Gestão de Aplicações](view-applications-portal.md) leva-lhe o básico. Nele, você aprende a ver todas as aplicações usando o seu inquilino AZure AD para gestão de identidade. Este artigo mergulha um pouco mais nos tipos de apps que vai encontrar.
@@ -27,7 +27,7 @@ Quando filtrado para **todas as aplicações,** a **Lista** de Todas as Aplicaç
    - **Azure AD - Registos de aplicações** – Aplicações adicionadas ao seu inquilino utilizando a opção **de registos da App** no portal AD AZure. Normalmente, aplicações desenvolvidas personalizadas utilizando os padrões Open ID Connect e OAuth.
    - **Aplicações Proxy Applications** – Uma aplicação em execução no seu ambiente no local que pretende fornecer um único sinal seguro para externamente
 - Ao inscrever-se ou iniciar sessão numa aplicação de terceiros integrada com o Azure Ative Directory. Um exemplo é [Smartsheet](https://app.smartsheet.com/b/home) ou [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
-- Aplicações da Microsoft como o Microsoft 365 ou o Office 365.
+- Aplicações da Microsoft como a Microsoft 365.
 - Quando adiciona um novo registo de candidaturas criando uma aplicação desenvolvida por medida utilizando o [Registo de Pedidos](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration)
 - Quando adiciona um novo registo de candidaturas criando uma aplicação personalizada utilizando o [portal V2.0 Application Registration](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration)
 - Ao adicionar uma aplicação, está a desenvolver-se utilizando [os métodos de autenticação ASP.NET](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) do Visual Studio ou [serviços conectados](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/)
@@ -38,5 +38,5 @@ Quando filtrado para **todas as aplicações,** a **Lista** de Todas as Aplicaç
 
 Saiba mais sobre como e porquê, as aplicações são adicionadas ao seu diretório, veja [como as aplicações são adicionadas ao AZure AD.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Gestão de Aplicações com Diretório Ativo Azure](what-is-application-management.md)

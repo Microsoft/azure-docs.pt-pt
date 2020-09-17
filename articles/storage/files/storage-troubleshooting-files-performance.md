@@ -4,20 +4,17 @@ description: Resolução de problemas conhecidos problemas de desempenho com aç
 author: gunjanj
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 08/24/2020
+ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: cffac114cacd05e04e149af96d1678b536db7fec
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 7afaa057ecc94cf67d4fd5b041d95210fcf26717
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564241"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707599"
 ---
-# <a name="troubleshoot-azure-files-performance-issues-smb"></a>Problemas com problemas de desempenho dos Ficheiros Azure (SMB)
-
-> [!IMPORTANT]
-> O conteúdo deste artigo aplica-se apenas às ações da SMB.
+# <a name="troubleshoot-azure-files-performance-issues"></a>Problemas de resolução de problemas Problemas de desempenho dos Ficheiros Azure
 
 Este artigo enumera alguns problemas comuns relacionados com as ações de ficheiros Azure. Fornece potenciais causas e soluções quando estes problemas são encontrados.
 

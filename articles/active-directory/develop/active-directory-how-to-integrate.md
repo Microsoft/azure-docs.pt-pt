@@ -12,12 +12,12 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: c193742527cf69526d69549d3c10f5591f0d2f93
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: bdeb27f9e761fefc52c9c97b28d15770e22221f4
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115701"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706171"
 ---
 # <a name="integrating-with-microsoft-identity-platform"></a>Integração com a plataforma de identidade da Microsoft
 
@@ -31,7 +31,7 @@ Existem várias formas de a sua aplicação se integrar com a plataforma de iden
 
 ### <a name="support-microsoft-identity-platform-as-a-way-to-sign-in-to-your-application"></a>Apoie a plataforma de identidade da Microsoft como forma de iniciar sôms na sua aplicação
 
-**Reduza o sinal de atrito e reduza os custos de suporte.** Ao utilizar a plataforma de identidade da Microsoft para iniciar sôms na sua aplicação, os seus utilizadores não terão mais um nome e senha para se lembrarem. Como desenvolvedor, terá uma senha a menos para armazenar e proteger. Não ter de lidar com resets de palavras-passe esquecidos pode ser uma poupança significativa por si só. Os poderes da plataforma de identidade da Microsoft inscrevem-se em algumas das aplicações cloud mais populares do mundo, incluindo o Office 365 e o Microsoft Azure. Com centenas de milhões de utilizadores de milhões de organizações, é provável que o seu utilizador já esteja inscrito na plataforma de identidade da Microsoft. Saiba mais sobre [a adição de suporte para o sinal da plataforma de identidade da Microsoft.](./authentication-vs-authorization.md)
+**Reduza o sinal de atrito e reduza os custos de suporte.** Ao utilizar a plataforma de identidade da Microsoft para iniciar sôms na sua aplicação, os seus utilizadores não terão mais um nome e senha para se lembrarem. Como desenvolvedor, terá uma senha a menos para armazenar e proteger. Não ter de lidar com resets de palavras-passe esquecidos pode ser uma poupança significativa por si só. Os poderes da plataforma de identidade da Microsoft inscrevem-se em algumas das aplicações cloud mais populares do mundo, incluindo o Microsoft 365 e o Microsoft Azure. Com centenas de milhões de utilizadores de milhões de organizações, é provável que o seu utilizador já esteja inscrito na plataforma de identidade da Microsoft. Saiba mais sobre [a adição de suporte para o sinal da plataforma de identidade da Microsoft.](./authentication-vs-authorization.md)
 
 **Simplifique o seu pedido.**  Durante o pré-inscrição para a sua aplicação, a plataforma de identidade da Microsoft pode enviar informações essenciais sobre um utilizador para que possa pré-preencher o formulário de inscrição ou eliminá-lo completamente. Os utilizadores podem inscrever-se na sua aplicação utilizando a sua conta Azure AD através de uma experiência de consentimento familiar semelhante à encontrada nas redes sociais e aplicações móveis. Qualquer utilizador pode inscrever-se e iniciar seduca numa aplicação que está integrada na plataforma de identidade da Microsoft sem necessitar de envolvimento de TI. Saiba mais sobre [a inscrição na sua candidatura para o login da Conta AD Azure.](../../app-service/configure-authentication-provider-aad.md)
 
@@ -47,13 +47,13 @@ Existem várias formas de a sua aplicação se integrar com a plataforma de iden
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Tenha acesso ao perfil do utilizador, calendário, e-mail, contactos, ficheiros e muito mais
 
-**A plataforma de identidade da Microsoft é o servidor de autorização do Office 365 e de outros serviços comerciais da Microsoft.**  Se apoiar a plataforma de identidade da Microsoft para iniciar sessão na sua aplicação ou suporte que ligue as suas contas de utilizador corrente às contas de utilizadores Azure AD utilizando o OAuth 2.0, pode solicitar a leitura e escrever o acesso ao perfil de um utilizador, calendário, e-mail, contactos, ficheiros e outras informações. Pode escrever eventos perfeitamente para o calendário do utilizador e ler ou escrever ficheiros para o seu OneDrive. Saiba mais sobre [o acesso às APIs do Office 365](/previous-versions/office/office-365-api/).
+**A plataforma de identidade da Microsoft é o servidor de autorização do Microsoft 365 e de outros serviços comerciais da Microsoft.**  Se apoiar a plataforma de identidade da Microsoft para iniciar sessão na sua aplicação ou suporte que ligue as suas contas de utilizador corrente às contas de utilizadores Azure AD utilizando o OAuth 2.0, pode solicitar a leitura e escrever o acesso ao perfil de um utilizador, calendário, e-mail, contactos, ficheiros e outras informações. Pode escrever eventos perfeitamente para o calendário do utilizador e ler ou escrever ficheiros para o seu OneDrive. Saiba mais sobre [o acesso às APIs da Microsoft 365](/previous-versions/office/office-365-api/).
 
-### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Promover a sua candidatura nos Mercados Azure e Office 365
+### <a name="promote-your-application-in-the-azure-and-microsoft-365-marketplaces"></a>Promover a sua aplicação nos Mercados Azure e Microsoft 365
 
 **Promova a sua aplicação aos milhões de organizações que já utilizam a Azure AD.**  Os utilizadores que pesquisam e navegam nestes mercados já estão a utilizar um ou mais serviços na nuvem, tornando-os clientes qualificados de serviços de nuvem. Saiba mais sobre a promoção da sua candidatura [no Azure Marketplace.](https://azure.microsoft.com/marketplace/partner-program/)
 
-**Quando os utilizadores se inscreverem para a sua aplicação, aparecerá no painel de acesso AD AZure e no launcher da aplicação Office 365.**  Os utilizadores poderão voltar de forma rápida e fácil à sua aplicação mais tarde, melhorando o envolvimento dos utilizadores. Saiba mais sobre o [painel de acesso AZure AD](../user-help/my-apps-portal-end-user-access.md).
+**Quando os utilizadores se inscreverem para a sua aplicação, aparecerá no painel de acesso AD AZure e no lançador de aplicações Microsoft 365.**  Os utilizadores poderão voltar de forma rápida e fácil à sua aplicação mais tarde, melhorando o envolvimento dos utilizadores. Saiba mais sobre o [painel de acesso AZure AD](../user-help/my-apps-portal-end-user-access.md).
 
 ### <a name="secure-device-to-service-and-service-to-service-communication"></a>Comunicação segura de dispositivo a serviço e serviço-a-serviço
 
@@ -85,7 +85,7 @@ A integração com a plataforma de identidade da Microsoft vem com benefícios q
 
 ### <a name="worldwide-presence-and-high-availability"></a>Presença mundial e alta disponibilidade
 
-**O Azure AD é implantado em datacenters em todo o mundo e é gerido e monitorizado 24 horas por dia.**  Azure AD é o sistema de gestão de identidade do Microsoft Azure e do Office 365 e está implantado em 28 datacenters em todo o mundo. É garantido que os dados do diretório sejam replicados em pelo menos três centros de dados. Os equilibradores de carga globais garantem que os utilizadores acedem à cópia mais próxima do AZure AD contendo os seus dados e reencaminham automaticamente os pedidos para outros centros de dados se for detetado um problema.
+**O Azure AD é implantado em datacenters em todo o mundo e é gerido e monitorizado 24 horas por dia.**  Azure AD é o sistema de gestão de identidade do Microsoft Azure e Microsoft 365 e está implantado em 28 datacenters em todo o mundo. É garantido que os dados do diretório sejam replicados em pelo menos três centros de dados. Os equilibradores de carga globais garantem que os utilizadores acedem à cópia mais próxima do AZure AD contendo os seus dados e reencaminham automaticamente os pedidos para outros centros de dados se for detetado um problema.
 
 ## <a name="next-steps"></a>Passos seguintes
 

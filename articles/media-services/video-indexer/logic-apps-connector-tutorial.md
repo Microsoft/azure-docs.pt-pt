@@ -8,12 +8,12 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 05/01/2020
-ms.openlocfilehash: 16a28ee01606fa9067c279183ca6c02b2857bcd7
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: fbd86b34bd6f7da8c9f49e212e397d003b71fab5
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563850"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707939"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Tutorial: use Video Indexer com App lógica e automatização de energia
 
@@ -21,12 +21,15 @@ O Azure Media Services [Video Indexer v2 REST API](https://api-portal.videoindex
 
 Para facilitar ainda mais a integração, apoiamos [apps lógicas](https://azure.microsoft.com/services/logic-apps/)   e conectores [Power Automamate](https://preview.flow.microsoft.com/connectors/shared_videoindexer-v2/video-indexer-v2/)   compatíveis com a nossa API. Pode utilizar os conectores para configurar fluxos de trabalho personalizados para indexar e extrair informações de uma grande quantidade de ficheiros de vídeo e áudio, sem escrever uma única linha de código. Além disso, a utilização dos conectores para a sua integração dá-lhe uma melhor visibilidade sobre a saúde do seu fluxo de trabalho e uma forma fácil de depurá-lo.  
 
-Para ajudá-lo a começar rapidamente com os conectores do Índice de Vídeo, faremos uma passagem por um exemplo de Aplicação lógica e solução Power Automate que pode configurar. 
+Para ajudá-lo a começar rapidamente com os conectores do Índice de Vídeo, faremos uma passagem por um exemplo de Aplicação lógica e solução Power Automate que pode configurar. Este tutorial mostra como configurar fluxos usando Aplicações Lógicas.
 
-Neste tutorial, ficará a saber como:
+O cenário de "carregar e indexar automaticamente o seu vídeo" coberto neste tutorial é composto por dois fluxos diferentes que funcionam em conjunto. 
+* O primeiro fluxo é acionado quando uma bolha é adicionada ou modificada numa conta de Armazenamento Azure. Ele envia o novo ficheiro para o Video Indexer com um URL de retorno para enviar uma notificação uma vez que a operação de indexação esteja concluída. 
+* O segundo fluxo é acionado com base no URL de retorno e guarda as informações extraídas de volta para um ficheiro JSON no Azure Storage. Esta abordagem de fluxo de dois é usada para suportar o upload e indexação de ficheiros maiores de forma eficaz. 
+
+Este tutorial está a usar a App Lógica para mostrar como:
 
 > [!div class="checklist"]
-> * Faça upload e indexe o seu vídeo automaticamente
 > * Configurar o fluxo de upload de ficheiros
 > * Configurar o fluxo de extração JSON
 
@@ -34,19 +37,13 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, também necessitará de uma conta de Indexer de Vídeo, juntamente com o acesso às APIs através da chave API. 
+* Para começar, necessitará de uma conta de Indexer de Vídeo, juntamente com [o acesso às APIs através da chave API](video-indexer-use-apis.md). 
+* Também vai precisar de uma conta de Armazenamento Azure. Tenha em atenção a chave de acesso para a sua conta de Armazenamento. Crie dois recipientes – um para armazenar vídeos e outro para armazenar insights gerados pelo Video Indexer.  
+* Em seguida, terá de abrir dois fluxos separados em Apps Lógicas ou Power Automamate (dependendo do que estiver a utilizar). 
 
-Também vai precisar de uma conta de Armazenamento Azure. Tenha em atenção a chave de acesso para a sua conta de Armazenamento. Crie dois recipientes – um para armazenar vídeos e outro para armazenar insights gerados pelo Video Indexer.  
+## <a name="set-up-the-first-flow---file-upload"></a>Configurar o primeiro fluxo - upload de ficheiros   
 
-Em seguida, terá de abrir dois fluxos separados em Apps Lógicas ou Power Automamate (dependendo do que estiver a utilizar).  
-
-## <a name="upload-and-index-your-video-automatically"></a>Faça upload e indexe o seu vídeo automaticamente 
-
-Este cenário é composto por dois fluxos diferentes que funcionam em conjunto. O primeiro fluxo é acionado quando uma bolha é adicionada ou modificada numa conta de Armazenamento Azure. Ele envia o novo ficheiro para o Video Indexer com um URL de retorno para enviar uma notificação uma vez que a operação de indexação esteja concluída. O segundo fluxo é acionado com base no URL de retorno e guarda as informações extraídas de volta para um ficheiro JSON no Azure Storage. Esta abordagem de fluxo de dois é usada para suportar o upload e indexação de ficheiros maiores de forma eficaz. 
-
-### <a name="set-up-the-file-upload-flow"></a>Configurar o fluxo de upload de ficheiros 
-
-O primeiro fluxo é acionado sempre que uma bolha é adicionada no seu recipiente de armazenamento Azure. Uma vez acionado, criará um SAS URI que pode utilizar para carregar e indexar o vídeo no Índice de Vídeo. Comece por criar o seguinte fluxo. 
+O primeiro fluxo é acionado sempre que uma bolha é adicionada no seu recipiente de armazenamento Azure. Uma vez acionado, criará um SAS URI que pode utilizar para carregar e indexar o vídeo no Índice de Vídeo. Nesta secção irá criar o seguinte fluxo. 
 
 ![Fluxo de upload de ficheiros](./media/logic-apps-connector-tutorial/file-upload-flow.png)
 
@@ -56,11 +53,13 @@ Para configurar o primeiro fluxo, terá de fornecer as suas credenciais de API i
 
 ![Nome da ligação e a chave de API](./media/logic-apps-connector-tutorial/connection-name-api-key.png)
 
-Assim que conseguir ligar-se às suas contas Azure Storage e Video Indexer, dirija-se ao gatilho "Quando uma bolha é adicionada ou modificada) e selecione o recipiente onde irá colocar os seus ficheiros de vídeo. 
+Assim que conseguir ligar-se às suas contas Azure Storage e Video Indexer, encontre e escolha o gatilho "Quando uma bolha é adicionada ou modificada" no **Logic Apps Designer**. Selecione o recipiente onde irá colocar os seus ficheiros de vídeo. 
 
 ![A screenshot mostra o Quando uma bolha é adicionada ou uma caixa de diálogo modificada onde pode selecionar um recipiente.](./media/logic-apps-connector-tutorial/container.png)
 
-Em seguida, vá à ação "Create SAS URI by path" e selecione List of Files Path a partir das opções de conteúdo dinâmico.  
+Em seguida, encontre e selecione a ação "Create SAS URI by path". No diálogo para a ação, selecione List of Files Path a partir das opções de conteúdo Dinâmico.  
+
+Além disso, adicione um novo parâmetro "Protocolo de Acesso Partilhado". Escolha HttpsOnly pelo valor do parâmetro.
 
 ![SAS uri por caminho](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
 
@@ -78,7 +77,7 @@ Pode utilizar o valor predefinido para os outros parâmetros ou defini-los de ac
 
 Clique em "Guardar", e vamos passar a configurar o segundo fluxo, para extrair os insights uma vez que o upload e a indexação esteja concluído. 
 
-## <a name="set-up-the-json-extraction-flow"></a>Configurar o fluxo de extração JSON 
+## <a name="set-up-the-second-flow---json-extraction"></a>Configurar o segundo fluxo - extração JSON  
 
 A conclusão do upload e indexação a partir do primeiro fluxo enviará um pedido HTTP com o URL de retorno correto para desencadear o segundo fluxo. Em seguida, recuperará as informações geradas pelo Video Indexer. Neste exemplo, irá armazenar a produção do seu trabalho de indexação no seu Azure Storage.  No entanto, cabe-lhe a si o que pode fazer com a saída.  
 
@@ -104,7 +103,7 @@ Vá à ação "Criar bolha" e selecione o caminho para a pasta na qual irá guar
 
 Esta expressão retira a saída da ação "Obter Índice de Vídeo" deste fluxo. 
 
-Clique em "Guardar o fluxo". 
+Clique **em Guardar o fluxo**. 
 
 Uma vez que o fluxo é guardado, um URL HTTP POST é criado no gatilho. Copie o URL do gatilho. 
 

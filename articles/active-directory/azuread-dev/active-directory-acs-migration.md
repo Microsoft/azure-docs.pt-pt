@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 75c3b325b29e6738a61728d53b85464bb61655f8
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 9fddd5cb749b1dfe50505c139ed7900f709b584e
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117792"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706256"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: Migrar do Serviço de Controlo de Acesso Azure
 
@@ -99,9 +99,9 @@ Siga os passos nesta secção para saber qual das suas aplicações será impact
 
 ### <a name="check-which-applications-will-be-impacted"></a>Verifique quais aplicações serão impactadas
 
-1. Use o espaço de nome do passo anterior e vá para`https://<namespace>.accesscontrol.windows.net`
+1. Use o espaço de nome do passo anterior e vá para `https://<namespace>.accesscontrol.windows.net`
 
-    Por exemplo, se um dos espaços de nome é contoso-teste, vá para`https://contoso-test.accesscontrol.windows.net`
+    Por exemplo, se um dos espaços de nome é contoso-teste, vá para `https://contoso-test.accesscontrol.windows.net`
 
 2. No **âmbito das relações trust**, selecione **aplicações do partido Relying** para ver a lista de aplicações que serão impactadas pela reforma da ACS.
 3. Repita os passos 1-2 para qualquer outro espaço de nome ACS que tenha.
@@ -173,7 +173,7 @@ Infelizmente, não há um único serviço que ofereça todas estas capacidades e
 
 #### <a name="migrate-to-azure-active-directory"></a>Migrar para o Diretório Ativo Azure
 
-Um caminho a ter em conta é integrar as suas apps e serviços diretamente com o Azure AD. Azure AD é o fornecedor de identidade baseado na nuvem para o trabalho da Microsoft ou contas escolares. A Azure AD é o fornecedor de identidade do Office 365, Azure, e muito mais. Fornece capacidades de autenticação federadas semelhantes ao Controlo de Acesso, mas não suporta todas as funcionalidades de Controlo de Acesso. 
+Um caminho a ter em conta é integrar as suas apps e serviços diretamente com o Azure AD. Azure AD é o fornecedor de identidade baseado na nuvem para o trabalho da Microsoft ou contas escolares. Azure AD é o fornecedor de identidade da Microsoft 365, Azure, e muito mais. Fornece capacidades de autenticação federadas semelhantes ao Controlo de Acesso, mas não suporta todas as funcionalidades de Controlo de Acesso. 
 
 O principal exemplo é a federação com fornecedores de identidade social, como facebook, Google e Yahoo. Se os seus utilizadores iniciarem sação com este tipo de credenciais, o Azure AD não é a solução para si. 
 
@@ -316,7 +316,7 @@ As identidades de serviço no Controlo de Acesso são normalmente utilizadas par
 
 #### <a name="migrate-to-azure-active-directory"></a>Migrar para o Diretório Ativo Azure
 
-A nossa recomendação para este tipo de fluxo de autenticação é migrar para [o Azure Ative Directory.](https://azure.microsoft.com/develop/identity/signin/) Azure AD é o fornecedor de identidade baseado na nuvem para o trabalho da Microsoft ou contas escolares. A Azure AD é o fornecedor de identidade do Office 365, Azure, e muito mais. 
+A nossa recomendação para este tipo de fluxo de autenticação é migrar para [o Azure Ative Directory.](https://azure.microsoft.com/develop/identity/signin/) Azure AD é o fornecedor de identidade baseado na nuvem para o trabalho da Microsoft ou contas escolares. Azure AD é o fornecedor de identidade da Microsoft 365, Azure, e muito mais. 
 
 Também pode utilizar o AZure AD para autenticação servidor-a-servidor utilizando a implementação AZure AD da concessão de credenciais de cliente OAuth. A tabela seguinte compara as capacidades do Controlo de Acesso na autenticação servidor-servidor com as que estão disponíveis no AZure AD.
 

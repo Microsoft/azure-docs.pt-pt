@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dac17c8592530c06dd761914e7f556b35c3674b
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bf57bea87fcb5e1d1f1bde4eada5a79d2fef52c8
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202995"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706324"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Proteger recursos da nuvem com o Multi-Factor Authentication do Azure e o AD FS
 
@@ -50,7 +50,7 @@ Para proteger o recurso da cloud, configure uma regra de afirmações para que o
 
 Os IPs Fidedignos permitem aos administradores ignorar a verificação em dois passos para endereços IP específicos ou para os utilizadores federados que tenham pedidos com origem na sua própria intranet. As secções seguintes descrevem como configurar IPs Fidedignos do Multi-Factor Authentication do Azure com utilizadores federados e ignorar a verificação em dois passos quando um pedido tem origem na intranet dos utilizadores federados. Isto é feito ao configurar o AD FS para utilizar uma passagem ou filtrar um modelo de afirmação de entrada com o tipo de afirmação Dentro da Rede da Empresa.
 
-Este exemplo utiliza o Office 365 para as Confianças de Entidades Confiadoras.
+Este exemplo utiliza o Microsoft 365 para os nossos Trusts de Partido Confiar.
 
 ### <a name="configure-the-ad-fs-claims-rules"></a>Configurar regras de afirmações do AD FS
 
@@ -97,4 +97,4 @@ Agora que as afirmações estão implementadas, podemos configurar os IPs fidedi
 4. Na página Definições de Serviço, em **IPs Fidedignos**, selecione **Ignorar autenticação multifator para pedidos de utilizadores federados na minha intranet**.  
 5. Clique **em guardar**.
 
-Já está! Neste momento, os utilizadores federados do Office 365 apenas têm de utilizar o MFA quando uma afirmação tiver origem fora da intranet da empresa.
+Já está! Neste momento, os utilizadores federados da Microsoft 365 só devem utilizar MFA quando uma reclamação é originária de fora da intranet corporativa.

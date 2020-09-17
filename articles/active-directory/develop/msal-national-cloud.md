@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 479e74f9c36864e041685393d35972e7365260da
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0b54a8227594a81c17dcaaaaa6c599d70217c498
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119443"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705865"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Use o MSAL num ambiente de nuvem nacional
 
@@ -42,7 +42,7 @@ Antes de começar, certifique-se de cumprir estes pré-requisitos.
 
 As aplicações [do Governo Azure](../../azure-government/index.yml) podem usar identidades do Governo AD Azure e identidades públicas da Azure AD para autenticar os utilizadores. Como pode usar qualquer uma destas identidades, tem de decidir qual o ponto final da autoridade que deve escolher para o seu cenário:
 
-- Público Azure AD: Normalmente usado se a sua organização já tem um inquilino público Azure AD para apoiar o Office 365 (Público ou GCC) ou outra aplicação.
+- Azure AD Public: Normalmente usado se a sua organização já tem um inquilino público Azure AD para apoiar a Microsoft 365 (Público ou GCC) ou outra aplicação.
 - Governo Azure AD: Normalmente usado se a sua organização já tem um inquilino do Governo Azure AD para apoiar o Office 365 (GCC High ou DoD) ou está a criar um novo inquilino no Governo Azure AD.
 
 Depois de decidir, uma consideração especial é onde realiza o registo da sua aplicação. Se escolher identidades públicas da Azure AD para a sua candidatura ao Governo de Azure, deve registar o pedido no seu inquilino público Azure AD.
@@ -122,8 +122,8 @@ const myMSALObj = new UserAgentApplication(msalConfig);
 
 Neste código:
 
-- `Enter_the_Application_Id_here`é o valor **de ID de aplicação (cliente)** para a aplicação que registou.
-- `Enter_the_Tenant_Info_Here`é definida como uma das seguintes opções:
+- `Enter_the_Application_Id_here` é o valor **de ID de aplicação (cliente)** para a aplicação que registou.
+- `Enter_the_Tenant_Info_Here` é definida como uma das seguintes opções:
     - Se a sua candidatura apoiar **contas neste diretório organizacional,** substitua este valor pelo ID do inquilino ou nome do inquilino (por exemplo, contoso.microsoft.com).
     - Se a sua aplicação suportar **contas em qualquer diretório organizacional,** substitua este valor por `organizations` .
 
@@ -132,7 +132,7 @@ Neste código:
     > [!NOTE]
     > As contas pessoais da Microsoft não são suportadas nas nuvens nacionais.
 
-- `graphEndpoint`é o ponto final do Microsoft Graph para a nuvem da Microsoft para o governo dos EUA.
+- `graphEndpoint` é o ponto final do Microsoft Graph para a nuvem da Microsoft para o governo dos EUA.
 
    Para encontrar pontos finais do Microsoft Graph para todas as nuvens nacionais, consulte os [pontos finais do Microsoft Graph em nuvens nacionais.](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints)
 

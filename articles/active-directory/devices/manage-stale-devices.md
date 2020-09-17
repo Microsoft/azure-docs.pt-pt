@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc8f599860b6095e1bab90e8e29818d8079e89a9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 9b327e388366fe3129695a5c1780600e5903508a
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184946"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705542"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Como: Gerir dispositivos em Azure AD
 
@@ -175,9 +175,9 @@ Para saber mais sobre os diversos tipos, veja a [descrição geral da gestão de
 
 Qualquer autenticação em que esteja a ser utilizado um dispositivo para autenticação no Azure é recusada. Alguns exemplos comuns são:
 
-- **Dispositivo híbrido Azure AD -** Os utilizadores podem ser capazes de usar o dispositivo para iniciar sedução no seu domínio no local. Contudo, não podem aceder aos recursos do Azure AD, como o Office 365.
+- **Dispositivo híbrido Azure AD -** Os utilizadores podem ser capazes de usar o dispositivo para iniciar sedução no seu domínio no local. No entanto, não podem aceder a recursos Azure AD como o Microsoft 365.
 - **Dispositivo associado ao Azure AD** - os utilizadores não podem utilizar o dispositivo para iniciarem sessão. 
-- **Dispositivos móveis** - o utilizador não pode aceder aos recursos do Azure AD, como o Office 365. 
+- **Dispositivos móveis** - O utilizador não pode aceder a recursos Azure AD como o Microsoft 365. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

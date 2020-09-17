@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ffe7f58f27d028dd114f548521feeeb74bb12cf1
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: b8b19b8e928a220efa8a445ff033582e0f13c6de
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437705"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707735"
 ---
 # <a name="what-is-identity-protection"></a>O que é o Identity Protection?
 
@@ -102,17 +102,17 @@ Os administradores de acesso condicional também podem criar políticas que fato
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Funcionalidade | Detalhes  | Azure AD Free / Office 365 Apps | Azure AD Premium P1|Azure AD Premium P2 |
+| Funcionalidade | Detalhes  | Azure AD Free / Microsoft 365 Apps | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
-| Políticas de risco | Política de risco do utilizador (via Proteção de Identidade)  | No | Não |Yes | 
-| Políticas de risco | Política de risco de acesso (via Proteção de Identidade ou Acesso Condicional)  | No |  Não |Yes |
-| Relatórios de segurança | Descrição geral |  No | Não |Yes |
+| Políticas de risco | Política de risco do utilizador (via Proteção de Identidade)  | No | No |Yes | 
+| Políticas de risco | Política de risco de acesso (via Proteção de Identidade ou Acesso Condicional)  | No |  No |Yes |
+| Relatórios de segurança | Descrição geral |  No | No |Yes |
 | Relatórios de segurança | Utilizadores de risco  | Informação Limitada | Informação Limitada | Acesso completo|
 | Relatórios de segurança | Inícios de sessão de risco  | Informação Limitada | Informação Limitada | Acesso completo|
 | Relatórios de segurança | Deteções de riscos   | No | Informação Limitada| Acesso completo|
-| Notificações | Utilizadores em risco detetados alertas  | No | Não |Yes |
-| Notificações | Digestão semanal| No | Não | Yes | 
-| | Política de registo na MFA | No | Não | Sim |
+| Notificações | Utilizadores em risco detetados alertas  | No | No |Yes |
+| Notificações | Digestão semanal| No | No | Yes | 
+| | Política de registo na MFA | No | No | Sim |
 
 ## <a name="next-steps"></a>Próximos passos
 

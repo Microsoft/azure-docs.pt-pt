@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: b96b679e967fd898f072b4b1ae195e3dd1061c04
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235702"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706354"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeie a aplicação de RH em nuvem para o provisionamento do utilizador do Azure Ative Directory
 
@@ -50,9 +50,9 @@ A integração de aplicativos hr em nuvem com o fornecimento de utilizadores AZu
 - Requerer o fornecimento direto do utilizador da aplicação hr em nuvem para Ative Directory ou Azure AD.
 - Exigir que os utilizadores sejam aprovisionados utilizando dados obtidos a partir da aplicação cloud HR.
 - Exija que os utilizadores se juntem, se movam e que os utilizadores sejam sincronizados com uma ou mais florestas, domínios e OUs do Ative Directory, com base apenas em informações de alteração detetadas na aplicação cloud HR.
-- Use o Office 365 para e-mail.
+- Utilize o Microsoft 365 para e-mail.
 
-## <a name="learn"></a>Saiba mais
+## <a name="learn"></a>Learn
 
 O fornecimento de utilizadores cria uma base para a governação da identidade em curso. Melhora a qualidade dos processos de negócio que dependem de dados de identidade autoritários.
 
@@ -61,19 +61,19 @@ O fornecimento de utilizadores cria uma base para a governação da identidade e
 Este artigo utiliza os seguintes termos:
 
 - **Sistema de origem**: O repositório de utilizadores de que a Azure AD prevê. Um exemplo é uma aplicação de HR em nuvem, como Workday ou SuccessFactors.
-- **Sistema-alvo**: O repositório de utilizadores a que o AZure AD prevê. Exemplos são Ative Directory, Azure AD, Office 365 ou outras aplicações SaaS.
+- **Sistema-alvo**: O repositório de utilizadores a que o AZure AD prevê. Exemplos são Ative Directory, Azure AD, Microsoft 365 ou outras aplicações SaaS.
 - **Processo Joiners-Movers-Leavers**: Um termo usado para novas contratações, transferências e rescisão utilizando uma aplicação de RH em nuvem como um sistema de registos. O processo termina quando o serviço fornece com sucesso os atributos necessários ao sistema alvo.
 
 ### <a name="key-benefits"></a>Principais vantagens
 
 Esta capacidade de provisionamento de TI orientado por RH oferece os seguintes benefícios significativos para o negócio:
 
-- **Aumentar a produtividade:** Pode agora automatizar a atribuição de contas de utilizador e licenças do Office 365 e fornecer acesso a grupos-chave. Automatizar tarefas dá às novas contratações acesso imediato às suas ferramentas de trabalho e aumenta a produtividade.
+- **Aumentar a produtividade:** Pode agora automatizar a atribuição de contas de utilizador e licenças microsoft 365 e fornecer acesso a grupos-chave. Automatizar tarefas dá às novas contratações acesso imediato às suas ferramentas de trabalho e aumenta a produtividade.
 - **Gerir o risco:** Pode aumentar a segurança automatizando alterações com base no estado dos funcionários ou membros do grupo com dados que fluem a partir da aplicação cloud HR. Automatizar alterações garante que as identidades dos utilizadores e o acesso às principais aplicações atualizam-se automaticamente quando os utilizadores fazem a transição ou saem da organização.
 - **Abordar a conformidade e a governação:** O Azure AD suporta registos de auditoria nativos para pedidos de provisionamento de utilizadores realizados por aplicações de sistemas de origem e alvo. Com a auditoria, é possível rastrear quem tem acesso às aplicações a partir de um único ecrã.
 - **Gerir o custo:** O provisionamento automático reduz os custos evitando ineficiências e erros humanos associados ao provisionamento manual. Reduz a necessidade de soluções de fornecimento de utilizadores desenvolvidas por medida construídas ao longo do tempo utilizando plataformas antigas e desatualizadas.
 
-### <a name="licensing"></a>Licensing
+### <a name="licensing"></a>Licenciamento
 
 Para configurar a aplicação de HR em nuvem para a integração de fornecimento de utilizadores Azure AD, você precisa de uma [licença Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) válida e uma licença para a aplicação de HR em nuvem, como Workday ou SuccessFactors.
 

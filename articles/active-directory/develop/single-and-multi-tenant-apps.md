@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: ec59383f9ca2b71ec9f4b6df3ab2e24c6b52473b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfb9cb80bdcd2854a3ddd5b273806fbcdda916b0
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80881371"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705644"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Arrendamento em Diretório Ativo Azure
 
@@ -35,8 +35,8 @@ No portal Azure, pode configurar a sua app para ser um inquilino único ou multi
 | Audiência | Solteiro/multi-inquilino | Quem pode entrar | 
 |----------|--------| ---------|
 | Contas neste diretório apenas | Inquilino único | Todas as contas de utilizador e de hóspedes do seu diretório podem utilizar a sua aplicação ou API.<br>*Use esta opção se o seu público-alvo for interno para a sua organização.* |
-| Contas em qualquer diretório AD Azure | Multi-inquilino | Todos os utilizadores e hóspedes com uma conta de trabalho ou escola da Microsoft podem usar a sua aplicação ou API. Isto inclui escolas e empresas que usam o Office 365.<br>*Use esta opção se o seu público-alvo for clientes empresariais ou educativos.* |
-| Contas em qualquer diretório AD AZure e contas pessoais da Microsoft (como Skype, Xbox, Outlook.com) | Multi-inquilino | Todos os utilizadores com trabalho ou escola ou conta pessoal da Microsoft podem utilizar a sua aplicação ou API. Inclui escolas e empresas que usam o Office 365, bem como contas pessoais que são usadas para iniciar sôms em serviços como Xbox e Skype.<br>*Utilize esta opção para direcionar o conjunto mais amplo de contas da Microsoft.* | 
+| Contas em qualquer diretório AD Azure | Multi-inquilino | Todos os utilizadores e hóspedes com uma conta de trabalho ou escola da Microsoft podem usar a sua aplicação ou API. Isto inclui escolas e empresas que usam o Microsoft 365.<br>*Use esta opção se o seu público-alvo for clientes empresariais ou educativos.* |
+| Contas em qualquer diretório AD AZure e contas pessoais da Microsoft (como Skype, Xbox, Outlook.com) | Multi-inquilino | Todos os utilizadores com trabalho ou escola ou conta pessoal da Microsoft podem utilizar a sua aplicação ou API. Inclui escolas e empresas que usam o Microsoft 365, bem como contas pessoais que são usadas para iniciar sôms em serviços como Xbox e Skype.<br>*Utilize esta opção para direcionar o conjunto mais amplo de contas da Microsoft.* | 
 
 ## <a name="best-practices-for-multi-tenant-apps"></a>Melhores práticas para aplicativos multi-inquilinos
 
@@ -46,6 +46,6 @@ Construir grandes aplicativos multi-inquilinos pode ser um desafio devido ao nú
 * Siga o princípio do menor acesso ao utilizador para garantir que a sua app apenas solicita permissões de que necessita. Evite solicitar permissões que exijam consentimento administrativo, uma vez que tal poderá impedir os utilizadores de adquirirem a sua app em algumas organizações. 
 * Forneça nomes e descrições apropriados para quaisquer permissões que exponha como parte da sua aplicação. Isto ajuda os utilizadores e administradores a saber em que estão a concordar quando tentam usar as APIs da sua aplicação. Para mais informações, consulte a secção de boas práticas no guia de [permissões.](v2-permissions-and-consent.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como converter uma app para ser multi-inquilino](howto-convert-app-to-be-multi-tenant.md)

@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 662bda03fc2d389ed316bd2c7141d5e6a30cef1a
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 40d299049a0a1bbff81c412a5beb84f28e64ff46
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814647"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706307"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar a aplicação na galeria de aplicações do Azure Active Directory
 
@@ -124,7 +124,7 @@ Acompanhe o processo apresentado na imagem seguinte para solicitar o provisionam
 
 ## <a name="update-or-remove-an-existing-listing"></a>Atualizar ou remover uma listagem existente
 
-Para atualizar ou remover uma aplicação existente na galeria de aplicações AZure AD, primeiro tem de submeter o pedido no [portal da Rede de Aplicações.](https://microsoft.sharepoint.com/teams/apponboarding/Apps) Se tiver uma conta office 365, use-a para iniciar sôm. Caso contrário, utilize a sua conta Microsoft, como o Outlook ou o Hotmail, para iniciar scontabilidade.
+Para atualizar ou remover uma aplicação existente na galeria de aplicações AZure AD, primeiro tem de submeter o pedido no [portal da Rede de Aplicações.](https://microsoft.sharepoint.com/teams/apponboarding/Apps) Se tiver uma conta de trabalho ou escola, use-a para iniciar scontabilidade neste portal. Caso contrário, utilize a sua conta Microsoft, como o Outlook ou o Hotmail, para iniciar scontabilidade.
 
 - Selecione a opção adequada como mostrado na imagem seguinte.
 

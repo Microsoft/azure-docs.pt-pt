@@ -7,19 +7,19 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 16491e36e0196bc3dabee17daf905d9a5204f8cd
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: a899927166d7e1294ad89d48e5c646e6abb5ed76
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564258"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707616"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Problemas de resolução de ficheiros Azure no Windows (SMB)
 
 Este artigo lista problemas comuns relacionados com os Ficheiros Azure do Microsoft quando se conecta a partir de clientes Windows. Fornece igualmente possíveis causas e resoluções para estes problemas. Além das etapas de resolução de problemas neste artigo, também pode utilizar [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)   para garantir que o ambiente do cliente windows tem requisitos corretos. A AzFileDiagnostics automatiza a deteção da maioria dos sintomas mencionados neste artigo e ajuda a configurar o seu ambiente para obter o melhor desempenho. Também pode encontrar esta informação no [Azure Files partilha o Troubleshooter](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) que fornece passos para o ajudar com problemas de ligação/mapeamento/montagem de ações do Azure Files.
 
 > [!IMPORTANT]
-> O conteúdo deste artigo aplica-se apenas às ações da SMB.
+> O conteúdo deste artigo aplica-se apenas às ações da SMB. Para mais informações sobre as ações da NFS, consulte [as ações de ficheiro Troubleshoot Azure NFS](storage-troubleshooting-files-nfs.md).
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Erro 5 quando monta uma partilha de ficheiros Azure

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/14/2020
 ms.author: jeedes
-ms.openlocfilehash: 81e02bdc483c4b68901d7e81b29f3a7f423480d9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 48009246dd491ca3f4080cf85036c66605a73272
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88537605"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707006"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adobe-creative-cloud"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Adobe Creative Cloud
 
@@ -102,7 +102,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     | E-mail | user.mail |
 
     > [!NOTE]
-    > Os utilizadores precisam de ter uma licença exO válida do Office 365 para o valor de reclamação de e-mail a ser povoado na resposta SAML.
+    > Os utilizadores precisam de ter uma licença de ExO válido microsoft 365 para o valor de reclamação de e-mail a ser povoado na resposta SAML.
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **dados da Federação XML**e, em seguida, selecione **Descarregue** para descarregar o ficheiro de metadados XML e guarde-o no seu computador.
 

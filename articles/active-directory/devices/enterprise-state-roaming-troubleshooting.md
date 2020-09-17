@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb376ebacdd76fdde30178e19fa3c3062e57da1c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e427a68751cc348a7b0024fb01402bd15ca87d2a
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267246"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705729"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Resolução de problemas das configurações do roaming do estado da empresa no Diretório Ativo do Azure
 
@@ -78,9 +78,9 @@ O Roaming do Estado da Empresa exige que o dispositivo seja registado no Azure A
 
 Sob certas condições, o Roaming do Estado da Empresa pode não sincronizar dados se a autenticação multi-factor Azure estiver configurada. Para obter mais informações sobre estes sintomas, consulte o documento de suporte [KB3193683](https://support.microsoft.com/kb/3193683). 
 
-**Problema potencial**: Se o seu dispositivo estiver configurado para necessitar de autenticação multi-factor no portal Azure Ative Directory, poderá falhar em sincronizar as definições enquanto iniciar a sessão num dispositivo Windows 10 utilizando uma palavra-passe. Este tipo de configuração de autenticação multi-factor destina-se a proteger uma conta de administrador Azure. Os utilizadores de administração poderão ainda ser capazes de sincronizar ao iniciar sessão nos seus dispositivos Windows 10 com o microsoft Passport for Work PIN ou completando a autenticação multi-factor enquanto acedem a outros serviços Azure, como o Office 365.
+**Problema potencial**: Se o seu dispositivo estiver configurado para necessitar de autenticação multi-factor no portal Azure Ative Directory, poderá falhar em sincronizar as definições enquanto iniciar a sessão num dispositivo Windows 10 utilizando uma palavra-passe. Este tipo de configuração de autenticação multi-factor destina-se a proteger uma conta de administrador Azure. Os utilizadores de administração podem ainda ser capazes de sincronizar ao iniciar sessão nos seus dispositivos Windows 10 com o microsoft Passport for Work PIN ou completando a autenticação multi-factor enquanto acedem a outros serviços Azure como o Microsoft 365.
 
-**Problema potencial**: O Sync pode falhar se o administrador configurar a política de acesso condicional de autenticação de múltiplos fatores do Diretório Ativo e o token de acesso no dispositivo expirar. Certifique-se de que faz sedida e assina usando o Microsoft Passport for Work PIN ou complete a Autenticação Multi-Factor ao aceder a outros serviços Azure como o Office 365.
+**Problema potencial**: O Sync pode falhar se o administrador configurar a política de acesso condicional de autenticação de múltiplos fatores do Diretório Ativo e o token de acesso no dispositivo expirar. Certifique-se de que faz sedida e assina usando o Microsoft Passport for Work PIN ou complete a Autenticação Multi-Factor ao aceder a outros serviços Azure como o Microsoft 365.
 
 ### <a name="event-viewer"></a>Visualizador de Eventos
 

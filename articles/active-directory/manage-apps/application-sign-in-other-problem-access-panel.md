@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a5201d0e31eb6d3b06316b74463dc2b68b33008c
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: bfb4d265a42fe1e4473af0f9bde4ebb76f0734a0
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563918"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707973"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Problemas de resolução de problemas inscrevem-se numa aplicação da Azure AD My Apps
 
@@ -27,7 +27,7 @@ Para saber mais sobre a utilização do Azure AD como fornecedor de identidade p
 Estas aplicações estão configuradas em nome do utilizador no portal AZure AD. A aplicação deve ser configurada corretamente e atribuída ao utilizador ou a um grupo do qual o utilizador é membro para ver a aplicação nas Minhas Apps. 
 
 O tipo de aplicações que um utilizador pode estar a ver cair nas seguintes categorias:
--   Aplicações Microsoft 365 e Office 365
+-   Aplicações Microsoft 365
 -   Aplicações da Microsoft e de terceiros configuradas com SSO baseado na federação
 -   Aplicações SSO baseadas em palavras-passe
 -   Aplicações com soluções SSO existentes
@@ -163,7 +163,7 @@ Para atribuir uma licença a um utilizador, siga estes passos:
 11. Selecione o botão **Atribuir** para atribuir estas licenças a este utilizador.
 
 ## <a name="troubleshooting-deep-links"></a>Resolução de problemas em ligações profundas
-Links profundos ou URLs de acesso ao utilizador são links que os seus utilizadores podem usar para aceder às suas aplicações SSO de palavra-passe diretamente das barras de URL dos seus navegadores. Ao navegar neste link, os utilizadores são automaticamente inscritos na aplicação sem terem de ir primeiro às Minhas Apps. O link é o mesmo que os utilizadores usam para aceder a estas aplicações a partir do lançador de aplicações Office 365.
+Links profundos ou URLs de acesso ao utilizador são links que os seus utilizadores podem usar para aceder às suas aplicações SSO de palavra-passe diretamente das barras de URL dos seus navegadores. Ao navegar neste link, os utilizadores são automaticamente inscritos na aplicação sem terem de ir primeiro às Minhas Apps. O link é o mesmo que os utilizadores usam para aceder a estas aplicações a partir do lançador de aplicações Microsoft 365.
 
 ### <a name="checking-the-deep-link"></a>Verificando a ligação profunda
 

@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 966149cf1a4f40ccc565b22e9d5afdd599997b4e
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 7ff1e6e3b422f55da332e206aea184ca1b5902a6
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141369"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705899"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>How to: Iniciar sessão de qualquer utilizador do Azure Active Directory com o padrão de aplicação multi-inquilino
 
@@ -153,7 +153,7 @@ Isto é demonstrado num cliente nativo de vários níveis que chama amostra de A
 
 #### <a name="multiple-tiers-in-multiple-tenants"></a>Vários níveis em vários inquilinos
 
-Um caso semelhante acontece se os diferentes níveis de um pedido estiverem registados em diferentes inquilinos. Por exemplo, considere o caso da construção de uma aplicação de cliente nativo que ligue para o Office 365 Exchange Online API. Para desenvolver a aplicação nativa, e mais tarde para que a aplicação nativa seja executada no inquilino de um cliente, o diretor de serviço exchange online deve estar presente. Neste caso, o promotor e o cliente devem adquirir o Exchange Online para que o principal de serviço seja criado nos seus inquilinos.
+Um caso semelhante acontece se os diferentes níveis de um pedido estiverem registados em diferentes inquilinos. Por exemplo, considere o caso da construção de uma aplicação de cliente nativo que ligue para a API Exchange Online. Para desenvolver a aplicação nativa, e mais tarde para que a aplicação nativa seja executada no inquilino de um cliente, o diretor de serviço exchange online deve estar presente. Neste caso, o promotor e o cliente devem adquirir o Exchange Online para que o principal de serviço seja criado nos seus inquilinos.
 
 Se for uma API construída por outra organização que não a Microsoft, o desenvolvedor da API precisa de fornecer uma forma de os seus clientes consentirem a aplicação nos inquilinos dos seus clientes. O design recomendado é para o desenvolvedor de terceiros construir a API de modo que também pode funcionar como um cliente web para implementar a inscrição. Para efetuar este procedimento:
 
@@ -179,9 +179,9 @@ Se um administrador consentir com uma aplicação para todos os utilizadores de 
 
 As aplicações multi-arrendadas também podem ter acesso a fichas para chamar APIs que estão protegidas pela Azure AD. Um erro comum ao utilizar a Biblioteca de Autenticação de Diretório Ativo (ADAL) com uma aplicação multi-arrendatário é solicitar inicialmente um token para um utilizador que utilize /comum, receber uma resposta e, em seguida, solicitar um token subsequente para esse mesmo utilizador também usando /comum. Porque a resposta da AZure AD vem de um inquilino, não /comum, ADAL caches o símbolo como sendo do inquilino. A chamada subsequente para /comum para obter um token de acesso para o utilizador falha a entrada de cache, e o utilizador é solicitado a iniciar novamente a sposição. Para evitar a falta da cache, certifique-se de que as chamadas subsequentes para um utilizador já assinado são feitas no ponto final do arrendatário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu a construir uma aplicação que pode assinar num utilizador de qualquer inquilino da AZure AD. Depois de ativar o Sign-On Único (SSO) entre a sua aplicação e o AD Azure, também pode atualizar a sua aplicação para aceder a APIs expostas por recursos da Microsoft como o Office 365. Isto permite-lhe oferecer uma experiência personalizada na sua aplicação, como mostrar informações contextuais aos utilizadores, como a sua imagem de perfil ou a sua próxima marcação de calendário. Para saber mais sobre a realização de chamadas API para serviços AZure AD e Office 365 como Exchange, SharePoint, OneDrive, OneNote, e muito mais, visite [a Microsoft Graph API][MSFT-Graph-overview].
+Neste artigo, aprendeu a construir uma aplicação que pode assinar num utilizador de qualquer inquilino da AZure AD. Depois de ativar o Sign-On Único (SSO) entre a sua aplicação e o AD Azure, também pode atualizar a sua aplicação para aceder a APIs expostas por recursos da Microsoft como o Microsoft 365. Isto permite-lhe oferecer uma experiência personalizada na sua aplicação, como mostrar informações contextuais aos utilizadores, como a sua imagem de perfil ou a sua próxima marcação de calendário. Para saber mais sobre a realização de chamadas API para serviços AZure AD e Microsoft 365 como Exchange, SharePoint, OneDrive, OneNote e muito mais, visite [a Microsoft Graph API][MSFT-Graph-overview].
 
 ## <a name="related-content"></a>Conteúdo relacionado
 

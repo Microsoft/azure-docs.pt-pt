@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 9d396c0787798c783b44748dc2461c073334cc7e
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 5a0a158f91695bb0aba07aa412f5ba234906d493
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322505"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707701"
 ---
 # <a name="quickstart-assign-users-to-an-app-that-is-using-azure-ad-as-an-identity-provider"></a>Quickstart: Atribua os utilizadores a uma app que está a usar o AZure AD como fornecedor de identidade
 
@@ -38,7 +38,7 @@ Para atribuir os utilizadores a uma aplicação que adicionou ao seu inquilino A
 1. No portal AD Azure, selecione **aplicações Enterprise**. Em seguida, encontre e selecione a aplicação que pretende configurar.
 2. No menu de navegação à esquerda, selecione **Utilizadores e grupos**.
    > [!NOTE]
-   > Algumas das aplicações Microsoft 365 e Office 365 requerem a utilização do PowerShell. 
+   > Algumas das aplicações da Microsoft 365 requerem a utilização do PowerShell. 
 3. Selecione o botão **de utilizador Adicionar.**
 4. No painel **de atribuição de** adicionar, selecione **Utilizadores e grupos**.
 5. Selecione o utilizador ou grupo que pretende atribuir à aplicação. Também pode começar a digitar o nome do utilizador ou grupo na caixa de pesquisa. Pode escolher vários utilizadores e grupos e as suas seleções aparecerão em **itens selecionados.**
@@ -46,7 +46,7 @@ Para atribuir os utilizadores a uma aplicação que adicionou ao seu inquilino A
     > Quando atribui um grupo a uma aplicação, apenas os utilizadores do grupo terão acesso. A atribuição não se cascata para grupos aninhados.
 
     > [!NOTE]
-    > A atribuição baseada em grupo requer a edição Azure Ative Directory Premium P1 ou P2. A atribuição baseada em grupo é apoiada apenas para grupos de segurança. Os membros do grupo Aninhado e os grupos do Office 365 não são atualmente apoiados. Para obter mais requisitos de licenciamento para as funcionalidades discutidas neste artigo, consulte a página de preços do [Azure Ative Directory](https://azure.microsoft.com/pricing/details/active-directory). 
+    > A atribuição baseada em grupo requer a edição Azure Ative Directory Premium P1 ou P2. A atribuição baseada em grupo é apoiada apenas para grupos de segurança. Os membros do grupo Aninhado e os grupos Microsoft 365 não são suportados atualmente. Para obter mais requisitos de licenciamento para as funcionalidades discutidas neste artigo, consulte a página de preços do [Azure Ative Directory](https://azure.microsoft.com/pricing/details/active-directory). 
 6. Quando terminar, escolha **Select**.
    ![Atribuir um utilizador ou grupo à aplicação](./media/assign-user-or-group-access-portal/assign-users.png)
 7. No painel **de grupos de Utilizadores e grupos,** selecione um ou mais utilizadores ou grupos da lista e, em seguida, escolha o botão **Select** na parte inferior do painel.
@@ -62,7 +62,7 @@ Para atribuir os utilizadores a uma aplicação que adicionou ao seu inquilino A
 
 Depois de terminar com o quickstart, considere apagar a aplicação. Assim pode manter o seu inquilino de teste limpo. A eliminação da aplicação é abrangida pelo último quickstart desta série, ver [Delete uma aplicação](delete-application-portal.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Avance para o próximo artigo para aprender a configurar um único sº de sôs-on para uma aplicação.
 > [!div class="nextstepaction"]

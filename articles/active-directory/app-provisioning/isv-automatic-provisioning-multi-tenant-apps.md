@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/23/2019
 ms.author: kenwith
 ms.reviewer: zhchia
-ms.openlocfilehash: 7ffdef43aa0fdcaab9e8ceae519cef9dfe5cdf6e
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 617128640c4f4ae4ce5ac32803e459a9a3eb448f
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235643"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706451"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Ativar o fornecimento automático de utilizadores para a sua aplicação multi-inquilino
 
@@ -64,7 +64,7 @@ Para ajudar a determinar qual a opção de integração a utilizar para a sua ap
 |---|---|---|---|
 | Gestão de utilizadores e grupos em Azure AD| √| √| Apenas utilizador |
 | Gerir utilizadores e grupos sincronizados a partir de ative directy no local| √*| √*| Apenas utilizador* |
-| Aceder a dados para além dos utilizadores e grupos durante o fornecimento de dados de acesso ao O365 (Equipas, SharePoint, Email, Calendário, Documentos, etc.)| X+| √| X |
+| Aceder a dados para além dos utilizadores e grupos durante o fornecimento de dados de acesso ao Microsoft 365 (Equipas, SharePoint, Email, Calendário, Documentos, etc.)| X+| √| X |
 | Criar, ler e atualizar utilizadores com base nas regras de negócio| √| √| √ |
 | Excluir utilizadores com base em regras de negócio| √| √| X |
 | Gerir o provisionamento automático do utilizador para todas as aplicações a partir do portal Azure| √| X| √ |
@@ -91,7 +91,7 @@ Para obter mais informações sobre como os utilizadores do Serviço de Provisio
 
 Quando utiliza o Microsoft Graph para provisões, tem acesso a todos os dados ricos do utilizador disponíveis no Gráfico. Além dos detalhes dos utilizadores e grupos, também pode obter informações adicionais como as funções do utilizador, gestor e relatórios diretos, dispositivos de propriedade e registados, e centenas de outras peças de dados disponíveis no [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0). 
 
-Mais de 15 milhões de organizações, e 90% da fortuna 500 empresas usam Azure AD enquanto subscrevem serviços na nuvem da Microsoft como Office 365, Microsoft Azure, Enterprise Mobility Suite ou Microsoft 365. Pode utilizar o Microsoft Graph para integrar a sua aplicação com fluxos de trabalho administrativos, tais como embarque de funcionários (e rescisão), manutenção de perfis e muito mais. 
+Mais de 15 milhões de organizações, e 90% da fortuna 500 empresas usam Azure AD enquanto subscrevem serviços na nuvem da Microsoft como Microsoft 365, Microsoft Azure ou Enterprise Mobility Suite. Pode utilizar o Microsoft Graph para integrar a sua aplicação com fluxos de trabalho administrativos, tais como embarque de funcionários (e rescisão), manutenção de perfis e muito mais. 
 
 Saiba mais sobre a utilização do Microsoft Graph para provisões:
 

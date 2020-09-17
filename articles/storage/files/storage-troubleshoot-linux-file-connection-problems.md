@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e4aa0cb2cc3ff623929222d83a560f66198f13c0
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 4044690bf042d05e4efd531826fab6cb5459b3b7
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564275"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707650"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Problemas de resolução de ficheiros Azure em Linux (SMB)
 
@@ -21,7 +21,7 @@ Este artigo lista problemas comuns relacionados com ficheiros Azure quando se co
 Além das etapas de resolução de problemas neste artigo, pode utilizar [a AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) para garantir que o cliente Linux tem pré-requisitos corretos. A AzFileDiagnostics automatiza a deteção da maioria dos sintomas mencionados neste artigo. Ajuda a configurar o seu ambiente para obter um desempenho ideal. Também pode encontrar esta informação no [Azure Files partilha](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)o problema. O troubleshooter fornece medidas para ajudá-lo com problemas de ligação, mapeamento e montagem de ações do Azure Files.
 
 > [!IMPORTANT]
-> O conteúdo deste artigo aplica-se apenas às ações da SMB.
+> O conteúdo deste artigo aplica-se apenas às ações da SMB. Para mais informações sobre as ações da NFS, consulte [as ações de ficheiro Troubleshoot Azure NFS](storage-troubleshooting-files-nfs.md).
 
 ## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Não é possível ligar ou montar uma partilha de ficheiros Azure
 

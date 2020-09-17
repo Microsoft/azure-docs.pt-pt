@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 82e984b629c8d838ba179b25a78262eccf078a04
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 65e1b1b5e84c3344a082b73b7768935d788a3394
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377867"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707412"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Acesso remoto a aplicações no local através do Azure AD Application Proxy
 
@@ -24,7 +24,7 @@ O Proxy de Aplicação do Azure Ative Directory fornece acesso remoto seguro a a
 
 O Proxy de Aplicações do Azure AD é:
 
-- **Simples de usar.** Os utilizadores podem aceder às suas aplicações no local da mesma forma que acedem ao O365 e a outras aplicações SaaS integradas com AZure AD. Não precisa de alterar ou atualizar as suas aplicações para trabalhar com o Proxy de Aplicações.
+- **Simples de usar.** Os utilizadores podem aceder às suas aplicações no local da mesma forma que acedem ao Microsoft 365 e a outras aplicações SaaS integradas com AZure AD. Não precisa de alterar ou atualizar as suas aplicações para trabalhar com o Proxy de Aplicações.
 
 - **Seguro**. As aplicações no local podem utilizar os controlos de autorização da Azure e a análise de segurança. Por exemplo, as aplicações no local podem utilizar acesso condicional e verificação em duas etapas. O Application Proxy não requer que abra as ligações de entrada através da sua firewall.
 
@@ -72,6 +72,6 @@ O diagrama seguinte mostra como a Azure AD e a Application Proxy trabalham em co
 | Diretório Ativo (AD) | O Ative Directory funciona no local para efetuar a autenticação para contas de domínio. Quando o único sinal de sação é configurado, o conector comunica com AD para efetuar qualquer autenticação adicional necessária.
 | Aplicação no local | Por fim, o utilizador pode aceder a uma aplicação no local.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para começar a utilizar o Application Proxy, consulte [Tutorial: Adicione uma aplicação no local para acesso remoto através do Application Proxy](application-proxy-add-on-premises-application.md).
 

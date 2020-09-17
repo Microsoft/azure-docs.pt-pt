@@ -1,6 +1,6 @@
 ---
 title: Residência de dados para Azure Network Watcher Microsoft Docs
-description: Compreender a residência de dados para o serviço Network Watcher
+description: Este artigo irá ajudá-lo a compreender a residência de dados para o serviço Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
 author: damendo
@@ -13,28 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/20/2020
 ms.author: damendo
-ms.openlocfilehash: dff5519c1b36a0a7738cb2529c2f4460ecf61e48
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 9451b6636f2f87806e3d1e39fec4e9e4d4390485
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117840"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706831"
 ---
 # <a name="data-residency-for-azure-network-watcher"></a>Residência de dados para Azure Network Watcher
-O Azure Network Watcher não armazena os dados do cliente exceto o serviço Connection Monitor (Preview).
+Com exceção do serviço Connection Monitor (Preview), o Azure Network Watcher não armazena os dados do cliente.
 
 
-## <a name="connection-monitor-preview-data-residency"></a>Residência de dados do Monitor de Ligação (pré-visualização)
-O serviço *Connection Monitor (pré-visualização)* armazena os dados do cliente. Estes dados são automaticamente armazenados pelo Network Watcher numa única região. Assim, *o Monitor de Ligação (pré-visualização)* satisfaz automaticamente os requisitos de residência de dados na região, incluindo conforme especificado no [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+## <a name="connection-monitor-preview-data-residency"></a>Residência de dados do Monitor de Ligação (Pré-visualização)
+O serviço Connection Monitor (Preview) armazena os dados do cliente. Estes dados são automaticamente armazenados pelo Network Watcher numa única região. Assim, o Monitor de Ligação (Pré-visualização) satisfaz automaticamente os requisitos de residência de dados na região, incluindo requisitos especificados no [Trust Center](https://azuredatacentermap.azurewebsites.net/).
 
 ## <a name="singapore-data-residency"></a>Residência de dados de Singapura
 
-Em Azure, a funcionalidade para permitir o armazenamento de dados de clientes numa única região está atualmente apenas disponível na Região do Sudeste Asiático (Singapura) da Asia Pacific Geo. Para todas as outras regiões, os dados dos clientes são armazenados na Geo. Para mais informações, consulte [o Trust Center.](https://azuredatacentermap.azurewebsites.net/)
-
-> [!Note]
-> **Replicação prévia** Os clientes têm a opção de armazenar endereços IP de utilizador final com a sua instância de Observador de Rede para que o Observador de Rede possa monitorizar alterações de alcance, latência e topologia de rede relacionadas com os endereços IP do utilizador final. Estes endereços IP do utilizador final podem ser classificados como Dados do Cliente. A partir de 15 de julho de 2020, o Network Watcher armazenou estes dados numa única região. (Os dados do cliente já não estão a ser replicados em HK.) Estes dados já não estão a ser replicados em HK. Este Dado do Cliente é e foi encriptado em repouso.
-> 
-> Se estes Dados do Cliente fossem acessíveis por terceiros, isso permitiria que terceiros soubessem o endereço IP, mas não permitiriam ao terceiro o acesso à máquina ou dispositivo associado ao endereço IP. O Network Watcher acredita que nenhum terceiro acedeu a estes Dados do Cliente em HK.
+Em Azure, a funcionalidade que permite armazenar dados de clientes numa única região está atualmente disponível apenas na Região do Sudeste Asiático (Singapura) do geo da Ásia-Pacífico. Para todas as outras regiões, os dados dos clientes são armazenados em geo. Para mais informações, consulte o [Trust Center.](https://azuredatacentermap.azurewebsites.net/)
 
 ## <a name="next-steps"></a>Passos seguintes
 

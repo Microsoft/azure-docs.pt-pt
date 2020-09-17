@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 781aa48442d80e55128314dd1e271532162df32c
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: b02329d624eda440230fb99e02e08c841c5580f2
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178829"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706001"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossário de desenvolvimento de plataforma de identidade da Microsoft
 
@@ -154,7 +154,7 @@ Tal como definido pelo [Quadro de Autorização da OAuth2,][OAuth2-Role-Def]uma 
 
 Conforme definido pelo [Quadro de Autorização da OAuth2,][OAuth2-Role-Def]um servidor que acolhe recursos protegidos, capaz de aceitar e responder a pedidos de recursos protegidos por [aplicações de clientes](#client-application) que apresentam um [token de acesso](#access-token). Também conhecido como um servidor de recursos protegido, ou aplicação de recursos.
 
-Um servidor de recursos expõe APIs e impõe o acesso aos seus recursos protegidos através de [âmbitos](#scopes) e [funções,](#roles)utilizando o Quadro de Autorização OAuth 2.0. Exemplos incluem a API do [Microsoft Graph][Microsoft-Graph] que fornece acesso aos dados do inquilino AZure AD, e as APIs do Office 365 que fornecem acesso a dados como correio e calendário.
+Um servidor de recursos expõe APIs e impõe o acesso aos seus recursos protegidos através de [âmbitos](#scopes) e [funções,](#roles)utilizando o Quadro de Autorização OAuth 2.0. Exemplos incluem a API do [Microsoft Graph][Microsoft-Graph] que fornece acesso aos dados do inquilino AZure AD, e as APIs microsoft 365 que fornecem acesso a dados como correio e calendário.
 
 Tal como uma aplicação de cliente, a configuração de identidade da aplicação de recursos é estabelecida através do [registo](#application-registration) de um inquilino AZure AD, fornecendo tanto o objeto principal de aplicação como de serviço. Algumas APIs fornecidas pela Microsoft, como a Microsoft Graph API, têm principais de serviço pré-registados disponibilizados em todos os inquilinos durante o fornecimento.
 
@@ -172,7 +172,7 @@ Tal como [as funções,](#roles)os âmbitos fornecem uma forma de um [servidor d
 
 Os âmbitos são cordas definidas por recursos (por exemplo"Mail.Read", "Diretório.ReadWrite.All"), geridas no [portal Azure][AZURE-portal] através do manifesto de [aplicação](#application-manifest)do recurso, e armazenadas na propriedade de [oauth2Permissions][Graph-Sp-Resource]do recurso. O portal Azure também é utilizado para configurar a aplicação do cliente [delegada permissões](#permissions) para aceder a um âmbito.
 
-Uma convenção de nomeação de boas práticas é usar um formato "resource.operation.constraint". Para uma discussão detalhada dos âmbitos expostos pela Microsoft Graph API, consulte [os Âmbitos de Permissões da API do gráfico][Graph-Perm-Scopes]. Para os âmbitos expostos pelos serviços do Office 365, consulte [a referência de permissões API do Office 365][O365-Perm-Ref].
+Uma convenção de nomeação de boas práticas é usar um formato "resource.operation.constraint". Para uma discussão detalhada dos âmbitos expostos pela Microsoft Graph API, consulte [os Âmbitos de Permissões da API do gráfico][Graph-Perm-Scopes]. Para os âmbitos expostos pelos serviços microsoft 365, consulte [a referência de permissões API da Microsoft 365][O365-Perm-Ref].
 
 ## <a name="security-token"></a>símbolo de segurança
 
@@ -202,7 +202,7 @@ Um caso de diretório AD Azure é referido como um inquilino da AD Azure. Fornec
 * autenticação de contas de utilizador e aplicações registadas
 * Pontos finais REST necessários para apoiar vários protocolos, incluindo a OAuth2 e a SAML, incluindo o ponto final de [autorização,](#authorization-endpoint)o [ponto final simbólico](#token-endpoint) e o ponto final "comum" utilizado pelas [aplicações de vários inquilinos.](#multi-tenant-application)
 
-Os inquilinos da AZure AD são criados/associados com subscrições do Azure e do Office 365 durante a inscrição, fornecendo funcionalidades de Gestão de Acesso de Identidade & para a subscrição. Os administradores de subscrição da Azure também podem criar inquilinos AZure AD adicionais através do portal Azure. Veja [como obter um inquilino do Azure Ative Directory][AAD-How-To-Tenant] para obter detalhes sobre as várias formas de acesso a um inquilino. Consulte [Associate ou adicione uma subscrição Azure ao seu inquilino Azure Ative Directory][AAD-How-Subscriptions-Assoc] para obter detalhes sobre a relação entre as subscrições e um inquilino AD Azure, e para instruções sobre como associar ou adicionar uma subscrição a um inquilino AZure AD.
+Os inquilinos da AZure AD são criados/associados com subscrições Azure e Microsoft 365 durante a inscrição, fornecendo funcionalidades de Gestão de Acesso de Identidade & para a subscrição. Os administradores de subscrição da Azure também podem criar inquilinos AZure AD adicionais através do portal Azure. Veja [como obter um inquilino do Azure Ative Directory][AAD-How-To-Tenant] para obter detalhes sobre as várias formas de acesso a um inquilino. Consulte [Associate ou adicione uma subscrição Azure ao seu inquilino Azure Ative Directory][AAD-How-Subscriptions-Assoc] para obter detalhes sobre a relação entre as subscrições e um inquilino AD Azure, e para instruções sobre como associar ou adicionar uma subscrição a um inquilino AZure AD.
 
 ## <a name="token-endpoint"></a>ponto final simbólico
 

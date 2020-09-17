@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 08/27/2020
-ms.openlocfilehash: 46116fd7157b6a1cf8112613703aa2388b3ba7d3
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 78ec233e618511c748ed9f51b97161eddc5e8308
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056188"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707531"
 ---
 # <a name="create-a-synapse-workspace"></a>Criar uma área de trabalho do Synapse
 
@@ -24,13 +24,8 @@ Neste tutorial, você aprenderá a criar um espaço de trabalho Synapse, uma pis
 
 1. Abra o [portal Azure](https://portal.azure.com)e na pesquisa superior para **Synapse**.
 1. Nos resultados da pesquisa, em **Serviços,** selecione **Azure Synapse Analytics (pré-visualização de espaços de trabalho)**.
-1. **Selecione Adicionar** para criar um espaço de trabalho utilizando estas definições:
-
-    |Tecla de Tabulação|Definição | Valor sugerido | Descrição |
-    |---|---|---|---|
-    |Noções básicas|**Nome da área de trabalho**|Pode dar-lhe o nome de qualquer coisa.| Neste documento, usaremos **o meu espaço de trabalho.**|
-    |Noções básicas|**Região**|Combine com a região da conta de armazenamento.|
-
+1. **Selecione Adicionar** para criar um espaço de trabalho.
+1. No **Basics,** escolha um nome de espaço de trabalho. Neste tutorial, usaremos **o meu espaço de trabalho.**
 1. Precisa de uma conta ADLSGEN2 para criar um espaço de trabalho. A escolha mais simples para criar uma nova. Se quiser reutilizar uma existente, terá de realizar alguma configuração adicional. 
 1. OPÇÃO 1 Criação de uma nova conta ADLSGEN2 
     1. Navegue para **selecionar data lake storage Gen 2**. 
@@ -121,7 +116,7 @@ Configure o acesso à conta de armazenamento a partir do seu espaço de trabalho
 
 1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Analise usando uma piscina SQL](get-started-analyze-sql-pool.md)

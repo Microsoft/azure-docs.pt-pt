@@ -2,18 +2,18 @@
 title: Resolução de problemas Azure Application Insights Snapshot Debugger
 description: Este artigo apresenta etapas e informações de resolução de problemas para ajudar os desenvolvedores que estão com dificuldades em ativar ou usar o Debugger Snapshot Debugger do Application Insights.
 ms.topic: conceptual
-author: brahmnes
+author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 485f35ed249ab7f6bbb987d8c79afe20287cd25a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 935e1832629827b0286a79ab8ea6d1dfbb143e1c
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671414"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707837"
 ---
-# <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a>Problemas de resolução de problemas que permitem insights de aplicação Debugger ou visualização de instantâneos
-Se ativou o Application Insights Snapshot Debugger para a sua aplicação, mas não estiver a ver instantâneos para exceções, pode utilizar estas instruções para resolver problemas. Pode haver muitas razões diferentes para que os instantâneos não sejam gerados. Pode fazer o exame de saúde instantâneo para identificar algumas das possíveis causas comuns.
+# <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Problemas de resolução de problemas que permitem insights de aplicação Debugger ou visualização de instantâneos
+Se ativou o Application Insights Snapshot Debugger para a sua aplicação, mas não estiver a ver instantâneos para exceções, pode utilizar estas instruções para resolver problemas. Podem existir vários motivos diferentes pelos quais os instantâneos não são gerados. Pode fazer o exame de saúde instantâneo para identificar algumas das possíveis causas comuns.
 
 ## <a name="use-the-snapshot-health-check"></a>Use o cheque de saúde instantâneo
 Vários problemas comuns resultam em que o Open Debug Snapshot não aparecesse. Utilizando um Coletor Instantâneo desatualizado, por exemplo; atingindo o limite de carregamento diário; ou talvez a foto esteja apenas a demorar muito tempo a carregar. Utilize o Snapshot Health Check para resolver problemas comuns.
@@ -32,13 +32,37 @@ Se isso não resolver o problema, consulte os seguintes passos manuais de resolu
 
 Certifique-se de que está a utilizar a chave de instrumentação correta na sua aplicação publicada. Normalmente, a chave de instrumentação é lida a partir do ficheiro ApplicationInsights.config. Verifique se o valor é o mesmo que a chave de instrumentação do recurso Application Insights que vê no portal.
 
+## <a name="check-ssl-client-settings-aspnet"></a><a id="SSL"></a>Verifique as definições do cliente SSL (ASP.NET)
+
+Se tiver uma aplicação ASP.NET hospedada no Azure App Service ou no IIS numa máquina virtual, a sua aplicação poderá não conseguir ligar-se ao serviço Snapshot Debugger devido a um protocolo de segurança SSL em falta.
+[O ponto final Snapshot Debugger requer a versão 1.2 do TLS](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json). O conjunto de protocolos de segurança SSL é uma das peculiaridades ativadas pelo valor de base de metas httpRuntime na secção system.web de web.config. Se o targetFramework httpRuntime for 4.5.2 ou inferior, então o TLS 1.2 não está incluído por padrão.
+
+> [!NOTE]
+> O valor do targetFramework httpRuntime é independente do quadro-alvo utilizado na construção da sua aplicação.
+
+Para verificar a definição, abra o ficheiro web.config e encontre a secção system.web. Certifique-se de que o `targetFramework` for está definido para `httpRuntime` 4.6 ou superior.
+
+   ```xml
+   <system.web>
+      ...
+      <httpRuntime targetFramework="4.7.2" />
+      ...
+   </system.web>
+   ```
+
+> [!NOTE]
+> Modificar o valor do targetFramework httpRuntime altera as peculiaridades de tempo de execução aplicadas à sua aplicação e pode causar outras alterações de comportamento subtis. Certifique-se de testar a sua aplicação cuidadosamente depois de escoar esta alteração. Para obter uma lista completa de alterações de compatibilidade, consulte https://docs.microsoft.com/dotnet/framework/migration-guide/application-compatibility#retargeting-changes
+
+> [!NOTE]
+> Se o targetFramework for 4.7 ou superior, o Windows determina os protocolos disponíveis. No Azure App Service, o TLS 1.2 está disponível. No entanto, se estiver a utilizar a sua própria máquina virtual, poderá ter de ativar o TLS 1.2 no SISTEMA.
+
 ## <a name="preview-versions-of-net-core"></a>Versões de pré-visualização de .NET Core
 Se a aplicação utilizar uma versão de pré-visualização de .NET Core, e o Snapshot Debugger foi ativado através do painel de Insights de [Aplicação](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) no portal, então o Snapshot Debugger pode não começar. Siga as instruções no [Enable Snapshot Debugger para outros ambientes](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) primeiro para incluir o pacote [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet com a aplicação, ***além*** de permitir através do painel de Insights de [Aplicação](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
 
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Upgrade para a versão mais recente do pacote NuGet
 
-Se o Snapshot Debugger foi ativado através do [painel Debugger Application Insights no portal,](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)então a sua aplicação já deve estar a executar o mais recente pacote NuGet. Se o Snapshot Debugger foi ativado através da inclusão do pacote [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet, utilize o NuGet Package Manager do Visual Studio para se certificar de que está a utilizar a versão mais recente do Microsoft.ApplicationInsights.SnapshotCollector. As notas de libertação podem ser encontradas emhttps://github.com/Microsoft/ApplicationInsights-Home/issues/167
+Se o Snapshot Debugger foi ativado através do [painel Debugger Application Insights no portal,](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)então a sua aplicação já deve estar a executar o mais recente pacote NuGet. Se o Snapshot Debugger foi ativado através da inclusão do pacote [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet, utilize o NuGet Package Manager do Visual Studio para se certificar de que está a utilizar a versão mais recente do Microsoft.ApplicationInsights.SnapshotCollector. As notas de libertação podem ser encontradas em https://github.com/Microsoft/ApplicationInsights-Home/issues/167
 
 ## <a name="check-the-uploader-logs"></a>Verifique os registos do uploader
 
@@ -140,7 +164,7 @@ Siga estes passos para configurar o seu papel de Cloud Service com um recurso lo
    }
    ```
 
-3. Atualize o ficheiro de ApplicationInsights.config da sua função para anular a localização temporária da pasta utilizada por`SnapshotCollector`
+3. Atualize o ficheiro de ApplicationInsights.config da sua função para anular a localização temporária da pasta utilizada por `SnapshotCollector`
    ```xml
    <TelemetryProcessors>
     <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">

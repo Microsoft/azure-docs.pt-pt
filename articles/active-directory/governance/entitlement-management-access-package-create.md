@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a80dafda39c0b37b1a7477b93d7f649fa1beeade
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 0126c5348a2acaebea0400a94ca0a1d14a1bf6ff
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783642"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707548"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Criar um novo pacote de acesso na gestão de direitos AD da Azure
 
@@ -99,7 +99,7 @@ No separador **Funções de Recursos,** seleciona os recursos a incluir no pacot
 
     Se estiver a criar o pacote de acesso num catálogo existente, pode selecionar qualquer recurso que já esteja no catálogo sem o possuir.
 
-    Se é administrador global, administrador do Utilizador ou proprietário de catálogo, tem a opção adicional de selecionar recursos que possui que ainda não estão no catálogo. Se selecionar recursos que não estão atualmente no catálogo selecionado, estes recursos também serão adicionados ao catálogo para outros administradores de catálogos para construir pacotes de acesso com. Se pretender apenas selecionar recursos que se encontram atualmente no catálogo selecionado, verifique a caixa de verificação **Only see** na parte superior do painel Select.
+    Se é administrador global, administrador do Utilizador ou proprietário de catálogo, tem a opção adicional de selecionar recursos que possui que ainda não estão no catálogo. Se selecionar recursos que não estão atualmente no catálogo selecionado, estes recursos também serão adicionados ao catálogo para outros administradores de catálogos para construir pacotes de acesso com. Para ver todos os recursos que podem ser adicionados ao catálogo, consulte a caixa de verificação **ver todas as** caixas de verificação na parte superior do painel Select. Se pretender apenas selecionar recursos que se encontram atualmente no catálogo selecionado, deixe a caixa de verificação **Ver tudo** desmarcado (estado predefinido).
 
 1. Uma vez selecionados os recursos, na lista **De Função,** selecione a função que pretende que os utilizadores sejam atribuídos para o recurso.
 
@@ -135,11 +135,11 @@ No **separador 'Rever +' criar,** pode rever as suas definições e verificar ev
 
 Também pode criar um pacote de acesso utilizando o Microsoft Graph.  Um utilizador numa função apropriada com uma aplicação que tenha a permissão delegada `EntitlementManagement.ReadWrite.All` pode chamar a API para
 
-1. [Enuprote os acessosPackageResources no catálogo](/graph/api/accesspackagecatalog-list-accesspackageresources?view=graph-rest-beta) e [crie um AccessPackageResourceRequest](/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta) para quaisquer recursos que ainda não estejam no catálogo.
-1. [Listar os acessosPackageResourceRoles](/graph/api/accesspackagecatalog-list-accesspackageresourceroles?view=graph-rest-beta) de cada accessPackageResource num AccessPackageCatalog. Esta lista de funções será então usada para selecionar uma função, quando posteriormente criar um AccessPackageResourceRoleScope.
-1. [Criar um pacote de acesso.](/graph/api/accesspackage-post?view=graph-rest-beta)
-1. [Criar um accessPackageAssignmentPolicy](/graph/api/accesspackageassignmentpolicy-post?view=graph-rest-beta).
-1. [Crie um AccessPackageResourceRoleScope](/graph/api/accesspackage-post-accesspackageresourcerolescopes?view=graph-rest-beta) para cada função de recurso necessária no pacote de acesso.
+1. [Enuprote os acessosPackageResources no catálogo](https://docs.microsoft.com/graph/api/accesspackagecatalog-list?view=graph-rest-beta&tabs=http) e [crie um AccessPackageResourceRequest](https://docs.microsoft.com/graph/api/accesspackageresourcerequest-post?view=graph-rest-beta&tabs=http) para quaisquer recursos que ainda não estejam no catálogo.
+1. [Listar os acessosPackageResourceRoles](https://docs.microsoft.com/graph/api/accesspackage-list-accesspackageresourcerolescopes?view=graph-rest-beta&tabs=http) de cada accessPackageResource num AccessPackageCatalog. Esta lista de funções será então usada para selecionar uma função, quando posteriormente criar um AccessPackageResourceRoleScope.
+1. [Criar um pacote de acesso.](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta)
+1. [Criar um accessPackageAssignmentPolicy](https://docs.microsoft.com/graph/api/accesspackageassignmentpolicy-post?view=graph-rest-beta&tabs=http).
+1. [Crie um AccessPackageResourceRoleScope](https://docs.microsoft.com/graph/api/accesspackage-post-accesspackageresourcerolescopes?view=graph-rest-beta&tabs=http) para cada função de recurso necessária no pacote de acesso.
 
 ## <a name="next-steps"></a>Passos seguintes
 

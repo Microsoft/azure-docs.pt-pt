@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: be5d86fe690d60f687622243a2f1d7771b8af7d0
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: d47b9b5882b25ee030ca813abbaf77805b2df0f5
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604034"
+ms.locfileid: "90707769"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir o ciclo de vida do Armazenamento de Blobs do Azure
 
@@ -87,7 +87,7 @@ Há duas formas de adicionar uma política através do portal Azure.
    > [!IMPORTANT]
    > A última pré-visualização do rastreio do tempo de acesso destina-se apenas à utilização não-produção. Os contratos de serviços de produção (SLAs) não estão atualmente disponíveis.
    
-   Para obter mais informações sobre a última opção **acedida,** consulte [os dados do Movimento com base na última data acedida (pré-visualização)](#move-data-based-on-last-accessed-date-preview).
+   Para utilizar a última opção **acedida,** selecione **rastreio de acesso ativado** na página **de Gestão** do Ciclo de Vida no portal Azure. Para obter mais informações sobre a última opção **acedida,** consulte [os dados do Movimento com base na última data acedida (pré-visualização)](#move-data-based-on-last-accessed-date-preview).
 
 1. Se selecionou **bolhas de limite com filtros** na página **Detalhes,** selecione **o conjunto de filtros** para adicionar um filtro opcional. O exemplo seguinte filtra-se em bolhas no recipiente *mylifecyclecontainer* que começam com "log".
 
@@ -376,6 +376,8 @@ A última opção **acedida** está disponível em pré-visualização nas segui
 
 > [!IMPORTANT]
 > A última pré-visualização do rastreio do tempo de acesso destina-se apenas à utilização não-produção. Os contratos de serviços de produção (SLAs) não estão atualmente disponíveis.
+
+Para utilizar a última opção **acedida,** selecione **rastreio de acesso ativado** na página **de Gestão** do Ciclo de Vida no portal Azure.
 
 #### <a name="how-last-access-time-tracking-works"></a>Como funciona o último rastreio do tempo de acesso
 

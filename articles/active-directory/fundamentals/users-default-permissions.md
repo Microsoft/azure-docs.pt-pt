@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18, contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 363068b74bf7639460da4fa80f0e661f3b8a88b9
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 5d585ac57a369c994df9871bf731157de7b23212
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89568817"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707633"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quais são as permissões de utilizador predefinidas no Azure Ative Directory?
 No Azure Active Directory (Azure AD), é concedido a todos os utilizadores um conjunto de permissões predefinidas. O acesso de um utilizador consiste no tipo de utilizador, nas suas [atribuições de papel](active-directory-users-assign-role-azure-portal.md)e na sua propriedade de objetos individuais. Este artigo descreve essas permissões predefinidas e contém uma comparação entre as predefinições do utilizador membro e convidado. As permissões do utilizador predefinidas só podem ser alteradas nas definições do utilizador em Azure AD.
@@ -36,7 +36,7 @@ Utilizadores e contactos | <ul><li>Ler todas as propriedades públicas de utiliz
 Grupos | <ul><li>Criar grupos de segurança<li>Criar grupos Microsoft 365<li>Ler todas as propriedades dos grupos<li>Ler as associações de grupo não oculto<li>Leia membros escondidos do grupo Microsoft 365 para grupo aderido<li>Gerir propriedades, propriedade e adesão de grupos que o utilizador detém<li>Adicionar convidados a grupos detidos<li>Gerir definições de associação dinâmica<li>Eliminar grupos detidos<li>Restaurar grupos Microsoft 365</li></ul> | <ul><li>Ler propriedades de todos os grupos não escondidos, incluindo a adesão e a propriedade (mesmo grupos não acompanhados)<li>Leia membros do grupo Microsoft 365 escondidos para grupos unidos<li>Procure por grupos por Display Name ou ObjectId (se permitido)</li></ul> | Sem permissões
 Aplicações | <ul><li>Registar (criar) nova aplicação<li>Ler as propriedades de aplicações registadas e empresariais<li>Gerir as propriedades da aplicação, atribuições e credenciais para aplicações detidas<li>Criar ou eliminar palavra-passe de aplicação do utilizador<li>Eliminar aplicações detidas<li>Restaurar aplicações detidas</li></ul> | <ul><li>Ler as propriedades de aplicações registadas e empresariais</li></ul> | <ul><li>Ler as propriedades de aplicações registadas e empresariais
 Dispositivos</li></ul> | <ul><li>Ler todas as propriedades dos dispositivos<li>Gerir todas as propriedades dos dispositivos detidos</li></ul> | Sem permissões | Sem permissões
-Diretório | <ul><li>Ler todas as informações da empresa<li>Ler todos os domínios<li>Ler todos os contratos de parceiros</li></ul> | <ul><li>Ler o nome a apresentar e os domínios verificados</li></ul> | <ul><li>Ler o nome a apresentar e os domínios verificados</li></ul>
+Diretório | <ul><li>Ler todas as informações da empresa<li>Ler todos os domínios<li>Ler todos os contratos de parceiros</li></ul> | <ul><li>Leia o nome da exposição da empresa<li>Ler todos os domínios</li></ul> | <ul><li>Leia o nome da exposição da empresa<li>Ler todos os domínios</li></ul>
 Funções e Âmbitos | <ul><li>Ler todas as funções e associações administrativas<li>Ler todas as propriedades e associação de unidades administrativas</li></ul> | Sem permissões | Sem permissões
 Subscrições | <ul><li>Ler todas as subscrições<li>Ativar Membro do Plano de Serviço</li></ul> | Sem permissões | Sem permissões
 Políticas | <ul><li>Ler todas as propriedades das políticas<li>Gerir todas as propriedades da política detida</li></ul> | Sem permissões | Sem permissões
@@ -141,7 +141,7 @@ Os utilizadores podem realizar as seguintes ações em grupos de propriedade.
 | microsoft.diretório/grupos/restaurar | Restaurar grupos no Diretório Ativo Azure. |
 | microsoft.diretório/grupos/definições/atualização | Atualizar a propriedade grupos.configurações em Azure Ative Directory. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre a definição de restrições de acesso ao utilizador dos hóspedes, consulte [permissões de acesso ao hóspede (pré-visualização) em Azure Ative Directory](../users-groups-roles/users-restrict-guest-permissions.md).
 * Para saber mais sobre como atribuir funções de administrador AZure, consulte [atribuir um utilizador às funções de administrador no Azure Ative Directory](active-directory-users-assign-role-azure-portal.md)

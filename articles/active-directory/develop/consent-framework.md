@@ -13,22 +13,22 @@ ms.date: 11/30/2018
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: 75d848c8d4459e5534e2954a11612bdf44f6d1ce
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: e9780332ad6279deef63910c7e6ba95e1ccf43bd
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141555"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706137"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Enquadramento do consentimento do Azure Active Directory
 
-O quadro de consentimento do Azure Ative Directory (Azure AD) facilita o desenvolvimento de aplicações de clientes multi-inquilinos e clientes nativos. Estas aplicações permitem a inscrição por conta de utilizador de um inquilino AZure AD que é diferente daquele em que a aplicação está registada. Podem também ter de aceder a APIs web, como a API do Microsoft Graph (para aceder a Azure AD, Intune e serviços no Office 365) e as APIs de outros serviços da Microsoft, além das suas próprias APIs web.
+O quadro de consentimento do Azure Ative Directory (Azure AD) facilita o desenvolvimento de aplicações de clientes multi-inquilinos e clientes nativos. Estas aplicações permitem a inscrição por conta de utilizador de um inquilino AZure AD que é diferente daquele em que a aplicação está registada. Podem também ter de aceder a APIs web, como a API do Microsoft Graph (para aceder a Azure AD, Intune e serviços na Microsoft 365) e a APIs de outros serviços da Microsoft, além das suas próprias APIs web.
 
-O quadro baseia-se num utilizador ou administrador que dá consentimento a uma aplicação que pede para ser registada no seu diretório, o que pode implicar o acesso aos dados do diretório. Por exemplo, se uma aplicação de cliente web precisar de ler informações de calendário sobre o utilizador a partir do Office 365, esse utilizador é obrigado a consentir primeiro com a aplicação do cliente. Após o consentimento ser dado, a aplicação do cliente poderá ligar para a API do Microsoft Graph em nome do utilizador e utilizar as informações do calendário conforme necessário. A [API do Microsoft Graph](https://developer.microsoft.com/graph) fornece acesso aos dados no Office 365 (como calendários e mensagens do Exchange, sites e listas do SharePoint, documentos do OneDrive, cadernos do OneNote, tarefas do Planner e livros de trabalho do Excel), bem como utilizadores e grupos de Azure AD e outros objetos de dados de mais serviços na nuvem da Microsoft.
+O quadro baseia-se num utilizador ou administrador que dá consentimento a uma aplicação que pede para ser registada no seu diretório, o que pode implicar o acesso aos dados do diretório. Por exemplo, se uma aplicação de cliente web precisar de ler informações de calendário sobre o utilizador a partir do Microsoft 365, esse utilizador é obrigado a consentir primeiro com a aplicação do cliente. Após o consentimento ser dado, a aplicação do cliente poderá ligar para a API do Microsoft Graph em nome do utilizador e utilizar as informações do calendário conforme necessário. A [API do Microsoft Graph](https://developer.microsoft.com/graph) fornece acesso a dados no Microsoft 365 (como calendários e mensagens de Exchange, sites e listas do SharePoint, documentos do OneDrive, cadernos do OneNote, tarefas do Planner e livros de trabalho do Excel), bem como utilizadores e grupos de Azure AD e outros objetos de dados de mais serviços na nuvem da Microsoft.
 
 O quadro de consentimento baseia-se na OAuth 2.0 e nos seus diversos fluxos, tais como concessão de código de autorização e concessão de credenciais de cliente, utilizando clientes públicos ou confidenciais. Ao utilizar o OAuth 2.0, o AZure AD permite construir muitos tipos diferentes de aplicações de clientes - como num telefone, tablet, servidor ou uma aplicação web -- e ter acesso aos recursos necessários.
 
-Para obter mais informações sobre a utilização do quadro de consentimento com bolsas de autorização OAuth2.0, consulte [o acesso autorizado a aplicações web utilizando cenários de AD e Azure AD e](v2-oauth2-auth-code-flow.md) [autenticação para Azure AD](./authentication-vs-authorization.md). Para obter informações sobre o acesso autorizado ao Office 365 através do Microsoft Graph, consulte [a autenticação da App com o Microsoft Graph](/graph/).
+Para obter mais informações sobre a utilização do quadro de consentimento com bolsas de autorização OAuth2.0, consulte [o acesso autorizado a aplicações web utilizando cenários de AD e Azure AD e](v2-oauth2-auth-code-flow.md) [autenticação para Azure AD](./authentication-vs-authorization.md). Para obter informações sobre o acesso autorizado ao Microsoft 365 através do Microsoft Graph, consulte [a autenticação da App com o Microsoft Graph](/graph/).
 
 ## <a name="consent-experience---an-example"></a>Experiência de consentimento - um exemplo
 
@@ -62,7 +62,7 @@ Os passos a seguir mostram-lhe como funciona a experiência de consentimento tan
    > [!IMPORTANT]
    > A concessão de consentimento explícito utilizando o botão **de permissões Grant** é atualmente necessária para aplicações de uma página única (SPA) que usam ADAL.js. Caso contrário, a aplicação falha quando o token de acesso é solicitado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Veja [como converter uma app para ser multi-inquilino](howto-convert-app-to-be-multi-tenant.md)
 * Para obter mais profundidade, saiba [como o consentimento é suportado na camada do protocolo OAuth 2.0 durante o fluxo de concessão de código de autorização.](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code)

@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: b94bcd1cfbbf215ed912d506d27311aae502656b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 554e5a022dcb49cd861ad7198a2c375634db6d10
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115072"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705750"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto da aplicação do Azure Active Directory
 
@@ -82,7 +82,7 @@ Exemplo:
 | :--- | :--- |
 | addIns | Coleção |
 
-Define o comportamento personalizado que um serviço de consumo pode usar para chamar uma app em contextos específicos. Por exemplo, as aplicações que podem renderizar fluxos de ficheiros podem definir a propriedade para a `addIns` sua funcionalidade "FileHandler". Este parâmetro permitirá que serviços como o Office 365 liguem para a aplicação no contexto de um documento em que o utilizador está a trabalhar.
+Define o comportamento personalizado que um serviço de consumo pode usar para chamar uma app em contextos específicos. Por exemplo, as aplicações que podem renderizar fluxos de ficheiros podem definir a propriedade para a `addIns` sua funcionalidade "FileHandler". Este parâmetro permitirá que serviços como o Microsoft 365 liguem para a aplicação no contexto de um documento em que o utilizador está a trabalhar.
 
 Exemplo:
 
@@ -193,8 +193,8 @@ Sem apoio.
 Configura a `groups` reclamação emitida num utilizador ou no token de acesso OAuth 2.0 que a app espera. Para definir este atributo, utilize um dos seguintes valores de cadeia válidos:
 
 - `"None"`
-- `"SecurityGroup"`(para grupos de segurança e funções AD Azure)
-- `"All"`(isto irá obter todos os grupos de segurança, grupos de distribuição e papel de diretório AD Azure de que o utilizador inscrito é membro.
+- `"SecurityGroup"` (para grupos de segurança e funções AD Azure)
+- `"All"` (isto irá obter todos os grupos de segurança, grupos de distribuição e papel de diretório AD Azure de que o utilizador inscrito é membro.
 
 Exemplo:
 
@@ -433,8 +433,8 @@ Exemplo:
 | :--- | :--- |
 | parentalControlSettings | String |
 
-- `countriesBlockedForMinors`especifica os países/regiões em que a aplicação está bloqueada para menores.
-- `legalAgeGroupRule`especifica a regra do grupo de idade legal que se aplica aos utilizadores da app. Pode ser definido para `Allow` , , , , ou `RequireConsentForPrivacyServices` `RequireConsentForMinors` `RequireConsentForKids` `BlockMinors` .
+- `countriesBlockedForMinors` especifica os países/regiões em que a aplicação está bloqueada para menores.
+- `legalAgeGroupRule` especifica a regra do grupo de idade legal que se aplica aos utilizadores da app. Pode ser definido para `Allow` , , , , ou `RequireConsentForPrivacyServices` `RequireConsentForMinors` `RequireConsentForKids` `BlockMinors` .
 
 Exemplo:
 
@@ -555,8 +555,8 @@ Exemplo:
 
 Com o consentimento dinâmico, `requiredResourceAccess` impulsiona a experiência de consentimento de administração e a experiência de consentimento do utilizador para os utilizadores que estão a usar o consentimento estático. No entanto, este parâmetro não impulsiona a experiência de consentimento do utilizador para o caso geral.
 
-- `resourceAppId`é o identificador único para o recurso a que a app requer acesso. Este valor deve ser igual ao appId declarado na aplicação de recursos-alvo.
-- `resourceAccess`é um conjunto que lista os âmbitos de permissão OAuth2.0 e as funções de aplicação que a aplicação requer a partir do recurso especificado. Contém os `id` valores e `type` valores dos recursos especificados.
+- `resourceAppId` é o identificador único para o recurso a que a app requer acesso. Este valor deve ser igual ao appId declarado na aplicação de recursos-alvo.
+- `resourceAccess` é um conjunto que lista os âmbitos de permissão OAuth2.0 e as funções de aplicação que a aplicação requer a partir do recurso especificado. Contém os `id` valores e `type` valores dos recursos especificados.
 
 Exemplo:
 
@@ -609,10 +609,10 @@ Exemplo:
 | signInAudience | String |
 
 Especifica quais as contas da Microsoft suportadas para a aplicação atual. Os valores suportados são:
-- `AzureADMyOrg`- Utilizadores com uma conta de trabalho ou escola da Microsoft no inquilino AZure AD da minha organização (por exemplo, inquilino único)
-- `AzureADMultipleOrgs`- Utilizadores com uma conta de trabalho ou escola da Microsoft no inquilino AZure AD de qualquer organização (por exemplo, multi-inquilino)
-- `AzureADandPersonalMicrosoftAccount`- Utilizadores com uma conta pessoal da Microsoft, ou uma conta de trabalho ou escola no inquilino AD Azure de qualquer organização
-- `PersonalMicrosoftAccount`- Contas pessoais que são usadas para iniciar scontabilidade em serviços como Xbox e Skype.
+- `AzureADMyOrg` - Utilizadores com uma conta de trabalho ou escola da Microsoft no inquilino AZure AD da minha organização (por exemplo, inquilino único)
+- `AzureADMultipleOrgs` - Utilizadores com uma conta de trabalho ou escola da Microsoft no inquilino AZure AD de qualquer organização (por exemplo, multi-inquilino)
+- `AzureADandPersonalMicrosoftAccount` - Utilizadores com uma conta pessoal da Microsoft, ou uma conta de trabalho ou escola no inquilino AD Azure de qualquer organização
+- `PersonalMicrosoftAccount` - Contas pessoais que são usadas para iniciar scontabilidade em serviços como Xbox e Skype.
 
 Exemplo:
 

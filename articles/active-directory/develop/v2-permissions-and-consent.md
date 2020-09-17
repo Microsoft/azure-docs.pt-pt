@@ -1,6 +1,6 @@
 ---
 title: Âmbitos, permissões e consentimento da plataforma de identidade da Microsoft
-description: Uma descrição da autorização no ponto final da plataforma de identidade da Microsoft, incluindo âmbitos, permissões e consentimento.
+description: Saiba mais sobre a autorização no ponto final da plataforma de identidade da Microsoft, incluindo âmbitos, permissões e consentimento.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: d513dbd8449dad1d34117e06970f0c0881462aa3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1c35fc80a4ab5b293a974b8f2901716e65f32b1
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263232"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705695"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto final da plataforma de identidades da Microsoft
 
@@ -27,12 +27,12 @@ As aplicações que se integram com a plataforma de identidade da Microsoft segu
 
 A plataforma de identidade da Microsoft implementa o protocolo de autorização [OAuth 2.0.](active-directory-v2-protocols.md) O OAuth 2.0 é um método através do qual uma aplicação de terceiros pode aceder a recursos hospedados na Web em nome de um utilizador. Qualquer recurso hospedado na Web que se integre com a plataforma de identidade da Microsoft tem um identificador de recursos, ou *ID URI de aplicação.* Por exemplo, alguns dos recursos hospedados na Microsoft incluem:
 
-* Microsoft Graph:`https://graph.microsoft.com`
-* Escritório 365 Correio API:`https://outlook.office.com`
-* Cofre da Chave Azure:`https://vault.azure.net`
+* Microsoft Graph: `https://graph.microsoft.com`
+* Microsoft 365 Mail API: `https://outlook.office.com`
+* Cofre da Chave Azure: `https://vault.azure.net`
 
 > [!NOTE]
-> Recomendamos vivamente que utilize o Microsoft Graph em vez do Office 365 Mail API, etc.
+> Recomendamos vivamente que utilize o Microsoft Graph em vez do Microsoft 365 Mail API, etc.
 
 O mesmo acontece com os recursos de terceiros que se integraram na plataforma de identidade da Microsoft. Qualquer um destes recursos também pode definir um conjunto de permissões que podem ser usadas para dividir a funcionalidade desse recurso em pedaços menores. Como exemplo, [o Microsoft Graph](https://graph.microsoft.com) definiu permissões para fazer as seguintes tarefas, entre outras:
 
@@ -44,9 +44,9 @@ Ao definir este tipo de permissões, o recurso tem um controlo fino sobre os seu
 
 Em OAuth 2.0, estes tipos de permissões são *chamados de âmbitos*. Também são frequentemente *referidas como permissões.* Uma permissão é representada na plataforma de identidade da Microsoft como um valor de cadeia. Continuando com o exemplo do Microsoft Graph, o valor de cadeia para cada permissão é:
 
-* Leia o calendário de um utilizador usando`Calendars.Read`
-* Escreva para o calendário de um utilizador usando`Calendars.ReadWrite`
-* Enviar correio como um utilizador que utiliza por`Mail.Send`
+* Leia o calendário de um utilizador usando `Calendars.Read`
+* Escreva para o calendário de um utilizador usando `Calendars.ReadWrite`
+* Enviar correio como um utilizador que utiliza por `Mail.Send`
 
 Uma aplicação solicita mais frequentemente estas permissões especificando os âmbitos de aplicação em pedidos para a plataforma de identidade da Microsoft autorizar o ponto final. No entanto, determinadas permissões de elevado privilégio só podem ser concedidas através do consentimento do administrador e solicitadas/concedidas utilizando o [ponto final](v2-permissions-and-consent.md#admin-restricted-permissions)de consentimento do administrador . Leia mais para saber mais.
 
@@ -134,9 +134,9 @@ Além disso, as aplicações devem usar o ponto final de consentimento administr
 
 Algumas permissões de alto privilégio no ecossistema da Microsoft podem ser definidas como restritas à *administração.* Exemplos deste tipo de permissões incluem:
 
-* Leia todos os perfis completos do utilizador usando`User.Read.All`
-* Escreva dados para o diretório de uma organização usando`Directory.ReadWrite.All`
-* Leia todos os grupos no diretório de uma organização usando`Groups.Read.All`
+* Leia todos os perfis completos do utilizador usando `User.Read.All`
+* Escreva dados para o diretório de uma organização usando `Directory.ReadWrite.All`
+* Leia todos os grupos no diretório de uma organização usando `Groups.Read.All`
 
 Apesar de um utilizador de consumo poder conceder acesso a este tipo de dados, os utilizadores organizacionais estão impedidos de conceder acesso ao mesmo conjunto de dados sensíveis da empresa. Se a sua aplicação solicitar o acesso a uma destas permissões de um utilizador organizacional, o utilizador recebe uma mensagem de erro que diz não estar autorizado a consentir com as permissões da sua aplicação.
 
@@ -195,7 +195,7 @@ https://graph.microsoft.com/mail.send
 
 | Parâmetro        | Condição        | Descrição                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
-| `tenant` | Necessário | O inquilino do diretório que quer pedir autorização. Pode ser fornecido em formato guiado ou de nome amigável ou genericamente referenciado com organizações como visto no exemplo. Não utilize 'comum', uma vez que as contas pessoais não podem fornecer consentimento administrativo, exceto no contexto de um inquilino. Para garantir a melhor compatibilidade com contas pessoais que gerem os inquilinos, utilize o ID do inquilino sempre que possível. |
+| `tenant` | Obrigatório | O inquilino do diretório que quer pedir autorização. Pode ser fornecido em formato guiado ou de nome amigável ou genericamente referenciado com organizações como visto no exemplo. Não utilize 'comum', uma vez que as contas pessoais não podem fornecer consentimento administrativo, exceto no contexto de um inquilino. Para garantir a melhor compatibilidade com contas pessoais que gerem os inquilinos, utilize o ID do inquilino sempre que possível. |
 | `client_id` | Necessário | O **ID da Aplicação (cliente)** que o [portal Azure – Experiência de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuído à sua app. |
 | `redirect_uri` | Necessário |O URI de redirecionamento onde deseja que a resposta seja enviada para que a sua aplicação seja tratada. Deve corresponder exatamente a um dos URIs redirecionados que registou no portal de registo de aplicações. |
 | `state` | Recomendado | Um valor incluído no pedido que também será devolvido na resposta simbólica. Pode ser uma série de conteúdos que quiser. Utilize o estado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer, como a página ou a visualização em que se encontravam. |
@@ -283,7 +283,7 @@ Neste exemplo, não existe qualquer consentimento para o utilizador entre o clie
 
 #### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Exemplo 3: O utilizador consentiu e o cliente solicita âmbitos adicionais
 
-Neste exemplo, o utilizador já consentiu `mail.read` com o cliente. O cliente registou-se para o `contacts.read` âmbito de aplicação da sua inscrição. Quando o cliente fizer um pedido de um token usando `scope=https://graph.microsoft.com/.default` e solicita o consentimento através , `prompt=consent` então o utilizador verá um ecrã de consentimento para todos (e apenas) as permissões registadas pela aplicação. `contacts.read`estará presente no ecrã de consentimento, mas `mail.read` não estará. O token devolvido será para o Microsoft Graph e irá conter `mail.read` e `contacts.read` .
+Neste exemplo, o utilizador já consentiu `mail.read` com o cliente. O cliente registou-se para o `contacts.read` âmbito de aplicação da sua inscrição. Quando o cliente fizer um pedido de um token usando `scope=https://graph.microsoft.com/.default` e solicita o consentimento através , `prompt=consent` então o utilizador verá um ecrã de consentimento para todos (e apenas) as permissões registadas pela aplicação. `contacts.read` estará presente no ecrã de consentimento, mas `mail.read` não estará. O token devolvido será para o Microsoft Graph e irá conter `mail.read` e `contacts.read` .
 
 ### <a name="using-the-default-scope-with-the-client"></a>Utilizando o âmbito /.predefinido com o cliente
 

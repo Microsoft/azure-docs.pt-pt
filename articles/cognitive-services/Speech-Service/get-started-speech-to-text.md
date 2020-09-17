@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 09/01/2020
+ms.date: 09/15/2020
 ms.author: trbye
 ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
-zone_pivot_groups: speech-full-stack
+zone_pivot_groups: speech-full-stack-go
 keywords: discurso ao texto, discurso ao software de texto
-ms.openlocfilehash: 5ce11a3ef50d8d1e36e506efbeacb19bc1e8e0af
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 08c42c383e114d404e5b3728fc264a70932aa915
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89570608"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706723"
 ---
-# <a name="get-started-with-speech-to-text"></a>Começar com discurso-a-texto
+# <a name="get-started-with-speech-to-text"></a>Introdução à conversão de voz em texto
 
 Uma das características centrais do serviço de fala é a capacidade de reconhecer e transcrever a fala humana (muitas vezes referida como discurso-a-texto). Neste arranque rápido, aprende-se a usar o Speech SDK nas suas apps e produtos para realizar conversão de fala a texto de alta qualidade.
 
@@ -45,6 +45,10 @@ Uma das características centrais do serviço de fala é a capacidade de reconhe
 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python Basics include](./includes/how-to/speech-to-text-basics/speech-to-text-basics-python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-go"
+[!INCLUDE [Go include](includes/how-to/speech-to-text-basics/speech-to-text-basics-go.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-spx"

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e0e0ad9086a7945201b1752126253f12eb751bf
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 4f4d9d1a2a4c88601e7dd7e0d6f56025b79aaac1
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320040"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705372"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Responder rapidamente para proteger identidades com o Azure AD
 
@@ -42,16 +42,15 @@ Este guia pressupõe que a sua nuvem apenas ou identidades híbridas já foram e
 
 Existem muitos aspetos para uma infraestrutura de identidade segura, mas esta lista de verificação centra-se numa infraestrutura de identidade segura e segura que permite aos utilizadores trabalhar remotamente. Garantir a sua identidade é apenas uma parte da sua história de segurança, protegendo dados, aplicações e dispositivos também devem ser considerados.
 
-### <a name="guidance-for-azure-ad-free-or-office-365-customers"></a>Orientação para clientes Azure AD Free ou Office 365.
+### <a name="guidance-for-azure-ad-free-office-365-or-microsoft-365-customers"></a>Orientação para clientes Azure AD Free, Office 365 ou Microsoft 365.
 
-Há uma série de recomendações que os clientes da app Azure AD Free ou Office 365 devem tomar para proteger as suas identidades de utilizador, o quadro que se segue destina-se a destacar as ações-chave para as seguintes subscrições de licença:
+Há uma série de recomendações que os clientes da Azure AD Free, Office 365 ou Microsoft 365 devem tomar para proteger as suas identidades de utilizador, a tabela que se segue destina-se a destacar as ações-chave para as seguintes subscrições de licença:
 
-- Escritório 365 (O365 E1, E3, E5, F1, A1, A3, A5)
-- Escritório 365 Negócios (Essenciais, Negócios, Negócios Premium)
-- Microsoft 365 (M365 Business, A1)
+- Escritório 365 (Escritório 365 E1, E3, E5, F1, A1, A3, A5)
+- Microsoft 365 (Business Basic, Apps for Business, Business Standard, Business Premium, A1)
 - Azure AD Free (incluído com Azure, Dynamics 365, Intune e Power Platform)
 
-| Ação recomendada | Detalhe |
+| Ação recomendada | Detalhes |
 | --- | --- |
 | [Ativar incumprimentos de segurança](concept-fundamentals-security-defaults.md) | Proteja todas as identidades e aplicações dos utilizadores, permitindo a autenticação de legados MFA e bloqueando a autenticação de legados |
 | [Ativar o Password Hash Sync](../hybrid/how-to-connect-password-hash-synchronization.md) (se utilizar identidades híbridas) | Fornecer redundância para a autenticação e melhorar a segurança (incluindo Smart Lockout, IP Lockout, e a capacidade de descobrir credenciais vazadas.) |
@@ -74,7 +73,7 @@ O quadro a seguir destina-se a destacar as ações-chave para as seguintes subsc
 - Mobilidade Empresarial + Segurança (EMS E3)
 - Microsoft 365 (M365 E3, A3, F1, F3)
 
-| Ação recomendada | Detalhe |
+| Ação recomendada | Detalhes |
 | --- | --- |
 | [Permitir experiência de registo combinado para Azure MFA e SSPR para simplificar a experiência de registo do utilizador](../authentication/howto-registration-mfa-sspr-combined.md) | Deixe que os seus utilizadores se registem a partir de uma experiência comum para a autenticação multi-factor Azure e para o reset da palavra-passe de autosserviço. |
 | [Configurar configurações de MFA para a sua organização](../authentication/howto-mfa-getstarted.md) | Garantir que as contas estão protegidas contra serem comprometidas com a autenticação de vários fatores |
@@ -104,7 +103,7 @@ O quadro a seguir destina-se a destacar as ações-chave para as seguintes subsc
 - Mobilidade Empresarial + Segurança (EMS E5)
 - Microsoft 365 (M365 E5, A5)
 
-| Ação recomendada | Detalhe |
+| Ação recomendada | Detalhes |
 | --- | --- |
 | [Permitir experiência de registo combinado para Azure MFA e SSPR para simplificar a experiência de registo do utilizador](../authentication/howto-registration-mfa-sspr-combined.md) | Deixe que os seus utilizadores se registem a partir de uma experiência comum para a autenticação multi-factor Azure e para o reset da palavra-passe de autosserviço. |
 | [Configurar configurações de MFA para a sua organização](../authentication/howto-mfa-getstarted.md) | Garantir que as contas estão protegidas contra serem comprometidas com a autenticação de vários fatores |
@@ -129,7 +128,7 @@ O quadro a seguir destina-se a destacar as ações-chave para as seguintes subsc
 | [Crie um plano para o acesso do utilizador convidado](../external-identities/what-is-b2b.md) | Colabore com os utilizadores convidados, permitindo-lhes assinar nas suas apps e serviços com o seu próprio trabalho, escola ou identidades sociais. |
 | [Ativar a Gestão de Identidade Privilegiada](../privileged-identity-management/pim-configure.md) | Permite-lhe gerir, controlar e monitorizar o acesso a recursos importantes na sua organização, garantindo que os administradores têm acesso apenas quando necessário e com aprovação |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter orientações detalhadas de implementação para características individuais do Azure AD, reveja os [planos de implantação do projeto Azure AD](active-directory-deployment-plans.md).
 
