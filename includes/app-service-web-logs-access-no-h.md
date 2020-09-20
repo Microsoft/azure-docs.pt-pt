@@ -10,20 +10,20 @@ ms.author: cephalin
 ms.custom: include file
 ms.openlocfilehash: e6c4b07d01a4992e22107cb7d524646f439c37c6
 ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 07/02/2020
 ms.locfileid: "84905872"
 ---
-Para aceder aos registos de consola gerados a partir do seu código de aplicação no Serviço de Aplicações, ligue o registo de diagnósticos executando o seguinte comando na [Cloud Shell](https://shell.azure.com):
+Para aceder aos registos da consola gerados a partir do código da sua aplicação no Serviço de Aplicações, ative o registo de diagnósticos ao executar o seguinte comando no [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp log config --resource-group <resource-group-name> --name <app-name> --application-logging true --level Verbose
 ```
 
-Os valores possíveis `--level` são: `Error` , , e `Warning` `Info` `Verbose` . Cada nível subsequente inclui o nível anterior. Por exemplo: `Error` inclui apenas mensagens de erro e `Verbose` inclui todas as mensagens.
+Os valores possíveis para `--level` são: `Error`, `Warning`, `Info` e `Verbose`. Cada nível subsequente inclui o nível anterior. Por exemplo: `Error` inclui apenas mensagens de erro e `Verbose` inclui todas as mensagens.
 
-Uma vez ligado o registo de diagnóstico, executar o seguinte comando para ver o fluxo de registo:
+Depois de ativar o registo de diagnósticos, execute o seguinte comando para ver o fluxo de registos:
 
 ```azurecli-interactive
 az webapp log tail --resource-group <resource-group-name> --name <app-name>
@@ -32,6 +32,6 @@ az webapp log tail --resource-group <resource-group-name> --name <app-name>
 Se não vir os registos da consola imediatamente, volte a consultar dentro de 30 segundos.
 
 > [!NOTE]
-> Também pode inspecionar os ficheiros de registo do navegador em `https://<app-name>.scm.azurewebsites.net/api/logs/docker` .
+> Também pode inspecionar os ficheiros de registo no browser em `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
 
-Para parar o streaming de registo a qualquer momento, escreva `Ctrl` + `C` .
+Para parar a transmissão de registos em qualquer altura, escreva `Ctrl`+`C`.

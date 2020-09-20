@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: fab6422300dd3db7dd0d02055721bd57354668bf
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 32aad7bc350c2ee8ca55d340623c3c3e44820d43
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322284"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527144"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Criar e gerir orçamentos do Azure
 
@@ -106,7 +106,7 @@ Depois de configurar o montante do orçamento, selecione **Seguinte** para confi
 
 Se quiser receber e-mails, adicione azure-noreply@microsoft.com à sua lista de remetentes aprovados para que os e-mails não vão para a sua pasta de e-mail de lixo. Para obter mais informações sobre as notificações, veja [Utilizar alertas de custos](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md).
 
-No exemplo abaixo, é gerado um alerta por e-mail quando 90% do orçamento for atingido. Se criar um orçamento com a API de Orçamentos, também poderá atribuir funções a pessoas para receberem alertas. A atribuição de funções a pessoas não é suportada no portal do Azure. Para obter mais informações sobre a API de orçamentos do Azure, veja [Budgets API](/rest/api/consumption/budgets) (API de Orçamentos).
+No exemplo abaixo, é gerado um alerta por e-mail quando 90% do orçamento for atingido. Se criar um orçamento com a API de Orçamentos, também poderá atribuir funções a pessoas para receberem alertas. A atribuição de funções a pessoas não é suportada no portal do Azure. Para obter mais informações sobre a API de orçamentos do Azure, veja [Budgets API](/rest/api/consumption/budgets) (API de Orçamentos). Se quiser que um alerta de e-mail seja enviado num idioma diferente, veja [Regiões suportadas para e-mails de alerta de orçamento](manage-automation.md#supported-locales-for-budget-alert-emails).
 
 Os limites de alerta suportam um intervalo entre 0,01 e 1000% do limiar do orçamento fornecido.
 

@@ -17,7 +17,7 @@
       displayName: Resource Manager
       href: container-instances-quickstart-template.md
     - name: Implementar uma instância de contentor - CLI do Docker
-      href: container-instances-quickstart-docker-cli.md
+      href: quickstart-docker-cli.md
 - name: Tutoriais
   items:
     - name: Criar e implementar a imagem de contentor
@@ -34,6 +34,8 @@
           href: container-instances-multi-container-yaml.md
         - name: Implementar um grupo de contentores - Resource Manager
           href: container-instances-multi-container-group.md
+        - name: Implementar um grupo de contentores - Docker Compose
+          href: tutorial-docker-compose.md
     - name: Integrar nos serviços do Azure
       items:
         - name: Acionar com as Funções do Azure
