@@ -1,49 +1,49 @@
 ---
-title: Configure aplicativos Ruby - Azure App Service
-description: Saiba como configurar um recipiente Ruby pré-construído para a sua aplicação. Este artigo mostra as tarefas de configuração mais comuns.
+title: Configurar aplicações Ruby – Serviço de Aplicações do Azure
+description: Saiba como configurar um contentor Ruby pré-compilado para a sua aplicação. Este artigo mostra as tarefas de configuração mais comuns.
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18
 ms.openlocfilehash: c822dbdf9940db7b38d354fa32906c16977df0c0
 ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/11/2020
 ms.locfileid: "88085202"
 ---
-# <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configure uma aplicação Linux Ruby para o Azure App Service
+# <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configurar uma aplicação Ruby do Linux para o Serviço de Aplicações do Azure
 
-Este artigo descreve como o [Azure App Service](overview.md) executa aplicações Ruby num recipiente Linux, e como você pode personalizar o comportamento do App Service quando necessário. As aplicações ruby devem ser implantadas com todas as [joias necessárias.](https://rubygems.org/gems)
+Este artigo descreve como o [Serviço de Aplicações do Azure ](overview.md) executa aplicações Ruby num contentor do Linux e como pode personalizar o comportamento do Serviço de Aplicações quando for necessário. As aplicações Ruby devem ser implementadas com todos os [gems](https://rubygems.org/gems) necessários.
 
-Este guia fornece conceitos e instruções fundamentais para os desenvolvedores da Ruby que usam um recipiente Linux incorporado no Serviço de Aplicações. Se nunca usou o Azure App Service, deve seguir primeiro o [quickstart Ruby](quickstart-ruby.md) e o [Ruby com o tutorial PostgreSQL.](tutorial-ruby-postgres-app.md)
+Este guia disponibiliza os principais conceitos e instruções para programadores de Ruby que utilizam um contentor do Linux integrado no Serviço de Aplicações. Se nunca utilizou o Serviço de Aplicações do Azure, deve seguir primeiro o [Início rápido do Ruby](quickstart-ruby.md) e o [Tutorial de Ruby com PostgreSQL](tutorial-ruby-postgres-app.md).
 
-## <a name="show-ruby-version"></a>Mostrar a versão Ruby
+## <a name="show-ruby-version"></a>Mostrar a versão do Ruby
 
-Para mostrar a versão Ruby atual, executar o seguinte comando na [Cloud Shell](https://shell.azure.com):
+Para mostrar a versão atual do Ruby, execute o seguinte comando no [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
 ```
 
-Para mostrar todas as versões Ruby suportadas, executar o seguinte comando na [Cloud Shell](https://shell.azure.com):
+Para mostrar todas as versões suportadas do Ruby, execute o seguinte comando no [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp list-runtimes --linux | grep RUBY
 ```
 
-Em vez disso, pode executar uma versão não suportada da Ruby construindo a sua própria imagem de contentor. Para obter mais informações, consulte [a utilização de uma imagem personalizada do Docker.](tutorial-custom-container.md?pivots=container-linux)
+Pode executar uma versão não suportada do Ruby ao compilar a sua própria imagem de contentor. Para obter mais informações, veja [Utilizar uma imagem personalizada do Docker](tutorial-custom-container.md?pivots=container-linux).
 
-## <a name="set-ruby-version"></a>Definir versão Ruby
+## <a name="set-ruby-version"></a>Definir a versão do Ruby
 
-Executar o seguinte comando na [Cloud Shell](https://shell.azure.com) para definir a versão Ruby para 2.3:
+Execute o seguinte comando no [Cloud Shell](https://shell.azure.com) para definir o Ruby para a versão 2.3:
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "RUBY|2.3"
 ```
 
 > [!NOTE]
-> Se vir erros semelhantes aos seguintes durante o tempo de implantação:
+> Se vir erros semelhantes aos seguintes durante o tempo de implementação:
 > ```
 > Your Ruby version is 2.3.3, but your Gemfile specified 2.3.1
 > ```
@@ -51,89 +51,89 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > ```
 > rbenv: version `2.3.1' is not installed
 > ```
-> Significa que a versão Ruby configurada no seu projeto é diferente da versão instalada no recipiente que está a executar `2.3.3` (no exemplo acima). No exemplo acima, verifique tanto *a versão Gemfile* como *a versão .ruby* e verifique se a versão Ruby não está definida, ou está definida para a versão que está instalada no recipiente que está a executar `2.3.3` (no exemplo acima).
+> Tal significa que a versão do Ruby configurada no projeto é diferente da versão instalada no contentor que está a executar (`2.3.3` no exemplo acima). No exemplo acima, marque *Gemfile* e *.ruby-version* e verifique se a versão do Ruby não está definida ou se está definida para a versão instalada no contentor que está a executar (`2.3.3` no exemplo acima).
 
 ## <a name="access-environment-variables"></a>Aceder a variáveis de ambiente
 
-No Serviço de Aplicações, pode [definir definições](configure-common.md#configure-app-settings) de aplicações fora do seu código de aplicação. Em seguida, pode acessá-los usando o padrão [ \<path-name> ENV[' padrão'.](https://ruby-doc.org/core-2.3.3/ENV.html) Por exemplo, para aceder a uma configuração de aplicação chamada `WEBSITE_SITE_NAME` , use o seguinte código:
+No Serviço de Aplicações, pode [configurar as definições da aplicação](configure-common.md#configure-app-settings) fora do código da aplicação. Em seguida, pode aceder às mesmas com o padrão [ENV['\<path-name>']](https://ruby-doc.org/core-2.3.3/ENV.html) predefinido. Por exemplo, para aceder a uma definição da aplicação chamada `WEBSITE_SITE_NAME`, utilize o seguinte código:
 
 ```ruby
 ENV['WEBSITE_SITE_NAME']
 ```
 
-## <a name="customize-deployment"></a>Personalizar implantação
+## <a name="customize-deployment"></a>Personalizar a implementação
 
-Quando implementa um [repositório Git](deploy-local-git.md), ou um [pacote Zip](deploy-zip.md) com processos de construção ligados, o motor de implantação (Kudu) executa automaticamente as seguintes etapas pós-implantação por predefinição:
+Por predefinição, quando implementa um [repositório Git](deploy-local-git.md) ou um [pacote Zip](deploy-zip.md) com os processos de compilação ativados, o motor de implementação (Kudu) executa automaticamente os seguintes passos pós-implementação:
 
-1. Verifique se existe um *Gemfile.*
+1. Verifica se existe um *Gemfile*.
 1. Execute `bundle clean`. 
 1. Execute `bundle install --path "vendor/bundle"`.
-1. Executar `bundle package` as joias em pacote na pasta fornecedor/cache.
+1. Executa `bundle package` para empacotar gems na pasta fornecedor/cache.
 
-### <a name="use---without-flag"></a>Uso -- sem bandeira
+### <a name="use---without-flag"></a>Utilizar o sinalizador --without
 
-Para correr `bundle install` com a [-- sem](https://bundler.io/man/bundle-install.1.html) bandeira, coloque a definição da `BUNDLE_WITHOUT` [aplicação](configure-common.md#configure-app-settings) numa lista de grupos separados por vírgula. Por exemplo, o seguinte comando define-o para `development,test` .
+Para executar `bundle install` com o sinalizador [--without](https://bundler.io/man/bundle-install.1.html), configure a [definição da aplicação](configure-common.md#configure-app-settings) `BUNDLE_WITHOUT` para uma lista separada por vírgulas de grupos. Por exemplo, o comando seguinte define-a como `development,test`.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings BUNDLE_WITHOUT="development,test"
 ```
 
-Se esta definição for definida, o motor de implantação funciona `bundle install` com `--without $BUNDLE_WITHOUT` .
+Se esta definição for aplicada, o motor de implementação executa `bundle install` com `--without $BUNDLE_WITHOUT`.
 
-### <a name="precompile-assets"></a>Ativos pré-conformes
+### <a name="precompile-assets"></a>Pré-compilar recursos
 
-As etapas pós-implantação não precompletam os ativos por defeito. Para ligar a pré-compensação do ativo, defina a definição da `ASSETS_PRECOMPILE` [aplicação](configure-common.md#configure-app-settings) para `true` . Em seguida, o comando `bundle exec rake --trace assets:precompile` é executado no final das etapas pós-implantação. Por exemplo:
+Por predefinição, os passos de pós-implementação não pré-compilam os recursos. Para ativar a pré-compilação de recursos, configure a [definição da aplicação](configure-common.md#configure-app-settings) `ASSETS_PRECOMPILE` para `true`. Em seguida, o comando `bundle exec rake --trace assets:precompile` é executado no final dos passos de pós-implementação. Por exemplo:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASSETS_PRECOMPILE=true
 ```
 
-Para obter mais informações, consulte [servir ativos estáticos.](#serve-static-assets)
+Para obter mais informações, veja [Fornecer recursos estáticos](#serve-static-assets).
 
 ## <a name="customize-start-up"></a>Personalizar o arranque
 
-Por predefinição, o contentor Ruby inicia o servidor Rails na seguinte sequência (para mais informações, consulte o [script de arranque):](https://github.com/Azure-App-Service/ruby/blob/master/2.3.8/startup.sh)
+Por predefinição, o contentor Ruby inicia o servidor do Rails na seguinte sequência (para obter mais informações, veja o [script de arranque](https://github.com/Azure-App-Service/ruby/blob/master/2.3.8/startup.sh)):
 
-1. Gere um [valor secret_key_base,](https://edgeguides.rubyonrails.org/security.html#environmental-security) se já não existir. Este valor é necessário para que a app seja executada em modo de produção.
-1. Desaprote `RAILS_ENV` a variável ambiente para `production` .
-1. Elimine qualquer ficheiro *.pid* no diretório *tmp/pids* que seja deixado por um servidor rails anteriormente em execução.
-1. Verifique se todas as dependências estão instaladas. Caso contrário, tente instalar pedras preciosas no diretório local *de fornecedor/cache.*
+1. Gera um valor [secret_key_base](https://edgeguides.rubyonrails.org/security.html#environmental-security), se ainda não existir um. Este valor é necessário para que a aplicação seja executada no modo de produção.
+1. Define a variável de ambiente `RAILS_ENV` para `production`.
+1. Elimina qualquer ficheiro *.pid* no diretório *tmp/pids* deixado por um servidor do Rails em execução anteriormente.
+1. Verifica se todas as dependências estão instaladas. Caso contrário, tenta instalar os gems a partir do diretório *fornecedor/cache* local.
 1. Execute `rails server -e $RAILS_ENV`.
 
 Pode personalizar o processo de arranque das seguintes formas:
 
-- [Servir ativos estáticos](#serve-static-assets)
-- [Executar em modo de não produção](#run-in-non-production-mode)
-- [Desa ajuste secret_key_base manualmente](#set-secret_key_base-manually)
+- [Fornecer recursos estáticos](#serve-static-assets)
+- [Executar no modo de não produção](#run-in-non-production-mode)
+- [Definir secret_key_base manualmente](#set-secret_key_base-manually)
 
-### <a name="serve-static-assets"></a>Servir ativos estáticos
+### <a name="serve-static-assets"></a>Fornecer recursos estáticos
 
-O servidor Rails no contentor Ruby funciona em modo de produção por padrão, e [assume que os ativos são pré-cumpridos e são servidos pelo seu servidor web](https://guides.rubyonrails.org/asset_pipeline.html#in-production). Para servir ativos estáticos do servidor Rails, é preciso fazer duas coisas:
+Por predefinição, o servidor do Rails no contentor Ruby é executado no modo de produção e [pressupõe que os recursos são pré-compilados e fornecidos pelo seu servidor Web](https://guides.rubyonrails.org/asset_pipeline.html#in-production). Para fornecer recursos estáticos a partir do servidor do Rails, precisa de fazer duas coisas:
 
-- **Pré-comutação dos ativos**  -  [Pré-comprovar os ativos estáticos localmente](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation) e implementá-los manualmente. Ou, em vez disso, deixe o motor de implantação manuseá-lo (ver [ativos pré-comprelhados](#precompile-assets).
-- **Ativar a colocação de ficheiros estáticos** - Para servir ativos estáticos a partir do recipiente Ruby, [defina a definição da `RAILS_SERVE_STATIC_FILES` aplicação](configure-common.md#configure-app-settings) para `true` . Por exemplo:
+- **Pré-compilar os recursos** - [Pré-compilar os recursos estáticos localmente](https://guides.rubyonrails.org/asset_pipeline.html#local-precompilation) e implementá-los manualmente. Em alternativa, deixe que o motor de implementação faça isso por si (veja [Pré-compilar recursos](#precompile-assets).
+- **Ativar o fornecimento de ficheiros estáticos** – Para fornecer recursos estáticos a partir do contentor Ruby, [configure a definição da aplicação](configure-common.md#configure-app-settings) `RAILS_SERVE_STATIC_FILES` para `true`. Por exemplo:
 
     ```azurecli-interactive
     az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_SERVE_STATIC_FILES=true
     ```
 
-### <a name="run-in-non-production-mode"></a>Executar em modo de não produção
+### <a name="run-in-non-production-mode"></a>Executar no modo de não produção
 
-O servidor Rails funciona em modo de produção por defeito. Para funcionar em modo de desenvolvimento, por exemplo, definir a definição da `RAILS_ENV` [aplicação](configure-common.md#configure-app-settings) para `development` .
+Por predefinição, o servidor do Rails é executado no modo de produção. Para executar no modo de desenvolvimento, por exemplo, configure a [definição da aplicação](configure-common.md#configure-app-settings) `RAILS_ENV` para `development`.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_ENV="development"
 ```
 
-No entanto, esta definição faz com que o servidor Rails comece em modo de desenvolvimento, o que aceita apenas os pedidos locais e não é acessível fora do contentor. Para aceitar pedidos remotos de clientes, defina a definição da `APP_COMMAND_LINE` [aplicação](configure-common.md#configure-app-settings) para `rails server -b 0.0.0.0` . Esta definição de aplicação permite executar um comando personalizado no recipiente Ruby. Por exemplo:
+No entanto, apenas esta definição faz com que o servidor do Rails inicie no modo de desenvolvimento, que aceita apenas pedidos do localhost e não está acessível fora do contentor. Para aceitar pedidos de clientes remotos, configure a [definição da aplicação](configure-common.md#configure-app-settings) `APP_COMMAND_LINE` para `rails server -b 0.0.0.0`. Esta definição da aplicação permite-lhe executar um comando personalizado no contentor Ruby. Por exemplo:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings APP_COMMAND_LINE="rails server -b 0.0.0.0"
 ```
 
-### <a name="set-secret_key_base-manually"></a><a name="set-secret_key_base-manually"></a>Desa ajuste secret_key_base manualmente
+### <a name="set-secret_key_base-manually"></a><a name="set-secret_key_base-manually"></a> Definir secret_key_base manualmente
 
-Para utilizar o seu próprio `secret_key_base` valor em vez de deixar o Serviço de Aplicações gerar um para si, defina a definição da `SECRET_KEY_BASE` [aplicação](configure-common.md#configure-app-settings) com o valor que pretende. Por exemplo:
+Para utilizar o seu próprio valor `secret_key_base` ao invés de permitir que o Serviço de Aplicações gere um por si, configure a [definição da aplicação](configure-common.md#configure-app-settings) `SECRET_KEY_BASE` com o valor pretendido. Por exemplo:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings SECRET_KEY_BASE="<key-base-value>"
@@ -143,7 +143,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
-## <a name="open-ssh-session-in-browser"></a>SSH aberto no navegador
+## <a name="open-ssh-session-in-browser"></a>Abrir sessão SSH no browser
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
@@ -152,7 +152,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Aplicativo Rails com PostgreSQL](tutorial-ruby-postgres-app.md)
+> [Tutorial: Aplicação do Rails com PostgreSQL](tutorial-ruby-postgres-app.md)
 
 > [!div class="nextstepaction"]
-> [Serviço de Aplicações Linux FAQ](faq-app-service-linux.md)
+> [FAQ do Serviço de Aplicações no Linux](faq-app-service-linux.md)

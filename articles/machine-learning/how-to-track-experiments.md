@@ -1,7 +1,7 @@
 ---
-title: Experimente experiências de ML & métricas
+title: Registar experimentações e métricas de ML
 titleSuffix: Azure Machine Learning
-description: Monitorize as suas experiências Azure ML e monitorize as métricas de execução para melhorar o processo de criação de modelos. Adicione o registo no seu script de treino usando run.log, Run.start_logging ou ScriptRunConfig.
+description: Monitorize as suas experimentações do Azure ML e as métricas de execução para melhorar o processo de criação de modelos. Adicione o registo ao script de preparação com run.log, Run.start_logging ou ScriptRunConfig.
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -13,90 +13,90 @@ ms.topic: conceptual
 ms.custom: how-to
 ms.openlocfilehash: 44fe71f575a32ccc1a687bc87793cb6a8b6508a9
 ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/10/2020
 ms.locfileid: "89650635"
 ---
-# <a name="enable-logging-in-azure-ml-training-runs"></a>Permitir o registo em ações de treino do Azure ML
+# <a name="enable-logging-in-azure-ml-training-runs"></a>Ativar o registo nas execuções de preparação do Azure ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-O Azure Machine Learning Python SDK permite registar informações em tempo real utilizando o pacote de registo padrão python e a funcionalidade específica SDK. Pode registar-se localmente e enviar registos para o seu espaço de trabalho no portal.
+O SDK Python do Azure Machine Learning permite-lhe registar informações em tempo real com o pacote de registos Python predefinido e a funcionalidade específica do SDK. Pode registar localmente e enviar registos para a sua área de trabalho no portal.
 
-Os registos podem ajudá-lo a diagnosticar erros e advertências, ou rastrear métricas de desempenho como parâmetros e desempenho do modelo. Neste artigo, aprende-se a permitir o registo de login nos seguintes cenários:
+Os registos podem ajudá-lo a diagnosticar erros e avisos ou a acompanhar métricas de desempenho, como parâmetros e desempenho do modelo. Neste artigo, vai aprender a ativar o registo nos seguintes cenários:
 
 > [!div class="checklist"]
-> * Sessões de formação interativas
-> * Submeter trabalhos de formação usando ScriptRunConfig
-> * `logging`Configurações nativas python
-> * Registo de fontes adicionais
+> * Sessões de preparação interativas
+> * Enviar tarefas de preparação com ScriptRunConfig
+> * Definições de `logging` nativas do Python
+> * Registo de origens adicionais
 
 
 > [!TIP]
-> Este artigo mostra-lhe como monitorizar o processo de treino de modelos. Se estiver interessado em monitorizar a utilização de recursos e eventos da Azure Machine learning, tais como quotas, ensaios de formação concluídos ou implementações de modelos concluídas, consulte [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
+> Este artigo mostra-lhe como monitorizar o processo de preparação do modelo. Se estiver interessado em monitorizar a utilização de recursos e os eventos do Azure Machine Learning, como quotas, execuções de preparação concluídas ou implementações de modelos concluídas, veja [Monitorizar o Azure Machine Learning](monitor-azure-machine-learning.md).
 
 ## <a name="data-types"></a>Tipos de dados
 
-Pode registar vários tipos de dados, incluindo valores escalares, listas, tabelas, imagens, diretórios e muito mais. Para obter mais informações e exemplos de código Python para diferentes tipos de dados, consulte a [página de referência da classe Executar](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true).
+Pode registar vários tipos de dados, incluindo valores escalares, listas, tabelas, imagens e diretórios, entre outros. Para obter mais informações e exemplos de código do Python para diferentes tipos de dados, veja a [página de referência da classe Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true).
 
-## <a name="interactive-logging-session"></a>Sessão interativa de registo
+## <a name="interactive-logging-session"></a>Sessão de registo interativa
 
-As sessões de registo interativo são normalmente utilizadas em ambientes de cadernos. O método [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truestart-logging--args----kwargs-) inicia uma sessão de registo interativo. Quaisquer métricas registadas durante a sessão são adicionadas ao registo de execução na experiência. O método [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truecomplete--set-status-true-) termina as sessões e marca a execução como concluído.
+Normalmente, as sessões de registo interativas são utilizadas em ambientes de blocos de notas. O método [Experiment.start_logging()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truestart-logging--args----kwargs-) inicia uma sessão de registo interativa. Todas as métricas registadas durante a sessão são adicionadas ao registo de execução na experimentação. O método [run.complete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truecomplete--set-status-true-) encerra as sessões e marca a execução como concluída.
 
-## <a name="scriptrunconfig-logs"></a>ScriptRunConfig regista
+## <a name="scriptrunconfig-logs"></a>Registos do ScriptRunConfig
 
-Nesta secção, aprende-se a adicionar código de registo dentro das execuções scriptConfig. Pode utilizar a classe [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) para encapsular scripts e ambientes para execuções repetíveis. Também pode usar esta opção para mostrar um widget de Cadernos Jupyter visual para monitorização.
+Nesta secção, vai aprender a adicionar o código de registo às execuções do ScriptConfig. Pode utilizar a classe [**ScriptRunConfig**](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) para encapsular os scripts e os ambientes para execuções repetíveis. Também pode utilizar esta opção para mostrar um widget de elemento visual de Jupyter Notebooks para monitorização.
 
-Este exemplo executa uma varredura de parâmetros sobre os valores alfa e captura os resultados usando o método [run.log().](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truelog-name--value--description----)
+Este exemplo realiza um varrimento de parâmetros em valores alfa e captura os resultados com o método [run.log()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#&preserve-view=truelog-name--value--description----).
 
-1. Crie um script de formação que inclua a lógica de registo, `train.py` .
+1. Crie um script de preparação que inclua a lógica de registo, `train.py`.
 
    [!code-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train.py)]
 
 
-1. Submeta o ```train.py``` script para ser executado num ambiente gerido pelo utilizador. Toda a pasta do guião é submetida para treino.
+1. Envie o script ```train.py``` a ser executado num ambiente gerido pelo utilizador. A pasta completa do script é enviada para preparação.
 
    [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=src)] [!notebook-python[] (~/MachineLearningNotebooks/how-to-use-azureml/training/train-on-local/train-on-local.ipynb?name=run)]
 
-    O `show_output` parâmetro liga-se à registo verboso, que permite ver detalhes do processo de treino, bem como informações sobre quaisquer recursos remotos ou metas de computação. Utilize o seguinte código para ligar a registo verboso quando submeter a experiência.
+    O parâmetro `show_output` ativa o registo verboso, o que lhe permite ver detalhes do processo de preparação, bem como informações sobre quaisquer recursos remotos ou destinos de computação. Utilize o código seguinte para ativar o registo verboso ao enviar a experimentação.
 
 ```python
 run = exp.submit(src, show_output=True)
 ```
 
-Também pode utilizar o mesmo parâmetro na `wait_for_completion` função na execução resultante.
+Também pode utilizar o mesmo parâmetro na função `wait_for_completion` na execução resultante.
 
 ```python
 run.wait_for_completion(show_output=True)
 ```
 
-## <a name="native-python-logging"></a>Registo nativo de Python
+## <a name="native-python-logging"></a>Registo do Python nativo
 
-Alguns registos no SDK podem conter um erro que o instrui a definir o nível de registo para DEBUG. Para definir o nível de registo, adicione o seguinte código ao seu script.
+Alguns registos no SDK podem conter um erro que instrui o utilizador a definir o nível de registo como DEPURAÇÃO. Para definir o nível de registo, adicione o código seguinte ao seu script.
 
 ```python
 import logging
 logging.basicConfig(level=logging.DEBUG)
 ```
 
-## <a name="additional-logging-sources"></a>Fontes de registo adicionais
+## <a name="additional-logging-sources"></a>Origens de registo adicionais
 
-O Azure Machine Learning também pode registar informações de outras fontes durante o treino, como corridas automáticas de machine learning, ou contentores Docker que gerem os trabalhos. Estes registos não estão documentados, mas se encontrar problemas e contactar o suporte da Microsoft, poderão ser capazes de utilizar estes registos durante a resolução de problemas.
+O Azure Machine Learning também pode registar informações de outras origens durante a preparação, como execuções de machine learning automatizado ou contentores do Docker que executam as tarefas. Estes registos não estão documentados, mas se encontrar problemas e entrar em contacto com o suporte da Microsoft, este pode utilizá-los durante a resolução de problemas.
 
-Para obter informações sobre métricas de registo no designer de aprendizagem automática Azure (pré-visualização), consulte [como registar métricas no designer (pré-visualização)](how-to-track-designer-experiments.md)
+Para obter informações sobre as métricas de registo no estruturador do Azure Machine Learning (pré-visualização), veja [Como registar métricas no estruturador (pré-visualização)](how-to-track-designer-experiments.md)
 
 ## <a name="example-notebooks"></a>Blocos de notas de exemplo
 
-Os seguintes cadernos demonstram conceitos neste artigo:
-* [como usar-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
-* [como usar-azureml/track-and-monitor-experiments/logging-api](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
+Os blocos de notas seguintes demonstram conceitos neste artigo:
+* [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
+* [how-to-use-azureml/track-and-monitor-experiments/logging-api](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/logging-api)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Consulte estes artigos para saber mais sobre como usar a Azure Machine Learning:
+Veja estes artigos para saber mais sobre como utilizar o Azure Machine Learning:
 
-* Saiba como [registar métricas no designer de aprendizagem automática Azure (pré-visualização)](how-to-track-designer-experiments.md).
+* Saiba como [registar métricas no estruturador do Azure Machine Learning (pré-visualização)](how-to-track-designer-experiments.md).
 
-* Veja um exemplo de como registar o melhor modelo e implantá-lo no tutorial, Treine um modelo de [classificação de imagem com Azure Machine Learning](tutorial-train-models-with-aml.md).
+* Veja um exemplo sobre como registar o melhor modelo e implementá-lo no tutorial [Preparar um modelo de classificação de imagens com o Azure Machine Learning](tutorial-train-models-with-aml.md).

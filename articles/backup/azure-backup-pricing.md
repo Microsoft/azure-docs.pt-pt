@@ -1,181 +1,181 @@
 ---
 title: Preços do Azure Backup
-description: Saiba como estimar os seus custos para orçamentar os preços de reserva da Azure.
+description: Saiba como calcular os seus custos para orçamentar os preços do Azure Backup.
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.openlocfilehash: 03ec0076d3089562ddaace6db413fb3f1ba949a6
 ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 08/20/2020
 ms.locfileid: "88654536"
 ---
 # <a name="azure-backup-pricing"></a>Preços do Azure Backup
 
-Para saber mais sobre os preços de backup da Azure, visite a [página de preços de backup da Azure](https://azure.microsoft.com/pricing/details/backup/).
+Para saber mais sobre os preços do Azure Backup, visite a [página de preços do Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
 
-## <a name="download-detailed-estimates-for-azure-backup-pricing"></a>Faça o download de estimativas detalhadas para preços de backup Azure
+## <a name="download-detailed-estimates-for-azure-backup-pricing"></a>Transferir estimativas detalhadas de preços do Azure Backup
 
-Se procura estimar os seus custos para fins de orçamentação ou comparação de custos, baixe o estimador de preços detalhado da [Azure Backup.](https://aka.ms/AzureBackupCostEstimates)  
+Se pretende calcular os custos para fins de orçamentação ou comparação de custos, transfira o [simulador de preços do Azure Backup](https://aka.ms/AzureBackupCostEstimates) detalhado.  
 
-### <a name="what-does-the-estimator-contain"></a>O que o estimador contém?
+### <a name="what-does-the-estimator-contain"></a>O que contém o simulador?
 
-A folha de estimativa de custos Azure Backup tem uma opção para você estimar todas as possíveis cargas de trabalho que você está procurando apoiar usando Azure Backup. Estas cargas de trabalho incluem:
+A folha do simulador de custos do Azure Backup tem uma opção para calcular todas as cargas de trabalho possíveis para as quais pretende fazer cópia de segurança com o Azure Backup. Estas cargas de trabalho incluem:
 
 - VMs do Azure
 - Servidores no local
-- SQL em VMs Azure
-- SAP HANA em Azure VMs
-- Azure arquiva ações
+- SQL nas VMs do Azure
+- SAP HANA nas VMs do Azure
+- Partilhas de ficheiros do Azure
 
-## <a name="estimate-costs-for-backing-up-azure-vms-or-on-premises-servers"></a>Estimativa de custos para o backup de VMs Azure ou servidores no local
+## <a name="estimate-costs-for-backing-up-azure-vms-or-on-premises-servers"></a>Calcular os custos das cópias de segurança de VMs do Azure ou de servidores no local
 
-Para estimar os custos de backup de VMs Azure ou servidores no local usando Azure Backup, você precisará dos seguintes parâmetros:
+Para calcular os custos da cópia de segurança de VMs do Azure ou de servidores no local com o Azure Backup, vai precisar dos seguintes parâmetros:
 
-- Tamanho dos VMs ou servidores no local que está a tentar fazer recuar
-  - Introduza o "tamanho usado" dos discos ou servidores necessários para serem apoiados
+- Tamanho das VMs ou dos servidores no local dos quais está a tentar fazer cópia de segurança
+  - Introduza o "tamanho utilizado" dos discos ou servidores necessários para a cópia de segurança
 
-- Número de servidores com este tamanho
+- Número de servidores com esse tamanho
 
-- Qual é a quantidade esperada de dados nestes servidores?<br>
-  Churn refere-se à quantidade de alteração de dados. Por exemplo, se tivesse um VM com 200 GB de dados a ser apoiado e 10 GB do mesmo muda todos os dias, o churn diário é de 5%.
+- Qual é a quantidade de alterações a dados esperada nestes servidores?<br>
+  Tal refere-se à quantidade de dados alterados. Por exemplo, se tiver uma VM com 200 GB de dados para fazer uma cópia de segurança e 10 GB desses dados são alterados todos os dias, a alteração diária é de 5%.
 
-  - Maior agitação significará que você faz recuar mais dados
+  - Uma alteração mais elevada significa que faz uma cópia de segurança de um maior número de dados
 
-  - Escolha **Baixo** ou **Moderado** para servidores de ficheiros e **Alto** se estiver a executar bases de dados
+  - Escolha **Baixa** ou **Moderada** para servidores de ficheiros e **Alta** se estiver a executar bases de dados
 
-  - Se conhece o **seu churn%**, pode usar a opção **Entrar a sua própria** parte
+  - Se conhece a sua **%dealteração**, pode utilizar a opção **Introduzir a sua própria %**
 
-- Escolha a política de backup
+- Escolha a política de cópias de segurança
 
-  - Quanto tempo espera reter reforços "Daily"? (em dias)
+  - Por quanto tempo espera reter as cópias de segurança "Diárias"? (em dias)
 
-  - Quanto tempo espera manter os reforços "Weekly"? (em semanas)
+  - Por quanto tempo espera reter as cópias de segurança "Semanais"? (em semanas)
 
-  - Quanto tempo espera reter reforços "Mensais"? (em meses)
+  - Por quanto tempo espera reter as cópias de segurança "Mensais"? (em meses)
 
-  - Quanto tempo espera manter os reforços "Anualmente"? (em anos)
+  - Por quanto tempo espera reter as cópias de segurança "Anuais"? (em anos)
 
-  - Quanto tempo espera reter "Instantâneo restaurar instantâneos"? (1-5 dias)
+  - Por quanto tempo espera reter os "Instantâneos de restauro instantâneo"? (1–5 dias)
 
-    - Esta opção permite restaurar desde há sete dias de forma rápida usando instantâneos armazenados em discos.
+    - Esta opção permite-lhe restaurar até sete dias de forma rápida com instantâneos armazenados em discos.
 
-- **Opcional** - Backup de disco seletivo
+- **Opcional** – Cópia de segurança de Disco Seletiva
 
-  - Se estiver a utilizar a opção **de backup de disco seletivo** enquanto faz o backup dos VMs Azure, escolha a opção Disco **Excluído** e introduza a percentagem de discos excluídos da cópia de segurança em termos de tamanho. Por exemplo, se tiver um VM ligado a três discos com 200 GB utilizados em cada disco e se quiser excluir dois deles de fazer backup, introduza 66,7%.
+  - Se estiver a utilizar a opção **Cópia de Segurança de Disco Seletiva** durante a cópia de segurança de VMs do Azure, escolha a opção **Excluir Disco** e introduza a percentagem de discos excluídos da cópia de segurança em termos de tamanho. Por exemplo, se tiver uma VM ligada a três discos com 200 GB utilizados em cada disco e quiser excluir dois deles da cópia de segurança, introduza 66,7%.
 
-- **Opcional** - Redundância de Armazenamento de Backup
+- **Opcional** – Redundância de Armazenamento de Cópias de Segurança
 
-  - Isto indica que o despedimento da Conta de Armazenamento os seus dados de backup entram. Recomendamos a utilização **de GRS** para obter a maior disponibilidade. Uma vez que garante que uma cópia dos seus dados de backup é mantida numa região diferente, ajuda-o a cumprir vários padrões de conformidade. Mude a redundância para **LRS** se estiver a apoiar ambientes de desenvolvimento ou de teste que não precisem de uma cópia de segurança ao nível da empresa. Selecione a opção **RAGRS** na folha se quiser entender os custos quando [o Cross-Region Restore](backup-azure-arm-restore-vms.md#cross-region-restore) estiver ativado para as suas cópias de segurança.
+  - Tal indica a redundância da Conta de Armazenamento na qual são guardados os dados da cópia de segurança. Recomendamos a utilização de **GRS** para obter a maior disponibilidade. Uma vez que garante que uma cópia dos seus dados da cópia de segurança é mantida numa região diferente, ajuda a cumprir vários padrões de conformidade. Altere a redundância para **LRS** se estiver a fazer cópia de segurança de ambientes de desenvolvimento ou teste que não precisam de uma cópia de segurança de nível empresarial. Selecione a opção **RAGRS** na folha se pretender compreender os custos quando o [Restauro Entre Regiões](backup-azure-arm-restore-vms.md#cross-region-restore) estiver ativado para as suas cópias de segurança.
 
-- **Opcional** – Modificar os preços regionais ou aplicar tarifas com desconto
+- **Opcional** – Modificar preços regionais ou aplicar tarifas com desconto
 
-  - Se quiser verificar as suas estimativas para uma região diferente ou tarifas com desconto, selecione **Sim** para as **estimativas de Tentativa para uma região diferente?**
+  - Se quiser verificar as suas estimativas para uma região diferente ou tarifas com desconto, selecione **Sim** na opção **Experimentar estimativas para uma região diferente?** e introduza as tarifas com as quais pretende executar as estimativas.
 
-## <a name="estimate-costs-for-backing-up-sql-servers-in-azure-vms"></a>Estimativa de custos para o backup dos servidores SQL em VMs Azure
+## <a name="estimate-costs-for-backing-up-sql-servers-in-azure-vms"></a>Calcular os custos das cópias de segurança dos servidores SQL nas VMs do Azure
 
-Para estimar os custos de backup dos servidores SQL em execução em VMs Azure usando Azure Backup, você precisará dos seguintes parâmetros:
+Para calcular os custos da cópia de segurança dos servidores SQL em execução nas VMs do Azure com o Azure Backup, vai precisar dos seguintes parâmetros:
 
-- Tamanho dos servidores SQL que está a tentar fazer recuar
+- Tamanho dos servidores SQL dos quais está a tentar fazer cópia de segurança
 
 - Número de servidores SQL com o tamanho acima
 
-- Qual é a compressão esperada para os dados de backup dos seus servidores SQL?
+- Qual é a compressão esperada dos dados da cópia de segurança dos seus servidores SQL?
 
-  - A maioria dos clientes da Azure Backup vê que os dados de backup têm 80% de compressão em comparação com o tamanho do servidor SQL quando a compressão SQL está **ativada**.
+  - A maioria dos clientes do Azure Backup vê que os dados da cópia de segurança têm 80% de compressão em comparação com o tamanho do servidor SQL quando a compressão de SQL está **ativada**.
 
-  - Se espera ver uma compressão diferente, insira o número neste campo
+  - Se espera ver uma compressão diferente, introduza o número neste campo
 
-- Qual é o tamanho esperado de backups de registos?
+- Qual é o tamanho esperado das cópias de segurança de registo?
 
-  - O % indica o tamanho do registo diário em % do tamanho do servidor SQL
+  - A % indica o tamanho diário do registo como uma % do tamanho do servidor SQL
 
-- Qual é a quantidade esperada de dados diários nestes servidores?
+- Qual é a quantidade de alterações a dados diária esperada nestes servidores?
 
-  - Tipicamente, as bases de dados têm "alto" churn
+  - Normalmente, as bases de dados têm uma alteração "Alta"
 
-  - Se conhece o **seu churn%**, pode usar a opção **Entrar a sua própria** parte
+  - Se conhece a sua **%dealteração**, pode utilizar a opção **Introduzir a sua própria %**
 
-- Escolha a política de backup
+- Escolha a política de cópias de segurança
 
   - Tipo de Cópia de Segurança
 
-    - A política mais eficaz que pode escolher é **os diferenciais diários** com backups completos semanais/mensais/ano. O Azure Backup também pode restaurar a partir de diferenciais através de um único clique.
+    - A política mais eficaz que pode escolher é **Diferenciais diárias** com cópias de segurança completas semanais/mensais/anuais. O Azure Backup também pode restaurar a partir de diferenciais através de um clique.
 
-    - Também pode optar por ter uma política com backups completos diários/semanais/mensais/mensais. Esta opção consumirá um pouco mais de armazenamento do que a primeira opção.
+    - Pode ainda optar por ter uma política com cópias de segurança completas diárias/semanais/mensais/anuais. Esta opção vai consumir um pouco mais de armazenamento do que a primeira opção.
 
-  - Quanto tempo espera reter cópias de segurança de "log"? (em dias) [7-35]
+  - Por quanto tempo espera reter as cópias de segurança de "registo"? (em dias) [7–35]
 
-  - Quanto tempo espera reter reforços "Daily"? (em dias)
+  - Por quanto tempo espera reter as cópias de segurança "Diárias"? (em dias)
 
-  - Quanto tempo espera manter os reforços "Weekly"? (em semanas)
+  - Por quanto tempo espera reter as cópias de segurança "Semanais"? (em semanas)
 
-  - Quanto tempo espera reter reforços "Mensais"? (em meses)
+  - Por quanto tempo espera reter as cópias de segurança "Mensais"? (em meses)
 
-  - Quanto tempo espera manter os reforços "Anualmente"? (em anos)
+  - Por quanto tempo espera reter as cópias de segurança "Anuais"? (em anos)
 
-- **Opcional** - Redundância de Armazenamento de Backup
+- **Opcional** – Redundância de Armazenamento de Cópias de Segurança
 
-  - Isto indica que o despedimento da Conta de Armazenamento os seus dados de backup entram. Recomendamos a utilização **de GRS** para obter a maior disponibilidade. Uma vez que garante que uma cópia dos seus dados de backup é mantida numa região diferente, ajuda-o a cumprir vários padrões de conformidade. Mude a redundância para **LRS** se estiver a apoiar ambientes de desenvolvimento ou de teste que não precisem de uma cópia de segurança ao nível da empresa.
+  - Tal indica a redundância da Conta de Armazenamento na qual são guardados os dados da cópia de segurança. Recomendamos a utilização de **GRS** para obter a maior disponibilidade. Uma vez que garante que uma cópia dos seus dados da cópia de segurança é mantida numa região diferente, ajuda a cumprir vários padrões de conformidade. Altere a redundância para **LRS** se estiver a fazer cópia de segurança de ambientes de desenvolvimento ou teste que não precisam de uma cópia de segurança de nível empresarial.
 
-- **Opcional** – Modificar os preços regionais ou aplicar tarifas com desconto
+- **Opcional** – Modificar preços regionais ou aplicar tarifas com desconto
 
-  - Se quiser verificar as suas estimativas para uma região diferente ou tarifas com desconto, selecione **Sim** para as **estimativas de Tentativa para uma região diferente?**
+  - Se quiser verificar as suas estimativas para uma região diferente ou tarifas com desconto, selecione **Sim** na opção **Experimentar estimativas para uma região diferente?** e introduza as tarifas com as quais pretende executar as estimativas.
 
-## <a name="estimate-costs-for-backing-up-sap-hana-servers-in-azure-vms"></a>Estimativa de custos para o backup dos servidores SAP HANA em VMs Azure
+## <a name="estimate-costs-for-backing-up-sap-hana-servers-in-azure-vms"></a>Calcular os custos das cópias de segurança dos servidores SAP HANA nas VMs do Azure
 
-Para estimar os custos de backup dos servidores SAP HANA em execução em VMs Azure usando Azure Backup, você precisará dos seguintes parâmetros:
+Para calcular os custos da cópia de segurança dos servidores SAP HANA em execução nas VMs do Azure com o Azure Backup, vai precisar dos seguintes parâmetros:
 
-- Tamanho total das bases de dados SAP HANA que está a tentar fazer. Esta deve ser a soma do tamanho total da cópia de segurança de cada uma das bases de dados, conforme reportado pela SAP HANA.
-- Número de servidores SAP HANA com o tamanho acima
-- Qual é o tamanho esperado de backups de registos?
+- Tamanho total das bases de dados SAP HANA das quais está a tentar fazer cópia de segurança. Tal deve ser a soma do tamanho da cópia de segurança completa de cada uma das bases de dados, conforme indicado pelo SAP HANA.
+- Número de servidores SAP HANA com o tamanho acima
+- Qual é o tamanho esperado das cópias de segurança de registo?
   
-  - O % indica o tamanho médio do registo diário em % do tamanho total das bases de dados SAP HANA que está a fazer no servidor SAP HANA
-- Qual é a quantidade esperada de dados diários nestes servidores?
-  - O % indica o tamanho médio diário do churn em % do tamanho total das bases de dados SAP HANA que está a fazer no servidor SAP HANA
-  - Tipicamente, as bases de dados têm "alto" churn
-  - Se conhece o **seu churn%**, pode usar a opção **Entrar a sua própria** parte
-- Escolha a política de backup
+  - A % indica o tamanho médio diário do registo como uma % do tamanho total das bases de dados SAP HANA das quais está a fazer cópia de segurança no servidor SAP HANA
+- Qual é a quantidade de alterações a dados diária esperada nestes servidores?
+  - A % indica o tamanho médio diário da alteração como uma % do tamanho total das bases de dados SAP HANA das quais está a fazer cópia de segurança no servidor SAP HANA
+  - Normalmente, as bases de dados têm uma alteração "Alta"
+  - Se conhece a sua **%dealteração**, pode utilizar a opção **Introduzir a sua própria %**
+- Escolha a política de cópias de segurança
   - Tipo de Cópia de Segurança
-    - A política mais eficaz que pode escolher é **os diferenciais diários** com backups **completos semanais/mensais/ano.** O Azure Backup também pode restaurar a partir de diferenciais através de um único clique.
-    - Também pode optar por ter uma política com backups **completos diários/semanais/mensais/mensais.** Esta opção consumirá um pouco mais de armazenamento do que a primeira opção.
-  - Quanto tempo espera reter cópias de segurança de "log"? (em dias) [7-35]
-  - Quanto tempo espera reter reforços "Daily"? (em dias)
-  - Quanto tempo espera manter os reforços "Weekly"? (em semanas)
-  - Quanto tempo espera reter reforços "Mensais"? (em meses)
-  - Quanto tempo espera manter os reforços "Anualmente"? (em anos)
-- **Opcional** - Redundância de Armazenamento de Backup
+    - A política mais eficaz que pode escolher é **Diferenciais diárias** com cópias de segurança completas **semanais/mensais/anuais**. O Azure Backup também pode restaurar a partir de diferenciais através de um clique.
+    - Pode ainda optar por ter uma política com cópias de segurança completas **diárias/semanais/mensais/anuais**. Esta opção vai consumir um pouco mais de armazenamento do que a primeira opção.
+  - Por quanto tempo espera reter as cópias de segurança de "registo"? (em dias) [7–35]
+  - Por quanto tempo espera reter as cópias de segurança "Diárias"? (em dias)
+  - Por quanto tempo espera reter as cópias de segurança "Semanais"? (em semanas)
+  - Por quanto tempo espera reter as cópias de segurança "Mensais"? (em meses)
+  - Por quanto tempo espera reter as cópias de segurança "Anuais"? (em anos)
+- **Opcional** – Redundância de Armazenamento de Cópias de Segurança
   
-  - Isto indica que o despedimento da Conta de Armazenamento os seus dados de backup entram. Recomendamos a utilização **de GRS** para obter a maior disponibilidade. Uma vez que garante que uma cópia dos seus dados de backup é mantida numa região diferente, ajuda-o a cumprir vários padrões de conformidade. Mude a redundância para **LRS** se estiver a apoiar ambientes de desenvolvimento ou de teste que não precisem de uma cópia de segurança ao nível da empresa.
-- **Opcional** – Modificar os preços regionais ou aplicar tarifas com desconto
+  - Tal indica a redundância da Conta de Armazenamento na qual são guardados os dados da cópia de segurança. Recomendamos a utilização de **GRS** para obter a maior disponibilidade. Uma vez que garante que uma cópia dos seus dados da cópia de segurança é mantida numa região diferente, ajuda a cumprir vários padrões de conformidade. Altere a redundância para **LRS** se estiver a fazer cópia de segurança de ambientes de desenvolvimento ou teste que não precisam de uma cópia de segurança de nível empresarial.
+- **Opcional** – Modificar preços regionais ou aplicar tarifas com desconto
   
-  - Se quiser verificar as suas estimativas para uma região diferente ou tarifas com desconto, selecione **Sim** para as **estimativas de Tentativa para uma região diferente?**
+  - Se quiser verificar as suas estimativas para uma região diferente ou tarifas com desconto, selecione **Sim** na opção **Experimentar estimativas para uma região diferente?** e introduza as tarifas com as quais pretende executar as estimativas.
   
-## <a name="estimate-costs-for-backing-up-azure-file-shares"></a>Estimativa de custos para o backup das ações de ficheiros Azure
+## <a name="estimate-costs-for-backing-up-azure-file-shares"></a>Calcular os custos das cópias de segurança das partilhas de ficheiros do Azure
 
-Para estimar os custos de backup das ações de ficheiros Azure utilizando a [solução de backup baseada em instantâneos](azure-file-share-backup-overview.md) oferecida pela Azure Backup, você precisará dos seguintes parâmetros:
+Para calcular os custos da cópia de segurança das partilhas de ficheiros do Azure com a [solução de cópia de segurança baseada em instantâneos](azure-file-share-backup-overview.md) oferecida pelo Azure Backup, vai precisar dos seguintes parâmetros:
 
-- Tamanho (**em GB**) das ações de ficheiro que pretende fazer recuar.
+- Tamanho (**em GB**) das partilhas de ficheiros das quais pretende fazer cópia de segurança.
 
-- Se pretender fazer o back up de ações de ficheiros espalhadas por várias contas de armazenamento, especifique o número de contas de armazenamento que hospedam as ações de ficheiro com o tamanho acima.
+- Se pretende fazer cópia de segurança de partilhas de ficheiros distribuídas entre várias contas de armazenamento, especifique o número de contas de armazenamento que alojam as partilhas de ficheiros com o tamanho acima.
 
-- A quantidade esperada de dados nas ações de ficheiro que pretende fazer back-up. <br>Churn refere-se à quantidade de alteração de dados e impacta diretamente o tamanho do armazenamento instantâneo. Por exemplo, se tiver uma partilha de ficheiros com 200 GB de dados a serem apoiados, e 10 GB dela mudar todos os dias, o churn diário é de 5%.
-  - Maior agitação significa que a quantidade de alteração de dados no conteúdo da partilha de ficheiros todos os dias é alta, pelo que o tamanho do instantâneo incremental (capturando apenas as alterações de dados) também seria mais.
-  - Selecione Baixo (1%), Moderado (3%), ou Alto (5%) com base nas características e utilização da sua partilha de ficheiros.
-  - Se **souber** o preço exato da sua parte do ficheiro, pode selecionar a **opção Enter your own%** a partir da entrega. Especificar os valores (in %) para o dia, semanal, mensal e anual.
+- Quantidade de alterações a dados esperada nas partilhas de ficheiros das quais pretende fazer cópia de segurança. <br>A alteração refere-se à quantidade de alterações nos dados e afeta diretamente o tamanho de armazenamento dos instantâneos. Por exemplo, se tiver uma partilha de ficheiros com 200 GB de dados para fazer uma cópia de segurança e 10 GB desses dados são alterados todos os dias, a alteração diária é de 5%.
+  - Uma alteração mais elevada significa que a quantidade de alterações a dados nos conteúdos da partilha de ficheiros todos os dias é alta e, portanto, o tamanho do instantâneo incremental (que captura apenas as alterações nos dados) também seria maior.
+  - Selecione Baixa (1%), Moderada (3%) ou Alta (5%) com base nas características e na utilização da partilha de ficheiros.
+  - Se souber a **%dealteração** exata da sua partilha de ficheiros, pode selecionar a opção **Introduzir a sua própria %** na lista pendente. Especifique os valores (em %) para a alteração diária, semanal, mensal e anual.
 
-- Tipo de conta de armazenamento (standard ou premium) e a definição de redundância de armazenamento da conta de armazenamento que hospeda a parte do ficheiro back-up. <br>Na atual solução de backup para ações de ficheiros Azure, as imagens são armazenadas na mesma conta de armazenamento que a parte de ficheiros com cópia de segurança. Assim, o custo de armazenamento associado a instantâneos é faturado como parte da sua conta de ficheiros Azure, com base no preço instantâneo para o tipo de conta e definição de redundância da conta de armazenamento que hospeda a partilha de ficheiros e instantâneos de ficheiros com apoio.
+- Tipo de conta de armazenamento (standard ou premium) e a definição de redundância de armazenamento da conta de armazenamento que aloja a partilha de ficheiros incluída na cópia de segurança. <br>Na solução de cópia de segurança atual para partilhas de ficheiros do Azure, os instantâneos são armazenados na mesma conta de armazenamento que a partilha de ficheiros incluída na cópia de segurança. Portanto, o custo de armazenamento associado aos instantâneos é cobrado como parte da sua fatura de ficheiros do Azure, com base nos preços dos instantâneos para o tipo de conta e a definição de redundância da conta de armazenamento que aloja a partilha de ficheiros e os instantâneos incluídos na cópia de segurança.
 
-- Retenção para diferentes backups
-  - Quanto tempo espera reter reforços "Daily"? (em dias)
-  - Quanto tempo espera manter os reforços "Weekly"? (em semanas)
-  - Quanto tempo espera reter reforços "Mensais"? (em meses)
-  - Quanto tempo espera manter os reforços "Anualmente"? (em anos)
+- Retenção de diferentes cópias de segurança
+  - Por quanto tempo espera reter as cópias de segurança "Diárias"? (em dias)
+  - Por quanto tempo espera reter as cópias de segurança "Semanais"? (em semanas)
+  - Por quanto tempo espera reter as cópias de segurança "Mensais"? (em meses)
+  - Por quanto tempo espera reter as cópias de segurança "Anuais"? (em anos)
 
-  Consulte [a matriz de suporte de partilha do Ficheiro Azure](azure-file-share-support-matrix.md#retention-limits) para obter os valores máximos de retenção suportados em cada categoria.
+  Veja a [matriz de suporte da partilha de ficheiros do Azure](azure-file-share-support-matrix.md#retention-limits) para obter os valores máximos de retenção suportados em cada categoria.
 
-- **Opcional** – Modificar os preços regionais ou aplicar tarifas com desconto.
-  - Os valores predefinidos definidos para o custo de armazenamento instantâneo por GB e o custo de instância protegido no estimador são para a região leste dos EUA. Se quiser verificar as suas estimativas para uma região diferente ou tarifas com desconto, selecione **Sim** para as **estimativas de Tentativa para uma região diferente?**
+- **Opcional** – Modificar preços regionais ou aplicar tarifas com desconto.
+  - Os valores predefinidos para o custo de armazenamento de instantâneos por GB e o custo da instância protegida no simulador referem-se à região E.U.A. Leste. Se quiser verificar as suas estimativas para uma região diferente ou tarifas com desconto, selecione **Sim** na opção **Experimentar estimativas para uma região diferente?** e introduza as tarifas com as quais pretende executar as estimativas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
