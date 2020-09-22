@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: f8b09c71e9ad55528788f97fb986606f21e8b0ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2551a3c860dbdf27e7c9473e88c3a3293f575faa
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84769790"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883958"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gerir e responder a alertas de segurança no Centro de Segurança do Azure
 
@@ -28,7 +28,7 @@ Este tópico mostra-lhe como visualizar e processar os alertas que recebeu para 
 * Para uma visão geral de como o Centro de Segurança gera alertas, consulte [como o Azure Security Center deteta e responde a ameaças.](security-center-alerts-overview.md)
 
 > [!NOTE]
-> Para ativar as deteções avançadas, atualize para o Centro de Segurança do Azure Standard. Está disponível uma avaliação gratuita. Para atualizar, selecione O Nível de Preços na [Política de Segurança](tutorial-security-policy.md). Veja [Preços do Centro de Segurança do Azure](security-center-pricing.md) para saber mais.
+> Para permitir deteções avançadas, ative o Azure Defender. Está disponível uma avaliação gratuita. Para atualizar, selecione O Nível de Preços na [Política de Segurança](tutorial-security-policy.md). Veja [Preços do Centro de Segurança do Azure](security-center-pricing.md) para saber mais.
 
 ## <a name="what-are-security-alerts"></a>O que são alertas de segurança?
 O Centro de Segurança recolhe, analisa e integra automaticamente dados de registo a partir dos seus recursos do Azure, da rede e soluções de parceiros ligadas, tal como soluções de proteção de ponto final e firewall, para detetar ameaças reais e reduzir os falsos positivos. Uma lista de alertas de segurança prioritários é apresentada no Centro de Segurança juntamente com as informações necessárias para investigar rapidamente o problema e fornecer recomendações sobre como remediar um ataque.
@@ -38,7 +38,7 @@ O Centro de Segurança recolhe, analisa e integra automaticamente dados de regis
 
 ## <a name="manage-your-security-alerts"></a>Gerencie os seus alertas de segurança
 
-1. A partir do painel do Centro de Segurança, consulte o azulejo **de proteção** de ameaças para visualizar e ver os alertas.
+1. A partir do painel do Centro de Segurança, consulte o azulejo  **de proteção** de ameaças para visualizar e ver os alertas.
 
     ![Mosaico Alertas de segurança no Centro de Segurança](./media/security-center-managing-and-responding-alerts/security-center-dashboard-alert.png)
 
@@ -64,7 +64,7 @@ O Centro de Segurança recolhe, analisa e integra automaticamente dados de regis
      
     ![Sugestões para o que fazer sobre alertas de segurança](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
-    Também no painel de ação certo está o **separador de ação Take.** Use este separador para tomar mais ações no que diz respeito ao alerta de segurança. Ações como:
+    Também no painel de ação certo está o **separador de ação Take.** Utilize este separador para tomar mais ações relativas ao alerta de segurança. Ações como:
     - *Mitigate the threat* - fornece medidas de reparação manual para este alerta de segurança
     - *Prevenir futuros ataques* - fornece recomendações de segurança para ajudar a reduzir a superfície de ataque, aumentar a postura de segurança e, assim, prevenir futuros ataques
     - *Trigger automated response* - fornece a opção de desencadear uma app lógica como resposta a este alerta de segurança
@@ -75,7 +75,7 @@ O Centro de Segurança recolhe, analisa e integra automaticamente dados de regis
 
 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 Neste documento, aprendeu a ver alertas de segurança. Consulte as seguintes páginas para obter material relacionado:
 

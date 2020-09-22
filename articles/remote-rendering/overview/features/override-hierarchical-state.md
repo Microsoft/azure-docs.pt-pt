@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a3f032ca973a188bf294155c73de3ca84f6ee30f
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: c098dc6b1d3b41a41246857f8a353dd4f5dfcef1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024405"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884191"
 ---
 # <a name="hierarchical-state-override"></a>Substituição do estado hierárquico
 
@@ -45,6 +45,10 @@ O conjunto fixo de estados que podem ser ultrapassados são:
   ![Opção de contorno usada para destacar uma parte selecionada](./media/selection-outline.png)
 
 * **`DisableCollision`**: A geometria está isenta de [consultas espaciais.](spatial-queries.md) A **`Hidden`** bandeira não afeta a bandeira do estado de colisão, por isso estas duas bandeiras são muitas vezes colocadas juntas.
+
+* **`UseCutPlaneFilterMask`**: Utilize uma máscara de broca de filtro individual para controlar a seleção do plano cortado. Esta bandeira determina se a máscara de filtro individual deve ser usada ou herdada do seu progenitor. A máscara de bit de filtro em si é definida através da `CutPlaneFilterMask` propriedade. Para obter informações detalhadas sobre o funcionamento da filtragem, consulte o [parágrafo dos planos de corte seletivo](cut-planes.md#selective-cut-planes).
+![Aviões de corte seletivo](./media/selective-cut-planes.png)
+
 
 > [!TIP]
 > Como alternativa para desligar a visibilidade e as consultas espaciais para um gráfico completo, o `enabled` estado de um objeto de jogo pode ser alternado. Se uma hierarquia for desativada, esta tem preferência sobre qualquer `HierarchicalStateOverrideComponent` .
@@ -104,7 +108,7 @@ A renderização transparente coloca mais carga de trabalho nas GPUs do servidor
 * [C# Classe HierarchicalStateOverrideComponent](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent)
 * [C++ Classe HierarchicalStateOverrideComponent](https://docs.microsoft.com/cpp/api/remote-rendering/hierarchicalstateoverridecomponent)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Contornos](../../overview/features/outlines.md)
 * [Modos de composição](../../concepts/rendering-modes.md)
