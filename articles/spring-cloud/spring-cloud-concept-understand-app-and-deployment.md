@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: a1f6d318c123b5907a8c434bb097fb86a351f5d1
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 9e909db0041979eb7bc4fc30bd9551382e83c488
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297540"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892498"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Compreenda a aplicação e a implementação em Azure Spring Cloud
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C #
 
 **App** e **Implementação** são os dois conceitos-chave no modelo de recursos da Azure Spring Cloud. Em Azure Spring Cloud, uma *App* é uma abstração de uma aplicação de negócios ou um microserviço.  Uma versão de código ou binário implementada à medida que a *App* funciona numa *Implementação*.  As aplicações são executadas numa *Instância de Serviço cloud de Azure Spring*, ou simplesmente em instância de *serviço*, como mostrado a seguir.
 
@@ -55,5 +57,5 @@ As seguintes funcionalidades/propriedades são definidas ao nível de Implantaç
 * **Uma Aplicação pode ter no máximo duas Implementações**: Criar mais de duas implementações é bloqueado pela API. Desloque o seu novo binário para a produção ou implantação de encenação existentes.
 * **A gestão da implementação não está disponível no Basic Tier**: Use o nível padrão para a capacidade de implantação Blue-Green.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 * [Crie um ambiente de encenação em Azure Spring Cloud](spring-cloud-howto-staging-environment.md)

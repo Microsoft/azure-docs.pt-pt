@@ -11,15 +11,14 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/22/2020
 ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: 08685a6ebfcbfced91c3685635c40ff48030fe38
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 769b4d364412d3409ef95c4222197fe6f7ce222c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669572"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893474"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ligar aos serviços de armazenamento do Azure
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, saiba como **ligar-se aos serviços de armazenamento Azure através das lojas de dados Azure Machine Learning**. As datas conectam-se de forma segura ao seu serviço de armazenamento Azure sem colocar em risco as suas credenciais de autenticação e a integridade da sua fonte de dados original. Armazenam informações de ligação, como o ID de subscrição e a autorização simbólica no [cofre-chave](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho, para que possa aceder de forma segura ao seu armazenamento sem ter de os codificar nos scripts. Você pode usar o [Azure Machine Learning Python SDK](#python) ou o [estúdio Azure Machine Learning](#studio) para criar e registar datastores.
 
@@ -54,7 +53,7 @@ Precisará:
     Quando cria um espaço de trabalho, um recipiente de blob Azure e uma partilha de ficheiros Azure são automaticamente registados como datastores para o espaço de trabalho. São nomeados `workspaceblobstore` `workspacefilestore` e, respectivamente. É `workspaceblobstore` usado para armazenar artefactos do espaço de trabalho e seus registos de experiências de aprendizagem automática. Também é definido como a **datastore padrão** e não pode ser eliminado do espaço de trabalho. O `workspacefilestore` é usado para armazenar cadernos e scripts R autorizados através de instância [computacional](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files).
     
     > [!NOTE]
-    > O designer de Machine Learning (pré-visualização) criará uma datastore com o nome **azureml_globaldatasets** automaticamente quando abrir uma amostra na página inicial do designer. Esta loja de dados contém apenas conjuntos de dados de amostra. Não **do not** utilize esta loja de dados para qualquer acesso confidencial aos dados.
+    > O designer de Machine Learning Azure criará uma loja de dados com o nome **azureml_globaldatasets** automaticamente quando abrir uma amostra na página inicial do designer. Esta loja de dados contém apenas conjuntos de dados de amostra. Não **do not** utilize esta loja de dados para qualquer acesso confidencial aos dados.
 
 <a name="matrix"></a>
 
@@ -125,7 +124,7 @@ Quando regista uma solução de armazenamento Azure como uma datastore, cria e r
 Dentro desta secção encontram-se exemplos de como criar e registar uma loja de dados através do Python SDK para os seguintes tipos de armazenamento. Os parâmetros fornecidos nestes exemplos são os **parâmetros necessários** para criar e registar uma datastore.
 
 * [Recipiente de bolhas Azure](#azure-blob-container)
-* [Azure partilha de ficheiros](#azure-file-share)
+* [Partilha de ficheiros do Azure](#azure-file-share)
 * [Azure Data Lake Storage Generation 2](#azure-data-lake-storage-generation-2)
 
  Para criar datastores para outros serviços de armazenamento suportados, consulte a [documentação de referência para os `register_azure_*` métodos aplicáveis.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#&preserve-view=truemethods)
@@ -275,7 +274,7 @@ A Azure Machine Learning suporta o acesso a dados a partir do armazenamento de A
 
 A Azure Data Factory fornece transferência de dados eficiente e resiliente com mais de 80 conectores pré-construídos sem custos adicionais. Estes conectores incluem serviços de dados Azure, fontes de dados no local, Amazon S3 e Redshift, e Google BigQuery.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar um conjunto de dados de aprendizagem de máquinas Azure](how-to-create-register-datasets.md)
 * [Preparar um modelo](how-to-train-ml-models.md)

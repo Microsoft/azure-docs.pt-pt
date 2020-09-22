@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: c009a98931240e92527035e51fdce3f1c92f5212
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1afa5df20c9bcbf63f8ad9f527e54f622eba3d19
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477600"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893787"
 ---
 # <a name="filter-based-feature-selection"></a>Seleção de funcionalidades baseadas em filtro
 
-Este artigo descreve como utilizar o módulo de seleção de recursos baseado em filtro no designer de aprendizagem automática Azure (pré-visualização). Este módulo ajuda-o a identificar as colunas do conjunto de dados de entrada que têm a maior potência preditiva. 
+Este artigo descreve como utilizar o módulo de seleção de recursos baseado em filtro no designer de aprendizagem automática Azure. Este módulo ajuda-o a identificar as colunas do conjunto de dados de entrada que têm a maior potência preditiva. 
 
 Em geral, *a seleção* de recursos refere-se ao processo de aplicação de testes estatísticos às entradas, dada uma saída especificada. O objetivo é determinar quais as colunas mais preditivas da saída. O módulo de seleção de recursos baseado em filtros fornece vários algoritmos de seleção de funcionalidades para escolher. O módulo inclui métodos de correlação como a correlação de Pearson e os valores chi-quadrados. 
 
@@ -68,7 +68,7 @@ Escolhe-se uma métrica estatística padrão. O módulo calcula a correlação e
     > Se souber que algumas colunas fariam más características, pode removê-las da seleção da coluna. Também pode utilizar o módulo [editar metadados](edit-metadata.md) para os sinalizar como **Categorical.** 
 3.  Para **o método de pontuação de recurso,** escolha um dos seguintes métodos estatísticos estabelecidos para utilizar no cálculo das pontuações.  
 
-    | Método              | Requirements                             |
+    | Método              | Requisitos                             |
     | ------------------- | ---------------------------------------- |
     | Correlação pearson | A etiqueta pode ser texto ou numérico. As características devem ser numéricas. |
     Chi ao quadrado| As etiquetas e funcionalidades podem ser texto ou numérico. Utilize este método para calcular a importância do recurso para duas colunas categóricas.|
@@ -114,7 +114,7 @@ Se utilizar a correlação Pearson numa característica numérica e num rótulo 
 
 2.  Correlacionar a coluna dos meios condicional com a coluna numérica.  
 
-### <a name="requirements"></a>Requirements  
+### <a name="requirements"></a>Requisitos  
 
 -   Uma pontuação de seleção de recursos não pode ser gerada para qualquer coluna que seja designada como uma coluna **label** ou **score.**  
 
@@ -133,7 +133,7 @@ Se utilizar a correlação Pearson numa característica numérica e num rótulo 
 -   Se uma coluna designada como coluna de recurso tiver todos os valores em falta, o módulo atribui uma pontuação zero.   
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

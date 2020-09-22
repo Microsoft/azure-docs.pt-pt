@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions
-ms.openlocfilehash: 57746b833e238bbd0cc99ba103f710a9239ee5ba
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 36d3d84949e44719474656d07da9c7b7c46a4e98
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89665164"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893187"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Isolamento de rede virtual e visão geral da privacidade
 
@@ -63,22 +63,6 @@ As próximas cinco secções mostram-lhe como proteger o cenário de rede acima 
 1. Proteja o [**ambiente de inferenculação**](#secure-the-inferencing-environment).
 1. Opcionalmente: [**ativar a funcionalidade do estúdio**](#optional-enable-studio-functionality).
 1. Configurar [ **definições** de firewall](#configure-firewall-settings)
-
-> [!TIP]
->  Algumas combinações de serviços de rede virtual e Azure requerem um espaço de trabalho de edição enterprise. Use a seguinte tabela para entender que cenários requerem edição enterprise:
->
-> | Cenário | Enterprise</br>edição | Básico</br>edição |
-> | ----- |:-----:|:-----:| 
-> | Sem rede virtual ou Link Privado | ✔ | ✔ |
-> | Espaço de trabalho sem Ligação Privada. Outros recursos (exceto registo de contentores Azure) numa rede virtual | ✔ | ✔ |
-> | Espaço de trabalho sem Ligação Privada. Outros recursos com Ligação Privada | ✔ | |
-> | Espaço de trabalho com Ligação Privada. Outros recursos (exceto registo de contentores Azure) numa rede virtual | ✔ | ✔ |
-> | Espaço de trabalho e qualquer outro recurso com Private Link | ✔ | |
-> | Espaço de trabalho com Ligação Privada. Outros recursos sem Ligação Privada ou rede virtual | ✔ | ✔ |
-> | Registo de contentores Azure em uma rede virtual | ✔ | |
-> | Chaves geridas pelo cliente para espaço de trabalho | ✔ | |
->
-
 
 ## <a name="secure-the-workspace-and-associated-resources"></a>Garantir o espaço de trabalho e os recursos associados
 
@@ -177,7 +161,7 @@ Configure a sua firewall para controlar o acesso aos recursos do seu espaço de 
 
 Para obter mais informações sobre as definições de firewall, consulte [use espaço de trabalho por trás de uma firewall](how-to-access-azureml-behind-firewall.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo é parte de uma série de rede virtual de quatro partes. Veja o resto dos artigos para aprender a proteger uma rede virtual:
 

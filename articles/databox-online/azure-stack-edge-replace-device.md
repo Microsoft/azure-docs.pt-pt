@@ -1,6 +1,6 @@
 ---
-title: Substitua o seu dispositivo Azure Stack Edge / Microsoft Docs
-description: Descreve como obter um dispositivo Azure Stack Edge de substituição.
+title: Substitua o seu dispositivo Azure Stack Edge Pro / Microsoft Docs
+description: Descreve como obter um dispositivo Azure Stack Edge Pro de substituição.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 5d5e8cc3a959c7800019107d2c682e144449b46c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec16a2b42b818e96399b8fdbad4a0951f84ef825
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098749"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893894"
 ---
-# <a name="replace-your-azure-stack-edge-device"></a>Substitua o seu dispositivo Azure Stack Edge
+# <a name="replace-your-azure-stack-edge-pro-device"></a>Substitua o seu dispositivo Azure Stack Edge Pro
 
-Este artigo descreve como obter um dispositivo Azure Stack Edge de substituição. Um dispositivo de substituição é necessário quando o dispositivo existente tem uma falha de hardware ou precisa de uma atualização. 
+Este artigo descreve como obter um dispositivo Azure Stack Edge Pro de substituição. Um dispositivo de substituição é necessário quando o dispositivo existente tem uma falha de hardware ou precisa de uma atualização. 
 
 
 Neste artigo, vai aprender a:
@@ -31,9 +31,9 @@ Neste artigo, vai aprender a:
 
 ## <a name="open-a-support-ticket"></a>Abrir um bilhete de apoio
 
-Se o seu dispositivo existente tiver uma falha de hardware, abra um bilhete de Suporte. O Microsoft Support determinará que uma Unidade de Substituição de Campo (FRU) não está disponível para este caso ou que o dispositivo necessita de uma atualização de hardware. Em qualquer dos casos, o Suporte encomendará um dispositivo de substituição.
+Se o seu dispositivo existente tiver uma falha de hardware, abra um bilhete de Suporte. O Suporte da Microsoft determinará se uma FRU (Unidade Substituível em Campo) não está disponível para esta instância ou se o dispositivo precisa de uma atualização de hardware. Em qualquer dos casos, o Suporte encomendará um dispositivo de substituição.
 
-1. Abra um bilhete de suporte com o Microsoft Support indicando que deseja devolver o dispositivo. Selecione o tipo de problema como **Hardware Azure Stack Edge**.
+1. Abra um bilhete de suporte com o Microsoft Support indicando que deseja devolver o dispositivo. Selecione o tipo de problema como **Hardware Azure Stack Edge Pro**.
 
     ![Abrir Pedido de suporte](media/azure-stack-edge-replace-device/open-support-ticket-1.png)  
 
@@ -47,7 +47,7 @@ Siga estes passos para criar um recurso.
 
 1. Siga os passos na [Criar um novo recurso](azure-stack-edge-deploy-prep.md#create-a-new-resource) para criar um recurso para o dispositivo de substituição. 
 
-2. Certifique-se de selecionar a caixa de verificação contra **eu tenho um dispositivo Azure Stack Edge**. 
+2. Certifique-se de selecionar a caixa de verificação contra **eu tenho um dispositivo Azure Stack Edge Pro**. 
 
     ![Recurso para dispositivo de substituição](media/azure-stack-edge-replace-device/replace-resource-1.png)  
 
@@ -71,4 +71,4 @@ Siga todos os passos para devolver o dispositivo original:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como [devolver um dispositivo Azure Stack Edge](azure-stack-edge-return-device.md).
+- Saiba como [devolver um dispositivo Azure Stack Edge Pro](azure-stack-edge-return-device.md).

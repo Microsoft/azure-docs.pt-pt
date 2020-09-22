@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: ec4b4d705e6cc8b9cfc26952083292b74b3d4abf
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 9b05149515f2d40ad8043cd65c2ec5589440713e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185881"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882531"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Utilize PHP para ligar e consultar dados na Base de Dados Azure para o MySQL
 Este guia de início rápido explica como se pode ligar a uma Base de Dados do Azure para MySQL através de uma aplicação [PHP](https://secure.php.net/manual/intro-whatis.php). Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este tópico pressupõe que está familiarizado com a programação com PHP e que nunca trabalhou com a Base de Dados do Azure para MySQL.
@@ -47,7 +47,7 @@ Obtenha as informações de ligação necessárias para se ligar à Base de Dado
 2. No menu esquerdo do portal do Azure, clique em **Todos os recursos** e, em seguida, procure o servidor que acabou de criar, (por exemplo, **mydemoserver**).
 3. Clique no nome do servidor.
 4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
- ![Nome do servidor da Base de Dados do Azure para o MySQL](./media/connect-php/1_server-overview-name-login.png)
+ :::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Nome do servidor da Base de Dados do Azure para o MySQL":::
 
 ## <a name="connect-and-create-a-table"></a>Ligar e criar uma tabela
 Utilize o seguinte código para se ligar e crie uma tabela com a instrução SQL **CREATE TABLE**. 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0bcf81e0c762dd2a8e63ae242fec77d30f5b2c3d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 78668eaadca872d7c25ab909fad5b9838bbc01d3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011859"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894810"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - Perguntas sobre recolha de dados, agentes e espaços de trabalho
 
@@ -29,9 +29,9 @@ O Security Center recolhe dados das suas máquinas virtuais Azure (VMs), conjunt
 
 Não. Os espaços de trabalho criados pelo Security Center, enquanto configurados para registos do Monitor Azure por faturação de nó, não incorrem em cargas de registos do Azure Monitor. A faturação do Security Center baseia-se sempre na sua política de segurança do Security Center e nas soluções instaladas num espaço de trabalho:
 
-- **Nível livre** – O Centro de Segurança permite a solução 'SecurityCenterFree' no espaço de trabalho predefinido. Não será cobrado para o free tier.
+- **Azure Defender off** – O Security Center permite a solução 'SecurityCenterFree' no espaço de trabalho predefinido. Não será cobrado se o Azure Defender estiver fora.
 
-- **Nível padrão** – O Centro de Segurança permite a solução 'Security' no espaço de trabalho predefinido.
+- **O Azure Defender on** – Security Center permite a solução 'Security' no espaço de trabalho predefinido.
 
 Para obter mais informações sobre preços, consulte [os preços do Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -164,7 +164,7 @@ Se remover a extensão de monitorização da Microsoft, o Security Center não p
 
 Pode desativar o fornecimento automático para as suas subscrições na política de segurança, mas isso não é recomendado. Desligar os limites automáticos de provisionamento limita as recomendações e alertas do Centro de Segurança. Para desativar o provisionamento automático:
 
-1. Se a sua subscrição estiver configurada para o nível padrão, abra a política de segurança para essa subscrição e selecione o nível **Free.**
+1. Se a sua subscrição tiver o Azure Defender ativado, abra a política de segurança para essa subscrição e selecione **o Azure Defender fora**.
 
    ![Escalão de preço][1]
 
@@ -259,7 +259,7 @@ Quando o Centro de Segurança deteta atividade suspeita no VM, o cliente é noti
 
 ## <a name="will-security-center-work-using-an-oms-gateway"></a>O Centro de Segurança funcionará com um gateway OMS?
 
-Yes. O Azure Security Center aproveita o Azure Monitor para recolher dados de VMs e servidores Azure, utilizando o agente Log Analytics.
+Sim. O Azure Security Center aproveita o Azure Monitor para recolher dados de VMs e servidores Azure, utilizando o agente Log Analytics.
 Para recolher os dados, cada VM e servidor devem ligar-se à Internet utilizando HTTPS. A ligação pode ser direta, utilizando um proxy, ou através do [Portal OMS](../azure-monitor/platform/gateway.md).
 
 

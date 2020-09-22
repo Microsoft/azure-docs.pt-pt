@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 6af23f566e8768dd1213095402b7af029d494476
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 19e022073f43548a91fad76cb380a75205237bbd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076031"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892561"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Recuperação de desastres em Azure Spring Cloud
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C #
 
 Este artigo explica algumas estratégias que pode usar para proteger as suas aplicações Azure Spring Cloud de experimentar tempo de inatividade.  Qualquer região ou centro de dados pode experimentar um tempo de inatividade causado por desastres regionais, mas um planeamento cuidadoso pode atenuar o impacto nos seus clientes.
 
@@ -51,7 +53,7 @@ Você precisará de duas instâncias de serviço da Azure Spring Cloud implantad
 3. Criar um gestor de tráfego e dois pontos finais: [Criar um perfil de Gestor de Tráfego utilizando o portal Azure](https://docs.microsoft.com/azure/traffic-manager/quickstart-create-traffic-manager-profile).
 
 Aqui está o perfil do gestor de tráfego:
-* Nome DNS do Gestor de Tráfego:`http://asc-bcdr.trafficmanager.net`
+* Nome DNS do Gestor de Tráfego: `http://asc-bcdr.trafficmanager.net`
 * Perfis de ponto final: 
 
 | Perfil | Tipo | Destino | Prioridade | Definições personalizadas do cabeçalho |
@@ -62,3 +64,8 @@ Aqui está o perfil do gestor de tráfego:
 4. Crie um disco CNAME na Zona DNS: bcdr-test.contoso.com asc-bcdr.trafficmanager.net CNAME. 
 
 5. Agora, o ambiente está completamente preparado. Os clientes devem poder aceder à aplicação através de: bcdr-test.contoso.com
+
+## <a name="next-steps"></a>Passos seguintes
+
+* [Quickstart: Implemente a sua primeira aplicação Azure Spring Cloud](spring-cloud-quickstart.md)
+ 

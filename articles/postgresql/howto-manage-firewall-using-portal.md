@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 887b450c88e8d9d06e86cd7dc7725c7538522aa5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b2cb6a5378afac74c971ba5429775782723bef09
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102128"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882089"
 ---
 # <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Criar e gerir regras de firewall para Azure Database for PostgreSQL - Single Server usando o portal Azure
 As regras de firewall ao nível do servidor podem ser utilizadas para gerir o acesso a uma Base de Dados Azure para o Servidor PostgreSQL a partir de um endereço IP especificado ou intervalo de endereços IP especificados.
@@ -25,30 +25,30 @@ Para passar por este guia, precisa:
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Criar uma regra de firewall ao nível do servidor no portal do Azure
 1. Na página do servidor PostgreSQL, no título Definições, clique na **segurança de ligação** para abrir a página de segurança de Ligação para a Base de Dados Azure para PostgreSQL.
 
-   ![Portal Azure - clique em Connection Security](./media/howto-manage-firewall-using-portal/1-connection-security.png)
+   :::image type="content" source="./media/howto-manage-firewall-using-portal/1-connection-security.png" alt-text="Portal Azure - clique em Connection Security":::
 
 2. Clique em **Adicionar o meu IP** na barra de ferramentas. Isto cria automaticamente uma regra de firewall com o endereço IP público do seu computador, conforme percebido pelo sistema Azure.
 
-   ![Portal Azure - clique em Adicionar O Meu IP](./media/howto-manage-firewall-using-portal/2-add-my-ip.png)
+   :::image type="content" source="./media/howto-manage-firewall-using-portal/2-add-my-ip.png" alt-text="Portal Azure - clique em Adicionar O Meu IP":::
 
 3. Verifique o seu endereço IP antes de guardar a configuração. Em algumas situações, o endereço IP observado pelo portal Azure difere do endereço IP utilizado no acesso aos servidores da Internet e do Azure. Portanto, pode ser necessário alterar o IP de início e o IP final para fazer a regra funcionar como esperado.
    Utilize um motor de busca ou outra ferramenta on-line para verificar o seu próprio endereço IP. Por exemplo, procure "qual é o meu IP".
 
-   ![Bing pesquisa por Qual é o meu IP](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
+   :::image type="content" source="./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png" alt-text="Bing pesquisa por Qual é o meu IP":::
 
 4. Adicione intervalos de endereços adicionais. Nas regras de firewall para a Base de Dados Azure para PostgreSQL, pode especificar um único endereço IP ou uma série de endereços. Se pretender limitar a regra a um único endereço IP, digite o mesmo endereço no campo para Iniciar IP e IP final. A abertura da firewall permite que administradores, utilizadores e aplicações acedam a qualquer base de dados no servidor PostgreSQL ao qual possuem credenciais válidas.
 
-   ![Portal Azure - regras de firewall](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
+   :::image type="content" source="./media/howto-manage-firewall-using-portal/4-specify-addresses.png" alt-text="Portal Azure - regras de firewall":::
 
 5. Clique em **Guardar** na barra de ferramentas para guardar esta regra de firewall ao nível do servidor. Aguarde a confirmação de que a atualização das regras de firewall foi bem sucedida.
 
-   ![Portal Azure - clique em Guardar](./media/howto-manage-firewall-using-portal/5-save-firewall-rule.png)
+   :::image type="content" source="./media/howto-manage-firewall-using-portal/5-save-firewall-rule.png" alt-text="Portal Azure - clique em Guardar":::
 
 ## <a name="connecting-from-azure"></a>Ligar a partir do Azure
 Para permitir que as aplicações do Azure se conectem à sua Base de Dados Azure para o servidor PostgreSQL, as ligações Azure devem ser ativadas. Por exemplo, para hospedar uma aplicação Azure Web Apps, ou uma aplicação que funciona num Azure VM, ou para ligar a partir de um gateway de gestão de dados da Azure Data Factory. Os recursos não precisam de estar na mesma Rede Virtual (VNet) ou Grupo de Recursos para a regra de firewall para permitir essas ligações. Quando uma aplicação do Azure tenta ligar ao servidor de base de dados, a firewall verifica se as ligações do Azure são permitidas. Existem alguns métodos para permitir este tipo de ligações. Uma definição de firewall com o endereço de início e de fim igual a 0.0.0.0 indica que estas ligações são permitidas. Em alternativa, pode definir a opção **de acesso a Azure** de acesso a **ON** no portal a partir do painel de segurança **De Ligação** e bater **Save**. Se a tentativa de ligação não for permitida, o pedido não chega à Base de Dados Azure para o servidor PostgreSQL.
 
 > [!IMPORTANT]
-> Esta opção configura a firewall para permitir todas as ligações a partir do Azure, incluindo ligações de subscrições de outros clientes. Quando seleciona esta opção, certifique-se de que as permissões de início de sessão e de utilizador limitam o acesso a utilizadores autorizados apenas.
+> Esta opção configura a firewall para permitir todas as ligações a partir do Azure, incluindo ligações de subscrições de outros clientes. Quando selecionar esta opção, certifique-se de que as suas permissões de início de sessão e de utilizador limitam o acesso apenas a utilizadores autorizados.
 > 
 
 ## <a name="manage-existing-server-level-firewall-rules-through-the-azure-portal"></a>Gerir regras de firewall ao nível do servidor existentes através do Portal do Azure
@@ -58,7 +58,7 @@ Repita os passos para gerir as regras da firewall.
 * Para modificar uma regra existente, clique em qualquer um dos campos na regra e modifique. Clique em **Guardar** para guardar as alterações.
 * Para eliminar uma regra existente, clique na elipse [...] e clique em **Eliminar** para remover a regra. Clique em **Guardar** para guardar as alterações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Da mesma forma, pode escrever para [criar e gerir a Base de Dados Azure para regras de firewall postgreSQL usando Azure CLI](howto-manage-firewall-using-cli.md).
 - Acesso mais seguro ao seu [servidor, criando e gerindo pontos finais de serviço de Rede Virtual e regras utilizando o portal Azure](howto-manage-vnet-using-portal.md).
 - Para obter ajuda na ligação a uma base de dados Azure para servidor PostgreSQL, consulte [as bibliotecas de conexão para a base de dados Azure para postgreSQL](concepts-connection-libraries.md).

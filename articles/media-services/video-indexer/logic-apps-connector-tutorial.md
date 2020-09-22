@@ -8,12 +8,12 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 05/01/2020
-ms.openlocfilehash: fbd86b34bd6f7da8c9f49e212e397d003b71fab5
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 2d89782b836db0daaf75c0337ad3b7f475824177
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707939"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882885"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Tutorial: use Video Indexer com App lógica e automatização de energia
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: f03b5e93e4ed5155f6a713c152fbcf34dc873674
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 64be7f01cc9cc7ae77af5386be7a11cd16785dd1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065884"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882400"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitetura de conectividade na Base de Dados Azure para PostgreSQL
 Este artigo explica a Base de Dados Azure para a arquitetura de conectividade PostgreSQL, bem como como o tráfego é direcionado para a sua base de dados Azure para postgresQL caso de dados de clientes dentro e fora de Azure.
@@ -19,7 +19,7 @@ Este artigo explica a Base de Dados Azure para a arquitetura de conectividade Po
 ## <a name="connectivity-architecture"></a>Arquitetura de conectividade
 A ligação à sua Base de Dados Azure para PostgreSQL é estabelecida através de um gateway responsável por encaminhar as ligações de entrada para a localização física do seu servidor nos nossos clusters. O diagrama seguinte ilustra o fluxo de tráfego.
 
-![Visão geral da arquitetura de conectividade](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
+:::image type="content" source="./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png" alt-text="Visão geral da arquitetura de conectividade":::
 
 À medida que o cliente se liga à base de dados, obtêm uma cadeia de ligação que se liga ao portal. Este gateway tem um endereço IP público que ouve o porto 5432. Dentro do tráfego de cluster de base de dados é reencaminhado para a base de dados Azure apropriada para postgreSQL. Portanto, para se conectar ao seu servidor, como a partir de redes corporativas, é necessário abrir a firewall do lado do cliente para permitir que o tráfego de saída possa chegar aos nossos gateways. Abaixo pode encontrar uma lista completa dos endereços IP utilizados pelos nossos gateways por região.
 

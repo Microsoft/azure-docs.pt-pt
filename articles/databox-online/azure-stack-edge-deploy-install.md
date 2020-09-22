@@ -1,6 +1,6 @@
 ---
-title: Tutorial para instalar - Desempacotar, rack, cabo Azure Stack Edge dispositivo físico / Microsoft Docs
-description: O segundo tutorial sobre a instalação do Azure Stack Edge envolve como desempacotar, rack e cabo do dispositivo físico.
+title: Tutorial para instalar - Desempacotar, rack, cabo Azure Stack Edge Pro dispositivo físico Microsoft Docs
+description: O segundo tutorial sobre a instalação do Azure Stack Edge Pro envolve como desempacotar, rack e cabo do dispositivo físico.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,17 +8,17 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 01/17/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 429fe0c4db4a7825a6a98aa5d2cd6af609a34a61
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.
+ms.openlocfilehash: 9aa02521d91d41380b1bdac3efe50ab3d196a856
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "82571001"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894210"
 ---
-# <a name="tutorial-install-azure-stack-edge"></a>Tutorial: Instalar borda da pilha Azure
+# <a name="tutorial-install-azure-stack-edge-pro"></a>Tutorial: Instalar Azure Stack Edge Pro
 
-Este tutorial descreve como instalar um dispositivo físico Azure Stack Edge. O procedimento de instalação envolve desembalar, montar a cremalheira e cabos do dispositivo. 
+Este tutorial descreve como instalar um dispositivo físico Azure Stack Edge Pro. O procedimento de instalação envolve desembalar, montar a cremalheira e cabos do dispositivo. 
 
 A instalação pode demorar cerca de duas horas a ser concluída.
 
@@ -37,12 +37,12 @@ Os pré-requisitos para a instalação de um dispositivo físico da seguinte for
 
 Antes de começar, certifique-se de que:
 
-* Completou todos os passos em [Prepare-se para implantar Azure Stack Edge](azure-stack-edge-deploy-prep.md).
+* Completou todos os passos em [Prepare-se para implementar o Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md).
     * Criou um recurso Azure Stack Edge para implementar o seu dispositivo.
     * Gerou a chave de ativação para ativar o seu dispositivo com o recurso Azure Stack Edge.
 
  
-### <a name="for-the-azure-stack-edge-physical-device"></a>Para o dispositivo físico Azure Stack Edge
+### <a name="for-the-azure-stack-edge-pro-physical-device"></a>Para o dispositivo físico Azure Stack Edge Pro
 
 Antes de implementar um dispositivo:
 
@@ -58,7 +58,7 @@ Antes de implementar um dispositivo:
 
 Antes de começar:
 
-- Reveja os requisitos de networking para a implementação do Azure Stack Edge e configuure a rede do datacenter de acordo com os requisitos. Para obter mais informações, consulte [os requisitos de networking Azure Stack Edge](azure-stack-edge-system-requirements.md#networking-port-requirements).
+- Reveja os requisitos de networking para a implementação do Azure Stack Edge Pro e configuure a rede do datacenter de acordo com os requisitos. Para obter mais informações, consulte [os requisitos de networking Azure Stack Edge Pro](azure-stack-edge-system-requirements.md#networking-port-requirements).
 
 - Certifique-se de que a largura de banda mínima da Internet é de 20 Mbps para um melhor funcionamento do dispositivo.
 
@@ -70,12 +70,12 @@ Este dispositivo é enviado numa única caixa. Conclua os passos seguintes para 
 1. Coloque a caixa numa superfície plana e uniforme.
 2. Inspecione a caixa e a espuma de empacotamento para verificar se existem partes esmagadas, cortes, danos causados por água ou quaisquer outros danos óbvios. Se a caixa ou a embalagem estiverem gravemente danificadas, não a abra. Contacte o Suporte da Microsoft para ajudar a avaliar se o dispositivo está funcional.
 3. Desembale a caixa. Depois de desembalar a caixa, certifique-se de que tem:
-    - Um único dispositivo de borda de pilha de cobertura Azure Stack
+    - Um único dispositivo Azure Stack Edge Pro
     - Dois cabos de alimentação
     - Um conjunto de kit de trilho
     - Um folheto de Informação de Segurança, Ambiente e Regulação
 
-Se não recebeu todos os itens listados aqui, contacte o suporte do Azure Stack Edge. O próximo passo é montar o seu dispositivo.
+Se não recebeu todos os itens listados aqui, contacte o suporte Azure Stack Edge Pro. O próximo passo é montar o seu dispositivo.
 
 
 ## <a name="rack-the-device"></a>Montar o dispositivo em bastidor
@@ -83,7 +83,7 @@ Se não recebeu todos os itens listados aqui, contacte o suporte do Azure Stack 
 O aparelho deve ser instalado num cesto normal de 19 polegadas. Utilize o seguinte procedimento para montar o seu dispositivo num cesto normal de 19 polegadas.
 
 > [!IMPORTANT]
-> Os dispositivos Azure Stack Edge devem ser montados na cremalheira para um bom funcionamento.
+> Os dispositivos Azure Stack Edge Pro devem ser montados na cremalheira para um bom funcionamento.
 
 
 ### <a name="prerequisites"></a>Pré-requisitos
@@ -157,11 +157,11 @@ Localize os componentes para a instalação do conjunto do kit ferroviário:
 
 ## <a name="cable-the-device"></a>Ligar o dispositivo
 
-Encaminhe os cabos e, em seguida, teleférico o seu dispositivo. Os seguintes procedimentos explicam como cabo o seu dispositivo Azure Stack Edge para energia e rede.
+Encaminhe os cabos e, em seguida, teleférico o seu dispositivo. Os seguintes procedimentos explicam como cabo o seu dispositivo Azure Stack Edge Pro para energia e rede.
 
 Antes de começar a ligar o seu dispositivo, precisa do seguinte:
 
-- O seu dispositivo físico Azure Stack Edge, desembalado e montado na cremalheira.
+- O seu dispositivo físico Azure Stack Edge Pro, desembalado e montado na cremalheira.
 - Dois cabos de alimentação.
 - Pelo menos um cabo de rede de 1 GbE RJ-45 para ligar à interface de gestão. Existem duas interfaces de rede de 1 GbE, uma de gestão e uma de dados, no dispositivo.
 - Um cabo de cobre de 25 GbE SFP+ para cada interface de rede de dados a ser configurada. Pelo menos uma interface de rede de dados entre os PORT 2, PORT 3, PORT 4, PORT 5 ou PORT 6 tem de ser ligada à Internet (com conectividade com a Azure).  
@@ -170,9 +170,9 @@ Antes de começar a ligar o seu dispositivo, precisa do seguinte:
 > [!NOTE]
 > - Se estiver a ligar apenas uma interface de rede de dados, recomendamos que utilize uma interface de rede de 25/10 GbE, como PORT 3, PORT 4, PORT 5 ou PORT 6 para enviar dados para o Azure. 
 > - Para obter um melhor desempenho e lidar com grandes volumes de dados, considere ligar todas as portas de dados.
-> - O dispositivo Azure Stack Edge deve ser ligado à rede do datacenter para que possa ingerir dados a partir de servidores de fontes de dados.
+> - O dispositivo Azure Stack Edge Pro deve ser ligado à rede do datacenter para que possa ingerir dados a partir de servidores de fontes de dados.
 
-No seu dispositivo Azure Stack Edge:
+No seu dispositivo Azure Stack Edge Pro:
 
 - O painel frontal tem discos e um botão de alimentação.
 
@@ -213,7 +213,7 @@ Tome os seguintes passos para teleférico para a alimentação e rede.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você aprendeu sobre tópicos Azure Stack Edge, tais como como:
+Neste tutorial, você aprendeu sobre tópicos Azure Stack Edge Pro, tais como:
 
 > [!div class="checklist"]
 > * Desembalar o dispositivo
@@ -223,4 +223,4 @@ Neste tutorial, você aprendeu sobre tópicos Azure Stack Edge, tais como como:
 Avance para o próximo tutorial para aprender a ligar, configurar e ativar o seu dispositivo.
 
 > [!div class="nextstepaction"]
-> [Conecte e instale o Azure Stack Edge](./azure-stack-edge-deploy-connect-setup-activate.md)
+> [Conecte e instale o Azure Stack Edge Pro](./azure-stack-edge-deploy-connect-setup-activate.md)

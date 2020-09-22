@@ -11,15 +11,15 @@ ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: eb3e7346e8b5a63111a0889ab5f69bbf6513b6c5
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 4b801552534bcb69afe426cce4aa109bf942000b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648251"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893141"
 ---
 # <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>Treinar pytorch modelos de aprendizagem profunda em escala com Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, aprenda a executar os seus scripts de treinamento [PyTorch](https://pytorch.org/) à escala empresarial utilizando a classe [de estimador PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py&preserve-view=true) da Azure Machine Learning.  
 
@@ -231,7 +231,7 @@ import horovod
 
 Para otimizar a inferência com o [Tempo de Execução ONNX,](concept-onnx.md)converta o seu modelo PyTorch treinado para o formato ONNX. Inferência, ou pontuação de modelos, é a fase em que o modelo implantado é usado para previsão, mais frequentemente em dados de produção. Veja o [tutorial](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) como exemplo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você treinou e registou uma rede neural de aprendizagem profunda usando PyTorch em Azure Machine Learning. Para aprender a implementar um modelo, continue para o nosso artigo de implementação de modelos.
 

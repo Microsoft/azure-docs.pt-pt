@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 886e45e92fb3a882de167b5c59a9b5ee09a9c430
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 4a6f09fdff82b8e86c7fe75018c5267dba3c1b4a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657571"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892976"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning paridade de nuvem soberana
 
@@ -49,9 +49,9 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 | Criar pontos finais de gasodutos utilizando o Azure ML SDK                           | GA                   | SIM                | SIM         |
 | Criar, editar e apagar as execuções programadas de oleodutos utilizando o Azure ML SDK | GA                   | SIM*               | SIM*        |
 | Ver detalhes de execução do pipeline em estúdio                                        | GA                   | SIM                | SIM         |
-| Criar, executar, visualizar e publicar oleodutos no designer Azure ML          | Pré-visualização pública       | SIM                | SIM         |
+| Criar, executar, visualizar e publicar oleodutos no designer Azure ML          | GA      | SIM                | SIM         |
 | Integração de tijolos de dados Azure com pipeline ML                             | GA                   | NO                 | NO          |
-| Criar pontos finais de gasodutos em Azure ML designer                             | Pré-visualização pública       | SIM                | SIM         |
+| Criar pontos finais de gasodutos em Azure ML designer                             | GA      | SIM                | SIM         |
 | **Cadernos integrados** |   |  | | 
 | Notebook do espaço de trabalho e partilha de arquivos                                        | GA                   | SIM                | SIM         |
 | Apoio R e Python                                                       | GA                   | SIM                | SIM         |
@@ -162,9 +162,9 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 | Criar pontos finais de gasodutos utilizando o Azure ML SDK                           | GA               | SIM       | N/D        |
 | Criar, editar e apagar as execuções programadas de oleodutos utilizando o Azure ML SDK | GA               | SIM       | N/D        |
 | Ver detalhes de execução do pipeline em estúdio                                        | GA               | SIM       | N/D        |
-| Criar, executar, visualizar e publicar oleodutos no designer Azure ML          | Pré-visualização pública   | SIM       | N/D        |
+| Criar, executar, visualizar e publicar oleodutos no designer Azure ML          | GA  | SIM       | N/D        |
 | Integração de tijolos de dados Azure com pipeline ML                             | GA               | NO        | N/D        |
-| Criar pontos finais de gasodutos em Azure ML designer                             | Pré-visualização pública   | SIM       | N/D        |
+| Criar pontos finais de gasodutos em Azure ML designer                             | GA   | SIM       | N/D        |
 | **Cadernos integrados** |   | | |
 | Notebook do espaço de trabalho e partilha de arquivos                                        | GA               | SIM       | N/D        |
 | Apoio R e Python                                                       | GA               | SIM       | N/D        |
@@ -239,6 +239,6 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 * Intervalos de endereços IP: O comando CLI utilizado nas instruções [de túneis forçados VNet](how-to-secure-training-vnet.md#forced-tunneling) não devolve os intervalos IP. Utilize as [gamas IP Azure e tags de serviço para a Azure China.](https://www.microsoft.com//download/details.aspx?id=57062)
 * A pré-visualização de instâncias computacional de aprendizagem automática Azure não é suportada num espaço de trabalho onde o Private Link está habilitado para já, mas o CI será suportado na próxima implementação para a expansão do serviço para todas as regiões AML.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as regiões em que o Azure Machine learning está disponível, consulte [Produtos por região.](https://azure.microsoft.com/global-infrastructure/services/)

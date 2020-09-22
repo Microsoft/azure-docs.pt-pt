@@ -3,12 +3,12 @@ title: Analisando vídeo ao vivo sem qualquer gravação - Azure
 description: Um gráfico de mídia pode ser usado apenas para extrair análises de um stream de vídeo ao vivo, sem ter que registrá-lo na borda ou na nuvem. Este artigo discute este conceito.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: d59e2e9e309f0ed6a65e001557dcd9dd8af90da2
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 5dda18b68cb19d29623f2120fe07d7cc617f0c2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566762"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893037"
 ---
 # <a name="analyzing-live-video-without-any-recording"></a>Analisar vídeo ao vivo sem qualquer gravação
 
@@ -40,8 +40,8 @@ Neste gráfico de mídia, o nó do processador de filtro de taxa de fotogramas r
 Um melhoramento a este exemplo é utilizar um processador de detetor de movimento antes do nó do processador de filtro de taxa de fotogramas. Isto reduzirá a carga no serviço de inferência, uma vez que é utilizado apenas quando há atividade de movimento no vídeo.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/analyze-live-video/custom-model.png" alt-text="Análise de vídeo ao vivo com base em quadros detetados por movimento através de módulo de inferenculação externo":::
+> :::image type="content" source="./media/analyze-live-video/custom-model.svg" alt-text="Análise de vídeo ao vivo com base em quadros detetados por movimento através de módulo de inferenculação externo":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Gravação de vídeo contínua](continuous-video-recording-concept.md)

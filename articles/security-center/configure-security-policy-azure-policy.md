@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: c218b5dc8ca3bfa0358a9b6a0d4867696762a8d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a81b3016f86c6fd7de646ccbdbf533685471ac3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77430946"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894795"
 ---
 # <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configure uma política de segurança na Política Azure usando a API REST
 
@@ -115,7 +115,7 @@ Este exemplo mostra-lhe como remover uma atribuição:
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
  ```
 
-## <a name="policy-names-reference"></a>Referência de nomes de política<a name="policy-names"></a>
+## <a name="policy-names-reference"></a>Referência de nomes de política <a name="policy-names"></a>
 
 |Nome da apólice no Centro de Segurança|Nome da política exibido na Política Azure |Nome do parâmetro de efeito de política|
 |----|----|----|
@@ -124,7 +124,7 @@ Este exemplo mostra-lhe como remover uma atribuição:
 |Atualizações do sistema |Monitorize atualizações do sistema em falta no Centro de Segurança Azure |sistemaUpdatesMonitoringEffect|
 |Encriptação do armazenamento |Auditar encriptação por blob em falta para contas de armazenamento |storageEncryptionMonitoringEffect|
 |Acesso à rede JIT |Monitorize possível acesso à rede just-in-time (JIT) no Azure Security Center |jitNetworkAccessMonitoringEffect |
-|Controlos de aplicações adaptáveis |Monitorize possível app Whitelisting no Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
+|Controlos de aplicações adaptáveis |Monitorize possíveis listas de aplicações no Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
 |Grupos de segurança de rede |Monitore o acesso à rede permissiva no Centro de Segurança Azure |networkSecurityGroupsMonitoringEffect| 
 |Configurações de segurança |Monitorize vulnerabilidades de SO no Centro de Segurança Azure |sistemaConfigurationsMonitoringEffect| 
 |Proteção de ponto final |Monitor que falta proteção de ponto final no Centro de Segurança Azure |endpointProtectionMonitoringEffect |
@@ -134,7 +134,7 @@ Este exemplo mostra-lhe como remover uma atribuição:
 |Firewall da próxima geração |Monitorize pontos finais de rede desprotegidos no Centro de Segurança Azure| |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para outros materiais relacionados, consulte os seguintes artigos: 
 

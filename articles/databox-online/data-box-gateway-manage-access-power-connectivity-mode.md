@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 06/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 98431e7a451aa54dfdee2126d4ce94b8b0b0fb84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1035b0afee9821020673acbc813b31cba3e2fd90
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339217"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893949"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gerir o modo de acesso, energia e conectividade para o seu Gateway Azure Data Box
 
@@ -57,16 +57,16 @@ O fluxo de trabalho de reset não requer que o utilizador relembre a senha antig
 
 ## <a name="manage-resource-access"></a>Gerir o acesso a recursos
 
-Para criar o seu recurso Azure Stack Edge/Data Box Gateway, IoT Hub e Azure Storage, necessita de permissões como contribuinte ou superior a um nível de grupo de recursos. Também precisa que os fornecedores de recursos correspondentes estejam registados. Para quaisquer operações que envolvam chave de ativação e credenciais, também são necessárias permissões para a Azure Ative Directory Graph API. Estas são descritas nas seguintes secções.
+Para criar o seu recurso Azure Stack Edge Pro/Data Box Gateway, IoT Hub e Azure Storage, necessita de permissões como contribuinte ou superior a um nível de grupo de recursos. Também precisa que os fornecedores de recursos correspondentes estejam registados. Para quaisquer operações que envolvam chave de ativação e credenciais, também são necessárias permissões para a Azure Ative Directory Graph API. Estas são descritas nas seguintes secções.
 
 ### <a name="manage-microsoft-graph-api-permissions"></a>Gerir permissões de API do Microsoft Graph
 
-Ao gerar a chave de ativação para o dispositivo Azure Stack Edge, ou realizar quaisquer operações que exijam credenciais, necessita de permissões para a Microsoft Graph API. As operações que precisam de credenciais podem ser:
+Ao gerar a chave de ativação para o dispositivo Azure Stack Edge Pro, ou realizar quaisquer operações que exijam credenciais, necessita de permissões para a Microsoft Graph API. As operações que precisam de credenciais podem ser:
 
 -  Criar uma parte com uma conta de armazenamento associada.
 -  Criar um utilizador que possa aceder às ações do dispositivo.
 
-Você deve ter `User` acesso a inquilino ative directory como você precisa ser capaz de `Read all directory objects` . Não pode ser um utilizador convidado, pois não tem permissões para `Read all directory objects` . Se é um hóspede, então as operações como a geração de uma chave de ativação, a criação de uma parte no seu dispositivo Azure Stack Edge, a criação de um utilizador falhará.
+Você deve ter `User` acesso a inquilino ative directory como você precisa ser capaz de `Read all directory objects` . Não pode ser um utilizador convidado, pois não tem permissões para `Read all directory objects` . Se é um hóspede, então as operações como a geração de uma chave de ativação, a criação de uma parte no seu dispositivo Azure Stack Edge Pro, a criação de um utilizador falhará.
 
 Para obter mais informações sobre como fornecer acesso aos utilizadores à Microsoft Graph API, consulte a [referência de permissões do Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
 
@@ -89,7 +89,7 @@ Para obter uma lista de fornecedores de recursos registados na subscrição atua
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Para o dispositivo Azure Stack Edge, `Microsoft.DataBoxEdge` deve ser registado. Para se `Microsoft.DataBoxEdge` registar, o administrador de subscrição deve executar o seguinte comando:
+Para o dispositivo Azure Stack Edge Pro, `Microsoft.DataBoxEdge` deve ser registado. Para se `Microsoft.DataBoxEdge` registar, o administrador de subscrição deve executar o seguinte comando:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
@@ -123,7 +123,7 @@ Para alterar o modo dispositivo, siga estes passos:
 
 ## <a name="manage-power"></a>Gerir o poder
 
-Pode desligar ou reiniciar o seu dispositivo virtual utilizando a UI web local. Recomendamos que antes de reiniciar, coloque as partilhas offline no anfitrião e, em seguida, no dispositivo. Esta ação minimiza qualquer possibilidade de corrupção de dados.
+Pode desligar ou reiniciar o seu dispositivo virtual utilizando a UI web local. Recomendamos que antes de reiniciar, coloque as partilhas offline no anfitrião e, em seguida, no dispositivo. Esta ação minimiza qualquer possibilidade de danos em dados.
 
 1. Na uI web local, vá para as **definições de Manutenção > Energia**.
 2. Clique **em Desligar** ou **Reiniciar** dependendo do que pretende fazer.

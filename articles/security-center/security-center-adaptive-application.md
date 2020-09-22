@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 8ee9712c01c8ab6b36f595829c3ccc5ae392ff35
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: bbabceeea2fd009efe1098e37a0b1c9dcb8a48aa
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276767"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894707"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utilize controlos de aplicação adaptativos para reduzir as superfícies de ataque das suas máquinas
 
@@ -50,8 +50,8 @@ Ao definir listas de aplicações conhecidas e gerar alertas quando qualquer out
 
 |Aspeto|Detalhes|
 |----|:----|
-|Estado de libertação:|Disponibilidade geral|
-|Preços:|Escalão standard|
+|Estado de libertação:|Geralmente disponível (GA)|
+|Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
 |Máquinas suportadas:|![Sim ](./media/icons/yes-icon.png) Azure e máquinas não-Azure que executam Windows e Linux<br>![Sim ](./media/icons/yes-icon.png) [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) máquinas|
 |Funções e permissões necessárias:|**As** funções de Leitor de Segurança e **Leitor** podem ver grupos e listas de aplicações conhecidas e seguras<br>**As** funções de Administrador de Colaborador e **Segurança** podem editar grupos e listas de aplicações conhecidas e seguras|
 |Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
@@ -65,7 +65,9 @@ Se o Security Center tiver identificado grupos de máquinas nas suas subscriçõ
 
 Selecione a recomendação ou abra a página de controlos de aplicações adaptativas para ver a lista de aplicações e grupos de máquinas conhecidos sugeridos.
 
-1. A partir do menu do Security Center, selecione **controlos de aplicação adaptáveis**.
+1. Abra o painel de instrumentos Azure Defender e a partir da área de proteção avançada, selecione **comandos de aplicação adaptáveis**.
+
+    :::image type="content" source="./media/security-center-adaptive-application/opening-adaptive-application-control.png" alt-text="Abertura de controlos de aplicação adaptativa a partir do Painel Azure" lightbox="./media/security-center-adaptive-application/opening-adaptive-application-control.png":::
 
     A página **de controlos de aplicação adaptativa** abre com os seus VMs agrupados nos seguintes separadores:
 
@@ -86,7 +88,7 @@ Selecione a recomendação ou abra a página de controlos de aplicações adapta
       - É uma máquina Windows com uma política [appLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) pré-existente, ativada por um GPO ou por uma política de segurança local
 
       > [!TIP]
-      > O Centro de Segurança precisa de pelo menos duas semanas de dados para definir as recomendações únicas por grupo de máquinas. As máquinas que foram criadas recentemente, ou que pertencem a subscrições que só recentemente foram ativadas com o nível padrão, aparecerão no separador **No recommendation.**
+      > O Centro de Segurança precisa de pelo menos duas semanas de dados para definir as recomendações únicas por grupo de máquinas. As máquinas que foram criadas recentemente, ou que pertencem a subscrições que só recentemente foram ativadas com o Azure Defender, aparecerão no separador **No recommendation.**
 
 
 1. Abra a lingueta **recomendada.** Aparecem os grupos de máquinas com listas de admissão recomendadas.
@@ -121,7 +123,7 @@ Pode decidir editar a lista de autorizações para um grupo de máquinas devido 
 
 Para editar as regras para um grupo de máquinas:
 
-1. A partir do menu do Security Center, selecione **controlos de aplicação adaptáveis**.
+1. Abra o painel de instrumentos Azure Defender e a partir da área de proteção avançada, selecione **comandos de aplicação adaptáveis**.
 
 1. A partir do separador **Configurado,** selecione o grupo com a regra que pretende editar.
 
@@ -169,7 +171,7 @@ Para remediar as questões:
 
 ## <a name="audit-alerts-and-violations"></a>Alertas de auditoria e violações
 
-1. A partir do menu do Security Center, selecione **controlos de aplicação adaptáveis**.
+1. Abra o painel de instrumentos Azure Defender e a partir da área de proteção avançada, selecione **comandos de aplicação adaptáveis**.
 
 1. Para ver grupos com máquinas que têm alertas recentes, reveja os grupos listados no separador **Configurado.**
 
@@ -184,6 +186,8 @@ Para remediar as questões:
 ## <a name="move-a-machine-from-one-group-to-another"></a>Mover uma máquina de um grupo para outro
 
 Quando se desloca uma máquina de um grupo para outro, a política de controlo de aplicações aplicada a ela altera-se às definições do grupo para onde a transferiu. Também pode mover uma máquina de um grupo configurado para um grupo não configurado, eliminando assim quaisquer regras de controlo de aplicação que foram aplicadas à máquina.
+
+1. Abra o painel de instrumentos Azure Defender e a partir da área de proteção avançada, selecione **comandos de aplicação adaptáveis**.
 
 1. A partir da página de controlos de **aplicação Adaptive,** a partir do separador **Configurado,** selecione o grupo que contém a máquina a ser movida.
 
@@ -221,7 +225,7 @@ Algumas das funções que estão disponíveis na API REST:
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a utilizar o controlo de aplicações adaptativas no Azure Security Center para definir as listas de aplicações em execução nas suas máquinas Azure e não-Azure. Para saber mais sobre algumas das outras funcionalidades de proteção da carga de trabalho em nuvem do Security Center, consulte:
 
 * [Compreensão do acesso ao VM just-in-time (JIT)](just-in-time-explained.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/16/2020
 ms.author: memildin
-ms.openlocfilehash: 313f10c77da499f4c405134028b975900d2d2a9e
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 042780c313c444062fd512ab0d9f38aaeb6cf170
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590239"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894558"
 ---
 # <a name="monitor-identity-and-access"></a>Monitorizar a identidade e o acesso
 
@@ -66,6 +66,4 @@ Habilitar o MFA requer [permissões de inquilinos do Azure Ative Directory (AD).
 ## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre recomendações aplicáveis a outros tipos de recursos Azure, consulte os seguintes artigos:
 
-- [Proteger as máquinas e aplicações no Centro de Segurança do Azure](security-center-virtual-machine-protection.md)
 - [Proteger a sua rede no Centro de Segurança do Azure](security-center-network-recommendations.md)
-- [Proteger o seu serviço ESL Azure e dados no Azure Security Center](security-center-sql-service-recommendations.md)

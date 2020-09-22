@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 2c62dd2591ca9ccfc4266862578279573598d0c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 247a0bef8e166c72f185f2d384067fc5814a602e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137778"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893749"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Módulo de regressão logística multiclasse
 
-Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
+Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
 Utilize este módulo para criar um modelo de regressão logística que pode ser usado para prever vários valores.
 

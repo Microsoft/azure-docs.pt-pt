@@ -10,15 +10,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
-ms.openlocfilehash: fc8e8de817c1b311e3252c7399a09ed1c9eb7031
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 982c7a41f1e05c34ddf0fbae9f944df4a4d08fa5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651510"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893368"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treina automaticamente um modelo de previsão da série de tempo
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, aprende-se a configurar e treinar um modelo de regressão de previsão de séries temporizadas utilizando machine learning automatizado, AutoML, no [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true). 
 
@@ -38,7 +38,7 @@ Para este artigo que precisa,
 
 * Uma área de trabalho do Azure Machine Learning. Para criar o espaço de trabalho, consulte Criar um espaço de trabalho para [aprendizagem de máquinas Azure.](how-to-manage-workspace.md)
 
-* Este artigo assume uma familiaridade básica com a criação de uma experiência automatizada de aprendizagem automática de máquinas. Siga o [tutorial](tutorial-auto-train-models.md) ou [como](how-to-configure-auto-train.md) ver os padrões básicos de design de experiências automatizadas de aprendizagem automática.
+* Este artigo pressupõe alguma familiaridade com a criação de uma experiência automatizada de aprendizagem automática de máquinas. Siga o [tutorial](tutorial-auto-train-models.md) ou como ver os principais padrões automatizados [de](how-to-configure-auto-train.md) design de experiências de aprendizagem automática.
 
 ## <a name="preparing-data"></a> Preparar dados
 
@@ -336,7 +336,7 @@ Consulte os [cadernos de amostras](https://github.com/Azure/MachineLearningNoteb
 * [funcionalidades agregadas de janelas rolantes](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
 * [DNN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [como e onde implementar um modelo.](how-to-deploy-and-where.md)
 * Saiba [mais sobre a Interpretação: explicações de modelos em machine learning automatizado (pré-visualização)](how-to-machine-learning-interpretability-automl.md). 

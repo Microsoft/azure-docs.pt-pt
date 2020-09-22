@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 154c41c6799bb251f30991fde05f6eacc5de57da
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: a9fc43c2b9b95022f9036fc5410c314c1546d1ea
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185949"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882543"
 ---
 # <a name="quickstart-use-go-language-to-connect-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Use o idioma Go para ligar e consultar dados na Base de Dados Azure para o MySQL
 
@@ -86,7 +86,7 @@ Obtenha as informações de ligação necessárias para se ligar à Base de Dado
 2. No menu esquerdo do portal do Azure, clique em **Todos os recursos** e, em seguida, procure o servidor que acabou de criar, (por exemplo, **mydemoserver**).
 3. Clique no nome do servidor.
 4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
- ![Nome do servidor da Base de Dados do Azure para o MySQL](./media/connect-go/1_server-overview-name-login.png)
+ :::image type="content" source="./media/connect-go/1_server-overview-name-login.png" alt-text="Nome do servidor da Base de Dados do Azure para o MySQL":::
    
 
 ## <a name="build-and-run-go-code"></a>Criar e executar código Go 
