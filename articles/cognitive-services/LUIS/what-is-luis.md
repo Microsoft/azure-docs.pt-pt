@@ -1,24 +1,24 @@
 ---
 title: O que é o Language Understanding (LUIS)?
 description: Language Understanding (LUIS) - um serviço de API baseado na nuvem que utiliza machine-learning para linguagem conversacional e natural para prever significado e extrair informações.
-keywords: Azure, inteligência artificial, ai, processamento de linguagem natural, nlp, compreensão da linguagem natural, nlu, ai conversa, ai conversador, ai chatbot, chatbot maker, LUIS, nlp ai, luis ai, azure luis, compreensão da linguagem natural
+keywords: Azure, inteligência artificial, ai, processamento de linguagem natural, nlp, compreensão da linguagem natural, nlu, LUIS, CONVERSAÇÃO AI, ai chatbot, nlp ai, azure luis
 ms.topic: overview
 ms.date: 09/02/2020
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: ff9aa2652fe8a1e503b5e2c93ca149112770b081
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 3a8905ca1b9e7d7b4b1e4f5add000def9e91f9c6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400947"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985860"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é o Language Understanding (LUIS)?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-O Language Understanding (LUIS) é um serviço de API baseado na cloud que aplica inteligência de machine learning personalizada aos textos conversacionais de idioma natural do utilizador, para prever o sentido geral e extrair informações relevantes e detalhadas.
+Language Understanding (LUIS) é um serviço de IA de conversação baseado na nuvem que aplica inteligência personalizada de aprendizagem automática ao texto de linguagem natural e conversacional de um utilizador para prever o significado geral, e retirar informações relevantes e detalhadas.
 
-Uma aplicação cliente para o LUIS é qualquer aplicação conversacional que comunique com um utilizador num idioma natural para concluir uma tarefa. Alguns exemplos de aplicações cliente incluem aplicações de redes sociais, bots de chat e aplicações para ambiente de trabalho com fala ativada.
+Uma aplicação cliente para o LUIS é qualquer aplicação conversacional que comunique com um utilizador num idioma natural para concluir uma tarefa. Exemplos de aplicações de clientes incluem aplicações de redes sociais, chatbots de IA e aplicações de desktop ativadas por discursos.
 
 ![Imagem conceptual de 3 aplicações de clientes trabalhando com Cognitive Services Language Understanding (LUIS)](./media/luis-overview/luis-entry-point.png "Imagem conceptual de 3 aplicações de clientes trabalhando com Cognitive Services Language Understanding (LUIS)")
 
@@ -26,7 +26,7 @@ Uma aplicação cliente para o LUIS é qualquer aplicação conversacional que c
 
 <a name="Accessing-LUIS"></a>
 
-Quando a aplicação LUIS for publicada, uma aplicação cliente envia expressões (texto) para a [API][endpoint-apis] de ponto final de processamento de idioma natural do LUIS e recebe os resultados como respostas JSON. Os bots de chat são uma aplicação cliente comum para o LUIS.
+Uma vez publicada a app Azure LUIS, uma aplicação do cliente envia declarações (texto) para a [API][endpoint-apis] de processamento de linguagem natural LUIS e recebe os resultados como respostas JSON. Os bots de chat são uma aplicação cliente comum para o LUIS.
 
 
 ![Imagens conceptuais de LUIS trabalhando com chat bot para prever texto do utilizador com compreensão de linguagem natural (NLP)](./media/luis-overview/LUIS-chat-bot-request-response.svg "Imagens conceptuais de LUIS trabalhando com chat bot para prever texto do utilizador com compreensão de linguagem natural (NLP")
@@ -44,7 +44,7 @@ A aplicação LUIS proporciona inteligência para que a aplicação cliente poss
 
 ## <a name="natural-language-understanding-nlu"></a>Compreensão da linguagem natural (NLU)
 
-[A LUIS fornece inteligência artificial (IA)](artificial-intelligence.md "LUIS fornece inteligência artificial (IA)") sob a forma de NLU, um subconjunto de processamento de linguagem natural (NLP).
+[A LUIS fornece inteligência artificial (IA)](artificial-intelligence.md "LUIS fornece inteligência artificial (IA)") sob a forma de NLU, um subconjunto de IA de processamento de linguagem natural.
 
 A sua aplicação LUIS contém um modelo de linguagem natural específico do domínio. Pode iniciar as aplicações LUIS com um modelo de domínio pré-criado, criar o seu próprio modelo ou misturar partes de um domínio pré-criado com as suas informações personalizadas.
 
@@ -52,7 +52,7 @@ A sua aplicação LUIS contém um modelo de linguagem natural específico do dom
 
 * **Modelo personalizado** A LUIS dá-lhe várias formas de identificar os seus próprios modelos personalizados, incluindo intenções e entidades. As entidades incluem entidades de aprendizagem automática, entidades específicas ou literais, e uma combinação de aprendizagem automática e literal.
 
-Saiba mais sobre [o NLP](artificial-intelligence.md "NLP")e a área específica da LUIS da NLU.
+Saiba mais sobre [a NLP AI,](artificial-intelligence.md "NLP")e a área específica da NLU.
 
 ## <a name="step-1-design-and-build-your-model"></a>Passo 1: Desenhe e construa o seu modelo
 
@@ -119,7 +119,7 @@ Utilize o [serviço Azure Bot](https://docs.microsoft.com/azure/bot-service/?vie
 ## <a name="integrate-with-other-cognitive-services"></a>Integrar-se com outros Serviços Cognitivos
 
 Outros Serviços Cognitivos utilizados com o LUIS:
-* [Criador de FAQ](../QnAMaker/overview/overview.md "QnA Maker") - permite combinar vários tipos de textos numa base de conhecimento de perguntas e respostas.
+* [Criador de FAQ](../QnAMaker/overview/overview.md "Criador de FAQ") - permite combinar vários tipos de textos numa base de conhecimento de perguntas e respostas.
 * [Speech service](../Speech-Service/overview.md "Serviço de voz") - converte os pedidos de idioma falado em texto.
 
 A LUIS fornece funcionalidade a partir de Text Analytics como parte dos seus recursos LUIS existentes. Esta funcionalidade inclui [a análise de sentimento](luis-how-to-publish-app.md#configuring-publish-settings "análise de sentimento") e a [extração de frases-chave](luis-reference-prebuilt-keyphrase.md "extração de frase-chave") com a entidade keyPhrase pré-construída.
@@ -129,7 +129,7 @@ A LUIS fornece funcionalidade a partir de Text Analytics como parte dos seus rec
 Saiba mais sobre o LUIS com quickstarts práticos utilizando o [portal](get-started-portal-build-app.md "portal") e as [bibliotecas de clientes SDK.](azure-sdk-quickstart.md "Bibliotecas de clientes SDK")
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Novidades](whats-new.md "Novidades") com o serviço e documentação
 * [Planeie a sua app](luis-how-plan-your-app.md "Planear a sua aplicação") com [intenções](luis-concept-intent.md "intenções") e [entidades.](luis-concept-entity-types.md "entidades")

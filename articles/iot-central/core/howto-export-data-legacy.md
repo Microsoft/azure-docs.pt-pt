@@ -7,20 +7,20 @@ ms.author: viviali
 ms.date: 06/25/2020
 ms.topic: how-to
 ms.service: iot-central
-ms.openlocfilehash: 1202e46f2ea12db62062ac50b8e83b51fe9e5ca0
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: 5d8f3bc0978cc67edbaee29198c78b41d1d08a32
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89428130"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974421"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export-legacy"></a>Exportar dados de IoT para destinos em nuvem usando exportação de dados (legado)
 
 > [!Note]
 > Este artigo descreve as características antigas da exportação de dados na IoT Central.
 >
-> - Para obter informações sobre as novas funcionalidades de exportação de dados de pré-visualização, consulte [os dados do IoT de exportação para destinos em nuvem utilizando a exportação de dados (pré-visualização)](./howto-export-data.md).
-> - Para conhecer as diferenças entre as características de exportação de dados de pré-visualização e as características de exportação de dados legados, consulte a [tabela de comparação](./howto-export-data.md#comparison-of-legacy-data-export-and-preview-data-export).
+> - Para obter informações sobre as novas funcionalidades de exportação de dados de pré-visualização, consulte [os dados do IoT de exportação para destinos em nuvem utilizando a exportação de dados.](./howto-export-data.md)
+> - Para conhecer as diferenças entre as características de exportação de dados de pré-visualização e as características de exportação de dados legados, consulte a [tabela de comparação](./howto-export-data.md#comparison-of-legacy-data-export-and-data-export).
 
 Este artigo descreve como utilizar a funcionalidade de exportação de dados na Azure IoT Central. Esta funcionalidade permite-lhe exportar os seus dados continuamente para **Azure Event Hubs,** **Azure Service Bus**ou **a azure Blob.** A exportação de dados utiliza o formato JSON e pode incluir informações sobre telemetria, informações do dispositivo e modelo do dispositivo. Utilize os dados exportados para:
 
@@ -750,7 +750,7 @@ Para **os modelos do Dispositivo,** diferenças notáveis entre o antigo formato
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe exportar os seus dados para a Azure Event Hubs, Azure Service Bus e Azure Blob, continue para o próximo passo:
 

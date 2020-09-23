@@ -1,14 +1,14 @@
 ---
 title: Descrição geral do exemplo de esquema Impacto DoD Nível 4
 description: Descrição geral do exemplo Impacto DoD Nível 4. Este exemplo de esquema ajuda os clientes a avaliar controlos de Impacto DoD Nível 4 específicos.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: 1c06cd738b9a63cb7a3ec14ef48bb8ae7c6dd6cb
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 1fbcbbf1ca12e9cb235a79ace0e7de82c3c8cbcc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800397"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978389"
 ---
 # <a name="overview-of-the-dod-impact-level-4-blueprint-sample"></a>Descrição geral do exemplo de esquema Impacto DoD Nível 4
 

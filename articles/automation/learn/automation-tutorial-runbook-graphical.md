@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 1490687e85d2f59b8cfa28712ef075b451363534
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 81dc23c208ca9fb292c849bdf35d8b91311ed9ce
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564224"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987658"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>Tutorial: Criar um runbook gráfico
 
@@ -218,7 +218,7 @@ Agora que tem uma variável para manter o ID de subscrição, pode configurar o 
 
 23. Paire sobre `Login to Azure` até que um círculo apareça na parte inferior da forma. Clique no círculo e arraste a seta para `Specify Subscription Id` . O seu livro deve parecer o seguinte neste momento.
 
-    ![Configuração de autenticação de runbook](../media/automation-tutorial-runbook-graphical/runbook-auth-config.png)
+    :::image type="content" source="../media/automation-tutorial-runbook-graphical/runbook-auth-config.png" alt-text="Screenshot do runbook depois de arrastar a seta para 'Especificar iD de assinatura'.":::
 
 ## <a name="step-7---add-activity-to-start-a-virtual-machine"></a>Passo 7 – adicionar atividade para iniciar uma máquina virtual
 

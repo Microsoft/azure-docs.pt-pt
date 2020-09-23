@@ -7,23 +7,22 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
-ms.openlocfilehash: 2455297cd9dd77d2b5f605bf36ed46b6240b3f4d
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 7a298de40264a06e18aa4b7c77abfd622be4bb75
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505410"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978280"
 ---
-O [Leitor Imersivo](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente concebida que implementa técnicas comprovadas para melhorar a compreensão da leitura.
+[O Immersive Reader](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente concebida que implementa técnicas comprovadas para melhorar a compreensão da leitura para novos leitores, aprendizes de línguas e pessoas com diferenças de aprendizagem como a dislexia. Pode utilizar o Leitor Imersivo nas suas aplicações para isolar texto para melhorar o foco, exibir imagens para palavras comumente usadas, destacar partes da fala, ler texto selecionado em voz alta, traduzir palavras e frases em tempo real, e muito mais.
 
 Neste arranque rápido, você constrói uma aplicação iOS de raiz e integra o Leitor Imersivo. Uma amostra completa deste arranque rápido está disponível [aqui.](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios)
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
+* Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12)
 * Um recurso imersivo do Leitor configurado para a autenticação do Azure Ative Directory. Siga [estas instruções](../../how-to-create-immersive-reader.md) para se preparar. Você precisará de alguns dos valores criados aqui ao configurar as propriedades do projeto de amostra. Guarde a saída da sua sessão num ficheiro de texto para referência futura.
 
@@ -31,21 +30,21 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Criar um novo projeto no Xcode.
 
-![Novo Projeto](../../media/ios/xcode-create-project.png)
+![Novo Projeto - Swift](../../media/ios/xcode-create-project.png)
 
 Escolha **a aplicação de vista única.**
 
-![Nova aplicação single view](../../media/ios/xcode-single-view-app.png)
+![Nova app Single View - Swift](../../media/ios/xcode-single-view-app.png)
 
 ## <a name="set-up-authentication"></a>Configurar autenticação
 
 No menu superior, clique no **Esquema de > de Produtos > Esquema de Edição...**.
 
-![Esquema de Edição](../../media/ios/quickstart-ios-edit-scheme.png)
+![Esquema de Edição - Swift](../../media/ios/quickstart-ios-edit-scheme.png)
 
 Na vista **Executar,** clique no **separador Argumentos.**
 
-![Esquema de Edição](../../media/ios/quickstart-ios-env-vars.png)
+![Edição de variáveis ambientais do esquema - Swift](../../media/ios/quickstart-ios-env-vars.png)
 
 Na secção **Variáveis Ambientais,** adicione os seguintes nomes e valores, fornecendo os valores dados quando criou o seu recurso Leitor Imersivo.
 
@@ -557,20 +556,20 @@ function sendContentToReader(message) {
 
 Desaponte o esquema de arquivo no Xcode selecionando um simulador ou alvo do dispositivo.
 
-![Esquema de arquivo](../../media/ios/xcode-archive-scheme.png)
+![Esquema de arquivo - Swift](../../media/ios/xcode-archive-scheme.png)
 
-![Selecionar o Destino](../../media/ios/xcode-select-target.png)
+![Selecione Alvo - Swift](../../media/ios/xcode-select-target.png)
 
 No Xcode, prima **Ctrl+R** ou clique no botão de reprodução para executar o projeto. A aplicação deve ser lançada no simulador ou dispositivo especificado.
 
 Na sua aplicação, deve ver:
 
-![Aplicativo de amostra](../../media/ios/sample-app-ipad.png)
+![App de amostra - Swift](../../media/ios/sample-app-ipad.png)
 
 Ao clicar no botão **Leitor Imersivo,** verá o Leitor Imersivo lançado com o conteúdo na aplicação.
 
-![Leitura Avançada](../../media/ios/immersive-reader-ipad.png)
+![Leitor Imersivo - Swift](../../media/ios/immersive-reader-ipad.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Explore o [SDK do leitor imersivo](https://github.com/microsoft/immersive-reader-sdk) e a [referência SDK do leitor imersivo](../../reference.md)

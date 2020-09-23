@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e230d3a4029d97a328280f581c126c7ec2d0bdb3
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 296aabdd79e1cd5c37248a0a44d57ebf17a4ea44
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460801"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979414"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Resolução de problemas Azure AD gestão de direitos
 
@@ -75,7 +75,7 @@ Este artigo descreve alguns itens que deve verificar para ajudá-lo a resolver p
 
 ### <a name="view-a-requests-delivery-errors"></a>Ver erros de entrega de um pedido
 
-**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário de catálogo ou gestor de pacotes access
+**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário de catálogo, gestor de pacotes de acesso ou gestor de pacotes access
 
 1. No portal Azure, clique no **Diretório Ativo Azure** e, em seguida, clique em **Governança de Identidade**.
 
@@ -103,7 +103,7 @@ Só é possível reprocessar um pedido que tenha um estado de **entrega falhado*
 
 - Se o erro não tiver sido corrigido durante a janela de ensaios, o estado do pedido pode ser **a entrega falhada** ou **parcialmente entregue**. Em seguida, pode utilizar o botão **de reprocessamento.** Terá sete dias para reprocessar o pedido.
 
-**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário de catálogo ou gestor de pacotes access
+**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário de catálogo, gestor de pacotes de acesso ou gestor de pacotes access
 
 1. No portal Azure, clique no **Diretório Ativo Azure** e, em seguida, clique em **Governança de Identidade**.
 
@@ -121,7 +121,7 @@ Só é possível reprocessar um pedido que tenha um estado de **entrega falhado*
 
 Só pode cancelar um pedido pendente que ainda não tenha sido entregue ou cuja entrega tenha falhado. O botão **de cancelamento** seria acinzentado de outra forma.
 
-**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário de catálogo ou gestor de pacotes access
+**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário de catálogo, gestor de pacotes de acesso ou gestor de pacotes access
 
 1. No portal Azure, clique no **Diretório Ativo Azure** e, em seguida, clique em **Governança de Identidade**.
 
@@ -150,7 +150,7 @@ Só pode cancelar um pedido pendente que ainda não tenha sido entregue ou cuja 
     
     Se alguma política estiver numa categoria de prioridade mais elevada, as categorias de prioridades mais baixas são ignoradas. Para um exemplo de como são apresentadas várias políticas com a mesma prioridade ao solicitador, consulte [Selecione uma política](entitlement-management-request-access.md#select-a-policy).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Gerir o acesso dos utilizadores externos](entitlement-management-external-users.md)
 - [Ver relatórios de como os utilizadores tiveram acesso na gestão de direitos](entitlement-management-reports.md)

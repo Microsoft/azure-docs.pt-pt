@@ -11,16 +11,16 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/22/2020
 ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: 769b4d364412d3409ef95c4222197fe6f7ce222c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7a785aebc282a871d150f0c9b4cca59d7d03558e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893474"
+ms.locfileid: "90976784"
 ---
 # <a name="connect-to-azure-storage-services"></a>Ligar aos serviços de armazenamento do Azure
 
-Neste artigo, saiba como **ligar-se aos serviços de armazenamento Azure através das lojas de dados Azure Machine Learning**. As datas conectam-se de forma segura ao seu serviço de armazenamento Azure sem colocar em risco as suas credenciais de autenticação e a integridade da sua fonte de dados original. Armazenam informações de ligação, como o ID de subscrição e a autorização simbólica no [cofre-chave](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho, para que possa aceder de forma segura ao seu armazenamento sem ter de os codificar nos scripts. Você pode usar o [Azure Machine Learning Python SDK](#python) ou o [estúdio Azure Machine Learning](#studio) para criar e registar datastores.
+Neste artigo, saiba como **ligar-se aos serviços de armazenamento Azure através das lojas de dados Azure Machine Learning**. As datas conectam-se de forma segura ao seu serviço de armazenamento Azure sem colocar em risco as suas credenciais de autenticação e a integridade da sua fonte de dados original. Armazenam informações de ligação, como o ID de subscrição e a autorização simbólica no [cofre-chave](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho, para que possa aceder de forma segura ao seu armazenamento sem ter de os codificar nos scripts. Você pode usar o [Azure Machine Learning Python SDK](#python) ou o [estúdio Azure Machine Learning](how-to-connect-data-ui.md) para criar e registar datastores.
 
 Se preferir criar e gerir as datastores utilizando a extensão do Código VS de Aprendizagem de Máquinas Azure; visite a [gestão de recursos do Código VS como orientar](how-to-manage-resources-vscode.md#datastores) para saber mais.
 
@@ -117,7 +117,7 @@ Para o recipiente blob Azure e o armazenamento do Azure Data Lake Gen 2, certifi
 
 <a name="python"></a>
 
-## <a name="create-and-register-datastores-via-the-sdk"></a>Criar e registar datastores através do SDK
+## <a name="create-and-register-datastores"></a>Criar e registar datastores
 
 Quando regista uma solução de armazenamento Azure como uma datastore, cria e regista automaticamente essa datastore para um espaço de trabalho específico. Reveja a secção [de permissões de acesso ao armazenamento &](#storage-access-and-permissions) para obter orientação sobre cenários de rede virtuais e onde encontrar as credenciais de autenticação necessárias. 
 
@@ -129,7 +129,7 @@ Dentro desta secção encontram-se exemplos de como criar e registar uma loja de
 
  Para criar datastores para outros serviços de armazenamento suportados, consulte a [documentação de referência para os `register_azure_*` métodos aplicáveis.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#&preserve-view=truemethods)
 
-Se preferir uma experiência de código baixo, consulte [Criar datastores no estúdio Azure Machine Learning](#studio).
+Se preferir uma experiência de código baixo, consulte [Connect to data with Azure Machine Learning studio](how-to-connect-data-ui.md).
 
 > [!NOTE]
 > O nome datastore deve consistir apenas em letras minúsculas, dígitos e sublinhados. 
@@ -199,25 +199,6 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
                                                              client_id=client_id, # client id of service principal
                                                              client_secret=client_secret) # the secret of service principal
 ```
-
-<a name="studio"></a>
-
-
-## <a name="create-datastores-in-the-studio"></a>Criar lojas de dados no estúdio 
-
-Crie uma nova loja de dados em alguns passos com o estúdio Azure Machine Learning.
-
-> [!IMPORTANT]
-> Se a sua conta de armazenamento de dados estiver numa rede virtual, são necessários passos de configuração adicionais para garantir que o estúdio tem acesso aos seus dados. Consulte [o estúdio De Aprendizagem automática Azure numa rede virtual Azure](how-to-enable-studio-virtual-network.md) para garantir que os passos de configuração apropriados são aplicados. 
-
-1. Inscreva-se no [estúdio Azure Machine Learning](https://ml.azure.com/).
-1. Selecione **Datastores** no painel esquerdo em **Manage**.
-1. Selecione **+ Nova loja de dados**.
-1. Preencha o formulário para uma nova datastore. O formulário atualiza-se inteligentemente com base nas suas seleções para o tipo de armazenamento Eszure e tipo de autenticação. Consulte a [secção de acesso ao armazenamento e permissões](#access-validation) para saber onde encontrar as credenciais de autenticação necessárias para preencher este formulário.
-
-O exemplo a seguir demonstra como é a forma quando cria uma loja **de dados azure blob**: 
-    
-![Formulário para uma nova datastore](media/how-to-access-data/new-datastore-form.png)
 
 <a name="train"></a>
 ## <a name="use-data-in-your-datastores"></a>Utilize dados nas suas datastores

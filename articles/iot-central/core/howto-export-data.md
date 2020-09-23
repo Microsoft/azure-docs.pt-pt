@@ -1,29 +1,29 @@
 ---
-title: Dados de exportação da Azure IoT Central (pré-visualização) Microsoft Docs
+title: Dados de exportação da Azure IoT Central Microsoft Docs
 description: Como utilizar os novos dados exportam para exportar os seus dados IoT para destinos em nuvem Azure e personalizados.
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 09/02/2020
+ms.date: 09/15/2020
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperfq1
-ms.openlocfilehash: 0a07d7e57ced5e2cd9457dc51ebcd355306fc48e
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 9738b7d3fb435888e7ffc248b7b2ac6c0ef42471
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461940"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974400"
 ---
-# <a name="export-iot-data-to-cloud-destinations-using-data-export-preview"></a>Exportar dados de IoT para destinos em nuvem usando exportação de dados (pré-visualização)
+# <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportar dados de IoT para destinos em nuvem usando exportação de dados
 
 > [!Note]
-> Este artigo descreve as funcionalidades de exportação de dados de pré-visualização na IoT Central.
+> Este artigo descreve as características de exportação de dados na IoT Central.
 >
 > - Para obter informações sobre as funcionalidades de exportação de dados antigos, consulte [os dados do Export IoT para destinos em nuvem utilizando a exportação de dados (legado)](./howto-export-data-legacy.md).
-> - Para saber mais sobre as diferenças entre as características de exportação de dados de pré-visualização e as características de exportação de dados legados, consulte o quadro de [comparação](#comparison-of-legacy-data-export-and-preview-data-export) abaixo.
+> - Para saber mais sobre as diferenças entre as características de exportação de dados e de exportação de dados, consulte o quadro de [comparação](#comparison-of-legacy-data-export-and-data-export) abaixo.
 
-Este artigo descreve como utilizar a nova funcionalidade de pré-visualização da exportação de dados no Azure IoT Central. Utilize esta funcionalidade para exportar continuamente dados de IoT filtrados e enriquecidos da sua aplicação IoT Central. A exportação de dados impulsiona as mudanças em tempo quase real para outras partes da sua solução de nuvem para insights de caminhos quentes, análises e armazenamento.
+Este artigo descreve como utilizar a nova funcionalidade de exportação de dados na Azure IoT Central. Utilize esta funcionalidade para exportar continuamente dados de IoT filtrados e enriquecidos da sua aplicação IoT Central. A exportação de dados impulsiona as mudanças em tempo quase real para outras partes da sua solução de nuvem para insights de caminhos quentes, análises e armazenamento.
 
 Pode, por exemplo:
 
@@ -37,7 +37,7 @@ Pode, por exemplo:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar as funcionalidades de exportação de dados de pré-visualização, tem de ter uma [aplicação V3,](howto-get-app-info.md)e tem de ter a permissão [de exportação de Dados.](howto-manage-users-roles.md)
+Para utilizar as funcionalidades de exportação de dados, tem de ter uma [aplicação V3,](howto-get-app-info.md)e tem de ter a permissão [de exportação de Dados.](howto-manage-users-roles.md)
 
 ## <a name="set-up-export-destination"></a>Configurar destino de exportação
 
@@ -63,7 +63,12 @@ Se você não tem um espaço de nomes de Event Hubs existente para exportar, sig
     - Selecione **Definições > Políticas de acesso partilhado**.
     - Crie uma nova chave ou escolha uma chave existente que tenha permissões **enviar.**
     - Copie a cadeia de ligação primária ou secundária. Utilize esta cadeia de ligação para configurar um novo destino na IoT Central.
-
+    - Em alternativa, pode gerar uma cadeia de ligação para todo o espaço de nomes do Event Hubs:
+        1. Vá ao seu espaço de nomes do Event Hubs no portal Azure.
+        2. Em **Definições**, **selecione Políticas de Acesso Partilhado**
+        3. Crie uma nova chave ou escolha uma chave existente que tenha permissões **enviar.**
+        4. Copie a cadeia de ligação primária ou secundária
+        
 ### <a name="create-a-service-bus-queue-or-topic-destination"></a>Crie uma fila de ônibus de serviço ou destino tópico
 
 Se você não tem um espaço de nome de Service Bus existente para exportar para, siga estes passos:
@@ -78,6 +83,11 @@ Se você não tem um espaço de nome de Service Bus existente para exportar para
     - Selecione **Definições/Políticas de acesso partilhado**.
     - Crie uma nova chave ou escolha uma chave existente que tenha permissões **enviar.**
     - Copie a cadeia de ligação primária ou secundária. Utilize esta cadeia de ligação para configurar um novo destino na IoT Central.
+    - Em alternativa, pode gerar uma cadeia de ligação para todo o espaço de nomes do Service Bus:
+        1. Vá ao seu espaço de nomes de Service Bus no portal Azure.
+        2. Em **Definições**, **selecione Políticas de Acesso Partilhado**
+        3. Crie uma nova chave ou escolha uma chave existente que tenha permissões **enviar.**
+        4. Copie a cadeia de ligação primária ou secundária
 
 ### <a name="create-an-azure-blob-storage-destination"></a>Criar um destino de armazenamento Azure Blob
 
@@ -109,10 +119,10 @@ Agora que tem um destino para exportar os seus dados, crie exportação de dados
 
 1. Inscreva-se na sua aplicação IoT Central.
 
-1. No painel esquerdo, selecione **Data export (pré-visualização)**.
+1. No painel esquerdo, selecione **Data export**.
 
     > [!Tip]
-    > Se não vir **a exportação de Dados (pré-visualização)** no painel esquerdo, então não tem permissões para configurar a exportação de dados na sua app. Fale com um administrador para configurar a exportação de dados.
+    > Se não vir **a exportação de Dados** no painel esquerdo, então não tem permissões para configurar a exportação de dados na sua app. Fale com um administrador para configurar a exportação de dados.
 
 1. **Selecione + Nova exportação.**
 
@@ -127,9 +137,10 @@ Agora que tem um destino para exportar os seus dados, crie exportação de dados
 
 1. Opcionalmente, adicione filtros para reduzir a quantidade de dados exportados. Existem diferentes tipos de filtro disponíveis para cada tipo de exportação de dados:
 
-    Para filtrar a telemetria, utilize a:
+    Para filtrar a telemetria, pode:
 
-    - **Filtro de capacidade**: Se escolher um item de telemetria no dropdown **Name,** o fluxo exportado contém apenas telemetria que satisfaz a condição do filtro. Se escolher um item de propriedade de dispositivo ou nuvem no dropdown **Name,** o fluxo exportado contém apenas telemetria de dispositivos com propriedades correspondentes à condição do filtro.
+    - **Filtrar** o fluxo exportado para conter apenas telemetria de dispositivos que correspondam ao nome do dispositivo, iD do dispositivo e condição do filtro do modelo do dispositivo.
+    - **Filtrar** as capacidades: Se escolher um item de telemetria no dropdown **Name,** o fluxo exportado contém apenas telemetria que satisfaz a condição do filtro. Se escolher um item de propriedade de dispositivo ou nuvem no dropdown **Name,** o fluxo exportado contém apenas telemetria de dispositivos com propriedades correspondentes à condição do filtro.
     - **Filtro de propriedade de mensagem**: Os dispositivos que utilizam o dispositivo SDKs podem enviar *propriedades de mensagens* ou *propriedades de aplicação* em cada mensagem de telemetria. As propriedades são um saco de pares de valores-chave que marcam a mensagem com identificadores personalizados. Para criar um filtro de propriedade de mensagem, insira a chave de propriedade de mensagem que procura e especifique uma condição. Apenas são exportadas mensagens de telemetria com propriedades que correspondam ao estado do filtro especificado. Os seguintes operadores de comparação de cordas são apoiados: iguais, não iguais, contém, não contém, existe, não existe. [Saiba mais sobre as propriedades da aplicação a partir de docs IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
     Para filtrar as alterações de propriedade, utilize um **filtro Capability**. Escolha um item de propriedade no dropdown. O fluxo exportado contém apenas alterações na propriedade selecionada que satisfaz a condição do filtro.
@@ -143,8 +154,8 @@ Agora que tem um destino para exportar os seus dados, crie exportação de dados
 
     - **Nome do destino**: o nome de exposição do destino na IoT Central.
     - **Tipo de destino**: escolha o tipo de destino. Se ainda não definiu o seu destino, consulte [o destino de exportação.](#set-up-export-destination)
-    - Para Azure Event Hubs, fila ou tópico do Azure Service Bus, cole a cadeia de ligação para o seu recurso.
-    - Para o armazenamento Azure Blob, cole o fio de ligação para o seu recurso e introduza o nome do recipiente sensível à caixa.
+    - Para Azure Event Hubs, fila ou tópico do Azure Service Bus, cole a cadeia de ligação para o seu recurso e introduza o centro de eventos sensível ao caso, a fila ou o nome do tópico, se necessário.
+    - Para o armazenamento Azure Blob, cole o fio de ligação para o seu recurso e introduza o nome do recipiente sensível à caixa, se necessário.
     - Para webhook, cole o URL de retorno para o seu ponto final webhook.
     - Selecione **Criar**.
 
@@ -185,7 +196,7 @@ Cada mensagem exportada contém uma forma normalizada da mensagem completa que o
 - `enrichments`: Quaisquer enriquecimentos estabelecidos na exportação.
 - `messageProperties`: Propriedades adicionais que o dispositivo enviou com a mensagem. Estas propriedades são por vezes referidas como *propriedades de aplicação.* [Saiba mais com os docs do IoT Hub.](../../iot-hub/iot-hub-devguide-messages-construct.md)
 
-Para o Event Hubs e Service Bus, a IoT Central exporta uma nova mensagem rapidamente depois de receber a mensagem de um dispositivo.
+Para o Event Hubs e Service Bus, a IoT Central exporta uma nova mensagem rapidamente depois de receber a mensagem de um dispositivo. Nas propriedades do utilizador (também designadas como propriedades de aplicação) de cada mensagem, o `iotcentral-device-id` `iotcentral-application-id` , e são `iotcentral-message-source` incluídos automaticamente.
 
 Para o armazenamento blob, as mensagens são em lotadas e exportadas uma vez por minuto.
 
@@ -197,7 +208,7 @@ O exemplo a seguir mostra uma mensagem de telemetria exportada:
     "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
     "messageSource": "telemetry",
     "deviceId": "1vzb5ghlsg1",
-    "schema": "default@preview",
+    "schema": "default@v1",
     "templateId": "urn:qugj6vbw5:___qbj_27r",
     "enqueuedTime": "2020-08-05T22:26:55.455Z",
     "telemetry": {
@@ -232,7 +243,7 @@ Cada mensagem ou registo representa uma alteração para um dispositivo ou propr
 - `templateId`: O ID do modelo do dispositivo associado ao dispositivo.
 - `enrichments`: Quaisquer enriquecimentos estabelecidos na exportação.
 
-Para o Event Hubs e Service Bus, a IoT Central exporta novos dados de mensagens para o seu centro de eventos ou fila de autocarros de serviço ou tópico em tempo real.
+Para o Event Hubs e Service Bus, a IoT Central exporta novos dados de mensagens para o seu centro de eventos ou fila de autocarros de serviço ou tópico em tempo real. Nas propriedades do utilizador (também designadas por propriedades de aplicação) de cada mensagem, o `iotcentral-device-id` , , e são `iotcentral-application-id` `iotcentral-message-source` `iotcentral-message-type` incluídos automaticamente.
 
 Para o armazenamento blob, as mensagens são em lotadas e exportadas uma vez por minuto.
 
@@ -244,11 +255,11 @@ O exemplo a seguir mostra uma mensagem de mudança de propriedade exportada rece
     "messageSource": "properties",
     "messageType": "cloudPropertyChange",
     "deviceId": "18a985g1fta",
-    "schema": "default@preview",
+    "schema": "default@v1",
     "templateId": "urn:qugj6vbw5:___qbj_27r",
     "enqueuedTime": "2020-08-05T22:37:32.942Z",
     "properties": [{
-        "fieldName": "MachineSerialNumber",
+        "name": "MachineSerialNumber",
         "value": "abc"
     }],
     "enrichments": {
@@ -257,9 +268,9 @@ O exemplo a seguir mostra uma mensagem de mudança de propriedade exportada rece
 }
 ```
 
-## <a name="comparison-of-legacy-data-export-and-preview-data-export"></a>Comparação da exportação de dados antigos e exportação de dados
+## <a name="comparison-of-legacy-data-export-and-data-export"></a>Comparação da exportação de dados antigos e exportação de dados
 
-O quadro a seguir mostra as diferenças entre as características de exportação de [dados legados](howto-export-data-legacy.md) e de visualização:
+O quadro a seguir mostra as diferenças entre a [exportação de dados antigos](howto-export-data-legacy.md) e as novas características de exportação de dados:
 
 | Capacidades  | Exportação de dados antigos | Exportação de novos dados |
 | :------------- | :---------- | :----------- |
@@ -270,6 +281,6 @@ O quadro a seguir mostra as diferenças entre as características de exportaçã
 | Versões de aplicações suportadas | V2, V3 | Apenas V3 |
 | Limites notáveis | 5 exportações por app, 1 destino por exportação | 10 ligações exportações-destino por app |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe usar a nova exportação de dados, um próximo passo sugerido é aprender [a usar analítica na IoT Central](./howto-create-analytics.md)

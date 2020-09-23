@@ -3,12 +3,12 @@ title: Configurar a análise de aplicações Web para ASP.NET com o Azure Applic
 description: Configure as ferramentas de análise de desempenho, disponibilidade e comportamento do utilizador para o seu website ASP.NET, hospedado no local ou em Azure.
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.openlocfilehash: acfba63cba520631831888a1480929be3b1897f0
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: c07e7c8e7bd710cb591719fe8d53a3bad6ca2ee0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475537"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973798"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurar o Application Insights para o seu site ASP.NET
 
@@ -42,7 +42,7 @@ Ecrã de Configuração do Application Insights:
 
 **Selecione Começar**.
 
-![Captura de ecrã da página Registar a sua aplicação no Application Insights](./media/asp-net/00004-start-free.png)
+![A screenshot mostra a página 'Insights de Aplicação' e o botão Iniciar.](./media/asp-net/00004-start-free.png)
 
 Se pretender definir o grupo de recursos ou a localização onde os seus dados são armazenado, clique em **Configurar definições**. Os grupos de recursos são utilizados para controlar o acesso aos dados. Por exemplo, se tiver várias aplicações que fazem parte do mesmo sistema, poderá colocar os seus dados do Application Insights no mesmo grupo de recursos.
 
@@ -104,7 +104,7 @@ Também pode continuar a analisar a sua telemetria no [Visual Studio](./visual-s
 >
 >
 
-## <a name="youre-all-set"></a><a name="land"></a>Está tudo preparado.
+## <a name="youre-all-set"></a><a name="land"></a> Está tudo preparado.
 
 Parabéns! Instalou o pacote do Application Insights na sua aplicação e configurou o mesmo para enviar telemetria para o serviço do Application Insights no Azure.
 
@@ -113,7 +113,7 @@ O recurso do Azure que recebe a telemetria da sua aplicação é identificado po
 
 ## <a name="upgrade-to-future-sdk-versions"></a>Atualizar para versões futuras do SDK
 
-* [Notas de Versão](./release-notes.md)
+* [Notas de lançamento](./release-notes.md)
 
 Para atualizar para um novo lançamento do SDK, abra o **gestor de pacotes NuGet**e filtre em pacotes instalados. Selecione **Microsoft.ApplicationInsights.Web**e escolha **Upgrade**.
 

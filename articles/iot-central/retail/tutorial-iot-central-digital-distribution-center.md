@@ -1,24 +1,24 @@
 ---
-title: Tutorial do IoT Digital Distribution Center [ IoT Digital Distribution Center ] Microsoft Docs
-description: Um tutorial do modelo de aplicação do centro de distribuição digital para ioT central
+title: Tutorial do IoT Digital Distribution Center / Microsoft Docs
+description: Um tutorial do modelo de aplicação do centro de distribuição digital para ioT Central
 author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
+ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: cb40252460fe62deb94ce495bb41d38c326f10e2
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a76df67d1ef9d203d5e5d54cb95bb8fc90f70180
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81000589"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980747"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação de centro de distribuição digital
 
 
 
-Este tutorial mostra-lhe como começar implantando um modelo de aplicação do centro de **distribuição digital** IoT Central. Você vai aprender a implementar o modelo, o que está incluído fora da caixa, e o que você pode querer fazer a seguir.
+Este tutorial mostra-lhe como começar com a implementação de um modelo de aplicação **do centro de distribuição digital** IoT Central. Você vai aprender a implementar o modelo, o que está incluído fora da caixa, e o que você pode querer fazer a seguir.
 
 Neste tutorial, aprende-se a, 
 * Criar aplicação de centro de distribuição digital 
@@ -28,92 +28,94 @@ Neste tutorial, aprende-se a,
 * Não são necessários pré-requisitos específicos para implementar esta aplicação
 * Recomendado para ter subscrição Azure, mas pode até tentar sem ele
 
-## <a name="create-digital-distribution-center-application-template"></a>Criar modelo de aplicação do centro de distribuição digital
+## <a name="create-digital-distribution-center-application-template"></a>Crie o modelo de aplicação do centro de distribuição digital
 
-Pode criar aplicação usando os seguintes passos
+Pode criar uma aplicação utilizando os seguintes passos
 
-1. Navegue para o site do gestor de aplicações Azure IoT Central. Selecione **Construir** a partir da barra de navegação à esquerda e, em seguida, clique no **separador Retail.**
-
-    > [!div class="mx-imgBorder"]
-    > ![Centro de Distribuição Digital](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
-
-2. **Selecione separador Retail** e selecione **Criar app** sob **aplicação de centro** de distribuição digital
-
-3. **A create app** abrirá novo formulário de aplicação e preencherá os detalhes solicitados como mostra abaixo.
-   Nome da **aplicação**: pode usar o nome sugerido por defeito ou inserir o seu nome de aplicação amigável.
-   **URL:** pode utilizar URL padrão sugerido ou introduzir o seu URL memorável único amigável. Em seguida, a definição predefinida é recomendada se já tiver uma Subscrição Azure. Você pode começar com um plano de preços de teste gratuito de 7 dias e optar por converter-se em um plano de preços padrão a qualquer momento antes que o trilho livre expire.
-   **Faturação Info**: Os detalhes do Diretório, Da Subscrição Azure e da Região são necessários para fornecer os recursos.
-   **Criar**: Selecione criar na parte inferior da página para implementar a sua aplicação.
+1. Navegue para o site do gestor de aplicações Azure IoT Central. **Selecione Construir** a partir da barra de navegação à esquerda e, em seguida, clique no **separador 'Varejo'.**
 
     > [!div class="mx-imgBorder"]
-    > ![Centro de Distribuição Digital](./media/tutorial-iot-central-ddc/ddc-create.png)
+    > ![Screenshot mostrando como selecionar o modelo de aplicação do centro de distribuição digital](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
+
+2. Selecione o separador **de varejo** e selecione **Criar app** sob **aplicação digital do centro de distribuição**
+
+3. **Criar aplicação** abrirá novo formulário de aplicação e preencherá os detalhes solicitados como mostra abaixo.
+   **Nome da aplicação**: pode utilizar o nome sugerido por defeito ou introduzir o nome da sua aplicação amigável.
+   **URL**: pode utilizar URL padrão sugerido ou inserir o seu AMIGÁVEL URL memorável único. Em seguida, recomenda-se a definição predefinida se já tiver uma Subscrição Azure. Você pode começar com um plano de preços de teste gratuito de 7 dias e optar por converter-se a um plano de preços padrão a qualquer momento antes que o trilho gratuito expire.
+   **Informações de Faturação**: Os dados do Diretório, da Subscrição Azure e da Região são necessários para a disponibilização dos recursos.
+   **Criar:** Selecione criar na parte inferior da página para implementar a sua aplicação.
 
     > [!div class="mx-imgBorder"]
-    > ![Informação de faturação de distribuição digital](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
+    > ![Screenshot mostrando como criar uma aplicação a partir do modelo de aplicação do centro de distribuição digital](./media/tutorial-iot-central-ddc/ddc-create.png)
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot mostrando as opções de faturação quando cria a aplicação](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
 
 ## <a name="walk-through-the-application-dashboard"></a>Caminhe pelo painel de aplicações 
 
-Depois de implementar com sucesso o modelo de aplicação, o seu dashboard padrão é um portal focado no operador do centro de distribuição. Northwind Trader é um fornecedor fictício de soluções de centros de distribuição que gere sistemas transportadores. 
+Depois de implementar com sucesso o modelo de aplicação, o seu painel de instrumentos padrão é um portal focado no operador do centro de distribuição. A Northwind Trader é uma empresa fictícia de soluções de centros de distribuição que gere sistemas transportadores. 
 
-Neste painel, verá um portal e uma câmara a funcionar como um dispositivo IoT. Gateway está fornecendo telemetria sobre pacotes como válido, inválido, não identificado e tamanho, juntamente com propriedades gémeas de dispositivo associados. Todos os comandos a jusante são executados em dispositivos IoT, como uma câmara. Este painel de instrumentos é pré-configurado para mostrar a atividade de operações do dispositivo do centro de distribuição crítica.
+Neste painel de instrumentos, verá um gateway e uma câmara atuando como um dispositivo IoT. Gateway está fornecendo telemetria sobre pacotes como válido, inválido, não identificado e tamanho, juntamente com propriedades gémeas do dispositivo associado. Todos os comandos a jusante são executados em dispositivos IoT, como uma câmara. Este painel está pré-configurado para mostrar a atividade crítica do dispositivo do centro de distribuição.
 
-O dashboard é logicamente organizado para mostrar as capacidades de gestão do dispositivo de gestão do dispositivo Azure IoT e IoT.  
-   * Pode executar tarefas de comando de porta & controlo
+O dashboard está logicamente organizado para mostrar as capacidades de gestão do dispositivo do gateway IoT Azure e do dispositivo IoT.  
+   * Pode executar tarefas de controlo de comando de gateway &
    * Gerencie todas as câmaras que fazem parte da solução. 
 
 > [!div class="mx-imgBorder"]
-> ![Centro de Distribuição Digital](./media/tutorial-iot-central-ddc/ddc-dashboard.png)
+> ![Screenshot mostrando o painel de distribuição digital do centro de distribuição](./media/tutorial-iot-central-ddc/ddc-dashboard.png)
 
 ## <a name="device-template"></a>Modelo de dispositivo
 
-Clique no separador de modelos do Dispositivo e verá o modelo de capacidade de gateway. Um modelo de capacidade é estruturado em torno de duas interfaces diferentes **Camera** e **Digital Distribution Gateway**
+Clique no separador modelos do dispositivo e verá o modelo de capacidade do gateway. Um modelo de capacidade é estruturado em torno de duas interfaces diferentes **Câmara** e **Gateway de Distribuição Digital**
 
 > [!div class="mx-imgBorder"]
-> ![Centro de Distribuição Digital](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
+> ![Screenshot mostrando o modelo de dispositivo de gateway de distribuição digital na aplicação](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
 
-**Camera** - Esta interface organiza todas as capacidades de comando específicas da câmara 
-
-> [!div class="mx-imgBorder"]
-> ![Centro de Distribuição Digital](./media/tutorial-iot-central-ddc/ddc-camera.png)
-
-**Gateway** de distribuição digital - Esta interface representa toda a telemetria proveniente da câmara, propriedades gémeas definidas em nuvem e informações de gateway.
+**Câmara** - Esta interface organiza todas as capacidades de comando específicas da câmara 
 
 > [!div class="mx-imgBorder"]
-> ![Centro de Distribuição Digital](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
+> ![Screenshot mostrando a interface da câmara no modelo de dispositivo de gateway de distribuição digital](./media/tutorial-iot-central-ddc/ddc-camera.png)
+
+**Gateway de Distribuição Digital** - Esta interface representa toda a telemetria proveniente da câmara, propriedades gémeas do dispositivo definido na nuvem e informações de gateway.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot mostrando a interface de gateway de distribuição digital no modelo de dispositivo de gateway de distribuição digital](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
 
 
 ## <a name="gateway-commands"></a>Comandos Gateway
 Esta interface organiza todas as capacidades de comando gateway
 
 > [!div class="mx-imgBorder"]
-> ![Centro de Distribuição Digital](./media/tutorial-iot-central-ddc/ddc-camera.png)
+> ![Screenshot mostrando a interface de comandos gateway no modelo de dispositivo de gateway de distribuição digital](./media/tutorial-iot-central-ddc/ddc-camera.png)
 
 ## <a name="rules"></a>Regras
-Selecione o separador de regras para ver duas regras diferentes que existem neste modelo de aplicação. Estas regras estão configuradas para notificações por e-mail aos operadores para mais investigações.
+Selecione o separador regras para ver duas regras diferentes que existem neste modelo de aplicação. Estas regras estão configuradas para notificações por e-mail aos operadores para mais investigações.
 
- **Alerta de demasiados pacotes inválidos** - Esta regra é desencadeada quando a câmara deteta um elevado número de embalagens inválidas que fluem através do sistema transportador.
+ **Alerta de pacotes inválidos -** Esta regra é ativada quando a câmara deteta um elevado número de pacotes inválidos que fluem através do sistema transportador.
  
-**Pacote grande** - Esta regra será desencadeada se a câmara detetar uma embalagem enorme que não pode ser inspecionada pela qualidade. 
+**Pacote grande** - Esta regra será ativada se a câmara detetar um pacote enorme que não pode ser inspecionado para obter a qualidade. 
 
 > [!div class="mx-imgBorder"]
-> ![Centro de Distribuição Digital](./media/tutorial-iot-central-ddc/ddc-rules.png)
+> ![Screenshot mostrando a lista de regras na aplicação do centro de distribuição digital](./media/tutorial-iot-central-ddc/ddc-rules.png)
 
 ## <a name="jobs"></a>Tarefas
-Selecione o separador de empregos para ver cinco empregos diferentes que existem como parte deste modelo de aplicação: Pode aproveitar a funcionalidade de empregos para realizar operações a nível de solução. Aqui os trabalhos do centro de distribuição digital estão a usar os comandos do dispositivo & capacidade gémea para executar tarefas como,
-   * calibrando a câmara antes de começar a deteção do pacote 
-   * atualizando periodicamente firmware de câmara
+Selecione o separador de empregos para ver cinco empregos diferentes que existem como parte deste modelo de aplicação: Você pode aproveitar o recurso de empregos para executar operações em toda a solução. Aqui, os trabalhos dos centros de distribuição digital estão a usar os comandos do dispositivo & capacidade gémea para executar tarefas como,
+   * calibração da câmara antes de iniciar a deteção de pacotes 
+   * atualizar periodicamente firmware de câmara
    * modificando o intervalo de telemetria para gerir o upload de dados
 
 > [!div class="mx-imgBorder"]
-> ![Centro de Distribuição Digital](./media/tutorial-iot-central-ddc/ddc-jobs.png)
+> ![Screenshot mostrando a lista de empregos na aplicação do centro de distribuição digital](./media/tutorial-iot-central-ddc/ddc-jobs.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
-Se não vai continuar a utilizar esta aplicação, elimine o modelo de aplicação visitando**as definições** de Aplicação de **Administração** > e clique em **Eliminar**.
+## <a name="clean-up-resources"></a>Limpar os recursos
+Se não continuar a utilizar esta aplicação, elimine o **Administration**modelo de aplicação visitando  >  **as definições de Aplicação da** Administração e clique em **Eliminar**.
 
 > [!div class="mx-imgBorder"]
-> ![Centro de Distribuição Digital](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
+> ![Screenshot mostrando como apagar a aplicação quando terminar com ela](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre o [conceito](./architecture-digital-distribution-center.md) de centro de distribuição digital de centro de distribuição digital de arquitetura digital
-* Saiba mais sobre outros [modelos de retalho IoT Central](./overview-iot-central-retail.md)
-* Saiba mais sobre ioT Central consulte [a visão geral da IoT Central](../core/overview-iot-central.md)
+* Saiba mais sobre arquitetura de solução de centro de distribuição digital 
+> [!div class="nextstepaction"]
+> [conceito de centro de distribuição digital](./architecture-digital-distribution-center.md)
+* Saiba mais sobre outros [modelos de varejo IoT Central](./overview-iot-central-retail.md)
+* Saiba mais sobre ioT Central consulte [a visão geral do IoT Central](../core/overview-iot-central.md)

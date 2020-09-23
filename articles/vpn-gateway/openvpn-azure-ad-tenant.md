@@ -1,18 +1,18 @@
 ---
 title: 'VPN Gateway: Inquilino Azure AD para ligações P2S VPN: Autenticação Azure AD'
-description: Pode utilizar o P2S VPN para ligar ao seu VNet utilizando a autenticação AD Azure
+description: Saiba como configurar um inquilino AZure AD para a autenticação P2S Open VPN.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 01fe9331d4063ae45a5d30aa3546d6338d30822d
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 74df878baa6ed4e2ba902a73a7830c0b075c58ce
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89499965"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981520"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Criar um inquilino do Azure Active Directory para as ligações do protocolo OpenVPN P2S
 
@@ -85,7 +85,7 @@ Use os passos [deste artigo](../active-directory/fundamentals/add-users-azure-ac
 
 6. Selecione **Aceitar** quando solicitado.
 
-    ![Aceitar](./media/openvpn-create-azure-ad-tenant/accept.jpg)
+    ![Screenshot mostra a mensagem Permissões solicitadas Aceitar para a sua organização com detalhes e a opção de aceitar.](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
 7. Sob o seu Azure AD, em **aplicações enterprise,** você vê **Azure VPN** listado.
 
@@ -112,6 +112,6 @@ Use os passos [deste artigo](../active-directory/fundamentals/add-users-azure-ac
 
 13. Tome nota da localização do ficheiro "azurevpnconfig.xml". O azurevpnconfig.xml contém a definição para a ligação VPN e pode ser importado diretamente para a aplicação do Cliente Azure VPN. Também pode distribuir este ficheiro a todos os utilizadores que necessitem de se conectar por e-mail ou outros meios. O utilizador necessitará de credenciais AZure AD válidas para se conectar com sucesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para se ligar à sua rede virtual, tem de criar e configurar um perfil de cliente VPN. Consulte [configurar um cliente VPN para ligações P2S VPN](openvpn-azure-ad-client.md).

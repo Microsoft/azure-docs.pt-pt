@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/31/2020
+ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 4cea216b85e32ad9f739aff9a487909df74d14ad
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 51ad28319a372cd791575b5a3e67cc0fd6934be2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90053740"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981654"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Tutorial: Azure Ative Directory integração única (SSO) com DocuSign
 
@@ -40,7 +40,7 @@ Para começar, precisa dos seguintes itens:
 
 Neste tutorial, você vai configurar e testar Azure AD SSO em um ambiente de teste para verificar que:
 
-* A DocuSign suporta o prestador de serviços (SP)iniciado sSO.
+* A DocuSign suporta o prestador de serviços **SP** iniciou a SSO.
 
 * O DocuSign suporta o fornecimento de utilizadores **just-in-time.**
 

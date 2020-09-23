@@ -3,12 +3,12 @@ title: Apoiar o estado do sistema Windows para o Azure
 description: Saiba como fazer o back up do estado do sistema dos computadores windows server para o Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 10d37bbafab6aa96986a5d7af88a509d4c8eac25
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: ebe527ef7ddb32d46c2f39970f74b64c2594bf60
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376495"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975484"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Apoiar o estado do sistema Windows para o Azure
 
@@ -40,7 +40,7 @@ Ao criar um cofre dos Serviços de Recuperação, certifique-se de que a redund�
 
     ![Escolhas de configuração de armazenamento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    Por predefinição, o seu cofre tem um armazenamento georredundante. Se utilizar o Azure como um ponto final de armazenamento de cópia de segurança primário, continue a utilizar o **Georredundante**. Se não utilizar o Azure como um ponto final do armazenamento de cópia de segurança primário, escolha **Localmente redundante**, o que reduz os custos de armazenamento do Azure. Leia mais sobre as opções de armazenamento [georredundante](../storage/common/storage-redundancy.md) e [localmente redundante](../storage/common/storage-redundancy.md) nesta [Descrição geral de redundância de armazenamento](../storage/common/storage-redundancy.md).
+    Por predefinição, o seu cofre tem um armazenamento georredundante. Se utilizar o Azure como um ponto final de armazenamento de cópia de segurança primário, continue a utilizar o **Georredundante**. Se não utilizar o Azure como um ponto final do armazenamento de cópia de segurança primário, escolha **Localmente redundante**, o que reduz os custos de armazenamento do Azure. Leia mais sobre opções de armazenamento [geo-redundantes,](../storage/common/storage-redundancy.md#geo-redundant-storage) [redundantes locais](../storage/common/storage-redundancy.md#locally-redundant-storage) e [redundantes](../storage/common/storage-redundancy.md#zone-redundant-storage) nesta [visão geral de redundância de armazenamento](../storage/common/storage-redundancy.md).
 
 Agora que criaste um cofre, configura-o para apoiar o Windows System State.
 
@@ -185,7 +185,7 @@ Depois de concluída a cópia de segurança inicial, o estado **Tarefa concluíd
 
 Se tiver dúvidas, [envie-nos feedback.](https://feedback.azure.com/forums/258995-azure-backup)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Obtenha mais detalhes sobre como [efetuar a cópia de segurança das máquinas Windows](backup-windows-with-mars-agent.md).
 * Agora que fez o back up do seu Estado do Sistema do Servidor do Windows, pode [gerir os seus cofres e servidores](backup-azure-manage-windows-server.md).

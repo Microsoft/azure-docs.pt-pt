@@ -1,0 +1,43 @@
+---
+title: Governe a sua propriedade de reserva usando o Backup Center
+description: Aprenda a governar o seu ambiente Azure para garantir que todos os seus recursos estão em conformidade com uma perspetiva de backup com o Backup Center.
+ms.topic: conceptual
+ms.date: 09/01/2020
+ms.openlocfilehash: 009ee461b0372a3fb73ffb3b0ee5151b77bd8ef8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90997663"
+---
+# <a name="govern-your-backup-estate-using-backup-center"></a>Governe a sua propriedade de reserva usando o Backup Center
+
+O Backup Center ajuda-o a governar o seu ambiente Azure para garantir que todos os seus recursos estão em conformidade com uma perspetiva de backup. Abaixo estão algumas das capacidades de governação do Backup Center:
+
+* Ver e atribuir Políticas Azure para backup
+
+* Ver todas as fontes de dados que não foram configuradas para obter cópias de segurança.
+
+## <a name="supported-scenarios"></a>Cenários suportados
+
+* Consulte a matriz de [suporte](backup-center-support-matrix.md) para obter uma lista detalhada de cenários suportados e não apoiados.
+
+## <a name="azure-policies-for-backup"></a>Políticas Azure para backup
+
+Para ver todas as [Políticas Azure](https://docs.microsoft.com/azure/governance/policy/overview) que estão disponíveis para cópia de segurança, selecione o item do menu **Azure Policies for Backup.** Isto irá exibir todas as [definições de política Azure incorporadas e personalizadas para cópias de segurança](policy-reference.md) que estão disponíveis para atribuição às suas subscrições e grupos de recursos.
+
+A seleção de qualquer uma das definições permite [atribuir a apólice](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage#assign-a-policy) a um âmbito.
+
+![Selecione definições de Política Azure](./media/backup-center-govern-environment/azure-policy-definitions.png)
+
+## <a name="protectable-datasources"></a>Fontes de dados protegidas
+
+A seleção do item do menu **De recursos humanos protegidos** permite-lhe visualizar todos os seus recursos de dados que não foram configurados para cópia de segurança. Pode filtrar a lista por subscrição de fonte de dados, grupo de recursos, localização, tipo e etiquetas. Uma vez identificado um recurso de dados que precisa de ser apoiado, pode clicar no item da grelha correspondente e selecionar **Backup** para configurar a cópia de segurança para o recurso.
+
+![Menu de fontes de dados protegidos](./media/backup-center-govern-environment/protectable-datasources.png)
+
+## <a name="next-steps"></a>Passos seguintes
+
+* [Monitorizar e operar backups](backup-center-monitor-operate.md)
+* [Executar ações usando o Backup Center](backup-center-actions.md)
+* [Obtenha informações sobre as suas cópias de segurança](backup-center-obtain-insights.md)

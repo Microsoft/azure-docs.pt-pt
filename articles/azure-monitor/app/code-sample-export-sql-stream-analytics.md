@@ -3,12 +3,12 @@ title: Exportação para SQL a partir de Azure Application Insights / Microsoft 
 description: Exportar continuamente dados de Insights de Aplicação para SQL usando Stream Analytics.
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.openlocfilehash: 9c559a61794b36ea1bc33abc14271151fbea9d4c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 90aab1794a9b412de2498edcc4d221f4bcc86968
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311233"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979445"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Walkthrough: Exportação para SQL a partir de Insights de Aplicação usando Stream Analytics
 Este artigo mostra como mover os seus dados de telemetria da [Azure Application Insights][start] para a Base de Dados Azure SQL utilizando [a Continuação exportação][export] e [o Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -133,21 +133,21 @@ Nesta amostra, estamos a usar dados a partir de visualizações de página. Para
 ## <a name="create-an-azure-stream-analytics-instance"></a>Criar um exemplo de Azure Stream Analytics
 A partir do [portal Azure,](https://portal.azure.com/)selecione o serviço Azure Stream Analytics e crie um novo trabalho stream Analytics:
 
-![Definições de análise de fluxo](./media/code-sample-export-sql-stream-analytics/SA001.png)
+![A screenshot mostra a página de trabalho de análise do Stream com o botão Criar realçado.](./media/code-sample-export-sql-stream-analytics/SA001.png)
 
 ![Novo trabalho de análise de fluxo](./media/code-sample-export-sql-stream-analytics/SA002.png)
 
 Quando o novo trabalho for criado, selecione **Ir para o recurso**.
 
-![Definições de análise de fluxo](./media/code-sample-export-sql-stream-analytics/SA003.png)
+![A screenshot mostra a mensagem de implementação e vai para o botão de recursos.](./media/code-sample-export-sql-stream-analytics/SA003.png)
 
 #### <a name="add-a-new-input"></a>Adicione uma nova entrada
 
-![Definições de análise de fluxo](./media/code-sample-export-sql-stream-analytics/SA004.png)
+![A screenshot mostra a página Entradas com o botão Adicionar selecionado.](./media/code-sample-export-sql-stream-analytics/SA004.png)
 
 Desacalça-o para obter a entrada da sua bolha de exportação contínua:
 
-![Definições de análise de fluxo](./media/code-sample-export-sql-stream-analytics/SA0005.png)
+![O Screenshot mostra a nova janela de entrada com as opções de menu de entrada, fonte e armazenamento selecionadas.](./media/code-sample-export-sql-stream-analytics/SA0005.png)
 
 Agora vai precisar da chave de acesso primário da sua conta de armazenamento, que observou anteriormente. Desa esta medida como a chave de conta de armazenamento.
 
@@ -164,9 +164,9 @@ webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 Neste exemplo:
 
 * `webapplication27`é o nome do recurso Application Insights, **tudo em minúsculas.** 
-* `1234...`é a chave de instrumentação do recurso Application Insights **com traços removidos**. 
-* `PageViews`é o tipo de dados que queremos analisar. Os tipos disponíveis dependem do filtro que definiu na Exportação Contínua. Examinar os dados exportados para ver os outros tipos disponíveis e ver o modelo de dados de [exportação.](./export-data-model.md)
-* `/{date}/{time}`é um padrão escrito literalmente.
+* `1234...` é a chave de instrumentação do recurso Application Insights **com traços removidos**. 
+* `PageViews` é o tipo de dados que queremos analisar. Os tipos disponíveis dependem do filtro que definiu na Exportação Contínua. Examinar os dados exportados para ver os outros tipos disponíveis e ver o modelo de dados de [exportação.](./export-data-model.md)
+* `/{date}/{time}` é um padrão escrito literalmente.
 
 Para obter o nome e iKey do seu recurso Application Insights, abra o Essencial na sua página geral ou abra Definições.
 

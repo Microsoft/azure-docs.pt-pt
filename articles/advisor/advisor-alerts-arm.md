@@ -1,15 +1,15 @@
 ---
 title: Crie alertas do Azure Advisor para novas recomendações utilizando o modelo de Gestor de Recursos
-description: Crie alertas do Azure Advisor para nova recomendação
+description: Saiba como configurar um alerta para novas recomendações do Azure Advisor utilizando um modelo de Gestor de Recursos Azure (modelo ARM).
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: 2becfbbc63beb6451e5e877c5a60553d98650494
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a10ca5f0b4119fb65d6b0f717f5c212acb20f9cd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87057818"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973694"
 ---
 # <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>Quickstart: Crie alertas do Azure Advisor sobre novas recomendações usando um modelo ARM
 

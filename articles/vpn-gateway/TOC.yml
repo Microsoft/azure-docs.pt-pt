@@ -184,6 +184,8 @@
       items:
         - name: Configurar o BGP para um gateway de VPN
           items:
+            - name: Portal do Azure
+              href: bgp-howto.md
             - name: Azure PowerShell
               href: vpn-gateway-bgp-resource-manager-ps.md
             - name: CLI do Azure
@@ -228,13 +230,15 @@
           href: create-zone-redundant-vnet-gateway.md
     - name: Configurar políticas de IPsec/IKE em ligações
       items:
+        - name: Portal do Azure
+          href: ipsec-ike-policy-howto.md
         - name: PowerShell
           href: vpn-gateway-ipsecikepolicy-rm-powershell.md
     - name: Configurar ligações ativas-ativas
       items:
         - name: PowerShell
           href: vpn-gateway-activeactive-rm-powershell.md
-    - name: Resolver Problemas
+    - name: Resolução de problemas
       href: vpn-gateway-troubleshoot.md
       items:
         - name: Definições do dispositivo VPN ou de firewall sugeridas pela comunidade

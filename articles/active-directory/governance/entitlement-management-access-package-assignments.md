@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 355f0127829b709d82127fb340381830793c93ff
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 18bc7ca9e108a35fd27f7b3155f186221a8caae3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783557"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980060"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Ver, adicionar e remover atribuições para um pacote de acesso na gestão de direitos AD Azure
 
@@ -36,7 +36,7 @@ Para utilizar a gestão de direitos AD da Azure e atribuir aos utilizadores o ac
 
 ## <a name="view-who-has-an-assignment"></a>Ver quem tem uma missão
 
-**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário de catálogo ou gestor de pacotes access
+**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário de catálogo, gestor de pacotes de acesso ou gestor de pacotes access
 
 1. No portal Azure, clique no **Diretório Ativo Azure** e, em seguida, clique em **Governança de Identidade**.
 
@@ -64,7 +64,7 @@ Também pode obter atribuições num pacote de acesso utilizando o Microsoft Gra
 
 Em alguns casos, é melhor atribuir diretamente utilizadores específicos a um pacote de acesso para que os utilizadores não tenham de passar pelo processo de solicitação do pacote de acesso. Para atribuir diretamente aos utilizadores, o pacote de acesso deve ter uma política que permita atribuições diretas ao administrador.
 
-**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário de catálogo ou gestor de pacotes access
+**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário de catálogo, gestor de pacotes de acesso ou gestor de pacotes access
 
 1. No portal Azure, clique no **Diretório Ativo Azure** e, em seguida, clique em **Governança de Identidade**.
 
@@ -94,7 +94,7 @@ Também pode atribuir diretamente um utilizador a um pacote de acesso utilizando
 
 ## <a name="remove-an-assignment"></a>Remover uma atribuição
 
-**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário de catálogo ou gestor de pacotes access
+**Papel pré-requisito:** Administrador global, administrador de utilizador, proprietário de catálogo, gestor de pacotes de acesso ou gestor de pacotes access
 
 1. No portal Azure, clique no **Diretório Ativo Azure** e, em seguida, clique em **Governança de Identidade**.
 

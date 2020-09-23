@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: devx-track-csharp
 ms.reviewer: sdash
-ms.openlocfilehash: d4067b23c4ff365857c37d7dfdce6dc42e129989
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 642a382f2ec5da7821c9d709bd27d592ced31c8d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936610"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974031"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicações: Aplicações distribuídas por triagem
 
@@ -34,7 +34,7 @@ Ao clicar em "Atualizar componentes do mapa", o mapa é atualizado com todos os 
 
 Se todos os componentes forem funções dentro de um único recurso Application Insights, então este passo de descoberta não é necessário. A carga inicial para tal aplicação terá todos os seus componentes.
 
-![Screenshot do mapa de aplicações](media/app-map/app-map-001.png)
+![A screenshot mostra um exemplo de um mapa de aplicações.](media/app-map/app-map-001.png)
 
 Um dos objetivos principais com esta experiência é ser capaz de visualizar topologias complexas com centenas de componentes.
 

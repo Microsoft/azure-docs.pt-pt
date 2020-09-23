@@ -10,12 +10,12 @@ ms.date: 09/08/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 0d03b2708bfd4aac2565b303ddce44f50be65ef9
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: ee76c1692049d5b25e85b6780fbcf78f7ebfdd2f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612341"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987059"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replicação de objeto para bolhas de bloco
 
@@ -68,11 +68,11 @@ Também pode especificar um ou mais filtros como parte de uma regra de replicaç
 
 Os recipientes de origem e destino devem existir antes de os especificar numa regra. Após criar a política de replicação, o contentor de destino torna-se só de leitura. Qualquer tentativa de escrever no contentor de destino falhará com o código de erro 409 (Conflito). No entanto, pode ligar para a operação [set Blob Tier](/rest/api/storageservices/set-blob-tier) numa bolha no recipiente de destino para movê-la para o nível de arquivo. Para obter mais informações sobre o nível de arquivo, consulte o [armazenamento Azure Blob: níveis de acesso quentes, frescos e de arquivo.](storage-blob-storage-tiers.md#archive-access-tier)
 
-## <a name="billing"></a>Faturação 
+## <a name="billing"></a>Faturação
 
 A replicação de objetos incorre em custos adicionais na leitura e na escrita de transações contra as contas de origem e destino, bem como encargos de erupção para a replicação de dados da conta de origem para a conta de destino e taxas de leitura para processar a alteração de feed.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar a replicação de objetos](object-replication-configure.md)
 - [Alterar suporte de alimentação no armazenamento de blob Azure](storage-blob-change-feed.md)

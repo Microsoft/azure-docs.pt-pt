@@ -3,12 +3,12 @@ title: Use PowerShell para fazer o back up Windows Server para Azure
 description: Neste artigo, aprenda a usar o PowerShell para configurar o Azure Backup no Windows Server ou num cliente Windows, e gerir a cópia de segurança e a recuperação.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 47c8fc39626d3bca3355c1d1e46f1634327748a8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 582d8123f16b2d5a543d862b8eb3e45895087e4a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892376"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987110"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implementar e gerir cópias de segurança para o Azure para o Windows Server/cliente Windows com o PowerShell
 
@@ -42,7 +42,7 @@ Os passos seguintes levam-no através da criação de um cofre dos Serviços de 
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
 
-4. Especifique o tipo de redundância de armazenamento a utilizar. Pode utilizar [armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md) ou [armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md). O exemplo a seguir mostra que a opção **-BackupStorageRedundancy** para *o testVault* está definida para **GeoRedundant**.
+4. Especifique o tipo de redundância de armazenamento a utilizar. Pode utilizar [armazenamento localmente redundante (LRS),](../storage/common/storage-redundancy.md#locally-redundant-storage) [armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) ou [armazenamento redundante de zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). O exemplo a seguir mostra a opção **-BackupStorageRedundancy** para *o testVault* definido para **GeoRedundant**.
 
    > [!TIP]
    > Muitos cmdlets do Azure Backup requerem o objeto do cofre dos Serviços de Recuperação como entrada. Por esta razão, é conveniente armazenar o objeto do cofre dos Serviços de Recuperação de Backup numa variável.

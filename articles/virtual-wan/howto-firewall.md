@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 05/21/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: f20ed76a72eecce59a7b8795a42b033230a2f7e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 577340e485550e84941a33d82b58aa6ff1c933d3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753690"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983670"
 ---
 # <a name="configure-azure-firewall-in-a-virtual-wan-hub"></a>Configure Azure Firewall em um hub VIRTUAL WAN
 
@@ -32,20 +32,20 @@ Para criar um novo WAN virtual e um novo hub, utilize os passos nos seguintes ar
 
 A **página de visão geral** do seu WAN virtual mostra uma lista de centros virtuais e centros seguros. A seguinte figura mostra um WAN virtual sem centros seguros.
 
-[![visão geral](./media/howto-firewall/overview.png)](./media/howto-firewall/overview.png#lightbox)
+[![A screenshot mostra a página de visão geral para um WAN virtual com uma lista de centros virtuais.](./media/howto-firewall/overview.png)](./media/howto-firewall/overview.png#lightbox)
 
 ## <a name="convert-to-secured-hub"></a>Converter para centro seguro
 
 1. Na página **'Vista Geral'** para o seu WAN virtual, selecione o hub que pretende converter num hub seguro. Na página do hub virtual, você vê duas opções para colocar Azure Firewall neste hub. Selecione qualquer uma das opções.
 
-   [![segurança](./media/howto-firewall/security.png)](./media/howto-firewall/security.png#lightbox)
+   [![A screenshot mostra a página 'Vista Geral' para o seu WAN virtual, onde pode selecionar o Convert para o hub seguro ou o Azure Firewall.](./media/howto-firewall/security.png)](./media/howto-firewall/security.png#lightbox)
 
 1. Depois de selecionar uma das opções, vê o **Converse para proteger a** página do hub. Selecione um hub para converter e, em seguida, selecione **Seguinte: Azure Firewall** na parte inferior da página.
 
    [![selecionar hub](./media/howto-firewall/select-hub.png)](./media/howto-firewall/select-hub.png#lightbox)
 1. Depois de completar o fluxo de trabalho, **selecione Confirmar**.
 
-   [![confirmar](./media/howto-firewall/confirm.png)](./media/howto-firewall/confirm.png#lightbox)
+   [![A screenshot mostra o Converse para proteger o painel do hub com confirmação selecionado.](./media/howto-firewall/confirm.png)](./media/howto-firewall/confirm.png#lightbox)
 
 1. Depois de o hub ter sido convertido para um hub seguro, pode vê-lo na **página** geral do WAN virtual.
 
@@ -70,6 +70,6 @@ Para voltar à página **de visão geral** do hub, pode navegar de volta clicand
 
 [![voltar à visão geral](./media/howto-firewall/arrow.png)](./media/howto-firewall/arrow.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o VIRTUAL WAN, consulte as [FAQ.](virtual-wan-faq.md)
