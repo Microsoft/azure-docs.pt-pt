@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 8/10/2020
-ms.openlocfilehash: 10d253b3e470ea009944d4ccd756d4bbbe3766e7
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 5b1a5da688b162c85d2be8580e29dc6ee9db6d40
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029822"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906469"
 ---
 # <a name="server-group-size"></a>Tamanho do grupo de servidores
 
@@ -42,7 +42,7 @@ A Azure Database for PostgreSQL - Hyperscale (Citus) fornece escala de autosserv
 
 Para adicionar nós, vá ao separador **de armazenamento Compute +** no seu grupo de servidor Hyperscale (Citus).  Arrastar o slider para **a contagem de nóiros** altera o valor.
 
-![Sliders de recursos](./media/howto-hyperscale-scaling/01-sliders-workers.png)
+:::image type="content" source="./media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="Sliders de recursos":::
 
 Clique no botão **Guardar** para fazer com que o valor alterado faça efeito.
 
@@ -68,6 +68,6 @@ Além de adicionar novos nós, pode aumentar as capacidades dos nós existentes.
 
 Para alterar os vCores para todos os nós dos trabalhadores, ajuste o slider **vCores** em **Configuração (por nó de trabalhador)**. Os vCores do nó coordenador podem ser ajustados de forma independente. Ajuste o slider **vCores** na  **Configuração (nó coordenador)**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [as opções](concepts-hyperscale-configuration-options.md)de desempenho do grupo do servidor .

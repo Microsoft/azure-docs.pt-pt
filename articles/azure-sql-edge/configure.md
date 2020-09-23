@@ -1,6 +1,6 @@
 ---
-title: Configure Borda SQL Azure (Pré-visualização)
-description: Saiba como configurar a borda Azure SQL (pré-visualização).
+title: Configure Azure SQL Edge
+description: Saiba como configurar a Borda Azure SQL.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -8,15 +8,15 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 07/28/2020
-ms.openlocfilehash: 722d33e76b6009a44811dfcb8a3238b042ec6918
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/22/2020
+ms.openlocfilehash: b2c52457972d94b2e999c137d19d3a434ff17a7d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816886"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888370"
 ---
-# <a name="configure-azure-sql-edge-preview"></a>Configure Borda SQL Azure (Pré-visualização)
+# <a name="configure-azure-sql-edge"></a>Configure Azure SQL Edge
 
 Azure SQL Edge suporta a configuração através de uma das duas opções seguintes:
 
@@ -30,6 +30,15 @@ Azure SQL Edge suporta a configuração através de uma das duas opções seguin
 
 O Azure SQL Edge expõe várias variáveis ambientais diferentes que podem ser usadas para configurar o recipiente SQL Edge. Estas variáveis ambientais são um subconjunto dos disponíveis para o SQL Server em Linux. Para obter mais informações sobre o SQL Server sobre variáveis ambientais Linux, consulte [variáveis ambientais](/sql/linux/sql-server-linux-configure-environment-variables/).
 
+As seguintes novas variáveis ambientais foram adicionadas à Azure SQL Edge. 
+
+| Variável de ambiente | Descrição | Valores |     
+|-----|-----| ---------- |   
+| **MSSQL_TELEMETRY_ENABLED** | Ativar ou desativar a recolha de dados de utilização e diagnóstico. | VERDADEIRO ou FALSO |  
+| **MSSQL_TELEMETRY_DIR** | Define o directório-alvo para os ficheiros de auditoria de recolha de dados de utilização e diagnóstico. | Localização da pasta dentro do recipiente SQL Edge. Esta pasta pode ser mapeada para um volume de hospedeiro utilizando pontos de montagem ou volumes de dados. | 
+| **MSSQL_PACKAGE** | Especifica a localização do pacote dacpac ou bacpac a ser implantado. | Pasta, ficheiro ou URL SAS contendo os pacotes dacpac ou bacpac. Para obter mais informações, consulte [os pacotes DEPLOY SQL Database DACPAC e BACPAC em SQL Edge](deploy-dacpac.md). |
+
+
 O seguinte SQL Server na variável ambiente Linux não é suportado para Azure SQL Edge. Se definido, esta variável ambiente será ignorada durante a inicialização do recipiente.
 
 | Variável de ambiente | Descrição |
@@ -38,9 +47,6 @@ O seguinte SQL Server na variável ambiente Linux não é suportado para Azure S
 
 > [!IMPORTANT]
 > A variável de ambiente **MSSQL_PID** para SQL Edge apenas aceita **Premium** e **Developer** como valores válidos. O Azure SQL Edge não suporta a inicialização utilizando uma chave de produto.
-
-> [!NOTE]
-> Descarregue os [Termos de Licença de Software da Microsoft](https://go.microsoft.com/fwlink/?linkid=2128283) para Azure SQL Edge.
 
 ### <a name="specify-the-environment-variables"></a>Especificar as variáveis ambientais
 
@@ -53,6 +59,9 @@ Adicionar valores em **Variáveis Ambientais.**
 Adicione valores em **Opções de Criação de Recipientes.**
 
 ![Definir usando opções de criação de recipiente](media/configure/set-environment-variables-using-create-options.png)
+
+> [!NOTE]
+> No modo de implantação desligado, as variáveis ambientais podem ser especificadas utilizando a `-e` opção ou `--env` a `--env-file` opção do `docker run` comando.
 
 ## <a name="configure-by-using-an-mssqlconf-file"></a>Configure usando um ficheiro mssql.conf
 
@@ -71,13 +80,20 @@ O Azure SQL Edge não inclui o [utilitário de configuração mssql-conf](/sql/l
     }
 ```
 
+As seguintes novas opções mssql.conf foram adicionadas para Azure SQL Edge. 
+
+|Opção|Descrição|
+|:---|:---|
+|**feedback do cliente** | Escolha se o SQL Server envia feedback para a Microsoft. Para obter mais informações, consulte [Desativar a utilização e recolha de dados de diagnóstico](usage-and-diagnostics-data-configuration.md#disable-usage-and-diagnostic-data-collection)|      
+|**userrequestedlocalauditdirectory** | Define o directório-alvo para os ficheiros de auditoria de recolha de dados de utilização e diagnóstico. Para mais informações, consulte [auditoria local de utilização e recolha de dados de diagnóstico](usage-and-diagnostics-data-configuration.md#local-audit-of-usage-and-diagnostic-data-collection) |        
+
 As seguintes opções mssql.conf não são aplicáveis à SQL Edge:
 
 |Opção|Descrição|
 |:---|:---|
-|**Feedback do cliente** | Escolha se o SQL Server envia feedback para a Microsoft. |
+|**Comentários dos clientes** | Escolha se o SQL Server envia feedback para a Microsoft. |
 |**Perfil de correio de base de dados** | Desacrie o perfil de correio de base de dados predefinido para o SQL Server no Linux. |
-|**Elevada disponibilidade** | Ativar grupos de disponibilidade. |
+|**Alta disponibilidade** | Ativar grupos de disponibilidade. |
 |**Coordenador de transações distribuídas da Microsoft** | Configure e resolva os problemas msdTC em Linux. As opções adicionais de configuração distribuídas relacionadas com transações não são suportadas para o SQL Edge. Para obter mais informações sobre estas opções de configuração adicionais, consulte [Configure MSDTC](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#msdtc). |
 |**Serviços ML EULAs** | Aceite eulas R e Python para pacotes de aprendizagem automática Azure. Aplica-se apenas ao SQL Server 2019.|
 |**saída da rede de trabalho** |Permitir o acesso à rede de saída para [extensões de Serviços de Machine Learning](/sql/linux/sql-server-linux-setup-machine-learning/) R, Python e Java.|
@@ -116,7 +132,7 @@ traceflag2 = 1204
 
 ## <a name="run-azure-sql-edge-as-non-root-user"></a>Executar Azure SQL Edge como utilizador não-raiz
 
-Começando pelo Azure SQL Edge CTP2.2, os recipientes SQL Edge podem funcionar com um utilizador/grupo sem raízes. Quando implantados através do Azure Marketplace, a menos que seja especificado um utilizador/grupo diferente, os recipientes SQL Edge começam como o utilizador mssql (não raiz). Para especificar um utilizador diferente sem raízes durante a implementação, adicione o `*"User": "<name|uid>[:<group|gid>]"*` par de valores-chave sob o recipiente criar opções. No exemplo abaixo, a SqL Edge está configurada para começar como utilizador `*IoTAdmin*` .
+Por predefinição, os recipientes Azure SQL Edge funcionam com um utilizador/grupo não raiz. Quando implantados através do Azure Marketplace (ou utilizando o estivador), a menos que seja especificado um utilizador/grupo diferente, os recipientes SQL Edge começam como o utilizador mssql (não raiz). Para especificar um utilizador diferente sem raízes durante a implementação, adicione o `*"User": "<name|uid>[:<group|gid>]"*` par de valores-chave sob o recipiente criar opções. No exemplo abaixo, a SqL Edge está configurada para começar como utilizador `*IoTAdmin*` .
 
 ```json
 {
@@ -140,7 +156,7 @@ chown -R 10001:0 <database file dir>
 
 ### <a name="upgrading-from-earlier-ctp-releases"></a>Upgrade de versões ctp anteriores
 
-Anteriormente, os CTP's de Azure SQL Edge foram configurados para funcionar como os utilizadores de raiz. As seguintes opções estão disponíveis ao atualizar-se a partir de CTP anteriores
+Os CTPs anteriores do Azure SQL Edge foram configurados para funcionar como os utilizadores de raiz. As seguintes opções estão disponíveis ao atualizar os CTPs anteriores.
 
 - Continue a utilizar o utilizador raiz - Para continuar a utilizar o utilizador raiz, adicione o `*"User": "0:0"*` par de valores-chave sob opções de criação de recipientes.
 - Utilize o utilizador mssql predefinido - Para utilizar o utilizador mssql predefinido, siga os passos abaixo
@@ -154,7 +170,7 @@ Anteriormente, os CTP's de Azure SQL Edge foram configurados para funcionar como
     sudo chmod -R g=u /var/lib/docker/volumes/kafka_sqldata/
     ```
 - Utilize uma conta de utilizador diferente não raiz - Para utilizar uma conta de utilizador diferente não raiz
-  - Atualize o recipiente criar opções para especificar adicionar `*"User": "user_name | user_id*` o par de valores-chave sob opções de criação de recipientes. Por favor, substitua user_name ou user_id por um user_name ou user_id real do seu anfitrião. 
+  - Atualize o recipiente criar opções para especificar adicionar `*"User": "user_name | user_id*` o par de valores-chave sob opções de criação de recipientes. Substitua user_name ou user_id por um user_name ou user_id reais do seu anfitrião estivador. 
   - Altere as permissões no volume do diretório/montagem.
 
 ## <a name="persist-your-data"></a>Persistir os seus dados
@@ -169,11 +185,11 @@ As alterações de configuração do Azure SQL Edge e os ficheiros de base de da
 A primeira opção é montar um diretório no seu anfitrião como um volume de dados no seu recipiente. Para isso, use o `docker run` comando com a `-v <host directory>:/var/opt/mssql` bandeira. Isto permite restaurar os dados entre execuções de contentores.
 
 ```bash
-docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge-developer
+docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge
 ```
 
 ```PowerShell
-docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge-developer
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v <host directory>/data:/var/opt/mssql/data -v <host directory>/log:/var/opt/mssql/log -v <host directory>/secrets:/var/opt/mssql/secrets -d mcr.microsoft.com/azure-sql-edge
 ```
 
 Esta técnica também permite partilhar e ver os ficheiros do hospedeiro fora do Docker.
@@ -189,11 +205,11 @@ Esta técnica também permite partilhar e ver os ficheiros do hospedeiro fora do
 A segunda opção é utilizar um recipiente de volume de dados. Pode criar um recipiente de volume de dados especificando um nome de volume em vez de um diretório de anfitrião com o `-v` parâmetro. O exemplo a seguir cria um volume de dados partilhado chamado **sqlvolume**.
 
 ```bash
-docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge-developer
+docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge
 ```
 
 ```PowerShell
-docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge-developer
+docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge
 ```
 
 > [!NOTE]

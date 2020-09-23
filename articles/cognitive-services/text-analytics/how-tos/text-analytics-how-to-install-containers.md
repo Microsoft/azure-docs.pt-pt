@@ -11,19 +11,20 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 61303a52212c4cec88dee2ccd8a1c08fb971a9b8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a83fd67a9ad5e5a36555fcbaed65b1d76936c33d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545663"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906102"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contentores da Análise de Texto
 
 > [!NOTE]
 > * O recipiente para Análise de Sentimento v3 está agora geralmente disponível. Os contentores de deteção de idioma e extração de expressões-chave estão disponíveis como uma pré-visualização pública livre.
 > * A ligação da entidade e o NER não estão atualmente disponíveis como recipiente.
-> * Atualmente, não lhe será faturado pela utilização dos contentores de Análise de Texto para a Saúde.
+> * O acesso ao Texto Analytics para recipiente de saúde requer um [formulário de pedido](https://aka.ms/cognitivegate). Atualmente, não será cobrado pelo seu uso.
+> * As localizações de imagem do contentor podem ter mudado recentemente. Leia este artigo para ver a localização atualizada deste recipiente.
 
 Os contentores permitem-lhe executar as APIs de Análise de Texto no seu próprio ambiente e são ótimos para os requisitos específicos de governação de dados e segurança. Os recipientes Text Analytics fornecem processamento avançado da linguagem natural sobre o texto cru, e incluem três funções principais: análise de sentimento, extração de frases-chave e deteção de linguagem. 
 

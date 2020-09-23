@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: douglas, carlrab
+ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: a54cf2ed228a166ea3d87c14515f41d5b0e7aed9
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: a33ff6b927045389c3692201fa70839c6a466ede
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090232"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887664"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migração de casos de servidor SQL para Azure SQL Caso Gerido
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -198,7 +198,7 @@ Mesmo que não faça algumas alterações na sua gestão durante a migração, e
 
 Por exemplo, não é preciso criar cópias de segurança em caso gerido - o serviço realiza cópias de segurança automaticamente para si. Já não te deves preocupar em agendar, tirar e gerir os backups. A SQL Managed Instance proporciona-lhe a capacidade de restaurar a qualquer ponto no tempo dentro deste período de retenção utilizando [Point in Time Recovery (PITR)](../database/recovery-using-backups.md#point-in-time-restore). Além disso, não precisa de se preocupar em criar alta disponibilidade, uma vez que a [alta disponibilidade](../database/high-availability-sla.md) é incorporada.
 
-Para reforçar a segurança, considere a utilização da [Autenticação do Diretório Ativo Azure,](../database/security-overview.md) [a auditoria, a](auditing-configure.md) [deteção de ameaças,](../database/advanced-data-security.md) [a segurança ao nível da linha](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)e a máscara dinâmica de [dados.](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)
+Para reforçar a segurança, considere a utilização da [Autenticação do Diretório Ativo Azure,](../database/security-overview.md) [a auditoria, a](auditing-configure.md) [deteção de ameaças,](../database/azure-defender-for-sql.md) [a segurança ao nível da linha](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)e a máscara dinâmica de [dados.](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)
 
 Além de funcionalidades avançadas de gestão e segurança, um caso gerido fornece um conjunto de ferramentas avançadas que podem ajudá-lo a [monitorizar e afinar a sua carga de trabalho.](../database/monitor-tune-overview.md) [O Azure SQL Analytics](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) permite-lhe monitorizar um grande conjunto de casos geridos e centralizar a monitorização de um grande número de casos e bases de dados. [A sintonização automática](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) em instâncias geridas monitoriza continuamente o desempenho das estatísticas de execução do seu plano SQL e corrige automaticamente os problemas de desempenho identificados.
 

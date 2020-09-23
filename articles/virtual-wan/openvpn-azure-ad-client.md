@@ -1,18 +1,18 @@
 ---
 title: 'VPN Gateway: cliente VPN para ligações P2S do protocolo OpenVPN: Autenticação Azure AD'
-description: Pode utilizar o P2S VPN para ligar ao seu VNet utilizando a autenticação AD Azure
+description: Saiba como utilizar o P2S VPN para ligar ao seu VNet utilizando a autenticação AD Azure.
 services: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 08/04/2020
-ms.author: alzam
-ms.openlocfilehash: 97620192fb645dd453d1479d1e755e87cf9afd5c
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.date: 09/22/2020
+ms.author: cherylmc
+ms.openlocfilehash: e64de987bd82f6b93350cdd706fc1a243d2855b1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87761183"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977842"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configure a VPN client for P2S OpenVPN protocol connections: Azure AD authentication (Configurar um cliente VPN para ligações de protocolo P2S OpenVPN: autenticação do Azure Active Directory)
 
@@ -88,11 +88,11 @@ Uma vez que tenha um perfil de trabalho e precise distribuí-lo a outros utiliza
 
 1. Selecione as elipses ao lado do perfil do cliente que pretende eliminar. Em seguida, **selecione Remover**.
 
-    ![eliminação](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. Selecione **Remover** para eliminar.
 
-    ![eliminação](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="create-a-connection"></a><a name="connection"></a>Criar uma ligação
 
@@ -252,7 +252,7 @@ Pode modificar o ficheiro XML de ** \<excluderoutes> \<route> \<destination> \<m
 ```
 ### <a name="can-i-import-the-profile-from-a-command-line-prompt"></a>Posso importar o perfil de uma linha de comando?
 
-Pode importar o perfil a partir de uma linha de comando, colocando o ficheiro **deazurevpnconfig.xml** descarregado no **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** e executando o seguinte comando:
+Pode importar o perfil a partir de uma linha de comando, colocando o ficheiro ** deazurevpnconfig.xml** descarregado no **%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState** e executando o seguinte comando:
 
 ```
 azurevpn -i azurevpnconfig.xml 

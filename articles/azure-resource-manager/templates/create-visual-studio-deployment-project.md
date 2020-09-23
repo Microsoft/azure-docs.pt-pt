@@ -3,12 +3,12 @@ title: Criar & implementar projetos de grupo de recursos do Estúdio Visual
 description: Use o Visual Studio para criar um projeto de grupo de recursos Azure e implementar os recursos para a Azure.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 5127732ac0c33d4b27f70bd616fb23aaec5c871f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eacab3e1919b68661dd24eb78e3b0eca51cf4972
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76152736"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985243"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criar e implementar grupos de recursos do Azure através do Visual Studio
 
@@ -23,7 +23,7 @@ Nesta secção, você cria um projeto do Grupo de Recursos Azure com um modelo *
 1. No Estúdio Visual, escolha **File** > **New** > **Project**.
 1. Selecione o modelo de projeto **do Grupo de Recursos Azure** e em **seguida**.
 
-    ![Criar o projeto](./media/create-visual-studio-deployment-project/create-project.png)
+    ![O Screenshot mostra a criação de uma nova janela de projeto com o Azure Resource Group e o botão Next realçado.](./media/create-visual-studio-deployment-project/create-project.png)
 
 1. Dê um nome ao seu projeto. As outras definições padrão são provavelmente boas, mas reveja-as para que funcionem para o seu ambiente. Quando terminar, selecione **Criar**.
 
@@ -65,7 +65,7 @@ Pode personalizar um projeto de implementação modificando o modelo de Gestor d
 
 1. Pode adicionar um recurso, selecionando o botão **Adicionar Recurso** na parte superior da janela Contorno de JSON ou clicando com o botão direito do rato em **recursos** e selecionando **Adicionar Novo Recurso**.
 
-   ![Adicionar recurso](./media/create-visual-studio-deployment-project/add-resource.png)
+   ![A screenshot mostra a janela de contorno JSON com a opção Add New Resource realçada.](./media/create-visual-studio-deployment-project/add-resource.png)
 
 1. Selecione **Conta de Armazenamento** e dê-lhe um nome. Forneça um nome com um máximo de 11 carateres e apenas números e letras minúsculas.
 
@@ -123,7 +123,7 @@ Está agora pronto para implantar o seu projeto num grupo de recursos.
 
 Por predefinição, o script PowerShell (Deploy-AzureResourceGroup.ps1) no projeto utiliza o módulo AzureRM. Se ainda tiver o módulo AzureRM instalado e quiser continuar a usá-lo, pode utilizar este script predefinido. Com este script, pode utilizar a interface visual do Estúdio para implementar a sua solução.
 
-No entanto, se emigrou para o novo [módulo Az,](/powershell/azure/new-azureps-module-az)precisa de adicionar um novo script ao seu projeto. Para adicionar um script que utiliza o módulo Az, copie o [scriptDeploy-AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) e adicione-o ao seu projeto. Para utilizar este script para implementação, tem de o executar a partir de uma consola PowerShell, em vez de utilizar a interface de implementação do Visual Studio.
+No entanto, se emigrou para o novo [módulo Az,](/powershell/azure/new-azureps-module-az)precisa de adicionar um novo script ao seu projeto. Para adicionar um script que utiliza o módulo Az, copie o [ scriptDeploy-AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) e adicione-o ao seu projeto. Para utilizar este script para implementação, tem de o executar a partir de uma consola PowerShell, em vez de utilizar a interface de implementação do Visual Studio.
 
 Ambas as abordagens são mostradas neste artigo. Este artigo refere-se ao script padrão como o script do módulo AzureRM, e o novo script como o script do módulo Az.
 
@@ -189,7 +189,7 @@ Neste momento, implementou a infraestrutura para a sua aplicação, mas não exi
 
 1. Agora, tem de verificar se o projeto do grupo de recursos deteta o novo projeto. Volte ao seu projeto de grupo de recursos (ExemploAppDeploy). Clique com o botão direito do rato em **Referências** e selecione **Adicionar Referência**.
 
-    ![Adicionar referência](./media/create-visual-studio-deployment-project/add-new-reference.png)
+    ![O screenshot mostra o menu ExemploAppDeploy com a opção Add Reference em destaque.](./media/create-visual-studio-deployment-project/add-new-reference.png)
 
 1. Selecione o projeto da aplicação Web criado.
 
@@ -364,7 +364,7 @@ Não está limitado apenas aos recursos disponíveis através da interface do Vi
 
 1. Depois de concluída a implementação, veja o seu painel de instrumentos no portal. Selecione **Dashboard** e escolha o que implementou.
 
-   ![Dashboard Personalizado](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
+   ![A screenshot mostra a página do Dashboard com um painel personalizado de exemplo realçado.](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
 
 1. Vê o painel personalizado.
 
@@ -372,7 +372,7 @@ Não está limitado apenas aos recursos disponíveis através da interface do Vi
 
 Pode gerir o acesso ao dashboard através de grupos do RBAC. Também pode personalizar a aparência do dashboard após a sua implementação. No entanto, se voltar a implementar o grupo de recursos, o dashboard ficará no estado predefinido no seu modelo. Para obter mais informações sobre a criação de dashboards, veja [Criar Dashboards do Azure programaticamente](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos.
 
@@ -382,7 +382,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 1. **Selecione Eliminar o grupo** de recursos do menu superior.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a criar e implementar modelos usando o Visual Studio. Para saber mais sobre o desenvolvimento do modelo, consulte a nossa nova série tutorial de principiantes:
 

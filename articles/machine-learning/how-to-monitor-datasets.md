@@ -11,15 +11,15 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 4b2b435be2a39b6e31a7f44fa6acbe7e1bc9c2c0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d60a963f8ad4b29d3c282d30e6aca9973208860b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661679"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905146"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detetar deriva de dados (pré-visualização) em conjuntos de dados
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 > [!IMPORTANT]
 > A deteção da deriva de dados nos conjuntos de dados encontra-se atualmente em visualização pública.
@@ -37,9 +37,6 @@ Com monitores de conjunto de dados Azure Machine Learning (pré-visualização),
 Um [conjunto de dados de aprendizagem Azure Machine](how-to-create-register-datasets.md) é utilizado para criar o monitor. O conjunto de dados deve incluir uma coluna de horatamp.
 
 Pode ver métricas de deriva de dados com o Python SDK ou no estúdio Azure Machine Learning.  Outras métricas e insights estão disponíveis através do recurso [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) associado ao espaço de trabalho Azure Machine Learning.
-
-> [!Important]
-> A deriva de dados de monitorização com o SDK está disponível em todas as edições. No entanto, monitorizar a deriva de dados através do estúdio na web é apenas a edição da Enterprise.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -93,7 +90,7 @@ Os monitores do Dataset dependem dos seguintes serviços Azure.
 | *Conjunto de dados* | Drift usa conjuntos de dados de Machine Learning para recuperar dados de treino e comparar dados para a formação de modelos.  Gerar perfil de dados é usado para gerar algumas das métricas relatadas, tais como min, máx, valores distintos, valores distintos contam. |
 | *Gasoduto e computação Azureml* | O trabalho de cálculo à deriva está alojado no gasoduto azureml.  O trabalho é desencadeado a pedido ou por horário para funcionar num cálculo configurado no tempo de criação do monitor de drift.
 | *Insights de aplicação*| Drift emite métricas para Application Insights pertencentes ao espaço de trabalho de machine learning.
-| *Armazenamento de blobs do Azure*| Drift emite métricas em formato json para armazenamento de bolhas Azure.
+| *Armazenamento de bolhas Azure*| Drift emite métricas em formato json para armazenamento de bolhas Azure.
 
 ## <a name="how-dataset-monitors-data"></a>Como o conjunto de dados monitoriza os dados
 
@@ -135,7 +132,6 @@ dset = dset.register(ws, 'target')
 Para obter um exemplo completo da utilização `timeseries` do traço de conjuntos de dados, consulte o caderno de [exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) ou a [documentação SDK dos conjuntos de dados](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
 ### <a name="azure-machine-learning-studio"></a><a name="studio-dataset"></a>Azure Machine Learning studio
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 Se criar o seu conjunto de dados utilizando o estúdio Azure Machine Learning, certifique-se de que o caminho para os seus dados contém informações de timetamp, inclua todas as sub-dobradeiras com dados e defina o formato de partição.
 
@@ -209,15 +205,13 @@ monitor = monitor.enable_schedule()
 Para obter um exemplo completo de configuração de um conjunto de `timeseries` dados e detetor de deriva de dados, consulte o nosso [caderno de exemplo](https://aka.ms/datadrift-notebook).
 
 ### <a name="azure-machine-learning-studio"></a><a name="studio-monitor"></a> Estúdio Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
-Para configurar alertas no seu monitor de conjuntos de dados, o espaço de trabalho que contém o conjunto de dados para o quais pretende criar um monitor deve ter capacidades de edição Enterprise.
+1. Navegue para a [página inicial do estúdio.](https://ml.azure.com)
+1. Selecione o **separador Datasets** à esquerda. 
+1. Selecione **monitores dataset**.
+   ![Lista de monitores](./media/how-to-monitor-datasets/monitor-list.png)
 
-Após a confirmação da funcionalidade do espaço de trabalho, navegue para a [página inicial do estúdio](https://ml.azure.com) e selecione o **separador Datasets** à esquerda. Selecione **monitores dataset**.
-
-![Lista de monitores](./media/how-to-monitor-datasets/monitor-list.png)
-
-Clique no botão **+Criar monitor** e continue através do assistente clicando em **Seguinte**.  
+1. Clique no botão **+Criar monitor** e continue através do assistente clicando em **Seguinte**.  
 
 :::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Criar um assistente de monitor":::
 
@@ -325,7 +319,7 @@ Pode utilizar um grupo de ação existente ou criar um novo para definir as medi
 
 ![Novo grupo de ação](./media/how-to-monitor-datasets/action-group.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Dirija-se ao [estúdio Azure Machine Learning](https://ml.azure.com) ou ao caderno [Python](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datadrift-tutorial/datadrift-tutorial.ipynb) para configurar um monitor de conjunto de dados.
 * Veja como configurar a deriva de dados em [modelos implantados no Serviço Azure Kubernetes](how-to-monitor-data-drift.md).

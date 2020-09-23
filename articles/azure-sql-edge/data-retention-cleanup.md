@@ -1,6 +1,6 @@
 ---
-title: Gerir dados históricos com política de retenção - Azure SQL Edge (Preview)
-description: Saiba como gerir dados históricos com a política de retenção em Azure SQL Edge (Preview)
+title: Gerir dados históricos com política de retenção - Azure SQL Edge
+description: Saiba como gerir dados históricos com a política de retenção em Azure SQL Edge
 keywords: SQL Edge, retenção de dados
 services: sql-edge
 ms.service: sql-edge
@@ -9,22 +9,21 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 9acec467819f159623176edf2f3f763a55019eb4
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 45ce874ffb626f63b2239c66afdefd091114cbd2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89550757"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888133"
 ---
 # <a name="manage-historical-data-with-retention-policy"></a>Gerir dados históricos com política de retenção
 
 A Conservação de Dados pode ser ativada na base de dados e em qualquer uma das tabelas subjacentes individualmente, permitindo aos utilizadores criar políticas de envelhecimento flexível para as suas tabelas e bases de dados. A aplicação da retenção de dados é simples: requer apenas um parâmetro a ser definido durante a criação da tabela ou como parte de uma operação de mesa alterada. 
 
-Após a política de retenção de dados ser desfiada para uma base de dados e para a tabela subjacente, uma tarefa de temporizador de fundo executa para remover quaisquer registos obsoletos da tabela ativada para a retenção de dados. A identificação das linhas correspondentes e a sua remoção da tabela ocorrem de forma transparente, na tarefa de fundo que é programada e executada pelo sistema. A condição de idade para as linhas de mesa é verificada com base na coluna utilizada como a `filter_column` definição da tabela. Se o período de retenção, por exemplo, for fixado para uma semana, as filas de mesa elegíveis para limpeza satisfazem a seguinte condição: 
+Após a política de retenção de dados ser desfiada para uma base de dados e para a tabela subjacente, uma tarefa de temporizador de fundo executa para remover quaisquer registos obsoletos da tabela ativada para a retenção de dados. A identificação das linhas correspondentes e a sua remoção da tabela ocorrem de forma transparente, na tarefa de fundo que é programada e executada pelo sistema. A condição de idade para as linhas de mesa é verificada com base na coluna utilizada como a `filter_column` definição da tabela. Se o período de retenção, por exemplo, for fixado para uma semana, as filas de mesa elegíveis para limpeza satisfazem uma das seguintes condições: 
 
-```sql
-filter_column < DATEADD(WEEK, -1, SYSUTCDATETIME())
-```
+- Se a coluna do filtro utilizar o tipo de dados DATETIMEOFFSET, então a condição é `filter_column < DATEADD(WEEK, -1, SYSUTCDATETIME())`
+- Caso contrário, a condição é `filter_column < DATEADD(WEEK, -1, SYSDATETIME())`
 
 ## <a name="data-retention-cleanup-phases"></a>Fases de limpeza da conservação de dados
 
@@ -37,7 +36,7 @@ A operação de limpeza da conservação de dados é composta por duas fases.
 
 ## <a name="manual-cleanup"></a>Limpeza manual
 
-Dependendo das definições de retenção de dados numa tabela e da natureza da carga de trabalho na base de dados, é possível que o fio de limpeza automático não remova completamente todas as linhas obsoletas durante o seu funcionaamento. Para ajudar e permitir que os utilizadores removam manualmente linhas obsoletas, o `sys.sp_cleanup_data_retention` procedimento armazenado foi introduzido no Azure SQL Edge (Preview). 
+Dependendo das definições de retenção de dados numa tabela e da natureza da carga de trabalho na base de dados, é possível que o fio de limpeza automático não remova completamente todas as linhas obsoletas durante o seu funcionaamento. Para ajudar e permitir que os utilizadores removam manualmente as linhas obsoletas, o `sys.sp_cleanup_data_retention` procedimento armazenado foi introduzido no Azure SQL Edge. 
 
 Este procedimento armazenado requer três parâmetros. 
     - Nome do esquema - Nome do próprio esquema para a mesa. Este é um parâmetro necessário. 
@@ -67,7 +66,7 @@ Uma excelente compressão de dados e uma limpeza eficiente da retenção fazem d
 
 ## <a name="monitoring-data-retention-cleanup"></a>Monitorização da limpeza da conservação de dados
 
-As operações de limpeza da política de retenção de dados podem ser monitorizadas através de eventos alargados (XEvents) em Azure SQL Edge (Preview). Para obter mais informações sobre eventos alargados, consulte [a Visão Geral do XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events).
+As operações de limpeza da política de retenção de dados podem ser monitorizadas através de eventos alargados (XEvents) em Azure SQL Edge. Para obter mais informações sobre eventos alargados, consulte [a Visão Geral do XEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events). 
 
 Os seis eventos prolongados seguintes ajudam a acompanhar o estado das operações de limpeza. 
 
@@ -78,7 +77,9 @@ Os seis eventos prolongados seguintes ajudam a acompanhar o estado das operaçõ
 | data_retention_task_exception  | Ocorre quando a tarefa de fundo para limpeza de tabelas com política de retenção falha fora do processo de limpeza de retenção específico para a mesa. |
 | data_retention_cleanup_started  | Ocorre quando o processo de limpeza da tabela com a política de retenção de dados começa. |
 | data_retention_cleanup_exception  | Ocorre o processo de limpeza da tabela com falha na política de retenção. |
-| data_retention_cleanup_completed  | Ocorre quando o processo de limpeza da tabela com a política de retenção de dados termina. |
+| data_retention_cleanup_completed  | Ocorre quando o processo de limpeza da tabela com a política de retenção de dados termina. |  
+
+Adicionalmente, um novo tipo de tampão de anel nomeado `RING_BUFFER_DATA_RETENTION_CLEANUP` foi adicionado à sys.dm_os_ring_buffers vista dinâmica de gestão. Esta visão pode ser usada para monitorizar as operações de limpeza da conservação de dados. 
 
 
 ## <a name="next-steps"></a>Passos Seguintes

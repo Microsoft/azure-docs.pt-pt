@@ -8,12 +8,12 @@ ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-t
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 1f8f4dee2ed1e6dc5cdf6985c1149db0dcaed7c2
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: ab4783d2bcce6ec42d49ef9a3e70d7a1acf83b8d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185932"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906586"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Utilize Node.js para ligar e consultar dados na Base de Dados Azure para o MySQL
 
@@ -37,7 +37,7 @@ Dependendo da sua plataforma, siga as instruções na secção apropriada para i
 
 1. Visite a [página de transferências do Node. js](https://nodejs.org/en/download/) e, em seguida, selecione a opção de instalador Windows que pretende.
 2. Crie uma pasta de projeto local , como `nodejsmysql`. 
-3. Abra o pedido de comando e, em seguida, mude o diretório para a pasta do projeto, como`cd c:\nodejsmysql\`
+3. Abra o pedido de comando e, em seguida, mude o diretório para a pasta do projeto, como `cd c:\nodejsmysql\`
 4. Executar a ferramenta NPM para instalar a biblioteca mysql na pasta do projeto.
 
    ```cmd
@@ -93,7 +93,7 @@ Obtenha as informações de ligação necessárias para se ligar à Base de Dado
 2. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos**e, em seguida, procure o servidor que criou (como o **mydemoserver).**
 3. Selecione o nome do servidor.
 4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
- ![Nome do servidor da Base de Dados do Azure para o MySQL](./media/connect-nodejs/server-name-azure-database-mysql.png)
+ :::image type="content" source="./media/connect-nodejs/server-name-azure-database-mysql.png" alt-text="Nome do servidor da Base de Dados do Azure para o MySQL":::
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>Executar o código JavaScript no Node.js
 
@@ -104,7 +104,7 @@ Obtenha as informações de ligação necessárias para se ligar à Base de Dado
 
 ## <a name="connect-create-table-and-insert-data"></a>Ligar, criar tabela e inserir dados
 
-Utilize o seguinte código para ligar e carregar os dados utilizando **a TABELA CREATE** e INSERIR **nas** declarações SQL.
+Utilize o seguinte código para ligar e carregar os dados utilizando **a TABELA CREATE** e INSERIR  **nas** declarações SQL.
 
 O método [mysql.createConnection()](https://github.com/mysqljs/mysql#establishing-connections) é utilizado para fazer a interface com o servidor MySQL. A função [connect()](https://github.com/mysqljs/mysql#establishing-connections) é utilizada para estabelecer a ligação ao servidor. A função [query()](https://github.com/mysqljs/mysql#performing-queries) é utilizada para executar a consulta SQL na base de dados MySQL. 
 

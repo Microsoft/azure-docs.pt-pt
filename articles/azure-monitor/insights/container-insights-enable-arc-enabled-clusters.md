@@ -3,12 +3,12 @@ title: Configure Azure Arc permitiu o agrupamento kubernetes com monitor Azure p
 description: Este artigo descreve como configurar a monitorização com o Azure Monitor para contentores em Azure Arc ativados aglomerados kubernetes.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 54a8fea6ddb46dc00fff29ad83a2a348d9218380
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 44512acbd09df449dbba2177bb10f22f480b82d6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090623"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977534"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Permitir a monitorização do cluster Kubernetes habilitado pelo Arco Azure
 
@@ -63,7 +63,7 @@ Antes de começar, certifique-se de que tem o seguinte:
     >[!IMPORTANT]
     >A versão de agente mínimo suportada para monitorizar os clusters Kubernetes ativados pelo Arco é ciprod04162020 ou mais tarde.
 
-- [O PowerShell Core](/powershell/scripting/install/installing-powershell?view=powershell-6) é necessário se ativar a monitorização utilizando o método scripted PowerShell.
+- [O PowerShell Core](/powershell/scripting/install/installing-powershell?view=powershell-6&preserve-view=true) é necessário se ativar a monitorização utilizando o método scripted PowerShell.
 
 - [A versão bash 4](https://www.gnu.org/software/bash/) é necessária se ativar a monitorização utilizando o método de escrita Bash.
 
@@ -137,6 +137,33 @@ Para permitir a monitorização do seu cluster utilizando o script PowerShell ou
 
 Depois de ter ativado a monitorização, pode demorar cerca de 15 minutos até poder ver as métricas de saúde para o cluster.
 
+### <a name="using-service-principal"></a>Usando o principal de serviço
+O script *enable-monitoring.ps1* utiliza o login do dispositivo interativo. Se preferir login não interativo, pode utilizar um principal de serviço existente ou criar um novo que tenha as permissões necessárias, conforme descrito nos [Pré-Requisitos.](#prerequisites) Para utilizar o principal do serviço, terá de passar $servicePrincipalClientId, $servicePrincipalClientSecret e $tenantId parâmetros com valores do principal de serviço que pretendeu utilizar para *enable-monitoring.ps1* script.
+
+```powershell
+$subscriptionId = "<subscription Id of the Azure Arc connected cluster resource>"
+$servicePrincipal = New-AzADServicePrincipal -Role Contributor -Scope "/subscriptions/$subscriptionId"
+```
+
+A atribuição de funções abaixo só é aplicável se estiver a utilizar o espaço de trabalho do Log Analytics existente numa Subscrição Azure diferente do recurso Cluster Conectado Arc K8s.
+
+```powershell
+$logAnalyticsWorkspaceResourceId = "<Azure Resource Id of the Log Analytics Workspace>" # format of the Azure Log Analytics workspace should be /subscriptions/<subId>/resourcegroups/<rgName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>
+New-AzRoleAssignment -RoleDefinitionName 'Log Analytics Contributor'  -ObjectId $servicePrincipal.Id -Scope  $logAnalyticsWorkspaceResourceId
+
+$servicePrincipalClientId =  $servicePrincipal.ApplicationId.ToString()
+$servicePrincipalClientSecret = [System.Net.NetworkCredential]::new("", $servicePrincipal.Secret).Password
+$tenantId = (Get-AzSubscription -SubscriptionId $subscriptionId).TenantId
+```
+
+Por exemplo:
+
+```powershell
+.\enable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -servicePrincipalClientId $servicePrincipalClientId -servicePrincipalClientSecret $servicePrincipalClientSecret -tenantId $tenantId -kubeContext $kubeContext -workspaceResourceId $logAnalyticsWorkspaceResourceId -proxyEndpoint $proxyEndpoint
+```
+
+
+
 ## <a name="enable-using-bash-script"></a>Ativar usando o script de bash
 
 Execute os seguintes passos para permitir a monitorização utilizando o roteiro de bash fornecido.
@@ -162,7 +189,7 @@ Execute os seguintes passos para permitir a monitorização utilizando o roteiro
 4. Se pretender utilizar o espaço de trabalho Azure Monitor Log Analytics, configuure a variável `logAnalyticsWorkspaceResourceId` com o valor correspondente representando o ID de recurso do espaço de trabalho. Caso contrário, desacorde a variável `""` e o script cria um espaço de trabalho predefinido no grupo de recursos predefinidos da subscrição do cluster se já não existir na região. O espaço de trabalho padrão criado assemelha-se ao formato *defaultWorkspace- \<SubscriptionID> - \<Region> *.
 
     ```bash
-    export logAnalyticsWorkspaceResourceId=“/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
+    export logAnalyticsWorkspaceResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>"
     ```
 
 5. Se o seu cluster Kubernetes ativado pelo Arco comunicar através de um servidor proxy, configuure a variável `proxyEndpoint` com o URL do servidor proxy. Se o cluster não comunicar através de um servidor proxy, então pode definir o valor para `""` . Para mais informações, consulte [o ponto final de proxy Configure mais](#configure-proxy-endpoint) tarde neste artigo.
@@ -194,6 +221,31 @@ Execute os seguintes passos para permitir a monitorização utilizando o roteiro
     ```
 
 Depois de ter ativado a monitorização, pode demorar cerca de 15 minutos até poder ver as métricas de saúde para o cluster.
+
+### <a name="using-service-principal"></a>Usando o principal de serviço
+O *enable-monitoring.sh* de script de bash utiliza o login do dispositivo interativo. Se preferir login não interativo, pode utilizar um principal de serviço existente ou criar um novo que tenha as permissões necessárias, conforme descrito nos [Pré-Requisitos.](#prerequisites) Para usar o principal do serviço, você terá que passar -- cliente-id, --cliente-secreto e --tenant-id valores de id de serviço que você pretendeu usar para *enable-monitoring.sh* script de bash.
+
+```bash
+subscriptionId="<subscription Id of the Azure Arc connected cluster resource>"
+servicePrincipal=$(az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${subscriptionId}")
+servicePrincipalClientId=$(echo $servicePrincipal | jq -r '.appId')
+```
+
+A atribuição de funções abaixo só é aplicável se estiver a utilizar o espaço de trabalho do Log Analytics existente numa Subscrição Azure diferente do recurso Cluster Conectado Arc K8s.
+
+```bash
+logAnalyticsWorkspaceResourceId="<Azure Resource Id of the Log Analytics Workspace>" # format of the Azure Log Analytics workspace should be /subscriptions/<subId>/resourcegroups/<rgName>/providers/microsoft.operationalinsights/workspaces/<workspaceName>
+az role assignment create --role 'Log Analytics Contributor' --assignee $servicePrincipalClientId --scope $logAnalyticsWorkspaceResourceId
+
+servicePrincipalClientSecret=$(echo $servicePrincipal | jq -r '.password')
+tenantId=$(echo $servicePrincipal | jq -r '.tenant')
+```
+
+Por exemplo:
+
+```bash
+bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --client-id $servicePrincipalClientId --client-secret $servicePrincipalClientSecret  --tenant-id $tenantId --kube-context $kubeContext  --workspace-id $logAnalyticsWorkspaceResourceId --proxy $proxyEndpoint
+```
 
 ## <a name="configure-proxy-endpoint"></a>Configure ponto final de procuração
 

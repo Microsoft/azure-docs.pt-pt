@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 10c0200aae5ffa432c2da037d58d455fc28e8acd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3214ce260fa4981b8ac970bdf3520ecd7de59e18
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904957"
+ms.locfileid: "90985572"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, rever e implementar modelos automatizados de aprendizagem automática com Azure Machine Learning
 
@@ -86,7 +86,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
             
         Selecione **Seguinte.**
 
-    1. O formulário **de detalhes confirme** é um resumo das informações anteriormente povoadas nas **informações** básicas e **definições e formulários de pré-visualização.** Também tem a opção de criar um perfil de dados para o seu conjunto de dados utilizando um cálculo habilitado para perfis. Saiba mais sobre [perfis de dados.](#profile)
+    1. O formulário **de detalhes confirme** é um resumo das informações anteriormente povoadas nas **informações** básicas e **definições e formulários de pré-visualização.** Também tem a opção de criar um perfil de dados para o seu conjunto de dados utilizando um cálculo habilitado para perfis. Saiba mais sobre [perfis de dados.](how-to-connect-data-ui.md#profile)
 
         Selecione **Seguinte**.
 1. Selecione o conjunto de dados recém-criado assim que aparecer. Também é possível visualizar uma pré-visualização do conjunto de dados e estatísticas da amostra. 
@@ -111,7 +111,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
     Selecione **Criar**. A criação de um novo cálculo pode demorar alguns minutos.
 
     >[!NOTE]
-    > O seu nome de cálculo indicará se o cálculo que seleciona/criar está *ativado no perfil*. (Consulte o perfil de [dados](#profile) da secção para obter mais detalhes).
+    > O seu nome de cálculo indicará se o cálculo que seleciona/criar está *ativado no perfil*. (Consulte o perfil de [dados](how-to-connect-data-ui.md#profile) da secção para obter mais detalhes).
 
     Selecione **Seguinte**.
 
@@ -144,32 +144,6 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
 1. (Opcional) Ver definições de visualização: se optar por ativar a **caracterização automática** no formulário **configurações de configuração adicionais,** aplicam-se as técnicas de apri metragem de atenção predefinidos. Nas **definições** de visualização do View pode alterar estas padrão e personalizar em conformidade. Saiba como [personalizar as ações.](#customize-featurization) 
 
     ![Formulário de tipo de tarefa de estúdio Azure Machine Learning](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
-
-<a name="profile"></a>
-
-## <a name="data-profiling--summary-stats"></a>Estatísticas de perfis de dados &
-
-Pode obter uma grande variedade de estatísticas sumárias através do seu conjunto de dados para verificar se o seu conjunto de dados está pronto para ML. Para colunas não numéricas, incluem apenas estatísticas básicas como min, max e contagem de erros. Para colunas numéricas, também pode rever os seus momentos estatísticos e quânticos estimados. Especificamente, o nosso perfil de dados inclui:
-
->[!NOTE]
-> As entradas em branco aparecem para funcionalidades com tipos irrelevantes.
-
-Estatística|Descrição
-------|------
-Funcionalidade| Nome da coluna que está a ser resumida.
-Perfil| Visualização em linha com base no tipo inferido. Por exemplo, cordas, booleanas e datas terão contagens de valor, enquanto decimais (numéricos) têm histogramas aproximados. Isto permite-lhe obter uma compreensão rápida da distribuição dos dados.
-Distribuição de tipo| Contagem de valor em linha de tipos dentro de uma coluna. Os nulos são do seu próprio tipo, pelo que esta visualização é útil para detetar valores ímpares ou em falta.
-Tipo|Tipo inferido da coluna. Os valores possíveis incluem: cordas, booleans, datas e decimais.
-Mín.| Valor mínimo da coluna. As entradas em branco aparecem para funcionalidades cujo tipo não tenha uma encomenda inerente (por exemplo, booleans).
-Máx| Valor máximo da coluna. 
-de palavras| Número total de entradas desaparecidas e não desaparecidas na coluna.
-Contagem não faltando| Número de entradas na coluna que não faltam. Cordas e erros vazios são tratados como valores, para que não contribuam para a "contagem não em falta".
-Quantis| Valores aproximados em cada quântico para fornecer uma sensação de distribuição dos dados.
-Média| Média aritmética ou média da coluna.
-Desvio padrão| Medida da quantidade de dispersão ou variação dos dados desta coluna.
-Variância| Medida da distância que os dados desta coluna estão a partir do seu valor médio. 
-Skewness| Medida de quão diferentes os dados desta coluna são de uma distribuição normal.
-Kurtose| Medida de quão fortemente seguido os dados desta coluna é comparado a uma distribuição normal.
 
 ## <a name="customize-featurization"></a>Personalizar a exibição
 

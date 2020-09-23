@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 6db2d8fa6e957a63a4410f17b09a9f106bfba6e6
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4e54f5254d38bca9c8ff30d5b7cefbe3fde69576
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923480"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904376"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Tutorial: Dados de transferência com gateway da caixa de dados Azure
 
@@ -57,7 +57,7 @@ Para criar uma parte faça o seguinte procedimento:
 
     3. Forneça uma conta de armazenamento onde a parte residirá. Se um recipiente já não existe, é criado na conta de armazenamento com o nome de ação recém-criado. Se o recipiente já existir, esse recipiente é utilizado.
        > [!IMPORTANT]
-       > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge ou Data Box Gateway. Para obter mais informações, consulte [Definir e gerir políticas de imutabilidade para armazenamento de bolhas](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+       > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge Pro ou Data Box Gateway. Para obter mais informações, consulte [Definir e gerir políticas de imutabilidade para armazenamento de bolhas](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
     
     4. Escolha o **Serviço de armazenamento** do blob de blocos, blob de páginas ou ficheiros. O tipo de serviço escolhido depende do formato no qual pretende que os dados residam no Azure. Por exemplo, neste caso, queremos que os dados residam como blobs de blocos no Azure, por conseguinte, selecionamos Blob de Blocos. Se escolher o Blob de Páginas, certifique-se de que os dados têm um alinhamento de 512 bytes. Por exemplo, um VHDX tem sempre um alinhamento de 512 bytes.
    
@@ -107,7 +107,7 @@ No seu cliente Windows Server ligado ao gateway da caixa de dados, ligue-se a um
 
 
 2. No seu teclado, selecione Windows + R. 
-3. Na janela **Executar,** especifique o `\\<device IP address>` e, em seguida, selecione **OK**. O Explorador de Ficheiros abre. Deverá agora ser capaz de ver as ações que criou como pastas. No File Explorer, clique duas vezes numa partilha (pasta) para ver o conteúdo.
+3. Na janela **Executar,** especifique o `\\<device IP address>` e, em seguida, selecione **OK**. O Explorador de Ficheiros é aberto. Deve agora conseguir ver as partilhas que criou como pastas. No Explorador de Ficheiros, faça duplo clique numa partilha (pasta) para ver o conteúdo.
  
     ![Ligar a uma partilha SMB](./media/data-box-gateway-deploy-add-shares/connect-to-share2.png)-->
 
@@ -115,13 +115,13 @@ No seu cliente Windows Server ligado ao gateway da caixa de dados, ligue-se a um
 
 ### <a name="connect-to-an-nfs-share"></a>Ligar a uma partilha NFS
 
-No seu cliente Linux ligado ao seu dispositivo Azure Stack Edge, faça o seguinte procedimento:
+No seu cliente Linux ligado ao seu dispositivo Azure Stack Edge Pro, faça o seguinte procedimento:
 
-1. Certifique-se de que o cliente tem o cliente NFSv4 instalado. Para instalar o cliente NFS, utilize o seguinte comando:
+1. Confirme que o cliente tem o cliente NFSv4 instalado. Para instalar o cliente NFS, utilize o seguinte comando:
 
    `sudo apt-get install nfs-common`
 
-    Para obter mais informações, aceda a [Instalar cliente NFSv4](https://help.ubuntu.com/community/SettingUpNFSHowTo#NFSv4_client).
+    Para mais informações, aceda ao [cliente NFSv4.](https://help.ubuntu.com/community/SettingUpNFSHowTo#NFSv4_client)
 
 2. Depois de o cliente NFS estar instalado, utilize o comando seguinte para montar a partilha NFS que criou no seu dispositivo Data Box Gateway:
 

@@ -1,6 +1,6 @@
 ---
 title: Funções de administrador personalizado no Azure Ative Directory Microsoft Docs
-description: Pré-visualizar funções Azure AD personalizadas para delegar a gestão de identidade. Gerir as funções Azure no portal Azure, PowerShell ou Graph API.
+description: Saiba como entender as funções personalizadas da Azure AD no Azure Ative Directory (Azure AD) com controlo de acesso baseado em funções e âmbitos de recursos.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e962bea893e8a658b876aabf417e64b11a31dfc1
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: aac8713affd56d011e5e1f5e9326de501fb3ce67
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033511"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975567"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Funções de administrador personalizado no Azure Ative Directory (pré-visualização)
 
@@ -89,7 +89,7 @@ Um âmbito é a restrição de ações permitidas a um determinado recurso AD Az
 
 [!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Crie atribuições de funções personalizadas utilizando [o portal Azure AD PowerShell e API de gráficos](roles-create-custom.md)
 - [Ver as atribuições para um papel personalizado](roles-view-assignments.md#view-assignments-of-single-application-scope)

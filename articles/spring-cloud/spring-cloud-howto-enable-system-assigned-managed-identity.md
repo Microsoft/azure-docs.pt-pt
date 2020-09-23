@@ -7,14 +7,17 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 0c092052e05f355838f3853fa7376b46ef743de7
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: bff98ea3470110bc29f75361fb3a2adc685e2602
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299650"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888577"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Como permitir a identidade gerida atribuída pelo sistema para a aplicação Azure Spring Cloud
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C #
+
 Identidades geridas para recursos Azure fornecem uma identidade gerida automaticamente no Azure Ative Directory a um recurso Azure, como a sua aplicação Azure Spring Cloud. Pode utilizar esta identidade para autenticar qualquer serviço que suporte a autenticação AZure AD, sem ter credenciais no seu código.
 
 Este artigo mostra como ativar e desativar identidades geridas atribuídas pelo sistema para uma aplicação Azure Spring Cloud, utilizando o portal Azure e o CLI (disponível a partir da versão 0.2.4).
@@ -32,7 +35,7 @@ Para configurar uma identidade gerida no [portal Azure](https://portal.azure.com
 1. Crie uma aplicação no portal como normalmente faria. Navegue até ele no portal.
 2. Desloque-se até ao grupo **Definições** no painel de navegação esquerdo.
 3. Selecione **identidade**.
-4. Dentro do separador **Designado sistema,** **altere o Estado** para *ligar*. Clique em **Guardar**.
+4. Dentro do separador **Designado sistema,** **altere o Estado** para *ligar*. Clique em **Save** (Guardar).
 
  ![Identidade gerida no portal](./media/spring-cloud-managed-identity/identity-1.png)
 
@@ -80,8 +83,9 @@ Para remover a identidade gerida atribuída pelo sistema a partir de uma aplica�
 az spring-cloud app identity remove -n app_name -s service_name -g resource_group_name
 ```
 
-## <a name="next-steps"></a>Próximos passos
-* [Como usar identidades geridas com Java SDK](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
+## <a name="next-steps"></a>Passos seguintes
+
 * [Access Azure Key Vault com identidades geridas no arranque da bota de primavera](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/spring/azure-spring-boot-starter-keyvault-secrets/README.md#use-msi--managed-identities)
 * [Saiba mais sobre identidades geridas para recursos Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
+* [Como usar identidades geridas com Java SDK](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples)
 

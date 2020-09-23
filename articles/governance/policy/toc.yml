@@ -86,12 +86,18 @@
     - name: Compreender os efeitos
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
+    - name: Âmbito
+      displayName: 'location, notScope, exemption, waiver, save'
+      href: ./concepts/scope.md
     - name: Estrutura de iniciativa
       displayName: 'parameters, groups, domains, policies'
       href: ./concepts/initiative-definition-structure.md
     - name: Estrutura de atribuição
       displayName: 'parameters, enforcementmode, policyDefinitionId'
       href: ./concepts/assignment-structure.md
+    - name: Estrutura de isenção
+      displayName: 'waiver, mitigated, compliance'
+      href: ./concepts/exemption-structure.md
     - name: Avaliar o impacto de uma nova política
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md

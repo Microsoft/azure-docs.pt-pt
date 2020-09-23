@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4ce5bc3b4e5ccd26ec3f6b35c995ebe2274042c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ff647581447ad4436daf6c8b1d2ecbf817f7f8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749729"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983627"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Registos e métricas Azure Virtual WAN
 
@@ -62,7 +62,7 @@ Os seguintes passos ajudam-no a localizar e a visualizar métricas:
 
 3. Selecione **Métricas**.
 
-   :::image type="content" source="./media/logs-metrics/metrics.png" alt-text="métricas":::
+   :::image type="content" source="./media/logs-metrics/metrics.png" alt-text="A screenshot mostra um site para o painel V P N com vista no Monitor Azure selecionado.":::
 
 4. Na página **Métricas,** pode ver as métricas em que está interessado.
 
@@ -117,11 +117,11 @@ Substitua os valores abaixo, após o **= =**, conforme necessário.
 * "TúnelDiagnosticLog"
 * "RouteDiagnosticLog"
 
-## <a name="activity-logs"></a><a name="activity-logs"></a>Registos de atividade
+## <a name="activity-logs"></a><a name="activity-logs"></a>Troncos de atividade
 
 **As** entradas de registo de atividade são recolhidas por predefinição e podem ser vistas no portal Azure. Pode utilizar registos de atividades da Azure (anteriormente conhecidos como *registos operacionais* e *registos de auditoria)* para visualizar todas as operações submetidas à sua subscrição do Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender a monitorizar registos e métricas do Azure Firewall, consulte [Tutorial: Monitor Azure Firewall .](../firewall/tutorial-diagnostics.md)
 * Para saber mais sobre as métricas no Azure Monitor, consulte [métricas no Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).

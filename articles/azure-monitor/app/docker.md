@@ -3,12 +3,12 @@ title: Monitor estivador aplicações em Azure Application Insights / Microsoft 
 description: Os contadores perf, eventos e exceções do Docker podem ser exibidos no Application Insights, juntamente com a telemetria das aplicações contentorizadas.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 1cbb2968fec68eb750ce3c9b6cac09f23a1d36c5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 272b4e8af7b1ed3d01d8af0979b56954585f795d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324425"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977578"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Aplicações monitor Docker em Insights de Aplicação (Deprecada)
 
@@ -61,7 +61,7 @@ Se a sua aplicação for instrumentalizada com o [SDK de Insights de Aplicação
     <Add type="com.microsoft.applicationinsights.extensibility.initializer.docker.DockerContextInitializer"/> 
 ```
 
-Isto adiciona informações do Docker, tais como o container e o id do anfitrião a todos os itens de telemetria enviados da sua aplicação.
+Isto adiciona informações do Docker, tais como o container e o ID do anfitrião a todos os itens de telemetria enviados da sua aplicação.
 
 ## <a name="view-your-telemetry"></a>Ver a telemetria
 Volte ao seu recurso Application Insights no portal Azure.
@@ -71,12 +71,12 @@ Clique no azulejo do Docker.
 Em breve verá os dados que chegam da aplicação Docker, especialmente se tiver outros contentores a funcionar no seu motor Docker.
 
 ### <a name="docker-container-events"></a>Eventos de contentores de estivadores
-![exemplo](./media/docker/13.png)
+![A screenshot mostra a seleção de Pesquisa, uma janela de resultados de pesquisa de diagnóstico com uma seta apontando de um Evento Personalizado para uma janela com dados personalizados.](./media/docker/13.png)
 
 Para investigar eventos individuais, clique em [Procurar.](./diagnostic-search.md) Procure e filtre para encontrar os eventos que deseja. Clique em qualquer evento para obter mais detalhes.
 
 ### <a name="exceptions-by-container-name"></a>Exceções por nome de contentor
-![exemplo](./media/docker/14.png)
+![A screenshot mostra a página Metrics Explorer com um gráfico selecionado e a janela de detalhes da Tabela aberta no lado direito.](./media/docker/14.png)
 
 ### <a name="docker-context-added-to-app-telemetry"></a>Contexto estivador adicionado à telemetria de aplicações
 O pedido de telemetria enviada a partir da aplicação instrumentada com AI SDK, é enriquecido com informações de contexto do Docker.

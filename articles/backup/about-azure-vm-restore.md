@@ -3,12 +3,12 @@ title: Sobre o processo de restauro da Máquina Virtual Azure
 description: Saiba como o serviço Azure Backup restaura máquinas virtuais Azure
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 5458d02e241860a98d1ab5f64df141132813f8dd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f9e81c4fa40e5a1d984c163ffa5f37d8092f9032
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011961"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985339"
 ---
 # <a name="about-azure-vm-restore"></a>Acerca do restauro de VMs do Azure
 
@@ -30,8 +30,9 @@ Este artigo descreve como o [serviço Azure Backup](./backup-overview.md) restau
 - **Restauro do nível do item (ILR):** Restaurar ficheiros ou pastas individuais dentro do VM a partir do ponto de recuperação
 
 - **Disponibilidade (tipos de replicação)**: A azure Backup oferece dois tipos de replicação para manter o seu armazenamento/dados altamente disponíveis:
-  - [O armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md) replica os seus dados três vezes (cria três cópias dos seus dados) numa unidade de escala de armazenamento num datacenter. Todas as cópias dos dados existem na mesma região. O LRS é uma opção de baixo custo para proteger os dados contra falhas de hardware locais.
-  - [O armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md) é a opção de replicação padrão e recomendada. O GRS replica os dados para uma região secundária (a centenas de quilómetros da localização primária da origem de dados). GrS custa mais do que LRS, mas GRS fornece um nível mais alto de durabilidade para os seus dados, mesmo que haja uma paragem regional.
+  - [O armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replica os seus dados três vezes (cria três cópias dos seus dados) numa unidade de escala de armazenamento num datacenter. Todas as cópias dos dados existem na mesma região. O LRS é uma opção de baixo custo para proteger os dados contra falhas de hardware locais.
+  - [O armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) é a opção de replicação padrão e recomendada. O GRS replica os dados para uma região secundária (a centenas de quilómetros da localização primária da origem de dados). GrS custa mais do que LRS, mas GRS fornece um nível mais alto de durabilidade para os seus dados, mesmo que haja uma paragem regional.
+  - [O armazenamento redundante de zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replica os seus dados em [zonas de disponibilidade,](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)garantindo residência de dados e resiliência na mesma região. O ZRS não tem tempo de descanso. Assim, as suas cargas de trabalho críticas que requerem [residência de dados](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/), e não devem ter tempo de inatividade, podem ser apoiadas em ZRS.
 
 - **Restauro da Região Cruzada (CRR)**: Como uma das opções de [restauro,](./backup-azure-arm-restore-vms.md#restore-options)o Cross Region Restore (CRR) permite restaurar os VMs Azure numa região secundária, que é uma [região emparelhada Azure.](../best-practices-availability-paired-regions.md#what-are-paired-regions)
 
@@ -44,7 +45,7 @@ Este artigo descreve como o [serviço Azure Backup](./backup-overview.md) restau
 | [Restaurar para criar uma nova máquina virtual](./backup-azure-arm-restore-vms.md) | Restaura todo o VM a OLR (se a fonte VM ainda existir) ou ALR | <li> Se a fonte VM estiver perdida ou corrupta, então pode restaurar todo o VM  <li> Pode criar uma cópia do VM  <li> Pode realizar uma broca de restauro para auditoria ou conformidade  <li> Esta opção não funcionará para os VMs Azure criados a partir de imagens marketplace (isto é, se não estiverem disponíveis porque a licença expirou). |
 | [Restaurar discos do VM](./backup-azure-arm-restore-vms.md#restore-disks) | Restaurar discos ligados ao VM                             |  Todos os discos: Esta opção cria o modelo e restaura o disco. Pode editar este modelo com configurações especiais (por exemplo, conjuntos de disponibilidade) para satisfazer os seus requisitos e, em seguida, usar o modelo e restaurar o disco para recriar o VM. |
 | [Restaurar ficheiros específicos dentro do VM](./backup-azure-restore-files-from-vm.md) | Escolha o ponto de restauro, navegue, selecione ficheiros e restaure-os no mesmo (ou compatível) SO que o VM de back-up. |  Se souber quais os ficheiros específicos a restaurar, utilize esta opção em vez de restaurar todo o VM. |
-| [Restaurar um VM encriptado](./backup-azure-vms-encryption.md) | A partir do portal, restaurar os discos e, em seguida, usar PowerShell para criar o VM | <li> [VM encriptado com Diretório Ativo Azure (AAD)](../virtual-machines/windows/disk-encryption-windows-aad.md)  <li> [VM encriptado sem AAD](../virtual-machines/windows/disk-encryption-windows.md) <li> [VM encriptado *com AAD* migrado para *sem AAD*](../virtual-machines/windows/disk-encryption-faq.md#can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app) |
+| [Restaurar um VM encriptado](./backup-azure-vms-encryption.md) | A partir do portal, restaurar os discos e, em seguida, usar PowerShell para criar o VM | <li> [VM encriptado com Diretório Ativo Azure](../virtual-machines/windows/disk-encryption-windows-aad.md)  <li> [VM encriptado sem Azure AD](../virtual-machines/windows/disk-encryption-windows.md) <li> [VM encriptado *com AD Azure* migrado para *sem Azure AD*](../virtual-machines/windows/disk-encryption-faq.md#can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app) |
 | [Restauro da Região Transversal](./backup-azure-arm-restore-vms.md#cross-region-restore) | Criar um novo VM ou restaurar discos para uma região secundária (região emparelhada Azure) | <li> **Paralisação total**: Com a função de restauro da região transversal, não há tempo de espera para recuperar dados na região secundária. Pode iniciar restauros na região secundária mesmo antes de Azure declarar uma paragem. <li> **Interrupção parcial**: O tempo de paragem pode ocorrer em clusters de armazenamento específicos onde o Azure Backup armazena os seus dados de backup ou mesmo na rede, ligando o Azure Backup e os clusters de armazenamento associados aos seus dados de backup. Com o Cross Region Restore, você pode realizar um restauro na região secundária usando uma réplica de dados apoiados na região secundária. <li> **Sem interrupção**: Pode realizar exercícios de continuidade de negócios e recuperação de desastres (BCDR) para fins de auditoria ou conformidade com os dados da região secundária. Isto permite-lhe realizar uma restauração de dados com cópia de segurança na região secundária, mesmo que não haja uma paragem total ou parcial na região primária para exercícios de continuidade de negócios e recuperação de desastres.  |
 
 ## <a name="next-steps"></a>Passos seguintes

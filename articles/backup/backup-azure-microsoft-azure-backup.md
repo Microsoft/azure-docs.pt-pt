@@ -3,12 +3,12 @@ title: Use o Servidor de Backup Azure para fazer backup de cargas de trabalho
 description: Neste artigo, aprenda a preparar o seu ambiente para proteger e fazer backup de cargas de trabalho utilizando o Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 79abf55fdbaae80a84618f6944870131dcd82c89
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6fe03260cc1759929e7ff9886b1b232a37056866
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181702"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975527"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instale e atualize o Servidor de Backup do Azure
 
@@ -59,7 +59,7 @@ Se não quiser executar o servidor base em Azure, pode executar o servidor num V
 | Windows Server 2019 |64 bits |Standard, Datacenter, Essentials |
 | Windows Server 2016 e os mais recentes SPs |64 bits |Standard, Datacenter, Essentials  |
 
-Pode desduplicar o armazenamento DPM utilizando a deduplica do Servidor do Windows. Saiba mais sobre como [o DPM e a deduplica](/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) funcionam em conjunto quando implantados em Hiper-VMs.
+Pode desduplicar o armazenamento DPM utilizando a deduplica do Servidor do Windows. Saiba mais sobre como [o DPM e a deduplica](/system-center/dpm/deduplicate-dpm-storage) funcionam em conjunto quando implantados em Hiper-VMs.
 
 > [!NOTE]
 > O Azure Backup Server foi concebido para funcionar num servidor dedicado e de uso único. Não é possível instalar o Servidor de Backup Azure em:
@@ -80,7 +80,7 @@ Quer envie dados de backup para o Azure, ou o mantenha localmente, o Azure Backu
 
 ### <a name="set-storage-replication"></a>Definir Replicação de Armazenamento
 
-A opção de replicação de armazenamento permite-lhe escolher entre o armazenamento georredundante e o armazenamento localmente redundante. Por padrão, os cofres dos Serviços de Recuperação utilizam armazenamento geo-redundante. Se este cofre for o seu cofre primário, deixe a opção de armazenamento definida para armazenamento geo-redundante. Escolha armazenamento localmente redundante se pretende uma opção mais barata que não é tão durável. Leia mais sobre opções de armazenamento [geo-redundantes](../storage/common/storage-redundancy.md) e [localmente redundantes](../storage/common/storage-redundancy.md) na visão geral da [replicação do Azure Storage](../storage/common/storage-redundancy.md).
+A opção de replicação de armazenamento permite-lhe escolher entre o armazenamento georredundante e o armazenamento localmente redundante. Por padrão, os cofres dos Serviços de Recuperação utilizam armazenamento geo-redundante. Se este cofre for o seu cofre primário, deixe a opção de armazenamento definida para armazenamento geo-redundante. Escolha armazenamento localmente redundante se pretende uma opção mais barata que não é tão durável. Leia mais sobre opções de armazenamento [geo-redundantes,](../storage/common/storage-redundancy.md#geo-redundant-storage) [redundantes locais](../storage/common/storage-redundancy.md#locally-redundant-storage) e [redundantes](../storage/common/storage-redundancy.md#zone-redundant-storage) na visão geral da replicação do [Azure Storage](../storage/common/storage-redundancy.md).
 
 Para editar a definição de replicação de armazenamento:
 
@@ -89,7 +89,7 @@ Para editar a definição de replicação de armazenamento:
 
 3. Selecione o tipo de replicação de armazenamento e **selecione Guardar**.
 
-     ![Definir a configuração de armazenamento do novo cofre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+     ![Definir a configuração de armazenamento do novo cofre](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
 
 ## <a name="software-package"></a>Pacote de software
 
@@ -199,7 +199,7 @@ Uma vez concluído o processo de extração, verifique se a caixa para lançar o
 
     ![Fornecer localização para a instalação de ficheiros](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    A localização do risco é um requisito para voltar a Azure. Certifique-se de que a localização do risco é de pelo menos 5% dos dados planeados para serem apoiados até à nuvem. Para a proteção do disco, os discos separados devem ser configurados uma vez concluída a instalação. Para obter mais informações sobre piscinas de armazenamento, consulte [Prepare o armazenamento de dados.](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019)
+    A localização do risco é um requisito para voltar a Azure. Certifique-se de que a localização do risco é de pelo menos 5% dos dados planeados para serem apoiados até à nuvem. Para a proteção do disco, os discos separados devem ser configurados uma vez concluída a instalação. Para obter mais informações sobre piscinas de armazenamento, consulte [Prepare o armazenamento de dados.](/system-center/dpm/plan-long-and-short-term-data-storage)
 5. Forneça uma palavra-passe forte para contas de utilizador locais restritas e selecione **Next**.
 
     ![Fornecer senha forte](./media/backup-azure-microsoft-azure-backup/security-screen.png)
@@ -291,10 +291,10 @@ Assim que conhecer o estado da conectividade Azure e da subscrição do Azure, p
 
 | Estado de Conectividade | Subscrição do Azure | Criar uma cópia de segurança no Azure | Voltar ao disco | Restauro de Azure | Restaurar a partir do disco |
 | --- | --- | --- | --- | --- | --- |
-| Ligada |Ativo |Permitido |Permitido |Permitido |Permitido |
+| Ligada |Ativa |Permitido |Permitido |Permitido |Permitido |
 | Ligada |Fora do prazo |Parada |Parada |Permitido |Permitido |
 | Ligada |Desprovisionado |Parada |Parada |Pontos de recuperação parados e Azure eliminados |Parada |
-| Conectividade perdida > 15 dias |Ativo |Parada |Parada |Permitido |Permitido |
+| Conectividade perdida > 15 dias |Ativa |Parada |Parada |Permitido |Permitido |
 | Conectividade perdida > 15 dias |Fora do prazo |Parada |Parada |Permitido |Permitido |
 | Conectividade perdida > 15 dias |Desprovisionado |Parada |Parada |Pontos de recuperação parados e Azure eliminados |Parada |
 
@@ -362,7 +362,7 @@ Também pode consultar [as FAQs relacionadas com o Azure Backup](backup-azure-ba
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Pode obter informações detalhadas aqui sobre [a preparação do seu ambiente para o DPM.](/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019) Também contém informações sobre configurações suportadas nas quais o Azure Backup Server pode ser implantado e utilizado. Pode utilizar uma série de [cmdlets PowerShell](/powershell/module/dataprotectionmanager/) para realizar várias operações.
+Pode obter informações detalhadas aqui sobre [a preparação do seu ambiente para o DPM.](/system-center/dpm/prepare-environment-for-dpm) Também contém informações sobre configurações suportadas nas quais o Azure Backup Server pode ser implantado e utilizado. Pode utilizar uma série de [cmdlets PowerShell](/powershell/module/dataprotectionmanager/) para realizar várias operações.
 
 Pode utilizar estes artigos para obter uma compreensão mais profunda da proteção da carga de trabalho utilizando o servidor De backup do Microsoft Azure.
 

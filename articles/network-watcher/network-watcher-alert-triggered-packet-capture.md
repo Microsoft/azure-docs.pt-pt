@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: fb5ae2408c15baee0f37acaacc780f4d198b1521
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eefd67d4d150c0c8d152002a174c62d31fcb8b5f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738061"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975071"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Utilize a captura de pacotes para monitorização proativa da rede com alertas e funções Azure
 
@@ -30,7 +30,7 @@ Os recursos que são implantados no Azure funcionam 24 horas por dia, 7 horas po
 
 Ao utilizar o Network Watcher, alertando e funcionando dentro do ecossistema Azure, pode responder proativamente com os dados e ferramentas para resolver problemas na sua rede.
 
-![Scenario][scenario]
+![O diagrama mostra a extensão do Observador de Rede numa máquina virtual que flui para um SegmentoS T C P enviados > erro de 100, que flui para as Funções Azure, que flui para o Network Watcher que flui de volta para a extensão do Observador de Rede.][scenario]
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -41,7 +41,7 @@ Ao utilizar o Network Watcher, alertando e funcionando dentro do ecossistema Azu
 * Um caso existente de Network Watcher. Se ainda não tiver um, [crie um exemplo de Network Watcher](network-watcher-create.md).
 * Uma máquina virtual existente na mesma região que o Network Watcher com a [extensão do Windows](../virtual-machines/windows/extensions-nwa.md) ou [a extensão da máquina virtual Linux.](../virtual-machines/linux/extensions-nwa.md)
 
-## <a name="scenario"></a>Scenario
+## <a name="scenario"></a>Cenário
 
 Neste exemplo, o seu VM está a enviar mais segmentos de TCP do que o habitual, e quer ser alertado. Os segmentos TCP são usados como exemplo aqui, mas você pode usar qualquer condição de alerta.
 
@@ -79,7 +79,7 @@ O primeiro passo é criar uma função Azure para processar o alerta e criar uma
     |**Nome da aplicação**|PacketCaptureExample|O nome da aplicação de função.|
     |**Subscrição**|[A sua subscrição] A subscrição para a qual criar a aplicação de função.||
     |**Grupo de Recursos**|PacketCaptureRG|O grupo de recursos para conter a aplicação de função.|
-    |**Plano de Hospedagem**|Plano de Consumo| O tipo de plano que a sua aplicação de função utiliza. As opções são o Plano de Serviço de Aplicações De Consumo ou Azure. |
+    |**Plano de Alojamento**|Plano de Consumo| O tipo de plano que a sua aplicação de função utiliza. As opções são o Plano de Serviço de Aplicações De Consumo ou Azure. |
     |**Localização**|E.U.A. Central| A região em que criar a aplicação de função.|
     |**Conta de Armazenamento**|{autogerado}| A conta de armazenamento de que a Azure Functions necessita para armazenamento de fins gerais.|
 
@@ -347,7 +347,7 @@ Vá a uma máquina virtual existente e, em seguida, adicione uma regra de alerta
   |**Nome**|TCP_Segments_Sent_Exceeded|O nome da regra de alerta.|
   |**Descrição**|Segmentos TCP enviados limiar ultrapassado|A descrição da regra de alerta.|
   |**Métrica**|Segmentos TCP enviados| A métrica para usar para acionar o alerta. |
-  |**Condição**|Maior que| A condição a utilizar ao avaliar a métrica.|
+  |**Condition**|Maior do que| A condição a utilizar ao avaliar a métrica.|
   |**Limiar**|100| O valor da métrica que desencadeia o alerta. Este valor deve ser definido para um valor válido para o seu ambiente.|
   |**Período**|Nos últimos cinco minutos| Determina o período em que se procura o limiar da métrica.|
   |**Webhook**|[WEBHOOK URL da aplicação de função]| O URL webhook a partir da aplicação de função que foi criado nos passos anteriores.|
@@ -370,7 +370,7 @@ Depois de a sua captura ter sido descarregada, pode vê-la utilizando qualquer f
 - [Analisador de mensagens da Microsoft](https://technet.microsoft.com/library/jj649776.aspx)
 - [ArameShark](https://www.wireshark.org/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como ver as capturas do seu pacote visitando a análise de [captura de Packet com a Wireshark.](network-watcher-deep-packet-inspection.md)
 

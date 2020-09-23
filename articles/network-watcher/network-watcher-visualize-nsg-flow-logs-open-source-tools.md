@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6d2b2fb55a9c23643bbb778ced047e75871ba7f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0896df301718c74e63a9e18c74615130fa80c952
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807676"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986257"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizar registos do fluxo do NSG do Observador de Rede do Azure com ferramentas open-source
 
@@ -25,11 +25,11 @@ Os registos de fluxo do Grupo de Segurança de Rede fornecem informações que p
 
 Estes registos de fluxo podem ser difíceis de analisar manualmente e obter insights de. No entanto, existem várias ferramentas de código aberto que podem ajudar a visualizar estes dados. Este artigo fornecerá uma solução para visualizar estes troncos usando a Pilha Elástica, que lhe permitirá indexar e visualizar rapidamente os seus registos de fluxo num dashboard kibana.
 
-## <a name="scenario"></a>Scenario
+## <a name="scenario"></a>Cenário
 
 Neste artigo, vamos criar uma solução que lhe permitirá visualizar os registos de fluxo do Grupo de Segurança de Rede utilizando a Pilha Elástica.  Um plugin de entrada logstash obtém os registos de fluxo diretamente da bolha de armazenamento configurada para conter os registos de fluxo. Em seguida, usando a Pilha Elástica, os registos de fluxo serão indexados e usados para criar um dashboard Kibana para visualizar a informação.
 
-![cenário][scenario]
+![O diagrama mostra um cenário que permite visualizar os registos de fluxo do Grupo de Segurança de Rede utilizando a Pilha Elástica.][scenario]
 
 ## <a name="steps"></a>Passos
 
@@ -193,7 +193,7 @@ Para obter mais informações sobre este plugin, consulte a [documentação](htt
    ./bin/kibana
    ```
 
-3. Para ver a sua interface web Kibana, navegue para`http://localhost:5601`
+3. Para ver a sua interface web Kibana, navegue para `http://localhost:5601`
 4. Para este cenário, o padrão de índice utilizado para os registos de fluxo é "nsg-flow-logs". Pode alterar o padrão de índice na secção "saída" do seu ficheiro logstash.conf.
 5. Se quiser ver o painel kibana remotamente, crie uma regra NSG de entrada que permite o acesso à **porta 5601**.
 
@@ -215,27 +215,27 @@ O painel de amostras fornece várias visualizações dos registos de fluxo:
 
 1. Fluxos por Decisão/Direção Ao longo do tempo - gráficos de séries de tempo que mostram o número de fluxos ao longo do período de tempo. Pode editar a unidade de tempo e de extensão de ambas as visualizações. Os fluxos por decisão mostram a proporção de permitir ou negar decisões tomadas, enquanto flows by Direction mostra a proporção de tráfego de entrada e saída. Com estes visuais pode examinar as tendências de tráfego ao longo do tempo e procurar quaisquer picos ou padrões incomuns.
 
-   ![figura2][2]
+   ![A screenshot mostra um painel de amostras com fluxos por decisão e direção ao longo do tempo.][2]
 
 2. Flows by Destination/Source Port – gráficos de tartes que mostram a repartição dos fluxos para as respetivas portas. Com esta vista pode ver os seus portos mais utilizados. Se clicar numa porta específica dentro do gráfico de tartes, o resto do painel filtrar-se-á até aos fluxos dessa porta.
 
-   ![figura3][3]
+   ![A screenshot mostra um painel de amostras com fluxos por destino e porta de origem.][3]
 
 3. Número de Fluxos e Início do Tempo de Registo – métricas que mostram o número de fluxos registados e a data do primeiro registo capturado.
 
-   ![figura4][4]
+   ![A screenshot mostra um painel de amostras com o número de fluxos e a hora de início do registo.][4]
 
 4. Flows by NSG and Rule – um gráfico de barras que mostra a distribuição dos fluxos dentro de cada NSG, bem como a distribuição de regras dentro de cada NSG. A partir daqui você pode ver quais NSG e regras geraram mais tráfego.
 
-   ![figura5][5]
+   ![A screenshot mostra um painel de amostras com fluxos por N S G e regra.][5]
 
 5. Top 10 IPs de Origem/Destino – gráficos de barras que mostram os 10 melhores IPs de origem e destino. Pode ajustar estes gráficos para mostrar mais ou menos iPs de topo. A partir daqui pode ver os IPs mais comumente ocorrentes, bem como a decisão de tráfego (permitir ou negar) sendo tomada em relação a cada IP.
 
-   ![figura6][6]
+   ![A screenshot mostra um painel de amostras com fluxos pelos dez principais endereços de origem e destino I P.][6]
 
 6. Flow Tuples – esta tabela mostra-lhe as informações contidas em cada tuple de fluxo, bem como as respetivas NGS e regra.
 
-   ![figura7][7]
+   ![A screenshot mostra tuples de fluxo numa mesa.][7]
 
 Utilizando a barra de consulta na parte superior do painel de instrumentos, pode filtrar o painel de instrumentos com base em qualquer parâmetro dos fluxos, tais como ID de subscrição, grupos de recursos, regra ou qualquer outra variável de interesse. Para saber mais sobre as consultas e filtros de Kibana, consulte a [documentação oficial](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 
@@ -243,7 +243,7 @@ Utilizando a barra de consulta na parte superior do painel de instrumentos, pode
 
 Ao combinar os registos de fluxo do Grupo de Segurança de Rede com a Pilha Elástica, criámos uma forma poderosa e personalizável de visualizar o tráfego da nossa rede. Estes dashboards permitem-lhe obter e partilhar rapidamente informações sobre o tráfego da sua rede, bem como filtrar e investigar quaisquer anomalias potenciais. Usando Kibana, você pode personalizar estes dashboards e criar visualizações específicas para atender a quaisquer necessidades de segurança, auditoria e conformidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como visualizar os seus registos de fluxo NSG com Power BI visitando [registos de fluxos NSG do Visualize com Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 

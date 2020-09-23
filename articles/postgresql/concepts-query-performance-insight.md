@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: dd5b4ec53d82421ddd9d680ca41e48eeecc43c2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7573e99de96e3d13509056c49bc24be7fe166bf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768389"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906535"
 ---
 # <a name="query-performance-insight"></a>Query Performance Insight 
 
@@ -30,7 +30,7 @@ A vista [Query Performance Insight](concepts-query-performance-insight.md) no po
 
 Na página do portal da sua Base de Dados Azure para o servidor PostgreSQL, selecione **Insight de desempenho de consulta** na secção desempenho **inteligente** da barra de menu.
 
-![Consultas de insight de desempenho de consulta longas consultas](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-landing-page.png" alt-text="Consultas de insight de desempenho de consulta longas consultas":::
 
 O separador **de consultas de longo prazo** mostra as cinco principais consultas pela duração média por execução, agregadas em intervalos de 15 minutos. Pode ver mais consultas ao selecionar no menu pendente **Número de Consultas**. Ao fazer isso, as cores do gráfico podem ser alteradas para um ID de Consulta específico.
 
@@ -40,12 +40,12 @@ A tabela abaixo da tabela dá mais detalhes sobre as consultas de longa duraçã
 
 Selecione o separador **Estatísticas de Espera** para ver as visualizações correspondentes sobre esperas no servidor.
 
-![Consulta Performance Insight aguarda estatísticas](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Consulta Performance Insight aguarda estatísticas":::
 
 ## <a name="considerations"></a>Considerações
 * O Insight de Desempenho da Consulta não está disponível para [réplicas de leitura](concepts-read-replicas.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saber mais sobre [monitorização e otimização](concepts-monitoring.md) na Base de Dados do Azure para PostgreSQL.
 
 

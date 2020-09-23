@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: tutorial
 ms.date: 3/20/2020
 ms.custom: mvc
-ms.openlocfilehash: c0d0e9f0994f7d4d75a67911a5191d6e4ffecaa8
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d34be152a0d104e688abd6e53c97353b69012670
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "80382805"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906539"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Tutorial: Conceber uma Base de Dados do Azure para base de dados MySQL com o portal do Azure
 
@@ -43,11 +43,11 @@ Abra o browser favorito e visite o [portal do Microsoft Azure](https://portal.az
 
 2. Selecione **Base de Dados**  >  **Azure Databases para o MySQL**. Se não conseguir encontrar o MySQL Server na categoria **Bases de Dados,** clique em **Ver tudo** para mostrar todos os serviços de base de dados disponíveis. Também pode escrever **Base de Dados do Azure para MySQL** na caixa de pesquisa para encontrar rapidamente o serviço.
    
-   ![Navegar para o MySQL](./media/tutorial-design-database-using-portal/1-Navigate-to-MySQL.png)
+   :::image type="content" source="./media/tutorial-design-database-using-portal/1-Navigate-to-MySQL.png" alt-text="Navegar para o MySQL":::
 
 3. Clique **em Azure Database para azulejos MySQL.** Preencha o formulário da Base de Dados do Azure para MySQL.
    
-   ![Formulário de criação](./media/tutorial-design-database-using-portal/2-create-form.png)
+   :::image type="content" source="./media/tutorial-design-database-using-portal/2-create-form.png" alt-text="Formulário de criação":::
 
     **Definição** | **Valor sugerido** | **Descrição do campo**
     ---|---|---
@@ -62,7 +62,7 @@ Abra o browser favorito e visite o [portal do Microsoft Azure](https://portal.az
     Versão | *A versão mais recente*| A versão mais recente (a não ser que tenha requisitos específicos que exijam outra versão).
     Escalão de preço | **Fins Gerais**, **Geração 5**, **2 vCores**, **5 GB**, **7 dias**, **Geograficamente Redundante** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. **Selecione o nível de preços**. Em seguida, selecione o separador **Finalidade Geral.** *Gen 5*, *2 vCores*, *5 GB*e *7 dias* são os valores padrão para **Compute Generation**, **vCore,** **Storage**, e Backup **Retention Period**. Pode deixar os controlos de deslize como estão. Para ativar as cópias de segurança do servidor no armazenamento geo-redundante, selecione **Geographically Redundante** das **Opções de Redundância de Backup**. Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
 
-   ![Escalão de preço](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
+   :::image type="content" source="./media/tutorial-design-database-using-portal/3-pricing-tier.png" alt-text="Escalão de preço":::
 
    > [!TIP]
    > Com **o crescimento automático** ativado, o seu servidor aumenta o armazenamento quando se aproxima do limite atribuído, sem afetar a sua carga de trabalho.
@@ -75,7 +75,7 @@ As Bases de Dados do Azure para MySQL estão protegidas por uma firewall. Por pr
 
 1. Clique no servidor acabado de criar e clique em **Segurança da ligação**.
 
-   ![Segurança da Ligação](./media/tutorial-design-database-using-portal/1-Connection-security.png)
+   :::image type="content" source="./media/tutorial-design-database-using-portal/1-Connection-security.png" alt-text="Segurança da Ligação":::
 2. Pode **Adicionar o Meu IP** ou configurar regras de firewall aqui. Não se esqueça de clicar em **Guardar** depois de criar a regras.
 Já pode ligar ao servidor através da ferramenta de linha de comandos mysql ou da ferramenta da GUI MySQL Workbench.
 
@@ -89,7 +89,7 @@ Obtenha o **Nome do servidor** completamente qualificado e o **Nome de início d
 1. No [portal do Azure](https://portal.azure.com/), clique em **Todos os recursos**, no menu do lado esquerdo, escreva o nome e pesquise a sua Base de Dados do Azure para o servidor MySQL. Selecione o nome do servidor para ver os detalhes.
 
 2. Na página **Descrição geral**, aponte o **Nome do Servidor** e o **Nome do Início de Sessão de Administrador do Servidor**. Pode clicar no botão Copiar, junto a cada campo, para copiar para a área de transferência.
-   ![4-2 propriedades do servidor](./media/tutorial-design-database-using-portal/2-server-properties.png)
+   :::image type="content" source="./media/tutorial-design-database-using-portal/2-server-properties.png" alt-text="4-2 propriedades do servidor":::
 
 Neste exemplo, o nome do servidor é *mydemoserver.mysql.database.azure.com*, e o login de administrador do servidor é *myadmin \@ mydemoserver*.
 
@@ -168,11 +168,11 @@ Imagine que eliminou acidentalmente uma tabela de base de dados importante e nã
 
 1. No portal do Azure, encontre a Base de Dados do Azure para MySQL. Na página **Descrição geral**, clique em **Restaurar** na barra de ferramentas. É aberta a página Restaurar.
 
-   ![10-1 restaurar uma base de dados](./media/tutorial-design-database-using-portal/1-restore-a-db.png)
+   :::image type="content" source="./media/tutorial-design-database-using-portal/1-restore-a-db.png" alt-text="10-1 restaurar uma base de dados":::
 
 2. Preencha o formulário **Restaurar** com as informações necessárias.
 
-   ![10-2 formulário de restauro](./media/tutorial-design-database-using-portal/2-restore-form.png)
+   :::image type="content" source="./media/tutorial-design-database-using-portal/2-restore-form.png" alt-text="10-2 formulário de restauro":::
 
    - **Ponto de restauro**: selecione um momento específico em que pretende restaurar, durante o período de tempo listado. Certifique-se de que converte o fuso horário local para UTC.
    - **Restaurar para novo servidor**: indique um novo nome de servidor para o qual pretende restaurar.

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 08/03/2020
-ms.openlocfilehash: 46f7c7185de559fb6b6545eb8f1b2113aa0ec4b2
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: d5db970d4ed3c3988c96a2c0c33775bcbfb00d92
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085013"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986009"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -31,12 +31,13 @@ Aqui estão os limites para uma definição de aplicação lógica única:
 | Gatilhos por fluxo de trabalho | 10 | Ao trabalhar na visão de código, não o designer |
 | Limite de casos de âmbito de comutação | 25 | |
 | Variáveis por fluxo de trabalho | 250 | |
-| Caracteres por expressão | 8,192 | |
-| Tamanho máximo para `trackedProperties` | 16.000 caracteres |
 | Nome para `action` ou `trigger` | 80 caracteres | |
+| Caracteres por expressão | 8,192 | |
 | Comprimento de `description` | 256 caracteres | |
-| Máximo `parameters` | 50 | |
-| Máximo `outputs` | 10 | |
+| Número máximo de `parameters` | 50 | |
+| Número máximo de `outputs` | 10 | |
+| Tamanho máximo para `trackedProperties` | 16.000 caracteres |
+| Ação inline Code - Número máximo de caracteres de código | 1.024 caracteres <p>Para um limite de 100.000 caracteres, crie as suas aplicações lógicas com o Código do Estúdio Visual e a [extensão de Pré-visualização **Azure Logic Apps** ](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md). |
 
 <a name="run-duration-retention-limits"></a>
 
@@ -436,7 +437,7 @@ Esta secção lista os endereços IP de saída para o serviço Azure Logic Apps 
 
 #### <a name="azure-government---outbound-ip-addresses"></a>Governo Azure - Endereços IP de saída
 
-| Região | Aplicativos lógicos IP | Conectores geridos IP |
+| Region | Aplicativos lógicos IP | Conectores geridos IP |
 |--------|---------------|-----------------------|
 | US DoD Centro | 52.182.48.215, 52.182.92.143 | 52.127.58.160 - 52.127.58.175, 52.182.54.8, 52.182.48.136, 52.127.61.192 - 52.127.61.223 |
 | US Gov - Arizona | 52.244.67.143, 52.244.65.66, 52.244.65.190 | 52.127.2.160 - 52.127.2.175, 52.244.69.0, 52.244.64.91, 52.127.5.224 - 52.127.5.255 |

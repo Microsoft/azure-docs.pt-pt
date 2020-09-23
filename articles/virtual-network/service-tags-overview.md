@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: ce4c44ef17f456a776fde3addc5ec4ed29c8ebbd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: fd6894ea90dc6cb3cc721438ba73a94b43c36a5b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434457"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983701"
 ---
 # <a name="virtual-network-service-tags"></a>Tags de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -67,7 +67,7 @@ Por padrão, as etiquetas de serviço refletem as gamas para toda a nuvem. Algum
 | **AzureInformationProtection** | Proteção de Informação Azure.<br/><br/>*Nota:* Esta tag tem uma dependência das tags **AzureActiveDirectory**, **AzureFrontDoor.Frontend** e **AzureFrontDoor.FirstParty.** | Saída | No | No |
 | **AzureIoTHub** | Hub Azure IoT. | Saída | No | No |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Nota:* Esta etiqueta tem uma dependência da etiqueta **AzureActiveDirectory.** | Saída | Yes | Yes |
-| **AzureLoadBalancer** | O equilibrador de carga de infraestrutura Azure. A etiqueta traduz-se para o [endereço IP virtual do anfitrião](security-overview.md#azure-platform-considerations) (168.63.129.16) de onde provêm as sondas de saúde Azure. Isto não inclui o tráfego do seu recurso Azure Load Balancer. Se não estiver a utilizar o Balançador de Carga Azure, pode anular esta regra. | Ambos | No | No |
+| **AzureLoadBalancer** | O equilibrador de carga de infraestrutura Azure. A etiqueta traduz-se para o [endereço IP virtual do anfitrião](security-overview.md#azure-platform-considerations) (168.63.129.16) de onde provêm as sondas de saúde Azure. Isto inclui apenas o tráfego de sondas, não o tráfego real para o seu recurso backend. Se não estiver a utilizar o Balançador de Carga Azure, pode anular esta regra. | Ambos | No | No |
 | **AzureMachineLearning** | Aprendizagem automática Azure. | Ambos | No | Yes |
 | **AzureMonitor** | Log Analytics, Application Insights, AzMon e métricas personalizadas (pontos finais GiG).<br/><br/>*Nota:* Para o Log Analytics, esta etiqueta tem uma dependência da etiqueta **de armazenamento.** | Saída | No | Yes |
 | **AzureOpenDatasets** | Conjuntos de dados Azure Open.<br/><br/>*Nota:* Esta etiqueta tem uma dependência da etiqueta **AzureFrontDoor.Frontend** e **Storage** tag. | Saída | No | No |
@@ -149,5 +149,5 @@ Os intervalos de endereço IP nestes ficheiros estão na notação CIDR.
 - Pode detetar atualizações de uma publicação para outra, observando valores de *alteração* aumentados no ficheiro JSON. Cada subsecção (por exemplo, **Storage.WestUS)** tem a sua própria *alteração Número de números* que é incrementada à medida que as mudanças ocorrem. O nível superior da alteração do ficheiro *Número de alterações* é incrementado quando qualquer uma das subsecções é alterada.
 - Por exemplo, como analisar as informações da etiqueta de serviço (por exemplo, obter todas as gamas de endereços para armazenamento em WestUS), consulte a documentação da [API PowerShell](https://aka.ms/discoveryapi_powershell) da Marca de Serviço.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba como [criar um grupo de segurança de rede.](tutorial-filter-network-traffic.md)
