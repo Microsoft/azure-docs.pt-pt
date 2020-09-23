@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 506bd79a512a5d8d143f582ee84d292dff86d9df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5515c21d89b01576bb6aae8c9d480b439dc1507
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392816"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902705"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Registos na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -23,7 +23,7 @@ O registo de auditoria é disponibilizado através de uma extensão postgres, pg
 ## <a name="configure-logging"></a>Confiria a exploração madeireira 
 Pode configurar a sessão padrão de Postgres no seu servidor utilizando os parâmetros do servidor de registo. Em cada Base de Dados Azure para servidor PostgreSQL, `log_checkpoints` e `log_connections` estão ligados por padrão. Existem parâmetros adicionais que pode ajustar de acordo com as suas necessidades de registo registador: 
 
-![Base de Dados Azure para Pós-SQL - Parâmetros de registo](./media/concepts-server-logs/log-parameters.png)
+:::image type="content" source="./media/concepts-server-logs/log-parameters.png" alt-text="Base de Dados Azure para Pós-SQL - Parâmetros de registo":::
 
 Para saber mais sobre os parâmetros de registo de postgres, visite as secções [De Início](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN) e O [Que Registar](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHAT) da documentação postgres. A maioria, mas não todos, os parâmetros de registo de postgres estão disponíveis para configurar na Base de Dados Azure para PostgreSQL.
 
@@ -103,10 +103,10 @@ A tabela seguinte descreve os campos para o tipo **PostgreSQLLogs.** Dependendo 
 | TenantId | Sua iD do seu inquilino |
 | SourceSystem | `Azure` |
 | TempoGerado [UTC] | Carimbo de tempo quando o registo foi gravado na UTC |
-| Tipo | Tipo de tronco. Sempre`AzureDiagnostics` |
+| Tipo | Tipo de tronco. Sempre `AzureDiagnostics` |
 | SubscriptionId | GUID para a subscrição a que o servidor pertence |
 | ResourceGroup | Nome do grupo de recursos a que o servidor pertence |
-| ResourceProvider | Nome do fornecedor de recursos. Sempre`MICROSOFT.DBFORPOSTGRESQL` |
+| ResourceProvider | Nome do fornecedor de recursos. Sempre `MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
 | ResourceId | URI de recursos |
 | Recurso | Nome do servidor |
@@ -114,8 +114,8 @@ A tabela seguinte descreve os campos para o tipo **PostgreSQLLogs.** Dependendo 
 | OperationName | `LogEvent` |
 | erroLevel | Nível de registo, exemplo: LOG, ERROR, NOTICE |
 | Mensagem | Mensagem de registo primário | 
-| Domain | Versão do servidor, exemplo: postgres-10 |
-| Detalhe | Mensagem de registo secundário (se aplicável) |
+| Domínio | Versão do servidor, exemplo: postgres-10 |
+| Detalhes | Mensagem de registo secundário (se aplicável) |
 | ColumnName | Nome da coluna (se aplicável) |
 | SchemaName | Nome do esquema (se aplicável) |
 | Nome de datatype | Nome do tipo de dados (se aplicável) |
@@ -124,7 +124,7 @@ A tabela seguinte descreve os campos para o tipo **PostgreSQLLogs.** Dependendo 
 | Prefixo | Prefixo da linha de registo |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre o acesso a registos a partir do [portal Azure](howto-configure-server-logs-in-portal.md) ou [do Azure CLI](howto-configure-server-logs-using-cli.md).
 - Saiba mais sobre [os preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 - Saiba mais sobre [registos de auditoria](concepts-audit.md)

@@ -7,14 +7,16 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/06/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: c3c660c5e301081ee82a12275b6e9125f0fc781b
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 33d25edafa9249300406365699930ded1c8ec75b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89289822"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906855"
 ---
 # <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>Tutorial: Escalar uma aplicação em Azure Spring Cloud
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C #
 
 Este tutorial demonstra como escalar qualquer aplicação de microserviços utilizando o painel Azure Spring Cloud no portal Azure.
 

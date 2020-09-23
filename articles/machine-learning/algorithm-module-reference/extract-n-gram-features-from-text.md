@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: efe09c1d516b37c23b024e07ae387772fa7e5992
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c21c63bdb64f7c15c049bfe4039ef47cea689922
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477617"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907974"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Extrair características N-Gram da referência do módulo de texto
 
-Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização). Utilize as funcionalidades Extract N-Gram do módulo text para *apresentar dados* de texto não estruturados. 
+Este artigo descreve um módulo no designer de Aprendizagem automática Azure. Utilize as funcionalidades Extract N-Gram do módulo text para *apresentar dados* de texto não estruturados. 
 
 ## <a name="configuration-of-the-extract-n-gram-features-from-text-module"></a>Configuração das funcionalidades de extração N-Gram do módulo de texto
 
@@ -135,6 +135,6 @@ Pode atualizar manualmente este conjunto de dados, mas pode introduzir erros. Po
 > [!Note]
 > Não ligue a saída de dados diretamente ao módulo Modelo de Comboio. Deve remover as colunas de texto gratuitas antes de serem introduzidas no Modelo de Comboio. Caso contrário, as colunas de texto gratuitas serão tratadas como características categóricas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning.

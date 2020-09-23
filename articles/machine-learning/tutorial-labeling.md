@@ -10,15 +10,15 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 60dd9631df0b997ce39134002bdb6ed9f69336ed
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9e24a652bb4e577ff9b604b6b4f5284883723ee5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319274"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906722"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Tutorial: Criar um projeto de rotulagem para classificação de imagem multi-classes 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Este tutorial mostra-lhe como gerir o processo de rotulagem (também referido como marcação) para ser usado como dados para construir modelos de machine learning. A rotulagem de dados em Azure Machine Learning está em pré-visualização pública.
 
@@ -102,7 +102,7 @@ Agora que tem acesso aos dados que pretende ter rotulado, crie o seu projeto de 
 
 1. Utilize a seguinte entrada para o conjunto de dados Criar a partir do formulário **datastore:**
 
-    1. No formulário **de informação básica,** adicione um nome, aqui usaremos **imagens-para-tutorial.**  Adicione uma descrição, se desejar.  Em seguida, selecione **Seguinte**.
+    1. No formulário **de informação básica,** adicione um nome, aqui usaremos **imagens-para-tutorial.**  Adicione uma descrição, se desejar.  e selecione **Seguinte**.
     1. No formulário **de seleção datastore,** utilize o dropdown para selecionar a sua **datastore anteriormente criada,** por exemplo **tutorial_images (Azure Blob Storage)**
     1. Em seguida, ainda no formulário **de seleção datastore,** selecione **Browse** e, em seguida, selecione **MultiClass - DogsCats**.  **Selecione Guardar** para usar **/MultiClass - DogsCats** como o caminho.
     1. Selecione **Next** para confirmar detalhes e, em seguida, **criar** para criar o conjunto de dados.
@@ -130,7 +130,7 @@ Selecione **Seguinte** para continuar.
 
 1. Selecione **Seguinte**.
 
-1. Se estiver a utilizar um espaço de trabalho da Enterprise, verá uma secção **de rotulagem assistida ML.**  Deixe a caixa de verificação desmarcada. A rotulagem assistida mL requer mais dados do que você vai usar neste tutorial.
+1. Na secção **de rotulagem assistida ML,** deixe a caixa de verificação desmarcada. A rotulagem assistida mL requer mais dados do que você vai usar neste tutorial.
 
 1. Selecione **Create project** (Criar projeto).
 

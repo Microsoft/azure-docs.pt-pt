@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 314004d2b62d5616c1d7925b82fd9f050d0a1fd0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 31a3bfbc174ca9c4c46005a26cde65db1ff74b65
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441804"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906917"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Linha de segurança Azure para Azure IoT Hub
 
@@ -71,7 +71,7 @@ A Azure DDoS Protection Basic já está ativada e disponível sem custos adicion
 
 - [Filtro IP IoT Hub](iot-hub-ip-filtering.md)
 
-- [Centro de Segurança Azure para comunicação de endereço IP suspeito IoT](../asc-for-iot/concept-security-alerts.md)
+- [Centro de Segurança Azure para comunicação de endereço IP suspeito IoT](../defender-for-iot/concept-security-alerts.md)
 
 - [Gerir a proteção Azure DDoS Basic](../virtual-network/ddos-protection-overview.md)
 
@@ -234,7 +234,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 - [Monitor Azure IoT Hub saúde](iot-hub-monitor-resource-health.md)
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
-- [Centro de Segurança Azure para alertas de IoT](../asc-for-iot/concept-security-alerts.md)
+- [Centro de Segurança Azure para alertas de IoT](../defender-for-iot/concept-security-alerts.md)
 
 - [Como alertar nos dados de registo de registo de registos de registos](../azure-monitor/learn/tutorial-response.md)
 
@@ -1037,7 +1037,7 @@ Efetuar periodicamente a restauração de dados do conteúdo na cópia de segura
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](/azure/security/benchmarks/overview)
 - Saiba mais sobre [as linhas de base de segurança da Azure](/azure/security/benchmarks/security-baselines-overview)

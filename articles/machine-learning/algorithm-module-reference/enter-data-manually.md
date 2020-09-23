@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 35e31e5ace53654e8aad794dd3e25fc04bd9a088
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3bff9a91f06649487560faef3ab554b2a3d56af3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79367521"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908074"
 ---
 # <a name="enter-data-manually-module"></a>Introduza o módulo manual de dados
 
-Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
+Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
 Utilize o módulo **'Inserir Manualmente' para** criar um pequeno conjunto de dados digitando valores. O conjunto de dados pode ter várias colunas.
   
@@ -94,6 +94,6 @@ Este módulo pode ser útil em cenários como:
   
    Para ver o conjunto de dados, clique no módulo com direito e **selecione Visualize**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

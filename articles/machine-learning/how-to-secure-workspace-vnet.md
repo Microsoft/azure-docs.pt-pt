@@ -11,15 +11,14 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: e718ed13cfd67092b50b42584d861a2bcf5dacc5
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 4dc1f86ce7dbb060c747c4433f0c2b871ce5582d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89665144"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907653"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Garantir um espaço de trabalho de aprendizagem automática Azure com redes virtuais
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, aprende-se a garantir um espaço de trabalho Azure Machine Learning e os seus recursos associados numa rede virtual.
 
@@ -173,8 +172,6 @@ Para utilizar as capacidades de experimentação de aprendizagem automática Azu
 
 Para utilizar o Registo de Contentores Azure dentro de uma rede virtual, deve cumprir os seguintes requisitos:
 
-* O seu espaço de trabalho Azure Machine Learning deve ser a edição da Enterprise. Para obter informações sobre a atualização, consulte [a edição "Upgrade to Enterprise".](how-to-manage-workspace.md#upgrade)
-
 * O seu registo de contentores Azure deve ser versão Premium. Para obter mais informações sobre a atualização, consulte [a Alteração de SKUs](/azure/container-registry/container-registry-skus#changing-skus).
 
 * O registo do seu contentor Azure deve estar na mesma rede virtual e sub-rede que a conta de armazenamento e os alvos de cálculo utilizados para treino ou inferência.
@@ -256,8 +253,8 @@ Uma vez cumpridos os requisitos, utilize os seguintes passos para permitir o reg
             "type": "SystemAssigned"
         },
         "sku": {
-            "tier": "enterprise",
-            "name": "enterprise"
+            "tier": "basic",
+            "name": "basic"
         },
         "properties": {
             "sharedPrivateLinkResources":
@@ -272,7 +269,7 @@ Uma vez cumpridos os requisitos, utilize os seguintes passos para permitir o reg
     }
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo é parte de uma série de rede virtual de quatro partes. Veja o resto dos artigos para aprender a proteger uma rede virtual:
 

@@ -1,7 +1,7 @@
 ---
-title: Retraindesdes usando o designer de machine learning Azure (pré-visualização)
+title: Retrain modelos usando Azure Machine Learning designer
 titleSuffix: Azure Machine Learning
-description: Aprenda a reconverter modelos com pipelines publicados no Azure Machine Learning designer (pré-visualização).
+description: Aprenda a treinar modelos com oleodutos publicados no Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,15 +10,15 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 11e04d0aa313a005cfd13bca134c75bb712fd234
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d43bea855d9ac3dc34b8e72adcd9577e5933e52c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661616"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905674"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Preparar novamente modelos com o Azure Machine Learning Designer (pré-visualização)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="retrain-models-with-azure-machine-learning-designer"></a>Retrain modelos com Azure Machine Learning designer
+
 
 Neste artigo de como fazer, aprende-se a usar o designer de Aprendizagem automática Azure para treinar um modelo de aprendizagem automática. Utilizará os oleodutos publicados para automatizar o seu fluxo de trabalho e definirá parâmetros para treinar o seu modelo em novos dados. 
 
@@ -32,12 +32,12 @@ Neste artigo, vai aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um espaço de trabalho de aprendizagem automática Azure com a Enterprise SKU.
-* Complete a primeira parte desta série de como fazer, [transforme os dados no designer.](how-to-designer-transform-data.md)
+* Uma área de trabalho do Azure Machine Learning
+* Complete a primeira parte desta série como fazer, [transforme os dados no designer](how-to-designer-transform-data.md)
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
-Este artigo também assume que você tem conhecimento básico de construir oleodutos no designer. Para uma introdução guiada, complete o [tutorial.](tutorial-designer-automobile-price-train-score.md) 
+Este artigo também assume que você tem algum conhecimento de construção de oleodutos no designer. Para uma introdução guiada, complete o [tutorial.](tutorial-designer-automobile-price-train-score.md) 
 
 ### <a name="sample-pipeline"></a>Gasoduto de amostra
 
@@ -120,7 +120,7 @@ Pode encontrar o ponto final REST de um pipeline publicado no painel de visão g
 
 Para fazer uma chamada REST, precisa de um cabeçalho de autenticação do tipo portador OAuth 2.0. Para obter informações sobre a configuração da autenticação no seu espaço de trabalho e fazer uma chamada de REST parametrizada, consulte [Construir um pipeline de Aprendizagem automática Azure para pontuação de lotes](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a criar um ponto final de pipeline de treino parametrizado usando o designer.
 

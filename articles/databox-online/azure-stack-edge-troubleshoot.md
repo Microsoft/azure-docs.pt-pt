@@ -1,6 +1,6 @@
 ---
-title: Use o portal Azure para resolver problemas Azure Stack Edge Microsoft Docs
-description: Saiba como resolver problemas no seu Azure Stack Edge. Pode executar diagnósticos, recolher informações para suporte e usar registos para resolver problemas.
+title: Use o portal Azure para resolver problemas Azure Stack Edge Pro Microsoft Docs
+description: Saiba como resolver problemas no seu Azure Stack Edge Pro. Pode executar diagnósticos, recolher informações para suporte e usar registos para resolver problemas.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: f9dabdfd9df77822f06c41fa4355a1657bceb76c
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: bc4afa0d26f6ba256354d3802a0c4f9b9b04088e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134569"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903653"
 ---
-# <a name="troubleshoot-your-azure-stack-edge-issues"></a>Resolução de problemas dos seus problemas com a Azure Stack Edge
+# <a name="troubleshoot-your-azure-stack-edge-pro-issues"></a>Resolução de problemas dos seus problemas Azure Stack Edge Pro
 
-Este artigo descreve como resolver problemas no seu Azure Stack Edge. 
+Este artigo descreve como resolver problemas no seu Azure Stack Edge Pro. 
 
 Neste artigo, vai aprender a:
 
@@ -65,7 +65,7 @@ Quaisquer erros ocorridos durante os processos de carregamento e atualização s
 
       ![Ligar e visualizar conteúdos de partilha](media/azure-stack-edge-troubleshoot/troubleshoot-logs-1.png)
 
-2. Selecione a _pasta Microsoft Azure Stack Edge_. Esta pasta tem duas subpastas:
+2. Selecione a _pasta Microsoft Azure Stack Edge Pro_. Esta pasta tem duas subpastas:
 
     * A pasta de carregamentos, que inclui os ficheiros de registos com erros de carregamento.
     * A pasta de atualizações para os erros durante a atualização.
@@ -82,6 +82,6 @@ Quaisquer erros ocorridos durante os processos de carregamento e atualização s
 
     [!INCLUDE [data-box-edge-edge-upload-error-reference](../../includes/data-box-edge-gateway-upload-error-reference.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre os [problemas conhecidos nesta versão](data-box-gateway-release-notes.md).

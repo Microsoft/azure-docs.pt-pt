@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: f54dd09ac82ddefeb2528462c7131aa921592d2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa81987f9214870e248ef9b625e6afcd1093fe5d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84487955"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907891"
 ---
 # <a name="init-image-transformation"></a>Inicializar a Transformação da Imagem
 
-Este artigo descreve como usar o módulo **init Image Transformation** em Azure Machine Learning designer (pré-visualização), para inicializar a transformação da imagem para especificar como quer que a imagem seja transformada.
+Este artigo descreve como usar o módulo **de transformação de imagem Init** no designer de Aprendizagem automática Azure, para inicializar a transformação da imagem para especificar como quer que a imagem seja transformada.
 
 ## <a name="how-to-configure-init-image-transformation"></a>Como configurar a transformação da imagem init
 
@@ -70,33 +70,33 @@ Consulte [https://pytorch.org/docs/stable/torchvision/transforms.html](https://p
 | Name                    | Intervalo   | Tipo    | Predefinição | Descrição                              |
 | ----------------------- | ------- | ------- | ------- | ---------------------------------------- |
 | Redimensionar                  | Qualquer     | Booleano | Verdadeiro    | Redimensione a imagem PIL de entrada para o tamanho dado |
-| Tamanho                    | >=1     | Número inteiro | 256     | Especificar o tamanho de saída pretendido          |
+| Tamanho                    | >=1     | Integer (Número inteiro) | 256     | Especificar o tamanho de saída pretendido          |
 | Cultura central             | Qualquer     | Booleano | Verdadeiro    | Culturas a imagem PIL dada no centro  |
-| Tamanho da cultura               | >=1     | Número inteiro | 224     | Especificar o tamanho de saída desejado da cultura |
+| Tamanho da cultura               | >=1     | Integer (Número inteiro) | 224     | Especificar o tamanho de saída desejado da cultura |
 | Pad                     | Qualquer     | Booleano | Falso   | Pad a imagem PIL dada em todos os lados com o valor "pad" dado |
-| Preenchimento                 | >=0     | Número inteiro | 0       | Estofamento em cada fronteira                   |
+| Preenchimento                 | >=0     | Integer (Número inteiro) | 0       | Estofamento em cada fronteira                   |
 | Nervosismo de cor            | Qualquer     | Booleano | Falso   | Alterar aleatoriamente o brilho, contraste e saturação de uma imagem |
 | Escala de cinza               | Qualquer     | Booleano | Falso   | Converter imagem em escala cinzenta               |
 | Cultura de redimensionado aleatório     | Qualquer     | Booleano | Falso   | Cultura a imagem PIL dada para tamanho aleatório e relação de aspeto |
-| Tamanho aleatório             | >=1     | Número inteiro | 256     | Tamanho de saída esperado de cada borda        |
+| Tamanho aleatório             | >=1     | Integer (Número inteiro) | 256     | Tamanho de saída esperado de cada borda        |
 | Cultura aleatória             | Qualquer     | Booleano | Falso   | Corte a imagem PIL dada em um local aleatório |
-| Tamanho de cultura aleatória        | >=1     | Número inteiro | 224     | Tamanho de saída desejado da cultura          |
+| Tamanho de cultura aleatória        | >=1     | Integer (Número inteiro) | 224     | Tamanho de saída desejado da cultura          |
 | Flip horizontal aleatório  | Qualquer     | Booleano | Verdadeiro    | Horizontalmente vire a imagem PIL dada aleatoriamente com uma dada probabilidade |
 | Flip vertical aleatório    | Qualquer     | Booleano | Falso   | Verticalmente vire a imagem PIL dada aleatoriamente com uma dada probabilidade |
 | Rotação aleatória         | Qualquer     | Booleano | Falso   | Rode a imagem por ângulo                |
-| Graus de rotação aleatória | [0,180] | Número inteiro | 0       | Gama de graus para selecionar a partir de          |
+| Graus de rotação aleatória | [0,180] | Integer (Número inteiro) | 0       | Gama de graus para selecionar a partir de          |
 | Affine aleatório           | Qualquer     | Booleano | Falso   | Transformação aleatória afina da imagem mantendo o centro invariante |
-| Graus affine aleatórios   | [0,180] | Número inteiro | 0       | Gama de graus para selecionar a partir de          |
+| Graus affine aleatórios   | [0,180] | Integer (Número inteiro) | 0       | Gama de graus para selecionar a partir de          |
 | Escala cinzenta aleatória        | Qualquer     | Booleano | Falso   | Converter aleatoriamente a imagem em escala cinzenta com probabilidade 0.1 |
 | Perspetiva aleatória      | Qualquer     | Booleano | Falso   | Realiza a transformação da perspetiva da imagem PIL dada aleatoriamente com probabilidade 0.5 |
 | Apagamento aleatório          | Qualquer     | Booleano | Falso   | Seleciona aleatoriamente uma região de retângulo numa imagem e apaga os seus pixels com probabilidade 0,5 |
 
 ###  <a name="output"></a>Saída  
 
-| Name                        | Tipo                    | Descrição                              |
+| Nome                        | Tipo                    | Descrição                              |
 | --------------------------- | ----------------------- | ---------------------------------------- |
 | Transformação de imagem de saída | Diretório de Transformação | Transformação de imagem de saída que pode ser ligada ao módulo **de Transformação de Imagem Aplicada.** |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

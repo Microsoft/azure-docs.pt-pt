@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/04/2020
-ms.openlocfilehash: 94a2c9bf3f65897809edaf94fc01b442e02b46d9
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 97cadfb8f5004cfd2701335172d4416c64f05259
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553007"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907874"
 ---
 # <a name="module-k-means-clustering"></a>Módulo: K-Significa Clustering
 
-Este artigo descreve como usar o módulo *de clustering K-Means* no designer de aprendizagem automática Azure (pré-visualização) para criar um modelo de clustering K-means destreinado. 
+Este artigo descreve como usar o módulo *de clustering K-Means* no designer de aprendizagem automática Azure para criar um modelo de clustering K-means destreinado. 
  
 K-means é um dos algoritmos de aprendizagem mais simples e conhecidos *sem supervisão.* Pode utilizar o algoritmo para uma variedade de tarefas de aprendizagem automática, tais como: 
 
@@ -117,7 +117,7 @@ Se usou o módulo [modelo de agrupamento de comboios:](train-clustering-model.md
 
 1. Selecione o módulo **modelo de agrupamento de comboios** e abra o painel direito.
 
-2. Selecione o separador **Saídas.** Selecione o ícone **do conjunto de dados do Registo** para guardar uma cópia do modelo treinado.
+2. Selecione o separador **Saídas.** Selecione o ícone **do conjunto de dados registo** para guardar uma cópia do modelo treinado.
 
 O modelo guardado representa os dados de treino no momento em que guardou o modelo. Se atualizar mais tarde os dados de treino utilizados no pipeline, este não atualiza o modelo guardado. 
 
@@ -143,6 +143,6 @@ Pode evitar este problema de várias maneiras:
   
 Em geral, com modelos de clustering, é possível que qualquer configuração dada resulte num conjunto de clusters otimizado localmente. Por outras palavras, o conjunto de clusters que é devolvido pelo modelo adequa-se apenas aos pontos de dados atuais e não é generalizável a outros dados. Se utilizar uma configuração inicial diferente, o método K-significa pode encontrar uma configuração diferente, superior. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

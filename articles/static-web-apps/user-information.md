@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 7e1f56fc4601b271bf4a0718a944741016509ce4
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: f966492dd8a231db92f607438bb9ba2d3be71389
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430517"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906765"
 ---
 # <a name="accessing-user-information-in-azure-static-web-apps-preview"></a>Aceder a informações dos utilizadores em Azure Static Web Apps Preview
 
@@ -64,6 +64,10 @@ console.log(getUserInfo());
 
 ## <a name="api-functions"></a>Funções de API
 
+As funções API disponíveis em Aplicações Web Estáticas através do backend Azure Functions têm acesso à mesma informação do utilizador que uma aplicação do cliente. Embora a API receba informações identificáveis pelo utilizador, não efetua as suas próprias verificações se o utilizador for autenticado ou se corresponder a uma função necessária. As regras de controlo de acesso são definidas no [`routes.json`](routes.md) ficheiro.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
 Os dados principais do cliente são transmitidos para funções de API no cabeçalho de `x-ms-client-principal` pedido. Os dados principais do cliente são enviados como uma cadeia codificada [base64](https://www.wikipedia.org/wiki/Base64)contendo um objeto JSON serializado.
 
 A função exemplo a seguir mostra como ler e devolver informações do utilizador.
@@ -92,12 +96,53 @@ async function getUser() {
   return clientPrincipal;
 }
 
-console.log(getUser());
+console.log(await getUser());
 ```
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+Numa função C#, as informações do utilizador estão disponíveis a partir do `x-ms-client-principal` cabeçalho que pode ser deseralizado num `ClaimsPrincipal` objeto ou no seu próprio tipo personalizado. O código que se segue demonstra como desempacotar o cabeçalho num tipo intermediário, `ClientPrincipal` que é depois transformado num `ClaimsPrincipal` caso.
+
+```csharp
+  public static class StaticWebAppsAuth
+  {
+    private class ClientPrincipal
+    {
+        public string IdentityProvider { get; set; }
+        public string UserId { get; set; }
+        public string UserDetails { get; set; }
+        public IEnumerable<string> UserRoles { get; set; }
+    }
+
+    public static ClaimsPrincipal Parse(HttpRequest req)
+    {
+        var header = req.Headers["x-ms-client-principal"];
+        var data = header.Value[0];
+        var decoded = System.Convert.FromBase64String(data);
+        var json = System.Text.ASCIIEncoding.ASCII.GetString(decoded);
+        var principal = JsonSerializer.Deserialize<ClientPrincipal>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+  
+        principal.UserRoles = principal.UserRoles.Except(new string[] { "anonymous" }, StringComparer.CurrentCultureIgnoreCase);
+  
+        if (!principal.UserRoles.Any())
+        {
+            return new ClaimsPrincipal();
+        }
+  
+        var identity = new ClaimsIdentity(principal.IdentityProvider);
+        identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, principal.UserId));
+        identity.AddClaim(new Claim(ClaimTypes.Name, principal.UserDetails));
+        identity.AddClaims(principal.UserRoles.Select(r => new Claim(ClaimTypes.Role, r)));
+        return new ClaimsPrincipal(identity);
+    }
+  }
+```
+
+---
 
 <sup>1</sup> A [API fetch](https://caniuse.com/#feat=fetch) e o operador [de espera](https://caniuse.com/#feat=mdn-javascript_operators_await) não são suportados no Internet Explorer.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Configurar as definições da aplicação](application-settings.md)

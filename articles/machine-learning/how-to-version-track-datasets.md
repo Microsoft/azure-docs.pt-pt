@@ -11,15 +11,15 @@ ms.reviewer: nibaccam
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: fe56427e93650fbaca397bbbb27d32f730b1f7f3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 21969f52223a4e0c7de6ee26c0a6f9e2f96366b1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651768"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902343"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>Conjuntos de dados de versão e rastreio em experiências
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, você vai aprender a ver e rastrear conjuntos de dados de Aprendizagem de Máquinas Azure para reprodutibilidade. A versão do Dataset é uma forma de reservar o estado dos seus dados para que possa aplicar uma versão específica do conjunto de dados para experiências futuras.
 
@@ -189,7 +189,7 @@ A seguinte vista é do painel **de conjuntos de dados** em **Ativos**. Selecione
 
 ![Modelos de conjuntos de dados de entrada](./media/how-to-version-track-datasets/dataset-models.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Preparar com conjuntos de dados](how-to-train-with-datasets.md)
 * [Mais cadernos de conjuntos de dados de amostra](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/)

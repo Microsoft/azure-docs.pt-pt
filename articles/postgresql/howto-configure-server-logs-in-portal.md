@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 2be89f9263c71b7c9d7bc32edd0b1fc7cb2cfbce
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: cf22a165e9a6eadcd2e5d4cdb0efa301538be7e9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118159"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907538"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Configurar e aceder à Base de Dados Azure para postgresQL - Registos de servidor único a partir do portal Azure
 
@@ -29,7 +29,7 @@ Configure o acesso aos registos de consulta e registos de erro.
 
 3. Sob a secção **de Monitorização** na barra lateral, selecione **registos do Servidor**. 
 
-   ![Screenshot das opções de registos do Servidor](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png" alt-text="Screenshot das opções de registos do Servidor":::
 
 4. Para ver os parâmetros do servidor, **selecione Clique aqui para ativar registos e configurar parâmetros de registo**.
 
@@ -37,7 +37,7 @@ Configure o acesso aos registos de consulta e registos de erro.
 
    Depois de ter alterado os parâmetros, **selecione Guardar**. Ou pode descartar as suas alterações. 
 
-   ![Screenshot das opções de parâmetros do servidor](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Screenshot das opções de parâmetros do servidor":::
 
 A partir da página **'Parâmetros do Servidor',** pode voltar à lista de registos fechando a página.
 
@@ -50,20 +50,20 @@ Após o início do registo, pode ver uma lista de registos disponíveis e fazer 
 
 3. Sob a secção **de Monitorização** na barra lateral, selecione **registos do Servidor**. A página mostra uma lista dos seus ficheiros de registo.
 
-   ![Screenshot da página de registos do Servidor, com lista de registos em destaque](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="Screenshot da página de registos do Servidor, com lista de registos em destaque":::
 
    > [!TIP]
    > A convenção de nomeação do diário de bordo é **postgresql-yyy-mm-dd_hh0000.log**. A data e hora utilizadas no nome do ficheiro é a hora em que o registo foi emitido. Os ficheiros de registo giram a cada hora ou 100 MB, o que vier primeiro.
 
 4. Se necessário, utilize a caixa de pesquisa para reduzir rapidamente a um registo específico, com base na data e hora. A procura está no nome do registo.
 
-   ![Screenshot da página de registos do Servidor, com caixa de pesquisa e resultados realçados](./media/howto-configure-server-logs-in-portal/5-search.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/5-search.png" alt-text="Screenshot da página de registos do Servidor, com caixa de pesquisa e resultados realçados":::
 
 5. Para descarregar ficheiros de registo individuais, selecione o ícone de seta para baixo ao lado de cada ficheiro de registo na linha de tabela.
 
-   ![Screenshot da página de registos do Servidor, com ícone de seta em baixo realçado](./media/howto-configure-server-logs-in-portal/6-download.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/6-download.png" alt-text="Screenshot da página de registos do Servidor, com ícone de seta em baixo realçado":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Consulte [os registos do servidor Access no CLI](howto-configure-server-logs-using-cli.md) para aprender a descarregar registos programáticamente.
 - Saiba mais sobre [os registos de servidores](concepts-server-logs.md) na Base de Dados Azure para PostgreSQL. 
 - Para obter mais informações sobre as definições de parâmetros e o registo pós-SQL, consulte a documentação postgreSQL sobre [relatórios de erros e registos.](https://www.postgresql.org/docs/current/static/runtime-config-logging.html)
