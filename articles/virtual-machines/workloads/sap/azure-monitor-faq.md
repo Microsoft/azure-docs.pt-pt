@@ -1,6 +1,6 @@
 ---
 title: FAQ - Monitor Azure para Soluções SAP Microsoft Docs
-description: Este artigo fornece respostas a perguntas frequentes sobre monitor Azure para soluções SAP
+description: Neste artigo, aprenda respostas a perguntas frequentes (FAQ) sobre o monitor Azure para soluções SAP.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: cf0366300c4fab18a0f6231a97ca050eddd50132
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: f70aa684a089e0f21cb50932e212b71f77df0e01
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852438"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987238"
 ---
 # <a name="azure-monitor-for-sap-solutions-faq-preview"></a>Monitor Azure para soluções SAP FAQ (pré-visualização)
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 Este artigo fornece respostas a perguntas frequentes (FAQ) sobre o monitor Azure para soluções SAP.  
 
@@ -77,6 +77,6 @@ Não. Os clientes ainda podem usar o gestor da SAP Solution para monitorização
  - **Qual é o valor deste serviço sobre soluções tradicionais como SAP HANA Cockpit/Studio?**  
 O Azure Monitor for SAP Solutions não é específico da base de dados HANA. O Azure Monitor for SAP Solutions também suporta o AnyDB.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Crie o seu primeiro recurso Azure Monitor para soluções SAP.

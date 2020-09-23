@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3fbd6292f654071f74b4dfccc5e4de393ccfff02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0bc23d515bebdd0d943bbad33c5ebba35a35605
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266721"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987207"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configurar VMs de início/paragem durante as horas fora de horas
 
@@ -139,17 +139,17 @@ Para alterar notificações de e-mail após a implementação de VMs de início/
 
 1. No portal Azure, navegue para **Monitor,** depois **grupos de ação.** Selecione o grupo de ação chamado **StartStop_VM_Notication**.
 
-    ![Página de Gestão de Atualização de Automação](media/automation-solution-vm-management/azure-monitor.png)
+    :::image type="content" source="media/automation-solution-vm-management/azure-monitor.png" alt-text="Screenshot da página Monitor - Grupos de ação.":::
 
 2. Na página StartStop_VM_Notification, clique em **Editar detalhes** em **Detalhes**. Isto abre a página Email/SMS/Push/Voice. Atualize o endereço de e-mail e clique **em OK** para guardar as suas alterações.
 
-    ![Página de Gestão de Atualização de Automação](media/automation-solution-vm-management/change-email.png)
+    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Screenshot da página email/SMS/Push/Voice mostrando um endereço de e-mail de exemplo atualizado.":::
 
     Em alternativa, pode adicionar ações adicionais ao grupo de ação, para saber mais sobre grupos de ação, ver [grupos de ação](../azure-monitor/platform/action-groups.md)
 
 Segue-se um e-mail de exemplo que é enviado quando a funcionalidade desliga as máquinas virtuais.
 
-![Página de Gestão de Atualização de Automação](media/automation-solution-vm-management/email.png)
+:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Screenshot de um e-mail de exemplo enviado quando a funcionalidade desliga máquinas virtuais.":::
 
 ## <a name="add-or-exclude-vms"></a><a name="add-exclude-vms"></a>Adicionar ou excluir VMs
 
@@ -183,7 +183,7 @@ Configurar a funcionalidade para apenas parar VMs em determinado momento é supo
 
 5. Selecione **OK** para guardar as alterações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para monitorizar a função durante o funcionamento, consulte [os registos de consulta dos VMs de início/paragem durante as horas de folga](automation-solution-vm-management-logs.md).
 * Para lidar com problemas durante a gestão de VM, consulte [os VMs de início/paragem de resolução de problemas durante as horas fora de horas](troubleshoot/start-stop-vm.md).

@@ -34,7 +34,7 @@
       items:
         - name: ASP.NET
           href: quickstart-v2-aspnet-webapp.md
-        - name: Núcleo de ASP.NET
+        - name: ASP.NET Core
           href: quickstart-v2-aspnet-core-webapp.md
         - name: NodeJS
           href: quickstart-v2-nodejs-webapp.md
@@ -48,7 +48,7 @@
         - name: ASP.NET
           href: quickstart-v2-dotnet-native-aspnet.md
         - name: Núcleo de ASP.NET
-          href: 'https://docs.microsoft.com/samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/active-directory-dotnet-native-aspnetcore-v2/'
+          href: quickstart-v2-aspnet-core-web-api.md
     - name: Aplicações móveis e de ambiente de trabalho
       items:
         - name: Android

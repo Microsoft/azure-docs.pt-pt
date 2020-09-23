@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: c6a35d9ba2d2f1c762f44b3792792401565c4804
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 7c9e7cda862fe1112cce7ed8cff270843f0a8475
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421089"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902790"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Como fazer backup e restaurar um servidor na Base de Dados Azure para o MySQL utilizando o portal Azure
 
@@ -32,7 +32,7 @@ Você faz a escolha entre configurar o seu servidor para backups locais redundan
 
 Ao criar um servidor através do portal Azure, a janela **Priceing Tier** é onde seleciona backups **locais redundantes** ou **geograficamente redundantes** para o seu servidor. Esta janela é também onde seleciona o **Período de Retenção de Cópia** de Segurança - quanto tempo (em número de dias) pretende que as cópias de segurança do servidor são armazenadas.
 
-   ![Nível de Preços - Escolha redundância de backup](./media/howto-restore-server-portal/pricing-tier.png)
+   :::image type="content" source="./media/howto-restore-server-portal/pricing-tier.png" alt-text="Nível de Preços - Escolha redundância de backup":::
 
 Para obter mais informações sobre a definição destes valores durante a criação, consulte a [Base de Dados Azure para o arranque rápido do servidor MySQL](quickstart-create-mysql-server-database-using-azure-portal.md).
 
@@ -41,7 +41,7 @@ O período de retenção de backup pode ser alterado num servidor através dos s
 2. Selecione a base de dados Azure para o servidor MySQL. Esta ação abre a página **de visão geral.**
 3. Selecione **O Nível de Preços** do menu, em **DEFINIÇÕES**. Utilizando o slider pode alterar o **Período de Retenção de Cópia** de Segurança para a sua preferência entre 7 e 35 dias.
 Na imagem abaixo foi aumentado para 34 dias.
-![Período de retenção de backup aumentado](./media/howto-restore-server-portal/3-increase-backup-days.png)
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Período de retenção de backup aumentado":::
 
 4. Clique **em OK** para confirmar a alteração.
 
@@ -57,11 +57,11 @@ Os seguintes passos restauram o servidor da amostra num ponto no tempo:
 
 2. Na barra de ferramentas da página **'Visão Geral'** do servidor, selecione **'Restaurar'.**
 
-   ![Base de Dados Azure para MySQL - Visão geral - Botão de restauro](./media/howto-restore-server-portal/2-server.png)
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Base de Dados Azure para MySQL - Visão geral - Botão de restauro":::
 
 3. Preencha o formulário Restaurar com as informações necessárias:
 
-   ![Azure Database for MySQL - Restaurar informações](./media/howto-restore-server-portal/3-restore.png)
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Azure Database for MySQL - Restaurar informações":::
    - **Ponto de restauro**: Selecione o ponto a tempo a que pretende restabelecer.
    - **Servidor-alvo**: Forneça um nome para o novo servidor.
    - **Localização**: Não é possível selecionar a região. Por padrão, é o mesmo que o servidor de origem.
@@ -124,7 +124,7 @@ O novo servidor criado pela geo restauro tem o mesmo nome de login de administra
 
 O novo servidor criado durante uma restauração não possui os pontos finais do serviço VNet que existiam no servidor original. Estas regras têm de ser configuradas separadamente para este novo servidor. As regras de firewall do servidor original são restauradas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre as [cópias](concepts-backup.md) de segurança do serviço
 - Saiba mais [sobre réplicas](concepts-read-replicas.md)
 - Saiba mais sobre opções [de continuidade de negócios](concepts-business-continuity.md)

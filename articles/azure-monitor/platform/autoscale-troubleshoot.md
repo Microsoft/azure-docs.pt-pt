@@ -4,12 +4,12 @@ description: Rastrear problemas com autoscalagem Azure usados em Tecido de Servi
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: 9780cf88070110c4efc13c477d65307aa3985fe5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a29b5d11a6ea06af9d5b6a8b5120c6f0caa6601e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75751331"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979042"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Resolução de problemas Azure autoscale
  
@@ -47,7 +47,7 @@ Temos uma definição de autoescala simples para um conjunto de escala de máqui
 
 Vamos rever as métricas do serviço de autoescala.
  
-![Escala de máquina virtual definir percentagem de CPU exemplo](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
+![A screenshot mostra um modelo de CPU de percentagem de escala de máquina virtual.](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
 
 ![Escala de máquina virtual definir percentagem de CPU exemplo](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
 
@@ -72,7 +72,7 @@ Se o valor do Fluxo de **Saída por instância** for superior a 10, então o ser
 
 Neste caso, o valor métrico observado pelo motor de autoescala é calculado como o valor métrico real dividido pelo número de casos. Se o valor métrico observado for inferior ao limiar, não é iniciada qualquer ação de escala. 
  
-![Escala de máquina virtual definir métricas de escala automática exemplo](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
+![A screenshot mostra a página Fluxos de Saída Média com um exemplo de uma escala de máquina virtual definir gráficos de métricas de escala automática.](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
 
 ![Escala de máquina virtual definir métricas de escala automática exemplo](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
 
@@ -205,5 +205,5 @@ Crie regras de alerta para ser notificado de ações ou falhas de autoescala. Ta
 
 Para obter mais informações, consulte [registos de recursos de escala automática](autoscale-resource-log-schema.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Leia informações sobre [as melhores práticas de autoescala.](autoscale-best-practices.md) 

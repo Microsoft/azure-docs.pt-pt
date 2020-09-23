@@ -51,8 +51,8 @@
               href: database/security-baseline.md
             - name: Atributos de segurança
               href: database/security-controls.md
-            - name: Advanced Data Security
-              href: database/advanced-data-security.md
+            - name: Azure Defender para SQL
+              href: database/azure-defender-for-sql.md
             - name: Proteção Avançada Contra Ameaças
               href: database/threat-detection-overview.md
             - name: Deteção e classificação de dados
@@ -712,6 +712,10 @@
           items:
             - name: Descrição geral
               href: managed-instance/management-operations-overview.md
+            - name: Monitorizar operações
+              href: managed-instance/management-operations-monitor.md
+            - name: Cancelar operações
+              href: managed-instance/management-operations-cancel.md
             - name: Referência da API
               href: managed-instance/api-references-create-manage-instance.md
         - name: Machine Learning Services

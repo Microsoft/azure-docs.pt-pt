@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 4b4953cbca4d08e911fd043413387a1602bd8e08
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: ae13e062f50e1e8eefeaa886c67c636cf6230c18
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006096"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973871"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configurar o Local de Trabalho pelo Facebook para o fornecimento automático de utilizadores
 
-Este tutorial descreve os passos que precisa de executar tanto no Workplace do Facebook como no Azure Ative Directory (Azure AD) para configurar o fornecimento automático de utilizadores. Quando configurado, a Azure AD fornece automaticamente e desresesa os utilizadores e grupos para [o Local de Trabalho pelo Facebook](https://work.workplace.com/) utilizando o serviço de provisionamento Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte [automatizar o fornecimento e desprovisionamento de aplicações saaS com diretório Azure Ative.](../manage-apps/user-provisioning.md)
+Este tutorial descreve os passos que precisa de executar tanto no Workplace do Facebook como no Azure Ative Directory (Azure AD) para configurar o fornecimento automático de utilizadores. Quando configurado, a Azure AD fornece automaticamente e desresesa os utilizadores e grupos para [o Local de Trabalho pelo Facebook](https://work.workplace.com/) utilizando o serviço de provisionamento Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona e perguntas frequentes, veja [Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS no Azure Active Directory](../manage-apps/user-provisioning.md).
 
 ## <a name="capabilities-supported"></a>Capacidades suportadas
 > [!div class="checklist"]
@@ -46,9 +46,9 @@ Para testar os passos neste tutorial, deve seguir estas recomendações:
 - Não utilize o seu ambiente de produção, a não ser que seja necessário.
 - Se não tiver um ambiente de experimentação da AD Azure, pode ter um julgamento de um mês [aqui.](https://azure.microsoft.com/pricing/free-trial/)
 
-## <a name="step-1-plan-your-provisioning-deployment"></a>Passo 1. Planeie a sua implantação de provisionamento
-1. Saiba [como funciona o serviço de prestação de serviços.](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)
-2. Determinar quem estará no [âmbito do provisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+## <a name="step-1-plan-your-provisioning-deployment"></a>Passo 1. Planear a sua implementação de aprovisionamento
+1. Saiba [como funciona o serviço de aprovisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+2. Determine quem vai estar no [âmbito do aprovisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determine quais os dados a [mapear entre Azure AD e Workplace pelo Facebook](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
 
 ## <a name="step-2-configure-workplace-by-facebook-to-support-provisioning-with-azure-ad"></a>Passo 2. Configure Workplace by Facebook para apoiar o provisionamento com Azure AD
@@ -61,41 +61,41 @@ Antes de configurar e ativar o serviço de fornecimento, é necessário decidir 
 
 ## <a name="step-3-add-workplace-by-facebook-from-the-azure-ad-application-gallery"></a>Passo 3. Adicione Workplace pelo Facebook a partir da galeria de aplicações AZure AD
 
-Adicione Workplace pelo Facebook a partir da galeria de aplicações AZure AD para começar a gerir o fornecimento ao Workplace pelo Facebook. Se já configurar workplace by Facebook for SSO pode utilizar a mesma aplicação. No entanto, recomenda-se que crie uma aplicação separada ao testar inicialmente a integração. Saiba mais sobre a adição de uma aplicação na galeria [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)
+Adicione Workplace pelo Facebook a partir da galeria de aplicações AZure AD para começar a gerir o fornecimento ao Workplace pelo Facebook. Se já configurar workplace by Facebook for SSO pode utilizar a mesma aplicação. No entanto, é recomendável criar uma aplicação separada ao testar a integração inicialmente. Saiba mais sobre como adicionar uma aplicação a partir da galeria [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app).
 
-## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passo 4: Definir quem estará no âmbito do provisionamento 
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passo 4: Determinar quem vai estar no âmbito do aprovisionamento 
 
-O serviço de prestação de Ad Azure permite-lhe atear âmbito a quem será a provisionado com base na atribuição à aplicação e ou com base em atributos do utilizador/grupo. Se optar por escolher o âmbito de aplicação de quem será aprovisionado na sua aplicação com base na atribuição, pode utilizar os [seguintes passos](../manage-apps/assign-user-or-group-access-portal.md) para atribuir utilizadores e grupos à aplicação. Se optar por escolher o âmbito de aplicação de quem será a provisionado apenas com base em atributos do utilizador ou grupo, pode utilizar um filtro de deteção como descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+O serviço de aprovisionamento do Azure AD permite-lhe determinar quem vai ser aprovisionado com base na atribuição à aplicação e/ou com base em atributos do utilizador/grupo. Se optar por determinar quem vai ser aprovisionado na sua aplicação com base na atribuição, pode utilizar os seguintes [passos](../manage-apps/assign-user-or-group-access-portal.md) para atribuir utilizadores e grupos à aplicação. Se escolher determinar quem vai ser aprovisionado com base apenas em atributos do utilizador ou grupo, pode utilizar um filtro de âmbito conforme descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-* Ao atribuir utilizadores e grupos ao Workplace pelo Facebook, tem de selecionar outra função que não o **Acesso Predefinido**. Os utilizadores com a função De Acesso Predefinido estão excluídos do provisionamento e serão marcados como não efetivamente intitulados nos registos de provisionamento. Se a única função disponível na aplicação for a função de acesso predefinido, pode [atualizar o manifesto de aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para adicionar funções adicionais. 
+* Ao atribuir utilizadores e grupos ao Workplace pelo Facebook, tem de selecionar outra função que não o **Acesso Predefinido**. Os utilizadores com a função Acesso Predefinido são excluídos do aprovisionamento e marcados como não autorizados de forma efetiva nos registos de aprovisionamento. Se a única função disponível na aplicação for a função de acesso predefinido, pode [atualizar o manifesto de aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para adicionar funções adicionais. 
 
-* Comece minúsculo. Teste com um pequeno conjunto de utilizadores e grupos antes de rolar para todos. Quando o âmbito de provisão é definido para utilizadores e grupos atribuídos, pode controlá-lo atribuindo um ou dois utilizadores ou grupos à aplicação. Quando o âmbito é definido para todos os utilizadores e grupos, pode especificar um [filtro de deteção baseado no atributo](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* Comece pequeno. Teste com um pequeno conjunto de utilizadores e grupos antes de implementar para todos. Quando o âmbito do aprovisionamento está definido para os utilizadores e os grupos atribuídos, pode controlar isto ao atribuir um ou dois utilizadores ou grupos à aplicação. Quando o âmbito está definido para todos os utilizadores e grupos, pode especificar um [filtro de âmbito baseado em atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais** e, em seguida, **Todas as aplicações**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Workplace by Facebook**.
 
     ![O link Workplace by Facebook na lista de Aplicações](common/all-applications.png)
 
-3. Selecione o **separador Provisioning.**
+3. Selecione o separador **Aprovisionamento**.
 
-    ![Separador de provisionamento](common/provisioning.png)
+    ![Separador Aprovisionamento](common/provisioning.png)
 
-4. Desa ajuste o **modo de provisionamento** para **automático**.
+4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
-    ![Separador de provisionamento](common/provisioning-automatic.png)
+    ![Separador Aprovisionamento](common/provisioning-automatic.png)
 
 5. Na secção **Credenciais de Administração,** clique em **Authorize**. Será redirecionado para o Local de Trabalho pela página de autorização do Facebook. Insira o seu Local de Trabalho pelo nome de utilizador do Facebook e clique no botão **Continuar.** Clique em **Testar A Ligação** para garantir que a Azure AD pode ligar-se ao Workplace pelo Facebook. Se a ligação falhar, certifique-se de que o seu Workplace by Facebook conta com permissões de Administração e tente novamente.
 
-    ![provisionamento](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
+    ![A screenshot mostra caixa de diálogo de Admin Credentials com uma opção Authorize.](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
     ![autorizar](./media/workplacebyfacebook-provisioning-tutorial/workplacelogin.png)
 
-6. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e selecione a **notificação enviar uma notificação por e-mail quando ocorrer uma falha** na caixa de verificação.
+6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 
-    ![E-mail de notificação](common/provisioning-notification-email.png)
+    ![E-mail de Notificação](common/provisioning-notification-email.png)
 
 7. Selecione **Guardar**.
 
@@ -107,57 +107,57 @@ O serviço de prestação de Ad Azure permite-lhe atear âmbito a quem será a p
    |---|---|
    |userName|String|
    |displayName|String|
-   |ativo|Booleano|
+   |active|Booleano|
    |título|Booleano|
-   |e-mails[tipo eq "work"].value|String|
-   |nome.dado Nome|String|
-   |nome.famíliaName|String|
-   |nome.formatado|String|
-   |endereços[tipo eq "work"].formatado|String|
-   |endereços[tipo eq "work"].streetAddress|String|
-   |endereços[tipo eq "work"].localidade|String|
-   |endereços[tipo eq "work"].região|String|
-   |endereços[tipo eq "work"].país|String|
-   |endereços[tipo eq "work"].postalCode|String|
+   |emails[type eq "work"].value|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |nome.formatado|Cadeia|
+   |endereços[tipo eq "work"].formatado|Cadeia|
+   |endereços[tipo eq "work"].streetAddress|Cadeia|
+   |endereços[tipo eq "work"].localidade|Cadeia|
+   |endereços[tipo eq "work"].região|Cadeia|
+   |endereços[tipo eq "work"].país|Cadeia|
+   |endereços[tipo eq "work"].postalCode|Cadeia|
    |endereços[tipo eq "outros"].formatados|String|
-   |phoneNumbers[tipo eq "work"].value|String|
-   |números de telefone[tipo eq "mobile"].valor|String|
-   |números de telefone[tipo eq "fax"].valor|String|
-   |externoId|String|
+   |phoneNumbers[type eq "work"].value|String|
+   |phoneNumbers[type eq "mobile"].value|String|
+   |números de telefone[tipo eq "fax"].valor|Cadeia|
+   |externalId|String|
    |preferiuLanguage|String|
-   |urn:scim:schemas:extensão:enterprise:1.0.manager|String|
-   |urn:scim:schemas:extensão:enterprise:1.0.department|String|
-   |urn:scim:schemas:extensão:enterprise:1.0.division|String|
-   |urn:scim:schemas:extensão:enterprise:1.0.organization|String|
-   |urn:scim:schemas:extensão:enterprise:1.0.costCenter|String|
-   |urn:scim:schemas:extensão:enterprise:1.0.employeeNumber|String|
-   |urn:scim:schemas:extensão:facebook:auth_method:1.0:auth_method|String|
+   |urn:scim:schemas:extension:enterprise:1.0.manager|String|
+   |urn:scim:schemas:extension:enterprise:1.0.department|String|
+   |urn:scim:schemas:extension:enterprise:1.0.division|String|
+   |urn:scim:schemas:extension:enterprise:1.0.organization|String|
+   |urn:scim:schemas:extension:enterprise:1.0.costCenter|String|
+   |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|String|
+   |urn:scim:schemas:extensão:facebook:auth_method:1.0:auth_method|Cadeia|
    |urn:scim:schemas:extension:facebook:frontline:1.0.is_frontline|Booleano|
-   |urn:scim:schemas:extension:facebook:starttermdates:1.0.startDate|Número inteiro|
+   |urn:scim:schemas:extension:facebook:starttermdates:1.0.startDate|Integer (Número inteiro)|
 
 
-10. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Para ativar o serviço de prestação de Ad Azure para o Local de Trabalho pelo Facebook, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
-    ![Estatuto de Provisionamento Toggled On](common/provisioning-toggle-on.png)
+    ![Estado do Aprovisionamento Ativado](common/provisioning-toggle-on.png)
 
 12. Defina os utilizadores e/ou grupos que deseja prestar ao Workplace pelo Facebook, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
-    ![Âmbito de provisionamento](common/provisioning-scope.png)
+    ![Âmbito de Aprovisionamento](common/provisioning-scope.png)
 
-13. Quando estiver pronto para a provisão, clique em **Guardar**.
+13. Quando estiver pronto para aprovisionar, clique em **Guardar**.
 
-    ![Configuração de provisionamento de poupança](common/provisioning-configuration-save.png)
+    ![Guardar Configuração de Aprovisionamento](common/provisioning-configuration-save.png)
 
-Esta operação inicia o ciclo inicial de sincronização de todos os utilizadores e grupos definidos no **Âmbito** na secção **Definições.** O ciclo inicial demora mais tempo a ser efetuado do que os ciclos subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de fornecimento AZure AD esteja em funcionamento. 
+Esta operação inicia o ciclo de sincronização inicial de todos os utilizadores e grupos definidos no **Âmbito** na secção **Definições**. O ciclo inicial leva mais tempo a ser executado do que os ciclos subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de aprovisionamento do Azure AD esteja em execução. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Passo 6. Monitorizar a implementação
-Depois de configurar o provisionamento, utilize os seguintes recursos para monitorizar a sua implantação:
+Depois de configurar o aprovisionamento, utilize os seguintes recursos para monitorizar a sua implementação:
 
-1. Utilize os [registos de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais os utilizadores que foram a provisionados com sucesso ou sem sucesso
-2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de provisionamento e quão perto está da sua conclusão
-3. Se a configuração do provisionamento parecer estar num estado pouco saudável, a aplicação entrará em quarentena. Saiba mais sobre estados de quarentena [aqui.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)
+1. Utilize os [registos de aprovisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais os utilizadores que foram aprovisionados com ou sem êxito
+2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de aprovisionamento e quão próximo está da conclusão
+3. Se a configuração de aprovisionamento parecer estar num mau estado de funcionamento, a aplicação vai entrar em quarentena. Saiba mais sobre os estados de quarentena [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="troubleshooting-tips"></a>Sugestões de resolução de problemas
 *  Se vir um utilizador criado sem sucesso e houver um evento de registo de auditoria com o código "1789003" significa que o utilizador é de um domínio não verificado.
@@ -168,9 +168,9 @@ Depois de configurar o provisionamento, utilize os seguintes recursos para monit
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do fornecimento de conta de utilizador para apps empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../manage-apps/check-status-user-account-provisioning.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../manage-apps/check-status-user-account-provisioning.md)

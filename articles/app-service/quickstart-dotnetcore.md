@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 5604153d31a2828bcefbeccbd2f4fea428e878b5
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 95f877c9030d51e68b97a21875ff3ff05b383457
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961538"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973760"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Quickstart: Criar uma aplicação web core ASP.NET em Azure
 
@@ -137,7 +137,7 @@ Para gerir a sua aplicação web, vá ao [portal Azure](https://portal.azure.com
 
 Na página **serviços de aplicações,** selecione o nome da sua aplicação web.
 
-![Navegação do portal para a aplicação do Azure](./media/quickstart-dotnetcore/select-app-service.png)
+:::image type="content" source="./media/quickstart-dotnetcore/select-app-service.png" alt-text="Screenshot da página serviços de aplicações com uma aplicação web de exemplo selecionada.":::
 
 A página **'Vista Geral'** para a sua aplicação web contém opções para gestão básica como navegar, parar, iniciar, reiniciar e excluir. O menu esquerdo fornece mais páginas para configurar a sua aplicação.
 
@@ -304,7 +304,7 @@ Vá ao <a href="https://portal.azure.com" target="_blank">portal Azure</a> para 
 
 A partir do menu esquerdo, clique em **Serviços de Aplicação**e, em seguida, clique no nome da sua aplicação Azure.
 
-![Navegação do portal para a aplicação do Azure](./media/quickstart-dotnetcore/portal-app-service-list.png)
+:::image type="content" source="./media/quickstart-dotnetcore/portal-app-service-list.png" alt-text="Screenshot da página serviços de aplicações mostrando um exemplo Azure app selecionado.":::
 
 Veja a página geral da sua aplicação. Aqui, pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar. 
 

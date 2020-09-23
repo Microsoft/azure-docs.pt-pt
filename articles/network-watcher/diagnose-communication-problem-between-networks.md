@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 974e45b761fb45e4bc1c451fa6755e16cab49e11
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 25c58f99f56a4328527d1dd970e3ade21eb51819
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "76834692"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987177"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Tutorial: Diagnosticar um problema de comunicação entre redes com o Portal do Azure
 
@@ -73,12 +73,12 @@ Se já tiver um observador de rede ativado na região E.U.A. Leste, avance para 
 8. Enquanto o teste está a ser executado, **A executar** é apresentado na coluna **ESTADO DE RESOLUÇÃO DE PROBLEMAS** onde **Não iniciado** é apresentado, na imagem anterior. O teste poderá demorar vários minutos para ser executado.
 9. Veja o estado do teste concluído. A seguinte imagem mostra os resultados do estado de um teste de diagnóstico concluído:
 
-    ![Estado](./media/diagnose-communication-problem-between-networks/status.png)
+    ![A screenshot mostra os resultados de um teste de diagnóstico, pouco saudável neste exemplo, incluindo um resumo e detalhes.](./media/diagnose-communication-problem-between-networks/status.png)
 
     Pode ver que o **ESTADO DE RESOLUÇÃO DE PROBLEMAS** é **Danificado**, bem como um **Resumo** e **Detalhes** do problema no separador **Estado**.
 10. Quando seleciona o separador **Ação**, o diagnóstico de VPN fornece informações adicionais. No exemplo, conforme apresentado na seguinte imagem, o diagnóstico de VPN informa-o de que deve verificar o estado de funcionamento de cada ligação:
 
-    ![Ação](./media/diagnose-communication-problem-between-networks/action.png)
+    ![A screenshot mostra o separador Ação, que lhe dá informações adicionais.](./media/diagnose-communication-problem-between-networks/action.png)
 
 ## <a name="diagnose-a-gateway-connection"></a>Diagnosticar uma ligação de gateway
 
@@ -86,7 +86,7 @@ Um gateway está ligado a outras redes através de uma ligação de gateway. O g
 
 1. Conclua o passo 7 em [Diagnosticar um gateway](#diagnose-a-gateway) novamente, mas desta vez selecione uma ligação. No seguinte exemplo, é testada uma ligação chamada **VNet1toSite1**:
 
-    ![Ligação](./media/diagnose-communication-problem-between-networks/connection.png)
+    ![A screenshot mostra como começar a resolução de problemas para uma ligação selecionada.](./media/diagnose-communication-problem-between-networks/connection.png)
 
     O teste é executado durante vários minutos.
 2. Após o teste da ligação ser concluído, receberá resultados semelhantes aos resultados apresentados nas seguintes imagens nos separadores **Estado** e **Ação**:

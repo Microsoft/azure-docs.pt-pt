@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 0a025ad7857594b3117b1703a0e19ae47407d0fd
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 87085d4a4911801933993720ae0ab23aeb19956d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018106"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974374"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Dia de Trabalho para o fornecimento automático de utilizadores
 
@@ -373,7 +373,7 @@ Transfira o instalador de agente descarregado para o anfitrião do servidor e si
 1. Verifique a instalação do Agente e certifique-se de que está a funcionar abrindo o Snap-In "Serviços" e procure o Serviço denominado "Microsoft Azure AD Connect Provisioning Agent"
 
    >[!div class="mx-imgBorder"]
-   >![Screenshot do Agente de Provisionamento de Ligação AD da Microsoft Azure em execução em Serviços](./media/workday-inbound-tutorial/services.png)
+   >![Screenshot do Agente de Provisionamento de Ligação AD da Microsoft Azure em execução em Serviços.](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Parte 3: Na aplicação de provisionamento, configurar a conectividade ao Workday e ao Ative Directory
 Neste passo, estabelecemos conectividade com o Workday e o Ative Directory no portal Azure. 
@@ -528,7 +528,7 @@ Uma vez concluídas as configurações da aplicação de provisionamento workday
 
 1. No **separador Provisioning,** desa fixação do **Estado de Provisionamento** para **On**.
 
-2. Clique em **Guardar**.
+2. Clique em **Save** (Guardar).
 
 3. Esta operação iniciará a sincronização inicial, que pode demorar um número variável de horas dependendo de quantos utilizadores estão no arrendatário do Workday. 
 
@@ -1152,9 +1152,9 @@ O serviço de fornecimento de Azure AD enquadra-se na categoria de processador d
 
 No que diz respeito à retenção de dados, o serviço de fornecimento de Ad Azure não gera relatórios, realiza análises ou fornece insights para além de 30 dias. Por isso, o serviço de fornecimento AZURE AD não armazena, processa ou retém quaisquer dados para além de 30 dias. Este design está em conformidade com os regulamentos do RGPD, os regulamentos de conformidade com a privacidade da Microsoft e as políticas de retenção de dados AZure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 * [Saiba como configurar um único sign-on entre workday e Azure Ative Directory](workday-tutorial.md)
 * [Saiba como integrar outras aplicações saaS com o Azure Ative Directory](tutorial-list.md)
 * [Saiba como utilizar as APIs do Microsoft Graph para gerir configurações de provisionamento](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

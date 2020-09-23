@@ -1,6 +1,6 @@
 ---
-title: Resolução de problemas com Azure Stack Edge com GPU Microsoft Docs
-description: Descreve erros de certificado de resolução de problemas com o dispositivo GPU Azure Stack Edge.
+title: Resolução de problemas com Azure Stack Edge Pro com GPU Microsoft Docs
+description: Descreve erros de certificado de resolução de problemas com o dispositivo GPU Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 05338fb70bfa390ff3bd9e14e938edeb40938aeb
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a0918c6cebd50231a9664811bb467e04d2d2bfd9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269442"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891328"
 ---
 # <a name="troubleshooting-certificate-errors"></a>Erros de certificado de resolução de problemas
 
-O artigo fornece erros comuns de certificação ao instalar certificados no seu dispositivo Azure Stack Edge.
+O artigo fornece erros comuns de certificado ao instalar certificados no seu dispositivo Azure Stack Edge Pro.
 
 ## <a name="common-certificate-errors"></a>Erros comuns de certificado
 
@@ -58,4 +58,4 @@ O quadro que se segue apresenta erros comuns de certificado e informações deta
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Requisitos dos certificados](azure-stack-edge-j-series-certificate-requirements.md)
+[Requisitos de certificado](azure-stack-edge-j-series-certificate-requirements.md)

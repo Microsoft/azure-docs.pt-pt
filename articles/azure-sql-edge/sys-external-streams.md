@@ -1,7 +1,7 @@
 ---
-title: sys.external_streams (Transact-SQL) - Azure SQL Edge (Preview)
-description: Saiba como utilizar sys.external_streams em Azure SQL Edge (Preview)
-keywords: sys.external_streams, SQL Edge
+title: sys.external_streams (Transact-SQL) - Azure SQL Edge
+description: Saiba como utilizar sys.external_streams em Azure SQL Edge
+keywords: sys.external_streams, SqL Edge
 services: sql-edge
 ms.service: sql-edge
 ms.topic: reference
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
-ms.openlocfilehash: 8200d1814537a76db357704d6baf3bf482c587e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04950f01c06bc3c8ed3bb11a790310c2319a0579
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84235113"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900313"
 ---
 # <a name="sysexternal_streams-transact-sql"></a>sys.external_streams (Transact-SQL)
 
@@ -46,7 +46,7 @@ Devolve uma linha para cada objeto de fluxo externo criado no âmbito da base de
 
 A visibilidade dos metadados nas vistas do catálogo limita-se a securáveis que um utilizador possui ou sobre os quais o utilizador tenha alguma permissão. Para obter mais informações, consulte [a Configuração de Visibilidade dos Metadados](/sql/relational-databases/security/metadata-visibility-configuration/).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Vistas do Catálogo (Transact-SQL)](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql/)
 - [Vistas do Sistema (Transact-SQL)](/sql/t-sql/language-reference/)

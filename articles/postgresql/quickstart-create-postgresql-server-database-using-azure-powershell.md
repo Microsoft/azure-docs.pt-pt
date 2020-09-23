@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 06/08/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 76c5bac600f05094f2e2a354cd5cf5895d9d45d2
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 082adc0753cb8e41bc61f5703445e6b8507202b5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496615"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902689"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-powershell"></a>Quickstart: Criar uma base de dados Azure para PostgreSQL - Servidor Único usando PowerShell
 
@@ -75,7 +75,7 @@ A tabela seguinte contém uma lista de parâmetros e valores de amostra geralmen
 
 O valor do parâmetro **Sku** segue os ** \_ \_ vCores de geração de cálculo de nível de** preços da convenção, como mostrado nos seguintes exemplos.
 
-- `-Sku B_Gen5_1`mapas para Basic, Gen 5 e 1 vCore. Esta opção é a mais pequena SKU disponível.
+- `-Sku B_Gen5_1` mapas para Basic, Gen 5 e 1 vCore. Esta opção é a mais pequena SKU disponível.
 - `-Sku GP_Gen5_32` mapeia para Fins Gerais, Ger 5 e 32 vCores.
 - `-Sku MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
 
@@ -141,7 +141,7 @@ Se o seu computador cliente tiver o PostgreSQL instalado, pode utilizar uma inst
    ```
 
    > [!TIP]
-   > Se preferir utilizar um caminho URL para ligar aos Postgres, o URL codifica o sinal @ no nome de utilizador com `%40` . Por exemplo, a cadeia de ligação para psql seria,`psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres`
+   > Se preferir utilizar um caminho URL para ligar aos Postgres, o URL codifica o sinal @ no nome de utilizador com `%40` . Por exemplo, a cadeia de ligação para psql seria, `psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres`
 
 1. Assim que estiver ligado ao servidor, crie uma base de dados em branco na linha de comandos.
 
@@ -165,11 +165,11 @@ pgAdmin é uma ferramenta de código aberto utilizada com o PostgreSQL. Pode ins
 
 1. Na caixa de diálogo **Criar - Servidor**, no separador **Geral**, introduza um nome amigável exclusivo para o servidor, tal como **mydemoserver**.
 
-   ![Separador "Geral"](./media/quickstart-create-postgresql-server-database-using-azure-powershell/9-pgadmin-create-server.png)
+   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/9-pgadmin-create-server.png" alt-text="O separador geral":::
 
 1. Na caixa de diálogo **Criar - Servidor**, no separador **Ligação**, preencha a tabela de definições.
 
-   ![Separador “Ligação”](./media/quickstart-create-postgresql-server-database-using-azure-powershell/10-pgadmin-create-server.png)
+   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/10-pgadmin-create-server.png" alt-text="O separador De Ligação":::
 
     parâmetro pgAdmin |Valor|Descrição
     ---|---|---
@@ -193,13 +193,13 @@ pgAdmin é uma ferramenta de código aberto utilizada com o PostgreSQL. Pode ins
 
 1. Selecione o **Proprietário** da base de dados na caixa de listagem. Escolha o nome de início de sessão de administrador do servidor, como o exemplo **my admin**.
 
-   ![Criar uma base de dados em pgAdmin](./media/quickstart-create-postgresql-server-database-using-azure-powershell/11-pgadmin-database.png)
+   :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-azure-powershell/11-pgadmin-database.png" alt-text="Criar uma base de dados em pgAdmin":::
 
 1. Seleione **Guardar** para criar uma base de dados vazia nova.
 
 1. No painel **Browser**, pode ver a base de dados que criou na lista de bases de dados, no nome do seu servidor.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se os recursos criados neste quickstart não forem necessários para outro arranque rápido ou tutorial, pode eliminá-los executando o seguinte exemplo.
 

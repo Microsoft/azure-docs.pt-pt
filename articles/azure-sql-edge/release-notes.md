@@ -9,17 +9,42 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 09/04/2020
-ms.openlocfilehash: a2d27f892e79d99f515032b72e1ec090ab1f6a31
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.date: 09/22/2020
+ms.openlocfilehash: 3306e51fe2fdbb2586be9684432d8f8c310afe95
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500356"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900588"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notas de lançamento do Azure SQL Edge 
 
 Este artigo descreve o que é novo e o que mudou a cada nova construção de Azure SQL Edge.
+
+## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge - 1.0.0 (RTM)
+
+### <a name="sql-engine-build-number---15020001549"></a>NÚMERO DE CONSTRUÇÃO DO MOTOR SQL - 15.0.2000.1549
+
+### <a name="whats-new"></a>Novidades
+1. Ubuntu 18.04 imagens de contentores à base. 
+2. Suporte `IGNORE NULL` e `RESPECT NULL` sintaxe com `LAST_VALUE()` e `FIRST_VALUE()` funções. 
+3. Melhorias de fiabilidade para PREVISÃO com ONNX.
+4. Assistência à limpeza baseada na política de retenção de dados.      
+   - Suporte para limpeza otimizada para índices de lojas de colunas agrupadas.
+5. Suporte de novas funcionalidades 
+   - Recuperação Rápida
+   - Afinação automática de consultas
+
+### <a name="fixes"></a>Correções
+1. Mensagens de erro adicionais e detalhes para resolução de problemas das operações de streaming da TSQL. 
+2. Melhorias para preservar a vida útil da bateria no modo Idle. 
+3. Correções do motor de streaming TSQL: 
+   - Limpeza para trabalho de streaming parado 
+   - Correções para localização e melhorias no manuseamento de unicódigo
+4. Limpeza baseada em política de retenção de dados
+   - Correções para cenários de criação de políticas de retenção e limpeza.
+5. Correções para tarefas de temporizador de fundo para melhorar a poupança de energia para o modo de baixa potência.
+
 
 ## <a name="ctp-23"></a>CTP 2.3
 ### <a name="sql-engine-build-number---15020001549"></a>NÚMERO DE CONSTRUÇÃO DO MOTOR SQL - 15.0.2000.1549
@@ -33,7 +58,7 @@ Este artigo descreve o que é novo e o que mudou a cada nova construção de Azu
 
 ### <a name="fixes"></a>Correções
 1. Mensagens de erro adicionais e detalhes para resolução de problemas das operações de streaming da TSQL. 
-2. Imporvements para preservar a vida útil da bateria no modo de marcha lenta. 
+2. Melhorias para preservar a vida útil da bateria no modo Idle. 
 3. Correções do motor de streaming TSQL: 
    - Corrigir problema de marca de água preso com janela de salto substreamed 
    - Corrigir o tratamento da excepção-quadro para garantir que é recolhido como erro de funcionamento do utilizador
