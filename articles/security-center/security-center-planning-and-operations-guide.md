@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 45d3ec8dc5d819464046e40bab22491a4bccde63
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e5d483af44116274019851f049d6222adfd8dbcd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461328"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904837"
 ---
 # <a name="planning-and-operations-guide"></a>Guia de planeamento e operações
 Este guia destina-se a profissionais de tecnologias da informação (TI), arquitetos de TI, analistas de segurança da informação e administradores de nuvem que planeiam usar o Azure Security Center.
@@ -120,7 +120,7 @@ As políticas do Centro de Segurança contêm os componentes seguintes:
 - [Recolha de dados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): aprovisionamento de agente e definições de recolha de dados.
 - [Política de](https://docs.microsoft.com/azure/security-center/security-center-policies)segurança : uma [Política Azure](../governance/policy/overview.md) que determina quais os controlos monitorizados e recomendados pelo Security Center, ou usar a Política Azure para criar novas definições, definir políticas adicionais e atribuir políticas entre grupos de gestão.
 - [Notificações por e-mail](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): contactos de segurança e definições de notificação.
-- [Escalão de preço](https://docs.microsoft.com/azure/security-center/security-center-pricing): seleção de preço gratuito ou standard, que determina quais as funcionalidades do Centro de Segurança que estão disponíveis para os recursos no âmbito (pode ser especificado para subscrições, grupos de recursos e áreas de trabalho).
+- [Nível de preços](https://docs.microsoft.com/azure/security-center/security-center-pricing): com ou sem Azure Defender, que determina quais as funcionalidades do Centro de Segurança disponíveis para os recursos de âmbito (pode ser especificado para subscrições, grupos de recursos e espaços de trabalho).
 
 > [!NOTE]
 > Especificar um contacto de segurança garante que o Azure consegue contactar a pessoa certa da sua organização se ocorrer um incidente de segurança. Leia [Provide security contact details in Azure Security Center (Fornecer detalhes de contacto de segurança no Centro de Segurança do Azure)](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) para obter mais informações sobre como ativar esta recomendação.
@@ -158,12 +158,12 @@ No portal do Azure, pode procurar uma lista das áreas de trabalho do Log Analyt
 Para áreas de trabalho criadas pelo Centro de Segurança do Azure, os dados são retidos durante 30 dias. Para as áreas de trabalho existentes, a retenção baseia-se no escalão de preço da área de trabalho. Se quiser, também pode utilizar uma área de trabalho existente.
 
 > [!NOTE]
-> A Microsoft está extremamente empenhada em proteger a privacidade e a segurança destes dados. A Microsoft respeita diretrizes rigorosas de conformidade e segurança, desde a codificação à operação de um serviço. Para obter mais informações sobre o processamento de dados e privacidade, leia [Segurança de Dados do Centro de Segurança do Azure](security-center-data-security.md).
+> A Microsoft compromete-se fortemente a proteger a privacidade e a segurança destes dados. A Microsoft respeita diretrizes rigorosas de conformidade e segurança, desde a codificação à operação de um serviço. Para obter mais informações sobre o processamento de dados e privacidade, leia [Segurança de Dados do Centro de Segurança do Azure](security-center-data-security.md).
 >
 
 ## <a name="onboarding-non-azure-resources"></a>Incluir recursos não Azure
 
-O Centro de Segurança pode monitorizar a postura de segurança dos seus computadores não Azure, mas, primeiro, tem de incluir esses recursos. Leia [Onboarding to Azure Security Center Standard for enhanced security](https://docs.microsoft.com/azure/security-center/security-center-onboarding#onboard-non-azure-computers) (Incluir no Centro de Segurança Standard do Azure para mais segurança) para obter mais informações sobre como incluir recursos não Azure.
+O Centro de Segurança pode monitorizar a postura de segurança dos seus computadores não Azure, mas, primeiro, tem de incluir esses recursos. Leia [os computadores não-Azure](quickstart-onboard-machines.md) a bordo para obter mais informações sobre como embarcar recursos não-Azure.
 
 ## <a name="ongoing-security-monitoring"></a>Monitorização de segurança em curso
 Após a configuração inicial e a aplicação das recomendações do Centro de Segurança, o passo seguinte é considerar os processos operacionais do Centro de Segurança.
@@ -191,7 +191,7 @@ Também deve monitorizar regularmente os recursos existentes para alterações d
 
 Como parte das suas operações de segurança, deve também adotar medidas preventivas para limitar o acesso às VMs e controlar as aplicações que estão a ser executadas nas mesmas. Ao restringir o tráfego de entrada às VMs do Azure, reduz a exposição a ataques e, paralelamente, proporciona acesso fácil para ligar a VMs sempre que necessário. Utilize a funcionalidade de acesso [VM just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) para endurecer o acesso aos seus VMs.
 
-Pode utilizar [controlos de aplicações adaptativos](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) para limitar quais aplicações podem ser executadas nos seus VMs localizados em Azure. Entre outros benefícios, isto ajuda a endurecer os seus VMs contra malware. Utilizando machine learning, o Security Center analisa os processos em execução no VM para ajudá-lo a criar regras de whitelisting.
+Pode utilizar [controlos de aplicações adaptativos](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) para limitar quais aplicações podem ser executadas nos seus VMs localizados em Azure. Entre outros benefícios, isto ajuda a endurecer os seus VMs contra malware. Utilizando machine learning, o Security Center analisa os processos em execução no VM para ajudá-lo a criar regras de listagem.
 
 
 ## <a name="incident-response"></a>Resposta a incidentes
@@ -199,7 +199,7 @@ O Centro de Segurança deteta e alerta-o relativamente a ameaças à medida que 
 
 Embora este artigo não tenha a intenção de ajudá-lo a criar o seu próprio plano de resposta a incidentes, vamos usar a Resposta de Segurança do Microsoft Azure no ciclo de vida da Cloud como base para fases de resposta a incidentes. As fases são apresentadas no diagrama seguinte:
 
-![Atividade suspeita](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
+![Fases da resposta do incidente no ciclo de vida da nuvem](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig5-1.png)
 
 > [!NOTE]
 > Pode utilizar o [Computer Security Incident Handling Guide](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) (Guia de Processamento de Incidentes de Segurança Informática) do National Institute of Standards and Technology (NIST) (Instituto Nacional de Normas e Tecnologia dos Estados Unidos) como referência para o ajudar a criar o seu próprio.
@@ -230,7 +230,7 @@ No [Como Alavancar o Azure Security Center & Microsoft Operations Management Sui
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a planear a adoção do Centro de Segurança. Para saber mais acerca do Centro de Segurança, consulte o seguinte:
 
 * [Gerir e responder a alertas de segurança no Centro de Segurança do Azure](security-center-managing-and-responding-alerts.md)

@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 73769a5f8a677f5e08610560db1e5d90dd5b7c3a
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7c98bfe4adb9cbbcc1009c530ba875511ea9ec01
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645606"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905118"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Implementar um modelo de machine learning para o Azure App Service (pré-visualização)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Saiba como implementar um modelo da Azure Machine Learning como uma aplicação web no Azure App Service.
 
@@ -54,7 +54,7 @@ Para obter mais informações sobre as funcionalidades fornecidas pelo Azure App
 
 ## <a name="prepare-for-deployment"></a>Preparar para a implementação
 
-Antes de implementar, deve definir o que é necessário para executar o modelo como um serviço web. A lista que se segue descreve os itens básicos necessários para uma implantação:
+Antes de implementar, deve definir o que é necessário para executar o modelo como um serviço web. A lista a seguir descreve os principais itens necessários para uma implantação:
 
 * Um __roteiro de entrada.__ Este script aceita pedidos, marca o pedido usando o modelo e devolve os resultados.
 
@@ -268,7 +268,7 @@ print(response.elapsed)
 print(response.json())
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda a configurar a sua Web App no Serviço de Aplicações na documentação [linux.](/azure/app-service/containers/)
 * Saiba mais sobre escalar em [Começar com a Autoscale em Azure.](/azure/azure-monitor/platform/autoscale-get-started?toc=%2fazure%2fapp-service%2ftoc.json)

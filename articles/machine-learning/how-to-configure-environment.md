@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8ad22abdf17c68c93a6189db839fe357e7acc91e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 4ccf89a4dcb2c91cfdd96b20d74b7f31596b6249
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650836"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898281"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configure um ambiente de desenvolvimento para a aprendizagem automática Azure
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, aprende-se a configurar um ambiente de desenvolvimento para trabalhar com a Azure Machine Learning. Azure Machine Learning é agnóstico de plataforma. O único requisito difícil para o seu ambiente de desenvolvimento é o Python 3. Recomenda-se também um ambiente isolado como Anaconda ou Virtualenv.
 
@@ -61,7 +61,7 @@ Não há nada para instalar ou configurar para um caso de computação.  Crie um
 
 Para saber mais sobre casos de computação, incluindo como instalar pacotes, consulte [instâncias computacionais](concept-compute-instance.md).
 
-Para parar de incorrer em taxas de cálculo, [pare a instância de cálculo](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
+Para parar de incorrer em taxas de cálculo, [pare a instância de cálculo](tutorial-1st-experiment-bring-data.md#clean-up-resources).
 
 ## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Máquina Virtual de Ciência de Dados
 
@@ -243,7 +243,7 @@ Para ativar estes componentes no seu ambiente de Caderno Jupyter:
 
 1. Para configurar o Bloco de Notas do Jupyter para utilizar o seu espaço de trabalho Azure Machine Learning, vá à secção [de ficheiros de configuração do espaço de trabalho.](#workspace)
 
-### <a name="visual-studio-code"></a><a id="vscode"></a>Visual Studio Code
+### <a name="visual-studio-code"></a><a id="vscode"></a>Código do Estúdio Visual
 
 Visual Studio Code é um editor de código de plataforma cruzada muito popular que suporta um vasto conjunto de linguagens e ferramentas de programação através de extensões disponíveis no mercado do [Estúdio Visual.](https://marketplace.visualstudio.com/vscode) A [extensão Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) instala a [extensão Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) para codificação em todos os tipos de ambientes Python (virtual, Anaconda, etc.). Além disso, fornece funcionalidades de conveniência para trabalhar com os recursos de Aprendizagem de Máquinas Azure e executar experiências de Aprendizagem automática Azure tudo sem sair do Código do Estúdio Visual.
 
@@ -386,7 +386,7 @@ Pode criar o ficheiro de configuração de três formas:
 
     Este código escreve o ficheiro de configuração para o *ficheiro .azureml/config.js.*
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Treine um modelo](tutorial-train-models-with-aml.md) em Azure Machine Learning com o conjunto de dados MNIST
 - Ver o [Azure Machine Learning SDK para](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) referência Python

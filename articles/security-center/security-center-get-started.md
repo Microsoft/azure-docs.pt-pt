@@ -1,6 +1,6 @@
 ---
-title: Upgrade para nível padrão - Azure Security Center
-description: Este quickstart mostra-lhe como fazer upgrade para o nível de preços padrão do Security Center para segurança adicional.
+title: Upgrade para Azure Defender - Azure Security Center
+description: Este quickstart mostra-lhe como fazer upgrade para o Azure Defender do Security Center para obter segurança adicional.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,104 +14,91 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 550c9ff57b9c558f2f175165c7f06ead45991be9
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: e51d0bfb79eab4db9bb571cc0f4ee70ada352d92
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226022"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895736"
 ---
-# <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Início Rápido: Carregar uma subscrição do Azure para o Centro de Segurança Standard
-O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção contra ameaças entre cargas de trabalho na cloud híbrida. Enquanto o nível Free oferece uma segurança limitada apenas para os seus recursos Azure, o nível padrão alarga essas capacidades a instalações e outras nuvens. O Centro de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controlos de acesso e aplicação para bloquear atividades maliciosas, detetar ameaças com análise e inteligência, e a responder rapidamente quando sob ataque. Pode tentar o Security Center Standard sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+# <a name="quickstart-setting-up-azure-security-center"></a>Quickstart: Criação do Centro de Segurança Azure
 
-Neste artigo, você atualiza para o nível padrão para uma segurança adicional e instala o agente Log Analytics nas suas máquinas virtuais para monitorizar vulnerabilidades e ameaças de segurança.
+O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção contra ameaças entre cargas de trabalho na cloud híbrida. Embora as funcionalidades gratuitas ofereçam segurança limitada apenas para os seus recursos Azure, permitindo que o Azure Defender aumente essas capacidades para as instalações e outras nuvens. O Azure Defender ajuda-o a encontrar e corrigir vulnerabilidades de segurança, a aplicar controlos de acesso e aplicação para bloquear atividades maliciosas, detetar ameaças usando análises e inteligência e responder rapidamente quando está sob ataque. Pode tentar a Azure Defender sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+
+Neste artigo, você atualiza para a Azure Defender para obter segurança adicional e instale o agente Log Analytics nas suas máquinas para monitorizar vulnerabilidades e ameaças de segurança.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para começar a utilizar o Centro de Segurança, tem de possuir uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-Para atualizar uma subscrição do nível padrão, deve ser-lhe atribuída a função de Proprietário de Assinatura, Colaborador de Assinatura ou Administrador de Segurança.
+Para ativar o Azure Defender numa subscrição, deve ser-lhe atribuída a função de Proprietário de Assinatura, Colaborador de Assinatura ou Administrador de Segurança.
 
-## <a name="enable-your-azure-subscription"></a>Ativar a subscrição do Azure
 
-1. Inicie sessão no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
+## <a name="open-security-center-for-the-first-time"></a>Centro de Segurança Aberto pela primeira vez
 
-1. No menu **Microsoft Azure,** selecione **Security Center**. **Centro de Segurança - A visão geral** abre.
+1. Inicie sessão no [portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 
-   ![Descrição geral do Centro de Segurança][2]
+1. A partir do menu do portal, selecione **Security Center**. 
 
-**Centro de Segurança – Descrição Geral** oferece uma vista unificada da postura de segurança das suas cargas de trabalho da cloud híbrida, permitindo-lhe detetar e avaliar a segurança das cargas de trabalho e identificar e mitigar o risco. O Centro de Segurança ativa automaticamente qualquer uma das suas subscrições do Azure que não foram anteriormente carregadas por si ou por outro utilizador da subscrição para o escalão Gratuito.
+    A página geral do Centro de Segurança abre.
 
-Pode ver e filtrar a lista de subscrições, clicando no item de menu **Subscrições**. O Centro de Segurança irá agora começar a avaliar a segurança destas subscrições para identificar vulnerabilidades de segurança. Para personalizar os tipos de avaliações, pode modificar a política de segurança. As políticas de segurança definem a configuração pretendida para as suas cargas de trabalho e ajudam a garantir a conformidade com os requisitos da empresa ou regulamentares.
+    :::image type="content" source="./media/security-center-get-started/overview.png" alt-text="Painel geral do Centro de Segurança" lightbox="./media/security-center-get-started/overview.png":::
+
+**Centro de Segurança – Descrição Geral** oferece uma vista unificada da postura de segurança das suas cargas de trabalho da cloud híbrida, permitindo-lhe detetar e avaliar a segurança das cargas de trabalho e identificar e mitigar o risco. O Security Center, sem custos adicionais, permite qualquer uma das suas subscrições Azure não previamente a bordo por si ou por outro utilizador de subscrição.
+
+Pode visualizar e filtrar a lista de subscrições selecionando o item do menu **de Assinaturas.** O Centro de Segurança ajustará o ecrã para refletir a postura de segurança das subscrições selecionadas. 
 
 Poucos minutos depois de iniciar o Centro de Segurança pela primeira vez, poderá ver:
 
-- **Recomendações** de formas de melhorar a segurança das suas subscrições do Azure. Clique no mosaico **Recomendações** para iniciar uma lista prioritária.
-- Um inventário de recursos de **Computação e aplicações**, **Rede**, **Segurança de dados** e **Identidade e acesso**, que estão agora a ser avaliados pelo Centro de Segurança, juntamente com a postura de segurança de cada um deles.
+- **Recomendações** para formas de melhorar a segurança dos seus recursos conectados.
+- Um inventário dos seus recursos que estão agora a ser avaliados pelo Security Center, juntamente com a postura de segurança de cada um.
 
-Para tirar o máximo partido do Security Center, é necessário completar os passos abaixo para atualizar para o nível padrão e instalar o agente Log Analytics.
+Para tirar o máximo partido do Security Center, é necessário completar os passos abaixo para ativar o Azure Defender e instalar o agente Log Analytics.
 
 
-## <a name="upgrade-to-the-standard-tier"></a>Atualizar para o escalão Standard
+## <a name="enable-azure-defender"></a>Ativar o Azure Defender
 
-Para efeitos dos inícios rápidos e tutoriais do Centro de Segurança, tem de atualizar para o escalão Standard. Há um julgamento gratuito do Security Center Standard. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). 
+Para efeitos do Início rápido e tutoriais do Centro de Segurança, deve ativar o Azure Defender. Está disponível um julgamento gratuito de 30 dias. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). 
 
 1. A partir da barra lateral do Security Center, **selecione Começar a trabalhar**.
- 
-   ![Introdução](./media/security-center-get-started/get-started-upgrade-tab.png)
+
+    :::image type="content" source="./media/security-center-get-started/get-started-upgrade-tab.png" alt-text="Atualizar o separador da página de começar"::: 
 
     O separador **Upgrade** lista subscrições e espaços de trabalho elegíveis para embarque.
 
-1. A partir dos **espaços de trabalho Select para permitir o nível padrão na** lista, selecione os espaços de trabalho para atualizar.
+1. A partir dos **espaços de trabalho Select para ativar o Azure Defender na** lista, selecione os espaços de trabalho para atualizar.
+   - Se selecionar subscrições e espaços de trabalho que não são elegíveis para julgamento, o próximo passo irá atualizá-los e os encargos começarão.
+   - Se escolher um espaço de trabalho elegível para um teste gratuito, o próximo passo começará um julgamento.
+1. Selecione **Upgrade** para ativar o Azure Defender.
 
+## <a name="enable-automatic-data-collection"></a>Permitir a recolha automática de dados
+O Security Center recolhe dados das suas máquinas para monitorizar vulnerabilidades e ameaças de segurança. Os dados são recolhidos utilizando o agente Log Analytics, que lê várias configurações relacionadas com a segurança e registos de eventos da máquina e copia os dados para o seu espaço de trabalho para análise. Por predefinição, o Centro de Segurança irá criar uma nova área de trabalho para si.
 
-    > [!TIP]
-    > Se escolher um espaço de trabalho elegível para um teste gratuito, o próximo passo começará um julgamento. Se os espaços de trabalho não forem elegíveis para julgamento, será atualizado e as taxas começarão.
-
-1. Selecione **Upgrade** para atualizar os espaços de trabalho selecionados para o nível padrão.
-
-
-## <a name="automate-data-collection"></a>Automatizar a recolha de dados
-O Centro de Segurança recolhe dados de VMs do Azure e de computadores que não pertencem ao Azure para monitorizar ameaças e vulnerabilidades de segurança. Os dados são recolhidos utilizando o agente Log Analytics, que lê várias configurações relacionadas com a segurança e registos de eventos da máquina e copia os dados para o seu espaço de trabalho para análise. Por predefinição, o Centro de Segurança irá criar uma nova área de trabalho para si.
-
-Quando o provisionamento automático está ativado, o Security Center instala o agente Log Analytics em todos os VMs Azure suportados e quaisquer novos que sejam criados. O aprovisionamento automático é vivamente recomendado.
+Quando o provisionamento automático está ativado, o Security Center instala o agente Log Analytics em todas as máquinas suportadas e quaisquer novas que sejam criadas. O aprovisionamento automático é vivamente recomendado.
 
 Para permitir o provisionamento automático do agente Log Analytics:
 
-1. No menu principal do Centro de Segurança, selecione **definições de preços &**.
-1. Na linha da subscrição, clique na subscrição na qual pretende alterar as definições.
-1. No separador **Recolha de Dados**, defina **Aprovisionamento automático** para **Ativar**.
+1. A partir do menu do Centro de Segurança, **selecione definições de preços &**.
+1. Selecione a subscrição relevante.
+1. Na página de **recolha de dados,** desa **essa adir** automático ao **On**.
 1. Selecione **Guardar**.
----
-  ![Ativar o aprovisionamento automático][6]
 
-Com estas novas informações sobre as VMs do Azure, o Centro de Segurança pode fornecer Recomendações adicionais relacionadas com o estado de atualização do sistema de estado, configurações de segurança do SO, proteção de ponto final, bem como gerar Alertas de segurança adicionais.
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Habilitação automática do agente Log Analytics":::
 
-  ![Recomendações][8]
+>[!TIP]
+> Se um espaço de trabalho precisar de ser a provisionado, a instalação do agente pode demorar até 25 minutos.
 
-## <a name="clean-up-resources"></a>Limpar recursos
-Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se pretender continuar a trabalhar com os quickstarts e tutoriais subsequentes, continue a executar o nível padrão e mantenha o provisionamento automático ativado. Se não pretender continuar ou quiser voltar para o Escalão gratuito:
-
-1. Volte ao menu principal do Centro de Segurança e **selecione definições de preços &**.
-2. Clique na subscrição que pretende alterar para o nível livre.
-3. Selecione **o nível de preços** e selecione **Free** para alterar a subscrição do nível padrão para o nível Livre.
-5. Selecione **Guardar**.
-
-Se pretender desativar aprovisionamento automático:
-
-1. Volte ao menu principal do Centro de Segurança e **selecione definições de preços &**.
-2. Limpe a subscrição em que pretende desativar o provisionamento automático.
-3. No separador **Recolha de Dados**, defina **Aprovisionamento automático** para **Desativar**.
-4. Selecione **Guardar**.
+Com o agente implantado nas suas máquinas, o Security Center pode fornecer recomendações adicionais relacionadas com o estado de atualização do sistema, configurações de segurança do SISTEMA, proteção de ponto final, bem como gerar alertas de segurança adicionais.
 
 >[!NOTE]
-> A desativação do fornecimento automático não remove o agente Log Analytics dos VMs Azure onde o agente foi provisionado. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.
->
+> A definição de provisão automática para **Off** não remove o agente Log Analytics da Azure VMs onde o agente já foi a provisionado. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.
 
-## <a name="next-steps"></a>Próximos passos
-Neste quickstart, atualizou-se para o nível padrão e forneiu o agente Log Analytics para uma gestão unificada de segurança e proteção contra ameaças através das suas cargas de trabalho em nuvem híbrida. Para obter mais informações sobre como utilizar o Centro de Segurança, avance para o início rápido para inclusão de computadores Windows que estão no local e noutras clouds.
+
+
+## <a name="next-steps"></a>Passos seguintes
+Neste quickstart, permitiu que o Azure Defender e fornecesse o agente Log Analytics para uma gestão unificada de segurança e proteção contra ameaças através das suas cargas de trabalho em nuvem híbrida. Para obter mais informações sobre como utilizar o Centro de Segurança, avance para o início rápido para inclusão de computadores Windows que estão no local e noutras clouds.
 
 > [!div class="nextstepaction"]
-> [Início Rápido: Incluir computadores Windows no Centro de Segurança do Azure](quick-onboard-windows-computer.md)
+> [Quickstart: Máquinas não-Azure a bordo](quickstart-onboard-machines.md)
 
 Quer otimizar e economizar nos gastos na nuvem?
 

@@ -3,12 +3,12 @@ title: Perguntas frequentes para o Serviço Azure Kubernetes (AKS)
 description: Encontre respostas para algumas das perguntas comuns sobre o Serviço Azure Kubernetes (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 7a56756855319ee72bd5b3dc60ad1ae440afd7fe
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4150f850263aed7b8aa4317028386dc285f06ade
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927152"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905334"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes acerca do Azure Kubernetes Service (AKS)
 
@@ -115,7 +115,7 @@ Para proteger a estabilidade do sistema e evitar que os controladores de admiss�
 
 Se tiver um caso crítico de uso para ter algo implantado no sistema kube (não recomendado) que você precisa ser coberto pelo seu webhook de admissão personalizado, você pode adicionar o rótulo ou anotação abaixo para que o Executor de Admissões o ignore.
 
-Etiqueta: ```"admissions.enforcer/disabled": "true"``` ou Anotação:```"admissions.enforcer/disabled": true```
+Etiqueta: ```"admissions.enforcer/disabled": "true"``` ou Anotação: ```"admissions.enforcer/disabled": true```
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>O Azure Key Vault está integrado com a AKS?
 
@@ -163,7 +163,7 @@ Pode, mas a AKS não recomenda isto. As atualizações devem ser realizadas idea
 
 Não, por favor, elimine/remova quaisquer nós num estado falhado ou de outra forma removido do cluster antes da atualização.
 
-## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>Corri um aglomerado apagar, mas ver o erro`[Errno 11001] getaddrinfo failed` 
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>Corri um aglomerado apagar, mas ver o erro `[Errno 11001] getaddrinfo failed` 
 
 Mais comummente, isto é causado por utilizadores que têm um ou mais Grupos de Segurança de Rede (NSGs) ainda em uso e associados ao cluster.  Por favor, retire-os e tente apagar novamente.
 
@@ -173,7 +173,11 @@ Por favor, confirme que o seu diretor de serviço não expirou.  Consulte: Crede
 
 ## <a name="my-cluster-was-working-but-suddenly-cannot-provision-loadbalancers-mount-pvcs-etc"></a>O meu aglomerado estava a funcionar, mas de repente não pode abastecer LoadBalancers, montar PVCs, etc.? 
 
-Por favor, confirme que o seu diretor de serviço não expirou.  Consulte: Credenciais de atualização [de serviço AKS](./kubernetes-service-principal.md) e [AKS](./update-credentials.md).
+Por favor, confirme que o seu diretor de serviço não expirou.  Consulte: Credenciais de atualização [de serviço AKS](./kubernetes-service-principal.md)  e [AKS](./update-credentials.md).
+
+## <a name="can-i-scale-my-aks-cluster-to-zero"></a>Posso escalar o meu cluster AKS para zero?
+Pode parar completamente [um cluster AKS em execução,](start-stop-cluster.md)economizando nos respetivos custos de computação. Além disso, também pode optar por [escalar ou escalar automaticamente todas as piscinas de nó ou conjuntos de nós específicos para 0, mantendo `User` apenas](scale-cluster.md#scale-user-node-pools-to-0) a configuração de cluster necessária.
+Não é possível escalar diretamente [as piscinas de nó do sistema](use-system-pools.md) para 0.
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>Posso utilizar as APIs de escala de máquina virtual para escalar manualmente?
 

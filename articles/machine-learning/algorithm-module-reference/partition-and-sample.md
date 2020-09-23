@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 0392a05df485b45b1244f4542ed55af1837dca3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1f0a0dff4eb8a1aad0cd5e142959a636827a541
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477515"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898486"
 ---
 # <a name="partition-and-sample-module"></a>Módulo de partição e amostra
 
-Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
+Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
 Utilize o módulo Partição e Amostra para efetuar a amostragem num conjunto de dados ou para criar divisórias a partir do seu conjunto de dados.
 
@@ -71,7 +71,7 @@ Esta opção suporta uma amostragem aleatória simples ou uma amostragem aleató
 
 1. Adicione o módulo **de partição e amostra** ao seu oleoduto e ligue o conjunto de dados.
 
-1. **Modo de partição ou amostra**: Desaje esta opção à **amostragem**.
+1. **Modo de partição ou amostra**: Desaje esta opção à  **amostragem**.
 
 1. **Taxa de amostragem**: Insira um valor entre 0 e 1. este valor especifica a percentagem de linhas do conjunto de dados de origem que devem ser incluídas no conjunto de dados de saída.
 
@@ -165,6 +165,6 @@ Utilize esta opção quando tiver dividido um conjunto de dados em múltiplas di
 > [!NOTE]
 >  Não é possível ver as designações dobráveis diretamente. Só estão presentes nos metadados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

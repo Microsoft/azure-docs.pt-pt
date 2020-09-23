@@ -1,6 +1,6 @@
 ---
-title: Desconfiem da palavra-passe do Gestor de Recursos Azure no seu dispositivo GPU Azure Stack Edge
-description: Descreve como ligar-se ao Gestor de Recursos Azure em execução no GPU Azure Stack Edge utilizando a Azure PowerShell.
+title: Desconfiem da palavra-passe do Gestor de Recursos Azure no seu dispositivo GPU Azure Stack Edge Pro
+description: Descreve como ligar-se ao Gestor de Recursos Azure em execução no seu GPU Azure Stack Edge Pro utilizando o Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 6a59510b342f7ebd3969a4bb4fcfd75fffd04804
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: df5fea8101834dae089ab97354c438363321a707
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254156"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904489"
 ---
-# <a name="set-azure-resource-manager-password-on-azure-stack-edge-gpu-device"></a>Definir palavra-passe do Gestor de Recursos Azure no dispositivo GPU Azure Stack Edge
+# <a name="set-azure-resource-manager-password-on-azure-stack-edge-pro-gpu-device"></a>Definir palavra-passe do Gestor de Recursos Azure no dispositivo GPU Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
@@ -122,7 +122,7 @@ O procedimento para definir a palavra-passe pode ser diferente dependendo se uti
     $pass = ConvertTo-SecureString $password -AsPlainText -Force
     $key = ConvertTo-SecureString $cik -AsPlainText -Force
     ```
-    Utilize as cordas de segurança acima geradas como parâmetros no cmdlet Set-AzDataBoxEdgeUser para redefinir a palavra-passe. Utilize o mesmo grupo de recursos que utilizou ao criar o recurso Azure Stack Edge/Data Box Gateway.
+    Utilize as cordas de segurança acima geradas como parâmetros no cmdlet Set-AzDataBoxEdgeUser para redefinir a palavra-passe. Utilize o mesmo grupo de recursos que utilizou ao criar o recurso Azure Stack Edge Pro/Data Box Gateway.
 
     ```azurepowershell
     Set-AzDataBoxEdgeUser -ResourceGroupName $resourceGroup -DeviceName $devicename -Name EdgeARMUser  -Password $pass -EncryptionKey $key

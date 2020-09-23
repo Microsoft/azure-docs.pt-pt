@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 006aab66eb220c3bb74794ba78bf1495583b653e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 0dcede7e6c15fbc0bae39370431d14696cb4026e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648323"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905661"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Implemente o seu modelo existente com Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, aprende a registar-se e a implementar um modelo de machine learning que treinou fora do Azure Machine Learning. Pode implementar como serviço web ou para um dispositivo IoT Edge.  Uma vez implementado, pode monitorizar o seu modelo e detetar a deriva de dados no Azure Machine Learning. 
 
@@ -274,7 +274,7 @@ Para obter mais informações sobre a implementação, consulte [como e onde imp
 
 ## <a name="request-response-consumption"></a>Consumo de resposta a pedidos
 
-Após a colocação, é apresentado o URI de pontuação. Este URI pode ser utilizado pelos clientes para submeter pedidos ao serviço. O exemplo a seguir é um cliente python básico que envia dados ao serviço e exibe a resposta:
+Após a colocação, é apresentado o URI de pontuação. Este URI pode ser utilizado pelos clientes para submeter pedidos ao serviço. O exemplo a seguir é um cliente python simples que envia dados ao serviço e exibe a resposta:
 
 ```python
 import requests
@@ -293,7 +293,7 @@ print(response.json())
 
 Para obter mais informações sobre como consumir o serviço implantado, consulte [Criar um cliente.](how-to-consume-web-service.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Monitorize os seus modelos de machine learning Azure com Insights de Aplicações](how-to-enable-app-insights.md)
 * [Recolher dados para modelos em produção](how-to-enable-data-collection.md)

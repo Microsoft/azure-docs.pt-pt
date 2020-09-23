@@ -3,12 +3,12 @@ title: Como parar de monitorizar o seu cluster híbrido Kubernetes Microsoft Doc
 description: Este artigo descreve como pode parar de monitorizar o seu cluster híbrido Kubernetes com o Azure Monitor para contentores.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 8369c82b83cfbaa7128383c6203aaf584916cae9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2754649cd990b015162be158effa2b85aa1fe27e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091203"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986045"
 ---
 # <a name="how-to-stop-monitoring-your-hybrid-cluster"></a>Como parar de monitorizar o seu cluster híbrido
 
@@ -84,6 +84,25 @@ A alteração de configuração pode demorar alguns minutos a ser concluída. Co
     .\disable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -kubeContext $kubeContext
     ```
 
+#### <a name="using-service-principal"></a>Usando o principal de serviço
+O script *disable-monitoring.ps1* utiliza o login do dispositivo interativo. Se preferir login não interativo, pode utilizar um principal de serviço existente ou criar um novo que tenha as permissões necessárias, conforme descrito nos [Pré-Requisitos.](container-insights-enable-arc-enabled-clusters.md#prerequisites) Para utilizar o principal do serviço, terá de passar $servicePrincipalClientId, $servicePrincipalClientSecret e $tenantId parâmetros com valores do principal de serviço que pretendeu utilizar para enable-monitoring.ps1 script.
+
+```powershell
+$subscriptionId = "<subscription Id of the Azure Arc connected cluster resource>"
+$servicePrincipal = New-AzADServicePrincipal -Role Contributor -Scope "/subscriptions/$subscriptionId"
+
+$servicePrincipalClientId =  $servicePrincipal.ApplicationId.ToString()
+$servicePrincipalClientSecret = [System.Net.NetworkCredential]::new("", $servicePrincipal.Secret).Password
+$tenantId = (Get-AzSubscription -SubscriptionId $subscriptionId).TenantId
+```
+
+Por exemplo:
+
+```powershell
+\disable-monitoring.ps1 -clusterResourceId $azureArcClusterResourceId -kubeContext $kubeContext -servicePrincipalClientId $servicePrincipalClientId -servicePrincipalClientSecret $servicePrincipalClientSecret -tenantId $tenantId
+```
+
+
 ### <a name="using-bash"></a>Usando a bash
 
 1. Faça o download e guarde o script para uma pasta local que configura o seu cluster com o add-on de monitorização utilizando os seguintes comandos:
@@ -117,6 +136,24 @@ A alteração de configuração pode demorar alguns minutos a ser concluída. Co
     ```bash
     bash disable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext
     ```
+
+#### <a name="using-service-principal"></a>Usando o principal de serviço
+O *disable-monitoring.sh* de script de bash utiliza o login do dispositivo interativo. Se preferir login não interativo, pode utilizar um principal de serviço existente ou criar um novo que tenha as permissões necessárias, conforme descrito nos [Pré-Requisitos.](container-insights-enable-arc-enabled-clusters.md#prerequisites) Para usar o principal do serviço, você terá que passar -- cliente-id, --cliente-secreto e --tenant-id valores de id de serviço que você pretendeu usar para *enable-monitoring.sh* script de bash.
+
+```bash
+subscriptionId="<subscription Id of the Azure Arc connected cluster resource>"
+servicePrincipal=$(az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${subscriptionId}")
+servicePrincipalClientId=$(echo $servicePrincipal | jq -r '.appId')
+
+servicePrincipalClientSecret=$(echo $servicePrincipal | jq -r '.password')
+tenantId=$(echo $servicePrincipal | jq -r '.tenant')
+```
+
+Por exemplo:
+
+```bash
+bash disable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-context $kubeContext --client-id $servicePrincipalClientId --client-secret $servicePrincipalClientSecret  --tenant-id $tenantId
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 6be2805cab1bcaadb7878be69399e14ffe59d7b0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5c67f517ffd3704644fbe8041f3ac1e7b0d1f09c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659727"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904552"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Conecte dados da Microsoft Cloud App Security 
 
@@ -48,7 +48,7 @@ Se a Cloud App Security for implementada e ingerir os seus dados, os dados de al
 
 1. Clique **em Aplicar Alterações**.
 
-1. Pode selecionar se deseja que os alertas do Azure Defender (antigo Centro de Segurança Azure) gerem automaticamente incidentes em Azure Sentinel. Em **In Create incidents**, selecione **Ativado** para ativar a regra de análise predefinitiva que cria automaticamente incidentes a partir de alertas. Em seguida, pode editar esta regra no **âmbito de Analytics,** no separador **Regras Ative.**
+1. Pode selecionar se deseja que os alertas do Azure Defender do Azure Security Center gerem automaticamente incidentes em Azure Sentinel. Em **In Create incidents**, selecione **Ativado** para ativar a regra de análise predefinitiva que cria automaticamente incidentes a partir de alertas. Em seguida, pode editar esta regra no **âmbito de Analytics,** no separador **Regras Ative.**
 
 1. Para utilizar o esquema relevante no Log Analytics para alertas de Segurança da Aplicação cloud, digite `SecurityAlert` na janela de consulta. Para o esquema de registos cloud Discovery, escreva `McasShadowItReporting` .
 
@@ -57,7 +57,7 @@ Se a Cloud App Security for implementada e ingerir os seus dados, os dados de al
 >
 > Uma vez que os dados da Cloud Discovery são agregados por dia, esteja ciente de que até 24 horas de dados mais recentes não serão refletidos no Azure Sentinel. No caso de uma investigação de baixo nível exigir dados mais imediatos, deve ser feito diretamente no aparelho de origem ou no serviço onde residem os dados brutos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar a Microsoft Cloud App Security ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa a detetar ameaças com o Azure Sentinel, utilizando regras [incorporadas](tutorial-detect-threats.md) ou [personalizadas.](tutorial-detect-threats-custom.md)

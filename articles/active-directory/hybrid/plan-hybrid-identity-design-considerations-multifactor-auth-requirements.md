@@ -1,6 +1,6 @@
 ---
 title: Design de identidade híbrida - requisitos de autenticação de vários fatores Azure / Microsoft Docs
-description: Com o controlo de Acesso Condicional, o Azure Ative Directory verifica as condições específicas que escolhe ao autenticar o utilizador e antes de permitir o acesso à aplicação. Uma vez cumpridas essas condições, o utilizador é autenticado e autorizado a aceder à aplicação.
+description: Com o controlo de Acesso Condicional, a Azure AD verifica as condições específicas que escolhe ao autenticar o utilizador e antes de permitir o acesso à aplicação.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4743195fc79d43571ec79a13b8518edc7e81379b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d8ddf372e234bab242e4b28ba53dce7dd68cc89
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67109298"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976060"
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Determine os requisitos de autenticação de vários fatores para a sua solução de identidade híbrida
 Neste mundo de mobilidade, com os utilizadores a acederem a dados e aplicações na nuvem e a partir de qualquer dispositivo, a segurança desta informação tornou-se fundamental.  Todos os dias há uma nova manchete sobre uma falha de segurança.  Embora não exista garantia contra tais infrações, a autenticação de vários fatores, fornece uma camada adicional de segurança para ajudar a prevenir estas falhas.

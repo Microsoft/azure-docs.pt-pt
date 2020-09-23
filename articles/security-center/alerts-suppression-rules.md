@@ -1,40 +1,38 @@
 ---
 title: Usando regras de supressão de alertas para suprimir falsos positivos ou outros alertas de segurança indesejados no Centro de Segurança Azure.
-description: Este artigo explica como usar as regras de supressão do Azure Security Center para esconder alertas de segurança indesejados.
+description: Este artigo explica como usar as regras de supressão do Azure Security Center para esconder alertas indesejados do Azure Defender
 author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 05/04/2020
+ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: conceptual
-ms.openlocfilehash: 341373c9a8429f335f3064db7a94973d34e0ca1c
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 0d4c2ddc6b18d2f6767fb3a2761bc6a247e101a1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042505"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904899"
 ---
-# <a name="suppress-alerts-from-azure-security-centers-threat-protection"></a>Suprimir alertas da proteção de ameaças do Centro de Segurança Azure
+# <a name="suppress-alerts-from-azure-defender"></a>Alertas de Supressão do Azure Defender
 
-Esta página explica como pode usar regras de supressão de alertas para suprimir falsos positivos ou outros alertas de segurança indesejados no Centro de Segurança Azure.
+Esta página explica como pode usar regras de supressão de alertas para suprimir falsos positivos ou outros alertas de segurança indesejados do Azure Defender.
 
 ## <a name="availability"></a>Disponibilidade
 
 |Aspeto|Detalhes|
 |----|:----|
 |Estado de libertação:|Pré-visualizar|
-|Preços:|Escalão gratuito<br>(A maioria dos alertas de segurança são apenas para o nível padrão)|
+|Preços:|Gratuito<br>(A maioria dos alertas de segurança só estão disponíveis com o Azure Defender)|
 |Funções e permissões necessárias:|**Administração de segurança** e **Proprietário** pode criar/eliminar regras.<br>**O leitor de segurança** e **o Reader** podem ver as regras.|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
-
-
 
 
 ## <a name="what-are-suppression-rules"></a>O que são regras de supressão?
 
-Os componentes de proteção contra ameaças do Azure Security Center detetam ameaças em qualquer área do seu ambiente e geram alertas de segurança.
+Os vários planos do Azure Defender detetam ameaças em qualquer área do seu ambiente e geram alertas de segurança.
 
 Quando um único alerta não é interessante ou relevante, pode descartá-lo manualmente. Em alternativa, utilize as regras de supressão para descartar automaticamente alertas semelhantes no futuro. Normalmente, usaria uma regra de supressão para:
 
@@ -45,16 +43,15 @@ Quando um único alerta não é interessante ou relevante, pode descartá-lo man
 As suas regras de supressão definem os critérios para os quais os alertas devem ser automaticamente dispensados.
 
 > [!CAUTION]
-> Suprimir alertas de segurança reduz a proteção contra ameaças do Centro de Segurança. Deve verificar cuidadosamente o impacto potencial de qualquer regra de supressão e monitorizá-la ao longo do tempo.
+> Suprimir alertas de segurança reduz a eficácia da proteção contra ameaças do Azure Defender. Deve verificar cuidadosamente o impacto potencial de qualquer regra de supressão e monitorizá-la ao longo do tempo.
 
-![Criar regra de supressão de alerta](media\alerts-suppression-rules\create-suppression-rule.gif)
+:::image type="content" source="./media/alerts-suppression-rules/create-suppression-rule.gif" alt-text="Criar regra de supressão de alerta":::
 
 ## <a name="create-a-suppression-rule"></a>Criar uma regra de supressão
 
 Há algumas formas de criar regras para suprimir alertas de segurança indesejados:
 
 - Para suprimir alertas ao nível do grupo de gestão, use a Política Azure
-
 - Para suprimir alertas ao nível da subscrição, pode utilizar o portal Azure ou a API REST, conforme explicado abaixo
 
 As regras de supressão só podem descartar alertas que já tenham sido desencadeados nas subscrições selecionadas.
@@ -72,39 +69,32 @@ Para criar uma regra diretamente no portal Azure:
         ![Criar novo botão de regra de supressão**](media/alerts-suppression-rules/create-new-suppression-rule.png)
 
 1. No novo painel de regras de supressão, insira os detalhes da sua nova regra.
-
-    - A sua regra pode descartar o alerta de **todos os recursos** para que não receba alertas como este no futuro. 
-    
+    - A sua regra pode descartar o alerta de **todos os recursos** para que não receba alertas como este no futuro.     
     - A sua regra pode descartar o alerta **em critérios específicos** - quando se refere a um endereço IP específico, nome do processo, conta de utilizador, recurso Azure ou localização.
 
     > [!TIP]
     > Se abrir a nova página de regras a partir de um alerta específico, o alerta e a subscrição serão automaticamente configurados na sua nova regra. Se utilizar o novo link **de regra de supressão,** as subscrições selecionadas corresponderão ao filtro atual no portal.
 
     [![Painel de criação de regras de supressão](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane.png#lightbox)
-
 1. Introduza detalhes da regra:
-
     - **Nome** - Um nome para a regra. Os nomes das regras devem começar com uma letra ou um número, estar entre 2 e 50 caracteres, e não conter símbolos que não sejam traços (-) ou sublinhados (_). 
     - **Estado** - Ativado ou incapacitado.
     - **Razão** - Selecione uma das razões incorporadas ou 'outras' se não satisfazer as suas necessidades.
     - **Data de validade** - Data e hora de fim da regra. As regras podem ser até seis meses.
-
 1. Opcionalmente, teste a regra usando o botão **Simulação** para ver quantos alertas teriam sido dispensados se esta regra estivesse ativa.
-
 1. Salve a regra. 
+
 
 ## <a name="edit-a-suppression-rules"></a>Editar regras de supressão
 
 Para editar as regras que criou, use a página de regras de supressão.
 
 1. A partir da página de alertas de segurança do Security Center, selecione o link das regras de **supressão** no topo da página.
-
 1. A página de regras de supressão abre com todas as regras para as subscrições selecionadas.
 
     [![Lista de regras de supressão](media/alerts-suppression-rules/suppression-rules-page.png)](media/alerts-suppression-rules/suppression-rules-page.png#lightbox)
 
 1. Para editar uma única regra, abra o menu de elipses (...) para a regra e **selecione Editar**.
-
 1. Faça as alterações necessárias e **selecione Aplicar**. 
 
 ## <a name="delete-a-suppression-rule"></a>Eliminar uma regra de supressão
@@ -112,13 +102,9 @@ Para editar as regras que criou, use a página de regras de supressão.
 Para eliminar uma ou mais regras que criou, utilize a página de regras de supressão.
 
 1. A partir da página de alertas de segurança do Security Center, selecione o link das regras de **supressão** no topo da página.
-
 1. A página de regras de supressão abre com todas as regras para as subscrições selecionadas.
-
 1. Para eliminar uma única regra, abra o menu de elipses (...) para a regra e selecione **Delete**.
-
 1. Para eliminar várias regras, selecione as caixas de verificação para que as regras sejam eliminadas e selecione **Eliminar**.
-
     ![Excluir uma ou mais regras de supressão](media/alerts-suppression-rules/delete-multiple-alerts.png)
 
 ## <a name="view-suppressed-alerts"></a>Ver alertas suprimidos
@@ -160,7 +146,6 @@ Para obter todos os detalhes e exemplos de utilização, consulte a documentaç�
 
 Este artigo descreveu as regras de supressão no Azure Security Center que automaticamente descartam alertas indesejados.
 
-Para obter mais informações sobre alertas de segurança no Centro de Segurança Azure, consulte as seguintes páginas:
+Para obter mais informações sobre os alertas de segurança do Azure Defender, consulte as seguintes páginas:
 
-- [Alertas de segurança e a cadeia de morte intencional](alerts-reference.md) - Um guia de referência para os alertas de segurança que pode ver no módulo de Proteção de Ameaças do Centro de Segurança Azure.
-- [Proteção contra ameaças no Azure Security Center](threat-protection.md) - Uma descrição dos muitos aspetos do seu ambiente monitorizados pelo módulo de Proteção de Ameaças do Azure Security Center.
+- [Alertas de segurança e a cadeia de morte intencional](alerts-reference.md) - Um guia de referência para os alertas de segurança que poderá obter do Azure Defender.

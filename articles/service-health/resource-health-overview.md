@@ -1,14 +1,14 @@
 ---
 title: Visão geral da Saúde dos Recursos Azure
-description: Visão geral da Azure Resource Health
+description: Saiba como a Azure Resource Health o ajuda a diagnosticar e obter apoio para problemas de serviço que afetam os seus recursos Azure.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: f0d2fdb8e1c8b92dba526650405405db8ae8a776
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 25425eadfaf54ba56cde3b377a44cd85c2b68959
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041579"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967876"
 ---
 # <a name="resource-health-overview"></a>Visão geral da saúde dos recursos
  
@@ -36,7 +36,7 @@ A saúde de um recurso é apresentada como um dos seguintes estados.
 
 *Indisponível* significa que o serviço detetou uma plataforma em curso ou evento não-plataforma que afeta a saúde do recurso.
 
-#### <a name="platform-events"></a>Eventos de plataforma
+#### <a name="platform-events"></a>Eventos da plataforma
 
 Os eventos da plataforma são desencadeados por múltiplos componentes da infraestrutura Azure. Incluem ambas as ações programadas (por exemplo, manutenção planeada) e incidentes inesperados (por exemplo, um reboot de hospedeiro não planeado ou hardware de hospedeiro degradado que se prevê falhar após uma janela de tempo especificada).
 
@@ -94,7 +94,7 @@ Também pode aceder à Saúde dos Recursos selecionando **Todos os serviços** e
 
 ![Abertura de Recursos Saúde de "Todos os serviços"](./media/resource-health-overview/FromOtherServices.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Confira estas referências para saber mais sobre a Saúde dos Recursos:
 -  [Tipos de recursos e verificações de saúde na Azure Resource Health](resource-health-checks-resource-types.md)

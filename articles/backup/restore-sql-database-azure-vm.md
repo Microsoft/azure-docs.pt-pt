@@ -1,16 +1,16 @@
 ---
 title: Restaurar bases de dados do SQL Server num Azure VM
-description: Este artigo descreve como restaurar as bases de dados do SQL Server que estão a funcionar num Azure VM e que são cópias de segurança do Azure.
+description: Este artigo descreve como restaurar as bases de dados do SQL Server que estão a funcionar num Azure VM e que são cópias de segurança do Azure. Também pode utilizar o Cross Region Restore para restaurar as suas bases de dados para uma região secundária.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: afb3ef7ac1d161c073ef715a9f7b1ec83bd8410a
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 0d6feb512ab4ebcc5b5eaffafe607602fc552984
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377986"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985376"
 ---
-# <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bases de dados do SQL Server em VMs Azure
+# <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bases de dados do SQL Server em VMs do Azure
 
 Este artigo descreve como restaurar uma base de dados do SQL Server que está a funcionar numa máquina virtual Azure (VM) que o serviço [de Backup Azure](backup-overview.md) tem apoiado até um cofre dos Serviços de Recuperação de Backup Azure.
 
@@ -30,7 +30,7 @@ Antes de restaurar uma base de dados, note o seguinte:
 - Pode restaurar a base de dados a um exemplo de um SQL Server na mesma região do Azure.
 - O servidor de destino deve estar registado no mesmo cofre que a fonte.
 - Para restaurar uma base de dados encriptada TDE para outro SqL Server, é necessário restaurar primeiro [o certificado no servidor de destino](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
-- [As](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server?view=sql-server-ver15) bases de dados ativadas pelo CDC devem ser restauradas utilizando a opção [Restaurar como ficheiros.](#restore-as-files)
+- [As](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-data-capture-sql-server) bases de dados ativadas pelo CDC devem ser restauradas utilizando a opção [Restaurar como ficheiros.](#restore-as-files)
 - Antes de restaurar a base de dados "master", inicie a instância do SQL Server no modo de utilizador único utilizando a opção de arranque **-m AzureWorkloadBackup**.
   - O valor para **-m** é o nome do cliente.
   - Apenas o nome do cliente especificado pode abrir a ligação.
@@ -169,6 +169,51 @@ Se o tamanho total das cordas dos ficheiros numa base de dados for superior a um
 
   ![Restaurar a Base de Dados com grande arquivo](./media/backup-azure-sql-database/restore-large-files.jpg)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="cross-region-restore"></a>Restauro da Região Transversal
+
+Como uma das opções de restauro, o Cross Region Restore (CRR) permite restaurar as bases de dados SQL hospedadas em VMs Azure numa região secundária, que é uma região emparelhada Azure.
+
+Para embarcar na funcionalidade durante a pré-visualização, leia a [secção Antes de Começar](./backup-create-rs-vault.md#set-cross-region-restore).
+
+Para ver se a CRR está ativada, siga as instruções no [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore)
+
+### <a name="view-backup-items-in-secondary-region"></a>Ver itens de backup na região secundária
+
+Se o CRR estiver ativado, pode ver os itens de reserva na região secundária.
+
+1. A partir do portal, aceda a itens de backup de **cofres dos Serviços de Recuperação.**  >  **Backup items**
+1. Selecione **Região Secundária** para ver os itens na região secundária.
+
+>[!NOTE]
+>Apenas os tipos de gestão de backup que suportam a função CRR serão apresentados na lista. Atualmente, apenas é permitido o apoio à reposição de dados da região secundária para uma região secundária.
+
+![Artigos de reserva na região secundária](./media/backup-azure-sql-database/backup-items-secondary-region.png)
+
+![Bases de dados na região secundária](./media/backup-azure-sql-database/databases-secondary-region.png)
+
+### <a name="restore-in-secondary-region"></a>Restauro na região secundária
+
+A região secundária restaurará a experiência do utilizador será semelhante à região primária restaurar a experiência do utilizador. Ao configurar detalhes no painel de configuração restaurar para configurar a sua restauração, será solicitado que forneça apenas parâmetros de região secundária.
+
+![Onde e como restaurar](./media/backup-azure-sql-database/restore-secondary-region.png)
+
+>[!NOTE]
+>A rede virtual na região secundária precisa de ser atribuída de forma única, e não pode ser usada para quaisquer outros VMs nesse grupo de recursos.
+
+![Trigger restaurar na notificação de progresso](./media/backup-azure-arm-restore-vms/restorenotifications.png)
+
+>[!NOTE]
+>
+>- Após o restauro ser desencadeado e na fase de transferência de dados, o trabalho de restauro não pode ser cancelado.
+>- Os papéis do Azure necessários para restaurar na região secundária são os mesmos que na região primária.
+
+### <a name="monitoring-secondary-region-restore-jobs"></a>Monitorização da região secundária restabelece postos de trabalho
+
+1. A partir do portal, vá para o **cofre dos Serviços de Recuperação**  >  **trabalhos de backup**
+1. Selecione **Região Secundária** para ver os itens na região secundária.
+
+    ![Trabalhos de reserva filtrados](./media/backup-azure-sql-database/backup-jobs-secondary-region.png)
+
+## <a name="next-steps"></a>Passos seguintes
 
 [Gerir e monitorizar](manage-monitor-sql-database-backup.md) Bases de dados do SQL Server que são apoiadas por Azure Backup.

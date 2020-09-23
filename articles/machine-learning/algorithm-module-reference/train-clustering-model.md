@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: c29baf3cdda998a2ab78c84f3311b84d37086bcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0dfde6fef7cc91edf2101095018bc031d392c4ed
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477430"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898180"
 ---
-# <a name="train-clustering-model"></a>Preparar Modelo de Clustering
+# <a name="train-clustering-model"></a>Train Clustering Model (Preparar Modelo de Clustering)
 
-Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
+Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
 Utilize este módulo para treinar um modelo de agrupamento.
 
@@ -53,6 +53,6 @@ Após o treino ter terminado:
 
 + Para gerar pontuações a partir do modelo, utilize [atribuir dados a clusters](assign-data-to-clusters.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

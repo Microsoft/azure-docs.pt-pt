@@ -11,22 +11,19 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 429471c2a24b90f14241bf54197c4baecb27e5c0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 10c0200aae5ffa432c2da037d58d455fc28e8acd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660432"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904957"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, rever e implementar modelos automatizados de aprendizagem automática com Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+
 
 Neste artigo, aprende-se a criar, explorar e implementar modelos automatizados de aprendizagem automática de máquinas sem uma única linha de código no estúdio Azure Machine Learning.
 
->[!IMPORTANT]
-> A experiência automatizada de ML no estúdio de aprendizagem Azure Machine está em pré-visualização. Certas funcionalidades podem não ser suportadas ou têm capacidades limitadas.
-
- O machine learning automatizado é um processo no qual é selecionado para si o melhor algoritmo de aprendizagem automática para os seus dados específicos. Este processo permite-lhe gerar modelos de aprendizagem automática rapidamente. [Saiba mais sobre aprendizagem automática de máquinas.](concept-automated-ml.md)
+O machine learning automatizado é um processo no qual é selecionado para si o melhor algoritmo de aprendizagem automática para os seus dados específicos. Este processo permite-lhe gerar modelos de aprendizagem automática rapidamente. [Saiba mais sobre aprendizagem automática de máquinas.](concept-automated-ml.md)
  
 Para um exemplo final, experimente o [tutorial para criar um modelo de classificação com a interface ML automatizada da Azure Machine Learning.](tutorial-first-experiment-automated-ml.md) 
 
@@ -36,7 +33,7 @@ Para uma experiência baseada em código Python, [configuure as suas experiênci
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
 
-* Um espaço de trabalho de aprendizagem automática Azure com um tipo de **edição Enterprise.** Ver [Criar um espaço de trabalho de aprendizagem de máquinas Azure](how-to-manage-workspace.md).  Para atualizar um espaço de trabalho existente para a edição enterprise, consulte [a edição de Upgrade para Enterprise](how-to-manage-workspace.md#upgrade).
+* Uma área de trabalho do Azure Machine Learning. Ver [Criar um espaço de trabalho de aprendizagem de máquinas Azure](how-to-manage-workspace.md). 
 
 ## <a name="get-started"></a>Introdução
 
@@ -186,7 +183,7 @@ Incluída | Especifica quais as colunas a incluir para o treino.
 Tipo de recurso| Altere o tipo de valor para a coluna selecionada.
 Impute com| Selecione com que valor imputar valores em falta nos seus dados.
 
-![Formulário de tipo de tarefa de estúdio Azure Machine Learning](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
+![Azure Machine Learning estúdio personalizado](media/how-to-use-automated-ml-for-ml-models/custom-featurization.png)
 
 ## <a name="run-experiment-and-view-results"></a>Executar experiência e ver resultados
 
@@ -244,7 +241,7 @@ O ML automatizado ajuda-o a implementar o modelo sem escrever código:
 
 Agora, tem um serviço Web operacional para gerar predições! Pode testar as predições ao consultar o serviço no [Suporte do Azure Machine Learning integrado no Power BI](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como consumir um serviço web.](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service)
 * [Compreenda os resultados automatizados de aprendizagem automática de máquinas.](how-to-understand-automated-ml.md)

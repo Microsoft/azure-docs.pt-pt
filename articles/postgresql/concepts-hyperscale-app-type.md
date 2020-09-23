@@ -1,5 +1,5 @@
 ---
-title: Tipo de aplicação determinante - Hiperescala (Citus) - Base de Dados Azure para PostgreSQL
+title: Determinar tipo de aplicação - Hiperescala (Citus) - Base de Dados Azure para PostgreSQL
 description: Identifique a sua aplicação para modelação eficaz de dados distribuídos
 author: jonels-msft
 ms.author: jonels
@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 0daed8e9bba247ae3d4e320e4a02cc2b1b26dbec
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 92333857177d33307d6997bfcbdf79787d3ab127
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88137064"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895951"
 ---
 # <a name="determining-application-type"></a>Tipo de aplicação determinante
 
@@ -53,6 +53,6 @@ Existem, em geral, dois tipos de aplicações que funcionam bem em Hyperscale (C
 
 Se a sua situação se assemelha a qualquer dos casos acima, então o próximo passo é decidir como fragmentos os seus dados no grupo de servidor. A escolha das colunas de distribuição do administrador de base \' de dados tem de corresponder aos padrões de acesso das consultas típicas para garantir o desempenho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Escolha uma coluna de distribuição](concepts-hyperscale-choose-distribution-column.md) para tabelas na sua aplicação para distribuir dados de forma eficiente

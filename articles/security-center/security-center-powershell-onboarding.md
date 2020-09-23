@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: e6dfc0eb704b0b35ab4e181076d8f97fd3e8c9d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e367851c4d709acbc0eb94a47d7e20d4d3c1cc46
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080758"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904810"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>Automatizar o embarque no Azure Security Center usando o PowerShell
 
@@ -29,9 +29,9 @@ O Centro de Segurança Azure que utiliza o PowerShell permite-lhe automatizar pr
 
 Este artigo fornece uma amostra do script PowerShell que pode ser modificada e usada no seu ambiente para lançar o Security Center através das suas subscrições. 
 
-Neste exemplo, permitiremos ao Centro de Segurança uma subscrição com ID: d07c0080-170c-4c24-861d-9c817742786c e aplicaremos as definições recomendadas que proporcionam um elevado nível de proteção, através da implementação do nível padrão do Centro de Segurança, que fornece capacidades avançadas de proteção e deteção de ameaças:
+Neste exemplo, permitiremos ao Centro de Segurança uma subscrição com ID: d07c0080-170c-4c24-861d-9c817742786c e aplicaremos as definições recomendadas que proporcionam um elevado nível de proteção, permitindo ao Azure Defender, que fornece capacidades avançadas de proteção e deteção de ameaças:
 
-1. Desa esta medida de [proteção do Centro de Segurança.](https://azure.microsoft.com/pricing/details/security-center/) 
+1. Ativar [o Azure Defender](azure-defender.md). 
  
 2. Desabroque o espaço de trabalho Log Analytics para o qual o agente Log Analytics enviará os dados que recolhe nos VMs associados à subscrição – neste exemplo, um espaço de trabalho definido pelo utilizador existente (myWorkspace).
 
@@ -61,7 +61,7 @@ Estes passos devem ser realizados antes de executar os cmdlets do Centro de Segu
 
     ```Register-AzResourceProvider -ProviderNamespace 'Microsoft.Security'```
 
-1. Opcional: Definir o nível de cobertura (nível de preços) das subscrições (se não estiver definido, o nível de preços é definido como Gratuito):
+1. Opcional: Desconfiem do nível de cobertura (Azure Defender on/off) das subscrições. Se não for indefinida, o Defender está desligado:
 
     ```Set-AzContext -Subscription "d07c0080-170c-4c24-861d-9c817742786c"```
 

@@ -11,16 +11,16 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 642186ef4af43127ba0d6eb6950f09e069eb79ca
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 6f557ac8476224cdb8414b2a45952d8f7d34513d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649284"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904991"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorar e visualizar ML executar registos e métricas
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, aprende-se a monitorizar o Azure Machine Learning e a visualizar os seus registos. Antes de poder visualizar os registos, tem de os ativar primeiro. Para obter mais informações, consulte [Ativar o registo em treinos Azure ML](how-to-track-experiments.md).
 
@@ -125,11 +125,11 @@ Utilize os seguintes métodos nas APIs de registo para influenciar o estúdio vi
 |Tabela de registo com 2 colunas numéricas|`run.log_table(name='Sine Wave', value=sines)`|Gráfico de linha de duas variáveis|
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Experimente estes próximos passos para aprender a usar a Azure Machine Learning:
 
-* Saiba como [rastrear experiências e ativar registos no designer de Machine Learning Azure (pré-visualização)](how-to-track-designer-experiments.md).
+* Aprenda a [rastrear experiências e ativer registos no designer de Aprendizagem automática Azure.](how-to-track-designer-experiments.md)
 
-* Veja um exemplo de como registar o melhor modelo e implantá-lo no tutorial, Treine um modelo de [classificação de imagem com Azure Machine Learning](tutorial-train-models-with-aml.md).
+* Veja um exemplo sobre como registar o melhor modelo e implementá-lo no tutorial [Preparar um modelo de classificação de imagens com o Azure Machine Learning](tutorial-train-models-with-aml.md).
 

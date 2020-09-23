@@ -11,15 +11,15 @@ ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 1917ded59275c7a456e8d2fd25412afc91a1327c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7c049b56bd72a0b59862e655da3b79f63c264fbf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650650"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882782"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Treine e registe um modelo de classificação Keras com Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Este artigo mostra-lhe como treinar e registar um modelo de classificação Keras construído no TensorFlow usando Azure Machine Learning. Utiliza o popular [conjunto de dados MNIST](http://yann.lecun.com/exdb/mnist/) para classificar dígitos manuscritos utilizando uma rede neural profunda (DNN) construída utilizando a [biblioteca Keras Python](https://keras.io) em execução em cima do [TensorFlow.](https://www.tensorflow.org/overview)
 
@@ -208,7 +208,7 @@ for f in run.get_file_names():
         run.download_file(name=f, output_file_path=output_file_path)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, treinou e registou um modelo Keras no Azure Machine Learning. Para aprender a implementar um modelo, continue para o nosso artigo de implementação de modelos.
 

@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: damendo
-ms.openlocfilehash: 675038189fdc9c9626fee409a90e17341cf9b6cd
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 95edcee32c1917d23e4808e805f947d18d2fa7f4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207373"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986236"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução à resolução de problemas de recursos no Observador da Rede Azure
 
 Os Gateways de Rede Virtual fornecem conectividade entre recursos no local e outras redes virtuais dentro do Azure. Monitorizar os gateways e respetivas ligações é fundamental para garantir que a comunicação não é interrompida. O Network Watcher fornece a capacidade de resolver os gateways e ligações. A capacidade pode ser chamada através do portal PowerShell, Azure CLI ou REST API. Quando chamado, o Network Watcher diagnostica a saúde do gateway, ou ligação, e devolve os resultados apropriados. O pedido é uma transação de longa duração. Os resultados são devolvidos assim que o diagnóstico estiver completo.
 
-![portal][2]
+![A screenshot mostra o Network Watcher V P N Diagnostics.][2]
 
 ## <a name="results"></a>Resultados
 
@@ -54,11 +54,11 @@ As tabelas a seguir mostram os diferentes tipos de avaria (id em resultados da l
 | PlannedMaintenance |  A instância gateway está sob manutenção  |Não|
 | UserDrivenUpdate | Esta falha ocorre quando uma atualização de utilizador está em curso. A atualização pode ser uma operação de redimensionamento. | Não |
 | VipUnResponsive | Esta falha ocorre quando a instância principal do gateway não pode ser acedida devido a uma falha da pesquisa de estado de funcionamento. | Não |
-| PlatformInActive | Existe um problema com a plataforma. | Não|
-| ServiceNotRunning | O serviço subjacente não está a funcionar. | Não|
-| NoConnectionsFoundForGateway | Não existem ligações no portal. Esta falha é apenas um aviso.| Não|
-| LigaçõesNotConnected | As ligações não estão ligadas. Esta falha é apenas um aviso.| Sim|
-| GatewayCPUUsageExceed | O uso atual do CPU de gateway é > 95%. | Sim |
+| PlatformInActive | Existe um problema com a plataforma. | No|
+| ServiceNotRunning | O serviço subjacente não está a funcionar. | No|
+| NoConnectionsFoundForGateway | Não existem ligações no portal. Esta falha é apenas um aviso.| No|
+| LigaçõesNotConnected | As ligações não estão ligadas. Esta falha é apenas um aviso.| Yes|
+| GatewayCPUUsageExceed | O uso atual do CPU de gateway é > 95%. | Yes |
 
 ### <a name="connection"></a>Ligação
 
@@ -68,15 +68,15 @@ As tabelas a seguir mostram os diferentes tipos de avaria (id em resultados da l
 | GatewayNotFound | Não é possível encontrar porta de entrada ou gateway não é a provisionado |Não|
 | PlannedMaintenance | A instância gateway está sob manutenção  |Não|
 | UserDrivenUpdate | Esta falha ocorre quando uma atualização de utilizador está em curso. A atualização pode ser uma operação de redimensionamento.  | Não |
-| VipUnResponsive | Esta falha ocorre quando a instância principal do gateway não pode ser acedida devido a uma falha da pesquisa de estado de funcionamento. | Não |
-| Entidade de ConexãoNotFound | Falta a configuração de ligação | Não |
-| LigaçãoIsMarkedDis ligados | A ligação está marcada como "desligada" |Não|
-| ConexãoNotConfiguredOnGateway | O serviço subjacente não tem a ligação configurada. | Sim |
-| ConnectionMarkedStandby | O serviço subjacente está marcado como standby.| Sim|
-| Autenticação | Desajuste de chave pré-partilhada | Sim|
-| PeerReachability | O portal dos pares não é alcançável. | Sim|
-| IkePolicyMismatch | O portal de pares tem políticas IKE que não são apoiadas pelo Azure. | Sim|
-| Erro de PcPParse | Ocorreu um erro na análise do registo do PAM. |Sim|
+| VipUnResponsive | Esta falha ocorre quando a instância principal do gateway não pode ser acedida devido a uma falha da pesquisa de estado de funcionamento. | No |
+| Entidade de ConexãoNotFound | Falta a configuração de ligação | No |
+| LigaçãoIsMarkedDis ligados | A ligação está marcada como "desligada" |No|
+| ConexãoNotConfiguredOnGateway | O serviço subjacente não tem a ligação configurada. | Yes |
+| ConnectionMarkedStandby | O serviço subjacente está marcado como standby.| Yes|
+| Autenticação | Desajuste de chave pré-partilhada | Yes|
+| PeerReachability | O portal dos pares não é alcançável. | Yes|
+| IkePolicyMismatch | O portal de pares tem políticas IKE que não são apoiadas pelo Azure. | Yes|
+| Erro de PcPParse | Ocorreu um erro na análise do registo do PAM. |Yes|
 
 ## <a name="supported-gateway-types"></a>Tipos de Gateway suportados
 
@@ -105,7 +105,7 @@ Os ficheiros de registo de resolução de problemas de recursos são armazenados
 > [!NOTE]
 > Em alguns casos, apenas um subconjunto dos ficheiros de registos é escrito para armazenamento.
 
-Para obter instruções sobre o descarregamento de ficheiros a partir de contas de armazenamento azul, consulte para [começar com o armazenamento Azure Blob usando .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Storage Explorer. Mais informações sobre o Storage Explorer podem ser encontradas aqui no seguinte link: [Storage Explorer](https://storageexplorer.com/)
+Para obter instruções sobre o descarregamento de ficheiros a partir de contas de armazenamento Azure, consulte para [começar com o armazenamento Azure Blob usando .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Outra ferramenta que pode ser usada é o Storage Explorer. Mais informações sobre o Storage Explorer podem ser encontradas aqui no seguinte link: [Storage Explorer](https://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 
@@ -126,7 +126,7 @@ Connected Since : 2/1/2017 8:22:06 PM
 
 ### <a name="cpustatstxt"></a>CPUStats.txt
 
-O **ficheiroCPUStats.txt** contém utilização e memória de CPU disponíveis no momento do teste.  O conteúdo deste ficheiro é semelhante ao seguinte exemplo:
+O ** ficheiroCPUStats.txt** contém utilização e memória de CPU disponíveis no momento do teste.  O conteúdo deste ficheiro é semelhante ao seguinte exemplo:
 
 ```
 Current CPU Usage : 0 % Current Memory Available : 641 MBs
@@ -134,7 +134,7 @@ Current CPU Usage : 0 % Current Memory Available : 641 MBs
 
 ### <a name="ikeerrorstxt"></a>IKEErrors.txt
 
-O **ficheiroIKEErrors.txt** contém quaisquer erros do IKE que foram encontrados durante a monitorização.
+O ** ficheiroIKEErrors.txt** contém quaisquer erros do IKE que foram encontrados durante a monitorização.
 
 O exemplo a seguir mostra o conteúdo de um ficheiro IKEErrors.txt. Os seus erros podem ser diferentes dependendo do problema.
 
@@ -147,7 +147,7 @@ Error: On-prem device sent invalid payload.
 
 ### <a name="scrubbed-wfpdiagtxt"></a>Scrubbed-wfpdiag.txt
 
-O **ficheiro de** registoScrubbed-wfpdiag.txtcontém o registo do PAM. Este registo contém registo de gotas de pacote e falhas do IKE/AuthIP.
+O ** ficheiro de ** registoScrubbed-wfpdiag.txtcontém o registo do PAM. Este registo contém registo de gotas de pacote e falhas do IKE/AuthIP.
 
 O exemplo que se segue mostra o conteúdo do ficheiro Scrubbed-wfpdiag.txt. Neste exemplo, a chave partilhada de uma Ligação não estava correta, como se pode ver a partir da terceira linha a partir de baixo. O exemplo a seguir é apenas um corte de todo o log, uma vez que o log pode ser longo dependendo do problema.
 
@@ -180,7 +180,7 @@ O exemplo que se segue mostra o conteúdo do ficheiro Scrubbed-wfpdiag.txt. Nest
 
 ### <a name="wfpdiagtxtsum"></a>wfpdiag.txt.soma
 
-O **ficheirowfpdiag.txt.sum** é um registo que mostra os amortecedores e eventos processados.
+O ** ficheirowfpdiag.txt.sum** é um registo que mostra os amortecedores e eventos processados.
 
 Segue-se o conteúdo de um ficheiro wfpdiag.txt.sum.
 ```

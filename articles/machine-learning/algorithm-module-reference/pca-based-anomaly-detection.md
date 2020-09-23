@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 0498823e1b730db6425d255b6de4b826dd05a6a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa90fcb9ebc17be9a658b08873234eada98b0fba
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749490"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898457"
 ---
 # <a name="pca-based-anomaly-detection-module"></a>Módulo de deteção de anomalias baseada em PCA
 
-Este artigo descreve como utilizar o módulo de deteção de anomalias baseada em PCA no designer de aprendizagem de máquinas Azure (pré-visualização), para criar um modelo de deteção de anomalias baseado na análise principal de componentes (PCA).
+Este artigo descreve como utilizar o módulo de deteção de anomalias baseada em PCA no designer Azure Machine Learning, para criar um modelo de deteção de anomalias baseado na análise principal de componentes (PCA).
 
 Este módulo ajuda-o a construir um modelo em cenários onde é fácil obter dados de treino de uma classe, como transações válidas, mas difícil de obter amostras suficientes das anomalias direcionadas. 
 
@@ -105,8 +105,8 @@ Este algoritmo usa PCA para aproximar o subespaço que contém a classe normal. 
 Para cada nova entrada, o detetor de anomalias calcula primeiro a sua projeção nos eigenvectors e, em seguida, calcula o erro de reconstrução normalizado. Este erro é a pontuação da anomalia. Quanto maior o erro, mais anómalo o caso. Para mais detalhes sobre como o espaço normal é calculado, consulte a Wikipédia: [Análise principal de componentes.](https://wikipedia.org/wiki/Principal_component_analysis) 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 
-Consulte [exceções e códigos de erro para o designer (pré-visualização)](designer-error-codes.md) para obter uma lista de erros específicos dos módulos do designer.
+Consulte [exceções e códigos de erro para o designer](designer-error-codes.md) para obter uma lista de erros específicos dos módulos do designer.

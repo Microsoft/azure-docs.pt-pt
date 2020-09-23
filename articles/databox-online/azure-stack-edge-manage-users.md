@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge gere os utilizadores Microsoft Docs
-description: Descreve como usar o portal Azure para gerir os utilizadores no seu Azure Stack Edge.
+title: Azure Stack Edge Pro gere os utilizadores Microsoft Docs
+description: Descreve como usar o portal Azure para gerir os utilizadores no seu Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 1012ce417fb4952878dada29a9080c70954ed21f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3fb82e95d9d7dcfdf59bd05f91beff8e1184955e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339642"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904378"
 ---
-# <a name="use-the-azure-portal-to-manage-users-on-your-azure-azure-stack-edge"></a>Utilize o portal Azure para gerir os utilizadores no seu Azure Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-users-on-your-azure-azure-stack-edge-pro"></a>Utilize o portal Azure para gerir os utilizadores no Azure Azure Stack Edge Pro
 
-Este artigo descreve como gerir os utilizadores no seu Azure Stack Edge. Pode gerir o Azure Stack Edge através do portal Azure ou através da UI web local. Utilize o portal do Azure para adicionar, modificar ou eliminar utilizadores.
+Este artigo descreve como gerir os utilizadores no seu Azure Stack Edge Pro. Pode gerir o Azure Stack Edge Pro através do portal Azure ou através da UI web local. Utilize o portal do Azure para adicionar, modificar ou eliminar utilizadores.
 
 Neste artigo, vai aprender a:
 
@@ -82,6 +82,6 @@ A lista de utilizadores é atualizada para refletir o utilizador eliminado.
 ![Lista atualizada de utilizadores](media/azure-stack-edge-manage-users/delete-user-4.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [Gerir a largura de banda](azure-stack-edge-manage-bandwidth-schedules.md).

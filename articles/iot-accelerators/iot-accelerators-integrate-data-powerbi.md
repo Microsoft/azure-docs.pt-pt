@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8b0f395936c8628ff7b8dab601168538f97ccdb7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a7d29583636879698abc598e1935358796b6062
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74184248"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976009"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualizar dados de monitorização remota utilizando o Power BI
 
@@ -45,7 +45,7 @@ Este tutorial irá acompanhá-lo como ligar os dados da sua solução de monitor
    - URI
    - Chave Primária
 
-     ![keys](./media/iot-accelerators-integrate-data-powerbi/keys.png)
+     ![A screenshot mostra uma conta Azure Cosmos D B com o item Keys selecionado.](./media/iot-accelerators-integrate-data-powerbi/keys.png)
 
 ## <a name="setting-up-the-stream-in-power-bi"></a>Configuração do Stream in Power BI
   
@@ -55,7 +55,7 @@ Este tutorial irá acompanhá-lo como ligar os dados da sua solução de monitor
 
 2. Quando solicitado para introduzir dados, opte por procurar "Azure Cosmos DB" e selecione este conector. Este conector essencialmente retira dados diretamente da base de dados cosmos da sua Solução Azure IoT
   
-    ![BD do Cosmos](./media/iot-accelerators-integrate-data-powerbi/cosmos_db.png)
+    ![Cosmos DB](./media/iot-accelerators-integrate-data-powerbi/cosmos_db.png)
   
 3. Introduza as informações, que já registou acima:
 
@@ -98,7 +98,7 @@ Depois de ter criado com sucesso os seus dashboards, recomendamos que [publique 
 
 Também deverá atualizar [os dados](https://docs.microsoft.com/power-bi/refresh-data) do painel de instrumentos publicado para se certificar de que tem os dados mais recentes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu sobre como visualizar dados de monitorização remota usando o Power BI
 

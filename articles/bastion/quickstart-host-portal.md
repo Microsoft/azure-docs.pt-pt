@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: quickstart
 ms.date: 03/11/2020
 ms.author: charwen
-ms.openlocfilehash: 3c2780c8c99fd4568a7213b625ce785d3a99129c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0155ae92e3179918273d6a19773aa15b67949ea
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743988"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985597"
 ---
 # <a name="quickstart-connect-to-a-virtual-machine-using-a-private-ip-address-and-azure-bastion"></a>Quickstart: Ligue-se a uma máquina virtual usando um endereço IP privado e Azure Bastion
 
@@ -41,7 +41,7 @@ Este artigo de arranque rápido mostra-lhe como se conectar a uma máquina virtu
 
 Quando cria um hospedeiro de bastião no portal utilizando uma máquina virtual existente, várias configurações serão automaticamente padrão para corresponder à sua máquina virtual e/ou rede virtual.
 
-1. Abra o [portal Azure](https://portal.azure.com). Vá à sua máquina virtual e, em seguida, clique em **Connect**.
+1. Abra o [portal do Azure](https://portal.azure.com). Vá à sua máquina virtual e, em seguida, clique em **Connect**.
 
    ![configurações de máquinas virtuais](./media/quickstart-host-portal/vm-settings.png)
 1. A partir do dropdown, **selecione Bastion**.
@@ -72,12 +72,12 @@ Depois de Bastion ter sido implantado na rede virtual, o ecrã muda para a pági
 
 1. Digite o nome de utilizador e a palavra-passe para a sua máquina virtual. Em seguida, selecione **Connect**.
 
-   ![ligar](./media/quickstart-host-portal/connect.png)
+   ![A screenshot mostra o Connect usando o diálogo Azure Bastion, o que lhe pede um nome de utilizador e palavra-passe.](./media/quickstart-host-portal/connect.png)
 1. A ligação RDP a esta máquina virtual via Bastion abrir-se-á diretamente no portal Azure (sobre HTML5) utilizando a porta 443 e o serviço Bastion.
 
    ![Ligação RDP](./media/quickstart-host-portal/443-rdp.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar de usar a rede virtual e as máquinas virtuais, elimine o grupo de recursos e todos os recursos que contém:
 

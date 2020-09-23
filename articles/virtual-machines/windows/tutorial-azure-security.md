@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c6afdae275b98a86eba14b920a6969c967c5a7db
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 057cbd5d42eafaa693abc418de62c3ae03a6b995
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508241"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984592"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Tutorial: Utilizar o Centro de Segurança do Azure para monitorizar as máquinas virtuais do Windows
 
@@ -36,7 +36,7 @@ Para aceder ao dashboard do Centro de Segurança, no portal do Azure, no menu, s
 
 O Centro de Segurança vai mais além da deteção de dados para fornecer recomendações para problemas que deteta. Por exemplo, se uma VM tiver sido implementada sem um grupo de segurança de rede ligado à mesma, o Centro de Segurança apresenta uma recomendação, com passos de remediação que pode efetuar. Obtém a remediação automática sem sair do contexto do Centro de Segurança.  
 
-![Recomendações](./media/tutorial-azure-security/recommendations.png)
+![O Screenshot mostra a página de recomendações, que inclui uma descrição, recurso, estado e gravidade das recomendações.](./media/tutorial-azure-security/recommendations.png)
 
 ## <a name="set-up-data-collection"></a>Configurar a recolha de dados
 
@@ -117,7 +117,7 @@ Selecione um alerta para ver as informações. Por exemplo, pode ver uma descri�
 
 ![Ataque RDP](./media/tutorial-azure-security/rdp-attack.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, configurou o Centro de Segurança do Azure e, em seguida, reviu VMs no Centro de Segurança. Aprendeu a:
 
 > [!div class="checklist"]

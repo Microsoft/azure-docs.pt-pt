@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 76c2cf7164c3e2d683a9294cb500ed05381811b6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c421c730321213a9adbf0a0043874a21ba26bb05
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043534"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906234"
 ---
 # <a name="export-an-azure-stream-analytics-job-azure-resource-manager-template"></a>Exporte um azure stream analytics job Azure Resource Manager modelo
 
@@ -28,7 +28,7 @@ Para exportar um emprego para um projeto local, localize o trabalho que deseja e
 
 ![Open Stream Analytics trabalho em Código de Estúdio Visual](./media/resource-manager-export/open-job-vs-code.png)
 
-Para obter mais informações sobre a utilização do Código do Estúdio Visual para gerir os trabalhos do Stream Analytics, consulte o [quickstart do Código do Estúdio Visual](quick-create-vs-code.md).
+Para obter mais informações sobre a utilização do Código do Estúdio Visual para gerir os trabalhos do Stream Analytics, consulte o [quickstart do Código do Estúdio Visual](quick-create-visual-studio-code.md).
 
 ## <a name="compile-the-script"></a>Compilar o script 
 
@@ -58,7 +58,7 @@ Em seguida, preencha o ficheiro de parâmetros do modelo de Gestão de Recursos 
 
 Está pronto para implementar o seu trabalho Azure Stream Analytics utilizando os modelos do Gestor de Recursos Azure que gerou na secção anterior.
 
-Numa janela PowerShell, executar o seguinte comando. Certifique-se de que reaplet o *Nome do Grupo de Recursos,* o *TemplateFile*e *o TemplateParameterFile* com o nome do grupo de recursos reais e os caminhos completos do ficheiro para o *JobTemplate.jse*JobTemplate.parameters.js*em* ficheiros na Pasta **de Implementação** do seu espaço de trabalho.
+Numa janela PowerShell, executar o seguinte comando. Certifique-se de que reaplet o *Nome do Grupo de Recursos,* o *TemplateFile*e *o TemplateParameterFile* com o nome do grupo de recursos reais e os caminhos completos do ficheiro para o *JobTemplate.jse*JobTemplate.parameters.js* em* ficheiros na Pasta **de Implementação** do seu espaço de trabalho.
 
 Se não tiver a Azure PowerShell configurada, siga os passos no [módulo Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
@@ -66,7 +66,7 @@ Se não tiver a Azure PowerShell configurada, siga os passos no [módulo Install
 New-AzResourceGroupDeployment -ResourceGroupName "<your resource group>" -TemplateFile "<path to JobTemplate.json>" -TemplateParameterFile "<path to JobTemplate.parameters.json>"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Teste Azure Stream Analytics empregos localmente com entrada ao vivo usando Código de Estúdio Visual](visual-studio-code-local-run-live-input.md)
 

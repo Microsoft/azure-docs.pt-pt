@@ -11,12 +11,12 @@ ms.custom:
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 32603514db76ceba4f1d9f8873c99b2e8a97eddf
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: aad160f8a4ec96a1e0e627684c598062079b57e0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185915"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896310"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Use Python para ligar e consultar dados na Base de Dados Azure para o MySQL
 
@@ -63,11 +63,11 @@ Obtenha as informações de ligação necessárias para ligar à Base de Dados A
    
 1. Na barra de pesquisa do portal, procure e selecione a Base de Dados Azure para o servidor MySQL que criou, como **o mydemoserver**.
    
-   ![Nome do servidor da Base de Dados do Azure para MySQL](./media/connect-python/1_server-overview-name-login.png)
+   :::image type="content" source="./media/connect-python/1_server-overview-name-login.png" alt-text="Nome do servidor da Base de Dados do Azure para o MySQL":::
    
 1. A partir da página **de visão geral** do servidor, tome nota do nome do **Servidor** e do nome de login **do servidor**. Se esquecer a sua palavra-passe, também pode redefinir a palavra-passe a partir desta página.
    
-   ![Nome do servidor da Base de Dados do Azure para MySQL](./media/connect-python/azure-database-for-mysql-server-overview-name-login.png)
+   :::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="Nome do servidor da Base de Dados do Azure para o MySQL":::
 
 ## <a name="run-the-python-examples"></a>Executar os exemplos python
 
@@ -79,7 +79,7 @@ Para cada exemplo de código neste artigo:
 1. Para executar o código, abra uma visão de comando ou `bash` de concha e altere o diretório na pasta do projeto, por exemplo `cd pythonmysql` . Digite o `python` comando seguido pelo nome do ficheiro, por `python createtable.py` exemplo, e prima Enter. 
    
    > [!NOTE]
-   > No Windows, se não for encontrado *python.exe,* poderá ter de adicionar o caminho Python à variável ambiente PATH, ou fornecer o caminho completo para *python.exe*, por `C:\python27\python.exe createtable.py` exemplo.
+   > No Windows, se não for encontrado *python.exe, * poderá ter de adicionar o caminho Python à variável ambiente PATH, ou fornecer o caminho completo para *python.exe*, por `C:\python27\python.exe createtable.py` exemplo.
 
 ## <a name="create-a-table-and-insert-data"></a>Criar uma tabela e inserir dados
 

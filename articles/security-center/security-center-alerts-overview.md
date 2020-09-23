@@ -10,18 +10,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: memildin
-ms.openlocfilehash: bd52cb9ba10cbbc7823cf631cea146cdccdad4e1
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: b2d5731ea9e8f2fb13d234fc9d951e221c0ab3e5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278144"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905474"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança no Centro de Segurança do Azure
 
 No Centro de Segurança Azure, existem uma variedade de alertas para vários tipos de recursos diferentes. O Centro de Segurança gera alertas para os recursos implantados no Azure, e também para os recursos implantados em ambientes de nuvem híbrida e locais.
 
-Os alertas de segurança são desencadeados por deteções avançadas e estão disponíveis apenas no nível padrão do Azure Security Center. Está disponível uma avaliação gratuita. Pode atualizar a partir da página **de definições & de preços.** Saiba mais sobre [os preços do Security Center.](https://azure.microsoft.com/pricing/details/security-center/)
+Os alertas de segurança são desencadeados por deteções avançadas e estão disponíveis apenas com o Azure Defender. Está disponível uma avaliação gratuita. Pode atualizar a partir da página **de definições & de preços.** Saiba mais sobre [os preços do Security Center.](https://azure.microsoft.com/pricing/details/security-center/)
 
 ## <a name="respond-to-todays-threats"></a>Responda às ameaças <a name="respond-threats"> </a> de hoje
 
@@ -45,7 +45,7 @@ Usando incidentes, o Security Center fornece-lhe uma única visão de uma campan
 
 ## <a name="how-does-security-center-detect-threats"></a>Como é que o Centro de Segurança deteta ameaças? <a name="detect-threats"> </a>
 
-Os investigadores de segurança da Microsoft estão constantemente atentos a ameaças. Devido à presença global da Microsoft na nuvem e no local, têm acesso a um conjunto expansivo de telemetria. A ampla e diversificada recolha de conjuntos de dados permite descobrir novos padrões e tendências de ataque em todos os seus produtos de consumo e empresa no local, bem como os seus serviços online. Como resultado, o Centro de Segurança pode atualizar rapidamente os respetivos algoritmos de deteção à medida que os atacantes disponibilizam novas e cada vez mais sofisticadas explorações. Esta abordagem ajuda-o a estar a par do ritmo dinâmico dos ambientes de ameaças.
+Os investigadores de segurança da Microsoft estão constantemente atentos a ameaças. Devido à nossa presença global na nuvem e no local, temos acesso a um conjunto expansivo de telemetria. A ampla e diversificada recolha de conjuntos de dados permite-nos descobrir novos padrões e tendências de ataque em todos os nossos produtos de consumo e empresa no local, bem como os nossos serviços online. Como resultado, o Centro de Segurança pode atualizar rapidamente os respetivos algoritmos de deteção à medida que os atacantes disponibilizam novas e cada vez mais sofisticadas explorações. Esta abordagem ajuda-o a estar a par do ritmo dinâmico dos ambientes de ameaças.
 
 Para detetar ameaças reais e reduzir falsos positivos, o Security Center recolhe, analisa e integra dados de registo dos seus recursos Azure e da rede. Também trabalha com soluções parceiras conectadas, como soluções de firewall e proteção de pontos finais. O Centro de Segurança analisa esta informação, muitas vezes correlacionando informações de várias fontes, para identificar ameaças.
 
@@ -86,10 +86,9 @@ O Azure Security Center beneficia de ter equipas de pesquisa de segurança e de 
 Estes esforços combinados culminam em novas e melhoradas deteções, das quais podes beneficiar instantaneamente – não há nenhuma ação a tomar.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu sobre os diferentes tipos de alertas disponíveis no Centro de Segurança. Para obter mais informações, consulte:
 
-* [Proteção contra ameaças no Centro de Segurança Azure](threat-protection.md) - Para uma breve descrição das fontes dos alertas de segurança exibidos pelo Centro de Segurança Azure 
-* **Alertas de segurança no Registo de Atividades do Azure** - Além de estarem disponíveis no portal Azure ou programáticamente, os alertas de segurança e incidentes são auditados como eventos no [Diário de Atividades do Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) Para obter mais informações sobre o esquema do evento, consulte [alertas de segurança no registo de atividades do Azure](https://go.microsoft.com/fwlink/?linkid=2114113)
+- **Alertas de segurança no Registo de Atividades do Azure** - Além de estarem disponíveis no portal Azure ou programáticamente, os alertas de segurança e incidentes são auditados como eventos no [Diário de Atividades do Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) Para obter mais informações sobre o esquema do evento, consulte [alertas de segurança no registo de atividades do Azure](https://go.microsoft.com/fwlink/?linkid=2114113)
 

@@ -1,25 +1,24 @@
 ---
 title: Descrição Geral do Azure Policy
 description: O Azure Policy é um serviço no Azure utilizado para criar, atribuir e gerir definições de política no seu ambiente do Azure.
-ms.date: 06/17/2020
+ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: 2ac8c175f586d9649e35328a483be918276c115d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 662a7510013e2008d8c16cf21376b11c247e0bc0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044197"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905976"
 ---
 # <a name="what-is-azure-policy"></a>O que é o Azure Policy?
 
-A Azure Policy ajuda a impor normas organizacionais e a avaliar o cumprimento em escala. Através do seu painel de conformidade, proporciona uma visão agregada para avaliar o estado geral do ambiente, com a capacidade de aprofundar a granularidade por recurso, por política. Também ajuda a levar os seus recursos ao cumprimento através da reparação a granel dos recursos existentes e da reparação automática de novos recursos.
+O Azure Policy ajuda a impor normas organizacionais e a avaliar o cumprimento em escala. Através do seu painel de conformidade, proporciona uma visão agregada para avaliar o estado geral do ambiente, com a capacidade de aprofundar a granularidade por recurso, por política. Também ajuda a levar os seus recursos ao cumprimento através da reparação a granel dos recursos existentes e da reparação automática de novos recursos.
 
 Os casos de utilização comum para a Política Azure incluem a implementação da governação para a consistência dos recursos, a conformidade regulamentar, a segurança, os custos e a gestão. As definições de política para estes casos de uso comum já estão disponíveis no seu ambiente Azure como incorporados para ajudá-lo a começar.
 
 ## <a name="overview"></a>Descrição geral
 
-A Azure Policy avalia os recursos em Azure comparando as propriedades desses recursos com as regras empresariais. Estas regras de negócio, descritas no [formato JSON,](./concepts/definition-structure.md)são conhecidas como [definições políticas.](#policy-definition) Para simplificar a gestão, várias regras empresariais podem ser agrupadas para formar uma [iniciativa política](#initiative-definition) (por vezes chamada de _PolicySet)._ Uma vez formadas as suas regras de negócio, a definição ou iniciativa de política é [atribuída](#assignments) a qualquer âmbito de recursos que a Azure suporte, tais como grupos de [gestão,](../management-groups/overview.md)subscrições, [grupos de recursos](../../azure-resource-manager/management/overview.md#resource-groups)ou recursos individuais. A atribuição aplica-se a todos os recursos no [âmbito](../../azure-resource-manager/management/overview.md#understand-scope) dessa atribuição.
-Os subscópios podem ser excluídos, se necessário.
+A Azure Policy avalia os recursos em Azure comparando as propriedades desses recursos com as regras empresariais. Estas regras de negócio, descritas no [formato JSON,](./concepts/definition-structure.md)são conhecidas como [definições políticas.](#policy-definition) Para simplificar a gestão, várias regras empresariais podem ser agrupadas para formar uma [iniciativa política](#initiative-definition) (por vezes chamada de _PolicySet)._ Uma vez formadas as suas regras de negócio, a definição ou iniciativa de política é [atribuída](#assignments) a qualquer âmbito de recursos que a Azure suporte, tais como grupos de [gestão,](../management-groups/overview.md)subscrições, [grupos de recursos](../../azure-resource-manager/management/overview.md#resource-groups)ou recursos individuais. A atribuição aplica-se a todos os recursos no âmbito do Gestor de [Recursos](../../azure-resource-manager/management/overview.md#understand-scope) dessa atribuição. Os subscópios podem ser excluídos, se necessário. Para mais informações, consulte [Scope in Azure Policy](./concepts/scope.md).
 
 A Azure Policy utiliza um [formato JSON](./concepts/definition-structure.md) para formar a lógica que a avaliação utiliza para determinar se um recurso está ou não em conformidade. As definições incluem metadados e a regra da política. A regra definida pode usar funções, parâmetros, operadores [lógicos,](./concepts/definition-structure.md#aliases) condições e pseudónimos de propriedade para corresponder exatamente ao cenário que deseja. A regra da política determina quais os recursos no âmbito da atribuição que são avaliados.
 
@@ -124,7 +123,7 @@ Para saber mais sobre as estruturas de definições de política, veja [Estrutur
 
 Os parâmetros de política ajudam a simplificar a gestão de políticas ao reduzir o número de definições de política que tem de criar. Pode definir os parâmetros durante a criação de uma definição de política para torná-la mais genérica. Em seguida, pode reutilizar essa definição de política para diferentes cenários. Pode fazê-lo ao transmitir diferentes valores quando atribui a definição de política. Por exemplo, pode especificar um conjunto de localizações para uma subscrição.
 
-Os parâmetros são definidos na criação de uma definição de política. Quando um parâmetro é definido, é fornecido um nome e opcionalmente um valor para o mesmo. Por exemplo, pode definir um parâmetro para uma política intitulada _localização_. Em seguida, pode atribuir-lhe valores diferentes, tais como _EastUS_ ou _WestUS_ quando atribui uma política.
+Os parâmetros são definidos na criação de uma definição de política. Quando um parâmetro é definido, é fornecido um nome e, opcionalmente, um valor para o mesmo. Por exemplo, pode definir um parâmetro para uma política intitulada _localização_. Em seguida, pode atribuir-lhe valores diferentes, tais como _EastUS_ ou _WestUS_ quando atribui uma política.
 
 Para obter mais informações sobre parâmetros de política, consulte [a estrutura de Definição - Parâmetros](./concepts/definition-structure.md#parameters).
 
@@ -147,7 +146,7 @@ Por exemplo, considere um cenário em que tem uma definição de iniciativa - **
 
 | Política | Nome do parâmetro |Tipo de parâmetro  |Nota |
 |---|---|---|---|
-| policyA | allowedLocations | array  |Este parâmetro espera uma lista de cadeias para um valor, uma vez que o tipo de parâmetro foi definido como uma matriz |
+| policyA | allowedLocations | matriz  |Este parâmetro espera uma lista de cadeias para um valor, uma vez que o tipo de parâmetro foi definido como uma matriz |
 | policyB | allowedSingleLocation |string |Este parâmetro espera uma palavra para um valor, uma vez que o tipo de parâmetro foi definido como uma cadeia |
 
 Neste cenário, quando define os parâmetros da iniciativa para **initiativeC**, tem três opções:
@@ -174,7 +173,7 @@ Para obter mais informações sobre a definição de atribuições através do p
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem uma ideia geral do Azure Policy e de alguns dos principais conceitos, seguem-se os passos sugeridos seguintes:
 

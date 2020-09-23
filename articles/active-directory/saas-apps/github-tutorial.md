@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 7153a1279785cfe79d23b2b5ba843ec9f5cd4965
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 007f4d0c0e56051c369d8d06cdd40c9251647673
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550750"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985895"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-github"></a>Tutorial: Azure Ative Directory integração única (SSO) com GitHub
 
@@ -117,7 +117,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+   1. Clique em **Create** (Criar).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -194,7 +194,7 @@ O objetivo desta secção é criar um utilizador chamado Britta Simon no GitHub.
 
 2. Clique **em Pessoas.**
 
-    ![People](./media/github-tutorial/people.png "People")
+    ![A screenshot mostra o site GitHub com pessoas selecionadas.](./media/github-tutorial/people.png "People")
 
 3. Clique **em Convidar membro**.
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: fa30c6c2c3ecd9c9c119fee80b7ef90999e42d30
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: b7730558e2a660b0cf00a5b6962d1e2275dd472c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962626"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984392"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implementação contínua para o Serviço de Aplicações Azure
 
@@ -23,7 +23,7 @@ Para obter mais informações sobre os serviços de controlo de origem, consulte
 
 ## <a name="authorize-azure-app-service"></a>Autorizar o Serviço de Aplicações Azure 
 
-Para utilizar o Azure Repos, certifique-se de que a sua organização Azure DevOps está ligada à sua subscrição Azure. Para obter mais informações, consulte [Configurar uma conta Azure DevOps Services para que possa ser implementada numa aplicação web.](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops)
+Para utilizar o Azure Repos, certifique-se de que a sua organização Azure DevOps está ligada à sua subscrição Azure. Para obter mais informações, consulte [Configurar uma conta Azure DevOps Services para que possa ser implementada numa aplicação web.](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops&preserve-view=true)
 
 Para o Bitbucket ou o GitHub, autorize o Serviço de Aplicações Azure a ligar-se ao seu repositório. Só precisa de autorizar um serviço de controlo de fonte uma vez. 
 
@@ -58,7 +58,7 @@ Você pode usar o servidor de construção de aplicações Kudu incorporado para
 1. Selecione o seu fornecedor autorizado de controlo de fonte na página **'Centro de Implantação'** e selecione **Continue**. Para GitHub ou Bitbucket, também pode selecionar alterar a **conta Change** para alterar a conta autorizada. 
    
    > [!NOTE]
-   > Para utilizar o Azure Repos, certifique-se de que a sua organização Azure DevOps Services está ligada à sua subscrição Azure. Para obter mais informações, consulte [Configurar uma conta Azure DevOps Services para que possa ser implementada numa aplicação web.](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops)
+   > Para utilizar o Azure Repos, certifique-se de que a sua organização Azure DevOps Services está ligada à sua subscrição Azure. Para obter mais informações, consulte [Configurar uma conta Azure DevOps Services para que possa ser implementada numa aplicação web.](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops&preserve-view=true)
    
 1. Para GitHub ou Azure Repos, na página do **fornecedor Build,** selecione o **serviço de construção do Serviço de Aplicações**e, em seguida, selecione **Continue**. A Bitbucket usa sempre o serviço de construção do Serviço de Aplicações.
    
@@ -76,7 +76,7 @@ Você pode usar o servidor de construção de aplicações Kudu incorporado para
    - Para Azure Repos, selecione a **Azure DevOps Organization**, **Project,** **Repository**e **Branch** que pretende implementar continuamente.
      
      > [!NOTE]
-     > Se a sua organização do Azure DevOps não estiver listada, confirme se está associada à sua subscrição do Azure. Para obter mais informações, consulte [Configurar uma conta Azure DevOps Services para que possa ser implementada numa aplicação web](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops)..
+     > Se a sua organização do Azure DevOps não estiver listada, confirme se está associada à sua subscrição do Azure. Para obter mais informações, consulte [Configurar uma conta Azure DevOps Services para que possa ser implementada numa aplicação web](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops&preserve-view=true)..
      
 1. **Selecione Continuar**.
    
@@ -110,11 +110,11 @@ Para o Azure App Service criar uma entrega contínua utilizando a Azure Pipeline
 
 1. Selecione **GitHub** como fornecedor de controlo de origem na página **do Centro de Implantação** e selecione **Continue**. Para **o GitHub,** pode selecionar Alterar a **Conta** para alterar a conta autorizada.
 
-    ![controlo de fontes](media/app-service-continuous-deployment/deployment-center-src-control.png)
+    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Screenshot da página do Centro de Implementação do Serviço de Aplicações.":::
    
 1. Na página **'Fornecedor de construção',** selecione **Azure Pipelines (Preview)** e, em seguida, selecione **Continue**.
 
-    ![fornecedor de construção](media/app-service-continuous-deployment/select-build-provider.png)
+    :::image type="content" source="media/app-service-continuous-deployment/select-build-provider.png" alt-text="Screenshot mostrando a página do Centro de Implantação com Azure Pipelines (Preview) selecionado.":::
    
 1. Na página **Configure,** na secção **Código,** selecione a **Organização,** **Repositório**e **Ramo** que pretende implementar continuamente e selecione **Continuar**.
      
@@ -123,11 +123,11 @@ Para o Azure App Service criar uma entrega contínua utilizando a Azure Pipeline
        
     Na secção **Build,** especifique a Organização Azure DevOps, Projeto, enquadramento linguístico que os Gasodutos Azure devem utilizar para executar tarefas de construção e, em seguida, **selecione Continue**.
 
-   ![fornecedor de construção](media/app-service-continuous-deployment/build-configure.png)
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Screenshot da secção Build com texto de exemplo nos campos.":::
 
 1. Depois de configurar o fornecedor de construção, reveja as definições na página **Resumo** e, em seguida, selecione **Terminar**.
 
-   ![fornecedor de construção](media/app-service-continuous-deployment/summary.png)
+   :::image type="content" source="media/app-service-continuous-deployment/summary.png" alt-text="Screenshot da página do Centro de Implementação mostrando compromissos e implementações com o botão Refresh realçado.":::
    
 1. Novos compromissos no repositório selecionado e ramo agora implementam-se continuamente no seu Serviço de Aplicações. Pode rastrear os compromissos e implementações na página **Do Centro de Implantação.**
    
@@ -141,11 +141,11 @@ Para o Azure App Service criar uma entrega contínua utilizando a Azure Pipeline
 
 1. Selecione **Azure Repos** como fornecedor de controlo de origem na página **do Centro de Implantação** e selecione **Continue**.
 
-    ![controlo de fontes](media/app-service-continuous-deployment/deployment-center-src-control.png)
+    :::image type="content" source="media/app-service-continuous-deployment/deployment-center-src-control.png" alt-text="Screenshot da página do Centro de Implantação mostrando as seleções de Implementação Contínua (CI/CD).":::
 
 1. Na página **'Fornecedor de construção',** selecione **Azure Pipelines (Preview)** e, em seguida, selecione **Continue**.
 
-    ![controlo de fontes](media/app-service-continuous-deployment/azure-pipelines.png)
+    :::image type="content" source="media/app-service-continuous-deployment/azure-pipelines.png" alt-text="Screenshot do Centro de Implantação mostrando Gasodutos Azure (Pré-visualização).":::
 
 1. Na página **Configure,** na secção **Código,** selecione a **Organização,** **Repositório**e **Ramo** que pretende implementar continuamente e selecione **Continuar**.
 
@@ -154,11 +154,11 @@ Para o Azure App Service criar uma entrega contínua utilizando a Azure Pipeline
 
    Na secção **Build,** especifique a Organização Azure DevOps, Projeto, enquadramento linguístico que os Gasodutos Azure devem utilizar para executar tarefas de construção e, em seguida, **selecione Continue**.
 
-   ![fornecedor de construção](media/app-service-continuous-deployment/build-configure.png)
+   :::image type="content" source="media/app-service-continuous-deployment/build-configure.png" alt-text="Screenshot da secção Build mostrando os campos da Azure DevOps Organization e Project cheios de exemplos.":::
 
 1. Depois de configurar o fornecedor de construção, reveja as definições na página **Resumo** e, em seguida, selecione **Terminar**.  
      
-   ![fornecedor de construção](media/app-service-continuous-deployment/summary-azure-pipelines.png)
+   :::image type="content" source="media/app-service-continuous-deployment/summary-azure-pipelines.png" alt-text="Screenshot mostrando as definições selecionadas na página Resumo.":::
 
 1. Novos compromissos no repositório selecionado e ramo agora implementam-se continuamente no seu Serviço de Aplicações. Pode rastrear os compromissos e implementações na página **Do Centro de Implantação.**
 

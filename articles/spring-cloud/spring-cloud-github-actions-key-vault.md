@@ -5,16 +5,19 @@ author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
-ms.date: 01/20/2019
+ms.date: 09/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 433cd9e7b8cfe69ce5008366db884659cccbc149
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 995d10b3c7064e462500e0bec4d5d8aa010afe64
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076020"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888782"
 ---
 # <a name="authenticate-azure-spring-cloud-with-key-vault-in-github-actions"></a>Autenticar nuvem de primavera azure com cofre chave em ações do GitHub
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C #
+
 O cofre é um lugar seguro para guardar as chaves. Os utilizadores empresariais precisam de armazenar credenciais para ambientes CI/CD no âmbito que controlam. A chave para obter credenciais no cofre-chave deve limitar-se ao âmbito de recursos.  Tem acesso apenas ao alcance do cofre, não a toda a mira do Azure. É como uma chave que só pode abrir uma caixa forte e não uma chave mestra que pode abrir todas as portas de um edifício. É uma forma de obter uma chave com outra chave, que é útil num fluxo de trabalho CICD. 
 
 ## <a name="generate-credential"></a>Gerar Credencial
@@ -43,7 +46,7 @@ Em seguida, guarde os resultados para **os segredos** do GitHub, conforme descri
 ## <a name="add-access-policies-for-the-credential"></a>Adicionar Políticas de Acesso para a Credencial
 A credencial que criou acima só pode obter informações gerais sobre o Cofre de Chaves, e não sobre o conteúdo que armazena.  Para guardar segredos no Cofre de Chaves, precisa de definir políticas de acesso para a credencial.
 
-Vá ao painel **de instrumentos key Vault** no portal Azure, clique no menu de controlo **access** e, em seguida, abra o separador **atribuições de Função.** Selecione **Apps** for **Type** e para `This resource` o **âmbito**.  Deve ver a credencial que criou no passo anterior:
+Vá ao painel **key Vault** no portal Azure, clique no menu de **controlo access** e, em seguida, abra o **separador atribuições de Função.** Selecione **Apps** for **Type** e `This resource` para o **âmbito**.  Deve ver a credencial que criou no passo anterior:
 
  ![Definir política de acesso](./media/github-actions/key-vault1.png)
 

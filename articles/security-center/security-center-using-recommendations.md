@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: aac6f833985a708c7ed65542e314b65fa1039ef7
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 347c539abbe90119a74394eeb748af12d30d0b15
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569055"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904673"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Use Azure Security Center recommendations to enhance security (Utilizar as recomendações do Centro de Segurança do Azure para melhorar a segurança)
 
@@ -41,7 +41,7 @@ David, da segurança de TI da Contoso, já escolheu embarcar no Centro de Segura
 
 O Centro de Segurança analisa automaticamente o estado de segurança dos recursos Azure da Contoso e aplica políticas de segurança predefinidas. Quando o Centro de Segurança identifica potenciais vulnerabilidades de segurança, cria **recomendações baseadas nos controlos definidos** na política de segurança. 
 
-David executa o nível padrão da Azure Security, em todas as suas subscrições para obter o conjunto completo de recomendações e funcionalidades de segurança disponíveis. Jeff também está a bordo de todos os seus servidores existentes no local que ainda não foram migrados para a nuvem para que possam aproveitar o suporte híbrido do Security Center através dos seus servidores [Windows](quick-onboard-windows-computer.md) e [Linux.](quick-onboard-linux-computer.md)
+David executa a Azure Security com o Azure Defender habilitado, em todas as suas subscrições, a obter o conjunto completo de recomendações e funcionalidades de segurança disponíveis. Jeff também está a bordo de todos os seus servidores existentes no local que ainda não foram migrados para a nuvem para que possam aproveitar o suporte híbrido do Security Center através dos seus [servidores Windows e Linux.](quickstart-onboard-machines.md)
 
 Jeff é dono de uma carga de trabalho na nuvem. Jeff é responsável pela aplicação de controlos de segurança de acordo com as políticas de segurança de Contoso. 
 
@@ -60,9 +60,9 @@ Como parte das suas atividades diárias de monitorização, Jeff assina no Azure
 
 3. Jeff tem que decidir quais recomendações para tratar primeiro. Assim, jeff clica em Secure Score e começa a lidar com recomendações com base no quanto melhora a sua [pontuação segura](secure-score-security-controls.md).
 
-4. Como o Jeff tem muitos VMs e servidores conectados, o Jeff decide focar-se no **Compute e nas aplicações.**
+4. Como o Jeff tem muitos VMs ligados, o Jeff decide focar-se nas suas máquinas no [inventário de ativos.](asset-inventory.md)
 
-5. Quando Jeff clica **em Compute e apps,** vêem uma lista de recomendações e tratam-nas de acordo com o impacto secure score.
+5. Quando jeff abre o inventário de ativos, aparece uma lista de recomendações. O Jeff trata deles de acordo com o impacto da pontuação segura.
 
 6. Jeff tem inúmeros VMs virados para a Internet, e como as suas portas estão expostas, estão preocupados que um intruso possa ganhar controlo sobre os servidores. Por isso, o Jeff opta por utilizar [**o acesso vm just-in-time**](security-center-just-in-time.md).
 
@@ -77,7 +77,7 @@ Para garantir que os utilizadores não criam recursos que impactem negativamente
 As recomendações de monitorização no Centro de Segurança ajudam-no a eliminar vulnerabilidades de segurança antes de ocorrer um ataque. Quando remediar recomendações, o seu Resultado Seguro e a postura de segurança das suas cargas de trabalho melhoram. O Security Center descobre automaticamente novos recursos que implementa, avalia-os contra a sua política de segurança e fornece novas recomendações para os assegurar.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Certifique-se de que tem um processo de monitorização em vigor, no qual verifica regularmente as recomendações no Centro de Segurança para que possa manter os seus recursos seguros ao longo do tempo.
 
 Este cenário mostrou-lhe como usar políticas de segurança e recomendações no Centro de Segurança para ajudar a mitigar um ataque de segurança.
