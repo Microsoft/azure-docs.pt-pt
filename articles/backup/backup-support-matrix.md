@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte para o
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 9b0698b16d3432c1bfefd3cf909cdfdf5529200e
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 94a795ad91be1d648ad025287f5c5bc6f1d8d07e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892189"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985010"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para backup Azure
 
@@ -75,7 +75,7 @@ Aqui está o que é suportado se você quiser apoiar VMs Azure:
 
 Aqui está o que é suportado se quiser apoiar as máquinas Linux:
 
-**Tipo de cópia de segurança** | **Linux (Azure endossado)**
+**Tipo de backup** | **Linux (Azure endossado)**
 --- | ---
 **Backup direto da máquina de acesso ao local que está a executar o Linux** | Não suportado. O agente MARS só pode ser instalado em máquinas Windows.
 **Usando a extensão do agente para apoiar o Azure VM que está a executar o Linux** | Backup consistente com aplicações utilizando [scripts personalizados.](backup-azure-linux-app-consistent.md)<br/><br/> Recuperação ao nível do ficheiro.<br/><br/> Restaurar criando um VM a partir de um ponto de recuperação ou disco.
@@ -113,10 +113,10 @@ O Azure Backup suporta encriptação para dados em trânsito e em repouso.
 
 **Máquina** | **Em trânsito** | **Em repouso**
 --- | --- | ---
-**Máquinas Windows no local sem DPM/MABS** | ![Sim][green] | ![Sim][green]
-**VMs do Azure** | ![Sim][green] | ![Sim][green]
-**Máquinas Windows no local ou VMs Azure com DPM** | ![Sim][green] | ![Sim][green]
-**Máquinas Windows no local ou VMs Azure com MABS** | ![Sim][green] | ![Sim][green]
+**Máquinas Windows no local sem DPM/MABS** | ![Yes][green] | ![Yes][green]
+**VMs do Azure** | ![Yes][green] | ![Yes][green]
+**Máquinas Windows no local ou VMs Azure com DPM** | ![Yes][green] | ![Yes][green]
+**Máquinas Windows no local ou VMs Azure com MABS** | ![Yes][green] | ![Yes][green]
 
 ## <a name="compression-support"></a>Suporte à compressão
 
@@ -129,7 +129,7 @@ A cópia de segurança suporta a compressão do tráfego de backup, tal como res
 --- | --- | ---
 **Backup direto das máquinas Windows no local** | ND | ![Sim][green]
 **Backup dos VMs Azure utilizando a extensão VM** | ND | ND
-**Backup nas máquinas de Azure no local utilizando MABS/DPM** | ![Sim][green] | ![Sim][green]
+**Backup nas máquinas de Azure no local utilizando MABS/DPM** | ![Yes][green] | ![Yes][green]
 
 ## <a name="retention-limits"></a>Limites de retenção
 
@@ -149,10 +149,10 @@ O Azure Backup adicionou a funcionalidade Cross Region Restore para reforçar a 
 
 | Tipo de Gestão de Backup | Suportado                                                    | Regiões apoiadas |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| VM do Azure               | Yes.   Suportado para VMs e VMs encriptados com discos inferiores a 4-TB | Todas as regiões públicas de Azure.  |
-| Agente MARS/Nas instalações | Não                                                           | N/D               |
-| SQL /SAP HANA          | Não                                                           | N/D               |
-| AFS                    | Não                                                           | N/D               |
+| VM do Azure               | Sim.   Suportado para VMs e VMs encriptados com discos inferiores a 4-TB | Todas as regiões públicas azure e nuvens soberanas.  |
+| SQL /SAP HANA | Yes                                                          | Todas as regiões públicas azure e nuvens soberanas.             |
+| Agente MARS/Nas instalações  | No                                                           | N/D               |
+| AFS                    | No                                                           | N/D               |
 
 ## <a name="next-steps"></a>Passos seguintes
 

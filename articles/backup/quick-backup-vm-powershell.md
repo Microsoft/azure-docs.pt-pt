@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 4a97a084b11b34f97e0c020f367ec730d8dfb079
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5e83c599ceed76927f2a313f78c83638d708f1bb
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89075737"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985130"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure com o PowerShell
 
@@ -46,7 +46,7 @@ Quando se cria o cofre:
 
 - Para o grupo de recursos e localização, especifique o grupo de recursos e a localização do VM que pretende fazer o back up.
 - Se usou este [script de amostra](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) para criar o VM, o grupo de recursos é o **myResourceGroup,** o VM é ***myVM**, e os recursos estão na região **de WestEurope.**
-- O Azure Backup lida automaticamente com o armazenamento para dados com cópia de segurança. Por predefinição, o cofre utiliza [o Armazenamento Geo-Redundante (GRS)](../storage/common/storage-redundancy.md). A geo-redundância garante que os dados com cópias de segurança são replicados numa região secundária de Azure, a centenas de quilómetros da região primária.
+- O Azure Backup lida automaticamente com o armazenamento para dados com cópia de segurança. Por predefinição, o cofre utiliza [o Armazenamento Geo-Redundante (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). A geo-redundância garante que os dados com cópias de segurança são replicados numa região secundária de Azure, a centenas de quilómetros da região primária.
 
 Agora crie um cofre:
 

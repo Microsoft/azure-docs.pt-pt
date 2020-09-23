@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 892bdcc08bd19b92c8b3d32d2954583f80005e87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: beeb771ea5053dd0ad867a7568aa64bbb2d0b4ed
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022901"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985275"
 ---
 # <a name="configure-the-application-dashboard"></a>Configure o painel de aplicações
 
@@ -56,13 +56,13 @@ A tabela a seguir descreve os diferentes tipos de azulejos que pode adicionar a 
 | Markdown         | Os azulejos de marcação são azulejos clicáveis que exibem um texto de posição e descrição formatado com marcação. O URL pode ser um link relativo para outra página na aplicação, ou um link absoluto para um site externo.|
 | Imagem            | Os azulejos de imagem exibem uma imagem personalizada e podem ser clicáveis. O URL pode ser um link relativo para outra página na aplicação, ou um link absoluto para um site externo.|
 | Etiqueta            | Os azulejos da etiqueta exibem texto personalizado num painel de instrumentos. Pode escolher o tamanho do texto. Utilize um azulejo de etiqueta para adicionar informações relevantes ao painel de instrumentos tais descrições, detalhes de contacto ou ajuda.|
-| Contagem            | Os azulejos de contagem mostram o número de dispositivos num grupo de dispositivos.|
+| de palavras            | Os azulejos de contagem mostram o número de dispositivos num grupo de dispositivos.|
 | Mapa              | Os azulejos do mapa exibem a localização de um ou mais dispositivos num mapa. Também pode exibir até 100 pontos do histórico de localização de um dispositivo. Por exemplo, pode apresentar a rota amostrada de onde um dispositivo esteve na última semana.|
 | KPI              |  Os azulejos KPI apresentam valores de telemetria agregados para um ou mais dispositivos durante um período de tempo. Por exemplo, pode usá-lo para mostrar a temperatura máxima e a pressão alcançada para um ou mais dispositivos durante a última hora.|
 | Gráfico de linhas       | Os azulejos de gráfico de linha traçam um ou mais valores de telemetria agregados para um ou mais dispositivos durante um período de tempo. Por exemplo, pode apresentar um gráfico de linha para traçar a temperatura média e a pressão de um ou mais dispositivos durante a última hora.|
 | Gráfico de barras        | Os azulejos de gráfico de barras traçam um ou mais valores de telemetria agregados para um ou mais dispositivos durante um período de tempo. Por exemplo, pode apresentar um gráfico de barras para mostrar a temperatura média e a pressão de um ou mais dispositivos durante a última hora.|
 | Gráfico circular        | Os azulejos da tabela de tortas apresentam um ou mais valores de telemetria agregados para um ou mais dispositivos durante um período de tempo.|
-| Mapa de calor         | Os azulejos do mapa de calor exibem informações sobre um ou mais dispositivos, representados como cores.|
+| Mapa térmico         | Os azulejos do mapa de calor exibem informações sobre um ou mais dispositivos, representados como cores.|
 | Último valor conhecido | Os últimos azulejos de valor conhecidos exibem os valores mais recentes de telemetria para um ou mais dispositivos. Por exemplo, pode utilizar este azulejo para mostrar os valores de temperatura, pressão e humidade mais recentes para um ou mais dispositivos. |
 | História do Evento    | Os azulejos de História do Evento exibem os eventos para um dispositivo durante um período de tempo. Por exemplo, pode usá-lo para mostrar todos os eventos abertos e fechados da válvula para um ou mais dispositivos durante a última hora.|
 | Propriedade         |  Os azulejos de propriedade exibem o valor atual para propriedades e propriedades em nuvem de um ou mais dispositivos. Por exemplo, pode utilizar este azulejo para exibir propriedades do dispositivo, como o fabricante ou a versão firmware para um dispositivo. |
@@ -79,8 +79,20 @@ Para gráficos de linha, gráficos de barras e gráficos de tortas, você pode p
 
 Para azulejos que apresentem propriedades de cordas ou valores de telemetria, pode escolher como exibir o texto. Por exemplo, se o dispositivo armazenar um URL numa propriedade de cadeia, pode exibi-lo como um link clicável. Se o URL referenciar uma imagem, pode tornar a imagem num último valor ou azulejo de propriedade conhecido. Para alterar a forma como uma corda aparece, na configuração do azulejo selecione o ícone de engrenagem ao lado do tipo de telemetria ou propriedade:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Chane como uma corda exibe em um azulejo":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Mude como uma corda aparece num azulejo":::
 
-## <a name="next-steps"></a>Próximos passos
+Para **um KPI**numérico, **Último Valor Conhecido,** e azulejos **de propriedade** pode utilizar formatação condicional para personalizar a cor do azulejo com base no seu valor atual. Para adicionar formatação condicional, selecione **Configurar** no azulejo e, em seguida, selecione o ícone **de formatação condicional** ao lado do valor para personalizar:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Screenshot mostrando como encontrar a opção de configuração para um azulejo e, em seguida, o ícone de formatação condicional":::
+
+Adicione as suas regras de formatação condicional:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Screenshot mostrando regras de formatação condicional para fluxo médio. Há três regras - menos 20 é verde, menos de 50 é amarelo, e qualquer coisa acima de 50 é vermelho":::
+
+A imagem que se segue mostra o efeito da regra de formatação condicional:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Screenshot mostrando a cor de fundo amarelo no azulejo de fluxo de água médio. O número no azulejo é 40.84":::
+
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a configurar o seu painel de aplicações Azure IoT Central, pode [aprender a criar um dashboard pessoal](howto-create-personal-dashboards.md).

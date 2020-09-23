@@ -1,6 +1,6 @@
 ---
-title: Limites de Azure Stack Edge Microsoft Docs
-description: Saiba mais sobre os limites e tamanhos recomendados à medida que implementa e opera o Azure Stack Edge, incluindo limites de serviço, limites de dispositivos e limites de armazenamento.
+title: Limites Azure Stack Edge Pro / Microsoft Docs
+description: Saiba mais sobre os limites e tamanhos recomendados à medida que implementa e opera o Azure Stack Edge Pro, incluindo limites de serviço, limites de dispositivos e limites de armazenamento.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,24 +8,24 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: e21f5a89d9f1f21eb99071a141794f99c07a8dfa
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5f3c39ce7334145d3ffc1d54badb1f7b766da70f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079817"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904446"
 ---
-# <a name="azure-stack-edge-limits"></a>Limites do Azure Stack Edge
+# <a name="azure-stack-edge-pro-limits"></a>Limites do Azure Stack Edge Pro
 
-Considere estes limites à medida que implementa e opera a sua solução Microsoft Azure Stack Edge. 
+Considere estes limites à medida que implementa e opera a sua solução Microsoft Azure Stack Edge Pro. 
 
 ## <a name="azure-stack-edge-service-limits"></a>Limites de serviço Azure Stack Edge
 
 [!INCLUDE [data-box-edge-gateway-service-limits](../../includes/data-box-edge-gateway-service-limits.md)]
 
-## <a name="azure-stack-device-limits"></a>Limites do dispositivo Azure Stack
+## <a name="azure-stack-edge-device-limits"></a>Limites do dispositivo Azure Stack Edge
 
-A tabela seguinte descreve os limites para o dispositivo Azure Stack Edge. 
+A tabela seguinte descreve os limites para o dispositivo Azure Stack Edge Pro. 
 
 | Descrição | Valor |
 |---|---|
@@ -53,4 +53,4 @@ A tabela seguinte descreve os limites para o dispositivo Azure Stack Edge.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Prepare-se para implementar Azure Stack Edge](azure-stack-edge-deploy-prep.md)
+- [Prepare-se para implementar Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)

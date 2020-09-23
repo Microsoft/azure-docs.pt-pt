@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 5110f5fd09e360d1435e26312dd2ee2db6891cbb
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: a80e0f1b62257fdbce6598c9cc4088701cc2ae9c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087189"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983622"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Compreender os preços do Data Factory através de exemplos
 
@@ -38,7 +38,7 @@ Para realizar o cenário, é necessário criar um oleoduto com os seguintes iten
 
 3. Um gatilho de horário para executar o oleoduto a cada hora.
 
-   ![Cenário1](media/pricing-concepts/scenario1.png)
+   ![O diagrama mostra um oleoduto com um gatilho de horário. No oleoduto, a atividade de cópia flui para um conjunto de dados de entrada, que flui para um serviço ligado A W S3 e atividade de cópia também flui para um conjunto de dados de saída, que flui para um serviço ligado ao Armazenamento Azure.](media/pricing-concepts/scenario1.png)
 
 | **Operações** | **Tipos e Unidades** |
 | --- | --- |
@@ -69,7 +69,7 @@ Para realizar o cenário, é necessário criar um oleoduto com os seguintes iten
 2. Uma atividade da Azure Databricks para a transformação de dados.
 3. Um gatilho de horário para executar o oleoduto a cada hora.
 
-![Cenário2](media/pricing-concepts/scenario2.png)
+![O diagrama mostra um oleoduto com um gatilho de horário. No oleoduto, a atividade de cópia flui para um conjunto de dados de entrada, um conjunto de dados de saída e uma atividade DataBricks, que funciona em Azure Databricks. O conjunto de dados de entrada flui para um serviço ligado A W S3. O conjunto de dados de saída flui para um serviço ligado ao Azure Storage.](media/pricing-concepts/scenario2.png)
 
 | **Operações** | **Tipos e Unidades** |
 | --- | --- |
@@ -103,7 +103,7 @@ Para realizar o cenário, é necessário criar um oleoduto com os seguintes iten
 3. Uma atividade da Azure Databricks para a transformação de dados.
 4. Um gatilho de horário para executar o oleoduto a cada hora.
 
-![Cenário 3](media/pricing-concepts/scenario3.png)
+![O diagrama mostra um oleoduto com um gatilho de horário. No oleoduto, a atividade de cópia flui para um conjunto de dados de entrada, um conjunto de dados de saída e atividade de procura que flui para uma atividade dataBricks, que funciona em Azure Databricks. O conjunto de dados de entrada flui para um serviço ligado A W S3. O conjunto de dados de saída flui para um serviço ligado ao Azure Storage.](media/pricing-concepts/scenario3.png)
 
 | **Operações** | **Tipos e Unidades** |
 | --- | --- |

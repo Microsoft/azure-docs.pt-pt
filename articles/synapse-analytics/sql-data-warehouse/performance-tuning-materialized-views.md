@@ -1,6 +1,6 @@
 ---
 title: Melodia de desempenho com vistas materializadas
-description: Recomendações e considerações que deve conhecer ao utilizar pontos de vista materializados para melhorar o seu desempenho de consulta.
+description: Saiba mais sobre recomendações e considerações que deve conhecer ao utilizar pontos de vista materializados para melhorar o seu desempenho de consulta.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: ddab106e11340dd040b99d1e8abf9d93e9338ab7
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 7c7109999d478121ba0251de8e7470bc0f38d64c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441209"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984118"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Melodia de desempenho com vistas materializadas
 
@@ -38,7 +38,7 @@ A maioria dos requisitos numa vista padrão ainda se aplica a uma visão materia
 |Atualização de dados                    | Sempre atualizado                               | Sempre atualizado
 |Velocidade para recuperar dados de visualização de consultas complexas     | Lento                                         | Rápido  
 |Armazenamento extra                   | No                                           | Yes
-|Syntax                          | CRIAR VISTA                                  | CRIAR VISTA MATERIALIZADA COMO SELEÇÃO
+|Sintaxe                          | CRIAR VISTA                                  | CRIAR VISTA MATERIALIZADA COMO SELEÇÃO
 
 ## <a name="benefits-of-using-materialized-views"></a>Benefícios da utilização de vistas materializadas
 
@@ -364,6 +364,6 @@ Verifique novamente o plano de execução da consulta original.  Agora o número
 
 Com vistas materializadas, a mesma consulta corre muito mais rápido sem qualquer alteração de código.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais dicas de desenvolvimento, consulte [a visão geral do desenvolvimento da piscina Synapse SQL.](sql-data-warehouse-overview-develop.md)

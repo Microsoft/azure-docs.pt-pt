@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: 77980541049740c5f706d54d289472a076103137
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: f114dd4d4f0a9a26a8aab1f8aeecd4d29678a8d2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461906"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896298"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Utilizar os pontos finais de serviço e regras de Rede Virtual para Base de Dados do Azure para MySQL
 
@@ -19,7 +19,7 @@ ms.locfileid: "89461906"
 
 Para criar uma regra de rede virtual, deve primeiro existir uma [rede virtual][vm-virtual-network-overview] (VNet) e um ponto final de serviço de [rede virtual][vm-virtual-network-service-endpoints-overview-649d] para a regra a referência. A imagem a seguir ilustra como um ponto final de serviço de Rede Virtual funciona com a Base de Dados Azure para o MySQL:
 
-![Exemplo de como funciona um VNet Service Endpoint](media/concepts-data-access-and-security-vnet/vnet-concept.png)
+:::image type="content" source="media/concepts-data-access-and-security-vnet/vnet-concept.png" alt-text="Exemplo de como funciona um VNet Service Endpoint":::
 
 > [!NOTE]
 > Esta funcionalidade encontra-se disponível em todas as regiões do Azure onde a Base de Dados Azure para o MySQL é implantada para servidores otimizados para fins gerais e memória.
@@ -138,7 +138,7 @@ Pode definir a bandeira **IgnoreMissingServiceEndpoint** utilizando o Azure CLI 
 - [Redes virtuais do Azure][vm-virtual-network-overview]
 - [Pontos finais de serviço de rede virtual Azure][vm-virtual-network-service-endpoints-overview-649d]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para artigos sobre a criação de regras VNet, consulte:
 - [Criar e gerir a Base de Dados Azure para as regras do MySQL VNet utilizando o portal Azure](howto-manage-vnet-using-portal.md)
 - [Criar e gerir a Base de Dados de Azure para as regras do MySQL VNet utilizando o Azure CLI](howto-manage-vnet-using-cli.md)

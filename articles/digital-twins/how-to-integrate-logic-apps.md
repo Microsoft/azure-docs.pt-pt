@@ -4,16 +4,16 @@ titleSuffix: Azure Digital Twins
 description: Veja como ligar apps lógicas a Azure Digital Twins, usando um conector personalizado
 author: baanders
 ms.author: baanders
-ms.date: 8/14/2020
+ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 20959709854f8366cc067437fe86c245fcbc3ef0
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 09181a28edf21f0a4da11a244d3c094469446ab5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401066"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983522"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integre com As Aplicações Lógicas usando um conector personalizado
 
@@ -26,8 +26,12 @@ Neste artigo, você usará o [portal Azure](https://portal.azure.com) para **cri
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Se não tiver uma subscrição do Azure, **crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ** antes de começar.
+Inscreva-se no [portal Azure](https://portal.azure.com) com esta conta. 
 
-Inscreva-se no [portal Azure](https://portal.azure.com) com esta conta.
+O resto desta secção irá acompanhá-lo através destes degraus:
+- Configurar um exemplo de Gémeos Digitais Azure
+- Obtenha o segredo do cliente de registo de aplicativos
+- Adicione um gémeo digital
 
 ### <a name="set-up-azure-digital-twins-instance"></a>Configurar a instância Azure Digital Twins
 
@@ -49,7 +53,12 @@ Bata *certificados e segredos* no menu do registo e selecione *+ Novo segredo do
 :::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
 
 Introduza os valores que quiser para Descrição e Expira, e bata *Em Adicionar*.
-O segredo será adicionado à lista de segredos dos clientes na página *de Certificados e Segredos.* Tome nota do seu valor para utilizar mais tarde (também pode copiá-lo para a área de transferência com o ícone Copy).
+
+:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Adicionar segredo de cliente":::
+
+Agora, verifique se o segredo do cliente está visível na página _de segredos & certificados_ com campos _expira_ e _valor._ Tome nota do seu _Valor_ para usar mais tarde (também pode copiá-lo para a área de transferência com o ícone Copy)
+
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Copiar valor secreto do cliente":::
 
 ### <a name="add-a-digital-twin"></a>Adicione um gémeo digital
 
@@ -67,9 +76,13 @@ Navegue para a página [de Connector Personalizado de Aplicações Lógicas](htt
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="A página 'Logic Apps Custom Connector' no portal Azure. Destaque em torno do botão 'Adicionar'":::
 
-Na página *do Conector Personalizado create Logic Apps* que se segue, selecione o seu grupo de subscrição e recursos e um nome e localização de implementação para o seu novo conector. Hit *Review + criar*. Isto irá levá-lo ao separador *'Rever +' criar,* onde pode *acertar* criar na parte inferior para criar o seu recurso.
+Na página *do Conector Personalizado create Logic Apps* que se segue, selecione o seu grupo de subscrição e recursos e um nome e localização de implementação para o seu novo conector. Hit *Review + criar*. 
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="O separador 'Rever + criar' da página 'Criar Aplicações Lógicas Personalizadas' no portal Azure. Destaque em torno do botão 'Criar'":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="A página 'Create Logic Apps Custom Connector' no portal Azure.":::
+
+Isto irá levá-lo ao separador *'Rever +' criar,* onde pode *acertar* criar na parte inferior para criar o seu recurso.
+
+:::image type="content" source="media/how-to-integrate-logic-apps/review-logic-apps-custom-connector.png" alt-text="O separador 'Rever + criar' da página 'Review Logic Apps Custom Connector' no portal Azure. Destaque em torno do botão 'Criar'":::
 
 Serão levados para a página de implantação do conector. Quando terminar a implementação, premir o botão *Go para o recurso* para visualizar os detalhes do conector no portal.
 
@@ -88,8 +101,10 @@ Na página de *Conector Personalizado de Aplicações Lógicas* de Edição que 
     - Ponto final da API: REST (padrão de licença)
     - Modo de importação: Ficheiro OpenAPI (padrão de licença)
     - Arquivo: Este será o ficheiro Swagger personalizado que descarregou anteriormente. Hit *Import*, localizar o ficheiro na sua máquina* (Azure_Digital_Twins_Custom_Swaggers\LogicApps\preview\2020-05-31-preview\digitaltwins.jsligado*) e acertar Em *Aberto*.
-* **Informações gerais**
-    - Ícone, cor de fundo do ícone, descrição: Preencha os valores que quiser.
+* **Informação geral**
+    - Ícone: Faça upload de um ícone que você gosta
+    - Cor de fundo do ícone: Introduza o código hexadecimal no formato '#xxxxxx' para a sua cor.
+    - Descrição: Preencha os valores que quiser.
     - Regime: HTTPS (incumprimento de licença)
     - Anfitrião: O *nome de anfitrião* da sua instância Azure Digital Twins.
     - URL de base: / (deixar padrão)
@@ -145,11 +160,15 @@ Já terminou a configuração de um conector personalizado que pode aceder às A
 
 Em seguida, irá criar uma aplicação lógica que utilizará o seu novo conector para automatizar as atualizações da Azure Digital Twins.
 
-Navegue para a página [De Aplicações Lógicas](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Logic%2Fworkflows) no portal Azure (pode utilizar este link ou procurá-lo na barra de pesquisa do portal). Hit *Create logic app*.
+Navegue para a página [de aplicações Lógica (consumo)](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Logic%2Fworkflows) no portal Azure (pode utilizar este link ou procurá-lo na barra de pesquisa do portal). Premir O botão *Adicionar* para criar uma aplicação lógica.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="A página 'Aplicações Lógicas' no portal Azure. Destaque em torno do botão 'Criar app lógica'":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="A página 'Aplicações Lógicas (consumo)' no portal Azure. Carregar no botão 'Adicionar'":::
 
-Na página de *aplicações Logic* que se segue, selecione o seu grupo de subscrição e recursos e um nome e localização de implementação para a sua nova aplicação lógica. Hit *Review + criar*. Isto irá levá-lo ao separador *'Rever +' criar,* onde pode *acertar* criar na parte inferior para criar o seu recurso.
+Na página *de aplicações lógicas (consumo)* que se segue, insira a sua subscrição, grupo de recursos. Além disso, escolha um nome para a sua aplicação lógica e selecione a localização.
+
+Selecione _Rever + criar_ botão.
+
+Isto irá levá-lo ao separador *'Rever +' criar,* onde pode rever os seus dados e *acertar* criar na parte inferior para criar o seu recurso.
 
 Você será levado para a página de implementação para a aplicação lógica. Quando terminar a implementação, toque no botão *Go para o recurso* para continuar no Logic Apps *Designer,* onde preencherá a lógica do fluxo de trabalho.
 
@@ -172,13 +191,15 @@ Selecione-o para visualizar a lista de APIs contidas no conector. Utilize a barr
 Pode ser-lhe pedido que faça sedús com as suas credenciais Azure para se ligar ao conector. Se tiver um *diálogo solicitado permissões,* siga as instruções para conceder o consentimento para a sua app e aceite.
 
 Na nova caixa *DigitalTwinsAdd,* preencha os campos da seguinte forma:
-* id: Preencha o *ID Twin* do gémeo digital no seu caso que gostaria que a App Lógica atualizasse.
-* Item - 1: Este campo é onde você vai entrar no corpo que o pedido de API escolhido requer. Para *o DigitalTwinsUpdate,* este corpo está na forma do código JSON Patch. Para saber mais sobre a estruturação de um JSON Patch para atualizar o seu gémeo, consulte a [Atualização de uma](how-to-manage-twin.md#update-a-digital-twin) secção digital twin de *How-to: Manage digital twins*.
-* versão api: Na pré-visualização pública atual, este valor é *2020-05-31-pré-visualização*
+* _id_: Preencha o *ID Twin* do gémeo digital no seu caso que gostaria que a App Lógica atualizasse.
+* _twin_: Este campo é onde você vai entrar no corpo que o pedido de API escolhido requer. Para *o DigitalTwinsUpdate,* este corpo está na forma do código JSON Patch. Para saber mais sobre a estruturação de um JSON Patch para atualizar o seu gémeo, consulte a [Atualização de uma](how-to-manage-twin.md#update-a-digital-twin) secção digital twin de *How-to: Manage digital twins*.
+* _versão api_: Na pré-visualização pública atual, este valor é *2020-05-31-pré-visualização*
 
 Hit *Save* in the Logic Apps Designer.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Vista acabada da aplicação no Connector De Aplicação Lógica. A caixa DigitalTwinsAdd está preenchida com os valores acima descritos, incluindo uma amostra do corpo de Patch JSON. Destaca-se o botão Guardar para a janela.":::
+Pode escolher outras operações selecionando _+ Novo passo_ na mesma janela.
+
+:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Vista acabada da aplicação no Connector De Aplicação Lógica. A caixa DigitalTwinsAdd está preenchida com os valores acima descritos, incluindo uma amostra do corpo de Patch JSON. Destaca-se o botão "Guardar" para a janela.":::
 
 ## <a name="query-twin-to-see-the-update"></a>Consulta twin para ver a atualização
 
@@ -188,7 +209,7 @@ Pode consultar o seu gémeo através do seu método de escolha (como uma [aplica
 
 Para saber mais sobre a consulta do seu exemplo de Gémeos Digitais Azure, consulte [*Como fazer: Consultar o gráfico gémeo*](how-to-query-graph.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criou uma aplicação lógica que atualiza regularmente um gémeo na sua instância Azure Digital Twins com um patch que forneceu. Pode experimentar a seleção de outras APIs no conector personalizado para criar Aplicações Lógicas para uma variedade de ações no seu caso.
 

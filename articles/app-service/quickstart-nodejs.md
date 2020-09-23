@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 4ce14b9d467e4badc833a1e1e4d8e1d08d232b1a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: f88960207188779949560218b298fd36d6a8f25e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88085339"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985226"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar uma aplicação Web Node.js no Azure
 
@@ -69,7 +69,7 @@ Nesta secção, implementa a sua aplicação Node.js para o Azure utilizando o C
 
 1. No explorador de **SERVIÇO DE APLICAÇÃO AZURE** do Código VS, selecione o ícone de seta azul para cima para implementar a sua aplicação para o Azure. (Também pode invocar o mesmo comando a partir da Paleta de **Comando** **(Ctrl** + **Shift** + **P)** digitando 'implementar para a web app' e escolhendo o Serviço de **Aplicações Azure: Implementar para a Web App).**
 
-    ![Implementar para web app](media/quickstart-nodejs/deploy.png)
+    :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Screenshot do serviço Azure App em VS Code mostrando o ícone de seta azul selecionado.":::
         
 1. Escolha a pasta *nodejs-docs-hello-world.*
 
@@ -141,7 +141,7 @@ Pode visualizar a saída de registo (chamadas `console.log` para) a partir da ap
 
 1. Quando solicitado, opte por ativar a registo e reiniciar a aplicação. Uma vez reiniciada a aplicação, a janela de saída do Código VS abre-se com uma ligação ao fluxo de registo. 
 
-    ![Ativar o registo e o reinício](media/quickstart-nodejs/enable-restart.png)
+    :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="Screenshot do pedido do Código do Estúdio Visual para ativar o registo e reiniciar a aplicação com o botão Sim selecionado.":::
 
 1. Após alguns segundos, a janela de saída mostra uma mensagem indicando que está ligado ao serviço de streaming de registos. Pode gerar mais atividade de saída refrescando a página no navegador.
 
@@ -180,7 +180,7 @@ Ou obtenha-os todos instalando o pacote de extensões [Node para Azure.](https:/
 
 Se não tiver uma conta Azure, [inscreva-se hoje](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension) para uma conta gratuita com 200 dólares em créditos Azure para experimentar qualquer combinação de serviços.
 
-Você precisa do [Código do Estúdio Visual](https://code.visualstudio.com/) instalado juntamente comNode.js e [npm](https://nodejs.org/en/download), o gestor de pacotes Node.js.
+Você precisa do [Código do Estúdio Visual](https://code.visualstudio.com/) instalado juntamente comNode.js e [ npm](https://nodejs.org/en/download), o gestor de pacotes Node.js.
 
 Também terá de instalar a extensão do [Azure App Service](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice), que pode utilizar para criar, gerir e implementar aplicações Web Linux na Plataforma Azure como um serviço (PaaS).
 
@@ -215,7 +215,7 @@ No Código VS, deverá ver o seu endereço de e-mail Azure na Barra de Estado e 
 Em seguida, crie uma aplicação Node.js que pode ser implantada na Cloud. Este quickstart utiliza um gerador de aplicação para eliminar rapidamente a aplicação a partir de um terminal.
 
 > [!TIP]
-> Se já completou o [tutorial deNode.js,](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial)pode antecipar-se ao [Deploy to Azure](#deploy-to-azure).
+> Se já completou o [ tutorial deNode.js,](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial)pode antecipar-se ao [Deploy to Azure](#deploy-to-azure).
 
 ### <a name="scaffold-a-new-application-with-the-express-generator"></a>Andaime uma nova aplicação com o Gerador Expresso
 
@@ -263,7 +263,7 @@ code .
 
 No explorador **AZURE APP SERVICE,** selecione o ícone de seta azul para cima para implementar a sua aplicação para Azure.
 
-![Implementar para web app](./media/quickstart-nodejs/deploy.png)
+:::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="Screenshot do menu Azure App Service em Visual Studio Code com a seta de implantação azul selecionada.":::
 
 > [!TIP]
 > Também pode ser implantado a partir da Paleta de **Comando** (CTRL + SHIFT + P) digitando 'implementar para a web app' e executando o **Serviço de Aplicações Azure: Implementar para** o comando da Web App.
@@ -274,17 +274,17 @@ No explorador **AZURE APP SERVICE,** selecione o ícone de seta azul para cima p
 
 1. Digite um nome globalmente único para a sua Web App e prima ENTER. Os caracteres válidos para um nome de aplicação são 'a-z', '0-9' e '--'.
 
-1. Escolha a sua **versãoNode.js,** recomenda-se o LTS.
+1. Escolha a sua ** versãoNode.js,** recomenda-se o LTS.
 
     O canal de notificação mostra os recursos Azure que estão a ser criados para a sua aplicação.
 
 1. Selecione **Sim** quando solicitado para atualizar a sua configuração para executar `npm install` no servidor alvo. A sua aplicação é então implementada.
 
-    ![Implantação configurada](./media/quickstart-nodejs/server-build.png)
+    :::image type="content" source="./media/quickstart-nodejs/server-build.png" alt-text="Screenshot da solicitação para atualizar a sua configuração no servidor alvo com o botão sim selecionado.":::
 
 1. Quando a implementação começar, é-lhe solicitado que atualize o seu espaço de trabalho para que as implementações posteriores direcionem automaticamente a mesma App Service Web App. Escolha **Sim** para garantir que as suas alterações são implementadas na aplicação correta.
 
-    ![Implantação configurada](./media/quickstart-nodejs/save-configuration.png)
+    :::image type="content" source="./media/quickstart-nodejs/save-configuration.png" alt-text="Screenshot do pedido para atualizar o seu espaço de trabalho com o botão sim selecionado.":::
 
 > [!TIP]
 > Certifique-se de que a sua aplicação está a ouvir na porta fornecida pela variável ambiente PORT: `process.env.PORT` .
@@ -314,7 +314,7 @@ A janela de saída do código VS abre-se com uma ligação ao fluxo de registo.
 
 ![Ver Registos de Streaming](./media/quickstart-nodejs/view-logs.png)
 
-![Ativar o registo e o reinício](./media/quickstart-nodejs/enable-restart.png)
+:::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Screenshot do pedido do Código VS para ativar a gravação de ficheiros e reiniciar a aplicação web, com o botão sim selecionado.":::
 
 Após alguns segundos, verá uma mensagem indicando que está ligado ao serviço de streaming de registos. Refresque a página algumas vezes para ver mais atividade.
 

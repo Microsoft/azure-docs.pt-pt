@@ -10,17 +10,19 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: sudbalas
-ms.openlocfilehash: c5509d6a284ab7afe827f67b79b7be027e76f66c
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: bf758a07cff248fc0da3f279e68a14e88797e382
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068851"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984611"
 ---
 # <a name="soft-delete-will-be-enabled-on-all-key-vaults"></a>A eliminação suave será ativada em todos os cofres-chave
 
 > [!WARNING]
 > **Breaking Change**: A capacidade de excluir o soft-delete será depreciada até ao final do ano e a proteção para eliminação suave será automaticamente ligada para todos os cofres-chave.  Os utilizadores e administradores do Azure Key Vault devem permitir a eliminação suave dos cofres das chaves imediatamente.
+>
+> Para o HSM gerido, a eliminação suave é ativada por padrão e não pode ser desativada.
 
 Quando um segredo é eliminado de um cofre sem proteção de eliminação suave, o segredo é permanentemente apagado. Os utilizadores podem atualmente optar por excluir soft-delete durante a criação do cofre de chaves, mas, para proteger os seus segredos de eliminação acidental ou maliciosa por um utilizador, a Microsoft irá em breve permitir a proteção de eliminação suave em **todos os** cofres-chave, e os utilizadores deixarão de ter a opção de excluir ou desligar.
 

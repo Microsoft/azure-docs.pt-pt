@@ -1,6 +1,6 @@
 ---
-title: Monitorize o seu dispositivo Azure Stack Edge / Microsoft Docs
-description: Descreve como usar o portal Azure e a Web UI local para monitorizar o seu Azure Stack Edge.
+title: Monitorize o seu dispositivo Azure Stack Edge Pro / Microsoft Docs
+description: Descreve como usar o portal Azure e a Web UI local para monitorizar o seu Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 9e4050a4a75432e8bcc840a2406660dce268c5a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd75eb0f7de602979f2233a873c01ef742471e37
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339557"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904403"
 ---
-# <a name="monitor-your-azure-stack-edge"></a>Monitorize o seu Azure Stack Edge
+# <a name="monitor-your-azure-stack-edge-pro"></a>Monitorize o seu Azure Stack Edge Pro
 
-Este artigo descreve como monitorizar o seu Azure Stack Edge. Para monitorizar o seu dispositivo, pode utilizar o portal Azure ou a UI web local. Utilize o portal Azure para visualizar eventos do dispositivo, configurar e gerir alertas e ver métricas. Utilize a UI web local no seu dispositivo físico para visualizar o estado de hardware dos vários componentes do dispositivo.
+Este artigo descreve como monitorizar o seu Azure Stack Edge Pro. Para monitorizar o seu dispositivo, pode utilizar o portal Azure ou a UI web local. Utilize o portal Azure para visualizar eventos do dispositivo, configurar e gerir alertas e ver métricas. Utilize a UI web local no seu dispositivo físico para visualizar o estado de hardware dos vários componentes do dispositivo.
 
 Neste artigo, vai aprender a:
 
@@ -34,10 +34,10 @@ Neste artigo, vai aprender a:
 
 ## <a name="view-hardware-status"></a>Ver estado de hardware
 
-Tome os seguintes passos na UI web local para ver o estado de hardware dos seus componentes do dispositivo.
+Execute os passos seguintes na IU da Web local para ver o estado de hardware dos componentes do dispositivo.
 
-1. Ligue-se à UI web local do seu dispositivo.
-2. Vá para **o estado de hardware > manutenção**. Pode ver a saúde dos vários componentes do dispositivo.
+1. Ligue-se à IU da Web local do dispositivo.
+2. Vá para **o estado de hardware > manutenção**. Pode ver o estado de funcionamento dos vários componentes do dispositivo.
 
     ![Ver estado de hardware](media/azure-stack-edge-monitor/view-hardware-status.png)
 
@@ -82,6 +82,6 @@ Uma lista completa das métricas é mostrada na tabela seguinte:
 
 [!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-manage-alerts.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como [Gerir a largura de banda](azure-stack-edge-manage-bandwidth-schedules.md).

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 3f40ad7346219b48a38ade38b2a75ddf71940875
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5de1ef97050f37bb44d87ebae1d95df365952ace
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416421"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984894"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Utilize a Azure Data Factory para migrar dados do Amazon S3 para o Azure Storage 
 
@@ -37,7 +37,7 @@ A ADF oferece uma arquitetura sem servidor que permite o paralelismo a diferente
 
 Os clientes migraram com sucesso petabytes de dados que consistem em centenas de milhões de ficheiros da Amazon S3 para a Azure Blob Storage, com uma produção sustentada de 2 GBps e superior. 
 
-![desempenho](media/data-migration-guidance-s3-to-azure-storage/performance.png)
+![O diagrama mostra várias divisórias de ficheiros numa loja A W S S3 com ações de cópia associadas ao Azure Blob Storage A D L S Gen2.](media/data-migration-guidance-s3-to-azure-storage/performance.png)
 
 A imagem acima ilustra como você pode alcançar grandes velocidades de movimento de dados através de diferentes níveis de paralelismo:
  
@@ -61,7 +61,7 @@ Em alternativa, se não quiser que os dados sejam transferidos através da Inter
 
 Migrar dados através da Internet pública:
 
-![solução arquitetura-rede pública](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-public-network.png)
+![O diagrama mostra a migração através da Internet por H T T P de uma loja A W S S3 através do Tempo de Execução da Integração Azure em A D F Azure para Azure Storage. O tempo de funcionação tem um canal de controlo com a Data Factory.](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-public-network.png)
 
 - Nesta arquitetura, os dados são transferidos de forma segura utilizando HTTPS através da Internet pública. 
 - Tanto a fonte Amazon S3 como o destino Azure Blob Storage ou Azure Data Lake Storage Gen2 estão configurados para permitir o tráfego de todos os endereços IP da rede.  Consulte a segunda arquitetura abaixo sobre como pode restringir o acesso à rede a uma gama ip específica. 
@@ -70,7 +70,7 @@ Migrar dados através da Internet pública:
 
 Migrar dados sobre ligação privada: 
 
-![solução arquitetura-rede privada](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-private-network.png)
+![O diagrama mostra a migração através de uma ligação de observação privada de uma loja A W S S3 através do tempo de integração auto-hospedado em máquinas virtuais Azure para pontos finais de serviço V Net para Azure Storage. O tempo de funcionação tem um canal de controlo com a Data Factory.](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-private-network.png)
 
 - Nesta arquitetura, a migração de dados é feita através de uma ligação de pares privado entre a AWS Direct Connect e a Azure Express Route de modo a que os dados nunca se cruzem através da Internet pública.  Requer a utilização da rede AWS VPC e Azure Virtual. 
 - Você precisa instalar o tempo de integração auto-hospedado da ADF em um Windows VM dentro da sua rede virtual Azure para alcançar esta arquitetura.  Pode escalar manualmente os seus IVMs auto-hospedados ou escalar para vários VMs (até 4 nós) para utilizar totalmente a sua rede e armazenamento IOPS/largura de banda. 
@@ -122,7 +122,7 @@ Quando encontrar erros de estrangulamento relatados pela atividade de cópiaS AD
 
 Considere o seguinte oleoduto construído para a migração de dados de S3 para Azure Blob Storage: 
 
-![gasoduto de preços](media/data-migration-guidance-s3-to-azure-storage/pricing-pipeline.png)
+![O diagrama mostra um oleoduto para dados migratórios, com o gatilho manual a fluir para o Lookup, fluindo para o ForEach, fluindo para um sub-gasoduto para cada partição que contém cópia que flui para o Procedimento Armazenado. Fora do oleoduto, o Procedimento Armazenado flui para Azure SQL D B, que flui para o Lookup e um W S S3 flui para Copy, que flui para o armazenamento blob.](media/data-migration-guidance-s3-to-azure-storage/pricing-pipeline.png)
 
 Assumamos o seguinte: 
 
@@ -135,7 +135,7 @@ Assumamos o seguinte:
 
 Aqui está o preço estimado com base nos pressupostos acima: 
 
-![tabela de preços](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
+![A imagem de uma tabela mostra um preço estimado.](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
 
 ### <a name="additional-references"></a>Referências adicionais 
 - [Conector de serviço de armazenamento simples Amazon](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service)

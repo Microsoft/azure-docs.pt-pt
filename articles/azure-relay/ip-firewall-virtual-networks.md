@@ -3,12 +3,12 @@ title: Configure firewall IP para espaço de nome do Azure Relay
 description: Este artigo descreve como utilizar regras de firewall para permitir ligações de endereços IP específicos a espaços de nomes Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e47c5071a5fc7207d4eabc162fcb24ab6ad57d28
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 250158aff2ceb89e2823b711717f1d3a1cad438c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141861"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976024"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Configure firewall IP para um espaço de nome Azure Relay
 Por predefinição, os espaços de nome retransmissores estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Roteamento Inter-Domain Sem Classe).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
@@ -27,9 +27,9 @@ As regras de firewall IP são aplicadas ao nível do espaço de nome. Por isso, 
 Esta secção mostra-lhe como usar o portal Azure para criar regras de firewall IP para um espaço de nome. 
 
 1. Navegue para o seu **espaço de nome retransitia** no [portal Azure.](https://portal.azure.com)
-2. No menu esquerdo, selecione A opção **de Rede.** Se selecionar a opção **Todas as redes** na secção Permitir o acesso a partir **da** secção, o espaço de nome Relay aceita ligações a partir de qualquer endereço IP. Esta definição é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0. 
+2. No menu esquerdo, selecione A opção **de Rede.** Se selecionar a opção **Todas as redes** na secção Permitir o acesso a partir  **da** secção, o espaço de nome Relay aceita ligações a partir de qualquer endereço IP. Esta definição é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0. 
 
-    ![Firewall - Todas as opções de redes selecionadas](./media/ip-firewall/all-networks-selected.png)
+    ![A screenshot mostra a página de Networking com a opção Todas as redes selecionadas.](./media/ip-firewall/all-networks-selected.png)
 1. Para restringir o acesso a redes específicas e endereços IP, selecione a opção **redes Selecionadas.** Na secção **Firewall,** siga estes passos:
     1. Selecione Adicionar a opção **de endereço IP** do seu cliente para dar ao seu cliente atual IP o acesso ao espaço de nome. 
     2. Para **o intervalo de endereços**, insira um endereço IPv4 específico ou um intervalo de endereço IPv4 na notação CIDR. 
@@ -122,7 +122,7 @@ Para implementar o modelo, siga as instruções para [O Gestor de Recursos Azure
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre outras funcionalidades relacionadas com a segurança da rede, consulte [a segurança da rede](network-security.md).
 
 

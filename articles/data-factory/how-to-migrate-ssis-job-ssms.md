@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/7/2020
-ms.openlocfilehash: b27fe2abc50396b527e61487acf9797db59c1cce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b95162d34b706b0bbb3e2940ea214e5a662655d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82627590"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984916"
 ---
 # <a name="migrate-sql-server-agent-jobs-to-adf-with-ssms"></a>Migrar trabalhos de agente de servidor SQL para ADF com SSMS
 
@@ -46,7 +46,7 @@ A funcionalidade descrita neste artigo requer a versão 18.5 ou superior do SQL 
 ## <a name="migrate-ssis-jobs-to-adf"></a>Migrar empregos SSIS para a ADF
 
 1. No SSMS, no Object Explorer, selecione SQL Server Agent, selecione Jobs, em seguida, clique à direita e **selecione Migração SSIS Jobs para ADF**.
-![menu](media/how-to-migrate-ssis-job-ssms/menu.png)
+![O Screenshot mostra o SQL Server Management Studio Object Explorer, onde pode selecionar Jobs, em seguida, Migrar S S I S Jobs para A D F.](media/how-to-migrate-ssis-job-ssms/menu.png)
 
 1. Assine no Azure, selecione Azure Subscription, Data Factory e Integration Runtime. O Azure Storage é opcional, que é usado na etapa de mapeamento da localização do pacote se os trabalhos SSIS a migrar tiverem pacotes SSIS File System.
 ![menu](media/how-to-migrate-ssis-job-ssms/step1.png)
@@ -57,28 +57,28 @@ A funcionalidade descrita neste artigo requer a versão 18.5 ou superior do SQL 
     1. Atualize o caminho da pasta de origem. Caminhos válidos são caminhos de pasta ou caminhos de pasta dos pacotes.
     1. Atualizar o caminho da pasta de destino. O predefinimento é o caminho relativo para a conta de Armazenamento predefinido, que é selecionada no passo 1.
     1. Elimine um mapeamento selecionado através **do Delete Mapping**.
-![passo ](media/how-to-migrate-ssis-job-ssms/step2.png)
- ![ 2-1](media/how-to-migrate-ssis-job-ssms/step2-1.png)
+![A screenshot mostra a página Map S S I S Package e Configuration Paths, onde pode adicionar mapeamento. ](media/how-to-migrate-ssis-job-ssms/step2.png)
+ ![ O screenshot mostra a página Map S S I S Package and Configuration Paths, onde pode atualizar os caminhos das pastas de origem e destino.](media/how-to-migrate-ssis-job-ssms/step2-1.png)
 
 1. Selecione os postos de trabalho aplicáveis para migrar e configufique as definições da *correspondente atividade do Pacote SSIS Executado*.
 
     - *Definição predefinida*, aplica-se a todas as etapas selecionadas por predefinição. Para obter mais informações sobre cada propriedade, consulte o *separador Definições* para a [atividade do Pacote SSIS Executar](how-to-invoke-ssis-package-ssis-activity.md) quando a localização do pacote for o Sistema de *Ficheiros (Pacote)*.
-    ![passo 3-1](media/how-to-migrate-ssis-job-ssms/step3-1.png)
+    ![O Screenshot mostra a página Select S I S Jobs, onde pode configurar as definições da correspondente atividade do Pacote SSIS Executado.](media/how-to-migrate-ssis-job-ssms/step3-1.png)
     - *Definição de passo*, configurar a definição para um passo selecionado.
         
         **Aplicar Definição predefinida:** o predefinição é selecionado. Desfasete a definição de configuração apenas para passo selecionado.  
         Para obter mais informações sobre outras propriedades, consulte o *separador Definições* para a [atividade do Pacote SSIS Executar](how-to-invoke-ssis-package-ssis-activity.md) quando a localização do pacote for o Sistema de *Ficheiros (Pacote)*.
-    ![passo 3-2](media/how-to-migrate-ssis-job-ssms/step3-2.png)
+    ![A screenshot mostra a página Select S I S Jobs, onde pode aplicar as definições predefinidas.](media/how-to-migrate-ssis-job-ssms/step3-2.png)
 
 1. Gere e implemente o modelo ARM.
     1. Selecione ou introduza o caminho de saída para os modelos ARM dos oleodutos ADF migrados. A pasta será criada automaticamente se não existir.
     2. Selecione a opção de **implementar modelos ARM para a sua fábrica de dados**:
         - O padrão não é selecionado. Pode implementar modelos ARM gerados mais tarde manualmente.
         - Selecione para implementar os modelos ARM gerados diretamente na fábrica de dados.
-    ![passo 4](media/how-to-migrate-ssis-job-ssms/step4.png)
+    ![A screenshot mostra a página de migração configurar, onde pode selecionar ou inserir o caminho de saída para os modelos ARM dos oleodutos ADF migrados e selecionar a opção de implementar modelos ARM para a sua fábrica de dados.](media/how-to-migrate-ssis-job-ssms/step4.png)
 
 1. Migrar e depois verificar os resultados.
-![passo5](media/how-to-migrate-ssis-job-ssms/step5.png)
+![A screenshot mostra a página Resultado da Migração, que mostra o progresso da migração.](media/how-to-migrate-ssis-job-ssms/step5.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,6 +1,6 @@
 ---
-title: Gestão de computação Azure Stack Edge / Microsoft Docs
-description: Descreve como gerir as definições de computação Edge, tais como gatilho, módulos, configuração de computação, remover a configuração através do portal Azure no seu Azure Stack Edge.
+title: Gestão de computação Azure Stack Edge Pro Microsoft Docs
+description: Descreve como gerir as definições de computação Edge, tais como gatilho, módulos, configuração de computação, remover a configuração através do portal Azure no seu Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 9d34bd1750b798407b493dcde01b04118d66a2d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 00e5f8dc067d91e6ea6fed688d72b357d1d50678
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339829"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904431"
 ---
-# <a name="manage-compute-on-your-azure-stack-edge"></a>Gerir o cálculo no seu Azure Stack Edge
+# <a name="manage-compute-on-your-azure-stack-edge-pro"></a>Gerir computação no seu Azure Stack Edge Pro
 
-Este artigo descreve como gerir o cálculo no seu Azure Stack Edge. Pode gerir o cálculo através do portal Azure ou através da UI web local. Utilize o portal Azure para gerir módulos, gatilhos e configuração de computação, e a UI web local para gerir as definições de computação.
+Este artigo descreve como gerir o cálculo no seu Azure Stack Edge Pro. Pode gerir o cálculo através do portal Azure ou através da UI web local. Utilize o portal Azure para gerir módulos, gatilhos e configuração de computação, e a UI web local para gerir as definições de computação.
 
 Neste artigo, vai aprender a:
 
@@ -28,7 +28,7 @@ Neste artigo, vai aprender a:
 
 ## <a name="manage-triggers"></a>Gerir gatilhos
 
-Os eventos são coisas que acontecem dentro do seu ambiente de nuvem ou no seu dispositivo que você pode querer tomar medidas. Por exemplo, quando um ficheiro é criado numa ação, é um evento. Os gatilhos aumentam os acontecimentos. Para o seu Azure Stack Edge, os gatilhos podem ser em resposta a eventos de ficheiros ou a um horário.
+Os eventos são coisas que acontecem no ambiente cloud ou no dispositivo em relação às quais pode querer tomar medidas. Por exemplo, quando um ficheiro é criado numa partilha, trata-se de um evento. Os acionadores geram os eventos. Para o seu Azure Stack Edge Pro, os gatilhos podem ser em resposta a eventos de ficheiros ou a um horário.
 
 - **Ficheiro**: Estes gatilhos são em resposta a eventos de ficheiros como a criação de um ficheiro, modificação de um ficheiro.
 - **Agendado**: Estes gatilhos são em resposta a um horário que pode definir com uma data de início, hora de início e intervalo de repetição.
@@ -82,7 +82,7 @@ A lista de atualizações de gatilhos para refletir a eliminação.
 
 ## <a name="manage-compute-configuration"></a>Gerir a configuração do cálculo
 
-Utilize o portal Azure para visualizar a configuração do cálculo, remova uma configuração de computação existente ou para refrescar a configuração do cálculo para sincronizar as teclas de acesso para o dispositivo IoT e dispositivo IoT Edge para o seu Azure Stack Edge.
+Utilize o portal Azure para visualizar a configuração do cálculo, remova uma configuração de computação existente ou para refrescar a configuração do cálculo para sincronizar as teclas de acesso para o dispositivo IoT e dispositivo IoT Edge para o seu Azure Stack Edge Pro.
 
 ### <a name="view-compute-configuration"></a>Ver configuração computacional
 
@@ -111,11 +111,11 @@ Tome os seguintes passos no portal Azure para remover a configuração de comput
 
 ### <a name="sync-up-iot-device-and-iot-edge-device-access-keys"></a>Sync up dispositivo IoT e chaves de acesso ao dispositivo IoT Edge
 
-Quando configurar o cálculo no seu Azure Stack Edge, é criado um dispositivo IoT e um dispositivo IoT Edge. Estes dispositivos são automaticamente atribuídos chaves de acesso simétrico. Como uma boa prática de segurança, estas chaves são rodadas regularmente através do serviço IoT Hub.
+Quando configurar o cálculo no seu Azure Stack Edge Pro, é criado um dispositivo IoT e um dispositivo IoT Edge. Estes dispositivos são automaticamente atribuídos chaves de acesso simétrico. Como uma boa prática de segurança, estas chaves são rodadas regularmente através do serviço IoT Hub.
 
 Para rodar estas teclas, pode ir ao serviço IoT Hub que criou e selecionar o dispositivo IoT ou o dispositivo IoT Edge. Cada dispositivo tem uma chave de acesso primário e uma chave de acesso secundária. Atribua a chave de acesso primário à chave de acesso secundário e, em seguida, regenera a chave de acesso primário.
 
-Se o seu dispositivo IoT e as teclas do dispositivo IoT Edge foram rodadas, então precisa de atualizar a configuração no seu Azure Stack Edge para obter as últimas teclas de acesso. A sincronização ajuda o dispositivo a obter as chaves mais recentes do seu dispositivo IoT e dispositivo IoT Edge. O Azure Stack Edge utiliza apenas as teclas de acesso primária.
+Se o seu dispositivo IoT e as teclas do dispositivo IoT Edge foram rotativas, então precisa de atualizar a configuração no seu Azure Stack Edge Pro para obter as últimas teclas de acesso. A sincronização ajuda o dispositivo a obter as chaves mais recentes do seu dispositivo IoT e dispositivo IoT Edge. O Azure Stack Edge Pro utiliza apenas as teclas de acesso primárias.
 
 Tome os seguintes passos no portal Azure para sincronizar as teclas de acesso do seu dispositivo.
 
@@ -129,6 +129,6 @@ Tome os seguintes passos no portal Azure para sincronizar as teclas de acesso do
 
 3. Saia da caixa de diálogo depois de a sincronização estar concluída.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como gerir a [rede de computação Edge através do portal Azure](azure-stack-edge-extend-compute-access-modules.md).

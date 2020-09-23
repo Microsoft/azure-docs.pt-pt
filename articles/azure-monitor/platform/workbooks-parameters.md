@@ -1,6 +1,6 @@
 ---
 title: Livros do Azure Monitor que criam parâmetros
-description: Simplificar relatórios complexos com livros de trabalho parametrizados pré-construídos e personalizados
+description: Saiba como os parâmetros permitem que os autores de livros recolham a entrada dos consumidores e a refiram noutras partes do livro.
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3e7dda85f1f890d5ae0eb4722c3e028b373fdcab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8be7dd170d5e4e3bddb09bc1b163fba7a841a6b7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658222"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984571"
 ---
 # <a name="workbook-parameters"></a>Parâmetros do livro
 
@@ -40,8 +40,8 @@ Estes valores de parâmetro podem ser referenciados noutras partes de livros, qu
 4. No novo painel de parâmetros que aparece, insira:
     1. Nome do parâmetro: `TimeRange` *(note que __os nomes__ dos parâmetros **não podem** incluir espaços ou caracteres especiais)*
     2. Nome do visor: `Time Range` *(no entanto, __os nomes do visor__ podem incluir espaços, caracteres especiais, emojis, etc.)*  
-    2. Tipo de parâmetro:`Time range picker`
-    3. Necessário:`checked`
+    2. Tipo de parâmetro: `Time range picker`
+    3. Necessário: `checked`
     4. Intervalos de tempo disponíveis: Última hora, Últimas 12 horas, Últimas 24 horas, Últimas 48 horas, Últimos 3 dias, Últimos 7 dias e Permitir a seleção de intervalos de tempo personalizados
 5. Escolha 'Guardar' da barra de ferramentas para criar o parâmetro.
 
@@ -62,7 +62,7 @@ Estes valores de parâmetro podem ser referenciados noutras partes de livros, qu
 
 ### <a name="in-kql"></a>Em KQL
 1. Adicione um controlo de consulta ao livro de trabalho e selecione um recurso Application Insights.
-2. No KQL, introduza um filtro de âmbito temporal utilizando o parâmetro:`| where timestamp {TimeRange}`
+2. No KQL, introduza um filtro de âmbito temporal utilizando o parâmetro: `| where timestamp {TimeRange}`
 3. Isto expande-se no tempo de avaliação de consulta para `| where timestamp > ago(1d)` , que é o valor da gama de tempo do parâmetro.
 4. Fazer consulta para ver os resultados
 
@@ -70,7 +70,7 @@ Estes valores de parâmetro podem ser referenciados noutras partes de livros, qu
 
 ### <a name="in-text"></a>Em Texto 
 1. Adicione um controlo de texto ao livro.
-2. Na marcação, insira`The chosen time range is {TimeRange:label}`
+2. Na marcação, insira `The chosen time range is {TimeRange:label}`
 3. Escolha _A Edição Feita_
 4. O controlo de texto mostrará texto: _O intervalo de tempo escolhido é de últimas 24 horas_
 
@@ -81,7 +81,7 @@ Utilize a `Previews` secção do painel de _parâmetros de edição_ para ver as
 
 ![Imagem mostrando uma variedade de tempo de parâmetros](./media/workbooks-parameters/time-previews.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Começar a](workbooks-visualizations.md) aprender mais sobre livros de trabalho muitas opções de visualizações ricas.
 * [Controle](workbooks-access-control.md) e partilhe o acesso aos seus recursos do livro.

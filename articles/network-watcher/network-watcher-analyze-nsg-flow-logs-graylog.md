@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
-ms.openlocfilehash: 7a4aa4cc545d6941f144ce0657ede7199d4f8f57
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 62f4a06ec729d896dc11a290bc7a5ccc7c321683
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497119"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984065"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gerir e analisar registos de fluxo de grupos de segurança de rede em Azure usando Network Watcher e Graylog
 
@@ -175,10 +175,10 @@ Para obter mais informações sobre esta ficha, consulte a [documentação.](htt
 
 Agora que estabeleceu uma ligação aos registos de fluxo utilizando o Logstash e criou o servidor Graylog, tem de configurar o Graylog para aceitar os ficheiros de registo de entrada.
 
-1. Navegue para a interface web do Graylog Server utilizando o URL configurado para o mesmo. Pode aceder à interface direcionando o seu navegador para`http://<graylog-server-ip>:9000/`
+1. Navegue para a interface web do Graylog Server utilizando o URL configurado para o mesmo. Pode aceder à interface direcionando o seu navegador para `http://<graylog-server-ip>:9000/`
 
 2. Para navegar na página de configuração, selecione o menu de abandono **do Sistema** na barra de navegação superior à direita e, em seguida, clique em **Entradas**.
-   Em alternativa, navegue para`http://<graylog-server-ip>:9000/system/inputs`
+   Em alternativa, navegue para `http://<graylog-server-ip>:9000/system/inputs`
 
    ![Introdução](./media/network-watcher-analyze-nsg-flow-logs-graylog/getting-started.png)
 
@@ -186,7 +186,7 @@ Agora que estabeleceu uma ligação aos registos de fluxo utilizando o Logstash 
 
    Certifique-se de que liga a entrada ao IP em que configura o servidor Graylog. O endereço IP deve corresponder ao campo **anfitrião** da saída UDP do ficheiro de configuração Logstash. A porta predefinido deve ser *12201*. Certifique-se de que a porta corresponde ao campo **de portas** na saída UDP designada no ficheiroconfig logstash.
 
-   ![Entradas](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
+   ![O Screenshot mostra as Entradas Graylog, com opções para lançar e encontrar entradas.](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
 
    Uma vez lançada a entrada, deve vê-la aparecer na secção **de entradas Local,** como mostra a seguinte imagem:
 
@@ -200,11 +200,11 @@ Agora que estabeleceu uma ligação aos registos de fluxo utilizando o Logstash 
 
 Depois de ter dado algum tempo para que o seu servidor Graylog recolhesse mensagens, é capaz de pesquisar através das mensagens. Para verificar as mensagens **enviadas** para o seu servidor Graylog, a partir da página de configuração de Entradas clique no botão "**Mostrar mensagens recebidas**" da entrada GELF UDP que criou. É direcionado para um ecrã que se parece com a seguinte imagem: 
 
-![Histograma](./media/network-watcher-analyze-nsg-flow-logs-graylog/histogram.png)
+![A screenshot mostra o servidor Graylog que exibe o resultado de Pesquisa, Histograma e Mensagens.](./media/network-watcher-analyze-nsg-flow-logs-graylog/histogram.png)
 
 Clicar no link azul "%{Message}" expande cada mensagem para mostrar os parâmetros de cada tuple de fluxo, como mostra a seguinte imagem:
 
-![Mensagens](./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png)
+![A screenshot mostra o detalhe da mensagem do servidor Graylog.](./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png)
 
 Por predefinição, todos os campos de mensagens estão incluídos na pesquisa se não selecionar um campo de mensagens específico para procurar. Se quiser procurar mensagens específicas (i.e) – os tuples de fluxo a partir de um IP de origem específica) você pode usar o idioma de consulta de pesquisa Graylog como [documentado](https://docs.graylog.org/en/2.2/pages/queries.html)
 
@@ -214,11 +214,11 @@ Agora que o Graylog se instalou em funcionamento, pode utilizar algumas das suas
 
 ### <a name="create-a-dashboard"></a>Criar um dashboard
 
-1. Na barra de navegação superior, selecione **Dashboards** ou navegue para`http://<graylog-server-ip>:9000/dashboards/`
+1. Na barra de navegação superior, selecione **Dashboards** ou navegue para `http://<graylog-server-ip>:9000/dashboards/`
 
 2. A partir daí, clique no botão verde **Criar painel de instrumentos** e preencha o formulário curto com o título e descrição do seu painel de instrumentos. Assem no botão **Guardar** para criar o novo painel de instrumentos. Vê-se um painel semelhante à seguinte imagem:
 
-    ![Dashboards](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
+    ![O Screenshot mostra os dashboards do servidor Graylog, com as opções para criar e editar dashboards.](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
 
 ### <a name="add-widgets"></a>Adicionar widgets
 
@@ -244,6 +244,6 @@ Pode clicar no título do painel para vê-lo, mas neste momento está vazio, uma
 
 Ao integrar o Network Watcher com o Graylog, tem agora uma forma conveniente e centralizada de gerir e visualizar os registos de fluxo de grupos de segurança de rede. Graylog tem uma série de outras funcionalidades poderosas, tais como streams e alertas que também podem ser usados para gerir ainda mais os registos de fluxo e entender melhor o tráfego da sua rede. Agora que tem o Graylog configurado e ligado ao Azure, sinta-se à vontade para continuar a explorar a outra funcionalidade que oferece.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como visualizar os registos de fluxo do seu grupo de segurança de rede com o Power BI visitando [os fluxos de fluxos de grupo de segurança de rede visualize com Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md).

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 440007767835de4641fb828b41d572f35997acd2
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 73178a9707d35fe7337210b11e76504794bc93ed
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064473"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896389"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitetura de conectividade em Azure Database para MySQL
 Este artigo explica a Base de Dados Azure para a arquitetura de conectividade MySQL, bem como como o tráfego é direcionado para a sua Base de Dados Azure para o caso MySQL de clientes dentro e fora de Azure.
@@ -19,7 +19,7 @@ Este artigo explica a Base de Dados Azure para a arquitetura de conectividade My
 ## <a name="connectivity-architecture"></a>Arquitetura de conectividade
 A ligação à sua Base de Dados Azure para o MySQL é estabelecida através de um gateway responsável por encaminhar as ligações de entrada para a localização física do seu servidor nos nossos clusters. O diagrama seguinte ilustra o fluxo de tráfego.
 
-![Visão geral da arquitetura de conectividade](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
+:::image type="content" source="./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png" alt-text="Visão geral da arquitetura de conectividade":::
 
 À medida que o cliente se liga à base de dados, obtêm uma cadeia de ligação que se liga ao portal. Este gateway tem um endereço IP público que ouve o porto 3306. Dentro do cluster de base de dados, o tráfego é encaminhado para a base de dados Azure apropriada para o MySQL. Portanto, para se conectar ao seu servidor, como a partir de redes corporativas, é necessário abrir a firewall do lado do cliente para permitir que o tráfego de saída possa chegar aos nossos gateways. Abaixo pode encontrar uma lista completa dos endereços IP utilizados pelos nossos gateways por região.
 

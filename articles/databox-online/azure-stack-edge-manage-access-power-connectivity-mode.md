@@ -1,6 +1,6 @@
 ---
-title: Acesso ao dispositivo Azure Stack Edge, potência e conectividade Microsoft Docs
-description: Descreve como gerir o modo de acesso, energia e conectividade para o dispositivo Azure Stack Edge que ajuda a transferir dados para o Azure
+title: Acesso, potência e conectividade do dispositivo Azure Stack Edge Pro Microsoft Docs
+description: Descreve como gerir o modo de acesso, energia e conectividade para o dispositivo Azure Stack Edge Pro que ajuda a transferir dados para o Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 75e7a43d545bea63d553ad01836ed5c6ebc2dcc9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: e0e2ac43ce0157b4917e9c45f6a02ace63432137
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079800"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904414"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge"></a>Gerir o modo de acesso, potência e conectividade para o seu Azure Stack Edge
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro"></a>Gerir o modo de acesso, energia e conectividade para o seu Azure Stack Edge Pro
 
-Este artigo descreve como gerir o modo de acesso, energia e conectividade para o seu Azure Stack Edge. Estas operações são realizadas através da UI web local ou do portal Azure.
+Este artigo descreve como gerir o modo de acesso, energia e conectividade para o seu Azure Stack Edge Pro. Estas operações são realizadas através da UI web local ou do portal Azure.
 
 Neste artigo, vai aprender a:
 
@@ -29,7 +29,7 @@ Neste artigo, vai aprender a:
 
 ## <a name="manage-device-access"></a>Gerir o acesso ao dispositivo
 
-O acesso ao seu dispositivo Azure Stack Edge é controlado pela utilização de uma palavra-passe do dispositivo. Pode alterar a palavra-passe através da UI web local. Também pode redefinir a palavra-passe do dispositivo no portal Azure.
+O acesso ao seu dispositivo Azure Stack Edge Pro é controlado através da utilização de uma palavra-passe do dispositivo. Pode alterar a palavra-passe através da UI web local. Também pode redefinir a palavra-passe do dispositivo no portal Azure.
 
 ### <a name="change-device-password"></a>Alterar a palavra-passe do dispositivo
 
@@ -61,12 +61,12 @@ Para criar o seu recurso Azure Stack Edge / Data Box Gateway, IoT Hub e Azure St
 
 ### <a name="manage-microsoft-graph-api-permissions"></a>Gerir permissões de API do Microsoft Graph
 
-Ao gerar a chave de ativação para o dispositivo Azure Stack Edge, ou realizar quaisquer operações que exijam credenciais, necessita de permissões para a Azure Ative Directory Graph API. As operações que precisam de credenciais podem ser:
+Ao gerar a chave de ativação para o dispositivo Azure Stack Edge Pro, ou realizar quaisquer operações que exijam credenciais, necessita de permissões para a Azure Ative Directory Graph API. As operações que precisam de credenciais podem ser:
 
 -  Criar uma parte com uma conta de armazenamento associada.
 -  Criar um utilizador que possa aceder às ações do dispositivo.
 
-Você deve ter `User` acesso a inquilino ative directory como você precisa ser capaz de `Read all directory objects` . Não pode ser um utilizador convidado, pois não tem permissões para `Read all directory objects` . Se é um hóspede, então as operações como a geração de uma chave de ativação, a criação de uma partilha no seu dispositivo Azure Stack Edge, a criação de um utilizador, a configuração do papel de computação Edge, a palavra-passe do dispositivo de reset falharão.
+Você deve ter `User` acesso a inquilino ative directory como você precisa ser capaz de `Read all directory objects` . Não pode ser um utilizador convidado, pois não tem permissões para `Read all directory objects` . Se é um hóspede, então as operações como a geração de uma chave de ativação, a criação de uma partilha no seu dispositivo Azure Stack Edge Pro, a criação de um utilizador, a configuração do papel de computação Edge, a palavra-passe do dispositivo de reset falharão.
 
 Para obter mais informações sobre como fornecer acesso aos utilizadores à Microsoft Graph API, consulte a [referência de permissões do Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
 
@@ -89,7 +89,7 @@ Para obter uma lista de fornecedores de recursos registados na subscrição atua
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Para o dispositivo Azure Stack Edge, `Microsoft.DataBoxEdge` deve ser registado. Para se `Microsoft.DataBoxEdge` registar, o administrador de subscrição deve executar o seguinte comando:
+Para o dispositivo Azure Stack Edge Pro, `Microsoft.DataBoxEdge` deve ser registado. Para se `Microsoft.DataBoxEdge` registar, o administrador de subscrição deve executar o seguinte comando:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
