@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/14/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 030f2b893cd429bfdb451d24e799689fdb8a3cf8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d26c7f544c9754f455b67aadf9e923344cda3fdf
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255704"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968683"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Tutorial: Utilize uma identidade gerida atribuída pelo utilizador num Windows VM para aceder ao Gestor de Recursos Azure
 
@@ -48,19 +48,42 @@ Saiba como:
 - [Criar uma máquina virtual do Windows](../../virtual-machines/windows/quick-create-portal.md)
 
 - Para executar os passos necessários de criação de recursos e gestão de funções neste tutorial, a sua conta precisa de permissões de "Proprietário" no âmbito adequado (a sua subscrição ou grupo de recursos). Se precisar de assistência com a atribuição de função, veja [Utilizar Controlo de Acesso Baseado em Funções para gerir o acesso aos recursos da sua subscrição do Azure](../../role-based-access-control/role-assignments-portal.md).
-- [Instale a versão mais recente do módulo Azure PowerShell](/powershell/azure/install-az-ps). 
-- Execute `Connect-AzAccount` para criar uma ligação com o Azure.
-- Instale a [versão mais recente do PowerShellGet](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
-- Execute `Install-Module -Name PowerShellGet -AllowPrerelease` para obter a versão de pré-lançamento do módulo `PowerShellGet` (poderá precisar de `Exit` da sessão atual do PowerShell depois de executar este comando para instalar o módulo `Az.ManagedServiceIdentity`).
-- Execute `Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease` para instalar a versão de pré-lançamento do módulo `Az.ManagedServiceIdentity` para executar operações de identidade atribuída pelo utilizador neste artigo.
 
+- Para executar os scripts de exemplo, tem duas opções:
+    - Utilize o [Azure Cloud Shell,](../../cloud-shell/overview.md)que pode abrir utilizando o botão **Try It** no canto superior direito dos blocos de código.
+    - Execute scripts localmente com Azure PowerShell, conforme descrito na secção seguinte.
+
+### <a name="configure-azure-powershell-locally"></a>Configure Azure PowerShell localmente
+
+Para utilizar a Azure PowerShell localmente para este artigo (em vez de utilizar a Cloud Shell), complete os seguintes passos:
+
+1. Instale [a versão mais recente do Azure PowerShell](/powershell/azure/install-az-ps) se ainda não o fez.
+
+1. Inscreva-se em Azure:
+
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+1. Instale a [versão mais recente do PowerShellGet](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
+
+    ```azurepowershell
+    Install-Module -Name PowerShellGet -AllowPrerelease
+    ```
+
+    Poderá ter `Exit` de sair da sessão atual do PowerShell depois de executar este comando para o próximo passo.
+
+1. Instale a versão `Az.ManagedServiceIdentity` pré-lançamento do módulo para executar as operações de identidade geridas atribuídas pelo utilizador neste artigo:
+
+    ```azurepowershell
+    Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease
+    ```
 
 ## <a name="enable"></a>Ativar
 
 Para um cenário que se baseie numa identidade atribuída ao utilizador, é necessário executar os seguintes passos:
 
 - Criar uma identidade
- 
 - Atribuir a identidade recém-criada
 
 ### <a name="create-identity"></a>Criar identidade

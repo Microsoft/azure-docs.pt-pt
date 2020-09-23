@@ -10,329 +10,425 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/18/2020
+ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 1f415294c77b743996993f1f00be45e36f9d6002
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: ba872f221f3bde29f0bb48b04dc2259d3ab4938a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660671"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906282"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Deteção avançada de ataques em vários palcos em Azure Sentinel
 
 
 > [!IMPORTANT]
-> Algumas funcionalidades da Fusion em Azure Sentinel estão atualmente em pré-visualização pública.
+> Algumas funcionalidades da Fusion em Azure Sentinel estão atualmente em **pré-visualização pública.**
 > Estas funcionalidades são fornecidas sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+Ao utilizar a tecnologia Fusion baseada na aprendizagem automática, o Azure Sentinel pode detetar automaticamente ataques de vários estágios, identificando combinações de comportamentos anómalos e atividades suspeitas que são observadas em várias fases da cadeia de morte. Com base nestas descobertas, a Azure Sentinel gera incidentes que de outra forma seriam difíceis de apanhar. Estes incidentes compreendem dois ou mais alertas ou atividades. Por design, estes incidentes são de baixo volume, alta fidelidade e alta gravidade.
 
-
-Ao usar a tecnologia Fusion baseada na aprendizagem automática, o Azure Sentinel pode detetar automaticamente ataques de vários estágios, combinando comportamentos anómalos e atividades suspeitas que são observadas em várias fases da cadeia de morte. Azure Sentinel gera então incidentes que de outra forma seriam muito difíceis de apanhar. Estes incidentes envolvem dois ou mais alertas ou atividades. Por design, estes incidentes são de baixo volume, alta fidelidade e alta gravidade.
-
-Personalizada para o seu ambiente, esta deteção não só reduz taxas falsas positivas como também pode detetar ataques com informações limitadas ou em falta.
+Personalizada para o seu ambiente, esta tecnologia de deteção não só reduz as taxas falsas positivas como também pode detetar ataques com informações limitadas ou em falta.
 
 ## <a name="configuration-for-advanced-multistage-attack-detection"></a>Configuração da deteção avançada de ataques em várias fases
 
-Esta deteção é ativada por padrão em Azure Sentinel. Para verificar o estado, ou desativá-lo talvez porque está a usar uma solução alternativa para criar incidentes baseados em vários alertas, use as seguintes instruções:
+Esta deteção é ativada por padrão em Azure Sentinel. Para verificar o estado, ou desativá-lo no caso de estar a utilizar uma solução alternativa para criar incidentes baseados em vários alertas, utilize as seguintes instruções:
 
 1. Se ainda não o fez, inicie sessão no [Portal do Azure](https://portal.azure.com).
 
-2. Navegue para **Azure Sentinel**  >  **Configuration**  >  **Analytics**
+1. Navegue para **Azure Sentinel**  >  **Configuration**  >  **Analytics**
 
-3. Selecione **as regras Ativas** e localize **a Deteção avançada de ataques multistage** na coluna **NAME.** Verifique se a coluna **STATUS** confirma se esta deteção está ativada ou desativada.
+1. Selecione **as regras Ative**e, em seguida, localize **a Deteção avançada de ataques multiestatos** na coluna **NAME** filtrando a lista para o tipo de regra **de fusão.** Verifique se a coluna **STATUS** confirma se esta deteção está ativada ou desativada.
 
-4. Para alterar o estado, selecione esta entrada e na lâmina **avançada de deteção de ataques multiestage,** selecione **Editar**.
+    :::image type="content" source="./media/fusion/selecting-fusion-rule-type.png" alt-text="{alt-text}":::
 
-5. Na lâmina do assistente de **criação regra,** a alteração de estado é selecionada automaticamente para si, por isso selecione **Seguinte: Revisão**e, em seguida, **Guarde**. 
+1. Para alterar o estado, selecione esta entrada e na lâmina **avançada de deteção de ataques multiestage,** selecione **Editar**.
 
-Os modelos de regras não são aplicáveis para a deteção avançada de ataques em vários estágios.
+1. Na lâmina do assistente de **criação regra,** a alteração de estado é selecionada automaticamente para si, por isso selecione **Seguinte: Revisão**e, em seguida, **Guarde**. 
+
+ Uma vez que o tipo de regra **de fusão** contém apenas uma regra que não pode ser modificada, os modelos de regra não são aplicáveis a este tipo de regra.
 
 > [!NOTE]
-> A Azure Sentinel utiliza atualmente 30 dias de dados históricos para treinar os sistemas de aprendizagem automática. Estes dados são sempre encriptados utilizando as chaves da Microsoft à medida que passam pelo pipeline de aprendizagem automática. No entanto, os dados de formação não são encriptados utilizando [as Chaves Geridas pelo Cliente (CMK)](customer-managed-keys.md) se tiver ativado a CMK no seu espaço de trabalho Azure Sentinel. Para excluir a Fusão, navegue para **Azure Sentinel**   \>  **Configuration**   \>  **Analytics Ative rules \> Advanced \> Multistage Attack Detection** and in the **Status** column,select **Disable.**
+> A Azure Sentinel utiliza atualmente 30 dias de dados históricos para treinar os sistemas de aprendizagem automática. Estes dados são sempre encriptados utilizando as chaves da Microsoft à medida que passam pelo pipeline de aprendizagem automática. No entanto, os dados de formação não são encriptados utilizando [as Chaves Geridas pelo Cliente (CMK)](customer-managed-keys.md) se tiver ativado a CMK no seu espaço de trabalho Azure Sentinel. Para excluir a Fusão, navegue para **Azure Sentinel**   \>  **Configuration**   \>  **Analytics Ative rules \> Advanced \> Multistage Attack Detection** e na coluna **Status,** selecione **Desativar.**
 
-## <a name="fusion-using-palo-alto-networks-and-microsoft-defender-for-endpoint-formerly-microsoft-defender-atp"></a>Fusão utilizando palo alto networks e Microsoft Defender para Endpoint (anteriormente Microsoft Defender ATP)
+## <a name="attack-detection-scenarios"></a>Cenários de deteção de ataques
 
-Estes cenários combinam dois dos registos fundamentais utilizados pelos analistas de segurança: registos de firewall das Redes Palo Alto e registos de deteção de pontos finais do Microsoft Defender para Endpoint. Em todos os cenários listados abaixo, uma atividade suspeita é detetada no ponto final que envolve um endereço IP externo, então, este é seguido por tráfego anómalo do endereço IP externo de volta para a firewall. Nos registos de Palo Alto, o Azure Sentinel foca-se em [registos de ameaças,](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)e o tráfego é considerado suspeito quando são permitidas ameaças (dados suspeitos, ficheiros, inundações, pacotes, digitalizações, spyware, URLs, vírus, vulnerabilidades, vírus, incêndios florestais, incêndios florestais).
+A secção seguinte lista os tipos de cenários de correlação, agrupados pela classificação de ameaças, que a Azure Sentinel procura para usar a tecnologia Fusion.
 
-### <a name="network-request-to-tor-anonymization-service-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Pedido de rede ao serviço de anonimização TOR seguido de tráfego anómalo sinalizado pela firewall da Palo Alto Networks.
+Como mencionado acima, uma vez que a Fusion correlaciona vários alertas de segurança de vários produtos para detetar ataques avançados de vários pontos, as deteções bem sucedidas de Fusão são apresentadas como **incidentes de fusão** na página de **Incidentes** do Sentinela Azure, e não como **alertas** na tabela **alertas de segurança** em **Registos.**
 
-Neste cenário, o Azure Sentinel deteta pela primeira vez um alerta de que o Microsoft Defender for Endpoint (anteriormente Microsoft Defender para ATP) detetou um pedido de rede para um serviço de anonimização TOR que leva a uma atividade anómala. Isto foi iniciado sob conta {nome de conta} com SID ID {sid} em {time}. O endereço IP de saída para a ligação foi {IndividualIp}.
-Em seguida, a atividade incomum foi detetada pela Firewall das Redes Palo Alto em {TimeGenerated}. Isto indica tráfego malicioso introduzido na sua rede O endereço IP de destino para o tráfego da rede é {DestinationIP}.
+Para permitir estes cenários de deteção de ataques movidos a fusão, quaisquer fontes de dados listadas devem ser ingeridas utilizando os conectores de dados Azure Sentinel associados.
 
-Este cenário encontra-se atualmente em pré-visualização pública.
+> [!NOTE]
+> Alguns destes cenários estão em **visualização pública.** Serão tão indicados.
 
+## <a name="compute-resource-abuse"></a>Abuso de recursos computacional
 
-### <a name="powershell-made-a-suspicious-network-connection-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>A PowerShell fez uma ligação de rede suspeita, seguida de tráfego anómalo sinalizado pela firewall da Palo Alto Networks.
+### <a name="multiple-vm-creation-activities-following-suspicious-azure-active-directory-sign-in"></a>Múltiplas atividades de criação de VM após o sinal de Azure Ative Directory suspeito
+Este cenário encontra-se atualmente em **pré-visualização pública.**
 
-Neste cenário, o Azure Sentinel deteta pela primeira vez um alerta de que o Microsoft Defender for Endpoint (anteriormente Microsoft Defender para ATP) detetou que o PowerShell fez uma ligação de rede suspeita levando a uma atividade anómala que foi detetada por uma Firewall da Rede Palo Alto. Isto foi iniciado pela conta {nome da conta} com SID ID {sid} em {time}. O endereço IP de saída para a ligação foi {IndividualIp}. Em seguida, a atividade incomum foi detetada pela Firewall das Redes Palo Alto em {TimeGenerated}. Isto indica que o tráfego malicioso entrou na sua rede. O endereço IP de destino para o tráfego de rede é {DestinationIP}.
+**MITRE ATT&táticas CK:** Acesso Inicial, Impacto 
 
-Este cenário encontra-se atualmente em pré-visualização pública.
+**Técnicas MITRE ATT&CK:** Conta Válida (T1078), Sequestro de Recursos (T1496)
 
-### <a name="outbound-connection-to-ip-with-a-history-of-unauthorized-access-attempts-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Ligação de saída ao IP com histórico de tentativas de acesso não autorizadas seguidas de tráfego anómalo sinalizado pela firewall da Palo Alto Networks
+**Fontes de conector de dados:** Microsoft Cloud App Security, Azure Ative Directory Identity Protection
 
-Neste cenário, o Azure Sentinel deteta um alerta de que o Microsoft Defender for Endpoint (anteriormente Microsoft Defender para ATP) detetou uma ligação de saída a um endereço IP com um histórico de tentativas de acesso não autorizadas que levam a uma atividade anómala a ser detetada pelo Firewall das Redes Palo Alto. Isto foi iniciado pela conta {nome da conta} com SID ID {sid} em {time}. O endereço IP de saída para a ligação foi {IndividualIp}. Depois disso, a atividade invulgar foi detetada pela Firewall das Redes Palo Alto em {TimeGenerated}. Isto indica que o tráfego malicioso entrou na sua rede. O endereço IP de destino para o tráfego de rede é {DestinationIP}.
+**Descrição:** Incidentes de fusão deste tipo indicam que um número anómalo de VMs foi criado numa única sessão após um sinal suspeito para uma conta AD Azure. Este tipo de alerta indica, com um elevado grau de confiança, que a conta indicada na descrição do incidente de Fusão foi comprometida e usada para criar novos VMs para fins não autorizados, como executar operações de mineração de criptomoedas. As permutações de alertas de sinal de Azure AD suspeitos com o alerta de múltiplas atividades de criação de VM são:
 
-Este cenário encontra-se atualmente em pré-visualização pública.
+- **Viagem impossível para um local atípico que leva a múltiplas atividades de criação de VM**
 
+- **Evento de inscrição a partir de um local desconhecido que leva a múltiplas atividades de criação de VM**
 
+- **Evento de inscrição a partir de um dispositivo infetado que conduz a múltiplas atividades de criação de VM**
 
-## <a name="fusion-using-identity-protection-and-microsoft-cloud-app-security"></a>Fusão usando proteção de identidade e segurança de aplicativos microsoft cloud
+- **Evento de inscrição a partir de um endereço IP anónimo que conduz a múltiplas atividades de criação de VM**
 
-Utilizando a deteção avançada de ataques em vários estágios, o Azure Sentinel suporta os seguintes cenários que combinam eventos de anomalias da Azure Ative Directory Identity Protection e da Microsoft Cloud App Security:
+- **Evento de inscrição do utilizador com credenciais vazadas que conduzem a múltiplas atividades de criação de VM**
 
-- [Viagem impossível para local atípico seguido de atividade anómala office 365](#impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity)
-- [Atividade de inscrição para localização desconhecida seguida de atividade anómala do Office 365](#sign-in-activity-for-unfamiliar-location-followed-by-anomalous-office-365-activity)
-- [Atividade de inscrição de dispositivo infetado seguido de atividade anómala do Office 365](#sign-in-activity-from-infected-device-followed-by-anomalous-office-365-activity)
-- [Atividade de inscrição a partir de endereço IP anónimo seguido de atividade anómala office 365](#sign-in-activity-from-anonymous-ip-address-followed-by-anomalous-office-365-activity)
-- [Atividade de inscrição do utilizador com credenciais vazadas seguida de atividade anómala do Office 365](#sign-in-activity-from-user-with-leaked-credentials-followed-by-anomalous-office-365-activity)
+## <a name="data-exfiltration"></a>Transferência de dados não autorizada
 
-Tem de [configurar o conector de dados de proteção de identidade Azure AD](connect-azure-ad-identity-protection.md) e os conectores [cloud App Security.](connect-cloud-app-security.md)
+### <a name="office-365-mailbox-exfiltration-following-a-suspicious-azure-ad-sign-in"></a>Exfiltração da caixa de correio do Office 365 na sequência de um sinal de AD Azure suspeito
 
-Nas descrições que se seguem, o Azure Sentinel apresentará o valor real dos seus dados que estão representados nesta página como variáveis nos parênteses. Por exemplo, o nome real de exibição de uma conta e não \<*account name*> , e o número real em vez de \<*number*> .
+**MITRE ATT&táticas CK:** Acesso Inicial, Exfiltração, Coleção
 
-### <a name="impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity"></a>Viagem impossível para local atípico seguido de atividade anómala office 365
+**Técnicas MITRE ATT&CK:** Conta Válida (T1078), Recolha de E-mail (T1114), Exfiltração Automatizada (T1020)
 
-Existem sete possíveis incidentes do Azure Sentinel que combinam viagens impossíveis a alertas de localização atípica da Azure AD Identity Protection e alertas anómalos do Office 365 gerados pela Microsoft Cloud App Security:
+**Fontes de conector de dados:** Microsoft Cloud App Security, Azure Ative Directory Identity Protection
 
-- **Viagens impossíveis para locais atípicos que conduzem à exfiltração da caixa de correio do Office 365**
-    
-    Este alerta é uma indicação de um evento de entrada de sinal por \<*account name*>  de uma viagem impossível para \<*location*> , uma localização atípica, seguido de uma regra de reencaminhamento de caixa de entrada suspeita foi definido na caixa de entrada de um utilizador.
-    
-    Isto pode indicar que a conta está comprometida e que a caixa de correio está a ser usada para exfiltrar informações da sua organização. O utilizador \<*account name*> criou ou atualizou uma regra de reencaminhamento de caixa de entrada que reencaminha todos os e-mails recebidos para o endereço externo \<*email address*> .
+**Descrição:** Incidentes de fusão deste tipo indicam que uma regra de reencaminhamento de caixa de entrada suspeita foi definida na caixa de entrada de um utilizador na sequência de um início de súming suspeito para uma conta AZure AD. Esta indicação proporciona uma grande confiança de que a conta do utilizador (indicada na descrição do incidente de Fusão) foi comprometida e que foi usada para exfiltrar dados da rede da sua organização, permitindo uma regra de reencaminhamento de caixas de correio sem o conhecimento do verdadeiro utilizador. As permutações de alertas de entrada de Azure AD suspeitos com o alerta de exfiltração da caixa de correio do Office 365 são:
 
-- **Viagem impossível para locais atípicos que levam a atividade administrativa de aplicações em nuvem suspeita**
-    
-    Este alerta é uma indicação de um evento de \<*account name*> inscrição de uma viagem impossível para \<*location*> , um local atípico.
-    
-    Em seguida, a conta \<*account name*> realizada sobre \<*number*> as atividades administrativas numa única sessão.
+- **Viagem impossível para um local atípico que leva à exfiltração da caixa de correio do Office 365**
 
-- **Viagem impossível para locais atípicos que levam à eliminação de ficheiros em massa**
-    
-    Este alerta é uma indicação de um evento de inscrição \<*account name*> \<*location*> por, um local atípico. 
-    
-    Em seguida, a conta \<*account name*> apagou \<*number of*> ficheiros únicos numa única sessão.
-
-- **Viagem impossível para locais atípicos que levam ao download de ficheiros em massa**
-    
-    Este alerta é uma indicação de um evento de \<*account name*> inscrição de uma viagem impossível para \<*location*> , um local atípico. 
-    
-    Em seguida, a conta \<*account name*> descarregou sobre \<*number of*> ficheiros únicos numa única sessão.
-
-- **Viagem impossível para locais atípicos que levam à personificação do Office 365**
-    
-    Este alerta é uma indicação de um evento de \<*account name*> inscrição de uma viagem impossível para \<*location*> , um local atípico. 
-    
-    Em seguida, a conta \<*account name*> realizou um valor incomum ( ) de \<*number of activities*> atividades de imitação numa única sessão.
-
-- **Viagem impossível para locais atípicos que levam à partilha de ficheiros em massa**
-    
-    Este alerta é uma indicação de um evento de \<*account name*> inscrição de uma viagem impossível para \<*location*> , um local atípico. 
-    
-    Em seguida, a conta \<*account name*> partilhou \<*number of*> ficheiros únicos numa única sessão.
-
-- **Impossível viajar para locais atípicos que levam ao ransomware na cloud app**
-    
-    Este alerta é uma indicação de um evento de \<*account name*> inscrição de uma viagem impossível para \<*location*> , um local atípico. 
-    
-    Em seguida, a conta \<*account name*> carregou \<*number of*> ficheiros e apagou um total de \<*number of*> ficheiros. 
-    
-    Este padrão de atividade é indicativo de um potencial ataque de ransomware.
-
-
-### <a name="sign-in-activity-for-unfamiliar-location-followed-by-anomalous-office-365-activity"></a>Atividade de inscrição para localização desconhecida seguida de atividade anómala do Office 365
-
-Existem sete possíveis incidentes do Azure Sentinel que combinam atividade de sinal para alertas de localização desconhecidos da Azure AD Identity Protection e alertas anómalos do Office 365 gerados pela Microsoft Cloud App Security.
-
-- **Evento de entrada de um local desconhecido que conduz à exfiltração da caixa de correio online Exchange Online**
-    
-    Este alerta é uma indicação de um evento de entrada por \<*account name*> \<*location*> , um local desconhecido, seguido de uma regra de reencaminhamento de caixa de entrada suspeita foi definido na caixa de entrada de um utilizador.
-    
-    Isto pode indicar que a conta está comprometida e que a caixa de correio está a ser usada para exfiltrar informações da sua organização. O utilizador \<*account name*> criou ou atualizou uma regra de reencaminhamento de caixa de entrada que reencaminha todos os e-mails recebidos para o endereço externo \<*email address*> . 
-
-- **Evento de inscrição a partir de um local desconhecido que leva a atividade administrativa de aplicações de nuvem suspeita**
-    
-    Este alerta é uma indicação de um evento de inscrição \<*account name*> \<*location*> por, de um local desconhecido. 
-    
-    Em seguida, a conta \<*account name*> realizada sobre \<*number of*> as atividades administrativas numa única sessão.
-
-- **Evento de inscrição a partir de um local desconhecido que leva à eliminação de ficheiros em massa**
-    
-    Este alerta é uma indicação de um evento de inscrição \<*account name*> \<*location*> por, de um local desconhecido. 
-    
-    Em seguida, a conta \<*account name*> apagou \<*number of*> ficheiros únicos numa única sessão.
-
-- **Evento de inscrição a partir de um local desconhecido que leva ao download de ficheiros em massa**
-    
-    Este alerta é uma indicação de um evento de inscrição \<*account name*> \<*location*> por, de um local desconhecido. 
-    
-    Em seguida, a conta \<*account name*> descarregou sobre \<*number of*> ficheiros únicos numa única sessão.
-
-- **Evento de inscrição a partir de um local desconhecido que leva à personificação do Office 365**
-    
-    Este alerta é uma indicação de um evento de inscrição \<*account name*> \<*location*> por, de um local desconhecido.
-    
-    Em seguida, a conta \<*account name*> personificada sobre \<*number of*> contas diferentes numa única sessão.
-
-- **Evento de inscrição a partir de um local desconhecido que leva à partilha de ficheiros em massa**
-    
-    Este alerta é uma indicação de um evento de inscrição \<*account name*> \<*location*> por, de um local desconhecido. 
-    
-    Em seguida, a conta \<*account name*> partilhou \<*number of*> ficheiros únicos numa única sessão.
-
-- **Evento de inscrição a partir de um local desconhecido que leva ao ransomware na aplicação cloud**
-    
-    Este alerta é uma indicação de um evento de inscrição \<*account name*> \<*location*> por, de um local desconhecido. 
-    
-    Em seguida, a conta \<*account name*> carregou \<*number of*> ficheiros e apagou um total de \<*number of*> ficheiros. 
-    
-    Este padrão de atividade é indicativo de um potencial ataque de ransomware.
-
-### <a name="sign-in-activity-from-infected-device-followed-by-anomalous-office-365-activity"></a>Atividade de inscrição de dispositivo infetado seguido de atividade anómala do Office 365
-
-Existem sete possíveis incidentes do Azure Sentinel que combinam atividade de sinalização a partir de alertas de dispositivos infetados da Azure AD Identity Protection e alertas anómalos do Office 365 gerados pela Microsoft Cloud App Security:
+- **Evento de inscrição a partir de um local desconhecido que conduz à exfiltração da caixa de correio do Office 365**
 
 - **Evento de entrada de um dispositivo infetado que conduz à exfiltração da caixa de correio do Office 365**
-    
-    Este alerta é uma indicação de um evento de entrada \<*account name*> de um dispositivo potencialmente infetado com malware, seguido de uma regra de reencaminhamento de caixa de entrada suspeita foi definida na caixa de entrada de um utilizador.
-    
-    Isto pode indicar que a conta está comprometida e que a caixa de correio está a ser usada para exfiltrar informações da sua organização. O utilizador \<*account name*> criou ou atualizou uma regra de reencaminhamento de caixa de entrada que reencaminha todos os e-mails recebidos para o endereço externo \<*email address*> . 
-
-- **Evento de inscrição a partir de um dispositivo infetado que leva a atividade administrativa de aplicações em nuvem suspeita**
-    
-    Este alerta é uma indicação de um evento de inscrição \<*account name*> por um dispositivo potencialmente infetado com malware.
-    
-    Em seguida, a conta \<*account name*> realizada sobre \<*number of*> as atividades administrativas numa única sessão.
-
-- **Evento de inscrição a partir de um dispositivo infetado que conduz à eliminação de ficheiros em massa**
-    
-    Este alerta é uma indicação de um evento de inscrição \<*account name*> por um dispositivo potencialmente infetado com malware. 
-    
-    Em seguida, a conta \<*account name*> apagou \<*number of*> ficheiros únicos numa única sessão.
-
-- **Evento de inscrição a partir de um dispositivo infetado que leva ao download de ficheiros em massa**
-    
-    Este alerta é uma indicação de um evento de inscrição \<*account name*> por um dispositivo potencialmente infetado com malware. 
-    
-    Em seguida, a conta \<*account name*> descarregou sobre \<*number of*> ficheiros únicos numa única sessão.
-
-- **Evento de inscrição a partir de um dispositivo infetado que conduz à personificação do Office 365**
-    
-    Este alerta é uma indicação de um evento de inscrição \<*account name*> por um dispositivo potencialmente infetado com malware. 
-    
-    Em seguida, a conta \<*account name*> personificada sobre \<*number of*> contas diferentes numa única sessão.
-
-- **Evento de inscrição a partir de um dispositivo infetado que conduz à partilha de ficheiros em massa**
-    
-    Este alerta é uma indicação de um evento de inscrição \<*account name*> por um dispositivo potencialmente infetado com malware. 
-    
-    Em seguida, a conta \<*account name*> partilhou \<*number of*> ficheiros únicos numa única sessão.
-
-- **Evento de início de saúde a partir de um dispositivo infetado que leva ao ransomware na aplicação cloud**
-    
-    Este alerta é uma indicação de um evento de inscrição \<*account name*> por um dispositivo potencialmente infetado com malware. 
-    
-    Em seguida, a conta \<*account name*> carregou \<*number of*> ficheiros e apagou um total de \<*number of*> ficheiros. 
-    
-    Este padrão de atividade é indicativo de um potencial ataque de ransomware.
-
-### <a name="sign-in-activity-from-anonymous-ip-address-followed-by-anomalous-office-365-activity"></a>Atividade de inscrição a partir de endereço IP anónimo seguido de atividade anómala office 365
-
-Existem sete possíveis incidentes do Azure Sentinel que combinam atividade de inscrição a partir de alertas de endereços IP anónimos da Azure AD Identity Protection e alertas anómalos do Office 365 gerados pela Microsoft Cloud App Security:
 
 - **Evento de inscrição a partir de um endereço IP anónimo que conduz à exfiltração da caixa de correio do Office 365**
-    
-    Este alerta é uma indicação de um evento de inscrição através \<*account name*> de um endereço IP de procuração anónimo , seguido de uma regra de \<*IP address*> reencaminhamento de caixa de entrada suspeita foi definida na caixa de entrada de um utilizador.
-    
-    Isto pode indicar que a conta está comprometida e que a caixa de correio está a ser usada para exfiltrar informações da sua organização. O utilizador \<*account name*> criou ou atualizou uma regra de reencaminhamento de caixa de entrada que reencaminha todos os e-mails recebidos para o endereço externo \<*email address*> . 
-
-- **Evento de inscrição a partir de um endereço IP anónimo que conduz a atividade administrativa de aplicações em nuvem suspeita**
-    
-    Este alerta é uma indicação de um evento de inscrição através \<*account name*> de um endereço IP de procuração anónimo \<*IP address*> . 
-    
-    Em seguida, a conta \<*account name*> realizada sobre \<*number of*> as atividades administrativas numa única sessão.
-
-- **Evento de inscrição a partir de um endereço IP anónimo que conduz à eliminação em massa de ficheiros**
-    
-    Este alerta é uma indicação de um evento de inscrição através \<*account name*> de um endereço IP de procuração anónimo \<*IP address*> . 
-    
-    Em seguida, a conta \<*account name*> apagou \<*number of*> ficheiros únicos numa única sessão.
-
-- **Evento de inscrição a partir de um endereço IP anónimo que leva ao download de ficheiros em massa**
-    
-    Este alerta é uma indicação de um evento de inscrição através \<*account name*> de um endereço IP de procuração anónimo \<*IP address*> . 
-    
-    Em seguida, a conta \<*account name*> descarregou sobre \<*number of*> ficheiros únicos numa única sessão.
-
-- **Evento de inscrição a partir de um endereço IP anónimo que conduz à personificação do Office 365**
-    
-    Este alerta é uma indicação de um evento de inscrição através \<*account name*> de um endereço IP de procuração anónimo \<*IP address*> . 
-    
-    Em seguida, a conta \<*account name*> personificada sobre \<*number of*> contas diferentes numa única sessão.
-
-- **Evento de inscrição a partir de um endereço IP anónimo que conduz à partilha de ficheiros em massa**
-    
-    Este alerta é uma indicação de um evento de inscrição através \<*account name*> de um endereço IP de procuração anónimo \<*IP address*> . 
-    
-    Em seguida, a conta \<*account name*> partilhou \<*number of*> ficheiros únicos numa única sessão.
-
-- **Evento de inscrição de um endereço IP anónimo para ransomware em app cloud**
-    
-    Este alerta é uma indicação de um evento de inscrição através \<*account name*> de um endereço IP de procuração anónimo \<*IP address*> . 
-    
-    Em seguida, a conta \<*account name*> carregou \<*number of*> ficheiros e apagou um total de \<*number of*> ficheiros. 
-    
-    Este padrão de atividade é indicativo de um potencial ataque de ransomware.
-
-### <a name="sign-in-activity-from-user-with-leaked-credentials-followed-by-anomalous-office-365-activity"></a>Atividade de inscrição do utilizador com credenciais vazadas seguida de atividade anómala do Office 365
-
-Existem sete possíveis incidentes do Azure Sentinel que combinam atividade de sing-in do utilizador com alertas de credenciais vazados da Azure AD Identity Protection e alertas anómalos do Office 365 gerados pela Microsoft Cloud App Security:
 
 - **Evento de entrada do utilizador com credenciais vazadas que conduzam à exfiltração da caixa de correio do Office 365**
-    
-    Este alerta é uma indicação de que o evento de inscrição através de \<*account name*> credenciais vazadas usadas, seguido de uma regra de reencaminhamento de caixa de entrada suspeita foi definido na caixa de entrada de um utilizador. 
-    
-    Isto pode indicar que a conta está comprometida e que a caixa de correio está a ser usada para exfiltrar informações da sua organização. O utilizador \<*account name*> criou ou atualizou uma regra de reencaminhamento de caixa de entrada que reencaminha todos os e-mails recebidos para o endereço externo \<*email address*> . 
 
-- **Evento de inscrição de utilizador com credenciais vazadas que levam a atividade administrativa de aplicações em nuvem suspeita**
-    
-    Este alerta é uma indicação de que o evento de inscrição é usado por \<*account name*> credenciais vazadas.
-    
-    Em seguida, a conta \<*account name*> realizada sobre \<*number of*> as atividades administrativas numa única sessão.
+### <a name="mass-file-download-following-suspicious-azure-ad-sign-in"></a>Download de ficheiros em massa após o sinal de Ad Azure suspeito
 
-- **Evento de inscrição do Utilizador com credenciais vazadas que conduzem à eliminação de ficheiros em massa**
-    
-    Este alerta é uma indicação de que o evento de inscrição é usado por \<*account name*> credenciais vazadas.
-    
-    Em seguida, a conta \<*account name*> apagou \<*number of*> ficheiros únicos numa única sessão.
+**MITRE ATT&táticas CK:** Acesso Inicial, Exfiltração
 
-- **Evento de inscrição do Utilizador com credenciais vazadas que levam ao download de ficheiros em massa**
-    
-    Este alerta é uma indicação de que o evento de inscrição é usado por \<*account name*> credenciais vazadas.
-    
-    Em seguida, a conta \<*account name*> descarregou sobre \<*number of*> ficheiros únicos numa única sessão.
+**Técnicas MITRE ATT&CK:** Conta Válida (T1078)
+
+**Fontes de conector de dados:** Microsoft Cloud App Security, Azure Ative Directory Identity Protection
+
+**Descrição:** Incidentes de fusão deste tipo indicam que um número anómalo de ficheiros foi descarregado por um utilizador na sequência de um início de sação suspeito para uma conta AD Azure. Esta indicação fornece uma alta confiança de que a conta indicada na descrição do incidente de Fusão foi comprometida e foi usada para exfiltrar dados da rede da sua organização. As permutações de alertas de sinal de Azure AD suspeitos com o alerta de descarregamento de ficheiros em massa são:  
+
+- **Viagem impossível para um local atípico que leva ao download de ficheiros em massa**
+
+- **Evento de inscrição a partir de um local desconhecido que leva ao download de ficheiros em massa**
+
+- **Evento de inscrição a partir de um dispositivo infetado que leva ao download de ficheiros em massa**
+
+- **Evento de inscrição a partir de um IP anónimo que leva ao download de ficheiros em massa**
+
+- **Evento de inscrição do utilizador com credenciais vazadas que levam ao download de ficheiros em massa**
+
+### <a name="mass-file-sharing-following-suspicious-azure-ad-sign-in"></a>Partilha de ficheiros em massa após a assinatura suspeita da AD Azure
+
+**MITRE ATT&táticas CK:** Acesso Inicial, Exfiltração
+
+**Técnicas MITRE ATT&CK:** Conta Válida (T1078), Exfiltração sobre o Serviço Web (T1567)
+
+**Fontes de conector de dados:** Microsoft Cloud App Security, Azure Ative Directory Identity Protection
+
+**Descrição:** Incidentes de fusão deste tipo indicam que uma série de ficheiros acima de um determinado limiar foram partilhados com outros na sequência de um sinal suspeito para uma conta AD Azure. Esta indicação proporciona uma grande confiança de que a conta indicada na descrição do incidente de Fusão foi comprometida e usada para exfiltrar dados da rede da sua organização através da partilha de ficheiros como documentos, folhas de cálculo, etc., com utilizadores não autorizados para fins maliciosos. As permutações de alertas de sinal de Azure AD suspeitos com o alerta de partilha de ficheiros em massa são:  
+
+- **Viagem impossível para um local atípico que leva à partilha de ficheiros em massa**
+
+- **Evento de inscrição a partir de um local desconhecido que leva à partilha de ficheiros em massa**
+
+- **Evento de inscrição a partir de um dispositivo infetado que conduz à partilha de ficheiros em massa**
+
+- **Evento de inscrição a partir de um endereço IP anónimo que conduz à partilha de ficheiros em massa**
+
+- **Evento de inscrição do utilizador com credenciais vazadas que conduzem à partilha de ficheiros em massa**
+
+### <a name="suspicious-inbox-manipulation-rules-set-following-suspicious-azure-ad-sign-in"></a>Regras suspeitas de manipulação de caixas de entrada definidas após o sinal de Ad Azure suspeito
+Este cenário pertence a duas classificações de ameaça nesta lista: **exfiltração de dados** e **movimento lateral**. Por uma questão de clareza, aparece em ambas as secções.
+
+Este cenário encontra-se atualmente em **pré-visualização pública.**
+
+**MITRE ATT&táticas CK:** Acesso Inicial, Movimento Lateral, Exfiltração
+
+**Técnicas MITRE ATT&CK:** Conta Válida (T1078), Phishing De Lança Interna (T1534)
+
+**Fontes de conector de dados:** Microsoft Cloud App Security, Azure Ative Directory Identity Protection
+
+**Descrição:** Incidentes de fusão deste tipo indicam que as regras anómalas da caixa de entrada foram definidas na caixa de entrada de um utilizador na sequência de um início de súming suspeito numa conta AZure AD. Isto fornece uma indicação de alta confiança de que a conta indicada na descrição do incidente de Fusão foi comprometida e foi usada para manipular as regras da caixa de entrada de e-mail do utilizador para fins maliciosos. Isto pode ser uma tentativa de um intruso de exfiltrar dados da rede da organização. Em alternativa, o intruso pode estar a tentar gerar e-mails de phishing dentro da organização (contornando mecanismos de deteção de phishing direcionados para o e-mail de fontes externas) com o objetivo de se mover lateralmente, obtendo acesso a contas adicionais de utilizador e/ou privilegiadas. As permutações de alertas de entrada de Azure AD suspeitos com o alerta de regras suspeitas de manipulação de caixas de entrada são:  
+
+- **Viagem impossível para um local atípico levando a regra de manipulação de caixa de entrada suspeita**
+
+- **Evento de entrada de um local desconhecido que conduz a regra de manipulação de caixa de entrada suspeita**
+
+- **Evento de entrada a partir de um dispositivo infetado que conduz a regra de manipulação de caixa de entrada suspeita**
+
+- **Evento de entrada a partir de um endereço IP anónimo que conduz a regra de manipulação de caixa de entrada suspeita**
+
+- **Evento de entrada de utilizador com credenciais vazadas que conduzam a regra de manipulação de caixa de entrada suspeita**
+
+### <a name="multiple-power-bi-report-sharing-activities-following-suspicious-azure-ad-sign-in"></a>Múltiplos relatórios de bi de energia partilham atividades após o sinal suspeito de Azure AD 
+Este cenário encontra-se atualmente em **pré-visualização pública.**
+
+**MITRE ATT&táticas CK:** Acesso Inicial, Exfiltração 
+
+**Técnicas MITRE ATT&CK:** Conta Válida (T1078), Exfiltração sobre o Serviço Web (T1567)
+
+**Fontes de conector de dados:** Microsoft Cloud App Security, Azure Ative Directory Identity Protection
+
+**Descrição:** Incidentes de fusão deste tipo indicam que um número anómalo de relatórios do Power BI foram partilhados numa única sessão após um sinal suspeito para uma conta AD Azure. Esta indicação fornece uma alta confiança de que a conta indicada na descrição do incidente de Fusão foi comprometida e foi usada para exfiltrar dados da rede da sua organização, partilhando relatórios de Power BI com utilizadores não autorizados para fins maliciosos. As permutações de alertas de sinal de Azure AD suspeitos com as múltiplas atividades de partilha de relatórios do Power BI são:  
+
+- **Viagem impossível para um local atípico que leva a múltiplas atividades de partilha de relatórios do Power BI**
+
+- **Evento de inscrição a partir de um local desconhecido que leva a múltiplas atividades de partilha de relatórios do Power BI**
+
+- **Evento de inscrição a partir de um dispositivo infetado que conduz a múltiplas atividades de partilha de relatórios do Power BI**
+
+- **Evento de inscrição a partir de um endereço IP anónimo que conduz a múltiplas atividades de partilha de relatórios do Power BI**
+
+- **Evento de inscrição de utilizador com credenciais vazadas que levam a múltiplas atividades de partilha de relatórios do Power BI**
+
+### <a name="suspicious-power-bi-report-sharing-following-suspicious-azure-ad-sign-in"></a>Relatório de bi de energia suspeito partilha após a assinatura suspeita de Azure AD
+Este cenário encontra-se atualmente em **pré-visualização pública.**
+
+**MITRE ATT&táticas CK:** Acesso Inicial, Exfiltração 
+
+**Técnicas MITRE ATT&CK:** Conta Válida (T1078), Exfiltração sobre o Serviço Web (T1567)
+
+**Fontes de conector de dados:** Microsoft Cloud App Security, Azure Ative Directory Identity Protection
+
+**Descrição:** Incidentes de fusão deste tipo indicam que uma atividade suspeita de partilha de relatórios do Power BI ocorreu na sequência de um sinal suspeito para uma conta AD Azure. A atividade de partilha foi identificada como suspeita porque o relatório do Power BI continha informações sensíveis identificadas através do processamento de linguagem natural, e porque foi partilhada com um endereço de e-mail externo, publicada na web, ou entregue como instantâneo para um endereço de e-mail subscrito externamente. Este alerta indica com grande confiança que a conta indicada na descrição do incidente de Fusão foi comprometida e foi usada para exfiltrar dados sensíveis da sua organização, partilhando relatórios power bi com utilizadores não autorizados para fins maliciosos. As permutações de alertas de sinal de Azure AD suspeitos com a partilha suspeita de relatório do Power BI são:  
+
+- **Viagem impossível para um local atípico levando à partilha suspeita de relatório do Power BI**
+
+- **Evento de inscrição a partir de um local desconhecido que leva à partilha suspeita de relatório do Power BI**
+
+- **Evento de inscrição a partir de um dispositivo infetado que leva à partilha suspeita de relatório do Power BI**
+
+- **Evento de inscrição a partir de um endereço IP anónimo que leva à partilha suspeita de relatório do Power BI**
+
+- **Evento de inscrição de utilizador com credenciais vazadas que levam à partilha suspeita de relatório do Power BI**
+
+## <a name="data-destruction"></a>Destruição de dados
+
+### <a name="mass-file-deletion-following-suspicious-azure-ad-sign-in"></a>Eliminação de ficheiros em massa após a assinatura suspeita da AD Azure
+
+**MITRE ATT&táticas CK:** Acesso Inicial, Impacto
+
+**Técnicas MITRE ATT&CK:** Conta Válida (T1078), Destruição de Dados (T1485)
+
+**Fontes de conector de dados:** Microsoft Cloud App Security, Azure Ative Directory Identity Protection
+
+**Descrição:** Incidentes de fusão deste tipo indicam que um número anómalo de ficheiros únicos foi eliminado na sequência de um início de sação suspeito numa conta AD Azure. Isto fornece uma indicação de que a conta indicada na descrição do incidente de Fusão pode ter sido comprometida e foi usada para destruir dados para fins maliciosos. As permutações de alertas de sinal de Azure AD suspeitos com o alerta de eliminação de ficheiros em massa são:  
+
+- **Viagem impossível para um local atípico que leva à eliminação de ficheiros em massa**
+
+- **Evento de inscrição a partir de um local desconhecido que leva à eliminação de ficheiros em massa**
+
+- **Evento de inscrição a partir de um dispositivo infetado que conduz à eliminação de ficheiros em massa**
+
+- **Evento de inscrição a partir de um endereço IP anónimo que conduz à eliminação em massa de ficheiros**
+
+- **Evento de inscrição do utilizador com credenciais vazadas que conduzem à eliminação de ficheiros em massa**
+
+### <a name="suspicious-email-deletion-activity-following-suspicious-azure-ad-sign-in"></a>Atividade suspeita de eliminação de e-mails após a assinatura suspeita de Azure AD
+Este cenário encontra-se atualmente em **pré-visualização pública.**
+
+**MITRE ATT&táticas CK:** Acesso Inicial, Impacto 
+
+**Técnicas MITRE ATT&CK:** Conta Válida (T1078), Destruição de Dados (T1485)
+
+**Fontes de conector de dados:** Microsoft Cloud App Security, Azure Ative Directory Identity Protection
+
+**Descrição:** Incidentes de fusão deste tipo indicam que um número anómalo de e-mails foi eliminado numa única sessão após um início de sessão suspeito numa conta AD Azure. Isto fornece uma indicação de que a conta indicada na descrição do incidente de Fusão pode ter sido comprometida e foi usada para destruir dados para fins maliciosos, tais como prejudicar a organização ou esconder atividade de e-mail relacionada com spam. As permutações de alertas de sinal de Azure AD suspeitos com o alerta suspeito de atividade de eliminação de e-mails são:   
+
+- **Viagem impossível para um local atípico que leva a atividade suspeita de eliminação de e-mails**
+
+- **Evento de inscrição a partir de um local desconhecido que leva a atividade suspeita de eliminação de e-mails**
+
+- **Evento de inscrição a partir de um dispositivo infetado que conduz a atividade suspeita de eliminação de e-mails**
+
+- **Evento de inscrição a partir de um endereço IP anónimo que conduz a atividade suspeita de eliminação de e-mails**
+
+- **Evento de inscrição do utilizador com credenciais vazadas que conduzem a atividade de eliminação de emails suspeitos**
+
+## <a name="denial-of-service"></a>Denial-of-service
+
+### <a name="multiple-vm-delete-activities-following-suspicious-azure-ad-sign-in"></a>Múltiplas atividades de eliminação de VM após o sinal de Ad Azure suspeito
+Este cenário encontra-se atualmente em **pré-visualização pública.**
+
+**MITRE ATT&táticas CK:** Acesso Inicial, Impacto
+
+**Técnicas MITRE ATT&CK:** Conta Válida (T1078), Negação de Serviço endpoint (T1499)
+
+**Fontes de conector de dados:** Microsoft Cloud App Security, Azure Ative Directory Identity Protection
+
+**Descrição:** Incidentes de fusão deste tipo indicam que um número anómalo de VMs foi eliminado numa única sessão após um sinal suspeito para uma conta AD Azure. Esta indicação fornece uma alta confiança de que a conta notada na descrição do incidente de Fusão foi comprometida e foi usada para tentar perturbar ou destruir o ambiente de nuvem da organização. As permutações de alertas de sinal de Ad Ad suspeitos com o alerta de várias atividades de eliminação de VM são:  
+
+- **Viagem impossível para um local atípico que leva a múltiplas atividades de eliminação de VM**
+
+- **Evento de inscrição a partir de um local desconhecido que leva a múltiplas atividades de eliminação de VM**
+
+- **Evento de inscrição a partir de um dispositivo infetado que conduz a múltiplas atividades de eliminação de VM**
+
+- **Evento de inscrição a partir de um endereço IP anónimo que conduz a múltiplas atividades de eliminação de VM**
+
+- **Evento de inscrição do utilizador com credenciais vazadas que conduzam a múltiplas atividades de eliminação de VM**
+
+## <a name="lateral-movement"></a>Movimento lateral
+
+### <a name="office-365-impersonation-following-suspicious-azure-ad-sign-in"></a>Imitação do Office 365 após a assinatura suspeita da Azure AD
+
+**MITRE ATT&táticas CK:** Acesso Inicial, Movimento Lateral
+
+**Técnicas MITRE ATT&CK:** Conta Válida (T1078), Phishing De Lança Interna (T1534)
+
+**Fontes de conector de dados:** Microsoft Cloud App Security, Azure Ative Directory Identity Protection
+
+**Descrição:** Incidentes de fusão deste tipo indicam que um número anómalo de ações de imitação ocorreu na sequência de um sinal suspeito de uma conta AD Azure. Em alguns softwares, existem opções que permitem aos utilizadores personificar outros utilizadores. Por exemplo, os serviços de e-mail permitem que os utilizadores autorizem outros utilizadores a enviar e-mails em seu nome. Este alerta indica com maior confiança que a conta notada na descrição do incidente de Fusão foi comprometida e foi usada para realizar atividades de imitação para fins maliciosos, como o envio de e-mails de phishing para distribuição de malware ou movimento lateral. As permutações de alertas de sinal de Azure AD suspeitos com o alerta de imitação do Office 365 são:  
+
+- **Viagem impossível para um local atípico que leva à personificação do Office 365**
+
+- **Evento de inscrição a partir de um local desconhecido que leva à personificação do Office 365**
+
+- **Evento de inscrição a partir de um dispositivo infetado que conduz à personificação do Office 365**
+
+- **Evento de inscrição a partir de um endereço IP anónimo que conduz à personificação do Office 365**
 
 - **Evento de inscrição do utilizador com credenciais vazadas que conduzem à personificação do Office 365**
-    
-    Este alerta é uma indicação de que o evento de inscrição é usado por \<*account name*> credenciais vazadas. 
-    
-    Em seguida, a conta \<*account name*> personificada sobre \<*number of*> contas diferentes numa única sessão.
+ 
+### <a name="suspicious-inbox-manipulation-rules-set-following-suspicious-azure-ad-sign-in"></a>Regras suspeitas de manipulação de caixas de entrada definidas após o sinal de Ad Azure suspeito
+Este cenário pertence a duas classificações de ameaça nesta lista: **movimento lateral** e **exfiltração de dados**. Por uma questão de clareza, aparece em ambas as secções.
 
-- **Evento de inscrição do Utilizador com credenciais vazadas que conduzem à partilha de ficheiros em massa**
-    
-    Este alerta é uma indicação de que o evento de inscrição é usado por \<*account name*> credenciais vazadas.
-    
-    Em seguida, a conta \<*account name*> partilhou \<*number of*> ficheiros únicos numa única sessão.
+Este cenário encontra-se atualmente em **pré-visualização pública.**
 
-- **Evento de início de s nota do Utilizador com credenciais vazadas para ransomware em app cloud**
-    
-    Este alerta é uma indicação de que o evento de inscrição é usado por \<*account name*> credenciais vazadas. 
-    
-    Em seguida, a conta \<*account name*> carregou \<*number of*> ficheiros e apagou um total de \<*number of*> ficheiros. 
-    
-    Este padrão de atividade é indicativo de um potencial ataque de ransomware.
+**MITRE ATT&táticas CK:** Acesso Inicial, Movimento Lateral, Exfiltração
 
-## <a name="next-steps"></a>Próximos passos
+**Técnicas MITRE ATT&CK:** Conta Válida (T1078), Phishing De Lança Interna (T1534), Exfiltração Automatizada (T1020)
+
+**Fontes de conector de dados:** Microsoft Cloud App Security, Azure Ative Directory Identity Protection
+
+**Descrição:** Incidentes de fusão deste tipo indicam que as regras anómalas da caixa de entrada foram definidas na caixa de entrada de um utilizador na sequência de um início de súming suspeito numa conta AZure AD. Esta indicação fornece uma alta confiança de que a conta indicada na descrição do incidente de Fusão foi comprometida e foi usada para manipular as regras da caixa de entrada de e-mail do utilizador para fins maliciosos. Isto pode ser uma tentativa de um intruso de exfiltrar dados da rede da organização. Em alternativa, o intruso pode estar a tentar gerar e-mails de phishing dentro da organização (contornando mecanismos de deteção de phishing direcionados para o e-mail de fontes externas) com o objetivo de se mover lateralmente, obtendo acesso a contas adicionais de utilizador e/ou privilegiadas. As permutações de alertas de entrada de Azure AD suspeitos com o alerta de regras suspeitas de manipulação de caixas de entrada são:
+
+- **Viagem impossível para um local atípico levando a regra de manipulação de caixa de entrada suspeita**
+
+- **Evento de entrada de um local desconhecido que conduz a regra de manipulação de caixa de entrada suspeita**
+
+- **Evento de entrada a partir de um dispositivo infetado que conduz a regra de manipulação de caixa de entrada suspeita**
+
+- **Evento de entrada a partir de um endereço IP anónimo que conduz a regra de manipulação de caixa de entrada suspeita**
+
+- **Evento de entrada de utilizador com credenciais vazadas que conduzam a regra de manipulação de caixa de entrada suspeita**
+
+## <a name="malicious-administrative-activity"></a>Atividade administrativa maliciosa
+
+### <a name="suspicious-cloud-app-administrative-activity-following-suspicious-azure-ad-sign-in"></a>Atividade administrativa de aplicação de nuvem suspeita após o sinal suspeito de Azure AD
+
+**MITRE ATT&táticas CK:** Acesso Inicial, Persistência, Evasão de Defesa, Movimento Lateral, Recolha, Exfiltração e Impacto
+
+**Técnicas MITRE ATT&CK:** N/A
+
+**Fontes de conector de dados:** Microsoft Cloud App Security, Azure Ative Directory Identity Protection
+
+**Descrição:** Incidentes de fusão deste tipo indicam que um número anómalo de atividades administrativas foram realizadas numa única sessão após um sinal de Ad Azure suspeito da mesma conta. Isto fornece uma indicação de que a conta indicada na descrição do incidente de Fusão pode ter sido comprometida e foi usada para fazer qualquer número de ações administrativas não autorizadas com intenção maliciosa. Isto também indica que uma conta com privilégios administrativos pode ter sido comprometida. As permutações de alertas de sinal de Azure AD suspeitos com o alerta de atividade administrativa de aplicações em nuvem suspeitas são:  
+
+- **Viagem impossível para um local atípico levando a atividade administrativa de aplicações em nuvem suspeita**
+
+- **Evento de inscrição a partir de um local desconhecido que leva a atividade administrativa de aplicações de nuvem suspeita**
+
+- **Evento de inscrição a partir de um dispositivo infetado que leva a atividade administrativa de aplicações em nuvem suspeita**
+
+- **Evento de inscrição a partir de um endereço IP anónimo que conduz a atividade administrativa de aplicações em nuvem suspeita**
+
+- **Evento de inscrição de utilizador com credenciais vazadas que levam a atividade administrativa de aplicações em nuvem suspeita**
+
+## <a name="malicious-execution-with-legitimate-process"></a>Execução maliciosa com processo legítimo
+
+### <a name="powershell-made-a-suspicious-network-connection-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>A PowerShell fez uma ligação de rede suspeita, seguida de tráfego anómalo sinalizado pela firewall da Palo Alto Networks.
+Este cenário encontra-se atualmente em **pré-visualização pública.**
+
+**MITRE ATT&táticas CK:** Execução
+
+**Técnicas MITRE ATT&CK:** Intérprete de Comando e Scripting (T1059)
+
+**Fontes de conector de dados:** Microsoft Defender para Endpoint (anteriormente Microsoft Defender Advanced Threat Protection, ou MDATP), Palo Alto Networks 
+
+**Descrição:** Incidentes de fusão deste tipo indicam que um pedido de ligação de saída foi feito através de um comando PowerShell, e na sequência disso, a atividade de entrada anómala foi detetada pela Firewall das Redes Palo Alto. Isto fornece uma indicação de que um intruso provavelmente teve acesso à sua rede e está a tentar realizar ações maliciosas. As tentativas de ligação por parte do PowerShell que seguem este padrão podem ser uma indicação da atividade de comando e controlo de malware, pedidos para o descarregamento de malware adicional ou um intruso que estabeleça acesso remoto interativo. Como em todos os ataques de "viver fora da terra", esta atividade pode ser um uso legítimo do PowerShell. No entanto, a execução do comando PowerShell, seguida de uma atividade de firewall de entrada suspeita, aumenta a confiança de que a PowerShell está a ser usada de forma maliciosa e deve ser investigada mais aprofundadamente. Nos registos de Palo Alto, o Azure Sentinel foca-se em [registos de ameaças,](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)e o tráfego é considerado suspeito quando são permitidas ameaças (dados suspeitos, ficheiros, inundações, pacotes, digitalizações, spyware, URLs, vírus, vulnerabilidades, vírus, incêndios florestais, incêndios florestais). Consulte também o Registo de Ameaça palo Alto correspondente ao [Tipo de Ameaça/Conteúdo](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) listado na descrição do incidente de Fusão para mais detalhes de alerta.
+
+### <a name="suspicious-remote-wmi-execution-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Execução remota suspeita do WMI seguida de tráfego anómalo sinalizado pela firewall da Palo Alto Networks
+Este cenário encontra-se atualmente em **pré-visualização pública.**
+
+**MITRE ATT&táticas CK:** Execução, Descoberta
+
+**Técnicas MITRE ATT&CK:** Instrumentação de Gestão do Windows (T1047)
+
+**Fontes de conector de dados:** Microsoft Defender para Endpoint (anteriormente MDATP), Palo Alto Networks 
+
+**Descrição:** Incidentes de fusão deste tipo indicam que os comandos da Interface de Gestão do Windows (WMI) foram executados remotamente num sistema, e na sequência disso, a atividade de entrada suspeita foi detetada pela Firewall das Redes Palo Alto. Isto fornece uma indicação de que um intruso pode ter tido acesso à sua rede e está a tentar mover-se lateralmente, aumentar privilégios e/ou executar cargas maliciosas. Como em todos os ataques de "viver fora da terra", esta atividade pode ser um uso legítimo da WMI. No entanto, a execução remota do comando do WMI, seguida de uma atividade de firewall de entrada suspeita, aumenta a confiança de que o WMI está a ser usado de forma maliciosa e deve ser investigado mais aprofundadamente. Nos registos de Palo Alto, o Azure Sentinel foca-se em [registos de ameaças,](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)e o tráfego é considerado suspeito quando são permitidas ameaças (dados suspeitos, ficheiros, inundações, pacotes, digitalizações, spyware, URLs, vírus, vulnerabilidades, vírus, incêndios florestais, incêndios florestais). Consulte também o Registo de Ameaça palo Alto correspondente ao [Tipo de Ameaça/Conteúdo](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) listado na descrição do incidente de Fusão para mais detalhes de alerta.
+
+## <a name="malware-c2-or-download"></a>Malware C2 ou download
+
+### <a name="network-request-to-tor-anonymization-service-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Pedido de rede ao serviço de anonimização TOR seguido de tráfego anómalo sinalizado pela firewall da Palo Alto Networks.
+Este cenário encontra-se atualmente em **pré-visualização pública.**
+
+**MITRE ATT&táticas CK:** Comando e Controlo
+
+**Técnicas MITRE ATT&CK:** Canal encriptado (T1573), Proxy (T1090)
+
+**Fontes de conector de dados:** Microsoft Defender para Endpoint (anteriormente MDATP), Palo Alto Networks 
+
+**Descrição:** Incidentes de fusão deste tipo indicam que foi feito um pedido de ligação de saída ao serviço de anonimização TOR, e na sequência disso, a atividade de entrada anómala foi detetada pela Firewall das Redes Palo Alto. Isto fornece uma indicação de que um intruso provavelmente teve acesso à sua rede e está a tentar ocultar as suas ações e intenções. As ligações à rede TOR seguindo este padrão podem ser uma indicação de atividade de comando e controlo de malware, pedidos para o descarregamento de malware adicional, ou um intruso que estabeleça acesso remoto interativo. Nos registos de Palo Alto, o Azure Sentinel foca-se em [registos de ameaças,](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)e o tráfego é considerado suspeito quando são permitidas ameaças (dados suspeitos, ficheiros, inundações, pacotes, digitalizações, spyware, URLs, vírus, vulnerabilidades, vírus, incêndios florestais, incêndios florestais). Consulte também o Registo de Ameaça palo Alto correspondente ao [Tipo de Ameaça/Conteúdo](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) listado na descrição do incidente de Fusão para mais detalhes de alerta.
+
+### <a name="outbound-connection-to-ip-with-a-history-of-unauthorized-access-attempts-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Ligação de saída ao IP com histórico de tentativas de acesso não autorizadas seguidas de tráfego anómalo sinalizado pela firewall da Palo Alto Networks
+Este cenário encontra-se atualmente em **pré-visualização pública.**
+
+**MITRE ATT&táticas CK:** Comando e Controlo
+
+**Técnicas MITRE ATT&CK:** Não aplicável
+
+**Fontes de conector de dados:** Microsoft Defender para Endpoint (anteriormente MDATP), Palo Alto Networks 
+
+**Descrição:** Incidentes de fusão deste tipo indicam que foi estabelecida uma ligação de saída a um endereço IP com um histórico de tentativas de acesso não autorizadas, e na sequência disso, a atividade anómala foi detetada pela Firewall das Redes Palo Alto. Isto fornece uma indicação de que um intruso provavelmente teve acesso à sua rede. As tentativas de ligação seguindo este padrão podem ser uma indicação de atividade de comando e controlo de malware, pedidos para o descarregamento de malware adicional, ou um intruso que estabeleça acesso remoto interativo. Nos registos de Palo Alto, o Azure Sentinel foca-se em [registos de ameaças,](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)e o tráfego é considerado suspeito quando são permitidas ameaças (dados suspeitos, ficheiros, inundações, pacotes, digitalizações, spyware, URLs, vírus, vulnerabilidades, vírus, incêndios florestais, incêndios florestais). Consulte também o Registo de Ameaça palo Alto correspondente ao [Tipo de Ameaça/Conteúdo](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) listado na descrição do incidente de Fusão para mais detalhes de alerta.
+
+## <a name="ransomware"></a>Ransomware
+
+### <a name="ransomware-execution-following-suspicious-azure-ad-sign-in"></a>Execução de ransomware após a assinatura suspeita de Azure AD
+
+**MITRE ATT&táticas CK:** Acesso Inicial, Impacto
+
+**Técnicas MITRE ATT&CK:** Conta Válida (T1078), Dados Encriptados para Impacto (T1486)
+
+**Fontes de conector de dados:** Microsoft Cloud App Security, Azure Ative Directory Identity Protection
+
+**Descrição:** Incidentes de fusão deste tipo indicam que o comportamento anómalo do utilizador indicando um ataque de ransomware foi detetado na sequência de um início de sação suspeito numa conta AZure AD. Esta indicação fornece uma alta confiança de que a conta indicada na descrição do incidente de Fusão foi comprometida e foi usada para encriptar dados para efeitos de extorquir o titular dos dados ou negar o acesso do titular dos dados aos seus dados. As permutações de alertas de sinal de Azure AD suspeitos com o alerta de execução do ransomware são:  
+
+- **Viagem impossível para um local atípico que leva ao ransomware na aplicação cloud**
+
+- **Evento de inscrição a partir de um local desconhecido que leva ao ransomware na aplicação cloud**
+
+- **Evento de início de saúde a partir de um dispositivo infetado que leva ao ransomware na aplicação cloud**
+
+- **Evento de inscrição a partir de um endereço IP anónimo que leva ao ransomware na aplicação cloud**
+
+- **Evento de início de s nota de utilizadores com credenciais vazadas que levam ao ransomware na aplicação cloud**
+
+## <a name="remote-exploitation"></a>Exploração remota
+
+### <a name="suspected-use-of-attack-framework-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Suspeito de uso de quadro de ataque seguido de tráfego anómalo sinalizado por firewall da Rede Palo Alto
+Este cenário encontra-se atualmente em **pré-visualização pública.**
+
+**MITRE ATT&táticas CK:** Acesso Inicial, Execução, Movimento Lateral, Escalada de Privilégio
+
+**Técnicas MITRE ATT&CK:** Explorar Aplicação virada para o Público (T1190), Exploração para Execução de Clientes (T1203), Exploração de Serviços Remotos (T1210), Exploração para Escalada de Privilégios (T1068)
+
+**Fontes de conector de dados:** Microsoft Defender para Endpoint (anteriormente MDATP), Palo Alto Networks 
+
+**Descrição:** Incidentes de fusão deste tipo indicam que foram detetadas utilizações não padrão de protocolos, assemelhando-se ao uso de estruturas de ataque como o Metasploit, e, na sequência disso, a atividade de entrada suspeita foi detetada pela Firewall das Redes palo Alto. Esta pode ser uma indicação inicial de que um intruso explorou um serviço para aceder aos recursos da sua rede ou que um intruso já teve acesso e está a tentar explorar ainda mais os sistemas/serviços disponíveis para mover-se lateralmente e/ou aumentar os privilégios. Nos registos de Palo Alto, o Azure Sentinel foca-se em [registos de ameaças,](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)e o tráfego é considerado suspeito quando são permitidas ameaças (dados suspeitos, ficheiros, inundações, pacotes, digitalizações, spyware, URLs, vírus, vulnerabilidades, vírus, incêndios florestais, incêndios florestais). Consulte também o Registo de Ameaça palo Alto correspondente ao [Tipo de Ameaça/Conteúdo](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/use-syslog-for-monitoring/syslog-field-descriptions/threat-log-fields.html) listado na descrição do incidente de Fusão para mais detalhes de alerta.
+
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu mais sobre a deteção avançada de ataques em vários estágios, pode estar interessado no seguinte quickstart para aprender a obter visibilidade nos seus dados e potenciais ameaças: [Começar com o Azure Sentinel](quickstart-get-visibility.md).
 

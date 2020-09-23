@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/12/2020
-ms.openlocfilehash: 43dca9cd9f9000faae701e618e9a5fdf21d31ee3
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 9a1a3892e6a47aabd9b5129ca551900494616bc8
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192737"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905167"
 ---
 # <a name="score-wide-and-deep-recommender"></a>Score Wide and Deep Recommender
 
-Este artigo descreve como usar o módulo **Score Wide e Deep Recommender** no designer de Aprendizagem automática Azure (pré-visualização), para criar previsões baseadas num modelo de recomendação treinado, baseado no Wide & Deep learning da Google.
+Este artigo descreve como usar o módulo **Score Wide e Deep Recommender** no designer Azure Machine Learning, para criar previsões baseadas num modelo de recomendação treinado, baseado no Wide & Deep learning da Google.
 
 O recomendador Wide and Deep pode gerar dois tipos diferentes de previsões:
 

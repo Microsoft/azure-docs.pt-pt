@@ -1,6 +1,6 @@
 ---
-title: Implementar app apátrida kubernetes no GPU Azure Stack Edge via módulo IoT Edge Microsoft Docs
-description: Descreve como implementar uma aplicação apátrida Kubernetes no seu dispositivo GPU Azure Stack Edge utilizando um módulo IoT Edge que é acedido através de um IP externo.
+title: Implementar app apátrida kubernetes no Azure Stack Edge Pro GPU via módulo IoT Edge Microsoft Docs
+description: Descreve como implementar uma aplicação apátrida Kubernetes no seu dispositivo GPU Azure Stack Edge Pro utilizando um módulo IoT Edge que é acedido através de um IP externo.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: 15316cbdd44053bfaf7403815ba42d92e2264b7b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 4bc598080b96886e6734ac3709761465a1a28d49
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254173"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899528"
 ---
-# <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-gpu-device"></a>Utilize o módulo IoT Edge para executar uma aplicação apátrida kubernetes no seu dispositivo GPU Azure Stack Edge
+# <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-pro-gpu-device"></a>Utilize o módulo IoT Edge para executar uma aplicação apátrida kubernetes no seu dispositivo GPU Azure Stack Edge Pro
 
-Este artigo descreve como pode utilizar um módulo IoT Edge para implementar uma aplicação apátrida no seu dispositivo Azure Stack Edge.
+Este artigo descreve como pode utilizar um módulo IoT Edge para implementar uma aplicação apátrida no seu dispositivo Azure Stack Edge Pro.
 
 Para implementar a aplicação apátrida, você tomará os seguintes passos:
 
 - Certifique-se de que os pré-requisitos estão completos antes de colocar um módulo IoT Edge.
-- Adicione um módulo IoT Edge para aceder à rede de computação no seu Azure Stack Edge.
+- Adicione um módulo IoT Edge para aceder à rede de computação no seu Azure Stack Edge Pro.
 - Verifique se o módulo pode aceder à interface de rede ativada.
 
 Neste artigo de como fazer, você usará um módulo de aplicação webserver para demonstrar o cenário.
@@ -31,19 +31,19 @@ Neste artigo de como fazer, você usará um módulo de aplicação webserver par
 
 Antes de começar, vai precisar de:
 
-- Um dispositivo Azure Stack Edge. Certifique-se de que:
+- Um dispositivo Azure Stack Edge Pro. Certifique-se de que:
 
     - As definições da rede computacional estão configuradas no dispositivo.
     - O dispositivo é ativado de acordo com os passos do [Tutorial: Ative o seu dispositivo](azure-stack-edge-gpu-deploy-activate.md).
-- Completou o passo **de computação Configure** de acordo com o [Tutorial: Conigure computo no seu dispositivo Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-compute.md) no seu dispositivo. O seu dispositivo deve ter um recurso IoT Hub associado, um dispositivo IoT e um dispositivo IoT Edge.
+- Completou o passo **de computação Configure** de acordo com o [Tutorial: Conigure computo no seu dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-compute.md) no seu dispositivo. O seu dispositivo deve ter um recurso IoT Hub associado, um dispositivo IoT e um dispositivo IoT Edge.
 
 
 ## <a name="add-webserver-app-module"></a>Adicionar módulo de aplicativo webserver
 
-Tome os seguintes passos para adicionar um módulo de aplicação webserver no seu dispositivo Azure Stack Edge.
+Tome os seguintes passos para adicionar um módulo de aplicação webserver no seu dispositivo Azure Stack Edge Pro.
 
 1. No recurso IoT Hub associado ao seu dispositivo, aceda à **Gestão Automática de Dispositivos > IoT Edge**.
-1. Selecione e clique no dispositivo IoT Edge associado ao seu dispositivo Azure Stack Edge. 
+1. Selecione e clique no dispositivo IoT Edge associado ao seu dispositivo Azure Stack Edge Pro. 
 
     ![Selecione dispositivo IoT Edge](media/azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module/select-iot-edge-device-1.png)  
 

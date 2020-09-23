@@ -11,16 +11,16 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 72706a67e1798662ea0f40fa7843c32d8267e0d0
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 195fc6100229fca2a05198ffa80108057ad8ad65
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646070"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897583"
 ---
 # <a name="collect-data-from-models-in-production"></a>Recolher dados de modelos em produção
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Este artigo mostra como recolher dados de um modelo de Aprendizagem automática Azure implantado num cluster Azure Kubernetes Service (AKS). Os dados recolhidos são então armazenados no armazenamento da Azure Blob.
 
@@ -210,6 +210,6 @@ Pode escolher uma ferramenta da sua preferência para analisar os dados recolhid
 
 1. Siga os passos no modelo para visualizar e analisar os seus dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Detete a deriva de dados](how-to-monitor-datasets.md) nos dados recolhidos.

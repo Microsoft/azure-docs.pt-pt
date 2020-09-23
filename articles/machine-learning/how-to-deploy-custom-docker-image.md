@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 2164f6d6b346eda185e8a38720677ad50f2e8c89
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: f69ba6e1c5fdfc04fac6fed8487b246f9af72fa2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650671"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889940"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implemente um modelo usando uma imagem base personalizada do Docker
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Aprenda a usar uma imagem base personalizada do Docker ao implementar modelos treinados com Azure Machine Learning.
 
@@ -184,7 +184,7 @@ Para obter mais informações sobre o upload das imagens existentes para um Regi
 
 Para utilizar uma imagem personalizada, precisa das seguintes informações:
 
-* O __nome da imagem.__ Por exemplo, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` é o caminho para uma imagem básica do Docker fornecida pela Microsoft.
+* O __nome da imagem.__ Por exemplo, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` é o caminho para uma simples Imagem Docker fornecida pela Microsoft.
 
     > [!IMPORTANT]
     > Para imagens personalizadas que criou, certifique-se de incluir quaisquer tags que foram usadas com a imagem. Por exemplo, se a sua imagem foi criada com uma etiqueta específica, como `:v1` . Se não usou uma etiqueta específica ao criar a imagem, foi aplicada uma `:latest` etiqueta.
@@ -202,7 +202,7 @@ A Microsoft fornece várias imagens de estivadores num repositório acessível a
 
 | Imagem | Descrição |
 | ----- | ----- |
-| `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Imagem básica para aprendizagem de máquinas Azure |
+| `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Imagem central para Azure Machine Learning |
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | Contém tempo de execução ONNX para inferencing CPU |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-cuda` | Contém o tempo de execução ONNX e CUDA para GPU |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-tensorrt` | Contém ONNX Runtime e TensorRT para GPU |
@@ -335,7 +335,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc depl
 
 Para obter mais informações sobre a implementação de um modelo utilizando o ML CLI, consulte a secção "registo, perfis e implantação do modelo" da extensão do CLI para o artigo [de Aprendizagem automática Azure.](reference-azure-machine-learning-cli.md#model-registration-profiling-deployment)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [onde implementar e como.](how-to-deploy-and-where.md)
 * Aprenda a [treinar e implementar modelos de machine learning utilizando gasodutos Azure.](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)

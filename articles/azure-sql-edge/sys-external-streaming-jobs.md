@@ -1,7 +1,7 @@
 ---
-title: sys.external_streaming_jobs (Transact-SQL) - Azure SQL Edge (Preview)
-description: Saiba como utilizar sys.external_streaming_jobs em Azure SQL Edge (Preview)
-keywords: sys.external_streaming_jobs, SQL Edge
+title: sys.external_streaming_jobs (Transact-SQL) - Azure SQL Edge
+description: Saiba como utilizar sys.external_streaming_jobs em Azure SQL Edge
+keywords: sys.external_streaming_jobs, SqL Edge
 services: sql-edge
 ms.service: sql-edge
 ms.topic: reference
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
-ms.openlocfilehash: c4da73e3197df894a0726556b4e92141818a520e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9643c58f5c9fa1db3e3eb7ec75ce6d3b41620aa3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84233075"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900345"
 ---
 # <a name="sysexternal_streaming_jobs-transact-sql"></a>sys.external_streaming_jobs (Transact-SQL)
 
@@ -42,7 +42,7 @@ Devolve uma linha para cada trabalho de streaming externo criado no âmbito da b
 
 A visibilidade dos metadados nas vistas do catálogo limita-se a securáveis que um utilizador possui ou sobre os quais o utilizador tenha alguma permissão. Para obter mais informações, consulte [a Configuração de Visibilidade dos Metadados](/sql/relational-databases/security/metadata-visibility-configuration/).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Vistas do catálogo de streaming T-SQL](overview.md)
 - [Vistas do Catálogo (Transact-SQL)](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql/)

@@ -13,22 +13,24 @@ metadata:
   ms.author: jmartens
   ms.date: 09/17/2020
   ms.custom: contperfq1
-  ms.openlocfilehash: c103b04fff2cc0b1d5b804c16f98e63fd1aa3e87
-  ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+  ms.openlocfilehash: 4359f18e51dffa26f1bfc7fbe74f5f89dff7c56f
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/14/2020
-  ms.locfileid: "90068290"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90900126"
 landingContent:
 - title: 'Introdução: Primeiro o código'
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Introdução (Python)
+    - text: Introdução ao SDK do Python (dia 1)
+      url: tutorial-1st-experiment-sdk-setup-local.md
+    - text: Utilizar Blocos de Notas do Jupyter
       url: tutorial-1st-experiment-sdk-setup.md
     - text: Inferência de lote com pipelines de ML (Python)
       url: tutorial-pipeline-batch-scoring-classification.md
-    - text: Introdução (R)
+    - text: Introdução à linguagem de programação R
       url: tutorial-1st-r-experiment.md
 - title: 'Introdução: Pouco ou sem código'
   linkLists:

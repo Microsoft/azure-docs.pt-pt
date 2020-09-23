@@ -7,14 +7,16 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 665d508a7d95e177d0db09ad86e2a5f0ee4d605b
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 2f788452455bfbbc47f0a48689ccf3344515fdae
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291301"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904243"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configurar uma instância do Servidor Config da Nuvem de primavera para o seu serviço
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C #
 
 Este artigo mostra-lhe como ligar uma instância do Servidor Configurar de Nuvem de primavera ao seu serviço Azure Spring Cloud.
 
@@ -163,7 +165,7 @@ Se pretender utilizar um **repositório** de padrões opcional para configurar o
 
 Se tiver escrito um ficheiro YAML com as suas definições de repositório, pode importar o ficheiro diretamente da sua máquina local para a Azure Spring Cloud. Um simples ficheiro YAML para um repositório privado com autenticação básica seria assim:
 
-```yml
+```yaml
 spring:
     cloud:
         config:
@@ -231,6 +233,6 @@ Depois de ter guardado um ficheiro de configuração, o botão **de configuraç�
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a ativar e configurar a sua instância do Servidor Config da Nuvem de primavera. Para saber mais sobre a gestão da sua aplicação, consulte [Escala uma aplicação em Azure Spring Cloud.](spring-cloud-tutorial-scale-manual.md)

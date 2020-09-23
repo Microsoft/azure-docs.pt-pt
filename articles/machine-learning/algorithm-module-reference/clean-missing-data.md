@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 14c3bc968da9d398fbc14eda74378047cf28277b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b7943b2026d640ae7e5d119e165bd752ae2fe7f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477702"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898834"
 ---
 # <a name="clean-missing-data-module"></a>Módulo de dados em falta limpo
 
-Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
+Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
 Utilize este módulo para remover, substituir ou inferir valores em falta. 
 
@@ -48,7 +48,7 @@ Este módulo permite definir uma operação de limpeza. Também pode guardar a o
 
 ### <a name="replace-missing-values"></a>Substituir valores em falta  
 
-Cada vez que aplica o módulo [De Dados Desaparecidos Limpos](./clean-missing-data.md) a um conjunto de dados, a mesma operação de limpeza é aplicada a todas as colunas que seleciona. Portanto, se precisar de limpar diferentes colunas utilizando diferentes métodos, utilize instâncias separadas do módulo.
+Cada vez que aplica o módulo  [De Dados Desaparecidos Limpos](./clean-missing-data.md) a um conjunto de dados, a mesma operação de limpeza é aplicada a todas as colunas que seleciona. Portanto, se precisar de limpar diferentes colunas utilizando diferentes métodos, utilize instâncias separadas do módulo.
 
 1.  Adicione o módulo [de Dados Desaparecidos Limpos](./clean-missing-data.md) ao seu pipeline e conecte o conjunto de dados que tem valores em falta.  
   
@@ -140,6 +140,6 @@ Se precisar de repetir as operações de limpeza com frequência, recomendamos q
 
 6.  Envie o oleoduto.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

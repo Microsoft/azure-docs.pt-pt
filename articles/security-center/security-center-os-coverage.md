@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: f02e45804234fc8f8aa2b966db7ddce5efc9cfd1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2092a1aa3d5157db0392397e86553c5cc9da9de2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998837"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883792"
 ---
 # <a name="supported-platforms"></a>Plataformas suportadas 
 
@@ -55,7 +55,7 @@ As máquinas virtuais também são criadas numa subscrição de clientes como pa
 
 As máquinas virtuais que funcionam num serviço de nuvem também são suportadas. Apenas os serviços de cloud web e os papéis dos trabalhadores que funcionam em slots de produção são monitorizados. Para saber mais sobre os serviços na nuvem, consulte [a visão geral dos Serviços Azure Cloud.](../cloud-services/cloud-services-choose-me.md)
 
-A proteção para os VMs que residem em Azure Stack também é suportada. Para obter mais informações sobre a integração do Security Center com o Azure Stack, consulte [a bordo das suas máquinas virtuais Azure Stack para o Security Center](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack).
+A proteção para os VMs que residem em Azure Stack também é suportada. Para obter mais informações sobre a integração do Security Center com o Azure Stack, consulte [a bordo das suas máquinas virtuais Azure Stack para o Security Center](quickstart-onboard-machines.md). 
 
 ## <a name="next-steps"></a>Passos seguintes
 

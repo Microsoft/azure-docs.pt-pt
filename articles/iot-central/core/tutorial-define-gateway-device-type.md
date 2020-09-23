@@ -1,5 +1,5 @@
 ---
-title: Defina um novo tipo de dispositivo gateway no Azure IoT Central Microsoft Docs
+title: Tutorial - Defina um novo tipo de dispositivo de gateway no Azure IoT Central Microsoft Docs
 description: Este tutorial mostra-lhe, como construtor, como definir um novo tipo de dispositivo de gateway IoT na sua aplicação Azure IoT Central.
 author: rangv
 ms.author: rangv
@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 2411eab50cc921a09ba55780b3c6620744a78f3f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 58e481e34d9f798b73b72b114b071cf035c3319f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "81758126"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967904"
 ---
-# <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Defina um novo tipo de dispositivo de gateway IoT na sua aplicação Azure IoT Central
+# <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Tutorial - Defina um novo tipo de dispositivo de gateway IoT na sua aplicação Azure IoT Central
 
 *Este artigo aplica-se a construtores de soluções e desenvolvedores de dispositivos.*
 
@@ -31,6 +31,9 @@ Além de permitir que os dispositivos a jusante comuniquem com a sua aplicação
 * Envie a sua própria telemetria, como a temperatura.
 * Responda às atualizações de propriedades escritas efetuadas por um operador. Por exemplo, um operador pode alterar o intervalo de envio de telemetria.
 * Responda aos comandos, tais como reiniciar o dispositivo.
+
+> [!div class="checklist"]
+> Criar modelos de dispositivo a jusante Crie um modelo de dispositivo de gateway Publicar o modelo de dispositivo Criar os dispositivos simulados
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -107,7 +110,7 @@ Para adicionar propriedades de nuvem ao modelo de **dispositivo de gateway smart
 
     | Nome a apresentar      | Tipo de semântica | Esquema |
     | ----------------- | ------------- | ------ |
-    | Data da Última Assistência | Nenhum          | Data   |
+    | Data da Última Assistência | Nenhum          | Date   |
     | Nome do Cliente     | Nenhum          | Cadeia |
 
 2. Selecione **Guardar**.

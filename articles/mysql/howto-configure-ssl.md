@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: dd01b8e85be52de898e6b22fb4da810e9184482d
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 1bedeb752a18d7a0212ede2b34526efb8ea09287
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055831"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905836"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Configure a conectividade SSL na sua aplicação para ligar de forma segura à Base de Dados Azure para o MySQL
 
@@ -42,7 +42,7 @@ Configure a bancada MySQL workbench para ligar de forma segura sobre o SSL.
 
 1. No **Ficheiro CA SSL:** campo, introduza a localização do ficheiro **do BaltimoreCyberTrustRoot.crt.pem**.
 
-   ![Salvar a configuração SSL](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+   :::image type="content" source="./media/howto-configure-ssl/mysql-workbench-ssl.png" alt-text="Salvar a configuração SSL":::
 
 Para as ligações existentes, pode ligar o SSL clicando à direita no ícone de ligação e escolher editar. Em seguida, navegue no separador **SSL** e ligue o ficheiro cert.
 
@@ -63,7 +63,7 @@ mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p -
 
 Utilizando o portal Azure, visite a base de dados Azure para o servidor MySQL e, em seguida, clique em **Segurança de Ligação**. Utilize o botão de alternar para ativar ou desativar a **definição de ligação SSL de acionar** e, em seguida, clique em **Guardar**. A Microsoft recomenda ativar sempre a **definição de ligação Enforce SSL** para uma segurança reforçada.
 
-![Screenshot do portal Azure para impor ligações SSL na Base de Dados Azure para o MySQL](./media/howto-configure-ssl/enable-ssl.png)
+:::image type="content" source="./media/howto-configure-ssl/enable-ssl.png" alt-text="Screenshot do portal Azure para impor ligações SSL na Base de Dados Azure para o MySQL":::
 
 ### <a name="using-azure-cli"></a>Utilizar a CLI do Azure
 
@@ -252,6 +252,6 @@ using (var connection = new MySqlConnection(builder.ConnectionString))
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Reveja várias opções de conectividade de aplicações seguindo [bibliotecas de conexão para Azure Database for MySQL](concepts-connection-libraries.md)

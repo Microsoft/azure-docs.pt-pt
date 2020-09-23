@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: 6e4d4c8f798418e090caeba091dec33c71f0458f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4112d26d6a21ac800e20bb67ce24a35ca9d09a13
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477498"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905240"
 ---
 # <a name="preprocess-text"></a>Pré-processar Texto
 
-Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
+Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
 Utilize o módulo **de texto pré-processamento** para limpar e simplificar o texto. Apoia estas operações comuns de processamento de texto:
 
@@ -71,7 +71,7 @@ O módulo **de texto pré-processamento** suporta apenas inglês.
     * **Remover caracteres duplicados**: Selecione esta opção para remover caracteres extras em quaisquer sequências que se repitam por mais de duas vezes. Por exemplo, uma sequência como "aaaaa" seria reduzida a "aa".
     
     * **Remova os endereços de e-mail**: Selecione esta opção para remover qualquer sequência do formato `<string>@<string>` .  
-    * **Remover URLs**: Selecione esta opção para remover qualquer sequência que inclua os seguintes prefixos URL: `http` , , , `https` `ftp` ,`www`
+    * **Remover URLs**: Selecione esta opção para remover qualquer sequência que inclua os seguintes prefixos URL: `http` , , , `https` `ftp` , `www`
     
 1. **Expandir contrações verbos**: Esta opção aplica-se apenas às línguas que utilizam contrações de verbo; atualmente, apenas inglês. 
 
@@ -85,6 +85,6 @@ O módulo **de texto pré-processamento** suporta apenas inglês.
 
 1. Envie o oleoduto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

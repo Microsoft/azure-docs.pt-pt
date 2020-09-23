@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 2b4d6939aa1db4b8321c792898ed421c0d16cc99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 654b10a283c4dcf5a1a1866ec51799aad45a8893
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456748"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898895"
 ---
 # <a name="apply-math-operation"></a>Aplicar Operação Matemática
 
-Este artigo descreve um módulo de Azure Machine Learning designer (pré-visualização).
+Este artigo descreve um módulo de Azure Machine Learning designer.
 
 Utilize a Operação Matemática Aplicada para criar cálculos que são aplicados a colunas numéricas no conjunto de dados de entrada. 
 
@@ -138,7 +138,7 @@ Devoluções e elevado ao poder do valor na coluna selecionada. Isto é o mesmo 
 
 Devolve a base-2 exponencial dos argumentos, resolvendo para y = x * 2<sup>t</sup> onde t é uma coluna de valores que contém expoentes.  
 
-No **conjunto coluna**, selecione a coluna que contém os valores exponente t.
+No  **conjunto coluna**, selecione a coluna que contém os valores exponente t.
 
 Para **Exp2** pode especificar um segundo argumento x, que pode ser uma coluna de valores constante ou outra. No **segundo tipo de argumento,** indique se fornecerá o multiplicador x como constante, ou um valor numa coluna.  
 
@@ -306,7 +306,7 @@ Devolve a parte fracionada dos valores definidos na **Coluna,** à precisão esp
 
 Devolve a parte fracionada dos valores definidos na **Coluna,** à precisão especificada.  
 
-### <a name="remainder"></a>Remanescente
+### <a name="remainder"></a>Resto
 
 Devolve o restante para os valores definidos na **Coluna**.  
 
@@ -588,6 +588,6 @@ Em alternativa, utilize um dos seguintes módulos para fazer todos os cálculos 
 + [Executar Script do Python](execute-python-script.md)
 + [Aplicar Transformação SQL](apply-sql-transformation.md)   
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

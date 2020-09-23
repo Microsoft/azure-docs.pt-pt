@@ -4,14 +4,14 @@ description: ficheiro de inclusão
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 08/07/2020
+ms.date: 09/22/2020
 ms.author: dacoulte
-ms.openlocfilehash: 9fcaca3f89217f649eb970ec70514a5735222782
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 2707523947cae77dd800dd5f560ebe1c47f3893a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854090"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905974"
 ---
 Há uma contagem máxima para cada tipo de objeto para Azure Policy. Uma entrada de _Âmbito_ significa a subscrição ou o [grupo de gestão](../articles/governance/management-groups/overview.md).
 
@@ -21,6 +21,7 @@ Há uma contagem máxima para cada tipo de objeto para Azure Policy. Uma entrada
 | Âmbito | Definições de iniciativa | 200 |
 | Inquilino | Definições de iniciativa | 2.500 |
 | Âmbito | Atribuições de política ou iniciativa | 200 |
+| Âmbito | Isenções | 1000 |
 | Definição de política | Parâmetros | 20 |
 | Definição de iniciativa | Políticas | 1000 |
 | Definição de iniciativa | Parâmetros | 100 |

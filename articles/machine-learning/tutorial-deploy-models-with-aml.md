@@ -10,15 +10,15 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 680b6ec17b65cd9452dd3bd5c0c470e395688cb8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: f0d78fc55ca60fa883c742885acf2fa98ede61ad
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86025680"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896589"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Implementar um modelo de classificação de imagem em Instâncias de Contentores Azure
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Este tutorial é a **segunda parte de uma série composta por duas partes**. No [tutorial anterior](tutorial-train-models-with-aml.md), preparou os modelos de machine learning e registou um modelo na sua área de trabalho na cloud.  Agora está pronto para implementar o modelo como um serviço web. Um serviço web é uma imagem, neste caso uma imagem do Docker. Encapsula a lógica de pontuação e o próprio modelo. 
 
@@ -47,7 +47,7 @@ Este tutorial também está disponível no [GitHub](https://github.com/Azure/Mac
 > Mude agora para o caderno Jupyter se quiser ler enquanto executar o código.
 > Para executar uma única célula de código num bloco de notas, clique na célula de código e clique no **Shift+Enter**. Ou, executar todo o caderno escolhendo **Executar tudo** a partir da barra de ferramentas superior.
 
-## <a name="set-up-the-environment"></a><a name="start"></a>Configure o ambiente
+## <a name="set-up-the-environment"></a><a name="start"></a>Configurar o ambiente
 
 Comece por configurar um ambiente de teste.
 
@@ -343,7 +343,7 @@ print("label:", y_test[random_index])
 print("prediction:", resp.text)
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para manter o grupo de recursos e o espaço de trabalho para outros tutoriais e exploração, pode eliminar apenas a implantação de Instâncias de Contentores utilizando esta chamada API:
 

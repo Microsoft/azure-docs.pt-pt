@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2c39a07ceac4d36bf3ef7394927589b53da7d789
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 1a46b5bf6c4be4953e6cde9972aa143be71406a4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450752"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977005"
 ---
 # <a name="how-to-create-alerts-for-update-management"></a>Como criar alertas para a Gestão de Atualização
 
@@ -56,7 +56,7 @@ Siga os passos abaixo para configurar alertas para que saiba o estado de uma imp
 
 9. Desaprova o campo **Severidade** para **Informational (Sev 2)** para uma execução bem sucedida ou **informativo (Sev 1)** para uma execução falhada.
 
-    ![Configurar lógica de sinal](./media/update-mgmt-manage-updates-for-vm/define-alert-details.png)
+    ![A screenshot mostra a secção de detalhes de alerta de Definição com o nome da regra de alerta, descrição e severidade realçados.](./media/update-mgmt-manage-updates-for-vm/define-alert-details.png)
 
 10. Selecione **Sim** para ativar a regra de alerta.
 

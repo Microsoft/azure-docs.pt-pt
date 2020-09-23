@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/30/2020
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 7f43f50fc35b5ecbc9720224036ea13e2ba753f5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f1444ea31fe693f1c912a3ecb785bbb1e3aa6333
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894927"
+ms.locfileid: "90977281"
 ---
 # <a name="azure-kubernetes-services-integration-with-security-center"></a>Integração dos Serviços Azure Kubernetes com o Security Center
 

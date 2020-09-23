@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: ea8c13e134eceeb27bd064e794d46d711092a867
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d8806b8c93f5a8cbceaa6efa16dfff978dda42e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450732"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905209"
 ---
 # <a name="resnet"></a>ResNet
 
-Este artigo descreve como usar o módulo **ResNet** no designer de aprendizagem automática Azure (pré-visualização), para criar um modelo de classificação de imagem usando o algoritmo ResNet..  
+Este artigo descreve como usar o módulo **ResNet** no designer Azure Machine Learning, para criar um modelo de classificação de imagem usando o algoritmo ResNet..  
 
 Este algoritmo de classificação é um método de aprendizagem supervisionado, e requer um conjunto de dados rotulado. Consulte o módulo [De Conversão para Diretório de Imagem](convert-to-image-directory.md) para obter mais informações sobre como obter um diretório de imagem rotulado. Pode treinar o modelo fornecendo um modelo e um diretório de imagem rotulado como entradas para [o Modelo Train Pytorch.](train-pytorch-model.md) O modelo treinado pode então ser utilizado para prever valores para os novos exemplos de entrada utilizando o [Modelo de Imagem de Pontuação](score-image-model.md).
 
@@ -54,10 +54,10 @@ Após a execução do gasoduto, para utilizar o modelo para pontuação, ligue o
 
 ###  <a name="output"></a>Saída  
 
-| Name            | Tipo                    | Descrição                              |
+| Nome            | Tipo                    | Descrição                              |
 | --------------- | ----------------------- | ---------------------------------------- |
 | Modelo destreinado | Não treinadoModelDirect | Um modelo resNet destreinado que pode ser ligado ao Modelo Train Pytorch. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

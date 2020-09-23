@@ -10,33 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2020
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 718f9a29b70dab34269c959ccd62452e56a32d72
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 1335b1034304b7efe2b113f7ff2d2927fea41638
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056606"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977358"
 ---
 # <a name="azure-container-registry-image-scanning-by-security-center"></a>Digitalização da imagem do registo do contentor Azure pelo Centro de Segurança
 
 O Registo de Contentores Azure (ACR) é um serviço de registo privado e gerido do Docker que armazena e gere as suas imagens de contentores para implantações do Azure num registo central. Baseia-se no registo 2.0 do Docker.
 
-Se estiver no nível padrão do Centro de Segurança Azure, pode adicionar o pacote de registos de contentores. Esta funcionalidade opcional traz uma visibilidade mais profunda às vulnerabilidades das imagens nos registos baseados no Azure Resource Manager. Ative ou desative o pacote ao nível de subscrição para cobrir todos os registos numa subscrição. Esta funcionalidade é carregada por imagem, como mostra a [página de preços](security-center-pricing.md). Ativando o pacote de registos de contentores, garante que o Centro de Segurança está pronto para digitalizar imagens que são empurradas para o registo. 
-
-## <a name="availability"></a>Disponibilidade
-
-|Aspeto|Detalhes|
-|----|:----|
-|Estado de libertação:|Disponibilidade geral|
-|Preços:|Escalão standard|
-|Registos e imagens suportados:|![Sim, ](./media/icons/yes-icon.png) registos ACR hospedados em Linux que são acessíveis a partir da internet pública e fornecem acesso à concha.<br>![Sem ](./media/icons/no-icon.png) registos ACR hospedados pelo Windows.<br>![Sem ](./media/icons/no-icon.png) registos 'Privados' - O Centro de Segurança exige que os seus registos sejam acessíveis a partir da internet pública. O Security Center não pode atualmente ligar-se ou digitalizar registos com acesso limitado com uma firewall, um ponto final de serviço ou pontos finais privados, como o Azure Private Link.<br>![Nenhuma ](./media/icons/no-icon.png) imagem super minimalista, como [imagens de rascunho de Docker,](https://hub.docker.com/_/scratch/) ou imagens "Distroless" que contenham apenas uma aplicação e as suas dependências de tempo de execução sem um gestor de pacotes, concha ou SO.|
-|Funções e permissões necessárias:|**Leitor de segurança** e [papel de leitor de registo de contentores Azure](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
-|||
-
-
+Ativar **o Azure Defender para registos** de contentores para uma visibilidade mais profunda sobre as vulnerabilidades das imagens nos registos baseados no Azure Resource Manager. Ative ou desative o plano ao nível da subscrição para cobrir todos os registos numa subscrição. Esta funcionalidade é carregada por imagem, como mostra a [página de preços](security-center-pricing.md). Ativando o Azure Defender, garante que o Centro de Segurança está pronto para digitalizar imagens que são empurradas para o registo. 
 
 
 ## <a name="when-are-images-scanned"></a>Quando as imagens são digitalizadas?
@@ -74,7 +61,7 @@ As imagens são ativadas em cada impulso.
 Sim. Os resultados estão em [Sub-Avaliações Rest API](/rest/api/securitycenter/subassessments/list/). Além disso, pode utilizar o Azure Resource Graph (ARG), a API semelhante a Kusto para todos os seus recursos: uma consulta pode obter uma digitalização específica.
  
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Que tipos de registo são digitalizados? Que tipos são cobrados?
-A [secção de disponibilidade](#availability) lista os tipos de registos de contentores suportados pelo pacote de registos de contentores. 
+A secção de disponibilidade lista os tipos de registos de contentores suportados pelo Azure Defender para registos de contentores. 
 
 Se os registos que não forem suportados estiverem ligados à sua subscrição do Azure, não serão digitalizados e não serão cobrados por eles.
 
@@ -87,4 +74,4 @@ Para saber mais sobre as funcionalidades de segurança do Security Center, consu
 
 * [Integração com o Azure Kubernetes Service](azure-kubernetes-service-integration.md)
 
-* [Proteção de Máquinas Virtuais](security-center-virtual-machine-protection.md) - Descreve as recomendações do Centro de Segurança
+

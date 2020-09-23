@@ -1,24 +1,24 @@
 ---
-title: Tutorial para ligar, configurar, ativar o dispositivo Azure Stack Edge com GPU no portal Azure / Microsoft Docs
-description: Tutorial para implementar Azure Stack Edge GPU instrui-o a ligar, configurar e ativar o seu dispositivo físico.
+title: Tutorial para ligar, configurar, ativar o dispositivo Azure Stack Edge Pro com GPU no portal Azure / Microsoft Docs
+description: Tutorial para implementar Azure Stack Edge Pro GPU instrui-o a ligar, configurar e ativar o seu dispositivo físico.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/29/2020
+ms.date: 09/10/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 41055fbd455d3f7b9da63ee8f7420f008ea75a00
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
+ms.openlocfilehash: 1f86b0fc847ade3153c8eaddb0d82bd968913b46
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254513"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899647"
 ---
-# <a name="tutorial-configure-device-settings-for-azure-stack-edge-with-gpu"></a>Tutorial: Configurar configurações de dispositivos para Azure Stack Edge com GPU
+# <a name="tutorial-configure-device-settings-for-azure-stack-edge-pro-with-gpu"></a>Tutorial: Configurar configurações de dispositivos para Azure Stack Edge Pro com GPU
 
-Este tutorial descreve como configura as definições relacionadas com o dispositivo para o seu dispositivo Azure Stack Edge com uma GPU a bordo. Pode configurar o nome do seu dispositivo, atualizar o servidor e o servidor de tempo através da UI web local.
+Este tutorial descreve como configura as definições relacionadas com o dispositivo para o seu dispositivo Azure Stack Edge Pro com uma GPU a bordo. Pode configurar o nome do seu dispositivo, atualizar o servidor e o servidor de tempo através da UI web local.
 
 As definições do dispositivo podem demorar cerca de 5 a 7 minutos a ser concluídas.
 
@@ -33,23 +33,19 @@ Neste tutorial, ficará a saber mais sobre:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de configurar as definições relacionadas com o dispositivo no seu dispositivo Azure Stack Edge com GPU, certifique-se de que:
+Antes de configurar as definições relacionadas com o dispositivo no seu dispositivo Azure Stack Edge Pro com GPU, certifique-se de que:
 
 * Para o seu dispositivo físico:
 
-    - Instalou o dispositivo físico conforme detalhado na [Instalação Azure Stack Edge](azure-stack-edge-gpu-deploy-install.md).
-    - Configuraste a rede e ativaste e configuraste a rede de computação no teu dispositivo conforme detalhado no [Tutorial: Rede de configuração para Azure Stack Edge com GPU](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
+    - Instalou o dispositivo físico conforme detalhado no [Install Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-install.md).
+    - Configuraste a rede e ativaste e configuraste a rede de computação no teu dispositivo conforme detalhado no [Tutorial: Rede de configuração para Azure Stack Edge Pro com GPU](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 
 
 ## <a name="configure-device-settings"></a>Configurar definições de dispositivos
 
-Siga estes passos para configurar as definições relacionadas com o dispositivo.
- 
-1. No **azulejo de configuração** do dispositivo, para **dispositivo,** selecione **Configure**.
+Siga estes passos para configurar as definições relacionadas com o dispositivo:
 
-    ![Página local de UI "Dispositivo"](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-1.png)
-
-    Na página **dispositivo,** tome os seguintes passos:
+1. Na página **dispositivo,** tome os seguintes passos:
 
     1. Insira um nome amigável para o seu dispositivo. O nome amigável deve conter de 1 a 13 caracteres e pode ter letra, números e hífens.
 
@@ -57,7 +53,7 @@ Siga estes passos para configurar as definições relacionadas com o dispositivo
 
     3. Para validar e aplicar as definições do dispositivo configuradas, selecione **Aplicar**.
 
-        ![Página local de UI "Dispositivo"](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-2.png)
+        ![Web local UI "Dispositivo" página 1](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-2.png)
 
         Se tiver alterado o nome do dispositivo e o domínio DNS, os certificados auto-assinados gerados automaticamente no dispositivo não funcionarão. Tem de escolher uma das seguintes opções quando configurar certificados.: 
         
@@ -65,17 +61,17 @@ Siga estes passos para configurar as definições relacionadas com o dispositivo
         - Traga os seus próprios certificados para o dispositivo, incluindo a cadeia de assinaturas.
     
 
-        ![Página local de UI "Dispositivo"](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-3.png)
+        ![Web local UI "Dispositivo" página 2](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-3.png)
 
-    4. Quando o nome do dispositivo e o domínio DNS são alterados, os pontos finais SMB e NFS são criados.  
+    4. Quando o nome do dispositivo e o domínio DNS são alterados, o ponto final SMB é criado.  
 
-    5. Depois de aplicadas as definições, volte para **começar**.
+    5. Depois de aplicadas as definições, selecione **Seguinte: Atualizar servidor**.
+
+        ![Página local de UI "Dispositivo"](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-4.png)
 
 ## <a name="configure-update"></a>Atualização de configuração
 
-1. No **azulejo de configuração** do dispositivo, para **atualização,** selecione **Configurar**. Agora pode configurar a localização de onde deve descarregar as atualizações do seu dispositivo.  
-
-    ![Página local do UI "Update Server"](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-1.png)
+1. Na página **'Atualização',** já pode configurar a localização de onde deve descarregar as atualizações do seu dispositivo.  
 
     - Pode obter as atualizações diretamente do **servidor Microsoft Update**.
 
@@ -89,23 +85,19 @@ Siga estes passos para configurar as definições relacionadas com o dispositivo
         > Se um servidor separado do Windows Update estiver configurado e optar por ligar mais *de https* (em vez de *http),* são necessários certificados de cadeia de assinatura necessários para se ligar ao servidor de atualização. Para obter informações sobre como criar e carregar certificados, vá a [Gerir certificados.](azure-stack-edge-j-series-manage-certificates.md) 
 
 2. Selecione **Aplicar**.
-3. Depois de configurar o servidor de atualização, volte para **Começar**.
+3. Depois de configurar o servidor de atualização, selecione **Seguinte: Hora**.
     
 
 ## <a name="configure-time"></a>Tempo de configuração
 
 Siga estes passos para configurar as definições de tempo no seu dispositivo. 
 
-1. No azulejo de configuração do **dispositivo,** selecione **Tempo**. Pode selecionar o fuso horário e os servidores NTP primários e secundários para o seu dispositivo.  
+> [!IMPORTANT]
+> Embora as definições de tempo sejam opcionais, recomendamos vivamente que configufique um NTP primário e um servidor NTP secundário na rede local para o seu dispositivo. Se o servidor local não estiver disponível, os servidores NTP públicos podem ser configurados.
 
-    > [!IMPORTANT]
-    > Embora as definições de tempo sejam opcionais, recomendamos vivamente que configufique um NTP primário e um servidor NTP secundário na rede local para o seu dispositivo. Se o servidor local não estiver disponível, os servidores NTP públicos podem ser configurados.
-    
-    Os servidores NTP são necessários porque o seu dispositivo deve sincronizar o tempo para que possa autenticar com os seus fornecedores de serviços na nuvem.
+Os servidores NTP são necessários porque o seu dispositivo deve sincronizar o tempo para que possa autenticar com os seus fornecedores de serviços na nuvem.
 
-    ![Página local de UI "Tempo"](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/time-1.png)
-
-2. Na página **'Tempo',** faça o seguinte:
+1. Na página **'Tempo',** pode selecionar o fuso horário e os servidores NTP primários e secundários para o seu dispositivo.  
     
     1. Na lista de down-down do **fuso** horário, selecione o fuso horário que corresponde à localização geográfica em que o dispositivo está a ser implantado.
         O fuso horário padrão para o seu dispositivo é PST. O dispositivo utiliza este fuso horário para todas as operações agendadas.
@@ -119,8 +111,7 @@ Siga estes passos para configurar as definições de tempo no seu dispositivo.
 
         ![Página local de UI "Tempo"](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/time-2.png)
 
-3. Depois de aplicadas as definições, volte para **começar**.
-
+2. Depois de aplicadas as definições, selecione **Seguinte: Certificados**.
 
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -134,7 +125,7 @@ Neste tutorial, ficará a saber mais sobre:
 > * Atualização de configuração 
 > * Tempo de configuração
 
-Para aprender a configurar certificados para o seu dispositivo Azure Stack Edge, consulte:
+Para aprender a configurar certificados para o seu dispositivo Azure Stack Edge Pro, consulte:
 
 > [!div class="nextstepaction"]
 > [Configurar os certificados](./azure-stack-edge-gpu-deploy-configure-certificates.md)

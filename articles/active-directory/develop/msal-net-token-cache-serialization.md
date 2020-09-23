@@ -13,12 +13,12 @@ ms.date: 09/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 4edb0f356dd83ab1aa353e0791f619be497a9d91
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: c44c99016f507214869e45a66bdd27c0a5efec75
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166030"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982921"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serialização da cache simbólica em MSAL.NET
 Após a aquisição de um [token,](msal-acquire-cache-tokens.md)é em cache pela Microsoft Authentication Library (MSAL).  O código de aplicação deve tentar obter um símbolo da cache antes de adquirir um token por outro método.  Este artigo discute a serialização padrão e personalizada da cache simbólica em MSAL.NET.
@@ -39,8 +39,8 @@ Lembre-se, a serialização personalizada não está disponível nas plataformas
 As seguintes classes e interfaces são utilizadas na serialização da cache simbólica:
 
 - `ITokenCache`, que define eventos para subscrever pedidos de serialização de cache token, bem como métodos para serializar ou des-serializar a cache em vários formatos (ADAL v3.0, MSAL 2.x e MSAL 3.x = ADAL v5.0).
-- `TokenCacheCallback`é uma chamada transmitida para os eventos para que possa lidar com a serialização. Serão chamados com argumentos do `TokenCacheNotificationArgs` tipo.
-- `TokenCacheNotificationArgs`apenas fornece a `ClientId` aplicação e uma referência ao utilizador para o qual o token está disponível.
+- `TokenCacheCallback` é uma chamada transmitida para os eventos para que possa lidar com a serialização. Serão chamados com argumentos do `TokenCacheNotificationArgs` tipo.
+- `TokenCacheNotificationArgs` apenas fornece a `ClientId` aplicação e uma referência ao utilizador para o qual o token está disponível.
 
   ![Diagrama de classe](media/msal-net-token-cache-serialization/class-diagram.png)
 
@@ -283,7 +283,7 @@ A biblioteca [Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-ident
 
 | Método de Extensão | Microsoft.Identity.Web subconsecontos | Descrição  |
 | ---------------- | --------- | ------------ |
-| `AddInMemoryTokenCaches` | `TokenCacheProviders.InMemory` | Na memória, a serialização da cache simbólica. Esta implementação é ótima em amostras. Também é bom em aplicações de produção desde que não se importe se a cache de token é perdida quando a aplicação web é reiniciada. `AddInMemoryTokenCaches`toma um parâmetro opcional de tipo `MsalMemoryTokenCacheOptions` que lhe permite especificar a duração após a qual a entrada da cache expirará a menos que seja usada.
+| `AddInMemoryTokenCaches` | `TokenCacheProviders.InMemory` | Na memória, a serialização da cache simbólica. Esta implementação é ótima em amostras. Também é bom em aplicações de produção desde que não se importe se a cache de token é perdida quando a aplicação web é reiniciada. `AddInMemoryTokenCaches` toma um parâmetro opcional de tipo `MsalMemoryTokenCacheOptions` que lhe permite especificar a duração após a qual a entrada da cache expirará a menos que seja usada.
 | `AddSessionTokenCaches` | `TokenCacheProviders.Session` | A cache simbólica está ligada à sessão do utilizador. Esta opção não é ideal se o token de ID contiver muitas reclamações, uma vez que o cookie se tornaria demasiado grande.
 | `AddDistributedTokenCaches` | `TokenCacheProviders.Distributed` | A cache simbólica é um adaptador contra a implementação do núcleo `IDistributedCache` ASP.NET, permitindo-lhe escolher entre uma cache de memória distribuída, uma cache Redis, um NCache distribuído ou uma cache SQL Server. Para mais detalhes sobre as `IDistributedCache` implementações, consulte https://docs.microsoft.com/aspnet/core/performance/caching/distributed#distributed-memory-cache .
 
@@ -333,5 +333,5 @@ As seguintes amostras ilustram a serialização da cache simbólica.
 
 | Sample | Plataforma | Descrição|
 | ------ | -------- | ----------- |
-|[active-directório-dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Desktop (WPF) | Aplicação Windows Desktop .NET (WPF) chamada API do Gráfico microsoft. ![Topologia](media/msal-net-token-cache-serialization/topology.png)|
+|[active-directório-dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Desktop (WPF) | Aplicação Windows Desktop .NET (WPF) chamada API do Gráfico microsoft. ![O diagrama mostra uma topologia com a Desktop App W P F TodoListClient fluindo para Azure A D, adquirindo um símbolo interativamente e para o Microsoft Graph.](media/msal-net-token-cache-serialization/topology.png)|
 |[active-directy-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | Desktop (Consola) | Conjunto de soluções visual Studio que ilustram a migração de aplicações Azure AD v1.0 (utilizando ADAL.NET) para aplicações de plataforma de identidade da Microsoft (utilizando MSAL.NET). Em particular, ver [migração de Cache Token](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md)|
