@@ -1,57 +1,83 @@
 ---
-title: Descrição geral do serviço de base de dados relacional da Base de Dados do Azure para PostgreSQL
-description: Fornece uma descrição geral da Base de Dados do Azure para o serviço de base de dados relacional PostgreSQL.
-author: jonels-msft
-ms.author: jonels
+title: O que é Azure Database para PostgreSQL
+description: Fornece uma visão geral da Base de Dados Azure para o serviço de base de dados relacional PostgreSQL no contexto do servidor flexível.
+author: sunilagarwal
+ms.author: sunila
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 11/25/2019
-ms.openlocfilehash: deb720638e0921762eb9c5800d218c3cfccb7f55
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.date: 09/21/2020
+ms.openlocfilehash: 5945f50ada9af6a8d117d3d773ebeae48d5f4085
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85213606"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903768"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>O que é a Base de Dados do Azure para PostgreSQL?
-Azure Database for PostgreSQL é um serviço de base de dados relacional na nuvem da Microsoft construída para desenvolvedores. Baseia-se na versão comunitária do motor de base de [dados PostgreSQL](https://www.postgresql.org/) de código aberto, e está disponível em duas opções de implementação: Single Server e Hyperscale (Citus).
 
-## <a name="azure-database-for-postgresql---single-server"></a>Base de Dados do Azure para PostgreSQL – Servidor Único
-A opção de implementação do Servidor Único fornece:
+Azure Database for PostgreSQL é um serviço de base de dados relacional na nuvem da Microsoft com base no motor [de base de dados PostgreSQL Community Edition](https://www.postgresql.org/) (disponível sob a licença GPLv2). A Base de Dados do Azure para PostgreSQL oferece:
 
-- Alta [disponibilidade](concepts-high-availability.md) incorporada sem custo adicional (99,99% SLA)
-- Desempenho previsível com preços pay as you go inclusivos
-- [Escala vertical, conforme necessário](concepts-pricing-tiers.md) em segundos
-- [Monitorização e alerta](concepts-monitoring.md) para avaliar o seu servidor
-- Segurança e conformidade de nível empresarial
-- [Protegido para proteger dados](concepts-security.md) sensíveis em repouso e em movimento
-- [Backups automáticos e restauro pontual](concepts-business-continuity.md) por um período máximo de 35 dias
+- Alta disponibilidade incorporada.
+- Proteção de dados utilizando cópias de segurança automáticas e restauro pontual por um período máximo de 35 dias.
+- Manutenção automatizada para hardware subjacente, sistema operativo e motor de base de dados para manter o serviço seguro e atualizado.
+- Desempenho previsível, com preços pay as you go inclusivos.
+- Escalagem elástica em segundos.
+- Segurança de nível empresarial e conformidade líder do setor para proteger dados sensíveis em repouso e em movimento.
+- Monitorização e automatização para simplificar a gestão e monitorização para implementações em larga escala.
+- Experiência de apoio líder na indústria.
 
+ :::image type="content" source="./media/overview/overview-what-is-azure-postgres.png" alt-text="Base de Dados do Azure para PostgreSQL":::
 
-Todas estas funcionalidades não exigem praticamente qualquer ação de administração e são fornecidas sem custos adicionais. Permitem-lhe focar-se no rápido desenvolvimento de aplicações e acelerar o seu tempo no mercado, em vez de gastar tempo e recursos preciosos para gerir máquinas virtuais e infraestruturas. Pode continuar a desenvolver a sua aplicação com as ferramentas de código aberto e plataforma à sua escolha, sem ter de aprender novas habilidades.
+Estas capacidades não requerem quase nenhuma administração, e todas são fornecidas sem custos adicionais. Permitem-lhe focar-se no rápido desenvolvimento de aplicações e acelerar o seu tempo no mercado em vez de alocar tempo e recursos preciosos à gestão de máquinas e infraestruturas virtuais. Além disso, pode continuar a desenvolver a sua aplicação, com a plataforma e as ferramentas open-source da sua preferência, e garantir a velocidade e a eficiência exigidas pelo seu negócio sem ter de adquirir novas competências.
 
-A opção de implementação do Servidor Único oferece três níveis de preços: Básico, Propósito Geral e Memória Otimizada. Cada escalão oferece capacidades de recursos diferentes para suportar as suas cargas de trabalho de base de dados. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Consulte [os níveis de preços](concepts-pricing-tiers.md) para mais detalhes.
+## <a name="deployment-models"></a>Modelos de implementação
 
-## <a name="azure-database-for-postgresql---hyperscale-citus"></a>Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
+A azure Database for PostgreSQL powered by the PostgreSQL community edition está disponível em três modos de implementação:
+
+- Servidor Único
+- Servidor Flexível (Pré-visualização)
+- Hyperscale (Citus)
+
+### <a name="azure-database-for-postgresql---single-server"></a>Base de Dados do Azure para PostgreSQL – Servidor Único
+
+A azure Database for PostgreSQL Single Server é um serviço de base de dados totalmente gerido com requisitos mínimos para personalizaçãos de bases de dados. A plataforma de servidor único foi concebida para lidar com a maioria das funções de gestão da base de dados, tais como patching, backups, alta disponibilidade, segurança com a configuração e controlo mínimos do utilizador. A arquitetura está otimizada para alta disponibilidade incorporada com 99,99% de disponibilidade em zona de disponibilidade única. Suporta a versão comunitária de PostgreSQL 9.5, 9,6, 10 e 11. O serviço está geralmente disponível hoje em dia em grande variedade de regiões de [Azure.](https://azure.microsoft.com/global-infrastructure/services/)
+
+A opção de implementação do Servidor Único oferece três níveis de preços: Básico, Propósito Geral e Memória Otimizada. Cada escalão oferece capacidades de recursos diferentes para suportar as suas cargas de trabalho de base de dados. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Consulte [Escalões de preço](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) para obter mais detalhes.
+
+Os servidores individuais são mais adequados para aplicações nativas em nuvem concebidas para lidar com remendos automatizados sem a necessidade de controlo granular na programação de remendos e configurações de configuração postgreSQL personalizadas.
+
+Para uma visão geral detalhada do modo de implementação de um único servidor, consulte [uma visão geral do servidor único](./overview-single-server.md).
+
+### <a name="azure-database-for-postgresql---flexible-server-preview"></a>Base de Dados do Azure para PostgreSQL - Servidor Flexível (Pré-visualização)
+
+A Azure Database for PostgreSQL Flexible Server é um serviço de base de dados totalmente gerido projetado para fornecer mais controlo granular e flexibilidade sobre funções de gestão de bases de dados e configurações de configuração. Em geral, o serviço proporciona mais flexibilidade e personalizaçãos com base nos requisitos do utilizador. A arquitetura flexível do servidor permite que os utilizadores optem pela alta disponibilidade dentro de uma única zona de disponibilidade e em várias zonas de disponibilidade. O Flexible Server fornece controlos de otimização de custos melhores com a capacidade de parar/iniciar o servidor e o nível de computação rebentado, ideal para cargas de trabalho que não necessitam de capacidade computacional completa continuamente. O serviço suporta atualmente a versão comunitária do PostgreSQL 11 e 12 com planos para adicionar versões mais recentes em breve. O serviço encontra-se atualmente em pré-visualização pública, disponível hoje em grande variedade de regiões de Azure.
+
+Servidores flexíveis são os mais adequados para
+
+- Desenvolvimentos de aplicações que requerem melhor controlo e personalização.
+- Controlos de otimização de custos com a capacidade de parar/iniciar o servidor.
+- Zona redundante alta disponibilidade
+- Janelas de manutenção geridas
+  
+Para obter uma visão geral detalhada do modo de implementação flexível do servidor, consulte [a visão geral do servidor flexível](./flexible-server/overview.md).
+
+### <a name="azure-database-for-postgresql--hyperscale-citus"></a>Base de Dados Azure para PostgreSQL – Hiperescala (Citus)
+
 A opção Hyperscale (Citus) escala horizontalmente as consultas em várias máquinas utilizando o fragmento. O seu motor de consulta paraleliza as consultas SQL recebidas nestes servidores para respostas mais rápidas em grandes conjuntos de dados. Serve aplicações que requerem maior escala e desempenho, geralmente cargas de trabalho que se aproximam -- ou já ultrapassam - 100 GB de dados.
 
 A opção de implantação Hyperscale (Citus) oferece:
 
 - Escala horizontal em várias máquinas usando o fragmento
 - Paralelização de consultas através destes servidores para respostas mais rápidas em grandes conjuntos de dados
-- Excelente suporte para aplicações multi-inquilinos, análise operacional em tempo real e elevadas cargas de trabalho transacionais de produção
-
-As aplicações construídas para PostgreSQL podem executar consultas distribuídas em Hiperescala (Citus) com bibliotecas de [conexão](./concepts-connection-libraries.md) padrão e alterações mínimas.
-
-## <a name="contacts"></a>Contactos
-Para quaisquer perguntas ou sugestões sobre trabalhar com a Azure Database for PostgreSQL, envie um e-mail para a Base de Dados Azure para a Equipa PostgreSQL[ @Ask (Azure DB para PostgreSQL).](mailto:AskAzureDBforPostgreSQL@service.microsoft.com) Este endereço destina-se a questões gerais e não a bilhetes de apoio.
-
-Além disso, considere estes pontos de contacto adequados:
-- Para contactar o Suporte Azure ou corrigir um problema com a sua conta, [arquive um bilhete a partir do portal Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- Para enviar comentários ou pedir novas funcionalidades, crie uma entrada através do [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
+- Excelente suporte para aplicações de múltiplos inquilinos, análise operacional em tempo real e elevadas cargas de trabalho de débito transacional
+  
+As aplicações construídas para PostgreSQL podem executar consultas distribuídas em Hiperescala (Citus) com bibliotecas de [conexão](https://docs.microsoft.com/azure/postgresql/concepts-connection-libraries) padrão e alterações mínimas.
 
 ## <a name="next-steps"></a>Passos seguintes
-- Consulte [a página de preços](https://azure.microsoft.com/pricing/details/postgresql/) para comparar custos e calculadoras. Tanto as opções de implementação single Server e Hyperscale (Citus) oferecem descontos de instância reservado pré-pagos, consulte os [preços de Single Server RI](concept-reserved-pricing.md) e as páginas de preços de [Hyperscale RI](concepts-hyperscale-reserved-pricing.md) para obter detalhes.
-- Começa por criar a sua primeira Base de Dados Azure para [Servidor Único](./quickstart-create-server-database-portal.md) PostgreSQL ou [Hiperescala (Citus)](./quickstart-create-hyperscale-portal.md)
-- Criar a sua primeira aplicação em Python, PHP, Ruby, C\#, Java, Node.js: [Bibliotecas de ligação](./concepts-connection-libraries.md)
+
+Saiba mais sobre os três modos de implementação da Base de Dados Azure para PostgreSQL e escolha as opções certas com base nas suas necessidades.
+
+- [Servidor Único](./overview-single-server.md)
+- [Servidor Flexível](./flexible-server/overview.md)
+- Hyperscale (Citus)

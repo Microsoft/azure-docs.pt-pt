@@ -8,12 +8,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 08/04/2020
-ms.openlocfilehash: af4353e5b0991f7ce2f6fe8ff940e916717b0579
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 130e23c290ce493d3fb92f6dd0be4cd7c61a86fd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650486"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888044"
 ---
 # <a name="azure-sql-edge-usage-and-diagnostics-data-configuration"></a>Azure SQL Edge utiliza e diagnostica a configuração de dados
 
@@ -61,6 +61,9 @@ group by data_source_type
 
 A recolha de dados de utilização e diagnóstico no Azure SQL Edge pode ser desativada utilizando qualquer um dos métodos abaixo.
 
+> [!NOTE]
+> Os dados de utilização e diagnóstico não podem ser desativados para a versão Do Desenvolvedor.
+
 ### <a name="disable-usage-and-diagnostics-using-environment-variables"></a>Desativar o uso e os diagnósticos utilizando variáveis ambientais
 
 Para desativar a recolha de dados de Utilização e Diagnóstico no Azure SQL Edge, adicione a seguinte variável ambiental e desaprova o seu valor para `*False*` . Para obter mais informações sobre a configuração da borda Azure SQL utilizando variáveis ambientais, consulte [a Configuração utilizando Variáveis ambientais](configure.md#configure-by-using-environment-variables).
@@ -68,7 +71,7 @@ Para desativar a recolha de dados de Utilização e Diagnóstico no Azure SQL Ed
 `MSSQL_TELEMETRY_ENABLED = TRUE | FALSE`
 
 - TRUE - Permite a recolha de dados de utilização e diagnóstico. Esta é a configuração predefinida.
-- FALSE - Desativa a recolha de dados de utilização e diagnóstico
+- FALSE - Desativa a recolha de dados de utilização e diagnóstico.
 
 ### <a name="disable-usage-and-diagnostics-using-mssqlconf-file"></a>Desativar o uso e diagnósticos usando o ficheiro mssql.conf
 
@@ -105,7 +108,7 @@ Para ativar os dados de utilização e diagnóstico de auditoria local no Azure 
        userrequestedlocalauditdirectory  = <host mount path>/audit
        ```  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ligue-se à Borda Azure SQL](connect.md)
 - [Construa uma solução IoT de ponta a ponta com o SQL no Edge](tutorial-deploy-azure-resources.md)

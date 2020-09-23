@@ -1,6 +1,6 @@
 ---
-title: Especificações técnicas do cabo de alimentação Microsoft Azure Stack Edge com base na localização Microsoft Docs
-description: Saiba mais sobre as especificações técnicas dos cabos de alimentação Azure Stack Edge.
+title: Especificações técnicas do cabo de alimentação Microsoft Azure Stack Edge Pro com base na localização Microsoft Docs
+description: Saiba mais sobre as especificações técnicas dos cabos de alimentação Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 34f5b578581c5a11b3dbfba76f68819c2ed706d0
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 76d8c84fd1dd403c88e8261cf49e3620f3a6ec14
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055933"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903622"
 ---
-# <a name="azure-stack-edge-power-cord-specifications"></a>Especificações do cabo de alimentação Azure Stack Edge
+# <a name="azure-stack-edge-pro-power-cord-specifications"></a>Especificações do cabo de alimentação Azure Stack Edge Pro
 
-O seu dispositivo Azure Stack Edge necessitará de um cabo de alimentação que variará dependendo da região de Azure.
+O seu dispositivo Azure Stack Edge Pro necessitará de um cabo de alimentação que variará dependendo da região de Azure.
 
 ## <a name="supported-power-cords"></a>Cabos de alimentação suportados
 
@@ -156,6 +156,6 @@ Pode utilizar a seguinte tabela para encontrar as especificações corretas do c
 |Zâmbia|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 |Zimbabué|250|5|H05VV-F 3x0.75|BS 1363 / SS145/A|C13|1800|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-[Especificações técnicas do Azure Stack Edge](data-box-edge-technical-specifications-compliance.md)
+[Especificações técnicas Azure Stack Edge Pro](data-box-edge-technical-specifications-compliance.md)

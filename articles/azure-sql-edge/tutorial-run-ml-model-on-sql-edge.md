@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: f38a973611cb1ab18eead4ec51e6be91ada2cc40
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: abd1bc9b53c303d094d74683da0d6e3fad4d715f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85318646"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887464"
 ---
 # <a name="deploy-ml-model-on-azure-sql-edge-using-onnx"></a>Implementar o modelo ML na Borda Azure SQL utilizando ONNX 
 
@@ -32,12 +32,12 @@ Na parte três deste tutorial em três partes para prever impurezas de minério 
    |_Campo_|_Valor_|
    |-------|-------|
    |Tipo de ligação| Microsoft SQL Server|
-   |Server|Endereço IP público mencionado no VM que foi criado para esta demonstração|
+   |Servidor|Endereço IP público mencionado no VM que foi criado para esta demonstração|
    |Nome de utilizador|SG|
    |Palavra-passe|A palavra-passe forte que foi usada ao criar a instância Azure SQL Edge|
    |Base de Dados|Predefinição|
    |Grupo de servidores|Predefinição|
-   |Nome (opcional)|Fornecer um nome opcional|
+   |Name (optional) (Nome [opcional])|Fornecer um nome opcional|
 
 3. Clique **em Ligar**
 
@@ -225,4 +225,4 @@ Introduza o seguinte código Python no caderno do Azure Data Studio e execute-o.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a utilização de modelos ONNX em Azure SQL Edge, consulte [machine learning e AI com ONNX em SQL Edge (Preview)](onnx-overview.md).
+Para obter mais informações sobre a utilização de modelos ONNX em Azure SQL Edge, consulte [machine learning e AI com ONNX em SQL Edge](onnx-overview.md).

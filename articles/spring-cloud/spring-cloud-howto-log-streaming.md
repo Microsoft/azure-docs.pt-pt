@@ -7,14 +7,17 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 45f892064d0910029db37c56f731a072a6c7514e
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: eaf99f5e92cbb9277f2d4143e14070f1900cdbef
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299614"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888498"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Transmitir em fluxo registos de aplicação do Azure Spring Cloud em tempo real
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C #
+
 O Azure Spring Cloud permite o streaming de registos no Azure CLI para obter registos de consolas de aplicações em tempo real para resolução de problemas. Também pode [analisar registos e métricas com definições de diagnóstico](./diagnostic-services.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -86,7 +89,7 @@ Para verificar todas as opções de registo suportados:
 az spring-cloud app logs -h 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Quickstart: Monitorização de aplicativos Azure Spring Cloud com registos, métricas e rastreio](spring-cloud-quickstart-logs-metrics-tracing.md)
 * [Analisar registos e métricas com definições de diagnóstico](./diagnostic-services.md)
 

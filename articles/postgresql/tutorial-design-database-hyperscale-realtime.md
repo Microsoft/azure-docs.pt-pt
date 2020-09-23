@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Desenhe um dashboard em tempo real - Hiperescala (Citus) - Base de Dados Azure para PostgreSQL'
-description: Este tutorial mostra como criar, povoar e consultar tabelas distribuídas na Base de Dados Azure para a Hiperescala Pós-SQL (Citus).
+description: Este tutorial mostra como paralelizar consultas de dashboard em tempo real com Azure Database for PostgreSQL Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: db3cd95c5a833b299ee85c1e68b15644ae0e0226
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 41ac1cb856011d9730f7b49bbf85350f4dbccdbd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387579"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895233"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutorial: Desenhe um dashboard de análise em tempo real utilizando a Base de Dados Azure para PostgreSQL – Hyperscale (Citus)
 
@@ -222,10 +222,9 @@ Na produção, você poderia embrulhar estas consultas numa função e chamá-lo
 
 Nos passos anteriores, criou recursos Azure num grupo de servidores. Se não espera precisar destes recursos no futuro, elimine o grupo de servidores. Prima o botão *Eliminar* na página *'Vista Geral'* para o seu grupo de servidor. Quando solicitado numa página pop-up, confirme o nome do grupo de servidor e clique no botão final *eliminar.*
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a providenciar um grupo de servidores Hyperscale (Citus). Ligou-se a ele com o PSQL, criou um esquema e distribuiu dados. Aprendeu a consultar dados na forma bruta, agregar regularmente esses dados, consultar as tabelas agregadas e expirar dados antigos.
 
-Em seguida, conheça os conceitos de hiperescala.
-> [!div class="nextstepaction"]
-> [Tipos de nó de hiperescala](https://aka.ms/hyperscale-concepts)
+- Saiba mais sobre [os tipos de nó de](https://aka.ms/hyperscale-concepts) grupo de servidor
+- Determine o melhor [tamanho inicial](howto-hyperscale-scaling.md#picking-initial-size) para o seu grupo de servidor

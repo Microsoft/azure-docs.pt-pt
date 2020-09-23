@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/11/2020
-ms.openlocfilehash: 8a988895cd8999d15c32d7056d35abf40aeaba7e
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: a37fbee4361d4a87c43a42cae66c425eba1e0877
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420698"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887043"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>Configurar parâmetros de servidor na Base de Dados Azure para o MySQL utilizando o portal Azure
 
@@ -21,13 +21,13 @@ A Azure Database for MySQL suporta a configuração de alguns parâmetros do ser
 
 1. Inscreva-se no portal Azure e, em seguida, localize a sua Base de Dados Azure para o servidor MySQL.
 2. Na secção **DEFINIÇÕES,** clique nos **parâmetros do Servidor** para abrir a página de parâmetros do servidor para o servidor Azure Database for MySQL.
-![Página de parâmetros do servidor do portal Azure](./media/howto-server-parameters/auzre-portal-server-parameters.png)
+:::image type="content" source="./media/howto-server-parameters/auzre-portal-server-parameters.png" alt-text="Página de parâmetros do servidor do portal Azure":::
 3. Localize as definições necessárias para ajustar. Reveja a coluna **Descrição** para compreender a finalidade e os valores permitidos.
-![Enumerar queda](./media/howto-server-parameters/3-toggle_parameter.png)
+:::image type="content" source="./media/howto-server-parameters/3-toggle_parameter.png" alt-text="Enumerar queda":::
 4. Clique  **em Guardar** para guardar as suas alterações.
-![Guardar ou descartar alterações](./media/howto-server-parameters/4-save_parameters.png)
+:::image type="content" source="./media/howto-server-parameters/4-save_parameters.png" alt-text="Guardar ou descartar alterações":::
 5. Se tiver guardado novos valores para os parâmetros, pode sempre reverter tudo de volta para os valores predefinidos selecionando **Reset all to predefinido**.
-![Redefinir tudo para o padrão](./media/howto-server-parameters/5-reset_parameters.png)
+:::image type="content" source="./media/howto-server-parameters/5-reset_parameters.png" alt-text="Redefinir tudo para o padrão":::
 
 ## <a name="setting-parameters-not-listed"></a>Definição de parâmetros não listados
 
@@ -41,7 +41,7 @@ Se o parâmetro do servidor que pretende atualizar não estiver listado no porta
 4. Clique em **Guardar** para guardar as alterações.
 
 >[!Note]
-> `init_connect` pode ser usado para alterar parâmetros que não requerem super privilégio(s) ao nível da sessão. Para verificar se pode definir o parâmetro `init_connect` utilizando, execute o `set session parameter_name=YOUR_DESIRED_VALUE;` comando e se erros com o Access negado; precisa de erro **de super privilégios,** então não pode definir o parâmetro usando 'init_connect'.
+> Pode utilizar `init_connect` para alterar parâmetros que não exigem SUPER privilégio(s) ao nível da sessão. Para verificar se pode definir o parâmetro através de `init_connect`, execute o comando `set session parameter_name=YOUR_DESIRED_VALUE;` e se tiver erros como **Acesso negado; precisa de SUPER privilégio(s)** , não pode definir o parâmetro com “init_connect”.
 
 ## <a name="working-with-the-time-zone-parameter"></a>Trabalhar com o parâmetro do fuso horário
 
@@ -69,7 +69,7 @@ SELECT name FROM mysql.time_zone_name;
 
 O fuso horário de nível global pode ser definido a partir da página de **parâmetros do Servidor** no portal Azure. O abaixo define o fuso horário global para o valor "EUA/Pacífico".
 
-![Definir parâmetro de fuso horário](./media/howto-server-parameters/timezone.png)
+:::image type="content" source="./media/howto-server-parameters/timezone.png" alt-text="Definir parâmetro de fuso horário":::
 
 ### <a name="setting-the-session-level-time-zone"></a>Definição do fuso horário do nível da sessão
 
@@ -81,6 +81,6 @@ SET time_zone = 'US/Pacific';
 
 Consulte a documentação mySQL para [funções de data e hora](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Bibliotecas de conexão para Azure Database para MySQL](concepts-connection-libraries.md).

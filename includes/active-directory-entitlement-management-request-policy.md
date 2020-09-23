@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: ae3efec3722570e7e94316c5d874a74c523b1f05
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 12c9b1226e3ba928a4062049c7839d4e46ef727d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156564"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91025198"
 ---
 ## <a name="for-users-in-your-directory"></a>Para utilizadores no seu diretório
 
@@ -207,3 +207,33 @@ Por exemplo, se listasses Alice e Bob como os Primeiros Approvers, listasse Caro
     ![Pacote de acesso - Política- Permitir a definição de políticas](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
 1. Clique em **Seguinte**.
+
+## <a name="add-requestor-information-preview-to-an-access-package"></a>Adicione informações do Solicitador (pré-visualização) a um pacote de acesso
+
+1. Aceda ao **separador informações do Requestor** e clique no sub-separador **'Perguntas'.**
+ 
+1. Digite o que pretende perguntar ao solicitador, também conhecido como a cadeia de visualização, para a pergunta na caixa **de perguntas.**
+
+    ![Pacote de acesso - Política- Ativar a definição de informações do Requestor](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
+
+1. Se quiser adicionar as suas próprias opções de localização, clique em **adicionar localização**.
+    1. Uma vez no **Add localizações para** painel de perguntas, selecione o **código de idioma** para o idioma em que está a localização da questão.
+    1. No idioma que configura, digite a pergunta na caixa **de Texto Localizado.**
+    1. Depois de ter adicionado todas as localizações necessárias, clique em **Guardar**.
+
+    ![Pacote de acesso - Política-Configurar texto localizado](./media/active-directory-entitlement-management-request-policy/add-localization-question.png)
+
+1. Selecione o **formato Resposta** no qual gostaria que os solicitadores respondessem. Os formatos de resposta incluem: *texto curto,* *escolha múltipla*e texto *longo*.
+ 
+    ![Pacote de acesso - Política- Selecione a vista e edite o formato de resposta de escolha múltipla](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
+ 
+1. Se selecionar várias opções, clique no botão **de visualização e edite** para configurar as opções de resposta.
+    1. Depois de selecionar a vista e editar o painel **de perguntas 'Visualizar/editar'** será aberto.
+    1. Digite as opções de resposta que deseja dar ao solicitador ao responder à pergunta nas caixas **de valores de resposta.**
+    1. Digite as respostas necessárias e clique em **Guardar**.
+    
+    ![Pacote de acesso - Política- Introduza várias opções de escolha](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
+  
+1. Para exigir que os solicitadores respondam a esta pergunta ao solicitar o acesso a um pacote de acesso, clique na caixa de verificação em **requerido**.
+
+1. Clique em Seguinte

@@ -8,22 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 05/07/2020
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 0ae3b66d8093c0498011d9f93cd8d869b85f9003
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 2a4ff7da16524e0706601e43dff39325952990ff
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530714"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903554"
 ---
-# <a name="install-and-run-anomaly-detector-containers-preview"></a>Instalar e executar recipientes de detetor de anomalias (pré-visualização)
+# <a name="install-and-run-anomaly-detector-containers"></a>Instalar e executar contentores do Detetor de Anomalias 
+
+[!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
 O Detetor de Anomalias tem a seguinte funcionalidade de contentor:
 
 | Função | Funcionalidades |
 |--|--|
-| Detetor de anomalias | <li> Deteta anomalias à medida que ocorrem em tempo real. <li> Deteta anomalias em todo o seu conjunto de dados como um lote. <li> Infere o intervalo normal esperado dos seus dados. <li> Suporta um ajuste de sensibilidade à deteção de anomalias para melhor se adaptar aos seus dados. |
+| Detetor de anomalias | <li> Deteta anomalias à medida que ocorrem em tempo real. <li> Deteta anomalias em todo o seu conjunto de dados como um lote. <li> Deteta pontos de mudança de tendência no seu conjunto de dados como um lote.<li> Infere o intervalo normal esperado dos seus dados. <li> Suporta um ajuste de sensibilidade à deteção de anomalias para melhor se adaptar aos seus dados. |
 
 Para obter informações detalhadas sobre as APIs, consulte:
 * [Saiba mais sobre o serviço API do Detetor de Anomalias](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
@@ -67,7 +69,7 @@ Utilize o [`docker pull`](https://docs.docker.com/engine/reference/commandline/p
 
 | Contentor | Repositório |
 |-----------|------------|
-| cognitive-services-anomalia-detector | `mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest` |
+| cognitive-services-anomalia-detector | `mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector:latest` |
 
 <!--
 For a full description of available tags, such as `latest` used in the preceding command, see [anomaly-detector](https://go.microsoft.com/fwlink/?linkid=2083827&clcid=0x409) on Docker Hub.
@@ -95,7 +97,7 @@ Use o comando de execução do [estivador](https://docs.docker.com/engine/refere
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-mcr.microsoft.com/azure-cognitive-services/anomaly-detector:latest \
+mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector:latest \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -177,7 +179,7 @@ Para obter mais informações sobre estas opções, consulte [os recipientes Con
 Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar e executar recipientes de Detetor de Anomalias. Em resumo:
 
 * O Detetor de Anomalias fornece um recipiente Linux para Docker, encapsulando a deteção de anomalias com streaming de lote vs, inferência de alcance esperada e sintonização de sensibilidade.
-* As imagens do contentor são descarregadas a partir de um registo privado do contentor Azure dedicado à pré-visualização de contentores.
+* As imagens do contentor são descarregadas a partir de um registo privado de contentores Azure dedicado a contentores.
 * Imagens de contentores correm em Docker.
 * Pode utilizar a API REST ou a SDK para ligar para operações em contentores do Detetor de Anomalias, especificando o hospedeiro URI do recipiente.
 * Deve especificar as informações de faturação ao instantaneamente um recipiente.

@@ -13,15 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: 1f69fe027772dc2d008a567723a5b3c04f3ee51b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e8aea9b8abb5926fdb73df7c140ecfec1114f7a0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378207"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894766"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Endurecimento de rede adaptativa no Centro de Segurança Azure
 Saiba como configurar o Endurecimento adaptativo da rede no Centro de Segurança Azure.
+
+## <a name="availability"></a>Disponibilidade
+|Aspeto|Detalhes|
+|----|:----|
+|Estado de libertação:|Geralmente disponível (GA)|
+|Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
+|Funções e permissões necessárias:|Escreva permissões nos NSGs da máquina|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|||
 
 ## <a name="what-is-adaptive-network-hardening"></a>O que é o endurecimento adaptativo da rede?
 A aplicação de grupos de segurança de [rede (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) para filtrar o tráfego de e para os recursos, melhora a sua postura de segurança de rede. No entanto, ainda pode haver alguns casos em que o tráfego real que flui através do NSG é um subconjunto das regras do NSG definidos. Nestes casos, melhorar ainda mais a postura de segurança pode ser alcançado endurecendo as regras do NSG, com base nos padrões reais de tráfego.
@@ -37,15 +46,6 @@ Por exemplo, digamos que a regra nSG existente é permitir o tráfego a partir d
 ![Vista de endurecimento da rede](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
 
 
-## <a name="availability"></a>Disponibilidade
-
-|Aspeto|Detalhes|
-|----|:----|
-|Estado de libertação:|Disponibilidade geral|
-|Preços:|Escalão standard|
-|Funções e permissões necessárias:|Escreva permissões nos NSGs da máquina|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
-|||
 
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Ver alertas e regras de endurecimento da rede adaptativa
@@ -56,7 +56,7 @@ Por exemplo, digamos que a regra nSG existente é permitir o tráfego a partir d
    * **Recursos não identificados**: VMs que o algoritmo de endurecimento da rede adaptável não pode ser executado devido a uma das seguintes razões:
       * **Os VMs são VMs clássicos**: Apenas VMs Azure Resource Manager são suportados.
       * **Não existem dados suficientes**: Para gerar recomendações precisas de endurecimento do tráfego, o Centro de Segurança requer pelo menos 30 dias de dados de tráfego.
-      * **A VM não está protegida pela norma ASC**: Apenas os VMs que estão definidos para o nível de preços padrão do Centro de Segurança são elegíveis para esta funcionalidade.
+      * **O VM não está protegido pelo Azure Defender**: Apenas VMs protegidos com [Azure Defender para servidores](defender-for-servers-introduction.md) são elegíveis para esta funcionalidade.
 
      ![recursos insalubres](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
@@ -69,7 +69,7 @@ Por exemplo, digamos que a regra nSG existente é permitir o tráfego a partir d
 
 1. A partir do separador **recursos insalubres,** selecione um VM. Os alertas e as regras de endurecimento recomendadas estão listados.
 
-     ![regras de endurecimento](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+     ![Regras de endurecimento](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
    > [!NOTE]
    > O separador **Regras** lista as regras que o Hardening de Rede Adaptável recomenda que adicione. O separador **Alertas** enumera os alertas gerados devido ao tráfego, fluindo para o recurso, que não está dentro do intervalo de IP permitido nas regras recomendadas.
@@ -106,14 +106,14 @@ Algumas orientações importantes para modificar uma regra de endurecimento da r
 
 1. Para modificar alguns dos parâmetros de uma regra, no separador **Regras,** clique nos três pontos (...) no final da linha da regra e clique em **Editar**.
 
-   ![editar regra](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
+   ![Regra de edição](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
 
 1. Na janela **de regras Editar,** atualize os detalhes que pretende alterar e clique em **Guardar**.
 
    > [!NOTE]
-   > Depois de clicar em **Guardar,** alterou com sucesso a regra. *No entanto, não o aplicou ao NSG.* Para aplicá-la, tem de selecionar a regra da lista e clicar em **"Executar"** (conforme explicado no passo seguinte).
+   > Depois de clicar em **Guardar,** alterou com sucesso a regra. *No entanto, não o aplicou ao NSG.* Para aplicá-la, tem de selecionar a regra da lista e selecionar **Enforce** (conforme explicado no passo seguinte).
 
-   ![editar regra](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
+   ![Selecionando Guardar](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
 
 3. Para aplicar a regra atualizada, a partir da lista, selecione a regra atualizada e clique em **Executar**.
 
@@ -150,4 +150,4 @@ Quando necessário, pode eliminar uma regra recomendada para a sessão atual. Po
 
 1. No separador **Regras,** clique nos três pontos (...) no final da linha da regra e clique em **Apagar**.  
 
-    ![regras de endurecimento](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
+    ![Apagar uma regra](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
