@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: 910d98558e5b949a76202cce48c2a210531d5c35
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 9e8bd56655adfa1f7cdb769ac6cd282193b1bcf2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459798"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901356"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>File Integrity Monitoring in Azure Security Center (Monitorização da Integridade dos Ficheiros no Centro de Segurança do Azure)
 Saiba como configurar a Monitorização da Integridade do Ficheiro (FIM) no Azure Security Center utilizando esta passagem.
@@ -28,8 +28,8 @@ Saiba como configurar a Monitorização da Integridade do Ficheiro (FIM) no Azur
 
 |Aspeto|Detalhes|
 |----|:----|
-|Estado de libertação:|Geralmente disponível|
-|Preços:|Escalão standard|
+|Estado de libertação:|Geralmente disponível (GA)|
+|Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
 |Funções e permissões necessárias:|**O proprietário do espaço de trabalho** pode ativar/desativar o FIM (para mais informações, consulte [Azure Roles for Log Analytics](https://docs.microsoft.com/services-hub/health/azure-roles#azure-roles)).<br>**O leitor** pode ver resultados.|
 |Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov|
 |||
@@ -50,7 +50,7 @@ O Monitor de Integridade de Ficheiros do Security Center valida a integridade do
 O Security Center recomenda às entidades que monitorizem, o que pode facilmente permitir o FIM. Também pode definir as suas próprias políticas ou entidades FIM para monitorizar. Este walkthrough mostra-lhe como.
 
 > [!NOTE]
-> A funcionalidade de Monitorização da Integridade do Ficheiro (FIM) funciona para computadores Windows e Linux e VMs e está disponível no nível padrão do Security Center. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança. O FIM envia dados para o espaço de trabalho do Log Analytics. Os encargos de dados aplicam-se, com base na quantidade de dados que envia. Consulte [os preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.
+> A funcionalidade de Monitorização da Integridade do Ficheiro (FIM) funciona para computadores Windows e Linux e VMs e só está disponível quando **o Azure Defender para servidores** estiver ativado. Consulte [os preços](security-center-pricing.md) para saber mais. O FIM envia dados para o espaço de trabalho do Log Analytics. Os encargos de dados aplicam-se, com base na quantidade de dados que envia. Consulte [os preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) para saber mais.
 
 A FIM utiliza a solução Azure Change Tracking para rastrear e identificar alterações no seu ambiente. Quando a Monitorização da Integridade do Ficheiro estiver ativada, tem um recurso de rastreio de **alteração** da **solução**tipo . Para obter detalhes sobre a frequência de recolha de dados, veja [Detalhes da recolha de dados do Controlo de Alterações](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) do Controlo de Alterações do Azure.
 
@@ -94,13 +94,18 @@ O Centro de Segurança fornece a seguinte lista de itens recomendados para monit
 |||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parâmetros\FirewallPolicy\PublicProfile|
 |||HKLM\SYSTEM\CurrentControlSet\Services\SharedAccess\Parâmetros\FirewallPolicy\StandardProfile|
 
-## <a name="using-file-integrity-monitoring"></a>Usando a monitorização da integridade do ficheiro
-1. Abra o dashboard **Centro de Segurança**.
-2. No painel esquerdo sob **defesa de nuvem avançada,** selecione **Monitoriação de Integridade do Ficheiro**.
-![Dashboard Centro de Segurança][1]
 
-**A Monitorização da Integridade do Ficheiro** abre.
-  ![Dashboard Centro de Segurança][2]
+## <a name="using-file-integrity-monitoring"></a>Usando a monitorização da integridade do ficheiro
+
+1. Abra o painel **Azure Defender.**
+
+1. A partir da área **de proteção Avançada,** selecione **monitorização da integridade do ficheiro.**
+
+    :::image type="content" source="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png" alt-text="Lançamento FIM" lightbox="./media/security-center-file-integrity-monitoring/open-file-integrity-monitoring.png":::
+
+
+    **A Monitorização da Integridade do Ficheiro** abre.
+    ![Dashboard Centro de Segurança][2]
 
 São fornecidas as seguintes informações para cada espaço de trabalho:
 
@@ -112,26 +117,28 @@ São fornecidas as seguintes informações para cada espaço de trabalho:
 Podem também ser mostrados os seguintes botões para um espaço de trabalho:
 
 - ![Ativar o ícone][3] Indica que o FIM não está ativado para o espaço de trabalho. A seleção do espaço de trabalho permite ativar o FIM em todas as máquinas sob o espaço de trabalho.
-- ![O ícone do plano ][4] de atualização indica que o espaço de trabalho ou a subscrição não estão a funcionar sob o nível padrão do Centro de Segurança. Para utilizar a funcionalidade FIM, a sua subscrição deve estar a executar o Standard.  A seleção do espaço de trabalho permite-lhe fazer upgrade para Standard. Para saber mais sobre o nível padrão e como fazer o upgrade, consulte [o nível padrão do Security Center para uma maior segurança](security-center-pricing.md).
+- ![Ícone de plano de upgrade][4] Indica que o espaço de trabalho ou subscrição não está protegido pelo Azure Defender. Para utilizar a função FIM, a sua subscrição deve ser protegida pelo Azure Defender.  A seleção do espaço de trabalho permite-lhe fazer o upgrade.
 - Um branco (não há botão) significa que o FIM já está ativado no espaço de trabalho.
 
-No **âmbito da Monitorização da Integridade do Ficheiro,** pode selecionar um espaço de trabalho para permitir o FIM para esse espaço de trabalho, ver o painel de monitorização da integridade do ficheiro para esse espaço de trabalho ou [atualizar](security-center-pricing.md) o espaço de trabalho para Standard.
+No **âmbito da Monitorização da Integridade do Ficheiro,** pode selecionar um espaço de trabalho para permitir que o FIM para esse espaço de trabalho, ver o painel de monitorização da integridade do ficheiro para esse espaço de trabalho ou [atualizar](security-center-pricing.md) o espaço de trabalho para utilizar o Azure Defender.
 
 ## <a name="enable-fim"></a>Ativar FIM
 Para ativar o FIM num espaço de trabalho:
 
 1. No **âmbito da Monitorização da Integridade do Ficheiro,** selecione um espaço de trabalho com o botão **Ativar.**
-2. **Ativar a monitorização da integridade** do ficheiro, apresentando o número de máquinas Windows e Linux no espaço de trabalho.
+
+1. **Ativar a monitorização da integridade** do ficheiro, apresentando o número de máquinas Windows e Linux no espaço de trabalho.
 
    ![Ativar a monitorização da integridade dos ficheiros][5]
 
    As definições recomendadas para Windows e Linux também estão listadas.  Expandir **ficheiros Windows,** **Registo**e **Ficheiros Linux** para ver a lista completa de itens recomendados.
 
-3. Desmarque quaisquer entidades recomendadas a que não queira aplicar FIM.
-4. **Selecione Aplicar a monitorização da integridade do ficheiro** para ativar o FIM.
+1. Desmarque quaisquer entidades recomendadas a que não queira aplicar FIM.
+
+1. **Selecione Aplicar a monitorização da integridade do ficheiro** para ativar o FIM.
 
 > [!NOTE]
-> Pode alterar as definições a qualquer momento. Consulte as entidades monitorizadas de Editar abaixo para saber mais.
+> Pode alterar as definições a qualquer momento. Consulte [as entidades monitorizadas](#edit-monitored-entities) de Editar abaixo para saber mais.
 
 
 ## <a name="view-the-fim-dashboard"></a>Ver o painel FIM
@@ -244,7 +251,7 @@ Pode desativar o FIM. A FIM utiliza a solução Azure Change Tracking para rastr
 
 4. Selecione **Remover** para desativar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, aprendeu a utilizar o Monitor de Integridade do Ficheiro (FIM) no Centro de Segurança. Para saber mais sobre o Centro de Segurança, consulte as seguintes páginas:
 
 * [Definição de políticas de segurança](tutorial-security-policy.md) -- Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos Azure.

@@ -6,24 +6,24 @@ author: mamccrea
 ms.author: mamccrea
 ms.date: 05/15/2019
 ms.topic: how-to
-ms.openlocfilehash: 00705e40ca17959701af325ed52a4c3754d35122
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 4b4ddd7db4891c642ec2002bbe992314fe67a20f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039063"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891980"
 ---
 # <a name="explore-azure-stream-analytics-with-visual-studio-code-preview"></a>Explore a Azure Stream Analytics com Código de Estúdio Visual (Pré-visualização)
 
 A extensão Azure Stream Analytics para Visual Studio Code proporciona aos desenvolvedores uma experiência leve para gerir os seus trabalhos stream Analytics. Pode ser usado em Windows, Mac e Linux. Com a extensão Azure Stream Analytics, pode:
 
-- [Criar,](quick-create-vs-code.md)iniciar e parar de trabalhar
+- [Criar,](quick-create-visual-studio-code.md)iniciar e parar de trabalhar
 - Exportar postos de trabalho existentes para um projeto local
 - Listar empregos e ver entidades de emprego
 
 ## <a name="export-a-job-to-a-local-project"></a>Exportar um emprego para um projeto local
 
-Para exportar um emprego para um projeto local, localize o trabalho que deseja exportar no **Stream Analytics Explorer** em Visual Studio Code. Em seguida, selecione uma pasta para o seu projeto. O projeto é exportado para a pasta que seleciona, e pode continuar a gerir o trabalho a partir do Código do Estúdio Visual. Para obter mais informações sobre a utilização do Código do Estúdio Visual para gerir os trabalhos do Stream Analytics, consulte o [quickstart](quick-create-vs-code.md)do Código do Estúdio Visual .
+Para exportar um emprego para um projeto local, localize o trabalho que deseja exportar no **Stream Analytics Explorer** em Visual Studio Code. Em seguida, selecione uma pasta para o seu projeto. O projeto é exportado para a pasta que seleciona, e pode continuar a gerir o trabalho a partir do Código do Estúdio Visual. Para obter mais informações sobre a utilização do Código do Estúdio Visual para gerir os trabalhos do Stream Analytics, consulte o [quickstart](quick-create-visual-studio-code.md)do Código do Estúdio Visual .
 
 ![Exportar trabalho asa em Código de Estúdio Visual](./media/vscode-explore-jobs/export-job.png)
 
@@ -42,6 +42,6 @@ Você pode usar a vista de trabalho para interagir com os trabalhos da Azure Str
 
    ![Vista de emprego aberta no portal](./media/vscode-explore-jobs/open-job-view.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Crie um trabalho em nuvem Azure Stream Analytics em Código de Estúdio Visual (Pré-visualização)](quick-create-vs-code.md)
+* [Crie um trabalho em nuvem Azure Stream Analytics em Código de Estúdio Visual (Pré-visualização)](quick-create-visual-studio-code.md)

@@ -3,12 +3,12 @@ title: Azure Application Insights Overview Dashboard [ Dashboard ] Microsoft Doc
 description: Monitorize as aplicações com insights de aplicação Azure e funcionalidade do Painel de Controlo Geral.
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 8c8aa4460a545f032eaa60560de00efff27ae1ef
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 714488d88b269f252dfd6677f847db315969a270
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322538"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970607"
 ---
 # <a name="application-insights-overview-dashboard"></a>Painel de visão geral de insights de aplicação
 
@@ -36,7 +36,7 @@ O painel de aplicações aproveita a tecnologia de painel existente dentro do Az
 
 Para aceder ao painel de instrumentos predefinido, _selecione Painel de Aplicação_ no canto superior esquerdo.
 
-![Vista do Dashboard](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
+![A screenshot mostra o botão do Painel de Aplicação realçado.](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
 
 Se esta for a primeira vez que aceda ao painel de instrumentos, lançará uma visão padrão:
 

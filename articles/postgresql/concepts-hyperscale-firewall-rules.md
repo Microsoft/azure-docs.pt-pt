@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 127840738d8fb8db00a7efc0b0d8fe393138488d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 559c5eca6fa8a6eceb37ade003d4f1983c0a1a1b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82580924"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902091"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---hyperscale-citus"></a>Regras de firewall na Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 A azure Database for PostgreSQL server firewall impede todo o acesso ao seu nó coordenador de Hiperescala (Citus) até especificar quais os computadores que têm permissão. A firewall concede acesso ao servidor com base no endereço IP originário de cada pedido.
@@ -24,7 +24,7 @@ Para configurar a firewall, crie as regras de firewall que especificam intervalo
 Todo o acesso à base de dados ao nó coordenador é bloqueado por padrão pela firewall. Para começar a utilizar o seu servidor a partir de outro computador, tem de especificar uma ou mais regras de firewall ao nível do servidor para permitir o acesso ao seu servidor. Utilize as regras de firewall para especificar quais os endereços IP que variam a partir da Internet para permitir. O acesso ao próprio site do portal Azure não é afetado pelas regras do firewall.
 As tentativas de ligação da Internet e do Azure devem primeiro passar pela firewall antes de poderem chegar à base de dados PostgreSQL, como mostra o seguinte diagrama:
 
-![Exemplo de fluxo de como a firewall funciona](media/concepts-hyperscale-firewall-rules/1-firewall-concept.png)
+:::image type="content" source="media/concepts-hyperscale-firewall-rules/1-firewall-concept.png" alt-text="Exemplo de fluxo de como a firewall funciona":::
 
 ## <a name="connecting-from-the-internet-and-from-azure"></a>Ligação a partir da Internet e de Azure
 

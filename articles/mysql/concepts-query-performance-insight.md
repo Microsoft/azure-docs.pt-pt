@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 51b478e5184c79e11d95ff004a652b2e5298558f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7aefa6cd048c41feb1535f2ae7fa5c87bf628b2d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83402617"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884907"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Query Performance Insight na Base de Dados do Azure para MySQL
 
@@ -51,7 +51,7 @@ O separador **de consultas de longa duração** mostra as 5 principais consultas
 
 Pode clicar e arrastar no gráfico para restringir a uma janela de tempo específica. Em alternativa, utilize os ícones de zoom para visualizar um período de tempo menor ou maior, respectivamente.
 
-![Consultas de insight de desempenho de consulta longas consultas](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-landing-page.png" alt-text="Consultas de insight de desempenho de consulta longas consultas"::: 
 
 ### <a name="wait-statistics"></a>Estatísticas de espera
 
@@ -64,8 +64,8 @@ Selecione o separador **Estatísticas de Espera** para ver as visualizações co
 
 As consultas exibidas na vista das estatísticas de espera são agrupadas pelas consultas que exibem as maiores esperas durante o intervalo de tempo especificado.
 
-![Consulta Performance Insight aguarda estatísticas](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Consulta Performance Insight aguarda estatísticas":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [monitorização e afinação](concepts-monitoring.md) na Base de Dados Azure para o MySQL.

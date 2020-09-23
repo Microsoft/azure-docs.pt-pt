@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 6612fe38adcd3c8002dd4a11122b5bb2e797a4dd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 362c051cf1dd7e97430bd6afaf4821a9c960b71d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86102179"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901539"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-postgresql"></a>Encriptação dupla de infraestrutura para Azure Database for PostgreSQL
 
@@ -29,19 +29,19 @@ Siga estes passos para criar uma Base de Dados Azure para o servidor MySQL com e
 
 2. Selecione **Base de Dados**  >  **Azure Databases para PostgreSQL**. Também pode inserir PostgreSQL na caixa de pesquisa para encontrar o serviço. Ativou a opção de implementação **do servidor único.**
 
-   ![A "Base de Dados Azure para PostgreSQL" no menu](./media/quickstart-create-database-portal/1-create-database.png)
+   :::image type="content" source="./media/quickstart-create-database-portal/1-create-database.png" alt-text="A Base de Dados Azure para PostgreSQL no menu":::
 
 3. Forneça as informações básicas do servidor. Selecione **definições adicionais** e permitiu que a caixa **de verificação de encriptação dupla infraestrutura** definisse o parâmetro.
 
-    ![Base de Dados Azure para seleções postgresQL](./media/howto-infrastructure-double-encryption/infrastructure-encryption-selected.png)
+    :::image type="content" source="./media/howto-infrastructure-double-encryption/infrastructure-encryption-selected.png" alt-text="Base de Dados Azure para seleções postgresQL":::
 
 4. Selecione **Review + criar** para obter o servidor.
 
-    ![Base de Dados Azure para resumo pós-SQL](./media/howto-infrastructure-double-encryption/infrastructure-encryption-summary.png)
+    :::image type="content" source="./media/howto-infrastructure-double-encryption/infrastructure-encryption-summary.png" alt-text="Base de Dados Azure para resumo pós-SQL":::
 
 5. Uma vez criado o servidor, pode validar a dupla encriptação da infraestrutura verificando o estado na lâmina do servidor **de encriptação de Dados.**
 
-    ![Base de Dados Azure para validação mySQL](./media/howto-infrastructure-double-encryption/infrastructure-encryption-validation.png)
+    :::image type="content" source="./media/howto-infrastructure-double-encryption/infrastructure-encryption-validation.png" alt-text="Base de Dados Azure para validação mySQL":::
 
 ## <a name="create-an-azure-database-for-postgresql-server-with-infrastructure-double-encryption---cli"></a>Criar uma base de dados Azure para servidor PostgreSQL com infraestrutura dupla encriptação - CLI
 
@@ -58,7 +58,7 @@ O exemplo a seguir cria um servidor PostgreSQL 11 em West US nomeado `mydemoserv
 az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 11 --infrastructure-encryption >Enabled/Disabled>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre encriptação de dados, consulte [a Base de Dados Azure para a infraestrutura de dados PostgreSQL.](concepts-Infrastructure-double-encryption.md)
 

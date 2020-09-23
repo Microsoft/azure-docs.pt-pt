@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2020
 ms.author: yelevin
-ms.openlocfilehash: 5804dcc840eb666c1d43ea7d7ed7640b8f7ff371
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5518da7d22d14de105c07e88b14e94d4b184269b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657441"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883809"
 ---
 # <a name="connect-windows-defender-firewall-with-advanced-security-to-azure-sentinel"></a>Ligue firewall do Windows Defender com Segurança Avançada a Azure Sentinel
 
@@ -31,7 +31,7 @@ A solução recolhe eventos de firewall do Windows a partir das máquinas do Win
 > [!NOTE]
 > - Os dados serão armazenados na localização geográfica do espaço de trabalho em que está a executar o Azure Sentinel.
 >
-> - Se o Azure Sentinel e o Azure Defender (anteriormente Azure Security Center) forem recolhidos para o mesmo espaço de trabalho, não há necessidade de ativar a solução Windows Firewall através deste conector. Se o ativou de qualquer forma, não causará dados duplicados. 
+> - Se os alertas do Azure Defender do Azure Security Center já forem recolhidos para o espaço de trabalho Azure Sentinel, não há necessidade de ativar a solução Windows Firewall através deste conector. No entanto, se o ativou, não irá causar dados duplicados. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,46 +47,43 @@ A solução recolhe eventos de firewall do Windows a partir das máquinas do Win
 
 ### <a name="instructions-tab"></a>Separador de instruções
 
-Preencha os seguintes passos no separador **Instruções.**
+- **Se as suas máquinas Windows estiverem em Azure:**
 
-- **Se as suas máquinas Windows estiverem em Azure, complete estes passos:**
+    1. Selecione **Instalar o agente na Máquina Virtual Azure Windows**.
 
-   1. Selecione **Instalar o agente na Máquina Virtual Azure Windows**.
-   
-   1. Clique no **Agente de instalação de descarregamento & para máquinas virtuais Azure Windows >** link que aparece.
-   
-   1. Na lista **de máquinas Virtuais,** selecione a máquina Windows que pretende transmitir para o Azure Sentinel. (Pode selecionar o **Windows** no filtro da coluna OS para garantir que apenas são apresentados VMs do Windows).
-   
-   1. Na janela que se abre para o VM, clique **em Connect**.
-   
-   1. Volte ao painel **de Máquinas Virtuais** e repita os dois passos anteriores para quaisquer outros VMs que pretenda ligar. Quando terminar, volte ao painel de firewall do **Windows.**
+    1. Clique no **Agente de instalação de descarregamento & para máquinas virtuais Azure Windows >** link que aparece.
 
-- **Se a sua máquina Windows não for um Azure VM, complete estes passos:**
-   
-   1. Selecione **Instalar o agente na máquina do Windows não-Azure**.
-   
-   1. Clique no **Agente de instalação de descarregamento & para máquinas não-Azure Windows >** link que aparece.
-   
-   1. No painel **de gestão** de agentes, selecione **download Windows Agent (64 bit)** ou **Download Windows Agent (32 bit)**, conforme necessário.
-   
-   1. Copie o ID do **espaço de trabalho,** **a tecla primária**e as cordas de **teclas secundárias** num ficheiro de texto. Copie esse ficheiro e o ficheiro de instalação descarregado para a sua máquina Windows. Executar o ficheiro de instalação e, quando solicitado, introduza o ID e as cordas das chaves no ficheiro de texto durante a instalação.
-   
-   1. Volte ao painel de firewall do **Windows.**
+    1. Na lista **de máquinas Virtuais,** selecione a máquina Windows que pretende transmitir para o Azure Sentinel. (Pode selecionar o **Windows** no filtro da coluna OS para garantir que apenas são apresentados VMs do Windows).
 
-Depois de completar os passos no separador **Instruções,** clique na **solução Instalar**.
+    1. Na janela que se abre para o VM, clique **em Connect**.
+
+    1. Volte ao painel **de Máquinas Virtuais** e repita os dois passos anteriores para quaisquer outros VMs que pretenda ligar. Quando terminar, volte ao painel de firewall do **Windows.**
+
+- **Se a sua máquina Windows não for um Azure VM:**
+
+    1. Selecione **Instalar o agente na máquina do Windows não-Azure**.
+
+    1. Clique no **Agente de instalação de descarregamento & para máquinas não-Azure Windows >** link que aparece.
+
+    1. No painel **de gestão** de agentes, selecione **download Windows Agent (64 bit)** ou **Download Windows Agent (32 bit)**, conforme necessário.
+
+    1. Copie o ID do **espaço de trabalho,** **a tecla primária**e as cordas de **teclas secundárias** num ficheiro de texto. Copie esse ficheiro e o ficheiro de instalação descarregado para a sua máquina Windows. Executar o ficheiro de instalação e, quando solicitado, introduza o ID e as cordas das chaves no ficheiro de texto durante a instalação.
+
+    1. Volte ao painel de firewall do **Windows.**
+
+1. Clique **na solução de instalação**.
 
 ### <a name="next-steps-tab"></a>Separador de passos seguintes
 
-- Para obter informações sobre os dados de registo do Windows Firewall, consulte os livros de trabalho recomendados disponíveis e as amostras de consulta agregadas ao conector de dados do **Windows Firewall.**
+- Consulte os livros de trabalho recomendados disponíveis e as amostras de consulta agregadas ao conector de dados do **Windows Firewall** para obter informações sobre os dados de registo do Windows Firewall.
 
 - Para consultar os dados de firewall do Windows em **Logs,** **digite o WindowsFirewall** na janela de consulta.
-
 
 ## <a name="validate-connectivity"></a>Validar conectividade
  
 Uma vez que os registos do Windows Firewall são enviados para o Azure Sentinel apenas quando o ficheiro de registo local atingir a capacidade, deixando o registo no seu tamanho padrão de 4096 KB provavelmente resultará em alta latência de recolha. Pode baixar a latência baixando o tamanho do ficheiro de registo. Consulte as instruções para [configurar o registo do Windows Firewall](https://docs.microsoft.com/windows/security/threat-protection/windows-firewall/configure-the-windows-firewall-log). Note que ao definir o tamanho mínimo possível de log (1 KB) irá praticamente eliminar a latência da recolha, podendo também afetar negativamente o desempenho da máquina local. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a ligar firewall do Windows ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats-built-in.md)

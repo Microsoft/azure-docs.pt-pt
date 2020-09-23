@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: b2d43e970012209acb6ed7fbbaafbb1719617280
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1899baa927bffdaedd1d7ee00f442c449480fc04
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533874"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986841"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Quickstart: Criar uma instância gerida de SQL Gestão De Instância
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -124,7 +124,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 > 3. Selecione a operação de implantação de instância gerida SQL em curso.
 
 > [!IMPORTANT]
-> - A criação da SQL Managed Instance é uma operação de longa duração que pode demorar algumas horas de cada vez, dependendo de circunstâncias específicas. Consulte [a duração das operações de gestão](management-operations-overview.md#management-operations-duration) para os tempos típicos de criação.
+> - A criação da SQL Managed Instance é uma operação de longa duração que pode demorar algumas horas de cada vez, dependendo de circunstâncias específicas. Consulte [a duração das operações de gestão](management-operations-overview.md#duration) para os tempos típicos de criação.
 > - O início da criação de exemplos geridos pela SQL pode ser adiado nos casos em que existam outras operações de impacto, tais como operações de restauro ou dimensionamento de longa duração noutras instâncias geridas na mesma sub-rede. Para saber mais, consulte [as operações de Gestão de impacto transversal.](management-operations-overview.md#management-operations-cross-impact)
 > - Para conseguir obter o estado da criação de instâncias **geridas,** é necessário ter permissões de leitura sobre o grupo de recursos. Se não tiver esta permissão ou a revogar enquanto a instância gerida estiver em processo de criação, isto pode fazer com que a SQL Managed Instance não esteja visível na lista de implementações de grupos de recursos.
 >
@@ -161,7 +161,7 @@ Para afinar opcionalmente as definições de rede, inspecione o seguinte:
 > Se configurar um ponto final público para a SQL Managed Instance, precisa de abrir portas para permitir o tráfego de rede permitindo ligações à SQL Managed Instance a partir da internet pública. Consulte [configurar um ponto final público para SQL Managed Instance](public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group) para obter mais informações.
 >
 
-## <a name="retrieve-connection-details-to-sql-managed-instance"></a>Recuperar detalhes de conexão para sql caso gerido
+## <a name="retrieve-connection-details-to-sql-managed-instance"></a>Obter os detalhes de ligação ao SQL Managed Instance
 
 Para ligar à SQL Managed Instance, siga estes passos para recuperar o nome de anfitrião e o nome de domínio totalmente qualificado (FQDN):
 

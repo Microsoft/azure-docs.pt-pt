@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 72f0d361f69232894df3a9131d173411614a2055
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 035b13140ee1fb7a48d0cea9a3611eac145d9f8c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921219"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970681"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Encontre e aplique recomendações de desempenho
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -35,7 +35,7 @@ Utilize os seguintes passos para encontrar recomendações de desempenho no port
 
 As recomendações de desempenho são apresentadas na tabela semelhantes às apresentadas na seguinte figura:
 
-![Recomendações](./media/database-advisor-find-recommendations-portal/recommendations.png)
+![A screenshot mostra recomendações de desempenho numa tabela com descrição de ação e recomendação.](./media/database-advisor-find-recommendations-portal/recommendations.png)
 
 As recomendações são ordenadas pelo seu impacto potencial no desempenho nas seguintes categorias:
 
@@ -133,7 +133,7 @@ A aplicação de uma recomendação pode não acontecer instantaneamente. O port
 | Execução |A recomendação está a ser aplicada. |
 | Validação |A recomendação foi aplicada com sucesso e o serviço está a medir os benefícios. |
 | Success |A recomendação foi aplicada com êxito e os benefícios foram medidos. |
-| Error |Ocorreu um erro durante o processo de aplicação da recomendação. Isto pode ser um problema transitório, ou possivelmente uma mudança de esquema para a tabela e o script já não é válido. |
+| Erro |Ocorreu um erro durante o processo de aplicação da recomendação. Isto pode ser um problema transitório, ou possivelmente uma mudança de esquema para a tabela e o script já não é válido. |
 | Reverter |A recomendação foi aplicada, mas foi considerada não-performante e está a ser automaticamente revertida. |
 | Revertido |A recomendação foi revertida. |
 
@@ -170,6 +170,6 @@ Monitorize as suas recomendações e continue a aplicá-las para aperfeiçoar o 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Arquivo de Consultas](https://msdn.microsoft.com/library/dn817826.aspx)
+* [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) (Arquivo de Consultas)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [Controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md)

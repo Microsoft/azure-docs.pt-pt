@@ -1,18 +1,18 @@
 ---
 title: 'Virtual WAN: Inquilino AD AD para diferentes grupos de utilizadores: Autenticação AD AZure'
-description: Pode utilizar o P2S VPN para ligar ao seu VNet utilizando a autenticação AD Azure
+description: Crie um inquilino AZure AD para a autenticação P2S OpenVPN e crie e registe várias aplicações em Azure AD para permitir diferentes acessos para diferentes utilizadores e grupos.
 services: virtual-wan
-author: kumudD
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: 5ca57ccc40669a607cd0541dc738e3a3eacf3e88
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 57fd36366eef284e2975633fbb34549f4316cde6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507697"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988261"
 ---
 # <a name="create-an-azure-active-directory-ad-tenant-for-p2s-openvpn-protocol-connections"></a>Criar um inquilino de Diretório Ativo (AD) para ligações de protocolo P2S OpenVPN
 
@@ -123,11 +123,11 @@ Utilize este [link](https://go.microsoft.com/fwlink/?linkid=2117554) para descar
 
 1. Selecione a elipse (...) ao lado do perfil do cliente que pretende eliminar. Em seguida, **selecione Remover**.
 
-    ![eliminação](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
+    ![delete](./media/openvpn-azure-ad-tenant-multi-app/delete/delete1.jpg)
 
 2. Selecione **Remover** para eliminar.
 
-    ![eliminação](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
+    ![delete](./media/openvpn-azure-ad-tenant-multi-app/delete/delete2.jpg)
 
 #### <a name="to-diagnose-connection-issues"></a><a name="diagnose"></a>Para diagnosticar problemas de conexão
 
@@ -155,7 +155,7 @@ Utilize este [link](https://go.microsoft.com/fwlink/?linkid=2117554) para descar
 
 3. Na secção Hubs e ligações, pode ver o estado do hub, o site, a região, o estado da ligação VPN e os bytes de entrada e saída.
 
-## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar recursos
+## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar os recursos
 
 Quando já não precisar desses recursos, pode utilizar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos que o mesmo contém. Substitua "myResourceGroup" pelo nome do grupo de recursos e execute o seguinte comando do PowerShell:
 
@@ -163,6 +163,6 @@ Quando já não precisar desses recursos, pode utilizar [Remove-AzureRmResourceG
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a WAN Virtual, veja a página [Virtual WAN Overview](virtual-wan-about.md) (Descrição Geral da WAN Virtual).
