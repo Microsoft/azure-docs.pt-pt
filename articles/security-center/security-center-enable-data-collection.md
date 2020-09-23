@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: c6a779deef3ed1dc0a4d5e83c38f483776adf6fe
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 132e21c861f50caca37fb6fc5df660ff413d07a5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387375"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905486"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Data collection in Azure Security Center (Recolha de dados no Centro de Segurança do Azure)
 O Security Center recolhe dados das suas máquinas virtuais Azure (VMs), conjuntos de escala de máquinas virtuais, contentores IaaS e computadores não-Azure (incluindo no local) para monitorizar vulnerabilidades e ameaças de segurança. Os dados são recolhidos utilizando o agente Log Analytics, que lê várias configurações relacionadas com a segurança e registos de eventos da máquina e copia os dados para o seu espaço de trabalho para análise. Exemplos desses dados são: tipo e versão do sistema operativo, registos do sistema operativo (registos de eventos windows), processos de execução, nome da máquina, endereços IP e registados no utilizador.
@@ -27,27 +27,30 @@ Este artigo descreve como instalar um agente Do Log Analytics e definir um espa�
 > - Para a lista de plataformas apoiadas, consulte [plataformas apoiadas no Centro de Segurança Azure.](security-center-os-coverage.md)
 > - Armazenar dados no Log Analytics, quer utilize um espaço de trabalho novo ou existente, pode incorrer em custos adicionais para armazenamento de dados. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="enable-automatic-provisioning-of-the-log-analytics-agent"></a>Permitir o provisionamento automático do agente Log Analytics<a name="auto-provision-mma"></a>
+## <a name="enable-automatic-provisioning-of-the-log-analytics-agent"></a>Permitir o provisionamento automático do agente Log Analytics <a name="auto-provision-mma"></a>
 
 Para recolher os dados das máquinas, deverá ter o agente Log Analytics instalado. A instalação do agente pode ser feita automaticamente (recomendada) ou pode instalar o agente manualmente. Por predefinição, o provisionamento automático está desligado.
 
 Quando o provisionamento automático está ligado, o Security Center implementa o agente Log Analytics em todos os VMs Azure suportados e quaisquer novos que sejam criados. Recomenda-se o provisionamento automático, mas pode instalar o agente manualmente se necessário (ver [instalação manual do agente Log Analytics).](#manual-agent)
 
 
+
 Para permitir o provisionamento automático do agente Log Analytics:
-1. A partir do menu do Security Center no portal, **selecione definições de preços &**.
-2. Selecione a subscrição relevante.
 
-   ![Selecionar subscrição][7]
+1. A partir do menu do Centro de Segurança, **selecione definições de preços &**.
+1. Selecione a subscrição relevante.
+1. Na página de **recolha de dados,** desa **essa adir** automático ao **On**.
+1. Selecione **Guardar**.
 
-3. Selecione **a recolha de dados.**
-4. Em **Previsão automática**, selecione **On** para permitir o provisionamento automático.
-5. Selecione **Guardar**. O agente será implantado em todos os VMs dentro de 15 minutos. 
+    :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Habilitação automática do agente Log Analytics":::
 
 >[!TIP]
 > Se um espaço de trabalho precisar de ser a provisionado, a instalação do agente pode demorar até 25 minutos.
 
-   ![Ativar o aprovisionamento automático][1]
+Com o agente implantado nas suas máquinas, o Security Center pode fornecer recomendações adicionais relacionadas com o estado de atualização do sistema, configurações de segurança do SISTEMA, proteção de ponto final, bem como gerar alertas de segurança adicionais.
+
+>[!NOTE]
+> A definição de provisão automática para **Off** não remove o agente Log Analytics da Azure VMs onde o agente já foi a provisionado. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.
 
 >[!NOTE]
 > - Para obter instruções sobre como providenciar uma instalação pré-existente, consulte [o provisionamento automático em caso de instalação de um agente pré-existente](#preexisting).
@@ -78,7 +81,7 @@ Para selecionar um espaço de trabalho criado pelo Security Center:
 1. O Security Center permitirá automaticamente uma solução do Centro de Segurança no espaço de trabalho por nível de preços definido para a subscrição. 
 
 > [!NOTE]
-> O nível de preços do Log Analytics dos espaços de trabalho criados pelo Security Center não afeta a faturação do Security Center. A faturação do Centro de Segurança baseia-se sempre na sua política de segurança do Centro de Segurança e nas soluções instaladas numa área de trabalho. Para o escalão Gratuito, o Centro de Segurança ativa a solução *SecurityCenterFree* na área de trabalho predefinida. Para o nível padrão, o Centro de Segurança permite a solução *de Segurança* no espaço de trabalho predefinido.
+> O nível de preços do Log Analytics dos espaços de trabalho criados pelo Security Center não afeta a faturação do Security Center. A faturação do Centro de Segurança baseia-se sempre na sua política de segurança do Centro de Segurança e nas soluções instaladas numa área de trabalho. Para subscrições sem Azure Defender, o Security Center permite a solução *SecurityCenterFree* no espaço de trabalho predefinido. Para subscrições com o Azure Defender, o Security Center permite a solução *de Segurança* no espaço de trabalho predefinido.
 > Armazenar dados no Log Analytics pode incorrer em encargos adicionais para o armazenamento de dados. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
 
 Para obter mais informações sobre as contas de análise de registo existentes, consulte [os clientes de análise de registo existentes](./faq-azure-monitor-logs.md).
@@ -97,7 +100,7 @@ Para selecionar um espaço de trabalho existente do Log Analytics:
 
 1. Na **configuração do espaço de trabalho predefinido**, selecione **Utilize outro espaço de trabalho**.
 
-   ![Selecione espaço de trabalho existente][2]
+   ![Use outro espaço de trabalho][2]
 
 2. A partir do menu pull-down, selecione um espaço de trabalho para armazenar dados recolhidos.
 
@@ -117,23 +120,28 @@ Para selecionar um espaço de trabalho existente do Log Analytics:
    >
    >
 
-   - **Selecione Cancelar** para cancelar a operação.
+   - Para cancelar a operação, **selecione Cancelar**.
 
-     ![Selecione espaço de trabalho existente][3]
+     ![Opções de revisão para reconfigurar VMs monitorizados][3]
 
-5. Selecione o nível de preços para o espaço de trabalho desejado que pretende definir o agente Log Analytics. <br>Para utilizar um espaço de trabalho existente, desa um nível de preços para o espaço de trabalho. Isto instalará uma solução de Centro de Segurança no espaço de trabalho se ainda não estiver presente.
+5. Selecione se o espaço de trabalho terá ou não O Azure Defender ativado.
 
-    a.  No menu principal do Centro de Segurança, selecione **definições de preços &**.
+    Para utilizar um espaço de trabalho existente, desa um nível de preços para o espaço de trabalho. Isto instalará uma solução de Centro de Segurança no espaço de trabalho se ainda não estiver presente.
+
+    1. No menu principal do Centro de Segurança, selecione **definições de preços &**.
      
-    b.  Selecione o espaço de trabalho desejado no qual pretende ligar o agente.
-        ![Selecione espaço de trabalho ][7] c. Definir o nível de preços.
-        ![Selecione o nível de preços][9]
+    1. Selecione o espaço de trabalho ao qual estará a ligar o agente.
+
+    1. Selecione **Azure Defender on** ou **Azure Defender off**.
+
    
    >[!NOTE]
    >Se o espaço de trabalho já tiver uma solução **SecurityCenterFree** ativada, o preço será definido automaticamente. **Security** 
 
+
 ## <a name="cross-subscription-workspace-selection"></a>Seleção de espaço de trabalho de subscrição cruzada
 Quando seleciona um espaço de trabalho para armazenar os seus dados, todos os espaços de trabalho em todas as suas subscrições estão disponíveis. A seleção da área de trabalho de subscrições cruzadas permite-lhe recolher dados de máquinas virtuais em execução em diferentes subscrições e armazenar os mesmos na área de trabalho da sua preferência. Esta seleção será útil se estiver a utilizar uma área de trabalho centralizada na sua organização e pretender utilizá-la para a recolha de dados de segurança. Para obter mais informações sobre como gerir espaços de trabalho, consulte [Gerir o acesso ao espaço de trabalho.](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access)
+
 
 
 ## <a name="data-collection-tier"></a>Nível de recolha de dados
@@ -150,7 +158,7 @@ A seleção de um escalão de recolha de dados no Centro de Segurança do Azure 
 
 
 > [!NOTE]
-> Estes conjuntos de eventos de segurança estão disponíveis apenas no nível padrão do Centro de Segurança. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
+> Estes conjuntos de eventos de segurança estão disponíveis apenas com o Azure Defender. Veja [Preços](security-center-pricing.md) para saber mais sobre os escalões de preços do Centro de Segurança.
 Estes conjuntos foram concebidos para abordar cenários típicos. Certifique-se de avaliar quais as suas necessidades antes de implementá-la.
 >
 >
@@ -188,7 +196,7 @@ Para escolher a sua política de filtragem:
 
    ![Escolha a política de filtragem][5]
 
-### <a name="automatic-provisioning-in-cases-of-a-pre-existing-agent-installation"></a>Provisionamento automático em caso de instalação de agente pré-existente<a name="preexisting"></a> 
+### <a name="automatic-provisioning-in-cases-of-a-pre-existing-agent-installation"></a>Provisionamento automático em caso de instalação de agente pré-existente <a name="preexisting"></a> 
 
 Os seguintes casos de utilização especificam como funciona a provisão automática nos casos em que já existe um agente ou extensão instalado. 
 
@@ -210,7 +218,7 @@ O centro de segurança instalará a extensão do agente Log Analytics lado a lad
     - Para ver para que espaço de trabalho a extensão existente está a enviar dados, executar o teste para validar a [conectividade com o Azure Security Center](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/). Em alternativa, pode abrir espaços de trabalho do Log Analytics, selecionar um espaço de trabalho, selecionar o VM e ver a ligação do agente Log Analytics. 
     - Se tiver um ambiente onde o agente Log Analytics está instalado em postos de trabalho dos clientes e reporte a um espaço de trabalho log analytics existente, reveja a lista de [sistemas operativos suportados pelo Azure Security Center](security-center-os-coverage.md) para se certificar de que o seu sistema operativo é suportado. Para obter mais informações, consulte [os clientes de analítica de registo existentes.](./faq-azure-monitor-logs.md)
  
-### <a name="turn-off-automatic-provisioning"></a>Desligue o provisionamento automático<a name="offprovisioning"></a>
+### <a name="turn-off-automatic-provisioning"></a>Desligue o provisionamento automático <a name="offprovisioning"></a>
 Para desligar o provisionamento automático do agente Log Analytics:
 
 1. A partir do menu do Security Center no portal, **selecione definições de preços &**.
@@ -232,7 +240,7 @@ Se desligar a provisão automática depois de ter sido anteriormente ligada, os 
 >  A desativação do fornecimento automático não remove o agente Log Analytics da Azure VMs onde o agente foi a provisionado. Para obter informações sobre a remoção da extensão OMS, consulte [como remover as extensões OMS instaladas pelo Security Center](faq-data-collection-agents.md#remove-oms).
 >
     
-## <a name="manual-agent-provisioning"></a>Provisionamento de agentes manuais<a name="manual-agent"></a>
+## <a name="manual-agent-provisioning"></a>Provisionamento de agentes manuais <a name="manual-agent"></a>
  
 Existem várias formas de instalar manualmente o agente Log Analytics. Ao instalar manualmente, certifique-se de que desativa o provisionamento automático.
 
@@ -244,19 +252,16 @@ Pode instalar manualmente o agente Log Analytics, para que o Security Center pos
 
 1. Opcionalmente, criar um espaço de trabalho.
 
-1. Desa ajuste o espaço de trabalho no qual está a instalar o agente Log Analytics no nível de preços padrão:
+1. Ativar o Azure Defender no espaço de trabalho no qual está a instalar o agente Log Analytics:
 
     1. A partir do menu do Centro de Segurança, **selecione definições de preços &**.
 
     1. Ajuste o espaço de trabalho no qual está a instalar o agente. Certifique-se de que o espaço de trabalho está na mesma subscrição que utiliza no Centro de Segurança e que tem permissões de leitura/escrita no espaço de trabalho.
 
-    1. Desa estale o nível de preços padrão e **selecione Guardar**.
-
-        ![Desapasar um espaço de trabalho para o nível de preços padrão](.\media\security-center-enable-data-collection\workspace-to-standard-tier.gif)
+    1. Coloque o Azure Defender ligado e selecione **Save**.
 
        >[!NOTE]
        >Se o espaço de trabalho já tiver uma solução **SecurityCenterFree** ativada, o preço será definido automaticamente. **Security** 
-   > 
 
 1. Se pretender implantar os agentes em novos VMs utilizando um modelo de Gestor de Recursos, instale o agente Log Analytics:
 
@@ -308,7 +313,6 @@ Este artigo mostrou-lhe como funciona a recolha de dados e o provisionamento aut
 [2]: ./media/security-center-enable-data-collection/use-another-workspace.png
 [3]: ./media/security-center-enable-data-collection/reconfigure-monitored-vm.png
 [5]: ./media/security-center-enable-data-collection/data-collection-tiers.png
-[6]: ./media/security-center-enable-data-collection/disable-data-collection.png
 [7]: ./media/security-center-enable-data-collection/select-subscription.png
 [8]: ./media/security-center-enable-data-collection/manual-provision.png
 [9]: ./media/security-center-enable-data-collection/pricing-tier.png

@@ -11,15 +11,15 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: bfc285f68e8a44b6b09fc63d9b2775a047955a37
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: c7c3825d97a5566a43346febc7bbf86a4b242b54
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604670"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905694"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implementar um modelo para um cluster de serviço Azure Kubernetes
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Aprenda a usar a Azure Machine Learning para implementar um modelo como serviço web no Serviço Azure Kubernetes (AKS). O Serviço Azure Kubernetes é bom para implantações de produção de alta escala. Utilize o serviço Azure Kubernetes se precisar de uma ou mais das seguintes capacidades:
 

@@ -11,16 +11,16 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 03/05/2020
-ms.openlocfilehash: e4a62b9892af661f74df5b49ff4a451fb673b4e1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7992283c1652199d665aad07c027b88e9489ddf0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325768"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889827"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Implementar um modelo para a Azure Machine Learning computação de instâncias
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Aprenda a usar a Azure Machine Learning para implementar um modelo como um serviço web no seu caso de computação Azure Machine Learning. Utilize casos de computação se uma das seguintes condições for verdadeira:
 
@@ -53,8 +53,8 @@ Um caderno de exemplo que demonstra implementações locais está incluído na s
     * Instância de cálculo: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score` . 
 
     Por exemplo, 
-    * Caderno VM:`https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
-    * Instância de cálculo:`https://vm-name-6789.northcentralus.instances.azureml.net/score`
+    * Caderno VM: `https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
+    * Instância de cálculo: `https://vm-name-6789.northcentralus.instances.azureml.net/score`
 
 ## <a name="test-the-service"></a>Testar o serviço
 
@@ -97,7 +97,7 @@ print("prediction:", resp.text)
 
 * [Como implementar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
 * [Resolução de problemas de implantação](how-to-troubleshoot-deployment.md)
-* [Utilize o TLS para garantir um serviço web através do Azure Machine Learning](how-to-secure-web-service.md)
+* [Utilizar o TLS para proteger um serviço Web através do Azure Machine Learning](how-to-secure-web-service.md)
 * [Consumir um Modelo ML implantado como um serviço web](how-to-consume-web-service.md)
 * [Monitorize os seus modelos de machine learning Azure com Insights de Aplicações](how-to-enable-app-insights.md)
 * [Recolher dados para modelos em produção](how-to-enable-data-collection.md)

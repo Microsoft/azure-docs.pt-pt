@@ -1,7 +1,7 @@
 ---
-title: Transforme os dados no designer (pré-visualização)
+title: Transformar dados no designer
 titleSuffix: Azure Machine Learning
-description: Aprenda a transformar dados em Azure Machine Learning designer (pré-visualização) para criar os seus próprios conjuntos de dados.
+description: Aprenda a transformar dados no designer Azure Machine Learning para criar os seus próprios conjuntos de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,15 +10,15 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 05a21ce10db2822c963f1b375842e9a7233e0816
-ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
+ms.openlocfilehash: 9124bbfc7300f3a5116c572d569b41e15356ab8f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87457826"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983833"
 ---
-# <a name="transform-data-in-azure-machine-learning-designer-preview"></a>Transforme dados em Azure Machine Learning designer (pré-visualização)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="transform-data-in-azure-machine-learning-designer"></a>Transforme dados em Azure Machine Learning designer
+
 
 Neste artigo, aprende-se a transformar e guardar conjuntos de dados no designer Azure Machine Learning para que possa preparar os seus próprios dados para a aprendizagem automática.
 
@@ -112,7 +112,7 @@ Agora que o seu pipeline está configurado para dividir os dados, precisa de esp
     **Formato de ficheiro**: csv
 
     > [!NOTE]
-    > Este artigo pressupõe que você tem acesso a uma datastore registrada no atual espaço de trabalho Azure Machine Learning. Para obter instruções sobre como configurar uma loja de dados, consulte [os serviços de armazenamento Connect to Azure](how-to-access-data.md#studio).
+    > Este artigo pressupõe que você tem acesso a uma datastore registrada no atual espaço de trabalho Azure Machine Learning. Para obter instruções sobre como configurar uma loja de dados, consulte [os serviços de armazenamento Connect to Azure](how-to-connect-data-ui.md#create-datastores).
 
     Se não tiver uma loja de dados, pode criar uma agora. Por exemplo, este artigo irá guardar os conjuntos de dados para a conta de armazenamento de bolhas predefinida associada ao espaço de trabalho. Guardará os conjuntos de dados no `azureml` recipiente numa nova pasta chamada `data` .
 

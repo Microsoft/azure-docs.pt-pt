@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: dfb1ca4fc8f550c8ed6955adaca9082f0b6b79e6
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e0bb3c3f3a6a1a38f974acf361937928ad4e2cfd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89379006"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983292"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Conceitos básicos Azure Key Vault
 
-O Azure Key Vault é uma ferramenta para armazenar e aceder a segredos em segurança. Um segredo é tudo aquilo cujo acesso deseja controlar rigidamente, como chaves de API, palavras-passe ou certificados. Um cofre é um grupo lógico de segredos.
+Azure Key Vault é um serviço de nuvem para armazenar e aceder a segredos de forma segura. Um segredo é qualquer coisa a que queira controlar firmemente o acesso, como chaves API, palavras-passe, certificados ou chaves criptográficas. O serviço Key Vault suporta dois tipos de contentores: cofres e piscinas HSM geridas. Os cofres suportam o software de armazenamento e chaves, segredos e certificados apoiados pelo HSM. As piscinas HSM geridas suportam apenas as teclas apoiadas por HSM. Consulte [a visão geral da Azure Key Vault REST API](about-keys-secrets-certificates.md) para obter detalhes completos.
 
 Aqui estão outros termos importantes:
 
@@ -28,6 +28,12 @@ Aqui estão outros termos importantes:
 - **Proprietário do Key Vault**: um proprietário do cofre pode criar um cofre de chaves e obter acesso total e controlo sobre o mesmo. O proprietário do cofre também pode configurar uma auditoria ao registo de quem acede a segredos e chaves. Os administradores podem controlar o ciclo de vida das chaves. Podem implementar uma nova versão da chave, fazer uma cópia de segurança e executar tarefas relacionadas.
 
 - **Consumidor do cofre**: um consumidor do cofre pode efetuar ações nos recursos dentro do cofre de chaves quando o proprietário do cofre lhe concede acesso. As ações disponíveis dependem das permissões concedidas.
+
+- **Administradores geridos do HSM**: Os utilizadores a quem é atribuída a função de Administrador têm controlo total sobre um pool gerido do HSM. Podem criar mais atribuições de funções para delegar acesso controlado a outros utilizadores.
+
+- **Gerido HSM Crypto Officer/Utilizador**: Funções incorporadas que são normalmente atribuídas aos utilizadores ou principais de serviço que executarão operações criptográficas usando chaves em HSM Gerido. O Utilizador Crypto pode criar novas teclas, mas não consegue eliminar as teclas.
+
+- **Encriptação gerida do Serviço Crypto HSM**: Função incorporada que é normalmente atribuída a uma conta de serviço gerida (por exemplo, conta de armazenamento) para encriptação de dados em repouso com a chave gerida pelo cliente.
 
 - **Recurso**: um recurso é um item gerível que está disponível através do Azure. Exemplos comuns são máquina virtual, conta de armazenamento, aplicação web, base de dados e rede virtual. Há muitos mais.
 
@@ -59,7 +65,7 @@ Utilize a tabela seguinte para melhor compreender como a chave de cofre pode aju
 | --- | --- | --- |
 | Programador de uma aplicação do Azure |"Quero escrever uma aplicação para o Azure que usa chaves para assinar e encriptar. Mas quero que estas chaves sejam externas da minha aplicação para que a solução seja adequada para uma aplicação que seja distribuída geograficamente. <br/><br/>Quero que as chaves e os segredos estejam protegidos, sem que tenha de escrever eu próprio o código. Também quero que estas chaves e segredos sejam fáceis de usar a partir das minhas aplicações, com o melhor desempenho." |As chaves √ são armazenadas num cofre e invocadas pelo URI quando necessário.<br/><br/> √ As chaves são salvaguardadas pelo Azure, utilizando os algoritmos de norma da indústria, os comprimentos de chave e os módulos de segurança de hardware.<br/><br/> √ As chaves são processadas nos HSMs que residem no mesmos datacenters do Azure que as aplicações. Este método proporciona mais fiabilidade e latência reduzida do que as chaves que residem numa localização separada, como no local. |
 | Programador de software como um serviço (SaaS) |"Não quero a responsabilidade ou potencial responsabilidade pelas chaves e segredos dos meus clientes. <br/><br/>Quero que os clientes possuam e gerem as suas chaves para que me concentre em fazer o que faço melhor, que é fornecer as principais funcionalidades de software." |Os clientes √ podem importar as suas próprias chaves para o Azure e geri-las. Quando uma aplicação SaaS precisa de realizar operações criptográficas utilizando as chaves dos clientes, o Key Vault faz estas operações em nome da aplicação. A aplicação não vê as chaves dos clientes. |
-| Responsável pela segurança (CSO) |"Quero saber que as nossas aplicações cumprem os HSMs FIPS 140-2 Nível 2 para uma gestão segura das chaves. <br/><br/>Pretendo certificar-me de que a minha organização está a controlar o ciclo de vida das chave e pode monitorizar a utilização das mesmas. <br/><br/>E apesar de usarmos vários serviços e recursos da Azure, quero gerir as chaves de um único local em Azure." |Os HSMs √ têm a certificação FIPS 140-2 de nível 2 validada.<br/><br/>A chave do cofre √ foi concebida para que a Microsoft não consulte ou extraia as suas chaves.<br/><br/>√ A utilização da chave é registada em tempo quase real.<br/><br/>√ O cofre fornece uma interface única, independentemente de quantos cofres tiver no Azure, de quantas regiões suporta e quais as aplicações em que os utiliza. |
+| Responsável pela segurança (CSO) |"Quero saber que as nossas aplicações cumprem os FIPS 140-2 Nível 2 ou FIPS 140-2 Nível 3 HSMs para uma gestão segura das chaves. <br/><br/>Pretendo certificar-me de que a minha organização está a controlar o ciclo de vida das chave e pode monitorizar a utilização das mesmas. <br/><br/>E apesar de usarmos vários serviços e recursos da Azure, quero gerir as chaves de um único local em Azure." |√ Escolha **os cofres** para HSMs validados FIPS 140-2 Nível 2.<br/>√ Escolha **piscinas HSM geridas** para HSMs validados FIPS 140-2 Nível 3.<br/><br/>A chave do cofre √ foi concebida para que a Microsoft não consulte ou extraia as suas chaves.<br/>√ A utilização da chave é registada em tempo quase real.<br/><br/>√ O cofre fornece uma interface única, independentemente de quantos cofres tiver no Azure, de quantas regiões suporta e quais as aplicações em que os utiliza. |
 
 Qualquer pessoa com uma subscrição do Azure pode criar e utilizar cofres de chave. Embora o Key Vault beneficie os desenvolvedores e os administradores de segurança, pode ser implementado e gerido por um administrador de uma organização que gere outros serviços Azure. Por exemplo, este administrador pode iniciar sessão com uma assinatura Azure, criar um cofre para a organização para armazenar chaves e, em seguida, ser responsável por tarefas operacionais como estas:
 
@@ -75,9 +81,10 @@ Este administrador dá então uris aos desenvolvedores para ligar a partir das s
 
 Os programadores também podem gerir as chaves diretamente, com APIs. Para obter mais informações, consulte o [manual do programador da chave](developers-guide.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Aprenda a [proteger o cofre.](secure-your-key-vault.md)
+- Aprenda a [proteger o cofre.](secure-your-key-vault.md)
+- Saiba como [garantir as suas piscinas HSM geridas](../managed-hsm/access-control.md)
 
 <!--Image references-->
 [1]: ../media/key-vault-whatis/AzureKeyVault_overview.png

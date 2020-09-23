@@ -1,5 +1,5 @@
 ---
-title: O que é Azure Sentinel? Microsoft Docs
+title: O que é o Azure Sentinel? | Microsoft Docs
 description: Conheça o Azure Sentinel, uma solução de gestão de eventos de informação de segurança nativa em nuvem (SIEM) e orquestração de segurança (SOAR).
 services: sentinel
 documentationcenter: na
@@ -14,20 +14,20 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 1bd61341683148cfc6431d7ca4b1f9293e19e760
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 68ccd21af585d853592ab8cce24f251d810a4160
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662025"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889206"
 ---
 # <a name="what-is-azure-sentinel"></a>O que é o Azure Sentinel?
 
 O Microsoft Azure Sentinel é uma solução de gestão de eventos de informação de **segurança (SIEM)** e **de orquestração de segurança (SOAR).** O Azure Sentinel fornece análises inteligentes de segurança e inteligência de ameaças em toda a empresa, fornecendo uma única solução para deteção de alerta, visibilidade de ameaças, caça proativa e resposta a ameaças. 
 
-Azure Sentinel é a sua visão de olho de pássaros em toda a empresa aliviando o stress de ataques cada vez mais sofisticados, aumentando volumes de alertas e longos prazos de resolução.
+Azure Sentinel é a sua visão de olho de pássaros em toda a empresa aliviando o stress de ataques cada vez mais sofisticados, aumentando volumes de alertas e longos períodos de tempo de resolução.
 
 - **Recolha dados à escala de nuvem** em todos os utilizadores, dispositivos, aplicações e infraestruturas, tanto no local como em várias nuvens. 
 
@@ -43,7 +43,7 @@ Com base na gama completa de serviços Azure existentes, o Azure Sentinel incorp
 
 ## <a name="connect-to-all-your-data"></a>Conecte-se a todos os seus dados
 
-Para embarcar a Azure Sentinel, primeiro tem de [se ligar às suas fontes de segurança.](connect-data-sources.md) O Azure Sentinel vem com uma série de conectores para soluções Microsoft, disponíveis fora da caixa e fornecendo integração em tempo real, incluindo soluções Microsoft 365 Defender (anteriormente Microsoft Threat Protection) e 365 fontes da Microsoft, incluindo Office 365, Azure AD, Microsoft Defender for Identity (anteriormente Azure ATP), e Microsoft Cloud App Security, entre outras. Além disso, existem conectores incorporados no ecossistema de segurança mais amplo para soluções não Microsoft. Também pode utilizar o formato de evento comum, Syslog ou REST-API para ligar as suas fontes de dados ao Azure Sentinel também.  
+Para embarcar a Azure Sentinel, primeiro tem de [se ligar às suas fontes de segurança.](connect-data-sources.md) O Azure Sentinel vem com uma série de conectores para soluções Microsoft, disponíveis fora da caixa e fornecendo integração em tempo real, incluindo soluções Microsoft 365 Defender (anteriormente Microsoft Threat Protection) e 365 fontes da Microsoft, incluindo Office 365, Azure AD, Microsoft Defender for Identity (anteriormente Azure ATP), e Microsoft Cloud App Security, entre outras. Além disso, existem conectores incorporados no ecossistema de segurança mais amplo para soluções não Microsoft. Também pode utilizar o formato de evento comum, Syslog ou REST-API para ligar as suas fontes de dados ao Azure Sentinel também. 
 
 ![Recoletores de dados](./media/collect-data/collect-data-page.png)
 
@@ -90,7 +90,7 @@ A comunidade Azure Sentinel é um poderoso recurso para deteção e automação 
 
 ![Explore a comunidade de utilizadores](./media/overview/community.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar com o Azure Sentinel, precisa de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
 - Aprenda a [embarcar os seus dados ao Azure Sentinel](quickstart-onboard.md)e obtenha [visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

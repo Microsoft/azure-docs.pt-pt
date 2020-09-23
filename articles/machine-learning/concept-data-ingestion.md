@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 93401ee32da8218fa53568a3f46cae3805a5d939
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 18bbecbe811a9f0bc6a56194830c7e92d8770979
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875324"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890180"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Opções de ingestão de dados para fluxos de trabalho de aprendizagem automática Azure
 
@@ -25,7 +25,7 @@ Neste artigo, você aprende os prós e contras das opções de ingestão de dado
 Escolha entre:
 + [Oleodutos Azure Data Factory,](#azure-data-factory) especificamente construídos para extrair, carregar e transformar dados
 
-+ [Azure Machine Learning Python SDK,](#azure-machine-learning-python-sdk)fornecendo uma solução de código personalizada para tarefas básicas de ingestão de dados.
++ [Azure Machine Learning Python SDK,](#azure-machine-learning-python-sdk)fornecendo uma solução de código personalizada para tarefas de ingestão de dados.
 
 + uma combinação de ambos
 
@@ -70,7 +70,7 @@ Configure os seus próprios scripts Python | Não suporta de forma nativa o dese
 Preparação de dados como parte de cada execução de formação de modelos|Requer competências de desenvolvimento para criar um script de ingestão de dados
 Suporta scripts de preparação de dados em vários alvos de computação, incluindo [o cálculo Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed) |Não fornece uma interface de utilizador para criar o mecanismo de ingestão
 
-No diagrama seguinte, o gasoduto Azure Machine Learning consiste em dois passos: ingestão de dados e formação de modelos. O passo de ingestão de dados abrange tarefas que podem ser realizadas usando bibliotecas Python e o Python SDK, como extrair dados de fontes locais/web, e transformações básicas de dados, como a imputação de valor em falta. O passo de treino utiliza então os dados preparados como entrada para o seu roteiro de treino para treinar o seu modelo de aprendizagem automática. 
+No diagrama seguinte, o gasoduto Azure Machine Learning consiste em dois passos: ingestão de dados e formação de modelos. O passo de ingestão de dados abrange tarefas que podem ser realizadas usando bibliotecas Python e o Python SDK, como extrair dados de fontes locais/web, e transformações de dados, como a imputação de valor em falta. O passo de treino utiliza então os dados preparados como entrada para o seu roteiro de treino para treinar o seu modelo de aprendizagem automática. 
 
 ![Pipeline Azure + Ingestão de dados SDK](media/concept-data-ingestion/data-ingest-option-two.png)
 

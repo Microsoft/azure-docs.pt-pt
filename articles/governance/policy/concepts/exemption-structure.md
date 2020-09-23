@@ -3,12 +3,12 @@ title: Detalhes da estrutura de isenção de políticas
 description: Descreve a definição de isenção de política utilizada pela Azure Policy para isentar os recursos da avaliação de iniciativas ou definições.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: b3e6a6c9bc7993161697187b6131994c1973b49d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1fd14d31824dc86dcd3788607030f28f978f5801
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938597"
+ms.locfileid: "90968052"
 ---
 # <a name="azure-policy-exemption-structure"></a>Estrutura de isenção de política Azure
 
@@ -99,11 +99,12 @@ Este campo deve ser o nome completo de uma atribuição de política ou de uma a
 
 Se `policyAssignmentId` for para uma atribuição de iniciativa, o `policyDefinitionReferenceIds` imóvel pode ser usado para especificar qual a definição de política(s) na iniciativa a que o recurso sujeito tem uma isenção. Como o recurso pode ser isento de uma ou mais definições de política incluídas, esta propriedade é uma _matriz_. Os valores devem corresponder aos valores da definição de iniciativa nos `policyDefinitions.policyDefinitionReferenceId` campos.
 
-## <a name="required-permissions"></a>Permissões obrigatórias
+## <a name="exemption-category"></a>Categoria de isenção
 
-As permissões Azure RBAC necessárias para gerir os objetos de isenção de política estão no `Microsoft.Authorization/policyExemptions` grupo de operação. As funções incorporadas [Contribuinte de Política](../../../role-based-access-control/built-in-roles.md#resource-policy-contributor) de Recursos e [Administração de Segurança](../../../role-based-access-control/built-in-roles.md#security-admin) têm as `read` `write` permissões e permissões e [Policy Insights Data Writer (Preview)](../../../role-based-access-control/built-in-roles.md#policy-insights-data-writer-preview) tem a `read` permissão.
+Existem duas categorias de isenção e são utilizadas para agrupar isenções:
 
-As isenções têm medidas de segurança adicionais devido ao impacto da concessão de uma isenção. Além de exigir a `Microsoft.Authorization/policyExemptions/write` operação na hierarquia dos recursos ou no recurso individual, o criador de uma isenção deve ter o `exempt/Action` verbo na atribuição do destino.
+- **Atenuado**: A isenção é concedida porque a intenção política é cumprida através de outro método.
+- **Renúncia**: A isenção é concedida porque o estado de incumprimento do recurso é temporariamente aceite. Outra razão para usar esta categoria é para uma hierarquia de recursos ou recursos que deve ser excluída de uma ou mais definições numa iniciativa, mas não deve ser excluída de toda a iniciativa.
 
 ## <a name="expiration"></a>Expiração
 
@@ -111,6 +112,12 @@ Para definir quando uma hierarquia de recursos ou um recurso individual já não
 
 > [!NOTE]
 > As isenções de política não são eliminadas quando a `expiresOn` data é alcançada. O objeto é preservado para manutenção de registos, mas a isenção já não é honrada.
+
+## <a name="required-permissions"></a>Permissões obrigatórias
+
+As permissões Azure RBAC necessárias para gerir os objetos de isenção de política estão no `Microsoft.Authorization/policyExemptions` grupo de operação. As funções incorporadas [Contribuinte de Política](../../../role-based-access-control/built-in-roles.md#resource-policy-contributor) de Recursos e [Administração de Segurança](../../../role-based-access-control/built-in-roles.md#security-admin) têm as `read` `write` permissões e permissões e [Policy Insights Data Writer (Preview)](../../../role-based-access-control/built-in-roles.md#policy-insights-data-writer-preview) tem a `read` permissão.
+
+As isenções têm medidas de segurança adicionais devido ao impacto da concessão de uma isenção. Além de exigir a `Microsoft.Authorization/policyExemptions/write` operação na hierarquia dos recursos ou no recurso individual, o criador de uma isenção deve ter o `exempt/Action` verbo na atribuição do destino.
 
 ## <a name="next-steps"></a>Passos seguintes
 

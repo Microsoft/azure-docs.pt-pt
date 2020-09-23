@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 417ef716c391126982809574fc16f6681115cac3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5740e851fbd8f7ba82e179f7e5299d6c7090596
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477413"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890236"
 ---
 # <a name="train-svd-recommender"></a>Preparar Recomendador SVD
 
-Este artigo descreve como utilizar o módulo de recomendador SVD do comboio no designer de aprendizagem automática Azure (pré-visualização). Utilize este módulo para treinar um modelo de recomendação baseado no algoritmo de decomposição de valor único (SVD).  
+Este artigo descreve como usar o módulo de recomendador SVD do comboio no designer de aprendizagem automática Azure. Utilize este módulo para treinar um modelo de recomendação baseado no algoritmo de decomposição de valor único (SVD).  
 
 O módulo de recomendador SVD do comboio lê um conjunto de dados de triplos de classificação de artigos de utilizador. Devolve um recomendador SVD treinado. Em seguida, pode utilizar o modelo treinado para prever classificações ou gerar recomendações, utilizando o módulo [De Recomendação Score SVD.](score-svd-recommender.md)  
 
@@ -54,7 +54,7 @@ O **conjunto de dados de classificações de** filmes no designer de machine lea
 
 A partir desta amostra, pode ver que um único utilizador classificou vários filmes. 
 
-### <a name="train-the-model"></a>Dar formação sobre o modelo
+### <a name="train-the-model"></a>Preparar o modelo
 
 1.  Adicione o módulo de recomendador SVD do comboio ao seu oleoduto no designer e conecte-o aos dados de treino.  
    
@@ -71,6 +71,6 @@ A partir desta amostra, pode ver que um único utilizador classificou vários fi
 5.  Envie o oleoduto.  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

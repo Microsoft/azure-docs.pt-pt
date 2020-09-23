@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 808cf713cc34f90224cb3d5ce8a714fbafdcedbc
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 5b1e5c73f3d43ca2627729149256f3e9362d58c2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202950"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984265"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recomendações de segurança para armazenamento blob
 
@@ -30,7 +30,7 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 | Recomendação | Comentários | Centro de Segurança |
 |-|----|--|
 | Utilize o modelo de implementação do Gestor de Recursos Azure | Criar novas contas de armazenamento utilizando o modelo de implementação do Azure Resource Manager para melhorias importantes de segurança, incluindo controlo de acesso superior (RBAC) e auditoria, implementação e governação baseadas em gestores de recursos, acesso a identidades geridas, acesso ao Cofre chave Azure para segredos, e autenticação baseada em Azure e autorização para acesso a dados e recursos de Armazenamento Azure. Se possível, migrar as contas de armazenamento existentes que utilizam o modelo clássico de implementação para utilizar o Azure Resource Manager. Para obter mais informações sobre o Azure Resource Manager, consulte [a visão geral do Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview). | - |
-| Permitir proteção avançada de ameaças para todas as suas contas de armazenamento | A proteção avançada de ameaças para o Azure Storage fornece uma camada adicional de inteligência de segurança que deteta tentativas incomuns e potencialmente nocivas de aceder ou explorar contas de armazenamento. Os alertas de segurança são desencadeados no Centro de Segurança do Azure quando ocorrem anomalias na atividade e são também enviados por e-mail para administradores de subscrição, com detalhes de atividades suspeitas e recomendações sobre como investigar e remediar ameaças. Para obter mais informações, consulte [a proteção avançada de ameaças para o armazenamento Azure](../common/storage-advanced-threat-protection.md). | [Sim](../../security-center/security-center-sql-service-recommendations.md) |
+| Ativar o Azure Defender para todas as suas contas de armazenamento | O Azure Defender for Azure Storage fornece uma camada adicional de inteligência de segurança que deteta tentativas incomuns e potencialmente nocivas de aceder ou explorar contas de armazenamento. Os alertas de segurança são desencadeados no Centro de Segurança do Azure quando ocorrem anomalias na atividade e são também enviados por e-mail para administradores de subscrição, com detalhes de atividades suspeitas e recomendações sobre como investigar e remediar ameaças. Para mais informações, consulte [o Configure Azure Defender para armazenamento Azure](../common/azure-defender-storage-configure.md). | [Sim](../../security-center/security-center-sql-service-recommendations.md) |
 | Ligue a eliminação suave para dados blob | A eliminação suave permite-lhe recuperar dados blob depois de eliminado. Para obter mais informações sobre a eliminação suave, consulte [Soft delete para blobs de armazenamento Azure](storage-blob-soft-delete.md). | - |
 | Armazenar dados críticos do negócio em bolhas imutáveis | Configure as políticas legais de retenção e as políticas de retenção baseadas no tempo para armazenar dados blob num estado WORM (Write Once, Read Many). As bolhas armazenadas imutavelmente podem ser lidas, mas não podem ser modificadas ou eliminadas durante o intervalo de retenção. Para obter mais informações, consulte [os dados de blob críticos de negócio da Loja com armazenamento imutável](storage-blob-immutable-storage.md). | - |
 | Limite a assinatura de acesso partilhado (SAS) apenas às ligações HTTPS | Exigir HTTPS quando um cliente usa um token SAS para aceder a dados blob ajuda a minimizar o risco de escutas. Para obter mais informações, consulte [Grant acesso limitado aos recursos de Armazenamento Azure usando assinaturas de acesso partilhado (SAS)](../common/storage-sas-overview.md). | - |
@@ -49,7 +49,7 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 | Se um serviço SAS não estiver associado a uma política de acesso armazenada, então decida o prazo de validade para uma hora ou menos | Um serviço SAS que não esteja associado a uma política de acesso armazenada não pode ser revogado. Por esta razão, recomenda-se a limitação do tempo de validade para que o SAS seja válido por uma hora ou menos. | - |
 | Desativar o público anónimo ler acesso a contentores e bolhas | O público anónimo leu o acesso a um contentor e as suas bolhas concedem acesso apenas a esses recursos a qualquer cliente. Evite permitir o acesso à leitura pública, a menos que o seu cenário o exija. Para aprender a desativar o acesso público anónimo a uma conta de armazenamento, consulte [o público anónimo Configure acesso a contentores e bolhas.](anonymous-read-access-configure.md)  | - |
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 | Recomendação | Comentários | Centro de Segurança |
 |-|----|--|

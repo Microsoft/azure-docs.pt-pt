@@ -1,6 +1,6 @@
 ---
-title: Gestão de ações da Azure Stack Edge GPU Microsoft Docs
-description: Descreve como usar o portal Azure para gerir ações no seu GPU Azure Stack Edge.
+title: Gestão de ações da Azure Stack Edge Pro GPU Microsoft Docs
+description: Descreve como usar o portal Azure para gerir ações no seu GPU Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,22 +8,22 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 6448ac002482751052310532989278e3b88b5915
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 44f22f365699ddc345849df78d6e27c2703d785b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268847"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904685"
 ---
-# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge"></a>Utilize o portal Azure para gerir ações no seu Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-shares-on-your-azure-stack-edge-pro"></a>Utilize o portal Azure para gerir ações no seu Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Este artigo descreve como gerir ações no seu Azure Stack Edge. Pode gerir o Azure Stack Edge através do portal Azure ou através da UI web local. Utilize o portal Azure para adicionar, eliminar, atualizar ações ou sincronizar a chave de armazenamento para a conta de armazenamento associada às ações.
+Este artigo descreve como gerir ações no seu Azure Stack Edge Pro. Pode gerir o Azure Stack Edge Pro através do portal Azure ou através da UI web local. Utilize o portal Azure para adicionar, eliminar, atualizar ações ou sincronizar a chave de armazenamento para a conta de armazenamento associada às ações.
 
 ## <a name="about-shares"></a>Sobre as partilhas
 
-Para transferir dados para o Azure, precisa de criar ações no seu Azure Stack Edge. As ações que adiciona no dispositivo Azure Stack Edge podem ser ações locais ou partilhas que empurram os dados para a nuvem.
+Para transferir dados para o Azure, precisa de criar ações no seu Azure Stack Edge Pro. As ações que adiciona no dispositivo Azure Stack Edge Pro podem ser ações locais ou partilhas que empurram os dados para a nuvem.
 
  - **Ações locais**: Utilize estas ações quando pretender que os dados sejam tratados localmente no dispositivo.
  - **Ações**: Utilize estas ações quando pretender que os dados do dispositivo sejam automaticamente empurrados para a sua conta de armazenamento na nuvem. Todas as funções de cloud, tais como **as teclas de armazenamento** **Refresh** e Sync, aplicam-se às ações.
@@ -74,7 +74,7 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
 3. Selecione um **Tipo** para a partilha. O tipo pode ser **SMB** ou **NFS**, sendo que SMB é a predefinição. SMB é o padrão para clientes Windows, e NFS é utilizado para clientes Linux. Dependendo se escolher a partilha SMB ou NFS, as opções apresentadas são ligeiramente diferentes.
 
    > [!IMPORTANT]
-   > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge ou Data Box Gateway. Para obter mais informações, consulte [Definir e gerir políticas de imutabilidade para armazenamento de bolhas](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge Pro ou Data Box Gateway. Para obter mais informações, consulte [Definir e gerir políticas de imutabilidade para armazenamento de bolhas](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 4. Para aceder facilmente às ações dos módulos de computação Edge, utilize o ponto de montagem local. Selecione **Utilize a partilha com o cálculo Edge** para que o módulo Edge possa utilizar o cálculo com o ponto de montagem local.
 
@@ -96,7 +96,7 @@ Efetue os seguintes passos no portal do Azure para criar uma partilha.
 
 ## <a name="mount-a-share"></a>Monte uma parte
 
-Se criou uma parte antes de configurar o computamento no seu dispositivo Azure Stack Edge, terá de montar a partilha. Tome os seguintes passos para montar uma parte.
+Se criou uma parte antes de configurar o computamento no seu dispositivo Azure Stack Edge Pro, terá de montar a partilha. Tome os seguintes passos para montar uma parte.
 
 
 1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá ao **Gateway > Shares**. Na lista das ações, selecione a parte que pretende montar. A coluna **usada para cálculo** mostrará o estado de **desativado** para a parte selecionada.

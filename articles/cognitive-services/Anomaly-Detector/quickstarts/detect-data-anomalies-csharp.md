@@ -8,26 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a364588d77fb24e96c831ce541c5bb4e63d93e98
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a5a3757a33beebb6e688dbea13259723da9280cc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922349"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904565"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>Quickstart: Detete anomalias nos dados da sua série de tempo usando o Detetor de AnomaliaS REST API e C #
 
-Utilize este quickstart para começar a utilizar os dois modos de deteção do Detetor de Anomalias da API para detetar anomalias nos dados da série de tempo. Esta aplicação C# envia dois pedidos de API contendo dados de séries de tempo formatadas com JSON e obtém as respostas.
+Utilize este arranque rápido para começar a utilizar a API do Detetor de Anomalias para detetar anomalias nos dados da série de tempo. Esta aplicação C# envia pedidos de API contendo dados de séries de tempo formatadas com JSON e obtém as respostas.
 
 | Pedido da API                                        | Saída da aplicação                                                                                                                                         |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Detetar anomalias como um lote                        | A resposta JSON contendo o estado de anomalia (e outros dados) para cada ponto de dados nos dados da série de tempo, e as posições de quaisquer anomalias detetadas. |
-| Detetar o estado de anomalia do último ponto de dados | A resposta JSON contendo o estado de anomalia (e outros dados) para o último ponto de dados nos dados da série de tempo.                                        |
+| Detetar o estado de anomalia do último ponto de dados | A resposta JSON contendo o estado de anomalia (e outros dados) para o último ponto de dados nos dados da série de tempo. |
+| Detetar pontos de mudança que marcam novas tendências de dados | A resposta JSON que contém os pontos de alteração detetados nos dados da série de tempo. |
 
- Enquanto esta aplicação está escrita em C#, a API é um serviço web RESTful compatível com a maioria das linguagens de programação. Pode encontrar o código-fonte para este arranque rápido no [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/csharp-detect-anomalies.cs).
+Enquanto esta aplicação está escrita em C#, a API é um serviço web RESTful compatível com a maioria das linguagens de programação. Pode encontrar o código-fonte para este arranque rápido no [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/csharp-detect-anomalies.cs).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -61,6 +62,7 @@ Utilize este quickstart para começar a utilizar os dois modos de deteção do D
     |------------------------------------|--------------------------------------------------|
     | Deteção de lotes                    | `/anomalydetector/v1.0/timeseries/entire/detect` |
     | Deteção no último ponto de dados | `/anomalydetector/v1.0/timeseries/last/detect`   |
+    | Deteção de pontos de alteração | `/anomalydetector/v1.0/timeseries/changepoint/detect`   |
 
     [!code-csharp[initial variables for endpoint, key and data file](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=vars)]
 
@@ -95,6 +97,18 @@ Utilize este quickstart para começar a utilizar os dois modos de deteção do D
 
     [!code-csharp[Detect anomalies latest](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesLatest)]
 
+## <a name="detect-change-points-in-the-data"></a>Detetar pontos de alteração nos dados
+
+1. Criar uma nova função chamada `detectChangePoints()` . Construa o pedido e envie-o chamando a função com o `Request()` seu ponto final, o URL para deteção de anomalias de lote, a sua chave de subscrição e os dados da série de tempo.
+
+2. Deserialize o objeto JSON e escreva-o para a consola.
+
+3. Se a resposta contiver um `code` campo, imprima o código de erro e a mensagem de erro.
+
+4. Caso contrário, encontre as posições dos pontos de alteração no conjunto de dados. O campo de resposta `isChangePoint` contém uma matriz de valores boolean, cada um dos quais indica se um ponto de dados foi identificado como um ponto de mudança. Converta isto numa matriz de cordas com a função do objeto de `ToObject<bool[]>()` resposta. Iterar através da matriz, e imprimir o índice de quaisquer `true` valores. Estes valores correspondem aos índices de variação de tendência, se algum for encontrado.
+
+    [!code-csharp[Detect change points](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectChangePoints)]
+
 ## <a name="load-your-time-series-data-and-send-the-request"></a>Carregue os dados da série de tempo e envie o pedido
 
 1. No método principal da sua aplicação, carregue os dados da série de tempo JSON com `File.ReadAllText()` .
@@ -108,5 +122,6 @@ Utilize este quickstart para começar a utilizar os dois modos de deteção do D
 Uma resposta bem sucedida é devolvida no formato JSON. Clique nos links abaixo para ver a resposta JSON no GitHub:
 * [Resposta de deteção de lote de exemplo](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [Exemplo da resposta de deteção de pontos mais recente](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+* [Exemplo de resposta de deteção de ponto de alteração](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/change-point-sample.json)
 
 [!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

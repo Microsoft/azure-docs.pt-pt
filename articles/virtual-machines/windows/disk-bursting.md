@@ -3,16 +3,17 @@ title: Segurança do disco gerido
 description: Saiba mais sobre o disco a rebentar para discos Azure e explosão de disco para máquinas virtuais Azure
 author: albecker1
 ms.author: albecker
-ms.date: 04/27/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
-ms.openlocfilehash: 25aa9fc166e831acd2ed0389bbbe4d2dc7e04b19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: references_regions
+ms.openlocfilehash: ab54b68ab3f7984ee18a39cf3a81fa663af54dee
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82594465"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889105"
 ---
 # <a name="disk-bursting"></a>Expansão do disco
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]
@@ -21,11 +22,15 @@ ms.locfileid: "82594465"
 O suporte de rebentamento de nível VM é ativado em todas as regiões da Nuvem Pública nestes tamanhos suportados: 
 - [Série Lsv2](../lsv2-series.md)
 
+A explosão de nível VM também está disponível nos EUA da Central Ocidental para os seguintes tamanhos suportados:
+- [Série Dsv3](../dv3-dsv3-series.md)
+- [Série Esv3](../ev3-esv3-series.md)
+
 O rebentamento é ativado por padrão para máquinas virtuais que a suportam.
 
 ## <a name="disk-level-bursting"></a>Rebentamento do nível do disco
 O bursting também está disponível nos [nossos SSDs premium](disks-types.md#premium-ssd) para tamanhos de disco P20 e menores em todas as regiões. O modo de rajada do disco é ativado por predefinição nas novas implementações dos tamanhos de disco que o suportem. Os tamanhos de disco existentes, caso suportem o modo de rajada do disco, podem permitir a rajadas através de um dos seguintes métodos: 
-- **Reinicie a VM** 
+- **Reiniciar o VM** 
 - **Retire e recoloque o disco**
 
 

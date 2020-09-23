@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 46ffb5bfe52fe4f398594a1dfed76a6ea6c0fd81
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: d44964b5aed55e2ee70d18e6be5d632b652956e1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530799"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976260"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Cenário: Encaminhar o tráfego através de uma NVA
 
@@ -26,7 +26,7 @@ Ao trabalhar com o encaminhamento virtual do hub virtual WAN, existem alguns cen
 >* [Artigo PowerShell](virtual-wan-route-table-nva.md)
 >
 
-## <a name="design"></a><a name="design"></a>Design
+## <a name="design"></a><a name="design"></a>Design (Estruturar)
 
 Neste cenário, utilizaremos a convenção de nomeação:
 
@@ -69,14 +69,14 @@ No entanto, neste cenário, temos de pensar em que rotas estáticas para configu
 
 Com isso, as rotas estáticas de que precisamos na tabela Predefinido para enviar tráfego para os porta-vozes da NVA por trás do VNet NVA são as seguintes:
 
-| Description | Tabela de rota | Rota estática              |
+| Descrição | Tabela de rota | Rota estática              |
 | ----------- | ----------- | ------------------------- |
 | VNet 2       | Predefinição     | 10.2.0.0/16 -> eastusconn |
 | VNet 4       | Predefinição     | 10.4.0.0/16 -> weconn     |
 
 Agora a WAN virtual sabe para que ligação enviar os pacotes, mas a ligação precisa de saber o que fazer ao receber esses pacotes: É aqui que são utilizadas as tabelas de rota de ligação. Aqui utilizaremos os prefixos mais curtos (/24 em vez dos mais longos /16), para garantir que estas rotas têm preferência sobre as rotas que são importadas a partir dos VNet 2 e VNet 4):
 
-| Description | Ligação | Rota estática            |
+| Descrição | Ligação | Rota estática            |
 | ----------- | ---------- | ----------------------- |
 | VNet 5       | eastusconn | 10.2.1.0/24 -> 10.2.0.5 |
 | VNet 6       | eastusconn | 10.2.2.0/24 -> 10.2.0.5 |

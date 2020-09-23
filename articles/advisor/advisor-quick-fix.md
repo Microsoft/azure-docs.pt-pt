@@ -4,12 +4,12 @@ description: Executar remediação a granel usando Quick Fix no Advisor
 ms.topic: article
 ms.date: 03/13/2020
 ms.author: sagupt
-ms.openlocfilehash: ebd993733c1aca9cd4f7d92f0a75e22d68a87ffe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a9c86a7ae510d9657f64c71db2aa8c4e3e558f52
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518067"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968591"
 ---
 # <a name="quick-fix-remediation-for-advisor"></a>Remediação de Correção Rápida para Assessor
 **O Quick Fix** permite uma forma mais rápida e fácil de remediar para recomendação sobre múltiplos recursos. Fornece capacidade para remediações a granel para recursos e ajuda-o a otimizar as suas subscrições mais rapidamente com a remediação em escala para os seus recursos.
@@ -20,13 +20,13 @@ A funcionalidade encontra-se disponível apenas para determinadas recomendaçõe
 
 1. A partir da lista de recomendações que têm a etiqueta **Quick Fix,** clique na recomendação.
 
-   ![Correção rápida do conselheiro](./media/quick-fix-1.png)
+   :::image type="content" source="./media/quick-fix-1.png" alt-text="{Screenshot do Azure Advisor mostrando etiquetas Quick Fix nas recomendações.}":::
    
    *Os preços na imagem são apenas para fins*
 
 2. Na página de detalhes da Recomendação, você verá a lista de recursos para os quais tem esta recomendação. Selecione todos os recursos que pretende remediar para a recomendação.
 
-   ![Correção rápida do conselheiro](./media/quick-fix-2.png)
+   :::image type="content" source="./media/quick-fix-2.png" alt-text="Screenshot da janela de recursos impactados com itens de lista e o botão Quick Fix realçado.":::
    
    *Os preços na imagem são apenas para fins*
 
@@ -41,10 +41,10 @@ A funcionalidade encontra-se disponível apenas para determinadas recomendaçõe
 4. Receberá uma notificação para a conclusão da reparação. Verá um erro se houver recursos que não sejam remediados e recursos no modo selecionado na vista da lista de recursos.  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre recomendações do Advisor, consulte:
-* [Introdução ao Conselheiro Azure](advisor-overview.md)
+* [Introdução ao Assistente do Azure](advisor-overview.md)
 * [Introdução ao Assistente](advisor-get-started.md)
 * [Recomendações de Custos Do Consultor](advisor-cost-recommendations.md)
 * [Recomendações de Desempenho do Conselheiro](advisor-performance-recommendations.md)

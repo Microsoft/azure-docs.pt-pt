@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: dda61b81ee2c357ddac29701832fe4780ea06859
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9fbd63e1b46b837350be720fadf68777927f9bff
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516304"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904764"
 ---
 # <a name="set-up-email-notifications-for-security-alerts"></a>Configurar notificações de email para alertas de segurança 
 
@@ -39,8 +39,8 @@ Para evitar cansaço de alerta, o Centro de Segurança limita o volume de mensag
 
 |Aspeto|Detalhes|
 |----|:----|
-|Estado de libertação:|Geralmente disponível|
-|Preços:|Escalão gratuito|
+|Estado de libertação:|Geralmente disponível (GA)|
+|Preços:|Gratuito|
 |Funções e permissões necessárias:|**Administrador de Segurança**<br>**Proprietário de Assinatura** |
 |Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Gov dos EUA (parcial)<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov|
 |||

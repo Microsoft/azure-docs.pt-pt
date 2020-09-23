@@ -1,6 +1,6 @@
 ---
-title: Visão geral da política de retenção de dados - Azure SQL Edge (Pré-visualização)
-description: Conheça a política de retenção de dados em Azure SQL Edge (Preview)
+title: Visão geral da política de retenção de dados - Azure SQL Edge
+description: Conheça a política de retenção de dados no Azure SQL Edge
 keywords: SQL Edge, retenção de dados
 services: sql-edge
 ms.service: sql-edge
@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 3649d4f77e5b57ab14accacd87fbaa867ba2742f
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: bb059a946c03f41e5b65944eec67070f84ee6b08
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89550722"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976338"
 ---
-# <a name="data-retention-policy-overview"></a>Visão geral da política de retenção de dados
+# <a name="data-retention-overview"></a>Descrição geral da retenção de dados
 
 A recolha e armazenamento de dados de dispositivos IoT conectados é importante para impulsionar e obter insights operacionais e empresariais. No entanto, dado o volume de dados originários destes dispositivos, torna-se importante que as organizações planeiem cuidadosamente a quantidade de dados que pretendem reter e em que granularidade. Embora reter todos os dados em toda a granularidade é desejável, nem sempre é prático. Além disso, o volume de dados que podem ser retidos está limitado pela quantidade de armazenamento disponível nos dispositivos IoT ou Edge. 
 
-O Azure SQL Edge (Preview) CTP2.3 adiciona uma nova capacidade que permite aos administradores de bases de dados definir a política de retenção de dados numa base de dados SQL Edge e nas suas tabelas subjacentes. Uma vez definida a política de retenção de dados, uma tarefa do sistema de fundo será executada para expurgar quaisquer dados obsoletos (antigos) das tabelas de utilizadores. 
+Na base de dados Azure SQL Edge os administradores podem definir a política de retenção de dados numa base de dados SQL Edge e nas suas tabelas subjacentes. Uma vez definida a política de retenção de dados, uma tarefa do sistema de fundo será executada para expurgar quaisquer dados obsoletos (antigos) das tabelas de utilizadores. 
 
 > [!Note]
 > Dados uma vez purgados da mesa, não são recuperáveis. A única forma possível de recuperar os dados purgados é restaurar a base de dados a partir de uma cópia de segurança mais antiga.
@@ -40,6 +40,7 @@ Após a conservação de dados ser configurada para uma tabela, uma tarefa de fu
 
 - A conservação de dados, se ativada, é automaticamente desativada quando a base de dados é restaurada a partir de uma cópia de segurança completa ou é recolocada. 
 - A conservação de dados não pode ser ativada para uma Tabela de História Temporal
+- O colomn do filtro de retenção de dados não pode ser alterado. Para alterar a coluna, desative a retenção de dados na tabela.  
 
 ## <a name="next-steps"></a>Passos Seguintes
 

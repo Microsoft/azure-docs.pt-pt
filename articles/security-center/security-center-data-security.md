@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: 9047309854df27ac0721eee51e20d7ccc989f443
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: d08984165f59f15e9feb739a719d80e7dc3902a4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459696"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905449"
 ---
 # <a name="azure-security-center-data-security"></a>Segurança de Dados do Centro de Segurança do Azure
 Para ajudar os clientes a prevenir, detetar e responder a ameaças, o Azure Security Center recolhe e processa dados relacionados com a segurança, incluindo informações de configuração, metadados, registos de eventos e muito mais. A Microsoft respeita diretrizes rigorosas de conformidade e segurança, desde a codificação à operação de um serviço.
@@ -70,20 +70,20 @@ Para máquinas virtuais e servidores em execução noutros ambientes, por exempl
 Quando ativar o Centro de Segurança do Azure, a recolha de dados é ativada para cada uma das suas subscrições do Azure. Também pode ativar a recolha de dados para as suas subscrições na secção Política de Segurança do Centro de Segurança do Azure. Quando a recolha de dados é ligada, o Azure Security Center fornece o agente Log Analytics em todas as máquinas virtuais Azure suportadas existentes e quaisquer novas que sejam criadas.
 O agente Log Analytics procura várias configurações e eventos relacionados com a segurança em [rastreios de eventos para](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) rastreios do Windows (ETW). Além disso, o sistema operativo irá gerar eventos do registo de eventos durante a execução da máquina. Os exemplos destes dados incluem: tipo e versão do sistema operativo, registos de sistema operativo (registos de eventos do Windows), processos em execução, nome da máquina, endereços IP, utilizador com sessão iniciada e ID do inquilino. O agente Log Analytics lê entradas de registo de eventos e vestígios de ETW e copia-os para o seu(s) espaço de trabalho para análise. O agente Log Analytics também permite eventos de criação de processos e auditoria de linha de comando.
 
-Se estiver a utilizar o Centro de Segurança do Azure gratuito, também pode desativar a recolha de dados das máquinas virtuais na Política de Segurança. A Recolha de Dados é necessária para subscrições no nível padrão. A recolha de instantâneos e artefactos de discos de VM continua ativada, mesmo que a recolha de dados tenha sido desativada.
+Se não estiver a utilizar o Azure Defender, também pode desativar a recolha de dados de máquinas virtuais na Política de Segurança. A Recolha de Dados é necessária para subscrições protegidas pelo Azure Defender. A recolha de instantâneos e artefactos de discos de VM continua ativada, mesmo que a recolha de dados tenha sido desativada.
 
 ## <a name="data-consumption"></a>Consumo de dados
 
 Os clientes podem consumir dados relacionados com o Centro de Segurança a partir de fluxos de dados diferentes, conforme mostrado abaixo:
 
-* **Atividade Azul**: todos os alertas de segurança, pedidos de tempo [justos](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) do Centro de Segurança aprovados e todos os alertas gerados por [controlos de aplicação adaptativos](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
+* **Atividade Azul**: todos os alertas de segurança, pedidos aprovados do Centro de Segurança [just-in-time,](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) e todos os alertas gerados por [controlos de aplicação adaptativos](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
 * **Registos do Monitor Azure:** todos os alertas de segurança.
 
 
 > [!NOTE]
 > As recomendações de segurança também podem ser consumidas pela API REST. Leia [Security Resource Provider REST API Reference (Referência da API REST do Fornecedor de Recursos de Segurança)](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx) para obter mais informações.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 Através deste documento aprendeu como os dados são geridos e salvaguardados no Centro de Segurança do Azure. Para saber mais acerca do Centro de Segurança do Azure, veja:
 
 * [Guia de Planeamento e Operações do Centro de Segurança Azure](security-center-planning-and-operations-guide.md) — Aprenda a planear e a compreender as considerações de design para adotar o Centro de Segurança Azure.

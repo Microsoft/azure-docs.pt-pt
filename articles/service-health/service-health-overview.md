@@ -1,14 +1,14 @@
 ---
 title: Visão geral do Serviço de Saúde / Microsoft Docs
-description: Informações personalizadas sobre como as suas aplicações Azure são afetadas por problemas de serviço e manutenção atuais e futuros.
+description: Saiba como o Service Health lhe fornece um dashboard personalizável que acompanha a saúde dos seus serviços Azure nas regiões onde os utiliza.
 ms.topic: conceptual
 ms.date: 05/10/2019
-ms.openlocfilehash: 2f2f0c8bf2cf4fe5beae7d48b198a23edba4e9ae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8246b0ab93b95c13858e4ff96d0f24b255d05e55
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089605"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967797"
 ---
 # <a name="service-health-overview"></a>Visão geral da saúde do serviço
 

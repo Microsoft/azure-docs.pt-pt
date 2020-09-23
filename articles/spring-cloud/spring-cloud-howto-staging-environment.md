@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 5333dd45cee58821d89cd49c44d3c5bba4cd9115
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d36c185272b7b67ffb8a21a77cc3a64f22d0df5a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500407"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888481"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Crie um ambiente de encenação em Azure Spring Cloud
+
+**Este artigo aplica-se a:** ✔️ Java
 
 Este artigo discute como configurar uma implementação de encenação usando o padrão de implantação azul-verde em Azure Spring Cloud. A implementação azul/verde é um padrão de Entrega Contínua de DevOps do Azure que se baseia em manter uma versão já existente ativa (azul) enquanto é implementada uma nova. Este artigo mostra-lhe como colocar essa encenação em produção sem alterar a implantação da produção diretamente.
 
@@ -103,3 +105,7 @@ Em alternativa, elimine a sua colocação do CLI Azure executando o seguinte com
 ```azurecli
 az spring-cloud app deployment delete -n <staging-deployment-name> -g <resource-group-name> -s <service-instance-name> --app gateway
 ```
+
+## <a name="next-steps"></a>Passos seguintes
+
+* [Quickstart: Implemente a sua primeira aplicação Azure Spring Cloud](spring-cloud-quickstart.md)
