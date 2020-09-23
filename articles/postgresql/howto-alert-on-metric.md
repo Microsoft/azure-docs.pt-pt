@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 32d381bd26405feeb5e4d4457197f290649907d3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 0866df5f4f78fff429e75d586450bce72faece63
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103165"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907548"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Utilize o portal Azure para configurar alertas em métricas para a base de dados Azure para PostgreSQL - Servidor Único
 
@@ -34,25 +34,25 @@ Pode configurar e obter informações sobre as regras de alerta utilizando:
 
 2. Na secção **de monitorização** da barra lateral, selecione **Alertas** como mostrado:
 
-   ![Selecione Regras de Alerta](./media/howto-alert-on-metric/2-alert-rules.png)
+   :::image type="content" source="./media/howto-alert-on-metric/2-alert-rules.png" alt-text="Selecione Regras de Alerta":::
 
 3. **Selecione Adicionar alerta métrico** (+ ícone).
 
 4. A página **de regras Create** abre conforme mostrado abaixo. Preencha as informações necessárias:
 
-   ![Adicione formulário de alerta métrico](./media/howto-alert-on-metric/4-add-rule-form.png)
+   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Adicione formulário de alerta métrico":::
 
 5. Dentro da secção **Condição,** **selecione Adicionar a condição**.
 
 6. Selecione uma métrica da lista de sinais a serem alertados. Neste exemplo, selecione "Storage percent".
    
-   ![Selecionar métrica](./media/howto-alert-on-metric/6-configure-signal-logic.png)
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Selecionar métrica":::
 
 7. Configure a lógica de alerta, incluindo a **Condição** (ex. "Maior do que"), **Threshold** (ex. 85 por cento), **Agregação do tempo,** **Período** de tempo a regra métrica deve ser satisfeita antes do gatilho de alerta (ex. "Nos últimos 30 minutos"), e **Frequência.**
    
    Selecione **Fazer** quando concluído.
 
-   ![Selecionar métrica](./media/howto-alert-on-metric/7-set-threshold-time.png)
+   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Selecionar métrica":::
 
 8. Na secção **Grupos de Ação,** selecione **Criar Novo** para criar um novo grupo para receber notificações no alerta.
 
@@ -66,11 +66,11 @@ Pode configurar e obter informações sobre as regras de alerta utilizando:
 
     Selecione **OK** quando concluído.
 
-    ![Grupo de ações](./media/howto-alert-on-metric/10-action-group-type.png)
+    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Grupo de ações":::
 
 11. Especifique um nome de regra de alerta, descrição e severidade.
 
-    ![Grupo de ações](./media/howto-alert-on-metric/11-name-description-severity.png) 
+    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Grupo de ações"::: 
 
 12. Selecione **Criar a regra de alerta** para criar o alerta.
 
@@ -83,6 +83,6 @@ Uma vez criado um alerta, pode selecioná-lo e fazer as seguintes ações:
 * **Editar** ou **eliminar** a regra de alerta.
 * **Desative** ou **Ative** o alerta, se pretender parar temporariamente ou retomar as notificações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [configurar webhooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
 * Obtenha uma [visão geral da recolha de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para se certificar de que o seu serviço está disponível e responsivo.

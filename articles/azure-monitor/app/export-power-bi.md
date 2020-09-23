@@ -3,12 +3,12 @@ title: Exportação para Power BI a partir de Azure Application Insights / Micro
 description: As consultas analíticas podem ser exibidas no Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 51a553452643fc979846ab4604762f11c5b7ff68
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 804da7d3aaa2fd1b7973a686bc9ca5cb5ee973a2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324374"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979165"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed Power BI a partir de Insights de Aplicações
 [Power BI](https://www.powerbi.com/) é um conjunto de ferramentas de negócio que o ajudam a analisar dados e partilhar insights. Os painéis de instrumentos ricos estão disponíveis em todos os dispositivos. Pode combinar dados de muitas fontes, incluindo consultas de Analytics da [Azure Application Insights](./app-insights-overview.md).
@@ -67,11 +67,11 @@ Instale [o Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    Cole o guião M Language exportado para o Editor Avançado. 
 
-   ![Screenshot do Power BI Desktop, com Editor Avançado em destaque](./media/export-power-bi/advancedquery.png)
+   ![Screenshot mostra o Power BI Desktop, com Editor Avançado em destaque](./media/export-power-bi/advancedquery.png)
 
 4. Selecione itens da consulta e escolha uma visualização do funil.
 
-   ![Screenshot das opções de visualização do Power BI Desktop](./media/export-power-bi/selectsequence.png)
+   ![A screenshot mostra as opções de visualização do funil de desktop Power BI](./media/export-power-bi/selectsequence.png)
 
 5. Altere o título para torná-lo significativo e publique o seu relatório no seu espaço de trabalho em nuvem Power BI. 
 
@@ -86,7 +86,7 @@ Isto pode acontecer se o seu token de atualização não tiver sido atualizado. 
 
 1. Inscreva-se no portal Azure e certifique-se de que pode aceder ao recurso.
 2. Tente refrescar as credenciais para o painel.
-3. Tente limpar a cache do seu Ambiente de Trabalho PowerBI.
+3. Tente limpar a cache do seu Ambiente de Trabalho Power BI.
 
 
    Se tiver acesso e refrescar as credenciais não funciona, por favor abra um bilhete de apoio.
@@ -121,14 +121,14 @@ Este método cria um dashboard completo de telemetria para si. O conjunto de dad
 1. Inicie sessão no [Power BI](https://app.powerbi.com/).
 2. Abra o Screenshot de **dados** ![ do Ícone GetData no canto inferior esquerdo , ](./media/export-power-bi/001.png) **Serviços**.
 
-    ![Screenshots de Get from Application Insights data source](./media/export-power-bi/002.png)
+    ![As imagens mostram Obter o botão na janela serviços.](./media/export-power-bi/002.png)
 
 3. Selecione **Obtenha-o agora** em Insights de Aplicação.
 
    ![Screenshots de Get from Application Insights data source](./media/export-power-bi/003.png)
 4. Forneça os detalhes do seu recurso Application Insights e, em seguida, **iniciar sôm-in**.
 
-    ![Screenshot de Obter a partir de Fonte de dados de Insights de Aplicação](./media/export-power-bi/005.png)
+    ![A screenshot mostra a janela Connect to Application Insights.](./media/export-power-bi/005.png)
 
      Estas informações podem ser encontradas no painel de visão geral da aplicação:
 

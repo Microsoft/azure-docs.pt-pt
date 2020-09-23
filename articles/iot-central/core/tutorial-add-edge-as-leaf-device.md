@@ -1,6 +1,6 @@
 ---
-title: Adicione um dispositivo Azure IoT Edge ao Azure IoT Central ! Microsoft Docs
-description: Como operador, adicione um dispositivo Azure IoT Edge à sua aplicação Azure IoT Central
+title: Tutorial - Adicione um dispositivo Azure IoT Edge ao Azure IoT Central ! Microsoft Docs
+description: Tutorial - Como operador, adicione um dispositivo Azure IoT Edge à sua aplicação Azure IoT Central
 author: rangv
 ms.author: rangv
 ms.date: 05/29/2020
@@ -11,12 +11,12 @@ ms.custom:
 - mvc
 - device-developer
 - iot-edge
-ms.openlocfilehash: cc612d5dc21594da855799ed965effeb4b547d00
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 9b4bb462c94ab5a59dbd9d8fdd4cf619e311df56
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018667"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987025"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>Tutorial: Adicione um dispositivo Azure IoT Edge à sua aplicação Azure IoT Central
 
@@ -286,14 +286,14 @@ Se planeia continuar a trabalhar com o IoT Edge VM, pode conservar e reutilizar 
 * Para eliminar o IoT Edge VM e os seus recursos associados, elimine o grupo de recursos **contoso-edge-rg** no portal Azure.
 * Para eliminar a aplicação IoT Central, navegue na página **de aplicação** da sua aplicação na secção **Administração** da aplicação e selecione **Delete**.
 
+Como desenvolvedor de soluções ou operador, agora que aprendeu a trabalhar e gerir dispositivos IoT Edge na IoT Central, um próximo passo sugerido é:
+
+> [!div class="nextstepaction"]
+> [Utilize grupos de dispositivos para analisar a telemetria do dispositivo](./tutorial-use-device-groups.md)
+
 ## <a name="next-steps"></a>Passos seguintes
 
 Como desenvolvedor de dispositivos, agora que aprendeu a trabalhar e gerir dispositivos IoT Edge na IoT Central, um passo sugerido é ler:
 
 > [!div class="nextstepaction"]
 > [Desenvolver módulos IoT Edge](../../iot-edge/tutorial-develop-for-linux.md)
-
-Como desenvolvedor de soluções ou operador, agora que aprendeu a trabalhar e gerir dispositivos IoT Edge na IoT Central, um próximo passo sugerido é:
-
-> [!div class="nextstepaction"]
-> [Utilize grupos de dispositivos para analisar a telemetria do dispositivo](./tutorial-use-device-groups.md)

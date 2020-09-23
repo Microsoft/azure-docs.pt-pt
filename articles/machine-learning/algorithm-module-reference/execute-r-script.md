@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 873f0d7d2aa4493e77a10f62b0646f4f8233f6b9
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d5ef8d6a9b0c0039b500ce9d0238609e8a8edc93
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337845"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908011"
 ---
 # <a name="execute-r-script-module"></a>Executar módulo de script R
 
-Este artigo descreve como usar o módulo Execut R Script para executar código R no seu pipeline de designer de aprendizagem de máquinas Azure (pré-visualização).
+Este artigo descreve como usar o módulo Execut R Script para executar código R no seu pipeline de designer de aprendizagem de máquinas Azure.
 
 Com R, pode executar tarefas que os módulos existentes não suportam atualmente, tais como: 
 - Criar transformações de dados personalizadas
@@ -407,7 +407,7 @@ Os seguintes pacotes R pré-instalados estão atualmente disponíveis:
 | gtable       | 0.3.0      | 
 | gtools       | 3.8.1      | 
 | haven        | 2.1.0      | 
-| highr        | 0,8        | 
+| highr        | 0.8        | 
 | hms          | 0.4.2      | 
 | htmltools    | 0.3.6      | 
 | httr         | 1.4.0      | 
@@ -493,7 +493,7 @@ Os seguintes pacotes R pré-instalados estão atualmente disponíveis:
 | viridisLite  | 0.3.0      | 
 | whisker      | 0.3-2      | 
 | withr        | 2.1.2      | 
-| xfun         | 0,8        | 
+| xfun         | 0.8        | 
 | xml2         | 1.2.0      | 
 | xts          | 0.11-2     | 
 | yaml         | 2.2.0      | 

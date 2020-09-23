@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 7178417a5c20afe5b1ed02bc526ec174704962df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 444cb6a7819fa72f5987a21807fc707e0ba8b396
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456255"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907923"
 ---
 # <a name="feature-hashing-module-reference"></a>Referência do módulo hashing de recurso
 
-Este artigo descreve um módulo incluído no designer de Aprendizagem automática Azure (pré-visualização).
+Este artigo descreve um módulo incluído no designer de Aprendizagem automática Azure.
 
 Utilize o módulo hashing de recurso para transformar um fluxo de texto inglês num conjunto de funcionalidades de inteiro. Em seguida, pode passar este conjunto de funcionalidades de haxixe para um algoritmo de aprendizagem automática para treinar um modelo de análise de texto.
 
@@ -129,6 +129,6 @@ As seguintes boas práticas podem ajudá-lo a tirar o máximo partido do módulo
 
 O conjunto ideal de métodos de pré-processamento para aplicar em qualquer solução depende do domínio, vocabulário e necessidade de negócio. pipeline com os seus dados para ver quais os métodos de processamento de texto mais eficazes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
             
 Veja o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning 

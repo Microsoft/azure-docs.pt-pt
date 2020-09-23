@@ -10,7 +10,7 @@
   items:
     - name: Ativar o agente de servidores compatível com o Arc
       href: ./learn/quick-enable-hybrid-vm.md
-- name: Tutoriais
+- name: Tutorials (Tutoriais)
   items:
     - name: Atribuir política para avaliar a conformidade
       href: ./learn/tutorial-assign-policy-portal.md
@@ -47,12 +47,12 @@
       items:
         - name: Problemas de ligação do agente
           href: troubleshoot-agent-onboard.md
-    - name: Referência
-      items:
-        - name: Disponibilidade de região e residência dos dados
-          href: data-residency.md
-        - name: REST
-          href: /rest/api/hybridcompute
-        - name: Incorporações do Azure Policy
-          displayName: 'samples, policies, definitions'
-          href: policy-reference.md
+- name: Referência
+  items:
+    - name: Residência dos dados
+      href: data-residency.md
+    - name: REST
+      href: /rest/api/hybridcompute
+    - name: Incorporações do Azure Policy
+      displayName: 'samples, policies, definitions'
+      href: policy-reference.md

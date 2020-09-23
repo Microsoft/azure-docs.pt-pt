@@ -3,12 +3,12 @@ title: Exportação com Stream Analytics da Azure Application Insights / Microso
 description: O Stream Analytics pode transformar, filtrar e encaminhar continuamente os dados que exporta do Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: d90b965ca65af0acf7032067c77591a2ac4d4b02
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e90daf2516b00f7a27ac47e34cfc4ace03fee6e2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324357"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979186"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Utilize o Stream Analytics para processar dados exportados a partir de Insights de Aplicação
 [O Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) é a ferramenta ideal para o processamento de dados [exportados do Application Insights](export-telemetry.md). Stream Analytics pode extrair dados de uma variedade de fontes. Pode transformar e filtrar os dados, e depois encaminhá-lo para uma variedade de pias.
@@ -98,9 +98,9 @@ O Padrão do Prefixo do Caminho especifica onde o Stream Analytics encontra os f
 Neste exemplo:
 
 * `webapplication27`é o nome do recurso Application Insights **todos os casos inferiores.**
-* `1234...`é a chave de instrumentação do recurso Application Insights, **omitindo traços**. 
-* `PageViews`é o tipo de dados que pretende analisar. Os tipos disponíveis dependem do filtro que definiu na Exportação Contínua. Examinar os dados exportados para ver os outros tipos disponíveis e ver o modelo de dados de [exportação.](export-data-model.md)
-* `/{date}/{time}`é um padrão escrito literalmente.
+* `1234...` é a chave de instrumentação do recurso Application Insights, **omitindo traços**. 
+* `PageViews` é o tipo de dados que pretende analisar. Os tipos disponíveis dependem do filtro que definiu na Exportação Contínua. Examinar os dados exportados para ver os outros tipos disponíveis e ver o modelo de dados de [exportação.](export-data-model.md)
+* `/{date}/{time}` é um padrão escrito literalmente.
 
 > [!NOTE]
 > Inspecione o armazenamento para se certificar de que faz o caminho certo.
@@ -196,7 +196,7 @@ Open Power BI com o seu trabalho ou conta escolar, e selecione o conjunto de dad
 
 Agora pode utilizar este conjunto de dados em relatórios e dashboards no [Power BI](https://powerbi.microsoft.com).
 
-![No Power BI, selecione o seu conjunto de dados e campos.](./media/export-stream-analytics/210.png)
+![A screenshot mostra um exemplo de relatório feito a partir de um conjunto de dados no Power BI.](./media/export-stream-analytics/210.png)
 
 ## <a name="no-data"></a>Não existem dados?
 * Verifique se [define corretamente o formato da data](#set-path-prefix-pattern) para YYYY-MM-DD (com traços).

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 06/27/2020
-ms.openlocfilehash: 9b3e1916301d6346defd6ebeab2f3784882f2d5f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0c390c64db8c5833f5bc5bf2be3367cb63127a0f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798861"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902651"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-portal"></a>Quickstart: Criar uma base de dados Azure para servidor PostgreSQL utilizando o portal Azure
 
@@ -34,25 +34,25 @@ Para criar uma base de dados Azure para o servidor PostgreSQL:
 2. Selecione **Base de Dados**  >  **Azure Databases para PostgreSQL**.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot que mostra "Azure Database for PostgreSQL" no menu.](./media/quickstart-create-database-portal/1-create-database.png)
+   > :::image type="content" source="./media/quickstart-create-database-portal/1-create-database.png" alt-text="Screenshot que mostra Azure Database para PostgreSQL no menu.":::
 
 3. Selecione a opção de implementação **do servidor único.**
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot de selecionar a opção de implementação de um único servidor para Azure Database para PostgreSQL.](./media/quickstart-create-database-portal/select-deployment-option.png)
+   > :::image type="content" source="./media/quickstart-create-database-portal/select-deployment-option.png" alt-text="Screenshot de selecionar a opção de implementação de um único servidor para Azure Database para PostgreSQL.":::
 
 4. Preencha o formulário Basics com as **seguintes** informações.
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot que mostra o separador Basics para criar um único servidor.](./media/quickstart-create-database-portal/create-basics.png)
+   > :::image type="content" source="./media/quickstart-create-database-portal/create-basics.png" alt-text="Screenshot que mostra o separador Basics para criar um único servidor.":::
 
    Definição|Valor sugerido|Descrição
    ---|---|---
    Subscrição|Nome da sua subscrição|A subscrição do Azure que quer utilizar para o servidor. Se tiver várias subscrições, escolha a subscrição na qual o recurso é cobrado.
    Grupo de recursos|*grupo myresource*| Um nome de grupo de recursos novo ou um já existente na sua subscrição.
    Nome do servidor |*mydemoserver*|Um nome exclusivo que identifique a sua Base de Dados do Azure para o servidor PostgreSQL. O nome de domínio *postgres.database.azure.com* é anexado ao nome do servidor que fornece. O servidor só pode conter letras minúsculas, números e o caráter de hífen (-). Deve conter 3 a 63 caracteres.
-   Origem de dados | **Nenhuma** | Selecione **Nenhum** para criar um novo servidor a partir do zero. (Você selecionaria **Backup** se estivesse a criar um servidor a partir de um geo-backup de uma base de dados Azure existente para servidor PostgreSQL.)
-   Nome de utilizador admin |*myadmin*| A sua própria conta de início de sessão quando se ligar ao servidor. O nome de login não pode ser **azure_superuser**, **azure_pg_admin,** **administrador,** **administrador,** **raiz,** **hóspede,** ou **público.** Não pode começar com **pg_.**
+   Origem de dados | **Nenhuma** | Selecione **Nenhum** para criar um novo servidor de raiz. (Você selecionaria **Backup** se estivesse a criar um servidor a partir de um geo-backup de uma base de dados Azure existente para servidor PostgreSQL.)
+   Nome de utilizador de administrador |*myadmin*| A sua própria conta de início de sessão quando se ligar ao servidor. O nome de login não pode ser **azure_superuser**, **azure_pg_admin,** **administrador,** **administrador,** **raiz,** **hóspede,** ou **público.** Não pode começar com **pg_.**
    Palavra-passe |A sua palavra-passe| Uma palavra-passe nova para a conta de administrador do servidor. Deve conter 8 a 128 caracteres de três das seguintes categorias: letras maiúsculas inglesas, letras minúsculas inglesas, números (0 a 9) e caracteres não alfanuméricos (por exemplo, !, $, #, %).
    Localização|A região mais próxima dos seus utilizadores| A localização que esteja mais próxima dos seus utilizadores.
    Versão|A versão principal mais recente| A versão principal mais recente do PostgreSQL, a não ser que tenha requisitos específicos.
@@ -71,7 +71,7 @@ Uma base de dados vazia, **postgres,** é criada. Também encontrará uma base *
 Por predefinição, o servidor que cria não é acessível ao público. Tem de dar permissões ao seu endereço IP. Aceda ao recurso do seu servidor no portal Azure e selecione a segurança de **ligação** do menu do lado esquerdo para o seu recurso de servidor. Se não sabe como encontrar o seu recurso, consulte os [recursos abertos.](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources)
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot que mostra regras de firewall para segurança de ligação.](./media/quickstart-create-database-portal/add-current-ip-firewall.png)
+> :::image type="content" source="./media/quickstart-create-database-portal/add-current-ip-firewall.png" alt-text="Screenshot que mostra regras de firewall para segurança de ligação.":::
   
 **Selecione Adicionar o endereço IP do cliente atual**e, em seguida, selecione **Guardar**. Pode adicionar mais endereços IP ou fornecer uma gama IP para ligar ao seu servidor a partir desses endereços IP. Para obter mais informações, consulte [as regras de Firewall na Base de Dados Azure para PostgreSQL](./concepts-firewall-rules.md).
    
@@ -90,7 +90,7 @@ Você pode usar [psql](http://postgresguide.com/utilities/psql.html) ou [pgAdmin
    > Se estiver a abrir a Cloud Shell pela primeira vez, verá um pedido para criar um grupo de recursos e uma conta de armazenamento. Este é um passo único e será automaticamente anexado para todas as sessões. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot que mostra informações do servidor e o ícone para abrir Azure Cloud Shell.](media/quickstart-create-database-portal/use-in-cloud-shell.png)
+   > :::image type="content" source="media/quickstart-create-database-portal/use-in-cloud-shell.png" alt-text="Screenshot que mostra informações do servidor e o ícone para abrir Azure Cloud Shell.":::
 
 3. Executar o seguinte comando no terminal Azure Cloud Shell. Substitua os valores pelo nome real do servidor e pelo nome de início de sessão do utilizador administrativo. Utilize as **postagens vazias** da base de dados com o utilizador administrativo neste formato: `<admin-username>@<servername>` .
 
@@ -143,7 +143,7 @@ Para eliminar o grupo de recursos:
 Para eliminar o servidor, selecione o botão **Eliminar** na página **'Vista Geral'** do seu servidor:
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot que mostra o botão para apagar um servidor.](media/quickstart-create-database-portal/12-delete.png)
+> :::image type="content" source="media/quickstart-create-database-portal/12-delete.png" alt-text="Screenshot que mostra o botão para apagar um servidor.":::
 
 ## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]

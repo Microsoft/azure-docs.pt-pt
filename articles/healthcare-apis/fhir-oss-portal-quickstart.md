@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 7fa119db0c974c93aff667060d153b21b8de16bb
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 57ab6bca820c4c25a9a56e4a801aa7d917d317ec
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843492"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978608"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-azure-portal"></a>Quickstart: Implementar o servidor FHIR open source usando o portal Azure
 
@@ -25,17 +25,17 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Navegue na [página de implantação](https://github.com/Microsoft/fhir-server/blob/master/docs/DefaultDeployment.md) do GitHub e localize os botões "Implementar para Azure":
 
-![Página de implementação de código aberto](media/quickstart-oss-portal/deployment-page-oss.png)
+>[!div class="mx-imgBorder"]
+>![Página de implementação de código aberto](media/quickstart-oss-portal/deployment-page-oss.png)
 
 Clique no botão de implementação e o portal Azure abre.
 
 ## <a name="fill-in-deployment-parameters"></a>Preencha os parâmetros de implantação
 
-Opte por criar um novo grupo de recursos e dar-lhe um nome. Apenas outro parâmetro requerido é um nome para o serviço.
+Opte por criar um novo grupo de recursos e dar-lhe um nome. Apenas outros parâmetros necessários são um nome para o serviço e a Senha de Administrador Sql.
 
-![Parâmetros de implementação personalizados](media/quickstart-oss-portal/deployment-custom-parameters.png)
-
-Note que a implantação irá retirar o código de origem diretamente do repositório de código aberto no GitHub. Se tiver feito o reencamínio, pode apontar para o seu próprio e para um ramo específico.
+>[!div class="mx-imgBorder"]
+>![Parâmetros de implementação personalizados](media/quickstart-oss-portal/deployment-custom-parameters.png)
 
 Depois de preencher os detalhes, pode iniciar a implantação.
 

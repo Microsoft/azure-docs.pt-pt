@@ -1,15 +1,15 @@
 ---
 title: Restaurar VMs utilizando o portal Azure
-description: Restaurar uma máquina virtual Azure a partir de um ponto de recuperação usando o portal Azure
+description: Restaurar uma máquina virtual Azure a partir de um ponto de recuperação utilizando o portal Azure, incluindo a função Cross Region Restore.
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 582ec3e5409e5ada6f98a0c2db77c0bb73eaed18
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: d2b5c00df9f9b5b41877fe21181f11ea7fe76084
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050425"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986543"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar os dados do Azure VM no portal Azure
 
@@ -138,18 +138,21 @@ Como uma das opções de [restauro,](#restore-options)o Cross Region Restore (CR
 
 Para embarcar na funcionalidade durante a pré-visualização, leia a [secção Antes de Começar](./backup-create-rs-vault.md#set-cross-region-restore).
 
-Para ver se a CRR está ativada, siga as instruções no [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore)
+Para ver se a CRR está ativada, siga as instruções no [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore).
 
 ### <a name="view-backup-items-in-secondary-region"></a>Ver itens de backup na região secundária
 
 Se o CRR estiver ativado, pode ver os itens de reserva na região secundária.
 
-1. A partir do portal, vá para **os serviços de recuperação de**  >  **itens de backup**
+1. A partir do portal, aceda a itens de backup de **cofres dos Serviços de Recuperação.**  >  **Backup items**
 1. Selecione **Região Secundária** para ver os itens na região secundária.
 
-    ![Máquinas virtuais na região secundária](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
+>[!NOTE]
+>Apenas os tipos de gestão de backup que suportam a função CRR serão apresentados na lista. Atualmente, apenas é permitido o apoio à reposição de dados da região secundária para uma região secundária.
 
-    ![Selecione Região Secundária](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
+![Máquinas virtuais na região secundária](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
+
+![Selecione Região Secundária](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
 
 ### <a name="restore-in-secondary-region"></a>Restauro na região secundária
 

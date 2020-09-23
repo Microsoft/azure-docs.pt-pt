@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 2c028bff80856f7edcb34688ffa5c3320a66ccc9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d4dc5c2690be7b9abbda685e78ea562878626b5c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112617"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902863"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-using-the-azure-portal"></a>Armazenamento de crescimento automático na Base de Dados Azure para o MySQL utilizando o portal Azure
 Este artigo descreve como pode configurar uma Base de Dados Azure para o armazenamento do servidor MySQL crescer sem afetar a carga de trabalho.
@@ -32,14 +32,14 @@ Siga estes passos para definir o crescimento automático do armazenamento do ser
 
 3. Na secção de crescimento automático, selecione **Sim** para permitir o crescimento automático do armazenamento.
 
-    ![Base de Dados Azure para MySQL - Settings_Pricing_tier - Crescimento automático](./media/howto-auto-grow-storage-portal/3-auto-grow.png)
+    :::image type="content" source="./media/howto-auto-grow-storage-portal/3-auto-grow.png" alt-text="Base de Dados Azure para MySQL - Settings_Pricing_tier - Crescimento automático":::
 
 4. Clique em **OK** para guardar as alterações.
 
 5. Uma notificação confirmará que o crescimento de automóveis foi ativado com sucesso.
 
-    ![Azure Database for MySQL - sucesso de crescimento automático](./media/howto-auto-grow-storage-portal/5-auto-grow-success.png)
+    :::image type="content" source="./media/howto-auto-grow-storage-portal/5-auto-grow-success.png" alt-text="Azure Database for MySQL - sucesso de crescimento automático":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba [como criar alertas sobre métricas.](howto-alert-on-metric.md)

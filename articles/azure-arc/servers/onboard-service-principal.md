@@ -1,18 +1,18 @@
 ---
 title: Ligue as máquinas híbridas ao Azure à escala
-description: Neste artigo, aprende-se a ligar máquinas ao Azure utilizando servidores ativados (pré-visualização) do Azure Arc utilizando um principal de serviço.
-ms.date: 07/23/2020
+description: Neste artigo, aprende-se a ligar máquinas ao Azure utilizando servidores ativados pelo Azure Arc utilizando um principal de serviço.
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 07266ce7fb9579e1d4fb1b65394e0b7fdf7aa13d
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 545d8abd6dd17e1e413852735c096ddc9261b972
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211400"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908329"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Ligue as máquinas híbridas ao Azure à escala
 
-Pode ativar servidores ativados (pré-visualização) do Azure Arc para várias máquinas Windows ou Linux no seu ambiente com várias opções flexíveis dependendo dos seus requisitos. Utilizando o script do modelo que fornecemos, pode automatizar cada passo da instalação, incluindo estabelecer a ligação ao Arco Azure. No entanto, é-lhe exigido que execute interativamente este script com uma conta que tenha permissões elevadas na máquina-alvo e no Azure. Para ligar as máquinas aos servidores ativados do Azure Arc (pré-visualização), pode utilizar um diretor de [serviço](../../active-directory/develop/app-objects-and-service-principals.md) Azure Ative Directory em vez de utilizar a sua identidade privilegiada para [ligar interativamente a máquina](onboard-portal.md). Um diretor de serviço é uma identidade de gestão limitada especial que só é concedida a permissão mínima necessária para ligar máquinas a Azure usando o `azcmagent` comando. Isto é mais seguro do que usar uma conta privilegiada mais alta como um Administrador de Inquilino, e segue as nossas melhores práticas de segurança de controlo de acesso. O principal de serviço é utilizado apenas durante o embarque, não é utilizado para qualquer outro fim.  
+Pode ativar servidores ativados pelo Azure Arc para várias máquinas Windows ou Linux no seu ambiente com várias opções flexíveis dependendo dos seus requisitos. Utilizando o script do modelo que fornecemos, pode automatizar cada passo da instalação, incluindo estabelecer a ligação ao Arco Azure. No entanto, é-lhe exigido que execute interativamente este script com uma conta que tenha permissões elevadas na máquina-alvo e no Azure. Para ligar as máquinas aos servidores ativados do Azure Arc, pode utilizar um diretor de [serviço](../../active-directory/develop/app-objects-and-service-principals.md) Azure Ative Directory em vez de utilizar a sua identidade privilegiada para [ligar interativamente a máquina](onboard-portal.md). Um diretor de serviço é uma identidade de gestão limitada especial que só é concedida a permissão mínima necessária para ligar máquinas a Azure usando o `azcmagent` comando. Isto é mais seguro do que usar uma conta privilegiada mais alta como um Administrador de Inquilino, e segue as nossas melhores práticas de segurança de controlo de acesso. O principal de serviço é utilizado apenas durante o embarque, não é utilizado para qualquer outro fim.  
 
 Os métodos de instalação para instalar e configurar o agente máquina conectado requer que o método automatizado que utiliza tenha permissões de administrador nas máquinas. No Linux, utilizando a conta raiz e no Windows, como membro do grupo de Administradores Locais.
 
@@ -20,7 +20,7 @@ Antes de começar, certifique-se de rever os [pré-requisitos](agent-overview.md
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-No final deste processo, terá ligado com sucesso as suas máquinas híbridas aos servidores ativados do Azure Arc (pré-visualização).
+No final deste processo, terá ligado com sucesso as suas máquinas híbridas aos servidores ativados do Azure Arc.
 
 ## <a name="create-a-service-principal-for-onboarding-at-scale"></a>Criar um diretor de serviço para o embarque à escala
 
@@ -133,7 +133,7 @@ azcmagent connect \
 >[!NOTE]
 >Você deve ter permissões de acesso à *raiz* em máquinas Linux para executar **azcmagent**.
 
-Depois de instalar o agente e configurá-lo para ligar aos servidores ativados do Azure Arc (pré-visualização), vá ao portal Azure para verificar se o servidor se ligou com sucesso. Veja as suas máquinas no [portal do Azure](https://aka.ms/hybridmachineportal).
+Depois de instalar o agente e configurá-lo para ligar aos servidores ativados do Azure Arc, vá ao portal Azure para verificar se o servidor se ligou com sucesso. Veja as suas máquinas no [portal do Azure](https://aka.ms/hybridmachineportal).
 
 ![Uma ligação de servidor bem sucedida](./media/onboard-portal/arc-for-servers-successful-onboard.png)
 
@@ -141,4 +141,4 @@ Depois de instalar o agente e configurá-lo para ligar aos servidores ativados d
 
 - Aprenda a gerir a sua máquina utilizando [a Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verificando se a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com o [Azure Monitor com VMs](../../azure-monitor/insights/vminsights-enable-policy.md), e muito mais.
 
-- Saiba mais sobre o [agente Log Analytics.](../../azure-monitor/platform/log-analytics-agent.md) O agente Log Analytics para Windows e Linux é necessário quando pretende monitorizar proactivamente o SISTEMA e as cargas de trabalho em funcionamento na máquina, geri-lo utilizando livros de automação ou soluções como a Update Management, ou utilizar outros serviços Azure como o [Azure Security Center.](../../security-center/security-center-intro.md)
+- Saiba mais sobre [o [Agente Log Analytics]](../../azure-monitor/platform/log-analytics-agent.md). O agente Log Analytics para Windows e Linux é necessário quando pretende recolher dados de monitorização do sistema operativo e da carga de trabalho, geri-lo utilizando livros de aplicação da Automação ou funcionalidades como Update Management, ou utilizar outros serviços Azure como [o Azure Security Center](../../security-center/security-center-intro.md).
