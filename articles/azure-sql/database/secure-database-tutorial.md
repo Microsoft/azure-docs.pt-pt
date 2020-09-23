@@ -7,15 +7,15 @@ ms.subservice: security
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: carlrab
-ms.date: 09/03/2019
+ms.reviewer: ''
+ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 12c3a35e12e3f432345ea788893d0d0ae6e6433f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bec60875561a9d821642d850c27e47d4f906aba3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496921"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885407"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Tutorial: Proteger uma base de dados na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ Neste tutorial, ficará a saber como:
 > - Criar regras de firewall ao nível do servidor e de nível de base de dados
 > - Configure um administrador do Azure Ative Directory (Azure AD)
 > - Gerir o acesso do utilizador com autenticação SQL, autenticação AZure AD e cadeias de ligação seguras
-> - Ativar funcionalidades de segurança, tais como segurança avançada de dados, auditoria, mascaramento de dados e encriptação
+> - Ativar funcionalidades de segurança, tais como Azure Defender para SQL, auditoria, máscara de dados e encriptação
 
 A Azure SQL Database protege os dados permitindo-lhe:
 
@@ -62,7 +62,7 @@ Para todos os passos no tutorial, inscreva-se no [portal Azure](https://portal.a
 
 As bases de dados na Base de Dados SQL estão protegidas por firewalls em Azure. Por predefinição, todas as ligações ao servidor e à base de dados são rejeitadas. Para saber mais, consulte [as regras de firewall ao nível do servidor e do nível da base de dados](firewall-configure.md).
 
-**Desconfiem do acesso aos serviços Azure** **para** a configuração mais segura. Em seguida, crie um [IP reservado (implementação clássica)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) para o recurso que precisa de se conectar, como um VM Azure ou serviço na nuvem, e apenas permita esse acesso de endereço IP através da firewall. Se estiver a utilizar o modelo de implementação do gestor de [recursos,](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) é necessário um endereço IP público dedicado para cada recurso.
+**Desconfiem do acesso aos serviços Azure** **para** a configuração mais segura. Em seguida, crie um [IP reservado (implementação clássica)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) para o recurso que precisa de se conectar, como um VM Azure ou serviço na nuvem, e apenas permita esse acesso de endereço IP através da firewall. Se estiver a utilizar o modelo de implementação do Gestor de [Recursos,](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) é necessário um endereço IP público dedicado para cada recurso.
 
 > [!NOTE]
 > A Base de Dados SQL comunica através da porta 1433. Se estiver a tentar ligar-se a partir de uma rede corporativa, o tráfego de saída sobre a porta 1433 pode não ser permitido pela firewall da sua rede. Em caso afirmativo, não pode ligar-se ao servidor a menos que o seu administrador abra a porta 1433.
@@ -210,7 +210,7 @@ Para adicionar um utilizador com autenticação AD AZure:
    ```
 
 > [!NOTE]
-> Os utilizadores de AD Azure estão marcados nos metadados da base de dados com tipo `E (EXTERNAL_USER)` e tipo `X (EXTERNAL_GROUPS)` para grupos. Para mais informações, consulte [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql).
+> Os utilizadores de AD Azure estão marcados nos metadados da base de dados com tipo `E (EXTERNAL_USER)` e tipo `X (EXTERNAL_GROUPS)` para grupos. Para mais informações, consulte [sys.database_principals.](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql)
 
 ### <a name="secure-connection-strings"></a>Cadeias de ligação seguras
 
@@ -233,30 +233,30 @@ Para copiar uma cadeia de ligação segura:
 
 ## <a name="enable-security-features"></a>Ativar funcionalidades de segurança
 
-A Azure SQL Database fornece funcionalidades de segurança que são acedidas através do portal Azure. Estas funcionalidades estão disponíveis tanto para a base de dados como para o servidor, com exceção da máscara de dados, que só está disponível na base de dados. Para saber mais, consulte [a segurança avançada dos dados,](advanced-data-security.md)a [auditoria,](../../azure-sql/database/auditing-overview.md) [a máscara de dados dinâmicos](dynamic-data-masking-overview.md)e a [encriptação de dados transparentes.](transparent-data-encryption-tde-overview.md)
+A Azure SQL Database fornece funcionalidades de segurança que são acedidas através do portal Azure. Estas funcionalidades estão disponíveis tanto para a base de dados como para o servidor, com exceção da máscara de dados, que só está disponível na base de dados. Para saber mais, consulte [o Azure Defender for SQL,](azure-defender-for-sql.md) [Auditing,](../../azure-sql/database/auditing-overview.md) [Dynamic data masking](dynamic-data-masking-overview.md)e Transparent data [encryption](transparent-data-encryption-tde-overview.md).
 
-### <a name="advanced-data-security"></a>Segurança de dados avançada
+### <a name="azure-defender-for-sql"></a>Azure Defender para SQL
 
-A funcionalidade avançada de segurança de dados deteta potenciais ameaças à medida que ocorrem e fornece alertas de segurança sobre atividades anómalas. Os utilizadores podem explorar estes eventos suspeitos usando a funcionalidade de auditoria e determinar se o evento foi para aceder, violar ou explorar dados na base de dados. Os utilizadores também são fornecidos uma visão geral de segurança que inclui uma avaliação de vulnerabilidade e a ferramenta de descoberta e classificação de dados.
+A funcionalidade Azure Defender for SQL deteta potenciais ameaças à medida que ocorrem e fornece alertas de segurança sobre atividades anómalas. Os utilizadores podem explorar estes eventos suspeitos usando a funcionalidade de auditoria e determinar se o evento foi para aceder, violar ou explorar dados na base de dados. Os utilizadores também são fornecidos uma visão geral de segurança que inclui uma avaliação de vulnerabilidade e a ferramenta de descoberta e classificação de dados.
 
 > [!NOTE]
 > Uma ameaça exemplo é a injeção de SQL, um processo em que os atacantes injetam SQL malicioso nas entradas de aplicações. Uma aplicação pode então executar inconscientemente o SQL malicioso e permitir aos atacantes o acesso a violação ou modificação de dados na base de dados.
 
-Para permitir a segurança avançada dos dados:
+Para ativar o Azure Defender para o SQL:
 
 1. No portal Azure, selecione **bases de dados SQL** a partir do menu à esquerda e selecione a sua base de dados na página **de bases de dados SQL.**
 
 1. Na página **'Vista Geral',** selecione o link **de nomes do Servidor.** A página do servidor será aberta.
 
-1. Na página do **servidor SQL,** encontre a secção **de Segurança** e selecione Advanced **Data Security**.
+1. Na página do **servidor SQL,** encontre a secção **de Segurança** e selecione o Centro **de Segurança**.
 
-   1. Selecione **ON** em **Segurança Avançada de Dados** para ativar a funcionalidade. Escolha uma conta de armazenamento para guardar os resultados da avaliação da vulnerabilidade. Em seguida, selecione **Guardar**.
+   1. Selecione **ON** under **Azure Defender for SQL** para ativar a funcionalidade. Escolha uma conta de armazenamento para guardar os resultados da avaliação da vulnerabilidade. Em seguida, selecione **Guardar**.
 
       ![Painel de navegação](./media/secure-database-tutorial/threat-settings.png)
 
       Também pode configurar e-mails para receber alertas de segurança, detalhes de armazenamento e tipos de deteção de ameaças.
 
-1. Volte à página de bases de **dados SQL** da sua base de dados e selecione **Segurança Avançada de Dados** na secção **Segurança.** Aqui encontrará vários indicadores de segurança disponíveis para a base de dados.
+1. Volte à página de bases de **dados SQL** da sua base de dados e selecione **o Centro** de Segurança sob a secção **De Segurança.** Aqui encontrará vários indicadores de segurança disponíveis para a base de dados.
 
     ![Estado de ameaça](./media/secure-database-tutorial/threat-status.png)
 
@@ -266,7 +266,7 @@ Se forem detetadas atividades anómalas, recebe um e-mail com informações sobr
 
 ### <a name="auditing"></a>Auditoria
 
-O recurso de auditoria rastreia eventos de base de dados e escreve eventos para um registo de auditoria no armazenamento do Azure, nos registos do Azure Monitor ou num centro de eventos. A auditoria ajuda a manter a conformidade regulatória, a compreender a atividade da base de dados e a obter informações sobre discrepâncias e anomalias que possam indicar possíveis violações de segurança.
+O recurso de auditoria rastreia eventos de base de dados e escreve eventos para um registo de auditoria no armazenamento do Azure, nos registos do Azure Monitor ou num centro de eventos. A auditoria ajuda a manter a conformidade regulatória, a compreender as atividades da base de dados e a obter informações relativas a discrepâncias e anomalias que possam indicar potenciais violações de segurança.
 
 Para permitir a auditoria:
 
@@ -276,7 +276,7 @@ Para permitir a auditoria:
 
 1. Nas definições **de Auditoria,** defina os seguintes valores:
 
-   1. Definir **Auditoria** para **ON**.
+   1. Defina a opção **Auditoria** como **Ativar**.
 
    1. Selecione **destino de registo de auditoria** como qualquer um dos seguintes:
 
@@ -347,7 +347,7 @@ Neste tutorial, aprendeu a melhorar a segurança da sua base de dados com apenas
 > - Criar regras de firewall ao nível do servidor e de nível de base de dados
 > - Configure um administrador do Azure Ative Directory (AD)
 > - Gerir o acesso do utilizador com autenticação SQL, autenticação AZure AD e cadeias de ligação seguras
-> - Ativar funcionalidades de segurança, tais como segurança avançada de dados, auditoria, mascaramento de dados e encriptação
+> - Ativar funcionalidades de segurança, tais como Azure Defender para SQL, auditoria, máscara de dados e encriptação
 
 Avance para o próximo tutorial para aprender a implementar a geo-distribuição.
 

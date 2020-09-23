@@ -1,6 +1,6 @@
 ---
-title: Configure TLS 1.2 em clientes windows que acedam ao dispositivo GPU Azure Stack Edge
-description: Descreve como configurar o TLS 1.2 em clientes windows que acedem ao dispositivo GPU Azure Stack Edge.
+title: Configure TLS 1.2 em clientes windows que acedem ao dispositivo GPU Azure Stack Edge Pro
+description: Descreve como configurar o TLS 1.2 em clientes windows que acedem ao dispositivo GPU Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: bf6b591ef3158a5944b1ebeb37dd0ef5935f7215
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9a6b0910fcfd2a632f2520a2fe683b15592017cf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268507"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891169"
 ---
-# <a name="configure-tls-12-on-windows-clients-accessing-azure-stack-edge-device"></a>Configure TLS 1.2 em clientes windows que acedam ao dispositivo Azure Stack Edge
+# <a name="configure-tls-12-on-windows-clients-accessing-azure-stack-edge-pro-device"></a>Configure TLS 1.2 em clientes windows que acedam ao dispositivo Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Se estiver a utilizar um cliente Windows para aceder ao seu dispositivo Azure Stack Edge, é-lhe exigido que configuure o TLS 1.2 no seu cliente. Este artigo fornece recursos e diretrizes para configurar o TLS 1.2 no seu cliente Windows. 
+Se estiver a utilizar um cliente Windows para aceder ao seu dispositivo Azure Stack Edge Pro, é-lhe exigido que configuure o TLS 1.2 no seu cliente. Este artigo fornece recursos e diretrizes para configurar o TLS 1.2 no seu cliente Windows. 
 
 As diretrizes aqui fornecidas baseiam-se em testes realizados num cliente que executa o Windows Server 2016.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: abcdc903e1509c266b9ea6666c296a59183e83c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7586cca21d470bcb0cf637ca0370f5dfcb59406
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711090"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901100"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalize a política de proteção de informação SQL no Azure Security Center (Preview)
  
@@ -56,7 +56,7 @@ Para personalizar a política de proteção de informação para o seu inquilino
  
 4. As etiquetas são listadas por ordem de sensibilidade ascendente. Para alterar o ranking entre as etiquetas, arraste as etiquetas para as reencomendar na tabela, ou utilize os botões **Move up** e **Move down** para alterar a ordem. 
  
-    ![Política de Configure de Proteção de Informação](./media/security-center-info-protection-policy/move-up.png)
+    ![Lista de etiquetas](./media/security-center-info-protection-policy/move-up.png)
  
 5. Certifique-se de clicar em **Guardar** na parte superior do ecrã quando terminar.
  
@@ -66,7 +66,7 @@ Para personalizar a política de proteção de informação para o seu inquilino
 1. Pode gerir e personalizar tipos de informação clicando em **Gerir tipos de informação.**
 2. Para adicionar um novo **tipo de Informação,** selecione **Criar tipo de informação** no menu superior. Pode configurar um nome, descrição e cadeias de padrão de pesquisa para o **tipo de informação**. As cordas de padrão de pesquisa podem utilizar opcionalmente palavras-chave com caracteres wildcard (usando o '%'), que o motor de descoberta automatizado utiliza para identificar dados sensíveis nas suas bases de dados, com base nos metadados das colunas.
  
-    ![Política de Configure de Proteção de Informação](./media/security-center-info-protection-policy/info-types.png)
+    ![Criar tipo de informação](./media/security-center-info-protection-policy/info-types.png)
  
 3. Também pode configurar os tipos de **Informação** incorporada, adicionando cordas de padrão de pesquisa adicionais, desativando algumas das cordas existentes, ou alterando a descrição. Não é possível eliminar tipos de **informação** incorporada ou editar os seus nomes. 
 4. **Os tipos de informação** são listados por ordem de classificação ascendente de descoberta, o que significa que os tipos mais altos da lista tentarão corresponder primeiro. Para alterar o ranking entre tipos de informação, arraste os tipos para o local certo da tabela ou use os botões **Move up** e **Move down** para alterar a ordem. 
@@ -81,7 +81,7 @@ Após a sua política de proteção de informação estar totalmente definida e 
 - [Get-AzSqlInformationProtectionPolicy](https://docs.microsoft.com/powershell/module/az.security/get-azsqlinformationprotectionpolicy): Recupera a política eficaz de proteção de informação sql do inquilino.
 - [Set-AzSqlInformationProtectionPolicy](https://docs.microsoft.com/powershell/module/az.security/set-azsqlinformationprotectionpolicy): Define a política eficaz de proteção da informação do inquilino SQL.
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
  
 Neste artigo, você aprendeu sobre a definição de uma política de proteção de informação SQL no Azure Security Center. Para saber mais sobre a utilização da SqL Information Protection para classificar e proteger dados sensíveis nas suas bases de dados SQL, consulte [a Azure SQL Database Data Discovery and Classification](../azure-sql/database/data-discovery-and-classification-overview.md). 
 

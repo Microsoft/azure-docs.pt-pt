@@ -3,12 +3,12 @@ title: Começar com Live Video Analytics em IoT Edge - Azure
 description: Este quickstart mostra como começar com live video analytics em IoT Edge. Aprenda a detetar movimento num vídeo transmitido ao vivo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: c7e5efa19c27c3f56f9653ed933c7ad290d18408
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 0d1aaf34ad38b50403a3cbefbc953f9140f2fe82
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89568052"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884934"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Quickstart: Get start - Live Video Analytics on IoT Edge
 
@@ -32,7 +32,7 @@ Depois de completar os passos de configuração, poderá executar um vídeo simu
 
 Este tutorial requer os seguintes recursos Azure:
 
-* IoT Hub
+* Hub IoT
 * Conta de armazenamento
 * Conta Azure Media Services
 * Um Linux VM em Azure, com [tempo de execução IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md) instalado
@@ -84,6 +84,9 @@ Siga estas instruções para ligar ao seu hub IoT utilizando a extensão Azure I
 Se a ligação for bem sucedida, aparece a lista de dispositivos de borda. Deve ver pelo menos um dispositivo chamado **lva-sample-device**. Agora pode gerir os seus dispositivos IoT Edge e interagir com o Azure IoT Hub através do menu de contexto. Para visualizar os módulos implantados no dispositivo de borda, sob **o dispositivo de amostra de Lva,** expanda o nó de **Módulos.**
 
 ![Nó de dispositivo de amostra de lva](./media/quickstarts/lva-sample-device-node.png)
+
+> [!TIP]
+> Se tiver [implantado manualmente o Live Video Analytics no IoT Edge](deploy-iot-edge-device.md) num dispositivo de borda (como um dispositivo ARM64), então verá o módulo aparecer por baixo desse dispositivo, sob o Azure IoT Hub. Pode selecionar esse módulo e seguir o resto dos passos abaixo.
 
 ## <a name="use-direct-method-calls"></a>Use chamadas de métodos diretos
 

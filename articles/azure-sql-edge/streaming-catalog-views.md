@@ -1,7 +1,7 @@
 ---
-title: Vistas de catálogo de streaming (Transact-SQL) - Azure SQL Edge (Pré-visualização)
-description: Conheça as vistas disponíveis para o catálogo de streaming e vistas dinâmicas de gestão em Azure SQL Edge (Preview)
-keywords: sys.external_streams, SQL Edge
+title: Vistas de catálogo de streaming (Transact-SQL) - Azure SQL Edge
+description: Conheça as vistas disponíveis do catálogo de streaming e vistas dinâmicas de gestão em Azure SQL Edge
+keywords: sys.external_streams, SqL Edge
 services: sql-edge
 ms.service: sql-edge
 ms.topic: reference
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2019
-ms.openlocfilehash: 5b1cd58b8947e376ac70ee307041ae7864ed7e24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a8f037cd9923564e2e214e9727ff87d63cca547
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84233115"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900529"
 ---
 # <a name="streaming-catalog-views-transact-sql"></a>Visualizações do catálogo de streaming (Transact-SQL)
 
@@ -28,7 +28,7 @@ Esta secção contém as vistas e funções disponíveis do catálogo que estão
 |[sys.external_streaming_jobs](sys-external-streaming-jobs.md) |Devolve uma linha para cada trabalho de streaming externo criado no âmbito da base de dados.|
 |[sys.external_job_streams](sys-external-job-streams.md)|Devolve uma linha cada uma para o objeto de fluxo externo de entrada ou saída mapeado para uma tarefa de streaming externa.|
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Vistas do Catálogo (Transact-SQL)](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql/)
 - [Vistas do Sistema (Transact-SQL)](/sql/t-sql/language-reference/)
