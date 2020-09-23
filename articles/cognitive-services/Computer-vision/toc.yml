@@ -109,6 +109,22 @@
       href: concept-recognizing-text.md
     - name: Deteção de conteúdo para adultos
       href: concept-detecting-adult-content.md
+- name: IA Responsável
+  items:
+    - name: Nota sobre Transparência
+      items:
+        - name: Introdução à Análise Espacial
+          href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview'
+        - name: Características e limitações
+          href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations'
+    - name: 'Conformidade, privacidade e segurança'
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/compliance-privacy-security-2'
+    - name: Utilização responsável na implementação de IA
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/responsible-use-deployment'
+    - name: Diretrizes de conceção de divulgação
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/disclosure-design'
+    - name: Informações de investigação
+      href: 'https://docs.microsoft.com/legal/cognitive-services/computer-vision/research-insights'
 - name: Contentores
   items:
     - name: Contentor da API de leitura
@@ -125,6 +141,20 @@
         - name: Utilizar instâncias de contentor
           href: deploy-computer-vision-on-container-instances.md
           displayName: 'container instances, container, containers, images'
+    - name: Contentor de Análise Espacial
+      items:
+        - name: Configurar o computador anfitrião e executar o contentor
+          href: spatial-analysis-container.md
+        - name: Configurar operações
+          href: spatial-analysis-operations.md
+        - name: Implementar uma aplicação Web de contagem de pessoas
+          href: Spatial-analysis-web-app.md
+        - name: Registo e resolução de problemas
+          href: spatial-analysis-logging.md
+        - name: Posicionamento de zona e linha
+          href: spatial-analysis-zone-line-placement.md
+        - name: Posicionamento da câmara
+          href: spatial-analysis-camera-placement.md
 - name: Guias de procedimentos
   items:
     - name: Chamar a API de Imagem Digitalizada

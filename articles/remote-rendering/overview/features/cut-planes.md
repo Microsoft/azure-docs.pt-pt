@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d5de8374f58eaf8dc83f54f05557b0a125191c34
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 468d21abc861e905472d1d15405b1c8ba9e5be74
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613712"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904875"
 ---
 # <a name="cut-planes"></a>Cortar planos
 
@@ -19,16 +19,6 @@ Um *plano de corte* é uma característica visual que corta pixels de um lado de
 A imagem abaixo demonstra o efeito. A esquerda mostra a malha original, à direita pode-se olhar para dentro da malha:
 
 ![Avião cortado](./media/cutplane-1.png)
-
-## <a name="limitations"></a>Limitações
-
-* Por enquanto, a Azure Remote Rendering suporta um **máximo de oito aviões de corte ativo**. Pode criar mais componentes de plano cortados, mas se tentar ativar mais simultaneamente, ignorará a ativação. Desative primeiro outros aviões se quiser mudar o componente que deve afetar a cena.
-* Cada plano cortado afeta todos os objetos remotamente renderizados. Atualmente, não existe forma de excluir objetos específicos ou peças de malha.
-* Os planos de corte são puramente uma característica visual, não afetam o resultado de [consultas espaciais.](spatial-queries.md) Se quiser lançar um raio numa malha aberta, pode ajustar o ponto de partida do raio para estar no plano de corte. Desta forma, o raio só pode atingir partes visíveis.
-
-## <a name="performance-considerations"></a>Considerações de desempenho
-
-Cada plano de corte ativo incorre num pequeno custo durante a renderização. Desative ou elimine os aviões cortados quando não são necessários.
 
 ## <a name="cutplanecomponent"></a>CutPlaneComponent
 
@@ -68,12 +58,46 @@ As seguintes propriedades são expostas num componente de plano cortado:
 
   Se o valor alfa do *FadeColor* não for zero, os pixels perto do plano cortado desaparecerão em direção à parte RGB do FadeColor. A força do canal alfa determina se irá desaparecer completamente em direção à cor desvanecendo-se ou apenas parcialmente. *FadeLength* define sobre a distância que este desvanecimento terá lugar.
 
+* `ObjectFilterMask`: Uma máscara de broca de filtro que determina qual a geometria afetada pelo plano de corte. Consulte o próximo parágrafo para obter informações detalhadas.
+
+### <a name="selective-cut-planes"></a>Aviões de corte seletivo
+
+É possível configurar aviões de corte individuais para que apenas afetem geometria específica. A imagem a seguir ilustra como esta configuração pode parecer na prática:
+
+![Aviões de corte seletivo](./media/selective-cut-planes.png)
+
+A filtragem funciona através da **comparação lógica** da máscara de bits entre uma máscara de um pouco no lado do plano cortado e uma segunda máscara que é definida na geometria. Se o resultado de uma operação lógica `AND` entre as máscaras não for zero, o plano de corte afetará a geometria.
+
+* A máscara bit no componente do plano de corte é definida através da sua `ObjectFilterMask` propriedade
+* A máscara bit em uma suberquásia de geometria é definida através do [HierarchicalStateOverrideComponent](override-hierarchical-state.md#features)
+
+Exemplos:
+
+| Corte máscara de filtro de avião | Máscara de filtro de geometria  | Resultado da lógica `AND` | Avião cortado afeta a geometria?  |
+|--------------------|-------------------|-------------------|:----------------------------:|
+| (0000 0001) == 1   | (0000 0001) == 1  | (0000 0001) == 1  | Yes |
+| (1111 0000) == 240 | (0001 0001) == 17 | (0001 0000) == 16 | Yes |
+| (0000 0001) == 1   | (0000 0010) == 2  | (0000 0000) == 0  | No |
+| (0000 0011) == 3   | (0000 1000) == 8  | (0000 0000) == 0  | No |
+
+>[!TIP]
+> Definir um plano de corte `ObjectFilterMask` para 0 significa que não afetará qualquer geometria porque o resultado da lógica `AND` nunca pode ser nulo. O sistema de renderização não considerará esses aviões em primeiro lugar, então este é um método leve para desativar aviões de corte individuais. Estes aviões cortados também não contam contra o limite de 8 aviões ativos.
+
+## <a name="limitations"></a>Limitações
+
+* A Azure Remote Rendering suporta um **máximo de oito aviões de corte ativo**. Pode criar mais componentes de plano cortados, mas se tentar ativar mais simultaneamente, ignorará a ativação. Desative primeiro outros aviões se quiser mudar quais os componentes que devem afetar a cena.
+* Os planos de corte são uma característica puramente visual, não afetam o resultado de [consultas espaciais.](spatial-queries.md) Se quiser lançar um raio numa malha aberta, pode ajustar o ponto de partida do raio para estar no plano de corte. Desta forma, o raio só pode atingir partes visíveis.
+
+## <a name="performance-considerations"></a>Considerações de desempenho
+
+Cada plano de corte ativo incorre num pequeno custo durante a renderização. Desative ou elimine os aviões cortados quando não são necessários.
+
 ## <a name="api-documentation"></a>Documentação da API
 
 * [C# CutPlaneComponent classe](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.cutplanecomponent)
 * [Classe C++ CutPlaneComponent](https://docs.microsoft.com/cpp/api/remote-rendering/cutplanecomponent)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Renderização unilateral única](single-sided-rendering.md)
 * [Consultas espaciais](spatial-queries.md)

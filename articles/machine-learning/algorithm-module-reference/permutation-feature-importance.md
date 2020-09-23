@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
-ms.openlocfilehash: e4511cf4393172e7d2b1ab8a985c76d8f98d4015
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ecf739ea838ad3742612eab7a1b42ac8c8ac455a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456068"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905269"
 ---
 # <a name="permutation-feature-importance"></a>Importância da funcionalidade de permutação
 
-Este artigo descreve como usar o módulo de Importância de Recurso de Permutação no designer de Aprendizagem de Máquinas Azure (pré-visualização), para calcular um conjunto de pontuações de importância de recurso para o seu conjunto de dados. Utiliza estas pontuações para o ajudar a determinar as melhores funcionalidades para utilizar num modelo.
+Este artigo descreve como usar o módulo de Importância de Recurso de Permutação no designer Azure Machine Learning, para calcular um conjunto de pontuações de importância de recurso para o seu conjunto de dados. Utiliza estas pontuações para o ajudar a determinar as melhores funcionalidades para utilizar num modelo.
 
 Neste módulo, os valores de características são baralhados aleatoriamente, uma coluna de cada vez. O desempenho do modelo é medido antes e depois. Pode escolher uma das métricas padrão para medir o desempenho.
 
@@ -67,6 +67,6 @@ Os rankings que o módulo fornece são muitas vezes diferentes dos que obtém da
 
 A razão para a diferença é que a Importância da Característica de Permutação não mede a associação entre uma característica e um valor-alvo. Em vez disso, captura a influência que cada recurso tem nas previsões do modelo.
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

@@ -10,20 +10,17 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
-ms.openlocfilehash: a244372168cb34f190bd584634bf108f2b5215a5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbd6f2021a20ff488402bb9d1367feb57c34f582
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092298"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896684"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Previsão da procura com aprendizagem automática de máquinas
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+
 
 Neste tutorial, você usa machine learning automatizado, ou ML automatizado, no estúdio Azure Machine Learning para criar um modelo de previsão de séries temporizadas para prever a procura de aluguer de um serviço de partilha de bicicletas.
-
->[!IMPORTANT]
-> A experiência automatizada de ML no estúdio de aprendizagem Azure Machine está em pré-visualização. Certas funcionalidades podem não ser suportadas ou têm capacidades limitadas.
 
 Para um exemplo de modelo de classificação, consulte [Tutorial: Criar um modelo de classificação com ML automatizado em Aprendizagem automática de máquinas.](tutorial-first-experiment-automated-ml.md)
 
@@ -38,8 +35,8 @@ Neste tutorial, aprende-se a fazer as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um espaço de trabalho de aprendizagem de máquinas da Edição Empresarial Azure. Se não tiver um espaço de trabalho, [crie um espaço de trabalho para a edição da Enterprise.](how-to-manage-workspace.md) 
-    * Machine learning automatizado no estúdio Azure Machine Learning só está disponível para espaços de trabalho da edição enterprise. 
+* Uma área de trabalho do Azure Machine Learning. Ver [Criar um espaço de trabalho de aprendizagem de máquinas Azure](how-to-manage-workspace.md). 
+
 * Descarregue o ficheiro de dados [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv)
 
 ## <a name="get-started-in-azure-machine-learning-studio"></a>Começar no estúdio Azure Machine Learning
@@ -60,7 +57,7 @@ Para este tutorial, você cria a sua experiência automatizada de ML executada n
 
 Antes de configurar a sua experiência, faça o upload do seu ficheiro de dados para o seu espaço de trabalho sob a forma de um conjunto de dados Azure Machine Learning. Ao fazê-lo, permite-lhe garantir que os seus dados são formatados adequadamente para a sua experiência.
 
-1. No formulário **Select dataset,** selecione **From local files** from the **+Create dataset** drop-down. 
+1. No formulário **Select dataset,** selecione **From local files** from the  **+Create dataset** drop-down. 
 
     1. No formulário **de informações Básicas,** forneça um nome ao seu conjunto de dados e forneça uma descrição opcional. O tipo de conjunto de dados deve ser padrão para **Tabular,** uma vez que mL automatizado no estúdio Azure Machine Learning suporta atualmente apenas conjuntos de dados tabulares.
     
@@ -88,7 +85,7 @@ Antes de configurar a sua experiência, faça o upload do seu ficheiro de dados 
 
     1. O **formulário Schema** permite uma configuração adicional dos seus dados para esta experiência. 
     
-        1. Para este exemplo, opte por ignorar as colunas **casuais** e **registadas.** Estas colunas são uma desagregação da coluna **cnt,** então, portanto, não as incluímos.
+        1. Para este exemplo, opte por ignorar as colunas **casuais** e **registadas.** Estas colunas são uma desagregação da coluna  **cnt,** então, portanto, não as incluímos.
 
         1. Também para este exemplo, deixe as predefinições para os **Imóveis** e **Tipo.** 
         
@@ -100,14 +97,14 @@ Antes de configurar a sua experiência, faça o upload do seu ficheiro de dados 
 
     1. Selecione o seu conjunto de dados assim que aparecer na lista.
 
-    1. Selecione **Seguinte**.
+    1. Selecione  **Seguinte**.
 
 ## <a name="configure-experiment-run"></a>Configure a experiência
 
 Depois de carregar e configurar os seus dados, configure o seu alvo de computação remota e selecione qual a coluna nos seus dados que pretende prever.
 
 1. Povoar o formulário **de execução Configure** da seguinte forma:
-    1. Insira um nome de experiência:`automl-bikeshare`
+    1. Insira um nome de experiência: `automl-bikeshare`
 
     1. Selecione **cnt** como a coluna-alvo, o que pretende prever. Esta coluna indica o número total de alugueres de partilha de bicicletas.
 
@@ -115,7 +112,7 @@ Depois de carregar e configurar os seus dados, configure o seu alvo de computaç
 
         Campo | Descrição | Valor para tutorial
         ----|---|---
-        Nome computacional |Um nome único que identifica o seu contexto computacional.|bike-compute
+        Nome da computação |Um nome único que identifica o seu contexto computacional.|bike-compute
         Tipo de máquina virtual &nbsp; &nbsp;|Selecione o tipo de máquina virtual para o seu cálculo.|CPU (Unidade Central de Processamento)
         Tamanho da máquina virtual &nbsp; &nbsp;| Selecione o tamanho da máquina virtual para o seu cálculo.|Standard_DS12_V2
         Nós min / max| Para perfilar os dados, tem de especificar 1 ou mais nós.|Min nosdes: 1<br>Nó máximo: 6
@@ -156,7 +153,7 @@ Complete a configuração para a sua experiência automatizada de ML especifican
 
 ## <a name="run-experiment"></a>Experiência de execução
 
-Para executar a sua experiência, **selecione Finish**. O ecrã **de detalhes do Run** abre com o estado de **Execução** na parte superior ao lado do número de execução. Este estado atualiza à medida que a experiência progride.
+Para executar a sua experiência, **selecione Finish**. O ecrã **de detalhes do Run**  abre com o estado de **Execução** na parte superior ao lado do número de execução. Este estado atualiza à medida que a experiência progride.
 
 >[!IMPORTANT]
 > A preparação leva **10 a 15 minutos** para preparar a experiência.
@@ -196,7 +193,7 @@ Implementamos este modelo, mas seja avisado, a implantação leva cerca de 20 mi
     Nome de implantação| bikeshare-deploy
     Descrição da implantação| implementação da procura de partilha de bicicletas
     Tipo de computação | Selecione Azure Compute Instance (ACI)
-    Ativar a autenticação| Desativar. 
+    Ative a autenticação| Desativar. 
     Utilize ativos de implantação personalizados| Desativar. A desativação permite que o ficheiro do controlador predefinido (script de pontuação) e o ficheiro ambiente sejam autogeridos. 
     
     Para este exemplo, utilizamos os predefinidos fornecidos no menu *Advanced.* 
@@ -209,7 +206,7 @@ Uma vez que a implementação tenha sucesso, você tem um serviço web operacion
 
 Siga para os [**próximos passos**](#next-steps) para saber mais sobre como consumir o seu novo serviço web e teste as suas previsões usando o suporte de Power BI incorporado no suporte Azure Machine Learning.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Os ficheiros de implantação são maiores do que os ficheiros de dados e experiências, pelo que custam mais para armazenar. Elimine apenas os ficheiros de implementação para minimizar os custos da sua conta, ou se pretender manter o seu espaço de trabalho e experimentar ficheiros. Caso contrário, elimine todo o grupo de recursos, se não pretender utilizar nenhum dos ficheiros.  
 

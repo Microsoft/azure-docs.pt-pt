@@ -1,6 +1,6 @@
 ---
 title: Design de identidade híbrida - tarefas de gestão Azure / Microsoft Docs
-description: Com o controlo de Acesso Condicional, o Azure Ative Directory verifica as condições específicas que escolhe ao autenticar o utilizador e antes de permitir o acesso à aplicação. Uma vez cumpridas essas condições, o utilizador é autenticado e autorizado a aceder à aplicação.
+description: A Azure AD verifica as condições específicas que escolhe ao autenticar o utilizador e antes de permitir o acesso à aplicação com controlo de Acesso Condicional.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a829d39ff21a1abeafd3b4362747894d196d9d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c416bf19acb1736eeed679c16dbd87de1cc98537
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67109390"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986527"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plano para ciclo de vida de identidade híbrida
 A identidade é um dos alicerces da sua estratégia de mobilidade empresarial e de acesso a aplicações. Quer esteja a iniciar sessão no seu dispositivo móvel ou na aplicação SaaS, a sua identidade é a chave para ter acesso a tudo. Ao mais alto nível, uma solução de gestão de identidade engloba a unificação e a sincronização entre os seus repositórios de identidade, que inclui automatizar e centralizar o processo de apreensão de recursos. A solução de identidade deve ser uma identidade centralizada em todos os locais e na nuvem e também usar alguma forma de federação de identidade para manter a autenticação centralizada e partilhar e colaborar de forma segura com utilizadores e empresas externos. Os recursos vão desde sistemas operativos e aplicações a pessoas ou afiliadas a uma organização. A estrutura organizacional pode ser alterada para acomodar as políticas e procedimentos de provisionamento.

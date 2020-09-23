@@ -1,6 +1,6 @@
 ---
-title: Criar um trabalho de streaming T-SQL em Azure SQL Edge (Preview)
-description: Saiba a criação de trabalhos stream Analytics em Azure SQL Edge (Preview).
+title: Criar um trabalho de streaming T-SQL em Azure SQL Edge
+description: Saiba a criação de empregos stream Analytics em Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,19 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 346a59f085e766fef09d73b9e7baa03dad510148
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f0fcdf7aab5f43a0412cd28a1c15188b19770dc6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321722"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888098"
 ---
-# <a name="create-an-azure-stream-analytics-job-in-azure-sql-edge-preview"></a>Criar um trabalho Azure Stream Analytics em Azure SQL Edge (Preview) 
+# <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Criar um trabalho de streaming de dados em Azure SQL Edge 
 
-Este artigo explica como criar um trabalho de streaming T-SQL em Azure SQL Edge (Preview). Cria-se a entrada externa e os objetos de saída e, em seguida, define-se a consulta de trabalho em streaming como parte da criação de emprego em streaming.
-
-> [!NOTE]
-> Para ativar a funcionalidade de streaming T-SQL no Azure SQL Edge, ative o TF 11515 como opção de arranque ou utilize o comando [DBCC TRACEON.]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) Para obter mais informações sobre como permitir o rastreio de bandeiras utilizando um ficheiro mssql.conf, consulte [Configure utilizando um ficheiro mssql.conf](configure.md#configure-by-using-an-mssqlconf-file).
+Este artigo explica como criar um trabalho de streaming T-SQL em Azure SQL Edge. Cria-se a entrada externa e os objetos de saída e, em seguida, define-se a consulta de trabalho em streaming como parte da criação de emprego em streaming.
 
 ## <a name="configure-the-external-stream-input-and-output-objects"></a>Configure a entrada externa e os objetos de saída
 
@@ -42,7 +39,7 @@ A Azure SQL Edge suporta atualmente apenas as seguintes fontes de dados como ent
 | Tipo de fonte de dados | Input | Saída | Descrição |
 |------------------|-------|--------|------------------|
 | Hub Azure IoT Edge | Y | Y | Fonte de dados para ler e escrever dados de streaming para um hub Azure IoT Edge. Para mais informações, consulte [o IoT Edge Hub.](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub)|
-| SQL Database | N | Y | Ligação de fonte de dados para escrever dados de streaming para a Base de Dados SQL. A base de dados pode ser uma base de dados local em Azure SQL Edge, ou uma base de dados remota no SQL Server ou na Base de Dados Azure SQL.|
+| Base de Dados SQL | N | Y | Ligação de fonte de dados para escrever dados de streaming para a Base de Dados SQL. A base de dados pode ser uma base de dados local em Azure SQL Edge, ou uma base de dados remota no SQL Server ou na Base de Dados Azure SQL.|
 | Kafka | S | N | Fonte de dados para ler dados de streaming de um tópico kafka. Atualmente, este adaptador apenas se encontra disponível para versões Intel ou AMD do Azure SQL Edge. Não está disponível para a versão ARM64 do Azure SQL Edge.|
 
 ### <a name="example-create-an-external-stream-inputoutput-object-for-azure-iot-edge-hub"></a>Exemplo: Criar um objeto de entrada/saída de fluxo externo para o hub Azure IoT Edge
@@ -255,5 +252,5 @@ O trabalho de streaming pode ter qualquer um dos seguintes estatutos:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Ver metadados associados a trabalhos de streaming em Azure SQL Edge (Preview)](streaming-catalog-views.md) 
+- [Ver metadados associados a trabalhos de streaming em Azure SQL Edge](streaming-catalog-views.md) 
 - [Criar um fluxo externo](create-external-stream-transact-sql.md)

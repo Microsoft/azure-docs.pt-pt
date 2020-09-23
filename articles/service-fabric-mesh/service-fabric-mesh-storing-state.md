@@ -5,12 +5,12 @@ author: dkkapur
 ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: d56ce811155f7b7f60fa870dbdae2550afab2eac
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 01c54c8baa411e7d57698c626b098dc19e66be4e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246831"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984127"
 ---
 # <a name="state-management-with-service-fabric"></a>Gestão do Estado com Tecido de Serviço
 
@@ -22,7 +22,7 @@ Com a Malha de Tecido de Serviço, pode facilmente implementar uma nova aplicaç
 
 Os recipientes geralmente utilizam discos temporários. No entanto, os discos temporários são efémeros, por isso obtém-se um novo disco temporário e perde-se a informação quando um contentor se despenha. Também é difícil partilhar informações sobre discos temporários com outros contentores. Os volumes são diretórios que são montados dentro dos casos do seu contentor que pode usar para persistir. Os volumes dão-lhe armazenamento de ficheiros de uso geral e permitem-lhe ler/escrever ficheiros utilizando apis de ficheiro sonoro normal. O recurso Volume descreve como montar um diretório e que armazenamento de suporte para usar. Pode escolher o armazenamento do ficheiro Azure ou o disco de volume de tecido de serviço para armazenar dados.
 
-![Volumes][image3]
+![O diagrama mostra o Serviço, que flui para volume, que flui tanto para o Volume Fiável do Tecido de Serviço num disco local replicado como para o Volume de Ficheiros Azure no armazenamento da rede.][image3]
 
 ### <a name="service-fabric-reliable-volume"></a>Volume fiável do tecido de serviço
 

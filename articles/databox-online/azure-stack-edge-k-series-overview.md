@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 1ea04633708e866b6f200bef0eb6e331c06873e9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 20efae411ae4d2fae9bf3b5e69dbfdd98da1603a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948245"
+ms.locfileid: "90985637"
 ---
 # <a name="what-is-the-azure-stack-edge-mini-r"></a>O que é o Azure Stack Edge Mini R?
 
@@ -35,7 +35,7 @@ O Azure Stack Edge Mini R tem as seguintes capacidades:
 |Inferencing acelerado da IA| Habilitado pela Intel Movidius Myriad X VPU.|
 |Com fios e sem fios | Permite transferências de dados com fios e sem fios.|
 |Acesso a dados     | Direcione o acesso aos dados de Blobs de Armazenamento do Azure e Ficheiros do Azure através de APIs da cloud para processamento adicional de dados na cloud. A cache local do dispositivo é utilizada para o acesso rápido de ficheiros mais utilizados recentemente.|
-|Modo desligado| O dispositivo e o serviço podem ser geridos opcionalmente através do Azure Stack. <br> Implementar, executar, gerir aplicações em modo offline. <br> O modo desligado suporta cenários de carregamento offline.|
+|Modo desligado|  O dispositivo e o serviço podem ser geridos opcionalmente através do Azure Stack Hub. Implementar, executar, gerir aplicações em modo offline. <br> O modo desligado suporta cenários de carregamento offline.|
 |Protocolos suportados     |Suporta protocolos padrão de SMB, NFS e REST para a ingestão de dados. <br> Para obter mais informações sobre versões suportadas, aceda aos [requisitos do sistema Azure Stack Edge Mini R](azure-stack-edge-gpu-system-requirements.md).|
 |Atualização de dados     | Capacidade de atualizar os ficheiros locais com a versão mais recente da cloud.|
 |Encriptação dupla    | O uso de unidade auto-encriptada fornece a primeira camada de encriptação. A VPN fornece a segunda camada de encriptação. Suporte bitLocker para encriptar dados localmente e proteger transferência de dados para cloud em *https* .|

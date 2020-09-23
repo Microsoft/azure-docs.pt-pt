@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: a71b4096e791221057fdcc5d14351ceccab720fb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e34fa4af08be898785acbc6f00aa735c1412ec47
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307204"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897576"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Identifie imagens em um projeto de rotulagem 
 
@@ -78,13 +78,13 @@ Os algoritmos de aprendizagem automática podem ser desencadeados. Se estes algo
 
 Especialmente no início de um projeto de rotulagem, o modelo de machine learning só pode ser preciso o suficiente para pré-lobel um pequeno subconjunto de imagens. Uma vez rotuladas estas imagens, o projeto de rotulagem voltará à rotulagem manual para recolher mais dados para a próxima ronda de formação de modelos. Com o passar do tempo, o modelo ficará mais confiante sobre uma maior proporção de imagens, resultando em tarefas mais pré-escritas mais tarde no projeto.
 
-## <a name="tag-images-for-multi-class-classification"></a>Etiquetar imagens para classificação multi-classes
+## <a name="tag-images-for-multi-class-classification"></a>Etiquetar imagens para classificação de várias classes
 
 Se o seu projeto for do tipo "Classificação de Imagem Multi-Class", atribuirá uma única etiqueta a toda a imagem. Para rever as instruções a qualquer momento, vá à página **Instruções** e selecione **Ver instruções detalhadas**.
 
 Se perceber que cometeu um erro depois de atribuir uma etiqueta a uma imagem, pode consertá-la. Selecione o "**X**" na etiqueta que é exibida abaixo da imagem para limpar a etiqueta. Ou, selecione a imagem e escolha outra classe. O valor recentemente selecionado substituirá a etiqueta previamente aplicada.
 
-## <a name="tag-images-for-multi-label-classification"></a>Etiquetar imagens para classificação multi-rótulo
+## <a name="tag-images-for-multi-label-classification"></a>Etiquetar imagens para classificação de várias etiquetas
 
 Se estiver a trabalhar num projeto do tipo "Image Classification Multi-Label", aplicará uma *ou mais* etiquetas a uma imagem. Para ver as instruções específicas do projeto, selecione **Instruções** e vá **ao Ver instruções detalhadas**.
 
@@ -103,7 +103,7 @@ Para corrigir um erro, clique no "**X**" para limpar uma etiqueta individual ou 
 O Azure só ativará o botão **Enviar** depois de ter aplicado pelo menos uma etiqueta em cada imagem. **Selecione Enviar** para salvar o seu trabalho.
 
 
-## <a name="tag-images-and-specify-bounding-boxes-for-object-detection"></a>Marque imagens e especifique caixas de delimitação para deteção de objetos
+## <a name="tag-images-and-specify-bounding-boxes-for-object-detection"></a>Etiquetar imagens e especificar caixas delimitadoras para deteção de objetos
 
 Se o seu projeto for do tipo "Identificação de Objetos (Caixas Delimitadoras)", especificará uma ou mais caixas de delimitação na imagem e aplicará uma etiqueta em cada caixa. As imagens podem ter várias caixas de delimitação, cada uma com uma única etiqueta. Utilize **instruções detalhadas** para determinar se são utilizadas várias caixas de delimitação no seu projeto.
 
@@ -111,7 +111,7 @@ Se o seu projeto for do tipo "Identificação de Objetos (Caixas Delimitadoras)"
 1. Selecione a ferramenta **caixa retangular** ![ ferramenta caixa retangular ](./media/how-to-label-images/rectangular-box-tool.png) ou selecione "R".
 3. Clique e arraste diagonalmente através do seu alvo para criar uma caixa de delimitação áspera. Para ajustar a caixa de delimitação, arraste as bordas ou os cantos.
 
-![Uma imagem mostra a criação de uma caixa de delimitação básica.](./media/how-to-label-images/bounding-box-sequence.png)
+![Criação de caixa de limites](./media/how-to-label-images/bounding-box-sequence.png)
 
 Para eliminar uma caixa de delimitação, clique no alvo em forma de X que aparece ao lado da caixa de delimitação após a criação.
 

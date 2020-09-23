@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: a740c81aa165e221bca19987c7b3c62da56b0402
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de0a23ca9dea210d91fe259b06622226549ba3b2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477532"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890453"
 ---
 # <a name="normalize-data-module"></a>Normalizar módulo de dados
 
-Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
+Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
 Utilize este módulo para transformar um conjunto de dados através da *normalização*.
 
@@ -107,6 +107,6 @@ O módulo **de dados normalizar** gera duas saídas:
     Em seguida, pode carregar as transformações guardadas do grupo **Transforms** do painel de navegação esquerdo e aplicá-lo a um conjunto de dados com o mesmo esquema utilizando [a Apply Transformation](apply-transformation.md).  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

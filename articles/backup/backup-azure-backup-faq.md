@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas a perguntas comuns sobre: funcionalidades do Azure Backup incluindo os cofres dos Serviços de Recuperação, que cópias de segurança podem criar, como funcionam, a encriptação e os limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 16ee9fa94f8c6d5ee97c35833b4cee908750bc0a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 26d833dfea214c5f29b77c2ac34a5f8863c7fbc0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017741"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986430"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – Perguntas frequentes
 
@@ -18,7 +18,7 @@ Este artigo responde a questões comuns sobre o serviço do Azure Backup.
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription"></a>Existe algum limite ao número de cofres que podem ser criados em cada subscrição do Azure?
 
-Yes. Pode criar até 500 cofres dos Serviços de Recuperação, por região suportada do Azure Backup, por subscrição. Se precisar de mais cofres, crie uma subscrição adicional.
+Sim. Pode criar até 500 cofres dos Serviços de Recuperação, por região suportada do Azure Backup, por subscrição. Se precisar de mais cofres, crie uma subscrição adicional.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault"></a>Existem limites no número de servidores/máquinas que podem ser registados em relação a cada cofre?
 
@@ -39,13 +39,13 @@ Os dados de servidores que quer recuperar em conjunto deverão utilizar a mesma 
 
 ### <a name="can-i-move-my-vault-between-subscriptions"></a>Posso mover o meu cofre entre subscrições?
 
-Yes. Para mover um cofre dos Serviços de Recuperação, veja este [artigo](backup-azure-move-recovery-services-vault.md)
+Sim. Para mover um cofre dos Serviços de Recuperação, veja este [artigo](backup-azure-move-recovery-services-vault.md)
 
 ### <a name="can-i-move-backup-data-to-another-vault"></a>Posso mover dados de cópia de segurança para outro cofre?
 
 Não. Os dados da cópia de segurança armazenados num cofre não podem ser movidos para um cofre diferente.
 
-### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>Posso mudar do GRS para o LRS após uma cópia de segurança?
+### <a name="can-i-change-the-storage-redundancy-setting-after-a-backup"></a>Posso mudar a definição de redundância de armazenamento depois de uma cópia de segurança?
 
 O tipo de replicação de armazenamento por padrão é definido para armazenamento geo-redundante (GRS). Uma vez configurada a cópia de segurança, a opção de modificar é desativada e não pode ser alterada.
 
@@ -69,7 +69,7 @@ Se já configurar a cópia de segurança e tiver de passar de GRS para LRS, ent�
 
 ### <a name="are-there-limits-on-backup-scheduling"></a>Existem limites no agendamento de cópias de segurança?
 
-Yes.
+Sim.
 
 - Pode fazer cópias de segurança de computadores Windows ou Windows Server até três vezes por dia. Pode definir a política de agendamento para agendamentos diários ou semanais.
 - Pode fazer cópias de segurança do DPM até duas vezes por dia. Pode definir a política de agendamento para agendamentos diários, semanais, mensais e anuais.
@@ -86,7 +86,7 @@ Windows 10 de 64 bits | Enterprise, Pro, Home | Os computadores devem estar a 
 Windows 8.1 de 64 bits | Enterprise, Pro | Os computadores devem estar a executar os service packs e as atualizações mais recentes.
 Windows 8 de 64 bits | Enterprise, Pro | Os computadores devem estar a executar os service packs e as atualizações mais recentes.
 Windows 7 de 64 bits | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Os computadores devem estar a executar os service packs e as atualizações mais recentes.
-Server | |
+Servidor | |
 Windows Server 2019 de 64 bits | Standard, Datacenter, Essentials | Com os service packs/atualizações mais recentes.
 Windows Server 2016 de 64 bits | Standard, Datacenter, Essentials | Com os service packs/atualizações mais recentes.
 Windows Server 2012 R2 de 64 bits | Standard, Datacenter, Foundation | Com os service packs/atualizações mais recentes.
@@ -205,11 +205,11 @@ Quando as cópias de segurança são interrompidas e os dados são retidos, as r
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>Os dados enviados para o Azure são encriptados?
 
-Yes. Os dados são encriptados no computador no local com AES256. Os dados são enviados através de uma ligação HTTPS segura. Os dados transmitidos na cloud são protegidos pela ligação HTTPS apenas entre o serviço de armazenamento e recuperação. O protocolo iSCSI protege os dados transmitidos entre o serviço de recuperação e o computador do utilizador. O túnel seguro é utilizado para proteger o canal iSCSI.
+Sim. Os dados são encriptados no computador no local com AES256. Os dados são enviados através de uma ligação HTTPS segura. Os dados transmitidos na cloud são protegidos pela ligação HTTPS apenas entre o serviço de armazenamento e recuperação. O protocolo iSCSI protege os dados transmitidos entre o serviço de recuperação e o computador do utilizador. O túnel seguro é utilizado para proteger o canal iSCSI.
 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Os dados da cópia de segurança no Azure também são encriptados?
 
-Yes. Os dados no Azure são encriptados inativamente.
+Sim. Os dados no Azure são encriptados inativamente.
 
 - Para cópias de segurança no local, a encriptação inativa de dados é fornecida ao utilizar a frase de acesso que forneceu ao fazer cópias de segurança no Azure.
 - Nas VMs do Azure, os dados são encriptados inativamente com a Encriptação do Serviço de Armazenamento (SSE).

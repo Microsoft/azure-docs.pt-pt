@@ -1,20 +1,20 @@
 ### YamlMime:Landing
 title: Documentação sobre Aplicações Web Estáticas do Azure
-summary: As Aplicações Web Estáticas do Azure permitem-lhe construir aplicações Web JavaScript que publicam automaticamente a partir de alterações efetuadas no GitHub.
+summary: As Aplicações Web Estáticas do Azure permitem-lhe criar aplicações Web modernas que publicam automaticamente a partir de alterações feitas no GitHub.
 metadata:
   title: Documentação sobre Aplicações Web Estáticas do Azure
-  description: As Aplicações Web Estáticas do Azure permitem-lhe construir aplicações Web JavaScript que publicam automaticamente a partir de alterações efetuadas no GitHub.
+  description: As Aplicações Web Estáticas do Azure permitem-lhe criar aplicações Web modernas que publicam automaticamente a partir de alterações feitas no GitHub.
   ms.topic: landing-page
   ms.service: static-web-apps
   author: craigshoemaker
   ms.author: cshoe
   ms.date: 04/09/2020
-  ms.openlocfilehash: f70a746c948038b5bd67f4645e8dbd3df71b8b8a
-  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+  ms.openlocfilehash: a72c9ab1dfcaf6fd95ac706bc0f0a7b8adb17c0f
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/20/2020
-  ms.locfileid: "86528660"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90905354"
 landingContent:
 - title: Sobre Aplicações Web Estáticas
   linkLists:
@@ -54,6 +54,8 @@ landingContent:
       url: publish-vuepress.md
     - text: Publicar a partir do Jekyll
       url: publish-jekyll.md
+    - text: Implementar a partir do Blazor
+      url: deploy-blazor.md
     - text: Publicar a partir do Next.js
       url: deploy-nextjs.md
     - text: Publicar a partir do Nuxt.js

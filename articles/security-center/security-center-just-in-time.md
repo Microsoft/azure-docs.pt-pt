@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 88f1924f69aed350b39f953cb7503a0dde9ca9ad
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 5b2446aa62b16dcf9773c367d87faac65d79fa0b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056319"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904855"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteja as suas portas de gestão com acesso just-in-time
 
@@ -33,15 +33,15 @@ Esta página ensina-lhe como incluir o JIT no seu programa de segurança. Vai ap
 
 |Aspeto|Detalhes|
 |----|:----|
-|Estado de libertação:|Disponibilidade geral|
-|Preços:|Escalão standard|
+|Estado de libertação:|Geralmente disponível (GA)|
+|Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
 |VMs suportados:|![Sim ](./media/icons/yes-icon.png) VMs implantados através do Azure Resource Manager.<br>![Não há ](./media/icons/no-icon.png) VMs implantados com modelos clássicos de implantação. [Saiba mais sobre estes modelos de implantação.](../azure-resource-manager/management/deployment-models.md)<br>![Sem ](./media/icons/no-icon.png) VMs protegidos por Firewalls Azure controlados pelo [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview)|
 |Funções e permissões necessárias:|**As** funções reader e **SecurityReader** podem visualizar o estado e os parâmetros do JIT.<br>Para criar funções personalizadas que possam funcionar com o JIT, veja [quais as permissões necessárias para configurar e utilizar o JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)<br>Para criar um papel menos privilegiado para os utilizadores que precisam solicitar o acesso do JIT a um VM, e não realizar outras operações JIT, use o [script Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) a partir das páginas comunitárias do Centro de Segurança GitHub.|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
-## <a name="enable-jit-vm-access"></a>Permitir o acesso ao JIT VM<a name="jit-configure"></a>
+## <a name="enable-jit-vm-access"></a>Permitir o acesso ao JIT VM <a name="jit-configure"></a>
 
 Pode ativar o acesso ao JIT VM com as suas próprias opções personalizadas para um ou mais VMs utilizando o Security Center ou programaticamente. 
 
@@ -51,13 +51,13 @@ Cada uma destas opções é explicada num separado abaixo.
 
 ### <a name="azure-security-center"></a>[**Centro de Segurança do Azure**](#tab/jit-config-asc)
 
-### <a name="enable-jit-on-your-vms-from-azure-security-center"></a>Ativar JIT nos seus VMs do Azure Security Center<a name="jit-asc"></a>
+### <a name="enable-jit-on-your-vms-from-azure-security-center"></a>Ativar JIT nos seus VMs do Azure Security Center <a name="jit-asc"></a>
 
-![Configurar o acesso jit VM no Centro de Segurança Azure](./media/security-center-just-in-time/jit-config-security-center.gif)
+:::image type="content" source="./media/security-center-just-in-time/jit-config-security-center.gif" alt-text="Configurar o acesso jit VM no Centro de Segurança Azure":::
 
 A partir do Centro de Segurança, pode ativar e configurar o acesso JIT VM.
 
-1. A partir do menu do Security Center, selecione **acesso VM just-in-time**.
+1. Abra o painel de instrumentos Azure Defender e a partir da área de proteção avançada, selecione **acesso VM just-in-time**.
 
     A página **de acesso VM just-in-time** abre com os seus VMs agrupados nos seguintes separadores:
 
@@ -101,13 +101,13 @@ A partir do Centro de Segurança, pode ativar e configurar o acesso JIT VM.
 
 
 
-### <a name="edit-the-jit-configuration-on-a-jit-enabled-vm-using-security-center"></a>Editar a configuração JIT num VM ativado pelo JIT utilizando o Security Center<a name="jit-modify"></a>
+### <a name="edit-the-jit-configuration-on-a-jit-enabled-vm-using-security-center"></a>Editar a configuração JIT num VM ativado pelo JIT utilizando o Security Center <a name="jit-modify"></a>
 
 Pode modificar a configuração just-in-time de um VM adicionando e configurando uma nova porta para proteger para esse VM, ou alterando qualquer outra definição relacionada com uma porta já protegida.
 
 Para editar as regras jit existentes para um VM:
 
-1. A partir do menu do Security Center, selecione **acesso VM just-in-time**.
+1. Abra o painel de instrumentos Azure Defender e a partir da área de proteção avançada, selecione **comandos de aplicação adaptáveis**.
 
 1. A partir do separador **Configurado,** clique à direita no VM ao qual pretende adicionar uma porta e selecione editar. 
 
@@ -241,7 +241,7 @@ Cada uma destas opções é explicada num separado abaixo.
 
 Quando um VM tem um JIT ativado, tem de solicitar acesso para se ligar ao mesmo. Pode solicitar o acesso de qualquer uma das formas apoiadas, independentemente da forma como ativou o JIT.
 
-![Solicitando acesso JIT do Centro de Segurança](./media/security-center-just-in-time/jit-request-security-center.gif)
+:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Solicitando acesso JIT do Centro de Segurança":::
 
 1. A partir da página **de acesso VM just-in-time,** selecione o separador **Configurado.**
 
@@ -365,7 +365,7 @@ Você pode obter insights sobre as atividades de VM usando a pesquisa de registo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu a configurar e utilizar o acesso vm just-in-time. Para saber por que o JIT deve ser usado, leia o artigo do conceito explicando as ameaças contra as quais defende:
+Neste artigo, aprendeu a configurar e utilizar o acesso vm mesmo a tempo. Para saber por que o JIT deve ser usado, leia o artigo do conceito explicando as ameaças contra as quais defende:
 
 > [!div class="nextstepaction"]
 > [JIT explicou](just-in-time-explained.md)

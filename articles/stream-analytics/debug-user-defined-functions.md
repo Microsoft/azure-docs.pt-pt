@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 758846e2b4bfa42c9f6db0dc330c12e38a2f8c96
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 25be55021e4f07b0803d8b7cc1bb48ab05a3ea3b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432360"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889610"
 ---
 # <a name="debug-user-defined-functions-in-azure-stream-analytics"></a>Debug funções definidas pelo utilizador no Azure Stream Analytics 
 
@@ -47,7 +47,7 @@ A compilação acontece quando o projeto Stream Analytics é compilado ou execut
 
 Como não existe suporte de depuração para funções JavaScript no Stream Analytics diretamente, pode depurar encapsulando a função num site HTML e obter a saída de lá.
 
-O exemplo a seguir mostra-lhe como depurar UDFs JavaScript com algumas limitações num ambiente de tempo de execução integrado no [Código do Estúdio Visual.](quick-create-vs-code.md)
+O exemplo a seguir mostra-lhe como depurar UDFs JavaScript com algumas limitações num ambiente de tempo de execução integrado no [Código do Estúdio Visual.](quick-create-visual-studio-code.md)
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -102,7 +102,7 @@ Tal como acontece com a UDF, inclui uma chamada para a UDA para garantir que o p
 > [!div class="mx-imgBorder"]
 > ![Adicione uda a asaql](./media/debug-user-defined-functions/asaql-uda.png)
 
-No ficheiro *Test_UDA.js,* refere o ficheiro UDA como fez com a UDF. Além disso, ligue, `main()` `init()` e . `accumulate()` . O `accumulate()` método é chamado em loop para colocar os valores na pilha de estado. O `computeresult()` método é chamado para compor a consulta final. 
+No ficheiro *Test_UDA.js, * refere o ficheiro UDA como fez com a UDF. Além disso, ligue, `main()` `init()` e . `accumulate()` . O `accumulate()` método é chamado em loop para colocar os valores na pilha de estado. O `computeresult()` método é chamado para compor a consulta final. 
 
 > [!div class="mx-imgBorder"]
 > ![Ficheiro de teste UDA](./media/debug-user-defined-functions/uda-test.png)
@@ -127,7 +127,7 @@ Selecione **Run and Debug** ou pressione **CTRL + SHIFT + D** para começar a de
 > ![Stream Analytics run e debug uda](./media/debug-user-defined-functions/run-debug-uda.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Desenvolver e depurar Azure Stream Analytics empregos localmente](develop-locally.md)
 * [Debug Azure Stream Analytics consulta localmente usando diagrama de trabalho em Estúdio Visual](debug-locally-using-job-diagram.md)

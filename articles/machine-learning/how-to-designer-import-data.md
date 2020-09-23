@@ -1,7 +1,7 @@
 ---
-title: Dados de importação para o designer (pré-visualização)
+title: Importar dados para o designer
 titleSuffix: Azure Machine Learning
-description: Saiba como importar dados para o designer de Aprendizagem automática Azure (pré-visualização) a partir de várias fontes de dados.
+description: Saiba como importar dados para o designer de Aprendizagem automática Azure de várias fontes de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ ms.author: keli19
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: a7d0a1604b3bea1f11532639dbbc5102f4a243a6
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 15fca48327c46480546764be1b2ab40c1635e874
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006989"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985608"
 ---
-# <a name="import-data-into-azure-machine-learning-designer-preview"></a>Dados de importação para o designer de aprendizagem automática Azure (pré-visualização)
+# <a name="import-data-into-azure-machine-learning-designer"></a>Importar dados para o designer de aprendizagem automática Azure
 
 Neste artigo, aprende-se a importar os seus próprios dados no designer para criar soluções personalizadas. Há duas formas de importar dados para o designer: 
 
@@ -32,7 +32,7 @@ Recomendamos que utilize [conjuntos de dados](concept-data.md#datasets) para imp
 
 ### <a name="register-a-dataset"></a>Registar um conjunto de dados
 
-Pode registar os conjuntos de dados existentes [programaticamente com o SDK](how-to-create-register-datasets.md#datasets-sdk) ou [visualmente no estúdio Azure Machine Learning](how-to-create-register-datasets.md#datasets-ui).
+Pode registar os conjuntos de dados existentes [programaticamente com o SDK](how-to-create-register-datasets.md#datasets-sdk) ou [visualmente no estúdio Azure Machine Learning](how-to-connect-data-ui.md#create-datasets).
 
 Também pode registar a saída de qualquer módulo de design como conjunto de dados.
 
@@ -68,7 +68,7 @@ Embora recomendemos que utilize conjuntos de dados para importar dados, também 
 Para obter informações detalhadas sobre como utilizar o módulo de Dados de Importação, consulte a [página de referência de Dados de Importação](algorithm-module-reference/import-data.md).
 
 > [!NOTE]
-> Se o seu conjunto de dados tiver demasiadas colunas, poderá encontrar o seguinte erro: "A validação falhou devido à limitação de tamanho". Para evitar isto, [registe o conjunto de dados na interface Datasets](how-to-create-register-datasets.md#datasets-ui).
+> Se o seu conjunto de dados tiver demasiadas colunas, poderá encontrar o seguinte erro: "A validação falhou devido à limitação de tamanho". Para evitar isto, [registe o conjunto de dados na interface Datasets](how-to-connect-data-ui.md#create-datasets).
 
 ## <a name="supported-sources"></a>Fontes apoiadas
 
@@ -89,8 +89,8 @@ O designer suporta conjuntos de dados tabulares criados a partir das seguintes f
 
 O designer reconhece internamente os seguintes tipos de dados:
 
-* String
-* Número inteiro
+* Cadeia
+* Integer (Número inteiro)
 * Decimal
 * Booleano
 * Date
@@ -105,6 +105,6 @@ Os módulos no designer são limitados pelo tamanho do alvo do cálculo. Para co
 
 Se o seu espaço de trabalho estiver numa rede virtual, deve executar etapas de configuração adicionais para visualizar dados no designer. Para obter mais informações sobre como utilizar datastores e conjuntos de dados numa rede virtual, consulte [o estúdio Use Azure Machine Learning numa rede virtual Azure](how-to-enable-studio-virtual-network.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Aprenda o básico do designer com [Tutorial: Predict automobile price with the designer.](tutorial-designer-automobile-price-train-score.md)
+Aprenda os fundamentos do designer com este [Tutorial: Preveja o preço do automóvel com o designer.](tutorial-designer-automobile-price-train-score.md)

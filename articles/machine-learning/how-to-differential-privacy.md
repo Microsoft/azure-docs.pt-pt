@@ -11,16 +11,16 @@ ms.author: slbird
 author: slbird
 ms.reviewer: luquinta
 ms.date: 07/09/2020
-ms.openlocfilehash: 2182c9bc7588947ece5a309018359a8bcfa3ff41
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 355d96fe5a617effab89fbd038f7f1785215f88f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320209"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897695"
 ---
 # <a name="use-differential-privacy-in-azure-machine-learning-preview"></a>Use privacidade diferencial em Azure Machine Learning (pré-visualização)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Aprenda a aplicar as melhores práticas de privacidade diferenciais aos modelos Azure Machine Learning utilizando os pacotes WhiteNoise Python.
 
@@ -152,11 +152,11 @@ Pode utilizar a biblioteca para compor gráficos de análise mais complexos, com
 | de palavras         | Gaussiano   | Elenco       |
 | Histograma     | Geométrico  | Aperto   |
 | Média          | Rio Laplace    | Digitalizar   |
-| Rio Quantiles     |            | Filtro     |
-| Som           |            | Imputation |
+| Quantis     |            | Filtro     |
+| Soma           |            | Imputation |
 | Variação/Covariância |      | Transformação  |
 
-Consulte o [caderno de análise de dados básicos](https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/basic_data_analysis.ipynb) para obter mais detalhes.
+Consulte o caderno de [análise de dados](https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/basic_data_analysis.ipynb) para obter mais detalhes.
 
 ## <a name="approximate-utility-of-differentially-private-releases"></a>Utilidade aproximada de lançamentos diferencialmente privados
 
@@ -249,6 +249,6 @@ with wn.Analysis() as analysis:
 Para mais informações, consulte o [caderno de covariance](
 https://github.com/opendifferentialprivacy/whitenoise-samples/blob/master/analysis/covariance.ipynb)
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 - Explore [os cadernos de amostras whiteNoise.](https://github.com/opendifferentialprivacy/whitenoise-samples/tree/master/analysis)

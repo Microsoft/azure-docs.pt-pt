@@ -1,6 +1,6 @@
 ---
 title: Relatórios Core de Verizon ! Microsoft Docs
-description: 'Pode ver os padrões de utilização do seu CDN utilizando os seguintes relatórios: Largura de banda, dados transferidos, acessos, estados de cache, relação de impacto de cache, ipv4/IPV6 Dados transferidos.'
+description: Saiba como aceder e ver Os Relatórios Core da Verizon através do portal Manage para perfis Verizon.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 3dc7547dbcf2bde7dd7db0d3f0db3f163a5910ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5353fa70be4705b28dab9350fcdf7819b22faf54
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888439"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985536"
 ---
 # <a name="core-reports-from-verizon"></a>Relatórios de Núcleos da Verizon
 
@@ -77,7 +77,7 @@ Este relatório descreve a distribuição de códigos de estado do pedido para o
 Este relatório descreve a distribuição de cache hits e cache falha para pedidos de clientes. Como o desempenho mais rápido resulta dos sucessos de cache, pode otimizar as velocidades de entrega de dados minimizando falhas de cache e acessos de cache expirados. 
 
 Para reduzir as falhas de cache, configuure o seu servidor de origem para minimizar a utilização do seguinte: 
- * `no-cache`cabeçalhos de resposta
+ * `no-cache` cabeçalhos de resposta
  * Caching de cordas de consulta, a menos que estritamente necessário  
  * Códigos de resposta não cacheáveis
 

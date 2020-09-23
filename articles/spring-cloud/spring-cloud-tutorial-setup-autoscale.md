@@ -7,14 +7,17 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/22/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6e4494762c4652d3db66940dddebb13c3ab03af3
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 5ca0c498e9fd03ce6397824465f9e1e006eeccc1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87451025"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905386"
 ---
 # <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Tutorial: Configurar autoescala para aplicações de microserviços
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C #
+
 A Autoscale é uma característica incorporada do Azure Spring Cloud que ajuda as aplicações de microserviços a desempenharem o seu melhor quando a procura muda. Isto inclui modificar o número de CPUs virtuais, memória e instâncias de aplicações. Este artigo descreve como configurar as definições de Autoscale para as suas aplicações utilizando o portal Microsoft Azure ou o Azure CLI.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -68,4 +71,4 @@ Se estiver no nível Básico e limitado por um ou mais destes limites, pode faze
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral da autoescala no Microsoft Azure](https://docs.microsoft.com/azure/azure-monitor/platform/autoscale-overview)
-* [Azure CLI Monitorizando autoescala](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest)
+* [Azure CLI Monitorizando autoescala](https://docs.microsoft.com/cli/azure/monitor/autoscale?view=azure-cli-latest&preserve-view=true)

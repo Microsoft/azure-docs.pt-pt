@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 09/03/2020
-ms.openlocfilehash: 06fc929e0149c48aa75aa87a12e3747ef1df1bf2
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: abdd04f59ee820585d58817297d161f68bd952f0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440123"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897392"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gerir os recursos de aprendizagem automática Azure com a extensão do código VS (pré-visualização)
 
@@ -44,7 +44,6 @@ Para mais informações, consulte [espaços de trabalho.](concept-workspace.md)
     1. Escolher a sua subscrição do Azure
     1. Escolha ou crie um novo grupo de recursos para a disponibilização do espaço de trabalho em
     1. Selecione o local onde providenciar o espaço de trabalho.
-    1. Escolha entre a edição *básica* e *a empresa.* Saiba mais sobre as [diferentes edições Azure Machine Learning](concept-editions.md).
 
 Os métodos alternativos para criar um espaço de trabalho incluem:
 
@@ -424,6 +423,6 @@ Além de criar e eliminar implementações, pode visualizar e editar as definiç
         - Um ficheiro de configuração para a sua implantação aparece no editor. Se estiver satisfeito com a sua configuração, **selecione Save and continue** ou abra a paleta de comando VS Code **(Ver > Paleta de Comando)** e **digite Azure ML: Save and Continue**.
     - Para visualizar as definições de configuração da implementação, selecione **Ver as propriedades do serviço**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Treine um modelo de classificação de imagem](tutorial-train-deploy-image-classification-model-vscode.md) com a extensão do Código VS.

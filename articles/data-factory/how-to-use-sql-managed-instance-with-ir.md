@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: c9da25a7d7521108195d3183f52b914e13105e8d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2bdfdd31e2cc9bc964abc040d0631c4760fca283
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082289"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984869"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Utilize a Azure SQL Managed Instance com serviços de integração de servidores SQL (SSIS) na Azure Data Factory
 
@@ -85,7 +85,7 @@ Agora pode mover os seus projetos, pacotes e cargas de trabalho dos Seus Serviç
     - Utilize a função de contribuinte de rede incorporada. Esta função vem com a permissão _Microsoft.Network/ \* _ que tem um âmbito muito maior do que o necessário.
     - Crie uma função personalizada que inclua apenas a necessária _microsoft.network/virtualNetworks/ \* /join/action_ permission. Se também pretender trazer os seus próprios endereços IP públicos para Azure-SSIS IR ao mesmo tempo que o une a uma rede virtual do Azure Resource Manager, também inclua _microsoft.Network/publicIPAddresses/*/join/action_ permission in the role.
 
-1. **Rede virtual.**
+1. **Rede virtual**.
 
     1. Certifique-se de que o grupo de recursos da rede virtual pode criar e eliminar certos recursos de rede Azure.
 
@@ -141,7 +141,7 @@ Agora pode mover os seus projetos, pacotes e cargas de trabalho dos Seus Serviç
 
     O nome do anfitrião do ponto final público vem no formato <mi_name>.public.<dns_zone>.database.windows.net e que a porta utilizada para a ligação é 3342.  
 
-    ![catálogo-público-ponto](./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png)
+    ![O Screenshot mostra a configuração de tempo de integração com o catálogo Create S I S selecionado e o ponto final do servidor de base de dados do Catálogo inserido.](./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png)
 
 1. Selecione a autenticação AD AD quando for aplicável.
 
@@ -157,7 +157,7 @@ Agora pode mover os seus projetos, pacotes e cargas de trabalho dos Seus Serviç
 
     Para obter mais informações sobre como juntar o Azure-SSIS IR numa rede virtual, consulte [Junte-se a uma rede virtual de integração Azure-SSIS.](join-azure-ssis-integration-runtime-virtual-network.md)
 
-    ![juntar-se à rede virtual](./media/how-to-use-sql-managed-instance-with-ir/join-virtual-network.png)
+    ![O Screenshot mostra a configuração de tempo de execução de integração Definições avançadas, onde pode selecionar uma rede virtual para o seu tempo de execução para se juntar.](./media/how-to-use-sql-managed-instance-with-ir/join-virtual-network.png)
 
 Para obter mais informações sobre como criar um Azure-SSIS IR, consulte [Criar um tempo de integração Azure-SSIS na Azure Data Factory](create-azure-ssis-integration-runtime.md#provision-an-azure-ssis-integration-runtime).
 
@@ -175,7 +175,7 @@ A política de retenção de registos SSISDB é definida por propriedades abaixo
 
 Para remover os registos SSISDB que estão fora da janela de retenção definida pelo administrador, pode acionar o procedimento armazenado `[internal].[cleanup_server_retention_window_exclusive]` . Opcionalmente, pode agendar a execução de trabalho de agente de instância gerida sql para desencadear o procedimento armazenado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Execute pacotes SSIS por Azure SQL Trabalho de Agente de Instância Gerido](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Criar continuidade de negócios e recuperação de desastres (BCDR)](configure-bcdr-azure-ssis-integration-runtime.md)

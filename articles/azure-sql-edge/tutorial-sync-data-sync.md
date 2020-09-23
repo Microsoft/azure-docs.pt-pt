@@ -1,6 +1,6 @@
 ---
-title: Sync dados do Azure SQL Edge (Preview) utilizando o SQL Data Sync
-description: Saiba sobre a sincronização de dados a partir do Azure SQL Edge (Preview) utilizando o Azure SQL Data Sync
+title: Sincronizar dados do Azure SQL Edge utilizando o SQL Data Sync
+description: Saiba sobre a sincronização de dados a partir do Azure SQL Edge utilizando o Azure SQL Data Sync
 keywords: SQL Edge,sync dados de SQL Edge, SQL Edge sincronização de dados
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 6c0518e12a2c654b8f971db3a6733b0e64f80a1f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 5830cedfdce54c4cd91eb60a5cd2145309e965b0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85254055"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904118"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-sql-database-by-using-sql-data-sync"></a>Tutorial: Sincronizar dados da SQL Edge para a Azure SQL Database utilizando o SQL Data Sync
 

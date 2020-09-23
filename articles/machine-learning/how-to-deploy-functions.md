@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python
-ms.openlocfilehash: ff327372a0ec22ca6291615ca64f01a4aa5807be
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 239fc9de991066ec0603247abafae36a618d534f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646219"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889860"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implementar um modelo de aprendizagem automática para funções Azure (pré-visualização)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Aprenda a implementar um modelo da Azure Machine Learning como uma aplicação de função em Azure Functions.
 
@@ -45,7 +45,7 @@ Com a Azure Machine Learning, pode criar imagens Docker a partir de modelos de a
 
 ## <a name="prepare-for-deployment"></a>Preparar para a implementação
 
-Antes de implementar, deve definir o que é necessário para executar o modelo como um serviço web. A lista que se segue descreve os itens básicos necessários para uma implantação:
+Antes de implementar, deve definir o que é necessário para executar o modelo como um serviço web. A lista a seguir descreve os itens essenciais necessários para uma implantação:
 
 * Um __roteiro de entrada.__ Este script aceita pedidos, marca o pedido usando o modelo e devolve os resultados.
 
@@ -295,7 +295,7 @@ Uma vez que a imagem esteja carregada e a aplicação esteja disponível, use os
 
 Para obter mais informações sobre a utilização de gatilhos blob, consulte a [Função Criar uma função desencadeada pelo artigo de armazenamento Azure Blob.](/azure/azure-functions/functions-create-storage-blob-triggered-function)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda a configurar a sua App funções na documentação [funções.](/azure/azure-functions/functions-create-function-linux-custom-image)
 * Saiba mais sobre o armazenamento blob aciona [as ligações de armazenamento Azure Blob](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
