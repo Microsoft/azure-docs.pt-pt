@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos Azure na sua organização.
-ms.date: 08/27/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 81e08e07236d445a4ca351a7d93e7851cad69ace
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a049134a32fd6026cc1e0c4044a7b9d08fb9bd8f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648731"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895377"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -206,8 +206,10 @@ Ao criar uma iniciativa ou política, é necessário especificar o local da defi
 
 Se a localização da definição for:
 
-- **Subscrição** - Apenas os recursos dentro dessa subscrição podem ser atribuídos à apólice.
-- **Grupo de gestão** - Apenas os recursos dentro de grupos de gestão de crianças e assinaturas infantis podem ser atribuídos à política. Se pretende aplicar a definição de política a várias subscrições, a localização deve ser um grupo de gestão que contenha subscrição.
+- **Subscrição** - Apenas os recursos dentro dessa subscrição podem ser atribuídos a definição de política.
+- **Grupo de gestão** - Apenas os recursos dentro de grupos de gestão infantil e assinaturas infantis podem ser atribuídos a definição de política. Se pretende aplicar a definição de política a várias subscrições, a localização deve ser um grupo de gestão que contenha cada subscrição.
+
+Para mais informações, consulte [o âmbito de aplicação da Política Azure.](./scope.md#definition-location)
 
 ## <a name="policy-rule"></a>Regra política
 
@@ -576,16 +578,16 @@ Todas as [funções do modelo do Gestor de Recursos](../../../azure-resource-man
 A função a seguir está disponível para ser utilizada numa regra de política, mas difere da utilização num modelo de Gestor de Recursos Azure (modelo ARM):
 
 - `utcNow()` - Ao contrário de um modelo ARM, esta propriedade pode ser usada fora _do padrãoValue_.
-  - Devolve uma corda que está definida para a data e hora atuais no formato Universal ISO 8601 DateTime 'yyyy-MM-ddTHH:mm:ss.fffffZ'
+  - Devolve uma cadeia que está definida para a data e hora atuais no formato Universal ISO 8601 DateTime `yyyy-MM-ddTHH:mm:ss.fffffffZ` .
 
 As seguintes funções só estão disponíveis nas regras políticas:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **dataTime**: [Required] string - String in the Universal ISO 8601 DateTime format 'yyyy-MM-ddTHH:mm:ss.fffffZ'
-  - **númeroOfDaysToAdd**: [Necessário] inteiro - Número de dias a adicionar
+  - **dataTime**: [Required] string - String in the Universal ISO 8601 DateTime format `yyyy-MM-ddTHH:mm:ss.fffffffZ` .
+  - **númeroOfDaysToAdd**: [Necessário] inteiro - Número de dias a adicionar.
 - `field(fieldName)`
   - **nome de campo**: [Obrigatório] cadeia - Nome do [campo](#fields) para recuperar
-  - Devolve o valor desse campo do recurso que está a ser avaliado pela condição If
+  - Devolve o valor desse campo do recurso que está a ser avaliado pela condição "Se".
   - `field` é usado principalmente com **AuditIfNotExists** e **DeployIfNotExists** para campos de referência sobre o recurso que estão sendo avaliados. Um exemplo desta utilização pode ser visto no [exemplo do DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
   - Devolve a versão API do pedido que desencadeou a avaliação da política (exemplo: `2019-09-01` ).
@@ -711,7 +713,7 @@ Esta regra da amostra verifica quaisquer correspondências de **ipRules \[ \* \]
 
 Para mais informações, consulte [a avaliação do \* pseudónimo.](../how-to/author-policies-for-arrays.md#evaluating-the--alias)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a estrutura de [definição de iniciativa](./initiative-definition-structure.md)
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).

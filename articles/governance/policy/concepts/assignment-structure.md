@@ -1,14 +1,14 @@
 ---
 title: Detalhes da estrutura de atribuição de políticas
 description: Descreve a definição de atribuição de políticas utilizada pela Azure Policy para relacionar definições de políticas e parâmetros com recursos para avaliação.
-ms.date: 08/17/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 969274d72724c8d0a8f10f86f614fe2c50d066f7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e930e9ddcc04846a35c8db7784a349007c71580b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520718"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904084"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
 
@@ -61,16 +61,19 @@ A **propriedade EnforcementMode** proporciona aos clientes a capacidade de testa
 
 Esta propriedade tem os seguintes valores:
 
-|Modo |Valor JSON |Tipo |Remediar manualmente |Entrada de registo de atividade |Description |
+|Modo |Valor JSON |Tipo |Remediar manualmente |Entrada de registo de atividade |Descrição |
 |-|-|-|-|-|-|
 |Ativado |Predefinição |string |Yes |Yes |O efeito da política é aplicado durante a criação ou atualização de recursos. |
-|Desativado |DoNotEnforce |string |Sim |No | O efeito da política não é aplicado durante a criação ou atualização de recursos. |
+|Desativado |DoNotEnforce |string |Yes |No | O efeito da política não é aplicado durante a criação ou atualização de recursos. |
 
 Se **o número de execução Não** for especificado numa definição de política ou iniciativa, o valor _Padrão_ é utilizado. [As tarefas de reparação](../how-to/remediate-resources.md) podem ser iniciadas para implementar as [políticasifNotExists,](./effects.md#deployifnotexists) mesmo quando **a aplicação doMode** está definida para _DoNotEnforce_.
 
 ## <a name="excluded-scopes"></a>Âmbitos excluídos
 
-O **âmbito** da atribuição inclui todos os contentores de recursos infantis e recursos para crianças. Se um recipiente de recursos para crianças ou um recurso para crianças não deverão ter a definição aplicada, cada um pode ser excluído da avaliação definindo **nãoScopes**. Esta propriedade é um conjunto que permite excluir um ou mais contentores de recursos ou recursos da avaliação. **não Osscópios** podem ser adicionados ou atualizados após a criação da atribuição inicial.
+O **âmbito** da atribuição inclui todos os contentores de recursos infantis e recursos para crianças. Se um recipiente de recursos para crianças ou um recurso para crianças não deverão ter a definição aplicada, cada um pode ser _excluído_ da avaliação definindo **nãoScopes**. Esta propriedade é um conjunto que permite excluir um ou mais contentores de recursos ou recursos da avaliação. **não Osscópios** podem ser adicionados ou atualizados após a criação da atribuição inicial.
+
+> [!NOTE]
+> Um recurso _excluído_ é diferente de um recurso _isento._ Para mais informações, consulte [o âmbito de aplicação da Política Azure.](./scope.md)
 
 ## <a name="policy-definition-id"></a>ID de definição de política
 

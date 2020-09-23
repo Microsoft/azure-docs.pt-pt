@@ -8,20 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 06/29/2020
+ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: b8741d17c55a786d7a90d1c311039f2855adf43b
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: f007ddf2625bf9e8b9d4365902ac1511ea95fa81
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530663"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904103"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Visão Computacional
 
 Saiba o que há de novo no serviço. Estes itens podem ser notas de lançamento, vídeos, posts de blog e outros tipos de informação. Marque esta página para ficar a par do serviço.
 
 ## <a name="september-2020"></a>Setembro de 2020
+
+### <a name="spatial-analysis-container-preview"></a>Pré-visualização do recipiente de análise espacial
+
+O [recipiente de análise espacial](spatial-analysis-container.md) está agora em pré-visualização. A funcionalidade de análise espacial da Visão Computacional permite-lhe analisar vídeos de streaming em tempo real para entender as relações espaciais entre as pessoas e o seu movimento através de ambientes físicos. A análise espacial é um recipiente Docker que podes usar no local. 
 
 ### <a name="read-api-v31-public-preview-adds-ocr-for-japanese"></a>Ler API v3.1 Visualização Pública adiciona OCR para japonês
 A pré-visualização pública da API v3.1 da Computer Vision adiciona estas capacidades:

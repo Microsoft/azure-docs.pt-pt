@@ -11,15 +11,15 @@ ms.author: mithigpe
 author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.openlocfilehash: d30fe5f8adccba81baf8bfe1070f95a890d1dc7a
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 757646a1630443f297d4b7c538721e9facdc130c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649432"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897425"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Interpretação do modelo em Azure Machine Learning (pré-visualização)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 ## <a name="overview-of-model-interpretability"></a>Visão geral da interpretação do modelo
 
@@ -117,7 +117,7 @@ O `azureml.interpret` pacote foi concebido para funcionar com alvos de computaç
 Pode executar a explicação remotamente no Azure Machine Learning Compute e registar a informação de explicação no Serviço de História da Aprendizagem da Máquina de Azure. Uma vez que esta informação é registada, relatórios e visualizações da explicação estão prontamente disponíveis no estúdio Azure Machine Learning para análise do utilizador.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o como permitir [a](how-to-machine-learning-interpretability-aml.md) interpretação para modelos que treinam localmente e em recursos de computação remota Azure Machine Learning. 
 - Consulte os cadernos de [amostras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) para obter cenários adicionais. 

@@ -1,6 +1,6 @@
 ---
-title: Configure a replicação para Azure SQL Edge (Pré-visualização)
-description: Saiba como configurar a replicação para Azure SQL Edge (Preview).
+title: Configure a replicação para Azure SQL Edge
+description: Saiba como configurar a replicação para Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,14 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: ad92f796205d84a372de610cb210bbf8878a6c9b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a748bf977e76357c710518e608c12ad19a8cd0be
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282777"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888424"
 ---
-# <a name="configure-replication-to-azure-sql-edge-preview"></a>Configure a replicação para Azure SQL Edge (Pré-visualização) 
+# <a name="configure-replication-to-azure-sql-edge"></a>Configure a replicação para Azure SQL Edge 
 
 Pode configurar uma instância de Azure SQL Edge como assinante push para replicação transacional de ida ou replicação instantânea. Este caso não pode funcionar como o editor ou o distribuidor para uma configuração de replicação transacional. Note que a Azure SQL Edge não suporta a replicação de fusão, a replicação entre pares ou a publicação da Oracle.
 

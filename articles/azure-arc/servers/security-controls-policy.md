@@ -1,19 +1,19 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para servidores ativados do Azure Arc (pré-visualização)
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para servidores ativados Azure Arc (pré-visualização). Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.topic: sample
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 9e8aadf62cfad9a5f45bd6f143d583f8a75f4ea5
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 5a53a6973a960da2c61d79580806c477961cd468
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015769"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967129"
 ---
-# <a name="azure-policy-regulatory-compliance-controls-for-azure-arc-for-servers"></a>Controlos de conformidade regulamentar da política Azure para Azure Arc para servidores
+# <a name="azure-policy-regulatory-compliance-controls-for-azure-arc-enabled-servers"></a>Controlos de conformidade regulamentar da Política Azure para servidores ativados do Azure Arc
 
-[A Conformidade Regulamentar na Política Azure](../../governance/policy/concepts/regulatory-compliance.md) fornece à Microsoft definições de iniciativa criadas e geridas, conhecidas como _incorporados,_ para os domínios de conformidade e **controlos** de segurança relacionados com **diferentes** padrões de conformidade. Esta página lista os **domínios** de conformidade e **os controlos de segurança** dos servidores ativados do Azure Arc (pré-visualização). Pode atribuir os incorporados a um controlo de **segurança** individualmente para ajudar a tornar os seus recursos Azure conforme com o padrão específico.
+[A Conformidade Regulamentar na Política Azure](../../governance/policy/concepts/regulatory-compliance.md) fornece à Microsoft definições de iniciativa criadas e geridas, conhecidas como _incorporados,_ para os domínios de conformidade e **controlos** de segurança relacionados com **diferentes** padrões de conformidade. Esta página lista os **domínios** de conformidade e **os controlos de segurança** dos servidores ativados do Azure Arc. Pode atribuir os incorporados a um controlo de **segurança** individualmente para ajudar a tornar os seus recursos Azure conforme com o padrão específico.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../../includes/policy/standards/intro-warning.md)]
 

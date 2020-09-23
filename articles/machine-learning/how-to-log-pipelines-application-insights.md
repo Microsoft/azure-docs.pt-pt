@@ -10,15 +10,15 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 808f71ae138922b93e3742f7ff2f526e419cf58c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 8a3a82e091791b39ddf36e39987590dcddea320f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645883"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897494"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Recolha ficheiros de registo de gasodutos de aprendizagem automática em Application Insights para alertas e depurações
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 A biblioteca [de pitões OpenCensus](https://opencensus.io/quickstart/python/) pode ser usada para encaminhar registos para Insights de Aplicação a partir dos seus scripts. A agregação de troncos de gasodutos funciona num só local, permite-lhe construir consultas e diagnosticar problemas. A utilização de Insights de Aplicação permitir-lhe-á rastrear registos ao longo do tempo e comparar registos de gasodutos em execuções.
 

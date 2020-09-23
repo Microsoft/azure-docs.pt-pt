@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 4618bb4ba65c48808bc738b51c90a6fd04f0eca3
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 63acffd16fa4374d4f8541a9d3327b29a3641f71
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659639"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895805"
 ---
 # <a name="connect-data-sources"></a>Ligar a origens de dados
 
@@ -38,6 +38,7 @@ Depois de ter ativado o Azure Sentinel, a primeira coisa que precisa de fazer é
 
    ![Próximos passos para conectores](./media/collect-data/data-insights.png)
  
+
 ## <a name="data-connection-methods"></a>Métodos de ligação de dados
 
 Os seguintes métodos de ligação de dados são suportados pelo Azure Sentinel:
@@ -49,7 +50,7 @@ Os seguintes métodos de ligação de dados são suportados pelo Azure Sentinel:
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
     - [Microsoft Defender para a identidade](connect-azure-atp.md) (anteriormente Azure Advanced Threat Protection)
     - [Azure Information Protection](connect-azure-information-protection.md)
-    - [Azure Defender](connect-azure-security-center.md) (antigo Centro de Segurança Azure)
+    - [Centro de Segurança Azure](connect-azure-security-center.md) - alertas de soluções Azure Defender
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Servidor de nomes de domínio](connect-dns.md)
     - [Office 365](connect-office-365.md)
@@ -135,7 +136,7 @@ Em alternativa, pode colocar o agente manualmente num VM Azure existente, num VM
 | Parede de Fogo windows | [Ligar firewall do Windows](connect-windows-firewall.md) | &#10003; | |
 | AADIP SecurityAlert  | [Ligar ao Azure AD Identity Protection](connect-azure-ad-identity-protection.md)  | &#10003; | |
 | AATP SecurityAlert  | [Ligue o Microsoft Defender para a Identidade](connect-azure-atp.md) (anteriormente Azure ATP) | &#10003; | |
-| Segurança ASCAlert  | [Connect Azure Defender](connect-azure-security-center.md) (antigo Centro de Segurança Azure)  | &#10003; | |
+| Segurança ASCAlert  | [Ligue alertas do Azure Defender](connect-azure-security-center.md) do Centro de Segurança Azure  | &#10003; | |
 | Segurança MCASAlert  | [Conecte a Segurança da Aplicação Microsoft Cloud](connect-cloud-app-security.md)  | &#10003; | |
 | SecurityAlert | | | |
 | Sysmon (Evento) | [Ligar Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Conecte eventos do Windows](../azure-monitor/platform/data-sources-windows-events.md) <br> [Pegue o Sysmon Parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | A coleção Sysmon não é instalada por defeito em máquinas virtuais. Para obter mais informações sobre como instalar o Agente Sysmon, consulte [sysmon.](https://docs.microsoft.com/sysinternals/downloads/sysmon) |
@@ -146,7 +147,7 @@ Em alternativa, pode colocar o agente manualmente num VM Azure existente, num VM
 | Barracuda_CL | [Ligar a Barracuda](connect-barracuda.md) | &#10003; | |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar com o Azure Sentinel, precisa de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
 - Aprenda a [embarcar os seus dados ao Azure Sentinel](quickstart-onboard.md)e obtenha [visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

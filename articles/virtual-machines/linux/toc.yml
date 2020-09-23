@@ -955,6 +955,8 @@
               href: add-disk.md
             - name: Portal do Azure
               href: attach-disk-portal.md
+        - name: Alterar escalão do disco
+          href: ../disks-performance-tiers.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Desligar um disco
           href: detach-disk.md
         - name: Implementar discos com o modelo do Resource Manager

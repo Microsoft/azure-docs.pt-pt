@@ -11,15 +11,15 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: a9ae3d2789758d03405fb5be82181c799d1ea692
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: c86397b20a95f045ac5edfeb2cfa4833982df990
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141130"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897409"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gerir & aumentar quotas de recursos com a Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, você vai aprender sobre os limites pré-configurados sobre os recursos Azure para a sua subscrição [Azure Machine Learning](overview-what-is-azure-ml.md) e quais as quotas que você pode gerir. Estes limites são insíbidos para evitar excedentes orçamentais devido a fraudes e para honrar as restrições de capacidade do Azure. 
 
@@ -99,8 +99,6 @@ Para definir quotas ao nível do espaço de trabalho, vá a qualquer espaço de 
 
 
 > [!NOTE]
-> Esta é apenas uma funcionalidade de edição da Enterprise. Se tiver um espaço de trabalho [de edição Básica e enterprise](overview-what-is-azure-ml.md#sku) na sua subscrição, pode usá-lo apenas para definir quotas nos seus espaços de trabalho da Enterprise. Os seus espaços básicos de trabalho continuarão a ter a quota de nível de subscrição que é o comportamento padrão.
->
 > Precisa de permissões de nível de subscrição para definir a quota ao nível do espaço de trabalho. Isto é aplicado para que os proprietários individuais do espaço de trabalho não editem ou aumentem as suas quotas e comecem a invadir os recursos reservados para outro espaço de trabalho. Assim, um administrador de subscrição é o mais adequado para alocar e distribuir estas quotas por espaços de trabalho.
 
 
@@ -139,6 +137,6 @@ Ao solicitar um aumento de quota, precisa de selecionar o serviço que está a s
 > [!NOTE]
 > [As assinaturas de teste gratuito](https://azure.microsoft.com/offers/ms-azr-0044p) não são elegíveis para aumentos de limites ou de quotas. Se tiver uma [subscrição de Teste Gratuito,](https://azure.microsoft.com/offers/ms-azr-0044p)pode fazer upgrade para uma subscrição [Pay-As-You-Go.](https://azure.microsoft.com/offers/ms-azr-0003p/) Para obter mais informações, consulte [upgrade Azure Free Trial para Pay-As-You-Go](../billing/billing-upgrade-azure-subscription.md) e  [subscrição de teste gratuito FAQ](https://azure.microsoft.com/free/free-account-faq).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 + [Plano & gerir custos para a Azure Machine Learning](concept-plan-manage-cost.md)

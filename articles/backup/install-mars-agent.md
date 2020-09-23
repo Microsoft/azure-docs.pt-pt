@@ -3,12 +3,12 @@ title: Instale o agente Microsoft Azure Recovery Services (MARS)
 description: Saiba como instalar o agente Microsoft Azure Recovery Services (MARS) para fazer o back up das máquinas Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 715153d445acbc372f8305ca39f5276bf8a39773
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: fb59c245c469791233ce973b00426a127b116535
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533483"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975306"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instale o agente Azure Backup MARS
 
@@ -42,10 +42,10 @@ Os dados disponíveis para cópia de segurança dependem do local onde o agente 
 
 ## <a name="modify-storage-replication"></a>Modificar a replicação do armazenamento
 
-Por predefinição, os cofres utilizam [armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md).
+Por predefinição, os cofres utilizam [armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage).
 
 * Se o cofre for o seu mecanismo de reserva primário, recomendamos que utilize GRS.
-* Pode utilizar [o armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) para reduzir os custos de armazenamento da Azure.
+* Pode utilizar [o armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) para reduzir os custos de armazenamento da Azure.
 
 Para modificar o tipo de replicação de armazenamento:
 
@@ -136,13 +136,13 @@ Se já instalou o agente em alguma máquina, certifique-se de que está a execut
 ## <a name="install-and-register-the-agent"></a>Instalar e registar o agente
 
 1. Faça o ficheiro *MARSagentinstaller.exe* nas máquinas que pretende fazer.
-1. No assistente de configuração do agente MARS, selecione **Definições de instalação**. Lá, escolha onde instalar o agente e escolha um local para a cache. Em seguida, selecione **Seguinte**.
+1. No assistente de configuração do agente MARS, selecione **Definições de instalação**. Lá, escolha onde instalar o agente e escolha um local para a cache. e selecione **Seguinte**.
    * A Azure Backup utiliza a cache para armazenar imagens de dados antes de enviá-las para a Azure.
    * A localização da cache deve ter espaço livre igual a pelo menos 5% do tamanho dos dados que irá apoiar.
 
     ![Escolha as definições de instalação no Assistente de Configuração do Agente MARS](./media/backup-configure-vault/mars1.png)
 
-1. Para **configuração proxy**, especifique como o agente que executa na máquina do Windows irá ligar-se à internet. Em seguida, selecione **Seguinte**.
+1. Para **configuração proxy**, especifique como o agente que executa na máquina do Windows irá ligar-se à internet. e selecione **Seguinte**.
 
    * Se utilizar um representante personalizado, especifique as definições e credenciais necessárias.
    * Lembre-se que o agente precisa de acesso a [URLs específicos.](#before-you-start)
@@ -151,7 +151,7 @@ Se já instalou o agente em alguma máquina, certifique-se de que está a execut
 
 1. Para **instalação,** reveja os pré-requisitos e **selecione Instalar**.
 1. Depois de instalado o agente, **selecione Proceder ao Registo**.
-1. No Registo de Identificação do **Cofre do Assistente do Servidor,**  >  **Vault Identification**navegue e selecione o ficheiro de credenciais que descarregou. Em seguida, selecione **Seguinte**.
+1. No Registo de Identificação do **Cofre do Assistente do Servidor,**  >  **Vault Identification**navegue e selecione o ficheiro de credenciais que descarregou. e selecione **Seguinte**.
 
     ![Adicione credenciais de abóbada utilizando o Assistente do Servidor de Registo](./media/backup-configure-vault/register1.png)
 

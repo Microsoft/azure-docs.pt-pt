@@ -6,16 +6,16 @@ ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b8d985587dc436d55e17c69e25295b5a58cb15b0
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 2cb6ed265d3e94c2c162381dfb80ba0c5427a71f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647499"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888953"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gerir piscinas de nó de sistema no Serviço Azure Kubernetes (AKS)
 
-No Serviço Azure Kubernetes (AKS), os nós da mesma configuração são agrupados em *piscinas de nó.* As piscinas de nó contêm os VMs subjacentes que executam as suas aplicações. Piscinas de nó de sistema e piscinas de nó de utilizador são dois modos diferentes de piscina de nó para os seus clusters AKS. As piscinas de nó de sistema servem o principal propósito de hospedar cápsulas de sistema críticas, tais como CoreDNS e frente de túneis. As piscinas de nó de utilizador servem o principal propósito de hospedar as suas cápsulas de aplicação. No entanto, as cápsulas de aplicação podem ser agendadas nas piscinas de nó do sistema se desejar ter apenas uma piscina no seu cluster AKS. Todos os aglomerados AKS devem conter pelo menos uma piscina de nó de sistema com pelo menos um nó.
+No Serviço Azure Kubernetes (AKS), os nós da mesma configuração são agrupados em *piscinas de nó.* As piscinas de nó contêm os VMs subjacentes que executam as suas aplicações. Piscinas de nó de sistema e piscinas de nó de utilizador são dois modos diferentes de piscina de nó para os seus clusters AKS. As piscinas de nó de sistema servem o principal propósito de hospedar cápsulas de sistema críticas tais como `CoreDNS` e `metrics-server` . As piscinas de nó de utilizador servem o principal propósito de hospedar as suas cápsulas de aplicação. No entanto, as cápsulas de aplicação podem ser agendadas nas piscinas de nó do sistema se desejar ter apenas uma piscina no seu cluster AKS. Todos os aglomerados AKS devem conter pelo menos uma piscina de nó de sistema com pelo menos um nó.
 
 > [!Important]
 > Se executar uma única piscina de nó de sistema para o seu cluster AKS em ambiente de produção, recomendamos que use pelo menos três nós para a piscina de nós.
@@ -164,7 +164,7 @@ az aks nodepool update -g myResourceGroup --cluster-name myAKSCluster -n mynodep
 > [!Note]
 > Para utilizar os conjuntos de nó de sistema nos clusters AKS antes da versão API 2020-03-02, adicione um novo conjunto de nós do sistema e, em seguida, elimine o conjunto de nós padrão original.
 
-Anteriormente não foi possível eliminar o conjunto de nós do sistema, que era o conjunto inicial de nó padrão num cluster AKS. Tem agora a flexibilidade para eliminar qualquer piscina de nós dos seus clusters. Uma vez que os clusters AKS requerem pelo menos uma piscina de nós do sistema, você deve ter pelo menos duas piscinas de nó de sistema no seu cluster AKS antes de poder eliminar um deles.
+Deve ter pelo menos duas piscinas de nó de sistema no seu cluster AKS antes de poder eliminar uma delas.
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
@@ -180,7 +180,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu a criar e gerir piscinas de nó de sistema em um cluster AKS. Para obter mais informações sobre como usar várias piscinas de nó, consulte [a utilização de várias piscinas de nó.][use-multiple-node-pools]
 

@@ -10,15 +10,15 @@ author: Blackmist
 ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: cd9b891212010d7e61c4a4eb64d8bf0660bbd69a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: cd9af35e5b616f3f4d72405078782e1e88414c98
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661644"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897347"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um espaço de trabalho para a Azure Machine Learning com Azure CLI
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, você aprende a criar um espaço de trabalho Azure Machine Learning usando o Azure CLI. O Azure CLI fornece comandos para a gestão dos recursos da Azure. A extensão de aprendizagem automática ao CLI fornece comandos para trabalhar com os recursos de Aprendizagem automática Azure.
 
@@ -35,7 +35,7 @@ Neste artigo, você aprende a criar um espaço de trabalho Azure Machine Learnin
 > [!IMPORTANT]
 > Se estiver a utilizar a Azure Cloud Shell, pode saltar esta secção. A concha da nuvem autentica-o automaticamente utilizando a conta que inicia sessão na sua subscrição Azure.
 
-Existem várias formas de autenticar a sua subscrição Azure a partir do CLI. O mais básico é autenticar interativamente usando um navegador. Para autenticar interativamente, abra uma linha de comando ou terminal e utilize o seguinte comando:
+Existem várias formas de autenticar a sua subscrição Azure a partir do CLI. O mais simples é autenticar interativamente usando um navegador. Para autenticar interativamente, abra uma linha de comando ou terminal e utilize o seguinte comando:
 
 ```azurecli-interactive
 az login
@@ -109,9 +109,6 @@ Para obter mais informações sobre o trabalho com grupos de recursos, consulte 
 
 Para criar um novo espaço de trabalho onde os __serviços são criados automaticamente,__ utilize o seguinte comando:
 
-> [!TIP]
-> Os comandos desta secção criam um espaço de trabalho de edição básica. Para criar um espaço de trabalho empresarial, utilize o `--sku enterprise` interruptor com o `az ml workspace create` comando. Para obter mais informações sobre as edições Azure Machine Learning, consulte [o que é Azure Machine Learning.](overview-what-is-azure-ml.md#sku)
-
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
@@ -161,7 +158,7 @@ Para obter mais informações sobre a utilização de um ponto final privado e r
 
 Por padrão, as métricas e metadados para o espaço de trabalho são armazenados num caso DB Azure Cosmos que a Microsoft mantém. Estes dados são encriptados utilizando as teclas geridas pela Microsoft. 
 
-Se estiver a criar uma versão __Enterprise__ de Azure Machine Learning, pode utilizar a sua própria chave. Ao fazê-lo, cria a instância DB do Azure Cosmos que armazena métricas e metadados na sua subscrição Azure. Utilize o `--cmk-keyvault` parâmetro para especificar o Cofre da Chave Azure que contém a chave e `--resource-cmk-uri` especificar o URL da chave dentro do cofre.
+Em vez de utilizar a chave gerida pela Microsoft, pode utilizar a sua própria chave. Ao fazê-lo, cria a instância DB do Azure Cosmos que armazena métricas e metadados na sua subscrição Azure. Utilize o `--cmk-keyvault` parâmetro para especificar o Cofre da Chave Azure que contém a chave e `--resource-cmk-uri` especificar o URL da chave dentro do cofre.
 
 > [!IMPORTANT]
 > Antes de utilizar os `--cmk-keyvault` parâmetros e `--resource-cmk-uri` parâmetros, deve primeiro executar as seguintes ações:
@@ -414,6 +411,6 @@ O espaço de trabalho Azure Machine Learning utiliza o Registo do Contentor Azur
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a extensão do Azure CLI para machine learning, consulte a documentação [az ml.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest)

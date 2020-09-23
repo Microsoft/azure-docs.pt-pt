@@ -1,6 +1,6 @@
 ---
-title: Permissões de funções de administração personalizadas disponíveis - Azure AD / Microsoft Docs
-description: Permissões de função de administrador personalizado para delegar a gestão de identidade.
+title: Permissões de funções personalizadas para registo de aplicações - Azure AD / Microsoft Docs
+description: Delegar permissões de função de administrador personalizado para gerir registos de aplicações.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,27 +8,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c11723efe3fac236fce49c1f92fa338d4e58b59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 624489033097c0da4d85488b7ae376c5e0f3a56b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732111"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967680"
 ---
-# <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Subtipos e permissões de registo de pedidos no Azure Ative Directory
+# <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Permissões de registo de aplicativos para funções personalizadas no Azure Ative Directory
 
 Este artigo contém as permissões de registo de aplicações atualmente disponíveis para definições de funções personalizadas no Azure Ative Directory (Azure AD).
 
-## <a name="permissions-for-managing-single-directory-applications"></a>Permissões para a gestão de aplicações de diretório único
+## <a name="permissions-for-managing-single-tenant-applications"></a>Permissões para a gestão de aplicações de inquilino único
 
-Ao escolher as permissões para o seu papel personalizado, tem a opção de conceder acesso para gerir apenas aplicações de diretório único. As aplicações de diretório único estão disponíveis apenas para utilizadores da organização Azure AD onde a aplicação está registada. As aplicações de diretório único são definidas como tendo **tipos de conta suportado** definidos apenas para "Contas neste diretório organizacional". Na API do Gráfico, as aplicações de diretório único têm o signInAudience propriedade definida para "AzureADMyOrg".
+Ao escolher as permissões para o seu papel personalizado, tem a opção de conceder acesso para gerir apenas aplicações de inquilino único. As aplicações de inquilino único estão disponíveis apenas para utilizadores da organização Azure AD onde a aplicação está registada. as aplicações de inquilino único são definidas como tendo **tipos de conta suportado** definidos apenas para "Contas neste diretório organizacional.". Na API do Gráfico, as aplicações de inquilino único têm o signInAudience propriedade definida para "AzureADMyOrg".
 
-Para garantir o acesso à gestão de apenas aplicações de diretório único, utilize as permissões abaixo com as aplicações do **subtipo.myOrganization**. Por exemplo, microsoft.directy/applications.myOrganization/basic/update.
+Para conceder acesso a apenas pedidos de inquilino único, utilize as permissões abaixo com as aplicações do **subtipo.myOrganization**. Por exemplo, microsoft.directy/applications.myOrganization/basic/update.
 
 Consulte a visão geral das [funções personalizadas](roles-custom-overview.md) para obter uma explicação do que os termos gerais do subtipo, permissão e conjunto de propriedade significam. As seguintes informações são específicas dos registos de pedidos.
 
@@ -65,7 +65,7 @@ Concede a possibilidade de apagar registos de aplicações restritos àqueles qu
 > [!NOTE]
 > Ao atribuir uma função que contenha permissões de criação, a atribuição de funções deve ser feita no âmbito do diretório. Uma permissão de criação atribuída num âmbito de recursos não concede a capacidade de criar registos de aplicações.
 
-### <a name="read"></a>Leitura
+### <a name="read"></a>Ler
 
 Todos os utilizadores membros da organização podem ler as informações de registo de aplicações por padrão. No entanto, os utilizadores convidados e os diretores do serviço de aplicações não podem. Se pretende atribuir uma função a um utilizador ou aplicação de hóspedes, deve incluir as permissões de leitura apropriadas.
 
@@ -95,7 +95,7 @@ Concede as mesmas permissões que microsoft.diretório/aplicações/standard/rea
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>microsoft.diretório/aplicações/allProperties/update
 
-Capacidade de atualizar todas as propriedades em aplicações de diretório único e multi-directório.
+Capacidade de atualizar todos os imóveis em aplicações de inquilino único e multi-inquilinos.
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesupdate"></a>microsoft.diretório/aplicações.myOrganization/allProperties/update
 
@@ -103,7 +103,7 @@ Concede as mesmas permissões que microsoft.diretório/aplicações/allPropertie
 
 #### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>microsoft.diretório/aplicações/audiência/atualização
 
-Capacidade de atualizar a propriedade do tipo de conta suportada (signInAudience) em aplicações de diretório único e multi-directório.
+Capacidade de atualizar o tipo de conta suportada (signInAudience) em aplicações de inquilino único e multi-inquilinos.
 
 ![Esta permissão concede acesso a propriedade de tipo de conta suportada por registo de aplicações na página de autenticação](./media/roles-custom-available-permissions/supported-account-types.png)
 
@@ -139,7 +139,7 @@ Capacidade de atualizar os certificados e propriedades de segredos do cliente em
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationcredentialsupdate"></a>microsoft.diretório/aplicações.myOrganization/credentials/update
 
-Concede as mesmas permissões que microsoft.diretório/aplicações/credenciais/atualização, mas apenas para aplicações de diretório único.
+Concede as mesmas permissões que microsoft.diretório/aplicações/credenciais/atualização, mas apenas para aplicações de inquilino único.
 
 #### <a name="microsoftdirectoryapplicationsownersupdate"></a>microsoft.diretório/aplicações/proprietários/atualização
 
@@ -167,7 +167,7 @@ Concede as mesmas permissões que microsoft.diretório/aplicações/permissões/
 
 [!INCLUDE [License requirement for using custom roles in Azure AD](../../../includes/active-directory-p1-license.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Crie funções personalizadas utilizando [o portal Azure, Azure AD PowerShell e Graph API](roles-create-custom.md)
 - [Ver as atribuições para um papel personalizado](roles-view-assignments.md)

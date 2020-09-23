@@ -11,16 +11,16 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: d60a6f9032a39ab4889ce0db154739c5cb3b540b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 726be3f0f8402404d0154336aaf7d5f09fefec10
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070501"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967475"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Crie uma conta que suporte chaves geridas pelo cliente para mesas e filas
 
-O Azure Storage encripta todos os dados numa conta de armazenamento em repouso. Por predefinição, o armazenamento de filas e o armazenamento da mesa utilizam uma chave que é telescópio para o serviço e gerida pela Microsoft. Também pode optar por utilizar as chaves geridas pelo cliente para encriptar os dados da fila ou da tabela. Para utilizar as chaves geridas pelo cliente com filas e tabelas, tem primeiro de criar uma conta de armazenamento que utilize uma chave de encriptação que é procurada na conta e não no serviço. Depois de ter criado uma conta que utiliza a chave de encriptação da conta para dados de fila e tabela, pode configurar chaves geridas pelo cliente com o Azure Key Vault para essa conta de armazenamento.
+O Azure Storage encripta todos os dados numa conta de armazenamento em repouso. Por predefinição, o armazenamento de filas e o armazenamento da mesa utilizam uma chave que é telescópio para o serviço e gerida pela Microsoft. Também pode optar por utilizar as chaves geridas pelo cliente para encriptar os dados da fila ou da tabela. Para utilizar as chaves geridas pelo cliente com filas e tabelas, tem primeiro de criar uma conta de armazenamento que utilize uma chave de encriptação que é procurada na conta e não no serviço. Depois de ter criado uma conta que utiliza a chave de encriptação da conta para dados de fila e tabela, pode configurar chaves geridas pelo cliente para essa conta de armazenamento.
 
 Este artigo descreve como criar uma conta de armazenamento que se baseia numa chave que é traçada na conta. Quando a conta é criada pela primeira vez, a Microsoft utiliza a chave de conta para encriptar os dados na conta e a Microsoft gere a chave. Pode configurar posteriormente as chaves geridas pelo cliente para que a conta tire partido desses benefícios, incluindo a capacidade de fornecer as suas próprias chaves, atualizar a versão chave, rodar as teclas e revogar os controlos de acesso.
 
@@ -215,11 +215,7 @@ O exemplo JSON a seguir cria uma conta de armazenamento v2 para fins gerais que 
 
 ---
 
-Depois de ter criado uma conta que se baseia na chave de encriptação da conta, consulte um dos seguintes artigos para configurar chaves geridas pelo cliente com o Azure Key Vault:
-
-- [Configurar as chaves geridas pelo cliente com o Azure Key Vault através do portal do Azure](storage-encryption-keys-portal.md)
-- [Configure as chaves geridas pelo cliente com o Cofre de Chaves Azure utilizando o PowerShell](storage-encryption-keys-powershell.md)
-- [Configure as chaves geridas pelo cliente com o Azure Key Vault utilizando o Azure CLI](storage-encryption-keys-cli.md)
+Depois de ter criado uma conta que se baseia na chave de encriptação da conta, pode configurar chaves geridas pelo cliente que são armazenadas no Cofre da Chave Azure ou no Key Vault Managed Hardware Security Model (HSM) (pré-visualização). Para aprender a armazenar chaves geridas pelo cliente num cofre de chaves, consulte [a encriptação Configure com chaves geridas pelo cliente armazenadas no Cofre da Chave Azure](customer-managed-keys-configure-key-vault.md). Para aprender a armazenar chaves geridas pelo cliente num HSM gerido, consulte [encriptação configure com teclas geridas pelo cliente armazenadas em Azure Key Vault Managed HSM (pré-visualização)](customer-managed-keys-configure-key-vault-hsm.md).
 
 ## <a name="verify-the-account-encryption-key"></a>Verifique a chave de encriptação da conta
 
@@ -254,5 +250,6 @@ N/D
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Azure Storage encryption for data at rest](storage-service-encryption.md) (Encriptação do Armazenamento do Azure para dados inativos) 
+- [Azure Storage encryption for data at rest](storage-service-encryption.md) (Encriptação do Armazenamento do Azure para dados inativos)
+- [Chaves geridas pelo cliente para encriptação de armazenamento Azure](customer-managed-keys-overview.md)
 - [O que é Azure Key Vault?](https://docs.microsoft.com/azure/key-vault/key-vault-overview)

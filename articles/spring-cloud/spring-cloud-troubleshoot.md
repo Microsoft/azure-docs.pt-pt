@@ -4,15 +4,16 @@ description: Guia de resolução de problemas para Azure Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: troubleshooting
-ms.date: 11/04/2019
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: b34bd51e9d84629682565592c733b23a320597aa
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: d3094a8cca317e53dd3b8bc8e9b32b956c89a376
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669758"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904191"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Resolução de problemas problemas comuns da Nuvem de primavera de Azure
 
@@ -20,6 +21,7 @@ Este artigo fornece instruções para resolver problemas de desenvolvimento da A
 
 ## <a name="availability-performance-and-application-issues"></a>Questões de disponibilidade, desempenho e aplicação
 
+::: zone pivot="programming-language-java"
 ### <a name="my-application-cant-start-for-example-the-endpoint-cant-be-connected-or-it-returns-a-502-after-a-few-retries"></a>A minha aplicação não pode arrancar (por exemplo, o ponto final não pode ser ligado, ou devolve um 502 após algumas retrósbos)
 
 Exporte os registos para a Azure Log Analytics. A tabela para registos de aplicações primavera chama-se *AppPlatformLogsforSpring*. Para saber mais, consulte [os registos e métricas com as definições de diagnóstico](diagnostic-services.md).
@@ -67,6 +69,7 @@ Quando estiver a depurar falhas de aplicação, comece por verificar o estado de
 
 
 Para saber mais sobre o Azure Log Analytics, consulte [Começar com o Log Analytics no Azure Monitor.](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+::: zone-end
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>A minha aplicação tem uma elevada utilização da CPU ou da memória
 
@@ -90,6 +93,7 @@ Se todas as instâncias estiverem em funcionamento, vá ao Azure Log Analytics p
 
 Para saber mais sobre o Azure Log Analytics, consulte [Começar com o Log Analytics no Azure Monitor.](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) Consultar os registos utilizando o [idioma de consulta kusto](https://docs.microsoft.com/azure/kusto/query/).
 
+::: zone pivot="programming-language-java"
 ### <a name="checklist-for-deploying-your-spring-application-to-azure-spring-cloud"></a>Lista de verificação para implementar a sua aplicação primavera para Azure Spring Cloud
 
 Antes de embarcar na sua aplicação, certifique-se de que cumpre os seguintes critérios:
@@ -101,6 +105,7 @@ Antes de embarcar na sua aplicação, certifique-se de que cumpre os seguintes c
 * Os parâmetros JVM têm os seus valores esperados.
 * Recomendamos que desative ou remova os serviços de registo de _serviços Config_ e _Serviço de Mola_ incorporados do pacote de aplicações.
 * Se os recursos do Azure forem vinculados através do _Vínculo de Serviços_, confirme que os recursos de destino estão a funcionar.
+::: zone-end
 
 ## <a name="configuration-and-management"></a>Configuração e gestão
 
@@ -119,6 +124,17 @@ Se pretender configurar a instância de serviço Azure Spring Cloud utilizando o
 
 O nome da instância de serviço Azure Spring Cloud será usado para solicitar um nome de subdomínio sob `azureapps.io` , pelo que a configuração falhará se o nome entrar em conflito com um existente. Pode encontrar mais detalhes nos registos de atividades.
 
+::: zone pivot="programming-language-java"
+### <a name="i-cant-deploy-a-net-core-app"></a>Não posso implementar uma aplicação .NET Core
+
+Não é possível carregar um ficheiro *.zip* para uma aplicação .NET Core Steeltoe utilizando o portal Azure ou o modelo de Gestor de Recursos.
+
+Quando implementa o seu pacote de aplicações utilizando o [Azure CLI,](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)o CLI Azure sonda periodicamente o progresso da implantação e, no final, apresenta o resultado da implantação.
+
+Certifique-se de que a sua aplicação está embalada no formato correto de ficheiro *.zip.* Se não estiver embalado corretamente, o processo será pendurado ou receberá uma mensagem de erro.
+::: zone-end
+
+::: zone pivot="programming-language-java"
 ### <a name="i-cant-deploy-a-jar-package"></a>Não posso implantar um pacote JAR.
 
 Não é possível carregar o ficheiro Java Archive (JAR)/pacote de origem utilizando o portal Azure ou o modelo de Gestor de Recursos.
@@ -216,3 +232,8 @@ Verifique se a `spring-boot-actuator` dependência está ativada no seu pacote d
 ```
 
 Se os registos da sua aplicação puderem ser arquivados numa conta de armazenamento, mas não enviados para o Azure Log Analytics, verifique se [configura corretamente o seu espaço de trabalho](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace). Se estiver a utilizar um nível gratuito de Azure Log Analytics, note que [o nível gratuito não fornece um acordo de nível de serviço (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
+::: zone-end
+
+## <a name="next-steps"></a>Passos seguintes
+
+* [Como auto-diagnosticar e resolver problemas na Nuvem de primavera de Azure](spring-cloud-howto-self-diagnose-solve.md)

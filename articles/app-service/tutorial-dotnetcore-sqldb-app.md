@@ -1,19 +1,19 @@
 ---
-title: 'Tutorial: ASP.NET Core com Base de Dados SQL'
-description: Saiba como colocar uma aplicação .NET Core a funcionar no Serviço de Aplicações do Azure, com ligação a uma Base de Dados SQL.
+title: 'Tutorial: ASP.NET Core com Base de Dados Azure SQL'
+description: Saiba como obter uma aplicação .NET Core a funcionar no Azure App Service, com ligação a uma Base de Dados Azure SQL.
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp, mvc, cli-validate, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 27b01a86d1bc44b5adb977f10339a0f2d56a64d4
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: b83dfbd715a6b27491fd5f5efd41213210092325
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958563"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982886"
 ---
-# <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>Tutorial: Construir uma aplicação de base de dados core e SQL de ASP.NET no Azure App Service
+# <a name="tutorial-build-an-aspnet-core-and-azure-sql-database-app-in-azure-app-service"></a>Tutorial: Construir uma aplicação ASP.NET de base de dados core e Azure SQL em Azure App Service
 
 ::: zone pivot="platform-windows"  
 
@@ -29,7 +29,7 @@ ms.locfileid: "88958563"
 
 ![aplicação em execução no Serviço de Aplicações](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma Base de Dados SQL no Azure
@@ -482,7 +482,7 @@ az webapp log tail --name <app-name> --resource-group myResourceGroup
 
 Uma vez iniciado o streaming de registos, refresque a app Azure no navegador para obter algum tráfego web. Verá então os registos da consola direcionados para o terminal. Se não vir os registos da consola imediatamente, volte a consultar dentro de 30 segundos.
 
-Para parar o streaming de registo a qualquer momento, escreva `Ctrl` + `C` .
+Para parar a transmissão de registos em qualquer altura, escreva `Ctrl`+`C`.
 
 Para obter mais informações sobre a personalização dos registos do Núcleo de ASP.NET, consulte [iniciar sessão no ASP.NET Core](/aspnet/core/fundamentals/logging).
 

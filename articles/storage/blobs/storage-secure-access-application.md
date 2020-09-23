@@ -11,12 +11,12 @@ ms.date: 06/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: e7dca9224fd213178aa9cee3a284f1eba39fb4fc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8d11fada41d0152b44be6cb0cdef41e68808689b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001178"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967515"
 ---
 # <a name="secure-access-to-application-data"></a>Acesso seguro aos dados da aplicação
 
@@ -160,7 +160,7 @@ As seguintes classes, propriedades e métodos são utilizados na tarefa anterior
 
 [A encriptação do Azure Storage](../common/storage-service-encryption.md) ajuda-o a proteger e a salvaguardar os seus dados encriptando os dados em repouso e manuseando encriptação e desencriptação. Todos os dados são encriptados através de uma [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uma das cifras em bloco mais fortes disponíveis.
 
-Pode optar por ter a Microsoft a gerir as chaves de encriptação, ou pode trazer as suas próprias chaves com chaves geridas pelo cliente com o Azure Key Vault. Para obter mais informações, consulte [as teclas geridas pelo cliente com o Azure Key Vault para gerir a encriptação do Armazenamento Azure](../common/encryption-customer-managed-keys.md).
+Pode optar por ter a Microsoft a gerir as chaves de encriptação, ou pode trazer as suas próprias chaves com teclas geridas pelo cliente armazenadas no Cofre de Chaves Azure ou no Key Vault Managed Hardware Security Model (HSM) (pré-visualização). Para obter mais informações, consulte [as chaves geridas pelo Cliente para encriptação de armazenamento Azure](../common/customer-managed-keys-overview.md).
 
 A encriptação de armazenamento Azure encripta automaticamente os dados em todos os níveis de desempenho (Standard e Premium), todos os modelos de implementação (Azure Resource Manager e Classic) e todos os serviços de Armazenamento Azure (Blob, Fila, Tabela e Arquivo).
 

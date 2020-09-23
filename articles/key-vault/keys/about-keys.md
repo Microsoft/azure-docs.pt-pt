@@ -1,25 +1,37 @@
 ---
-title: Sobre as chaves do cofre da chave Azure - Cofre da Chave Azure
+title: Sobre chaves - Cofre da Chave Azure
 description: Visão geral da interface Azure Key Vault REST e detalhes do desenvolvedor para chaves.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: amitbapat
+manager: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: overview
-ms.date: 09/04/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 76e9c342f87a3aa1d04a8f4be4065af73e6ba9f2
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.date: 09/15/2020
+ms.author: ambapat
+ms.openlocfilehash: 29930a835297b0ddd3a91534dab9ccb6d74896e3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651313"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967554"
 ---
-# <a name="about-azure-key-vault-keys"></a>Acerca das chaves do Azure Key Vault
+# <a name="about-keys"></a>Acerca de chaves
 
-O Cofre da Chave Azure suporta vários tipos e algoritmos de chave e permite a utilização de Módulos de Segurança de Hardware (HSM) para chaves de alto valor.
+O Azure Key Vault fornece dois tipos de recursos para armazenar e gerir chaves criptográficas:
+
+|Tipo de recurso|Principais métodos de proteção|URL de base de ponto final de avião de dados|
+|--|--|--|
+| **Cofres** | Protegido por software<br/><br/>e<br/><br/>Protegido por HSM (com Premium SKU)</li></ul> | https://{vault-name}.vault.azure.net |
+| **Piscinas HSM geridas** | Protegido pelo HSM | https://{hsm-name}.managedhsm.azure.net |
+||||
+
+- **Cofres** - Os cofres fornecem uma solução de gestão de baixo custo, fácil de implantar, multi-inquilino, resiliente à zona (quando disponível), solução de gestão de chaves altamente disponível adequada para cenários de aplicação em nuvem mais comuns.
+- **HSMs geridos** - O HSM gerido fornece um único inquilino, resiliente de zona (quando disponível), HSMs altamente disponíveis para armazenar e gerir as suas chaves criptográficas. Mais adequado para aplicações e cenários de utilização que manuseiem chaves de alto valor. Também ajuda a cumprir os mais rigorosos requisitos de segurança, conformidade e regulamentação. 
+
+> [!NOTE]
+> Os cofres também permitem armazenar e gerir vários tipos de objetos como segredos, certificados e chaves de conta de armazenamento, além de chaves criptográficas.
 
 As teclas criptográficas no Cofre de Chaves são representadas como objetos JSON Web Key [JWK]. As especificações javaScript object (JSON) e JavaScript Object Signing and Encryption (JOSE) são:
 
@@ -28,30 +40,49 @@ As teclas criptográficas no Cofre de Chaves são representadas como objetos JSO
 -   [Algoritmos Web JSON (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
 -   [Assinatura Web JSON (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature) 
 
-As especificações base JWK/JWA também são alargadas para permitir tipos chave exclusivos da implementação do Cofre de Chaves. Por exemplo, importar chaves utilizando embalagens específicas do fornecedor HSM, permite o transporte seguro de chaves que só podem ser usadas em HSMs key Vault. 
+As especificações base JWK/JWA também são alargadas para permitir tipos-chave exclusivos das implementações do Cofre de Chaves Azure e do HSM gerido. 
 
-O Azure Key Vault suporta chaves protegidas por software e protegidas por HSM:
+As teclas protegidas pelo HSM (também designadas por teclas HSM) são processadas num HSM (Módulo de Segurança de Hardware) e permanecem sempre no limite de proteção HSM. 
 
-- **Teclas protegidas por software**: Uma chave processada em software por Key Vault, mas é encriptada em repouso usando uma chave de sistema que está num HSM. Os clientes podem importar uma chave RSA ou EC existente (Curva Elíptica) ou solicitar que o Key Vault gere uma.
-- **Teclas potectadas por HSM**: Uma chave processada num HSM (Módulo de Segurança de Hardware). Estas chaves estão protegidas num dos Key Vault HSM Security Worlds (há um Mundo de Segurança por geografia para manter o isolamento). Os clientes podem importar uma chave RSA ou CE, sob forma protegida por Software ou exportando de um dispositivo HSM compatível. Os clientes também podem solicitar o Key Vault para gerar uma chave. Este tipo de chave adiciona o atributo key_hsm ao JWK obter para transportar o material-chave HSM.
+- Os cofres utilizam HSMs validados **FIPS 140-2 para** proteger as chaves HSM na infraestrutura de backend HSM partilhada. 
+- As piscinas HSM geridas utilizam módulos HSM validados **FIPS 140-2 Nível 3** para proteger as suas chaves. Cada piscina HSM é uma instância isolada de inquilino único com o seu próprio domínio de [segurança](../managed-hsm/security-domain.md) proporcionando um completo isolamento criptográfico de todas as outras piscinas HSM que partilham a mesma infraestrutura de hardware.
 
-Para obter mais informações sobre as fronteiras geográficas, consulte [o Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
+Estas chaves estão protegidas em piscinas HSM de um único inquilino. Pode importar uma chave RSA, CE e simétrica, em forma macia ou exportando de um dispositivo HSM suportado. Também pode gerar chaves em piscinas HSM. Quando importa as teclas HSM utilizando as teclas utilizando o método descrito na [especificação BYOK (traga a sua própria chave),](../keys/byok-specification.md)permite material de transporte seguro em piscinas de HSM geridos. 
 
-## <a name="cryptographic-protection"></a>Proteção criptográfica
+Para obter mais informações sobre as fronteiras geográficas, consulte [o Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)
 
-O Key Vault suporta apenas as teclas RSA e Curva Elíptica. 
+## <a name="key-types-protection-methods-and-algorithms"></a>Tipos-chave, métodos de proteção e algoritmos
 
--   **CE**: Chave da curva elíptica protegida por software.
--   **EC-HSM**: Chave curva elíptica "dura".
--   **RSA**: Tecla RSA protegida por software.
--   **RSA-HSM**: Tecla RSA "Dura".
+O Cofre-Chave suporta rSA, CE e chaves simétricas. 
 
-Key Vault suporta chaves RSA dos tamanhos 2048, 3072 e 4096. O Key Vault suporta os tipos de chave de curva elíptica P-256, P-384, P-521 e P-256K (SECP256K1).
+### <a name="hsm-protected-keys"></a>Chaves protegidas por HSM
 
-Os módulos criptográficos que o Key Vault utiliza, seja o HSM ou o software, são fips (Federal Information Processing Standards) validados. Não é preciso fazer nada de especial para correr no modo FIPS. As chaves **criadas** ou **importadas** como protegidas pelo HSM são processadas dentro de um HSM, validado para FIPS 140-2 Nível 2. As chaves **criadas** ou **importadas** como protegidas por software, são processadas dentro de módulos criptográficos validados para o FIPS 140-2 Nível 1.
+|Tipo de chave|Cofres (apenas Premium SKU)|Piscinas HSM geridas|
+|--|--|--|--|
+**EC-HSM**: Chave da curva elíptica|FIPS 140-2 Nível 2 HSM|FIPS 140-2 Nível 3 HSM
+**RSA-HSM**: Chave RSA|FIPS 140-2 Nível 2 HSM|FIPS 140-2 Nível 3 HSM
+**oct-HSM**: Simétrico|Não suportado|FIPS 140-2 Nível 3 HSM
+||||
+
+### <a name="software-protected-keys"></a>Chaves protegidas por software
+
+|Tipo de chave|Cofres|Piscinas HSM geridas|
+|--|--|--|--|
+**RSA**: Chave RSA "protegida por software"|FIPS 140-2 Nível 1|Não suportado
+**CE**: Chave da curva elíptica "protegida por software"|FIPS 140-2 Nível 1|Não suportado
+||||
+
+### <a name="supported-algorithms"></a>Algoritmos suportados
+
+|Tipos/tamanhos/curvas| Encriptar/Desencriptar<br>(Embrulhar/Desembrulhar) | Assinar/Verificar | 
+| --- | --- | --- |
+|EC-P256, EC-P256K, EC-P384, CE-521|ND|ES256<br>ES256K<br>ES384<br>ES512|
+|RSA 2K, 3K, 4K| RSA1_5<br>RSA-OAEP<br>RSA-OAEP-256|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RIO RSNULL| 
+|AES 128-bit, 256-bit| AES-KW<br>AES-GCM<br>AES-CBC| ND| 
+|||
 
 ###  <a name="ec-algorithms"></a>Algoritmos da CE
- Os seguintes identificadores de algoritmo são suportados com chaves EC e EC-HSM no Key Vault. 
+ Os seguintes identificadores de algoritmo são suportados com chaves EC-HSM
 
 #### <a name="curve-types"></a>Tipos de Curvas
 
@@ -68,12 +99,13 @@ Os módulos criptográficos que o Key Vault utiliza, seja o HSM ou o software, s
 -   **ES512** - ECDSA para digestão SHA-512 e teclas criadas com curva P-521. Este algoritmo é descrito no [RFC7518](https://tools.ietf.org/html/rfc7518).
 
 ###  <a name="rsa-algorithms"></a>Algoritmos RSA  
- Os seguintes identificadores de algoritmo são suportados com chaves RSA e RSA-HSM no Key Vault.  
+ Os seguintes identificadores de algoritmo são suportados com chaves RSA e RSA-HSM  
 
 #### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>WRAPKEY/UNWRAPKEY, ENCRIPTAR/DESENCRIPTAR
 
 -   **RSA1_5** - RSAES-PKCS1-V1_5 [RFC3447] encriptação chave  
 -   **RSA-OAEP** - RSAES utilizando o acolchoado de encriptação assimétrica ideal (OAEP) [RFC3447], com os parâmetros padrão especificados pelo RFC 3447 na secção A.2.1. Estes parâmetros predefinidos estão a usar uma função de haxixe de SHA-1 e uma função de geração de máscara de MGF1 com SHA-1.  
+-  **RSA-OAEP-256** – RSAES usando o acolchoamento de encriptação assimétrica ideal com uma função de hash de SHA-256 e uma função de geração de máscara de MGF1 com SHA-256
 
 #### <a name="signverify"></a>SIGN/VERIFICAR
 
@@ -83,11 +115,19 @@ Os módulos criptográficos que o Key Vault utiliza, seja o HSM ou o software, s
 -   **RS256** - RSASSA-PKCS-v1_5 utilizando SHA-256. O valor da digestão fornecida pela aplicação deve ser calculado utilizando SHA-256 e deve ter 32 bytes de comprimento.  
 -   **RS384** - RSASSA-PKCS-v1_5 utilizando SHA-384. O valor da digestão fornecida pela aplicação deve ser calculado utilizando SHA-384 e deve ter 48 bytes de comprimento.  
 -   **RS512** - RSASSA-PKCS-v1_5 utilizando SHA-512. O valor da digestão fornecida pela aplicação deve ser calculado utilizando SHA-512 e deve ter 64 bytes de comprimento.  
--   **RSNULL** - Ver [RFC2437], um caso de utilização especializado para permitir certos cenários TLS.  
+-   **RSNULL** - Ver [RFC2437](https://tools.ietf.org/html/rfc2437), um caso de utilização especializado para permitir certos cenários TLS.  
+
+###  <a name="symmetric-key-algorithms"></a>Algoritmos-chave simétricos
+- **AES-KW** - AES Key Wrap[(RFC3394](https://tools.ietf.org/html/rfc3394)).
+- **Encriptação AES-GCM** - AES no Modo de Contador Galois[(NIST SP800-38d)](https://csrc.nist.gov/publications/sp800)
+- **Encriptação AES-CBC** - AES no Modo de Cadeia de Blocos Cipher[(NIST SP800-38a)](https://csrc.nist.gov/publications/sp800)
+
+> [!NOTE] 
+> A atual implementação AES-GCM e as APIs correspondentes são experimentais. A implementação e as APIs podem alterar-se substancialmente nas futuras iterações. 
 
 ##  <a name="key-operations"></a>Operações-chave
 
-O Cofre da Chave suporta as seguintes operações em objectos-chave:  
+O HSM gerido suporta as seguintes operações em objectos-chave:  
 
 -   **Criar**: Permite que um cliente crie uma chave no Cofre de Chaves. O valor da chave é gerado pela Key Vault e armazenado, e não é lançado ao cliente. As teclas assimétricas podem ser criadas no Cofre de Chaves.  
 -   **Importação**: Permite que um cliente importe uma chave existente para o Cofre-Chave. As chaves assimétricas podem ser importadas para o Cofre-Chave utilizando uma série de métodos de embalagem diferentes dentro de uma construção JWK. 
@@ -142,8 +182,8 @@ Para obter mais informações sobre outros atributos possíveis, consulte a [Tec
 
 Pode especificar metadados específicos de aplicação adicionais sob a forma de etiquetas. O Key Vault suporta até 15 tags, cada uma das quais pode ter um nome de 256 caracteres e um valor de 256 caracteres.  
 
->[!Note]
->As etiquetas são legíveis por um autor da lista se tiverem a *lista* ou *obterem* permissão para esse tipo de objeto (chaves, segredos ou certificados).
+> [!NOTE] 
+> As etiquetas são legíveis por um chamador se tiverem a *lista* ou *obterem* permissão para essa chave.
 
 ##  <a name="key-access-control"></a>Key access control (Controlo de acesso a chaves)
 
@@ -175,11 +215,11 @@ As seguintes permissões podem ser concedidas, por base principal de utilizador/
 
 Para obter mais informações sobre o trabalho com as teclas, consulte [as operações key in the Key Vault REST API reference](/rest/api/keyvault). Para obter informações sobre o estabelecimento de permissões, consulte [Cofres - Criar ou Atualizar](/rest/api/keyvault/vaults/createorupdate) e [Abóbadas - Atualizar a Política de Acesso](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
-## <a name="next-steps"></a>Próximos passos
-
+## <a name="next-steps"></a>Passos seguintes
 - [Sobre o Key Vault](../general/overview.md)
-- [Acerca de chaves, segredos e certificados](../general/about-keys-secrets-certificates.md)
+- [Sobre o HSM gerido](../managed-hsm/overview.md)
 - [Acerca de segredos](../secrets/about-secrets.md)
 - [Acerca de certificados](../certificates/about-certificates.md)
+- [Visão geral da API do Key Vault REST](../general/about-keys-secrets-certificates.md)
 - [Autenticação, pedidos e respostas](../general/authentication-requests-and-responses.md)
 - [Guia do Programador do Key Vault](../general/developers-guide.md)

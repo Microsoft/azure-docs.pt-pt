@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: d9360ff64206cdce208f9643cf8ca86515aaeb7e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 18ab9a4108d6d9effaa25fe69ce42a18ca4ba0dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "75354442"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903843"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Tutorial: Implementar uma tarefa do Azure Stream Analytics com CI/CD através do Azure Pipelines
 Este tutorial descreve como configurar a integração e implementação contínuas para uma tarefa do Azure Stream Analytics com o Azure Pipelines. 
@@ -26,8 +26,12 @@ Neste tutorial, ficará a saber como:
 > * Criar um pipeline de versão no Azure Pipelines
 > * Implementar e atualizar uma aplicação automaticamente
 
+> [!NOTE]
+> O NuGet CI/CD está a ser depreciado. Para obter informações sobre como migrar para as últimas npm, consulte a [visão geral de integração contínua e implantação](cicd-overview.md)
+
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar, certifique-se de que tem o seguinte:
+
+Antes de começar, certifique-se de ter dado os seguintes passos:
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Instale o [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) e as cargas de trabalho **Desenvolvimento do Azure** ou **Armazenamento de Dados e Processamento**.
@@ -63,9 +67,9 @@ Partilhe os ficheiros de origem da aplicação para um projeto no Azure DevOps, 
     A publicação do repositório cria um novo projeto na sua organização com o mesmo nome que o repositório local. Para criar o repo num projeto existente, clique em **Advanced** junto ao **nome repositório**e selecione um projeto. Pode ver o código no browser ao selecionar **Ver na Web**.
  
 ## <a name="configure-continuous-delivery-with-azure-devops"></a>Configurar a entrega contínua com o Azure DevOps
-Um pipeline de compilação do Azure Pipelines descreve um fluxo de trabalho composto por passos de compilação que são executados sequencialmente. Saiba mais sobre [Pipelines de compilação do Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav). 
+Um pipeline de compilação do Azure Pipelines descreve um fluxo de trabalho composto por passos de compilação que são executados sequencialmente. Saiba mais sobre [Pipelines de compilação do Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav&preserve-view=true).
 
-Um pipeline de versão do Azure Pipelines descreve um fluxo de trabalho que implementa um pacote de aplicação num cluster. Quando utilizados em conjunto, o pipeline de compilação e o pipeline de versão executam o fluxo de trabalho completo, começando com os ficheiros de origem e terminando com uma aplicação em execução no cluster. Saiba mais sobre [pipelines de versão](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts) do Azure Pipelines.
+Um pipeline de versão do Azure Pipelines descreve um fluxo de trabalho que implementa um pacote de aplicação num cluster. Quando utilizados em conjunto, o pipeline de compilação e o pipeline de versão executam o fluxo de trabalho completo, começando com os ficheiros de origem e terminando com uma aplicação em execução no cluster. Saiba mais sobre [pipelines de versão](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts&preserve-view=true) do Azure Pipelines.
 
 ### <a name="create-a-build-pipeline"></a>Criar um pipeline de compilação
 Abra um browser e navegue para o projeto que acabou de criar no [Azure DevOps](https://app.vsaex.visualstudio.com/). 
@@ -121,7 +125,7 @@ Abra um browser e navegue para o projeto que acabou de criar no [Azure DevOps](h
     |Grupo de Recursos  |  Introduza um nome de grupo de recursos.   |
     |Modelo  | [Caminho da solução]\bin\Debug\Deploy\\[Nome do projeto].JobTemplate.json   |
     |Parâmetros do modelo  | [Caminho da solução]\bin\Debug\Deploy\\[Nome do projeto].JobTemplate.parameters.json   |
-    |Substituir os parâmetros do modelo  | Escreva os parâmetros do modelo a substituir na caixa de texto. Exemplo, –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). Esta propriedade é opcional, mas a compilação resultará em erros se os parâmetros de chave não forem substituídos.    |
+    |Substituir os parâmetros do modelo  | Escreva os parâmetros do modelo a substituir na caixa de texto. Exemplo, `–storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre)` . Esta propriedade é opcional, mas a compilação resultará em erros se os parâmetros de chave não forem substituídos.    |
     
     ![Definir propriedades para implantação do grupo de recursos Azure](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deployment-properties.png)
 
@@ -158,7 +162,7 @@ Quando já não for necessário, elimine o grupo de recursos, a tarefa de transm
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre como utilizar as ferramentas do Azure Stream Analytics para Visual Studio para configurar um processo de integração e implementação contínuas, avance para o artigo de pipeline de CI/CD de configuração:
+Para saber mais sobre a utilização de ferramentas Azure Stream Analytics para o Visual Studio para configurar um processo de integração e implementação contínua, continue ao artigo de configuração do pipeline CI/CD:
 
 > [!div class="nextstepaction"]
 > [Integrar e desenvolver continuamente as ferramentas do Stream Analytics](stream-analytics-tools-for-visual-studio-cicd.md)
