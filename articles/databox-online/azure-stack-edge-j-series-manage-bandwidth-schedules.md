@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge GPU gere horários de largura de banda Microsoft Docs
-description: Descreve como usar o portal Azure para gerir os horários de largura de banda no GPU do Azure Stack Edge.
+title: Azure Stack Edge Pro GPU gere horários de largura de banda Microsoft Docs
+description: Descreve como usar o portal Azure para gerir os horários de largura de banda no gpu do Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 92b9edb4f694a5ff7d15b06be41cc20db3b64b97
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: faf78e9f7efb83c5f28538e18ed081378d120848
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265699"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890662"
 ---
-# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-gpu"></a>Utilize o portal Azure para gerir os horários de largura de banda no GPU do Azure Stack Edge 
+# <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro-gpu"></a>Utilize o portal Azure para gerir os horários de largura de banda no seu GPU Azure Stack Edge Pro 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Este artigo descreve como gerir os horários de largura de banda no seu Azure Stack Edge. As agendas de largura de banda permitem configurar a utilização de largura de banda de rede em várias agendas a horas diferentes. Estas agendas podem ser aplicadas a operações de carregamento e transferência do seu dispositivo para a cloud.
+Este artigo descreve como gerir os horários de largura de banda no seu Azure Stack Edge Pro. As agendas de largura de banda permitem configurar a utilização de largura de banda de rede em várias agendas a horas diferentes. Estas agendas podem ser aplicadas a operações de carregamento e transferência do seu dispositivo para a cloud.
 
-Pode adicionar, modificar ou eliminar os horários de largura de banda do seu Azure Stack Edge através do portal Azure.
+Pode adicionar, modificar ou eliminar os horários de largura de banda do seu Azure Stack Edge Pro através do portal Azure.
 
 Neste artigo, vai aprender a:
 
@@ -42,9 +42,9 @@ Faça os seguintes passos no portal Azure para adicionar um horário.
 
 3. Em **Adicionar agenda**: 
 
-   1. Forneça o **Dia de início**, o **Dia de fim**, a **Hora de início** e a **Hora de fim** da agenda.
+   1. Forneça o **dia de início,** **o fim do dia,** **a hora**de início e a hora de **fim** da programação.
    2. Verifique a opção **Todos os dias** se este horário deve funcionar durante todo o dia.
-   3. **Taxa da largura de banda** é a largura de banda em Megabits por segundo (Mbps) utilizada pelo dispositivo em operações que envolvem a cloud (carregamentos e transferências). Forneça um número entre 20 e 2.147.483.647 para este campo.
+   3. **A taxa de largura de** banda é a largura de banda em Megabits por segundo (Mbps) usada pelo seu dispositivo em operações que envolvam a nuvem (tanto uploads como downloads). Forneça um número entre 20 e 2.147.483.647 para este campo.
    4. Marque a largura de banda como **Ilimitada** se não quiser limitar o carregamento e a transferência de dados.
    5. Selecione **Adicionar**.
 
@@ -73,7 +73,7 @@ Efetue os seguintes passos para editar uma agenda de largura de banda.
 
 ## <a name="delete-a-schedule"></a>Eliminar uma agenda
 
-Faça os seguintes passos para eliminar um calendário de largura de banda associado ao seu dispositivo Azure Stack Edge.
+Faça os seguintes passos para eliminar um calendário de largura de banda associado ao seu dispositivo Azure Stack Edge Pro.
 
 1. No portal Azure, vá ao seu recurso Azure Stack Edge e, em seguida, vá para **a Largura de Banda**.  
 

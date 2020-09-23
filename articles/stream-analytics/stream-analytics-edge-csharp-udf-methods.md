@@ -1,18 +1,18 @@
 ---
 title: Desenvolver funções padrão .NET para trabalhos Azure Stream Analytics (Pré-visualização)
-description: Saiba como escrever funções definidas pelo utilizador para trabalhos stream Analytics.
+description: Saiba como escrever funções definidas pelo utilizador C# para trabalhos stream analytics.
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 09/10/2020
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: fff1a228e32f115c498678a654f6c8f028772161
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9cf929a3a6f5b3752b030f449b3b24b2bdc941a1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015684"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907291"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Desenvolver funções padrão .NET para trabalhos Azure Stream Analytics (Pré-visualização)
 
@@ -28,20 +28,12 @@ O Azure Stream Analytics oferece uma linguagem de consulta semelhante ao SQL par
 
 Se estiver interessado em utilizar esta funcionalidade em qualquer outra região, pode [solicitar acesso.](https://aka.ms/ccodereqregion)
 
-## <a name="overview"></a>Descrição geral
-As ferramentas do Visual Studio para o Azure Stream Analytics facilitam-lhe a escrita de UDFs, teste os seus trabalhos localmente (mesmo offline) e publique o seu trabalho stream Analytics para a Azure. Uma vez publicado no Azure, pode implementar o seu trabalho em dispositivos IoT utilizando o IoT Hub.
-
-Existem três formas de implementar os UDFs:
-
-* CodeBehind arquivos em um projeto ASA
-* UDF de um projeto local
-* Um pacote existente a partir de uma conta de armazenamento Azure
-
 ## <a name="package-path"></a>Caminho do pacote
 
 O formato de qualquer pacote UDF tem o `/UserCustomCode/CLR/*` caminho. As Bibliotecas de Ligação Dinâmica (DLLs) e os recursos são copiados sob a pasta, o `/UserCustomCode/CLR/*` que ajuda a isolar os DLLs do utilizador do sistema e dos DLLs Azure Stream Analytics. Este caminho de embalagem é utilizado para todas as funções, independentemente do método utilizado para as empregar.
 
 ## <a name="supported-types-and-mapping"></a>Tipos e mapeamento suportados
+
 Para que os valores do Azure Stream Analytics sejam utilizados em C#, eles precisam de ser marechais de um ambiente para o outro. A marechala acontece para todos os parâmetros de entrada de um UDF. Cada tipo Azure Stream Analytics tem um tipo correspondente em C# mostrado na tabela abaixo:
 
 |**Tipo Azure Stream Analytics** |**Tipo C#** |
@@ -66,15 +58,103 @@ O mesmo acontece quando os dados precisam de ser recedidos de C# para Azure Stre
 |Objeto[]  |  Matriz   |
 |Dicionário\<string, object>  |  Registo   |
 
-## <a name="codebehind"></a>CodeBehind
-Pode escrever funções definidas pelo utilizador no **Script.asql** CodeBehind. As ferramentas do Estúdio Visual compilarão automaticamente o ficheiro CodeBehind num ficheiro de montagem. As assembléias são embaladas como um ficheiro zip e enviadas para a sua conta de armazenamento quando submete o seu trabalho ao Azure. Você pode aprender a escrever um C# UDF usando CodeBehind seguindo o tutorial [de empregos UDF para stream analytics edge.](stream-analytics-edge-csharp-udf.md) 
+## <a name="develop-a-udf-in-visual-studio-code"></a>Desenvolver um UDF em Código de Estúdio Visual
 
-## <a name="local-project"></a>Projeto local
-As funções definidas pelo utilizador podem ser escritas num conjunto que é posteriormente referenciado numa consulta Azure Stream Analytics. Esta é a opção recomendada para funções complexas que requerem a potência total de uma língua standard .NET para além da sua linguagem de expressão, como lógica processual ou recursão. Os UDFs de um projeto local também podem ser usados quando você precisa compartilhar a lógica de função através de várias consultas Azure Stream Analytics. Adicionar UDFs ao seu projeto local dá-lhe a capacidade de depurar e testar as suas funções localmente a partir do Visual Studio.
+[As ferramentas visual Studio Code para Azure Stream Analytics](quick-create-visual-studio-code.md) facilitam a sua escrita de UDFs, testam os seus empregos localmente (mesmo offline) e publicam o seu trabalho stream Analytics para a Azure.
+
+Existem duas formas de implementar UDFs padrão .NET em ferramentas Visual Studio Code.
+
+* UDF dos DLLs locais
+* UDF de um projeto local
+
+### <a name="local-project"></a>Projeto local
+
+As funções definidas pelo utilizador podem ser escritas num conjunto que é posteriormente referenciado numa consulta Azure Stream Analytics. Esta é a opção recomendada para funções complexas que requerem a potência total de uma língua standard .NET para além da sua linguagem de expressão, como lógica processual ou recursão. Os UDFs de um projeto local também podem ser usados quando você precisa compartilhar a lógica de função através de várias consultas Azure Stream Analytics. Adicionar UDFs ao seu projeto local dá-lhe a capacidade de depurar e testar as suas funções localmente.
 
 Para fazer referência a um projeto local:
 
-1. Crie uma nova biblioteca de classes na sua solução.
+1. Crie uma nova biblioteca de classe padrão .NET na sua máquina local.
+2. Escreva o código na sua turma. Lembre-se que as classes devem ser definidas como *públicas* e os objetos devem ser definidos como *públicos estáticos.*
+3. Adicione um novo ficheiro de configuração da função CSharp no seu projeto Azure Stream Analytics e faça referência ao projeto da biblioteca da classe CSharp.
+4. Configure o caminho de montagem no ficheiro de configuração de `JobConfig.json` trabalho, secção **CustomCodeStorage.** Este passo não é necessário para os testes locais.
+
+### <a name="local-dlls"></a>DLLs locais
+
+Também pode fazer referência aos DLLs locais que incluem as funções definidas pelo utilizador.
+
+### <a name="example"></a>Exemplo
+
+Neste exemplo, **o CSharpUDFProject** é um projeto de biblioteca de classes C# e **o ASAUDFDemo** é o projeto Azure Stream Analytics, que fará referência ao **CSharpUDFProject.**
+
+:::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-demo.png" alt-text="Projeto Azure Stream Analytics em Código de Estúdio Visual":::
+
+O seguinte UDF tem uma função que multiplica um inteiro por si só para produzir o quadrado do inteiro. As classes devem ser definidas como *públicas* e os objetos devem ser definidos como *públicos estáticos.*
+
+```csharp
+using System;
+
+namespace CSharpUDFProject
+{
+    // 
+    public class Class1
+    {
+        public static Int64 SquareFunction(Int64 a)
+        {
+            return a * a;
+        }
+    }
+}
+```
+
+Os passos a seguir mostram-lhe como adicionar a função C# UDF ao seu projeto Stream Analytics.
+
+1. Clique no botão direito na pasta **Funções** e escolha **Adicionar Item**.
+
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-add-function.png" alt-text="Adicione nova função no projeto Azure Stream Analytics":::
+
+2. Adicione uma função C# **SquareFunction** ao seu projeto Azure Stream Analytics.
+
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-add-function-2.png" alt-text="Selecione a função CSharp do projeto Stream Analytics em VS Code":::
+
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-add-function-name.png" alt-text="Introduza o nome da função CSharp no Código VS":::
+
+3. Na configuração da função C#, selecione Escolha o caminho do **projeto da biblioteca** para escolher o seu projeto C# na lista de dropdown e selecione Build **project** para construir o seu projeto. Em seguida, escolha **Selecionar o método** e **selecionar** para selecionar o nome da classe e método relacionados na lista de dropdown. Para se referir aos métodos, tipos e funções na consulta Stream Analytics, as classes devem ser definidas como *públicas* e os objetos devem ser definidos como *público estático*.
+
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-choose-project.png" alt-text="Stream Analytics C configuração de função afiada VS Código":::
+
+    Se pretender utilizar o C# UDF a partir de um DLL, **selecione Escolha** o caminho da biblioteca para escolher o DLL. Em seguida, escolha **Selecionar o método** e **selecionar** para selecionar o nome da classe e método relacionados na lista de dropdown.
+
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-choose-dll.png" alt-text="Configuração de função afiada stream Analytics C":::
+
+4. Invoque o UDF na sua consulta Azure Stream Analytics.
+
+   ```sql
+    SELECT price, udf.SquareFunction(price)
+    INTO Output
+    FROM Input 
+   ```
+
+5. Antes de submeter o trabalho ao Azure, configufique o caminho do pacote no ficheiro de configuração de `JobConfig.json` trabalho, secção **CustomCodeStorage.** Utilizar **Selecione a partir da sua subscrição** no CodeLens para escolher a sua Subscrição e escolha a conta de armazenamento e o nome do recipiente na lista de dropdown. Deixe **o Caminho** como padrão. Este passo não é necessário para os testes locais.
+
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/visual-studio-code-csharp-udf-configure-storage-account.png" alt-text="Escolha o caminho da biblioteca":::
+
+## <a name="develop-a-udf-in-visual-studio"></a>Desenvolver um UDF em Estúdio Visual
+
+Existem três formas de implementar UDFs em ferramentas de Estúdio Visual.
+
+* CodeBehind arquivos em um projeto ASA
+* UDF de um projeto local
+* Um pacote existente a partir de uma conta de armazenamento Azure
+
+### <a name="codebehind"></a>CodeBehind
+
+Pode escrever funções definidas pelo utilizador no **Script.asql** CodeBehind. As ferramentas do Estúdio Visual compilarão automaticamente o ficheiro CodeBehind num ficheiro de montagem. As assembléias são embaladas como um ficheiro zip e enviadas para a sua conta de armazenamento quando submete o seu trabalho ao Azure. Você pode aprender a escrever um C# UDF usando CodeBehind seguindo o tutorial [de empregos UDF para stream analytics edge.](stream-analytics-edge-csharp-udf.md) 
+
+### <a name="local-project"></a>Projeto local
+
+Para fazer referência a um projeto local no Estúdio Visual:
+
+1. Crie uma nova biblioteca de classe padrão .NET na sua solução
 2. Escreva o código na sua turma. Lembre-se que as classes devem ser definidas como *públicas* e os objetos devem ser definidos como *públicos estáticos.* 
 3. Crie o projeto. As ferramentas irão embalar todos os artefactos da pasta do caixote do lixo para um ficheiro zip e carregar o ficheiro zip para a conta de armazenamento. Para referências externas, utilize referência de montagem em vez da embalagem NuGet.
 4. Refira-se à nova classe no seu projeto Azure Stream Analytics.
@@ -86,39 +166,39 @@ Para fazer referência a um projeto local:
 
 Neste exemplo, **o UDFTest** é um projeto de biblioteca de classes C# e **o ASAUDFDemo** é o projeto Azure Stream Analytics, que fará referência **à UDFTest**.
 
-![Projeto Azure Stream Analytics IoT Edge em Estúdio Visual](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-demo.png)
+:::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-demo.png" alt-text="Projeto Azure Stream Analytics IoT Edge em Estúdio Visual":::
 
 1. Construa o seu projeto C# que lhe permitirá adicionar uma referência ao seu C# UDF a partir da consulta Azure Stream Analytics.
-    
-   ![Construir um projeto Azure Stream Analytics IoT Edge em Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-build-project.png)
+
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-build-project.png" alt-text="Construir um projeto Azure Stream Analytics IoT Edge em Visual Studio":::
 
 2. Adicione a referência ao projeto C# no projeto ASA. Clique com o botão direito no nó referências e escolha Adicionar Referência.
 
-   ![Adicione uma referência a um projeto C# no Visual Studio](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-reference.png)
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-reference.png" alt-text="Adicione uma referência a um projeto C# no Visual Studio":::
 
-3. Escolha o nome do projeto C# da lista. 
-    
-   ![Escolha o nome do seu projeto C# na lista de referência](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-choose-project-name.png)
+3. Escolha o nome do projeto C# da lista.
+
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-choose-project-name.png" alt-text="Escolha o nome do seu projeto C# na lista de referência":::
 
 4. Deverá ver o **UDFTest** listado em **Referências** no **Solution Explorer**.
 
-   ![Ver a referência de função definida pelo utilizador no explorador de soluções](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-added-reference.png)
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-added-reference.png" alt-text="Ver a referência de função definida pelo utilizador no explorador de soluções":::
 
 5. Clique no botão direito na pasta **Funções** e escolha **Novo Item**.
 
-   ![Adicione novo item às funções na solução Azure Stream Analytics Edge](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png)
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png" alt-text="Adicione novo item às funções na solução Azure Stream Analytics Edge":::
 
 6. Adicione uma função C# **SquareFunction.jsao** seu projeto Azure Stream Analytics.
 
-   ![Selecione a função CSharp a partir de itens stream Analytics Edge em Estúdio Visual](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png)
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png" alt-text="Selecione a função CSharp a partir de itens stream Analytics Edge em Estúdio Visual":::
 
 7. Clique duas vezes na função no **Solution Explorer** para abrir o diálogo de configuração.
 
-   ![C configuração de função afiada no Estúdio Visual](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-csharp-function-config.png)
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-csharp-function-config.png" alt-text="C configuração de função afiada no Estúdio Visual":::
 
 8. Na configuração da função C#, escolha **a carga do AsA Project Reference** e os nomes de montagem, classe e métodos relacionados da lista de dropdown. Para se referir aos métodos, tipos e funções na consulta Stream Analytics, as classes devem ser definidas como *públicas* e os objetos devem ser definidos como *público estático*.
 
-   ![Configuração de função afiada stream Analytics C](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-asa-csharp-function-config.png)
+   :::image type="content" source="media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-asa-csharp-function-config.png" alt-text="Stream Analytics C configuração de função afiada Visual Studio":::
 
 ## <a name="existing-packages"></a>Pacotes existentes
 
@@ -142,6 +222,7 @@ Expanda a secção **Configuração do Código Definido Pelo Utilizador** e pree
    |Fonte de montagem de código personalizado|UserCustomCode.zip|
 
 ## <a name="user-logging"></a>Registo de utilizadores
+
 O mecanismo de registo permite-lhe capturar informações personalizadas enquanto um trabalho está em execução. Pode utilizar dados de registo para depurar ou avaliar a correção do código personalizado em tempo real.
 
 A `StreamingContext` classe permite-lhe publicar informações de diagnóstico utilizando a `StreamingDiagnostics.WriteError` função. O código abaixo mostra a interface exposta pelo Azure Stream Analytics.
@@ -179,9 +260,10 @@ SELECT udf.MyUdfMethod(input.value) as udfValue FROM input
 Pode aceder às mensagens de registo através dos [registos de diagnóstico](data-errors.md).
 
 ## <a name="limitations"></a>Limitações
+
 A pré-visualização da UDF tem atualmente as seguintes limitações:
 
-* .NET Standard UDFs só pode ser da autoria em Visual Studio e publicado no Azure. As versões apenas de leitura de UDFs standard .NET podem ser vistas em **Funções** no portal Azure. A autoria de funções standard .NET não é suportada no portal Azure.
+* .NET Standard UDFs só pode ser da autoria em Visual Studio Code ou Visual Studio e publicado no Azure. As versões apenas de leitura de UDFs standard .NET podem ser vistas em **Funções** no portal Azure. A autoria de funções standard .NET não é suportada no portal Azure.
 
 * O editor de consulta do portal Azure mostra um erro ao utilizar o UDF standard .NET no portal. 
 
@@ -195,4 +277,4 @@ A pré-visualização da UDF tem atualmente as seguintes limitações:
 
 * [Tutorial: Escreva uma função definida pelo utilizador C# para um trabalho Azure Stream Analytics (Pré-visualização)](stream-analytics-edge-csharp-udf.md)
 * [Tutorial: funções definidas pelo utilizador do JavaScript do Azure Stream Analytics](stream-analytics-javascript-user-defined-functions.md)
-* [Use o Estúdio Visual para ver os trabalhos do Azure Stream Analytics](stream-analytics-vs-tools.md)
+* [Criar um trabalho de Azure Stream Analytics em Código de Estúdio Visual](quick-create-visual-studio-code.md)

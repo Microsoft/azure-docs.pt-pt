@@ -11,16 +11,16 @@ author: NilsPohlmann
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 968685b64b1412751ca990842d95e9d2ffb251a6
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 15e1af35def6a3cb6ffaf5df2db53326fba60bc0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650555"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883052"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Criar e executar gasodutos de aprendizagem automática com Azure Machine Learning SDK
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, aprende-se a criar e executar um [oleoduto de aprendizagem automática](concept-ml-pipelines.md) utilizando o [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Utilize **gasodutos ML** para criar um fluxo de trabalho que cosa várias fases ML. Em seguida, publique o oleoduto para mais tarde aceder ou partilhar com outros. Rastreia os oleodutos ML para ver como o seu modelo está a funcionar no mundo real e para detetar a deriva de dados. Os oleodutos ML são ideais para cenários de pontuação de lotes, utilizando vários cálculos, reutilizando passos em vez de os reexame, bem como partilhando fluxos de trabalho ML com outros.
 
@@ -355,10 +355,10 @@ Veja a lista de todos os seus oleodutos e os seus detalhes de execução no est�
 
 Quando se inicia uma corrida de treinamento onde o diretório de origem é um repositório local de Git, a informação sobre o repositório é armazenada na história da execução. Para obter mais informações, consulte [a integração do Git para a Azure Machine Learning.](concept-train-model-git-integration.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para partilhar o seu oleoduto com colegas ou clientes, consulte [os pipelines de machine learning da Publish](how-to-deploy-pipelines.md)
 - Use [estes cadernos Jupyter no GitHub](https://aka.ms/aml-pipeline-readme) para explorar ainda mais os oleodutos de aprendizagem automática
 - Consulte a ajuda de referência SDK para o pacote [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) e o pacote [de passos de gasodutos azureml](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true)
 - Consulte o ["how-to"](how-to-debug-pipelines.md) para obter dicas sobre depuração e resolução de problemas de gasodutos=
-- Saiba como executar cadernos seguindo o artigo [Use os cadernos Jupyter para explorar este serviço.](samples-notebooks.md)
+- Saiba como executar blocos de notas ao seguir o artigo [Utilizar blocos de notas Jupyter para explorar este serviço](samples-notebooks.md).

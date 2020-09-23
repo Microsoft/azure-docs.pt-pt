@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 8bf9bb172d559dbb1f92b376b60a914ec24769d1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 265bc1bb86c7fe8424656aa9adb30ddbe847e6fc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948251"
+ms.locfileid: "90985658"
 ---
 # <a name="what-is-the-azure-stack-edge-pro-r"></a>O que é o Azure Stack Edge Pro R?
 
-O Azure Stack Edge Pro R é uma solução de hardware-as-a-service. A Microsoft envia-lhe um dispositivo de borda portátil durável, robusto e robusto para a transferência de dados da rede para o Azure. Equipados com uma Unidade de Processamento Gráfico (GPU), estes dispositivos são otimizados para IA, análise e computação sem servidor. Os dispositivos acidentados são adequados para serem utilizados nos ambientes mais severos.
+O Azure Stack Edge Pro R é uma solução de hardware-as-a-service. A Microsoft envia-lhe um dispositivo de ponta durável, robusto, de ponta para a transferência de dados da rede para o Azure. Equipados com uma Unidade de Processamento Gráfico (GPU), estes dispositivos são otimizados para IA, análise e computação sem servidor. Os dispositivos acidentados são adequados para serem utilizados em ambientes agressivos.
 
 Este artigo fornece-lhe uma visão geral da solução Azure Stack Edge Pro R, capacidades-chave e os cenários onde pode implementar este dispositivo.
 
@@ -28,13 +28,13 @@ Azure Stack Edge Pro R tem as seguintes capacidades:
 
 |Funcionalidade |Descrição  |
 |---------|---------|
-|Hardware robusto e portátil| Hardware de classe de servidor robusto de 85 lb projetado para ambientes mais severos. Dispositivo portátil numa caixa de transporte de 2 pessoas. |
+|Hardware acidentado| Hardware de classe de servidor acidentado projetado para ambientes agressivos. Dispositivo portátil numa caixa de transporte de 2 pessoas. |
 |Gerido em nuvem     |O dispositivo e o serviço são geridos através do portal Azure.|
 |Cargas de trabalho de cálculo de borda   |Permite a análise, o processamento e a filtragem de dados. Suporta VMs e cargas de trabalho contentorizadas.|
 |Inferencing acelerado da IA| Habilitado por um GPU Nvidia T4.|
 |Elevado desempenho | Computação de alto desempenho e transferências de dados.|
 |Acesso a dados     | Direcione o acesso aos dados de Blobs de Armazenamento do Azure e Ficheiros do Azure através de APIs da cloud para processamento adicional de dados na cloud. A cache local do dispositivo é utilizada para o acesso rápido de ficheiros mais utilizados recentemente.|
-|Modo desligado| O dispositivo e o serviço podem ser geridos opcionalmente através do Azure Stack. <br> Implementar, executar, gerir aplicações em modo offline. <br> O modo desligado suporta cenários de carregamento offline.|
+|Modo desligado| O dispositivo e o serviço podem ser geridos opcionalmente através do Azure Stack Hub. Implementar, executar, gerir aplicações em modo offline. <br> O modo desligado suporta cenários de carregamento offline.|
 |Protocolos suportados     |Suporte para protocolos padrão SMB, NFS e REST para ingestão de dados. <br> Para obter mais informações sobre versões suportadas, aceda aos [requisitos do sistema Azure Stack Edge Pro R](azure-stack-edge-gpu-system-requirements.md).|
 |Atualização de dados     | Capacidade de atualizar os ficheiros locais com a versão mais recente da cloud.|
 |Encriptação dupla    | O uso de unidades auto-encriptadas fornece a primeira camada de encriptação. A VPN fornece a segunda camada de encriptação. Suporte bitLocker para encriptar dados localmente e proteger transferência de dados para cloud em *https* .|
@@ -81,5 +81,5 @@ Dispositivo físico Azure Stack Edge Pro R, recurso Azure e conta de armazenamen
 ## <a name="next-steps"></a>Passos seguintes
 
 - Reveja os requisitos do [sistema Azure Stack Edge Pro R](azure-stack-edge-gpu-system-requirements.md).
-- Compreenda os [limites Azure Stack Edge Pro R](azure-stack-edge-limits.md).
+<!--- Understand the [Azure Stack Edge Pro R limits](azure-stack-edge-limits.md).-->
 

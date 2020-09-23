@@ -10,15 +10,15 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 402eaec50d273c4d8d9215f53fa433d0db4332e8
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 1af5ab33497ad8694752db17e874b883e60c942c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649918"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906665"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutorial: Modelos de classificação de imagem de comboio com dados do MNIST e scikit-learn 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste tutorial, treina-se um modelo de aprendizagem automática em recursos de computação remota. Você usará o fluxo de trabalho de treino e implantação para Azure Machine Learning em um caderno Python Jupyter.  Depois, pode utilizar o bloco de notas como um modelo para preparar o seu próprio modelo de machine learning com os seus dados. Este tutorial é a **primeira parte de uma série composta por duas partes**.  
 
@@ -451,7 +451,7 @@ Também pode eliminar apenas o cluster Azure Machine Learning Compute. No entant
 compute_target.delete()
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial de Aprendizagem automática Azure, utilizou Python para as seguintes tarefas:
 

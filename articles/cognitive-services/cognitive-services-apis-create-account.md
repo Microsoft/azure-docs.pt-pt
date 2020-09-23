@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: aahi
-ms.openlocfilehash: a28a8f22a8aa20612a177d88fd99a66660c74618
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 079ab59652c9ba709d8476c33a538b1d4a9f4846
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607552"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907015"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Criar um recurso de Serviços Cognitivos utilizando o portal Azure
 
@@ -53,12 +53,12 @@ Utilize este quickstart para começar a utilizar os Serviços Cognitivos Azure. 
 
     Utilize os links abaixo para criar um recurso para os Serviços Cognitivos disponíveis:
 
-    | Visão                      | Voz                  | Idioma                          | Decisão             | Pesquisa                 |
+    | Visão                      | Voz                  | Idioma                          | Decisão             | Pesquisar                 |
     |-----------------------------|-------------------------|-----------------------------------|----------------------|------------------------|
     | [Visão computacional](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)         | [Serviços de Fala](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)     | [Leitor imersivo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesImmersiveReader)              | [Detetor de Anomalias](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) | [Bing Search API V7](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7) |
     | [Serviço de visão personalizado](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision) | [Reconhecimento de Orador](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeakerRecognition) | [Compreensão de Idiomas (LUIS)](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) | [Content Moderator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator) | [Pesquisa Personalizada do Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingCustomSearch) |
     | [Face](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [Criador de FAQ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personalizador](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     | [Pesquisa de Entidades do Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingEntitySearch) |
-    | [Reconhecedor de Tinta Digital](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Análise de Texto](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |                      | [Verificação Ortográfica do Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
+    | [Reconhecedor de Tinta Digital](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Análise de Texto](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Assistente de Métricas](https://go.microsoft.com/fwlink/?linkid=2142156)                    | [Verificação Ortográfica do Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
     |           |                         | [Tradutor](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Sugestão Automática do Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
     ***
 
@@ -76,7 +76,7 @@ Utilize este quickstart para começar a utilizar os Serviços Cognitivos Azure. 
 
     ![Tela de criação de recursos](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
 
-    Clique em **Criar**.
+    Clique em **Create** (Criar).
 
     #### <a name="single-service-resource"></a>[Recurso de serviço único](#tab/singleservice)
 
@@ -88,9 +88,9 @@ Utilize este quickstart para começar a utilizar os Serviços Cognitivos Azure. 
     | **Escalão de preço** | O custo da sua conta de Serviços Cognitivos depende das opções que escolher e da sua utilização. Para mais informações, consulte os [detalhes dos preços da](https://azure.microsoft.com/pricing/details/cognitive-services/)API.
     | **Grupo de recursos** | O grupo de recursos Azure que conterá o seu recurso de Serviços Cognitivos. Pode criar um novo grupo ou adicioná-lo a um grupo pré-existente. |
 
-    ![Tela de criação de recursos](media/cognitive-services-apis-create-account/resource_create_screen.png)
+    ![Tela de criação de recursos únicos](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
-    Clique em **Criar**.
+    Clique em **Create** (Criar).
 
     ***
 
@@ -108,7 +108,7 @@ Utilize este quickstart para começar a utilizar os Serviços Cognitivos Azure. 
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos contidos no grupo.
 

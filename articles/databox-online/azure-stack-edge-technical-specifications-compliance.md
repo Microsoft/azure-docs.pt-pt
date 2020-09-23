@@ -1,6 +1,6 @@
 ---
-title: Especificações técnicas e conformidade do Microsoft Azure Stack Edge Microsoft Docs
-description: Conheça as especificações técnicas e a conformidade para o seu Azure Stack Edge
+title: Especificações técnicas e conformidade do Microsoft Azure Stack Edge Pro Microsoft Docs
+description: Conheça as especificações técnicas e a conformidade com o Azure Stack Edge Pro
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,20 +8,20 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 5a4ac2342ca36d83d1a579851c090c4713814c8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91aa386311452ae08ead2b8eac9005b2c730f3f3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83652050"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883449"
 ---
-# <a name="azure-stack-edge-technical-specifications"></a>Especificações técnicas do Azure Stack Edge
+# <a name="azure-stack-edge-pro-technical-specifications"></a>Especificações técnicas Azure Stack Edge Pro
 
-Os componentes de hardware do seu dispositivo Microsoft Azure Stack Edge aderem às especificações técnicas e padrões regulamentares descritos neste artigo. As especificações técnicas descrevem as unidades de alimentação de energia (PSUs), capacidade de armazenamento, recintos e normas ambientais.
+Os componentes de hardware do seu dispositivo Microsoft Azure Stack Edge Pro aderem às especificações técnicas e padrões regulamentares descritos neste artigo. As especificações técnicas descrevem as unidades de alimentação de energia (PSUs), capacidade de armazenamento, recintos e normas ambientais.
 
 ## <a name="compute-memory-specifications"></a>Computação, especificações de memória
 
-O dispositivo Azure Stack Edge tem as seguintes especificações para cálculo e memória:
+O dispositivo Azure Stack Edge Pro tem as seguintes especificações para cálculo e memória:
 
 | Especificação           | Valor                  |
 |-------------------------|----------------------------|
@@ -30,7 +30,7 @@ O dispositivo Azure Stack Edge tem as seguintes especificações para cálculo e
 
 ## <a name="fpga-specifications"></a>Especificações da FPGA
 
-Um Field Programmable Gate Array (FPGA) está incluído em todos os dispositivos Azure Stack Edge que permite cenários de Machine Learning (ML).
+Um Field Programmable Gate Array (FPGA) está incluído em todos os dispositivos Azure Stack Edge Pro que permite cenários de Machine Learning (ML).
 
 | Especificação           | Valor                  |
 |-------------------------|----------------------------|
@@ -38,27 +38,27 @@ Um Field Programmable Gate Array (FPGA) está incluído em todos os dispositivos
 
 ## <a name="power-supply-unit-specifications"></a>Especificações da unidade de alimentação
 
-O dispositivo Azure Stack Edge tem duas unidades de alimentação de 100-240 V (PSUs) com ventiladores de alto desempenho. As duas PSUs fornecem uma configuração de potência redundante. Se uma PSU falhar, o dispositivo continua a funcionar normalmente na outra PSU até que o módulo falhado seja substituído. A tabela que se segue enumera as especificações técnicas das PSUs.
+O dispositivo Azure Stack Edge Pro tem duas unidades de alimentação de 100-240 V (PSUs) com ventiladores de alto desempenho. As duas PSUs fornecem uma configuração de potência redundante. Se uma PSU falhar, o dispositivo continua a funcionar normalmente na outra PSU até que o módulo falhado seja substituído. A tabela que se segue enumera as especificações técnicas das PSUs.
 
 | Especificação           | 750 W PSU                  |
 |-------------------------|----------------------------|
 | Potência máxima de saída    | 750 W                     |
 | Frequência               | 50/60 Hz                   |
 | Seleção de gama de tensão | Variação automática: 100-240 V AC |
-| Pluggável quente           | Sim                        |
+| Pluggável quente           | Yes                        |
 
-### <a name="azure-stack-edge-power-cord-specifications-by-region"></a>Especificações do cabo de alimentação Azure Stack Edge por região
+### <a name="azure-stack-edge-pro-power-cord-specifications-by-region"></a>Especificações do cabo de alimentação Azure Stack Edge Pro por região
 
-O seu dispositivo Azure Stack Edge necessita de um cabo de alimentação que varia consoante a sua região Azure.
-Para especificações técnicas de todos os cabos de alimentação suportados, consulte [as especificações do cabo de alimentação Azure Stack Edge por região](azure-stack-edge-technical-specifications-power-cords-regional.md).
+O seu dispositivo Azure Stack Edge Pro necessita de um cabo de alimentação que varia consoante a sua região Azure.
+Para especificações técnicas de todos os cabos de alimentação suportados, consulte [as especificações do cabo de alimentação Azure Stack Edge Pro por região](azure-stack-edge-technical-specifications-power-cords-regional.md).
 
 <!--## Power consumption statistics
 
-The following table lists the typical power consumption data (actual values may vary from the published) for the Azure Stack Edge device.-->
+The following table lists the typical power consumption data (actual values may vary from the published) for the Azure Stack Edge Pro device.-->
 
 ## <a name="network-interface-specifications"></a>Especificações de interface de rede
 
-O seu dispositivo Azure Stack Edge tem 6 interfaces de rede, PORT1-PORT6.
+O seu dispositivo Azure Stack Edge Pro tem 6 interfaces de rede, PORT1-PORT6.
 
 | Especificação           | Descrição                 |
 |-------------------------|----------------------------|
@@ -66,7 +66,7 @@ O seu dispositivo Azure Stack Edge tem 6 interfaces de rede, PORT1-PORT6.
 
 ## <a name="storage-specifications"></a>Especificações de armazenamento
 
-Os dispositivos Azure Stack Edge têm SSDS NVMe de 9 X 2,5", cada um com uma capacidade de 1.6 TB. Destes SSDs, 1 é um disco do sistema operativo, e os outros 8 são discos de dados. A capacidade total utilizável para o dispositivo é de aproximadamente 12,5 TB. A tabela seguinte tem os detalhes para a capacidade de armazenamento do dispositivo.
+Os dispositivos Azure Stack Edge Pro têm SSDS NVMe de 9 X 2,5", cada um com uma capacidade de 1.6 TB. Destes SSDs, 1 é um disco do sistema operativo, e os outros 8 são discos de dados. A capacidade total utilizável para o dispositivo é de aproximadamente 12,5 TB. A tabela seguinte tem os detalhes para a capacidade de armazenamento do dispositivo.
 
 |     Especificação                          |     Valor             |
 |--------------------------------------------|-----------------------|
@@ -87,16 +87,16 @@ A tabela que se segue lista as dimensões do recinto em milímetros e polegadas.
 
 |     Recinto     |     Milímetros     |     Centímetros     |
 |-------------------|---------------------|----------------|
-|    Altura         |    44.45            |    1.75"          |
-|    Largura          |    434.1           |    17.09"          |
+|    Height         |    44.45            |    1.75"          |
+|    Width          |    434.1           |    17.09"          |
 |    Comprimento          |    740.4           |    29.15"          |
 
 A tabela que se segue lista as dimensões do pacote de transporte em milímetros e polegadas.
 
 |     Pacote     |     Milímetros     |     Centímetros     |
 |-------------------|---------------------|----------------|
-|    Altura         |    311.2            |    12.25"          |
-|    Largura          |    642.8          |    25.31"          |
+|    Height         |    311.2            |    12.25"          |
+|    Width          |    642.8          |    25.31"          |
 |    Comprimento          |   1,051.1          |    41.38"          |
 
 ### <a name="enclosure-weight"></a>Peso do recinto
@@ -144,6 +144,6 @@ Esta secção enumera as especificações relacionadas com o ambiente do recinto
 |    35°C a 40°C (95°F a 104°F)            |    A temperatura máxima é reduzida em 1°C/175 m (1°F/319 pés) acima de 950 m (3.117 pés).    |
 |    40°C a 45°C (104°F a 113°F)           |    A temperatura máxima é reduzida em 1°C/125 m (1°F/228 ft) acima de 950 m (3.117 pés).    |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Implemente o seu Azure Stack Edge](azure-stack-edge-deploy-prep.md)
+- [Implemente o seu Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)

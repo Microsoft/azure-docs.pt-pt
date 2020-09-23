@@ -10,15 +10,15 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 8d5a8555b2bd57dc024318464e38f042469beb4b
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: faf2257f944127748569466d314ff0a76faae4f0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458676"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906737"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Tutorial: Use R para criar um modelo de aprendizagem automática (pré-visualização)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 > [!IMPORTANT]
 > O Azure Machine Learning R SDK está atualmente em pré-visualização pública.
@@ -28,7 +28,7 @@ Neste tutorial você usará o Azure Machine Learning R SDK (pré-visualização)
 
 Neste tutorial, vai realizar as seguintes tarefas:
 > [!div class="checklist"]
-> * Criar um espaço de trabalho para aprendizagem de máquinas Azure
+> * Criar uma área de trabalho do Azure Machine Learning
 > * Abra o RStudio do seu espaço de trabalho
 > * Clone https://github.com/Azure/azureml-sdk-for-r os ficheiros necessários para executar este tutorial no seu espaço de trabalho
 > * Carregar dados e preparar-se para a formação
@@ -341,7 +341,7 @@ aci_service <- deploy_model(ws,
 wait_for_deployment(aci_service, show_output = TRUE)
 ```
 
-## <a name="test-the-deployed-service"></a>Teste o serviço implantado
+## <a name="test-the-deployed-service"></a>Testar o serviço implementado
 
 Agora que o seu modelo é implantado como um serviço, pode testar o serviço a partir de R utilizando [`invoke_webservice()`](https://azure.github.io/azureml-sdk-for-r/reference/invoke_webservice.html) .  Forneça um novo conjunto de dados para prever, convertê-lo para JSON, e enviá-lo para o serviço.
 

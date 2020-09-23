@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 08/17/2020
-ms.openlocfilehash: 977082b7f9055b90ee5c93913154934741d93772
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1a16283f3d04c9ad331a04c3a36b49055635d76e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547703"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906491"
 ---
 # <a name="quickstart-create-a-hyperscale-citus-server-group-in-the-azure-portal"></a>Quickstart: criar um grupo de servidores Hyperscale (Citus) no portal Azure
 
@@ -130,7 +130,7 @@ SELECT gu.login, count(*)
  ORDER BY count(*) DESC;
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Nos passos anteriores, criou recursos Azure num grupo de servidores. Se não espera precisar destes recursos no futuro, elimine o grupo de servidores. Prima o botão **Eliminar** na página **'Vista Geral'** para o seu grupo de servidor. Quando solicitado numa página pop-up, confirme o nome do grupo de servidor e clique no botão final **eliminar.**
 
@@ -138,6 +138,5 @@ Nos passos anteriores, criou recursos Azure num grupo de servidores. Se não esp
 
 Neste arranque rápido, aprendeu a providenciar um grupo de servidores Hyperscale (Citus). Ligou-se a ele com o PSQL, criou um esquema e distribuiu dados.
 
-Em seguida, siga um tutorial para construir aplicações escaláveis de multi-inquilinos.
-> [!div class="nextstepaction"]
-> [Desenhe uma base de dados multi-inquilinos](https://aka.ms/hyperscale-tutorial-multi-tenant)
+- Siga um tutorial para [construir aplicações escaláveis de multi-inquilinos](https://aka.ms/hyperscale-tutorial-multi-tenant)
+- Determine o melhor [tamanho inicial](howto-hyperscale-scaling.md#picking-initial-size) para o seu grupo de servidor

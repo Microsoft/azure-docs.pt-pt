@@ -11,16 +11,16 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 08529d1bb50a1a5d5b3c7d0296aa36f021f45e98
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ddc8186e85001a2a3ed2ed9f57b8f025133ef16a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646092"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897778"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Publicar e rastrear gasodutos de aprendizagem de máquinas
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Este artigo irá mostrar-lhe como partilhar um oleoduto de aprendizagem automática com os seus colegas ou clientes.
 
@@ -152,7 +152,7 @@ p.disable()
 
 Pode voltar a ative-lo com `p.enable()` . Para mais informações, consulte a referência [da classe PublishedPipeline.](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py&preserve-view=true)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Use [estes cadernos Jupyter no GitHub](https://aka.ms/aml-pipeline-readme) para explorar ainda mais os oleodutos de aprendizagem automática.
 - Consulte a ajuda de referência SDK para o pacote [de núcleo de gasodutos azureml](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) e o pacote [de passos de gasodutos azureml.](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true)

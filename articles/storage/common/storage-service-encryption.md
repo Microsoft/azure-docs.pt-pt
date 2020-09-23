@@ -4,17 +4,17 @@ description: O Azure Storage protege os seus dados encriptando-os automaticament
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 08/24/2020
+ms.date: 09/17/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: e949c3db6d8c0cafab8556dbfde367e6e49273e9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 19f0027b506b78ef81f9acc25a94ef9ab74643e2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078202"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985755"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage encryption for data at rest (Encriptação do Armazenamento do Azure para dados inativos)
 
@@ -38,8 +38,8 @@ Para obter informações sobre encriptação e gestão de chaves para discos ger
 
 Os dados de uma nova conta de armazenamento são encriptados com as chaves geridas pela Microsoft por padrão. Pode continuar a confiar nas chaves geridas pela Microsoft para a encriptação dos seus dados, ou pode gerir a encriptação com as suas próprias chaves. Se optar por gerir a encriptação com as suas próprias chaves, tem duas opções. Pode utilizar qualquer tipo de gestão de chaves, ou ambos:
 
-- Pode especificar uma *chave gerida pelo cliente* com o Azure Key Vault para usar para encriptar e desencriptar dados no armazenamento blob e nos Ficheiros Azure. <sup>1,2</sup> Para obter mais informações sobre as chaves geridas pelo cliente, consulte [utilize as teclas geridas pelo cliente com o Cofre da Chave Azure para gerir a encriptação do Armazenamento Azure](encryption-customer-managed-keys.md).
-- Pode especificar uma *chave fornecida pelo cliente* nas operações de armazenamento Blob. Um cliente que faça um pedido de leitura ou escrita contra o armazenamento blob pode incluir uma chave de encriptação no pedido de controlo granular sobre como os dados blob são encriptados e desencriptados. Para obter mais informações sobre as chaves fornecidas pelo cliente, consulte fornecer uma chave de [encriptação sobre um pedido de armazenamento Blob](encryption-customer-provided-keys.md).
+- Pode especificar uma *chave gerida pelo cliente* para encriptar e desencriptar dados no armazenamento blob e nos Ficheiros Azure. <sup>1,2</sup> As chaves geridas pelo cliente devem ser armazenadas no Cofre da Chave Azure ou no Modelo de Segurança Gerido do Cofre do Cofre de Azure Key (HSM) (pré-visualização). Para obter mais informações sobre as teclas geridas pelo cliente, consulte [as chaves geridas pelo cliente para encriptação de armazenamento Azure](encryption-customer-managed-keys.md).
+- Pode especificar uma *chave fornecida pelo cliente* nas operações de armazenamento Blob. Um cliente que faça um pedido de leitura ou escrita contra o armazenamento blob pode incluir uma chave de encriptação no pedido de controlo granular sobre como os dados blob são encriptados e desencriptados. Para obter mais informações sobre as chaves fornecidas pelo cliente, consulte fornecer uma chave de [encriptação sobre um pedido de armazenamento Blob](../blobs/encryption-customer-provided-keys.md).
 
 A tabela seguinte compara as opções de gestão chave para a encriptação do Azure Storage.
 
@@ -47,7 +47,7 @@ A tabela seguinte compara as opções de gestão chave para a encriptação do A
 |--|--|--|--|
 | Operações de encriptação/desencriptação | Azure | Azure | Azure |
 | Serviços de Armazenamento Azure apoiados | Todos | Armazenamento blob, Ficheiros Azure<sup>1,2</sup> | Armazenamento de blobs |
-| Armazenamento de chaves | Loja de chaves da Microsoft | Azure Key Vault | Loja chave do próprio cliente |
+| Armazenamento de chaves | Loja de chaves da Microsoft | Cofre de chave Azure ou Cofre de Chaves HSM | Loja chave do próprio cliente |
 | Responsabilidade de rotação chave | Microsoft | Cliente | Cliente |
 | Controlo de chaves | Microsoft | Cliente | Cliente |
 
@@ -56,6 +56,14 @@ A tabela seguinte compara as opções de gestão chave para a encriptação do A
 
 > [!NOTE]
 > As teclas geridas pela Microsoft são giradas adequadamente de acordo com os requisitos de conformidade. Se tiver requisitos específicos de rotação de chaves, a Microsoft recomenda que se mude para as chaves geridas pelo cliente para que possa gerir e auditar a rotação por si mesmo.
+
+## <a name="doubly-encrypt-data-with-infrastructure-encryption"></a>Criptografe duplamente os dados com encriptação da infraestrutura
+
+Os clientes que necessitam de elevados níveis de garantia de que os seus dados são seguros também podem permitir uma encriptação AES de 256 bits ao nível da infraestrutura de armazenamento Azure. Quando a encriptação da infraestrutura é ativada, os dados numa conta de armazenamento são encriptados duas vezes &mdash; ao nível do serviço e uma ao nível da infraestrutura &mdash; com dois algoritmos de encriptação diferentes e duas teclas diferentes. A dupla encriptação dos dados do Azure Storage protege contra um cenário em que um dos algoritmos ou chaves de encriptação pode estar comprometido. Neste cenário, a camada adicional de encriptação continua a proteger os seus dados.
+
+A encriptação de nível de serviço suporta a utilização de chaves geridas pela Microsoft ou chaves geridas pelo cliente com o Azure Key Vault. A encriptação ao nível da infraestrutura baseia-se em chaves geridas pela Microsoft e utiliza sempre uma chave separada.
+
+Para obter mais informações sobre como criar uma conta de armazenamento que permita encriptação de infraestrutura, consulte [Criar uma conta de armazenamento com encriptação de infraestrutura ativada para dupla encriptação de dados](infrastructure-encryption-enable.md).
 
 ## <a name="encryption-scopes-for-blob-storage-preview"></a>Âmbitos de encriptação para armazenamento blob (pré-visualização)
 
@@ -102,6 +110,5 @@ Se o seu âmbito de encriptação estiver protegido com chaves geridas pelo clie
 ## <a name="next-steps"></a>Passos seguintes
 
 - [O que é o Azure Key Vault?](../../key-vault/general/overview.md)
-- [Configurar chaves geridas pelo cliente para a encriptação do Armazenamento do Microsoft Azure no portal do Azure](storage-encryption-keys-portal.md)
-- [Configurar chaves geridas pelo cliente para a encriptação do Armazenamento do Microsoft Azure no PowerShell](storage-encryption-keys-powershell.md)
-- [Configurar chaves geridas pelo cliente para a encriptação do Armazenamento do Microsoft Azure na CLI do Azure](storage-encryption-keys-cli.md)
+- [Chaves geridas pelo cliente para encriptação de armazenamento Azure](customer-managed-keys-overview.md)
+- [Âmbitos de encriptação para armazenamento blob (pré-visualização)](../blobs/encryption-scope-overview.md)

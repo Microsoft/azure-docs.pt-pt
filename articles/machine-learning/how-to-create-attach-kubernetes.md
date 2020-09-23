@@ -11,15 +11,14 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: cac14d5995042847bc98e47e50ea2d188382fd2a
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 034fbf991c97ba7b9f51b5508c35df1889280562
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564343"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897886"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Criar e anexar um cluster de serviço Azure Kubernetes
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 A Azure Machine Learning pode implementar modelos de aprendizagem automática treinados para o Serviço Azure Kubernetes. No entanto, primeiro deve __criar__ um cluster Azure Kubernetes Service (AKS) a partir do seu espaço de trabalho Azure ML ou __anexar__ um cluster AKS existente. Este artigo fornece informações sobre a criação e anexação de um cluster.
 

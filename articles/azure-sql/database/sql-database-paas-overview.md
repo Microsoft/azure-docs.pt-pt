@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
-ms.date: 04/08/2019
-ms.openlocfilehash: 9ee4070562e44d4f560230fa2fd069eb1fd57932
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.reviewer: ''
+ms.date: 09/21/2020
+ms.openlocfilehash: 38f52178ec9c736f3ee51839678401753365d48d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612084"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907053"
 ---
 # <a name="what-is-azure-sql-database"></a>O que é a Base de Dados SQL do Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -114,7 +114,7 @@ As Zonas de Disponibilidade Azure tentam proteger-se contra a interrupção de u
 
 De facto, o acordo de nível de serviço [(SLA)](https://azure.microsoft.com/support/legal/sla/) da Azure, alimentado por uma rede global de datacenters geridos pela Microsoft, ajuda a manter a sua aplicação a funcionar 24 horas por dia. A plataforma Azure gere totalmente todas as bases de dados, e garante nenhuma perda de dados e uma elevada percentagem de disponibilidade de dados. O Azure lida automaticamente com patching, backups, replicação, deteção de falhas, potenciais falhas de hardware, software ou rede subjacentes, implementando correções de bugs, falhas, atualizações de bases de dados e outras tarefas de manutenção. A disponibilidade standard é conseguida por uma separação das camadas de armazenamento e computação. A disponibilidade premium é conseguida através da integração do computação e armazenamento num único nó para o desempenho e, em seguida, implementando tecnologia semelhante a Always On Availability Groups. Para uma discussão completa sobre as elevadas capacidades de disponibilidade da Base de Dados Azure SQL, consulte [a disponibilidade da Base de Dados SQL](high-availability-sla.md). 
 
-Além disso, a SQL Database fornece funcionalidades de continuidade de negócios incorporadas e de [escalabilidade global.](business-continuity-high-availability-disaster-recover-hadr-overview.md) Incluem-se:
+Além disso, a SQL Database fornece funcionalidades de continuidade de negócios incorporadas e de [escalabilidade global.](business-continuity-high-availability-disaster-recover-hadr-overview.md) Estes incluem:
 
 - [Backups automáticos:](automated-backups-overview.md)
 
@@ -165,11 +165,8 @@ A Base de Dados SQL proporciona um conjunto de [funcionalidades de segurança e 
 
 ### <a name="advance-threat-protection"></a>Proteção de ameaças antecipadas
 
-A segurança avançada dos dados é um pacote unificado para capacidades avançadas de segurança SQL. Inclui funcionalidades para descobrir e classificar dados sensíveis, gerir as vulnerabilidades da sua base de dados e detetar atividades anómalas que possam indicar uma ameaça à sua base de dados. Fornece uma única localização para ativar e gerir estas capacidades.
+O Azure Defender for SQL é um pacote unificado para capacidades avançadas de segurança SQL. Inclui funcionalidades para gerir as vulnerabilidades da sua base de dados e detetar atividades anómalas que possam indicar uma ameaça à sua base de dados. Fornece uma única localização para ativar e gerir estas capacidades.
 
-- [Descoberta e classificação de dados:](data-discovery-and-classification-overview.md)
-
-  Esta funcionalidade fornece capacidades incorporadas na Base de Dados Azure SQL para descobrir, classificar, rotular e proteger os dados sensíveis nas suas bases de dados. Fornece visibilidade no estado de classificação da sua base de dados e rastreia o acesso a dados sensíveis dentro da base de dados e além das suas fronteiras.
 - [Avaliação da vulnerabilidade:](sql-vulnerability-assessment.md)
 
   Este serviço pode descobrir, rastrear e ajudá-lo a corrigir potenciais vulnerabilidades de base de dados. Fornece visibilidade sobre o seu estado de segurança e inclui passos acionáveis para resolver problemas de segurança e melhorar as defesas da sua base de dados.
@@ -185,6 +182,10 @@ A segurança avançada dos dados é um pacote unificado para capacidades avança
 
 A Base de Dados SQL ajuda a proteger os dados ao proporcionar a encriptação. Para os dados em movimento, utiliza [a segurança da camada de transporte.](https://support.microsoft.com/kb/3135244) Para dados em repouso, utiliza [encriptação de dados transparentes.](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) Para os dados utilizados, utiliza [Sempre Encriptado](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine).
 
+### <a name="data-discovery-and-classification"></a>Deteção e classificação de dados
+
+[A descoberta e classificação](data-discovery-and-classification-overview.md) de dados fornece capacidades incorporadas na Base de Dados Azure SQL para descobrir, classificar, rotular e proteger os dados sensíveis nas suas bases de dados. Fornece visibilidade no estado de classificação da sua base de dados e rastreia o acesso a dados sensíveis dentro da base de dados e além das suas fronteiras.
+
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e a autenticação multifator
 
 A Base de Dados SQL permite-lhe gerir centralmente identidades de utilizadores de bases de dados e outros serviços Microsoft com a [integração do Azure Active Directory](authentication-aad-overview.md). Esta capacidade simplifica a gestão de permissões e melhora a segurança. O Azure Ative Directory suporta a [autenticação de vários fatores](authentication-mfa-ssms-overview.md) para aumentar a segurança de dados e aplicações, ao mesmo tempo que suporta um único processo de inscrição.
@@ -196,8 +197,8 @@ Com a Base de Dados SQL, criar e manter aplicações é mais fácil e produtivo.
 |Ferramenta|Descrição|
 |:---|:---|
 |[O portal do Azure](https://portal.azure.com/)|Uma aplicação baseada na web para gerir todos os serviços Azure.|
-|[Azure Data Studio](/sql/azure-data-studio/)|Uma ferramenta de base de dados transversal que funciona no Windows, MacOS e Linux.|
-|[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|Uma aplicação gratuita e transferível para o cliente para gerir qualquer infraestrutura SQL, desde o SQL Server até à BASE de Dados SQL.|
+|[Azure Data Studio](/sql/azure-data-studio/)|Uma ferramenta de base de dados transversal que funciona no Windows, macOS e Linux.|
+|[O SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|Uma aplicação gratuita e transferível para o cliente para gerir qualquer infraestrutura SQL, desde o SQL Server até à BASE de Dados SQL.|
 |[Ferramentas de dados do servidor SQL no Estúdio Visual](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|Uma aplicação gratuita e transferível para o cliente para o desenvolvimento de bases de dados relacionais do SQL Server, bases de dados na Base de Dados Azure SQL, pacotes de Serviços de Integração, modelos de dados de serviços de análise e relatórios de Serviços de Relatórios.|
 |[Visual Studio Code](https://code.visualstudio.com/docs)|Um editor de código gratuito, transferível e aberto para Windows, macOS e Linux. Suporta extensões, incluindo a [extensão mssql](https://aka.ms/mssql-marketplace) para consulta do Microsoft SQL Server, Azure SQL Database e Azure Azure Synapse Analytics (anteriormente SQL Data Warehouse).|
 
@@ -221,7 +222,7 @@ Não. O impacto do patching geralmente não é percetível se [você empregar a 
 - [Feedback](https://aka.ms/sqlfeedback): Reportar bugs e funcionalidades de pedido.
 - [Reddit](https://www.reddit.com/r/SQLServer/): Discuta o SQL Server.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte [a página de preços](https://azure.microsoft.com/pricing/details/sql-database/) para comparações de custos e calculadoras relativas a bases de dados individuais e piscinas elásticas.
 - Veja estes quickstarts para começar:

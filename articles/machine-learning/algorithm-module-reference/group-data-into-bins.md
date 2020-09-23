@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: d3a9f88325f03d0252adf51c5bf221b131d7d33b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de9f4517d134b4a42603291110c6b19f69403412
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751726"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907031"
 ---
 # <a name="group-data-into-bins-module"></a>Dados do grupo no módulo Bins
 
-Este artigo descreve como utilizar o módulo De Dados do Grupo em Bins no designer de Aprendizagem automática Azure (pré-visualização), para agrupar números ou alterar a distribuição de dados contínuos.
+Este artigo descreve como utilizar o módulo De Dados do Grupo em Bins no designer de Machine Learning Azure, para agrupar números ou alterar a distribuição de dados contínuos.
 
 O módulo Des de Grupo em Bins suporta múltiplas opções para a recolha de dados. Pode personalizar como as bordas do caixote estão definidas e como os valores são distribuídos nos caixotes. Por exemplo, pode:  
 
@@ -50,7 +50,7 @@ Como há tantas formas de agrupar dados, todos personalizáveis, recomendamos qu
 
 ## <a name="how-to-configure-group-data-into-bins"></a>Como configurar dados do grupo em bins
 
-1. Adicione o módulo **de dados de grupo em caixas** ao seu pipeline no designer (pré-visualização). Pode encontrar este módulo na categoria Transformação de **Dados.**
+1. Adicione o módulo **de dados de grupo em bins** ao seu pipeline no designer. Pode encontrar este módulo na categoria Transformação de **Dados.**
 
 2. Ligue o conjunto de dados que tem dados numéricos ao caixote do lixo. A quantificação só pode ser aplicada a colunas que contenham dados numéricos. 
 
@@ -114,6 +114,6 @@ Também devolve uma *transformação de binário.* Esta função pode ser transm
 > 
 > Para garantir que os dados são sempre transformados utilizando o mesmo método de binário, recomendamos que guarde transformações de dados úteis. Em seguida, aplique-os a outros conjuntos de dados utilizando o módulo [De Transformação De Aplicar.](apply-transformation.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

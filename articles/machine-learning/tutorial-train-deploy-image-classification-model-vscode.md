@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 07/09/2020
 ms.custom: contperfq4
-ms.openlocfilehash: 7d209b3434eae20b4c9a7b328f5c15032315b178
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a13bec5fa557bed1b9ce84836588e6a3e501ddf5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203546"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906691"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Treine e implemente um modelo de classificação de imagem TensorFlow utilizando a extensão do código do estúdio visual de aprendizagem visual Azure Machine Learning (pré-visualização)
 
@@ -61,7 +61,7 @@ A primeira coisa que tem de fazer para construir uma aplicação no Azure Machin
 1. Selecione **Criar um novo grupo de recursos.** 
 1. Nomeie o seu grupo de recursos "TeamWorkspace-rg" e prima **Enter**. 
 1. Escolha um local para o seu espaço de trabalho. Recomenda-se escolher um local mais próximo do local que pretende implementar o seu modelo. Por exemplo, "West US 2".
-1. Quando solicitado para selecionar o tipo de espaço de trabalho, selecione **Basic** para criar um espaço de trabalho básico. Para obter mais informações sobre diferentes ofertas de espaço de trabalho, consulte [a visão geral da Azure Machine Learning](./overview-what-is-azure-ml.md#sku).
+1. Quando solicitado para selecionar o tipo de espaço de trabalho, escolha **o básico**.
 
 Neste momento, é feito um pedido ao Azure para criar um novo espaço de trabalho na sua conta. Após alguns minutos, o novo espaço de trabalho aparece no seu nó de subscrição. 
 

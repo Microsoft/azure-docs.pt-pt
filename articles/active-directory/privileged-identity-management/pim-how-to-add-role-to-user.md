@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2020
+ms.date: 09/16/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3370ea52c5bd189f929c0f81a0aa9b59cc77b97
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 919585d557a668e44f229451ab202fb8bcab9079
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421387"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985169"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Atribuir funções de Azure AD em Gestão de Identidade Privilegiada
 
@@ -75,6 +75,30 @@ Siga estes passos para tornar um utilizador elegível para um papel de administr
 
     ![Nova atribuição - Notificação](./media/pim-how-to-add-role-to-user/assignment-notification.png)
 
+## <a name="assign-a-role-with-restricted-scope"></a>Atribuir uma função com âmbito restrito
+
+Para determinadas funções, o âmbito das permissões concedidas pode ser restringido a uma única unidade de administração, ao principal serviço ou à aplicação. Este procedimento é um exemplo se atribuir uma função que tenha o âmbito de uma unidade administrativa. Para obter uma lista de funções que suportam o âmbito através de uma unidade administrativa, consulte [atribuir funções a uma unidade administrativa](../users-groups-roles/roles-admin-units-assign-roles.md). Esta funcionalidade está neste momento a ser lançada para organizações Azure AD.
+
+1. Inscreva-se no centro de administração do [Azure Ative Com](https://aad.portal.azure.com) permissões privilegiadas de Administrador de Função.
+
+1. Selecione **Azure Ative Directory**  >  **Roles and administrators**.
+
+1. Selecione o **Administrador do Utilizador.**
+
+    ![O comando de atribuição Add está disponível quando abre uma função no portal](./media/pim-how-to-add-role-to-user/add-assignment.png)
+
+1. Selecione **Adicionar atribuições**.
+
+    ![Quando uma função suporta o âmbito, pode selecionar um âmbito](./media/pim-how-to-add-role-to-user/add-scope.png)
+
+1. Na página **'Adicionar atribuições',** pode:
+
+   - Selecione um utilizador ou grupo para ser atribuído à função
+   - Selecione o âmbito de função (neste caso, unidades administrativas)
+   - Selecione uma unidade administrativa para o âmbito
+
+Para obter mais informações sobre a criação de unidades administrativas, consulte [Adicionar e remover unidades administrativas.](../users-groups-roles/roles-admin-units-manage.md)
+
 ## <a name="update-or-remove-an-existing-role-assignment"></a>Atualizar ou remover uma atribuição de função existente
 
 Siga estes passos para atualizar ou remover uma atribuição de função existente.
@@ -101,7 +125,7 @@ Siga estes passos para tornar um utilizador elegível para um papel de administr
 
 1. Selecione **Funções** ou **Membros**.
 
-    ![Funções do Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![abrir funções AD AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. **Selecione Adicionar membro** para abrir Adicionar **membros geridos**.
 
@@ -111,7 +135,7 @@ Siga estes passos para tornar um utilizador elegível para um papel de administr
 
 1. **Selecione Selecione os membros,** selecione os utilizadores que pretende atribuir à função e, em seguida, **selecione Select**.
 
-    ![Selecionar uma função](./media/pim-how-to-add-role-to-user/pim-select-members.png)
+    ![Selecione um utilizador ou grupo para atribuir](./media/pim-how-to-add-role-to-user/pim-select-members.png)
 
 1. Nos **membros geridos Add**, selecione **OK** para adicionar o utilizador à função.
 
@@ -169,7 +193,7 @@ Siga estes passos para remover um utilizador específico de uma função de admi
 
 1. Na mensagem que lhe pede para confirmar, selecione **Sim**.
 
-    ![Remover um papel](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
+    ![Confirme a remoção](./media/pim-how-to-add-role-to-user/pim-remove-role-confirm.png)
 
     A tarefa é removida.
 
@@ -209,7 +233,7 @@ Siga estes passos para atribuir a função de Administrador de Acesso ao Utiliza
 
  ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar configurações de função de administrador a Ad AD em Gestão de Identidade Privilegiada](pim-how-to-change-default-settings.md)
 - [Atribuir funções de recursos da Azure na Gestão de Identidade Privilegiada](pim-resource-roles-assign-roles.md)

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 9e8798ea1c03ebf4c0d08adfbf5a0ee0755164a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e22881a904ed33214e90604d71489d8691fe820b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137812"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883256"
 ---
 # <a name="multiclass-decision-forest-module"></a>Módulo floresta de decisão multiclasse
 
-Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
+Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
 Utilize este módulo para criar um modelo de aprendizagem automática baseado no algoritmo *da floresta de decisão.* Uma floresta de decisão é um modelo conjunto que rapidamente constrói uma série de árvores de decisão, enquanto aprende com dados marcados.
 
