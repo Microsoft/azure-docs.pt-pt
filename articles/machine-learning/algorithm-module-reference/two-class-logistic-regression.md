@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: d746b942f624fc83515ba29b0a092c2e592f1f25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 525293c7ae3d0af49f6deaa0ce9d3cb037d9ba38
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137625"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907701"
 ---
 # <a name="two-class-logistic-regression-module"></a>Módulo de regressão logística de duas classes
 
-Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
+Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
 Utilize este módulo para criar um modelo de regressão logística que pode ser usado para prever dois (e apenas dois) resultados. 
 
@@ -58,7 +58,7 @@ Por exemplo, a coluna do rótulo pode ser [Votada] com possíveis valores de "Si
      Este algoritmo suporta uma combinação linear de valores de regularização L1 e L2: isto é, se <code>x = L1</code> e <code>y = L2</code> , em seguida, define o período <code>ax + by = c</code> linear dos termos de regularização.  
   
     > [!NOTE]
-    >  Quer saber mais sobre a regularização L1 e L2? O seguinte artigo fornece uma discussão sobre como a regularização L1 e L2 são diferentes e como afetam a montagem do modelo, com amostras de código para regressão logística e modelos de rede neural: [Regularização L1 e L2 para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
+    >  Quer saber mais sobre a regularização L1 e L2? O seguinte artigo fornece uma discussão sobre como a regularização L1 e L2 são diferentes e como afetam a montagem do modelo, com amostras de código para regressão logística e modelos de rede neural:  [Regularização L1 e L2 para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
     >
     > Foram concebidas diferentes combinações lineares de termos L1 e L2 para modelos de regressão logística: por exemplo, [regularização líquida elástica](https://wikipedia.org/wiki/Elastic_net_regularization). Sugerimos que faça referência a estas combinações para definir uma combinação linear que seja eficaz no seu modelo.
       

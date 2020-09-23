@@ -1,6 +1,6 @@
 ---
 title: Criar e configurar um cofre chave para encriptação de disco Azure com Azure AD (versão anterior)
-description: Este artigo fornece pré-requisitos para a utilização da Encriptação do Disco Azure do Microsoft para iaaS VMs.
+description: Neste artigo, aprenda a criar e configurar um cofre chave para encriptação de disco Azure com Azure AD.
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: eb625624fa6faa4fdf3ef4fba3b49a0d2d5d7e09
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f983c0f5fc951376246fdbed9869211c8b495402
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284545"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977949"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption-with-azure-ad-previous-release"></a>Criar e configurar um cofre chave para encriptação de disco Azure com Azure AD (versão anterior)
 
@@ -232,13 +232,13 @@ Se pretender utilizar uma chave de encriptação (KEK) para uma camada adicional
 
 * O seu segredo chave do cofre e OS URLs KEK devem ser versados. A Azure impõe esta restrição de versão. Para obter URLs secretos e KEK válidos, consulte os seguintes exemplos:
 
-  * Exemplo de um URL secreto válido:*https://contosovault.vault.azure.net/secrets/EncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * Exemplo de um URL KEK válido:*https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Exemplo de um URL secreto válido:   *https://contosovault.vault.azure.net/secrets/EncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * Exemplo de um URL KEK válido:   *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 * A encriptação do disco Azure não suporta especificar números de porta como parte de segredos chave do cofre e URLs KEK. Por exemplo, os URLs de cofre de chaves não suportados e suportados, consulte os seguintes exemplos:
 
-  * URL de cofre de chaves inaceitável*https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * URL de cofre de chaves aceitável:*https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * URL de cofre de chaves inaceitável  *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
+  * URL de cofre de chaves aceitável:   *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
 ### <a name="set-up-a-key-encryption-key-with-azure-powershell"></a>Configurar uma chave de encriptação chave com a Azure PowerShell 
 Antes de utilizar o script PowerShell, deve estar familiarizado com os pré-requisitos de Encriptação do Disco Azure para entender os passos no script. O script da amostra pode precisar de alterações para o seu ambiente. Este script cria todos os pré-requisitos de encriptação do disco Azure e encripta um IaaS VM existente, envolvendo a chave de encriptação do disco utilizando uma chave de encriptação chave. 

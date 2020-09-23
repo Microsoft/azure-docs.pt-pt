@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/05/2020
-ms.openlocfilehash: 2fa969b6dd89000b4d669bc5d42aa09b3cf3a2b2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9f239ea69aaf71e591a447feb300c13a45ba1a4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751685"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907855"
 ---
 # <a name="latent-dirichlet-allocation-module"></a>Módulo de atribuição de Dirichlet Latent
 
-Este artigo descreve como usar o módulo de atribuição de Dirichlet Latent no designer de aprendizagem de máquinas Azure (pré-visualização), para agrupar textos não classificados em categorias. 
+Este artigo descreve como usar o módulo de atribuição de Dirichlet Latent no designer de Aprendizagem automática Azure, para agrupar textos não classificados em categorias. 
 
 A atribuição de Dirichlet Latent (LDA) é frequentemente usada no processamento de linguagem natural para encontrar textos semelhantes. Outro termo comum é *modelação de tópicos.*
 
@@ -58,7 +58,7 @@ Este módulo requer um conjunto de dados que contenha uma coluna de texto, crua 
 
     Como a LDA cria uma grande matriz de funcionalidades a partir do texto, normalmente analisa uma única coluna de texto.
 
-4. Para **o Número de tópicos a modelar,** insira um número inteiro entre 1 e 1000 que indique quantas categorias ou tópicos pretende obter do texto de entrada.
+4. Para  **o Número de tópicos a modelar,** insira um número inteiro entre 1 e 1000 que indique quantas categorias ou tópicos pretende obter do texto de entrada.
 
     Por padrão, são criados 5 tópicos.
 
@@ -75,7 +75,7 @@ Este módulo requer um conjunto de dados que contenha uma coluna de texto, crua 
     + Os valores na matriz de tópicos de recurso serão representados como uma probabilidade em que `P(word|topic)` .
 
     > [!NOTE] 
-    > No designer de Aprendizagem automática Azure (pré-visualização), a biblioteca scikit-learn já não suporta *doc_topic_distr* saída não normalizada da versão 0.19. Neste módulo, o parâmetro **Normalizar** só pode ser aplicado para apresentar a saída *da matriz tópico.* A saída *de conjunto de dados transformada* é sempre normalizada.
+    > No designer de Aprendizagem automática Azure, a biblioteca scikit-learn já não suporta *doc_topic_distr* saída não normalizada da versão 0.19. Neste módulo, o parâmetro **Normalizar** só pode ser aplicado para apresentar a saída *da matriz tópico.* A saída *de conjunto de dados transformada* é sempre normalizada.
 
 7. Selecione a opção **Mostrar todas as opções**e, em seguida, defini-la para **TRUE** se pretender definir os seguintes parâmetros avançados.
 
@@ -148,7 +148,7 @@ Muitas vezes pode melhorar a precisão dos modelos com base no LDA, utilizando o
 
 Para obter mais informações, consulte [O Texto pré-processamento.](preprocess-text.md)
 
-No designer, também pode utilizar bibliotecas R ou Python para processamento de texto: [Execute O Script R](execute-r-script.md), Execute o Script [Python](execute-python-script.md).
+No designer, também pode utilizar bibliotecas R ou Python para processamento de texto: [Execute O Script R](execute-r-script.md), Execute o Script  [Python](execute-python-script.md).
 
 
 
@@ -181,29 +181,29 @@ Após a cálculo dos índices de termo, uma medida de semelhança baseada na dis
 
 ###  <a name="module-parameters"></a>Parâmetros do módulo
 
-|Name|Tipo|Intervalo|Opcional|Predefinição|Descrição|  
+|Nome|Tipo|Intervalo|Opcional|Predefinição|Descrição|  
 |----------|----------|-----------|--------------|-------------|-----------------|  
 |Colunas-alvo(s)|Seleção de Colunas||Necessário|CadeiaFeature|Nome ou índice da coluna-alvo.|  
-|Número de tópicos para modelar|Número inteiro|[1;1000]|Necessário|5|Modele a distribuição do documento contra os tópicos N.|  
-|N-gramas|Número inteiro|[1;10]|Necessário|2|Ordem de N-gramas gerada durante o haxixe.|  
+|Número de tópicos para modelar|Integer (Número inteiro)|[1;1000]|Necessário|5|Modele a distribuição do documento contra os tópicos N.|  
+|N-gramas|Integer (Número inteiro)|[1;10]|Necessário|2|Ordem de N-gramas gerada durante o haxixe.|  
 |Normalizar|Booleano|Verdadeiro ou Falso|Necessário|true|Normalizar a saída para as probabilidades.  O conjunto de dados transformado será P (tópico&#124;documento) e a matriz de tópicos de recurso será P (palavra&#124;tópico).|  
 |Mostrar todas as opções|Booleano|Verdadeiro ou Falso|Necessário|Falso|Apresenta parâmetros adicionais específicos para a LDA online de aprendizagem de scikit.|  
 |Parâmetro rho|Float|[0.00001;1.0]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|0.01|Distribuição prévia de palavras-tópico.|  
 |Parâmetro alfa|Float|[0.00001;1.0]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|0.01|Distribuição prévia de tópico de documento.|  
-|Número estimado de documentos|Número inteiro|[1;int. MaxValue]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|1000|Número estimado de documentos. Corresponde ao `total_samples` parâmetro.|  
-|Tamanho do lote|Número inteiro|[1;1024]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|32|Tamanho do lote.|  
-|Valor inicial da iteração utilizado no calendário de atualização da taxa de aprendizagem|Número inteiro|[0;int. MaxValue]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|0|Valor inicial que diminui a taxa de aprendizagem para iterações precoces. Corresponde ao `learning_offset` parâmetro.|  
+|Número estimado de documentos|Integer (Número inteiro)|[1;int. MaxValue]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|1000|Número estimado de documentos. Corresponde ao `total_samples` parâmetro.|  
+|Tamanho do lote|Integer (Número inteiro)|[1;1024]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|32|Tamanho do lote.|  
+|Valor inicial da iteração utilizado no calendário de atualização da taxa de aprendizagem|Integer (Número inteiro)|[0;int. MaxValue]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|0|Valor inicial que diminui a taxa de aprendizagem para iterações precoces. Corresponde ao `learning_offset` parâmetro.|  
 |Potência aplicada à iteração durante as atualizações|Float|[0.0;1.0]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|0,5|Potência aplicada à contagem de iteração para controlar a taxa de aprendizagem. Corresponde ao `learning_decay` parâmetro. |  
-|Número de iterações de formação|Número inteiro|[1;1024]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|25|Número de iterações de treino.|  
+|Número de iterações de formação|Integer (Número inteiro)|[1;1024]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|25|Número de iterações de treino.|  
 |Construir dicionário de ngramas|Booleano|Verdadeiro ou Falso|Aplica-se quando a caixa de verificação **de todas as opções** *não* é selecionada|Verdadeiro|Constrói um dicionário de ngramas antes de computar a LDA. Útil para inspeção e interpretação de modelos.|  
-|Tamanho máximo do dicionário de ngram|Número inteiro|[1;int. MaxValue]|Aplica-se quando a opção **Construir dicionário de ngramas** é **verdadeiro**|20 000|Tamanho máximo do dicionário ngramas. Se o número de fichas na entrada exceder este tamanho, poderão ocorrer colisões.|  
-|Número de bits para usar para hashing de recurso.|Número inteiro|[1;31]|Aplica-se quando a caixa de verificação **de todas as opções** *não* é selecionada e construir dicionário **de ngramas** é **falso**|12|Número de bits para usar para hashing de recurso.| 
+|Tamanho máximo do dicionário de ngram|Integer (Número inteiro)|[1;int. MaxValue]|Aplica-se quando a opção **Construir dicionário de ngramas** é **verdadeiro**|20 000|Tamanho máximo do dicionário ngramas. Se o número de fichas na entrada exceder este tamanho, poderão ocorrer colisões.|  
+|Número de bits para usar para hashing de recurso.|Integer (Número inteiro)|[1;31]|Aplica-se quando a caixa de verificação **de todas as opções** *não* é selecionada e construir dicionário **de ngramas** é **falso**|12|Número de bits para usar para hashing de recurso.| 
 |Construir dicionário de ngramas antes da LDA|Booleano|Verdadeiro ou Falso|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada|Verdadeiro|Constrói um dicionário de ngramas antes da LDA. Útil para inspeção e interpretação de modelos.|  
-|Número máximo de ngramas no dicionário|Número inteiro|[1;int. MaxValue]|Aplica-se quando a caixa de verificação de **todas as opções** é selecionada e a opção **Construir dicionário de ngramas** é **verdadeiro**|20 000|Tamanho máximo do dicionário. Se o número de fichas na entrada exceder este tamanho, poderão ocorrer colisões.|  
-|Número de bits de haxixe|Número inteiro|[1;31]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada e a opção **Construir dicionário de ngramas** é **falso**|12|Número de bits a utilizar durante o hashing da funcionalidade.|   
+|Número máximo de ngramas no dicionário|Integer (Número inteiro)|[1;int. MaxValue]|Aplica-se quando a caixa de verificação de **todas as opções** é selecionada e a opção **Construir dicionário de ngramas** é **verdadeiro**|20 000|Tamanho máximo do dicionário. Se o número de fichas na entrada exceder este tamanho, poderão ocorrer colisões.|  
+|Número de bits de haxixe|Integer (Número inteiro)|[1;31]|Aplica-se quando a caixa de verificação **de todas as opções** é selecionada e a opção **Construir dicionário de ngramas** é **falso**|12|Número de bits a utilizar durante o hashing da funcionalidade.|   
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 68bf47f370a57fe277d4ab9679af0b920a0d81ec
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 85a54ce7c8b3beea102fad7c3adb58f92c8574dd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658112"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907934"
 ---
 # <a name="import-data-module"></a>Módulo de Dados de Importação
 
-Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
+Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
 Utilize este módulo para carregar dados num oleoduto de aprendizagem automática a partir dos serviços de dados em nuvem existentes. 
 
@@ -91,6 +91,6 @@ Após a importação dos dados, poderá necessitar de preparações adicionais p
 
 - Utilize [a partição e](./partition-and-sample.md) a amostra para dividir o conjunto de dados, efetuar a amostragem ou obter as linhas de cima n.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

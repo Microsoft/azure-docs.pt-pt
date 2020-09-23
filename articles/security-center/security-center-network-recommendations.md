@@ -13,42 +13,44 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: 36118bb99da5f0c7f918009413394d931415886f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 868470292fbacd71e1eb2d39de7e3a9c5cf6900e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076371"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883918"
 ---
 # <a name="protect-your-network-resources"></a>Proteja os seus recursos de rede
 O Azure Security Center analisa continuamente o estado de segurança dos seus recursos Azure para as melhores práticas de segurança da rede. Quando o Security Center identifica potenciais vulnerabilidades de segurança, cria recomendações que o orientam através do processo de configuração dos controlos necessários para endurecer e proteger os seus recursos.
-
-Este artigo explica a página **de Networking** da secção de segurança de recursos do Centro de Segurança.
 
 Para obter uma lista completa das recomendações relativas ao networking, consulte [as recomendações de networking](recommendations-reference.md#recs-network).
 
 Este artigo aborda recomendações que se aplicam aos seus recursos Azure numa perspetiva de segurança de rede. As recomendações de networking centram-se em torno de firewalls de próxima geração, Grupos de Segurança de Rede, acesso JIT VM, regras de tráfego de entrada excessivamente permissivas, e muito mais. Para obter uma lista de recomendações de networking e ações de reparação, consulte [recomendações de segurança de gestão no Centro de Segurança Azure](security-center-recommendations.md).
 
-> [!NOTE]
-> A página **networking** permite-lhe mergulhar profundamente na sua saúde de recursos Azure a partir de uma perspetiva de rede. O mapa de rede e os controlos de rede adaptativos estão disponíveis apenas para o nível padrão do Centro de Segurança Azure. [Se utilizar o nível livre, pode clicar no botão para **Ver rede em rede e** receber recomendações de recursos de rede](#legacy-networking).
->
+As funcionalidades de **Networking** do Centro de Segurança incluem: 
 
-A página **networking** fornece uma visão geral das secções em que pode mergulhar profundamente, para obter mais informações sobre a saúde dos seus recursos de rede:
-
-- Mapa de rede (apenas nível padrão do Azure Security Center)
-- Proteção de Rede Ajustável
-- Recomendações de segurança em rede.
-- Lâmina **de rede** legacy (a lâmina de rede anterior) 
+- Mapa de rede (requer Azure Defender)
+- [Endurecimento adaptativo da rede](security-center-adaptive-network-hardening.md) (requer Azure Defender)
+- Recomendações de segurança em rede
  
-[![Painel de rede](./media/security-center-network-recommendations/networking-pane.png)](./media/security-center-network-recommendations/networking-pane.png#lightbox)
+## <a name="view-your-networking-resources-and-their-recommendations"></a>Veja os seus recursos de networking e as suas recomendações
+
+A partir da página de inventário de [ativos,](asset-inventory.md)utilize o filtro de tipo de recurso para selecionar os recursos de rede que pretende investigar:
+
+:::image type="content" source="./media/security-center-network-recommendations/network-filters-inventory.png" alt-text="Tipos de recursos de rede de inventário de ativos" lightbox="./media/security-center-network-recommendations/network-filters-inventory.png":::
+
 
 ## <a name="network-map"></a>Mapa de rede
+
 O mapa de rede interativa fornece uma visão gráfica com sobreposições de segurança, dando-lhe recomendações e insights para endurecer os recursos da sua rede. Utilizando o mapa, pode ver a topologia da rede das suas cargas de trabalho Azure, as ligações entre as suas máquinas virtuais e sub-redes, e a capacidade de perfurar do mapa em recursos específicos e as recomendações para esses recursos.
 
 Para abrir o mapa da Rede:
 
-1. No Centro de Segurança, em termos de Higiene de Segurança de Recursos, **selecione Networking**.
-2. No **mapa da Rede** clique Ver **topologia.**
+1. A partir do menu do Security Center, abra o painel de instrumentos do Azure Defender e selecione **o mapa de Rede**.
+
+    :::image type="content" source="./media/security-center-network-recommendations/opening-network-map.png" alt-text="Abertura do mapa de rede a partir do painel Azure Defender" lightbox="./media/security-center-network-recommendations/opening-network-map.png":::
+
+1. Selecione o menu **Layers** escolha **Topologia.**
  
 A vista padrão do mapa de topologia apresenta:
 
@@ -61,9 +63,9 @@ A vista padrão do mapa de topologia apresenta:
 
 [![Mapa de topologia em rede](./media/security-center-network-recommendations/network-map-info.png)](./media/security-center-network-recommendations/network-map-info.png#lightbox)
 
-## <a name="understanding-the-network-map"></a>Compreender o mapa da Rede
+## <a name="understanding-the-network-map"></a>Compreender o mapa da rede
 
-O mapa da Rede pode mostrar-lhe os seus recursos Azure numa vista **de Topologia** e numa vista **de tráfego.** 
+O mapa de rede pode mostrar-lhe os seus recursos Azure numa vista **de Topologia** e numa vista **de tráfego.** 
 
 ### <a name="the-topology-view"></a>A vista topologia
 
@@ -114,31 +116,8 @@ Para aprofundar um recurso:
 [![Mapa de tráfego de rede](./media/security-center-network-recommendations/network-map-traffic.png)](./media/security-center-network-recommendations/network-map-traffic.png#lightbox)
 
 
-## <a name="legacy-networking"></a>Rede de legados<a name ="legacy-networking"></a>
-
-Se não tiver o nível padrão do Security Center, esta secção explica como visualizar recomendações gratuitas de networking.
-
-Para aceder a esta informação, na lâmina de rede, clique em **Ver redes antigas**. 
-
-[![Rede Legacy](./media/security-center-network-recommendations/legacy-networking.png)](./media/security-center-network-recommendations/legacy-networking.png#lightbox)
-
-### <a name="internet-facing-endpoints-section"></a>Secção pontos finais com acesso à Internet
-Na secção de **pontos finais virados para** a Internet, é possível ver as máquinas virtuais que estão atualmente configuradas com um ponto final virado para a Internet e o seu estado.
-
-Esta tabela tem o nome final, o endereço IP virado para a Internet e o estado atual de gravidade do grupo de segurança da rede e as recomendações do NGFW. A mesa é ordenada pela severidade.
-
-### <a name="networking-topology-section"></a>Secção Topologia de redes
-A secção **de topologia em rede** tem uma visão hierárquica dos recursos.
-
-Esta tabela é classificada (máquinas virtuais e sub-redes) por severidade.
-
-Nesta vista topologia, o primeiro nível apresenta Vnets. O segundo exibe sub-redes e o terceiro nível exibe as máquinas virtuais que pertencem a essas sub-redes. A coluna certa mostra o estado atual das recomendações do grupo de segurança da rede para esses recursos.
-
-O terceiro nível exibe máquinas virtuais, que são semelhantes às descritas anteriormente. Pode clicar em qualquer recurso para saber mais ou aplicar o controlo ou configuração de segurança necessários.
-
 ## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as recomendações aplicáveis a outros tipos de recursos Azure, consulte o seguinte:
 
-* [Proteger as máquinas e aplicações no Centro de Segurança do Azure](security-center-virtual-machine-protection.md)
-* [Proteger o seu serviço Azure SQL no Azure Security Center](security-center-sql-service-recommendations.md)
+- [Proteger as máquinas e aplicações no Centro de Segurança do Azure](security-center-virtual-machine-protection.md)

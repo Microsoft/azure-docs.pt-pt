@@ -10,12 +10,12 @@ ms.topic: reference
 ms.workload: identity
 ms.date: 07/20/2020
 ms.author: chmutali
-ms.openlocfilehash: ea47f8a6fc29571a27f8976bd0ad9bbd30ed0ad9
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 805cdc0713afd43502bb224cce60167adbc418ee
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808461"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969528"
 ---
 # <a name="how-azure-active-directory-provisioning-integrates-with-sap-successfactors"></a>Como o provisionamento do Azure Ative Directory se integra com os SAP SuccessFactors 
 
@@ -63,7 +63,7 @@ Para cada utilizador em SuccessFactors, o serviço de fornecimento AZure AD recu
 | 14 | FOJobCode                              | empregoNav/jobInfoNav/jobCodeNav  | Apenas se `jobCode` ou `jobCodeId` atributo for mapeado |
 | 15 | FOPayGrade                             | empregoNav/jobInfoNav/payGradeNav  | Só se `payGrade` o atributo for mapeado |
 | 16 | FOLocation                             | empregoNav/jobInfoNav/locationNav  | Só se `location` o atributo for mapeado |
-| 17 | FOCorporateAddressDEFLT                | empregoNav/jobInfoNav/addressNavDEFLT  | Se o mapeamento contiver um dos seguintes atributos:`officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
+| 17 | FOCorporateAddressDEFLT                | empregoNav/jobInfoNav/addressNavDEFLT  | Se o mapeamento contiver um dos seguintes atributos: `officeLocationAddress,  officeLocationCity, officeLocationZipCode` |
 | 18 | FOEventReason                          | empregoNav/jobInfoNav/eventReasonNav  | Só se `eventReason` o atributo for mapeado |
 | 19 | EmpGlobalAssignment                    | empregoNav/empGlobalAssignmentNav | Só se `assignmentType` for mapeado |
 | 20 | Lista de Picklist de Mente De Emprego                | empregoNav/jobInfoNav/employmentTypeNav | Só se `employmentType` for mapeado |
@@ -166,9 +166,9 @@ O padrão Azure AD SuccessFactors fornecendo navios de esquema de aplicativos co
    * Se o atributo faz parte da entidade *utilizadora,* procure o atributo no nó *de EmpregoNav/userNav.*
    * Se o atributo faz parte da entidade *EmpJob,* procure o atributo no *nó de EmpregoNav/jobInfoNav.* 
 1. Construa o Caminho JSON associado ao atributo e adicione este novo atributo à lista de atributos SuccessFactors. 
-   * Exemplo 1: Digamos que quer adicionar o atributo *okToRehire,* que faz parte da entidade *employmentNav,* em seguida, use o JSONPath`$.employmentNav.results[0].okToRehire`
-   * Exemplo 2: Digamos que pretende adicionar o *timeZone*do atributo, que faz parte da entidade *userNav,* e depois use o JSONPath`$.employmentNav.results[0].userNav.timeZone`
-   * Exemplo 3: Digamos que quer adicionar o atributo *flsaStatus,* que faz parte da entidade *jobInfoNav,* e depois use o JSONPath`$.employmentNav.results[0].jobInfoNav.results[0].flsaStatus`
+   * Exemplo 1: Digamos que quer adicionar o atributo *okToRehire,* que faz parte da entidade *employmentNav,* em seguida, use o JSONPath  `$.employmentNav.results[0].okToRehire`
+   * Exemplo 2: Digamos que pretende adicionar o *timeZone*do atributo, que faz parte da entidade *userNav,* e depois use o JSONPath `$.employmentNav.results[0].userNav.timeZone`
+   * Exemplo 3: Digamos que quer adicionar o atributo *flsaStatus,* que faz parte da entidade *jobInfoNav,* e depois use o JSONPath `$.employmentNav.results[0].jobInfoNav.results[0].flsaStatus`
 1. Salve o esquema. 
 1. Reinicie o provisionamento.
 
@@ -182,14 +182,14 @@ Por padrão, os seguintes atributos personalizados são pré-definidos na app de
 Digamos que, no seu exemplo central de empregados, o atributo *customString35* no *EmpJobInfo* armazena a descrição da localização. Pretende fluir este valor para o atributo Ative *Directory physicalDeliveryOfficeName.* Para configurar o mapeamento de atributos para este cenário, utilize os passos abaixo: 
 
 1. Editar a lista de atributos SuccessFactors para adicionar um novo atributo chamado *empJobNavCustomString35*.
-1. Desloque a expressão JSONPath API para este atributo como:`$.employmentNav.results[0].jobInfoNav.results[0].customString35`
+1. Desloque a expressão JSONPath API para este atributo como: `$.employmentNav.results[0].jobInfoNav.results[0].customString35`
 1. Guarde e recarregue a alteração de mapeamento no portal Azure.  
 1. Na lâmina de mapeamento de atributos, *mapear o empJobNavCustomString35* para o *físicoDeliveryOfficeName*.
 1. Guarde o mapeamento.
 
 Ampliação deste cenário: 
-* Se quiser mapear o atributo *personalizado 35* da entidade *utilizadora,* utilize o JSONPath`$.employmentNav.results[0].userNav.custom35`
-* Se quiser mapear o atributo *CustomString35* da entidade *EmpEmployment,* use o JSONPath`$.employmentNav.results[0].customString35`
+* Se quiser mapear o atributo *personalizado 35* da entidade *utilizadora,* utilize o JSONPath `$.employmentNav.results[0].userNav.custom35`
+* Se quiser mapear o atributo *CustomString35* da entidade *EmpEmployment,* use o JSONPath `$.employmentNav.results[0].customString35`
 
 ### <a name="handling-worker-conversion-scenario"></a>Lidar com o cenário de conversão dos trabalhadores
 
@@ -199,20 +199,20 @@ A conversão do trabalhador é o processo de conversão de um trabalhador a temp
 1. Desloque-se para baixo e clique **Mostrar Opções avançadas**.
 1. Clique no link **Reveja o seu esquema aqui** para abrir o editor de esquemas. 
 
-   >![revisão-esquema](media/sap-successfactors-integration-reference/review-schema.png#lightbox)
+   >![A screenshot mostra o seu esquema aqui link que abre o editor de esquemas.](media/sap-successfactors-integration-reference/review-schema.png#lightbox)
 
 1. Clique no link **Descarregar** para guardar uma cópia do esquema antes de editar. 
 
-   >![download-schema](media/sap-successfactors-integration-reference/download-schema.png#lightbox)
+   >![A screenshot mostra o editor de Schema com Download selecione para guardar uma cópia do esquema.](media/sap-successfactors-integration-reference/download-schema.png#lightbox)
 1. No editor de esquemas, prima a tecla Ctrl-H para abrir o controlo de substituição de encontrar.
-1. Na caixa de texto encontrar, copiar e colar o valor`$.employmentNav.results[0]`
+1. Na caixa de texto encontrar, copiar e colar o valor `$.employmentNav.results[0]`
 1. Na caixa de texto substitua, copie e cole o valor `$.employmentNav.results[?(@.userNav != null)]` . Note o espaço branco que rodeia o `!=` operador, que é importante para o processamento bem sucedido da expressão JSONPath. 
    >![encontrar substituir-conversão](media/sap-successfactors-integration-reference/find-replace-conversion-scenario.png#lightbox)
 1. Clique na opção "substituir todos" para atualizar o esquema. 
 1. Salve o esquema. 
 1. O processo acima atualiza todas as expressões JSONPath da seguinte forma: 
-   * Velho JSONPath:`$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
-   * Novo JSONPath:`$.employmentNav.results[?(@.userNav != null)].jobInfoNav.results[0].departmentNav.name_localized`
+   * Velho JSONPath: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
+   * Novo JSONPath: `$.employmentNav.results[?(@.userNav != null)].jobInfoNav.results[0].departmentNav.name_localized`
 1. Reinicie o provisionamento. 
 
 ### <a name="handling-rehire-scenario"></a>Lidar com o cenário de recontratar
@@ -230,13 +230,13 @@ Para lidar com este cenário de recontratar (opção 2), de modo a que os dados 
 1. Clique no link **Reveja o seu esquema aqui** para abrir o editor de esquemas.   
 1. Clique no link **Descarregar** para guardar uma cópia do esquema antes de editar.   
 1. No editor de esquemas, prima a tecla Ctrl-H para abrir o controlo de substituição de encontrar.
-1. Na caixa de texto encontrar, copiar e colar o valor`$.employmentNav.results[0]`
+1. Na caixa de texto encontrar, copiar e colar o valor `$.employmentNav.results[0]`
 1. Na caixa de texto substitua, copie e cole o valor `$.employmentNav.results[-1:]` . Esta expressão JSONPath devolve o mais recente registo *empEmployment.*   
 1. Clique na opção "substituir todos" para atualizar o esquema. 
 1. Salve o esquema. 
 1. O processo acima atualiza todas as expressões JSONPath da seguinte forma: 
-   * Velho JSONPath:`$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
-   * Novo JSONPath:`$.employmentNav.results[-1:].jobInfoNav.results[0].departmentNav.name_localized`
+   * Velho JSONPath: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
+   * Novo JSONPath: `$.employmentNav.results[-1:].jobInfoNav.results[0].departmentNav.name_localized`
 1. Reinicie o provisionamento. 
 
 Esta alteração de esquema também apoia o cenário de conversão dos trabalhadores. 
@@ -254,13 +254,13 @@ Para obter atributos pertencentes à atribuição padrão e ao perfil de utiliza
 1. Clique no link **Reveja o seu esquema aqui** para abrir o editor de esquemas.   
 1. Clique no link **Descarregar** para guardar uma cópia do esquema antes de editar.   
 1. No editor de esquemas, prima a tecla Ctrl-H para abrir o controlo de substituição de encontrar.
-1. Na caixa de texto encontrar, copiar e colar o valor`$.employmentNav.results[0]`
+1. Na caixa de texto encontrar, copiar e colar o valor `$.employmentNav.results[0]`
 1. Na caixa de texto substitua, copie e cole o valor `$.employmentNav.results[?(@.assignmentClass == 'ST')]` . 
 1. Clique na opção "substituir todos" para atualizar o esquema. 
 1. Salve o esquema. 
 1. O processo acima atualiza todas as expressões JSONPath da seguinte forma: 
-   * Velho JSONPath:`$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
-   * Novo JSONPath:`$.employmentNav.results[?(@.assignmentClass == 'ST')].jobInfoNav.results[0].departmentNav.name_localized`
+   * Velho JSONPath: `$.employmentNav.results[0].jobInfoNav.results[0].departmentNav.name_localized`
+   * Novo JSONPath: `$.employmentNav.results[?(@.assignmentClass == 'ST')].jobInfoNav.results[0].departmentNav.name_localized`
 1. Recarregue a lâmina de mapeamento de atributos da aplicação. 
 1. Desloque-se para baixo e clique **Mostrar Opções avançadas**.
 1. Clique na **lista de atributos Editar para SuccessFactors**.
@@ -278,7 +278,7 @@ Quando um utilizador na Central de Empregados tem empregos simultâneos/múltipl
 1. Abra a lâmina de mapeamento de atributos da sua aplicação de provisionamento SuccessFactors. 
 1. Desloque-se para baixo e clique **Mostrar Opções avançadas**.
 1. Clique na **lista de atributos Editar para SuccessFactors**.
-1. Digamos que quer retirar o departamento associado ao trabalho 1 e ao emprego 2. O *departamento* de atributos pré-definido já adquire o valor do departamento para o primeiro emprego. Pode definir um novo atributo chamado *secondJobDepartment* e definir a expressão JSONPath para`$.employmentNav.results[1].jobInfoNav.results[0].departmentNav.name_localized`
+1. Digamos que quer retirar o departamento associado ao trabalho 1 e ao emprego 2. O *departamento* de atributos pré-definido já adquire o valor do departamento para o primeiro emprego. Pode definir um novo atributo chamado *secondJobDepartment* e definir a expressão JSONPath para `$.employmentNav.results[1].jobInfoNav.results[0].departmentNav.name_localized`
 1. Agora pode fluir ambos os valores do departamento para atributos ative directory ou fluir seletivamente um valor usando o mapeamento de expressão. 
 1. Guarde o mapeamento. 
 1. Reinicie o provisionamento. 
@@ -294,7 +294,7 @@ Esta secção abrange diferentes cenários de recuo. Recomenda abordagens de con
 | 1 | * Apenas definir o e-mail de negócios como principal. <br> Não estabeleça números de telefone. | true | true | false | \[Não Definido\] | \[Não Definido\] | 
 | 2 | * No SuccessFactors, o e-mail de negócios e o telefone de negócios é primordial <br> * Flua sempre o número de telefone Azure AD para o telefone comercial e para o telemóvel. | true | true | false | número de telefone | dispositivo móvel | 
 | 3 | * No SuccessFactors, o email de negócios e o telemóvel é primordial <br> * Flua sempre o número de telefone Azure AD para o telefone comercial e para o telemóvel para o telemóvel | true | false | true |  número de telefone | dispositivo móvel | 
-| 4 | * No SuccessFactors o email de negócios é primário <br> * Em Azure AD, verifique se o número de telefone do trabalho está presente, se estiver presente, então verifique se o número de telemóvel também está presente, marque o número de telefone de trabalho como principal apenas se o número de telemóvel não estiver presente. | true | Use mapeamento de expressão:`IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | Use mapeamento de expressão:`IIF(IsPresent([mobile]),"false", "true")` | número de telefone | dispositivo móvel | 
+| 4 | * No SuccessFactors o email de negócios é primário <br> * Em Azure AD, verifique se o número de telefone do trabalho está presente, se estiver presente, então verifique se o número de telemóvel também está presente, marque o número de telefone de trabalho como principal apenas se o número de telemóvel não estiver presente. | true | Use mapeamento de expressão: `IIF(IsPresent([telephoneNumber]), IIF(IsPresent([mobile]),"false", "true"), "false")` | Use mapeamento de expressão: `IIF(IsPresent([mobile]),"false", "true")` | número de telefone | dispositivo móvel | 
 | 5 | * No SuccessFactors o email de negócios e o telefone de negócios é primordial. <br> * Em Azure AD, se o telemóvel estiver disponível, em seguida, desfiá-lo como telefone comercial, senão use o telefoneNumber. | true | true | false | `IIF(IsPresent([mobile]), [mobile], [telephoneNumber])` | \[Não Definido\] | 
 
 * Se não houver mapeamento para número de telefone no resmapeamento do atributo de rescamada, então apenas o e-mail é incluído na write-back.

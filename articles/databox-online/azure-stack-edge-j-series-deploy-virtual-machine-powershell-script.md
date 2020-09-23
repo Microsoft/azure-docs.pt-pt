@@ -1,6 +1,6 @@
 ---
-title: Implemente VMs no seu dispositivo GPU Azure Stack Edge via Azure PowerShell
-description: Descreve como criar e gerir máquinas virtuais (VMs) num dispositivo Azure Stack Edge utilizando a Azure PowerShell.
+title: Implemente VMs no seu dispositivo GPU Azure Stack Edge Pro via Azure PowerShell
+description: Descreve como criar e gerir máquinas virtuais (VMs) num dispositivo Azure Stack Edge Pro utilizando a Azure PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,26 +8,26 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: ab303dd42d9064a9fa1392e27adc361d5b761cf0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5ed6de28f1e1b0545ebd675c30249e2f2b4747e9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89256128"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890654"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-azure-powershell-script"></a>Implemente VMs no seu dispositivo GPU Azure Stack Edge através do script Azure PowerShell
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-azure-powershell-script"></a>Implemente VMs no seu dispositivo GPU Azure Stack Edge Pro através do script Azure PowerShell
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Este tutorial descreve como criar e gerir um VM no seu dispositivo Azure Stack Edge utilizando um script Azure PowerShell.
+Este tutorial descreve como criar e gerir um VM no seu dispositivo Azure Stack Edge Pro utilizando um script Azure PowerShell.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar a criar e gerir um VM no seu dispositivo Azure Stack Edge utilizando este script, tem de se certificar de que completou os pré-requisitos listados nos seguintes passos:
+Antes de começar a criar e gerir um VM no seu dispositivo Azure Stack Edge Pro utilizando este script, tem de se certificar de que completou os pré-requisitos listados nos seguintes passos:
 
-### <a name="for-azure-stack-edge-device-via-the-local-web-ui"></a>Para o dispositivo Azure Stack Edge através da web UI local
+### <a name="for-azure-stack-edge-pro-device-via-the-local-web-ui"></a>Para o dispositivo Azure Stack Edge Pro através da web UI local
 
-1. Completou as definições de rede no seu dispositivo Azure Stack Edge, conforme descrito no [dispositivo Step 1: Configure Azure Stack Edge](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-device).
+1. Completou as definições de rede no seu dispositivo Azure Stack Edge Pro, conforme descrito no [dispositivo Step 1: Configure Azure Stack Edge Pro](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
 
 2. Permitiu uma interface de rede para o cálculo. Este IP de interface de rede é utilizado para criar um interruptor virtual para a implementação de VM. Os seguintes passos acompanham-no através do processo:
 
@@ -36,9 +36,9 @@ Antes de começar a criar e gerir um VM no seu dispositivo Azure Stack Edge util
         > [!IMPORTANT] 
         > Só é possível configurar uma porta para o cálculo.
 
-    2. Ativar o cálculo na interface de rede. O Azure Stack Edge cria e gere um interruptor virtual correspondente a essa interface de rede.
+    2. Ativar o cálculo na interface de rede. O Azure Stack Edge Pro cria e gere um interruptor virtual correspondente a essa interface de rede.
 
-3. Criou e instalou todos os certificados no seu dispositivo Azure Stack Edge e na loja de raiz fidedigna do seu cliente. Siga o procedimento descrito no [Passo 2: Criar e instalar certificados](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
+3. Criou e instalou todos os certificados no seu dispositivo Azure Stack Edge Pro e na loja de raiz fidedigna do seu cliente. Siga o procedimento descrito no [Passo 2: Criar e instalar certificados](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
 ### <a name="for-your-windows-client"></a>Para o seu cliente Windows
 

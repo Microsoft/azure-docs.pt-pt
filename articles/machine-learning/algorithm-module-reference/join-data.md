@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 38606f424e38fc68519181f485b5b698d0705d6a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0cde479e50c67006a9ef1668ba68b211c3a9af93
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477583"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907898"
 ---
 # <a name="join-data"></a>Associar dados
 
-Este artigo descreve como usar o módulo **DeDerdes no** Azure Machine Learning designer (pré-visualização) para fundir dois conjuntos de dados usando uma operação de junção estilo base de dados.  
+Este artigo descreve como usar o módulo **DeDerdes** no Azure Machine Learning designer para fundir dois conjuntos de dados usando uma operação de junção estilo base de dados.  
 
 ## <a name="how-to-configure-join-data"></a>Como configurar os Dados de Junção
 
@@ -66,6 +66,6 @@ Para realizar uma junção em dois conjuntos de dados, devem estar relacionados 
 
 1. Para ver os resultados, clique com o botão direito para **'Unir Dados'** e **selecione Visualizar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

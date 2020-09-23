@@ -4,12 +4,12 @@ description: Começa com a Application Insights. Analise a utilização, disponi
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: d624286d214a86364fe85192bf5ede885d4b6a78
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f84e1065f93fc2cca950f12d5df537b931faac8d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323456"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987161"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Monitorizar o desempenho nas aplicações Web
 
@@ -112,11 +112,11 @@ Você pode usar a experiência de investigação de desempenho para rever opera�
 
 Para obter uma melhor noção das experiências do utilizador para esta operação, podemos selecionar um intervalo de tempo maior. Podemos então também reduzir o tempo numa janela de tempo específica onde a operação foi lenta. No exemplo seguinte, mudamos do intervalo de tempo padrão de 24 horas para o intervalo de 7 dias e depois zoomed para o intervalo de tempo 9:47 para 12:47 entre Tue o 12º e Wed o 13º. Tanto a distribuição da duração como o número de amostras e de perfis foram atualizados à direita.
 
-![GET Clientes/Detalhes três picos de duração em 7 dias de intervalo com uma janela de tempo](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
+![Screenshot mostra Performance (pré-visualização) com três picos de duração em 7 dias de intervalo com uma janela de tempo](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
 
 Para nos estreitarmos nas experiências lentas, vamos aproximar-nos das durações que caem entre o percentil 95 e o percentil 99. Estes representam os 4% das interações dos utilizadores que foram lentas.
 
-![GET Clientes/Detalhes três picos de duração em 7 dias de intervalo com uma janela de tempo](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
+![Screenshot mostra CLIENTES GET/Detalhes três picos de duração em 7 dias de intervalo com uma janela de tempo.](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
 
 Podemos agora olhar para as amostras representativas, clicando no botão Amostras, ou nos vestígios do perfil representativo, clicando no botão de traços profiler. Neste exemplo, existem quatro vestígios que foram recolhidos para clientes GET/Detalhes na janela de tempo e duração de alcance de interesse.
 
@@ -126,7 +126,7 @@ Podemos agora olhar para as amostras representativas, clicando no botão Amostra
 
 A experiência de investigação de desempenho mostra insights relevantes juntamente com o conjunto de amostras em que decidiu focar-se. A melhor maneira de olhar para todas as informações disponíveis é mudar para um intervalo de tempo de 30 dias e, em seguida, selecionar Overall para ver insights em todas as operações do mês passado.
 
-![GET Clientes/Detalhes três picos de duração em 7 dias de intervalo com uma janela de tempo](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
+![A screenshot mostra Performance (pré-visualização) com a janela geral aberta e Insights selecionadas.](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
 
 
 ## <a name="next-steps"></a><a name="next"></a>Passos seguintes

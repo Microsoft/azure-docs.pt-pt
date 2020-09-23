@@ -3,14 +3,14 @@ title: Implementar um Trabalhador de Runbook Híbrido Linux na Azure Automation
 description: Este artigo diz como instalar um Azure Automation Hybrid Runbook Worker para executar livros em máquinas baseadas em Linux no seu datacenter local ou ambiente em nuvem.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/24/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7f19aec65ed2616d757718116ac948473dd4b0ed
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: fb975305e18315fa8d0a39e4fe0ab6902c98b7e7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448010"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987227"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implementar um Trabalhador de Runbook Híbrido Linux
 
@@ -56,7 +56,7 @@ A funcionalidade Hybrid Runbook Worker suporta as seguintes distribuições:
 * Red Hat Enterprise Linux Server 5, 6 e 7 (x86/x64)
 * Debian GNU/Linux 6, 7 e 8 (x86/x64)
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS e 18.04 (x86/x64)
-* SUSE Linux Enterprise Server 11 e 12 (x86/x64)
+* SUSE Linux Enterprise Server 12 (x86/x64)
 
 ### <a name="minimum-requirements"></a>Requisitos mínimos
 
@@ -76,17 +76,23 @@ Os requisitos mínimos para um Trabalhador de Runbook Híbrido Linux são:
 | **Pacote opcional** | **Descrição** | **Versão mínima**|
 | PowerShell Core | Para executar os livros powerShell, o PowerShell Core precisa de ser instalado. Consulte [a instalação do PowerShell Core no Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para aprender a instalá-lo. | 6.0.0 |
 
+## <a name="supported-linux-hardening"></a>Endurecimento de Linux apoiado
+
+Os seguintes ainda não são apoiados:
+
+* CIS
+
 ## <a name="supported-runbook-types"></a>Tipos de runbook suportados
 
 Os Trabalhadores de Runbook Híbridos Linux suportam um conjunto limitado de tipos de runbook na Azure Automation, e são descritos na tabela seguinte.
 
 |Tipo de livro de execução | Suportado |
 |-------------|-----------|
-|Python 2 |Sim |
+|Python 2 |Yes |
 |PowerShell |Sim<sup>1</sup> |
-|Fluxo de Trabalho do PowerShell |Não |
-|Gráficos |Não |
-|Fluxo de trabalho gráfico powershell |Não |
+|Fluxo de Trabalho do PowerShell |No |
+|Gráficos |No |
+|Fluxo de trabalho gráfico powershell |No |
 
 <sup>1</sup> Os livros powerShell requerem que o PowerShell Core seja instalado na máquina Linux. Consulte [a instalação do PowerShell Core no Linux](/powershell/scripting/install/installing-powershell-core-on-linux) para aprender a instalá-lo.
 

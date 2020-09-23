@@ -1,6 +1,6 @@
 ---
-title: Módulo C# IoT Edge para Azure Stack Edge com GPU Microsoft Docs
-description: Saiba como desenvolver um módulo C# IoT Edge que pode ser implantado no seu dispositivo GPU Azure Stack Edge.
+title: C# IoT Edge module para Azure Stack Edge Pro com GPU Microsoft Docs
+description: Saiba como desenvolver um módulo C# IoT Edge que pode ser implantado no seu dispositivo GPU Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,37 +8,37 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: c981208438529ec7c23ab3c3089f4d57d77c2714
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 628dec7f1ba44d81243aeff2657e2311119c566a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268966"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891198"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>Desenvolver um módulo C# IoT Edge para mover ficheiros no Azure Stack Edge
+# <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge-pro"></a>Desenvolver um módulo C# IoT Edge para mover ficheiros no Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Este artigo percorre a forma de criar um módulo IoT Edge para implantação com o seu dispositivo Azure Stack Edge. Azure Stack Edge é uma solução de armazenamento que lhe permite processar dados e enviá-lo para a rede para o Azure.
+Este artigo percorre a forma de criar um módulo IoT Edge para implantação com o seu dispositivo Azure Stack Edge Pro. Azure Stack Edge Pro é uma solução de armazenamento que lhe permite processar dados e enviá-lo para o Azure.
 
-Pode utilizar os módulos Azure IoT Edge com o seu Azure Stack Edge para transformar os dados à medida que se deslocam para Azure. O módulo utilizado neste artigo implementa a lógica de copiar um ficheiro de uma partilha local para uma partilha de nuvem no seu dispositivo Azure Stack Edge.
+Pode utilizar módulos Azure IoT Edge com o seu Azure Stack Edge Pro para transformar os dados à medida que se deslocam para Azure. O módulo utilizado neste artigo implementa a lógica de copiar um ficheiro de uma partilha local para uma partilha de nuvem no seu dispositivo Azure Stack Edge Pro.
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Crie um registo de contentores para armazenar e gerir os seus módulos (imagens Docker).
-> * Crie um módulo IoT Edge para implementar no seu dispositivo Azure Stack Edge.
+> * Crie um módulo IoT Edge para implementar no seu dispositivo Azure Stack Edge Pro.
 
 
 ## <a name="about-the-iot-edge-module"></a>Sobre o módulo IoT Edge
 
-O seu dispositivo Azure Stack Edge pode implantar e executar módulos IoT Edge. Os módulos edge são essencialmente recipientes Docker que executam uma tarefa específica, como ingerir uma mensagem a partir de um dispositivo, transformar uma mensagem ou enviar uma mensagem para um Hub IoT. Neste artigo, irá criar um módulo que copia ficheiros de uma partilha local para uma partilha na nuvem no seu dispositivo Azure Stack Edge.
+O seu dispositivo Azure Stack Edge Pro pode implantar e executar módulos IoT Edge. Os módulos edge são essencialmente recipientes Docker que executam uma tarefa específica, como ingerir uma mensagem a partir de um dispositivo, transformar uma mensagem ou enviar uma mensagem para um Hub IoT. Neste artigo, irá criar um módulo que copia ficheiros de uma partilha local para uma partilha na nuvem no seu dispositivo Azure Stack Edge Pro.
 
-1. Os ficheiros são escritos para a parte local do seu dispositivo Azure Stack Edge.
+1. Os ficheiros são escritos para a parte local do seu dispositivo Azure Stack Edge Pro.
 2. O gerador de eventos de ficheiros cria um evento de ficheiro para cada ficheiro escrito para a parte local. Os eventos de ficheiro também são gerados quando um ficheiro é modificado. Os eventos de ficheiro são então enviados para ioT Edge Hub (em tempo de execução IoT Edge).
 3. O módulo personalizado IoT Edge processa o evento de ficheiro para criar um objeto de evento de ficheiro que também contém um caminho relativo para o ficheiro. O módulo gera um caminho absoluto usando o caminho relativo do ficheiro e copia o ficheiro da partilha local para a partilha de nuvem. Em seguida, o módulo elimina o ficheiro da parte local.
 
-![Como o módulo Azure IoT Edge funciona no Azure Stack Edge](./media/azure-stack-edge-j-series-create-iot-edge-module/how-module-works-1.png)
+![Como o módulo Azure IoT Edge funciona no Azure Stack Edge Pro](./media/azure-stack-edge-j-series-create-iot-edge-module/how-module-works-1.png)
 
 Uma vez que o ficheiro esteja na partilha de nuvem, é automaticamente enviado para a sua conta de Armazenamento Azure.
 
@@ -46,11 +46,11 @@ Uma vez que o ficheiro esteja na partilha de nuvem, é automaticamente enviado p
 
 Antes de começar, certifique-se de que tem:
 
-- Um dispositivo Azure Stack Edge que está em funcionamento.
+- Um dispositivo Azure Stack Edge Pro que está em execução.
 
     - O dispositivo também tem um recurso IoT Hub associado.
     - O dispositivo tem o papel de computação Edge configurado.
-    Para mais informações, aceda ao [computo Configure](azure-stack-edge-j-series-deploy-configure-compute.md#configure-compute) para o seu Azure Stack Edge.
+    Para mais informações, aceda ao [computo Configure](azure-stack-edge-j-series-deploy-configure-compute.md#configure-compute) para o seu Azure Stack Edge Pro.
 
 - Os seguintes recursos de desenvolvimento:
 
@@ -65,7 +65,7 @@ Antes de começar, certifique-se de que tem:
 Um registo de contentor do Azure é um registo do Docker privado no Azure, onde pode armazenar e gerir as imagens privadas de contentor do Docker. Os dois populares serviços de registo docker disponíveis na nuvem são O Registo de Contentores Azure e Docker Hub. Este artigo utiliza o Registo de Contentores.
 
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-2. **Selecione Criar um recurso > contentores > registo de contentores**. Clique em **Criar**.
+2. **Selecione Criar um recurso > contentores > registo de contentores**. Clique em **Create** (Criar).
 3. Fornecer:
 
    1. Um **nome único de registo** dentro de Azure que contém 5 a 50 caracteres alfanuméricos.
@@ -278,4 +278,4 @@ Na secção anterior, criou uma solução IoT Edge e adicionou código ao FileCo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para implementar e executar este módulo no Azure Stack Edge, consulte os passos em [Adicionar um módulo](azure-stack-edge-j-series-deploy-configure-compute.md#add-a-module).
+Para implementar e executar este módulo no Azure Stack Edge Pro, consulte os passos em [Adicionar um módulo](azure-stack-edge-j-series-deploy-configure-compute.md#add-a-module).

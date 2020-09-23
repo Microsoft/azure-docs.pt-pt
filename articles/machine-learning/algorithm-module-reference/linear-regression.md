@@ -9,15 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 9d83a9ffb9dc334ef959b7a8039b9a9c4a1fced7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51a9b0ec0fc19b6b6efa0453d698a5a978dacabc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137463"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907838"
 ---
 # <a name="linear-regression-module"></a>Módulo linear de regressão
-Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
+Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
 Utilize este módulo para criar um modelo linear de regressão para utilização num oleoduto.  A regressão linear tenta estabelecer uma relação linear entre uma ou mais variáveis independentes e um resultado numérico, ou variável dependente. 
 
@@ -25,7 +25,7 @@ Utiliza este módulo para definir um método linear de regressão e, em seguida,
 
 ## <a name="about-linear-regression"></a>Sobre a regressão linear
 
-A regressão linear é um método estatístico comum, que foi adotado na aprendizagem automática e melhorado com muitos novos métodos para encaixar a linha e medir o erro. No sentido mais básico, a regressão refere-se à previsão de um alvo numérico. A regressão linear ainda é uma boa escolha quando se quer um modelo simples para uma tarefa preditiva básica. A regressão linear também tende a funcionar bem em conjuntos de dados de alta dimensão e escassos que carecem de complexidade.
+A regressão linear é um método estatístico comum, que foi adotado na aprendizagem automática e melhorado com muitos novos métodos para encaixar a linha e medir o erro. Simplificando, a regressão refere-se à previsão de um alvo numérico. A regressão linear ainda é uma boa escolha quando se quer um modelo simples para uma tarefa preditiva básica. A regressão linear também tende a funcionar bem em conjuntos de dados de alta dimensão e escassos que carecem de complexidade.
 
 A Azure Machine Learning suporta uma variedade de modelos de regressão, além da regressão linear. No entanto, o termo "regressão" pode ser interpretado vagamente, e alguns tipos de regressão fornecida noutras ferramentas não são suportados.
 

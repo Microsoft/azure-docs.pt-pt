@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 07/27/2020
-ms.openlocfilehash: f08fb01cf26ddf73d31b575242b27d7d8b4017d9
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 46b842994cbcf7efe66d5992c79246d77626e268
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033285"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907396"
 ---
 # <a name="configure-hyperscale-citus-high-availability"></a>Configurar Alta disponibilidade de Hiperescala (Citus)
 
@@ -23,14 +23,14 @@ A base de dados Azure para PostgreSQL - Hiperescala (Citus) fornece alta disponi
 
 Ativar HA é possível durante a criação do grupo do servidor, ou depois no separador **de armazenamento Compute +** para o seu grupo de servidor no portal Azure. A interface do utilizador é semelhante em qualquer dos casos. Arraste o slider para **alta disponibilidade** de NÃO para SIM:
 
-![ha slider](./media/howto-hyperscale-high-availability/01-ha-slider.png)
+:::image type="content" source="./media/howto-hyperscale-high-availability/01-ha-slider.png" alt-text="ha slider":::
 
 Clique no botão **Guardar** para aplicar a sua seleção. Permitir o HA pode demorar algum tempo, uma vez que as disposições do grupo do servidor estão em espera e transmitem-lhes dados.
 
 O **separador Visão Geral** do grupo do servidor listará todos os nós e os seus standbys, juntamente com uma coluna **de alta disponibilidade** indicando se HA está habilitado com sucesso para cada nó.
 
-![a coluna ha na visão geral do grupo do servidor](./media/howto-hyperscale-high-availability/02-ha-column.png)
+:::image type="content" source="./media/howto-hyperscale-high-availability/02-ha-column.png" alt-text="a coluna ha na visão geral do grupo do servidor":::
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a alta disponibilidade.](concepts-hyperscale-high-availability.md)

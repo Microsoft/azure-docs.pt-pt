@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: ea0970a672ac8fb15c2e7c6bbb65edf33bd25f04
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 40654926b2998b3ba1c4ce1a5607a768f2c32340
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186593"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987269"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Criar uma conta de Automatização do Azure autónoma
 
@@ -33,7 +33,7 @@ Para criar ou atualizar uma conta Demôm automação e para completar as tarefas
 * Para criar uma conta Automation, a sua conta de utilizador AZURE AD deve ser adicionada a uma função com permissões equivalentes à função Proprietário para `Microsoft.Automation` recursos. Para obter mais informações, consulte [o Controlo de Acesso Baseado em Função na Azure Automation.](automation-role-based-access-control.md)
 * No portal Azure, no âmbito do **Azure Ative Directory**MANAGE User , se as  >  **MANAGE**  >  **User settings** **inscrições da App** estiverem definidas para **Sim,** os utilizadores não administrador no seu inquilino Azure AD podem [registar aplicações ative Directory](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). Se **os registos da App** estiverem definidos para **Nº,** o utilizador que executa esta ação deve ter pelo menos uma função de Desenvolvedor de Aplicações em Azure AD.
 
-Se não for membro da instância ative do Diretório da subscrição antes de ser adicionado ao papel global de Administrador/Coadministrator da subscrição, é adicionado ao Ative Directory como convidado. Neste cenário, vê esta mensagem no painel de Conta Ded automação adicionar:`You do not have permissions to create.`
+Se não for membro da instância ative do Diretório da subscrição antes de ser adicionado ao papel global de Administrador/Coadministrator da subscrição, é adicionado ao Ative Directory como convidado. Neste cenário, vê esta mensagem no painel de Conta Ded automação adicionar: `You do not have permissions to create.`
 
 Se um utilizador for adicionado primeiro à função administrador/coadministrator global, pode remover o utilizador da instância ative do Diretório da subscrição. Pode ler o utilizador para a função Utilizador no Ative Directory. Para verificar as funções do utilizador:
 
@@ -59,7 +59,7 @@ Para criar uma conta Azure Automation no portal Azure, complete os seguintes pas
    > [!NOTE]
    > Se vir a seguinte mensagem no painel de Conta Ded automação, a sua conta não é membro da função de Administrador de Subscrição e coadministrator da subscrição.
    >
-   > ![Adicionar aviso de conta de automação](media/automation-create-standalone-account/create-account-without-perms.png)
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-without-perms.png" alt-text="Screenshot de prompt 'You's not have permissions to create a Run As account in Azure Ative directy.":::
 
 1. No painel 'Adicionar adm', insira um nome para a sua nova conta Dem automação no campo **Nome.** Não pode mudar este nome depois de escolhido. 
 
@@ -74,7 +74,7 @@ Para criar uma conta Azure Automation no portal Azure, complete os seguintes pas
    > [!NOTE]
    > Se optar por não criar a conta Run As selecionando **No** for **Create Azure Run As account**, aparece uma mensagem no painel de Conta Ded automatização adicionar. Apesar de a conta ser criada no portal Azure, a conta não tem uma identidade de autenticação correspondente na subscrição do seu modelo de implementação clássico ou no serviço de diretório de subscrição do Azure Resource Manager. Portanto, a conta Automation não tem acesso a recursos na sua subscrição. Isto impede que quaisquer livros que refiram esta conta sejam capazes de autenticar e executar tarefas contra recursos nesses modelos de implantação.
    >
-   > ![Adicionar aviso de conta de automação](media/automation-create-standalone-account/create-account-decline-create-runas-msg.png)
+   > :::image type="content" source="media/automation-create-standalone-account/create-account-decline-create-runas-msg.png" alt-text="Screenshot de prompt com mensagem 'Você optou por não criar uma Conta Run As.'":::
    >
    > Quando o principal de serviço não é criado, a função contribuinte não é atribuída.
    >
@@ -105,4 +105,4 @@ As contas Classic Run As já não são criadas por padrão quando cria uma conta
 * Para começar com os livros powerShell, consulte [Tutorial: Crie um livro de execução PowerShell](learn/automation-tutorial-runbook-textual-powershell.md).
 * Para começar com os livros de fluxo de trabalho PowerShell, consulte [Tutorial: Crie um livro de fluxo de trabalho PowerShell](learn/automation-tutorial-runbook-textual.md).
 * Para começar com os runbooks Python 2, consulte [Tutorial: Crie um livro de bordo Python 2](learn/automation-tutorial-runbook-textual-python2.md).
-* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).

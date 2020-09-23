@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: daa0cfdedfe634acd2039cd4ec87606d30f7e76f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3e5351ed2d400e0b1a10a913bb62391851030053
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520583"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907759"
 ---
 # <a name="two-class-averaged-perceptron-module"></a>Módulo perceptron médio de duas classes
 
-Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
+Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
 Utilize este módulo para criar um modelo de aprendizagem automática baseado no algoritmo perceptron médio.  
   
@@ -67,6 +67,6 @@ Os modelos perceptron mais simples são adequados para aprender padrões linearm
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

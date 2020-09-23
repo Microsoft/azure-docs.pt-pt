@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
-ms.openlocfilehash: 8a1b38b9f673669adb0b5fcf67d9d560c24d5c2a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 84f5a8f638e4a9525b330277ff1eaa26ba035e1a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825961"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907410"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Criar utilizadores na Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 
@@ -48,11 +48,11 @@ Como mencionado, a `citus` conta de administração carece de permissão para cr
 
 1. Aceda à página **Roles** para o seu grupo de servidor Hyperscale e clique **+ Adicionar**+
 
-   ![A página de papéis](media/howto-hyperscale-create-users/1-role-page.png)
+   :::image type="content" source="media/howto-hyperscale-create-users/1-role-page.png" alt-text="A página de papéis":::
 
-2. Insira o nome da função e a palavra-passe. Clique em **Guardar**.
+2. Insira o nome da função e a palavra-passe. Clique em **Save** (Guardar).
 
-   ![Adicionar papel](media/howto-hyperscale-create-users/2-add-user-fields.png)
+   :::image type="content" source="media/howto-hyperscale-create-users/2-add-user-fields.png" alt-text="Adicionar papel":::
 
 O utilizador será criado no nó coordenador do grupo de servidores e propagado a todos os nós do trabalhador. As funções criadas através do portal Azure têm o atributo, o `LOGIN` que significa que são verdadeiros utilizadores que podem iniciar súbs na base de dados.
 
@@ -77,7 +77,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 
 Para atualizar um utilizador, visite a página **Roles** para o seu grupo de servidor Hyperscale e clique nas elipses... ao lado do utilizador. **...** As elipses abrirão um menu para eliminar o utilizador ou redefinir a sua palavra-passe.
 
-   ![Editar um papel](media/howto-hyperscale-create-users/edit-role.png)
+   :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="Editar um papel":::
 
 O `citus` papel é privilegiado e não pode ser apagado.
 

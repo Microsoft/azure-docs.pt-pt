@@ -1,7 +1,7 @@
 ---
 title: Use o recipiente de visão de computador com Kubernetes e Helm
 titleSuffix: Azure Cognitive Services
-description: Implemente o recipiente de Visão de Computador para uma Instância de Contentores Azure e teste-o num navegador web.
+description: Saiba como implantar o recipiente de Visão de Computador utilizando Kubernetes e Helm.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: e2a017371ccb3cf70812aed5606c386746024884
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 9a8e0dde8b24c39180a584c26af725ab82ea0176
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89443165"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907102"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Use o recipiente de visão de computador com Kubernetes e Helm
 
@@ -44,7 +44,7 @@ Os seguintes pré-requisitos antes da utilização de recipientes de visão comp
 
 ## <a name="connect-to-the-kubernetes-cluster"></a>Ligue-se ao cluster Kubernetes
 
-Espera-se que o computador anfitrião tenha um cluster Kubernetes disponível. Veja este tutorial sobre [a implementação de um cluster Kubernetes](../../aks/tutorial-kubernetes-deploy-cluster.md) para uma compreensão conceptual de como implantar um cluster Kubernetes num computador anfitrião.
+Espera-se que o computador anfitrião tenha um cluster Kubernetes disponível. Veja este tutorial sobre [a implementação de um cluster Kubernetes](../../aks/tutorial-kubernetes-deploy-cluster.md) para uma compreensão conceptual de como implantar um cluster Kubernetes num computador anfitrião. Pode encontrar mais informações sobre implementações na [documentação de Kubernetes.](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 
 ### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Partilhar credenciais de Docker com o cluster Kubernetes
 
@@ -290,7 +290,7 @@ replicaset.apps/read-57cb76bcf7   1         1         1       17s
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais detalhes sobre a instalação de aplicações com Helm in Azure Kubernetes Service (AKS), [visite aqui][installing-helm-apps-in-aks].
 

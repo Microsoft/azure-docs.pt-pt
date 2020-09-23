@@ -9,25 +9,25 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: 4028d6732220dba4848c88306a501ce22af7487a
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 07edfa2bca25a9f3e8d985cfe36987ff04ca950f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144031"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906649"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: Treine e implemente um modelo a partir do CLI
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste tutorial, você usa a extensão de machine learning para o CLI Azure para treinar, registar e implementar um modelo.
 
-Os scripts de treino Python neste tutorial usam [scikit-learn](https://scikit-learn.org/) para treinar um modelo básico. O foco deste tutorial não está nos scripts ou no modelo, mas no processo de utilização do CLI para trabalhar com a Azure Machine Learning.
+Os scripts de treino Python neste tutorial usam [scikit-learn](https://scikit-learn.org/) para treinar um modelo simples. O foco deste tutorial não está nos scripts ou no modelo, mas no processo de utilização do CLI para trabalhar com a Azure Machine Learning.
 
 Saiba como tomar as seguintes ações:
 
 > [!div class="checklist"]
 > * Instale a extensão de aprendizagem automática
-> * Criar um espaço de trabalho para aprendizagem de máquinas Azure
+> * Criar uma área de trabalho do Azure Machine Learning
 > * Criar o recurso computacional usado para treinar o modelo
 > * Definir e registar o conjunto de dados utilizado para treinar o modelo
 > * Inicie uma corrida de treino
@@ -75,7 +75,7 @@ O repositório contém os seguintes ficheiros, que são utilizados para implanta
 
 ## <a name="connect-to-your-azure-subscription"></a>Ligar à sua subscrição do Azure
 
-Existem várias formas de autenticar a sua subscrição Azure a partir do CLI. O mais básico é autenticar interativamente usando um navegador. Para autenticar interativamente, abra uma linha de comando ou terminal e utilize o seguinte comando:
+Existem várias formas de autenticar a sua subscrição Azure a partir do CLI. O mais simples é autenticar interativamente usando um navegador. Para autenticar interativamente, abra uma linha de comando ou terminal e utilize o seguinte comando:
 
 ```azurecli-interactive
 az login
@@ -101,7 +101,7 @@ az extension update -n azure-cli-ml
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos é um recipiente básico de recursos na plataforma Azure. Ao trabalhar com o Azure Machine Learning, o grupo de recursos conterá o seu espaço de trabalho Azure Machine Learning. Também conterá outros serviços Azure utilizados pelo espaço de trabalho. Por exemplo, se treinar o seu modelo utilizando um recurso computacional baseado na nuvem, esse recurso é criado no grupo de recursos.
+Um grupo de recursos é um contentor de recursos na plataforma Azure. Ao trabalhar com o Azure Machine Learning, o grupo de recursos conterá o seu espaço de trabalho Azure Machine Learning. Também conterá outros serviços Azure utilizados pelo espaço de trabalho. Por exemplo, se treinar o seu modelo utilizando um recurso computacional baseado na nuvem, esse recurso é criado no grupo de recursos.
 
 Para __criar um novo grupo de recursos,__ utilize o seguinte comando. `<resource-group-name>`Substitua-o pelo nome a utilizar para este grupo de recursos. `<location>`Substitua-a pela região Azure para utilizar para este grupo de recursos:
 
@@ -477,7 +477,7 @@ Neste tutorial de Aprendizagem automática Azure, utilizou o CLI de aprendizagem
 
 > [!div class="checklist"]
 > * Instale a extensão de aprendizagem automática
-> * Criar um espaço de trabalho para aprendizagem de máquinas Azure
+> * Criar uma área de trabalho do Azure Machine Learning
 > * Criar o recurso computacional usado para treinar o modelo
 > * Definir e registar o conjunto de dados utilizado para treinar o modelo
 > * Inicie uma corrida de treino

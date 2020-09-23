@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor para fornecedores de soluções SAP Microsoft Docs
-description: Este artigo fornece respostas a perguntas frequentes sobre monitor Azure para soluções SAP
+description: Este artigo fornece respostas a perguntas frequentes sobre o monitor Azure para fornecedores de soluções SAP.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/30/2020
 ms.author: radeltch
-ms.openlocfilehash: 267d600270e834cf4f1f077452fda7459fac3029
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e18d0b84e987e6c36f3f3b4215743025cac76d45
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525454"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987260"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Monitor Azure para fornecedores de soluções SAP (pré-visualização)
 
-## <a name="overview"></a>Descrição Geral  
+## <a name="overview"></a>Descrição geral  
 
 No contexto do Azure Monitor for SAP Solutions, um *tipo de fornecedor* refere-se a um *fornecedor*específico. Por *exemplo, SAP HANA*, que é configurado para um componente específico dentro da paisagem SAP, como base de dados SAP HANA. Um fornecedor contém as informações de ligação para o componente correspondente e ajuda a recolher dados de telemetria a partir desse componente. Um recurso Azure Monitor for SAP Solutions (também conhecido como recurso de monitor SAP) pode ser configurado com vários fornecedores do mesmo tipo de fornecedor ou vários fornecedores de vários tipos de fornecedores.
    
@@ -79,7 +79,7 @@ Para configurar o fornecedor do Microsoft SQL Server, são necessários o ID do 
 
 ![Azure Monitor para fornecedores de soluções SAP - SQL](./media/azure-monitor-sap/azure-monitor-providers-sql.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Crie o seu primeiro recurso Azure Monitor para soluções SAP.
 - Tem alguma dúvida sobre o Azure Monitor para soluções SAP? Consulte a secção [de PERGUNTAS Frequentes](./azure-monitor-faq.md)
