@@ -1,5 +1,5 @@
 ---
-title: Utilize funcionalidades de acessibilidade no designer (pré-visualização)
+title: Utilize funcionalidades de acessibilidade no designer
 titleSuffix: Azure Machine Learning
 description: Conheça os atalhos de teclado e as funcionalidades de acessibilidade do leitor de ecrã disponíveis no designer.
 services: machine-learning
@@ -10,14 +10,14 @@ ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
 ms.custom: designer
-ms.openlocfilehash: 5d91dc212eb2f856f0252261f2ddfc8a5a4d70ee
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 86cb5260a59f864658fbb7ac1c1da2d943c6253e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210363"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893431"
 ---
-# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Use um teclado para usar o designer de machine learning Azure (pré-visualização)
+# <a name="use-a-keyboard-to-use-azure-machine-learning-designer"></a>Use um teclado para usar o designer de aprendizagem de máquinas Azure
 
 Aprenda a usar um leitor de teclado e ecrã para usar o designer Azure Machine Learning. Para obter uma lista de atalhos de teclado que funcionam em todo o lado no portal Azure, consulte [atalhos de teclado no portal Azure](../azure-portal/azure-portal-keyboard-shortcuts.md)
 
@@ -70,7 +70,7 @@ Utilize os seguintes atalhos com a chave de acesso. Para obter mais informaçõe
 | Chave de acesso + R | Executar |
 | Chave de acesso + P | Publicar |
 | Chave de acesso + C | Clone |
-| Chave de acesso + D | Implementação |
+| Chave de acesso + D | Implementar |
 | Chave de acesso + I | Criar/atualizar o gasoduto de inferência |
 | Chave de acesso + B | Criar/atualizar o gasoduto de inferência do lote |
 | Chave de acesso + K | Abra o dropdown "Create inference pipeline" |

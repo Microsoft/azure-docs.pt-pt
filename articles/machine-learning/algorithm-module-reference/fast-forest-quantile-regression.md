@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: 5f00164e90d625c5343103290e9272f15d164cd8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6d59d2fabb0b74ef12e33f55467b0ba68e0b7386
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099150"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907956"
 ---
-# <a name="fast-forest-quantile-regression"></a>Regressão quântil da floresta rápida
+# <a name="fast-forest-quantile-regression"></a>Regressão de Quantil da Floresta Rápida
 
-Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
+Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
 Utilize este módulo para criar um modelo de regressão quântil de floresta rápida num oleoduto. A regressão quântil da floresta rápida é útil se quiser entender mais sobre a distribuição do valor previsto, em vez de obter um único valor médio de previsão. Este método tem muitas aplicações, incluindo:  
   
@@ -32,7 +32,7 @@ Este algoritmo de regressão é um método de aprendizagem **supervisionado,** o
 
 ## <a name="more-about-quantile-regression"></a>Mais sobre regressão quântica
 
-Há muitos tipos diferentes de regressão. No sentido mais básico, regressão significa encaixar um modelo a um alvo expresso como vetor numérico. No entanto, os estatísticos têm vindo a desenvolver métodos cada vez mais avançados para a regressão.
+Há muitos tipos diferentes de regressão. Simplificando, regressão significa encaixar um modelo num alvo expresso como vetor numérico. No entanto, os estatísticos têm vindo a desenvolver métodos cada vez mais avançados para a regressão.
 
 A definição mais simples de *quântil* é um valor que divide um conjunto de dados em grupos de tamanho igual; assim, os valores quânticos marcam as fronteiras entre grupos. Estatisticamente falando, os quânticos são valores tomados a intervalos regulares a partir do inverso da função de distribuição cumulativa (CDF) de uma variável aleatória.
 

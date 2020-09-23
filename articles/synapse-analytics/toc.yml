@@ -10,24 +10,34 @@
       items:
         - name: Introdução
           href: get-started.md
+          displayName: 'get, started'
         - name: 1 Criar uma área de trabalho do Synapse Analytics
           href: get-started-create-workspace.md
+          displayName: 'get, started'
         - name: 2 Analisar com um Conjunto de SQL
           href: get-started-analyze-sql-pool.md
+          displayName: 'get, started'
         - name: 3 Analisar com o Spark
           href: get-started-analyze-spark.md
+          displayName: 'get, started'
         - name: 4 Analisar com o SQL a pedido
           href: get-started-analyze-sql-on-demand.md
+          displayName: 'get, started'
         - name: 5 Analisar dados numa conta de armazenamento
           href: get-started-analyze-storage.md
+          displayName: 'get, started'
         - name: 6 Orquestrar com pipelines
           href: get-started-pipelines.md
+          displayName: 'get, started'
         - name: 7 Visualizar com o Power BI
           href: get-started-visualize-power-bi.md
+          displayName: 'get, started'
         - name: 8 Monitorizar
           href: get-started-monitor.md
+          displayName: 'get, started'
         - name: 9 Explorar o Centro de Conhecimento
           href: get-started-knowledge-center.md
+          displayName: 'get, started'
     - name: Truques e dicas
       href: overview-cheat-sheet.md
     - name: FAQ
@@ -48,16 +58,16 @@
       href: quickstart-power-bi.md
     - name: Criar conjuntos
       items:
-        - name: Criar um bloco de notas do Apache Spark com ferramentas Web
-          href: quickstart-apache-spark-notebook.md
-        - name: Criar um conjunto do Apache Spark com o portal do Azure
-          href: quickstart-create-apache-spark-pool-portal.md
-        - name: Criar conjunto do Apache Spark com o Synapse Studio
-          href: quickstart-create-apache-spark-pool-studio.md
-        - name: Criar conjunto do SQL com o portal do Azure
-          href: quickstart-create-sql-pool-portal.md
         - name: Criar conjunto do SQL com o Synapse Studio
           href: quickstart-create-sql-pool-studio.md
+        - name: Criar conjunto do SQL com o portal do Azure
+          href: quickstart-create-sql-pool-portal.md
+        - name: Criar um bloco de notas
+          href: quickstart-apache-spark-notebook.md
+        - name: Criar um conjunto do Spark com o portal do Azure
+          href: quickstart-create-apache-spark-pool-portal.md
+        - name: Criar conjunto do Spark com o Synapse Studio
+          href: quickstart-create-apache-spark-pool-studio.md
     - name: Carregar dados com conjuntos de SQL
       items:
         - name: Declaração COPY

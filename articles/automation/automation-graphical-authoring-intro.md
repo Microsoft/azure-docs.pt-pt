@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: c5d611ddffedc2f69cfc4f2b5600a158b0be9680
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 161272fe35ee9ea1e0880b991273e5d1a79eafb4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186338"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987335"
 ---
 # <a name="author-graphical-runbooks-in-azure-automation"></a>Livros gráficos do autor na Azure Automation
 
@@ -61,7 +61,7 @@ Selecione uma atividade na tela para configurar as suas propriedades e parâmetr
 
 Um conjunto de parâmetros define os parâmetros obrigatórios e opcionais que aceitam valores para um cmdlet particular. Todos os cmdlets têm pelo menos um parâmetro definido, e alguns têm vários conjuntos. Se um cmdlet tiver vários parâmetros, deve selecionar o que usar antes de configurar parâmetros. Pode alterar o parâmetro definido por uma atividade selecionando Conjunto de **Parâmetros** e escolhendo outro conjunto. Neste caso, perdem-se os valores de parâmetro que já configuraram.
 
-No exemplo seguinte, o [cmdlet Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0) tem três parâmetros. O exemplo utiliza um conjunto chamado **ListVirtualMachineInResourceGroupGroup,** com um único parâmetro opcional, para devolver todas as máquinas virtuais num grupo de recursos. O exemplo também utiliza o parâmetro **GetVirtualMachineInResourceGroupGroup** para especificar a máquina virtual para devolver. Este conjunto tem dois parâmetros obrigatórios e um parâmetro opcional.
+No exemplo seguinte, o [cmdlet Get-AzVM](/powershell/module/az.compute/get-azvm?view=azps-3.5.0&preserve-view=true) tem três parâmetros. O exemplo utiliza um conjunto chamado **ListVirtualMachineInResourceGroupGroup,** com um único parâmetro opcional, para devolver todas as máquinas virtuais num grupo de recursos. O exemplo também utiliza o parâmetro **GetVirtualMachineInResourceGroupGroup** para especificar a máquina virtual para devolver. Este conjunto tem dois parâmetros obrigatórios e um parâmetro opcional.
 
 ![Conjunto de parâmetros](media/automation-graphical-authoring-intro/get-azvm-parameter-sets.png)
 
@@ -69,7 +69,7 @@ No exemplo seguinte, o [cmdlet Get-AzVM](/powershell/module/az.compute/get-azvm?
 
 Quando especificar um valor para um parâmetro, selecione uma fonte de dados para determinar como o valor é especificado. As fontes de dados disponíveis para um determinado parâmetro dependem dos valores válidos para esse parâmetro. Por exemplo, Null não é uma opção disponível para um parâmetro que não permite valores nulos.
 
-| Origem de Dados | Descrição |
+| Origem de dados | Descrição |
 |:--- |:--- |
 | Valor Constante |Digite um valor para o parâmetro. Esta fonte de dados só está disponível para os seguintes tipos de dados: Int32, Int64, String, Boolean, DateTime, Switch. |
 | Saída de Atividade |Utilize a produção de uma atividade que precede a atividade atual no fluxo de trabalho. Todas as atividades válidas estão listadas. Para o valor do parâmetro, utilize apenas a atividade que produz a saída. Se a atividade der um objeto com múltiplas propriedades, pode digitar o nome de uma propriedade específica após a seleção da atividade. |
@@ -91,11 +91,11 @@ A funcionalidade de retenção para uma atividade permite que seja executada vá
 
 Quando ativar a repetição de uma atividade, pode definir um atraso e uma condição. O atraso é o tempo (medido em segundos ou minutos) que o livro de bordo espera antes de voltar a executar a atividade. Se não especificar um atraso, a atividade volta a funcionar imediatamente após a sua conclusão.
 
-![Atraso de retíria da atividade](media/automation-graphical-authoring-intro/retry-delay.png)
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-delay.png" alt-text="Screenshot das definições de funcionalidade de relíndi ativação.":::
 
 A condição de relemissão é uma expressão PowerShell que é avaliada após cada vez que a atividade é executado. Se a expressão se resolver para True, a atividade volta a funcionar. Se a expressão se resolver para Falso, a atividade não volta a funcionar e o livro passa para a atividade seguinte.
 
-![Atraso de retíria da atividade](media/automation-graphical-authoring-intro/retry-condition.png)
+:::image type="content" source="media/automation-graphical-authoring-intro/retry-condition.png" alt-text="Screenshot mostrando a Retry até que esta condição seja um campo verdadeiro e exemplos de expressões PowerShell que podem ser usadas na condição de relemissão.":::
 
 A condição de retagem pode usar uma variável nomeada `RetryData` que dá acesso à informação sobre as retrações da atividade. Esta variável tem as propriedades no quadro seguinte:
 
@@ -435,4 +435,4 @@ Tem a opção de reverter para a versão publicada de um livro de execução. Es
 * Para começar com os runbooks gráficos, consulte [Tutorial: Crie um runbook gráfico](learn/automation-tutorial-runbook-graphical.md).
 * Para saber mais sobre os tipos de runbook e as suas vantagens e limitações, consulte [os tipos de runbook da Azure Automation](automation-runbook-types.md).
 * Para compreender como autenticar utilizando a conta Automation Run As, consulte [a conta Executar Como.](automation-security-overview.md#run-as-account)
-* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0#automation).
+* Para obter uma referência de cmdlet PowerShell, consulte [Az.Automation](/powershell/module/az.automation/?view=azps-3.7.0&preserve-view=true#automation).

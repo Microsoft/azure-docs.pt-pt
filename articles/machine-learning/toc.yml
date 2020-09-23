@@ -15,21 +15,28 @@
 - name: Tutoriais
   expanded: true
   items:
-    - name: SDK Python
+    - name: Python (dia 1)
       expanded: true
       items:
-        - name: Criar a primeira experimentação de Machine Learning
-          items:
-            - name: 1. Configurar área de trabalho e ambiente de desenvolvimento
-              href: tutorial-1st-experiment-sdk-setup.md
-            - name: 2. Treinar seu primeiro modelo
-              href: tutorial-1st-experiment-sdk-train.md
+        - name: 1. Configurar um computador local
+          href: tutorial-1st-experiment-sdk-setup-local.md
+        - name: 2. Hello world
+          href: tutorial-1st-experiment-hello-world.md
+        - name: 3. Preparar um modelo
+          href: tutorial-1st-experiment-sdk-train.md
+        - name: 4. Traga os seus próprios dados
+          href: tutorial-1st-experiment-bring-data.md
+    - name: Jupyter Notebooks
+      expanded: true
+      items:
         - name: Classificação de imagens (dados MNIST)
           items:
-            - name: 1. Preparar um modelo
+            - name: 1. Configurar uma instância de computação
+              href: tutorial-1st-experiment-sdk-setup.md
+            - name: 2. Preparar um modelo
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
-            - name: 2. Implementar um modelo
+            - name: 3. Implementar um modelo
               href: tutorial-deploy-models-with-aml.md
         - name: Regressão com ML Automatizado (dados de táxi de NYC)
           items:
@@ -92,8 +99,6 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
 - name: Conceitos
   items:
-    - name: Edições Empresariais vs. Básicas
-      href: concept-editions.md
     - name: Planear e gerir custos
       displayName: low priority VM
       href: concept-plan-manage-cost.md
@@ -201,6 +206,9 @@
         - name: Codificação segura
           href: concept-secure-code-best-practice.md
           displayName: security threat
+        - name: Auditar e gerir a conformidade
+          href: how-to-integrate-azure-policy.md
+          displayName: policy
     - name: ML responsável
       items:
         - name: Descrição geral do ML responsável
@@ -287,12 +295,15 @@
               href: how-to-designer-import-data.md
         - name: Aceder a dados
           items:
-            - name: Ligar ao Armazenamento do Azure
+            - name: Ligar ao armazenamento do Azure (Python)
               displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore'
               href: how-to-access-data.md
-            - name: Obter dados a partir de um arquivo de dados
+            - name: Obter dados a partir de um arquivo de dados (Python)
               displayName: 'data, data set, register, access data'
               href: how-to-create-register-datasets.md
+            - name: Ligar a dados (IU)
+              displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore, dataset, data set'
+              href: how-to-connect-data-ui.md
         - name: Gerir e consumir dados
           items:
             - name: Preparar com conjuntos de dados
@@ -448,6 +459,9 @@
         - name: Modelos de perfil
           displayName: profile resource requirement
           href: how-to-deploy-profile-model.md
+        - name: Implementar modelos do estruturador
+          displayName: 'designer, studio'
+          href: how-to-deploy-model-designer.md
         - name: (Pré-visualização) Implementação sem código
           displayName: no code
           href: how-to-deploy-no-code-deployment.md

@@ -1,6 +1,6 @@
 ---
-title: Ativar e desativar as políticas de retenção de dados - Azure SQL Edge (Pré-visualização)
-description: Saiba como ativar e desativar as políticas de retenção de dados em Azure SQL Edge (Pré-visualização)
+title: Ativar e desativar políticas de retenção de dados - Azure SQL Edge
+description: Saiba como ativar e desativar políticas de retenção de dados em Azure SQL Edge
 keywords: SQL Edge, retenção de dados
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 9787f2cfa87a16d9e7dd1753e4389977c6753b81
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: ee2d65d66caef5cd9405d6e3d0e094de2e30ae87
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89550729"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902496"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>Permitir e desativar políticas de retenção de dados
 
@@ -23,9 +23,6 @@ Este tópico descreve como ativar e desativar políticas de retenção de dados 
 ## <a name="enable-data-retention-for-a-database"></a>Permitir a retenção de dados para uma base de dados
 
 O exemplo a seguir mostra como permitir a retenção de dados utilizando [a Alter Database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options).
-
-> [!NOTE]
-> Para ativar a funcionalidade de retenção de dados no Azure SQL Edge (Preview), ative o TF 12825 como opção de arranque ou utilize o comando DBCC TRACEON. Para obter mais informações sobre como permitir o rastreio de bandeiras utilizando um ficheiro mssql.conf, consulte [Configure utilizando um ficheiro mssql.conf](configure.md#configure-by-using-an-mssqlconf-file). 
 
 ```sql
 ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION  ON;
@@ -59,12 +56,12 @@ A `WITH (DATA_DELETION = ON ( FILTER_COLUMN = [dbdatetime2], RETENTION_PERIOD = 
 
 - DATA_DELETION - Indica se a retenção de dados é ON ou OFF.
 - FILTER_COLUMN - Nome na coluna da tabela, que será usada para verificar se as linhas estão obsoletas ou não. A coluna do filtro só pode ser uma coluna com os seguintes tipos de dados 
-    - Data
+    - Date
     - Hora do Pequeno Natal
-    - Data e Hora
+    - DateTime
     - DataTime2
     - Início de execução de tempo de data
-- RETENTION_PERIOD - Um valor inteiro seguido por um descritor de unidade. As unidades permitidas são DIA, SEMANA, MÊS e ANO.
+- RETENTION_PERIOD - Um valor inteiro seguido por um descritor de unidade. As unidades permitidas são DIAS, DIAS, SEMANA, SEMANAS, MÊS, MESES, ANO E ANOS.
 
 O exemplo a seguir mostra como permitir a retenção de dados para a tabela utilizando [o Quadro Alter](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).  
 
@@ -98,9 +95,9 @@ A definição de retenção de dados na base de dados e na tabela, são utilizad
 |Opção de Base de Dados | Opção de tabela | Comportamento |
 |----------------|--------------|----------|
 | OFF | OFF | A política de retenção de dados é desativada e a limpeza automática e manual dos registos envelhecidos é desativada.|
-| OFF | ON  | A política de retenção de dados está ativada para a tabela, no entanto, tanto a limpeza automática como manual de registos envelhecidos são desativadas. |
+| OFF | ON  | A política de retenção de dados está ativada para a tabela. A limpeza automática de registos obsoletos é desativada, no entanto o método de limpeza manual pode ser usado para limpar registos obsoletos. |
 | ON | OFF | A política de retenção de dados está ativada ao nível da base de dados. No entanto, uma vez que a opção é desativada ao nível da mesa, não existe uma limpeza baseada na retenção de linhas envelhecidas.|
-| ON | ON | A política de retenção de dados está ativada tanto para a base de dados como para as tabelas. Está ativada a limpeza automática/manual dos registos envelhecidos |
+| ON | ON | A política de retenção de dados está ativada tanto para a base de dados como para as tabelas. Está ativada a limpeza automática de registos obsoletos. |
 
 ## <a name="disable-data-retention-on-a-table"></a>Desativar a retenção de dados numa tabela 
 
@@ -119,6 +116,6 @@ A conservação de dados pode ser desativada numa tabela utilizando [a Alter Dat
 ALTER DATABASE <DatabaseName> SET DATA_RETENTION  OFF;
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Retenção de Dados e Purga automática de dados](data-retention-overview.md)
 - [Gerir dados históricos com política de retenção](data-retention-cleanup.md)

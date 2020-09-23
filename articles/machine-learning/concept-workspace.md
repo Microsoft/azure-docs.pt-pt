@@ -8,21 +8,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/08/2020
-ms.openlocfilehash: e765422ebfce1a4328bac9a17edb8b581f87e6f7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.date: 09/22/2020
+ms.openlocfilehash: 7185adf559f429feb0ada60fef65e1edb106da66
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661706"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907640"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um espaço de trabalho de aprendizagem automática Azure?
 
 O espaço de trabalho é o recurso de alto nível para a Azure Machine Learning, proporcionando um lugar centralizado para trabalhar com todos os artefactos que cria quando se utiliza a Azure Machine Learning.  O espaço de trabalho mantém uma história de todas as corridas de treino, incluindo registos, métricas, saídas e uma foto dos seus scripts. Utiliza esta informação para determinar qual o treino que produz o melhor modelo.  
 
 Uma vez que tenha um modelo de que goste, registe-o com o espaço de trabalho. Em seguida, utiliza o modelo registado e os scripts de pontuação para implantar em Instâncias de Contentores Azure, Serviço Azure Kubernetes, ou para um conjunto de porta programável de campo (FPGA) como um ponto final HTTP baseado em REST. Também pode implantar o modelo num dispositivo Azure IoT Edge como módulo.
-
-Os preços e funcionalidades disponíveis dependem se a [edição Basic ou Enterprise](overview-what-is-azure-ml.md#sku) é selecionada para o espaço de trabalho. Selecione a edição quando [cria o espaço de trabalho.](#create-workspace)  Também pode [fazer upgrade](#upgrade) da edição Basic para Enterprise.
 
 ## <a name="taxonomy"></a>Taxonomia 
 
@@ -53,7 +51,7 @@ Pode interagir com o seu espaço de trabalho das seguintes formas:
 
 + Na web:
     + [Estúdio Azure Machine Learning ](https://ml.azure.com) 
-    + [Azure Machine Learning designer (pré-visualização)](concept-designer.md) - Disponível apenas em espaços de trabalho [da edição enterprise.](overview-what-is-azure-ml.md#sku)
+    + [Estruturador do Azure Machine Learning](concept-designer.md) 
 + Em qualquer ambiente Python com o [Azure Machine Learning SDK para Python.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
 + Em qualquer ambiente R com o [Azure Machine Learning SDK para R (pré-visualização)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + Na linha de comando utilizando a [extensão CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) de aprendizagem da máquina Azure
@@ -80,7 +78,6 @@ Também pode executar as seguintes tarefas de gestão do espaço de trabalho:
 |---------------------------|---------|---------|------------|------------|------------|
 | Criar uma área de trabalho        | **&check;**     | | **&check;** | **&check;** | **&check;** |
 | Gerir o acesso ao espaço de trabalho    | **&check;**   || |  **&check;**    ||
-| Upgrade para edição enterprise    | **&check;** | **&check;**  | |     ||
 | Criar e gerir recursos computacional    | **&check;**   | **&check;** | **&check;** |  **&check;**   ||
 | Criar um VM de caderno |   | **&check;** | |     ||
 
@@ -88,8 +85,6 @@ Também pode executar as seguintes tarefas de gestão do espaço de trabalho:
 > Mover o seu espaço de trabalho Azure Machine Learning para uma subscrição diferente, ou mover a subscrição proprietária para um novo inquilino, não é suportado. Fazê-lo pode causar erros.
 
 ## <a name="create-a-workspace"></a><a name='create-workspace'></a> Criar um espaço de trabalho
-
-Quando cria um espaço de trabalho, decide-se se o cria com [edição Basic ou Enterprise.](overview-what-is-azure-ml.md#sku) A edição determina as funcionalidades disponíveis no espaço de trabalho. Entre outras funcionalidades, a edição da Enterprise dá-lhe acesso ao [designer Azure Machine Learning](concept-designer.md) e à versão de estúdio de construção de [experiências automatizadas](tutorial-first-experiment-automated-ml.md)de machine learning.  Para obter mais informações e informações sobre preços, consulte [os preços de Azure Machine Learning](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 Existem várias formas de criar um espaço de trabalho:  
 
@@ -101,34 +96,37 @@ Existem várias formas de criar um espaço de trabalho:
 > [!NOTE]
 > O nome do espaço de trabalho é insensível a caso.
 
-## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a> Upgrade para edição enterprise
-
-Você pode [atualizar o seu espaço de trabalho de Basic para Enterprise edition](how-to-manage-workspace.md#upgrade) usando o portal Azure. Não é possível desvalorizar um espaço de trabalho da edição enterprise para um espaço de trabalho de edição básica. 
-
 ## <a name="associated-resources"></a><a name="resources"></a> Recursos associados
 
 Ao criar um novo espaço de trabalho, cria automaticamente vários recursos Azure que são utilizados pelo espaço de trabalho:
 
++ [Conta de Armazenamento Azure](https://azure.microsoft.com/services/storage/): É utilizada como a datastore predefinida para o espaço de trabalho.  Os cadernos Jupyter que são usados com os seus casos de cálculo de Aprendizagem de Máquinas Azure também estão armazenados aqui. 
+  
+  > [!IMPORTANT]
+  > Por predefinição, a conta de armazenamento é uma conta v1 de uso geral. Pode [atualizá-lo para v2 de uso geral](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) após a criação do espaço de trabalho. Não ative o espaço hierárquico na conta de armazenamento após a atualização para o v2 de uso geral.
+
+  Para utilizar uma conta de Armazenamento Azure existente, não pode ser uma conta premium (Premium_LRS e Premium_GRS). Também não pode ter um espaço hierárquico de nomes (usado com Azure Data Lake Storage Gen2). Nem o armazenamento premium nem os espaços hierárquicos são suportados com a conta de armazenamento _predefinido_ do espaço de trabalho. Pode utilizar um espaço de identificação premium ou hierárquico com contas de armazenamento _não padrão._
+  
 + [Registo do contentor Azure](https://azure.microsoft.com/services/container-registry/): Regista os recipientes de estivadores que utiliza durante o treino e quando implementa um modelo. Para minimizar os custos, o ACR é **preguiçoso até** que as imagens de implantação sejam criadas.
-+ [Conta de Armazenamento Azure](https://azure.microsoft.com/services/storage/): É utilizada como a datastore predefinida para o espaço de trabalho.  Os cadernos Jupyter que são usados com os seus casos de cálculo de Aprendizagem de Máquinas Azure também estão armazenados aqui.
+
 + [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Armazena informações de monitorização sobre os seus modelos.
+
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Armazena segredos que são usados por alvos computacional e outras informações sensíveis que são necessárias pelo espaço de trabalho.
 
 > [!NOTE]
 > Além de criar novas versões, também pode utilizar os serviços Azure existentes.
 
-### <a name="azure-storage-account"></a>Conta de armazenamento do Azure
+<a name="wheres-enterprise"></a>
 
-A conta Azure Storage criada por padrão com o espaço de trabalho é uma conta v1 de uso geral. Pode atualizá-lo para v2 de uso geral após a criação do espaço de trabalho seguindo os passos da Atualização para um artigo [de conta de armazenamento V2 para fins gerais.](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)
+## <a name="what-happened-to-enterprise-edition"></a>O que aconteceu com a edição da Enterprise
 
-> [!IMPORTANT]
-> Não ative o espaço hierárquico na conta de armazenamento após a atualização para o v2 de uso geral.
+A partir de setembro de 2020, todas as capacidades disponíveis nos espaços de trabalho da edição enterprise estão agora também disponíveis em espaços de trabalho da edição básica. Novos espaços de trabalho da Enterprise já não podem ser criados.  Quaisquer chamadas SDK, CLI ou Azure Resource Manager que utilizem o `sku` parâmetro continuarão a funcionar, mas será aprovisionado um espaço de trabalho básico.
 
-Se quiser utilizar uma conta de Armazenamento Azure existente, não pode ser uma conta premium (Premium_LRS e Premium_GRS). Também não pode ter um espaço hierárquico de nomes (usado com Azure Data Lake Storage Gen2). Nem o armazenamento premium nem os espaços hierárquicos são suportados com a conta de armazenamento _predefinido_ do espaço de trabalho. Pode utilizar um espaço de identificação premium ou hierárquico com contas de armazenamento _não padrão._
+A partir de 21 de dezembro, todos os espaços de trabalho da Enterprise Edition serão automaticamente definidos para a Basic Edition, que tem as mesmas capacidades. Durante este processo não ocorrerá qualquer tempo de inatividade. No dia 1 de janeiro de 2021, a Enterprise Edition será formalmente reformada. 
 
+Em qualquer uma das edições, os clientes são responsáveis pelos custos dos recursos Azure consumidos e não precisarão de pagar quaisquer encargos adicionais pela Azure Machine Learning. Consulte a página de preços de [Aprendizagem automática Azure](https://azure.microsoft.com/pricing/details/machine-learning/) para obter mais detalhes.
 
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar com a Azure Machine Learning, consulte:
 
@@ -137,5 +135,5 @@ Para começar com a Azure Machine Learning, consulte:
 + [Gerir uma área de trabalho](how-to-manage-workspace.md)
 + [Tutorial: Começa a criar a tua primeira experiência de ML com o Python SDK](tutorial-1st-experiment-sdk-setup.md)
 + [Tutorial: Começar com Azure Machine Learning com o R SDK](tutorial-1st-r-experiment.md)
-+ [Tutorial: Crie o seu primeiro modelo de classificação com machine learning automatizado](tutorial-first-experiment-automated-ml.md) (disponível apenas em espaços de trabalho da [edição enterprise)](overview-what-is-azure-ml.md#sku)
-+ [Tutorial: Prever o preço do automóvel com o designer](tutorial-designer-automobile-price-train-score.md) (disponível apenas em espaços de trabalho da [edição enterprise)](overview-what-is-azure-ml.md#sku)
++ [Tutorial: Crie o seu primeiro modelo de classificação com aprendizagem automática de máquinas](tutorial-first-experiment-automated-ml.md) 
++ [Tutorial: Prever preço do automóvel com o designer](tutorial-designer-automobile-price-train-score.md)

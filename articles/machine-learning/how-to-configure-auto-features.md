@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: e5ed84c6daaf01deb67d39bd13de1498dca131c5
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: d8779a25b7c6036f3b09badab67733fa55acfee7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750875"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907589"
 ---
 # <a name="featurization-in-automated-machine-learning"></a>Caracterização na aprendizagem automática de máquinas
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste guia, aprende-se:
 
@@ -182,7 +182,7 @@ Esta lista inclui todos os nomes de recursos projetados.
   fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
   ```
 
-Resultado
+Saída
 
   ```
   [{'RawFeatureName': 'A',
@@ -207,7 +207,7 @@ Resultado
     'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
   ```
 
-   |Resultado|Definição|
+   |Saída|Definição|
    |----|--------|
    |RawFeatureName|Denominação/nome da coluna a partir do conjunto de dados fornecido.|
    |TipoDetectado|Tipo de dados detetado da função de entrada.|

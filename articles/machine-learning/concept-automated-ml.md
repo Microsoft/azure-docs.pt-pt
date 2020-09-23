@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: eef8abebde2578ac549b2facfc1317a90ecc7fb5
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 83281a9dde0b29a9f8bfc2bd90114227bf9e769f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658565"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886375"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>O que é o machine learning automatizado (AutoML)?
 
@@ -78,8 +78,6 @@ Utilizando **a Azure Machine Learning,** pode conceber e executar as suas experi
 
    * Para experiência limitada ou sem código, experimente a experiência web do estúdio Azure Machine Learning em [https://ml.azure.com](https://ml.azure.com/)  
    * Para desenvolvedores de Python, confira o [Azure Machine Learning Python SDK](how-to-configure-auto-train.md) 
-
-    [!INCLUDE [aml-applies-to-enterprise-sku](../../includes/aml-applies-to-enterprise-sku-inline.md)]  
     
 1. **Especificar a origem e o formato dos dados de formação rotulados:** Matrizes numpiadas ou dataframe pandas
 
@@ -172,25 +170,25 @@ Considere estes prós e contras ao optar por utilizar local vs. remoto.
 
 ### <a name="feature-availability"></a>Disponibilidade de funcionalidades 
 
- Mais funcionalidades estão disponíveis quando utiliza o cálculo remoto, como mostra a tabela abaixo. Algumas destas funcionalidades estão disponíveis apenas num espaço de trabalho da Enterprise.
+ Mais funcionalidades estão disponíveis quando utiliza o cálculo remoto, como mostra a tabela abaixo. 
 
-| Funcionalidade                                                    | Remoto | Local | Requer <br>Espaço de trabalho da empresa |
-|------------------------------------------------------------|--------|-------|-------------------------------|
-| Streaming de dados (Grande suporte a dados, até 100 GB)          | ✓      |       | ✓                             |
-| A participação e formação de texto baseados em DNN-BERT             | ✓      |       | ✓                             |
-| Suporte de GPU fora da caixa (treino e inferência)        | ✓      |       | ✓                             |
-| Classificação de imagem e suporte à rotulagem                  | ✓      |       | ✓                             |
-| Modelos Auto-ARIMA, Profeta e ForecastTCN para previsão | ✓      |       | ✓                             |
-| Múltiplas corridas/iterações em paralelo                       | ✓      |       | ✓                             |
-| Criar modelos com interpretação na experiência web do estúdio AutoML UI      | ✓      |       | ✓                             |
-| Personalização de engenharia de recursos na experiência web do estúdio UI                        | ✓      |       | ✓                              |
-| Azure ML afinação hiperparítnica                             | ✓      |       |                               |
-| Suporte ao fluxo de trabalho do gasoduto Azure ML                         | ✓      |       |                               |
-| Continue uma corrida                                             | ✓      |       |                               |
-| Previsão                                                | ✓      | ✓     | ✓                             |
-| Criar e executar experiências em cadernos                    | ✓      | ✓     |                               |
-| Registar e visualizar as informações e métricas da experiência em UI | ✓      | ✓     |                               |
-| Guarda-dados                                            | ✓      | ✓     |                               |
+| Funcionalidade                                                    | Remoto | Local | 
+|------------------------------------------------------------|--------|-------|
+| Streaming de dados (Grande suporte a dados, até 100 GB)          | ✓      |       | 
+| A participação e formação de texto baseados em DNN-BERT             | ✓      |       |
+| Suporte de GPU fora da caixa (treino e inferência)        | ✓      |       |
+| Classificação de imagem e suporte à rotulagem                  | ✓      |       |
+| Modelos Auto-ARIMA, Profeta e ForecastTCN para previsão | ✓      |       | 
+| Múltiplas corridas/iterações em paralelo                       | ✓      |       |
+| Criar modelos com interpretação na experiência web do estúdio AutoML UI      | ✓      |       |
+| Personalização de engenharia de recursos na experiência web do estúdio UI| ✓      |       |
+| Azure ML afinação hiperparítnica                             | ✓      |       |
+| Suporte ao fluxo de trabalho do gasoduto Azure ML                         | ✓      |       |
+| Continue uma corrida                                             | ✓      |       |
+| Previsão                                                | ✓      | ✓     |
+| Criar e executar experiências em cadernos                    | ✓      | ✓     |
+| Registar e visualizar as informações e métricas da experiência em UI | ✓      | ✓     |
+| Guarda-dados                                            | ✓      | ✓     |
 
 ## <a name="many-models"></a>Muitos modelos 
 
@@ -267,7 +265,7 @@ Veja como converter para o formato ONNX [neste exemplo de caderno Jupyter](https
 
 O tempo de execução ONNX também suporta C#, para que possa utilizar o modelo construído automaticamente nas suas aplicações C# sem qualquer necessidade de recoding ou qualquer uma das latências de rede que os pontos finais REST introduzem. Saiba mais sobre [a inferencção dos modelos ONNX com o tempo de execução ONNX C# API](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md). 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Existem vários recursos para te pôr a funcionar com o AutoML. 
 

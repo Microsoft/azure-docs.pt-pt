@@ -5,14 +5,14 @@ author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: overview
-ms.date: 09/11/2020
-ms.openlocfilehash: 5818e57f29558cbb5a29592cd4e1d7ae2eebbec1
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.topic: tutorial
+ms.date: 10/20/2019
+ms.openlocfilehash: 0206c111be7cd6441d9de32af498e961833d214f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531547"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980688"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-connected-logistics-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação logística conectada
 
@@ -23,6 +23,10 @@ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Crie uma aplicação logística conectada.
 > * Utilize as principais funcionalidades da aplicação.
+> * Utilize o Dashboard para mostrar a atividade crítica de operações do dispositivo logístico.
+> * Use o modelo do dispositivo
+> * Seguir regras
+> * Utilizar empregos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,6 +45,7 @@ Crie a aplicação utilizando os seguintes passos:
 
 3. **Criar app** abre o novo formulário **de aplicação.** Introduza os seguintes detalhes:
 
+
     * **Nome da aplicação**: pode utilizar o nome sugerido por defeito ou introduzir o nome da sua aplicação amigável.
     * **URL**: pode utilizar URL padrão sugerido ou inserir o seu AMIGÁVEL URL memorável único. Em seguida, recomenda-se a definição predefinida se já tiver uma Subscrição Azure. Você pode começar com um plano de preços de teste gratuito de 7 dias e optar por converter-se a um plano de preços padrão a qualquer momento antes que o trilho gratuito expire.
     * **Billing Info**: O diretório, a subscrição do Azure e os detalhes da região são necessários para a disponibilização dos recursos.
@@ -52,11 +57,22 @@ Crie a aplicação utilizando os seguintes passos:
 
 ## <a name="walk-through-the-application"></a>Caminhe pela aplicação
 
-As seguintes secções acompanham-no através das principais características da aplicação:
+Abaixo está a imagem que mostra como selecionar o modelo de aplicação logística conectada.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot mostrando como selecionar o modelo de aplicação de logística conectada](./media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png)
+
+As secções seguintes acompanham-no através das principais características da aplicação.
 
 ### <a name="dashboard"></a>Dashboard
 
 Depois de implementar o modelo de aplicação, o seu painel de instrumentos padrão é um portal focado no operador de logística conectado. Northwind Trader é um fornecedor de logística fictício que gere uma frota de carga no mar e em terra. Neste painel de instrumentos, vemos dois gateways diferentes que fornecem telemetria a partir de envios, juntamente com comandos, empregos e ações associados.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot mostrando como criar uma aplicação a partir do modelo de aplicação de logística conectada](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png)
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot mostrando as opções de faturação quando cria a aplicação](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create-billinginfo.png)
 
 Este painel está pré-configurado para mostrar a atividade crítica de operações de dispositivos logísticos.
 
@@ -114,6 +130,8 @@ Se não continuar a utilizar esta aplicação, elimine o **Administration**model
 :::image type="content" source="media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png" alt-text="Limpeza de modelos":::
 
 ## <a name="next-steps"></a>Passos seguintes
-
-* Saiba mais sobre [o conceito de logística conectada](./architecture-connected-logistics.md)
+* Mais informações sobre 
+> [!div class="nextstepaction"]
+> [Conceito de logística conectado](./architecture-connected-logistics.md)
 * Saiba mais sobre outros [modelos de varejo IoT Central](./overview-iot-central-retail.md)
+* Saiba mais sobre [a visão geral do IoT Central](../core/overview-iot-central.md)

@@ -9,12 +9,12 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: c8aaef9c98e1fe44c73d4bd464bb1e52122e7a57
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: c01d1bcb682a5f711dcba3cc7b32ef69b2642ef6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90709679"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900764"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Explore o Centro de Conhecimento sinapse
 
@@ -45,7 +45,7 @@ O **Centro de Conhecimento** permite-lhe fazer três coisas:
 1. Percorra a primeira consulta (linhas 28 a 32) e selecione o texto de consulta
 1. Clique em Run (Executar). Irá executar o texto que selecionou.
 
-## <a name="loading-the-more-nyc-taxi-data"></a>Carregar mais dados de táxi de NYC
+## <a name="loading-more-nyc-taxi-data"></a>Carregar mais dados de táxi de NYC
 
 1. O **Knowledge Center,** clique em **procurar amostras disponíveis** 
 1. Selecione o separador **de scripts SQL** no topo

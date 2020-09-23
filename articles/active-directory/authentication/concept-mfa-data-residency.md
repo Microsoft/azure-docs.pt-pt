@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 09/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bed0f6cc32c25563d322da77193c5a3b6072902
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 0e5d8dc60ee0a1f4742382b1cec8ef3ed60e8fb3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052284"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970664"
 ---
 # <a name="data-residency-and-customer-data-for-azure-multi-factor-authentication"></a>Residência de dados e dados do cliente para autenticação multi-factor Azure
 
@@ -24,13 +24,12 @@ Os dados do cliente são armazenados pela Azure AD numa localização geográfic
 
 O processo de autenticação multi-factor Azure baseado na nuvem e o processo do Servidor de Autenticação Multi-Factor Azure e armazenam uma quantidade de dados pessoais e organizacionais. Este artigo descreve o que e onde os dados são armazenados.
 
-As seguintes atividades de autenticação multi-factor têm atualmente origem nos centros de dados dos EUA, exceto se formos anotados:
+O serviço de autenticação multi-factor Azure tem datacenters nos EUA, Europa e Ásia-Pacífico. As seguintes atividades são originárias dos centros de dados regionais, exceto se se observar:
 
-* A autenticação de dois fatores utilizando chamadas telefónicas ou SMS normalmente origina-se de datacenters dos EUA e são encaminhados por fornecedores globais.
-    * Os pedidos gerais de autenticação dos utilizadores provenientes de outras regiões, como a Europa ou a Austrália, são atualmente tratados por centros de dados nessa região. Outros eventos como resets de palavra-passe de autosserviço, eventos Azure B2C ou cenários híbridos usando extensão NPS ou adaptador AD FS, são todos processados por datacenters dos EUA.
-* As notificações push utilizando a aplicação Microsoft Authenticator são originárias de datacenters dos EUA. Além disso, os serviços específicos do fornecedor de dispositivos também podem ser reproduzidores de diferentes regiões.
-* Os códigos OATH são normalmente validados nos EUA.
-    * Mais uma vez, os eventos de autenticação geral dos utilizadores originários de outras regiões, como a Europa ou a Austrália, são tratados por datacenters naquela região. Eventos adicionais são atualmente processados por datacenters dos EUA.
+* A autenticação multi-factor usando chamadas telefónicas tem origem em datacenters dos EUA e é encaminhada por fornecedores globais.
+* Os pedidos gerais de autenticação do utilizador de outras regiões, como a Europa ou a Austrália, são atualmente processados com base na localização do utilizador.
+* As notificações push utilizando a aplicação Microsoft Authenticator originam os datacenters regionais com base na localização do utilizador.
+    * Os serviços específicos do fornecedor do dispositivo, como as notificações do Apple Push, podem estar fora da localização do utilizador.
 
 ## <a name="personal-data-stored-by-azure-multi-factor-authentication"></a>Dados pessoais armazenados por Autenticação Multi-Factor Azure
 
@@ -105,6 +104,6 @@ Onde a informação de registo é armazenada depende da região em que são proc
 
 Alguns dados de registo de autenticação do núcleo são armazenados apenas nos Estados Unidos. A Microsoft Azure Germany e o Microsoft Azure Operados pela 21Vianet estão sempre armazenados na sua respetiva nuvem. Os dados de registo da Cloud do Governo da Microsoft são sempre armazenados nos Estados Unidos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre as informações do utilizador recolhidas pelo Azure Multi-Factor Authentication e pelo Azure Multi-Factor Authentication Server, consulte a recolha de dados de [autenticação multi-factor Azure](howto-mfa-reporting-datacollection.md).

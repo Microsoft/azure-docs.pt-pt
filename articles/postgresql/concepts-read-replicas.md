@@ -6,31 +6,31 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 608740ea52cf82485bae073d9679107ac52baa28
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: f093d9b1a67d5e6836fc7f760b0336c9923f5186
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611131"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902076"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Leia réplicas na Base de Dados Azure para PostgreSQL - Servidor Único
 
-A funcionalidade de réplica de leitura permite-lhe replicar dados de uma Base de Dados Azure para servidor PostgreSQL para um servidor apenas de leitura. Pode replicar do servidor mestre para até cinco réplicas. As réplicas são atualizadas assíncronamente com a tecnologia de replicação nativa do motor PostgreSQL.
+A funcionalidade de réplica de leitura permite-lhe replicar dados de uma Base de Dados Azure para servidor PostgreSQL para um servidor apenas de leitura. Pode replicar do servidor mestre para até cinco réplicas. As réplicas são atualizadas assincronamente com a tecnologia de replicação nativa do PostgreSQL.
 
-As réplicas são novos servidores que geres similares ao Azure Database regular para servidores PostgreSQL. Para cada réplica de leitura, você é cobrado para o cálculo provisionado em vCores e armazenamento em GB/mês.
+As réplicas são novos servidores que gere, à semelhança dos servidores da Base de Dados do Azure para PostgreSQL normais. Para cada réplica de leitura, você é cobrado para o cálculo provisionado em vCores e armazenamento em GB/mês.
 
 Saiba como [criar e gerir réplicas.](howto-read-replicas-portal.md)
 
 ## <a name="when-to-use-a-read-replica"></a>Quando usar uma réplica de leitura
-A funcionalidade de réplica de leitura ajuda a melhorar o desempenho e a escala das cargas de trabalho intensivas de leitura. As cargas de trabalho de leitura podem ser isoladas às réplicas, enquanto as cargas de trabalho de escrita podem ser direcionadas para o mestre.
+A funcionalidade de réplica de leitura ajuda a melhorar o desempenho e a escala das cargas de trabalho intensivas de leitura. As cargas de trabalho de leitura podem ser isoladas às réplicas e as cargas de trabalho de escrita podem ser encaminhadas para o servidor mestre.
 
 Um cenário comum é fazer com que as cargas de trabalho bi e analíticas utilizem a réplica de leitura como fonte de dados para reportar.
 
-Como as réplicas são apenas de leitura, não reduzem diretamente os encargos de capacidade de escrita para o mestre. Esta funcionalidade não é direcionada a cargas de trabalho intensivas.
+Como as réplicas são apenas de leitura, não reduzem diretamente os encargos de capacidade de escrita para o mestre. Esta funcionalidade não está direcionada para cargas de trabalho de escrita intensa.
 
 A funcionalidade de réplica de leitura utiliza a replicação assíncronea postgresQL. A funcionalidade não se destina a cenários de replicação sincronizados. Haverá um atraso mensurável entre o mestre e a réplica. Os dados sobre a réplica eventualmente tornam-se consistentes com os dados do mestre. Utilize esta funcionalidade para cargas de trabalho que possam acomodar este atraso.
 
-## <a name="cross-region-replication"></a>Replicação inter-região
+## <a name="cross-region-replication"></a>Replicação entre regiões
 Pode criar uma réplica de leitura numa região diferente do seu servidor principal. A replicação transversal pode ser útil para cenários como o planeamento de recuperação de desastres ou a aproximação de dados aos seus utilizadores.
 
 >[!NOTE]
@@ -38,7 +38,7 @@ Pode criar uma réplica de leitura numa região diferente do seu servidor princi
 
 Pode ter um servidor principal em qualquer [Base de Dados Azure para a região postgreSQL.](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql) Um servidor principal pode ter uma réplica na sua região emparelhada ou nas regiões universais de réplicas. A imagem abaixo mostra quais as regiões réplicas disponíveis dependendo da sua região principal.
 
-[![Ler regiões réplicas](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[:::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="Ler regiões réplicas":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Regiões réplicas universais
 Pode sempre criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente do local onde o seu servidor principal esteja localizado. Estas são as regiões universais de réplica:
