@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 1aa52c81b7abbfb355ef06f6ae93a5dd4c985042
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f5b5f115ab2fb7036287c976a94b9e123bf6ed42
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88532437"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982801"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-verasmart"></a>Tutorial: Azure Ative Directory integração única (SSO) com a VeraSMART
 
@@ -105,7 +105,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+   1. Clique em **Create** (Criar).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -131,7 +131,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Aceda **Administration**à Configuração de  ->  **Security**  ->  **Autenticação de Segurança da Administração**.
 
-    ![Configuração](./media/verasmart-tutorial/configuration.png)
+    ![A screenshot mostra VeraSMART com Administração, em seguida, Segurança, em seguida, Configuração de Autenticação selecionada.](./media/verasmart-tutorial/configuration.png)
 
 1. Execute os seguintes passos na seguinte página:
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: b733ef771444e080eb794b300e75d4396c3ef674
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a30f2b2fcefcc944db35271bd75b6467f7590a2c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079178"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902885"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de leitura na Base de Dados do Azure para MySQL
 
@@ -29,20 +29,20 @@ Para saber mais sobre funcionalidades e problemas de replicação do MySQL, cons
 
 ## <a name="when-to-use-a-read-replica"></a>Quando usar uma réplica de leitura
 
-A funcionalidade de réplica de leitura ajuda a melhorar o desempenho e a escala das cargas de trabalho intensivas de leitura. As cargas de trabalho de leitura podem ser isoladas às réplicas, enquanto as cargas de trabalho de escrita podem ser direcionadas para o mestre.
+A funcionalidade de réplica de leitura ajuda a melhorar o desempenho e a escala das cargas de trabalho intensivas de leitura. As cargas de trabalho de leitura podem ser isoladas às réplicas e as cargas de trabalho de escrita podem ser encaminhadas para o servidor mestre.
 
 Um cenário comum é fazer com que as cargas de trabalho bi e analíticas utilizem a réplica de leitura como fonte de dados para reportar.
 
-Como as réplicas são apenas de leitura, não reduzem diretamente os encargos de capacidade de escrita para o mestre. Esta funcionalidade não é direcionada a cargas de trabalho intensivas.
+Como as réplicas são apenas de leitura, não reduzem diretamente os encargos de capacidade de escrita para o mestre. Esta funcionalidade não está direcionada para cargas de trabalho de escrita intensa.
 
 A funcionalidade de réplica de leitura utiliza a replicação assíncronea mySQL. A funcionalidade não se destina a cenários de replicação sincronizados. Haverá um atraso mensurável entre o mestre e a réplica. Os dados sobre a réplica eventualmente tornam-se consistentes com os dados do mestre. Utilize esta funcionalidade para cargas de trabalho que possam acomodar este atraso.
 
-## <a name="cross-region-replication"></a>Replicação inter-região
+## <a name="cross-region-replication"></a>Replicação entre regiões
 Pode criar uma réplica de leitura numa região diferente do seu servidor principal. A replicação transversal pode ser útil para cenários como o planeamento de recuperação de desastres ou a aproximação de dados aos seus utilizadores.
 
 Pode ter um servidor principal em qualquer [Base de Dados Azure para a região mySQL.](https://azure.microsoft.com/global-infrastructure/services/?products=mysql)  Um servidor principal pode ter uma réplica na sua região emparelhada ou nas regiões universais de réplicas. A imagem abaixo mostra quais as regiões réplicas disponíveis dependendo da sua região principal.
 
-[![Ler regiões réplicas](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[:::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="Ler regiões réplicas":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Regiões réplicas universais
 Pode criar uma réplica de leitura em qualquer uma das seguintes regiões, independentemente do local onde o seu servidor principal está localizado. As regiões de réplica universal apoiadas incluem:
@@ -112,7 +112,7 @@ Aprenda a parar a [replicação a uma réplica.](howto-read-replicas-portal.md)
 
 Não existe uma falha automatizada entre servidores mestre e réplica. 
 
-Como a replicação é assíncronea, há um desfasamento entre o mestre e a réplica. A quantidade de lag pode ser influenciada por uma série de fatores como o peso da carga de trabalho que funciona no servidor principal e a latência entre centros de dados. Na maioria dos casos, o desfasamento da réplica varia entre alguns segundos e alguns minutos. Pode rastrear o seu lag de replicação real usando o *Lag métrico de Réplica,* que está disponível para cada réplica. Esta métrica mostra o tempo desde a última transação reproduzida. Recomendamos que identifique qual é o seu atraso médio observando o seu atraso de réplica durante um período de tempo. Pode definir um alerta no lag de réplica, para que, se for fora do alcance esperado, possa tomar medidas.
+Como a replicação é assíncronea, há um desfasamento entre o mestre e a réplica. A quantidade de lag pode ser influenciada por uma série de fatores como o peso da carga de trabalho que funciona no servidor principal e a latência entre centros de dados. Na maioria dos casos, o atraso da réplica varia entre alguns segundos e alguns minutos. Pode rastrear o seu lag de replicação real usando o *Lag métrico de Réplica,* que está disponível para cada réplica. Esta métrica mostra o tempo desde a última transação reproduzida. Recomendamos que identifique qual é o seu atraso médio observando o seu atraso de réplica durante um período de tempo. Pode definir um alerta no lag de réplica, para que, se for fora do alcance esperado, possa tomar medidas.
 
 > [!Tip]
 > Se falhar na réplica, o atraso no momento em que desvincular a réplica do mestre indicará quantos dados são perdidos.
@@ -177,7 +177,7 @@ O [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-vari
 
 Para atualizar um dos parâmetros acima no servidor principal, por favor, elimine os servidores de réplicas, atualize o valor do parâmetro no master e recrie réplicas.
 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 
 - Os identificadores globais de transações (GTID) não são suportados.
 - A criação de uma réplica de uma réplica não é suportada.
@@ -185,7 +185,7 @@ Para atualizar um dos parâmetros acima no servidor principal, por favor, elimin
 - Certifique-se de que as tabelas do servidor principal têm chaves primárias. A falta de chaves primárias pode resultar em latência de replicação entre o mestre e as réplicas.
 - Reveja a lista completa das limitações de replicação do [MySQL na documentação MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar e gerir réplicas de leitura usando o portal Azure](howto-read-replicas-portal.md)
 - Saiba como [criar e gerir réplicas de leitura usando o ALI Azure CLI e REST API](howto-read-replicas-cli.md)

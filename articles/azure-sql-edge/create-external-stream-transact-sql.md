@@ -1,6 +1,6 @@
 ---
-title: CRIAR FLUXO EXTERNO (Transact-SQL) - Aresta SQL Azure (Pré-visualização)
-description: Conheça a declaração DE FLUXO EXTERNO CREATE em Azure SQL Edge (Pré-visualização)
+title: CRIAR FLUXO EXTERNO (Transact-SQL) - Aresta Azure SQL
+description: Conheça a declaração DE FLUXO EXTERNO CREATE em Azure SQL Edge
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 17783662ba91f227a7b0bf69203bf21dd8342277
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: e28ce4cd46cb802241e02e4060441747389d3989
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489549"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888165"
 ---
 # <a name="create-external-stream-transact-sql"></a>CRIAR FLUXO EXTERNO (Transact-SQL)
 
@@ -100,7 +100,7 @@ WITH  ( <with_options> )
    - Para a localização do objeto de fluxo de armazenamento Azure Blob refere-se ao padrão do caminho a utilizar dentro do recipiente blob. Para obter mais informações sobre esta funcionalidade, consulte (/articles/stream-analytics/stream-analytics-define-outputs.md#blob-storage-and-azure-data-lake-gen2)
 
 - **INPUT_OPTIONS**: Especifique as opções como pares de valor-chave para serviços como Kafka, IoT Edge Hub que são entradas para consultas de streaming
-    - PARTIÇÕES: Número de divisórias definidas para um tópico
+    - PARTIÇÕES: Número de divisórias definidas para um tópico. O número máximo de divisórias que podem ser utilizadas é limitado a 32.
       - Aplica-se a Streams de Entrada Kafka
     - CONSUMER_GROUP: Os Hubs de Eventos e IoT limitam o número de leitores dentro de um grupo de consumidores (a 5). Deixar este campo vazio utilizará o grupo de consumidores "$Default".
       - Reservado para uso futuro. Não se aplica ao Azure SQL Edge.  
@@ -245,8 +245,7 @@ WITH
 ); 
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-- [ALTER FLUXO EXTERNO (Transact-SQL)](alter-external-stream-transact-sql.md) 
 - [FLUXO EXTERNO DROP (Transact-SQL)](drop-external-stream-transact-sql.md) 
 

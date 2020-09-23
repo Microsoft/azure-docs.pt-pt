@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: fec959ee34f9491b6510390d4b390e652690897e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 351c7e21bfe59b22f451adddad8fed220c218358
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547091"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983120"
 ---
 # <a name="tutorial-configure-jive-for-automatic-user-provisioning"></a>Tutorial: Configure Jive para o fornecimento automático de utilizadores
 
@@ -23,7 +23,7 @@ O objetivo deste tutorial é mostrar-lhe os passos que precisa de executar em Ji
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário delineado neste tutorial pressupõe que já tem os seguintes itens:
+O cenário descrito neste tutorial pressupõe que já tem os seguintes itens:
 
 *   Um inquilino de diretório Azure Ative.
 *   Um sinal único Jive na subscrição ativada.
@@ -61,9 +61,9 @@ Como parte deste procedimento, você é obrigado a fornecer um sinal de seguran�
 
 1. Selecione a sua instância de Jive e, em seguida, selecione o **separador Provisioning.**
 
-1. Desa ajuste o **modo de provisionamento** para **automático**. 
+1. Defina o **Modo de Aprovisionamento** como **Automático**. 
 
-    ![provisionamento](./media/jive-provisioning-tutorial/provisioning.png)
+    ![A screenshot mostra a página de Provisionamento Jive, com o modo de provisionamento definido para Automático e outros valores que pode definir.](./media/jive-provisioning-tutorial/provisioning.png)
 
 1. Na secção **Credenciais de Administração,** forneça as seguintes definições de configuração:
    
@@ -85,7 +85,7 @@ Como parte deste procedimento, você é obrigado a fornecer um sinal de seguran�
 
 1. Na secção Mappings, selecione **Synchronize Azure Ative Directory Users para Jive.**
 
-1. Na secção **De Mapeamentos de Atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD a Jive. Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas do utilizador em Jive para operações de atualização. Selecione o botão Guardar para escoar quaisquer alterações.
+1. Na secção **De Mapeamentos de Atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD a Jive. Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas do utilizador em Jive para operações de atualização. Selecione o botão Guardar para confirmar as alterações.
 
 1. Para ativar o serviço de prestação de Ad Azure para jive, altere o **Estado de Provisionamento** para **On** na secção Definições
 
@@ -97,6 +97,6 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do fornecimento de conta de utilizador para apps empresariais](tutorial-list.md)
+* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 * [Configurar o único sign-on](jive-tutorial.md)

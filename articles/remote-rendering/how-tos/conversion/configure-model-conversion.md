@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: b4881ee52b39539bfc29f62d7c6773da371a3ea5
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: dda2676f258705ed833068c966bcc57115434b0d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067176"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967233"
 ---
 # <a name="configure-the-model-conversion"></a>Configurar a conversão de modelos
 
@@ -73,17 +73,17 @@ Um ficheiro de exemplo `box.ConversionSettings.json` pode ser:
 
 ### <a name="geometry-parameters"></a>Parâmetros de geometria
 
-* `scaling`- Este parâmetro escala um modelo uniformemente. A escala pode ser usada para crescer ou encolher um modelo, por exemplo, para exibir um modelo de construção em cima de uma mesa.
+* `scaling` - Este parâmetro escala um modelo uniformemente. A escala pode ser usada para crescer ou encolher um modelo, por exemplo, para exibir um modelo de construção em cima de uma mesa.
 A escala também é importante quando um modelo é definido em unidades que não os metros, uma vez que o motor de renderização espera contadores.
 Por exemplo, se um modelo for definido em centímetros, então a aplicação de uma escala de 0,01 deve tornar o modelo no tamanho correto.
 Alguns formatos de dados de origem (por exemplo.fbx) fornecem uma sugestão de escala de unidade, caso em que a conversão escala implicitamente o modelo para as unidades de contador. A escala implícita fornecida pelo formato de origem será aplicada em cima do parâmetro de escala.
 O fator de escala final é aplicado aos vértices de geometria e às transformações locais dos nós gráficos de cena. A escala para a transformação da entidade raiz permanece não modificada.
 
-* `recenterToOrigin`- Estabelece que um modelo deve ser convertido de modo a que a sua caixa de delimitação esteja centrada na origem.
+* `recenterToOrigin` - Estabelece que um modelo deve ser convertido de modo a que a sua caixa de delimitação esteja centrada na origem.
 Se um modelo de origem for deslocado longe da origem, problemas de precisão de ponto flutuante podem causar artefactos de renderização.
 Centrar o modelo pode ajudar nesta situação.
 
-* `opaqueMaterialDefaultSidedness`- O motor de renderização pressupõe que os materiais opacos são de duplala.
+* `opaqueMaterialDefaultSidedness` - O motor de renderização pressupõe que os materiais opacos são de duplala.
 se essa suposição não for verdadeira de um modelo específico, este parâmetro deve ser definido como "SingleSided". Para mais informações, consulte [ :::no-loc text="single sided"::: renderização.](../../overview/features/single-sided-rendering.md)
 
 ### <a name="material-overrides"></a>Substituições de material
@@ -92,23 +92,29 @@ se essa suposição não for verdadeira de um modelo específico, este parâmetr
 
 ### <a name="material-de-duplication"></a>Des duplicação de material
 
-* `deduplicateMaterials`- Este parâmetro permite ou desativa a des duplicação automática de materiais que partilham as mesmas propriedades e texturas. A des duplicação ocorre após a substituição do material. É ativado por defeito.
+* `deduplicateMaterials` - Este parâmetro permite ou desativa a des duplicação automática de materiais que partilham as mesmas propriedades e texturas. A des duplicação ocorre após a substituição do material. É ativado por defeito.
+
+* Se mesmo após a des duplicação um modelo tiver mais de 65.535 materiais, o serviço tentará fundir materiais com propriedades semelhantes. Em último recurso, quaisquer materiais que excedam o limite serão substituídos por um material de erro vermelho.
+
+![A imagem mostra dois cubos de 68.921 triângulos coloridos.](media/mat-dedup.png?raw=true)
+
+Dois cubos de 68.921 triângulos coloridos. Esquerda: Antes da des duplicação com 68.921 materiais de cor. Direito: Após a des duplicação com 64.000 materiais de cor. O limite é de 65.535 materiais. (Ver [limites](../../reference/limits.md).)
 
 ### <a name="color-space-parameters"></a>Parâmetros do espaço de cor
 
 O motor de renderização espera que os valores de cor estejam no espaço linear.
 Se um modelo é definido usando espaço gama, então estas opções devem ser definidas como verdadeiras.
 
-* `gammaToLinearMaterial`- Converter cores de material do espaço gama para o espaço linear
-* `gammaToLinearVertex`- Converter :::no-loc text="vertex"::: cores do espaço gama para o espaço linear
+* `gammaToLinearMaterial` - Converter cores de material do espaço gama para o espaço linear
+* `gammaToLinearVertex` - Converter :::no-loc text="vertex"::: cores do espaço gama para o espaço linear
 
 > [!NOTE]
 > Para os ficheiros FBX, estas definições são definidas `true` por predefinição. Para todos os outros tipos de ficheiros, o padrão é `false` .
 
 ### <a name="scene-parameters"></a>Parâmetros de cena
 
-* `sceneGraphMode`- Define como o gráfico de cena no ficheiro de origem é convertido:
-  * `dynamic`(predefinição): Todos os objetos do ficheiro são expostos como [entidades](../../concepts/entities.md) na API e podem ser transformados de forma independente. A hierarquia do nó em tempo de execução é idêntica à estrutura do ficheiro de origem.
+* `sceneGraphMode` - Define como o gráfico de cena no ficheiro de origem é convertido:
+  * `dynamic` (predefinição): Todos os objetos do ficheiro são expostos como [entidades](../../concepts/entities.md) na API e podem ser transformados de forma independente. A hierarquia do nó em tempo de execução é idêntica à estrutura do ficheiro de origem.
   * `static`: Todos os objetos estão expostos na API, mas não podem ser transformados de forma independente.
   * `none`: O gráfico da cena é desmoronado num único objeto.
 
@@ -123,27 +129,27 @@ O `none` modo tem menos tempo de funcionamento e também tempos de carregamento 
 
 ### <a name="physics-parameters"></a>Parâmetros da física
 
-* `generateCollisionMesh`- Se necessitar de apoio para [consultas espaciais](../../overview/features/spatial-queries.md) num modelo, esta opção tem de ser ativada. No pior dos casos, a criação de uma malha de colisão pode duplicar o tempo de conversão. Os modelos com malhas de colisão demoram mais tempo a carregar e quando utilizam um `dynamic` gráfico de cena, também têm uma maior sobrecarga de desempenho. Para um desempenho geral ideal, deve desativar esta opção em todos os modelos em que não necessita de consultas espaciais.
+* `generateCollisionMesh` - Se necessitar de apoio para [consultas espaciais](../../overview/features/spatial-queries.md) num modelo, esta opção tem de ser ativada. No pior dos casos, a criação de uma malha de colisão pode duplicar o tempo de conversão. Os modelos com malhas de colisão demoram mais tempo a carregar e quando utilizam um `dynamic` gráfico de cena, também têm uma maior sobrecarga de desempenho. Para um desempenho geral ideal, deve desativar esta opção em todos os modelos em que não necessita de consultas espaciais.
 
 ### <a name="unlit-materials"></a>Materiais não iluminados
 
-* `unlitMaterials`- Por predefinição, a conversão preferirá criar [materiais PBR](../../overview/features/pbr-materials.md). Esta opção diz ao conversor que trate todos os materiais como [materiais de cor.](../../overview/features/color-materials.md) Se tem dados que já incorporam iluminação, como modelos criados através da fotogrammetria, esta opção permite-lhe impor rapidamente a conversão correta para todos os materiais, sem a necessidade de [sobrepor cada material](override-materials.md) individualmente.
+* `unlitMaterials` - Por predefinição, a conversão preferirá criar [materiais PBR](../../overview/features/pbr-materials.md). Esta opção diz ao conversor que trate todos os materiais como [materiais de cor.](../../overview/features/color-materials.md) Se tem dados que já incorporam iluminação, como modelos criados através da fotogrammetria, esta opção permite-lhe impor rapidamente a conversão correta para todos os materiais, sem a necessidade de [sobrepor cada material](override-materials.md) individualmente.
 
 ### <a name="converting-from-older-fbx-formats-with-a-phong-material-model"></a>Conversão de formatos FBX mais antigos, com um modelo de material Phong
 
-* `fbxAssumeMetallic`- Versões mais antigas do formato FBX definem os seus materiais utilizando um modelo de material Phong. O processo de conversão tem de inferir como estes materiais mapeiam para o [modelo PBR](../../overview/features/pbr-materials.md)do renderizador. Normalmente isto funciona bem, mas uma ambiguidade pode surgir quando um material não tem texturas, valores espumosos elevados e uma cor albedo não-cinza. Nestas circunstâncias, a conversão tem de escolher entre priorizar os elevados valores espeleculares, definir um material metálico altamente reflexivo onde a cor do albedo se dissolve, ou priorizar a cor do albedo, definindo algo como um plástico colorido brilhante. Por predefinição, o processo de conversão pressupõe que valores altamente espumosos implicam um material metálico nos casos em que a ambiguidade se aplica. Este parâmetro pode ser definido `false` para mudar para o oposto.
+* `fbxAssumeMetallic` - Versões mais antigas do formato FBX definem os seus materiais utilizando um modelo de material Phong. O processo de conversão tem de inferir como estes materiais mapeiam para o [modelo PBR](../../overview/features/pbr-materials.md)do renderizador. Normalmente isto funciona bem, mas uma ambiguidade pode surgir quando um material não tem texturas, valores espumosos elevados e uma cor albedo não-cinza. Nestas circunstâncias, a conversão tem de escolher entre priorizar os elevados valores espeleculares, definir um material metálico altamente reflexivo onde a cor do albedo se dissolve, ou priorizar a cor do albedo, definindo algo como um plástico colorido brilhante. Por predefinição, o processo de conversão pressupõe que valores altamente espumosos implicam um material metálico nos casos em que a ambiguidade se aplica. Este parâmetro pode ser definido `false` para mudar para o oposto.
 
 ### <a name="coordinate-system-overriding"></a>Sistema de coordenadas sobressaíndo
 
-* `axis`- Para anular a coordenada unidade-vectores do sistema. Os valores predefinidos são `["+x", "+y", "+z"]` . Em teoria, o formato FBX tem um cabeçalho onde esses vetores são definidos e a conversão usa essa informação para transformar a cena. O formato glTF também define um sistema de coordenadas fixa. Na prática, alguns ativos têm informações incorretas no seu cabeçalho ou foram salvos com uma convenção de sistema de coordenadas diferente. Esta opção permite-lhe anular o sistema de coordenadas para compensar. Por exemplo: `"axis" : ["+x", "+z", "-y"]` irá trocar o eixo Z e o eixo Y e manter a mão do sistema de coordenadas invertendo a direção do eixo Y.
+* `axis` - Para anular a coordenada unidade-vectores do sistema. Os valores predefinidos são `["+x", "+y", "+z"]` . Em teoria, o formato FBX tem um cabeçalho onde esses vetores são definidos e a conversão usa essa informação para transformar a cena. O formato glTF também define um sistema de coordenadas fixa. Na prática, alguns ativos têm informações incorretas no seu cabeçalho ou foram salvos com uma convenção de sistema de coordenadas diferente. Esta opção permite-lhe anular o sistema de coordenadas para compensar. Por exemplo: `"axis" : ["+x", "+z", "-y"]` irá trocar o eixo Z e o eixo Y e manter a mão do sistema de coordenadas invertendo a direção do eixo Y.
 
 ### <a name="node-meta-data"></a>Dados de meta de nó
 
-* `metadataKeys`- Permite especificar as teclas das propriedades dos metadados de nó que pretende manter no resultado da conversão. Pode especificar as chaves exatas ou as chaves wildcard. As teclas Wildcard são do formato "ABC*" e correspondem a qualquer chave que comece com "ABC". Os tipos de valor dos metadados suportados `bool` `int` `float` são, `string` e.
+* `metadataKeys` - Permite especificar as teclas das propriedades dos metadados de nó que pretende manter no resultado da conversão. Pode especificar as chaves exatas ou as chaves wildcard. As teclas Wildcard são do formato "ABC*" e correspondem a qualquer chave que comece com "ABC". Os tipos de valor dos metadados suportados `bool` `int` `float` são, `string` e.
 
     Para ficheiros GLTF estes dados provêm do [objeto extras nos nós](https://github.com/KhronosGroup/glTF/tree/master/specification/2.0#nodeextras). Para ficheiros FBX estes dados provêm dos `Properties70` dados em `Model nodes` . Consulte a documentação da sua Ferramenta de Ativo 3D para mais detalhes.
 
-### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex":::formato
+### <a name="no-loc-textvertex-format"></a>:::no-loc text="Vertex"::: formato
 
 É possível ajustar o :::no-loc text="vertex"::: formato de uma malha, para trocar precisão por poupança de memória. Uma pegada de memória mais baixa permite-lhe carregar modelos maiores ou obter um melhor desempenho. No entanto, dependendo dos seus dados, o formato errado pode impactar significativamente a qualidade de renderização.
 
@@ -194,7 +200,7 @@ Estes formatos são permitidos para os respetivos componentes:
 
 As pegadas de memória dos formatos são as seguintes:
 
-| Formato | Description | Bytes per:::no-loc text="vertex"::: |
+| Formato | Descrição | Bytes per :::no-loc text="vertex"::: |
 |:-------|:------------|:---------------|
 |32_32_FLOAT|precisão de ponto flutuante completo de dois componentes|8
 |16_16_FLOAT|precisão de ponto flutuante metade de dois componentes|4
@@ -208,7 +214,7 @@ As pegadas de memória dos formatos são as seguintes:
 * `position`: É raro que a precisão reduzida seja suficiente. **16_16_16_16_FLOAT** introduz artefactos de quantificação percetíveis, mesmo para pequenos modelos.
 * `normal``tangent`, `binormal` " Tipicamente estes valores são alterados em conjunto. A menos que existam artefactos de iluminação visíveis que resultem de uma quantificação normal, não há razão para aumentar a sua precisão. Em alguns casos, porém, estes componentes podem ser definidos para **NENHUM**:
   * `normal`, `tangent` e só são `binormal` necessários quando pelo menos um material do modelo deve ser aceso. No ARR é o caso quando um [material PBR](../../overview/features/pbr-materials.md) é usado no modelo a qualquer momento.
-  * `tangent`e `binormal` só são necessários quando qualquer um dos materiais iluminados usa uma textura de mapa normal.
+  * `tangent` e `binormal` só são necessários quando qualquer um dos materiais iluminados usa uma textura de mapa normal.
 * `texcoord0`, `texcoord1` : As coordenadas de textura podem utilizar uma precisão reduzida **(16_16_FLOAT)** quando os seus valores permanecem na `[0; 1]` gama e quando as texturas endereçadas têm um tamanho máximo de 2048 x 2048 pixels. Se esses limites forem ultrapassados, a qualidade do mapeamento de textura sofrerá.
 
 #### <a name="example"></a>Exemplo
@@ -241,9 +247,9 @@ Uma forma simples de testar se a informação de instancing é preservada durant
 
 ![Clonagem em 3ds Max](./media/3dsmax-clone-object.png)
 
-* **`Copy`**: Neste modo, a malha é clonada, pelo que não é utilizada a instalação `numMeshPartsInstanced` (= 0).
-* **`Instance`**: Os dois objetos partilham a mesma malha, pelo que é utilizada a instancing `numMeshPartsInstanced` (= 1).
-* **`Reference`**: Modificadores distintos podem ser aplicados às geometrias, pelo que o exportador escolhe uma abordagem conservadora e não utiliza a instancing `numMeshPartsInstanced` (= 0).
+* **`Copy`** : Neste modo, a malha é clonada, pelo que não é utilizada a instalação `numMeshPartsInstanced` (= 0).
+* **`Instance`** : Os dois objetos partilham a mesma malha, pelo que é utilizada a instancing `numMeshPartsInstanced` (= 1).
+* **`Reference`** : Modificadores distintos podem ser aplicados às geometrias, pelo que o exportador escolhe uma abordagem conservadora e não utiliza a instancing `numMeshPartsInstanced` (= 0).
 
 
 ### <a name="depth-based-composition-mode"></a>Modo de composição baseado em profundidade
@@ -259,8 +265,8 @@ Como discutido nas [melhores práticas para alterações de formato de component
 Dependendo do tipo de cenário, a quantidade de dados de textura pode superar a memória utilizada para os dados de malha. Os modelos de fotogrammetria são candidatos.
 A configuração de conversão não fornece uma forma de reduzir automaticamente as texturas. Se necessário, o dimensionamento da textura tem de ser feito como um passo de pré-processamento do lado do cliente. No entanto, o passo de conversão escolhe um formato adequado [de compressão de textura:](https://docs.microsoft.com/windows/win32/direct3d11/texture-block-compression-in-direct3d-11)
 
-* `BC1`para texturas de cor opacas
-* `BC7`para texturas de cores de origem com canal alfa
+* `BC1` para texturas de cor opacas
+* `BC7` para texturas de cores de origem com canal alfa
 
 Uma vez que o formato `BC7` tem o dobro da pegada de memória em comparação `BC1` com, é importante ter certeza de que as texturas de entrada não fornecem um canal alfa desnecessariamente.
 

@@ -1,6 +1,6 @@
 ---
-title: Ligar e consultar a borda Azure SQL (pré-visualização)
-description: Saiba como ligar e consultar a Borda Azure SQL (Visualização).
+title: Ligar e consultar Azure SQL Edge
+description: Aprenda a ligar-se e consultar a Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,14 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/25/2020
-ms.openlocfilehash: bc7410325bbcf3086c4ac2054b7bc663629a29e5
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 4548d4956b4cd01886fb1be9a530cc1627f76b2c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373118"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888229"
 ---
-# <a name="connect-and-query-azure-sql-edge-preview"></a>Ligar e consultar a borda Azure SQL (pré-visualização)
+# <a name="connect-and-query-azure-sql-edge"></a>Ligar e consultar Azure SQL Edge
 
 No Azure SQL Edge, depois de colocar um contentor, pode ligar-se ao motor da base de dados a partir de qualquer um dos seguintes locais:
 

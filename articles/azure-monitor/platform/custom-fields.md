@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: c0f31ddb0e0aeabff06d14d40d254c2577b38b5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ffe3d457d4827250418c9c2d838df35c11e01af7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84906807"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974717"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Criar campos personalizados num espaço de trabalho log analytics em Azure Monitor (Pré-visualização)
 
@@ -23,7 +23,7 @@ ms.locfileid: "84906807"
 
 A funcionalidade **Campos Personalizados** do Azure Monitor permite-lhe alargar os registos existentes no seu espaço de trabalho Log Analytics adicionando os seus próprios campos pes pescáveis.  Os campos personalizados são automaticamente povoados a partir de dados extraídos de outras propriedades no mesmo registo.
 
-![Descrição geral](media/custom-fields/overview.png)
+![O diagrama mostra um registo original associado a um registo modificado num espaço de trabalho do Log Analytics com pares de valor da propriedade adicionados à propriedade original no registo modificado.](media/custom-fields/overview.png)
 
 Por exemplo, o registo da amostra abaixo tem dados úteis enterrados na descrição do evento. Extrair estes dados numa propriedade separada torna-os disponíveis para ações como triagem e filtragem.
 
@@ -81,7 +81,7 @@ A secção seguinte percorre um exemplo completo de criação de um campo person
 
 Entramos na seguinte consulta para devolver todos os eventos do Service Control Manager que tenham um ID de Evento de 7036 que é o evento que indica um serviço a iniciar ou a parar.
 
-![Consulta](media/custom-fields/query.png)
+![A screenshot mostra uma consulta para uma fonte de evento e ID.](media/custom-fields/query.png)
 
 Em seguida, selecionamos e expandimos qualquer registo com o ID 7036 do evento.
 
@@ -101,7 +101,7 @@ Destacamos o nome do serviço na propriedade **RenderedDescription** e utilizamo
 
 Vemos que o nome de serviço é identificado corretamente para alguns registos, mas não para outros.   Os **Resultados** da Pesquisa mostram que parte do nome do **Adaptador de Desempenho WMI** não foi selecionado.  O **Resumo** mostra que um gravador identificou **o instalador** de módulos em vez do Instalador de **Módulos**do Windows .  
 
-![Resultados de pesquisa](media/custom-fields/search-results-01.png)
+![Resultados da pesquisa](media/custom-fields/search-results-01.png)
 
 Começamos com o disco do **Adaptador de Desempenho WMI.**  Clicamos no ícone de edição e depois **modificamos este destaque.**  
 
@@ -113,7 +113,7 @@ Aumentamos o destaque para incluir a palavra **WMI** e, em seguida, reexamecê-l
 
 Podemos ver que as entradas para o **Adaptador de Desempenho WMI** foram corrigidas, e o Log Analytics também utilizou essa informação para corrigir os registos do **Instalador de Módulos do Windows**.
 
-![Resultados de pesquisa](media/custom-fields/search-results-02.png)
+![Resultados da pesquisa](media/custom-fields/search-results-02.png)
 
 Agora podemos fazer uma consulta que verifica **Service_CF** é criado, mas ainda não é adicionado a nenhum registo. Isso é porque o campo personalizado não funciona contra os registos existentes, por isso temos de esperar que sejam recolhidos novos registos.
 
@@ -127,7 +127,7 @@ Agora podemos usar o campo personalizado como qualquer outra propriedade discogr
 
 ![Grupo por consulta](media/custom-fields/query-group.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para construir consultas usando campos personalizados para critérios.
 * Monitorize [ficheiros de registo personalizados](data-sources-custom-logs.md) que analisa utilizando campos personalizados.
 

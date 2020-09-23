@@ -1,24 +1,24 @@
 ---
-title: Gestão de extensão VM com servidores ativados Azure Arc (pré-visualização)
-description: Os servidores ativados pelo Azure Arc (pré-visualização) podem gerir a implementação de extensões de máquinas virtuais que fornecem tarefas de configuração e automatização pós-implantação com VMs não-Azure.
-ms.date: 06/17/2020
+title: Gestão de extensão VM com servidores ativados Azure Arc
+description: Os servidores ativados do Azure Arc podem gerir a implementação de extensões de máquinas virtuais que fornecem tarefas de configuração e automatização pós-implantação com VMs não-Azure.
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 259a55c0e5cb4074871fd70a61e6c61d5cf3c50a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 988c4d7b2fcbffb95932fe70d8014de74dd33343
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018166"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887730"
 ---
-# <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers-preview"></a>Gestão de extensão de máquina virtual com servidores ativados do Azure Arc (pré-visualização)
+# <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gestão de extensão de máquina virtual com servidores ativados do Azure Arc
 
 As extensões de máquinas virtuais (VM) são pequenas aplicações que fornecem tarefas de configuração e automatização pós-implantação em VMs Azure. Por exemplo, se uma máquina virtual exigir a instalação de software, a proteção antivírus ou a execução de um script, poderá ser utilizada uma extensão de VM.
 
-Os servidores ativados (pré-visualização) do Azure Arc permitem-lhe implantar extensões VM Azure para Windows e Linux VMs não-Azure, simplificando a gestão da sua máquina híbrida no local, borda e outros ambientes de nuvem através do seu ciclo de vida.
+Os servidores ativados pelo Azure Arc permitem-lhe implantar extensões VM Azure para Windows e Linux VMs não-Azure, simplificando a gestão da sua máquina híbrida no local, borda e outros ambientes de nuvem através do seu ciclo de vida.
 
 ## <a name="key-benefits"></a>Principais vantagens
 
-O suporte de extensão VM ativado pelo Azure Arc (pré-visualização) proporciona os seguintes benefícios principais:
+O suporte de extensão VM ativado pelo Azure Arc fornece os seguintes benefícios principais:
 
 * Utilize [a Configuração do Estado da Automação Azure](../../automation/automation-dsc-overview.md) para armazenar centralmente as configurações e manter o estado desejado das máquinas híbridas conectadas ativadas através da extensão DSC VM.
 
@@ -47,7 +47,7 @@ Nesta pré-visualização, estamos a apoiar as seguintes extensões VM nas máqu
 |Agente do Log Analytics |Linux |Microsoft.EnterpriseCloud.Monitoring |[Log Analytics VM extensão para Linux](../../virtual-machines/extensions/oms-linux.md) |
 |Agente de dependência da Microsoft | Linux |Microsoft.Compute | [Extensão da máquina virtual do agente de dependência para Linux](../../virtual-machines/extensions/agent-dependency-linux.md) |
 
-As extensões VM podem ser executadas com modelos Azure Resource Manager, a partir do portal Azure, ou Azure PowerShell em servidores híbridos geridos por servidores ativados pelo Arc (pré-visualização).
+As extensões VM podem ser executadas com modelos Azure Resource Manager, a partir do portal Azure, ou Azure PowerShell em servidores híbridos geridos por servidores ativados pelo Arc.
 
 Para saber mais sobre o pacote do agente Azure Connected Machine e detalhes sobre o componente do agente de extensão, consulte [a visão geral do Agente](agent-overview.md#agent-component-details).
 
@@ -75,13 +75,13 @@ Para atualizar a sua máquina para a versão do agente necessário, consulte o [
 
 ## <a name="enable-extensions-from-the-portal"></a>Permitir extensões a partir do portal
 
-As extensões VM podem ser aplicadas ao seu Arc para o servidor (pré-visualização) máquina gerida através do portal Azure.
+As extensões VM podem ser aplicadas ao seu Arco para máquina gerida pelo servidor através do portal Azure.
 
 1. A partir do seu navegador, aceda ao [portal Azure.](https://aka.ms/arcserver-preview)
 
-2. No portal, navegue por **Máquinas - Azure Arc** e selecione a sua máquina híbrida da lista.
+2. No portal, navegue pelos **Servidores - Azure Arc** e selecione a sua máquina híbrida da lista.
 
-3. Escolha **extensões**e, em seguida, **selecione Adicionar**. Escolha a extensão desejada na lista de extensões disponíveis e siga as instruções no assistente. Neste exemplo, implementaremos a extensão VM do Log Analytics. 
+3. Escolha **extensões**e, em seguida, **selecione Adicionar**. Escolha a extensão desejada na lista de extensões disponíveis e siga as instruções no assistente. Neste exemplo, implementaremos a extensão VM do Log Analytics.
 
     ![Selecione extensão VM para máquina selecionada](./media/manage-vm-extensions/add-vm-extensions.png)
 
@@ -98,7 +98,7 @@ As extensões VM podem ser aplicadas ao seu Arc para o servidor (pré-visualiza�
 
 ## <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
-As extensões VM podem ser adicionadas a um modelo de Gestor de Recursos Azure e executadas com a implementação do modelo. Com as extensões VM suportadas por servidores ativados pelo Arc (pré-visualização), pode implementar a extensão VM suportada nas máquinas Linux ou Windows utilizando o Azure PowerShell. Cada amostra abaixo inclui um ficheiro de modelo e um arquivo de parâmetros com valores de amostra para fornecer ao modelo.
+As extensões VM podem ser adicionadas a um modelo de Gestor de Recursos Azure e executadas com a implementação do modelo. Com as extensões VM suportadas por servidores ativados pelo Arc, pode implementar a extensão VM suportada nas máquinas Linux ou Windows utilizando o Azure PowerShell. Cada amostra abaixo inclui um ficheiro de modelo e um arquivo de parâmetros com valores de amostra para fornecer ao modelo.
 
 >[!NOTE]
 >Embora as extensões múltiplas possam ser emgrurentadas e processadas, são instaladas em série. Uma vez concluída a primeira instalação de extensão, tentará-se a instalação da próxima extensão.
@@ -707,6 +707,18 @@ Para utilizar a extensão do agente Azure Monitor Dependency, é fornecida a seg
 }
 ```
 
+## <a name="uninstall-extension"></a>Desinstalar extensão
+
+A remoção de uma ou mais extensões de um servidor ativado pelo Arco só pode ser realizada a partir do portal Azure. Execute os seguintes passos para remover uma extensão.
+
+1. A partir do seu navegador, aceda ao [portal Azure.](https://portal.azure.com)
+
+2. No portal, navegue pelos **Servidores - Azure Arc** e selecione a sua máquina híbrida da lista.
+
+3. Escolha **extensões**e, em seguida, selecione uma extensão da lista de extensões instaladas.
+
+4. Selecione **Desinstalar** e quando for solicitado para verificar, selecione **Sim** para prosseguir.
+
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure.
@@ -715,7 +727,7 @@ As seguintes etapas de resolução de problemas aplicam-se a todas as extensões
 
 1. Para verificar o registo do agente Convidado, consulte a atividade quando a sua extensão estava a ser disponibilizada `%SystemDrive%\ProgramData\GuestConfig\ext_mgr_logs` para o Windows e para o Linux sob `/var/lib/GuestConfig/ext_mgr_logs` .
 
-2. Consulte os registos de extensão para obter mais detalhes para o `%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>` Windows. A saída de extensão é registada num ficheiro para cada extensão instalada no Linux sob `/var/log/GuestConfig/extension_logs` .
+2. Consulte os registos de extensão para obter mais detalhes para o `%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>` Windows. A saída de extensão é registada num ficheiro para cada extensão instalada no Linux sob `/var/lib/GuestConfig/extension_logs` .
 
 3. Verifique secções específicas de resolução de problemas de documentação de extensão para códigos de erro, problemas conhecidos, etc. Informações adicionais de resolução de problemas para cada extensão podem ser encontradas na secção **de resolução de problemas e suporte** na visão geral para a extensão. Isto inclui a descrição dos códigos de erro escritos no registo. Os artigos de extensão estão ligados na [tabela de extensões](#extensions) encontrada anteriormente neste artigo.
 
@@ -725,4 +737,4 @@ As seguintes etapas de resolução de problemas aplicam-se a todas as extensões
 
 - Aprenda a gerir a sua máquina utilizando [a Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verificando se a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com o [Azure Monitor com VMs](../../azure-monitor/insights/vminsights-enable-policy.md), e muito mais.
 
-- Saiba mais sobre o [agente Log Analytics.](../../azure-monitor/platform/log-analytics-agent.md) O agente Log Analytics para Windows e Linux é necessário quando pretende monitorizar proactivamente o SISTEMA e as cargas de trabalho em funcionamento na máquina, geri-lo utilizando livros de automação ou soluções como a Update Management, ou utilizar outros serviços Azure como o [Azure Security Center.](../../security-center/security-center-intro.md)
+- Saiba mais sobre [o [Agente Log Analytics]](../../azure-monitor/platform/log-analytics-agent.md). O agente Log Analytics para Windows e Linux é necessário quando pretende recolher dados de monitorização do sistema operativo e da carga de trabalho, geri-lo utilizando livros de aplicação da Automação ou funcionalidades como Update Management, ou utilizar outros serviços Azure como [o Azure Security Center](../../security-center/security-center-intro.md).

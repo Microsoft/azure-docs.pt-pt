@@ -4,12 +4,12 @@ description: Crie alertas de registo de atividade utilizando o portal Azure, um 
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: b202e3d47b98c5e395b3a8b525b9b8c0a04c0f76
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7914f3ee57d014de2f34fca301b587c6297bebe3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322419"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983091"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Criar, visualizar e gerir alertas de registo de atividades utilizando o Azure Monitor  
 
@@ -111,7 +111,7 @@ Uma simples analogia para compreender as condições em que as regras de alerta 
 
 1. No portal Azure, **Monitor**selecione  >  **Alertas de**Monitor . **Selecione Regras** de alerta no canto superior esquerdo da janela.
 
-    ![Gere regras do alerta](media/alerts-activity-log/manage-alert-rules.png)
+    ![A screenshot mostra o registo de atividade com a caixa de pesquisa realçada.](media/alerts-activity-log/manage-alert-rules.png)
 
     A lista de regras disponíveis aparece.
 
@@ -119,7 +119,7 @@ Uma simples analogia para compreender as condições em que as regras de alerta 
 
     ![Regras de alerta de registo de atividade de pesquisa](media/alerts-activity-log/searth-activity-log-rule-to-edit.png)
 
-    Pode utilizar os filtros disponíveis, _Subscrição_, _Grupo de Recursos,_ _Recurso,_ _Tipo de Sinal_ou _Estado,_ para encontrar a regra de atividade que pretende editar.
+    Pode utilizar os filtros disponíveis, _Subscrição_, _Grupo de Recursos,_  _Recurso,_ _Tipo de Sinal_ou _Estado,_ para encontrar a regra de atividade que pretende editar.
 
    > [!NOTE]
    > 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: aa9ec5454935816e733c1607e006ba1c30476cac
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: ba4b8f1d3aaa9b06f3bc24e9e267f6778734152a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875893"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903742"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Saída de filas de autocarros de serviço a partir de Azure Stream Analytics
 
@@ -54,9 +54,9 @@ Pode anexar colunas de consulta como propriedades do utilizador às suas mensage
 
 ## <a name="system-properties"></a>Propriedades do sistema
 
-Pode anexar colunas de consulta como [propriedades do sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) à fila do autocarro de serviço de saída ou mensagens tópicos.
+Pode anexar colunas de consulta como [propriedades do sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) à fila do autocarro de serviço de saída ou mensagens tópicos.
 
-Estas colunas não entram na carga útil, em vez disso, a propriedade correspondente do [sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) BrokeredMessage é povoada com os valores da coluna de consulta.
+Estas colunas não entram na carga útil, em vez disso, a propriedade correspondente do [sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) BrokeredMessage é povoada com os valores da coluna de consulta.
 Estas propriedades do sistema são suportadas - `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc` .
 
 Os valores de cadeia destas colunas são analisados como o tipo de valor contabilístico correspondente do sistema e quaisquer falhas de análise são tratadas como erros de dados.
@@ -83,4 +83,4 @@ Isto define as mensagens de fila de `MessageId` autocarros de serviço com `colu
 * [Quickstart: Crie um trabalho Azure Stream Analytics usando um modelo ARM](quick-create-azure-resource-manager.md)
 * [Quickstart: Criar um trabalho stream analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Quickstart: Criar um trabalho Azure Stream Analytics em Código de Estúdio Visual](quick-create-vs-code.md)
+* [Quickstart: Criar um trabalho Azure Stream Analytics em Código de Estúdio Visual](quick-create-visual-studio-code.md)

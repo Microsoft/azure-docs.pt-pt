@@ -3,12 +3,12 @@ title: Recuar e recuperar VMs Azure com PowerShell
 description: Descreve como fazer backup e recuperar VMs Azure usando Azure Backup com PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: e4564ba2b6109296a7383fb4b056c2f4b1890fda
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 87d655652d0207a50f8980f18d18e76fea0b1e21
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178136"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975102"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Recuar e restaurar VMs Azure com PowerShell
 
@@ -96,7 +96,7 @@ Os passos seguintes levam-no através da criação de um cofre dos Serviços de 
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
     ```
 
-3. Especifique o tipo de redundância de armazenamento a utilizar. Pode utilizar [armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md) ou [armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md). O exemplo a seguir mostra que a opção -BackupStorageRedundancy para testvault está definida para GeoRedundant.
+3. Especifique o tipo de redundância de armazenamento a utilizar. Pode utilizar [armazenamento localmente redundante (LRS),](../storage/common/storage-redundancy.md#locally-redundant-storage) [armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage)ou [armazenamento redundante de zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). O exemplo a seguir mostra a opção **-BackupStorageRedundancy** para *testvault* definido para **GeoRedundant**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"

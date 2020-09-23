@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f7134d0e8087d17e78a13c958298006e321bd192
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 754a47b3692847957de7f3d666f4dc09dc309d25
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84346142"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91024964"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>A política de IPsec/IKE personalizado é suportada em todos os SKU de Gateway de VPN do Azure?
 A política personalizada IPsec/IKE é suportada em todos os SKUs Azure, exceto no SKU Básico.
@@ -31,7 +31,7 @@ A tabela a seguir lista os algoritmos de criptográficos suportados e os princip
 | ---              | ---                                                                           |
 | Encriptação IKEv2 | AES256, AES192, AES128, DES3, DES                                             |
 | Integridade do IKEv2  | SHA384, SHA256, SHA1, MD5                                                     |
-| Grupo DH         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, Nenhum |
+| Grupo DH         | DHGroup24, ECP384, ECP256, DHGroup14 (DHGroup2048), DHGroup2, DHGroup1, Nenhum  |
 | Encriptação do IPsec | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, Nenhum      |
 | Integridade do IPsec  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
 | Grupo PFS        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, Nenhum                              |
@@ -99,6 +99,9 @@ Sim, pode aplicar a política personalizada em ligações entre locais de IPsec 
 
 ### <a name="do-i-need-to-specify-the-same-policy-on-both-vnet-to-vnet-connection-resources"></a>É necessário especificar a mesma política em ambos os recursos de ligação de VNet para VNet?
 Sim. Um túnel de VNet para VNet consiste em dois recursos de ligação no Azure, uma para cada direção. Confirme que os recursos de ligação têm a mesma política, senão a ligação VNet para VNet não é estabelecida.
+
+### <a name="what-is-the-default-dpd-timeout-value-can-i-specify-a-different-dpd-timeout"></a>Qual é o valor de tempo limite padrão da DPD? Posso especificar um tempo limite diferente?
+O tempo limite padrão do DPD é de 45 segundos. Pode especificar um valor de tempo DPD diferente em cada ligação IPsec ou VNet-to-VNet entre 9 segundos e 3600 segundos.
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>A política de IPsec/IKE personalizada funciona na ligação do ExpressRoute?
 Não. A política de IPsec/IKE só funciona em ligações VPN S2S e VNet para VNet por meio de gateways de VPN do Azure.

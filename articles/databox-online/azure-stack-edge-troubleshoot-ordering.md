@@ -1,6 +1,6 @@
 ---
-title: Use o portal Azure para resolver problemas Azure Stack Edge ordenando problemas Microsoft Docs
-description: Descreve como resolver problemas com problemas de encomenda de Azure Stack Edge.
+title: Use o portal Azure para resolver problemas Azure Stack Edge Pro que encomenda problemas Microsoft Docs
+description: Descreve como resolver problemas a Azure Stack Edge Pro a encomendar problemas.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: 8c42ee867bdd20de64fa1c603de47b5f1e7bdb39
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 3087c209b844d691173edbbd8a993c1d0aae319b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055950"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903631"
 ---
-# <a name="troubleshoot-your-azure-stack-edge-ordering-issues"></a>Resolução de problemas do seu Azure Stack Edge questões de encomenda
+# <a name="troubleshoot-your-azure-stack-edge-pro-ordering-issues"></a>Resolução de problemas do seu Azure Stack Edge Pro questões
 
-Este artigo descreve como resolver problemas com problemas de encomenda de Azure Stack Edge.
+Este artigo descreve como resolver problemas com problemas a Azure Stack Edge Pro a encomendar problemas.
 
 Neste tutorial, ficará a saber como:
 
@@ -59,7 +59,7 @@ Para obter mais informações, consulte [os fornecedores de recursos do Registo.
 
 ## <a name="microsoftdataboxedge-not-registered-for-subscription"></a>Microsoft.DataBoxEdge não registado para subscrição
 
-**Erro:** No portal Azure, seleciona uma subscrição para utilizar para Azure Stack Edge ou Data Box Gateway e obtém o seguinte erro:
+**Erro:** No portal Azure, seleciona uma subscrição para utilizar para Azure Stack Edge Pro ou Data Box Gateway e obtém o seguinte erro:
 
 *Fornecedor de recursos: Microsoft.DataBoxEdge não está registado para &lt; nome de subscrição &gt; e não tem permissões para registar um fornecedor de recursos para &lt; o nome &gt; de assinatura de assinatura.*
 
@@ -73,6 +73,6 @@ Para obter mais informações, consulte [os fornecedores de recursos do Registo.
 
 **Solução sugerida:** Este erro ocorre devido a uma política Azure existente que bloqueia a criação de recursos. As políticas Azure são definidas pelo administrador de sistema de uma organização para garantir o cumprimento durante a utilização ou criação de recursos Azure. Se tal política estiver a bloquear a criação de recursos do Azure Stack Edge, contacte o administrador do sistema para editar a sua política Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre como resolver os [seus problemas com o Azure Stack Edge](azure-stack-edge-troubleshoot.md).
+* Saiba mais sobre como resolver os [seus problemas Azure Stack Edge Pro](azure-stack-edge-troubleshoot.md).

@@ -2,28 +2,32 @@
 title: Implemente o Live Video Analytics num dispositivo IoT Edge - Azure
 description: Este artigo lista os passos que o ajudarão a implementar o Live Video Analytics no seu dispositivo IoT Edge. Fá-lo-ia, por exemplo, se tivesse acesso a uma máquina Linux local e/ou criasse previamente uma conta Azure Media Services.
 ms.topic: how-to
-ms.date: 04/27/2020
-ms.openlocfilehash: 30a3bda4069bb8c07d7c9be3fd8a3a2b1171eba2
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/09/2020
+ms.openlocfilehash: 211dd0d61bbca39c4f4ec2f388d950c4615bb023
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526328"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887237"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implemente o Live Video Analytics num dispositivo IoT Edge
 
 Este artigo lista os passos que o ajudarão a implementar o Live Video Analytics no seu dispositivo IoT Edge. Fá-lo-ia, por exemplo, se tivesse acesso a uma máquina Linux local e/ou criasse previamente uma conta Azure Media Services.
 
+> [!NOTE]
+> O suporte para dispositivos ARM64 está disponível em Live Video Analytics em construções IoT Edge `1.0.4` e mais recentes.
+> O suporte para executar o tempo de funcionamento do Azure IoT Edge em dispositivos ARM64 está em [visualização pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma máquina Linux que cumpre as restrições HW/SW para análise de vídeo ao vivo
+* Um dispositivo x86-64 ou um ARM64 que executa um dos [sistemas operativos Linux suportados](https://docs.microsoft.com/azure/iot-edge/support#operating-systems)
 * Assinatura Azure para a qual tem [privilégios de proprietário](../../role-based-access-control/built-in-roles.md#owner)
 * [Criar e configurar o Hub IoT](../../iot-hub/iot-hub-create-through-portal.md)
 * [Registar dispositivo IoT Edge](../../iot-edge/how-to-register-device.md)
 * [Instalar o runtime do Azure IoT Edge em sistemas Linux baseados em Debian](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Criar uma conta Azure Media Services](../latest/create-account-howto.md)
 
-    * Utilize uma destas regiões: Leste dos EUA 2, Central EUA, Norte Central DOS EUA, Japão Leste, Oeste dos EUA 2, West Central US, Canadá Leste, Reino Unido Sul, França Central, França Sul, Suíça Norte, Suíça Oeste e Japão Oeste.
+    * Utilize uma destas regiões: Leste dos EUA 2, Leste dos EUA, Central EUA, Norte Central dos EUA, Japão Leste, Oeste dos EUA, Oeste dos EUA 2, Centro Ocidental dos EUA, Canadá Leste, Reino Unido Sul, França Central, França Sul, Suíça Norte, Suíça Oeste e Japão Oeste.
     * Recomenda-se que utilize contas de armazenamento v2 (GPv2) para fins gerais
 
 ## <a name="configuring-azure-resources-for-using-live-video-analytics"></a>Configurar recursos do Azure para a utilização de Vídeo Analytics ao Vivo
@@ -81,7 +85,6 @@ sudo chown -R edgeuser /var/media
 
 ## <a name="deploy-live-video-analytics-edge-module"></a>Implementar módulo de borda de análise de vídeo ao vivo
 
-<!-- (To JuliaKo: this is similar to https://docs.microsoft.com/azure/iot-edge/how-to-deploy-blob)-->
 O Live Video Analytics on IoT Edge expõe propriedades gémeas do módulo que estão documentadas no [esquema de configuração do Módulo Twin.](module-twin-configuration-schema.md) 
 
 ### <a name="deploy-using-the-azure-portal"></a>Implementar com o portal do Azure
@@ -252,4 +255,4 @@ Em seguida, vamos testar a amostra invocando um método direto. Leia [os método
 Experimente [Quickstart: Get start - Live Video Analytics on IoT Edge](get-started-detect-motion-emit-events-quickstart.md#deploy-modules-on-your-edge-device)
 
 > [!TIP]
-> No comando, executará a seguir, use o seu `device-id` em vez do padrão `lva-sample-device` .
+> Se proceder ao quickstart acima, ao invocar os métodos diretos utilizando o Código do Estúdio Visual, utilizará o dispositivo que foi adicionado ao IoT Hub através deste artigo, em vez do padrão `lva-sample-device` .

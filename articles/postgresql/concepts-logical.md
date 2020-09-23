@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 363c003a915763a7ab1165c2e0d8f945bc3dd510
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd886bea90c1092e38fac191a60a118aab0bef1f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213691"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903900"
 ---
 # <a name="logical-decoding"></a>Descodificação lógica
  
@@ -38,7 +38,7 @@ O servidor precisa de ser reiniciado após uma alteração deste parâmetro. Int
 
 ### <a name="using-azure-cli"></a>Utilizar a CLI do Azure
 
-1. Desatado azure.replication_support para `logical` .
+1. Desemazure.replication_support para `logical` .
    ```
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
    ``` 
@@ -52,11 +52,11 @@ O servidor precisa de ser reiniciado após uma alteração deste parâmetro. Int
 
 1. Desa parte do suporte de replicação do Azure para **ser lógico**. Selecione **Guardar**.
 
-   ![Base de Dados Azure para PostgreSQL - Replicação - Suporte de replicação Azure](./media/concepts-logical/replication-support.png)
+   :::image type="content" source="./media/concepts-logical/replication-support.png" alt-text="Base de Dados Azure para PostgreSQL - Replicação - Suporte de replicação Azure":::
 
 2. Reinicie o servidor para aplicar a alteração selecionando **Sim**.
 
-   ![Base de Dados Azure para PostgreSQL - Replicação - Confirme o reinício](./media/concepts-logical/confirm-restart.png)
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Base de Dados Azure para PostgreSQL - Replicação - Confirme o reinício":::
 
 
 ## <a name="start-logical-decoding"></a>Começar a descodição lógica
@@ -159,10 +159,10 @@ SELECT pg_drop_replication_slot('test_slot');
 ```
 
 > [!IMPORTANT]
-> Se parar de descodição lógica, mude a azure.replication_support de volta para `replica` ou `off` . Os detalhes do WAL retidos são `logical` mais verbosos, e devem ser desativados quando a descodão lógica não estiver a ser utilizada. 
+> Se parar de descodição lógica, mude azure.replication_support para `replica` ou `off` . Os detalhes do WAL retidos são `logical` mais verbosos, e devem ser desativados quando a descodão lógica não estiver a ser utilizada. 
 
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Visite a documentação postgres para [saber mais sobre a descodagem lógica.](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html)
 * Contacte a [nossa equipa](mailto:AskAzureDBforPostgreSQL@service.microsoft.com) se tiver dúvidas sobre descodição lógica.

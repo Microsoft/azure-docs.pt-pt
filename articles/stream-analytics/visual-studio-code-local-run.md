@@ -6,12 +6,12 @@ author: su-jie
 ms.author: sujie
 ms.date: 11/10/2019
 ms.topic: how-to
-ms.openlocfilehash: a47b641f4f5049beb605490122a33d407ac3e222
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0122e67714efb201584a52f1cb763528dbb0b925
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044367"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903795"
 ---
 # <a name="test-stream-analytics-queries-locally-with-sample-data-using-visual-studio-code"></a>Teste Stream Analytics consultas localmente com dados de amostra usando Código de Estúdio Visual
 
@@ -21,7 +21,7 @@ Pode utilizar ferramentas Azure Stream Analytics para o Código do Estúdio Visu
 
 * Instale [.NET core SDK](https://dotnet.microsoft.com/download) e reinicie o Código do Estúdio Visual.
 
-* Use este [quickstart](quick-create-vs-code.md) para aprender a criar um trabalho stream Analytics usando o Código de Estúdio Visual.
+* Use este [quickstart](quick-create-visual-studio-code.md) para aprender a criar um trabalho stream Analytics usando o Código de Estúdio Visual.
 
 ## <a name="prepare-sample-data"></a>Preparar dados de amostra
 
@@ -31,17 +31,17 @@ Primeiro, tem de preparar os ficheiros de dados de entrada de amostras. Se já t
 
 2. Assim que os dados são mostrados, clique em **Guardar como** guardar os dados para um ficheiro local.
 
- ![Pré-visualização da entrada ao vivo](./media/quick-create-vs-code/preview-live-input.png)
+ ![Pré-visualização da entrada ao vivo](./media/quick-create-visual-studio-code/preview-live-input.png)
 
 ## <a name="define-a-local-input"></a>Definir uma entrada local
 
 1. Clique **input.jsna** pasta Entradas no seu projeto Stream Analytics. Em seguida, **selecione Adicione** a entrada local da linha superior.
 
-    ![Adicionar entrada local do projeto](./media/quick-create-vs-code/add-input-from-project.png)
+    ![Adicionar entrada local do projeto](./media/quick-create-visual-studio-code/add-input-from-project.png)
 
     Também pode utilizar **ctrl+Shift+P** para abrir a paleta de comando e introduzir **ASA: Adicionar Entrada**.
 
-   ![Adicionar entrada Stream Analytics no Código VS](./media/quick-create-vs-code/add-input.png)
+   ![Adicionar entrada Stream Analytics no Código VS](./media/quick-create-visual-studio-code/add-input.png)
 
 2. Selecione **Entrada Local**.
 
@@ -55,7 +55,7 @@ Primeiro, tem de preparar os ficheiros de dados de entrada de amostras. Se já t
 
     ![Adicione um novo pseudónimo de entrada local ASA](./media/vscode-local-run/new-local-input-alias.png)
 
-5. NoLocalInput_Input.jsrecentemente gerado **no** ficheiro, insira o caminho do ficheiro onde o seu ficheiro de dados local está localizado.
+5. NoLocalInput_Input.jsrecentemente gerado ** no** ficheiro, insira o caminho do ficheiro onde o seu ficheiro de dados local está localizado.
 
     ![Insira o caminho do arquivo local no Estúdio Visual](./media/vscode-local-run/local-file-path.png)
 
@@ -79,7 +79,7 @@ O resultado é mostrado na janela certa. Pode clicar em **Executar** para testar
 
 ![Ver resultado de execução local](./media/vscode-local-run/run-locally-result.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Teste Azure Stream Analytics empregos localmente com entrada ao vivo usando Código de Estúdio Visual](visual-studio-code-local-run-live-input.md)
 

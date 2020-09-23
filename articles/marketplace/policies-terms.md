@@ -3,16 +3,16 @@ title: Políticas e termos de mercado comercial, Azure Marketplace
 description: As políticas e termos do mercado comercial da Microsoft aplicam-se a todas as editoras e ofertas no Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: reference
+ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 09/09/2020
-ms.openlocfilehash: cd936307eaacc7b2a46bac23c8fcfc9e2769135c
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 4ddf37d5f2e7f569e5447dfe321574e3f9ccc778
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006725"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974839"
 ---
 # <a name="commercial-marketplace-policies-and-terms"></a>Políticas e termos do marketplace comercial
 
@@ -25,12 +25,11 @@ As ofertas no mercado comercial devem cumprir as nossas políticas e termos. Atu
 
 ## <a name="policies-and-terms"></a>Políticas e termos
 
-* [Commercial marketplace certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies) (Políticas de certificação do marketplace comercial)
-
-* [Políticas de classificação e revisão](https://docs.microsoft.com/legal/marketplace/rating-review-policies)
-
-* [Termos do Azure Marketplace](https://docs.microsoft.com/legal/marketplace/terms)
+- [Commercial marketplace certification policies](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context) (Políticas de certificação do marketplace comercial)
+- [Políticas de revisão do Microsoft AppSource e Azure Marketplace](/legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context)
+- [Azure Marketplace participation policies](/legal/marketplace/participation-policy?context=/azure/marketplace/context/context) (Políticas de participação do Azure Marketplace)
+- [Termos do Azure Marketplace](/legal/marketplace/terms?context=/azure/marketplace/context/context)
 
 ## <a name="next-step"></a>Passo seguinte
 
-Visite a página [de guia de publicação do mercado comercial.](./marketplace-publishers-guide.md)
+Visite a página [de guia de publicação do mercado comercial.](marketplace-publishers-guide.md)
