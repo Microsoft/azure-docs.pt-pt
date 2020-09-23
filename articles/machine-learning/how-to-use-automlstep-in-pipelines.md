@@ -11,15 +11,15 @@ manager: cgronlun
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: eb28ee0adb3c23a44936cbc940ee9bcddfd11141
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 6b239ab14437083b74f4501eabb588e929152431
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647417"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897239"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Utilize ML automatizado num oleoduto de aprendizagem de máquinas Azure em Python
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 A capacidade automatizada de ML da Azure Machine Learning ajuda-o a descobrir modelos de alto desempenho sem que reimpliure todas as abordagens possíveis. Combinado com os oleodutos Azure Machine Learning, pode criar fluxos de trabalho implantáveis que podem rapidamente descobrir o algoritmo que funciona melhor para os seus dados. Este artigo irá mostrar-lhe como juntar eficientemente um passo de preparação de dados para um passo ML automatizado. ML automatizado pode rapidamente descobrir o algoritmo que funciona melhor para os seus dados, ao mesmo tempo que o coloca na estrada para MLOps e operacionalização de ciclo de vida modelo com oleodutos.
 
@@ -29,7 +29,7 @@ A capacidade automatizada de ML da Azure Machine Learning ajuda-o a descobrir mo
 
 * Uma área de trabalho do Azure Machine Learning. Ver [Criar um espaço de trabalho de aprendizagem de máquinas Azure](how-to-manage-workspace.md).  
 
-* Familiaridade básica com as instalações automatizadas de [aprendizagem automática](concept-automated-ml.md) de máquinas e [máquinas de aprendizagem](concept-ml-pipelines.md) da Azure e SDK.
+* Familiaridade com as instalações automatizadas de [aprendizagem automática](concept-automated-ml.md) de máquinas e [máquinas de aprendizagem](concept-ml-pipelines.md) da Azure e SDK.
 
 ## <a name="review-automated-mls-central-classes"></a>Rever as classes centrais automatizadas da ML
 
@@ -368,7 +368,7 @@ Pode ocasionalmente ver a utilização `X` para funcionalidades de dados e `y` p
 
 ## <a name="register-the-model-generated-by-automated-ml"></a>Registar o modelo gerado por ML automatizado 
 
-O último passo de um gasoduto ML básico é registar o modelo criado. Ao adicionar o modelo ao registo de modelos do espaço de trabalho, estará disponível no portal e poderá ser lançado. Para registar o modelo, escreva outro `PythonScriptStep` que tire a saída do `model_data` `AutoMLStep` .
+O último passo num simples gasoduto ML é registar o modelo criado. Ao adicionar o modelo ao registo de modelos do espaço de trabalho, estará disponível no portal e poderá ser lançado. Para registar o modelo, escreva outro `PythonScriptStep` que tire a saída do `model_data` `AutoMLStep` .
 
 ### <a name="write-the-code-to-register-the-model"></a>Escreva o código para registar o modelo
 

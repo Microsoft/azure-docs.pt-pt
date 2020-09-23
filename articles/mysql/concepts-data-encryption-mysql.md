@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 8fca0195c2941e4ed1a859c3201adfc2a4a0a2ed
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 71657d45ce9c4cc6fb103b61235a282b3005b924
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067448"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884919"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Base de Dados Azure para encriptação de dados MySQL com uma chave gerida pelo cliente
 
@@ -44,7 +44,7 @@ Os DEKs, encriptados com os KEKs, são armazenados separadamente. Apenas uma ent
 
 ## <a name="how-data-encryption-with-a-customer-managed-key-work"></a>Como encriptação de dados com um trabalho chave gerido pelo cliente
 
-![Diagrama que mostra uma visão geral de Bring Your Own Key](media/concepts-data-access-and-security-data-encryption/mysqloverview.png)
+:::image type="content" source="media/concepts-data-access-and-security-data-encryption/mysqloverview.png" alt-text="Diagrama que mostra uma visão geral de Bring Your Own Key":::
 
 Para que um servidor MySQL utilize chaves geridas pelo cliente armazenadas no Cofre de Chaves para encriptação do DEK, um administrador do Key Vault dá os seguintes direitos de acesso ao servidor:
 
@@ -80,7 +80,7 @@ Quando está a utilizar a encriptação de dados utilizando uma chave gerida pel
 * Certifique-se de que o Cofre-Chave e a Base de Dados Azure para o MySQL residem na mesma região, para garantir um acesso mais rápido para o invólucro DEK e desembrulhar operações.
 * Bloqueie o Azure KeyVault apenas para **o ponto final privado e redes selecionadas** e permita apenas serviços *confiáveis* da Microsoft para garantir os recursos.
 
-    ![serviço de confiança com AKV](media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png)
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="serviço de confiança com AKV":::
 
 Aqui estão as recomendações para configurar uma chave gerida pelo cliente:
 

@@ -11,15 +11,14 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 235135cbbcc7c622f4dd23c2e4f29cc3636dc1ea
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d36c0ab78f9f96a051e6cb0a53b756c7409ca142
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661929"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893406"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gerir o acesso a uma área de trabalho do Azure Machine Learning
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, aprende-se a gerir o acesso a um espaço de trabalho de Aprendizagem automática Azure. [O controlo de acesso baseado em funções Azure (Azure RBAC)](/azure/role-based-access-control/overview) é utilizado para gerir o acesso aos recursos Azure. Os utilizadores do seu Diretório Ativo Azure são atribuídos a funções específicas, que concedem acesso a recursos. O Azure fornece papéis incorporados e a capacidade de criar papéis personalizados.
 
@@ -46,7 +45,7 @@ Se você é proprietário de um espaço de trabalho, você pode adicionar e remo
 - [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
 - [CLI do Azure](/azure/role-based-access-control/role-assignments-cli)
 - [API REST](/azure/role-based-access-control/role-assignments-rest)
-- [Modelos de gestor de recursos Azure](/azure/role-based-access-control/role-assignments-template)
+- [Modelos do Azure Resource Manager](/azure/role-based-access-control/role-assignments-template)
 
 Se tiver instalado o [CLI de Aprendizagem de Máquinas Azure,](reference-azure-machine-learning-cli.md)pode utilizar comandos CLI para atribuir funções aos utilizadores:
 
@@ -135,7 +134,6 @@ O quadro a seguir é um resumo das atividades de Aprendizagem automática do Azu
 | Atividade | Âmbito de nível de subscrição | Âmbito de grupo de recursos | Âmbito ao nível do espaço de trabalho |
 | ----- | ----- | ----- | ----- |
 | Criar novo espaço de trabalho | não é necessário | Proprietário ou colaborador | N/A (torna-se Proprietário ou herda um papel de âmbito superior após a criação) |
-| Atualizar a Edição do espaço de trabalho | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `/workspaces/write` |
 | Solicitar nível de subscrição Quota Amlcompute ou quota de nível de espaço de trabalho definido | Proprietário, colaborador ou papel personalizado </br>permitindo `/locations/updateQuotas/action`</br> no âmbito de subscrição | Não Autorizado | Não Autorizado |
 | Criar novo cluster computacional | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `/workspaces/computes/write` |
 | Criar nova instância computacional | não é necessário | não é necessário | Função de proprietário, colaborador ou personalizado que permite: `/workspaces/computes/write` |
@@ -301,7 +299,6 @@ Sim, aqui estão alguns cenários comuns com definições de papéis propostas p
 
     * Criação de um novo espaço de trabalho
     * Atribuição de quotas de subscrição ou de nível de trabalho
-    * Modernização da edição do espaço de trabalho
 
     O administrador do espaço de trabalho também não pode criar um novo papel. Só pode atribuir funções incorporadas ou personalizadas existentes no âmbito do seu espaço de trabalho:
 
@@ -415,18 +412,14 @@ Precisa de permissões em todo o âmbito da sua nova definição de papel. Por e
 
 > [!NOTE]
 > As atualizações de funções podem demorar 15 minutos a uma hora a aplicar-se em todas as atribuições de funções nesse âmbito.
-### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>P. Posso definir um papel que impeça a atualização da edição do espaço de trabalho? 
 
-Sim, pode definir um papel que impede a atualização da edição do espaço de trabalho. Uma vez que a atualização do espaço de trabalho é uma chamada PATCH no objeto do espaço de trabalho, fá-lo colocando a seguinte ação na `"NotActions"` matriz na definição JSON: 
-
-`"Microsoft.MachineLearningServices/workspaces/write"`
 
 ### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>P. Que permissões são necessárias para realizar operações de quotas num espaço de trabalho? 
 
 Precisa de permissões de nível de subscrição para realizar qualquer operação relacionada com quotas no espaço de trabalho. Isto significa que definir a quota de nível de subscrição ou a quota de nível de espaço de trabalho para os seus recursos de computação geridos só pode acontecer se tiver permissões de escrita no âmbito de subscrição. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Descrição geral da segurança empresarial](concept-enterprise-security.md)
 - [Isolamento de rede virtual e visão geral da privacidade](how-to-network-security-overview.md)

@@ -11,16 +11,14 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: af912838e99e7b36cb29695758108f0a9efeb8ea
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: ac440db4c1dbddd317743e2d681a62251624d9bd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561640"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898135"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-with-python-sdk"></a>Criar metas de computação para formação de modelos e implantação com Python SDK
-
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, use o Azure Machine Learning Python SDK para criar e gerir alvos de computação. Também pode criar e gerir alvos de computação com:
 * [Estúdio Azure Machine Learning,](how-to-create-attach-compute-studio.md) 

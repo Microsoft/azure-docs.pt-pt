@@ -8,14 +8,14 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
-ms.date: 09/23/2019
+ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 304f80dcb2da4ed60bd94e9fb4d71d985da87cc2
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: fe2a632901b32993d46e723ab73fce045bfa9f84
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661997"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889144"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Quickstart: Começa com o Azure Sentinel
 
@@ -44,7 +44,6 @@ O corpo principal da página de visão geral dá uma visão de um olhar sobre o 
 
    ![Mapa de tráfego malicioso](./media/qs-get-visibility/map.png)
 
-
 - **Incidentes recentes**: Para ver os seus incidentes recentes, a sua gravidade e o número de alertas associados ao incidente. Se vires como um pico repentino num tipo específico de alerta, pode significar que há um ataque ativo atualmente em curso. Por exemplo, se tiver um pico repentino de 20 eventos Pass-the-hash do Microsoft Defender for Identity (ex-Azure ATP), é possível que alguém esteja atualmente a tentar atacá-lo.
 
 - **Anomalias na origem**dos dados : Os analistas de dados da Microsoft criaram modelos que procuram constantemente os dados das suas fontes de dados para anomalias. Se não houver anomalias, nada é mostrado. Se forem detetadas anomalias, deve mergulhar profundamente nelas para ver o que aconteceu. Por exemplo, clique no pico na Atividade Azure. Pode clicar em **Gráfico** para ver quando o pico aconteceu e, em seguida, filtrar as atividades que ocorreram durante esse período de tempo para ver o que causou o pico.
@@ -67,7 +66,7 @@ Os livros incorporados fornecem dados integrados a partir das suas fontes de dad
       ![Painel palo Alto](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Pode personalizar os livros de trabalho editando o botão de edição de ![ consulta ](./media/qs-get-visibility/edit-query-button.png) principal. Pode clicar no ![ botão Registar analítico ](./media/qs-get-visibility/go-to-la-button.png) para ir ao Log Analytics para [editar a consulta lá](../azure-monitor/log-query/get-started-portal.md), e pode selecionar a elipse (...) e **selecionar Personalizar dados de azulejos**, o que lhe permite editar o filtro de tempo principal ou remover os azulejos específicos do livro.
+Pode personalizar os livros de trabalho editando o botão de edição de ![ consulta ](./media/qs-get-visibility/edit-query-button.png) principal. Pode clicar no ![ botão Log Analytics ](./media/qs-get-visibility/go-to-la-button.png) para ir ao Log Analytics para [editar a consulta lá](../azure-monitor/log-query/get-started-portal.md), e pode selecionar a elipse (...) e **selecionar Personalizar dados de azulejos**, o que lhe permite editar o filtro de tempo principal ou remover os azulejos específicos do livro.
 
 Para obter mais informações sobre o trabalho com consultas, consulte [Tutorial: Dados visuais em Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
@@ -126,7 +125,7 @@ Para ver todas as deteções fora da caixa, vá ao **Analytics** e, em seguida, 
 
 Para obter mais informações sobre a obtenção de deteções fora da caixa, consulte [Tutorial: Obter analíticos incorporados.](tutorial-detect-threats-built-in.md)
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste arranque rápido, aprendeu a começar a usar o Azure Sentinel. Continue ao tutorial para [detetar ameaças.](tutorial-detect-threats-built-in.md)
 > [!div class="nextstepaction"]
 > [Crie regras de deteção de ameaças personalizadas](tutorial-detect-threats-custom.md) para automatizar as suas respostas a ameaças.

@@ -1,6 +1,6 @@
 ---
-title: Gerir a rede de computação no Azure Stack Edge para aceder a módulos Microsoft Docs
-description: Descreve como estender a rede de cálculo no seu Azure Stack Edge para aceder a módulos através de um IP externo.
+title: Gerir a rede de computação no Azure Stack Edge Pro para aceder a módulos Microsoft Docs
+description: Descreve como estender a rede de computação no seu Azure Stack Edge Pro para aceder a módulos através de um IP externo.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: alkohli
-ms.openlocfilehash: 01b0eae7d2e5d1078c0761838081a2379a724a97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19c92deb58ac51aa882e7123b9a90aa3eae627d0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84342991"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894110"
 ---
-# <a name="enable-compute-network-on-your-azure-stack-edge"></a>Ativar a rede de computação no seu Azure Stack Edge
+# <a name="enable-compute-network-on-your-azure-stack-edge-pro"></a>Ativar a rede de computação no seu Azure Stack Edge Pro
 
-Este artigo descreve como os módulos em execução no seu Azure Stack Edge podem aceder à rede de computação ativada no dispositivo.
+Este artigo descreve como os módulos em execução no seu Azure Stack Edge Pro podem aceder à rede de computação ativada no dispositivo.
 
 Para configurar a rede, irá tomar os seguintes passos:
 
-- Ativar uma interface de rede no seu dispositivo Azure Stack Edge para calcular
-- Adicione um módulo para aceder à rede de computação no seu Azure Stack Edge
+- Ativar uma interface de rede no seu dispositivo Azure Stack Edge Pro para calcular
+- Adicione um módulo para aceder à rede de computação no seu Azure Stack Edge Pro
 - Verifique se o módulo pode aceder à interface de rede ativada
 
 Neste tutorial, você usará um módulo de aplicações webserver para demonstrar o cenário.
@@ -31,8 +31,8 @@ Neste tutorial, você usará um módulo de aplicações webserver para demonstra
 
 Antes de começar, vai precisar de:
 
-- Um dispositivo Azure Stack Edge com configuração do dispositivo concluída.
-- Completou o passo **de computação Configure** de acordo com o [Tutorial: Transforme dados com Azure Stack Edge](azure-stack-edge-deploy-configure-compute-advanced.md#configure-compute) no seu dispositivo. O seu dispositivo deve ter um recurso IoT Hub associado, um dispositivo IoT e um dispositivo IoT Edge.
+- Um dispositivo Azure Stack Edge Pro com configuração do dispositivo concluída.
+- Completou o passo **de computação Configure** de acordo com o [Tutorial: Transforme dados com Azure Stack Edge Pro](azure-stack-edge-deploy-configure-compute-advanced.md#configure-compute) no seu dispositivo. O seu dispositivo deve ter um recurso IoT Hub associado, um dispositivo IoT e um dispositivo IoT Edge.
 
 ## <a name="enable-network-interface-for-compute"></a>Ativar a interface de rede para calcular
 
@@ -55,10 +55,10 @@ Dê os seguintes passos na sua UI web local para configurar as definições de c
 
 ## <a name="add-webserver-app-module"></a>Adicionar módulo de aplicativo webserver
 
-Tome os seguintes passos para adicionar um módulo de aplicação webserver no seu dispositivo Azure Stack Edge.
+Tome os seguintes passos para adicionar um módulo de aplicação webserver no seu dispositivo Azure Stack Edge Pro.
 
-1. Aceda ao recurso IoT Hub associado ao seu dispositivo Azure Stack Edge e, em seguida, selecione **o dispositivo IoT Edge**.
-2. Selecione o dispositivo IoT Edge associado ao seu dispositivo Azure Stack Edge. Nos **detalhes**do dispositivo , selecione **definir módulos**. Nos **módulos Adicionar**, selecione **+ Adicionar** e, em seguida, selecione Módulo de **Borda IoT**.
+1. Aceda ao recurso IoT Hub associado ao seu dispositivo Azure Stack Edge Pro e, em seguida, selecione **o dispositivo IoT Edge**.
+2. Selecione o dispositivo IoT Edge associado ao seu dispositivo Azure Stack Edge Pro. Nos **detalhes**do dispositivo , selecione **definir módulos**. Nos **módulos Adicionar**, selecione **+ Adicionar** e, em seguida, selecione Módulo de **Borda IoT**.
 3. Na lâmina dos **módulos personalizados IoT Edge:**
 
     1. Especifique um **nome** para o seu módulo de aplicação webserver que pretende implementar.
@@ -96,6 +96,6 @@ Tome os seguintes passos para adicionar um módulo de aplicação webserver no s
 
     ![Verificar ligação ao módulo sobre a porta especificada](media/azure-stack-edge-extend-compute-access-modules/verify-connect-module-1.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [Gerir utilizadores através do portal do Azure](azure-stack-edge-manage-users.md).

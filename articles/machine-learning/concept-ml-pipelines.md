@@ -9,12 +9,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 08/17/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2232aa46b0586ca62e80c8b9002271a67e4021c1
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b0217766c92ddcd1907eca2c6702d91b02e06c03
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651114"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893644"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são os oleodutos Azure Machine Learning?
 
@@ -95,7 +95,7 @@ Um oleoduto Azure ML está associado a um espaço de trabalho Azure Machine Lear
 
 ### <a name="a-simple-python-pipeline"></a>Um simples pipeline Python
 
-Este corte mostra os objetos e chamadas necessárias para criar e executar um básico `Pipeline` :
+Este corte mostra os objetos e chamadas necessárias para criar e executar um `Pipeline` :
 
 ```python
 ws = Workspace.from_config() 
@@ -150,9 +150,9 @@ As principais vantagens da utilização de oleodutos para os seus fluxos de trab
 | **Modularidade** | Separar áreas de preocupações e isolar alterações permite que o software evolua a um ritmo mais rápido com maior qualidade. | 
 |**Colaboração**|Os oleodutos permitem que os cientistas de dados colaborem em todas as áreas do processo de design de machine learning, ao mesmo tempo que podem trabalhar simultaneamente em etapas de gasoduto.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Os oleodutos Azure ML são uma instalação poderosa que começa a fornecer valor nas fases iniciais de desenvolvimento. O valor aumenta à medida que a equipa e o projeto crescem. Este artigo explicou como os oleodutos são especificados com o Azure Machine Learning Python SDK e orquestrados em Azure. Viu um código-fonte básico e foi introduzido em algumas das `PipelineStep` aulas que estão disponíveis. Deve ter uma noção de quando usar os oleodutos Azure ML e como o Azure os gere. 
+Os oleodutos Azure ML são uma instalação poderosa que começa a fornecer valor nas fases iniciais de desenvolvimento. O valor aumenta à medida que a equipa e o projeto crescem. Este artigo explicou como os oleodutos são especificados com o Azure Machine Learning Python SDK e orquestrados em Azure. Viu um simples código-fonte e foi introduzido em algumas das `PipelineStep` aulas que estão disponíveis. Deve ter uma noção de quando usar os oleodutos Azure ML e como o Azure os gere. 
 
 
 + Saiba como [criar o seu primeiro oleoduto.](how-to-create-your-first-pipeline.md)

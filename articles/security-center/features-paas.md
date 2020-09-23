@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2020
 ms.author: memildin
-ms.openlocfilehash: 539b663366cd2820eec62a18d1fc2989c6b3c9b0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 77bf0f4cd60ba6e85763334a4d864975945ec2c3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042361"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894781"
 ---
-# <a name="feature-coverage-for-azure-paas-services"></a>Cobertura de recursos para serviços Azure PaaS<a name="paas-services"></a>
+# <a name="feature-coverage-for-azure-paas-services"></a>Cobertura de recursos para serviços Azure PaaS <a name="paas-services"></a>
 
 A tabela abaixo mostra a disponibilidade de funcionalidades do Centro de Segurança Azure para os recursos Azure PaaS suportados.
 
-|Serviço|Recomendações (Grátis)|Alertas de segurança (Standard)|Avaliação da vulnerabilidade (Norma)|
+|Serviço|Recomendações (Grátis)|Alertas de segurança (Azure Defender)|Avaliação de vulnerabilidade (Azure Defender)|
 |:----|:----:|:----:|:----:|
 |Serviço de Aplicações do Azure|✔|✔|-|
 |Conta Azure Automation|✔|-|-|
@@ -41,9 +41,9 @@ A tabela abaixo mostra a disponibilidade de funcionalidades do Centro de Seguran
 |Base de Dados Azure para PostgreSQL*|✔|✔|-|
 |Espaço de nome azure Event Hubs|✔|-|-|
 |Aplicação de Funções do Azure|✔|-|-|
-|Azure Key Vault|✔|✔ *|-|
+|Azure Key Vault|✔|✔|-|
 |Azure Kubernetes Service|✔|✔|-|
-|Azure Load Balancer|✔|-|-|
+|Balanceador de Carga do Azure|✔|-|-|
 |Azure Logic Apps|✔|-|-|
 |Base de Dados SQL do Azure|✔|✔|✔|
 |Instância Gerida do Azure SQL|✔|✔|✔|
@@ -54,6 +54,6 @@ A tabela abaixo mostra a disponibilidade de funcionalidades do Centro de Seguran
 |Subscrição do Azure|✔ **|✔|-|
 |Rede Virtual do Azure</br> (incl. subnetas, NICs e grupos de segurança de rede)|✔|-|-|
 
-\*Estas funcionalidades são atualmente suportadas na pré-visualização.
+\* Estas funcionalidades são atualmente suportadas na pré-visualização.
 
-\*\*As recomendações do Azure Ative Directory (Azure AD) só estão disponíveis para subscrições Standard.
+\*\* As recomendações do Azure Ative Directory (Azure AD) só estão disponíveis para subscrições com Azure Defender ativadas.

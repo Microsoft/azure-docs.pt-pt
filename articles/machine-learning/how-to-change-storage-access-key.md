@@ -11,15 +11,15 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 2888e46d26a58e8451f38accbb9073d657f8ea1b
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: d511520e274af9c6dea3f443693249ede368fd99
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651454"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893267"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Chaves de acesso à conta de armazenamento regenerar
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Saiba como alterar as teclas de acesso para as contas de Armazenamento Azure utilizadas pela Azure Machine Learning. O Azure Machine Learning pode usar contas de armazenamento para armazenar dados ou modelos treinados.
 
@@ -139,6 +139,6 @@ Para atualizar a Azure Machine Learning para utilizar a nova chave, utilize os s
         
             Se estiver a atualizar credenciais para a sua **datastore predefinido,** complete este passo e repita o passo 2b para ressíncar a sua nova tecla com a datastore predefinido do espaço de trabalho. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o registo de datastores, consulte a [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py&preserve-view=true) referência de classe.

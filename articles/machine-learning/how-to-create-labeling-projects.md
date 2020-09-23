@@ -8,16 +8,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: a86a7ee600d7443e5ba8cb4f30db0c48c8170327
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: e74d22d3d45079a6568f6fca35dc5d84e2d7469f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612174"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897959"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
 
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Rotular dados volumosos em projetos de aprendizagem automática é muitas vezes uma dor de cabeça. Projetos que têm uma componente de visão computacional, como classificação de imagem ou deteção de objetos, geralmente requerem etiquetas para milhares de imagens.
  
@@ -144,13 +144,7 @@ Para as caixas de delimitação, questões importantes incluem:
 >[!NOTE]
 > Tenha em atenção que os rótulos poderão selecionar as primeiras 9 etiquetas utilizando as teclas 1-9.
 
-## <a name="use-ml-assisted-labeling-preview"></a>Utilizar rotulagem assistida ML (pré-visualização)
-
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
-
-> [!IMPORTANT]
-> A rotulagem assistida ML está atualmente em pré-visualização pública.
-> A versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="use-ml-assisted-labeling"></a>Utilizar rotulagem assistida ML
 
 A página **de rotulagem assistida ML** permite-lhe acionar modelos automáticos de aprendizagem automática para acelerar a tarefa de rotulagem. No início do seu projeto de rotulagem, as imagens são baralhadas numa ordem aleatória para reduzir o preconceito potencial. No entanto, quaisquer enviesamentos que estejam presentes no conjunto de dados serão refletidos no modelo treinado. Por exemplo, se 80% das suas imagens forem de uma única classe, então aproximadamente 80% dos dados utilizados para treinar o modelo serão dessa classe. Esta formação não inclui a aprendizagem ativa.
 
@@ -175,9 +169,6 @@ A fase de agrupamento não aparece para modelos de deteção de objetos.
 Depois de serem submetidas etiquetas de imagem suficientes, um modelo de classificação é usado para prever etiquetas de imagem. Ou um modelo de deteção de objetos é usado para prever caixas de delimitação. O rotulador vê agora páginas que contêm etiquetas previstas já presentes em cada imagem. Para a deteção de objetos, as caixas previstas também são mostradas. A tarefa é então rever estas previsões e corrigir quaisquer imagens mal rotuladas antes de submeter a página.  
 
 Uma vez treinado um modelo de machine learning nos seus dados etiquetados manualmente, o modelo é avaliado num conjunto de testes de imagens etiquetadas manualmente para determinar a sua precisão numa variedade de diferentes limiares de confiança. Este processo de avaliação é utilizado para determinar um limiar de confiança acima do qual o modelo é suficientemente preciso para apresentar pré-etiquetas. O modelo é então avaliado com dados não rotulados. Imagens com previsões mais confiantes do que este limiar são usadas para pré-rotulagem.
-
-> [!NOTE]
-> A rotulagem assistida ML está disponível **apenas** em espaços de trabalho da edição enterprise.
 
 ## <a name="initialize-the-labeling-project"></a>Inicializar o projeto de rotulagem
 
@@ -262,7 +253,7 @@ O ficheiro COCO é criado na loja blob padrão do espaço de trabalho Azure Mach
 
 ![Conjunto de dados exportado](./media/how-to-create-labeling-projects/exported-dataset.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Tutorial: Crie o seu primeiro projeto de rotulagem de classificação de imagem.](tutorial-labeling.md)
 * Rotular imagens para [classificação de imagem ou deteção de objetos](how-to-label-images.md)

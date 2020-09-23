@@ -2,13 +2,13 @@
 title: Perguntas frequentes - Azure Event Hubs Microsoft Docs
 description: Este artigo fornece uma lista de perguntas frequentes (FAQ) para Azure Event Hubs e suas respostas.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 9995588e618679ae38a11aff26485d1ba0b60688
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/16/2020
+ms.openlocfilehash: b852af961327fbecb773c0608dfb823093e17267
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89288972"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883384"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Os Centros de Eventos fazem perguntas frequentes
 
@@ -55,6 +55,9 @@ Pode configurar o período de retenção para os dados capturados na sua conta d
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Como monitorizo os meus Centros de Eventos?
 O Event Hubs emite métricas exaustivas que fornecem o estado dos seus recursos ao [Azure Monitor.](../azure-monitor/overview.md) Também permitem avaliar a saúde geral do serviço Event Hubs não só ao nível do espaço de nome, mas também ao nível da entidade. Saiba qual é a monitorização oferecida para [o Azure Event Hubs](event-hubs-metrics-azure-monitor.md).
 
+### <a name="where-does-azure-event-hubs-store-customer-data"></a><a name="in-region-data-residency"></a>Onde é que o Azure Event Hubs armazena os dados dos clientes?
+O Azure Event Hubs armazena dados do cliente. Estes dados são automaticamente armazenados pelos Event Hubs numa única região, pelo que este serviço satisfaz automaticamente os requisitos de residência de dados da região, incluindo os especificados no [Trust Center.](https://azuredatacentermap.azurewebsites.net/)
+
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Que portas preciso para abrir na firewall? 
 Pode utilizar os seguintes protocolos com a Azure Service Bus para enviar e receber mensagens:
 
@@ -78,9 +81,9 @@ Para encontrar os endereços IP certos para adicionar à lista permitida para as
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Note o endereço IP devolvido em `Non-authoritative answer` . A única altura em que mudaria é se restaurares o espaço de nomes num aglomerado diferente.
+2. Note o endereço IP devolvido em `Non-authoritative answer` . 
 
-Se utilizar a redundância da zona para o seu espaço de nome, tem de fazer alguns passos adicionais: 
+Se utilizar a **redundância** da zona para o seu espaço de nome, tem de fazer alguns passos adicionais: 
 
 1. Primeiro, corres nslookup no espaço de nomes.
 
@@ -94,9 +97,12 @@ Se utilizar a redundância da zona para o seu espaço de nome, tem de fazer algu
     <name>-s2.cloudapp.net
     <name>-s3.cloudapp.net
     ```
+
+    > [!NOTE]
+    > O endereço IP devolvido pelo `nslookup` comando não é um endereço IP estático. No entanto, permanece constante até que a implementação subjacente seja eliminada ou transferida para um cluster diferente.
 3. Executar nslookup para cada um com sufixos s1, s2 e s3 para obter os endereços IP dos três casos em execução em três zonas de disponibilidade, 
 
-### <a name="where-can-i-find-client-ip-sending-or-receiving-msgs-to-my-namespace"></a>Onde posso encontrar o IP do cliente a enviar ou a receber msgs para o meu espaço de nome?
+### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>Onde posso encontrar o IP do cliente a enviar ou a receber mensagens para o meu espaço de nome?
 Em primeiro lugar, ative [a filtragem IP](event-hubs-ip-filtering.md) no espaço de nomes. 
 
 Em seguida, Ative os registos de diagnóstico para [eventos de ligação de rede virtual do Event Hubs](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) seguindo instruções nos [registos de diagnóstico Ativar](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Verá o endereço IP para o qual a ligação é negada.
@@ -265,7 +271,7 @@ O suporte técnico para o Event Hubs está disponível através da [página de p
 
 Para saber mais sobre o nosso SLA, consulte a página [De Acordos de Nível de Serviço.](https://azure.microsoft.com/support/legal/sla/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 

@@ -12,15 +12,15 @@ ms.reviewer: nibaccam
 ms.date: 01/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 6d0d626fe0720500b436aea73d6df7c8bb08e004
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: fc9dee3d4ace5f70c4238cdce5c57696b131bfa9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649388"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897315"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Iniciar, monitorizar e cancelar treinos em Python
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 O [Azure Machine Learning SDK para Python,](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) [Machine Learning CLI](reference-azure-machine-learning-cli.md)e a [Azure Machine Learning studio](https://ml.azure.com) fornecem vários métodos para monitorizar, organizar e gerir as suas corridas para treino e experimentação.
 
@@ -110,7 +110,7 @@ Para iniciar uma série da sua experiência, utilize os seguintes passos:
 
 ### <a name="using-azure-machine-learning-studio"></a>Usando o estúdio Azure Machine Learning
 
-Para iniciar uma execução de pipeline no designer (pré-visualização), utilize os seguintes passos:
+Para iniciar uma corrida de gasoduto no designer, utilize os seguintes passos:
 
 1. Desaponte um alvo de computação padrão para o seu pipeline.
 
@@ -384,7 +384,7 @@ list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"
 
 #### <a name="using-the-cli"></a>Utilização do CLI
 
-O Azure CLI suporta consultas [JMESPath,](http://jmespath.org) que podem ser usadas para filtrar corridas com base em propriedades e etiquetas. Para utilizar uma consulta JMESPath com o CLI Azure, especifique-a com o `--query` parâmetro. Os exemplos a seguir mostram consultas básicas utilizando propriedades e etiquetas:
+O Azure CLI suporta consultas [JMESPath,](http://jmespath.org) que podem ser usadas para filtrar corridas com base em propriedades e etiquetas. Para utilizar uma consulta JMESPath com o CLI Azure, especifique-a com o `--query` parâmetro. Os exemplos a seguir mostram algumas consultas utilizando propriedades e etiquetas:
 
 ```azurecli-interactive
 # list runs where the author property = 'azureml-user'
@@ -411,7 +411,7 @@ Os seguintes cadernos demonstram os conceitos deste artigo:
 
 * Para obter mais informações sobre a gestão de corridas com o Azure Machine Learning SDK, consulte o [caderno de gestão](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/manage-runs/manage-runs.ipynb).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender a registar métricas para as suas experiências, consulte [as métricas do Registo durante os treinos](how-to-track-experiments.md).
 * Para aprender a monitorizar recursos e registos da Azure Machine Learning, consulte [monitorar a Azure Machine Learning](monitor-azure-machine-learning.md).

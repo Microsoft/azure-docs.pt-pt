@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 01/27/2020
-ms.openlocfilehash: b0def12582dd3795e1b17334406e28d77c3c5656
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5206565b85d1551e5e551f1dfe75d28c93bc53f0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477447"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898215"
 ---
 # <a name="summarize-data"></a>Resumir Dados
 
-Este artigo descreve um módulo de Azure Machine Learning designer (pré-visualização).
+Este artigo descreve um módulo de Azure Machine Learning designer.
 
 Utilize o módulo De Dados Sumário para criar um conjunto de medidas estatísticas padrão que descrevem cada coluna na tabela de entrada.
 
@@ -85,6 +85,6 @@ O relatório do módulo pode incluir as seguintes estatísticas.
     
     - Ao calcular qualquer estatística que exija cálculos de pontos flutuantes, os valores de True são tratados como 1.0, e os valores de False são tratados como 0.0.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning.  

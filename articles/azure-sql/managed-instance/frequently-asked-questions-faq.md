@@ -1,7 +1,7 @@
 ---
-title: Perguntas Mais Frequentes (FAQ)
+title: Perguntas Frequentes (FAQ)
 titleSuffix: Azure SQL Managed Instance
-description: Azure SQL Gestd Instance frequentemente fez perguntas (FAQ)
+description: Perguntas frequentes (FAQ) sobre o Azure SQL Managed Instance
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
@@ -10,16 +10,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab
-ms.date: 03/17/2020
-ms.openlocfilehash: fe779ebf8bb041fb90b8eb38a9469a783127ffd3
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.reviewer: sstein
+ms.date: 09/21/2020
+ms.openlocfilehash: 2e3bf8251cfb5da20cade65831ef34dbc6709b1b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661423"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887393"
 ---
-# <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Azure SQL Gestd Instance frequentemente fez perguntas (FAQ)
+# <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ) sobre o Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Este artigo contém as perguntas mais comuns sobre [a Azure SQL Managed Instance](sql-managed-instance-paas-overview.md).
@@ -82,7 +82,7 @@ Para funcionalidades novas e de pré-visualização, consulte [as notas de lanç
 
 **Como posso providenciar sql Caso Gerido?**
 
-Pode providenciar uma instância a partir de [modelos](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates) [Azure Portal,](instance-create-quickstart.md) [PowerShell,](scripts/create-configure-managed-instance-powershell.md) [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) e ARM .
+Pode providenciar uma instância a partir do [portal Azure,](instance-create-quickstart.md) [modelos](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates) [PowerShell,](scripts/create-configure-managed-instance-powershell.md) [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) e ARM .
 
 **Posso providenciar casos geridos numa subscrição existente?**
 
@@ -94,7 +94,7 @@ Trata-se de uma limitação atual do componente subjacente que verifica o nome d
 
 **Como posso escalar o meu caso?**
 
-Pode escalar a sua instância gerida a partir de [modelos](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates) [Azure Portal,](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation) [PowerShell,](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell) [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) ou ARM .
+Pode escalar a sua instância gerida a partir do [portal Azure,](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation) [Modelos PowerShell,](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell) [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) ou [ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **Posso mover o meu Caso Gerido de uma região para outra?**
 
@@ -102,7 +102,7 @@ Sim, pode. Para obter instruções, consulte [mover recursos através das regiõ
 
 **Como posso apagar o meu Caso Gerido?**
 
-Pode eliminar instâncias geridas através do Portal Azure, [PowerShell,](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0) [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) ou [Resource Manager REST APIs](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
+Pode eliminar Instâncias Geridas através do portal Azure, [PowerShell,](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0) [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) ou [Resource Manager REST APIs](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
 
 **Quanto tempo demora a criar ou atualizar um caso, ou a restaurar uma base de dados?**
 
@@ -316,7 +316,7 @@ Por esta razão, desencorajamos vivamente a imutabilidade do endereço IP, uma v
 
 **A Managed Instance tem um ponto final público?**
 
-Sim. A Managed Instance tem um ponto final público que é por padrão usado apenas para a gestão de serviços, mas um cliente pode habilitar o acesso aos dados também. Para obter mais detalhes, consulte [a Utilização sql Managed Instance com pontos finais públicos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Para configurar o ponto final público, vá ao [ponto final público configure em SQL Managed Instance](public-endpoint-configure.md).
+Sim. A Managed Instance tem um ponto final público que é por padrão usado apenas para Gestão de Serviços, mas um cliente pode habilitar o acesso aos dados também. Para obter mais detalhes, consulte [a Utilização sql Managed Instance com pontos finais públicos](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Para configurar o ponto final público, vá ao [ponto final público configure em SQL Managed Instance](public-endpoint-configure.md).
 
 **Como é que a Managed Instance controla o acesso ao ponto final público?**
 
@@ -326,7 +326,7 @@ Os serviços de gestão e implantação conectam-se a uma instância gerida util
 
 **Posso utilizar o ponto final público para aceder aos dados nas bases de dados de Instância Gerida?**
 
-Sim. O cliente terá de permitir o acesso de dados de ponto final público a partir do [Portal Azure](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM e configurar o NSG para bloquear o acesso à porta de dados (porta número 3342). Para obter mais informações, consulte o [ponto final público Configure em Azure SQL Managed Instance](public-endpoint-configure.md) e Use [Azure SQL Managed Instance de forma segura com o ponto final público](public-endpoint-overview.md). 
+Sim. O cliente terá de permitir o acesso de dados de ponto final público a partir do [portal Azure](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM e configurar o NSG para bloquear o acesso à porta de dados (porta número 3342). Para obter mais informações, consulte o [ponto final público Configure em Azure SQL Managed Instance](public-endpoint-configure.md) e Use [Azure SQL Managed Instance de forma segura com o ponto final público](public-endpoint-overview.md). 
 
 **Posso especificar uma porta personalizada para o ponto final de dados SQL?**
 
@@ -350,7 +350,7 @@ Para mitigar quaisquer riscos de exfiltração de dados, recomenda-se aos client
 - Aceda ao caso com uma conta DBA de baixo privilégio.
 - Configure o acesso à caixa de salto JIT para a conta sysadmin.
 - Ligue [a auditoria DO SQL](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)e integre-a com mecanismos de alerta.
-- Ligue [a Deteção](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) de Ameaças a partir da suíte avançada de [segurança de dados (ADS).](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security)
+- Ligue [a Deteção](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) de Ameaças do [Azure Defender para](https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql) a suite SQL.
 
 ## <a name="dns"></a>DNS
 
@@ -450,7 +450,7 @@ Obtém a mesma quantidade de espaço de armazenamento de backup gratuito que o e
 
 **Como posso monitorizar os custos de faturação para o meu consumo de armazenamento de reserva?**
 
-Pode monitorizar o custo do armazenamento de cópias de segurança através do Portal Azure. Para obter instruções, consulte [os custos do Monitor para cópias de segurança automatizadas.](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs) 
+Pode monitorizar o custo do armazenamento de cópias de segurança através do portal Azure. Para obter instruções, consulte [os custos do Monitor para cópias de segurança automatizadas.](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs) 
 
 **Como posso otimizar os meus custos de armazenamento de reserva na área gerida?**
 

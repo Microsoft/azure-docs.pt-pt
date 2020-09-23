@@ -1,6 +1,6 @@
 ---
 title: Referência de algoritmos e módulos
-description: Conheça os módulos disponíveis no Azure Machine Learning designer (pré-visualização)
+description: Conheça os módulos disponíveis no Azure Machine Learning designer
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: a588c58c74ab9632f3c3c61e223dd37704103714
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9a2e21696409c320b89d1fed54fefad953b955e1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048096"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886392"
 ---
-# <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Algoritmo & referência do módulo para o designer de aprendizagem automática Azure (pré-visualização)
+# <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Algoritmo & referência do módulo para o designer de aprendizagem de máquinas Azure
 
-Este conteúdo de referência fornece o fundo técnico de cada um dos algoritmos e módulos de machine learning disponíveis no designer de Machine Learning Azure (pré-visualização).
+Este conteúdo de referência fornece o fundo técnico de cada um dos algoritmos e módulos de machine learning disponíveis no designer de Machine Learning Azure.
 
 Cada módulo representa um conjunto de código que pode funcionar de forma independente e executar uma tarefa de machine learning, dadas as entradas necessárias. Um módulo pode conter um algoritmo particular, ou executar uma tarefa que é importante na aprendizagem automática, como a substituição de valor em falta, ou a análise estatística.
 
@@ -43,7 +43,7 @@ Para ajudar na escolha de algoritmos, consulte
 
 | Funcionalidade | Descrição | Módulo |
 | --- |--- | --- |
-| Regressão | Prever um valor. | [Regressão da Árvore de Decisões Elevada](boosted-decision-tree-regression.md) <br/> [Regressão da Floresta de Decisão](decision-forest-regression.md) <br/> [Regressão quântil da floresta rápida](fast-forest-quantile-regression.md)  <br/> [Regressão Linear](linear-regression.md)  <br/> [Regressão da Rede Neural](neural-network-regression.md)  <br/> [Regressão de Poisson](poisson-regression.md)  <br/>|
+| Regressão | Prever um valor. | [Regressão da Árvore de Decisões Elevada](boosted-decision-tree-regression.md) <br/> [Regressão da Floresta de Decisão](decision-forest-regression.md) <br/> [Regressão de Quantil da Floresta Rápida](fast-forest-quantile-regression.md)  <br/> [Regressão Linear](linear-regression.md)  <br/> [Regressão da Rede Neural](neural-network-regression.md)  <br/> [Regressão de Poisson](poisson-regression.md)  <br/>|
 | Clustering | Dados de grupo juntos.| [Clustering K-Means](k-means-clustering.md)
 | Classificação | Prever uma aula.  Escolha entre algoritmos binários (de duas classes) ou multiclasses.| [Árvore de Decisões Elevada Multiclasse](multiclass-boosted-decision-tree.md) <br/> [Floresta de Decisão de Várias Classes](multiclass-decision-forest.md) <br/> [Regressão Logística de Várias Classes](multiclass-logistic-regression.md)  <br/> [Rede Neural de Várias Classes](multiclass-neural-network.md) <br/> [Uma vs. Todas as Multiclasses](one-vs-all-multiclass.md) <br/> [Perceção Média de Duas Classes](two-class-averaged-perceptron.md) <br/>  [Árvore de Decisões Elevada de Duas Classes](two-class-boosted-decision-tree.md)  <br/> [Floresta de Decisão de Duas Classes](two-class-decision-forest.md) <br/>  [Regressão Logística de Duas Classes](two-class-logistic-regression.md) <br/> [Rede Neural de Duas Classes](two-class-neural-network.md) <br/> [Máquina de Vetores de Suporte de Duas Classes](two-class-support-vector-machine.md) | 
 
@@ -51,8 +51,8 @@ Para ajudar na escolha de algoritmos, consulte
 
 | Funcionalidade | Descrição | Módulo |
 | --- |--- | --- |
-| Formação de Modelos | Executar dados através do algoritmo. |  [Preparar Modelo de Clustering](train-clustering-model.md) <br/> [Preparar Modelo](train-model.md) <br/> [Modelo de Pytorch de comboio](train-pytorch-model.md) <br/> [Ajustar hiperparâmetros do modelo](tune-model-hyperparameters.md) |
-| Pontuação e Avaliação do Modelo | Meça a precisão do modelo treinado. | [Aplicar Transformação](apply-transformation.md) <br/> [Atribuir Dados a Clusters](assign-data-to-clusters.md) <br/> [Modelo de validação cruzada](cross-validate-model.md) <br/> [Avaliar Modelo](evaluate-model.md) <br/> [Classificar o Modelo de Imagem](score-image-model.md) <br/> [Modelo de Pontuação](score-model.md) |
+| Formação de Modelos | Executar dados através do algoritmo. |  [Train Clustering Model (Preparar Modelo de Clustering)](train-clustering-model.md) <br/> [Preparar Modelo](train-model.md) <br/> [Modelo de Pytorch de comboio](train-pytorch-model.md) <br/> [Ajustar hiperparâmetros do modelo](tune-model-hyperparameters.md) |
+| Pontuação e Avaliação do Modelo | Meça a precisão do modelo treinado. | [Aplicar Transformação](apply-transformation.md) <br/> [Assign Data to Clusters (Atribuir Dados a Clusters)](assign-data-to-clusters.md) <br/> [Modelo de validação cruzada](cross-validate-model.md) <br/> [Avaliar Modelo](evaluate-model.md) <br/> [Classificar o Modelo de Imagem](score-image-model.md) <br/> [Modelo de Classificação](score-model.md) |
 | Língua python | Escreva código e incorpore-o num módulo para integrar python com o seu oleoduto. | [Criar Modelo Python](create-python-model.md) <br/> [Executar Script do Python](execute-python-script.md) |
 | Língua R | Escreva código e incorpore-o num módulo para integrar R com o seu pipeline. | [Executar Script R](execute-r-script.md) |
 | Análise de Texto | Fornecer ferramentas computacionais especializadas para trabalhar com textos estruturados e não estruturados. |  [Converter Word em Vetor](convert-word-to-vector.md) <br/> [Extrair Funcionalidades N-Grama a partir de Texto](extract-n-gram-features-from-text.md) <br/> [Hashing de Funcionalidade](feature-hashing.md) <br/> [Pré-processar Texto](preprocess-text.md) <br/> [Alocação Latente de Dirichlet](latent-dirichlet-allocation.md) <br/> [Score Vowpal Wabbit Model](score-vowpal-wabbit-model.md) <br/> [Train Vowpal Wabbit Model](train-vowpal-wabbit-model.md)|

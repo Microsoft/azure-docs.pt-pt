@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: af14d4770d032c23216b805045eb27fadded5954
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0ba603dad7d48be725f308f3a3296676c5f4f108
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170263"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883244"
 ---
 # <a name="train-pytorch-model"></a>Preparar um Modelo do PyTorch
 
-Este artigo descreve como usar o módulo **Train Pytorch Model** em Azure Machine Learning designer (pré-visualização) para treinar modelos de pytorch como o DenseNet. A formação ocorre depois de definir um modelo e definir os seus parâmetros, e requer dados rotulados. 
+Este artigo descreve como usar o módulo **Train Pytorch Model** em Azure Machine Learning designer para treinar modelos de pytorch como o DenseNet. A formação ocorre depois de definir um modelo e definir os seus parâmetros, e requer dados rotulados. 
 
 ## <a name="how-to-use-train-pytorch-model"></a>Como usar o modelo train pytorch 
 
@@ -66,13 +66,13 @@ Após a execução do gasoduto, para utilizar o modelo para pontuação, ligue o
 
 ###  <a name="module-parameters"></a>Parâmetros do módulo  
 
-| Nome          | Intervalo            | Tipo    | Predefinição | Descrição                              |
+| Name          | Intervalo            | Tipo    | Predefinição | Descrição                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
-| Épocas        | >0               | Número inteiro | 5       | Selecione a coluna que contém a etiqueta ou coluna de resultados |
-| Tamanho do lote    | >0               | Número inteiro | 16      | Quantas instâncias para treinar num lote   |
-| Taxa de aprendizagem | >=duplo. Epsilon | Float   | 0,001   | A taxa de aprendizagem inicial para o otimizador de descida de gradiente estocástico. |
-| Sementes aleatórias   | Qualquer              | Número inteiro | 1       | A semente para o gerador de números aleatórios usado pelo modelo. |
-| Paciência      | >0               | Número inteiro | 3       | Quantas épocas para parar o treino precoce   |
+| Épocas        | >0               | Integer (Número inteiro) | 5       | Selecione a coluna que contém a etiqueta ou coluna de resultados |
+| Tamanho do lote    | >0               | Integer (Número inteiro) | 16      | Quantas instâncias para treinar num lote   |
+| Taxa de aprendizagem | >=duplo. Epsilon | Float   | 0.001   | A taxa de aprendizagem inicial para o otimizador de descida de gradiente estocástico. |
+| Sementes aleatórias   | Qualquer              | Integer (Número inteiro) | 1       | A semente para o gerador de números aleatórios usado pelo modelo. |
+| Paciência      | >0               | Integer (Número inteiro) | 3       | Quantas épocas para parar o treino precoce   |
 
 ###  <a name="outputs"></a>Saídas  
 

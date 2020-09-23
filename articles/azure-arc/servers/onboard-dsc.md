@@ -1,26 +1,26 @@
 ---
 title: Instale o agente da máquina conectada utilizando o Windows PowerShell DSC
-description: Neste artigo, aprende-se a ligar máquinas ao Azure utilizando servidores ativados pelo Azure Arc (pré-visualização) utilizando o Windows PowerShell DSC.
-ms.date: 03/12/2020
+description: Neste artigo, aprende-se a ligar máquinas ao Azure utilizando servidores ativados pelo Azure Arc utilizando o Windows PowerShell DSC.
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 675258ff95829c2dc9922571db5014b2ba93d336
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 5349ff870be324c0137d2adcaf201ecdac286cbc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565825"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887633"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Como instalar o agente da Máquina Conectada utilizando o Windows PowerShell DSC
 
-Utilizando [a configuração estatal desejada do Windows PowerShell](/powershell/scripting/dsc/getting-started/winGettingStarted?view=powershell-7) (DSC), pode automatizar a instalação e configuração do software para um computador Windows. Este artigo descreve como utilizar o DSC para instalar os servidores ativados pelo Arco Azure (pré-visualização) do agente da Máquina Conectada em máquinas híbridas do Windows.
+Utilizando [a configuração estatal desejada do Windows PowerShell](/powershell/scripting/dsc/getting-started/winGettingStarted) (DSC), pode automatizar a instalação e configuração do software para um computador Windows. Este artigo descreve como utilizar o DSC para instalar o Azure Arc ativado por servidores Agentes de Máquinas Conectadas em máquinas híbridas do Windows.
 
 ## <a name="requirements"></a>Requisitos
 
 - Versão 4.0 ou superior do Windows PowerShell
 
-- O módulo [AzureConnectedMachineDsc](https://www.powershellgallery.com/packages/AzureConnectedMachineDsc/1.0.1.0) DSC
+- O módulo [AzureConnectedMachineDsc](https://www.powershellgallery.com/packages/AzureConnectedMachineDsc) DSC
 
-- Um chefe de serviço para ligar as máquinas a Azure Arc ativou servidores (pré-visualização) não interactivamente. Siga os passos sob a secção [Criar um Principal de Serviço para o embarque à escala](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) se ainda não tiver criado um principal de serviço para servidores ativados arc (pré-visualização).
+- Um chefe de serviço para ligar as máquinas ao Azure Arc ativou servidores não interactivamente. Siga os passos sob a secção [Criar um Principal de Serviço para embarque à escala](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) se ainda não tiver criado um principal de serviço para servidores ativados pela Arc.
 
 ## <a name="install-the-connectedmachine-dsc-module"></a>Instale o módulo ConnectedMachine DSC
 
@@ -44,7 +44,7 @@ Utilizando [a configuração estatal desejada do Windows PowerShell](/powershell
 
 Os recursos deste módulo são projetados para gerir a configuração do Agente de Máquinas Conectada Azure. Também está incluído um script PowerShell, `AzureConnectedMachineAgent.ps1` encontrado na `AzureConnectedMachineDsc\examples` pasta. Utiliza recursos comunitários para automatizar o download e instalação e estabelecer uma ligação com o Arco Azure. Este script executa passos semelhantes descritos nas [máquinas híbridas Connect a Azure a partir do artigo do portal Azure.](onboard-portal.md)
 
-Se a máquina precisar de comunicar através de um servidor proxy para o serviço, depois de instalar o agente, precisa de executar um comando que está descrito [aqui](manage-agent.md#update-or-remove-proxy-settings). Isto define a variável do ambiente do sistema de servidor de procuração `https_proxy` . Em vez de executar o comando manualmente, pode executar este passo com o DSC utilizando o módulo [ComputeManagementDsc.](https://www.powershellgallery.com/packages/ComputerManagementDsc/6.0.0.0)
+Se a máquina precisar de comunicar através de um servidor proxy para o serviço, depois de instalar o agente, precisa de executar um comando que está descrito [aqui](manage-agent.md#update-or-remove-proxy-settings). Isto define a variável do ambiente do sistema de servidor de procuração `https_proxy` . Em vez de executar o comando manualmente, pode executar este passo com o DSC utilizando o módulo [ComputeManagementDsc.](https://www.powershellgallery.com/packages/ComputerManagementDsc)
 
 >[!NOTE]
 >Para permitir a execução do DSC, o Windows precisa de ser configurado para receber comandos remotos PowerShell mesmo quando estiver a executar uma configuração local. Para configurar facilmente o seu ambiente corretamente, basta correr `Set-WsManQuickConfig -Force` num terminal PowerShell elevado.
@@ -64,11 +64,11 @@ Seguem-se os parâmetros que passa para o script PowerShell para utilizar.
 
 - `Tags`: Conjunto de etiquetas de corda que devem ser aplicadas ao recurso da máquina ligada.
 
-- `Credential`: Um objeto credencial PowerShell com o **ApplicationId** e **a palavra-passe** utilizada para registar máquinas à escala utilizando um [principal serviço](onboard-service-principal.md). 
+- `Credential`: Um objeto credencial PowerShell com o **ApplicationId** e **a palavra-passe** utilizada para registar máquinas à escala utilizando um [principal serviço](onboard-service-principal.md).
 
 1. Numa consola PowerShell, navegue para a pasta onde guardou o `.ps1` ficheiro.
 
-2. Executar os seguintes comandos PowerShell para compilar o documento MOF (para obter informações sobre a compilação de configurações de DSC, consulte [configurações de DSC](/powershell/scripting/dsc/configurations/configurations?view=powershell-7):
+2. Executar os seguintes comandos PowerShell para compilar o documento MOF (para obter informações sobre a compilação de configurações de DSC, consulte [configurações de DSC](/powershell/scripting/dsc/configurations/configurations):
 
     ```powershell
     .\`AzureConnectedMachineAgent.ps1 -TenantId <TenantId GUID> -SubscriptionId <SubscriptionId GUID> -ResourceGroup '<ResourceGroupName>' -Location '<LocationName>' -Tags '<Tag>' -Credential <psCredential>
@@ -76,15 +76,15 @@ Seguem-se os parâmetros que passa para o script PowerShell para utilizar.
 
 3. Isto criará uma `localhost.mof file` nova pasta chamada `C:\dsc` .
 
-Depois de instalar o agente e configurá-lo para ligar aos servidores ativados do Azure Arc (pré-visualização), vá ao portal Azure para verificar se o servidor foi conectado com sucesso. Veja as suas máquinas no [portal do Azure](https://aka.ms/hybridmachineportal).
+Depois de instalar o agente e configurá-lo para ligar aos servidores ativados do Azure Arc, vá ao portal Azure para verificar se o servidor foi conectado com sucesso. Veja as suas máquinas no [portal do Azure](https://aka.ms/hybridmachineportal).
 
 ## <a name="adding-to-existing-configurations"></a>Adicionar às configurações existentes
 
 Este recurso pode ser adicionado às configurações DSC existentes para representar uma configuração de ponta a ponta para uma máquina. Por exemplo, é melhor adicionar este recurso a uma configuração que define as definições seguras do sistema operativo.
 
-O módulo [CompositeResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) da PowerShell Gallery pode ser utilizado para criar um [recurso composto](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) da configuração do exemplo, para simplificar ainda mais as configurações combinadas.
+O módulo [CompositeResource](https://www.powershellgallery.com/packages/compositeresource) da PowerShell Gallery pode ser utilizado para criar um [recurso composto](/powershell/scripting/dsc/resources/authoringResourceComposite) da configuração do exemplo, para simplificar ainda mais as configurações combinadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda a gerir a sua máquina utilizando [a Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verificando se a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com o [Azure Monitor com VMs](../../azure-monitor/insights/vminsights-enable-policy.md), e muito mais.
 

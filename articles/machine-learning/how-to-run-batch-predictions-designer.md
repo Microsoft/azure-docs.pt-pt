@@ -1,5 +1,5 @@
 ---
-title: Executar predições em lote com o Azure Machine Learning Designer (pré-visualização)
+title: Executar previsões de lote usando O designer de aprendizagem de máquinas Azure
 titleSuffix: Azure Machine Learning
 description: Aprenda a treinar um modelo e crie um pipeline de previsão de lote utilizando o designer. Implemente o oleoduto como um serviço web parametrizado, que pode ser acionado a partir de qualquer biblioteca HTTP.
 services: machine-learning
@@ -10,15 +10,15 @@ author: likebupt
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: e4ca191e50f4ca8aa5a11a36ec44e737cc2ef6bc
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 21dad66670da7a538039ae795d6be87cc4dbce96
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661553"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883090"
 ---
-# <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Executar predições em lote com o Azure Machine Learning Designer (pré-visualização)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Executar previsões de lote usando O designer de aprendizagem de máquinas Azure
+
 
 Neste artigo, aprende-se a usar o designer para criar um pipeline de previsão de lote. A previsão do lote permite-lhe pontuar continuamente grandes conjuntos de dados a pedido usando um serviço web que pode ser acionado a partir de qualquer biblioteca HTTP.
 
@@ -145,7 +145,7 @@ Também pode definir um novo pipeline padrão no **separador de gasodutos Public
 
 ![Desafine o gasoduto predefinido na página de pipeline publicada](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Siga o [tutorial](tutorial-designer-automobile-price-train-score.md) do designer para treinar e implementar um modelo de regressão.
 ''

@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: c24e9f58154b1523496a82761a8c48ba06dea46c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7f10454eff7958f59cf16b19e98918062b2a61a3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651254"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886319"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como funciona a Azure Machine Learning: Arquitetura e conceitos
 
@@ -193,7 +193,7 @@ Para um exemplo de implantação de um modelo como serviço web, consulte [imple
 
 #### <a name="real-time-endpoints"></a>Pontos finais em tempo real
 
-Quando implementar um modelo treinado no designer (pré-visualização), pode [implementar o modelo como um ponto final em tempo real](tutorial-designer-automobile-price-deploy.md). Um ponto final em tempo real geralmente recebe um único pedido através do ponto final REST e devolve uma previsão em tempo real. Isto contrasta com o processamento de lotes, que processa vários valores ao mesmo tempo e guarda os resultados após a conclusão de uma datastore.
+Quando se implanta um modelo treinado no designer, [pode-se implementar o modelo como um ponto final em tempo real](tutorial-designer-automobile-price-deploy.md). Um ponto final em tempo real geralmente recebe um único pedido através do ponto final REST e devolve uma previsão em tempo real. Isto contrasta com o processamento de lotes, que processa vários valores ao mesmo tempo e guarda os resultados após a conclusão de uma datastore.
 
 #### <a name="pipeline-endpoints"></a>Pontos finais do gasoduto
 
@@ -229,7 +229,7 @@ Os passos do gasoduto são reutilizáveis e podem ser executados sem repetir os 
 
 O estúdio é também onde você acede às ferramentas interativas que fazem parte do Azure Machine Learning:
 
-+ [Azure Machine Learning designer (pré-visualização)](concept-designer.md) para executar etapas de fluxo de trabalho sem código de escrita
++ [Azure Machine Learning designer](concept-designer.md) para executar etapas de fluxo de trabalho sem código de escrita
 + Experiência web para [aprendizagem automática de máquinas](concept-automated-ml.md)
 + [Azure Machine Learning para](how-to-run-jupyter-notebooks.md) escrever e executar o seu próprio código em servidores de cadernos Jupyter integrados.
 + [Projetos de rotulagem de dados](how-to-create-labeling-projects.md) para criar, gerir e monitorizar projetos para rotular os seus dados
@@ -242,10 +242,11 @@ O estúdio é também onde você acede às ferramentas interativas que fazem par
 
 +  Interaja com o serviço em qualquer ambiente Python com o [Azure Machine Learning SDK para Python.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
 + Interaja com o serviço em qualquer ambiente R com o [Azure Machine Learning SDK para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (pré-visualização).
++ Utilize [o designer de aprendizagem automática Azure](concept-designer.md) para executar os passos de fluxo de trabalho sem escrever código. 
 + Utilize [o CLI de aprendizagem automática Azure](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) para automatização.
 + O [Acelerador de Soluções de Muitos Modelos](https://aka.ms/many-models) (pré-visualização) baseia-se no Azure Machine Learning e permite-lhe treinar, operar e gerir centenas ou mesmo milhares de modelos de machine learning.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar com a Azure Machine Learning, consulte:
 

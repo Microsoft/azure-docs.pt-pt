@@ -11,12 +11,12 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 7a7b603efe376250607b4a48ff3ef2833f40a2bd
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 3e2711243d7c093d3ab8aa5f0e7ebac0a5ec95f9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650722"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886194"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configure as divisões de dados e a validação cruzada na aprendizagem automática de máquinas
 
@@ -37,7 +37,7 @@ Para este artigo que precisa,
 
 * Uma área de trabalho do Azure Machine Learning. Para criar o espaço de trabalho, consulte Criar um espaço de trabalho para [aprendizagem de máquinas Azure.](how-to-manage-workspace.md)
 
-* Familiaridade com a criação de uma experiência automatizada de aprendizagem automática com o Azure Machine Learning SDK. Siga o [tutorial](tutorial-auto-train-models.md) ou [como](how-to-configure-auto-train.md) ver os padrões básicos de design de experiências automatizadas de aprendizagem automática.
+* Familiaridade com a criação de uma experiência automatizada de aprendizagem automática com o Azure Machine Learning SDK. Siga o [tutorial](tutorial-auto-train-models.md) ou [como](how-to-configure-auto-train.md) ver os padrões fundamentais de design de experiências de aprendizagem automática de máquinas.
 
 * A compreensão dos dados de validação cruzada e de treino/validação divide-se como conceitos ML. Para uma explicação de alto nível,
 
@@ -156,7 +156,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 > [!NOTE]
 > Para utilizar `cv_split_column_names` `training_data` `label_column_name` e, por favor, atualize a sua versão Azure Machine Learning Python SDK 1.6.0 ou mais tarde. Para versões SDK anteriores, consulte a utilização `cv_splits_indices` , mas note que é utilizado apenas com a entrada de conjunto de `X` `y` dados. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Evitar dados desequilibrados e sobremontagem](concept-manage-ml-pitfalls.md).
 * [Tutorial: Utilize machine learning automatizado para prever tarifas de táxi - Secção de dados divididos](tutorial-auto-train-models.md#split-the-data-into-train-and-test-sets).
