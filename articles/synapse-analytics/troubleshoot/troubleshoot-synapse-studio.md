@@ -8,12 +8,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3b0070b35d6ee85f698960708363e7b4d226a8af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f859700be32bda5d8245429076c2359d1adf9d5a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070272"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988061"
 ---
 # <a name="azure-synapse-studio-preview-troubleshooting"></a>Azure Synapse Studio (pré-visualização) resolução de problemas
 
@@ -31,7 +31,7 @@ A opção "SQL on demand" é acinzentada no dropdown "Connect to".
 
 Executar a consulta com "SQL on-demand" dá-lhe a mensagem de erro "Falhou em estabelecer a ligação ao servidor".
 
-![sintoma2](media/troubleshooting-synapse-studio/symptom2.png)
+![A screenshot mostra uma falha na ligação à mensagem do servidor.](media/troubleshooting-synapse-studio/symptom2.png)
 
 ## <a name="troubleshooting-steps"></a>Passos de resolução de problemas
 
@@ -54,7 +54,7 @@ Certifique-se de que "Desative a cache" no painel "Rede" está verificado.
 
 Releminar a operação que realizou no Azure Synapse Studio. Pode ver novos itens apresentados na lista "Rede" em "Ferramentas de Desenvolvimento". Note o tempo atual do seu sistema para fornecer no bilhete de apoio.
 
-![painel de rede](media/troubleshooting-synapse-studio/network-panel.png)
+![A screenshot mostra a janela DevTools com cache de rede e desativação online selecionada.](media/troubleshooting-synapse-studio/network-panel.png)
 
 Encontre o item cuja coluna url corresponde ao seguinte padrão:
 
@@ -66,7 +66,7 @@ Se um deles tiver algo diferente de "20x" e:
 
 - o estado começa com "(falhado)", ou alarga a coluna "Status" ou paira sobre o texto de estado para ver o texto completo. Inclua o texto e/ou a imagem ao abrir o bilhete de apoio.
 
-    ![status-texto](media/troubleshooting-synapse-studio/status-text.png)
+    ![A screenshot mostra resultados, incluindo um valor falhado na coluna Status.](media/troubleshooting-synapse-studio/status-text.png)
 
     - Se vir ERR_NAME_NOT_RESOLVED e criar o seu espaço de trabalho em 10 minutos, aguarde 10 minutos e reforce para ver se o problema ainda existe.
     - Se vir ERR_INTERNET_DISCONNECTED ou ERR_NETWORK_CHANGED, pode indicar que a ligação à rede do PC está a ter problemas. Verifique a sua ligação à rede e volte a tentar a operação.
@@ -76,28 +76,28 @@ Se um deles tiver algo diferente de "20x" e:
 
 - o estado é "40x", "50x", ou outros números, selecione no(s) item(s) para ver os detalhes. Devia ver os detalhes do artigo à direita. Encontre a secção "Cabeçalho de resposta"; em seguida, verifique se existe um item chamado "acesso-control-allow-origin". Em caso afirmativo, verifique se tem um dos seguintes valores:
 
-    - `*`(asterisco único)
-    - https://web.azuresynapse.net/(ou outro valor que o texto na barra de endereços do seu navegador começa com)
+    - `*` (asterisco único)
+    - https://web.azuresynapse.net/ (ou outro valor que o texto na barra de endereços do seu navegador começa com)
 
 Se o cabeçalho de resposta contiver um dos valores acima, significa que já devíamos ter recolhido a informação de falha. Pode abrir um bilhete de apoio, se necessário, e anexar opcionalmente a imagem dos detalhes do artigo.
 
 Se não conseguir ver o cabeçalho, ou se o cabeçalho não tiver um dos valores acima indicados, anexe uma imagem dos detalhes do item quando abrir o bilhete.
 
-![detalhes do item](media/troubleshooting-synapse-studio/item-details.png)
+![A screenshot mostra a janela DevTools com um U R L realçado nos Cabeçalhos de Resposta.](media/troubleshooting-synapse-studio/item-details.png)
 
 Se os passos acima não resolverem o seu problema, poderá ter de abrir um bilhete de apoio. Ao submeter o seu bilhete de apoio, inclua o "Session ID" ou "Informação de Diagnóstico" descarregado no início deste guia.
 
 Ao reportar o problema, pode, opcionalmente, tirar uma imagem do separador "Consola" no separador "Ferramentas do Desenvolvedor" e anexá-lo ao bilhete de suporte. Percorra o conteúdo e tire mais de uma imagem, se necessário, para capturar toda a mensagem.
 
-![desenvolvedor-ferramenta-consola](media/troubleshooting-synapse-studio/developer-tool-console.png)
+![A screenshot mostra a janela DevTools, do tamanho para mostrar toda a mensagem para uma possível imagem.](media/troubleshooting-synapse-studio/developer-tool-console.png)
 
 Se estiver a anexar imagens, forneça o tempo (ou um intervalo estimado de tempo) de quando tirou as imagens. Ajudar-nos-á a analisar o problema.
 
 Certos navegadores suportam os sinais de tempo no separador "Consola". Para o Chromium Edge/Chrome, abra o diálogo "Definições" em "Ferramentas do Desenvolvedor", e verifique "Mostrar os intervalos de tempo" no separador "Preferências".
 
-![configurações de consola de ferramentas de desenvolvedor-ferramenta](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
+![A screenshot mostra a janela DevTools com Definições selecionadas num menu contextual.](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
 
-![show-time-stamp](media/troubleshooting-synapse-studio/show-time-stamp.png)
+![A screenshot mostra as preferências da janela DevTools com os horários do Show selecionados.](media/troubleshooting-synapse-studio/show-time-stamp.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 Se os passos anteriores não ajudarem a resolver o seu problema [Crie um bilhete de apoio](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

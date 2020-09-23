@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: a3cd250e53fb30e07795b184b5c949505e3b20ae
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: af32be357899090e0df96e2c67910a4f9ad5194d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905742"
+ms.locfileid: "90988084"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para Azure Machine Learning
 
@@ -361,6 +361,17 @@ Aqui estão os detalhes:
 * A telemetria também é empurrada para a subscrição Microsoft/Azure.
 
 [![Fluxo de trabalho de inferência](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing.png#lightbox)
+
+## <a name="audit-and-manage-compliance"></a>Auditoria e gestão do cumprimento
+
+[A Azure Policy](/azure/governance/policy) é uma ferramenta de governação que lhe permite garantir que os recursos da Azure estão em conformidade com as suas políticas. Com a Azure Machine Learning, pode atribuir as seguintes políticas:
+
+* **Chave gerida pelo cliente**: Auditar ou impor se os espaços de trabalho devem utilizar uma chave gerida pelo cliente.
+* **Ligação privada**: Audite se os espaços de trabalho utilizam um ponto final privado para comunicar com uma rede virtual.
+
+Para obter mais informações sobre a Política Azure, consulte a documentação da [Política Azure](/azure/governance/policy/overview).
+
+Para obter mais informações sobre as políticas específicas do Azure Machine Learning, consulte [a Auditoria e gerencie o cumprimento da Política Azure.](how-to-integrate-azure-policy.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

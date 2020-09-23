@@ -1,17 +1,17 @@
 ---
 title: Atualizar as visualizações do Painel de Registos
-description: Consultas que pode começar e modificar para as suas necessidades
+description: Saiba como atualizar as visualizações do Painel de Registos com consultas que podem fornecer insights poderosos.
 ms.subservice: logs
 ms.topic: article
 author: rboucher
 ms.author: robb
 ms.date: 07/01/2020
-ms.openlocfilehash: f2824d46917536957839a5734a8d446da7a44ee9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a029dcbebf6dfe7a2b6cb517641c824a5937ca95
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505776"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988257"
 ---
 # <a name="upgrading-your-log-analytics-dashboard-visualizations"></a>Atualizar as visualizações do Painel de Registos
 
@@ -80,6 +80,6 @@ Os dashboards podem ser visualmente densos e complexos. De forma a reduzir a car
 
 Os tabliers são refrescados na carga. Todas as consultas relacionadas com visualizações de Log Analytics com fixação de painel são executadas e o painel de instrumentos é atualizado uma vez que carrega. Se a página do painel permanecer aberta, os dados no painel de instrumentos são atualizados a cada 60 minutos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar e partilhar dashboards no Log Analytics](../learn/tutorial-logs-dashboards.md)

@@ -2,16 +2,16 @@
 title: Azure Cosmos Emulator descarrega e lança notas
 description: Obtenha as notas de lançamento do emulador Azure Cosmos para diferentes versões e informações de descarregamento.
 ms.service: cosmos-db
-ms.topic: tutorial
+ms.topic: conceptual
 author: milismsft
 ms.author: adrianmi
-ms.date: 06/20/2019
-ms.openlocfilehash: 268470f846f31e3577b12c217ddcb3c128136101
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.date: 09/21/2020
+ms.openlocfilehash: da17cd1ea6dac52797162e3ac2d733ad1fd50ea1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086645"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988176"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos Emulator - Lançar notas e descarregar informações
 
@@ -26,25 +26,25 @@ Este artigo mostra as notas de lançamento do emulador Azure Cosmos com uma list
 
 ## <a name="release-notes"></a>Notas de versão
 
-### <a name="2115-08232020"></a>2.11.5 (08/23/2020)
+### <a name="2115-23-august-2020"></a>2.11.5 (23 de agosto de 2020)
 
 Esta versão adiciona duas novas opções de arranque emulador Cosmos: 
 
 * "/EnablePreview" - permite funcionalidades de pré-visualização para o emulador. As funcionalidades de pré-visualização que ainda estão em desenvolvimento e podem ser acedidas via CI e escrita por amostras.
-* "/EnableAadAuthentication" - permite ao emulador aceitar tokens AAD personalizados como alternativa às chaves principais do Azure Cosmos. Esta funcionalidade ainda está em desenvolvimento; as atribuições específicas de funções e outras definições relacionadas com a permissão não são suportadas atualmente.
+* "/EnableAadAuthentication" - permite ao emulador aceitar tokens personalizados do Azure Ative Directory como alternativa às chaves principais do Azure Cosmos. Esta funcionalidade ainda está em desenvolvimento; as atribuições específicas de funções e outras definições relacionadas com a permissão não são suportadas atualmente.
 
-### <a name="2112-07072020"></a>2.11.2 (07/07/2020)
+### <a name="2112-07-july-2020"></a>2.11.2 (07 julho 2020)
 
-- Esta versão altera a forma como os vestígios etl necessários quando se recolhiam os problemas do emulador Cosmos. WPR (ferramentas de runtime de desempenho do Windows) são agora as ferramentas predefinidas para capturar vestígios baseados em ETL, enquanto a captura antiga baseada em LOGMAN foi depreciada. Esta alteração é necessária em parte porque as atualizações de segurança mais recentes do Windows tiveram um impacto inesperado no funcionamento do LOGMAN quando executados através do emulador Cosmos.
+- Esta versão altera a forma como os vestígios etl necessários quando se recolhiam os problemas do emulador Cosmos. WPR (ferramentas de runtime de desempenho do Windows) é agora a ferramenta predefinida para capturar vestígios baseados em ETL, enquanto a captura antiga baseada em LOGMAN foi depreciada. Esta alteração é necessária em parte porque as atualizações de segurança mais recentes do Windows tiveram um impacto inesperado no funcionamento do LOGMAN quando executados através do emulador Cosmos.
 
-### <a name="2111-06102020"></a>2.11.1 (06/10/2020)
+### <a name="2111-10-june-2020"></a>2.11.1 (10 de junho de 2020)
 
-- Esta versão corrige alguns bugs relacionados com o Explorador de Dados do Emulador. Em certos casos, ao utilizar o emulador Data Explorer através de um navegador web, não consegue ligar-se ao ponto final do emulador Cosmos e todas as ações relacionadas, como a criação de uma base de dados ou um contentor, irão falhar. O segundo problema corrigido está relacionado com a criação de um item a partir de um ficheiro JSON utilizando a ação de upload do Data Explorer.
+- Esta versão corrige alguns bugs relacionados com o Explorador de Dados do Emulador. Em certos casos, ao utilizar o emulador Data Explorer através de um navegador web, não consegue ligar-se ao ponto final do emulador Cosmos e todas as ações relacionadas, como a criação de uma base de dados ou um contentor, resultarão em erro. O segundo problema corrigido está relacionado com a criação de um item a partir de um ficheiro JSON utilizando a ação de upload do Data Explorer.
 
 ### <a name="2110"></a>2.11.0
 
 - Esta versão introduz suporte para a produção de autoescalação. Estas novas funcionalidades incluem a capacidade de definir um nível máximo de produção personalizado nas unidades de pedido (RU/s), permitir a autoescalação nas bases de dados e contentores existentes, e suporte programático através de Azure Cosmos DB SDKs.
-- Corrija um problema enquanto consultava uma grande quantidade de documentos (mais de 1GB) se o emulador falhará com o código de estado de erro interno 500.
+- Corrija um problema enquanto consultava um grande número de documentos (mais de 1 GB) se o emulador falhará com o código de estado de erro interno 500.
 
 ### <a name="292"></a>2.9.2
 
@@ -64,11 +64,11 @@ Esta versão adiciona duas novas opções de arranque emulador Cosmos:
 
 ### <a name="270"></a>2.7.0
 
-- Esta versão corrige uma regressão que impediu os utilizadores de executar consultas contra a conta API SQL do emulador quando utilizarem clientes baseados em .NET core ou x86 .NET.
+- Esta versão corrige uma regressão, que impediu os utilizadores de executar consultas contra a conta API SQL do emulador quando utilizarem clientes baseados em .NET core ou x86 .NET.
 
 ### <a name="246"></a>2.4.6
 
-- Esta versão proporciona paridade com as funcionalidades do serviço Azure Cosmos a partir de julho de 2019, com as exceções notadas em [Develop localmente com o emulador Azure Cosmos.](local-emulator.md) Também corrige vários bugs relacionados com a paragem do emulador quando invocado através da linha de comando e endereço IP interno sobrepõe-se a clientes SDK usando conectividade de modo direto.
+- Esta versão proporciona paridade com as funcionalidades do serviço Azure Cosmos a partir de julho de 2019, com as exceções notadas em [Develop localmente com o emulador Azure Cosmos.](local-emulator.md) Também corrige vários bugs relacionados com o emulador desligado quando invocado através da linha de comando e endereço IP interno sobrepõe-se a clientes SDK usando conectividade de modo direto.
 
 ### <a name="243"></a>2.4.3
 

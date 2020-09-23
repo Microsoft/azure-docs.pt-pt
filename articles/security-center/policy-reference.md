@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para o Azure Security Center
 description: Lista definições de políticas incorporadas para o Azure Security Center. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.topic: reference
 author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 7de0ea3a02836825cc99714a12d8898574e82ddd
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: cf3c372bdc2ee083da05bfa96414fb62631d0010
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004549"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988220"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Definições incorporadas da Política Azure para o Centro de Segurança Azure
 
@@ -42,7 +42,7 @@ Para conhecer as políticas incorporadas que são monitorizadas pelo Centro de S
 
 [!INCLUDE [azure-policy-reference-category-securitycenter](../../includes/policy/reference/bycat/policies-security-center.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu sobre as definições de política de segurança da Azure Policy no Centro de Segurança. Para saber mais, consulte os seguintes artigos.
 
