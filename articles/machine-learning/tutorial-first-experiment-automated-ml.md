@@ -10,20 +10,17 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: d11df9bae954dc654e22157639b74e5ca2363494
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f68867a7b24e9c5d8dafa0da65209e14eeae5210
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047835"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896472"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Criar um modelo de classificação com ML automatizado em Aprendizagem automática de máquinas
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Neste tutorial, aprende-se a criar um modelo de classificação básica sem escrever uma única linha de código utilizando machine learning automatizado no estúdio Azure Machine Learning. Este modelo de classificação prevê se um cliente subscreverá um depósito a prazo fixo com uma instituição financeira.
 
->[!IMPORTANT]
-> A experiência automatizada de aprendizagem automática no estúdio de aprendizagem Azure Machine está em pré-visualização. Certas funcionalidades podem não ser suportadas ou têm capacidades limitadas.
+Neste tutorial, aprende-se a criar um modelo de classificação simples sem escrever uma única linha de código utilizando machine learning automatizado no estúdio Azure Machine Learning. Este modelo de classificação prevê se um cliente subscreverá um depósito a prazo fixo com uma instituição financeira.
 
 Com machine learning automatizado, pode automatizar tarefas intensivas de tempo. A aprendizagem automática de máquinas rapidamente itera sobre muitas combinações de algoritmos e hiperparímetros para ajudá-lo a encontrar o melhor modelo baseado numa métrica de sucesso à sua escolha.
 
@@ -47,9 +44,9 @@ Neste tutorial, aprende-se a fazer as seguintes tarefas:
 
 Um espaço de trabalho Azure Machine Learning é um recurso fundamental na nuvem que você usa para experimentar, treinar e implementar modelos de machine learning. Liga a sua subscrição e grupo de recursos Azure a um objeto facilmente consumido no serviço. 
 
-Crie um espaço de trabalho **de edição empresarial** através do portal Azure, uma consola baseada na web para gerir os seus recursos Azure.
+Crie um espaço de trabalho através do portal Azure, uma consola baseada na web para gerir os seus recursos Azure.
 
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
+[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
 > Tome nota do seu espaço de **trabalho** e **subscrição.** Vai precisar disto para garantir que cria a sua experiência no lugar certo. 
@@ -114,16 +111,16 @@ Antes de configurar a sua experiência, faça o upload do seu ficheiro de dados 
     
     1. Selecione o seu conjunto de dados assim que aparecer na lista.
     
-    1. Reveja a **pré-visualização de Dados** para garantir que não incluiu **day_of_week** então, selecione **OK**.
+    1. Reveja a **pré-visualização de Dados**  para garantir que não incluiu **day_of_week** então, selecione **OK**.
 
-    1. Selecione **Seguinte**.
+    1. Selecione  **Seguinte**.
 
 ## <a name="configure-experiment-run"></a>Configure a experiência
 
 Depois de carregar e configurar os seus dados, pode configurar a sua experiência. Esta configuração inclui tarefas de design de experiências como, selecionar o tamanho do seu ambiente de computação e especificar qual a coluna que pretende prever. 
 
 1. Povoar o formulário **Configure Run** da seguinte forma:
-    1. Insira este nome de experiência:`my-1st-automl-experiment`
+    1. Insira este nome de experiência: `my-1st-automl-experiment`
 
     1. Selecione **y** como a coluna-alvo, o que quer prever. Esta coluna indica se o cliente subscreveu ou não um depósito a prazo.
     
@@ -131,7 +128,7 @@ Depois de carregar e configurar os seus dados, pode configurar a sua experiênci
 
         Campo | Descrição | Valor para tutorial
         ----|---|---
-        Nome computacional |Um nome único que identifica o seu contexto computacional.|automl-compute
+        Nome da computação |Um nome único que identifica o seu contexto computacional.|automl-compute
         Tipo de máquina virtual &nbsp; &nbsp;| Selecione o tipo de máquina virtual para o seu cálculo.|CPU (Unidade Central de Processamento)
         Tamanho da máquina virtual &nbsp; &nbsp;| Selecione o tamanho da máquina virtual para o seu cálculo.|Standard_DS12_V2
         Nós min / max| Para perfilar os dados, tem de especificar 1 ou mais nós.|Min nosdes: 1<br>Nó máximo: 6
@@ -162,7 +159,7 @@ Depois de carregar e configurar os seus dados, pode configurar a sua experiênci
         
         Selecione **Guardar**.
 
-1. **Selecione Acabamento** para executar a experiência. O ecrã **'Run Detail'** abre-se com o **estado de Execução** no topo à medida que a preparação da experiência começa.
+1. **Selecione Acabamento** para executar a experiência. O ecrã **'Run Detail'**  abre-se com o **estado de Execução** no topo à medida que a preparação da experiência começa.
 
 >[!IMPORTANT]
 > A preparação leva **10 a 15 minutos** para preparar a experiência.
@@ -204,7 +201,7 @@ Implementamos este modelo, mas seja avisado, a implantação leva cerca de 20 mi
     Nome de implantação| my-automl-implementar
     Descrição da implantação| A minha primeira implementação automatizada de experiências de aprendizagem automática
     Tipo de computação | Selecione Azure Compute Instance (ACI)
-    Ativar a autenticação| Desativar. 
+    Ative a autenticação| Desativar. 
     Use implementações personalizadas| Desativar. Permite que o ficheiro do controlador predefinido (script de pontuação) e o ficheiro ambiente sejam autogeridos. 
     
     Para este exemplo, utilizamos os predefinidos fornecidos no menu *Advanced.* 
@@ -217,7 +214,7 @@ Agora tem um serviço web operacional para gerar previsões.
 
 Dirija-se aos [**Próximos Passos**](#next-steps) para saber mais sobre como consumir o seu novo serviço web e teste as suas previsões utilizando o suporte de Power BI construído no suporte Azure Machine Learning.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Os ficheiros de implantação são maiores do que os ficheiros de dados e experiências, pelo que custam mais para armazenar. Elimine apenas os ficheiros de implementação para minimizar os custos da sua conta, ou se pretender manter o seu espaço de trabalho e experimentar ficheiros. Caso contrário, elimine todo o grupo de recursos, se não pretender utilizar nenhum dos ficheiros.  
 

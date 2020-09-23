@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Prever preços dos carros com o designer (pré-visualização)'
+title: 'Tutorial: Prever preços dos carros com o designer'
 titleSuffix: Azure Machine Learning
 description: Aprenda a treinar, marcar e implementar um modelo de machine learning utilizando uma interface de arrastar e largar. Este tutorial é parte uma parte de uma série de duas partes sobre a previsão dos preços dos automóveis usando a regressão linear.
 author: peterclu
@@ -10,15 +10,15 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 9d25d9e13cc7f3dba0f4254cda6e1119ff9e2e68
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 55d950435522a18eafda69d152619426fe54d87f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659812"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896697"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutorial: Prever preço do automóvel com o designer (pré-visualização)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Prever preço do automóvel com o designer
+
 
 Neste tutorial de duas partes, aprende-se a usar o designer Azure Machine Learning para treinar e implementar um modelo de machine learning que prevê o preço de qualquer carro. O designer é uma ferramenta de arrastar e largar que permite criar modelos de machine learning sem uma única linha de código.
 
@@ -49,10 +49,6 @@ Para criar um oleoduto Azure Machine Learning, precisa de um espaço de trabalho
 ### <a name="create-a-new-workspace"></a>Criar uma nova área de trabalho
 
 Para utilizar o designer, primeiro precisa de um espaço de trabalho para aprendizagem automática Azure. O espaço de trabalho é o recurso de alto nível para a Azure Machine Learning, fornece um lugar centralizado para trabalhar com todos os artefactos que você cria em Azure Machine Learning.
-
-Se tiver um espaço de trabalho Azure Machine Learning com uma edição Enterprise, [salte para a secção seguinte.](#create-the-pipeline)
-
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
 ### <a name="create-the-pipeline"></a>Criar o pipeline
 
@@ -179,7 +175,7 @@ O seu conjunto de dados ainda tem valores em falta depois de remover a coluna **
 
     :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png"alt-text="Selecione coluna":::
 
-## <a name="train-a-machine-learning-model"></a>Treine um modelo de aprendizagem automática
+## <a name="train-a-machine-learning-model"></a>Preparar um modelo de machine learning
 
 Agora que tem os módulos no local para processar os dados, pode configurar os módulos de treino.
 
@@ -313,7 +309,7 @@ Salte esta secção se quiser continuar com a parte 2 do tutorial, [implantando 
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Na segunda parte, aprenderás a implantar o teu modelo como ponto final em tempo real.
 

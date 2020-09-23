@@ -4,12 +4,12 @@ description: Saiba como expor um serviço WCF no local a uma aplicação web na 
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 06/23/2020
-ms.openlocfilehash: d6299899ee45bbad8b5e5fdbca01805604794d62
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 22b582634b623b39545eca225c8df0130606c2bb
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922553"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983897"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>Expor um serviço WCF no local a uma aplicação web na nuvem utilizando o Azure Relay
 
@@ -344,7 +344,7 @@ Execute a aplicação para verificar se funciona.
 
 A aplicação deverá aparecer em execução num browser.
 
-![Aplicação Web][21]
+![O screenshot mostra um exemplo da aplicação em execução num navegador com o URL realçado.][21]
 
 ## <a name="put-the-pieces-together"></a>Juntar as peças
 
@@ -428,7 +428,7 @@ Feche ambas as candidaturas antes de avançar para a secção seguinte.
 
 O próximo passo é reeditar a aplicação Azure Web **ProductsPortal** front end:
 
-1. No **Solution Explorer,** clique com o botão direito no projeto **ProductsPortal** e selecione **Publicar.** Na página **Publish** (Publicar), selecione **Publish** (Publicar).
+1. No **Solution Explorer,** clique com o botão direito no projeto **ProductsPortal** e selecione **Publicar.** Na página **Publicar**, selecione **Publicar**.
 
    > [!NOTE]
    > Poderá ver uma mensagem de erro na janela do browser quando o projeto Web **ProductsPortal** for executado automaticamente após a implementação. Tal é esperado e ocorre dado que a aplicação **ProductsServer** ainda não está em execução.

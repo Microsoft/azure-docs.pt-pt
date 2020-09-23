@@ -15,24 +15,24 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 998527a8557db0b0cf271dc8b05d5771660a175c
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 17817a5730678ae708c92c99093e7b859e05f8fe
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209429"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983863"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação .NET Framework
 
 Neste quickstart, incorpora a Configuração de Aplicações Azure numa aplicação .NET Framework para criar uma implementação de ponta a ponta da gestão de funcionalidades. Pode utilizar o serviço de Configuração de Aplicações para armazenar centralmente todas as suas bandeiras de funcionalidades e controlar os seus estados. 
 
-As bibliotecas de Gestão de Recursos .NET alargam o quadro com suporte abrangente de bandeira de recurso. Estas bibliotecas são construídas em cima do sistema de configuração .NET. Integram-se perfeitamente com a Configuração de Aplicações através do seu fornecedor de configuração .NET.
+As bibliotecas de Gestão de Recursos .NET alargam o quadro com suporte de bandeira de recurso. Estas bibliotecas são construídas em cima do sistema de configuração .NET. Integram-se com a Configuração de Aplicações através do seu fornecedor de configuração .NET.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
-- [.Net Framework 4.8](https://dotnet.microsoft.com/download)
+- [.NET Framework 4.8](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>Criar uma loja de configuração de aplicativos
 
@@ -51,7 +51,7 @@ As bibliotecas de Gestão de Recursos .NET alargam o quadro com suporte abrangen
 
 1. In **Create a new project**, filter on the **Console** project type and click on Console **App (.NET Framework)**. Clique em **Seguinte**.
 
-1. Em **Configurar o seu novo projeto,** insira um nome de projeto. No **quadro,** **selecione .NET Framework 4.8** ou superior. Clique em **Criar**.
+1. Em **Configurar o seu novo projeto,** insira um nome de projeto. No **quadro,** **selecione .NET Framework 4.8** ou superior. Clique em **Create** (Criar).
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conecte-se a uma loja de configuração de aplicativos
 

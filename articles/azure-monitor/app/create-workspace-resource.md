@@ -4,15 +4,15 @@ description: Conheça os passos necessários para permitir os novos recursos bas
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 08/24/2020
-ms.openlocfilehash: d6d6731ae087604e0a53a6721bb76dfba5fbf40c
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/10/2020
+ms.openlocfilehash: 196be1caf91b6f1f1731d7c4afbfe72482c8f2ac
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783846"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894550"
 ---
-# <a name="workspace-based-application-insights-resources-preview"></a>Recursos de Insights de Aplicação baseados no espaço de trabalho (pré-visualização)
+# <a name="workspace-based-application-insights-resources"></a>Recursos de Insights de Aplicação baseados no espaço de trabalho
 
 Os recursos baseados no espaço de trabalho suportam a integração total entre o Application Insights e o Log Analytics. Pode agora optar por enviar a telemetria Application Insights para um espaço de trabalho comum do Log Analytics, que lhe permite ter acesso total a todas as funcionalidades do Log Analytics, mantendo os registos de aplicações, infraestruturas e plataformas num único local consolidado.
 
@@ -21,7 +21,19 @@ Isto também permite um controlo comum de acesso baseado em funções (RBAC) atr
 > [!NOTE]
 > A ingestão de dados e a retenção de recursos de Insights de Aplicação baseados no espaço de trabalho são faturados através do espaço de trabalho Log Analytics onde os dados estão localizados. [Saiba mais]( ./pricing.md#workspace-based-application-insights) sobre a faturação dos recursos de Aplicações Insights baseados no espaço de trabalho.
 
-Para testar a nova experiência, inscreva-se no [portal Azure](https://portal.azure.com)e crie um recurso Application Insights:
+## <a name="new-capabilities"></a>Novas funcionalidades
+
+O Workspace Application Insights permite-lhe tirar partido das mais recentes capacidades do Azure Monitor e do Log Analytics, incluindo:
+
+* [As Chaves Geridas pelo Cliente (CMK)](../platform/customer-managed-keys.md) fornecem encriptação em repouso para os seus dados com chaves de encriptação às quais só tem acesso.
+* [O Azure Private Link](../platform/private-link-security.md) permite-lhe ligar de forma segura os serviços Azure PaaS à sua rede virtual utilizando pontos finais privados.
+* [Bring Your Own Storage (BYOS) for Profiler and Snapshot Debugger](./profiler-bring-your-own-storage.md) dá-lhe total controlo sobre a política de encriptação em repouso, a política de gestão vitalícia e o acesso à rede para todos os dados associados ao Profiler Application Insights e ao Snapshot Debugger. 
+* [Os níveis de Reserva de Capacidade](../platform/manage-cost-storage.md#pricing-model) permitem-lhe economizar até 25% em comparação com o preço Pay-As-You-Go. 
+* Ingestão de dados mais rápida via Log Analytics streaming ingestão.
+
+## <a name="create-workspace-based-resource"></a>Criar recursos baseados no espaço de trabalho
+
+Inscreva-se no [portal Azure](https://portal.azure.com)e crie um recurso Application Insights:
 
 ![Recurso de Insights de Aplicação baseado em espaço de trabalho](./media/create-workspace-resource/create-workspace-based.png)
 
@@ -36,7 +48,7 @@ Uma vez criado o seu recurso, verá as informações correspondentes do espaço 
 Clicar no texto de ligação azul irá levá-lo ao espaço de trabalho associado do Log Analytics onde poderá tirar partido do novo ambiente de consulta de espaço de trabalho unificado.
 
 > [!NOTE]
-> Ainda fornecemos compatibilidade total para trás para as suas consultas clássicas de recursos, livros de trabalho e alertas baseados em registos dentro da experiência Application Insights. Para consultar/ver contra a [nova estrutura/esquema de mesa baseada no espaço de trabalho,](apm-tables.md) tem primeiro de navegar para o seu espaço de trabalho Log Analytics. Durante a pré-visualização, a seleção de **Registos** a partir dos painéis de Insights de Aplicação irá dar-lhe acesso à experiência clássica de consulta de Insights de Aplicação.
+> Ainda fornecemos compatibilidade total para trás para as suas consultas clássicas de recursos, livros de trabalho e alertas baseados em registos dentro da experiência Application Insights. Para consultar/ver contra a [nova estrutura/esquema de mesa baseada no espaço de trabalho,](apm-tables.md) tem primeiro de navegar para o seu espaço de trabalho Log Analytics. A seleção de **Registos (Analytics)** a partir dos painéis de Insights de Aplicação irá dar-lhe acesso à experiência clássica de consulta de Insights de Aplicação.
 
 ## <a name="copy-the-connection-string"></a>Copiar a cadeia de ligação
 
@@ -185,14 +197,6 @@ O `New-AzApplicationInsights` comando PowerShell não suporta atualmente a cria�
 
 ```
 
-## <a name="new-capabilities"></a>Novas funcionalidades
-
-O Workspace Application Insights permite-lhe tirar partido de todas as mais recentes capacidades do Azure Monitor, incluindo:
-
-* [As Chaves Geridas pelo Cliente (CMK)](../platform/customer-managed-keys.md) fornecem encriptação em repouso para os seus dados com chaves de encriptação às quais só tem acesso.
-* [O Azure Private Link](../platform/private-link-security.md) permite-lhe ligar de forma segura os serviços Azure PaaS à sua rede virtual utilizando pontos finais privados.
-* [Bring Your Own Storage (BYOS) for Profiler and Snapshot Debugger](./profiler-bring-your-own-storage.md) dá-lhe total controlo sobre a política de encriptação em repouso, a política de gestão vitalícia e o acesso à rede para todos os dados associados ao Profiler Application Insights e ao Snapshot Debugger. 
-
 ## <a name="modifying-the-associated-workspace"></a>Modificação do espaço de trabalho associado
 
 Uma vez criado um recurso de Insights de Aplicação baseado no espaço de trabalho, pode modificar o espaço de trabalho associado do Log Analytics.
@@ -207,8 +211,3 @@ A funcionalidade de exportação contínua do legado não é suportada por recur
 
 * [Explorar métricas](../platform/metrics-charts.md)
 * [Escrever consultas da Análise](../log-query/log-query-overview.md)
-
-[api]: ./api-custom-events-metrics.md
-[diagnostic]: ./diagnostic-search.md
-[metrics]: ../platform/metrics-charts.md
-[start]: ./app-insights-overview.md

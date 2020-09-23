@@ -2,16 +2,14 @@
 title: Dimensionar um cluster do Azure Kubernetes Service (AKS)
 description: Saiba como escalar o número de nós num cluster Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
 ms.topic: article
-ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: 55d7a00a0a8c0b655f06810f8bcea7126bb9167f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/16/2020
+ms.openlocfilehash: d5686a74ffe138af51d2319c839a3a5c5887f992
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79368422"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902935"
 ---
 # <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>Dimensionar uma contagem de nós num cluster do Azure Kubernetes Service (AKS)
 
@@ -41,7 +39,7 @@ A saída de exemplo a seguir mostra que o *nome* é *nodepool1*:
 ]
 ```
 
-Utilize o comando [de escala az aks][az-aks-scale] para escalar os nós de cluster. O exemplo a seguir escala um cluster chamado *myAKSCluster* para um único nó. Forneça o seu próprio *nome de nodepool* do comando anterior, como *nodepool1*:
+Utilize o comando [de escala az aks][az-aks-scale] para escalar os nós de cluster. O exemplo a seguir escala um cluster chamado *myAKSCluster* para um único nó. Forneça o seu próprio `--nodepool-name` comando a partir do comando anterior, como *nodepool1*:
 
 ```azurecli-interactive
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1 --nodepool-name <your node pool name>
@@ -69,7 +67,21 @@ A saída de exemplo a seguir mostra que o cluster escalou com sucesso para um n�
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+
+## <a name="scale-user-node-pools-to-0"></a>Piscinas `User` de nó de escala para 0
+
+Ao contrário `System` das piscinas de nó que requerem sempre nós de corrida, `User` as piscinas de nó permitem-lhe escalar até 0. Para saber mais sobre as diferenças entre o sistema e as piscinas de nó de utilizador, consulte [o Sistema e as piscinas de nó de utilizador.](use-system-pools.md)
+
+Para escalar um pool de utilizador para 0, pode utilizar a [escala de nodepool az aks][az-aks-nodepool-scale] em alternativa ao `az aks scale` comando acima, e definir 0 como contagem de nós.
+
+
+```azurecli-interactive
+az aks nodepool scale --name <your node pool name> --cluster-name myAKSCluster --resource-group myResourceGroup  --node-count 0 
+```
+
+Também pode autoescalar `User` piscinas de nó para 0 nós, definindo o `--min-count` parâmetro do Cluster [Autoscaler](cluster-autoscaler.md) para 0.
+
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, escalou manualmente um cluster AKS para aumentar ou diminuir o número de nós. Também pode utilizar o [autoescalador][cluster-autoscaler] de cluster para escalar automaticamente o seu cluster.
 
@@ -81,3 +93,4 @@ Neste artigo, escalou manualmente um cluster AKS para aumentar ou diminuir o nú
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
 [cluster-autoscaler]: cluster-autoscaler.md
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-scale&preserve-view=true

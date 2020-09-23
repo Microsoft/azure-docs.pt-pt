@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f7da9b1779ed2cf46cb29b21215a9415cbaef494
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f41dfa0889b7f0c34486eee5d16362f4c3c7360d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231287"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894596"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Linha de segurança Azure para o Centro de Segurança
 

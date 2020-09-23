@@ -6,37 +6,36 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 09/10/2020
 ms.author: aahi
-ms.openlocfilehash: 8dbe36693e551bd03022f4a00044b75b912c834a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 8f93e0ffe74ade79059fc845788faf36ab5b4f13
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80875137"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91025017"
 ---
-## <a name="create-an-anomaly-detector-resource"></a>Criar um recurso do Detetor de Anomalias
+## <a name="create-an-anomaly-detector-resource"></a>Criar um recurso de detetor de anomalias
 
-1. Assine no [portal Azure](https://portal.azure.com)
-1. Clique em criar recurso [de detetor de **anomalias** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector)
+1. Inscreva-se no [portal Azure](https://portal.azure.com)
+1. Clique em Criar Recurso [ **de Detetor de Anomalias** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector)
 1. Introduza todas as definições necessárias:
 
     |Definição|Valor|
     |--|--|
     |Nome|Nome desejado (2-64 caracteres)|
     |Subscrição|Selecione subscrição apropriada|
-    |Localização|Selecione qualquer local próximo e disponível|
-    |Escalão de Preço|`F0`- o nível de preços mínimos|
-    |Grupo de Recursos|Selecione um grupo de recursos disponíveis|
-    |Caixa de verificação de confirmação de pré-visualização (necessária)|Quer tenha lido ou não o aviso de **pré-visualização**|
+    |Localização|Selecione qualquer localização próxima e disponível|
+    |Escalão de Preço|`F0` - o nível mínimo de preços|
+    |Grupo de Recursos|Selecione um grupo de recursos disponível|
 
-1. Clique em **Criar** e aguarde a criação do recurso. Depois de criado, navegue para a página de recursos
-1. Colete configurado `endpoint` e uma chave API:
+1. Clique **em Criar** e aguarde a criação do recurso. Depois de criado, navegue para a página de recursos
+1. Recolha configurado `endpoint` e uma chave API:
 
     |Separador de recursos no Portal|Definição|Valor|
     |--|--|--|
-    |**Descrição Geral**|Ponto Final|Copie o ponto final. Parece semelhante a`https://westus2.api.cognitive.microsoft.com/`|
-    |**Chaves**|Chave da API|Cópia 1 das duas chaves. É uma corda de 32 caracteres alfanuméricos sem espaços ou traços, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |**Descrição Geral**|Ponto final|Copie o ponto final. Parece-se com `https://westus2.api.cognitive.microsoft.com/`|
+    |**Chaves**|Chave de API|Copiar 1 das duas chaves. É uma corda de 32 caracteres alfanuméricos sem espaços ou traços, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` .|
 
 
 

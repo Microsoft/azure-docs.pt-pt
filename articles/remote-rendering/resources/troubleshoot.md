@@ -1,18 +1,18 @@
 ---
-title: Resolução de problemas
+title: Resolver Problemas
 description: Informações de resolução de problemas para renderização remota de Azure
 author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 14184c09cc9d5eebab7f33323cd8ce587fdf9e88
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a5b625ea2b5b76d0938ac62be2202127ff0af66e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014596"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982979"
 ---
-# <a name="troubleshoot"></a>Resolução de problemas
+# <a name="troubleshoot"></a>Resolver Problemas
 
 Esta página lista questões comuns que interferem com a renderização remota do Azure e formas de resolvê-las.
 
@@ -156,7 +156,8 @@ Azure Remote Rendering ganchos no pipeline De unidade para fazer a composição 
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>O padrão de tabuleiro de xadrez é renderizado após o carregamento do modelo
 
-Se a imagem renderizada se parece com esta: ![ Tabuleiro de ](../reference/media/checkerboard.png) xadrez, o renderizador atinge os limites do [polígono para o tamanho padrão de configuração](../reference/vm-sizes.md). Para atenuar, mude para o tamanho de configuração **premium** ou reduza o número de polígonos visíveis.
+Se a imagem renderizada se parece com esta: ![ o Screenshot mostra uma grelha de quadrados pretos e brancos com um menu Tools.](../reference/media/checkerboard.png)
+em seguida, o renderizador atinge os limites do [polígono para o tamanho padrão de configuração](../reference/vm-sizes.md). Para atenuar, mude para o tamanho de configuração **premium** ou reduza o número de polígonos visíveis.
 
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>A imagem renderizada na Unidade está de cabeça para baixo
 
@@ -216,7 +217,7 @@ Se os passos acima referidos foram esgotados e os restantes combates z são inac
 
 O ARR tem uma característica para determinar se as superfícies podem ser z-fight: [Checkerboard realçando](../overview/features/z-fighting-mitigation.md). Também pode determinar visualmente o que causa o combate z. A primeira animação que se segue mostra um exemplo de perda de profundidade e precisão na distância, e a segunda mostra um exemplo de superfícies quase coplanares:
 
-![profundidade precisão-z-fighting](./media/depth-precision-z-fighting.gif)  ![coplanar-z-fighting](./media/coplanar-z-fighting.gif)
+![A animação mostra um exemplo de perda de precisão de profundidade na distância.](./media/depth-precision-z-fighting.gif)  ![A animação mostra um exemplo de superfícies quase coplanares.](./media/coplanar-z-fighting.gif)
 
 Compare estes exemplos com o seu z-fighting para determinar a causa ou seguir opcionalmente este fluxo de trabalho passo a passo:
 
@@ -247,4 +248,4 @@ Superfícies coplanares podem ter uma série de causas diferentes:
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Requisitos de sistema](../overview/system-requirements.md)
-* [Requisitos da rede](../reference/network-requirements.md)
+* [Requisitos de rede](../reference/network-requirements.md)

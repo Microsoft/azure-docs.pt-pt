@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 7/13/2020
-ms.openlocfilehash: 4ca64a7793d229e7910fb122fb33996b1ac0c4fe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1dc7bc8e119de7c8fdcf09713286be2633457486
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099046"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895876"
 ---
 # <a name="logs-in-azure-database-for-postgresql---hyperscale-citus"></a>Registos na Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 
@@ -22,15 +22,15 @@ Os registos PostgreSQL estão disponíveis em todos os nós de um grupo de servi
 
 Para aceder aos registos PostgreSQL para um coordenador de Hiperescala (Citus) ou nó do trabalhador, abra o nó no portal Azure:
 
-![lista de nosdes](media/howto-hyperscale-logging/choose-node.png)
+:::image type="content" source="media/howto-hyperscale-logging/choose-node.png" alt-text="lista de nosdes":::
 
 Para o nó selecionado, abra **as definições de Diagnóstico**e clique + Adicione a **definição de diagnóstico**.
 
-![Adicione botão de definições de diagnóstico](media/howto-hyperscale-logging/diagnostic-settings.png)
+:::image type="content" source="media/howto-hyperscale-logging/diagnostic-settings.png" alt-text="Adicione botão de definições de diagnóstico":::
 
 Escolha um nome para as novas definições de diagnóstico e verifique a caixa **PostgreSQLLogs.**  Escolha qual destino(s) deve receber os registos.
 
-![Escolha registos PostgreSQL](media/howto-hyperscale-logging/diagnostic-create-setting.png)
+:::image type="content" source="media/howto-hyperscale-logging/diagnostic-create-setting.png" alt-text="Escolha registos PostgreSQL":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -11,15 +11,15 @@ ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: efe2f062cc75fb05484fe810a3ae16c07e93339b
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: cf6616dcc3935946ad4a7213263bb20281d25354
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651754"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896787"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Use machine learning automatizado para prever tarifas de táxi
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste tutorial, você usa machine learning automatizado em Azure Machine Learning para criar um modelo de regressão para prever os preços das tarifas de táxi de NYC. Este processo aceita definições de dados de formação e configuração, e itera automaticamente através de combinações de diferentes métodos de normalização/normalização de funcionalidades, modelos e configurações de hiperparímetro para chegar ao melhor modelo.
 
@@ -395,7 +395,7 @@ Se não planeia usar os recursos que criou, elimine-os, para não incorrer em qu
 
 Também pode manter o grupo de recursos, mas eliminar um único espaço de trabalho. Mostrar as propriedades do espaço de trabalho e selecionar **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial automatizado de aprendizagem automática, fez as seguintes tarefas:
 

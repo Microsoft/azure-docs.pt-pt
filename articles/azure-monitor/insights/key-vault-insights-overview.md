@@ -1,23 +1,23 @@
 ---
-title: Monitor Key Vault com Monitor Azure para Cofre de Chaves (pré-visualização)/ Microsoft Docs
+title: Monitor Key Vault com monitor Azure para cofre de chaves / Microsoft Docs
 description: Este artigo descreve o Monitor Azure para cofres de chaves.
 services: azure-monitor
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/13/2019
-ms.openlocfilehash: 7b799c462cc683d8d05edc3f10885c458185a843
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.date: 09/10/2020
+ms.openlocfilehash: 4aeb97f112f0c95329b1449fe9c1423fdd5bd0d6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069803"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894515"
 ---
-# <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitorizar o seu serviço de cofre de chaves com o Azure Monitor para o Cofre de Chaves (pré-visualização)
-O Azure Monitor for Key Vault (pré-visualização) proporciona uma monitorização completa dos seus cofres chave, proporcionando uma visão unificada dos seus pedidos de Cofre chave, desempenho, falhas e latência.
-Este artigo irá ajudá-lo a entender como embarcar e personalizar a experiência do Azure Monitor para Key Vault (pré-visualização).
+# <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Monitorizar o seu serviço de cofre chave com monitor Azure para o Cofre de Chaves
+O Azure Monitor for Key Vault fornece uma monitorização completa dos seus cofres chave, proporcionando uma visão unificada dos seus pedidos de Cofre chave, desempenho, falhas e latência.
+Este artigo irá ajudá-lo a entender como embarcar e personalizar a experiência do Azure Monitor para o Key Vault.
 
-## <a name="introduction-to-azure-monitor-for-key-vault-preview"></a>Introdução ao Monitor Azure para Cofre de Chaves (pré-visualização)
+## <a name="introduction-to-azure-monitor-for-key-vault"></a>Introdução ao Monitor Azure para o Cofre de Chaves
 
 Antes de entrar na experiência, deve entender como apresenta e visualiza a informação.
 -    **Na perspetiva da escala** mostrando uma visão instantânea do desempenho com base nos pedidos, desagregação de falhas, e uma visão geral das operações e latência.
@@ -49,7 +49,7 @@ Para visualizar a utilização e operações dos seus cofres-chave em todas as s
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/)
 
-2. Selecione **Monitor** a partir do painel esquerdo no portal Azure, e sob a secção Insights, selecione **Key Vaults (pré-visualização)**.
+2. Selecione **Monitor** a partir do painel esquerdo no portal Azure, e sob a secção Insights, selecione **Key Vaults**.
 
 ![Screenshot da experiência de visão geral com vários gráficos](./media/key-vaults-insights-overview/overview.png)
 
@@ -83,7 +83,7 @@ Para aceder ao Azure Monitor para o Key Vault diretamente a partir de um cofre d
 
 1. No portal Azure, selecione Key Vaults.
 
-2. Da lista, escolha um cofre chave. Na secção de monitorização, escolha Insights (pré-visualização).
+2. Da lista, escolha um cofre chave. Na secção de monitorização, escolha Insights.
 
 Estas vistas também são acessíveis selecionando o nome de recurso de um cofre chave a partir do livro de trabalho de nível Azure Monitor.
 
@@ -140,7 +140,7 @@ As personalizações são guardadas num livro personalizado para evitar a sobree
 
 Pode configurar os livros de visão geral de multi-subscrição e cofre de chaves para o âmbito de uma determinada subscrição ou cofre de chaves em cada execução, realizando os seguintes passos:
 
-1. Selecione **Monitor** a partir do portal e, em seguida, selecione **Key Vaults (pré-visualização)** a partir do painel da esquerda.
+1. Selecione **Monitor** a partir do portal e, em seguida, selecione **Key Vaults** a partir do painel esquerdo.
 2. No **livro de visão** geral, a partir da barra de comando selecione **Edit**.
 3. Selecione a partir da lista de **subscrições** desacompindo uma ou mais subscrições que deseja que o yo use como padrão. Lembre-se, o livro suporta selecionar até um total de 10 subscrições.
 4. Selecione na lista de drop-down dos **Cofres** de Chaves uma ou mais contas que pretende que utilize como padrão. Lembre-se, o livro suporta selecionar até um total de 200 contas de armazenamento.
@@ -150,11 +150,11 @@ Pode configurar os livros de visão geral de multi-subscrição e cofre de chave
 
 Para obter orientações gerais sobre a resolução de problemas, consulte o artigo dedicado de resolução de [problemas](troubleshoot-workbooks.md)baseado em livros de trabalho .
 
-Esta secção irá ajudá-lo com o diagnóstico e resolução de problemas de algumas das questões comuns que poderá encontrar ao utilizar o Azure Monitor para Key Vault (pré-visualização). Utilize a lista abaixo para localizar as informações relevantes para o seu problema específico.
+Esta secção irá ajudá-lo com o diagnóstico e resolução de problemas de algumas das questões comuns que poderá encontrar ao utilizar o Azure Monitor para o Key Vault. Utilize a lista abaixo para localizar as informações relevantes para o seu problema específico.
 
 ### <a name="resolving-performance-issues-or-failures"></a>Resolução de problemas de desempenho ou falhas
 
-Para ajudar a resolver problemas relacionados com o cofre que identificar com o Azure Monitor para o Key Vault (pré-visualização), consulte a documentação do [Cofre da Chave Azure](../../key-vault/index.yml).
+Para ajudar a resolver problemas relacionados com o cofre que identificar com o Azure Monitor para o Key Vault, consulte a documentação do [Cofre da Chave Azure](../../key-vault/index.yml).
 
 ### <a name="why-can-i-only-see-200-key-vaults"></a>Por que só posso ver 200 cofres chave
 

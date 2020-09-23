@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: b63aa2b2d98a12246d0dc2c35e015da872caff28
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4b05bbf818676cc70f485dd94ece79141e8f01a4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "83641107"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982851"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Tutorial: Construa um daemon multitenant que usa o ponto final da plataforma de identidade da Microsoft
 
@@ -41,7 +41,7 @@ O componente "daemon" desta amostra é um controlador API, `SyncController.cs` .
 
 Uma vez que a aplicação é uma aplicação multitenante para clientes empresariais da Microsoft, deve fornecer uma forma de os clientes se "inscreverem" ou "ligarem" a aplicação aos dados da empresa. Durante o fluxo de ligação, um administrador da empresa concede primeiro permissões de aplicação diretamente à app para que possa aceder aos *dados* da empresa de forma não interativa, sem a presença de um utilizador inscrito. A maior parte da lógica desta amostra mostra como alcançar este fluxo de conexão utilizando o ponto final de consentimento da plataforma de [identidade.](v2-permissions-and-consent.md#using-the-admin-consent-endpoint)
 
-![Topologia](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
+![O diagrama mostra a App UserSync com três itens locais ligados ao Azure, com o Start dot Auth a adquirir um símbolo interativamente para ligar ao Azure A D, o AccountController obter o consentimento administrativo para ligar ao Azure A D e o utilizador de leitura SyncController para se ligar ao Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
 Para obter mais informações sobre os conceitos utilizados nesta amostra, leia a documentação do protocolo de credenciais do [cliente para o ponto final da plataforma de identidade.](v2-oauth2-client-creds-grant-flow.md)
 
@@ -240,7 +240,7 @@ O Visual Studio publicará o projeto e abrirá automaticamente um navegador para
 1. Guarde a configuração.
 1. Adicione o mesmo URL na lista **Authentication**de valores do menu  >  **URIs de redirecionamento de** autenticação. Se tiver urLs de redirecionamento múltiplo, certifique-se de que há uma nova entrada que utiliza o URI do serviço de aplicações para cada URL de redirecionamento.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando já não for necessário, elimine o objeto da aplicação que criou no Passo de Inscrição da [sua aplicação.](#register-your-application)  Para remover o pedido, siga as instruções em [Remover uma aplicação da autoria de si ou da sua organização.](quickstart-remove-app.md#remove-an-application-authored-by-you-or-your-organization)
 
 ## <a name="get-help"></a>Obter ajuda

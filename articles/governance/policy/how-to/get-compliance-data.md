@@ -1,14 +1,14 @@
 ---
 title: Obtenha dados de conformidade com a política
 description: Avaliações e efeitos da Política Azure determinam a conformidade. Saiba como obter os detalhes de conformidade dos seus recursos Azure.
-ms.date: 08/10/2020
+ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 57e508048b5e628911db90b0b6835f88b5ebd8fb
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 2ab75bdab0dcf910da91eb60b5f0cf23892d6c51
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648351"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895419"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtenha dados de conformidade dos recursos da Azure
 
@@ -30,11 +30,13 @@ Os resultados de um ciclo de avaliação concluído estão disponíveis no `Micr
 
 As avaliações das políticas e iniciativas atribuídas acontecem em resultado de diversos eventos:
 
-- Uma política ou iniciativa é recentemente atribuída a um âmbito de aplicação. Demora cerca de 30 minutos para que a atribuição seja aplicada ao âmbito definido. Uma vez aplicado, o ciclo de avaliação começa para recursos dentro desse âmbito contra a política ou iniciativa recém-atribuída e dependendo dos efeitos usados pela política ou iniciativa, os recursos são marcados como conformes ou não conformes. Uma grande política ou iniciativa avaliada contra um vasto âmbito de recursos pode levar tempo. Como tal, não há expectativa pré-definida de quando o ciclo de avaliação termina. Uma vez concluído, os resultados de conformidade atualizados estão disponíveis no portal e nos SDKs.
+- Uma política ou iniciativa é recentemente atribuída a um âmbito de aplicação. Demora cerca de 30 minutos para que a atribuição seja aplicada ao âmbito definido. Uma vez aplicado, o ciclo de avaliação começa para recursos dentro desse âmbito contra a política ou iniciativa recém-atribuída e dependendo dos efeitos usados pela política ou iniciativa, os recursos são marcados como conformes, não conformes ou isentos. Uma grande política ou iniciativa avaliada contra um vasto âmbito de recursos pode levar tempo. Como tal, não há expectativa pré-definida de quando o ciclo de avaliação termina. Uma vez concluído, os resultados de conformidade atualizados estão disponíveis no portal e nos SDKs.
 
 - Uma política ou iniciativa já atribuída a um âmbito é atualizada. O ciclo de avaliação e o timing para este cenário é o mesmo que para uma nova atribuição a um âmbito.
 
 - Um recurso é implementado ou atualizado dentro de um âmbito com uma atribuição através de Azure Resource Manager, REST API ou um SDK suportado. Neste cenário, o evento de efeito (apêndice, auditoria, negação, implementação) e informação de estado conforme para o recurso individual fica disponível no portal e SDKs cerca de 15 minutos depois. Este evento não causa uma avaliação de outros recursos.
+
+- É criada, atualizada ou eliminada [uma isenção de política.](../concepts/exemption-structure.md) Neste cenário, a atribuição correspondente é avaliada para o âmbito de isenção definido.
 
 - Ciclo de avaliação padrão de conformidade. Uma vez a cada 24 horas, as atribuições são automaticamente reavaliadas. Uma grande política ou iniciativa de muitos recursos pode levar tempo, por isso não há expectativa pré-definida de quando o ciclo de avaliação termina. Uma vez concluído, os resultados de conformidade atualizados estão disponíveis no portal e nos SDKs.
 
@@ -127,8 +129,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 ## <a name="how-compliance-works"></a>Como funciona a conformidade
 
-Numa atribuição, um recurso é **incompatível** se não seguir as regras de política ou iniciativa.
-O quadro a seguir mostra como os diferentes efeitos políticos funcionam com a avaliação da condição para o estado de conformidade resultante:
+Numa atribuição, um recurso é **incompatível se** não seguir regras de política ou iniciativa e não estiver _isento._ O quadro a seguir mostra como os diferentes efeitos políticos funcionam com a avaliação da condição para o estado de conformidade resultante:
 
 | Estado dos recursos | Efeito | Avaliação de políticas | Estado de conformidade |
 | --- | --- | --- | --- |
@@ -137,8 +138,7 @@ O quadro a seguir mostra como os diferentes efeitos políticos funcionam com a a
 | Novo | Audit, AuditIfNotExist\* | Verdadeiro | Incompatível |
 | Novo | Audit, AuditIfNotExist\* | Falso | Compatível |
 
-\* Os efeitos de Append, DeployIfNotExist e AuditIfNotExist requerem que a declaração IF seja TRUE.
-Os efeitos também necessitam que a condição de existência seja FALSE para estarem em não conformidade. Quando for TRUE, a condição IF aciona a avaliação da condição de existência dos recursos relacionados.
+\* Os efeitos Modificar, Apêndice, DeployIfNotExist e AuditIfNotExist requerem que a declaração IF seja VERDADEIRA. Os efeitos também necessitam que a condição de existência seja FALSE para estarem em não conformidade. Quando for TRUE, a condição IF aciona a avaliação da condição de existência dos recursos relacionados.
 
 Por exemplo, assuma que tem um grupo de recursos – ContsoRG, com algumas contas de armazenamento (realçadas a vermelho) que estão expostas a redes públicas.
 
@@ -146,22 +146,23 @@ Por exemplo, assuma que tem um grupo de recursos – ContsoRG, com algumas conta
    Diagrama mostrando imagens de cinco contas de armazenamento no grupo de recursos Contoso R G.  As contas de armazenamento um e três são azuis, enquanto as contas de armazenamento 2, 4 e 5 são vermelhas.
 :::image-end:::
 
-Neste exemplo, é preciso ter cuidado com os riscos de segurança. Agora que criou uma atribuição de política, é avaliado para todas as contas de armazenamento do grupo de recursos ContosoRG. Audita as três contas de armazenamento não conformes, alterando assim os seus Estados para **não conformes.**
+Neste exemplo, é preciso ter cuidado com os riscos de segurança. Agora que criou uma atribuição de políticas, é avaliada para todas as contas de armazenamento incluídas e não isentas no grupo de recursos ContosoRG. Audita as três contas de armazenamento não conformes, alterando assim os seus Estados para **não conformes.**
 
 :::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagrama de conformidade da conta de armazenamento no grupo de recursos Contoso R G." border="false":::
    Diagrama mostrando imagens de cinco contas de armazenamento no grupo de recursos Contoso R G. As contas de armazenamento um e três têm agora marcas verdes por baixo delas, enquanto as contas de armazenamento dois, quatro e cinco têm agora sinais de aviso vermelhos por baixo deles.
 :::image-end:::
 
-Além **de conformes** e **não conformes,** as políticas e recursos têm três outros Estados:
+Além **de conformes** e **não conformes,** as políticas e recursos têm outros quatro Estados:
 
-- **Conflituoso:** Existem duas ou mais políticas com regras contraditórias. Por exemplo, duas políticas que ablam a mesma etiqueta com valores diferentes.
+- **Isento**: O recurso está no âmbito de uma atribuição, mas tem uma [isenção definida.](../concepts/exemption-structure.md)
+- **Conflituoso:** Existem duas ou mais definições políticas com regras contraditórias. Por exemplo, duas definições anexam a mesma etiqueta com valores diferentes.
 - **Não iniciado:** O ciclo de avaliação ainda não começou para a política ou recurso.
 - **Não registado**: O Fornecedor de Recursos de Política Azure não foi registado ou a conta iniciada não tem permissão para ler dados de conformidade.
 
-A Política Azure utiliza os campos **de tipo** e **nome** na definição para determinar se um recurso é compatível. Quando o recurso corresponde, é considerado aplicável e tem um estatuto de **Conforme** ou **Não Conforme**. Se um **dos tipos** ou **nomes** for o único imóvel na definição, todos os recursos são considerados aplicáveis e avaliados.
+A Política Azure utiliza os campos **de tipo** e **nome** na definição para determinar se um recurso é compatível. Quando o recurso corresponde, é considerado aplicável e tem um estatuto de **Conforme,** **Não Conforme,** Ou **Isento**. Se qualquer **um dos tipos** ou **nomes** for o único imóvel na definição, então todos os recursos incluídos e não isentos são considerados aplicáveis e são avaliados.
 
-A percentagem de conformidade é determinada dividindo os recursos **conformes** por _recursos totais._
-_Os recursos totais_ são definidos como a soma dos recursos **conformes,** **não conformes**e **contraditórios.** Os números globais de conformidade são a soma de recursos distintos que são **compatíveis** divididos pela soma de todos os recursos distintos. Na imagem abaixo, existem 20 recursos distintos que são aplicáveis e apenas um é **incompatível**. A conformidade global com os recursos é de 95% (19 em 20).
+A percentagem de conformidade é determinada dividindo recursos **conformes** e **isentos** por _recursos totais._ _Os recursos totais_ são definidos como a soma dos recursos **conformes,** **não conformes,** **isentos**e **contraditórios.** Os números globais de conformidade são a soma de recursos distintos que são **conformes** ou **isentos** divididos pela soma de todos os recursos distintos. Na imagem abaixo, existem 20 recursos distintos que são aplicáveis e apenas um é **incompatível**.
+A conformidade global com os recursos é de 95% (19 em 20).
 
 :::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Screenshot dos detalhes de conformidade da política da página Compliance." border="false":::
 
@@ -645,7 +646,7 @@ Se tiver um espaço de [trabalho Log Analytics](../../../azure-monitor/log-query
 
 :::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Screenshot de registos do Monitor Azure mostrando ações da Política Azure na tabela AzureActivity." border="false":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
