@@ -1,0 +1,68 @@
+### YamlMime:Landing
+title: Documentação sobre o Assistente de Métricas
+summary: O Assistente de Métricas é uma plataforma de monitorização de séries temporais que fornece um conjunto de APIs para ingestão de dados, deteção de anomalias e diagnóstico sem necessitar de conhecimentos de machine learning.
+metadata:
+  title: Documentação sobre o Assistente de Métricas - Tutoriais, Referência da API - Serviços Cognitivos do Azure | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  description: O Assistente de Métricas é uma plataforma de monitorização de séries temporais que fornece um conjunto de APIs para ingestão de dados, deteção de anomalias e diagnóstico sem necessitar de conhecimentos de machine learning.
+  author: aahill
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.subservice: metrics-advisor
+  ms.topic: landing-page
+  ms.date: 08/13/2020
+  ms.author: aahi
+  ms.openlocfilehash: f30f45b8a683d9403973517ee4558be9cd4be664
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90928989"
+landingContent:
+- title: Acerca do Assistente de Métricas
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o Assistente de Métricas?
+      url: overview.md
+  - linkListType: quickstart
+    links:
+    - text: Explorar o site de demonstração
+      url: quickstarts/explore-demo.md
+    - text: Monitorizar a sua primeira métrica na Web
+      url: quickstarts/web-portal.md
+    - text: Utilizar as APIs REST para personalizar a solução
+      url: quickstarts/rest-api.md
+- title: Artigos de procedimentos
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Integrar dados
+      url: how-tos/onboard-your-data.md
+    - text: Ligar origens de feeds de dados diferentes
+      url: data-feeds-from-different-sources.md
+    - text: Gerir feeds de dados
+      url: how-tos/manage-data-feeds.md
+    - text: Configurar métricas e otimizar a configuração da deteção
+      url: how-tos/configure-metrics.md
+    - text: Configurar alertas e obter notificações através de um alerta
+      url: how-tos/alerts.md
+    - text: Diagnosticar um incidente
+      url: how-tos/diagnose-incident.md
+    - text: Ajustar a deteção de anomalias através de comentários
+      url: how-tos/anomaly-feedback.md
+    - text: Criar um gráfico de métricas
+      url: how-tos/metrics-graph.md
+- title: Referência
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Glossário
+      url: glossary.md
+    - text: API do Assistente de Métricas
+      url: https://go.microsoft.com/fwlink/?linkid=2141634
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices
+    - text: CLI do Azure
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest

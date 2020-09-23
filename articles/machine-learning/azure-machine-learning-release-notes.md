@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 245b977e0aeda3df933b6ab4b27735264444c4df
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 022040f4fa7f70dd5fc7677ce969ee9acbe7bcbb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659166"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886421"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -22,6 +22,54 @@ Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para 
 
 Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer bugs e soluções alternativas conhecidas.
 
+## <a name="2020-09-21"></a>2020-09-21
+
+### <a name="azure-machine-learning-sdk-for-python-v1140"></a>Azure Machine Learning SDK para Python v1.14.0
++ **Correções e melhorias de bugs**
+  + **azure-cli-ml**
+    + Grelha De Perfis removidos do SDK e já não é suportado.
+  + **azureml-accel-models**
+    + pacote de modelos azureml-accel agora suporta Tensorflow 2.x
+  + **azureml-automl-core**
+    + Tratamento adicional de erros em get_output para casos em que as versões locais de pandas/sklearn não correspondem às utilizadas durante o treino
+  + **azureml-automl-runtime**
+    + Corrigiu um bug onde as iterações AutoArima falhariam com uma PrevisãoExcepção e a mensagem: "Falha silenciosa ocorreu durante a previsão."
+  + **azureml-cli-comum**
+    + Grelha De Perfis removidos do SDK e já não é suportado.
+  + **azureml-contrib-servidor**
+    + Atualizar a descrição do pacote para a página geral do pypi.
+  + **azureml-core**
+    + Grid Profiling removido do SDK e já não é suportado.
+    + Reduza o número de mensagens de erro quando a recuperação do espaço de trabalho falhar.
+    + Não mostre aviso ao ir buscar metadados falha
+    + Novo Kusto Step e Kusto Compute Target.
+    + Atualizar documento para o parâmetro sku. Remova sku na funcionalidade de atualização do espaço de trabalho em CLI e SDK.
+    + Atualizar a descrição do pacote para a página geral do pypi.
+    + Documentação atualizada para Ambientes AzureML.
+    + Expor as definições de recursos geridos pelo serviço AML no SDK.
+  + **azureml-dataprep**
+    + Ativar a permissão de execução em ficheiros para a montagem do Conjunto de Dados.
+  + **azureml-mlflow**
+    + Documentação atualizada do AzureML MLflow e amostras de cadernos 
+    + Novo suporte para projetos MLflow com backend AzureML
+    + Suporte ao registo do modelo MLflow
+    + Apoio RBAC adicionado para operações AzureML-MLflow 
+    
+  + **azureml-pipeline-core**
+    + Melhorou a documentação dos métodos PipelineOutputFileDataset.parse_*.
+    + Novo Kusto Step e Kusto Compute Target.
+    + Desde que a propriedade da Swaggerurl para a entidade de ponta de gasoduto através desse utilizador possa ver a definição de esquema para o ponto final do gasoduto publicado.
+  + **azureml-pipeline-steps**
+    + Novo Kusto Step e Kusto Compute Target.
+  + **azureml-telemetry**
+    + Atualizar a descrição do pacote para a página geral do pypi.
+  + **azureml-train**
+    + Atualizar a descrição do pacote para a página geral do pypi.
+  + **azureml-train-automl-client**
+    + Tratamento adicional de erros em get_output para casos em que as versões locais de pandas/sklearn não correspondem às utilizadas durante o treino
+  + **azureml-train-core**
+    + Atualizar a descrição do pacote para a página geral do pypi.
+    
 ## <a name="2020-08-31"></a>2020-08-31
 
 ### <a name="azure-machine-learning-sdk-for-python-v1130"></a>Azure Machine Learning SDK para Python v1.13.0
@@ -592,9 +640,9 @@ Agora pode criar, editar e partilhar cadernos e ficheiros de machine learning di
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
     
-| Ferramenta baseada na web  |     Descrição  | Edição | 
-|---|---|---|
-| Cadernos do estúdio Azure ML   |     Primeira autoria em classe para ficheiros de portátil e suporte a toda a operação disponível no Azure ML Python SDK. | Empresa de & Básico  |   
+| Ferramenta baseada na web  |     Descrição  |
+|---|---|
+| Cadernos do estúdio Azure ML   |     Primeira autoria em classe para ficheiros de portátil e suporte a toda a operação disponível no Azure ML Python SDK. | 
 
 ## <a name="2020-04-27"></a>2020-04-27
 
@@ -1098,17 +1146,17 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
 ### <a name="web-experience"></a>Experiência web
 
-A página colaborativa de aterragem no espaço de trabalho [https://ml.azure.com](https://ml.azure.com) foi reforçada e renomeada como o estúdio Azure Machine Learning (pré-visualização).
+A página colaborativa de aterragem no espaço de trabalho [https://ml.azure.com](https://ml.azure.com) foi reforçada e renomeada como o estúdio Azure Machine Learning.
 
 A partir do estúdio, você pode treinar, testar, implementar e gerir ativos de Azure Machine Learning, tais como conjuntos de dados, oleodutos, modelos, pontos finais, e muito mais.
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
-| Ferramenta baseada na web | Descrição | Edição |
+| Ferramenta baseada na web | Descrição | 
 |-|-|-|
-| VM do portátil (pré-visualização) | Estação de trabalho totalmente gerida em nuvem | Empresa de & Básico |
-| [Aprendizagem automática de máquinas](tutorial-first-experiment-automated-ml.md) (pré-visualização) | Nenhuma experiência de código para automatizar o desenvolvimento de modelos de aprendizagem automática | Enterprise |
-| [Designer](concept-designer.md) (pré-visualização) | Ferramenta de modelagem de machine learning drag-and-drop anteriormente conhecida como designer | Enterprise |
+| VM do portátil (pré-visualização) | Estação de trabalho totalmente gerida em nuvem | 
+| [Aprendizagem automática de máquinas](tutorial-first-experiment-automated-ml.md) (pré-visualização) | Nenhuma experiência de código para automatizar o desenvolvimento de modelos de aprendizagem automática | 
+| [Estruturador](concept-designer.md) | Ferramenta de modelagem de machine learning drag-and-drop anteriormente conhecida como interface visual | 
 
 
 ### <a name="azure-machine-learning-designer-enhancements"></a>Melhorias do designer de machine learning do Azure
@@ -1609,7 +1657,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + Mais classes para obter população dos EUA por concelho e zip.
   + **azureml-pipeline-core**
     + Adicionou propriedade de etiqueta às definições de porta de entrada e saída.
-  + **azureml-telemetria**
+  + **azureml-telemetry**
     + Corrigiu uma configuração de telemetria incorreta.
   + **azureml-train-automl**
     + Corrigiu o bug onde, na falha de configuração, o erro não estava a ser registado no campo "erros" para a execução da configuração e, por isso, não foi armazenado em "erros" de execução dos pais.
@@ -1772,7 +1820,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + A DBFS Datastore está agora suportada para entradas e saídas em DatabricksStep.
     + Documentação atualizada para o Azure Batch Step no que diz respeito a entradas/saídas.
     + Em AzureBatchStep, alterou *delete_batch_job_after_finish* valor padrão para *verdadeiro*.
-  + **azureml-telemetry**
+  + **azureml-telemetria**
     +  Mova os conjuntos de dados azureml-contrib-open para conjuntos de dados abertos azureml.
     + Permitir que as aulas de conjunto de dados abertas sejam registadas no espaço de trabalho Azure Machine Learning e aproveite perfeitamente as capacidades do Conjunto de Dados AML.
     + Melhore o desempenho noaaIsdWeather enriquece significativamente o desempenho na versão não-SPARK.
@@ -1975,6 +2023,6 @@ Foi [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-
   + Novo visualizador de ficheiros de Logs
   + Links para execuções experimentais, cálculo, modelos, imagens e implementações a partir do separador de atividades
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia a descrição geral do [Azure Machine Learning](overview-what-is-azure-ml.md).

@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
-ms.openlocfilehash: e405ea35dcaa33ac7c8227385e4aaff86d9244cb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 65a88f309602462e77336181316c0d5bf19a8a1e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540007"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980682"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Visão geral do recurso da ferramenta de modelação de ameaças
 
@@ -54,8 +54,8 @@ Os símbolos são atalhos para os menus de nível superior:
 | --------------------------------------- | ------------ |
 | **Abrir** | Abre um novo ficheiro. |
 | **Guardar** | Guarda o ficheiro atual. |
-| **Design** | Abre a vista **Design,** onde pode criar modelos. |
-| **Analisar** | Mostra ameaças geradas e suas propriedades. |
+| **Design (Estruturar)** | Abre a vista **Design,** onde pode criar modelos. |
+| **Análise** | Mostra ameaças geradas e suas propriedades. |
 | **Adicionar diagrama** | Adiciona um novo diagrama (semelhante aos novos separadores no Excel). |
 | **Apagar diagrama** | Elimina o diagrama atual. |
 | **Copiar/Cortar/Colar** | Cópias, cortes e elementos de pasta. |
@@ -83,7 +83,7 @@ Com base no modelo que seleciona, pode encontrar todos os stencils disponíveis 
 | --------------------------------------- | ------------ |
 | **Processo** | Aplicações, plug-ins de navegador, fios, máquinas virtuais |
 | **Interactor externo** | Fornecedores de autenticação, navegadores, utilizadores, aplicações web |
-| **Loja de dados** | Cache, armazenamento, ficheiros de configuração, bases de dados, registo |
+| **Arquivo de dados** | Cache, armazenamento, ficheiros de configuração, bases de dados, registo |
 | **Fluxo de dados** | Binário, ALPC, HTTPS/TLS/SSL, IOCTL, IPSec, tubo nomeado, RPC/DCOM, SMB, UDP |
 | **Linha de confiança/fronteira fronteiriça** | Redes corporativas, internet, máquina, caixa de areia, modo utilizador/kernel |
 
@@ -122,7 +122,7 @@ Hover over **Open A Model** para revelar duas opções: Abra a partir deste **co
 
 Quando selecionar **Feedback, Sugestões e Problemas,** aceda ao MsDN Forum for SDL Tools. Pode ler o que as outras pessoas estão a dizer sobre a ferramenta, incluindo soluções alternativas e novas ideias.
 
-![Comentários](./media/threat-modeling-tool-feature-overview/feedback.png)
+![A screenshot mostra um botão com o feedback de texto, sugestões e problemas.](./media/threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>Vista de design
 
@@ -158,7 +158,7 @@ Pode ligar elementos de duas formas:
 
 Se criar um modelo de ameaça e se esquecer de ligar fluxos de dados a elementos, recebe uma notificação. Pode ignorar a mensagem ou seguir as instruções para corrigir o problema. 
 
-![Mensagens](./media/threat-modeling-tool-feature-overview/messages.png)
+![A screenshot mostra um conector de modelo de ameaça não ligado a elementos, com a mensagem que este problema causa.](./media/threat-modeling-tool-feature-overview/messages.png)
 
 ### <a name="notes"></a>Notas
 
@@ -178,7 +178,7 @@ Quando selecionar uma ameaça, pode utilizar três funções distintas:
 | --------------------------------------- | ------------ |
 | **Indicador de leitura** | <p>A ameaça é marcada como leitura, o que o ajuda a acompanhar os itens que reviu.</p><p>![Indicador de leitura/não lido](./media/threat-modeling-tool-feature-overview/readmode.png)</p> |
 | **Foco de interação** | <p>A interação no diagrama que pertence a uma ameaça é realçada.</p><p>![Foco de interação](./media/threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
-| **Propriedades de ameaça** | <p>Informações adicionais sobre a ameaça aparecem na janela **Propriedades de Ameaça.**</p><p>![Propriedades de ameaça](./media/threat-modeling-tool-feature-overview/threatproperties.png)</p> |
+| **Propriedades de ameaças** | <p>Informações adicionais sobre a ameaça aparecem na janela **Propriedades de Ameaça.**</p><p>![Propriedades de ameaças](./media/threat-modeling-tool-feature-overview/threatproperties.png)</p> |
 
 ### <a name="priority-change"></a>Mudança de prioridade
 
@@ -190,13 +190,13 @@ Pode alterar o nível de prioridade de cada ameaça gerada. Cores diferentes fac
 
 Como visto na imagem anterior, pode alterar a informação gerada pela ferramenta. Também pode adicionar informações a determinados campos, como justificação. Estes campos são gerados pelo modelo. Se precisar de mais informações para cada ameaça, pode fazer modificações.
 
-![Propriedades de ameaça](./media/threat-modeling-tool-feature-overview/threatproperties.png)
+![Propriedades de ameaças](./media/threat-modeling-tool-feature-overview/threatproperties.png)
 
 ## <a name="reports"></a>Relatórios
 
 Depois de terminar de alterar as prioridades e atualizar o estado de cada ameaça gerada, pode guardar o ficheiro e/ou imprimir um relatório. Ir ao **Relatório**  >  **Criar Relatório Completo**. Nomeie o relatório e verá algo semelhante à seguinte imagem:
 
-![Relatório](./media/threat-modeling-tool-feature-overview/report.png)
+![A screenshot mostra um exemplo de Relatório de Modelação de Ameaças, incluindo um resumo, diagramas e outras informações.](./media/threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

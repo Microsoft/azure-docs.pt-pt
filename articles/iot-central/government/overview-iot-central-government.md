@@ -1,60 +1,60 @@
 ---
 title: Criar soluções de administração pública com o Azure IoT Central
-description: Aprenda a construir soluções inteligentes da cidade utilizando modelos de aplicação Azure IoT Central.
+description: Aprenda a construir soluções inteligentes da cidade usando modelos de aplicação Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
 ms.date: 10/23/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 159691ee101e586419d2fd8df314947af28219dd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 1ed5a64a76d27f87b590573894e34f2560a5c2aa
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "77016515"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972299"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Criar soluções de administração pública com o Azure IoT Central
 
 
 
-Inicie-se com a construção de soluções inteligentes da cidade utilizando modelos de aplicação Azure IoT Central. Comece agora com **a monitorização da qualidade da água,** **monitorização do consumo**de água e **gestão de resíduos conectados.**
+Começa com a construção de soluções inteligentes da cidade utilizando modelos de aplicação Azure IoT Central. Comece agora com **a monitorização da qualidade da água,** **monitorização do consumo de água**e **gestão de resíduos conectados.**
 
 ## <a name="what-is-water-quality-monitoring-application-template"></a>O que é o modelo de aplicação de monitorização da qualidade da água?   
 
-A monitorização tradicional da qualidade da água baseia-se em técnicas de amostragem manual e análise laboratorial de campo, que é morosa e dispendiosa. Ao monitorizar remotamente a qualidade da água em tempo real, as questões de qualidade da água podem ser geridas antes de os cidadãos serem afetados. Além disso, com análises avançadas, serviços de água e agências ambientais podem agir em alertas precoces sobre potenciais questões de qualidade da água e planear antecipadamente o tratamento da água.  
+A monitorização tradicional da qualidade da água baseia-se em técnicas de amostragem manual e análise laboratorial de campo, que é morosa e dispendiosa. Ao monitorizar remotamente a qualidade da água em tempo real, as questões de qualidade da água podem ser geridas antes de os cidadãos serem afetados. Além disso, com análises avançadas, serviços de água e agências ambientais podem agir em alertas precoces sobre potenciais problemas de qualidade da água e planear antecipadamente o tratamento da água.  
 
-A aplicação de Monitorização da Qualidade da Água é um modelo de aplicação IoT Central para ajudá-lo a iniciar o desenvolvimento da sua solução IoT e permitir que os utilitários de água monitorizem digitalmente a qualidade da água em cidades inteligentes. 
+A aplicação Water Quality Monitoring é um modelo de aplicação IoT Central para ajudá-lo a iniciar o desenvolvimento da sua solução IoT e permitir que os utilitários de água monitorizem digitalmente a qualidade da água em cidades inteligentes. 
 
 ![Modelo de aplicativo de monitorização da qualidade da água](./media/overview-iotcentral-government/waterqualitymonitoring-dashboard-full.png)
 
 O modelo de aplicação consiste em:
-* Tabliers do operador de amostras
-* Modelos de dispositivo de monitor de qualidade da água da amostra
-* Dispositivos de monitorização simulados de qualidade da água
+* Dashboards do operador da amostra
+* Modelos de dispositivo de monitor de qualidade de água da amostra
+* Dispositivos de monitor de qualidade de água simulados
 * Regras e empregos pré-configurados
 * Marca usando rotulagem branca 
 
-Inicie-se com o tutorial de aplicação de monitorização da [qualidade da água.](./tutorial-water-quality-monitoring.md)
+Começa com o tutorial da [aplicação de monitorização da qualidade da água.](./tutorial-water-quality-monitoring.md)
 
 
 ## <a name="what-is-water-consumption-monitoring-application-template"></a>O que é o modelo de aplicação de monitorização do consumo de água? 
 
-O rastreio tradicional do consumo de água depende dos operadores de água que lêem manualmente os contadores de consumo de água nos locais dos contadores. Cada vez mais cidades estão a substituir os contadores tradicionais por contadores inteligentes avançados que permitem a monitorização remota do consumo e o controlo remoto das válvulas para controlar o fluxo de água. A monitorização do consumo de água associada à mensagem de feedback digital ao cidadão pode aumentar a consciencialização e reduzir o consumo de água. 
+O rastreio tradicional do consumo de água depende dos operadores de água que lêem manualmente os contadores de consumo de água nos locais dos contadores. Cada vez mais cidades estão a substituir os contadores tradicionais por contadores inteligentes avançados que permitem monitorizar remotamente o consumo e controlar remotamente as válvulas para controlar o fluxo de água. A monitorização do consumo de água aliada à mensagem de feedback digital ao cidadão pode aumentar a consciencialização e reduzir o consumo de água. 
 
 
-A aplicação de monitorização do consumo de água é um modelo de aplicação IoT Central para ajudá-lo a iniciar o desenvolvimento da sua solução IoT para permitir que os utilitários de água e cidades monitorizem e controlem remotamente o fluxo de água para reduzir o consumo. 
+A aplicação Water Consumption Monitoring é um modelo de aplicação IoT Central para ajudá-lo a iniciar o desenvolvimento da sua solução IoT para permitir que utilitários de água e cidades monitorizem e controlem remotamente o fluxo de água para reduzir o consumo. 
 
   ![Modelo de aplicativo de monitorização do consumo de água](./media/overview-iotcentral-government/waterconsumptionmonitoring-dashboardfull.png)
 
 O modelo de aplicação de monitorização do consumo de água consiste em pré-configurado:
-* Tabliers do operador de amostras
-* Modelos de dispositivo de monitor de qualidade da água da amostra
-* Dispositivos de monitorização simulados de qualidade da água
+* Dashboards do operador da amostra
+* Modelos de dispositivo de monitor de qualidade de água da amostra
+* Dispositivos de monitor de qualidade de água simulados
 * Regras e empregos pré-configurados
 * Marca usando rotulagem branca 
 
- Inicie-se com o tutorial de aplicação de monitorização do consumo de [água.](./tutorial-water-consumption-monitoring.md)
+ Começa com o tutorial da [aplicação de monitorização do consumo de água.](./tutorial-water-consumption-monitoring.md)
 
 ## <a name="what-is-connected-waste-management-application-template"></a>O que é o modelo de aplicação de gestão de resíduos conectado? 
 
@@ -63,21 +63,19 @@ A aplicação Connected Waste Management é um modelo de aplicação IoT Central
 ![Modelo de aplicativo de gestão de resíduos conectado](media/overview-iotcentral-government/connectedwastemanagement-dashboard.png) 
 
 
-O modelo de aplicação de gestão de resíduos conectados consiste em pré-configurado:
-* Tabliers do operador de amostras
-* Modelos de dispositivos de resíduos ligados à amostra
-* Dispositivos de resíduos ligados simulados
+O modelo de aplicação de gestão de resíduos conectado consiste em pré-configurado:
+* Dashboards do operador da amostra
+* Modelos de dispositivos de lixo conectados à amostra
+* Dispositivos de caixotes do lixo ligados simulados
 * Regras e empregos pré-configurados
 * Marca usando rotulagem branca 
 
-Inicie-se com o tutorial de aplicação de [gestão de resíduos conectados.](./tutorial-connected-waste-management.md)
-
+Iniciou-se com o [tutorial de aplicação de Gestão de Resíduos Conectado.](./tutorial-connected-waste-management.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Experimente qualquer um dos modelos de aplicação do Governo na IoT Central gratuitamente [criar app](https://apps.azureiotcentral.com/build/government)
-* Conheça [conceitos](./concepts-waterqualitymonitoring-architecture.md) de Monitorização da Qualidade da Água
-* Conheça [conceitos](./concepts-waterconsumptionmonitoring-architecture.md) de monitorização do consumo de água
-* Conheça [conceitos de Gestão de Resíduos Conectados](./concepts-connectedwastemanagement-architecture.md)  
-* Conheça a IoT Central, consulte a [visão geral da IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
- 
+* Experimente qualquer um dos modelos de aplicação do Governo na IoT Central para criar gratuitamente [a app](https://apps.azureiotcentral.com/build/government)
+* Conheça os [conceitos de monitorização da qualidade da água](./concepts-waterqualitymonitoring-architecture.md)
+* Conheça os [conceitos de monitorização do consumo de água](./concepts-waterconsumptionmonitoring-architecture.md)
+* Conheça os [conceitos de Gestão de Resíduos Conectados](./concepts-connectedwastemanagement-architecture.md)  
+* Saiba mais sobre o IoT Central, consulte [a visão geral do IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central) 

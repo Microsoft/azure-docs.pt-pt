@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0b8e107fb377a30b35f0941b89c490e11fc458c
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: cf6e02ebad2ac5150be4775ad0ff6069fe3db89f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783540"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980042"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Criar e gerir um catálogo de recursos na gestão de direitos Azure AD
 
@@ -101,6 +101,7 @@ Pode remover recursos de um catálogo. Um recurso só pode ser removido de um ca
 
 1. Clique **em Remover** (ou clique na elipse **(...)** e, em seguida, clique em **Remover o recurso).**
 
+
 ## <a name="add-additional-catalog-owners"></a>Adicionar proprietários de catálogos adicionais
 
 O utilizador que criou um catálogo torna-se o primeiro proprietário do catálogo. Para delegar a gestão de um catálogo, adicione os utilizadores à função de proprietário do catálogo. Isto ajuda a partilhar as responsabilidades de gestão do catálogo. 
@@ -137,7 +138,7 @@ Pode editar o nome e a descrição de um catálogo. Os utilizadores vêem esta i
 
     ![Editar configurações de catálogo](./media/entitlement-management-shared/catalog-edit.png)
 
-1. Clique em **Guardar**.
+1. Clique em **Save** (Guardar).
 
 ## <a name="delete-a-catalog"></a>Excluir um catálogo
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 66bba0d4825300a6cead2453a67518af631234b9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: db94c868daecdd82bcf7749f17fc6fde86fac963
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543509"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979778"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configure Salesforce para o fornecimento automático de utilizadores
 
@@ -23,7 +23,7 @@ O objetivo deste tutorial é mostrar os passos necessários para executar na Sal
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário delineado neste tutorial pressupõe que já tem os seguintes itens:
+O cenário descrito neste tutorial pressupõe que já tem os seguintes itens:
 
 * Um inquilino de diretório Azure Ative
 * Um inquilino Salesforce.com
@@ -65,9 +65,9 @@ O objetivo desta secção é delinear como permitir o fornecimento de contas de 
 
 3. Selecione a sua instância de Salesforce e, em seguida, selecione o **separador Provisioning.**
 
-4. Desa ajuste o **modo de provisionamento** para **automático**.
+4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
-    ![provisionamento](./media/salesforce-provisioning-tutorial/provisioning.png)
+    ![O Screenshot mostra a página de Provisionamento salesforce, com o modo de provisionamento definido para Automático e outros valores que pode definir.](./media/salesforce-provisioning-tutorial/provisioning.png)
 
 5. Na secção **Credenciais de Administração,** forneça as seguintes definições de configuração:
 
@@ -101,7 +101,7 @@ O objetivo desta secção é delinear como permitir o fornecimento de contas de 
 
 15. Na secção Mappings, selecione **Synchronize Azure Ative Directory Users to Salesforce.**
 
-16. Na secção **De mapeamentos de atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD para Salesforce. Note que os atributos selecionados como propriedades **de correspondência** são utilizados para corresponder às contas de utilizador na Salesforce para operações de atualização. Selecione o botão Guardar para escoar quaisquer alterações.
+16. Na secção **De mapeamentos de atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD para Salesforce. Note que os atributos selecionados como propriedades **de correspondência** são utilizados para corresponder às contas de utilizador na Salesforce para operações de atualização. Selecione o botão Guardar para confirmar as alterações.
 
 17. Para permitir o serviço de prestação de Ad Azure para a Salesforce, altere o **Estado de Provisionamento** para **On** na secção Definições
 
@@ -129,6 +129,6 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do fornecimento de conta de utilizador para apps empresariais](tutorial-list.md)
+* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 * [Configurar o único sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-saas-salesforce-tutorial)

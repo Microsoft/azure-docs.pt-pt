@@ -1,23 +1,23 @@
 ---
-title: Conceitos de Serviços Meteorológicos / Microsoft Azure Maps
-description: Neste artigo, você vai aprender sobre os conceitos que se aplicam aos Serviços Meteorológicos Microsoft Azure Maps.
+title: Conceitos de Serviços meteorológicos no Microsoft Azure Maps
+description: Conheça os conceitos que se aplicam aos Serviços Meteorológicos Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e8ecbd50aa4490bde705b386a67b8732bb8c02c9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 4430737814ef904e83b2bf3ce25edf3d44e2668d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132114"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972035"
 ---
 # <a name="weather-services-in-azure-maps"></a>Serviços meteorológicos em Azure Maps
 
-Este artigo introduz conceitos que se aplicam aos [Serviços Meteorológicos Azure Maps.](https://aka.ms/AzureMapsWeatherService) Recomendamos que se recomende a passar por este artigo antes de começar com as APIs meteorológicas. 
+Este artigo introduz conceitos que se aplicam aos [Serviços Meteorológicos Azure Maps.](https://aka.ms/AzureMapsWeatherService) Recomendamos que se recomende a passar por este artigo antes de começar com as APIs meteorológicas.
 
 ## <a name="unit-types"></a>Tipos de unidades
 
@@ -56,46 +56,46 @@ Algumas das APIs do serviço meteorológico devolvem `iconCode` a resposta. É `
 
 | Número de ícone |Ícone| Dia | Noite | Texto |
 |-------------|:----:|-----|-------|------|
-| 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | Yes |  Não    | Ensolarado|
-| 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | Yes |  Não    | Maioritariamente ensolarado|
-| 3           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny.png"::: | Yes |  Não    | Parcialmente Ensolarado|
-| 4           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds.png"::: | Yes |  Não    | Nuvens intermitentes|
-| 5           | :::image type="icon" source="./media/weather-services-concepts/hazy-sunshine.png"::: | Yes |  Não    | Sol nebuloso |
-| 6           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy.png"::: | Yes |  Não    | Maioritariamente nublado|
-| 7           | :::image type="icon" source="./media/weather-services-concepts/cloudy-i.png"::: | Sim |  Sim   | Nublado |
-| 8           | :::image type="icon" source="./media/weather-services-concepts/dreary-overcast.png"::: | Sim |  Sim   | Dreary (Nublado)|
-| 11           | :::image type="icon" source="./media/weather-services-concepts/fog-i.png"::: | Sim |  Sim   | Nevoeiro|
-| 12           | :::image type="icon" source="./media/weather-services-concepts/showers-i.png"::: | Sim |  Sim   | Chuveiros|
-| 13           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers.png"::: | Yes |  Não    | Maioritariamente nublado com chuveiros|
-| 14           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-showers.png"::: | Yes |  Não    | Parcialmente ensolarado com chuveiros|
-| 15           | :::image type="icon" source="./media/weather-services-concepts/tstorms-i.png"::: | Sim |  Sim   | Trovoadas|
-| 16           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms.png"::: | Yes |  Não    | Maioritariamente nublado com trovoadas|
-| 17           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-tstorms.png"::: | Yes |  Não    | Parcialmente ensolarado com trovoadas|
-| 18           | :::image type="icon" source="./media/weather-services-concepts/rain-i.png"::: | Sim |  Sim   | Chuva|
-| 19           | :::image type="icon" source="./media/weather-services-concepts/flurries-i.png"::: | Sim |  Sim   | Flurries|
-| 20           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries.png"::: | Yes |  Não    | Maioritariamente nublado com flurries|
-| 21           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-flurries.png"::: | Yes |  Não    | Parcialmente ensolarado com flurries|
-| 22           | :::image type="icon" source="./media/weather-services-concepts/snow-i.png"::: | Sim |  Sim   | Neve|
-| 23           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | Yes |  Não    | Maioritariamente nublado com neve|     
-| 24           | :::image type="icon" source="./media/weather-services-concepts/ice-i.png"::: | Sim |  Sim   | Ferreira |
-| 25           | :::image type="icon" source="./media/weather-services-concepts/sleet-i.png"::: | Sim |  Sim   | Granizo|
-| 26           | :::image type="icon" source="./media/weather-services-concepts/freezing-rain.png"::: | Sim |  Sim   | Chuva congelada|
-| 29           | :::image type="icon" source="./media/weather-services-concepts/rain-snow.png"::: | Sim |  Sim   | Chuva e Neve|
-| 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | Sim |  Sim   | Acesso Frequente|
-| 31           | :::image type="icon" source="./media/weather-services-concepts/cold-i.png"::: | Sim |  Sim   | Cold|
-| 32           | :::image type="icon" source="./media/weather-services-concepts/windy-i.png"::: | Sim |  Sim   | Ventoso|
-| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | Não  |  Yes   | Limpar|
-| 34           | :::image type="icon" source="./media/weather-services-concepts/mostly-clear-night.png"::: | Não  |  Yes   | Maioritariamente clara|
-| 35           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-night.png"::: | Não  |  Yes   | Parcialmente nublado|
-| 36           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds-Night.png"::: | Não  |  Yes   | Nuvens intermitentes|
-| 37           | :::image type="icon" source="./media/weather-services-concepts/hazymoon-light.png"::: | Não  |  Yes   | Luar Nebuloso|
-| 38           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-night.png"::: | Não  |  Sim   | Maioritariamente nublado|
-| 39           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-showers-night.png"::: | Não  |  Sim   | Parcialmente nublado com chuveiros|
-| 40           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers-night.png"::: | Não  |  Sim   | Maioritariamente nublado com chuveiros|
-| 41           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-tstorms-night.png"::: | Não  |  Sim   | Parcialmente nublado com trovoadas|
-| 42           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms-night.png"::: | Não  |  Sim   | Maioritariamente nublado com trovoadas|
-| 43           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries-night.png"::: | Não  |  Sim   | Maioritariamente nublado com flurries|
-| 44           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | Não  |  Sim   | Maioritariamente nublado com neve|
+| 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | Yes |  No    | Ensolarado|
+| 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | Yes |  No    | Maioritariamente ensolarado|
+| 3           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny.png"::: | Yes |  No    | Parcialmente Ensolarado|
+| 4           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds.png"::: | Yes |  No    | Nuvens intermitentes|
+| 5           | :::image type="icon" source="./media/weather-services-concepts/hazy-sunshine.png"::: | Yes |  No    | Sol nebuloso |
+| 6           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy.png"::: | Yes |  No    | Maioritariamente nublado|
+| 7           | :::image type="icon" source="./media/weather-services-concepts/cloudy-i.png"::: | Yes |  Yes   | Nublado |
+| 8           | :::image type="icon" source="./media/weather-services-concepts/dreary-overcast.png"::: | Yes |  Yes   | Dreary (Nublado)|
+| 11           | :::image type="icon" source="./media/weather-services-concepts/fog-i.png"::: | Yes |  Yes   | Nevoeiro|
+| 12           | :::image type="icon" source="./media/weather-services-concepts/showers-i.png"::: | Yes |  Yes   | Chuveiros|
+| 13           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers.png"::: | Yes |  No    | Maioritariamente nublado com chuveiros|
+| 14           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-showers.png"::: | Yes |  No    | Parcialmente ensolarado com chuveiros|
+| 15           | :::image type="icon" source="./media/weather-services-concepts/tstorms-i.png"::: | Yes |  Yes   | Trovoadas|
+| 16           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms.png"::: | Yes |  No    | Maioritariamente nublado com trovoadas|
+| 17           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-tstorms.png"::: | Yes |  No    | Parcialmente ensolarado com trovoadas|
+| 18           | :::image type="icon" source="./media/weather-services-concepts/rain-i.png"::: | Yes |  Yes   | Chuva|
+| 19           | :::image type="icon" source="./media/weather-services-concepts/flurries-i.png"::: | Yes |  Yes   | Flurries|
+| 20           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries.png"::: | Yes |  No    | Maioritariamente nublado com flurries|
+| 21           | :::image type="icon" source="./media/weather-services-concepts/partly-sunny-flurries.png"::: | Yes |  No    | Parcialmente ensolarado com flurries|
+| 22           | :::image type="icon" source="./media/weather-services-concepts/snow-i.png"::: | Yes |  Yes   | Neve|
+| 23           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | Yes |  No    | Maioritariamente nublado com neve|     
+| 24           | :::image type="icon" source="./media/weather-services-concepts/ice-i.png"::: | Yes |  Yes   | Ferreira |
+| 25           | :::image type="icon" source="./media/weather-services-concepts/sleet-i.png"::: | Yes |  Yes   | Granizo|
+| 26           | :::image type="icon" source="./media/weather-services-concepts/freezing-rain.png"::: | Yes |  Yes   | Chuva congelada|
+| 29           | :::image type="icon" source="./media/weather-services-concepts/rain-snow.png"::: | Yes |  Yes   | Chuva e Neve|
+| 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | Yes |  Yes   | Frequente|
+| 31           | :::image type="icon" source="./media/weather-services-concepts/cold-i.png"::: | Yes |  Yes   | Cold|
+| 32           | :::image type="icon" source="./media/weather-services-concepts/windy-i.png"::: | Yes |  Yes   | Ventoso|
+| 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | No  |  Yes   | Limpar|
+| 34           | :::image type="icon" source="./media/weather-services-concepts/mostly-clear-night.png"::: | No  |  Yes   | Maioritariamente clara|
+| 35           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-night.png"::: | No  |  Yes   | Parcialmente nublado|
+| 36           | :::image type="icon" source="./media/weather-services-concepts/intermittent-clouds-Night.png"::: | No  |  Yes   | Nuvens intermitentes|
+| 37           | :::image type="icon" source="./media/weather-services-concepts/hazymoon-light.png"::: | No  |  Yes   | Luar Nebuloso|
+| 38           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-night.png"::: | No  |  Yes   | Maioritariamente nublado|
+| 39           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-showers-night.png"::: | No  |  Yes   | Parcialmente nublado com chuveiros|
+| 40           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-showers-night.png"::: | No  |  Yes   | Maioritariamente nublado com chuveiros|
+| 41           | :::image type="icon" source="./media/weather-services-concepts/partly-cloudy-tstorms-night.png"::: | No  |  Yes   | Parcialmente nublado com trovoadas|
+| 42           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-tstorms-night.png"::: | No  |  Yes   | Maioritariamente nublado com trovoadas|
+| 43           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-flurries-night.png"::: | No  |  Yes   | Maioritariamente nublado com flurries|
+| 44           | :::image type="icon" source="./media/weather-services-concepts/mostly-cloudy-snow.png"::: | No  |  Yes   | Maioritariamente nublado com neve|
 
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>Escala de cores de imagens de radar e de satélite
@@ -472,3 +472,169 @@ Paleta de cores detalhada para azulejos de satélite infravermelhos é mostrada 
 |307.57  |#02555555     |
 |308     |#00525252     |
 |308     |#00525252     |
+
+## <a name="index-ids-and-index-groups-ids"></a>IDs de índice e IDs de grupos de índice
+
+[A API dos Índices Diários](https://aka.ms/AzureMapsWeatherDailyIndices) permite que os utilizadores restringam os resultados devolvidos a tipos de índices específicos ou grupos de índices.
+
+Abaixo está uma tabela de IDs de índice disponíveis, seus nomes, e um link para os seus conjuntos de gama. Abaixo desta tabela está uma tabela listando os vários grupos de índice.
+
+  Nome do índice |  ID  | Gama de Valor
+  -------------------------- |---|-----
+  Dor da artrite             |21 | [RiscoProdução-A-Extremo](#beneficial-at-extreme-risk)
+  Asma                     |23|  [RiscoProdução-A-Extremo](#beneficial-at-extreme-risk)
+  Piscina de & de Praia               |10| [Pobre Excelente 1](#poor-excellent-1)
+  Ciclismo                  |4| [Pobre Excelente 1](#poor-excellent-1)
+  Constipação comum                |25|  [RiscoProdução-A-Extremo](#beneficial-at-extreme-risk)
+  Compostagem                 |38| [Pobre Excelente 1](#poor-excellent-1)
+  Construção               |14| [Pobre Excelente 1](#poor-excellent-1)
+  COPD                       |44|  [RiscoProdução-A-Extremo](#beneficial-at-extreme-risk)
+  Conforto de passeio de cão        |43| [Pobre Excelente 1](#poor-excellent-1)
+  Driving                    |40|  [Pobre Excelente 2](#poor-excellent-2)
+  Poeira & Dander              |18| [Low-Extreme 1](#low-extreme-1)
+  Prontidão de Campo            |32| [Pobre Excelente 1](#poor-excellent-1)
+  Pesca                    |13| [Pobre Excelente 1](#poor-excellent-1)
+  Atrasos nos voos              |-3|  [Muito improvável-muito provável 2](#very-unlikely-very-likely-2)
+  Gripe                        |26|  [RiscoProdução-A-Extremo](#beneficial-at-extreme-risk)
+  Índice de Viagem Voadora        |31| [Excelente-Pobre](#excellent-poor)
+  Economia de Combustível               |37| [Pobre Excelente 1](#poor-excellent-1)
+  Tempo de Golfe               |5| [Pobre Excelente 1](#poor-excellent-1)
+  Cultivo de grama              |33| [Pobre Excelente 1](#poor-excellent-1)
+  Frizz de cabelo                 |42| [Emergência Improvável](#unlikely-emergency)
+  Fitness saudável do coração      |16| [Pobre Excelente 1](#poor-excellent-1)
+  Caminhadas                     |3| [Pobre Excelente 1](#poor-excellent-1)
+  Eficiência Energética Doméstica     |36| [Pobre Excelente 1](#poor-excellent-1)
+  Investigação                    | 20| [Pobre Excelente 1](#poor-excellent-1)
+  Atividades interiores            | -2| [Pobre Excelente 1](#poor-excellent-1)
+  Jogging                    |2| [Pobre Excelente 1](#poor-excellent-1)
+  Papagaio voando                |9| [Pobre Excelente 1](#poor-excellent-1)
+  Corte de grama                |28| [Pobre Excelente 1](#poor-excellent-1)
+  Dor de cabeça de enxaqueca          |27|  [RiscoProdução-A-Extremo](#beneficial-at-extreme-risk)
+  Ônibus escolar da manhã         |35| [Pobre Excelente 1](#poor-excellent-1)
+  Atividade dos mosquitos          |17|[Low-Extreme 1](#low-extreme-1)
+  Atividades ao Ar Livre           |29| [Pobre Excelente 1](#poor-excellent-1)
+  Churrasqueira ao ar livre           |24| [Pobre Excelente 1](#poor-excellent-1)
+  Concerto ao ar livre            |8| [Pobre Excelente 1](#poor-excellent-1)
+  Em Execução                    |1|  [Pobre Excelente 1](#poor-excellent-1)
+  Ténis                     |6| [Pobre Excelente 1](#poor-excellent-1)
+  Sede                     |41| [Low-Extreme 2](#low-extreme-2)
+  Vela                    |11| [Pobre Excelente 1](#poor-excellent-1)
+  Compras                   |39| [Pobre Excelente 1](#poor-excellent-1)
+  Dor de cabeça sinuse             |30|  [RiscoProdução-A-Extremo](#beneficial-at-extreme-risk)
+  Skate              | 7| [Pobre Excelente 1](#poor-excellent-1)
+  Tempo de Esqui                | 15| [Pobre Excelente 1](#poor-excellent-1)
+  Dias de Neve                  | 19| [Muito improvável-muito provável](#very-unlikely-very-likely)
+  Humidade do solo              | 34| [Pobre Excelente 1](#poor-excellent-1)
+  Observação de estrelas                 | 12| [Pobre Excelente 1](#poor-excellent-1)
+
+Abaixo está a lista de grupos de índices disponíveis (indexGroupId):
+
+  ID   | Nome do Grupo | Índices neste grupo |
+  -------- | ------------------|------
+  1       |Todos | Todos
+  2       |Dores e dores | Dor da artrite (21) </br> Dor de cabeça de enxaqueca (27) </br> Dor de Cabeça sinusal (30)
+  3       |Respiratório | Asma (23) </br> Constipação Comum (25) </br> Previsão da Gripe (26)
+  4       |Jardinagem | Prontidão de Campo (32) </br> Corte de relva (28) </br> Humidade do solo (34)</br>
+  5       |Ambiental | Composição (38) </br> Eficiência Energética Doméstica (36) </br> Economia de Combustível (37)
+  6       |Vida ao ar livre | Churrasco ao ar livre (24) </br> Atividade dos mosquitos (17)
+  7       |Praia e Marinha | Piscina de & de Praia (10) </br> Pesca (13) </br> Vela (11)
+  8       |Desportista | Pesca (13) </br> Caça (20) </br> Atividade ao ar livre (29)</br>
+  9       |Agricultura |  Prontidão de Campo (32) </br>  Humidade do solo (34)
+  10      |Saúde | Dor da artrite (21) </br> Asma (23) </br> Constipação Comum (25) </br> Poeira & Dander (18) </br> Gripe (26) </br> Fitness saudável do coração (16) </br> Dor de cabeça de enxaqueca (27)
+  11      |Ao ar livre | Churrasco ao ar livre (24) </br> Piscina de & de Praia (10) </br> Ciclismo (4) </br> Concerto ao ar livre (8) </br>  Prontidão de Campo (32) </br> Pesca (13) </br> Tempo de Golfe (5) </br> Caminhadas (3) </br> Caça (20) </br> Jogging (2) </br> Kite Flying (9) </br> Atividade dos mosquitos (17)</br> Corte de relva (28) </br> Atividade ao ar livre (29) </br> Execução (1) </br> Vela (11) </br> Skate (7) </br> Tempo de Esqui (15) </br>  Humidade do solo (34)</br> Observação de estrelas (12) </br> Ténis (6)
+  12      |Sporting | Ciclismo (4) </br> Tempo de Golfe (5) </br> Caminhadas (3) </br>  Jogging (2) </br> Execução (1) </br> Skate (7) </br> Tempo de Esqui (15) </br>Ténis (6)
+  13      |Home Page | Eficiência Energética Doméstica (36) </br> Economia de Combustível (37) </br> Atividade interna (-2)
+
+## <a name="daily-index-range-sets"></a>Conjuntos diários de gama de índices
+
+[A API do Índice Diário](https://aka.ms/AzureMapsWeatherDailyIndices) devolve o valor variado e o nome da categoria associada para cada ID de índice. Os conjuntos de alcance não são os mesmos para todos os índices. As tabelas abaixo mostram os vários conjuntos de gama utilizados pelos índices suportados listados nos [IDs de índice e nos grupos de índices IDs](#index-ids-and-index-groups-ids). Para saber quais os índices que usam quais os conjuntos de gama, aceda à secção [de IDs](#index-ids-and-index-groups-ids) de Índice e Grupos de Índice deste documento.
+
+### <a name="poor-excellent-1"></a>Pobre Excelente 1
+
+  | Nome da Categoria | Gama Iniciar | Gama final |
+  ----------------|--------------|------------
+  Fraco              |  0 |                2.99
+  Razoável              |  3  |               4.99
+  Bom              |  5  |              6.99
+  Muito bom         |  7  |               8.99
+  Excelente         |  9  |               10
+
+### <a name="poor-excellent-2"></a>Pobre Excelente 2
+
+ | Nome da Categoria | Gama Iniciar | Gama final |
+  ----------------|--------------|------------
+  Fraco           |0              |  3
+  Razoável           |3.01           |  6
+  Bom           |6.01           |  7,5
+  Muito bom      |7.51           |  8.99
+  Excelente      |9              |  10
+
+### <a name="excellent-poor"></a>Excelente-Pobre
+
+ | Nome da Categoria | Gama Iniciar | Gama final |
+  ----------------|--------------|------------
+  Excelente      |     0.00        |    1,00
+  Muito bom        |   1.01          |  3,00
+  Bom             |   3.01          |  5.00
+  Razoável             |   5.01          |  7.00
+  Fraco             |   7.01          |  10,00
+
+### <a name="low-extreme-1"></a>Low-Extreme 1
+
+   | Nome da Categoria | Gama Iniciar | Gama final |
+  ----------------|--------------|------------
+  Baixo                |  0         |        1.99
+  Moderado           |  2         |        3.99
+  Alto               |  4         |        5,99
+  Muito alto          |  6         |        7.99
+  Extremo            |  8         |        10
+
+### <a name="low-extreme-2"></a>Low-Extreme 2
+
+   | Nome da Categoria | Gama Iniciar | Gama final |
+  ----------------|--------------|------------
+  Baixo                |  0            |      2.99
+  Moderado           |  3            |      4.99
+  Alto               |  5            |      6.99
+  Muito alto          |  7            |      8.99
+  Extremo            |  9            |      10
+
+### <a name="very-unlikely-very-likely"></a>Muito improvável-muito provável
+
+ | Nome da Categoria | Gama Iniciar | Gama final |
+  ----------------|--------------|------------
+  Muito improvável      | 0     |           1.99
+  Improvável           | 2     |           3.99
+  Possivelmente           | 4     |           5,99
+  Provavelmente             | 6     |           7.99
+  Muito provável        | 8     |           10
+
+### <a name="very-unlikely-very-likely-2"></a>Muito improvável-muito provável 2
+
+ | Nome da Categoria | Gama Iniciar | Gama final |
+  ----------------|--------------|------------
+  Muito improvável      |  0.00     |         1,00
+  Improvável           |  1.01     |         3,00
+  Possivelmente           |  3.01     |         5.00
+  Provavelmente             |  5.01     |         7.00
+  Muito provável        |  7.01     |         10,00
+
+### <a name="unlikely-emergency"></a>Emergência Improvável
+
+| Nome da Categoria | Gama Iniciar | Gama final |
+  ----------------|--------------|------------
+  Improvável         |  0     |          2.99
+  Ver            |  3     |          4.99
+  Aconselhamento         |  5     |          6.99
+  Aviso          |  7     |          8.99
+  Emergência        |  9     |          10
+
+### <a name="beneficial-at-extreme-risk"></a>RiscoProdução-A-Extremo
+
+| Nome da Categoria | Gama Iniciar | Gama final |
+  ----------------|--------------|------------
+  Benéfico        |    0        |        1.99
+  Neutro           |    2        |        3.99
+  Em Risco           |    4        |        5,99
+  Em Alto Risco      |    6        |        7.99
+  Em Risco Extremo   |    8        |        10

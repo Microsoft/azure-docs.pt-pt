@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 527255653bf2779b36e0e463cd32a0b334c00f96
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 726507fa6ea0651b23d46424bda669a2d8ad41e0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798499"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979905"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Solicitar acesso a um pacote de acesso na gestão de direitos Azure AD
 
@@ -80,6 +80,12 @@ Uma vez encontrado o pacote de acesso no portal 'O Acesso', pode submeter um ped
 Se solicitar acesso a um pacote de acesso que tenha várias políticas que se aplicam, poderá ser-lhe pedido que selecione uma política. Por exemplo, um gestor de pacotes de acesso pode configurar um pacote de acesso com duas políticas para dois grupos de funcionários internos. A primeira política poderá permitir o acesso por 60 dias e requer aprovação. A segunda política poderá permitir o acesso durante 2 dias e não requer aprovação. Se encontrar este cenário, deve selecionar a política que pretende utilizar.
 
 ![Meu portal de acesso - Solicitar acesso - múltiplas políticas](./media/entitlement-management-request-access/my-access-multiple-policies.png)
+
+### <a name="fill-out-requestor-information"></a>Preencha informações de solicitação
+
+Pode solicitar acesso a um pacote de acesso que exija justificação comercial e informações adicionais de solicitação antes de lhe dar acesso ao pacote de acesso. Preencha todas as informações solicitadas necessárias para aceder ao pacote de acesso.
+
+![Meu portal de Acesso - Solicitar acesso - Preencha informações solicitadoras](./media/entitlement-management-request-access/my-access-requestor-information.png)
 
 ## <a name="resubmit-a-request"></a>Reenviar um pedido
 

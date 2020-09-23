@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 08/28/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 6490b3cf2d3813a2740c548f778e65f1df6e7b01
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: bcb3fdbe12a2704e585a9b13484c2528c9cdc559
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603663"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894434"
 ---
 # <a name="what-are-azure-cognitive-services"></a>O que são os Serviços Cognitivos Azure?
 
@@ -48,7 +48,7 @@ A lista atual de nova documentação está disponível no [What's new in Cogniti
 
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
-|[Serviço de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Serviço de voz")|O serviço de fala adiciona funcionalidades ativadas à fala às aplicações.|
+|[Serviço de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Serviço de voz")|O serviço de fala adiciona funcionalidades ativadas à fala às aplicações.|
 |[API de Reconhecimento de Altifalantes](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "API de Reconhecimento de Orador") (Pré-visualização)|A API de Reconhecimento de Altifalantes fornece algoritmos para identificação e verificação de altifalantes.|
 |[Discurso de Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home "Voz do Bing") (Aposentação)|A API do Discurso Bing proporciona-lhe uma forma fácil de criar funcionalidades ativadas pela fala nas suas aplicações.|
 |[Discurso do Tradutor](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Tradução de Voz") (Reforma)|Tradutor Speech é um serviço de tradução automática.|
@@ -88,6 +88,7 @@ A lista atual de nova documentação está disponível no [What's new in Cogniti
 |:-----------|:------------------|
 |[Detetor de Anomalias](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Detetor de Anomalias") (Pré-visualização)|O Detetor de Anomalias permite-lhe monitorizar e detetar anomalias nos dados da série de tempo.|
 |[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|O Moderador de Conteúdo fornece monitorização para possíveis conteúdos ofensivos, indesejáveis e arriscados.|
+|[Conselheiro de Métricas](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor) (Pré-visualização) | O Metrics Advisor fornece uma deteção de anomalias personalizáveis em dados de séries de tempo multivariáveis e um portal web totalmente apresentado para ajudá-lo a usar o serviço.
 |[Personalizador](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizador")|O personalização permite-lhe escolher a melhor experiência para mostrar aos seus utilizadores, aprendendo com o seu comportamento em tempo real.|
 
 ## <a name="learn-with-the-quickstarts"></a>Aprenda com os Quickstarts

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 7f00947504e5c6355379ce1e400fd2325016e05a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 400585d3e5908268708d93ceeefd26a4a5efdd49
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "77122059"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972398"
 ---
 # <a name="tutorial-create-a-water-consumption-monitoring-application-with-azure-iot-central"></a>Tutorial: Criar uma aplicação de monitorização do consumo de água com a Azure IoT Central
 
@@ -256,4 +256,7 @@ Se não vai continuar a utilizar esta aplicação, elimine-a.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [conceitos de monitorização do consumo de água.](./concepts-waterconsumptionmonitoring-architecture.md)
+* Mais informações sobre 
+
+> [!div class="nextstepaction"]
+> [Conceitos de monitorização do consumo de água.](./concepts-waterconsumptionmonitoring-architecture.md)

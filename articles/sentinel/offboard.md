@@ -1,5 +1,5 @@
 ---
-title: Remover Azure Sentinel. Microsoft Docs
+title: Remover Azure Sentinel Microsoft Docs
 description: Como apagar a sua instância Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/29/2019
+ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 0d918de4669e1b4bac6c1775a813eb1d224f39cf
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: f9c400b55b0da47495db4f1ff4ceb86aa39fe2cc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662005"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885835"
 ---
 # <a name="remove-azure-sentinel-from-your-workspace"></a>Remova Azure Sentinel do seu espaço de trabalho
 
@@ -48,13 +48,13 @@ Após a desconexão ser identificada, o processo de embarque começa.
 
 -   AWS
 
--   Alertas de segurança dos serviços da Microsoft: Microsoft Defender for Identity *(anteriormente Azure ATP),* Microsoft Cloud App Security incluindo cloud Discovery Shadow IT reporting, Azure AD Identity Protection, Microsoft Defender for Endpoint *(anteriormente Microsoft Defender ATP*), Azure Defender *(anteriormente Azure Security Center)*
+-   Alertas de segurança dos serviços da Microsoft: Microsoft Defender for Identity *(anteriormente Azure ATP),* Microsoft Cloud App Security incluindo cloud Discovery Shadow IT reportando, Azure AD Identity Protection, Microsoft Defender for Endpoint *(anteriormente Microsoft Defender ATP),* alertas do Azure Security Center do Azure Security Center
 
 -   Informações sobre Ameaças
 
--   Registos de segurança comuns (incluindo registos baseados em CEF, Barracuda e Syslog) (Se tiver a Azure Defender, estes registos continuarão a ser recolhidos.)
+-   Registos de segurança comuns (incluindo registos baseados em CEF, Barracuda e Syslog) (Se receber alertas do Azure Defender do Azure Security Center, estes registos continuarão a ser recolhidos.)
 
--   Eventos de Segurança do Windows (Se tiver o Azure Defender, estes registos continuarão a ser recolhidos.)
+-   Eventos de Segurança do Windows (Se receber alertas do Azure Defender do Azure Security Center, estes registos continuarão a ser recolhidos.)
 
 Nas primeiras 48 horas, os dados e as regras analíticas (incluindo a configuração da automatização em tempo real) deixarão de ser acessíveis ou consultais no Azure Sentinel.
 
@@ -76,6 +76,6 @@ Após a remoção do serviço, existe um período de carência de 30 dias durant
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a remover o serviço Azure Sentinel. Se mudar de ideias e quiser instalá-la novamente:
 - Começa a [embarcar no Azure Sentinel.](quickstart-onboard.md)
