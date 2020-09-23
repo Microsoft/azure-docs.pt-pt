@@ -10,21 +10,21 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
-ms.reviewer: vanto, carlrab, emlisa
-ms.date: 05/14/2019
-ms.openlocfilehash: a9e563f32f2b8f38af7ab86be82cd18ef1c2309c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.reviewer: vanto, emlisa
+ms.date: 09/21/2020
+ms.openlocfilehash: f3ae5e1ef4dc2968724daeafb32f26cf445b0d2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088413"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885293"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Uma visão geral da Base de Dados Azure SQL e capacidades de segurança de instância gerida sql
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Este artigo descreve os fundamentos da garantia do nível de dados de uma aplicação utilizando a Base de [Dados Azure SQL](sql-database-paas-overview.md) e [a Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). A estratégia de segurança descrita segue a abordagem em camadas de defesa em profundidade, como mostrado na imagem abaixo, e move-se de fora para:
 
-![sql-security-layer.png](./media/security-overview/sql-security-layer.png)
+![layer.png de segurança sql](./media/security-overview/sql-security-layer.png)
 
 ## <a name="network-security"></a>Segurança da rede
 
@@ -73,11 +73,11 @@ A autorização refere-se às permissões atribuídas a um utilizador dentro de 
 
 Como uma boa prática, crie papéis personalizados quando necessário. Adicione os utilizadores ao papel com os privilégios menos necessários para fazer a sua função de trabalho. Não adtribua permissões diretamente aos utilizadores. A conta de administração do servidor é um membro da função de db_owner incorporada, que tem permissões extensivas e só deve ser concedida a poucos utilizadores com funções administrativas. Para aplicações, utilize o [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) para especificar o contexto de execução do módulo ou utilizar [funções de aplicação](/sql/relational-databases/security/authentication-access/application-roles) com permissões limitadas. Esta prática garante que a aplicação que se liga à base de dados tem os privilégios menos necessários pela aplicação. Seguir estas boas práticas também fomenta a separação de deveres.
 
-### <a name="row-level-security"></a>Segurança ao Nível da Linha
+### <a name="row-level-security"></a>Segurança ao nível da linha
 
 A Segurança de Nível de Linha permite que os clientes controlem o acesso a linhas numa tabela de bases de dados com base nas características do utilizador executar uma consulta (por exemplo, membro do grupo ou contexto de execução). A Segurança de Nível de Linha também pode ser usada para implementar conceitos de segurança personalizados baseados em etiquetas. Para obter mais informações, consulte [a segurança de nível de linha.](/sql/relational-databases/security/row-level-security)
 
-![azure-database-rls.png](./media/security-overview/azure-database-rls.png)
+![rls.png de base de dados azul](./media/security-overview/azure-database-rls.png)
 
 ## <a name="threat-protection"></a>Proteção contra ameaças
 
@@ -87,11 +87,11 @@ A SQL Database e a SQL Managed Instance protegem os dados dos clientes fornecend
 
 A SQL Database e a SQL Managed Instance auditing rastreia as atividades da base de dados e ajuda a manter o cumprimento das normas de segurança, registando eventos de base de dados a um registo de auditoria numa conta de armazenamento Azure detida pelo cliente. A auditoria permite que os utilizadores monitorizem as atividades em curso na base de dados, bem como analisem e investiguem atividades históricas para identificar potenciais ameaças ou suspeitas de abuso e violações de segurança. Para obter mais informações, consulte Começar com [a SQL Database Auditing](../../azure-sql/database/auditing-overview.md).  
 
-### <a name="advanced-threat-protection"></a>Proteção Avançada Contra Ameaças
+### <a name="advanced-threat-protection"></a>Advanced Threat Protection
 
 A Advanced Threat Protection está a analisar os seus registos para detetar comportamentos incomuns e tentativas potencialmente nocivas de aceder ou explorar bases de dados. São criados alertas para atividades suspeitas como injeção de SQL, potencial infiltração de dados e ataques de força bruta ou para anomalias nos padrões de acesso para capturar escaladas de privilégios e utilização de credenciais violadas. Os alertas são vistos a partir do Centro de  [Segurança do Azure,](https://azure.microsoft.com/services/security-center/)onde são fornecidos os detalhes das atividades suspeitas e recomendações para uma investigação mais aprofundada dada juntamente com ações para mitigar a ameaça. A Proteção Avançada de Ameaças pode ser ativada por servidor por uma taxa adicional. Para obter mais informações, consulte [Começar com a SqL Database Advanced Threat Protection](threat-detection-configure.md).
 
-![azure-database-td.jpg](./media/security-overview/azure-database-td.jpg)
+![td.jpg de base de dados azul](./media/security-overview/azure-database-td.jpg)
 
 ## <a name="information-protection-and-encryption"></a>Proteção de informação e encriptação
 
@@ -122,13 +122,13 @@ No Azure, todas as bases de dados recentemente criadas são encriptadas por padr
 
 ### <a name="always-encrypted-encryption-in-use"></a>Sempre encriptado (encriptação em uso)
 
-![azure-database-ae.png](./media/security-overview/azure-database-ae.png)
+![ae.png de base de dados azul](./media/security-overview/azure-database-ae.png)
 
 [Sempre Encriptado](/sql/relational-databases/security/encryption/always-encrypted-database-engine) é uma funcionalidade concebida para proteger dados sensíveis armazenados em colunas de bases de dados específicas do acesso (por exemplo, números de cartões de crédito, números de identificação nacionais ou dados numa base _de necessidade de saber)._ Isto inclui administradores de bases de dados ou outros utilizadores privilegiados que estão autorizados a aceder à base de dados para executar tarefas de gestão, mas não têm necessidade de aceder aos dados específicos nas colunas encriptadas. Os dados são sempre encriptados, o que significa que os dados encriptados são desencriptados apenas para processamento por aplicações do cliente com acesso à chave de encriptação. A chave de encriptação nunca é exposta à Base de Dados SQL ou à SQL Managed Instance e pode ser armazenada na Loja de [Certificados](always-encrypted-certificate-store-configure.md) do Windows ou no [Cofre da Chave Azure](always-encrypted-azure-key-vault-configure.md).
 
 ### <a name="dynamic-data-masking"></a>Máscara de dados dinâmica
 
-![azure-database-ddm.png](./media/security-overview/azure-database-ddm.png)
+![ddm.png de base de dados azul](./media/security-overview/azure-database-ddm.png)
 
 A mascaração dinâmica de dados limita a exposição sensível aos dados, mascarando-os a utilizadores não privilegiados. A máscara dinâmica de dados descobre automaticamente dados potencialmente sensíveis na Base de Dados Azure SQL e na SQL Managed Instance e fornece recomendações acccáveis para mascarar estes campos, com o mínimo impacto na camada de aplicação. Funciona ao ofuscar os dados confidenciais no conjunto de resultados de uma consulta em campos de base de dados designados, enquanto os dados na base de dados não são alterados. Para obter mais informações, consulte [Começar com a Base de Dados SQL e a máscara dinâmica de dados da SQL Managed Instance](dynamic-data-masking-overview.md).
 
@@ -136,7 +136,7 @@ A mascaração dinâmica de dados limita a exposição sensível aos dados, masc
 
 ### <a name="vulnerability-assessment"></a>Avaliação de vulnerabilidades
 
-[A avaliação de vulnerabilidades](sql-vulnerability-assessment.md) é um serviço fácil de configurar que pode descobrir, rastrear e ajudar a corrigir potenciais vulnerabilidades de base de dados com o objetivo de melhorar proativamente a segurança global da base de dados. A avaliação de vulnerabilidades (VA) faz parte da oferta avançada de segurança de dados, que é um pacote unificado para capacidades avançadas de segurança SQL. A avaliação da vulnerabilidade pode ser acedida e gerida através do portal central de Segurança de Dados Avançados sql.
+[A avaliação de vulnerabilidades](sql-vulnerability-assessment.md) é um serviço fácil de configurar que pode descobrir, rastrear e ajudar a corrigir potenciais vulnerabilidades de base de dados com o objetivo de melhorar proativamente a segurança global da base de dados. A avaliação de vulnerabilidade (VA) faz parte da oferta do Azure Defender para a oferta SQL, que é um pacote unificado para capacidades avançadas de segurança SQL. A avaliação de vulnerabilidade pode ser acedida e gerida através do Azure Defender central para o portal SQL.
 
 ### <a name="data-discovery-and-classification"></a>Deteção e classificação de dados
 

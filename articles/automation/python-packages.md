@@ -6,12 +6,12 @@ ms.subservice: process-automation
 ms.date: 02/25/2019
 ms.topic: conceptual
 ms.custom: devx-track-python
-ms.openlocfilehash: 0b0fab40eb95fabd4b74e809c9e6cd6f6573f513
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 1ab0b2def1a22470c1d0b6339e1525cd683b4a0b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852910"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987573"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Gerir pacotes Python 2 em Azure Automation
 
@@ -21,15 +21,15 @@ A Azure Automation permite-lhe executar livros Python 2 em Azure e em Linux Hybr
 
 Na sua conta Automation, selecione **Pacotes Python 2** em **Recursos Partilhados.** Clique **+ Adicione um pacote Python 2**.
 
-![Adicionar pacote Python](media/python-packages/add-python-package.png)
+:::image type="content" source="media/python-packages/add-python-package.png" alt-text="Screenshot da página de pacotes Python 2 mostra pacotes Python 2 no menu esquerdo e Adicionar um pacote Python 2 em destaque.":::
 
 Na página 'Adicionar Python 2 Package', selecione um pacote local para carregar. A embalagem pode ser um ficheiro **.whl** ou **.tar.gz.** Quando o pacote for selecionado, clique **em OK** para o fazer o upload.
 
-![Adicionar pacote Python](media/python-packages/upload-package.png)
+:::image type="content" source="media/python-packages/upload-package.png" alt-text="A screenshot mostra a página do Pacote Add Python 2 com um ficheiro tar.gz carregado selecionado.":::
 
 Uma vez importado um pacote, está listado na página de pacotes Python 2 na sua conta de Automação. Se precisar de remover uma embalagem, selecione a embalagem e clique em **Eliminar**.
 
-![Lista de pacotes](media/python-packages/package-list.png)
+:::image type="content" source="media/python-packages/package-list.png" alt-text="A screenshot mostra a página de pacotes Python 2 depois de um pacote ter sido importado.":::
 
 ## <a name="import-packages-with-dependencies"></a>Pacotes de importação com dependências
 
@@ -49,12 +49,12 @@ Assim que os pacotes forem descarregados, pode importá-los para a sua conta de 
 
  Para obter um livro de bordo, [importe os pacotes Python 2 da conta pypi para a Azure Automation](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) da galeria para a sua conta Automation. Certifique-se de que as Definições de Execução estão definidas para **Azure** e inicie o livro de recortes com os parâmetros. O livro requer uma execução Como conta para a conta Dem automação funcionar. Para cada parâmetro certifique-se de que o inicia com o interruptor como visto na lista e imagem seguintes:
 
-* -s\<subscriptionId\>
-* -g\<resourceGroup\>
-* - um\<automationAccount\>
-* -m\<modulePackage\>
+* -s \<subscriptionId\>
+* -g \<resourceGroup\>
+* - um \<automationAccount\>
+* -m \<modulePackage\>
 
-![Lista de pacotes](media/python-packages/import-python-runbook.png)
+:::image type="content" source="media/python-packages/import-python-runbook.png" alt-text="A screenshot mostra a página de visão geral para import_py2package_from_pypi com o painel Start Runbook no lado direito.":::
 
 O livro de aplicação permite especificar que pacote descarregar. Por exemplo, a utilização do `Azure` parâmetro descarrega todos os módulos Azure e todas as dependências (cerca de 105).
 

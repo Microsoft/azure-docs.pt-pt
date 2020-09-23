@@ -10,15 +10,15 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3803b9770d3caf3f45f109b62145677a38c5bcc2
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 794e2c8b436b6a6dfa736bef59eb2ad0bda83bc2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657209"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893125"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Instale & utilize a extensão CLI para aprendizagem automática Azure
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 O Azure Machine Learning CLI é uma extensão do [Azure CLI,](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)uma interface de linha de comando transversal para a plataforma Azure. Esta extensão fornece comandos para trabalhar com a Azure Machine Learning. Permite automatizar as suas atividades de aprendizagem automática. A lista a seguir fornece algumas ações de exemplo que pode fazer com a extensão do CLI:
 
@@ -110,9 +110,6 @@ Os seguintes comandos demonstram como usar o CLI para gerir os recursos utilizad
     ```azurecli-interactive
     az ml workspace create -w myworkspace -g myresourcegroup
     ```
-
-    > [!TIP]
-    > Este comando cria um espaço de trabalho de edição básica. Para criar um espaço de trabalho empresarial, utilize o `--sku enterprise` interruptor com o `az ml workspace create` comando. Para obter mais informações sobre as edições Azure Machine Learning, consulte [o que é Azure Machine Learning.](overview-what-is-azure-ml.md#sku)
 
     Para mais informações, consulte [o espaço de trabalho az ml create](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-create).
 
@@ -509,7 +506,7 @@ Os seguintes comandos demonstram como registar um modelo treinado e, em seguida,
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Referência de comando para a extensão CLI de aprendizagem automática](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest).
 

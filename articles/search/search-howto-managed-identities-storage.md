@@ -1,25 +1,22 @@
 ---
-title: Criar uma ligação a uma conta de armazenamento utilizando uma identidade gerida (pré-visualização)
+title: Criar uma ligação a uma conta de armazenamento usando uma identidade gerida
 titleSuffix: Azure Cognitive Search
-description: Saiba como configurar uma ligação indexante a uma conta de Armazenamento Azure utilizando uma identidade gerida (pré-visualização)
+description: Saiba como configurar uma ligação indexante a uma conta de Armazenamento Azure usando uma identidade gerida
 manager: luisca
 author: markheff
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 30305607ea291587f7751b7e8048924f995251e9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: c1168602ccb527d8ffb3b64d5437a26490b44a21
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917980"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971515"
 ---
-# <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity-preview"></a>Configurar uma ligação a uma conta de Armazenamento Azure utilizando uma identidade gerida (pré-visualização)
-
-> [!IMPORTANT] 
-> O suporte para a criação de uma ligação a uma fonte de dados utilizando uma identidade gerida encontra-se atualmente em visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção.
+# <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Criar uma ligação a uma conta de Armazenamento Azure usando uma identidade gerida
 
 Esta página descreve como configurar uma ligação indexante a uma conta de armazenamento Azure usando uma identidade gerida em vez de fornecer credenciais na cadeia de ligação de objetos de fonte de dados.
 
@@ -68,7 +65,7 @@ Neste passo, você dará ao seu serviço de Pesquisa Cognitiva Azure permissão 
 
 ### <a name="3---create-the-data-source"></a>3 - Criar a fonte de dados
 
-A [API REST,](/rest/api/searchservice/create-data-source)o portal Azure e o [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) suportam a cadeia de ligação de identidade gerida. Abaixo está um exemplo de como criar uma fonte de dados para indexar dados a partir de uma conta de armazenamento usando a [API REST](/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerida. O formato de cadeia de ligação de identidade gerida é o mesmo para a API REST, .NET SDK e o portal Azure.
+A [API REST,](/rest/api/searchservice/create-data-source)o portal Azure e o [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource) suportam a cadeia de ligação de identidade gerida. Abaixo está um exemplo de como criar uma fonte de dados para indexar dados a partir de uma conta de armazenamento usando a [API REST](/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerida. O formato de cadeia de ligação de identidade gerida é o mesmo para a API REST, .NET SDK e o portal Azure.
 
 Ao indexar a partir de uma conta de armazenamento, a fonte de dados deve ter as seguintes propriedades necessárias:
 
@@ -150,6 +147,7 @@ Para obter mais informações sobre a definição de horários de indexantes, co
 ## <a name="see-also"></a>Ver também
 
 Saiba mais sobre os indexantes de armazenamento Azure:
+
 * [Indexador Azure Blob](search-howto-indexing-azure-blob-storage.md)
 * [Indexador Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md)
 * [Indexador de tabela azure](search-howto-indexing-azure-tables.md)

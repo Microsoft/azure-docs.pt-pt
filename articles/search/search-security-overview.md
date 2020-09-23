@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/01/2020
 ms.custom: references_regions
-ms.openlocfilehash: c9f0f496bfdb31e0c7cb45a07c87ea238d031e34
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 24e631b3ddb25cc8bed20b432ff2ba31fd331f37
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928773"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979609"
 ---
 # <a name="security-in-azure-cognitive-search---overview"></a>Segurança em Azure Cognitive Search - visão geral
 
@@ -38,7 +38,7 @@ Na Pesquisa Cognitiva do Azure, a encriptação começa com ligações e transmi
 
 Para os dados tratados internamente pelo serviço de pesquisa, a tabela seguinte descreve os [modelos de encriptação](../security/fundamentals/encryption-models.md)de dados . Algumas funcionalidades, tais como a loja de conhecimento, o enriquecimento incremental e a indexação baseada em indexantes, lêem ou escrevem para estruturas de dados em outros Serviços Azure. Esses serviços têm os seus próprios níveis de suporte de encriptação separados da Azure Cognitive Search.
 
-| Modelo | Chaves&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requisitos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrições | Aplica-se a |
+| Modelação | Chaves&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requisitos&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrições | Aplica-se a |
 |------------------|-------|-------------|--------------|------------|
 | encriptação do lado do servidor | Chaves geridas pela Microsoft | Nenhum (incorporado) | Nenhum, disponível em todos os escalões, em todas as regiões, para conteúdos criados após 24 de janeiro de 2018. | Conteúdo (índices e mapas de sinónimo) e definições (indexantes, fontes de dados, skillsets) |
 | encriptação do lado do servidor | chaves geridas pelo cliente | Azure Key Vault | Disponível em níveis faturantes, em todas as regiões, para conteúdos criados após janeiro de 2019. | Conteúdo (índices e mapas de sinónimo) em discos de dados |
@@ -94,7 +94,7 @@ Para controlar ainda mais o acesso ao seu serviço de pesquisa, pode criar regra
 
 Pode utilizar o portal para [configurar](service-configure-firewall.md)o acesso à entrada .
 
-Em alternativa, pode utilizar as APIs de gestão REST. A versão API 2020-03-13, com o parâmetro [IpRule,](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service#IpRule) permite-lhe restringir o acesso ao seu serviço identificando endereços IP, individualmente ou num intervalo, que pretende conceder acesso ao seu serviço de pesquisa.
+Em alternativa, pode utilizar as APIs de gestão REST. Começando pela versão API 2020-03-13, com o parâmetro [IpRule,](/rest/api/searchmanagement/services/createorupdate#iprule) pode restringir o acesso ao seu serviço identificando endereços IP, individualmente ou num intervalo, que pretende conceder acesso ao seu serviço de pesquisa.
 
 ### <a name="private-endpoint-no-internet-traffic"></a>Ponto final privado (sem tráfego de Internet)
 
@@ -123,7 +123,7 @@ Se necessitar de controlo granular por utilizador sobre os resultados da pesquis
 | Abordagem | Descrição |
 |----------|-------------|
 |[Aparar segurança com base em filtros de identidade](search-security-trimming-for-azure-search.md)  | Documenta o fluxo de trabalho básico para a implementação do controlo de acesso à identidade do utilizador. Cobre a adição de identificadores de segurança a um índice e, em seguida, explica a filtragem contra esse campo para cortar os resultados do conteúdo proibido. |
-|[Aparar segurança com base nas identidades do Azure Ative Directory](search-security-trimming-for-azure-search-with-aad.md)  | Este artigo expande-se sobre o artigo anterior, fornecendo passos para recuperar identidades do Azure Ative Directory (AAD), um dos [serviços gratuitos](https://azure.microsoft.com/free/) na plataforma cloud Azure. |
+|[Aparar segurança com base nas identidades do Azure Ative Directory](search-security-trimming-for-azure-search-with-aad.md)  | Este artigo expande-se no artigo anterior, fornecendo passos para recuperar identidades do Azure Ative Directory (Azure AD), um dos [serviços gratuitos](https://azure.microsoft.com/free/) na plataforma cloud Azure. |
 
 ## <a name="administrative-rights"></a>Direitos administrativos
 

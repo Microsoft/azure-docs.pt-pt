@@ -11,21 +11,21 @@ ms.subservice: core
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 5c7568b0914b5e60d1a47971424f1f04f41745da
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: e984c0c43dcc47c3e11a36f3d5c32bf2ddb9973a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646951"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902322"
 ---
 # <a name="use-authentication-credential-secrets-in-azure-machine-learning-training-runs"></a>Use segredos credenciais de autenticação em ações de formação de machine learning Azure
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, aprende-se a usar segredos em treinos de forma segura. As informações de autenticação, como o nome de utilizador e a palavra-passe, são segredos. Por exemplo, se ligar a uma base de dados externa para consultar dados de formação, terá de passar o seu nome de utilizador e palavra-passe para o contexto de execução remota. Codificar tais valores em scripts de treino em texto claro é inseguro, pois exporia o segredo. 
 
 Em vez disso, o seu espaço de trabalho Azure Machine Learning tem um recurso associado chamado [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). Utilize este Cofre-Chave para passar segredos para execuções remotas através de um conjunto de APIs no Azure Machine Learning Python SDK.
 
-O fluxo básico para usar segredos é:
+O fluxo padrão para usar segredos é:
  1. No computador local, faça login no Azure e ligue-se ao seu espaço de trabalho.
  2. No computador local, estabeleça um segredo no Cofre da Chave do Espaço de Trabalho.
  3. Envie uma execução remota.
@@ -69,7 +69,7 @@ Tenha cuidado para não expor o valor secreto escrevendo ou imprimindo.
 
 Há também uma versão de lote, [get_secrets()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#&preserve-view=trueget-secrets-secrets-) para aceder a múltiplos segredos ao mesmo tempo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
  * [Ver caderno de exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/manage-azureml-service/authentication-in-azureml/authentication-in-azureml.ipynb)
  * [Conheça a segurança da empresa com a Azure Machine Learning](concept-enterprise-security.md)

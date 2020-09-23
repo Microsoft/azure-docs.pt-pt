@@ -10,15 +10,15 @@ ms.author: larryfr
 author: larryfr
 ms.reviewer: larryfr
 ms.date: 06/11/2020
-ms.openlocfilehash: 88dde6e3deeebcb93da3fcd278721a0f5d4bf900
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 101a27e12239394abb1bd79176c4509278d67a81
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646054"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886082"
 ---
 # <a name="deploy-a-model-for-use-with-cognitive-search"></a>Implementar um modelo para utilizar com o Cognitive Search
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Este artigo ensina-o a usar a Azure Machine Learning para implementar um modelo para uso com [Azure Cognitive Search](../search/search-what-is-azure-search.md).
 
@@ -321,6 +321,6 @@ aks_service.delete()
 aks_target.delete()
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Construa e implemente uma habilidade personalizada com a Azure Machine Learning](../search/cognitive-search-tutorial-aml-custom-skill.md)

@@ -9,17 +9,18 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: c432b89574949b31612aeba862ece7687c12dde4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a1b317b651b0e17c07eb17dbdb8a7c6657d39564
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922842"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971616"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Como configurar caching para enriquecimento incremental em Azure Cognitive Search
 
 > [!IMPORTANT] 
-> O enriquecimento incremental está atualmente em visualização pública. Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). As [versões REST API 2019-05-06-Preview e 2020-06-30-Preview](search-api-preview.md) fornecem esta funcionalidade. Não existe porta ou suporte .NET SDK neste momento.
+> O enriquecimento incremental está atualmente em visualização pública. Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> [As versões de pré-visualização da API](search-api-preview.md) REST fornecem esta funcionalidade. Não existe porta ou suporte .NET SDK neste momento.
 
 Este artigo mostra-lhe como adicionar caching a um oleoduto de enriquecimento para que possa modificar gradualmente passos sem ter que reconstruir cada vez. Por padrão, um skillset é apátrida, e mudar qualquer parte da sua composição requer uma repetição completa do indexante. Com o enriquecimento incremental, o indexante pode determinar quais as partes da árvore documental que precisam de ser atualizadas com base em alterações detetadas nas definições de skillset ou indexante. A produção processada existente é preservada e reutilizada sempre que possível. 
 

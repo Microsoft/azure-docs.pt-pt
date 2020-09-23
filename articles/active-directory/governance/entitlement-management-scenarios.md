@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59b66511720966ff978c8460b9ac69ad133b7501
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 7f8a8f76ce7d46c0a44dd86ef1490c1c74a7992a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707225"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979504"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Cenários comuns na gestão de direitos da AD Azure
 
@@ -119,24 +119,24 @@ Existem várias formas de configurar a gestão de direitos para a sua organizaç
 1. [Vídeo: Gestão do dia-a-dia: As coisas mudaram](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
 1. Abra o pacote de acesso
 1. [Abra as definições do ciclo de vida](entitlement-management-access-package-lifecycle-policy.md#open-lifecycle-settings)
-1. [Atualizar as definições de expiração](entitlement-management-access-package-lifecycle-policy.md#lifecycle)
+1. [Atualizar as definições de expiração](entitlement-management-access-package-lifecycle-policy.md#lifecycle) 
 
 ### <a name="access-package-manager-update-how-access-is-approved-for-a-project"></a>Gestor de pacotes de acesso: Atualizar como o acesso é aprovado para um projeto
 
 1. [Vídeo: Gestão do dia-a-dia: As coisas mudaram](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
-1. [Abrir uma política existente de definições de pedido e aprovação](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings)
-1. [Atualizar as definições de aprovação](entitlement-management-access-package-request-policy.md#approval)
+1. [Abrir uma política existente de configurações de pedidos](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
+1. [Atualizar as definições de aprovação](entitlement-management-access-package-approval-policy.md#change-approval-settings-of-an-existing-access-package)
 
 ### <a name="access-package-manager-update-the-people-for-a-project"></a>Gestor de pacotes de acesso: Atualizar as pessoas para um projeto
 
 1. [Vídeo: Gestão do dia-a-dia: As coisas mudaram](https://www.microsoft.com/videoplayer/embed/RE3LD4Z)
 1. [Remover utilizadores que já não precisam de acesso](entitlement-management-access-package-assignments.md)
-1. [Abrir uma política existente de definições de pedido e aprovação](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings)
+1. [Abrir uma política existente de configurações de pedidos](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
 1. [Adicionar utilizadores que precisam de acesso](entitlement-management-access-package-request-policy.md#for-users-in-your-directory)
 
 ### <a name="access-package-manager-directly-assign-specific-users-to-an-access-package"></a>Gestor de pacotes de acesso: Atribua diretamente utilizadores específicos a um pacote de acesso
 
-1. [Se os utilizadores precisarem de configurações diferentes do ciclo de vida, adicione uma nova política ao pacote de acesso](entitlement-management-access-package-request-policy.md#add-a-new-policy-of-request-and-approval-settings)
+1. [Se os utilizadores precisarem de configurações diferentes do ciclo de vida, adicione uma nova política ao pacote de acesso](entitlement-management-access-package-request-policy.md#open-an-existing-access-package-and-add-a-new-policy-of-request-settings)
 1. [Atribuir diretamente utilizadores específicos ao pacote de acesso](entitlement-management-access-package-assignments.md#directly-assign-a-user)
 
 ## <a name="assignments-and-reports"></a>Atribuições e relatórios

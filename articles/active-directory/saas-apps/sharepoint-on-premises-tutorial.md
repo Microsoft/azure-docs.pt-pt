@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/15/2020
-ms.author: miguego
-ms.openlocfilehash: 996668751ee93d14b18e399035fd345f32c58fbe
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.date: 09/10/2020
+ms.author: jeedes
+ms.openlocfilehash: a3a5834cd63351b9bf61dc97c8d6e14d430b6284
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88552178"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979701"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-sharepoint-on-premises"></a>Tutorial: Azure Ative Directory integração única com SharePoint no local
 
@@ -25,8 +25,6 @@ Neste tutorial, aprende-se a integrar o SharePoint no local com o Azure Ative Di
 * Controle quem tem acesso ao SharePoint no local em Azure AD.
 * Permitir que os seus utilizadores sejam automaticamente inscritos no SharePoint no local com as suas contas AD Azure.
 * Gerencie as suas contas no portal Azure.
-
-Para saber mais sobre software como integração de aplicações de serviço (SaaS) com Azure AD, veja o que é o acesso à [aplicação e um único acesso com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,7 +43,7 @@ Para configurar a integração do SharePoint no local no AD Azure, é necessári
 
 Para adicionar SharePoint no local da galeria:
 
-1. No [portal Azure,](https://portal.azure.com)no painel mais à esquerda, selecione **Azure Ative Directory**.
+1. No portal Azure, no painel mais à esquerda, selecione **Azure Ative Directory**.
 
    > [!NOTE]
    > Se o elemento não estiver disponível, também pode abri-lo através da ligação **todos os serviços** na parte superior do painel mais à esquerda. Na seguinte visão geral, o link **Azure Ative Directory** está localizado na secção **Identidade.** Também pode pesquisar utilizando a caixa de filtros.
@@ -72,7 +70,7 @@ Nesta secção, configura a Azure AD SSO com o SharePoint no local. Para que o S
 
 Para configurar e testar o Azure AD SSO com o SharePoint no local, complete estes blocos de construção:
 
-- [Configurar o Azure AD um único sinal para](#configure-azure-ad-single-sign-on) permitir que os seus utilizadores utilizem esta funcionalidade.
+- [Configure Azure AD SSO](#configure-azure-ad-sso) para permitir que os seus utilizadores utilizem esta funcionalidade.
 - [Configure o SharePoint no local](#configure-sharepoint-on-premises) para configurar as definições SSO no lado da aplicação.
 - Crie um utilizador de [teste AZure AD no portal Azure](#create-an-azure-ad-test-user-in-the-azure-portal) para criar um novo utilizador em AZure AD para SSO.
 - [Crie um grupo de segurança Azure AD no portal Azure](#create-an-azure-ad-security-group-in-the-azure-portal) para criar um novo grupo de segurança em Azure AD para SSO.
@@ -81,13 +79,13 @@ Para configurar e testar o Azure AD SSO com o SharePoint no local, complete este
 - [Conceder acesso a uma conta de hóspedes ao SharePoint no local no portal Azure](#grant-access-to-a-guest-account-to-sharepoint-on-premises-in-the-azure-portal) para dar permissões a uma conta de hóspedes em Azure AD para sharePoint no local.
 - [Configure o fornecedor de identidade fidedigno para várias aplicações web](#configure-the-trusted-identity-provider-for-multiple-web-applications) para usar o mesmo fornecedor de identidade fidedigno para várias aplicações web.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Nesta secção, você ativa Azure AD SSO no portal Azure.
 
 Para configurar a Azure AD SSO com o SharePoint no local:
 
-1. No [portal Azure,](https://portal.azure.com/)selecione **aplicações Azure Ative Directory**  >  **Enterprise**. Selecione o nome de aplicação da empresa previamente criado e selecione **Single sign-on**.
+1. No portal Azure, selecione aplicações **Azure Ative Directory**  >  **Enterprise**. Selecione o nome de aplicação da empresa previamente criado e selecione **Single sign-on**.
 
 1. Na caixa de diálogo **de método de inscrição única,** selecione o modo **SAML** para ativar o SSO.
  
@@ -205,7 +203,7 @@ Para corrigir este cenário com o picker de pessoas, uma solução de código ab
   > [!NOTE]
   > Sem o AzureCP, pode adicionar grupos adicionando o ID do grupo AZure, mas este método não é fácil e fiável para o utilizador. É o que parece:
   > 
-  >![Adicione um grupo AD Azure a um grupo SharePoint](./media/sharepoint-on-premises-tutorial/adding-group-by-id.png)
+  >![Adicione um grupo AD AZure a um grupo SharePoint por ID](./media/sharepoint-on-premises-tutorial/adding-group-by-id.png)
   
 ### <a name="grant-permissions-to-an-azure-ad-group-in-sharepoint-on-premises"></a>Conceder permissões a um grupo AZure AD no SharePoint no local
 
@@ -244,7 +242,7 @@ Pode conceder acesso ao seu site SharePoint a uma conta de hóspedes de forma co
 
 1. Altere a propriedade **Source Attribute** para o valor **user.localuserprincipalname**, e selecione **Save**.
 
-    ![Atributos de utilizador & Reclamações iniciais](./media/sharepoint-on-premises-tutorial/manage-claim.png)
+    ![Atributos do utilizador & Reclama o atributo inicial de origem](./media/sharepoint-on-premises-tutorial/manage-claim.png)
 
 1. Utilizando a fita, volte ao **Sign-on baseado em SAML**. Agora a secção **"Atributos & Reclamações** do Utilizador é assim: 
 
@@ -287,9 +285,6 @@ A configuração funciona para uma única aplicação web, mas é necessária um
 
 Pode ter outros cenários em que pretende dar acesso ao seu SharePoint no local para os seus utilizadores internos. Para este cenário, tem de implementar o Microsoft Azure Ative Directory Connect para permitir sincronizar os seus utilizadores no local com a Azure AD. Esta configuração é discutida noutro artigo.
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-- [O que é a identidade híbrida com o Azure Ative Directory?](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
+Uma vez configurar o SharePoint no local, pode impor o Controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)

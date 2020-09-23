@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: 9b8d7f241f79b087f318c9c416dcadf92838b084
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 894fc4066ad408f0749e7a982011d82b205e6fec
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85126217"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901349"
 ---
 # <a name="security-alerts-schemas"></a>Esquemas de alerta de segurança
 
-Os utilizadores do nível padrão do Azure Security Center recebem alertas de segurança quando o Centro de Segurança deteta ameaças aos seus recursos.
+Se a sua subscrição tiver o Azure Defender ativado, receberá alertas de segurança quando o Centro de Segurança detetar ameaças aos seus recursos.
 
 Pode ver estes alertas de segurança nas páginas de **Proteção** de Ameaças do Centro de Segurança Azure ou através de ferramentas externas como:
 
@@ -153,7 +153,7 @@ Pode ver os eventos de alerta de segurança no Registo de Atividades, procurando
 |**nível**|Constante, "Informacional"|
 |**operationId**|Ver correlationId|
 |**operaçãoName**|O campo de valor é constante - "Microsoft.Security/locations/alerts/activate/action", e o valor localizado será "Alert Ativado" (pode potencialmente ser localizado em par do local do utilizador)|
-|**resourceGroupName**|Incluirá o nome do grupo de recursos|
+|**nome do Grupo de Recursos**|Incluirá o nome do grupo de recursos|
 |**nome de recursoProviderName**|Os subcampos de valor e de valor localizados são constantes - "Microsoft.Security"|
 |**RecursosType**|Os subcampos de valor e de valor localizados são constantes - "Microsoft.Security/locations/alerts"|
 |**recursosId**|O ID de recurso Azure totalmente qualificado|
@@ -178,7 +178,7 @@ O esquema e uma representação JSON para alertas de segurança enviados para o 
 ---
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo descreveu os esquemas que as ferramentas de proteção de ameaças do Azure Security Center usam ao enviar informações de alerta de segurança.
 

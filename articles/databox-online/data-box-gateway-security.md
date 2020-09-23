@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 2711160534270f38845ab7b48234f4a441c236b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 45506b87bf13b44e035655dbdf0fac03ea50612c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195876"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893867"
 ---
 # <a name="azure-data-box-gateway-security-and-data-protection"></a>Segurança e proteção de dados da Caixa de Dados Azure
 
@@ -38,7 +38,7 @@ O serviço Data Box Gateway é um serviço de gestão que está hospedado no Azu
 
 O dispositivo Data Box Gateway é um dispositivo virtual que está previsto no hipervisor de um sistema no local que fornece. O dispositivo ajuda a enviar dados para o Azure. O seu dispositivo:
 
-- Precisa de uma chave de ativação para aceder ao serviço Azure Stack Edge/Data Box Gateway.
+- Precisa de uma chave de ativação para aceder ao serviço Azure Stack Edge Pro/Data Box Gateway.
 - Está sempre protegido por uma palavra-passe do dispositivo.
 <!---  secure boot enabled.
 - Runs Windows Defender Device Guard. Device Guard allows you to run only trusted applications that you define in your code integrity policies.-->
@@ -98,6 +98,6 @@ Para ver a lista de utilizadores que podem aceder ou apagar uma partilha, siga o
 
 Para mais informações, reveja a política de privacidade da Microsoft no [Trust Center.](https://www.microsoft.com/trustcenter)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Implemente o seu dispositivo Data Box Gateway](data-box-gateway-deploy-prep.md)

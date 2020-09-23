@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: d3937eaa5017ed66641d886ecd45e812f7070b83
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: 91094879de1e1762f95d35e22c1ea441e211b99e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566289"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979688"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Mover um espaço de trabalho Log Analytics para diferentes grupos de subscrição ou recursos
 
@@ -96,7 +96,7 @@ Utilize o seguinte procedimento para mover o seu espaço de trabalho utilizando 
 4. Selecione um grupo **de subscrição** e **recursos de**destino. Se estiver a mover o espaço de trabalho para outro grupo de recursos na mesma subscrição, não verá a opção **Subscrição.**
 5. Clique **em OK** para mover o espaço de trabalho e os recursos selecionados.
 
-    ![Portal](media/move-workspace/portal.png)
+    ![O Screenshot mostra o painel de visão geral no espaço de trabalho do Log Analytics com opções para alterar o grupo de recursos e o nome da subscrição.](media/move-workspace/portal.png)
 
 ### <a name="powershell"></a>PowerShell
 Para mover o seu espaço de trabalho utilizando o PowerShell, utilize o [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) como no exemplo seguinte:

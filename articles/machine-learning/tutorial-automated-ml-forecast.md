@@ -10,12 +10,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
-ms.openlocfilehash: bbd6f2021a20ff488402bb9d1367feb57c34f582
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6ad3e0f3077e6f65642496d4da097fa713bddd53
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90896684"
+ms.locfileid: "90979076"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Previsão da procura com aprendizagem automática de máquinas
 
@@ -236,7 +236,7 @@ Consulte este artigo para ver como criar um esquema suportado por Power BI para 
 + Saiba mais sobre [aprendizagem automática de máquinas.](concept-automated-ml.md)
 + Para obter mais informações sobre métricas e gráficos de classificação, consulte o artigo [de resultados automatizados de machine learning da Máquina.](how-to-understand-automated-ml.md#classification)
 + Saiba mais sobre [a exibição.](how-to-configure-auto-features.md#featurization)
-+ Saiba mais sobre [perfis de dados.](how-to-use-automated-ml-for-ml-models.md#profile)
++ Saiba mais sobre [perfis de dados.](how-to-connect-data-ui.md#profile)
 
 >[!NOTE]
 > Este conjunto de dados de partilha de bicicletas foi modificado para este tutorial. Este conjunto de dados foi disponibilizado como parte de um [concurso kaggle](https://www.kaggle.com/c/bike-sharing-demand/data) e estava originalmente disponível via [Capital Bikeshare.](https://www.capitalbikeshare.com/system-data) Também pode ser encontrado dentro da [Base de Dados de Aprendizagem automática da UCI.](http://archive.ics.uci.edu/ml/datasets/Bike+Sharing+Dataset)<br><br>

@@ -3,12 +3,12 @@ title: Configure Monitor Azure para contentores Integração Prometheus / Micros
 description: Este artigo descreve como pode configurar o Monitor Azure para o agente de contentores raspar métricas de Prometeu com o seu cluster Kubernetes.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 8c83d962a31150b31f5883150a2f7bd8d4b49183
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: f5a9b364bc3e51307bd44d8338485f482bda6e1e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069429"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971362"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Configurar a apresentação de métricas Prometheus com o Azure Monitor para contentores
 
@@ -24,7 +24,7 @@ ms.locfileid: "90069429"
 
 A raspagem das métricas de Prometeu é suportada com clusters Kubernetes hospedados em:
 
-- Serviço de Kubernetes do Azure (AKS)
+- Azure Kubernetes Service (AKS)
 - Pilha Azure ou no local
 - Azure Red Hat OpenShift versão 3.x
 - Azure Red Hat OpenShift e Red Hat OpenShift versão 4.x
@@ -47,17 +47,17 @@ Quando um URL é especificado, o Monitor Azure para recipientes apenas raspa o p
 |Âmbito | Chave | Tipo de dados | Valor | Descrição |
 |------|-----|-----------|-------|-------------|
 | Em todo o agrupamento | | | | Especifique qualquer um dos três métodos seguintes para raspar pontos finais para métricas. |
-| | `urls` | String | Matriz separada por vírgula | Ponto final HTTP (endereço IP ou caminho URL válido especificado). Por exemplo: `urls=[$NODE_IP/metrics]`. ($NODE_IP é um Azure Monitor específico para parâmetros de contentores e pode ser utilizado em vez de um endereço IP de nó. Deve ser tudo maiúscula.) |
-| | `kubernetes_services` | String | Matriz separada por vírgula | Uma série de serviços kubernetes para raspar métricas de kube-state-metrics. Por exemplo, `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `urls` | Cadeia | Matriz separada por vírgula | Ponto final HTTP (endereço IP ou caminho URL válido especificado). Por exemplo: `urls=[$NODE_IP/metrics]`. ($NODE_IP é um Azure Monitor específico para parâmetros de contentores e pode ser utilizado em vez de um endereço IP de nó. Deve ser tudo maiúscula.) |
+| | `kubernetes_services` | Cadeia | Matriz separada por vírgula | Uma série de serviços kubernetes para raspar métricas de kube-state-metrics. Por exemplo, `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
 | | `monitor_kubernetes_pods` | Booleano | true ou false | Quando definido `true` para as configurações de todo o cluster, o Azure Monitor para o agente de contentores raspará as cápsulas kubernetes em todo o cluster para as seguintes anotações prometeu:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Booleano | true ou false | Permite raspar a cápsula. `monitor_kubernetes_pods` deve ser definido para `true` . |
-| | `prometheus.io/scheme` | String | http ou https | Predefinições para raspar em HTTP. Se necessário, dedão `https` . | 
-| | `prometheus.io/path` | String | Matriz separada por vírgula | O caminho de recurso HTTP para obter métricas de. Se o caminho das métricas não `/metrics` for, defina-o com esta anotação. |
-| | `prometheus.io/port` | String | 9102 | Especifique uma porta para raspar. Se a porta não estiver definida, ficará em incumprimento para o 9102. |
-| | `monitor_kubernetes_pods_namespaces` | String | Matriz separada por vírgula | Uma lista de espaços de nome para raspar métricas de kubernetes pods.<br> Por exemplo, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
-| Node-wide | `urls` | String | Matriz separada por vírgula | Ponto final HTTP (endereço IP ou caminho URL válido especificado). Por exemplo: `urls=[$NODE_IP/metrics]`. ($NODE_IP é um Azure Monitor específico para parâmetros de contentores e pode ser utilizado em vez de um endereço IP de nó. Deve ser tudo maiúscula.) |
-| Node-wide ou Cluster-wide | `interval` | String | Anos 60 | O intervalo de recolha é de um minuto (60 segundos). Pode modificar a coleção para as unidade *prometheus_data_collection_settings* *prometheus_data_collection_settingss* de tempo como s, m, h. |
-| Node-wide ou Cluster-wide | `fieldpass`<br> `fielddrop`| String | Matriz separada por vírgula | Pode especificar determinadas métricas a serem recolhidas ou não a partir do ponto final, definindo a listagem de permitir ( `fieldpass` ) e não permitir ( `fielddrop` ). Tem de definir a lista de autorizações primeiro. |
+| | `prometheus.io/scheme` | Cadeia | http ou https | Predefinições para raspar em HTTP. Se necessário, dedão `https` . | 
+| | `prometheus.io/path` | Cadeia | Matriz separada por vírgula | O caminho de recurso HTTP para obter métricas de. Se o caminho das métricas não `/metrics` for, defina-o com esta anotação. |
+| | `prometheus.io/port` | Cadeia | 9102 | Especifique uma porta para raspar. Se a porta não estiver definida, ficará em incumprimento para o 9102. |
+| | `monitor_kubernetes_pods_namespaces` | Cadeia | Matriz separada por vírgula | Uma lista de espaços de nome para raspar métricas de kubernetes pods.<br> Por exemplo, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
+| Node-wide | `urls` | Cadeia | Matriz separada por vírgula | Ponto final HTTP (endereço IP ou caminho URL válido especificado). Por exemplo: `urls=[$NODE_IP/metrics]`. ($NODE_IP é um Azure Monitor específico para parâmetros de contentores e pode ser utilizado em vez de um endereço IP de nó. Deve ser tudo maiúscula.) |
+| Node-wide ou Cluster-wide | `interval` | Cadeia | Anos 60 | O intervalo de recolha é de um minuto (60 segundos). Pode modificar a coleção para as unidade *prometheus_data_collection_settings* *prometheus_data_collection_settingss* de tempo como s, m, h. |
+| Node-wide ou Cluster-wide | `fieldpass`<br> `fielddrop`| Cadeia | Matriz separada por vírgula | Pode especificar determinadas métricas a serem recolhidas ou não a partir do ponto final, definindo a listagem de permitir ( `fieldpass` ) e não permitir ( `fielddrop` ). Tem de definir a lista de autorizações primeiro. |
 
 ConfigMaps é uma lista global e pode haver apenas um ConfigMap aplicado ao agente. Não pode ter outro ConfigMaps a anular as coleções.
 
@@ -65,7 +65,7 @@ ConfigMaps é uma lista global e pode haver apenas um ConfigMap aplicado ao agen
 
 Execute os seguintes passos para configurar o seu ficheiro de configuração ConfigMap para os seguintes clusters:
 
-* Serviço de Kubernetes do Azure (AKS)
+* Azure Kubernetes Service (AKS)
 * Pilha Azure ou no local
 * Azure Red Hat OpenShift versão 4.x e Red Hat OpenShift versão 4.x
 
@@ -278,7 +278,7 @@ Se já implementou um ConfigMap para o seu cluster e pretende atualizá-lo com u
 
 Para os seguintes ambientes Kubernetes:
 
-- Serviço de Kubernetes do Azure (AKS)
+- Azure Kubernetes Service (AKS)
 - Pilha Azure ou no local
 - Azure Red Hat OpenShift e Red Hat OpenShift versão 4.x
 
@@ -347,7 +347,7 @@ InsightsMetrics
 
 A saída apresentará resultados semelhantes aos seguintes:
 
-![Resultados da consulta de registo do volume de ingestão de dados](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
+![A screenshot mostra os resultados da consulta de registo do volume de ingestão de dados](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
 
 Para estimar qual o tamanho de cada métrica em GB é por um mês para entender se o volume de dados ingeridos recebidos no espaço de trabalho é elevado, é fornecida a seguinte consulta.
 

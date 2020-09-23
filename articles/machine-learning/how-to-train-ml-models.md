@@ -11,15 +11,15 @@ ms.reviewer: sgilley
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 69987210d69855b0fcaa676e406ec6a1c02a4d85
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 2b944f6207ecc47df4176a512a900e08e6b0d643
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650618"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885945"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Modelos de trem com Azure Machine Learning usando estimador
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Com a Azure Machine Learning, pode facilmente submeter o seu script de treino a [vários alvos de computação,](how-to-set-up-training-targets.md)utilizando um [objeto RunConfiguration](how-to-set-up-training-targets.md#whats-a-run-configuration) e um [objeto ScriptRunConfig](how-to-set-up-training-targets.md#submit). Este padrão dá-lhe muita flexibilidade e controlo máximo.
 
@@ -150,7 +150,7 @@ Para cadernos sobre modelos de formação utilizando estimativas específicas de
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Métricas de corrida de pista durante o treino](how-to-track-experiments.md)
 * [Preparar modelos de PyTorch](how-to-train-pytorch.md)

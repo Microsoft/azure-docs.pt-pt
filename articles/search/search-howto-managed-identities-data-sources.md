@@ -1,25 +1,22 @@
 ---
-title: Criar uma ligação a uma fonte de dados utilizando uma identidade gerida (pré-visualização)
+title: Criar uma ligação a uma fonte de dados usando uma identidade gerida
 titleSuffix: Azure Cognitive Search
-description: Saiba como configurar uma ligação indexante a uma fonte de dados utilizando uma identidade gerida (pré-visualização)
+description: Saiba como configurar uma ligação indexante a uma fonte de dados utilizando uma identidade gerida
 manager: luisca
 author: markheff
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: d303de23a04d183d0ca280c3b3591299d883adf7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: a057c0d35a465447cc0be99b574ffeebb671115a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936593"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971547"
 ---
-# <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity-preview"></a>Configurar uma ligação indexante a uma fonte de dados utilizando uma identidade gerida (pré-visualização)
-
-> [!IMPORTANT] 
-> O suporte para a criação de uma ligação a uma fonte de dados utilizando uma identidade gerida encontra-se atualmente em visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção.
+# <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>Configurar uma ligação indexante a uma fonte de dados utilizando uma identidade gerida
 
 Um [indexante](search-indexer-overview.md) em Azure Cognitive Search é um crawler que fornece uma maneira de extrair dados da sua fonte de dados para a Pesquisa Cognitiva Azure. Um indexante obtém uma ligação de fonte de dados a partir do objeto de origem de dados que cria. O objeto de origem de dados geralmente inclui credenciais para a fonte de dados-alvo. Por exemplo, o objeto de origem de dados pode incluir uma chave de conta de armazenamento Azure se quiser indexar dados a partir de um recipiente de armazenamento de bolhas.
 

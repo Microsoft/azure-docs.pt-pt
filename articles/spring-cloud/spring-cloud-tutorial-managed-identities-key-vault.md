@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: fc803cbe3dd1ec57b6cd286513efe8393a1471e9
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 646b95e7e106b8657f8aeec2426b88cd6da20357
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297132"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885659"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Tutorial: Use uma identidade gerida para ligar o Key Vault a uma aplicação Azure Spring Cloud
+
+**Este artigo aplica-se a:** ✔️ Java
 
 Este artigo mostra-lhe como criar uma identidade gerida para uma aplicação Azure Spring Cloud e usá-la para aceder ao Azure Key Vault.
 
@@ -23,18 +25,18 @@ O Azure Key Vault pode ser usado para armazenar e controlar de forma segura o ac
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Inscreva-se para uma subscrição do Azure](https://azure.microsoft.com/free/)
-* [Instale a versão Azure CLI 2.0.67 ou superior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Instale a versão Azure CLI 2.0.67 ou superior](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
 * [Instalar Maven 3.0 ou superior](https://maven.apache.org/download.cgi)
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
-Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos para conter tanto o Cofre de Chaves como a Nuvem de primavera utilizando o grupo de comando [az criar:](/cli/azure/group?view=azure-cli-latest#az-group-create)
+Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos para conter tanto o Cofre de Chaves como a Nuvem de primavera utilizando o grupo de comando [az criar:](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-create)
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" -l "EastUS"
 ```
 
 ## <a name="set-up-your-key-vault"></a>Configurar o seu Cofre de Chaves
-Para criar um Cofre de Chaves, utilize o teclado de comando [az create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create):
+Para criar um Cofre de Chaves, utilize o teclado de comando [az create](/cli/azure/keyvault?view=azure-cli-latest&preserve-view=true#az-keyvault-create):
 
 > [!Important]
 > Cada Cofre-Chave deve ter um nome único. Substitua <o seu nome de chave-> pelo nome do seu Cofre de Chaves nos seguintes exemplos.
@@ -45,7 +47,7 @@ az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 
 Tome nota da devolvida `vaultUri` , que estará no formato "https://<o seu nome keyvault>.vault.azure.net". Será usado no passo seguinte.
 
-Agora pode colocar um segredo no seu Cofre de Chaves com o conjunto secreto de comando [az keyvault](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set):
+Agora pode colocar um segredo no seu Cofre de Chaves com o conjunto secreto de comando [az keyvault](/cli/azure/keyvault/secret?view=azure-cli-latest&preserve-view=true#az-keyvault-secret-set):
 
 ```azurecli-interactive
 az keyvault secret set --vault-name "<your-keyvault-name>" \
@@ -165,7 +167,7 @@ Esta aplicação terá acesso para obter segredos do Azure Key Vault. Utilize a 
 
 ## <a name="build-sample-spring-boot-app-with-java-sdk"></a>Construa a aplicação De Boot de primavera de amostra com Java SDK
 
-Esta amostra pode definir e obter segredos do Azure Key Vault. A [biblioteca de clientes Azure Key Vault Secret para a Java](https://docs.microsoft.com/java/api/overview/azure/security-keyvault-secrets-readme?view=azure-java-stablelibrary) fornece suporte de autenticação simbólica Azure Ative Directory em todo o Azure SDK. Fornece um conjunto de implementações **TokenCredential** que podem ser usadas para construir clientes Azure SDK para apoiar a autenticação simbólica da AAD.
+Esta amostra pode definir e obter segredos do Azure Key Vault. A [biblioteca de clientes Azure Key Vault Secret para a Java](https://docs.microsoft.com/java/api/overview/azure/security-keyvault-secrets-readme?view=azure-java-stablelibrary&preserve-view=true) fornece suporte de autenticação simbólica Azure Ative Directory em todo o Azure SDK. Fornece um conjunto de implementações **TokenCredential** que podem ser usadas para construir clientes Azure SDK para apoiar a autenticação simbólica da AAD.
 
 A biblioteca de clientes Azure Key Vault Secret permite-lhe armazenar e controlar de forma segura o acesso a fichas, senhas, chaves API e outros segredos. A biblioteca oferece operações para criar, recuperar, atualizar, eliminar, purgar, recuar, restaurar e listar os segredos e as suas versões.
 
@@ -189,7 +191,7 @@ A biblioteca de clientes Azure Key Vault Secret permite-lhe armazenar e controla
     azure.keyvault.uri=https://<your-keyvault-name>.vault.azure.net
     ```
 
-3. Inclua [ManagedIdentityCredentialBuilder](https://docs.microsoft.com/java/api/com.azure.identity.managedidentitycredentialbuilder?view=azure-java-stable) para obter ficha do Azure Ative Directory e [SecretClientBuilder](https://docs.microsoft.com/java/api/com.azure.security.keyvault.secrets.secretclientbuilder?view=azure-java-stable) para definir ou obter segredos do Key Vault no seu código.
+3. Inclua [ManagedIdentityCredentialBuilder](https://docs.microsoft.com/java/api/com.azure.identity.managedidentitycredentialbuilder?view=azure-java-stable&preserve-view=true) para obter ficha do Azure Ative Directory e [SecretClientBuilder](https://docs.microsoft.com/java/api/com.azure.security.keyvault.secrets.secretclientbuilder?view=azure-java-stable&preserve-view=true) para definir ou obter segredos do Key Vault no seu código.
 
     Obtenha o exemplo do [MainController.java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/managed-identity-keyvault/src/main/java/com/microsoft/azure/MainController.java#L28) do projeto de amostra clonada.
 
@@ -231,3 +233,4 @@ A biblioteca de clientes Azure Key Vault Secret permite-lhe armazenar e controla
 * [Como permitir a identidade gerida atribuída pelo sistema para a aplicação Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-howto-enable-system-assigned-managed-identity)
 * [Saiba mais sobre identidades geridas para recursos Azure](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/active-directory/managed-identities-azure-resources/overview.md)
 * [Autenticar nuvem de primavera azure com cofre chave em ações do GitHub](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-github-actions-key-vault)
+

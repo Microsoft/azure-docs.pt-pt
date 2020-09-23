@@ -3,12 +3,12 @@ title: Automatizar processos de Insights de Aplicações Azure utilizando apps l
 description: Saiba como pode automatizar rapidamente processos repetíveis adicionando o conector Application Insights à sua aplicação lógica.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: d023d774c130a9db513fbcf9452b05fa030a967a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f6406c2e6fb933c561a8ae54009499768c81a204
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323201"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970862"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatizar processos de Insights de Aplicações utilizando apps lógicas
 
@@ -36,7 +36,7 @@ Neste tutorial, aprende-se a criar uma aplicação lógica que utiliza o algorit
 
     ![Janela do Designer de Aplicativos Lógicas](./media/automate-with-logic-apps/2logicappdesigner.png)
 
-1. Na caixa **Interval,** tipo **1** e depois, caixa**de frequência,** selecione **Day**.
+1. Na caixa  **Interval,** tipo **1** e depois, caixa**de frequência,** selecione **Day**.
 
     ![Janela "Recorrência" do Designer de Aplicativos Lógicas](./media/automate-with-logic-apps/3recurrence.png)
 
@@ -53,7 +53,7 @@ Neste tutorial, aprende-se a criar uma aplicação lógica que utiliza o algorit
 
 Para completar este passo, precisa de um ID de aplicação e uma chave API para o seu recurso. Pode recuperá-los do portal Azure, como mostra o seguinte diagrama:
 
-![ID de aplicação no portal Azure](./media/automate-with-logic-apps/5apiaccess.png)
+![O Screenshot mostra a página de Acesso API no portal Azure com o botão de chave Create API selecionado.](./media/automate-with-logic-apps/5apiaccess.png)
 
 ![ID de aplicação no portal Azure](./media/automate-with-logic-apps/6apikey.png)
 
@@ -103,7 +103,7 @@ Quando criar as suas próprias consultas, verifique se estão a funcionar corret
     
    d. Clique na descida do **novo parâmetro Para** baixo e selecione Anexos e É HTML.
 
-      ![Configuração do Office 365 Outlook](./media/automate-with-logic-apps/10emailbody.png)
+      ![Screenshot mostra a janela Enviar uma janela de e-mail com a caixa de corpo realçada e o menu de conteúdo Dinâmico com Corpo realçado no lado direito.](./media/automate-with-logic-apps/10emailbody.png)
 
       ![Configuração do Office 365 Outlook](./media/automate-with-logic-apps/11emailparameter.png)
 

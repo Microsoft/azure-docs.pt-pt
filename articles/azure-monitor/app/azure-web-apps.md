@@ -4,12 +4,12 @@ description: Monitorização do desempenho da aplicação para serviços de apli
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript, devx-track-dotnet
-ms.openlocfilehash: 1e06aacaa12a428b42090ecb8e8ae89ae1e5ad76
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 952cd9669ecc3fb5ff1326d15aef25e1a1524ca5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933805"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979441"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do Serviço de Aplicações do Azure
 
@@ -55,17 +55,17 @@ Existem duas formas de permitir a monitorização de aplicações para os Servi�
 
 2. Depois de especificar que recurso utilizar, pode escolher como pretende que os insights da aplicação recolham dados por plataforma para a sua aplicação. ASP.NET monitorização de aplicações está on-by-default com dois níveis diferentes de recolha.
 
-    ![Escolha opções por plataforma](./media/azure-web-apps/choose-options-new.png)
+    ![O Screenshot mostra a página de extensões do site Application Insights com criar novos recursos selecionados.](./media/azure-web-apps/choose-options-new.png)
  
  Abaixo está um resumo dos dados recolhidos para cada rota:
         
 | Dados | .NET Coleção Básica | .NET Coleção recomendada |
 | --- | --- | --- |
-| Adiciona tendências de utilização da CPU, memória e E/S |Sim |Sim |
-| Recolhe tendências de utilização e permite a correlação dos resultados de disponibilidade para transações | Sim |Sim |
-| Recolhe exceções sem processamento pelo processo anfitrião | Sim |Sim |
-| Melhora a precisão das métricas de APM sob carga, quando é utilizada a amostragem | Sim |Sim |
-| Correlaciona os microsserviços entre limites de pedidos/dependências | Não (apenas capacidades APM de instância única) |Sim |
+| Adiciona tendências de utilização da CPU, memória e E/S |Yes |Yes |
+| Recolhe tendências de utilização e permite a correlação dos resultados de disponibilidade para transações | Yes |Yes |
+| Recolhe exceções sem processamento pelo processo anfitrião | Yes |Yes |
+| Melhora a precisão das métricas de APM sob carga, quando é utilizada a amostragem | Yes |Yes |
+| Correlaciona os microsserviços entre limites de pedidos/dependências | Não (apenas capacidades APM de instância única) |Yes |
 
 3. Para configurar configurações como amostragem, que poderia controlar previamente através do ficheiro applicationinsights.config pode agora interagir com essas mesmas definições através de definições de Aplicação com um prefixo correspondente. 
 
@@ -340,7 +340,7 @@ A partir da versão 2.8.9 é utilizada a extensão do local pré-instalada. Se f
 
 * [Upgrade através do PowerShell:](#enabling-through-powershell)
 
-    1. Defina as definições de aplicação para ativar a extensão do site pré-instalada ApplicationSightsAgent. Ver [Habilitação através da powershell](#enabling-through-powershell).
+    1. Defina as definições de aplicação para ativar a extensão do site pré-instalada ApplicationSightsAgent. Ver [Ativação através do PowerShell](#enabling-through-powershell).
     2. Remova manualmente a extensão do site privado chamada Extensão de Insights de Aplicação para O Serviço de Aplicações Azure.
 
 Se a atualização for feita a partir de uma versão anterior ao 2.5.1, verifique se os dlls ApplicationInsigths são removidos da pasta do caixote do lixo da aplicação [ver etapas de resolução de problemas](#troubleshooting).

@@ -1,6 +1,6 @@
 ---
 title: Encriptação do disco Azure e escala de máquina virtual Azure conjuntos de sequenciação de extensão
-description: Este artigo fornece instruções para permitir a encriptação do disco do Microsoft Azure para Os VMs Linux IaaS.
+description: Neste artigo, saiba como ativar a encriptação do disco do Microsoft Azure para Os VMs do Linux IaaS.
 author: ju-shim
 ms.author: jushiman
 ms.topic: how-to
@@ -9,12 +9,12 @@ ms.subservice: disks
 ms.date: 10/10/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 1c93359486379ecfc8bf6df1f29978ba369f551a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1aff05e51bcbc99f33325efb905ade819ae22e02
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83117262"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988028"
 ---
 # <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>Use encriptação de disco Azure com sequenciação de extensão de conjunto de escala de máquina virtual
 
@@ -158,7 +158,7 @@ Para obter um modelo mais aprofundado, consulte:
 * Aplique a extensão de encriptação do disco Azure após um script de concha personalizado que formata o disco (Linux): [deploy-extseq-linux-ADE-after-customscript.jsem](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre a sequência de extensão: [Provisão de extensão de sequência em conjuntos de escala de máquina virtual](virtual-machine-scale-sets-extension-sequencing.md).
 - Saiba mais sobre a `provisionAfterExtensions` propriedade: [Microsoft.Compute virtualMachineScaleSets/extensions referência do modelo](/azure/templates/microsoft.compute/2018-10-01/virtualmachinescalesets/extensions).
 - [Encriptação do disco Azure para conjuntos de escala de máquinas virtuais](disk-encryption-overview.md)

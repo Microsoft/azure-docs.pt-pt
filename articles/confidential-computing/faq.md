@@ -8,20 +8,20 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: bb821d00a168e3b8f0636b93696376dc8b5d492e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 519b5b669cfc8140b837743d694184a5cb859f20
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83772903"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987996"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Perguntas frequentes para Azure Confidential Computing
 
-Este artigo fornece respostas a algumas das questões mais comuns sobre a [execução de cargas de trabalho confidenciais de computação em Azure](overview.md).
+Este artigo fornece respostas a algumas das questões mais comuns sobre a execução de [cargas de trabalho confidenciais de computação em máquinas virtuais Azure](overview.md).
 
 Se a sua questão Azure não for abordada neste artigo, visite os fóruns Azure sobre [MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Pode publicar o seu problema nestes fóruns ou publicar [ @AzureSupport no Twitter](https://twitter.com/AzureSupport). Também pode submeter um pedido de apoio ao Azure. Para submeter um pedido de apoio, na página de suporte do [Azure,](https://azure.microsoft.com/support/options/)selecione Obter suporte.
 
-## <a name="confidential-computing-virtual-machines"></a>Máquinas virtuais de computação confidencial<a id="vm-faq"></a>
+## <a name="confidential-computing-virtual-machines"></a>Máquinas virtuais de computação confidencial <a id="vm-faq"></a>
 
 **Como posso implantar VMs da série DCsv2 no Azure?**
 
@@ -51,7 +51,7 @@ Certifique-se de ter selecionado uma [região disponível.](https://azure.micros
 
 **Qual é a diferença entre DCsv2-Series e DC-Series VMs?**
 
-Os VMs da Série DC funcionam em processadores Intel de 6 núcleos mais antigos com Intel SGX e têm menos memória total, menos memória de Enclave Page Cache (EPC) e estão disponíveis em apenas duas regiões (EUA Leste e Europa Oeste em tamanhos Standard_DC2s e Standard_DC4s). Não existem planos para disponibilizar estes VM geralmente e não são recomendados para uso de produção. Para implementar estes VMs, utilize a instância [confidencial da Série VM [Preview]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview) Marketplace.
+Os VMs da Série DC funcionam em processadores Intel de 6 núcleos mais antigos com Intel SGX e têm menos memória total, menos memória de Enclave Page Cache (EPC) e estão disponíveis em apenas duas regiões (EUA Leste e Europa Oeste em tamanhos Standard_DC2s e Standard_DC4s). Não existem planos para disponibilizar estes VM geralmente e não são recomendados para uso de produção. Para implementar estes VMs, utilize a instância  [confidencial da Série VM [Preview]](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.confidentialcompute?tab=Overview) Marketplace.
 
 **As máquinas virtuais DCsv2 estão disponíveis globalmente?**
 

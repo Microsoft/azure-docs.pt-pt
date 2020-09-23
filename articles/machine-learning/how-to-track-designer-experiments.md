@@ -1,5 +1,5 @@
 ---
-title: Registar métricas no designer (pré-visualização)
+title: Registar métricas no designer
 titleSuffix: Azure Machine Learning
 description: Monitorize as suas experiências de designers Azure ML. Ativar o registo utilizando o módulo Execut Python Script e ver os resultados registados no estúdio.
 services: machine-learning
@@ -11,15 +11,15 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 20845a6f1238095b40c9b05b5f5d8d85217b6db5
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: bffbf32cf5faa936a00444f1f39facaf226b8ef2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950413"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885974"
 ---
-# <a name="enable-logging-in-azure-machine-learning-designer-preview-pipelines"></a>Permitir o início de sessão em pipelines de designer de machine learning (pré-visualização) do Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="enable-logging-in-azure-machine-learning-designer-pipelines"></a>Permitir o login nos oleodutos de designers de machine learning do Azure
+
 
 Neste artigo, aprende-se a adicionar código de registo aos pipelines de design. Também aprende a visualizar esses registos usando o portal web do estúdio Azure Machine Learning.
 
@@ -78,5 +78,6 @@ Depois de concluído o curso do gasoduto, pode ver o *Mean_Absolute_Error* na p�
 
 Neste artigo, aprendeu a usar registos no designer. Para os próximos passos, consulte estes artigos relacionados:
 
-* Saiba como resolver os oleodutos de designers de resolução de problemas, consulte [debug & os oleodutos ML de resolução de problemas.](how-to-debug-pipelines.md#logging-in-azure-machine-learning-designer-preview)
+
+* Saiba como resolver os oleodutos de designers de resolução de problemas, consulte [debug & os oleodutos ML de resolução de problemas.](how-to-debug-pipelines.md#azure-machine-learning-designer)
 * Aprenda a utilizar o Python SDK para registar métricas na experiência de autoria SDK, consulte [Enable logging in Azure ML training runs](how-to-track-experiments.md).

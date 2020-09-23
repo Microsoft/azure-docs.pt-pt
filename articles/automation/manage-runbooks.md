@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 62b60afb7dc4adb70a0963984ee7848ab056e823
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 023864e23c0cd23df0de603e76acac651bd2458e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447833"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987577"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerir livros de execução na Azure Automation
 
@@ -268,7 +268,7 @@ Publish-AzAutomationRunbook -AutomationAccountName $automationAccountName `
 -Name $runbookName -ResourceGroupName $RGName
 ```
 
-## <a name="schedule-a-runbook-in-the-azure-portal"></a>Agende um livro de corridas no portal Azure
+## <a name="schedule-a-runbook-in-the-azure-portal"></a>Agendar um runbook no portal do Azure
 
 Quando o seu livro de bordo tiver sido publicado, pode agendar para operação:
 
@@ -293,7 +293,7 @@ O resumo apresenta uma contagem e representação gráfica do estado de trabalho
 
 Clicar no azulejo apresenta a página Jobs, que inclui uma lista resumida de todos os trabalhos executados. Esta página mostra o estado, nome do livro, hora de início e tempo de conclusão para cada trabalho.
 
-![Página de empregos de conta de automação](./media/manage-runbooks/automation-account-jobs-status-blade.png)
+:::image type="content" source="./media/manage-runbooks/automation-account-jobs-status-blade.png" alt-text="Screenshot da página Jobs.":::
 
 Pode filtrar a lista de empregos selecionando **trabalhos de filtragem**. Filtrar num livro de bordo específico, estado de trabalho ou uma escolha da lista de abandono e fornecer o intervalo de tempo para a pesquisa.
 
@@ -301,7 +301,7 @@ Pode filtrar a lista de empregos selecionando **trabalhos de filtragem**. Filtra
 
 Em alternativa, pode visualizar os dados do resumo do trabalho para um livro de contas específico selecionando o livro de recortes da página Runbooks na sua conta Demômes automática e, em seguida, selecionando **Jobs**. Esta ação apresenta a página Jobs. A partir daqui, pode clicar num registo de trabalho para ver os seus detalhes e saída.
 
-![Página de empregos de conta de automação](./media/manage-runbooks/automation-runbook-job-summary-blade.png)
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Screenshot da página Jobs com o botão Errors realçado.":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Recuperar o estatuto de trabalho usando o PowerShell
 
