@@ -1,7 +1,7 @@
 ---
-title: Docker puxar para o recipiente de deteção de linguagem
+title: Docker puxa para o recipiente de deteção de linguagem
 titleSuffix: Azure Cognitive Services
-description: Docker puxar comando para recipiente de deteção de linguagem
+description: Docker puxa o comando para o recipiente de deteção de linguagem
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,19 +9,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 3444d6267c09056697abf8339cc688a606b6dc17
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 95bcb4b424010f63ac1ee4eb02f9e4793647051a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877104"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906091"
 ---
-#### <a name="docker-pull-for-the-language-detection-container"></a>Docker puxar para o recipiente de deteção de linguagem
+#### <a name="docker-pull-for-the-language-detection-container"></a>Docker puxa para o recipiente de deteção de linguagem
 
-Utilize [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) o comando para descarregar uma imagem de contentor do Registo de Contentores da Microsoft.
+Utilize o [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando para descarregar uma imagem de contentor do Registo de Contentores da Microsoft.
 
-Para obter uma descrição completa das etiquetas disponíveis para os recipientes Text Analytics, consulte o recipiente de deteção de [idiomas](https://go.microsoft.com/fwlink/?linkid=2018759) no Centro de Docker.
+Para obter uma descrição completa das etiquetas disponíveis para os recipientes Text Analytics, consulte o recipiente [de deteção de idiomas](https://go.microsoft.com/fwlink/?linkid=2018759) no Estivador.
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/language:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/language:latest
 ```

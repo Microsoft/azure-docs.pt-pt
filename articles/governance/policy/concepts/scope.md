@@ -3,12 +3,12 @@ title: Compreender o âmbito na Política Azure
 description: Descreve o conceito de âmbito no Azure Resource Manager e como se aplica à Azure Policy para controlar quais os recursos que a Azure Policy avalia.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: dee5d2bdbcb5aa86e293652af3bc5008f56b7877
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 83eda330a35b007abfa37046a202b14728726849
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940148"
+ms.locfileid: "90984439"
 ---
 # <a name="understand-scope-in-azure-policy"></a>Compreender o âmbito na Política Azure
 
@@ -34,6 +34,8 @@ Uma atribuição tem várias propriedades que definem um âmbito. A utilização
 - Inclusão - Uma hierarquia de recursos ou recurso individual deve ser avaliado para o cumprimento por definição. A `properties.scope` propriedade em um objeto de atribuição determina o que incluir e avaliar para conformidade. Para obter mais informações, consulte [a definição de Atribuição.](./assignment-structure.md)
 
 - Exclusão - Uma hierarquia de recursos ou recurso individual não deve ser avaliada para o cumprimento pela definição. A propriedade `properties.notScopes` _de matriz_ em um objeto de atribuição determina o que excluir. Os recursos dentro destes âmbitos não são avaliados ou incluídos na contagem de conformidade. Para obter mais informações, consulte [a definição de atribuição - âmbitos excluídos](./assignment-structure.md#excluded-scopes).
+
+Além dos imóveis na atribuição de políticas, é o objeto [de isenção de política.](./exemption-structure.md) As isenções melhoram a história do âmbito, fornecendo um método para identificar uma parte de uma atribuição a não ser avaliada.
 
 - Isenção **(grátis em recurso de pré-visualização)** - Uma hierarquia de recursos ou recurso individual deve ser avaliada para o cumprimento por definição, mas não será avaliada por uma razão como ter uma renúncia ou ser atenuada através de outro método. Os recursos neste estado mostram-se **isentos** nos relatórios de conformidade para que possam ser rastreados. O objeto de isenção é criado na hierarquia de recursos ou recurso individual como objeto infantil, que determina o âmbito da isenção. Uma hierarquia de recursos ou recurso individual pode ser isenta de múltiplas atribuições. A isenção pode ser configurada para expirar em um horário através da utilização do `expiresOn` imóvel. Para mais informações, consulte [a definição de Isenção.](./exemption-structure.md)
 

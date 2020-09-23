@@ -3,14 +3,14 @@ title: Visão geral da Azure Automation Update Management
 description: Este artigo fornece uma visão geral da funcionalidade de Gestão de Atualização que implementa atualizações para as suas máquinas Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 09/11/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ab2c584b1e62ac8296c4e9489a72489cd815fc3c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 4a753cd139db9dec23c82346704382979aeaa0de
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089858"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976987"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
@@ -30,6 +30,8 @@ Um [modelo de Gestor de Recursos Azure](update-mgmt-enable-template.md) está di
 
 > [!NOTE]
 > Não é possível utilizar uma máquina configurada com a Update Management para executar scripts personalizados da Azure Automation. Esta máquina só pode executar o script de atualização assinado pela Microsoft.
+
+Para descarregar e instalar *patches* de *Segurança* e Crítica disponíveis automaticamente no seu Azure VM, reveja o patch [de hóspedes VM automático](../../virtual-machines/windows/automatic-vm-guest-patching.md) para VMs windows.
 
 ## <a name="about-update-management"></a>Sobre a Gestão de Atualizações
 
@@ -82,7 +84,7 @@ A tabela que se segue lista os sistemas operativos suportados para avaliações 
 |Windows Server 2008 R2 (RTM e SP1 Standard)| A Atualização Gestão suporta avaliações e remendos para este sistema operativo. O [Trabalhador de Runbook Híbrido](../automation-windows-hrw-install.md) é suportado para o Windows Server 2008 R2. |
 |CentOS 6 (x86/x64) e 7 (x64)      | Os agentes linux requerem acesso a um repositório de atualização. O patching baseado na classificação requer `yum` a devolução de dados de segurança que o CentOS não tem nas suas versões RTM. Para obter mais informações sobre patching baseado na classificação no CentOS, consulte [as classificações de Atualização no Linux](update-mgmt-view-update-assessments.md#linux).          |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Os agentes linux requerem acesso a um repositório de atualização.        |
-|SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Os agentes linux requerem acesso a um repositório de atualização.        |
+|SUSE Linux Enterprise Server 12 (x64)     | Os agentes linux requerem acesso a um repositório de atualização.        |
 |Ubuntu 14.04 LTS, 16.04 LTS e 18.04 (x86/x64)      |Os agentes linux requerem acesso a um repositório de atualização.         |
 
 > [!NOTE]
@@ -162,11 +164,11 @@ Para obter mais informações sobre atualizações de pacotes de gestão, consul
 
 A tabela a seguir descreve as fontes ligadas que a Atualização de Gestão suporta:
 
-| Origem ligada | Suportado | Description |
+| Origem ligada | Suportado | Descrição |
 | --- | --- | --- |
-| Agentes do Windows |Sim |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
-| Agentes do Linux |Sim |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
-| Grupo de gestão do Operations Manager |Sim |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
+| Agentes do Windows |Yes |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
+| Agentes do Linux |Yes |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
+| Grupo de gestão do Operations Manager |Yes |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 
@@ -234,7 +236,7 @@ Para o Linux, a Update Management pode distinguir entre atualizações críticas
 sudo yum -q --security check-update
 ```
 
-Não existe atualmente um método suportado para permitir a disponibilidade de dados de classificação nativa no CentOS. Neste momento, apenas é prestado um suporte de melhor esforço aos clientes que possam ter ativado esta funcionalidade por si só.
+Não existe atualmente um método suportado para permitir a disponibilidade de dados de classificação nativa no CentOS. Neste momento, é prestado suporte limitado aos clientes que possam ter ativado esta funcionalidade por conta própria.
 
 Para classificar as atualizações na versão 6 da Red Hat Enterprise, é necessário instalar o plugin de segurança yum. No Red Hat Enterprise Linux 7, o plugin já faz parte do próprio yum e não há necessidade de instalar nada. Para mais informações, consulte o seguinte artigo de [conhecimento](https://access.redhat.com/solutions/10021)da Red Hat .
 

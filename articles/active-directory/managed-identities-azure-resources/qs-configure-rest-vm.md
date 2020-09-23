@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59f60a0167e7ac09b1fdfee87cc8412cdbe19053
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 1b9d7ad93c287aa9313658ec6b8d5df9f2219f27
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255975"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968854"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configure identidades geridas para recursos Azure em um VM Azure usando chamadas REST API
 
@@ -37,11 +37,9 @@ Neste artigo, utilizando o CURL para fazer chamadas para o ponto final do Azure 
 
 - Se não está familiarizado com as identidades geridas para os recursos da Azure, consulte a [secção de visão geral.](overview.md) **Certifique-se de rever a [diferença entre uma identidade gerida atribuída ao sistema e atribuída ao utilizador](overview.md#managed-identity-types)**.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Se estiver a utilizar o Windows, instale o [Subsistema Windows para o Linux](/windows/wsl/about) ou utilize o [Azure Cloud Shell](../../cloud-shell/overview.md) no portal Azure.
-- [Instale a consola local Azure CLI,](/cli/azure/install-azure-cli)se utilizar o [Subsistema Windows para Linux](/windows/wsl/about) ou um [SISTEMA de distribuição Linux](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
-- Se estiver a utilizar a consola local Azure CLI, inscreva-se no Azure utilizando `az login` uma conta associada à subscrição Azure que gostaria de gerir o sistema ou identidades geridas atribuídas pelo utilizador.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+- Pode executar todos os comandos deste artigo na nuvem ou localmente:
+    - Para correr na nuvem, use a [Azure Cloud Shell](../../cloud-shell/overview.md).
+    - Para executar localmente, instale o [curl](https://curl.haxx.se/download.html) e o [Azure CLI,](/cli/azure/install-azure-cli)em seguida, inicie sessão no [Azure](/cli/azure/reference-index#az-login) usando o login az com uma conta que está associada à subscrição Azure que gostaria de gerir o sistema ou identidades geridas atribuídas pelo utilizador.
 
 ## <a name="system-assigned-managed-identity"></a>Identidade gerida atribuída pelo sistema
 

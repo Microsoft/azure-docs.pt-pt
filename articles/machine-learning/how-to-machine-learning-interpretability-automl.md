@@ -10,16 +10,16 @@ ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 921132947fbf52fbd187941b96d8b75197763387
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 7cb40df6a4619e11694e65020bfcb560cf695795
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419117"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897451"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interpretação: explicações de modelos em machine learning automatizado (pré-visualização)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, aprende-se a obter explicações para o machine learning automatizado (ML) em Azure Machine Learning. O ML automatizado ajuda-o a compreender a importância do recurso projetado. 
 
@@ -221,6 +221,6 @@ Pode visualizar o gráfico de importância de recurso no seu espaço de trabalho
 
 [![Arquitetura de Interpretação de Aprendizagem Automática](./media/how-to-machine-learning-interpretability-automl/automl-explainability.png)](./media/how-to-machine-learning-interpretability-automl/automl-explainability.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre como pode permitir explicações de modelos e destacar importância em áreas do Azure Machine Learning SDK que não seja o machine learning automatizado, consulte o [artigo de conceito sobre interpretação.](how-to-machine-learning-interpretability.md)

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 03/04/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c00c723c23e2f0d962009d33a6abe1008c734a5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 312ca5f693c42d70ecb5e210ef0d30df5c9739bb
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266277"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968712"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema de uma VM do Linux para aceder ao Armazenamento do Azure
 
@@ -45,7 +45,7 @@ Se ainda não tiver uma, irá agora criar uma conta de armazenamento.  Também p
 3. Introduza um **Nome** para a conta de armazenamento, que utilizará mais tarde.  
 4. O **Modelo de implementação** e o **Tipo de conta** devem ser definidos como "Gestor de recursos" e "Fins gerais", respetivamente. 
 5. Certifique-se de que a **Subscrição** e o **Grupo de Recursos** correspondem aos perfis que especificou quando criou a VM no passo anterior.
-6. Clique em **Criar**.
+6. Clique em **Create** (Criar).
 
     ![Criar nova conta de armazenamento](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
@@ -130,7 +130,7 @@ echo "This is a test file." > test.txt
 Em seguida, autentique com o comando `az storage` da CLI, utilizando a chave de acesso ao armazenamento, e carregue o ficheiro para o contentor de blobs. Para este passo, precisará de [instalar a CLI do Azure mais recente](/cli/azure/install-azure-cli) na sua VM, se ainda não o tiver feito.
  
 
-```azurecli-interactive
+```azurecli
 az storage blob upload -c <CONTAINER NAME> -n test.txt -f test.txt --account-name <STORAGE ACCOUNT NAME> --account-key <STORAGE ACCOUNT KEY>
 ```
 
@@ -148,7 +148,7 @@ Além disso, pode transferir o ficheiro com a CLI do Azure e autenticar com a ch
 
 Pedido: 
 
-```azurecli-interactive
+```azurecli
 az storage blob download -c <CONTAINER NAME> -n test.txt -f test-download.txt --account-name <STORAGE ACCOUNT NAME> --account-key <STORAGE ACCOUNT KEY>
 ```
 

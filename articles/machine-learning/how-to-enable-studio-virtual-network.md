@@ -11,15 +11,14 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: c897cb513745669523daea0a850e20715de4676b
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5dce7cde3c46fbcf3f764819f730f42cace4a74c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89665214"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897542"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Use o estúdio Azure Machine Learning numa rede virtual Azure
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, aprende-se a usar o estúdio Azure Machine Learning numa rede virtual. Saiba como:
 
@@ -137,7 +136,7 @@ Também pode sobrepor a datastore predefinido numa base por módulo. Isto dá-lh
 1. Selecione **definições de saída de conjunto**.
 1. Especifique uma nova loja de dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo é uma parte opcional de uma série de rede virtual de quatro partes. Veja o resto dos artigos para aprender a proteger uma rede virtual:
 

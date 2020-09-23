@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/06/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ae2da130f61d31db4904ed2dd5ac18444929950
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: b66567275bf2c7454a2d4bb87dcd4c14bb1fb9b4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177504"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969293"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>Atribuir um acesso de identidade gerido a um recurso utilizando o PowerShell
 
@@ -34,20 +34,17 @@ Uma vez configurado um recurso Azure com uma identidade gerida, pode dar à iden
 
 - Se não está familiarizado com as identidades geridas para os recursos da Azure, consulte a [secção de visão geral.](overview.md) **Certifique-se de rever a [diferença entre uma identidade gerida atribuída ao sistema e atribuída ao utilizador](overview.md#managed-identity-types)**.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Instale [a versão mais recente do Azure PowerShell](/powershell/azure/install-az-ps) se ainda não o fez.
+- Para executar os scripts de exemplo, tem duas opções:
+    - Utilize o [Azure Cloud Shell,](../../cloud-shell/overview.md)que pode abrir utilizando o botão **Try It** no canto superior direito dos blocos de código.
+    - Executar scripts localmente instalando a versão mais recente do [Azure PowerShell,](/powershell/azure/install-az-ps)em seguida, inscreva-se no Azure usando `Connect-AzAccount` . 
 
 ## <a name="use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Use o Azure RBAC para atribuir um acesso de identidade gerido a outro recurso
 
-Depois de ter ativado a identidade gerida num recurso Azure, [como um Azure VM:](qs-configure-powershell-windows-vm.md)
+1. Ativar a identidade gerida num recurso Azure, [como um Azure VM](qs-configure-powershell-windows-vm.md).
 
-1. Inscreva-se no Azure com o `Connect-AzAccount` cmdlet. Utilize uma conta associada à subscrição Azure sob a qual configuraste a identidade gerida:
+1. Neste exemplo, estamos a dar um acesso Azure VM a uma conta de armazenamento. Primeiro [usamos o Get-AzVM](/powershell/module/az.compute/get-azvm) para obter o principal de serviço para o VM nomeado `myVM` , que foi criado quando permitimos a identidade gerida. Em seguida, utilize [a assinatura da New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) para dar ao **Leitor** VM acesso a uma conta de armazenamento chamada `myStorageAcct` :
 
-   ```powershell
-   Connect-AzAccount
-   ```
-2. Neste exemplo, estamos a dar um acesso Azure VM a uma conta de armazenamento. Primeiro [usamos o Get-AzVM](/powershell/module/az.compute/get-azvm) para obter o principal de serviço para o VM nomeado `myVM` , que foi criado quando permitimos a identidade gerida. Em seguida, utilize [a assinatura da New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment) para dar ao **Leitor** VM acesso a uma conta de armazenamento chamada `myStorageAcct` :
-
-    ```powershell
+    ```azurepowershell-interactive
     $spID = (Get-AzVM -ResourceGroupName myRG -Name myVM).identity.principalid
     New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
     ```
