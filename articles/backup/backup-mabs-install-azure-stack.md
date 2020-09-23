@@ -3,12 +3,12 @@ title: Instalar Azure Backup Server no Azure Stack
 description: Neste artigo, aprenda a usar o Azure Backup Server para proteger ou fazer backup de cargas de trabalho em Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: a95ee42c3229e642bd48b812eb6bc01636af3ba2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7153e2ff03a4f78ee1cc92ca04054fb2955d11a5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018132"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970237"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Azure Backup Server no Azure Stack
 
@@ -107,7 +107,7 @@ Junte sempre o Servidor de Backup Azure a um domínio. Se precisar de mover o Az
 
 ### <a name="set-storage-replication"></a>Definir Replicação de Armazenamento
 
-A opção de replicação do armazenamento do cofre dos Serviços de Recuperação permite-lhe escolher entre armazenamento geo-redundante e armazenamento localmente redundante. Por padrão, os cofres dos Serviços de Recuperação utilizam armazenamento geo-redundante. Se este cofre for o seu cofre primário, deixe a opção de armazenamento definida para armazenamento geo-redundante. Escolha o armazenamento localmente redundante se quiser uma opção mais barata que seja menos durável. Leia mais sobre opções de armazenamento [geo-redundantes](../storage/common/storage-redundancy.md) e [localmente redundantes](../storage/common/storage-redundancy.md) na visão geral da [replicação do Azure Storage](../storage/common/storage-redundancy.md).
+A opção de replicação do armazenamento do cofre dos Serviços de Recuperação permite-lhe escolher entre armazenamento geo-redundante e armazenamento localmente redundante. Por padrão, os cofres dos Serviços de Recuperação utilizam armazenamento geo-redundante. Se este cofre for o seu cofre primário, deixe a opção de armazenamento definida para armazenamento geo-redundante. Escolha o armazenamento localmente redundante se quiser uma opção mais barata que seja menos durável. Leia mais sobre opções de armazenamento [geo-redundantes,](../storage/common/storage-redundancy.md#geo-redundant-storage) [localmente redundantes](../storage/common/storage-redundancy.md#locally-redundant-storage)e [redundantes](../storage/common/storage-redundancy.md#zone-redundant-storage) na visão geral da replicação do [Azure Storage](../storage/common/storage-redundancy.md).
 
 Para editar a definição de replicação de armazenamento:
 
@@ -129,7 +129,7 @@ Existem duas formas de descarregar o instalador do Azure Backup Server. Pode des
 
     ![Serviços de recuperação de tipo em todos os diálogos de serviços](./media/backup-mabs-install-azure-stack/all-services.png)
 
-    A lista de cofres dos Serviços de Recuperação na subscrição aparece.
+    É apresentada a lista dos cofres dos Serviços de Recuperação na subscrição.
 
 4. A partir da lista de cofres dos Serviços de Recuperação, selecione o seu cofre para abrir o painel de instrumentos.
 
@@ -243,7 +243,7 @@ O Azure Backup Server partilha código com o Gestor de Proteção de Dados. Ver�
 
     ![Fornecer localização para a instalação de ficheiros](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    A localização do risco é necessária para voltar a Azure. Certifique-se de que o tamanho da localização do risco equivale a pelo menos 5% dos dados previstos para serem apoiados até ao Azure. Para a proteção do disco, os discos separados devem ser configurados uma vez concluída a instalação. Para obter mais informações sobre piscinas de armazenamento, consulte [Prepare o armazenamento de dados.](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019)
+    A localização do risco é necessária para voltar a Azure. Certifique-se de que o tamanho da localização do risco equivale a pelo menos 5% dos dados previstos para serem apoiados até ao Azure. Para a proteção do disco, os discos separados devem ser configurados uma vez concluída a instalação. Para obter mais informações sobre piscinas de armazenamento, consulte [Prepare o armazenamento de dados.](/system-center/dpm/plan-long-and-short-term-data-storage)
 
 6. No ecrã **Definições de Segurança,** forneça uma palavra-passe forte para contas de utilizador locais restritas e selecione **Next**.
 
@@ -326,10 +326,10 @@ Assim que conhecer o estado da conectividade Azure e da subscrição do Azure, p
 
 | Estado de Conectividade | Subscrição do Azure | Criar uma cópia de segurança no Azure | Voltar ao disco | Restauro de Azure | Restaurar a partir do disco |
 | --- | --- | --- | --- | --- | --- |
-| Ligada |Ativo |Permitido |Permitido |Permitido |Permitido |
+| Ligada |Ativa |Permitido |Permitido |Permitido |Permitido |
 | Ligada |Fora do prazo |Parada |Parada |Permitido |Permitido |
 | Ligada |Desprovisionado |Parada |Parada |Pontos de recuperação parados e Azure eliminados |Parada |
-| Conectividade perdida > 15 dias |Ativo |Parada |Parada |Permitido |Permitido |
+| Conectividade perdida > 15 dias |Ativa |Parada |Parada |Permitido |Permitido |
 | Conectividade perdida > 15 dias |Fora do prazo |Parada |Parada |Permitido |Permitido |
 | Conectividade perdida > 15 dias |Desprovisionado |Parada |Parada |Pontos de recuperação parados e Azure eliminados |Parada |
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: b9cbb873066131264732d6f46320461bae8c3188
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: a9fe083818c5850ad05556b18911c19fe19e0e72
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84981766"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987396"
 ---
 # <a name="privacy-guidelines-for-voice-assistants-on-windows"></a>Diretrizes de privacidade para assistentes de voz no Windows
 
@@ -31,7 +31,7 @@ Os desenvolvedores que criam assistentes de voz no Windows devem incluir element
 Os utilizadores do Windows podem ver e controlar a disponibilidade das suas aplicações assistentes em **`Settings > Privacy > Voice activation`** .
 
  > [!div class="mx-imgBorder"]
- > [![listagem de aplicações de privacidade](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png "Uma entrada de definição de privacidade de ativação por voz do Windows para uma aplicação de assistente")](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png#lightbox)
+ > [![Screenshot mostra opções para controlar a availablidade de Cortana. ](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png "Uma entrada de definição de privacidade de ativação por voz do Windows para uma aplicação de assistente")](media/voice-assistants/windows_voice_assistant/privacy-app-listing.png#lightbox)
 
 Para se tornar elegível para inclusão nesta lista, contacte a Microsoft winvoiceassistants@microsoft.com para começar. Por predefinição, os utilizadores terão de ativar explicitamente a ativação de voz para um novo assistente em **`Settings > Privacy > Voice Activation`** , a qual uma aplicação pode ligar-se a `ms-settings:privacy-voiceactivation` . Uma aplicação permitida aparecerá na lista uma vez executada e utilizada as `Windows.ApplicationModel.ConversationalAgent` APIs. As suas definições de ativação de voz serão modificáveis assim que a aplicação tiver obtido o consentimento do microfone do utilizador.
 

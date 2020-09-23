@@ -11,12 +11,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: carlrab
 ms.date: 09/02/2020
-ms.openlocfilehash: 22a9bec09652b6cbce02fe5a54a319694aaa6911
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 46fa489c5a72c3de923f5281cc9be205925dd42d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421310"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988101"
 ---
 # <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Acelere a análise de big data em tempo real usando o conector Spark
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,7 +51,7 @@ O fluxo de dados é o seguinte:
 
 O diagrama seguinte ilustra o fluxo de dados.
 
-   ![arquitetura](./media/spark-connector/architecture.png)
+   ![O diagrama mostra o fluxo descrito, com um nó principal ligado diretamente à base de dados e ligando-se a três nós operários, que se ligam à base de dados.](./media/spark-connector/architecture.png)
 
 ### <a name="build-the-spark-connector"></a>Construa o conector Spark
 
@@ -231,7 +231,7 @@ df.bulkCopyToSqlDB(bulkCopyConfig, bulkCopyMetadata)
 //df.bulkCopyToSqlDB(bulkCopyConfig) if no metadata is specified.
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda não o fez, descarregue o conector Spark do [repositório GitHub de azure-sqldb-spark](https://github.com/Azure/azure-sqldb-spark) e explore os recursos adicionais no repo:
 

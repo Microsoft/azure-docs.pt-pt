@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 88425e2c875b3cce7c63cd66fd034e5a7af56ec7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b5ccd1281e50ca10b8edd7d7567a000b97107901
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117037"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907426"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Utilize o portal Azure para configurar alertas em métricas para a Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 
@@ -35,19 +35,19 @@ Pode configurar e obter informações sobre as regras de alerta utilizando:
 
 2. Na secção **de monitorização** da barra lateral, selecione **Alertas** como mostrado:
 
-   ![Selecione Regras de Alerta](./media/howto-hyperscale-alert-on-metric/2-alert-rules.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/2-alert-rules.png" alt-text="Selecione Regras de Alerta":::
 
 3. Selecione **Nova regra de alerta** (+ ícone).
 
 4. A página **de regras Create** abre conforme mostrado abaixo. Preencha as informações necessárias:
 
-   ![Adicione formulário de alerta métrico](./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="Adicione formulário de alerta métrico":::
 
 5. Dentro da secção **Condição,** **selecione Adicionar**.
 
 6. Selecione uma métrica da lista de sinais a serem alertados. Neste exemplo, selecione "Storage percent".
    
-   ![Selecionar métrica](./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="Selecionar métrica":::
 
 7. Configure a lógica de alerta:
 
@@ -58,13 +58,13 @@ Pode configurar e obter informações sobre as regras de alerta utilizando:
    
    Selecione **Fazer** quando concluído.
 
-   ![Selecionar métrica](./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="Selecionar métrica":::
 
 8. Na secção **Grupos de Ação,** selecione **Criar Novo** para criar um novo grupo para receber notificações no alerta.
 
 9. Preencha o formulário "Adicionar grupo de ação" com um nome, nome curto, subscrição e grupo de recursos.
 
-    ![Grupo de ações](./media/howto-hyperscale-alert-on-metric/9-add-action-group.png)
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="Grupo de ações":::
 
 10. Configure um tipo de ação **por E-mail/SMS/Push/Voice.**
     
@@ -72,11 +72,11 @@ Pode configurar e obter informações sobre as regras de alerta utilizando:
    
     Selecione **OK** quando concluído.
 
-    ![Grupo de ações](./media/howto-hyperscale-alert-on-metric/10-action-group-type.png)
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="Grupo de ações":::
 
 11. Especifique um nome de regra de alerta, descrição e severidade.
 
-    ![Grupo de ações](./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png) 
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="Grupo de ações"::: 
 
 12. Selecione **Criar a regra de alerta** para criar o alerta.
 
@@ -108,6 +108,6 @@ Recomendamos a definição de alertas de espaço em cada nó em cada grupo de se
 
 A monitorização da utilização do CPU é útil para estabelecer uma linha de base para o desempenho. Por exemplo, pode notar que o uso do CPU é geralmente de cerca de 40-60%. Se o uso do CPU começar subitamente a pairar cerca de 95%, pode reconhecer uma anomalia. O uso do CPU pode refletir o crescimento orgânico, mas também pode revelar uma consulta desviada. Ao criar um alerta de CPU, deslovide uma granularidade de agregação longa para capturar aumentos prolongados e ignorar picos momentâneos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [configurar webhooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
 * Obtenha uma [visão geral da recolha de métricas](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para se certificar de que o seu serviço está disponível e responsivo.

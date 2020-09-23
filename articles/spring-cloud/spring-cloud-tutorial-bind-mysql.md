@@ -7,14 +7,16 @@ ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 0287bc8a11c359acce5fbf12d3a51e99a9f5420e
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 5ca8f2b003b7f2142da329a07f929ecf31fee627
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297149"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908256"
 ---
 # <a name="bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Ligue uma base de dados Azure para a sua aplicação Azure Spring Cloud 
+
+**Este artigo aplica-se a:** ✔️ Java
 
 Com a Azure Spring Cloud, pode ligar os serviços Azure às suas aplicações automaticamente, em vez de ter de configurar manualmente a sua aplicação Boot Spring Boot. Este artigo mostra-lhe como ligar a sua aplicação à sua Base de Dados Azure para o caso MySQL.
 
@@ -60,6 +62,6 @@ Se não tiver uma instância Azure Spring Cloud implantada, siga as instruções
     spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a ligar uma aplicação Azure Spring Cloud a uma Base de Dados Azure para o caso MySQL. Para saber mais sobre serviços vinculativos a uma aplicação, consulte [uma base de dados DB da Azure Cosmos para uma aplicação Azure Spring Cloud](spring-cloud-tutorial-bind-cosmos.md).

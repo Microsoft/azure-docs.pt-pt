@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 09/11/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: visão computacional, aplicações de visão computacional, serviço de visão computacional
-ms.openlocfilehash: f613080ec24fdfc4c739d4d0494aa2f3c36705cd
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: fa00265f3c591578f9970b77770fbf7290d87510
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89323272"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907067"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
@@ -92,7 +92,11 @@ Pode utilizar a Visão De Computador para [detetar conteúdo adulto](concept-det
 
 ## <a name="use-containers"></a>Utilizar contentores
 
-[Utilize recipientes de Visão de Computador](computer-vision-how-to-install-containers.md) para reconhecer texto impresso e manuscrito localmente, instalando um recipiente estivador normalizado mais próximo dos seus dados.
+Utilize recipientes Do Docker de visão de computador para utilizar o serviço no local. Atualmente existem dois contentores disponíveis:
+
+* O [recipiente de leitura de Visão de Computador](computer-vision-how-to-install-containers.md) permite-lhe reconhecer texto impresso e manuscrito em imagens.
+
+* O [recipiente de análise espacial Computer Vision](spatial-analysis-container.md) permite-lhe analisar vídeos de streaming em tempo real para entender as relações espaciais entre as pessoas e o seu movimento através de ambientes físicos.
 
 ## <a name="image-requirements"></a>Requisitos de imagem
 
@@ -107,7 +111,7 @@ A Imagem Digitalizada pode analisar imagens que cumprem os requisitos seguintes:
 
 Tal como acontece com todos os Serviços Cognitivos, os desenvolvedores que usam o serviço de Visão de Computador devem estar cientes das políticas da Microsoft sobre os dados dos clientes. Consulte a [página de Serviços Cognitivos](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) no Microsoft Trust Center para saber mais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Começa com a Visão de Computador seguindo um guia de arranque rápido:
 

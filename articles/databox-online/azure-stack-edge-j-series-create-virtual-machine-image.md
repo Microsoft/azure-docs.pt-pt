@@ -1,6 +1,6 @@
 ---
-title: Crie imagens VM para o seu dispositivo GPU Azure Stack Edge
-description: Descreve como criar imagens linux ou Windows VM para usar com o seu dispositivo GPU Azure Stack Edge.
+title: Crie imagens VM para o seu dispositivo GPU Azure Stack Edge Pro
+description: Descreve como criar imagens linux ou Windows VM para usar com o seu dispositivo GPU Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,24 +8,24 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: alkohli
-ms.openlocfilehash: fd87cbef4c667d9da1f93b448a2a67e6e90307b7
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 745d0df07b6d0d01acf0d564df8c242e16f3f56d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500288"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890994"
 ---
-# <a name="create-custom-vm-images-for-your-azure-stack-edge-device"></a>Crie imagens VM personalizadas para o seu dispositivo Azure Stack Edge
+# <a name="create-custom-vm-images-for-your-azure-stack-edge-pro-device"></a>Crie imagens VM personalizadas para o seu dispositivo Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Para implementar VMs no seu dispositivo Azure Stack Edge, precisa de ser capaz de criar imagens VM personalizadas que pode utilizar para criar VMs. Este artigo descreve os passos necessários para criar imagens personalizadas do Linux ou Windows VM que pode utilizar para implantar VMs no seu dispositivo Azure Stack Edge.
+Para implementar VMs no seu dispositivo Azure Stack Edge Pro, precisa de ser capaz de criar imagens VM personalizadas que pode utilizar para criar VMs. Este artigo descreve os passos necessários para criar imagens personalizadas do Linux ou Windows VM que pode utilizar para implantar VMs no seu dispositivo Azure Stack Edge Pro.
 
 ## <a name="vm-image-workflow"></a>Fluxo de trabalho de imagem VM
 
-O fluxo de trabalho requer que você crie uma máquina virtual em Azure, personalize o VM, generalize e, em seguida, descarregue o VHD correspondente ao VM. Este VHD generalizado é carregado para Azure Stack Edge, o disco gerido é criado a partir desse VHD, a imagem é criada a partir de disco gerido, e finalmente VMs são criados a partir dessa imagem.   
+O fluxo de trabalho requer que você crie uma máquina virtual em Azure, personalize o VM, generalize e, em seguida, descarregue o VHD correspondente ao VM. Este VHD generalizado é carregado para Azure Stack Edge Pro, o disco gerido é criado a partir desse VHD, a imagem é criada a partir de disco gerido, e finalmente os VMs são criados a partir dessa imagem.   
 
-Para obter mais informações, aceda a [implementar um VM no seu dispositivo Azure Stack Edge utilizando a Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
+Para obter mais informações, aceda a [implementar um VM no seu dispositivo Azure Stack Edge Pro utilizando a Azure PowerShell](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
 
 
 ## <a name="create-a-windows-custom-vm-image"></a>Crie uma imagem VM personalizada do Windows
@@ -44,7 +44,7 @@ Faça os seguintes passos para criar uma imagem VM do Windows.
    
        Também pode consultar a [visão geral do Sysprep (preparação do sistema).](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)
 
-Utilize este VHD para agora criar e implementar um VM no seu dispositivo Azure Stack Edge.
+Utilize este VHD para agora criar e implementar um VM no seu dispositivo Azure Stack Edge Pro.
 
 ## <a name="create-a-linux-custom-vm-image"></a>Crie uma imagem VM personalizada do Linux
 
@@ -69,7 +69,7 @@ Faça os seguintes passos para criar uma imagem Linux VM.
 
 1. [Descarregue o disco DE existente.](../virtual-machines/linux/download-vhd.md)
 
-Utilize este VHD para agora criar e implementar um VM no seu dispositivo Azure Stack Edge. Pode utilizar as seguintes duas imagens do Azure Marketplace para criar imagens personalizadas do Linux:
+Utilize este VHD para agora criar e implementar um VM no seu dispositivo Azure Stack Edge Pro. Pode utilizar as seguintes duas imagens do Azure Marketplace para criar imagens personalizadas do Linux:
 
 |Nome do item  |Descrição  |Publisher  |
 |---------|---------|---------|
@@ -81,4 +81,4 @@ Para obter uma lista completa de imagens do Azure Marketplace que possam funcion
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Coloque VMs no seu dispositivo Azure Stack Edge](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).
+[Coloque VMs no seu dispositivo Azure Stack Edge Pro](azure-stack-edge-j-series-deploy-virtual-machine-powershell.md).

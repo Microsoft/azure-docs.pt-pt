@@ -1,6 +1,6 @@
 ---
-title: Use kubectl para implementar a app stateful da Kubernetes através de uma partilha estática no dispositivo Azure Stack Edge. Microsoft Docs
-description: Descreve como criar e gerir uma implementação de aplicações stateful Kubernetes através de uma partilha estática atada usando kubectl num dispositivo GPU Azure Stack Edge.
+title: Use kubectl para implementar a app stateful da Kubernetes através de uma partilha estática no dispositivo Azure Stack Edge Pro. Microsoft Docs
+description: Descreve como criar e gerir uma implementação de aplicações stateful Kubernetes através de uma partilha estática atada usando kubectl num dispositivo GPU Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/18/2020
 ms.author: alkohli
-ms.openlocfilehash: d9200b66d51292271f546eb111f3355649318b91
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 8366c5b7a05b35891bcf87e446229357a5511359
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462722"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899540"
 ---
-# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-device"></a>Use kubectl para executar uma aplicação stateful Kubernetes com um PersistenteVolume no seu dispositivo Azure Stack Edge
+# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Use kubectl para executar uma aplicação stateful Kubernetes com um PersistenteVolume no seu dispositivo Azure Stack Edge Pro
 
 Este artigo mostra-lhe como implementar uma aplicação stateful de instância única em Kubernetes usando um PersistentVolume (PV) e uma implementação. A implementação utiliza `kubectl` comandos num cluster Kubernetes existente e implementa a aplicação MySQL. 
 
-Este procedimento destina-se a quem tenha revisto o [armazenamento kubernetes no dispositivo Azure Stack Edge](azure-stack-edge-gpu-kubernetes-storage.md) e esteja familiarizado com os conceitos de armazenamento [Kubernetes.](https://kubernetes.io/docs/concepts/storage/)
+Este procedimento destina-se a quem tenha revisto o [armazenamento kubernetes no dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-storage.md) e esteja familiarizado com os conceitos de armazenamento [kubernetes.](https://kubernetes.io/docs/concepts/storage/)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -28,30 +28,30 @@ Antes de poder implementar a aplicação imponente, certifique-se de que complet
 
 ### <a name="for-device"></a>Para o dispositivo
 
-- Tem credenciais de entrada num dispositivo Azure Stack Edge de 1 nó.
+- Tem credenciais de entrada num dispositivo Azure Stack Edge Pro de 1 nó.
     - O dispositivo está ativado. Ver [Ativar o dispositivo](azure-stack-edge-gpu-deploy-activate.md).
     - O dispositivo tem o papel computacional configurado através do portal Azure e tem um cluster Kubernetes. Consulte [o cálculo Configure](azure-stack-edge-gpu-deploy-configure-compute.md).
 
 ### <a name="for-client-accessing-the-device"></a>Para o cliente aceder ao dispositivo
 
-- Tem um sistema de clientes Windows que será utilizado para aceder ao dispositivo Azure Stack Edge.
+- Tem um sistema de clientes Windows que será utilizado para aceder ao dispositivo Azure Stack Edge Pro.
     - O cliente está a executar o Windows PowerShell 5.0 ou mais tarde. Para descarregar a versão mais recente do Windows PowerShell, aceda à [Instalação do Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - Também pode ter qualquer outro cliente com um [sistema operativo suportado.](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) Este artigo descreve o procedimento quando se utiliza um cliente Windows. 
     
-    - Completou o procedimento descrito no [Access the Kubernetes cluster no dispositivo Azure Stack Edge](azure-stack-edge-gpu-create-kubernetes-cluster.md). Tu:
+    - Completou o procedimento descrito no [Access the Kubernetes cluster no dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md). Tu:
       - Criei um `userns1` espaço de nome através do `New-HcsKubernetesNamespace` comando. 
       - Criei um utilizador `user1` através do `New-HcsKubernetesUser` comando. 
       - Concedeu o `user1` acesso `userns1` através do `Grant-HcsKubernetesNamespaceAccess` comando.       
       - Instalado `kubectl` no cliente e guardado o `kubeconfig` ficheiro com a configuração do utilizador para C: \\ Nome de utilizador dos utilizadores \\ &lt; &gt; \\ .kube. 
     
-    - Certifique-se de que a `kubectl` versão do cliente não é distorcida mais do que uma versão da versão master kubernetes em execução no seu dispositivo Azure Stack Edge. 
+    - Certifique-se de que a `kubectl` versão do cliente não é distorcida mais do que uma versão da versão master kubernetes em execução no seu dispositivo Azure Stack Edge Pro. 
         - Utilize `kubectl version` para verificar a versão do kubectl em execução no cliente. Tome nota da versão completa.
-        - Na UI local do seu dispositivo Azure Stack Edge, vá ao **Overview** e note o número de software Kubernetes. 
+        - Na UI local do seu dispositivo Azure Stack Edge Pro, vá ao **Overview** e note o número de software Kubernetes. 
         - Verifique estas duas versões para compatibilidade a partir do mapeamento fornecido na versão Kubernetes Suportada <!-- insert link-->. 
 
 
-Está pronto para implementar uma aplicação imponente no seu dispositivo Azure Stack Edge. 
+Está pronto para implementar uma aplicação imponente no seu dispositivo Azure Stack Edge Pro. 
 
 ## <a name="provision-a-static-pv"></a>Provisionamento de um PV estático
 
@@ -102,7 +102,7 @@ Todos os `kubectl` comandos que utiliza para criar e gerir implementações de a
 
     Esta alegação é satisfeita por qualquer PV existente que tenha sido estaticamente a provisionado quando criou a participação no passo anterior. No seu dispositivo, é criado um grande PV de 32 TB para cada ação. O PV cumpre os requisitos estabelecidos pelo PVC e o PVC deve estar ligado a este PV.
 
-    Copie e guarde o seguinte `mysql-deployment.yml` ficheiro para uma pasta no cliente Windows que está a utilizar para aceder ao dispositivo Azure Stack Edge.
+    Copie e guarde o seguinte `mysql-deployment.yml` ficheiro para uma pasta no cliente Windows que está a utilizar para aceder ao dispositivo Azure Stack Edge Pro.
     
     ```yml
     apiVersion: v1
@@ -352,6 +352,6 @@ O PV já não está ligado ao PVC, uma vez que o PVC foi eliminado. Como o PV fo
     ![Eliminar ações locais para PV](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/delete-edge-local-share-1.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para entender como armazenar dinamicamente, consulte [Implementar uma aplicação imponente através de um provisionamento dinâmico num dispositivo Azure Stack Edge](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md)
+Para entender como obter armazenamento de fornecimento dinâmico, consulte [Implementar uma aplicação imponente através de um provisionamento dinâmico num dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md)

@@ -1,14 +1,14 @@
 ---
 title: Controlos de amostra de amostra de tamanho do DoD Impact Level 4
 description: Controlo do mapeamento da amostra de planta do DoD Impact Level 4. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: a704731f4fe8e810235507fd84c90b17571a8442
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9ee3214f8cdacd1d70a59bc5a23e4638cadb579d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923293"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978412"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Mapeamento de controlo da amostra de planta do DoD Impact Level 4
 
@@ -102,11 +102,11 @@ Este plano fornece definições de política que o ajudam a garantir que as noti
 Os dados de registo recolhidos pelo Azure Monitor são armazenados num espaço de trabalho log Analytics que permite a configuração e gestão centralizadas. Esta planta ajuda-o a garantir que os eventos são registados atribuindo definições [de Política Azure](../../../policy/overview.md) que auditam e impõem a implementação do agente Log Analytics em máquinas virtuais Azure.
 
 - \[Pré-visualização \] : Implementação do agente de análise de registo de auditoria - VM Image (OS) não listado
-- \[Pré-visualização \] : Implementação do agente de análise de registo de auditoria em VMSS - VM Image (OS) não listado
+- Implementação de agente de auditação Log Analytics em conjuntos de escala de máquina virtual - VM Image (OS) não listado
 - \[Pré-visualização \] : Audit Log Analytics Workspace for VM - Report Incompatibilidade
-- \[Pré-visualização \] : Implementar o agente de análise de registo para conjuntos de escalas De VM Linux (VMSS)
+- Implementar o agente Desagregalhador para conjuntos de escala de máquina virtual Linux
 - \[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux
-- \[Pré-visualização \] : Implementar o agente de análise de registo para conjuntos de escala vm do Windows (VMSS)
+- Implementar o agente Desagregalhador para conjuntos de escala de máquina virtual do Windows
 - \[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows
 
 ## <a name="au-5-response-to-audit-processing-failures"></a>Resposta AU-5 às falhas de processamento de auditoria
@@ -123,11 +123,11 @@ Esta planta atribui definições [de Política Azure](../../../policy/overview.m
 Os dados de registo recolhidos pelo Azure Monitor são armazenados num espaço de trabalho do Log Analytics que permite relatórios e análises centralizados. Esta planta ajuda-o a garantir que os eventos são registados atribuindo definições [de Política Azure](../../../policy/overview.md) que auditam e impõem a implementação do agente Log Analytics em máquinas virtuais Azure.
 
 - \[Pré-visualização \] : Implementação do agente de análise de registo de auditoria - VM Image (OS) não listado
-- \[Pré-visualização \] : Implementação do agente de análise de registo de auditoria em VMSS - VM Image (OS) não listado
+- Implementação de agente de auditação Log Analytics em conjuntos de escala de máquina virtual - VM Image (OS) não listado
 - \[Pré-visualização \] : Audit Log Analytics Workspace for VM - Report Incompatibilidade
-- \[Pré-visualização \] : Implementar o agente de análise de registo para conjuntos de escalas De VM Linux (VMSS)
+- Implementar o agente Desagregalhador para conjuntos de escala de máquina virtual Linux
 - \[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux
-- \[Pré-visualização \] : Implementar o agente de análise de registo para conjuntos de escala vm do Windows (VMSS)
+- Implementar o agente Desagregalhador para conjuntos de escala de máquina virtual do Windows
 - \[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows
 
 ## <a name="au-6-5-audit-review-analysis-and-reporting--integration--scanning-and-monitoring-capabilities"></a>AU-6 (5) Análise, Análise e Reporte de Auditoria Capacidades de Integração / Digitalização e Monitorização
@@ -144,7 +144,7 @@ Esta planta fornece definições de política que auditam registos com a anális
 - As vulnerabilidades devem ser remediadas por uma solução de Avaliação de Vulnerabilidades
 - As vulnerabilidades na configuração de segurança nos conjuntos de escala de máquina virtual devem ser remediadas
 - \[Pré-visualização \] : Implementação do agente de análise de registo de auditoria - VM Image (OS) não listado
-- \[Pré-visualização \] : Implementação do agente de análise de registo de auditoria em VMSS - VM Image (OS) não listado
+- Implementação de agente de auditação Log Analytics em conjuntos de escala de máquina virtual - VM Image (OS) não listado
 
 ## <a name="au-12-audit-generation"></a>Geração de auditoria AU-12
 
@@ -152,11 +152,11 @@ Este projeto fornece definições de política que auditam e impõem a implement
 Estas definições de política também auditam a configuração de registos de diagnóstico para fornecer informações sobre operações que são realizadas dentro dos recursos Azure. Além disso, a auditoria e a Segurança Avançada de Dados estão configuradas em servidores SQL.
 
 - \[Pré-visualização \] : Implementação do agente de análise de registo de auditoria - VM Image (OS) não listado
-- \[Pré-visualização \] : Implementação do agente de análise de registo de auditoria em VMSS - VM Image (OS) não listado
+- Implementação de agente de auditação Log Analytics em conjuntos de escala de máquina virtual - VM Image (OS) não listado
 - \[Pré-visualização \] : Audit Log Analytics Workspace for VM - Report Incompatibilidade
-- \[Pré-visualização \] : Implementar o agente de análise de registo para conjuntos de escalas De VM Linux (VMSS)
+- Implementar o agente Desagregalhador para conjuntos de escala de máquina virtual Linux
 - \[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux
-- \[Pré-visualização \] : Implementar o agente de análise de registo para conjuntos de escala vm do Windows (VMSS)
+- Implementar o agente Desagregalhador para conjuntos de escala de máquina virtual do Windows
 - \[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows
 - Definição de diagnóstico de auditoria
 - A auditoria deve ser ativada em definições avançadas de segurança de dados no SQL Server
@@ -336,11 +336,8 @@ Esta planta ajuda-o a gerir falhas no sistema de informação atribuindo defini�
 
 ## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>SI-02 (06) Correção de Falhas Remoção de Versões Anteriores de Software / Firmware
 
-Este projeto atribui definições de política que o ajudam a garantir que as aplicações estão a utilizar a versão mais recente do Quadro .NET, HTTP, Java, PHP, Python e TLS. Esta planta também atribui uma definição de política que garante que os Serviços Kubernetes são atualizados para a sua versão não vulnerável.
+Este projeto atribui definições de política que o ajudam a garantir que as aplicações estão a usar a versão mais recente de HTTP, Java, PHP, Python e TLS. Esta planta também atribui uma definição de política que garante que os Serviços Kubernetes são atualizados para a sua versão não vulnerável.
 
-- Certifique-se de que a versão '.Net Framework' é a mais recente, se usada como parte da aplicação API
-- Certifique-se de que a versão '.Net Framework' é a mais recente, se usada como parte da App de Função
-- Certifique-se de que a versão '.Net Framework' é a mais recente, se usada como parte da aplicação Web
 - Certifique-se de que 'VERSÃO HTTP' é a mais recente, se usada para executar a aplicação Api
 - Certifique-se de que 'versão HTTP' é a mais recente, se usada para executar a aplicação 'Função'
 - Certifique-se de que 'VERSÃO HTTP' é a mais recente, se usada para executar a aplicação Web
@@ -348,7 +345,6 @@ Este projeto atribui definições de política que o ajudam a garantir que as ap
 - Certifique-se de que 'Versão Java' é a mais recente, se usada como parte da aplicação Function
 - Certifique-se de que 'Versão Java' é a mais recente, se usada como parte da aplicação Web
 - Certifique-se de que a 'versão PHP' é a mais recente, se usada como parte da aplicação Api
-- Certifique-se de que a 'versão PHP' é a mais recente, se usada como parte da aplicação Function
 - Certifique-se de que a 'versão PHP' é a mais recente, se usada como parte da aplicação WEB
 - Certifique-se de que 'Python version' é a mais recente, se usada como parte da app Api
 - Certifique-se de que 'Versão Python' é a mais recente, se usada como parte da aplicação Function
@@ -356,7 +352,7 @@ Este projeto atribui definições de política que o ajudam a garantir que as ap
 - A versão TLS mais recente deve ser usada na sua App API
 - A versão TLS mais recente deve ser usada na sua App de Função
 - A versão mais recente do TLS deve ser usada na sua Web App
-- \[Pré-visualização \] : Os serviços da Kubernetes devem ser atualizados para uma versão não vulnerável de Kubernetes
+- Os Serviços Kubernetes devem ser atualizados para uma versão não vulnerável de Kubernetes
 
 ## <a name="si-3-malicious-code-protection"></a>Proteção de código malicioso SI-3
 
@@ -378,11 +374,11 @@ Esta planta ajuda-o a gerir a proteção de pontos finais, incluindo a proteçã
 Esta planta ajuda-o a monitorizar o seu sistema auditando e aplicando a segurança de registo e dados através dos recursos da Azure. Especificamente, as políticas atribuídas à auditoria e aplicação do agente Log Analytics, e a definições de segurança reforçadas para bases de dados SQL, contas de armazenamento e recursos de rede. Estas capacidades podem ajudá-lo a detetar comportamentos anómalos e indicadores de ataques para que possa tomar as medidas adequadas.
 
 - \[Pré-visualização \] : Implementação do agente de análise de registo de auditoria - VM Image (OS) não listado
-- \[Pré-visualização \] : Implementação do agente de análise de registo de auditoria em VMSS - VM Image (OS) não listado
+- Implementação de agente de auditação Log Analytics em conjuntos de escala de máquina virtual - VM Image (OS) não listado
 - \[Pré-visualização \] : Audit Log Analytics Workspace for VM - Report Incompatibilidade
-- \[Pré-visualização \] : Implementar o agente de análise de registo para conjuntos de escalas De VM Linux (VMSS)
+- Implementar o agente Desagregalhador para conjuntos de escala de máquina virtual Linux
 - \[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux
-- \[Pré-visualização \] : Implementar o agente de análise de registo para conjuntos de escala vm do Windows (VMSS)
+- Implementar o agente Desagregalhador para conjuntos de escala de máquina virtual do Windows
 - \[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows
 - A segurança avançada dos dados deve ser ativada nas suas instâncias geridas
 - A segurança avançada dos dados deve ser ativada nos seus servidores SQL

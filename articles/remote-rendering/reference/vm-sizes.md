@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 05/28/2020
 ms.topic: reference
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8843f24f27f8973ad99989f743d1b3fae568679e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b37aabb39e19fa5ec53d2b006a7cbc1793adad72
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997154"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988039"
 ---
 # <a name="server-sizes"></a>Tamanhos de servidor
 
@@ -23,7 +23,7 @@ Renderização remota com `Standard` servidor de tamanho tem um tamanho máximo 
 
 Quando o renderizador ligado num tamanho do servidor 'Standard' atinge esta limitação, muda a renderização para um fundo de tabuleiro de xadrez:
 
-![Tabuleiro de xadrez](media/checkerboard.png)
+![A screenshot mostra uma grelha de quadrados preto e branco com um menu Tools.](media/checkerboard.png)
 
 ## <a name="specify-the-server-size"></a>Especificar o tamanho do servidor
 

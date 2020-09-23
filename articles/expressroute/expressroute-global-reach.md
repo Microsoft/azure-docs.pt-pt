@@ -5,14 +5,15 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/18/2020
 ms.author: duau
-ms.openlocfilehash: 8c6ed19a585bc1ebae65045cd1cc4c442f113597
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.custom: references_regions
+ms.openlocfilehash: e3f9105037c049a53f1b7b99da96dd857070fcc7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651490"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987609"
 ---
 # <a name="expressroute-global-reach"></a>Alcance Global do ExpressRoute
 O ExpressRoute é uma forma privada e resiliente de ligar as suas redes no local à Microsoft Cloud. Pode aceder a muitos serviços na nuvem da Microsoft, como o Azure e o Microsoft 365, a partir do seu centro de dados privado ou da sua rede corporativa. Por exemplo, você pode ter uma sucursal em São Francisco com um circuito ExpressRoute em Silicon Valley e outra filial em Londres com um circuito ExpressRoute na mesma cidade. Ambas as sucursais têm conectividade de alta velocidade com os recursos da Azure nos EUA Oeste e Reino Unido Sul. No entanto, as sucursais não podem ligar-se e enviar dados diretamente uns com os outros. Ou seja, 10.0.1.0/24 pode enviar dados para a rede 10.0.3.0/24 e 10.0.4.0/24, mas NÃO para a rede 10.0.2.0/24.
@@ -29,12 +30,29 @@ O ExpressRoute Global Reach foi concebido para complementar a implementação wa
 ![Diagrama que mostra um caso de uso para Express Route Global Reach.][3]
 
 ## <a name="availability"></a>Disponibilidade 
-O ExpressRoute Global Reach é apoiado na maioria das regiões onde o ExpressRoute é atualmente apoiado. Pode consultar [os fornecedores de conectividade ExpressRoute](expressroute-locations-providers.md#partners) para as regiões suportadas atuais. 
+ExpressRoute Global Reach é suportado nos seguintes lugares. 
 
 > [!NOTE] 
 > Para permitir o ExpressRoute Global Reach entre [diferentes regiões geopolíticas,](expressroute-locations-providers.md#locations)os seus circuitos devem ser **Premium SKU**.
 
-## <a name="next-steps"></a>Próximos passos
+* Austrália
+* Canadá
+* França
+* Alemanha
+* R.A.E. de Hong Kong
+* Irlanda
+* Japão
+* Coreia
+* Países Baixos
+* Nova Zelândia
+* Noruega
+* Singapura
+* Suécia
+* Suíça
+* Reino Unido
+* Estados Unidos da América
+
+## <a name="next-steps"></a>Passos seguintes
 - Ver o [Global Reach FAQ](expressroute-faqs.md#globalreach).
 - Saiba como [ativar](expressroute-howto-set-global-reach.md)o Global Reach .
 - Saiba como [ligar um circuito ExpressRoute à sua rede virtual.](expressroute-howto-linkvnet-arm.md)

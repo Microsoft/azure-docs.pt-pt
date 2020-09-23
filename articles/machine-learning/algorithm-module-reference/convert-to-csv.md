@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: fc2a043e8f1565cf5fe45ba0b072ad015076635e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b7c781717952765941acd4ea4aa47593d4b8a0f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477685"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898798"
 ---
 # <a name="convert-to-csv-module"></a>Converter para módulo CSV
 
-Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
+Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
 Utilize este módulo para converter um conjunto de dados num formato CSV que possa ser descarregado, exportado ou partilhado com módulos de script R ou Python.
 
@@ -52,6 +52,6 @@ Selecione o separador **Saídas** no painel direito de **Converter para CSV**e s
 
  + **Ver saída**: Selecione o ícone do olho e siga as instruções para navegar na pasta **Results_dataset** e descarregue o ficheiro data.csv.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

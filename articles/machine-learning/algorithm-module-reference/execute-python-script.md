@@ -10,16 +10,16 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 330c7e01b33cfdf48687c492d09fb7aab8a5e779
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 3a39b12afb715cf091ff1af1dcc7cc702769bed3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648748"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908016"
 ---
 # <a name="execute-python-script-module"></a>Execute o módulo de script python
 
-Este artigo descreve o módulo executo python script em Azure Machine Learning designer (pré-visualização).
+Este artigo descreve o módulo executo python script em Azure Machine Learning designer.
 
 Use este módulo para executar o código Python. Para obter mais informações sobre os princípios de arquitetura e design de Python, veja [como executar o código Python em Azure Machine Learning designer.](../how-to-designer-python.md)
 
@@ -266,6 +266,6 @@ Os pacotes pré-instalados são:
 -    werkzeug==0.16.1
 -    roda==0.34.2
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

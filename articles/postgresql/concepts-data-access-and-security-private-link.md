@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 773815cd64af2a398001bac91e14cca0b204ca8e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 84c68125ab7e8256b8ca949a0f4b49c5ccd5162f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832075"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884651"
 ---
 # <a name="private-link-for-azure-database-for-postgresql-single-server"></a>Link privado para base de dados de Azure para servidor pós-SQL-Single
 
@@ -22,7 +22,7 @@ Para obter uma lista de serviços PaaS que suportem a funcionalidade Private Lin
 > [!NOTE]
 > A funcionalidade de ligação privada só está disponível para a Base de Dados Azure para servidores PostgreSQL nos níveis de preços otimizados para fins gerais ou memória. Certifique-se de que o servidor de base de dados está num destes níveis de preços.
 
-## <a name="data-exfiltration-prevention"></a>Prevenção de exfiltração de dados
+## <a name="data-exfiltration-prevention"></a>Data exfiltration prevention (Prevenção da transferência de dados não autorizada)
 
 Ex-filtração de dados na Base de Dados Azure para o servidor PostgreSQL Single é quando um utilizador autorizado, como um administrador de base de dados, é capaz de extrair dados de um sistema e movê-lo para outro local ou sistema fora da organização. Por exemplo, o utilizador desloca os dados para uma conta de armazenamento detida por terceiros.
 
@@ -68,25 +68,25 @@ Uma vez que o administrador de rede cria o ponto final privado (PE), o administr
     * Mostra uma lista de todas as ligações privadas de ponto final (PECs)
     * Ponto final privado correspondente (PE) criado
 
-![selecione o portal de ponto final privado](media/concepts-data-access-and-security-private-link/select-private-link-portal.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-portal.png" alt-text="selecione o portal de ponto final privado":::
 
 * Selecione um PEC individual da lista selecionando-o.
 
-![selecione o ponto final privado pendente de aprovação](media/concepts-data-access-and-security-private-link/select-private-link.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="selecione o ponto final privado pendente de aprovação":::
 
 * O administrador do servidor PostgreSQL pode optar por aprovar ou rejeitar um PEC e opcionalmente adicionar uma resposta de texto curta.
 
-![selecione a mensagem de ponto final privado](media/concepts-data-access-and-security-private-link/select-private-link-message.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="selecione a mensagem de ponto final privado":::
 
 * Após aprovação ou rejeição, a lista refletirá o estado apropriado juntamente com o texto de resposta
 
-![selecionar o estado final do ponto final privado](media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="selecionar o estado final do ponto final privado":::
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-postgresql"></a>Utilizar casos de Link Privado para Base de Dados de Azure para PostgreSQL
 
 Os clientes podem ligar-se ao ponto final privado a partir do mesmo VNet, vNet esprevado na mesma região, ou através da ligação VNet-to-VNet entre regiões. Além disso, os clientes podem conectar-se a partir de instalações usando expressRoute, peering privado ou túneis VPN. Abaixo está um diagrama simplificado mostrando os casos de uso comum.
 
-![selecione a visão geral do ponto final privado](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="selecione a visão geral do ponto final privado":::
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Ligação a partir de um Azure VM em Rede Virtual Peered (VNet)
 Configure [VNet olhando](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-powershell) para estabelecer conectividade com a Base de Dados Azure para PostgreSQL - Servidor único de um VM Azure em um VNet esprevado.

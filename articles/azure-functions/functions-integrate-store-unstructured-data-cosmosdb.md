@@ -4,12 +4,12 @@ description: Armazenar dados não estruturados usando as funções do Azure e o 
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: a242f1ffc0a7738ce7cdf33aeeef214fb4f63e61
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 2828bf14b6965e87ef9547020e870333c4e839af
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210874"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987982"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Armazenar dados não estruturados usando as funções do Azure e o Azure Cosmos DB
 
@@ -54,7 +54,7 @@ Tem de ter uma conta do Azure Cosmos DB que utilize a API SQL antes de criar o e
     | **Nome do parâmetro do documento** | taskDocument | Nome que se refere ao objeto do Cosmos DB no código. |
     | **Nome da base de dados** | taskDatabase | Nome da base de dados para guardar os documentos. |
     | **Nome da coleção** | tarefaCollecto | Nome da coleção da base de dados. |
-    | **Se o valor for verdadeiro, cria a coleção e a base de dados do Cosmos DB** | Sim | A coleção ainda não existe, como tal, deve ser criada. |
+    | **Se o valor for verdadeiro, cria a coleção e a base de dados do Cosmos DB** | Yes | A coleção ainda não existe, como tal, deve ser criada. |
     | **Ligação à conta do Cosmos DB** | Nova definição | Selecione **Novo**, em seguida, escolha **Azure Cosmos DB Account** e a **conta Base de Dados** que criou anteriormente e, em seguida, selecione **OK**. Cria uma definição da aplicação para a sua ligação de conta. Esta definição é utilizada pelo enlace para a ligação à base de dados. |
 
 1. Selecione **OK** para criar a ligação.
@@ -143,7 +143,7 @@ Este exemplo de código lê as cadeias de consulta do Pedido de HTTP e atribui-a
 
 1. Selecione **Executar** e verifique se um estado de 200 é devolvido.
 
-    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="Teste a função." border="true":::
+    :::image type="content" source="./media/functions-integrate-store-unstructured-data-cosmosdb/functions-test-function-output.png" alt-text="A screenshot mostra o estado do código de resposta HTTP 200 realçado após a seleção do Run." border="true":::
 
 
 1. No portal Azure, procure e selecione **Azure Cosmos DB**.

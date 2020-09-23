@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 843bb32a4b5b5e29c4ab7c1dc9ff254a8424ae86
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 61b08514f8d2989736ff2505f0446937757ddb99
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118686"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884680"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Criar e gerir a Base de Dados Azure para os pontos finais de serviço MySQL VNet e as regras VNet utilizando o portal Azure
 Os pontos finais e as regras de serviços da Rede Virtual (VNet) expandem o espaço do endereço privado de uma Rede Virtual ao seu servidor da Base de Dados do Azure para MySQL. Para obter uma visão geral da Base de Dados Azure para os pontos finais do serviço MySQL VNet, incluindo limitações, consulte [a Base de Dados Azure para os pontos finais do serviço VNet do MySQL Server](concepts-data-access-and-security-vnet.md). Os pontos finais do serviço VNet estão disponíveis em todas as regiões suportadas para a Base de Dados Azure para o MySQL.
@@ -32,11 +32,11 @@ Os pontos finais e as regras de serviços da Rede Virtual (VNet) expandem o espa
 
 3. Em seguida, clique em **+ Adicionar rede virtual existente.** Se não tiver um VNet existente, pode clicar **+ Criar uma nova rede virtual** para criar uma. Ver [Quickstart: Criar uma rede virtual utilizando o portal Azure](../virtual-network/quick-create-portal.md)
 
-   ![Portal Azure - clique na segurança de conexão](./media/howto-manage-vnet-using-portal/1-connection-security.png)
+   :::image type="content" source="./media/howto-manage-vnet-using-portal/1-connection-security.png" alt-text="Portal Azure - clique na segurança de conexão":::
 
 4. Introduza um nome de regra VNet, selecione a subscrição, o nome da rede virtual e sub-rede e, em seguida, clique em **Enable**. Isto ativa automaticamente os pontos finais do serviço VNet na sub-rede utilizando a etiqueta de serviço **Microsoft.SQL.**
 
-   ![Portal Azure - configurar vNet](./media/howto-manage-vnet-using-portal/2-configure-vnet.png)
+   :::image type="content" source="./media/howto-manage-vnet-using-portal/2-configure-vnet.png" alt-text="Portal Azure - configurar vNet":::
 
    A conta deve ter as permissões necessárias para criar uma rede virtual e o ponto final de serviço.
 
@@ -54,9 +54,9 @@ Os pontos finais e as regras de serviços da Rede Virtual (VNet) expandem o espa
 
 5. Uma vez ativados, clique em **OK** e verá que os pontos finais do serviço VNet estão ativados juntamente com uma regra VNet.
 
-   ![Pontos finais de serviço VNet ativados e regra VNet criada](./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png)
+   :::image type="content" source="./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png" alt-text="Pontos finais de serviço VNet ativados e regra VNet criada":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Da mesma forma, pode escrever para [ativar pontos finais de serviço VNet e criar uma regra VNET para Azure Database for MySQL usando Azure CLI](howto-manage-vnet-using-cli.md).
 - Para obter ajuda na ligação a uma base de dados Azure para servidor MySQL, consulte [as bibliotecas de conexão para a base de dados Azure para o MySQL](./concepts-connection-libraries.md)
 

@@ -1,18 +1,18 @@
 ---
 title: Definições políticas incorporadas para Azure Cosmos DB
 description: Lista definições políticas incorporadas da Azure Policy para Azure Cosmos DB. Estas definições políticas incorporadas fornecem abordagens comuns para gerir os seus recursos Azure.
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.topic: reference
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.custom: subject-policy-reference
-ms.openlocfilehash: e5e48f76e6ea16224dddd9e065a37f79267e5ecd
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 7e74002363ff8b238ca4d2b614901f64656ceae4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004651"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978931"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cosmos-db"></a>Azure Policy definições incorporadas para Azure Cosmos DB
 

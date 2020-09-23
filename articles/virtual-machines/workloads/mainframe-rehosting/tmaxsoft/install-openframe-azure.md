@@ -1,6 +1,6 @@
 ---
 title: Instale o TmaxSoft OpenFrame em máquinas virtuais Azure
-description: Reenquadrem as suas cargas de trabalho de computador principal IBM z/OS utilizando o ambiente TmaxSoft OpenFrame em Máquinas Virtuais Azure (VMs).
+description: Saiba como configurar um ambiente OpenFrame em Azure adequado para desenvolvimento, demonstração, teste ou cargas de trabalho de produção.
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 41b31d5c4a01183d4620dcd6ec6f4729f078d382
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bd5b20d8e713e07b52eb1d6cbc57f01b9e5c1a95
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082397"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987476"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Instalar o TmaxSoft OpenFrame no Azure
 
@@ -430,7 +430,7 @@ Tibero fornece as várias funções-chave no ambiente OpenFrame em Azure:
     ps -ef | egrep tbsvr
     ```
 
-Saída:
+Resultado:
 
 ![Saída tibero](media/tibero-01.png)
 
@@ -460,7 +460,7 @@ Para instalar o ODBC:
 
      Por predefinição, o unixODBC é instalado em /usr /local, por isso `--prefix` passa um valor para alterar a localização. Da mesma forma, os ficheiros de configuração são instalados em /etc por padrão, por isso `--sysconfdir` passa o valor da localização desejada.
 
-4. Executar a fazer o ficheiro:`[oframe7@ofdemo unixODBC-2.3.4]$ make`
+4. Executar a fazer o ficheiro: `[oframe7@ofdemo unixODBC-2.3.4]$ make`
 
 5. Copie o ficheiro executável no diretório do programa após a compilação. Por exemplo:
 
@@ -945,7 +945,7 @@ ProSort é um utilitário utilizado em transações de lotes para triagem de dad
      export PATH
      ```
 
-6. Para executar o perfil de bash, na pronta do comando, escreva:`. .bash_profile`
+6. Para executar o perfil de bash, na pronta do comando, escreva: `. .bash_profile`
 
 7. Crie o ficheiro de configuração. Por exemplo:
 
@@ -1342,7 +1342,7 @@ Antes de instalar o JEUS, instale o pacote Apache Ant, que fornece as biblioteca
      [oframe7\@ofdemo setup]\$ vi domain-config-template.properties
      ```
 
-7. Alterar `jeus.password=jeusadmin nodename=Tmaxsoft` para`jeus.password=tmax1234 nodename=ofdemo`
+7. Alterar `jeus.password=jeusadmin nodename=Tmaxsoft` para `jeus.password=tmax1234 nodename=ofdemo`
 
 8. Execute o `ant install` comando para construir JEUS.
 9.  Atualize o ficheiro de perfil .bash \_ com as variáveis JEUS como mostrado:

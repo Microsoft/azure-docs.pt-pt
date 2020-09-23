@@ -3,12 +3,12 @@ title: Monitorização de Kubernetes com monitor Azure para contentores Microsof
 description: Este artigo descreve como pode ver e analisar o desempenho de um cluster Kubernetes com o Azure Monitor para contentores.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: d8b298208794e4ba562a608f22f4d0a539b81b47
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 888853f0e9e7634cafa5e480752371c501376158
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166642"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988124"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorize o desempenho do cluster Kubernetes com o Azure Monitor para contentores
 
@@ -161,7 +161,7 @@ Os nós virtuais do Azure Container Instances que executam o Sistema Linux SÃO 
 
 A partir de um nó expandido, pode perfurar a partir da cápsula ou do recipiente que corre no nó para o controlador para ver os dados de desempenho filtrados para esse controlador. Selecione o valor sob a coluna **do Controlador** para o nó específico.
 
-![Exemplo de perfuração do nó para o controlador na vista de desempenho](./media/container-insights-analyze/drill-down-node-controller.png)
+![A screenshot mostra a perfuração do nó para o controlador na vista de desempenho](./media/container-insights-analyze/drill-down-node-controller.png)
 
 Selecione controladores ou recipientes no topo da página para rever o estado e a utilização do recurso para esses objetos. Para rever a utilização da memória, na lista **de recuos métricos,** selecione **Memory RSS** ou **Memory working set**. **O Memory RSS** é suportado apenas para a versão 1.8 de Kubernetes e posterior. Caso contrário, você vê valores para ** &nbsp; % Min** como *NaN &nbsp; % *, que é um valor de tipo de dados numérico que representa um valor indefinido ou não representativo.
 
@@ -196,7 +196,7 @@ As informações apresentadas quando vê o **separador Nodes** são descritas na
 | Min &nbsp; %, Avg &nbsp; %, 50º &nbsp; %, 90º &nbsp; %, 95º &nbsp; %, Máx&nbsp;%  | Percentagem média de nó com base no percentil durante a duração selecionada. |
 | Min, Avg, 50º, 90º, 95º, Max | Valor real dos nós médios com base no percentil durante a duração selecionada. O valor médio é medido a partir do limite de CPU/Memória definido para um nó. Para cápsulas e contentores, é o valor médio reportado pelo hospedeiro. |
 | Contentores | Número de contentores. |
-| Uptime | Representa o tempo desde que um nó começou ou foi reiniciado. |
+| Tempo de atividade | Representa o tempo desde que um nó começou ou foi reiniciado. |
 | Controlador | Apenas para contentores e cápsulas. Mostra em que controlador reside. Nem todas as cápsulas estão num controlador, por isso algumas podem apresentar **N/A**. |
 | Tendência Min &nbsp; %, Avg &nbsp; %, 50º &nbsp; %, 90º &nbsp; %, 95º &nbsp; %, Máx&nbsp;% | A tendência do gráfico de barras representa a percentagem média de percentil do controlador. |
 
@@ -240,7 +240,7 @@ As informações apresentadas quando visualizam os controladores são descritas 
 | Min, Avg, 50º, 90º, 95º, Max  | Rollup do miliére cpu médio ou desempenho de memória do recipiente para o percentil selecionado. O valor médio é medido a partir do limite cpu/memória definido para uma vagem. |
 | Contentores | Número total de contentores para o controlador ou vagem. |
 | Reinicia | Rollup da contagem de reinício dos contentores. |
-| Uptime | Representa o tempo desde que um contentor começou. |
+| Tempo de atividade | Representa o tempo desde que um contentor começou. |
 | Nó | Apenas para contentores e cápsulas. Mostra em que controlador reside. |
 | Tendência Min &nbsp; %, Avg &nbsp; %, 50º &nbsp; %, 90º &nbsp; %, 95º &nbsp; %, Máx&nbsp;% | A tendência do gráfico de barras representa a métrica percentil média do controlador. |
 
@@ -278,7 +278,7 @@ A informação apresentada quando vê os recipientes é descrita na tabela segui
 | Vagem | Recipiente onde reside a cápsula.|
 | Nó |  Nó onde o recipiente reside. |
 | Reinicia | Representa o tempo desde que um contentor começou. |
-| Uptime | Representa o tempo desde que um recipiente foi iniciado ou reiniciado. |
+| Tempo de atividade | Representa o tempo desde que um recipiente foi iniciado ou reiniciado. |
 | Tendência Min &nbsp; %, Avg &nbsp; %, 50º &nbsp; %, 90º &nbsp; %, 95º &nbsp; %, Máx&nbsp;% | A tendência do gráfico de barras representa a percentagem média de percentil do recipiente. |
 
 Os ícones no campo de estado indicam os estados on-line das cápsulas, conforme descrito na tabela seguinte.

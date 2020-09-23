@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/10/2020
-ms.openlocfilehash: 5078e625f86affb8d16ffab538d11b839d2d7bda
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e279a7c9f6810ece482b043284f0be0719a3dafe
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965013"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908044"
 ---
 # <a name="edit-metadata-module"></a>Editar módulo de metadados
 
-Este artigo descreve um módulo incluído no designer de Aprendizagem automática Azure (pré-visualização).
+Este artigo descreve um módulo incluído no designer de Aprendizagem automática Azure.
 
 Utilize o módulo editar metadados para alterar metadados associados a colunas num conjunto de dados. O valor e o tipo de dados do conjunto de dados serão alterados após a utilização do módulo de metadados de edição.
 
@@ -97,6 +97,6 @@ As mudanças típicas de metadados podem incluir:
   
 1. Envie o oleoduto.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning.
