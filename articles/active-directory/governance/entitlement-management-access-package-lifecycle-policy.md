@@ -1,6 +1,6 @@
 ---
 title: Alterar as definições do ciclo de vida para um pacote de acesso na gestão de direitos Azure AD - Azure Ative Directory
-description: Saiba como alterar as definições do ciclo de vida para um pacote de acesso na gestão de direitos do Azure Ative Directory.
+description: Saiba como alterar informações de solicitação & definições do ciclo de vida para um pacote de acesso na gestão de direitos do Azure Ative Directory.
 services: active-directory
 documentationCenter: ''
 author: ajburnle
@@ -16,18 +16,21 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c628c3c1f11cb973176e7a689856b64177036c9
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4fd119238476b842a4dba1efeec86544ca263920
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798703"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980140"
 ---
 # <a name="change-lifecycle-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Alterar as definições do ciclo de vida para um pacote de acesso na gestão de direitos Ad Azure
 
 Como gestor de pacotes de acesso, pode alterar as definições do ciclo de vida para um pacote de acesso a qualquer momento, editando uma política existente. Se alterar a data de validade de uma apólice, a data de validade dos pedidos que já se encontram em aprovação pendente ou estado aprovado não será alterada.
 
 Este artigo descreve como alterar as definições do ciclo de vida para um pacote de acesso existente.
+
+## <a name="open-requestor-information"></a>Informações abertas de solicitação
+Para garantir que os utilizadores têm acesso certo a um pacote de acesso, as questões personalizadas podem ser configuradas para pedir aos utilizadores que solicitem acesso a determinados pacotes de acesso. As opções de configuração incluem: localização, localização, obrigatório/opcional, e formatos de resposta de escolha de texto/múltipla. Os solicitadores verão as perguntas quando solicitarem o pacote e os aprovadores vêem as respostas às perguntas para ajudá-los a tomar a sua decisão. Utilize os seguintes passos para configurar questões num pacote de acesso:
 
 ## <a name="open-lifecycle-settings"></a>Definições de ciclo de vida aberto
 

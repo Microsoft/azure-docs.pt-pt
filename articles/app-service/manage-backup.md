@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: b160f0aa50c30f7856bc09b88b3eb305f32d6f98
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 0aa0393544f5744c6aaf428ca4b4c27922a0c287
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961929"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987846"
 ---
 # <a name="back-up-your-app-in-azure"></a>Efetuar cópia de segurança da sua aplicação no Azure
 A funcionalidade de Backup e Restauro no [Azure App Service](overview.md) permite-lhe criar facilmente cópias de segurança de aplicações manualmente ou em horário. Pode configurar as cópias de segurança para serem mantidas até um tempo indefinido. Pode restaurar a aplicação para uma imagem instantânea de um estado anterior, sobressacando a aplicação existente ou restaurando para outra aplicação.
@@ -60,7 +60,7 @@ As seguintes soluções de base de dados são suportadas com recurso de backup:
     > [!NOTE]
     > Se vir a seguinte mensagem, clique nela para atualizar o seu plano de Serviço de Aplicações antes de poder proceder com cópias de segurança.
     > Para obter mais informações, consulte [Scale up uma aplicação em Azure](manage-scale-up.md).
-    > ![Escolha a conta de armazenamento](./media/manage-backup/upgrade-plan.png)
+    > :::image type="content" source="./media/manage-backup/upgrade-plan.png" alt-text="Screenshot de um banner com uma mensagem para atualizar o plano do Serviço de Aplicações para aceder à funcionalidade de Backup e Restaurar.":::
     > 
     > 
 
@@ -70,13 +70,13 @@ As seguintes soluções de base de dados são suportadas com recurso de backup:
 
 3. Na página **de Configuração de Cópia de Segurança,** clique em **Armazenamento não configurado** para configurar uma conta de armazenamento.
 
-    ![Escolha a conta de armazenamento](./media/manage-backup/configure-storage.png)
+    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Screenshot da secção de armazenamento de cópia de segurança com a definição de Armazenamento não configurada selecionada.":::
 
 4. Escolha o seu destino de reserva selecionando uma **Conta de Armazenamento** e Um **Recipiente.** A conta de armazenamento deve pertencer à mesma subscrição que a aplicação que pretende fazer. Se desejar, pode criar uma nova conta de armazenamento ou um novo recipiente nas respetivas páginas. Quando terminar, clique em **Select**.
 
 5. Na página **de Configuração de Cópia de Segurança** que ainda está aberta, pode configurar a Base de **Dados de Backup,** em seguida, selecione as bases de dados que pretende incluir nas cópias de segurança (SQL Database ou MySQL), em seguida, clique em **OK**.
 
-    ![Escolha a conta de armazenamento](./media/manage-backup/configure-database.png)
+    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Screenshot da secção de base de dados de backup mostrando o Incluir na seleção de backup.":::
 
     > [!NOTE]
     > Para que uma base de dados apareça nesta lista, a sua cadeia de ligação deve existir na secção **de cordas de Ligação** da página de definições de **aplicação** para a sua aplicação. 

@@ -1,18 +1,18 @@
 ---
 title: Visão geral do agente Windows da máquina conectada
-description: Este artigo fornece uma visão geral detalhada do agente ativo do Arco Azure (pré-visualização) disponível, que suporta a monitorização de máquinas virtuais hospedadas em ambientes híbridos.
-ms.date: 08/06/2020
+description: Este artigo fornece uma visão detalhada do agente de servidores ativado Azure Arc disponível, que suporta a monitorização de máquinas virtuais hospedadas em ambientes híbridos.
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: d922652537034bef258c5bcde78fb178b092ed16
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 990b5999a8483c6417049ac5ab965843c2b13659
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212988"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908170"
 ---
-# <a name="overview-of-azure-arc-enabled-servers-preview-agent"></a>Visão geral do agente ativado por servidores (pré-visualização) do Azure Arc
+# <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores ativado pelo Azure Arc
 
-O agente de máquinas conectadas Azure Arc (pré-visualização) permite-lhe gerir as suas máquinas Windows e Linux hospedadas fora do Azure na sua rede corporativa ou noutro fornecedor de nuvem. Este artigo fornece uma visão geral detalhada dos requisitos do agente, do sistema e da rede, bem como dos diferentes métodos de implantação.
+O agente Azure Arc ativado por máquinas conectadas permite-lhe gerir as suas máquinas Windows e Linux hospedadas fora do Azure na sua rede corporativa ou noutro fornecedor de nuvem. Este artigo fornece uma visão geral detalhada dos requisitos do agente, do sistema e da rede, bem como dos diferentes métodos de implantação.
 
 ## <a name="agent-component-details"></a>Detalhes do componente do agente
 
@@ -47,15 +47,11 @@ O agente Azure Connected Machine para Windows e Linux pode ser atualizado para a
 As seguintes versões do sistema operativo Windows e Linux são oficialmente suportadas para o agente Azure Connected Machine: 
 
 - Windows Server 2012 R2 e superior (incluindo o Núcleo do Servidor do Windows)
-- Ubuntu 16.04 e 18.04 (x64)
+- Ubuntu 16.04 e 18.04 LTS (x64)
 - CentOS Linux 7 (x64)
 - SUSE Linux Enterprise Server (SLES) 15 (x64)
 - Red Hat Enterprise Linux (RHEL) 7 (x64)
 - Amazon Linux 2 (x64)
-
->[!NOTE]
->Esta versão de pré-visualização do agente 'Máquina Conectada para Windows' suporta apenas o Windows Server configurado para utilizar o idioma inglês.
->
 
 ### <a name="required-permissions"></a>Permissões obrigatórias
 
@@ -65,7 +61,7 @@ As seguintes versões do sistema operativo Windows e Linux são oficialmente sup
 
 ### <a name="azure-subscription-and-service-limits"></a>Limites de subscrição e serviço azure
 
-Antes de configurar as suas máquinas com servidores ativados a Azure Arc (pré-visualização), reveja os [limites](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) de subscrição do Gestor de Recursos Azure e [os limites](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) do grupo de recursos para planear o número de máquinas a serem ligadas.
+Antes de configurar as suas máquinas com servidores ativados pelo Azure Arc, reveja os [limites de subscrição](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) do Gestor de Recursos Azure e [limites](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) de grupo de recursos para planear o número de máquinas a serem ligadas.
 
 ### <a name="transport-layer-security-12-protocol"></a>Protocolo de Segurança da Camada de Transporte 1.2
 
@@ -76,7 +72,7 @@ Para garantir a segurança dos dados em trânsito para Azure, encorajamo-lo a co
 |Linux | As distribuições linux tendem a contar com [o suporte OpenSSL](https://www.openssl.org) para suporte TLS 1.2. | Verifique o [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) para confirmar que a sua versão do OpenSSL está suportada.|
 | Windows Server 2012 R2 e superior | Suportado e ativado por defeito. | Para confirmar que ainda está a utilizar as [definições predefinições](/windows-server/security/tls/tls-registry-settings).|
 
-### <a name="networking-configuration"></a>Configuração de rede
+### <a name="networking-configuration"></a>Configuração da rede
 
 O agente de máquinas conectadas para Linux e Windows comunica de saída de forma segura ao Arco Azure sobre a porta TCP 443. Se a máquina ligar através de uma firewall ou servidor proxy para comunicar através da Internet, rever os requisitos abaixo para entender os requisitos de configuração da rede.
 
@@ -105,7 +101,7 @@ Os URLs na tabela anterior são necessários para além das informações do int
 
 ### <a name="register-azure-resource-providers"></a>Registar fornecedores de recursos Azure
 
-Os servidores ativados Azure Arc (pré-visualização) dependem dos seguintes fornecedores de recursos Azure na sua subscrição para utilizar este serviço:
+Os servidores ativados Azure Arc dependem dos seguintes fornecedores de recursos Azure na sua subscrição para utilizar este serviço:
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
@@ -181,7 +177,7 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
 * Existem vários ficheiros de registo disponíveis para resolução de problemas. São descritos na tabela seguinte.
 
-    |Registo |Descrição |
+    |Registar |Descrição |
     |----|------------|
     |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Regista detalhes do serviço e interação dos agentes (HIMDS) com o Azure.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Contém a saída dos comandos da ferramenta azcmagent, quando o argumento verboso (v) é utilizado.|
@@ -225,7 +221,7 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 * Existem vários ficheiros de registo disponíveis para resolução de problemas. São descritos na tabela seguinte.
 
-    |Registo |Descrição |
+    |Registar |Descrição |
     |----|------------|
     |/var/opt/azcmagent/log/himds.log |Regista detalhes do serviço e interação dos agentes (HIMDS) com o Azure.|
     |/var/opt/azcmagent/log/azcmagent.log |Contém a saída dos comandos da ferramenta azcmagent, quando o argumento verboso (v) é utilizado.|
@@ -248,4 +244,4 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar a avaliar os servidores ativados do Azure Arc (pré-visualização), siga o artigo [Ligue as máquinas híbridas ao Azure a partir do portal Azure](onboard-portal.md).
+Para começar a avaliar os servidores ativados do Azure Arc, siga o artigo [Ligue as máquinas híbridas ao Azure a partir do portal Azure](onboard-portal.md).

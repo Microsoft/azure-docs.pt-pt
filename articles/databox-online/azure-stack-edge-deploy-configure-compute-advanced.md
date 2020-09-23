@@ -1,6 +1,6 @@
 ---
-title: Tutorial para filtrar, analisar dados para implementação avançada com computação no Azure Stack Edge Microsoft Docs
-description: Aprenda a configurar o papel de computação no Azure Stack Edge e use-o para transformar dados para fluxo de implementação avançado antes de enviar para a Azure.
+title: Tutorial para filtrar, analisar dados para implementação avançada com computação no Azure Stack Edge Pro Microsoft Docs
+description: Aprenda a configurar o papel de computação no Azure Stack Edge Pro e use-o para transformar dados para fluxo de implementação avançado antes de enviar para a Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,17 +8,17 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 59983530d93885f28dfb1625ca6d58fe572609b8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
+ms.openlocfilehash: f62eec29aebdcc98569134e0c3b75457467bc014
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86080486"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903681"
 ---
-# <a name="tutorial-transform-data-with-azure-stack-edge-for-advanced-deployment-flow"></a>Tutorial: Transformar dados com Azure Stack Edge para fluxo avançado de implementação
+# <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>Tutorial: Transforme dados com Azure Stack Edge Pro para fluxo avançado de implementação
 
-Este tutorial descreve como configurar um papel de computação para um fluxo avançado de implementação no seu dispositivo Azure Stack Edge. Depois de configurar o papel de computação, o Azure Stack Edge pode transformar dados antes de enviá-los para o Azure.
+Este tutorial descreve como configurar um papel de computação para um fluxo avançado de implementação no seu dispositivo Azure Stack Edge Pro. Depois de configurar o papel de computação, o Azure Stack Edge Pro pode transformar dados antes de enviá-los para o Azure.
 
 O cálculo pode ser configurado para um fluxo de implementação simples ou avançado no seu dispositivo.
 
@@ -43,14 +43,14 @@ Neste tutorial, ficará a saber como:
  
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de configurar um papel de computação no seu dispositivo Azure Stack Edge, certifique-se de que:
+Antes de configurar um papel de computação no seu dispositivo Azure Stack Edge Pro, certifique-se de que:
 
-- Ativou o seu dispositivo Azure Stack Edge como descrito no [Connect, configurar e ativar o Azure Stack Edge](azure-stack-edge-deploy-connect-setup-activate.md).
+- Ativou o seu dispositivo Azure Stack Edge Pro como descrito no [Connect, configurar e ativar o Azure Stack Edge Pro](azure-stack-edge-deploy-connect-setup-activate.md).
 
 
 ## <a name="configure-compute"></a>Configure computação
 
-Para configurar o cálculo no seu Azure Stack Edge, irá criar um recurso IoT Hub.
+Para configurar o cálculo no seu Azure Stack Edge Pro, irá criar um recurso IoT Hub.
 
 1. No portal Azure do seu recurso Azure Stack Edge, vá ao **Overview**. No painel direito, no azulejo **compute,** **selecione Começar**.
 
@@ -65,8 +65,8 @@ Para configurar o cálculo no seu Azure Stack Edge, irá criar um recurso IoT Hu
    
     |Campo  |Valor  |
     |---------|---------|
-    |IoT Hub     | Escolha entre **Novo** ou **Já.** <br> Por padrão, um nível Standard (S1) é usado para criar um recurso IoT. Para utilizar um recurso IoT de nível livre, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado pelo recurso Azure Stack Edge.     |
-    |Nome     |Insira um nome para o seu recurso IoT Hub.         |
+    |Hub IoT     | Escolha entre **Novo** ou **Já.** <br> Por predefinição, é utilizado um escalão Standard (S1) para criar um recurso IoT. Para utilizar um recurso IoT de escalão gratuito, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso IoT Hub utiliza o mesmo grupo de subscrição e recursos que é utilizado pelo recurso Azure Stack Edge.     |
+    |Name     |Insira um nome para o seu recurso IoT Hub.         |
 
     ![Começar com o computo](./media/azure-stack-edge-deploy-configure-compute-advanced/configure-compute-3.png)
 
@@ -133,7 +133,7 @@ Para a implementação avançada neste tutorial, você precisará de duas açõe
     |Campo  |Valor  |
     |---------|---------|
     |Nome do gatilho     | Um nome único para o seu gatilho.         |
-    |Tipo de acionador     | Selecione o gatilho **do ficheiro.** Um ficheiro dispara sempre que ocorre um evento de ficheiro, como um ficheiro, para a parte de entrada. Um gatilho programado, por outro lado, dispara com base num horário definido por si. Para este exemplo, precisamos de um gatilho.    |
+    |Tipo de acionador     | Selecione o gatilho **do ficheiro.** Um acionador de ficheiro é acionado sempre que ocorre um evento de ficheiro, como quando um ficheiro é gravado na partilha de entrada. Um gatilho programado, por outro lado, dispara com base num horário definido por si. Para este exemplo, precisamos de um gatilho.    |
     |Partilha de entrada     | Selecione uma partilha de entrada. A participação local edge é a parte de entrada neste caso. O módulo utilizado aqui move ficheiros da partilha local edge para uma partilha edge onde são enviados para a nuvem.        |
 
     ![Adicionar acionador](./media/azure-stack-edge-deploy-configure-compute-advanced/add-trigger-2.png)
@@ -150,9 +150,9 @@ Para a implementação avançada neste tutorial, você precisará de duas açõe
 
 ## <a name="add-a-module"></a>Adicionar um módulo
 
-Não existem módulos personalizados neste dispositivo Edge. Pode adicionar um módulo personalizado ou pré-construído. Para aprender a criar um módulo personalizado, vá ao [Develop a C# module para o seu dispositivo Azure Stack Edge](azure-stack-edge-create-iot-edge-module.md).
+Não existem módulos personalizados neste dispositivo Edge. Pode adicionar um módulo personalizado ou pré-construído. Para aprender a criar um módulo personalizado, vá ao [Develop a C# module para o seu dispositivo Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md).
 
-Nesta secção, adicione um módulo personalizado ao dispositivo IoT Edge que criou no [Develop a C# module para o seu Azure Stack Edge](azure-stack-edge-create-iot-edge-module.md). Este módulo personalizado retira ficheiros de uma partilha local edge no dispositivo Edge e move-os para uma partilha edge (cloud) no dispositivo. A partilha em nuvem empurra então os ficheiros para a conta de armazenamento Azure que está associada à partilha da nuvem.
+Nesta secção, adicione um módulo personalizado ao dispositivo IoT Edge que criou no [Develop a C# module para o seu Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md). Este módulo personalizado retira ficheiros de uma partilha local edge no dispositivo Edge e move-os para uma partilha edge (cloud) no dispositivo. A partilha em nuvem empurra então os ficheiros para a conta de armazenamento Azure que está associada à partilha da nuvem.
 
 1. Vá ao **Edge compute > Começar**. No azulejo dos **módulos Add,** selecione o tipo de cenário como **avançado**. Selecione **Ir ao IoT Hub**.
 
@@ -175,7 +175,7 @@ Nesta secção, adicione um módulo personalizado ao dispositivo IoT Edge que cr
 4. Em **Módulos adicionais,** faça o seguinte:
 
     1. Introduza o nome, endereço, nome de utilizador e palavra-passe para as definições de registo do contentor para o módulo personalizado.
-    O nome, endereço e credenciais listadas são usados para recuperar módulos com um URL correspondente. Para implementar este módulo, em **Deployment modules** (Módulos de implementação), selecione **IoT Edge module** (Módulo do IoT Edge). Este módulo IoT Edge é um recipiente de estivador que pode implantar no dispositivo IoT Edge que está associado ao seu dispositivo Azure Stack Edge.
+    O nome, endereço e credenciais listadas são usados para recuperar módulos com um URL correspondente. Para implementar este módulo, em **Deployment modules** (Módulos de implementação), selecione **IoT Edge module** (Módulo do IoT Edge). Este módulo IoT Edge é um recipiente de estivador que pode implantar no dispositivo IoT Edge que está associado ao seu dispositivo Azure Stack Edge Pro.
 
         ![A página de módulos de conjunto](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-4.png) 
  
@@ -183,7 +183,7 @@ Nesta secção, adicione um módulo personalizado ao dispositivo IoT Edge que cr
      
         |Campo  |Valor  |
         |---------|---------|
-        |Nome     | Um nome único para o módulo. Este módulo é um recipiente de estivador que pode implantar no dispositivo IoT Edge associado ao seu Azure Stack Edge.        |
+        |Nome     | Um nome único para o módulo. Este módulo é um recipiente de estivador que pode implantar no dispositivo IoT Edge associado ao seu Azure Stack Edge Pro.        |
         |URI de imagem     | A imagem URI para a imagem do recipiente correspondente para o módulo.        |
         |Credenciais necessárias     | Se verificado, o nome de utilizador e a palavra-passe são utilizados para recuperar módulos com um URL correspondente.        |
     
@@ -270,7 +270,7 @@ Neste tutorial, ficou a saber como:
 > * Adicionar um módulo de computação
 > * Verificar a transformação e a transferência dos dados
 
-Para aprender a administrar o seu dispositivo Azure Stack Edge, consulte:
+Para aprender a administrar o seu dispositivo Azure Stack Edge Pro, consulte:
 
 > [!div class="nextstepaction"]
-> [Use uI web local para administrar um Azure Stack Edge](azure-stack-edge-manage-access-power-connectivity-mode.md)
+> [Use uI web local para administrar um Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md)

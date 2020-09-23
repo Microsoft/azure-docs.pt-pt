@@ -1,6 +1,6 @@
 ---
-title: Implementar aplicação apátrida da Kubernetes no dispositivo GPU Azure Stack Edge usando kubectl Microsoft Docs
-description: Descreve como criar e gerir uma aplicação apátrida kubernetes usando kubectl num dispositivo Microsoft Azure Stack Edge.
+title: Implementar aplicação apátrida da Kubernetes no dispositivo GPU Azure Stack Edge Pro usando kubectl Microsoft Docs
+description: Descreve como criar e gerir uma aplicação apátrida kubernetes usando kubectl num dispositivo Microsoft Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 27502c58481444a9dc14120bf447d4614d051ccc
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 91a2d08bf9eea2f5af0f6893712515cb2feeab8a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268864"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890742"
 ---
-# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-gpu-device"></a>Implemente uma aplicação apátrida Kubernetes através de kubectl no seu dispositivo GPU Azure Stack Edge
+# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Implemente uma aplicação apátrida Kubernetes através de kubectl no seu dispositivo GPU Azure Stack Edge Pro
 
 Este artigo descreve como implementar uma aplicação apátrida usando comandos kubectl num cluster Kubernetes existente. Este artigo também o acompanha através do processo de criação e configuração de cápsulas na sua aplicação apátrida.
 
@@ -23,13 +23,13 @@ Este artigo descreve como implementar uma aplicação apátrida usando comandos 
 
 Antes de criar um cluster Kubernetes e utilizar a `kubectl` ferramenta de linha de comando, tem de se certificar de que:
 
-- Tem credenciais de entrada num dispositivo Azure Stack Edge de 1 nó.
+- Tem credenciais de entrada num dispositivo Azure Stack Edge Pro de 1 nó.
 
-- O Windows PowerShell 5.0 ou mais tarde é instalado num sistema de clientes Windows para aceder ao dispositivo Azure Stack Edge. Também pode ter qualquer outro cliente com um sistema operativo suportado. Este artigo descreve o procedimento quando se utiliza um cliente Windows. Para descarregar a versão mais recente do Windows PowerShell, aceda à [instalação do Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+- O Windows PowerShell 5.0 ou mais tarde é instalado num sistema de clientes Windows para aceder ao dispositivo Azure Stack Edge Pro. Também pode ter qualquer outro cliente com um sistema operativo suportado. Este artigo descreve o procedimento quando se utiliza um cliente Windows. Para descarregar a versão mais recente do Windows PowerShell, aceda à [instalação do Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
 
-- O Computo está ativado no dispositivo Azure Stack Edge. Para ativar o cálculo, aceda à página **compute** na UI local do dispositivo. Em seguida, selecione uma interface de rede que deseja ativar para calcular. Selecione **Ativar**. Permitir a computação resulta na criação de um interruptor virtual no seu dispositivo nessa interface de rede. Para obter mais informações, consulte [Enable compute network no seu Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
+- O Compute está ativado no dispositivo Azure Stack Edge Pro. Para ativar o cálculo, aceda à página **compute** na UI local do dispositivo. Em seguida, selecione uma interface de rede que deseja ativar para calcular. Selecione **Ativar**. Permitir a computação resulta na criação de um interruptor virtual no seu dispositivo nessa interface de rede. Para obter mais informações, consulte [Enable compute network no seu Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 
-- O seu dispositivo Azure Stack Edge tem um servidor de cluster Kubernetes em execução que é a versão v1.9 ou mais tarde. Para obter mais informações, consulte [Criar e gerir um cluster Kubernetes no dispositivo Microsoft Azure Stack Edge](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+- O seu dispositivo Azure Stack Edge Pro tem um servidor de cluster Kubernetes em execução que é a versão v1.9 ou mais tarde. Para obter mais informações, consulte [Criar e gerir um cluster Kubernetes no dispositivo Microsoft Azure Stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
 - `kubectl`Instalou.
 
@@ -43,7 +43,7 @@ Antes de começarmos, deve ter:
 4. Guarde a configuração do utilizador para `C:\Users\<username>\.kube` .
 5. Instalado `kubectl` .
 
-Agora pode começar a executar e gerir implementações de aplicações apátridas num dispositivo Azure Stack Edge. Antes de começar `kubectl` a utilizar, tem de verificar se tem a versão correta de `kubectl` .
+Agora pode começar a executar e gerir implementações de aplicações apátridas num dispositivo Azure Stack Edge Pro. Antes de começar `kubectl` a utilizar, tem de verificar se tem a versão correta de `kubectl` .
 
 ### <a name="verify-you-have-the-correct-version-of-kubectl-and-set-up-configuration"></a>Verifique se tem a versão correta de kubectl e configurar a configuração
 
@@ -109,7 +109,7 @@ Uma cápsula é a unidade de execução básica de uma aplicação Kubernetes, a
 
 O tipo de aplicação apátrida que cria é uma implementação de servidor web nginx.
 
-Todos os comandos kubectl que utiliza para criar e gerir implementações de aplicações apátridas precisam de especificar o espaço de nome associado à configuração. Criou o espaço de nomes enquanto estava ligado ao cluster no dispositivo Azure Stack Edge no [Create e gere um cluster Kubernetes no tutorial do dispositivo Microsoft Azure Stack Edge](azure-stack-edge-gpu-create-kubernetes-cluster.md) com `New-HcsKubernetesNamespace` .
+Todos os comandos kubectl que utiliza para criar e gerir implementações de aplicações apátridas precisam de especificar o espaço de nome associado à configuração. Criou o espaço de nomes enquanto estava ligado ao cluster no dispositivo Azure Stack Edge Pro no [Create e gere um cluster Kubernetes no tutorial do dispositivo Microsoft Azure Stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md) com `New-HcsKubernetesNamespace` .
 
 Para especificar o espaço de nome num comando kubectl, utilize `kubectl <command> -n <namespace-string>` .
 

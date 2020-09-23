@@ -5,12 +5,12 @@ ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 6c16aad9bb04ffb4cb4df52799d63f7ec2e19725
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 9c635b01bcd04bd03191fca2590b0189bad0f544
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210839"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982021"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Utilizar as Funções para adicionar mensagens a uma fila do Armazenamento do Azure
 
@@ -111,7 +111,7 @@ Da primeira vez que o enlace de saída é utilizado, o runtime das Funções cri
 
 1. Nas **definições de Aplicação**, selecione **AzureWebJobsStorage**.
 
-    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="Localize a conta de armazenamento ligada ao AzureWebJobsStorage." border="true":::
+    :::image type="content" source="./media/functions-integrate-storage-queue-output-binding/function-find-storage-account.png" alt-text="A screenshot mostra a página de Configuração com AzureWebJobsStorage selecionado." border="true":::
 
 1. Localize e tome nota do nome da conta.
 

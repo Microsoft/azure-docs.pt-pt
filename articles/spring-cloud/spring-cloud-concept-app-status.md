@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: e3ef202a1a98b8193b55bcc4c2cb616d4a2000d8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec87c5523d6f608363ca615037f20365705609df
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037768"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892867"
 ---
 # <a name="understanding-app-status-in-azure-spring-cloud"></a>Compreender o estado das aplicações no Azure Spring Cloud
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C #
 
 O Azure Spring Cloud UI fornece informações sobre o estado das aplicações de execução.  Existe uma opção **apps** para cada grupo de recursos numa subscrição que exibe o estado geral dos tipos de aplicação.  Para cada tipo de aplicação, há uma exposição de instâncias de **aplicação**.
 
@@ -72,4 +74,4 @@ Para ver o estado de uma instância específica de uma aplicação implementada,
 
 
 ## <a name="see-also"></a>Ver também
-* [Prepare uma aplicação java spring para implantação em Azure Spring Cloud](spring-cloud-tutorial-prepare-app-deployment.md)
+* [Prepare uma aplicação de Spring ou Steeltoe para implantação em Azure Spring Cloud](spring-cloud-tutorial-prepare-app-deployment.md)

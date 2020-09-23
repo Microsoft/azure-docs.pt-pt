@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 4270e4c71cca28d43b1ecbaca1ec0f262251252b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ad4fc575a6e9d07e4e24c2d570f68edbbea46c3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82137608"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907690"
 ---
 # <a name="two-class-neural-network-module"></a>Módulo de rede neural de duas classes
 
-Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
+Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
 Utilize este módulo para criar um modelo de rede neural que possa ser usado para prever um alvo que tenha apenas dois valores.
 

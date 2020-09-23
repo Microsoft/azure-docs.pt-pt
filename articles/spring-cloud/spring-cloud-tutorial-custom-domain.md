@@ -7,14 +7,17 @@ ms.topic: tutorial
 ms.date: 03/19/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 05107d0246be2273c09e91573bd30a4108ac7795
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: cd10421ddcf752625b8040e1afa4e7b15f142ce2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290332"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885693"
 ---
 # <a name="map-an-existing-custom-domain-to-azure-spring-cloud"></a>Mapear um domínio personalizado existente para Azure Spring Cloud
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C #
+
 O Serviço de Nome de Domínio (DNS) é uma técnica para armazenar nomes de nó de rede em toda uma rede. Este tutorial mapeia um domínio, como www.contoso.com, usando um registo CNAME. Protege o domínio personalizado com um certificado e mostra como impor a Segurança da Camada de Transporte (TLS), também conhecida como Camada de Tomadas Seguras (SSL). 
 
 Os certificados encriptam o tráfego web. Estes certificados TLS/SSL podem ser armazenados no Cofre da Chave Azure. 
@@ -35,7 +38,7 @@ Para fazer o upload do seu certificado para o cofre da chave:
 1. No **Criar um** diálogo de certificado ao abrigo **do Método de criação de certificados,** selecione `Import` .
 1. No **Ficheiro de Certificado de Upload,** navegue para a localização do certificado e selecione-o.
 1. Em **Password,** insira a chave privada do seu certificado.
-1. Clique em **Criar**.
+1. Clique em **Create** (Criar).
 
     ![Certificado de importação 1](./media/custom-dns-tutorial/import-certificate-a.png)
 
@@ -143,7 +146,7 @@ az spring-cloud app custom-domain list --app <app name>
 ## <a name="add-ssl-binding"></a>Adicionar ligação SSL
 Na tabela de domínio personalizado, **selecione Adicionar a ligação ssl** como mostrado na figura anterior.  
 1. Selecione o seu **Certificado** ou importe-o.
-1. Clique em **Guardar**.
+1. Clique em **Save** (Guardar).
 
     ![Adicionar encadernação SSL 1](./media/custom-dns-tutorial/add-ssl-binding.png)
 

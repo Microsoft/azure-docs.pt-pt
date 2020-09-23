@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 94ffe2852380d238e9829a8ab0cc69ebe82b74fe
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: e7a3dd1c58f2bddb767dcac4ac2b5e354be77f65
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373509"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981460"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Permitir a sintonização automática no portal Azure para monitorizar consultas e melhorar o desempenho da carga de trabalho
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,7 +51,7 @@ No nível do servidor pode optar por herdar a configuração de sintonização a
 
 Para ativar a sintonização automática num [servidor](logical-servers.md) na Base de Dados Azure SQL, navegue para o servidor no portal Azure e, em seguida, selecione **sintonização automática** no menu.
 
-![Servidor](./media/automatic-tuning-enable/server.png)
+![O Screenshot mostra sintonização automática no portal Azure, onde pode aplicar opções para um servidor.](./media/automatic-tuning-enable/server.png)
 
 > [!NOTE]
 > Por favor, note que a opção **DROP_INDEX** neste momento não é compatível com aplicações que usam comutação de partição e dicas de índice e não deve ser ativada nestes casos. A queda de índices não suportados não é suportada para os níveis de serviço Premium e Business Critical.
@@ -77,7 +77,7 @@ Para ativar a sintonização automática numa **única base de dados,** navegue 
 
 As definições de sintonização automática individuais podem ser configuradas separadamente para cada base de dados. Pode configurar manualmente uma opção de sintonização automática individual ou especificar que uma opção herda as suas definições a partir do servidor.
 
-![Base de Dados](./media/automatic-tuning-enable/database.png)
+![O Screenshot mostra sintonização automática no portal Azure, onde pode aplicar opções para uma única base de dados.](./media/automatic-tuning-enable/database.png)
 
 Por favor, note que DROP_INDEX opção neste momento não é compatível com aplicações que usam comutação de partição e dicas de índice e não deve ser ativada nestes casos.
 

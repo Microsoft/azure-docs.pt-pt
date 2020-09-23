@@ -1,6 +1,6 @@
 ---
-title: Conecte-se e gere o dispositivo Microsoft Azure Stack Edge através da interface Windows PowerShell Microsoft Docs
-description: Descreve como ligar e, em seguida, gerir o Azure Stack Edge através da interface Windows PowerShell.
+title: Conecte-se e gere o dispositivo Microsoft Azure Stack Edge Pro através da interface Windows PowerShell Microsoft Docs
+description: Descreve como ligar e, em seguida, gerir o Azure Stack Edge Pro através da interface Windows PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,22 +8,22 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 973c618b46d1b6be902d9629ca63ee120cae6855
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6b0fe7e9e096b252d33d25c4a70305e57d206b1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85313224"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894427"
 ---
-# <a name="manage-an-azure-stack-edge-device-via-windows-powershell"></a>Gerir um dispositivo Azure Stack Edge via Windows PowerShell
+# <a name="manage-an-azure-stack-edge-pro-device-via-windows-powershell"></a>Gerir um dispositivo Azure Stack Edge Pro via Windows PowerShell
 
-A solução Azure Stack Edge permite-lhe processar dados e enviá-lo pela rede para a Azure. Este artigo descreve algumas das tarefas de configuração e gestão do seu dispositivo Azure Stack Edge. Pode utilizar o portal Azure, a web UI local ou a interface Windows PowerShell para gerir o seu dispositivo.
+A solução Azure Stack Edge Pro permite-lhe processar dados e enviá-lo pela rede para a Azure. Este artigo descreve algumas das tarefas de configuração e gestão do seu dispositivo Azure Stack Edge Pro. Pode utilizar o portal Azure, a web UI local ou a interface Windows PowerShell para gerir o seu dispositivo.
 
 Este artigo centra-se nas tarefas que faz utilizando a interface PowerShell. 
 
 Este artigo inclui os seguintes procedimentos:
 
-- Ligue-se à interface PowerShell
+- Ligue-se à interface do PowerShell
 - Criar um pacote de suporte
 - Carregar certificado
 - Reiniciar o dispositivo
@@ -31,7 +31,7 @@ Este artigo inclui os seguintes procedimentos:
 - Obtenha registos de cálculo
 - Monitor e resolução de problemas módulos de computação
 
-## <a name="connect-to-the-powershell-interface"></a>Ligue-se à interface PowerShell
+## <a name="connect-to-the-powershell-interface"></a>Ligue-se à interface do PowerShell
 
 [!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
 
@@ -43,7 +43,7 @@ Este artigo inclui os seguintes procedimentos:
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-Também pode carregar certificados IoT Edge para permitir uma ligação segura entre o seu dispositivo IoT Edge e os dispositivos a jusante que podem ligar-se ao mesmo. Existem três certificados IoT Edge (formato *.pem)* que precisa de instalar:
+Também pode carregar certificados do IoT Edge para permitir uma ligação segura entre o dispositivo IoT Edge e os dispositivos a jusante que se podem ligar ao mesmo. Existem três certificados IoT Edge (formato *.pem)* que precisa de instalar:
 
 - Certificado de CA raiz ou o proprietário CA
 - Certificado ca dispositivo
@@ -92,6 +92,6 @@ Se a função de cálculo estiver configurada no seu dispositivo, também pode o
 
 Para sair da sessão remota powerShell, feche a janela PowerShell.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Implementar [Azure Stack Edge](azure-stack-edge-deploy-prep.md) no portal Azure.
+- Implementar [Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md) no portal Azure.

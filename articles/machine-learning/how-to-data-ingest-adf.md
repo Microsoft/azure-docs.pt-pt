@@ -12,12 +12,12 @@ ms.reviewer: larryfr
 ms.date: 03/01/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b756e83f1d810007e9e9ef6cf2987c3cf60b7f7d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: ad04566699b2eebb0cbd7a9f242de38bc75e2015
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852859"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986404"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Ingestão de dados com o Azure Data Factory
 
@@ -35,7 +35,7 @@ Existem várias técnicas comuns de utilização da Azure Data Factory para tran
 
 ## <a name="adf-with-azure-functions"></a>ADF com funções Azure
 
-![adf-função](media/how-to-data-ingest-adf/adf-function.png)
+![O diagrama mostra um pipeline Azure Data Factory, com Azure Function e Run M L Pipeline, e um pipeline Azure Machine Learning, com o Train Model, e como interagem com dados brutos e dados preparados.](media/how-to-data-ingest-adf/adf-function.png)
 
 As Funções Azure permitem executar pequenas peças de código (funções) sem se preocupar com a infraestrutura de aplicações. Nesta opção, os dados são processados com código Python personalizado embrulhado numa Função Azure. 
 
@@ -51,7 +51,7 @@ A função é invocada com a [atividade ADF Azure Function](https://docs.microso
 
 ## <a name="adf-with-custom-component-activity"></a>ADF com atividade de componente personalizado
 
-![adf-customcomponente](media/how-to-data-ingest-adf/adf-customcomponent.png)
+![O diagrama mostra um pipeline Azure Data Factory, com um componente personalizado e um Pipeline Run M L, e um pipeline de Aprendizagem automática Azure, com o Train Model, e como interagem com dados brutos e dados preparados.](media/how-to-data-ingest-adf/adf-customcomponent.png)
 
 Nesta opção, os dados são processados com código Python personalizado embrulhado num executável. É invocado com uma [atividade de Componente Personalizado ADF.](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity) Esta abordagem é mais adequada para dados grandes do que a técnica anterior.
 
@@ -64,7 +64,7 @@ Nesta opção, os dados são processados com código Python personalizado embrul
 
 ## <a name="adf-with-azure-databricks-python-notebook"></a>ADF com Azure Databricks Python caderno
 
-![adf-databricks](media/how-to-data-ingest-adf/adf-databricks.png)
+![O diagrama mostra um oleoduto Azure Data Factory, com Azure Databricks Python e Run M L Pipeline, e um pipeline Azure Machine Learning, com o Train Model, e como interagem com dados brutos e dados preparados.](media/how-to-data-ingest-adf/adf-databricks.png)
 
 [Azure Databricks](https://azure.microsoft.com/services/databricks/) é uma plataforma de análise baseada em Apache Spark na nuvem da Microsoft.
 
@@ -82,7 +82,7 @@ Nesta técnica, a transformação de dados é realizada por um [caderno Python,]
 
 ## <a name="consuming-data-in-azure-machine-learning-pipelines"></a>Dados de consumo em gasodutos de aprendizagem automática Azure
 
-![conjunto de dados aml](media/how-to-data-ingest-adf/aml-dataset.png)
+![O diagrama mostra um oleoduto Azure Data Factory e um oleoduto Azure Machine Learning e como interagem com dados brutos e dados preparados. O oleoduto Data Factory fornece dados à base de dados de dados preparados, que alimenta uma loja de dados, que alimenta conjuntos de dados no espaço de trabalho machine learning.](media/how-to-data-ingest-adf/aml-dataset.png)
 
 Os dados transformados do gasoduto ADF são guardados para armazenamento de dados (como a Azure Blob). O Azure Machine Learning pode aceder a estes dados utilizando [datastores](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores) e [conjuntos de dados.](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets)
 

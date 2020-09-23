@@ -1,0 +1,94 @@
+### YamlMime:Landing
+title: Documentação sobre a Base de Dados do Azure para PostgreSQL - Hyperscale (Citus)
+summary: A Base de Dados do Azure para PostgreSQL é um serviço de base de dados totalmente gerido baseado no motor de base de dados relacional Postgres de open-source. A opção de implementação Hyperscale (Citus) dimensiona as consultas em várias máquinas com o recurso à fragmentação e serve as aplicações que necessitem de um maior dimensionamento e desempenho.
+metadata:
+  description: A Base de Dados do Azure para PostgreSQL é um serviço de base de dados relacional na cloud da Microsoft criado para programadores com base no motor de base de dados PostgreSQL de código aberto.
+  author: jonels-msft
+  ms.author: jonels
+  ms.date: 09/27/2020
+  ms.service: postgresql
+  ms.subservice: hyperscale-citus
+  ms.topic: landing-page
+  ms.openlocfilehash: 20e99db5f380ee24cf88987a7884292ca47f7e1e
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90929022"
+landingContent:
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Criar um grupo de servidores através do Portal do Azure
+      url: ../quickstart-create-hyperscale-portal.md
+  - linkListType: concept
+    links:
+    - text: Tabelas e nós do grupo de servidores
+      url: ../concepts-hyperscale-nodes.md
+  - linkListType: tutorial
+    links:
+    - text: Conceber uma base de dados multi-inquilino
+      url: ../tutorial-design-database-hyperscale-multi-tenant.md
+    - text: Estruturar um dashboard de análise em tempo real
+      url: ../tutorial-design-database-hyperscale-realtime.md
+- title: Ligar e consultar
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Compreender a firewall
+      url: ../concepts-hyperscale-firewall-rules.md
+    - text: Configurar TLS
+      url: ../concepts-hyperscale-ssl-connection-security.md
+  - linkListType: how-to-guide
+    links:
+    - text: Regras da firewall
+      url: ../howto-hyperscale-manage-firewall-using-portal.md
+    - text: Resolver problemas de ligação
+      url: ../howto-hyperscale-troubleshoot-common-connection-issues.md
+- title: Escala
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Nós e tabelas
+      url: ../concepts-hyperscale-nodes.md
+    - text: Escolher colunas de distribuição
+      url: ../concepts-hyperscale-choose-distribution-column.md
+  - linkListType: how-to-guide
+    links:
+    - text: Tamanho do grupo de servidores
+      url: ../howto-hyperscale-scaling.md
+    - text: Distribuir tabelas
+      url: ../howto-hyperscale-modify-distributed-tables.md
+    - text: Criar alertas para as métricas
+      url: ../howto-hyperscale-alert-on-metric.md
+- title: Administrar
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Cópia de segurança e restauro
+      url: ../concepts-hyperscale-backup.md
+    - text: Monitorizar e otimizar
+      url: ../concepts-hyperscale-monitoring.md
+    - text: Elevada disponibilidade
+      url: ../concepts-hyperscale-high-availability.md
+    - text: Capacidade reservada
+      url: ../concepts-hyperscale-reserved-pricing.md
+  - linkListType: how-to-guide
+    links:
+    - text: Criar utilizadores da base de dados
+      url: ../howto-hyperscale-create-users.md
+    - text: Configurar uma elevada disponibilidade
+      url: ../howto-hyperscale-high-availability.md
+    - text: Aceder a registos de bases de dados
+      url: ../howto-hyperscale-logging.md
+- title: Referência
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Funções da API SQL
+      url: ../reference-hyperscale-functions.md
+    - text: Parâmetros do servidor
+      url: ../reference-hyperscale-parameters.md
+    - text: Tabelas do sistema
+      url: ../reference-hyperscale-metadata.md

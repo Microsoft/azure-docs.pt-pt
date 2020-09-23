@@ -1,6 +1,6 @@
 ---
-title: Devolva o seu dispositivo Azure Stack Edge / Microsoft Docs
-description: Saiba como limpar os dados e devolver o seu dispositivo Azure Stack Edge e, em seguida, elimine o recurso associado ao dispositivo.
+title: Devolva o seu dispositivo Azure Stack Edge Pro / Microsoft Docs
+description: Saiba como limpar os dados e devolver o seu dispositivo Azure Stack Edge Pro e, em seguida, elimine o recurso associado ao dispositivo.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,27 +8,27 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: alkohli
-ms.openlocfilehash: aa917361ad3c967a697421e86d232e1a206c403e
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 730774f33d43754d4ca198ed170159fa4f872e09
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923956"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903674"
 ---
-# <a name="return-your-azure-stack-edge-device"></a>Devolva o seu dispositivo Azure Stack Edge
+# <a name="return-your-azure-stack-edge-pro-device"></a>Devolva o seu dispositivo Azure Stack Edge Pro
 
-Este artigo descreve como limpar os dados e, em seguida, devolver o seu dispositivo Azure Stack Edge. Depois de ter devolvido o dispositivo, também pode eliminar o recurso associado ao dispositivo.
+Este artigo descreve como limpar os dados e, em seguida, devolver o seu dispositivo Azure Stack Edge Pro. Depois de ter devolvido o dispositivo, também pode eliminar o recurso associado ao dispositivo.
 
 Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 >
 > * Limpe os dados dos discos de dados do dispositivo
-> * Iniciar a devolução do dispositivo no portal Azure
+> * Inicie a devolução do dispositivo no portal do Azure
 > * Embale o dispositivo e agende uma recolha
 > * Eliminar o recurso no portal Azure
 
-## <a name="erase-data-from-the-device"></a>Apagar dados do dispositivo
+## <a name="erase-data-from-the-device"></a>Apague os dados do dispositivo
 
 Para eliminar os dados dos discos de dados do seu dispositivo, é necessário reiniciar o seu dispositivo. Pode reiniciar o seu dispositivo utilizando a UI web local ou a interface PowerShell.
 
@@ -59,7 +59,7 @@ Em alternativa, ligue-se à interface PowerShell do dispositivo e utilize o `Res
 
 Para iniciar o processo de devolução, tome os seguintes passos.
 
-1. Aceda ao seu recurso Azure Stack Edge/Data Box Gateway no portal Azure. No **resumo,** vá à barra de comando no painel direito e selecione **Dispositivo de retorno**. 
+1. Aceda ao seu recurso Azure Stack Edge Pro/Data Box Gateway no portal Azure. No **resumo,** vá à barra de comando no painel direito e selecione **Dispositivo de retorno**. 
 
     ![Dispositivo de devolução 1](media/azure-stack-edge-return-device/return-device-1.png)  
 
@@ -90,11 +90,11 @@ Para iniciar o processo de devolução, tome os seguintes passos.
 
     ![Dispositivo de devolução 4](media/azure-stack-edge-return-device/return-device-4.png) 
 
-6. Assim que os dados de retorno do seu dispositivo forem capturados, pode notificar a equipa de operações do Azure Stack Edge através de um e-mail. Pode utilizar a sua aplicação de e-mail assumindo que a aplicação de e-mail está instalada e configurada. Também pode copiar os dados para criar e enviar um e-mail.
+6. Assim que os dados de retorno do seu dispositivo forem capturados, pode notificar a equipa de operações do Azure Stack Edge Pro através de um e-mail. Pode utilizar a sua aplicação de e-mail assumindo que a aplicação de e-mail está instalada e configurada. Também pode copiar os dados para criar e enviar um e-mail.
 
     ![Dispositivo de devolução 5](media/azure-stack-edge-return-device/return-device-5.png) 
 
-7. Assim que a equipa de operações do Azure Stack Edge receber o e-mail, eles enviar-lhe-ão uma etiqueta de envio inversa. Quando receber esta etiqueta, pode agendar a recolha do dispositivo com a transportadora. 
+7. Assim que a equipa de operações do Azure Stack Edge Pro receber o e-mail, eles enviar-lhe-ão uma etiqueta de envio inversa. Quando receber esta etiqueta, pode agendar a recolha do dispositivo com a transportadora. 
 
 ## <a name="schedule-a-pickup"></a>Agende uma recolha
 
@@ -111,20 +111,20 @@ Para agendar uma recolha, tome os seguintes passos.
     2. Na sua chamada, cite o número de rastreio de envio invertido como mostrado na sua etiqueta impressa.
     3. Se o número de rastreio não for citado, a UPS exigirá que pague uma taxa adicional durante a recolha.
 
-    Em vez de agendar a recolha, também pode deixar o Azure Stack Edge no local de entrega mais próximo.
+    Em vez de agendar a recolha, também pode deixar o Azure Stack Edge Pro no local de entrega mais próximo.
 
 ## <a name="delete-the-resource"></a>Eliminar o recurso
 
 Depois de o dispositivo ser recebido no centro de dados Azure, o dispositivo é inspecionado para verificar se existem danos ou sinais de adulteração.
 
-- Se o dispositivo chegar intacto e estiver em bom estado, o medidor de faturação para para esse recurso. A equipa de operações da Azure Stack Edge entrará em contacto consigo para confirmar que o dispositivo foi devolvido. Em seguida, pode eliminar o recurso associado ao dispositivo no portal Azure.
+- Se o dispositivo chegar intacto e estiver em bom estado, o medidor de faturação para para esse recurso. A equipa de operações do Azure Stack Edge Pro entrará em contacto consigo para confirmar que o dispositivo foi devolvido. Em seguida, pode eliminar o recurso associado ao dispositivo no portal Azure.
 - Se o aparelho chegar significativamente danificado, podem ser aplicadas coimas. Para mais informações, consulte as [FAQ sobre](https://azure.microsoft.com/pricing/details/databox/edge/) o dispositivo perdido ou danificado e [os Termos de Serviço do Produto.](https://www.microsoft.com/licensing/product-licensing/products)  
 
 
 Pode eliminar o dispositivo no portal Azure:
 
 - Depois de ter feito a encomenda e antes de o dispositivo ser preparado pela Microsoft.
-- Depois de ter devolvido o dispositivo à Microsoft, passa pela inspeção física no datacenter Azure, e a equipa de operações do Azure Stack Edge liga para confirmar que o dispositivo foi devolvido.
+- Depois de ter devolvido o dispositivo à Microsoft, passa a inspeção física no datacenter Azure e a equipa de operações do Azure Stack Edge Pro liga para confirmar que o dispositivo foi devolvido.
 
 Se ativou o dispositivo contra outra subscrição ou localização, a Microsoft irá mover a sua encomenda para a nova subscrição ou localização dentro de um dia útil. Depois de a encomenda ser movida, pode eliminar este recurso.
 
@@ -144,4 +144,4 @@ Tome as seguintes medidas para eliminar o dispositivo e o recurso no portal Azur
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como [obter um dispositivo Azure Stack Edge de substituição](azure-stack-edge-replace-device.md).
+- Saiba como [obter um dispositivo Azure Stack Edge Pro de substituição](azure-stack-edge-replace-device.md).

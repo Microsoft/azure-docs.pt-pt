@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: 58fedfe794f86a4a453614b09fcce6e803eb887f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 57108bed97b59513309213d55a0654f4405d509c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651526"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893316"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Preparar modelos com machine learning automatizado na cloud
 
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 No Azure Machine Learning, treina o seu modelo em diferentes tipos de recursos computacional que gere. O alvo do cálculo pode ser um computador local ou um recurso na nuvem.
 
@@ -228,7 +228,7 @@ O [caderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba [como configurar as definições para o treino automático](how-to-configure-auto-train.md).
 * Consulte o [modo de](how-to-machine-learning-interpretability-automl.md) ativar as funcionalidades de interpretação do modelo em experiências automatizadas de ML.
