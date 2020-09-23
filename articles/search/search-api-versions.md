@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: 73037ac3725ad1e7e9dd84597936c47406244630
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 09/22/2020
+ms.openlocfilehash: ca4dccb82ae6a907a2f7e944174b8ecc05a443b6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949886"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986893"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Versões API em Pesquisa Cognitiva Azure
 
@@ -53,7 +53,7 @@ A tabela seguinte fornece o histórico da versão atual e previamente lançada d
 
 Criar e gerir conteúdos num serviço de pesquisa.
 
-| Versão&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   | Estado | Questão de compatibilidade retrógrada |
+| Versão&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   | Estado | Descrição |
 |-------------------------|--------|------------------------------|
 | [Pesquisa 2020-06-30](/rest/api/searchservice/index)| Estável | Mais recente e estável lançamento das APIs Search REST, com avanços na pontuação de relevância e disponibilidade geral para a loja de conhecimento.|
 | [Pesquisa 2020-06-30-Preview](/rest/api/searchservice/index-preview)| Pré-visualizar | Versão de pré-visualização associada à versão estável. Inclui várias [funcionalidades de pré-visualização](search-api-preview.md). |
@@ -72,12 +72,14 @@ Criar e gerir conteúdos num serviço de pesquisa.
 
 Crie e configuure um serviço de pesquisa e gere as chaves API.
 
-| Versão&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   | Estado | Questão de compatibilidade retrógrada |
+| Versão&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   | Estado | Descrição |
 |-------------------------|--------|------------------------------|
-| [Gestão 2020-03-13](/rest/api/searchmanagement/) | Estável | Mais recente libertação estável das APIs de Gestão REST, com avanços na proteção do ponto final. Adiciona [ponto final privado](service-create-private-endpoint.md) através de link privado e [regras ip de rede](service-configure-firewall.md) para novos serviços. |
-| [Gestão 2019-10-01-Preview](/rest/api/searchmanagement/index-2019-10-01-preview) | Pré-visualizar  | Apesar do seu número de versão, esta ainda é a versão atual de pré-visualização das APIs de Rest de Gestão. Não há funcionalidades de pré-visualização neste momento. Todas as funcionalidades de pré-visualização passaram recentemente para a disponibilidade geral. |
-| Gestão 2015-08-19  | Estável | A primeira versão geralmente disponível das APIs management REST. Fornece prestação de serviços, ampliação e gestão de chave api. |
-| Gestão 2015-08-19-Pré-visualização | Pré-visualizar | A primeira versão de pré-visualização das APIs management REST. |
+| [Gestão 2020-08-01](https://docs.microsoft.com/rest/api/searchmanagement/) | Estável | Mais recente e estável lançamento das APIs de Gestão REST. Adiciona suporte de recursos de ligação privada partilhada geralmente disponível para todos os recursos acedidos de saída, exceto os indicados na versão de pré-visualização |
+| [Gestão 2020-08-01-Pré-visualização](https://docs.microsoft.com/rest/api/searchmanagement/index-preview) | Pré-visualizar  | Atualmente em pré-visualização: suporte de recursos de ligação privada compartilhado para Funções Azure e Base de Dados Azure para o MySQL. |
+| Gestão 2020-03-13  | Estável | Adiciona [ponto final privado](service-create-private-endpoint.md) através de link privado e [regras ip de rede](service-configure-firewall.md) para novos serviços. Para mais informações, consulte esta [especificação de swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2020-08-01). |
+| Gestão 2019-10-01-Preview | Pré-visualizar  | Não foram introduzidos recursos de pré-visualização nesta lista. Esta pré-visualização é funcionalmente equivalente a 2020-03-13. Para mais informações, consulte esta [especificação de swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/preview/2019-10-01-preview). |
+| Gestão 2015-08-19  | Estável | A primeira versão geralmente disponível das APIs management REST. Fornece prestação de serviços, ampliação e gestão de chave api. Para mais informações, consulte esta [especificação de swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2015-08-19). |
+| Gestão 2015-08-19-Pré-visualização  | Pré-visualizar | A primeira versão de pré-visualização das APIs management REST. Para mais informações, consulte esta [especificação de swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/search/resource-manager/Microsoft.Search/stable/2015-08-19-preview). |
 
 ## <a name="azure-sdk-for-net"></a>SDK do Azure para .NET
 
@@ -85,19 +87,17 @@ A tabela seguinte fornece links para versões SDK mais recentes.
 
 | Versão do SDK | Estado | Descrição |
 |-------------|--------|------------------------------|
-| [Azure.Search.Documents 11.0](https://www.nuget.org/packages/Azure.Search.Documents/1.0.0-preview.4) | Estável | Nova biblioteca de clientes da Azure .NET SDK, lançada em julho de 2020. Destina-se à versão api-search REST=2020-06-30 REST API mas ainda não suporta, geo-filtros ou [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder?view=azure-dotnet). |
+| [Azure.Search.Documents 11.0](/dotnet/api/overview/azure/search.documents-readme) | Estável | Nova biblioteca de clientes da Azure .NET SDK, lançada em julho de 2020. Destina-se à versão api-search REST=2020-06-30 REST API mas ainda não suporta, geo-filtros ou [FieldBuilder](/dotnet/api/microsoft.azure.search.fieldbuilder). |
 | [Microsoft.Azure.Search 10.0](https://www.nuget.org/packages/Microsoft.Azure.Search/) | Estável | Lançado em maio de 2019. Destina-se à versão api-versão search REST=2019-05-06.|
-| [Microsoft.Azure.Search 8.0-preview](https://www.nuget.org/packages/Microsoft.Azure.Search/8.0.0-preview) | Pré-visualizar | lançado abril de 2019. Destina-se à versão api-versão search REST=2019-05-06-Preview.|
-| [Microsoft.Azure.Management.Search 3.0.0](/dotnet/api/overview/azure/search/management?view=azure-dotnet) | Estável | Destina-se à versão api-versão management REST=2015-08-19.  |
-
-Para obter mais informações sobre lançamentos anteriores do Microsoft.Azure.Search, vá a uma [página de pacotes NuGet](https://www.nuget.org/packages/Microsoft.Azure.Search/) para qualquer lançamento, desloque-se até ao **Histórico da Versão**, e expanda a secção para ver a lista completa de versões.
+| [Microsoft.Azure.Management.Search 4.0.0](/dotnet/api/overview/azure/search/management) | Estável | Destina-se à versão api-versão management REST=2020-08-01.  |
+| Microsoft.Azure.Management.Search 3.0.0 | Estável | Destina-se à versão api-versão management REST=2015-08-19.  |
 
 ## <a name="azure-sdk-for-java"></a>SDK do Azure para Java
 
 | Versão do SDK | Estado | Descrição  |
 |-------------|--------|------------------------------|
-| [Java azure-search-documents 11](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-search-documents/11.0.0/index.html) | Estável | Nova biblioteca de clientes da Azure .NET SDK, lançada em julho de 2020. Destina-se à versão api-versão search REST=2019-05-06. |
-| [Java Management Client 1.35.0](/java/api/overview/azure/search/management?view=azure-java-stable) | Estável | Destina-se à versão api-versão management REST=2015-08-19. |
+| [Java azure-search-documents 11](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-search-documents) | Estável | Nova biblioteca de clientes da Azure .NET SDK, lançada em julho de 2020. Destina-se à versão api-versão search REST=2019-05-06. |
+| [Java Management Client 1.35.0](/java/api/overview/azure/search/management) | Estável | Destina-se à versão api-versão management REST=2015-08-19. |
 
 ## <a name="azure-sdk-for-javascript"></a>SDK do Azure para JavaScript
 
@@ -110,5 +110,5 @@ Para obter mais informações sobre lançamentos anteriores do Microsoft.Azure.S
 
 | Versão do SDK | Estado | Descrição  |
 |-------------|--------|------------------------------|
-| [Python azure-search-documents 11.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-search-documents/11.0.0/index.html) | Estável | Nova biblioteca de clientes da Azure .NET SDK, lançada em julho de 2020. Destina-se à versão api-versão search REST=2019-05-06. |
-| [Python azure-mgmt-search 1.0](/python/api/overview/azure/search?view=azure-python) | Estável | Destina-se à versão api-versão management REST=2015-08-19. |
+| [Python azure-search-documents 11.0](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-search-documents) | Estável | Nova biblioteca de clientes da Azure .NET SDK, lançada em julho de 2020. Destina-se à versão api-versão search REST=2019-05-06. |
+| [Python azure-mgmt-search 1.0](/python/api/overview/azure/search) | Estável | Destina-se à versão api-versão management REST=2015-08-19. |

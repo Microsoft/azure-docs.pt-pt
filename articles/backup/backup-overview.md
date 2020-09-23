@@ -4,12 +4,12 @@ description: Fornece uma visão geral do serviço Azure Backup, e como contribui
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 9954c8fa6affca7d2c2b73d7176280587d749476
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 72dee7bbcaa730f12af3ee323157fa92f6694603
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017894"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968330"
 ---
 # <a name="what-is-the-azure-backup-service"></a>O que é o serviço Azure Backup?
 
@@ -24,6 +24,7 @@ O serviço Azure Backup fornece soluções simples, seguras e económicas que lh
 - **Ações da**  -  Azure Files [Faça o back up Azure File ações para uma conta de armazenamento](backup-afs.md)
 - **Servidor SQL em VMs**  -   Azure [Fazer o back bases de dados do SQL Server em execução em VMs Azure](backup-azure-sql-database.md)
 - **Bases de dados SAP HANA em VMs**  -  Azure [Bases de dados de backback SAP HANA em execução em VMs Azure](backup-azure-sap-hana-database.md)
+- **Base de Dados Azure para servidores PostgreSQL (pré-visualização)**  -   [Faça backups até 10 anos](backup-azure-database-postgresql.md)
 
 ![Visão geral do backup Azure](./media/backup-overview/azure-backup-overview.png)
 
@@ -43,8 +44,9 @@ A Azure Backup oferece estes principais benefícios:
 - **Reter dados a curto e longo prazo**: Pode utilizar [cofres dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) para retenção de dados a curto e longo prazo.
 - **Gestão de armazenamento automática** - os ambientes híbridos necessitam frequentemente de armazenamento heterogéneo - alguns no local e outros na nuvem. Com a Azure Backup, não há custos para usar dispositivos de armazenamento no local. O Azure Backup atribui automaticamente e gere o armazenamento de cópia de segurança, e utiliza um modelo de pagamento enquanto utiliza. Então, só paga pelo armazenamento que consome. [Saiba mais](https://azure.microsoft.com/pricing/details/backup) sobre preços.
 - **Múltiplas opções de armazenamento** - Azure Backup oferece dois tipos de replicação para manter o seu armazenamento/dados altamente disponíveis.
-  - [O armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md) replica os seus dados três vezes (cria três cópias dos seus dados) numa unidade de escala de armazenamento num datacenter. Todas as cópias dos dados existem na mesma região. O LRS é uma opção de baixo custo para proteger os dados contra falhas de hardware locais.
-  - [O armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md) é a opção de replicação padrão e recomendada. O GRS replica os dados para uma região secundária (a centenas de quilómetros da localização primária da origem de dados). GrS custa mais do que LRS, mas GRS fornece um nível mais alto de durabilidade para os seus dados, mesmo que haja uma paragem regional.
+  - [O armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) replica os seus dados três vezes (cria três cópias dos seus dados) numa unidade de escala de armazenamento num datacenter. Todas as cópias dos dados existem na mesma região. O LRS é uma opção de baixo custo para proteger os dados contra falhas de hardware locais.
+  - [O armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) é a opção de replicação padrão e recomendada. O GRS replica os dados para uma região secundária (a centenas de quilómetros da localização primária da origem de dados). GrS custa mais do que LRS, mas GRS fornece um nível mais alto de durabilidade para os seus dados, mesmo que haja uma paragem regional.
+  - [O armazenamento redundante de zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replica os seus dados em [zonas de disponibilidade,](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)garantindo residência de dados e resiliência na mesma região. O ZRS não tem tempo de descanso. Assim, as suas cargas de trabalho críticas que requerem [residência de dados](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/), e não devem ter tempo de inatividade, podem ser apoiadas em ZRS.
 
 ## <a name="next-steps"></a>Passos seguintes
 

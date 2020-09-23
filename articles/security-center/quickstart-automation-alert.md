@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
-ms.openlocfilehash: ecef318978194ac3773c54e2d9c960781086de65
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6c8a3d6c291435a379a637707a42f9ad7fe8dc00
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691810"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906360"
 ---
 # <a name="quickstart-create-an-automatic-response-to-a-specific-security-alert-using-an-azure-resource-manager-template-arm-template"></a>Quickstart: Criar uma resposta automática a um alerta de segurança específico utilizando um modelo de Gestor de Recursos Azure (modelo ARM)
 
@@ -73,24 +73,20 @@ Utilize o portal Azure para verificar se a automatização do fluxo de trabalho 
 1. A partir [do portal Azure,](https://portal.azure.com) **Abrir Centro de Segurança.**
 1. A partir da barra de menu superior, selecione o ícone do filtro e selecione a subscrição específica na qual implementou a nova automatização do fluxo de trabalho.
 1. Da barra lateral do Security Center, abra **a automatização do fluxo de trabalho** e verifique a sua nova automatização.
-
-    :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="Texto alt imagem." lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
-
+    :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="Lista de automações configuradas" lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
     >[!TIP]
     > Se tiver muitas automatizações de fluxo de trabalho na sua subscrição, utilize o filtro por opção **nome.** 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine a automatização do fluxo de trabalho utilizando o portal Azure.
 
 1. A partir [do portal Azure,](https://portal.azure.com) **Abrir Centro de Segurança.**
 1. A partir da barra de menu superior, selecione o ícone do filtro e selecione a subscrição específica na qual implementou a nova automatização do fluxo de trabalho.
 1. Da barra lateral do Security Center, abra **a automatização do fluxo de trabalho** e encontre a automatização a ser eliminada.
-
-    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Texto alt imagem." lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
-
+    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Passos para a remoção de uma automatização do fluxo de trabalho" lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
 1. Selecione a caixa de verificação para que o item seja eliminado.
-1. A partir da barra de ferramentas, selecione eliminar.
+1. A partir da barra de ferramentas, **selecione Delete**.
 
 
 ## <a name="next-steps"></a>Passos seguintes

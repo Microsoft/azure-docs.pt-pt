@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 73e8f0de9f879498acb71e97fa47c81b3447252d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: edf35fada4233fbe43bc7f859c2414bfb8130714
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749619"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905733"
 ---
 # <a name="train-anomaly-detection-model-module"></a>Módulo de modelo de deteção de anomalias de comboio
 
-Este artigo descreve como usar o módulo modelo de deteção de anomalias de comboio no designer de aprendizagem automática Azure (pré-visualização) para criar um modelo de deteção de anomalias treinado.
+Este artigo descreve como usar o módulo de deteção de anomalias de comboio no designer Azure Machine Learning para criar um modelo de deteção de anomalias treinado.
 
 O módulo toma como entrada um conjunto de parâmetros para um modelo de deteção de anomalias e um conjunto de dados não rotulado. Devolve um modelo de deteção de anomalias treinado, juntamente com um conjunto de rótulos para os dados de treino.  
 
@@ -49,9 +49,9 @@ Após o treino estar completo:
 + Para guardar uma imagem do modelo treinado, selecione o módulo. Em seguida, selecione o ícone **do conjunto de dados 'Registar'** no **separador Saídas+Logs** no painel direito.   
 
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 
-Consulte [exceções e códigos de erro para o designer (pré-visualização)](designer-error-codes.md) para obter uma lista de erros específicos dos módulos do designer.
+Consulte [exceções e códigos de erro para o designer](designer-error-codes.md) para obter uma lista de erros específicos dos módulos do designer.
 '

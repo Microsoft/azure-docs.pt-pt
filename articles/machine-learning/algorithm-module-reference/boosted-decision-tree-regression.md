@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 171c53aa36ecc854cf32a64f9f2639a7086c24e5
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 21cd1491da4374babaff8b5b4b451a3cce874368
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782588"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898847"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regressão da árvore da decisão reforçada
 
-Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
+Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
 Utilize este módulo para criar um conjunto de árvores de regressão utilizando o reforço. *Aumentar* significa que cada árvore depende de árvores anteriores. O algoritmo aprende encaixando o residual das árvores que o precederam. Assim, o aumento de um conjunto de árvores de decisão tende a melhorar a precisão com algum pequeno risco de menor cobertura.  
 

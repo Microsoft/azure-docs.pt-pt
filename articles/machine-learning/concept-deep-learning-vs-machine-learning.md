@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: b024010583ba1c6e0ffdf663f7335011ce212bf1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 177f1992eb0cd93ad871ef3a181460417b1ef523
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414589"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905141"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Aprendizagem profunda vs. aprendizagem automática
 
@@ -26,7 +26,7 @@ Este artigo ajuda a comparar aprendizagem profunda vs. aprendizagem automática.
 
 Considere as seguintes definições para compreender a aprendizagem profunda vs. machine learning vs. IA:
 
-- **A aprendizagem profunda** é um subconjunto de aprendizagem automática que é baseado em redes neuronais artificiais. O _processo de aprendizagem_ é _profundo_ porque a estrutura das redes neurais artificiais consiste em múltiplas entradas, saídas e camadas ocultas. Cada camada contém unidades que transformam os dados de entrada em informações que a próxima camada pode usar para uma determinada tarefa preditiva. Graças a esta estrutura, uma máquina pode aprender através do seu próprio processamento de dados.
+- **A aprendizagem profunda** é um subconjunto de aprendizagem automática que é baseado em redes neuronais artificiais. O _processo de aprendizagem_ é _profundo_ porque a estrutura das redes neurais artificiais consiste em múltiplas entradas, saídas e camadas ocultas. Cada camada contém unidades que transformam os dados de entrada em informações que a próxima camada pode utilizar para uma determinada tarefa preditiva. Graças a esta estrutura, uma máquina pode aprender através do seu próprio processamento de dados.
 
 - **Machine learning** é um subconjunto de inteligência artificial que usa técnicas (como a aprendizagem profunda) que permitem às máquinas usar a experiência para melhorar em tarefas. O _processo de aprendizagem_ baseia-se nos seguintes passos:
 
@@ -96,7 +96,7 @@ As secções seguintes exploram as tipologias de rede neural artificial mais pop
 
 ### <a name="feedforward-neural-network"></a>Rede neural de feedforward
 
-A rede neural de alimentação é o tipo mais básico de rede neural artificial. Numa rede de feedforward, a informação move-se apenas numa direção, desde a camada de entrada até à camada de saída. As redes neuronais de feedforward transformam uma entrada colocando-a através de uma série de camadas escondidas. Cada camada é composta por um conjunto de neurónios, e cada camada está totalmente ligada a todos os neurónios da camada anterior. A última camada totalmente ligada (a camada de saída) representa as previsões geradas.
+A rede neural de feedforward é o tipo mais simples de rede neural artificial. Numa rede de feedforward, a informação move-se apenas numa direção, desde a camada de entrada até à camada de saída. As redes neuronais de feedforward transformam uma entrada colocando-a através de uma série de camadas escondidas. Cada camada é composta por um conjunto de neurónios, e cada camada está totalmente ligada a todos os neurónios da camada anterior. A última camada totalmente ligada (a camada de saída) representa as previsões geradas.
 
 ### <a name="recurrent-neural-network"></a>Rede neuronal recorrente
 

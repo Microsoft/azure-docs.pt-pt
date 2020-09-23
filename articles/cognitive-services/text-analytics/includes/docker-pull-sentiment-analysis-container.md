@@ -1,7 +1,7 @@
 ---
-title: Docker puxar para o recipiente de análise de sentimento
+title: Docker puxa para o recipiente de Análise de Sentimento
 titleSuffix: Azure Cognitive Services
-description: Docker puxar comando para recipiente de análise de sentimento
+description: Docker puxa comando para o recipiente de Análise de Sentimento
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,19 +9,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: a3db0e2ffdd4a75f02634ca2227c3c41416d4f65
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 549ecf940c53267db6b3caa576c4c24db414337a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83588413"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906122"
 ---
-#### <a name="docker-pull-for-the-sentiment-analysis-v3-container"></a>Docker puxar para o recipiente De Análise de Sentimento v3
+#### <a name="docker-pull-for-the-sentiment-analysis-v3-container"></a>Docker puxa para o recipiente de Análise de Sentimento v3
 
-O recipiente v3 de análise de sentimentos está disponível em várias línguas. Para descarregar o recipiente para o recipiente inglês, utilize o comando abaixo. 
+O recipiente de análise de sentimento v3 está disponível em várias línguas. Para descarregar o recipiente para o recipiente inglês, utilize o comando abaixo. 
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:3.0-en
+docker pull mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment:3.0-en
 ```
 
 Para descarregar o recipiente para outro idioma, `en` substitua-o por um dos códigos linguísticos abaixo. 

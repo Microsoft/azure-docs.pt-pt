@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 04/28/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: f32f6c4366aac1a39dbc1bc4af3b945e259b3280
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 4444f86f094d46419d7ff4b2f80609da007c4594
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543542"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906135"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>Quickstart: Criar uma base de dados Azure para servidor MySQL utilizando PowerShell
 
@@ -61,7 +61,7 @@ A tabela seguinte contém uma lista de parâmetros e valores de amostra geralmen
 
 |        **Definição**         | **Valor de exemplo** |                                                                                                                                                             **Descrição**                                                                                                                                                              |
 | -------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nome                       | mydemoserver     | Escolha um nome globalmente único em Azure que identifique a sua Base de Dados Azure para o servidor MySQL. O nome do servidor só pode conter letras, números e o caracteres hífen (-) do hífen. Quaisquer caracteres maiúsculas que sejam especificados são automaticamente convertidos para minúsculas durante o processo de criação. Tem de conter entre 3 e 63 carateres. |
+| Name                       | mydemoserver     | Escolha um nome globalmente único em Azure que identifique a sua Base de Dados Azure para o servidor MySQL. O nome do servidor só pode conter letras, números e o caracteres hífen (-) do hífen. Quaisquer caracteres maiúsculas que sejam especificados são automaticamente convertidos para minúsculas durante o processo de criação. Tem de conter entre 3 e 63 carateres. |
 | ResourceGroupName          | myResourceGroup  | Indique o nome do grupo de recursos do Azure.                                                                                                                                                                                                                                                                                            |
 | Sku                        | GP_Gen5_2        | O nome do SKU. Segue em **abreviatura os \_ \_ vCores de geração de preços de** convenção. Para obter mais informações sobre o parâmetro Sku, consulte as informações que se seguem a esta tabela.                                                                                                                                           |
 | BackupRetentionDay         | 7                | Quando tempo se deve reter uma cópia de segurança. A unidade é dias. O intervalo é de 7-35.                                                                                                                                                                                                                                                                       |
@@ -75,7 +75,7 @@ A tabela seguinte contém uma lista de parâmetros e valores de amostra geralmen
 
 O valor do parâmetro **Sku** segue os ** \_ \_ vCores de geração de cálculo de nível de** preços da convenção, como mostrado nos seguintes exemplos.
 
-- `-Sku B_Gen5_1`mapas para Basic, Gen 5 e 1 vCore. Esta opção é a mais pequena SKU disponível.
+- `-Sku B_Gen5_1` mapas para Basic, Gen 5 e 1 vCore. Esta opção é a mais pequena SKU disponível.
 - `-Sku GP_Gen5_32` mapeia para Fins Gerais, Ger 5 e 32 vCores.
 - `-Sku MO_Gen5_2` mapeia para Otimizada para Memória, Ger 5 e 2 vCores.
 
@@ -201,13 +201,13 @@ Para obter comandos adicionais, veja [MySQL 5.7 Reference Manual - Chapter 4.5.1
 
 1. Na caixa de diálogo **Configurar Ligação Nova**, introduza as informações seguintes no separador **Parâmetros**:
 
-   ![configurar ligação nova](./media/quickstart-create-mysql-server-database-using-azure-powershell/setup-new-connection.png)
+   :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-powershell/setup-new-connection.png" alt-text="configurar ligação nova":::
 
     |    **Definição**    |           **Valor Sugerido**           |                      **Descrição**                       |
     | ----------------- | --------------------------------------- | ---------------------------------------------------------- |
     | Nome da Ligação   | A Minha Ligação                           | Especificar uma etiqueta para esta ligação                        |
-    | Método de Ligação | Standard (TCP/IP)                       | Utilize o protocolo TCP/IP para ligar à Base de Dados Azure para o MySQL |
-    | Nome de anfitrião          | `mydemoserver.mysql.database.azure.com` | Nome do servidor que já observou                           |
+    | Connection Method (Método de ligação) | Standard (TCP/IP)                       | Utilize o protocolo TCP/IP para ligar à Base de Dados Azure para o MySQL |
+    | Hostname (Nome do anfitrião)          | `mydemoserver.mysql.database.azure.com` | Nome do servidor que já observou                           |
     | Porta              | 3306                                    | A porta padrão para o MySQL                                 |
     | Nome de utilizador          | myadmin@mydemoserver                    | O login de administração do servidor que já observou                |
     | Palavra-passe          | *************                           | Use a palavra-passe da conta de administração que configuraste anteriormente      |
@@ -234,7 +234,7 @@ Para eliminar apenas o servidor criado neste arranque rápido sem eliminar o gru
 Remove-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Gere uma cadeia de conexão com PowerShell - Base de Dados Azure para o MySQL](connect-powershell.md)
+> [Desenhe uma base de dados Azure para o MySQL utilizando o PowerShell](tutorial-design-database-using-powershell.md)

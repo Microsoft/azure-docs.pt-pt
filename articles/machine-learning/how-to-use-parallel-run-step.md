@@ -11,17 +11,17 @@ ms.author: tracych
 author: tracychms
 ms.date: 08/14/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: 0fb46f4b9fd29c47e9cd38920665b2791f678847
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 8e8d0a13bc01e95311345154648ecb00b624c4bf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647222"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905614"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Executar inferência de lote em grandes quantidades de dados utilizando Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Este artigo mostra-lhe como executar o seu modelo de Aprendizagem automática Azure em paralelo, avaliando rapidamente grandes quantidades de dados. 
+
+Este artigo mostra como executar o modelo do Azure Machine Learning em paralelo, o que avalia rapidamente grandes quantidades de dados. 
 
 A inferição de grandes conjuntos de dados ou com modelos complicados pode ser demorado. A `ParallelRunStep` classe permite-lhe realizar o processamento em paralelo, potencialmente obtenindo resultados globais mais rapidamente. Mesmo que executar uma única avaliação seja bastante rápido, muitos cenários (deteção de objetos, processamento de vídeo, processamento de linguagem natural, etc.) envolvem executar muitas avaliações. 
 
@@ -419,7 +419,7 @@ print("Prediction has ", df.shape[0], " rows")
 df.head(10) 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para ver este processo de trabalho de ponta a ponta, experimente o [caderno de inferência](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines/parallel-run)do lote . 
 

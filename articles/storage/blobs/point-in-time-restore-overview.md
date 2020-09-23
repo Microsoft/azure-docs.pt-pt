@@ -1,27 +1,29 @@
 ---
-title: Restauro pontual para bolhas de bloco (pré-visualização)
+title: Restauro pontual para bolhas de bloco
 titleSuffix: Azure Storage
 description: A restauração pontual das bolhas de blocos proporciona proteção contra a eliminação acidental ou a corrupção, permitindo-lhe restaurar uma conta de armazenamento no seu estado anterior num dado momento.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 09/18/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 1187b01fa623264055edecf21ea5c9d35d59a152
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 7fbebf21b79d2a533de0a872dfe6a10bc8f8e7e5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068307"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987027"
 ---
-# <a name="point-in-time-restore-for-block-blobs-preview"></a>Restauro pontual para bolhas de bloco (pré-visualização)
+# <a name="point-in-time-restore-for-block-blobs"></a>Restauro pontual para bolhas de bloco
 
 A restauração pontual proporciona proteção contra a eliminação acidental ou a corrupção, permitindo-lhe restaurar os dados de blob de bloqueio a um estado anterior. A restauração pontual é útil em cenários em que um utilizador ou aplicação elimina acidentalmente dados ou onde um erro de aplicação corrompe dados. A restauração pontual também permite testar cenários que requerem reverter um conjunto de dados para um estado conhecido antes de realizar mais testes.
 
-Para aprender a permitir a restauração pontual para uma conta de armazenamento, consulte [Ativar e gerir o restauro pontual para as bolhas de bloco (pré-visualização)](point-in-time-restore-manage.md).
+A restauração pontual é suportada apenas para contas de armazenamento v2 para fins gerais. Apenas os dados nos níveis de acesso quente e fresco podem ser restaurados com a restauração pontual.
+
+Para aprender a permitir a restauração pontual para uma conta de armazenamento, consulte [Executar uma restauração pontual em dados de blob de bloco .](point-in-time-restore-manage.md)
 
 ## <a name="how-point-in-time-restore-works"></a>Como o ponto-a-tempo restaurar funciona
 
@@ -48,17 +50,15 @@ Tenha em mente as seguintes limitações em operações de restauro:
 > As operações de leitura a partir do local secundário podem prosseguir durante a operação de restauro se a conta de armazenamento for geo-replicada.
 
 > [!CAUTION]
-> O ponto-a-tempo restaura os suportes de restauração apenas em blobs de blocos. As operações em contentores não podem ser restauradas. Se eliminar um recipiente da conta de armazenamento chamando a operação [do Recipiente de Eliminação](/rest/api/storageservices/delete-container) durante a pré-visualização do restauro pontual, esse recipiente não pode ser restaurado com uma operação de restauro. Durante a pré-visualização, em vez de apagar um recipiente, elimine as bolhas individuais se desejar restaurá-las.
+> O ponto-a-tempo restaura os suportes de restauração apenas em blobs de blocos. As operações em contentores não podem ser restauradas. Se eliminar um recipiente da conta de armazenamento chamando a operação [do Recipiente delete,](/rest/api/storageservices/delete-container) esse recipiente não pode ser restaurado com uma operação de restauro. Em vez de apagar um recipiente, elimine as bolhas individuais se desejar restaurá-las.
 
 ### <a name="prerequisites-for-point-in-time-restore"></a>Pré-requisitos para restauro pontual
 
-A restauração pontual requer que estejam ativadas as seguintes funcionalidades de Armazenamento Azure:
+A restauração pontual requer que as seguintes funcionalidades de Armazenamento Azure sejam ativadas antes de poder permitir a restauração pontual:
 
 - [Excluir suave](soft-delete-overview.md)
-- [Alterar feed (pré-visualização)](storage-blob-change-feed.md)
+- [Alterar alimentação](storage-blob-change-feed.md)
 - [Versão blob](versioning-overview.md)
-
-Ative estas funcionalidades para a conta de armazenamento antes de permitir a restauração pontual. Certifique-se de que se regista para as pré-visualizações de alterações e versões blob antes de as ativar.
 
 ### <a name="retention-period-for-point-in-time-restore"></a>Período de retenção para restauro pontual
 
@@ -72,83 +72,17 @@ O período de retenção para a restauração pontual deve ser pelo menos um dia
 
 Para iniciar uma operação de restauro, um cliente deve ter permissões de escrita para todos os recipientes na conta de armazenamento. Para autorizar uma operação de restauro com o Azure Ative Directory (Azure AD), atribua a função **de Contribuinte de Conta de Armazenamento** ao principal de segurança ao nível da conta de armazenamento, grupo de recursos ou subscrição.
 
-## <a name="about-the-preview"></a>Sobre a pré-visualização
+## <a name="limitations-and-known-issues"></a>Problemas e limitações conhecidos
 
-A restauração pontual é suportada apenas para contas de armazenamento v2 para fins gerais. Apenas os dados nos níveis de acesso quente e fresco podem ser restaurados com a restauração pontual.
+A restauração pontual para as bolhas de blocos tem as seguintes limitações e questões conhecidas:
 
-As seguintes regiões apoiam o ponto de compensação no momento em visualização:
-
-- Canadá Central
-- Leste do Canadá
-- França Central
-
-A pré-visualização inclui as seguintes limitações:
-
-- Restaurar bolhas de bloco premium não é suportado.
-- O restauro de blobs na camada de arquivo não é suportado. Por exemplo, se um blob na camada de acesso frequente tiver sido movido para a camada de arquivo há dois dias e uma operação de restauro restaurar para um ponto há três dias, o blob não é restaurado para a camada de acesso frequente.
+- Apenas as bolhas de bloco numa conta de armazenamento v2 de uso geral padrão podem ser restauradas como parte de uma operação de restauro pontual. As bolhas de apêndice, as bolhas de página e as bolhas de bloco premium não são restauradas. Se tiver apagado um recipiente durante o período de retenção, esse recipiente não será restaurado com a operação de restauro pontual. Para saber se protege os recipientes da eliminação, consulte [a eliminação suave para recipientes (pré-visualização)](soft-delete-container-overview.md).
+- Apenas as bolhas de bloqueio nos níveis quentes ou frescos podem ser restauradas numa operação de restauro pontual. Restaurar bolhas de bloco no nível de arquivo não é suportado. Por exemplo, se um blob na camada de acesso frequente tiver sido movido para a camada de arquivo há dois dias e uma operação de restauro restaurar para um ponto há três dias, o blob não é restaurado para a camada de acesso frequente. Para restaurar uma bolha arquivada, desloque-a primeiro para fora do nível de arquivo.
+- Se uma bolha de bloco na gama a restaurar tiver um arrendamento ativo, a operação de restauro pontual falhará. Quebre quaisquer locações ativas antes de iniciar a operação de restauro.
 - Restaurar espaços de nome plano e hierárquico de armazenamento de dados Azure Data Lake Gen2 não é suportado.
-- Restaurar as contas de armazenamento utilizando chaves fornecidas pelo cliente não é suportado.
 
 > [!IMPORTANT]
-> A pré-visualização de restauro pontual destina-se apenas à utilização não-produção. Os contratos de serviços de produção (SLAs) não estão atualmente disponíveis.
-
-### <a name="register-for-the-preview"></a>Registre-se para a pré-visualização
-
-Para se registar para a pré-visualização, execute os seguintes comandos:
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-```powershell
-# Register for the point-in-time restore preview
-Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Microsoft.Storage
-
-# Register for change feed (preview)
-Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-
-# Register for Blob versioning
-Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
-
-# Refresh the Azure Storage provider namespace
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name RestoreBlobRanges
-az feature register --namespace Microsoft.Storage --name Changefeed
-az feature register --namespace Microsoft.Storage --name Versioning
-az provider register --namespace 'Microsoft.Storage'
-```
-
----
-
-### <a name="check-registration-status"></a>Verifique o estado do registo
-
-O registo de point in time restore é automático e deve demorar menos de 10 minutos. Para verificar o estado do seu registo, execute os seguintes comandos:
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName RestoreBlobRanges
-
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Changefeed
-
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-```
-
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/RestoreBlobRanges')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Changefeed')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning')].{Name:name,State:properties.state}"
-```
-
----
+> Se restaurar as bolhas de bloco a um ponto que é mais cedo do que 22 de setembro de 2020, as limitações de pré-visualização para a restauração pontual estarão em vigor. A Microsoft recomenda que escolha um ponto de restauro que seja igual ou posterior a 22 de setembro de 2020 para aproveitar a funcionalidade de restauro de ponto a tempo geralmente disponível.
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
 
@@ -158,13 +92,9 @@ Para estimar o custo de uma operação de restauro, reveja o registo de alteraç
 
 Para obter mais informações sobre os preços para a restauração pontual, consulte [os preços do blob do Bloco](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="ask-questions-or-provide-feedback"></a>Faça perguntas ou forneça feedback
-
-Para fazer perguntas sobre a pré-visualização de restauro pontual ou para fornecer feedback, contacte a Microsoft em pitrdiscussion@microsoft.com .
-
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Ativar e gerir o restauro pontual para as bolhas de bloco (pré-visualização)](point-in-time-restore-manage.md)
-- [Alterar suporte de feed no armazenamento de blob Azure (pré-visualização)](storage-blob-change-feed.md)
+- [Execute uma restauração pontual em dados de blob de bloco](point-in-time-restore-manage.md)
+- [Alterar suporte de alimentação no armazenamento de blob Azure](storage-blob-change-feed.md)
 - [Ativar a eliminação recuperável para blobs](soft-delete-enable.md)
 - [Ativar e gerir a versão blob](versioning-enable.md)

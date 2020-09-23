@@ -3,12 +3,12 @@ title: Descrição geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos utilizados pelo serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 1081de6b467b896bd8cc62b84c9a67c329b11e02
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e70fe13e895315763ae305b48a72d688f09931f0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824037"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986484"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes Azure Backup
 
@@ -35,18 +35,22 @@ Saiba mais sobre [o que pode apoiar](backup-overview.md) e sobre [cenários de b
 
 ## <a name="where-is-data-backed-up"></a>Onde estão os dados?
 
-A Azure Backup armazena dados de backup num cofre dos Serviços de Recuperação. Um cofre é uma entidade de armazenamento on-line em Azure que é usada para conter dados, tais como cópias de backup, pontos de recuperação e políticas de backup.
+A Azure Backup armazena dados de reserva em cofres - Cofres de recuperação e cofres de reserva. Um cofre é uma entidade de armazenamento on-line em Azure que é usada para conter dados, tais como cópias de backup, pontos de recuperação e políticas de backup.
 
-Os cofres dos Serviços de Recuperação têm as seguintes características:
+Os cofres têm as seguintes características:
 
 - Os cofres facilitam a organização dos seus dados de backup, minimizando a sobrecarga de gestão.
-- Em cada subscrição do Azure, pode criar até 500 cofres.
 - Pode monitorizar itens de apoio num cofre, incluindo VMs Azure e máquinas no local.
 - Você pode gerir o acesso ao cofre com [o controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).
 - Especifica como os dados no cofre são replicados para redundância:
-  - **Armazenamento localmente redundante (LRS)**: Para proteger contra falhas num datacenter, pode utilizar LRS. O LRS replica dados numa unidade de escala de armazenamento. [Saiba mais](../storage/common/storage-redundancy.md).
-  - **Armazenamento geo-redundante (GRS)**: Para proteger contra interrupções em toda a região, pode utilizar GRS. GRS replica os seus dados para uma região secundária. [Saiba mais](../storage/common/storage-redundancy.md).
+  - **Armazenamento localmente redundante (LRS)**: Para proteger contra falhas num datacenter, pode utilizar LRS. O LRS replica dados numa unidade de escala de armazenamento. [Saiba mais](../storage/common/storage-redundancy.md#locally-redundant-storage).
+  - **Armazenamento geo-redundante (GRS)**: Para proteger contra interrupções em toda a região, pode utilizar GRS. GRS replica os seus dados para uma região secundária. [Saiba mais](../storage/common/storage-redundancy.md#geo-redundant-storage).
+  - **Armazenamento redundante de zona (ZRS)**: replica os seus dados em [zonas de disponibilidade,](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)garantindo residência de dados e resiliência na mesma região. [Saiba mais](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - Por predefinição, os cofres dos Serviços de Recuperação utilizam GRS.
+
+Os cofres dos Serviços de Recuperação têm as seguintes características adicionais:
+
+- Em cada subscrição do Azure, pode criar até 500 cofres.
 
 ## <a name="backup-agents"></a>Agentes do Azure Backup
 
@@ -61,7 +65,7 @@ A Azure Backup fornece diferentes agentes de backup, dependendo do tipo de máqu
 
 A tabela seguinte explica os diferentes tipos de backups e quando são usados:
 
-**Tipo de cópia de segurança** | **Detalhes** | **Utilização**
+**Tipo de backup** | **Detalhes** | **Utilização**
 --- | --- | ---
 **Completa** | Uma cópia de segurança completa contém toda a fonte de dados. É preciso mais largura de banda de rede do que backups diferenciais ou incrementais. | Usado para reforço inicial.
 **Diferencial** |  Uma cópia de segurança diferencial armazena os blocos que mudaram desde a cópia de segurança inicial. Usa uma menor quantidade de rede e armazenamento, e não mantém cópias redundantes de dados inalterados.<br/><br/> Ineficiente porque os blocos de dados que são inalterados entre cópias de segurança posteriores são transferidos e armazenados. | Não usado pela Azure Backup.
@@ -71,7 +75,7 @@ A tabela seguinte explica os diferentes tipos de backups e quando são usados:
 
 A tabela seguinte explica os diferentes tipos de cópias de segurança utilizadas para as bases de dados do SQL Server e a frequência com que são utilizadas:
 
-**Tipo de cópia de segurança** | **Detalhes** | **Utilização**
+**Tipo de backup** | **Detalhes** | **Utilização**
 --- | --- | ---
 **Cópia de segurança completa** | Uma cópia de segurança da base de dados completa confirma toda a base de dados. Contém todos os dados numa base de dados específica ou num conjunto de grupos de ficheiros ou ficheiros. Uma cópia de segurança completa também contém registos suficientes para recuperar esses dados. | No máximo, pode acionar uma cópia de segurança completa por dia.<br/><br/> Pode optar por fazer uma cópia de segurança completa num intervalo diário ou semanal.
 **Cópia de segurança diferencial** | Uma cópia de segurança diferencial baseia-se na cópia de segurança completa mais recente.<br/><br/> Captura apenas os dados que mudaram desde a cópia de segurança completa. |  No máximo, pode acionar uma cópia de segurança diferencial por dia.<br/><br/> Não pode configurar um backup completo e uma cópia de segurança diferencial no mesmo dia.

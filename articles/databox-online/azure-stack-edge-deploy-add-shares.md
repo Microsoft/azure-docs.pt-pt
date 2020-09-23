@@ -1,6 +1,6 @@
 ---
-title: Tutorial para transferir dados para ações com a Azure Stack Edge Microsoft Docs
-description: Neste tutorial, aprenda a adicionar e a ligar-se a ações no seu dispositivo Azure Stack Edge, para que o Azure Stack Edge possa transferir dados para o Azure.
+title: Tutorial para transferir dados para ações com a Azure Stack Edge Pro Microsoft Docs
+description: Neste tutorial, aprenda a adicionar e a ligar-se a ações no seu dispositivo Azure Stack Edge Pro, para que o Azure Stack Edge Pro possa transferir dados para o Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,17 +8,17 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: fc47497eeceff20e8357195226c2d44cea64fa88
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
+ms.openlocfilehash: aeb5bceca11f595c1582596aeea401fe5f9b239f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926115"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883483"
 ---
-# <a name="tutorial-transfer-data-with-azure-stack-edge"></a>Tutorial: Dados de transferência com Azure Stack Edge
+# <a name="tutorial-transfer-data-with-azure-stack-edge-pro"></a>Tutorial: Dados de transferência com Azure Stack Edge Pro
 
-Este tutorial descreve como adicionar e conectar-se a ações no seu dispositivo Azure Stack Edge. Depois de adicionar as ações, a Azure Stack Edge pode transferir dados para o Azure.
+Este tutorial descreve como adicionar e conectar-se a ações no seu dispositivo Azure Stack Edge Pro. Depois de adicionar as ações, o Azure Stack Edge Pro pode transferir dados para o Azure.
 
 Este procedimento pode demorar cerca de 10 minutos a concluir.
 
@@ -31,11 +31,11 @@ Neste tutorial, ficará a saber como:
  
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de adicionar ações ao Azure Stack Edge, certifique-se de que:
+Antes de adicionar ações ao Azure Stack Edge Pro, certifique-se de que:
 
-- Instalou o seu dispositivo físico como descrito na [Instalação Azure Stack Edge](azure-stack-edge-deploy-install.md).
+- Instalou o seu dispositivo físico como descrito no [Install Azure Stack Edge Pro](azure-stack-edge-deploy-install.md).
 
-- Ativou o dispositivo físico como descrito no [Connect, configurar e ativar o Azure Stack Edge](azure-stack-edge-deploy-connect-setup-activate.md).
+- Ativou o dispositivo físico como descrito no [Connect, configura e ativa o Azure Stack Edge Pro](azure-stack-edge-deploy-connect-setup-activate.md).
 
 
 ## <a name="add-a-share"></a>Adicionar uma partilha
@@ -62,7 +62,7 @@ Para criar uma partilha, faça o seguinte procedimento:
     c. Forneça uma conta de armazenamento onde a parte residirá. 
 
     > [!IMPORTANT]
-    > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge ou Data Box Gateway. Para obter mais informações, consulte [Definir e gerir políticas de imutabilidade para armazenamento de bolhas](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+    > Certifique-se de que a conta de Armazenamento Azure que utiliza não tem políticas de imutabilidade definidas se estiver a usá-la com um dispositivo Azure Stack Edge Pro ou Data Box Gateway. Para obter mais informações, consulte [Definir e gerir políticas de imutabilidade para armazenamento de bolhas](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
     
     d. Na lista de drop-down **do serviço de armazenamento,** selecione **Block Blob**, **Page Blob**ou **Files**.  
     O tipo de serviço que seleciona depende do formato que pretende utilizar no Azure. Neste exemplo, porque queremos armazenar os dados como blobs de bloco em Azure, selecionamos **Block Blob**. Se selecionar **Page Blob,** certifique-se de que os seus dados estão alinhados com 512 bytes. Por exemplo, um VHDX tem sempre um alinhamento de 512 bytes.
@@ -71,7 +71,7 @@ Para criar uma partilha, faça o seguinte procedimento:
    
     f. Dependendo se criou uma participação na SMB ou numa participação da NFS, faça um dos seguintes passos: 
      
-    - **Partilha SMB**: Sob **todos os privilégios utilizador local,** selecione **Criar novo** ou **utilizar existente**. Se criar um novo utilizador local, introduza um nome de utilizador e senha e, em seguida, confirme a palavra-passe. Esta ação atribui permissões ao utilizador local. Depois de ter atribuído as permissões aqui, pode utilizar o File Explorer para as modificar.
+    - **Partilha SMB**: Sob **todos os privilégios utilizador local,** selecione **Criar novo** ou **utilizar existente**. Se criar um utilizar local novo, introduza um nome de utilizador e uma palavra-passe e, em seguida, confirme a palavra-passe. Esta ação atribui as permissões ao utilizador local. Depois de ter atribuído as permissões aqui, pode utilizar o Explorador de Ficheiros para as modificar.
 
         Se selecionar a caixa **de verificação de operações de leitura apenas** para estes dados de partilha, pode especificar utilizadores apenas de leitura.
 
@@ -92,14 +92,14 @@ Agora pode ligar-se a uma ou mais das ações que criou no último passo. Depend
 
 ### <a name="connect-to-an-smb-share"></a>Ligar a uma partilha SMB
 
-No seu cliente Windows Server ligado ao seu dispositivo Azure Stack Edge, conecte-se a uma partilha SMB inserindo os comandos:
+No seu cliente Windows Server ligado ao seu dispositivo Azure Stack Edge Pro, conecte-se a uma partilha SMB inserindo os comandos:
 
 
 1. Numa janela de comando, escreva:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
-2. Quando lhe for solicitado, insira a palavra-passe para a partilha.  
+2. Quando lhe for pedido, introduza a palavra-passe para a partilha.  
    A saída de exemplo deste comando é apresentada aqui.
 
     ```powershell
@@ -117,7 +117,7 @@ No seu cliente Windows Server ligado ao seu dispositivo Azure Stack Edge, conect
 3. No seu teclado, selecione Windows + R.
 
 4. Na janela **Executar,** especifique o `\\<device IP address>` , e, em seguida, selecione **OK**.  
-   O Explorador de Ficheiros abre. Deverá agora ser capaz de ver as ações que criou como pastas. No File Explorer, clique duas vezes numa partilha (pasta) para ver o conteúdo.
+   O Explorador de Ficheiros é aberto. Deve agora conseguir ver as partilhas que criou como pastas. No Explorador de Ficheiros, faça duplo clique numa partilha (pasta) para ver o conteúdo.
  
     ![Ligar a uma partilha SMB](./media/azure-stack-edge-deploy-add-shares/connect-to-share2.png)
 
@@ -125,15 +125,15 @@ No seu cliente Windows Server ligado ao seu dispositivo Azure Stack Edge, conect
 
 ### <a name="connect-to-an-nfs-share"></a>Ligar a uma partilha NFS
 
-No seu cliente Linux ligado ao seu dispositivo Azure Stack Edge, faça o seguinte procedimento:
+No seu cliente Linux ligado ao seu dispositivo Azure Stack Edge Pro, faça o seguinte procedimento:
 
-1. Certifique-se de que o cliente tem o cliente NFSv4 instalado. Para instalar o cliente NFS, utilize o seguinte comando:
+1. Confirme que o cliente tem o cliente NFSv4 instalado. Para instalar o cliente NFS, utilize o seguinte comando:
 
    `sudo apt-get install nfs-common`
 
-    Para obter mais informações, aceda a [Instalar cliente NFSv4](https://help.ubuntu.com/community/SettingUpNFSHowTo#NFSv4_client).
+    Para mais informações, aceda ao [cliente NFSv4.](https://help.ubuntu.com/community/SettingUpNFSHowTo#NFSv4_client)
 
-2. Depois de instalar o cliente NFS, monte a partilha NFS que criou no seu dispositivo Azure Stack Edge utilizando o seguinte comando:
+2. Depois de instalar o cliente NFS, monte a partilha NFS que criou no seu dispositivo Azure Stack Edge Pro utilizando o seguinte comando:
 
    `sudo mount -t nfs -o sec=sys,resvport <device IP>:/<NFS shares on device> /home/username/<Folder on local Linux computer>`
 
@@ -141,7 +141,7 @@ No seu cliente Linux ligado ao seu dispositivo Azure Stack Edge, faça o seguint
     > A `sync` utilização da opção ao acumular ações melhora as taxas de transferência de grandes ficheiros.
     > Antes de montar a partilha, certifique-se de que os diretórios que funcionarão como pontos de montagem no seu computador local já estão criados. Estes diretórios não devem conter quaisquer ficheiros ou sub-dobradores.
 
-    O exemplo a seguir mostra como ligar via NFS a uma partilha no seu dispositivo Azure Stack Edge. O IP do dispositivo é `10.10.10.60`. A partilha `mylinuxshare2` é montada no ubuntuVM. O ponto de montagem da partilha é `/home/databoxubuntuhost/edge`.
+    O exemplo a seguir mostra como ligar via NFS a uma partilha no seu dispositivo Azure Stack Edge Pro. O IP do dispositivo é `10.10.10.60`. A partilha `mylinuxshare2` é montada no ubuntuVM. O ponto de montagem da partilha é `/home/databoxubuntuhost/edge`.
 
     `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/Edge`
 
@@ -152,15 +152,15 @@ No seu cliente Linux ligado ao seu dispositivo Azure Stack Edge, faça o seguint
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, você aprendeu sobre os seguintes tópicos Azure Stack Edge:
+Neste tutorial, aprendeu sobre os seguintes tópicos Azure Stack Edge Pro:
 
 > [!div class="checklist"]
 > * Adicionar uma partilha
 > * Ligar a uma partilha
 
-Para aprender a transformar os seus dados utilizando o Azure Stack Edge, avance para o próximo tutorial:
+Para aprender a transformar os seus dados utilizando o Azure Stack Edge Pro, avance para o próximo tutorial:
 
 > [!div class="nextstepaction"]
-> [Transforme dados com Azure Stack Edge](./azure-stack-edge-deploy-configure-compute.md)
+> [Transforme dados com Azure Stack Edge Pro](./azure-stack-edge-deploy-configure-compute.md)
 
 

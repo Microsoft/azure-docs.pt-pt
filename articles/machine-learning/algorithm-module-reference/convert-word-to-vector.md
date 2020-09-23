@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 21b207ece1a2a7fd6f218716912d4c4d2c2f1ee2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c2aa9023a7081387d38b9f7c6cfe8323300ad6e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753896"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898610"
 ---
 # <a name="convert-word-to-vector-module"></a>Converter palavra para módulo vetorial
 
-Este artigo descreve como usar o módulo Converte palavra a vetor em Azure Machine Learning designer (pré-visualização) para fazer estas tarefas:
+Este artigo descreve como usar o módulo Converte word to Vetor no Azure Machine Learning designer para fazer estas tarefas:
 
 - Aplicar vários modelos Word2Vec (Modelo Word2Vec, FastText, GloVe) no corpus de texto que especificou como entrada.
 - Gere um vocabulário com incorporações de palavras.
@@ -55,7 +55,7 @@ Este módulo requer um conjunto de dados que contenha uma coluna de texto. Texto
 
     Como este módulo cria um vocabulário a partir do texto, o conteúdo das colunas difere, o que leva a diferentes conteúdos vocatórios. É por isso que o módulo aceita apenas uma coluna-alvo.
 
-4. Para **a estratégia Word2Vec**, escolha entre **o modelo inglês pré-treinado GloVe,** **o Gensim Word2Vec**e **o Gensim FastText**.
+4. Para  **a estratégia Word2Vec**, escolha entre **o modelo inglês pré-treinado GloVe,** **o Gensim Word2Vec**e **o Gensim FastText**.
 
 5. Se **a estratégia word2Vec** for **Gensim Word2Vec** ou **Gensim FastText:**
 
@@ -93,7 +93,7 @@ O módulo tem uma saída:
 
 + **Vocabulário com incorporações**: Contém o vocabulário gerado, juntamente com a incorporação de cada palavra. Uma dimensão ocupa uma coluna.
 
-O exemplo a seguir ilustra como funciona o módulo Converte palavra para vetor. Aplica este módulo com as definições predefinidas ao conjunto de dados pré-processado Wikipedia SP 500 fornecido em Azure Machine Learning (Preview).
+O exemplo a seguir ilustra como funciona o módulo Converte palavra para vetor. Aplica este módulo com as definições predefinidas ao conjunto de dados pré-processado Wikipedia SP 500 fornecido no Azure Machine Learning.
 
 ### <a name="source-dataset"></a>Conjunto de dados de origem
 
@@ -145,8 +145,8 @@ Esta secção contém dicas e respostas para perguntas frequentes.
     Para os modelos pré-treinados, o comprimento das incorporações de palavras é fixado. Nesta implementação, o tamanho incorporado de luva-wiki-gigaword-100 é de 100.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 
-Para obter uma lista de erros específicos dos módulos de design (pré-visualização), consulte [códigos de erro de Machine Learning](designer-error-codes.md).
+Para obter uma lista de erros específicos dos módulos de design, consulte [códigos de erro de Machine Learning](designer-error-codes.md).

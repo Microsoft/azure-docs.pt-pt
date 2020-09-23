@@ -8,26 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 09/03/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: e8fdc703b094ace83e70b736c1eb0d15c461adba
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 6c37ac4a8e43f8e11e37186e2438c4803556339e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88243875"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905769"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Quickstart: Detete anomalias nos dados da sua série de tempo usando o Detetor de Anomalia REST API e Java
 
-Utilize este quickstart para começar a utilizar os dois modos de deteção do Detetor de Anomalias da API para detetar anomalias nos dados da série de tempo. Esta aplicação Java envia dois pedidos de API contendo dados de séries de tempo formatadas com JSON, e obtém as respostas.
+Utilize este quickstart para começar a utilizar os dois modos de deteção do Detetor de Anomalias da API para detetar anomalias nos dados da série de tempo. Esta aplicação Java envia pedidos de API contendo dados de séries de tempo formatadas com JSON e obtém as respostas.
 
 | Pedido da API                                        | Saída da aplicação                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Detetar anomalias como um lote                        | A resposta JSON contendo o estado de anomalia (e outros dados) para cada ponto de dados nos dados da série de tempo, e as posições de quaisquer anomalias detetadas. |
-| Detetar o estado de anomalia do último ponto de dados | A resposta JSON contendo o estado de anomalia (e outros dados) para o último ponto de dados nos dados da série de tempo.                                                                                                                                         |
+| Detetar o estado de anomalia do último ponto de dados | A resposta JSON contendo o estado de anomalia (e outros dados) para o último ponto de dados nos dados da série de tempo.   |
+| Detetar pontos de mudança que marcam novas tendências de dados | A resposta JSON que contém os pontos de alteração detetados nos dados da série de tempo. |
 
- Embora esta aplicação esteja escrita em Java, a API é um serviço web RESTful compatível com a maioria das linguagens de programação. Pode encontrar o código-fonte para este arranque rápido no [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/java-detect-anomalies.java).
+Embora esta aplicação esteja escrita em Java, a API é um serviço web RESTful compatível com a maioria das linguagens de programação. Pode encontrar o código-fonte para este arranque rápido no [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/java-detect-anomalies.java).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,6 +57,7 @@ Utilize este quickstart para começar a utilizar os dois modos de deteção do D
     |---------|---------|
     |Deteção de lotes    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
     |Deteção no último ponto de dados     | `/anomalydetector/v1.0/timeseries/last/detect`        |
+    | Deteção de pontos de alteração | `/anomalydetector/v1.0/timeseries/changepoint/detect`   |
 
     [!code-java[Initial key and endpoint variables](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=vars)]
 
@@ -77,7 +79,7 @@ Utilize este quickstart para começar a utilizar os dois modos de deteção do D
 
 ## <a name="detect-anomalies-as-a-batch"></a>Detetar anomalias como um lote
 
-1. Crie um método chamado `detectAnomaliesBatch()` para detetar anomalias ao longo dos dados como um lote. Ligue para o `sendRequest()` método acima criado com o seu ponto final, url, chave de subscrição e dados json. Obtenha o resultado e imprima-o na consola.
+1. Crie um método chamado `detectAnomaliesBatch()` para detetar anomalias ao longo dos dados como um lote. Ligue para o `sendRequest()` método acima criado com o seu ponto final, URL, chave de subscrição e dados json. Obtenha o resultado e imprima-o na consola.
 
 2. Se a resposta `code` contiver campo, imprima o código de erro e a mensagem de erro.
 
@@ -87,9 +89,20 @@ Utilize este quickstart para começar a utilizar os dois modos de deteção do D
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Detetar o estado de anomalia do último ponto de dados
 
-Crie um método chamado `detectAnomaliesLatest()` para detetar o estado de anomalia do último ponto de dados no conjunto de dados. Ligue para o `sendRequest()` método acima criado com o seu ponto final, url, chave de subscrição e dados json. Obtenha o resultado e imprima-o na consola.
+Crie um método chamado `detectAnomaliesLatest()` para detetar o estado de anomalia do último ponto de dados no conjunto de dados. Ligue para o `sendRequest()` método acima criado com o seu ponto final, URL, chave de subscrição e dados json. Obtenha o resultado e imprima-o na consola.
 
 [!code-java[Latest point detection method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectLatest)]
+
+
+## <a name="detect-change-points-in-the-data"></a>Detetar pontos de alteração nos dados
+
+1. Crie um método chamado `detectChangePoints()` para detetar anomalias ao longo dos dados como um lote. Ligue para o `sendRequest()` método acima criado com o seu ponto final, URL, chave de subscrição e dados json. Obtenha o resultado e imprima-o na consola.
+
+2. Se a resposta contiver um `code` campo, imprima o código de erro e a mensagem de erro.
+
+3. Caso contrário, encontre as posições dos pontos de alteração no conjunto de dados. O campo da resposta `isChangePoint` contém um valor boolean que indica se um determinado ponto de dados é um ponto de mudança de tendência. Obtenha a matriz JSON e itere através dela, imprimindo o índice de quaisquer `true` valores. Estes valores correspondem aos índices de variação de tendência, se algum for encontrado.
+
+    [!code-java[detect change points](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectChangePoint)]
 
 ## <a name="load-your-time-series-data-and-send-the-request"></a>Carregue os dados da série de tempo e envie o pedido
 
@@ -104,5 +117,6 @@ Crie um método chamado `detectAnomaliesLatest()` para detetar o estado de anoma
 Uma resposta bem sucedida é devolvida no formato JSON. Clique nos links abaixo para ver a resposta JSON no GitHub:
 * [Resposta de deteção de lote de exemplo](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [Exemplo da resposta de deteção de pontos mais recente](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+* [Exemplo de resposta de deteção de ponto de alteração](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/change-point-sample.json)
 
 [!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

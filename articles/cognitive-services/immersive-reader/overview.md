@@ -1,7 +1,7 @@
 ---
-title: O que é a API do Leitor Imersivo?
+title: O que é o Leitor Imersivo?
 titleSuffix: Azure Cognitive Services
-description: A Imersiva API reader é uma ferramenta que pode ser usada para acomodar pessoas com diferenças de aprendizagem ou ajudar novos leitores e alunos de línguas.
+description: O Immersive Reader é uma ferramenta que é projetada para ajudar pessoas com diferenças de aprendizagem ou ajudar novos leitores e aprendizes de linguagem com a compreensão da leitura.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,57 +10,72 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 01/4/2020
 ms.author: metan
-ms.openlocfilehash: b9efe70e8658e25d61decffbe44dec776890b17b
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.custom: cog-serv-seo-aug-2020
+keywords: leitores, aprendizes de línguas, exibir imagens, melhorar a leitura, ler conteúdos, traduzir
+ms.openlocfilehash: a537845c0256316f9c47317a8805fa989a624f60
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267278"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985744"
 ---
 # <a name="what-is-immersive-reader"></a>O que é a Leitura Avançada?
 
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
+[O Immersive Reader](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente concebida que implementa técnicas comprovadas para melhorar a compreensão da leitura para novos leitores, aprendizes de línguas e pessoas com diferenças de aprendizagem como a dislexia. Com a biblioteca de clientes Immersive Reader, pode aproveitar a mesma tecnologia utilizada no Microsoft Word e microsoft One Note para melhorar as suas aplicações web. 
 
-O [Leitor Imersivo](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente concebida que implementa técnicas comprovadas para melhorar a compreensão da leitura para leitores emergentes, aprendizes de línguas e pessoas com diferenças de aprendizagem como a dislexia.
+## <a name="use-immersive-reader-to-improve-reading-accessibility"></a>Use o Leitor Imersivo para melhorar a acessibilidade à leitura 
 
-Pode utilizar a Leitura Avançada na sua aplicação Web com o SDK da Leitura Avançada.
+O Leitor Imersivo foi concebido para tornar a leitura mais fácil e acessível para todos. Vamos dar uma olhada em algumas das principais características do Leitor Imersivo.
 
-## <a name="what-does-immersive-reader-do"></a>O que faz o Leitor Imersivo?
+### <a name="isolate-content-for-improved-readability"></a>Isolar o conteúdo para uma melhor prontidão
 
-O Leitor Imersivo foi concebido para tornar a leitura mais acessível para todos.
+O Leitor Imersivo isola o conteúdo para melhorar a legibilidade. 
 
-* Mostra conteúdo numa vista de leitura mínima
+  ![Isolar conteúdo para uma melhor legibilidade com leitor imersivo](./media/immersive-reader.png)
 
-  ![Leitura Avançada](./media/immersive-reader.png)
+### <a name="display-pictures-for-common-words"></a>Exibir imagens para palavras comuns
 
-* Exibe imagens de palavras comumente usadas
+Para termos comumente utilizados, o Leitor Imersivo apresentará uma imagem.
 
-  ![Dicionário de imagem](./media/picture-dictionary.png)
+  ![Dicionário de imagem com leitor imersivo](./media/picture-dictionary.png)
 
-* Destaques substantivos, verbos, adjetivos e advéres
+### <a name="highlight-parts-of-speech"></a>Destacar partes da fala
 
-  ![Partes do Discurso](./media/parts-of-speech.png)
+O Leitor Imersivo pode ser usado para ajudar os alunos a entender partes da fala e gramática, destacando verbos, substantivos, pronomes e muito mais.
 
-* Lê o seu conteúdo em voz alta
+  ![Mostrar partes da fala com leitor imersivo](./media/parts-of-speech.png)
 
-  ![Ler em voz alta](./media/read-aloud.png)
+### <a name="read-content-aloud"></a>Leia o conteúdo em voz alta
 
-* Traduz o seu conteúdo para outra língua
+A síntese de fala (ou texto-a-voz) é cozida no serviço Leitor Imersivo, que permite aos seus leitores selecionar texto para ser lido em voz alta. 
 
-  ![Tradução](./media/translation.png)
+  ![Leia o texto em voz alta com o Leitor Imersivo](./media/read-aloud.png)
 
-* Decompõe as palavras em sílabas
+### <a name="translate-content-in-real-time"></a>Traduzir conteúdo em tempo real
 
-  ![Syllabificação](./media/syllabification.png)
+O Leitor Imersivo pode traduzir texto em muitas línguas em tempo real. Isto é útil para melhorar a compreensão para os leitores aprenderem uma nova linguagem.
+
+  ![Traduzir texto com leitor imersivo](./media/translation.png)
+
+### <a name="split-words-into-syllables"></a>Dividir palavras em sílabas
+
+Com o Leitor Imersivo pode quebrar palavras em sílabas para melhorar a legibilidade ou para soar novas palavras.
+
+  ![Quebre palavras em sílabas com leitor imersivo](./media/syllabification.png)
 
 ## <a name="how-does-immersive-reader-work"></a>Como funciona o Leitor Imersivo?
 
-O Leitor Imersivo é uma aplicação web autónoma que, quando invocada através do Leitor Imersivo JavaScript SDK, é apresentada em cima da sua aplicação web existente através de um `iframe` . Quando liga para a API para lançar o Leitor Imersivo, especifica o conteúdo que pretende mostrar no Leitor Imersivo. O nosso SDK lida com a criação e estilo do serviço de `iframe` backend do Leitor Imersivo, que processa o conteúdo de partes de fala, texto para fala, tradução, e assim por diante.
+O Immersive Reader é uma aplicação web autónoma. Quando invocado através da biblioteca de clientes Immersive Reader é apresentado em cima da sua aplicação web existente num `iframe` . Quando a sua aplicação wep chama o serviço Leitor Imersivo, especifique o conteúdo para mostrar o leitor. A biblioteca de clientes Immersive Reader lida com a criação e estilo do `iframe` e da comunicação com o serviço de backend Do Leitor Imersivo. O serviço Immersive Reader processa o conteúdo para partes da fala, texto para a fala, tradução e muito mais.
+
+## <a name="get-started-with-immersive-reader"></a>Começa com o Leitor Imersivo
+
+A biblioteca de clientes Immersive Reader está disponível em C#, JavaScript, Java (Android), Kotlin (Android) e Swift (iOS). Introdução a:
+
+* [Quickstart: Use a biblioteca de clientes imersivos Reader](quickstarts/client-libraries.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Introdução à Leitura Avançada:
 
-* Salte para os [arranques rápidos](./quickstarts/client-libraries.md?pivots=programming-language-csharp)
-* Explore o [SDK do leitor imersivo no GitHub](https://github.com/microsoft/immersive-reader-sdk)
-* Leia a [referência SDK do leitor imersivo](./reference.md)
+* Leia a biblioteca de [clientes imersivo Reader Referência](./reference.md)
+* Explore a [biblioteca de clientes imersivos reader no GitHub](https://github.com/microsoft/immersive-reader-sdk)

@@ -11,15 +11,15 @@ ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 07/16/2020
-ms.openlocfilehash: 8d357cea7ce809c2df6b35e08ac7da7e9d3795e9
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 010843f4249909e23ffac3b41fb3acaf9c91eb17
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650430"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890011"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Depurar e resolver problemas do ParallelRunStep
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, aprende-se a depurar e a resolver problemas na aula [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py&preserve-view=true) do [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 
@@ -29,7 +29,7 @@ Consulte a [secção de scripts de teste local](how-to-debug-pipelines.md#debug-
 
 ## <a name="debugging-scripts-from-remote-context"></a>Depurando scripts do contexto remoto
 
-A transição de depurar um guião de pontuação localmente para depurar um script de pontuação em um pipeline real pode ser um salto difícil. Para obter informações sobre a descoberta dos seus registos no portal, a [secção de gasodutos de aprendizagem automática sobre a depuragem de scripts de um contexto remoto](how-to-debug-pipelines.md#finding-and-reading-pipeline-log-files). A informação nessa secção também se aplica a um ParallelRunStep.
+A transição de depurar um guião de pontuação localmente para depurar um script de pontuação em um pipeline real pode ser um salto difícil. Para obter informações sobre a descoberta dos seus registos no portal, a [secção de gasodutos de aprendizagem automática sobre a depuragem de scripts de um contexto remoto](how-to-debug-pipelines.md). A informação nessa secção também se aplica a um ParallelRunStep.
 
 Por exemplo, o ficheiro de registo `70_driver_log.txt` contém informações do controlador que lança o código ParallelRunStep.
 
@@ -114,7 +114,7 @@ args, _ = parser.parse_known_args()
 labels_path = args.labels_dir
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte a referência SDK para obter ajuda com o pacote [de passos de gasoduto azureml.](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true) Ver [documentação de](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py&preserve-view=true) referência para a classe ParallelRunStep.
 

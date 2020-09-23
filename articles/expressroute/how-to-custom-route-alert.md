@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: f29f43234f1541abeb448e722d0b72ef7c0221c9
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4a116d06f5feb3fe402e7f64b9bccd5531b210c1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401729"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986582"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configurar alertas personalizados para monitorizar rotas anunciadas
 
@@ -299,7 +299,7 @@ No gatilho da Agenda de Recorrência, pode definir o fuso horário e uma recorr�
 
 No final da configuração do fluxo de trabalho, pode verificar a consistência da frequência de recorrência executando o fluxo de trabalho algumas vezes e, em seguida, verificar o resultado na história do **Runs**.
 
-:::image type="content" source="./media/custom-route-alert-portal/recurrence.png" alt-text="Recorrência" lightbox="./media/custom-route-alert-portal/recurrence-expand.png":::
+:::image type="content" source="./media/custom-route-alert-portal/recurrence.png" alt-text="A screenshot mostra os valores de intervalo de recorrência e frequência." lightbox="./media/custom-route-alert-portal/recurrence-expand.png":::
 
 ### <a name="3-create-a-job"></a><a name="job"></a>3. Criar um emprego
 
@@ -320,7 +320,7 @@ Uma aplicação lógica acede a outras aplicações, serviços e à plataforma a
 
 5. Na página **de trabalho Create,** o titular do serviço deverá ter a função "Leitor" no **Grupo de Recursos** que acolhe a conta de automação e "Automação Demômes" na Conta **Demôm automação.** Além disso, verifique se adicionou o **Nome runbook** como um novo parâmetro.
 
-   :::image type="content" source="./media/custom-route-alert-portal/roles.png" alt-text="Funções" lightbox="./media/custom-route-alert-portal/roles-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/roles.png" alt-text="Screenshot mostra Criar valores de trabalho em Recorrência, onde pode verificar o Nome do Livro De Execução." lightbox="./media/custom-route-alert-portal/roles-expand.png":::
 
 ### <a name="4-get-the-job-output"></a><a name="output"></a>4. Obter a saída de emprego
 
@@ -343,7 +343,7 @@ A informação contida na saída da "Azure Automation Create job action" (etapas
 
 3. Clique dentro da caixa **de conteúdo.** Quando aparecer a lista de conteúdos Dynamic, selecione **Conteúdo**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/content.png" alt-text="Conteúdo" lightbox="./media/custom-route-alert-portal/content-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/content.png" alt-text="A screenshot mostra a caixa de diálogo Parse JSON com conteúdo selecionado." lightbox="./media/custom-route-alert-portal/content-expand.png":::
 
 4. Analisar um JSON requer um esquema. O esquema pode ser gerado utilizando a saída do livro de bordo da Automação. Abra uma nova sessão de navegador web, execute o runbook Automation e agarre a saída. Voltar à ação **de Operações de Dados da Logic Apps Parse JSON.** Na parte inferior da página, **selecione Utilize a carga útil da amostra para gerar esquema**.
 
@@ -363,7 +363,7 @@ Neste passo do fluxo de trabalho, criamos uma condição para enviar um alarme p
 
 1. No âmbito da ação **de saída de emprego**Get , selecione Novo **passo**. Na caixa de pesquisa, encontre e selecione **Variáveis.**
 
-   :::image type="content" source="./media/custom-route-alert-portal/variables.png" alt-text="Variáveis":::
+   :::image type="content" source="./media/custom-route-alert-portal/variables.png" alt-text="A screenshot mostra a caixa de diálogo de ação Escolha uma caixa de diálogo de ação com variável na caixa de pesquisa e variáveis selecionadas.":::
 
 2. Na lista **de Ações,** selecione a ação **variável Initialize.**
 
@@ -371,7 +371,7 @@ Neste passo do fluxo de trabalho, criamos uma condição para enviar um alarme p
 
 3. Especificar o nome da variável. Para **tipo**, selecione **String**. O **Valor** da variável será atribuído mais tarde no fluxo de trabalho.
 
-   :::image type="content" source="./media/custom-route-alert-portal/string.png" alt-text="String" lightbox="./media/custom-route-alert-portal/string-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/string.png" alt-text="O Screenshot mostra Parse JSON associada à variável Initialize, onde pode introduzir um Nome, Tipo e Valor." lightbox="./media/custom-route-alert-portal/string-expand.png":::
 
 ### <a name="7-create-a-for-each-action"></a><a name="cycles-json"></a>7. Criar uma ação "Para cada"
 
@@ -379,7 +379,7 @@ Uma vez analisado o JSON, a ação **Parse JSON Data Operations** armazena o con
 
 1. Sob **a variável Initialize,** selecione **Adicione uma ação**. Na caixa de pesquisa, escreva "para cada um" como filtro.
 
-   :::image type="content" source="./media/custom-route-alert-portal/control.png" alt-text="Controlo":::
+   :::image type="content" source="./media/custom-route-alert-portal/control.png" alt-text="A screenshot mostra a caixa de diálogo de ação escolha uma caixa de diálogo de ação com cada uma na caixa de pesquisa e Controlo selecionado.":::
 
 2. Na lista **de Ações,** selecione a ação **Para cada um - Controlo**.
 
@@ -387,7 +387,7 @@ Uma vez analisado o JSON, a ação **Parse JSON Data Operations** armazena o con
 
 3. Clique na versão Selecionar uma saída da caixa de texto **dos passos anteriores.** Quando aparecer a lista **de conteúdo dinâmico,** selecione o **Corpo**, que é a saída do JSON analisado.
 
-   :::image type="content" source="./media/custom-route-alert-portal/body.png" alt-text="Corpo":::
+   :::image type="content" source="./media/custom-route-alert-portal/body.png" alt-text="A screenshot mostra variável inicial associada a cada um, que contém a saída Selecione uma saída da caixa de texto de passos anteriores.":::
 
 4. Para cada elemento do corpo JSON, queremos definir uma condição. Do grupo de ação, selecione **Control**.
 
@@ -455,6 +455,6 @@ O passo final é a validação do fluxo de trabalho. No **Visão geral das aplic
 
 :::image type="content" source="./media/custom-route-alert-portal/trigger.png" alt-text="Acionar o gatilho":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como personalizar o fluxo de trabalho, consulte [a Azure Logic Apps.](../logic-apps/logic-apps-overview.md)

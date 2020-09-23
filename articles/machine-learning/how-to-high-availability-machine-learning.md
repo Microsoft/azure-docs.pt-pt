@@ -10,16 +10,16 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 09/16/2020
-ms.openlocfilehash: abb24ef1cc6a693acbaf6561a185fd5ae536a66d
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 64665c0b1e32970f29233f5abdd6b2d2d020a6b2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89668794"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897523"
 ---
 # <a name="increase-azure-machine-learning-resiliency"></a>Aumentar a resiliência da aprendizagem automática do Azure
 
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, você aprenderá a tornar os seus recursos de Aprendizagem automática microsoft Azure mais resistentes usando configurações de alta disponibilidade. Pode configurar os serviços Azure de que a Azure Machine Learning depende para uma elevada disponibilidade. Este artigo identifica os serviços que pode configurar para uma elevada disponibilidade, e liga-se a informações adicionais sobre a configuração destes recursos.
 
@@ -100,6 +100,6 @@ Certifique-se de configurar as definições de alta disponibilidade de cada recu
 
 Se fornecer a sua própria chave gerida pelo cliente para implementar um espaço de trabalho Azure Machine Learning, a Azure Cosmos DB também está alojada dentro da sua subscrição. Nesse caso, é responsável por configurar as suas definições de alta disponibilidade. Ver [Alta disponibilidade com Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/high-availability).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para implementar a Azure Machine Learning com recursos associados às suas definições de alta disponibilidade, utilize um [modelo de Gestor de Recursos Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced).

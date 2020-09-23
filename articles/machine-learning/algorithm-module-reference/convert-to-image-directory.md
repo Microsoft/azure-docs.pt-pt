@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: b29b5fa1beb19bc055f94c56b064ae2c0ae175b5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 677cf60ff3e614fd1486445786154fbf026b7cd9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171147"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898686"
 ---
 # <a name="convert-to-image-directory"></a>Converter para o Diretório da Imagem
 
-Este artigo descreve como utilizar o módulo Converte para Diretório de Imagem para ajudar a converter o conjunto de dados de imagem para o tipo de dados 'Image Directory', que é o formato de dados padronizado em tarefas relacionadas com a imagem, como a classificação de imagem no designer de Aprendizagem de Máquinas Azure (pré-visualização).
+Este artigo descreve como usar o módulo Converte para Diretório de Imagem para ajudar a converter o conjunto de dados de imagem para o tipo de dados 'Image Directory', que é o formato de dados padronizado em tarefas relacionadas com a imagem, como a classificação de imagem no designer de Aprendizagem automática Azure.
 
 ## <a name="how-to-use-convert-to-image-directory"></a>Como usar Converter para Diretório de Imagem  
 

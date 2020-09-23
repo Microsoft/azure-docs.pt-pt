@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-python, devx-track-javascript
-ms.openlocfilehash: 2dc701b15b0fd30af0f4a28e39153c0ee77ae128
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 289a33d6544e3b8930059ad58115673193a1c89b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850343"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905815"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Como ligar aplicações à Base de Dados do Azure para MySQL
 Este tópico lista os tipos de cadeias de ligação que são suportados pela Base de Dados Azure para o MySQL, juntamente com modelos e exemplos. Pode ter diferentes parâmetros e configurações na sua cadeia de ligação.
@@ -63,7 +63,7 @@ client = Mysql2::Client.new(username: {username@servername}, password: {your_pas
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Obtenha os detalhes da cadeia de ligação a partir do portal Azure
-No [portal Azure,](https://portal.azure.com)aceda à sua Base de Dados Azure para o servidor MySQL e, em seguida, clique em **Cadeias de Ligação** para obter a lista de cordas para o seu exemplo: ![ O painel de cordas de ligação no portal Azure](./media/howto-connection-strings/connection-strings-on-portal.png)
+No [portal Azure,](https://portal.azure.com)aceda à sua Base de Dados Azure para o servidor MySQL e, em seguida, clique em **Cadeias de Ligação** para obter a lista de cordas para o seu exemplo: :::image type="content" source="./media/howto-connection-strings/connection-strings-on-portal.png" alt-text="O painel de cordas de ligação no portal Azure":::
 
 A cadeia fornece detalhes como o controlador, servidor e outros parâmetros de ligação da base de dados. Modifique estes exemplos para utilizar os seus próprios parâmetros, tais como nome de base de dados, palavra-passe, e assim por diante. Em seguida, pode utilizar este fio para ligar ao servidor a partir do seu código e aplicações.
 

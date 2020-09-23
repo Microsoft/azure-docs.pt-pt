@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 7550bb7c6bbf7602245f9a9f1ac006ce693b36a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63c61b12ad68a3add2e7b40ab0bec38d3c2835e5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477651"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898574"
 ---
 # <a name="cross-validate-model"></a>Modelo de validação cruzada
 
-Este artigo descreve como utilizar o módulo Modelo De Validação Cruzada no designer de Aprendizagem automática Azure (pré-visualização). *A validação cruzada* é uma técnica frequentemente utilizada na aprendizagem automática para avaliar tanto a variabilidade de um conjunto de dados como a fiabilidade de qualquer modelo treinado através desses dados.  
+Este artigo descreve como usar o módulo Modelo Cross Valide no designer de Aprendizagem automática Azure. *A validação cruzada* é uma técnica frequentemente utilizada na aprendizagem automática para avaliar tanto a variabilidade de um conjunto de dados como a fiabilidade de qualquer modelo treinado através desses dados.  
 
 O módulo Modelo Validado Cruz toma como entrada um conjunto de dados rotulado, juntamente com um modelo de classificação ou regressão não treinado. Divide o conjunto de dados em alguns subconjuntos *(dobras),* constrói um modelo em cada dobra e, em seguida, devolve um conjunto de estatísticas de precisão para cada dobra. Ao comparar as estatísticas de precisão de todas as dobras, pode interpretar a qualidade do conjunto de dados. Pode então compreender se o modelo é suscetível a variações nos dados.  
 
@@ -123,7 +123,7 @@ O módulo também inclui as seguintes métricas para cada dobra, dependendo do t
 + Não há necessidade de dividir o conjunto de dados em conjuntos de treino e testes quando se utiliza a validação cruzada para medir a precisão do modelo. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 83fa119a17d319dffe1fcd54173d9a11b29135ca
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 4310bd94edd5ebe14eab40b6d19e2bacbdd1b03c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89481834"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906216"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Saída da Base de Dados Azure SQL da Azure Stream Analytics
 
@@ -49,11 +49,11 @@ A partição tem de ser ativada e baseia-se na cláusula PARTITION BY na consult
 
 Pode configurar o tamanho máximo da mensagem utilizando a **contagem de lotes Max**. O máximo de predefinição é de 10.000 e o mínimo de predefinição é de 100 linhas por cada inserção a granel. Para mais informações, consulte [os limites do Azure SQL](../sql-database/sql-database-resource-limits.md). Cada lote é inicialmente inserido a granel com a contagem máxima de lote. O lote é dividido ao meio (até à contagem mínima de lotes) com base em erros retripáveis do SQL.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
 * [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Azure CLI](quick-create-azure-cli.md)
 * [Quickstart: Crie um trabalho Azure Stream Analytics usando um modelo ARM](quick-create-azure-resource-manager.md)
 * [Quickstart: Criar um trabalho stream analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Quickstart: Criar um trabalho Azure Stream Analytics em Código de Estúdio Visual](quick-create-vs-code.md)
+* [Quickstart: Criar um trabalho Azure Stream Analytics em Código de Estúdio Visual](quick-create-visual-studio-code.md)

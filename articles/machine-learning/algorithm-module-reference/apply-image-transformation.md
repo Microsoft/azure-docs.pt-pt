@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 7ff135911742c49c2c52ce30d1dca00bc89b3a56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a64d5cebfd8e70e2f54a66193a7041c47887c54a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450725"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898906"
 ---
 # <a name="apply-image-transformation"></a>Aplicar a Transformação da Imagem 
 
-Este artigo descreve como usar o módulo de transformação de imagem aplicar no designer de aprendizagem automática Azure (pré-visualização), para modificar um diretório de imagem de entrada baseado numa transformação de imagem previamente especificada.  
+Este artigo descreve como usar o módulo de transformação de imagem aplicar no designer Azure Machine Learning, para modificar um diretório de imagem de entrada baseado numa transformação de imagem previamente especificada.  
 
 É necessário ligar um módulo [de transformação de imagem Init](init-image-transformation.md) para especificar a transformação e, em seguida, pode aplicar tal transformação ao diretório de imagem de entrada do módulo de Transformação de Imagem Aplicada.
 
@@ -53,17 +53,17 @@ Este artigo descreve como usar o módulo de transformação de imagem aplicar no
 
 ### <a name="expected-inputs"></a>Entradas esperadas  
 
-| Name                       | Tipo                    | Descrição                       |
+| Nome                       | Tipo                    | Descrição                       |
 | -------------------------- | ----------------------- | --------------------------------- |
 | Transformação de imagem de entrada | Diretório de Transformação | Transformação de imagem de entrada        |
 | Diretório de imagem de entrada      | ImageDirectory          | Diretório de imagem a ser transformado |
 
 ### <a name="outputs"></a>Saídas  
 
-| Name                   | Tipo           | Descrição            |
+| Nome                   | Tipo           | Descrição            |
 | ---------------------- | -------------- | ---------------------- |
 | Diretório de imagem de saída | ImageDirectory | Diretório de imagem de saída |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

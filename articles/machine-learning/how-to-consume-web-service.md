@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 3e6b5e2e06e6cd87295b2faf2a426b75b5f6bf10
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 5427d62f93eb6284ecda9a0762e3d8c4e99c06e2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650765"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890101"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como serviço Web
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 A implementação de um modelo Azure Machine Learning como um serviço web cria um ponto final rest API. Pode enviar dados para este ponto final e receber a previsão devolvida pelo modelo. Neste documento, aprenda a criar clientes para o serviço web utilizando C#, Go, Java e Python.
 
@@ -653,6 +653,6 @@ Para gerar um serviço web suportado para consumo em Power BI, o esquema deve su
 
 Uma vez que o serviço web é implementado, é consumível a partir de fluxos de dados Power BI. [Saiba como consumir um serviço web Azure Machine Learning da Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para ver uma arquitetura de referência para pontuação em tempo real de Python e modelos de deep learning, vá ao [centro de arquitetura Azure.](/azure/architecture/reference-architectures/ai/realtime-scoring-python)

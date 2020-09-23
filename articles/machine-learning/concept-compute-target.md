@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 08f1d1e0ca1936b30db968dde5d7f6f2e6104cf8
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 3e1832d656ea2bad772a686e52a357c1daf0ded5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651210"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883206"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Quais são os alvos de computação em Azure Machine Learning? 
 
@@ -68,7 +68,7 @@ Quando criados estes recursos computacional são automaticamente parte do seu es
 
 
 > [!NOTE]
-> Quando um cluster de computação está inativo, ele escala automaticamente para 0 nós, para que não pague quando não está em uso.  Uma *instância*computacional , no entanto, está sempre ligado e não autoescala.  Deve [parar a instância de cálculo](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) quando não estiver a usá-lo para evitar custos adicionais. 
+> Quando um cluster de computação está inativo, ele escala automaticamente para 0 nós, para que não pague quando não está em uso.  Uma *instância*computacional , no entanto, está sempre ligado e não autoescala.  Deve [parar a instância de cálculo](concept-compute-instance.md#managing-a-compute-instance) quando não estiver a usá-lo para evitar custos adicionais. 
 
 ### <a name="supported-vm-series-and-sizes"></a>Séries e tamanhos VM suportados
 
@@ -104,7 +104,7 @@ Embora a Azure Machine Learning suporte estas séries VM, podem não estar dispo
 
 Um alvo computacional não gerido *não* é gerido pela Azure Machine Learning. Você cria este tipo de meta de computação fora do Azure Machine Learning e, em seguida, anexá-lo ao seu espaço de trabalho. Os recursos computacional não geridos podem exigir medidas adicionais para manter ou melhorar o desempenho das cargas de trabalho de aprendizagem automática.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda a:
 * [Use um alvo computacional para treinar o seu modelo](how-to-set-up-training-targets.md)

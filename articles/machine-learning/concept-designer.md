@@ -1,5 +1,5 @@
 ---
-title: Construa modelos ML com o designer (pré-visualização)
+title: Construa modelos ML com o designer
 titleSuffix: Azure Machine Learning
 description: Conheça os termos, conceitos e fluxo de trabalho que compõe o designer para Azure Machine Learning.
 services: machine-learning
@@ -10,15 +10,15 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 788eebaf28a768acbdb5b1eb778f196fe05dc3e3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: c92351131a60b571a102b85f7d11b79ab29d939e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651227"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883113"
 ---
-# <a name="what-is-azure-machine-learning-designer-preview"></a>O que é o Azure Machine Learning Designer (pré-visualização)? 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="what-is-azure-machine-learning-designer"></a>O que é a designer de Aprendizagem automática Azure? 
+
 
 O designer de Machine Learning Azure permite-lhe conectar visualmente conjuntos de [dados](#datasets) e [módulos](#module) numa tela interativa para criar modelos de aprendizagem automática. Para aprender a começar com o designer, consulte [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
 
@@ -116,7 +116,7 @@ Um oleoduto publicado funciona nos recursos computacional que define no projeto 
 
 O designer cria o mesmo objeto [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py&preserve-view=true) que o SDK.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* Aprenda os fundamentos da análise preditiva e machine learning com [tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
+* Aprenda os fundamentos da análise preditiva e machine learning com [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
 * Aprenda a modificar as amostras de [designers existentes](samples-designer.md) para as adaptar às suas necessidades.
