@@ -1,6 +1,6 @@
 ---
 title: Atribuir um papel a um grupo que utilize a Gestão de Identidade Privilegiada no AZure AD ! Microsoft Docs
-description: Pré-visualizar funções Azure AD personalizadas para delegar a gestão de identidade. Gerir as funções Azure no portal Azure, PowerShell ou Graph API.
+description: Saiba como pode atribuir um papel de Azure Ative Directory (Azure AD) a um grupo que utiliza a Azure AD Privileged Identity Management (PIM).
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 343da87048cf43c04a137376e9a7f24270ce729a
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: b297ee3d03d61b654e2b7fffa17141a1fd5268f3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476220"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971181"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Atribuir um papel a um grupo que utilize a Gestão de Identidade Privilegiada
 
@@ -104,6 +104,6 @@ https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequest
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Use grupos de nuvem para gerir atribuições de funções](roles-groups-concept.md)
-- [Funções de resolução de problemas atribuídas a grupos de nuvem](roles-groups-faq-troubleshooting.md)
+- [Resolver problemas de funções atribuídas a grupos de cloud](roles-groups-faq-troubleshooting.md)
 - [Configurar configurações de função de administrador a Ad AD em Gestão de Identidade Privilegiada](../privileged-identity-management/pim-how-to-change-default-settings.md)
 - [Atribuir funções de recursos da Azure na Gestão de Identidade Privilegiada](../privileged-identity-management/pim-resource-roles-assign-roles.md)

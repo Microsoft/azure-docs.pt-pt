@@ -1,18 +1,18 @@
 ---
-title: Novidades com o agente de servidores (pré-visualização) do Azure Arc
-description: Este artigo tem notas de lançamento para o agente ativado por servidores (pré-visualização) do Azure Arc. Para muitas das questões resumidas, existem ligações a detalhes adicionais.
+title: Novidades com o agente de servidores Azure Arc
+description: Este artigo tem notas de lançamento para o agente de servidores ativado pelo Azure Arc. Para muitas das questões resumidas, existem ligações a detalhes adicionais.
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: 3b739401603f6dc18b9f48fb3cb6e28023a051ab
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/16/2020
+ms.openlocfilehash: 1918d03b5bbfaaa64b7d74c18fad4eb9a86800a0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532176"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908160"
 ---
-# <a name="whats-new-with-azure-arc-enabled-servers-preview-agent"></a>Novidades com o agente de servidores (pré-visualização) do Azure Arc
+# <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Novidades com o agente de servidores Azure Arc
 
-O agente Azure Arc ativado (pré-visualização) Connected Machine recebe melhorias numa base contínua. Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece-lhe informações sobre:
+O agente Azure Arc ativado por máquina conectada recebe melhorias numa base contínua. Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece-lhe informações sobre:
 
 - Os últimos lançamentos
 - Problemas conhecidos
@@ -60,4 +60,4 @@ Se estiver a utilizar uma versão mais antiga do agente Linux e o configurar par
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Antes de avaliar ou ativar os servidores (pré-visualização) do Arc através de várias máquinas híbridas, [reveja](agent-overview.md) a visão geral do agente da Máquina Conectada para compreender os requisitos, detalhes técnicos sobre o agente e métodos de implementação.
+Antes de avaliar ou ativar os servidores ativados pelo Arc em várias máquinas híbridas, [reveja a visão geral do agente da Máquina Conectada](agent-overview.md) para compreender os requisitos, detalhes técnicos sobre o agente e métodos de implementação.

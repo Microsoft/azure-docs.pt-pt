@@ -17,12 +17,12 @@ ms.date: 08/06/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 4bcd36a1ce38d4d9eb6a0faec470f7427852894b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 0d8c835cdc501061607dc05d0b40ebf95deb36a8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260225"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969152"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>PERGUNTAS Frequentes e questões conhecidas com identidades geridas para recursos da Azure
 
@@ -33,15 +33,13 @@ ms.locfileid: "89260225"
 > [!NOTE]
 > Identidades geridas para recursos do Azure é o novo nome para o serviço anteriormente conhecido como Identidade de Serviço Gerida (MSI).
 
-
 ### <a name="how-can-you-find-resources-that-have-a-managed-identity"></a>Como se pode encontrar recursos que tenham uma identidade gerida?
 
 Pode encontrar a lista de recursos que possuem uma identidade gerida atribuída ao sistema utilizando o seguinte Comando CLI Azure: 
 
-`az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table`
-
-
-
+```azurecli-interactive
+az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table
+```
 
 ### <a name="do-managed-identities-have-a-backing-app-object"></a>As identidades geridas têm um objeto de aplicação de apoio?
 
@@ -72,8 +70,6 @@ O limite de segurança da identidade é o recurso ao qual está ligado. Por exem
 - Se a identidade gerida atribuída pelo sistema não estiver ativada e existir apenas um utilizador de identidade gerida atribuída, o IMDS irá por defeito com a identidade gerida atribuída por um único utilizador. 
 - Se o sistema atribuído à identidade gerida não estiver ativado e existirem várias identidades geridas pelo utilizador, então é necessária especificar uma identidade gerida no pedido.
 
-
-
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>As identidades geridas serão recriadas automaticamente se eu mudar uma subscrição para outro diretório?
 
 Não. Se mover uma subscrição para outro diretório, terá de reuscuá-los manualmente e conceder novamente atribuições de funções ao Azure.
@@ -88,7 +84,6 @@ Não. As identidades geridas não suportam atualmente cenários de diretórios c
 
 - Identidade gerida atribuída pelo sistema: É necessário escrever permissões sobre o recurso. Por exemplo, para máquinas virtuais, precisa de Microsoft.Compute/virtualMachines/write. Esta ação está incluída em funções específicas de recursos como [O Contribuinte De Máquina Virtual.](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 - Identidade gerida atribuída pelo utilizador: É necessário escrever permissões sobre o recurso. Por exemplo, para máquinas virtuais, precisa de Microsoft.Compute/virtualMachines/write. Além da atribuição de função [de Operador de Identidade Gerida](../../role-based-access-control/built-in-roles.md#managed-identity-operator) sobre a identidade gerida.
-
 
 
 ## <a name="known-issues"></a>Problemas conhecidos
@@ -112,7 +107,7 @@ Se mover um VM no estado de funcionamento, ele continua a funcionar durante a mu
 Desencadeie uma atualização sobre o VM para que possa obter valores corretos para as identidades geridas para os recursos Azure. Pode fazer uma alteração de propriedade em VM para atualizar a referência às identidades geridas para identidade de recursos Azure. Por exemplo, pode definir um novo valor de etiqueta no VM com o seguinte comando:
 
 ```azurecli-interactive
- az  vm update -n <VM Name> -g <Resource Group> --set tags.fixVM=1
+az vm update -n <VM Name> -g <Resource Group> --set tags.fixVM=1
 ```
  
 Este comando define uma nova etiqueta "fixVM" com um valor de 1 no VM. 
@@ -124,8 +119,6 @@ Uma vez iniciado o VM, a etiqueta pode ser removida utilizando o seguinte comand
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
-
-
 
 ### <a name="transferring-a-subscription-between-azure-ad-directories"></a>Transferência de uma subscrição entre diretórios AD da Azure
 

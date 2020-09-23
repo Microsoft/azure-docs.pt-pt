@@ -1,14 +1,14 @@
 ---
 title: Considerações sobre o programa do Fornecedor de Soluções Cloud
 description: Para os parceiros da CSP, a gestão de recursos delegada da Azure ajuda a melhorar a segurança e o controlo, permitindo permissões granulares.
-ms.date: 07/29/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0ae7ef0b78f2f37708c6b442a9591fcbcce25646
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 27bb1c4f82fe3c9ff8abe74b74bef19f16a8a874
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429451"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967168"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Farol Azure e o programa Cloud Solution Provider
 
@@ -23,7 +23,7 @@ Com [o Azure Lighthouse,](../overview.md)pode utilizar a gestão de recursos del
 
 Com a AOBO, qualquer utilizador com o papel [de Agente Administrador](/partner-center/permissions-overview#manage-commercial-transactions-in-partner-center-azure-ad-and-csp-roles) no seu inquilino terá acesso ao AOBO às subscrições Azure que cria através do programa CSP. Todos os utilizadores que necessitem de acesso a subscrições de qualquer cliente devem ser membros deste grupo. A AOBO não permite a flexibilidade para criar grupos distintos que trabalham com diferentes clientes, ou para permitir diferentes funções para grupos ou utilizadores.
 
-![Gestão de inquilinos usando AOBO](../media/csp-1.jpg)
+![Diagrama mostrando gestão de inquilinos usando AOBO.](../media/csp-1.jpg)
 
 ## <a name="azure-delegated-resource-management"></a>Gestão de recursos delegados do Azure
 
@@ -31,7 +31,7 @@ Utilizando o Farol Azure, pode atribuir diferentes grupos a diferentes clientes 
 
 A bordo de uma subscrição que criou através do programa CSP segue os passos descritos a [bordo de uma subscrição do Farol Azure.](../how-to/onboard-customer.md) Qualquer utilizador que tenha o papel de Agente Administrativo no seu inquilino pode realizar este embarque.
 
-![Gestão de inquilinos utilizando a GESTÃO DE RECURSOS DELEGADA AOBO e Azure delegada](../media/csp-2.jpg)
+![Diagrama mostrando a gestão dos inquilinos usando a AOBO e a Azure delegado de gestão de recursos.](../media/csp-2.jpg)
 
 > [!TIP]
 > [As ofertas de Serviços Geridos](managed-services-offers.md) com planos privados não são suportadas com subscrições estabelecidas através de um revendedor do programa Cloud Solution Provider (CSP). Pode embarcar nestas subscrições do Azure Lighthouse [utilizando modelos do Azure Resource Manager](../how-to/onboard-customer.md).
@@ -39,9 +39,9 @@ A bordo de uma subscrição que criou através do programa CSP segue os passos d
 > [!NOTE]
 > A página [ **dos meus clientes** no portal Azure](../how-to/view-manage-customers.md) inclui agora uma secção **cloud solution provider (Preview),** que exibe informações e recursos de faturação para clientes da CSP que [assinaram o Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) e estão [ao abrigo do plano Azure.](/partner-center/azure-plan-get-started) Para obter mais informações, consulte [Começar com a sua conta de faturação do Microsoft Partner Agreement](../../cost-management-billing/understand/mpa-overview.md).
 >
-> Os clientes da CSP podem aparecer nesta secção, quer também tenham sido acedidos para a gestão de recursos delegados da Azure. Se o fizerem, também aparecerão na secção **Clientes,** conforme descrito no [View e gerirão clientes e recursos delegados.](../how-to/view-manage-customers.md) Da mesma forma, um cliente CSP não tem de aparecer na secção **Cloud Solution Provider (Preview)** dos **meus clientes** para que possa embarcar na gestão de recursos delegados da Azure.
+> Os clientes da CSP podem aparecer nesta secção, quer também tenham sido acedidos ao Farol de Azure. Se o fizerem, também aparecerão na secção **Clientes,** conforme descrito no [View e gerirão clientes e recursos delegados.](../how-to/view-manage-customers.md) Da mesma forma, um cliente CSP não tem de aparecer na secção **Cloud Solution Provider (Preview)** dos **meus clientes** para que possa embarcar no Farol de Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça as [experiências de gestão de inquilinos cruzados.](cross-tenant-management-experience.md)
 - Saiba como embarcar [numa subscrição do Azure Lighthouse.](../how-to/onboard-customer.md)

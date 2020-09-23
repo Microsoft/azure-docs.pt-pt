@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Enviar um pedido de pesquisa à API REST utilizando Node.js - Pesquisa de Entidade Bing'
 titleSuffix: Azure Cognitive Services
-description: Utilize este quickstart para enviar um pedido à API de Pesquisa de Entidade Bing usando C#, e receba uma resposta JSON.
+description: Utilize este quickstart para enviar um pedido à API de Pesquisa de Entidade Bing usando Node.js e receba uma resposta JSON.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 82bdd8f3890f1685aa442463287fe72bde08d518
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: a3e09a26593911e7f8f113ee0db41aa99390b14d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405964"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970566"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Quickstart: Envie um pedido de pesquisa para a API de pesquisa de entidade bing usando Node.js
 
@@ -175,7 +175,7 @@ Embora esta aplicação esteja escrita em JavaScript, a API é um serviço Web R
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../tutorial-bing-entities-search-single-page-app.md)

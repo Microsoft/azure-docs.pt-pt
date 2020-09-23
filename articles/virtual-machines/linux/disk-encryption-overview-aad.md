@@ -1,6 +1,6 @@
 ---
 title: Encriptação do disco Azure com pré-requisitos da aplicação AD Azure (versão anterior)
-description: Este artigo fornece pré-requisitos para a utilização da Encriptação do Disco Azure do Microsoft para iaaS VMs.
+description: Este artigo fornece suplementos à Encriptação do Disco Azure para Os VMs Linux com requisitos adicionais e pré-requisitos para encriptação de disco Azure com Azure AD.
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: c85d362f7295e8edef1b4070a779c6aa99c3991f
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b258d499c78aa5fb734cbee01fb753c292bf2678
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87372642"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970879"
 ---
 # <a name="azure-disk-encryption-with-azure-active-directory-ad-previous-release"></a>Encriptação do disco Azure com Diretório Ativo Azure (AD) (versão anterior)
 

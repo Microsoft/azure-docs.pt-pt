@@ -5,12 +5,12 @@ ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: be539efdb66b0a9bda583960484f40fae1e18235
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e542c493c02174364072f91d092f05ad9ec69cf
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83123500"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973100"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Criar uma função no Azure que é acionada por um temporizador
 
@@ -44,7 +44,7 @@ A sua nova aplicação de função está pronta a ser utilizada. Em seguida, cri
 
 1. Configure o novo gatilho com as definições especificadas na tabela abaixo da imagem e, em seguida, selecione **Criar Função**.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="Selecione o gatilho do temporizador no portal Azure." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="A screenshot mostra a página Nova Função com o modelo de gatilho do temporizador selecionado." border="true":::
     
     | Definição | Valor sugerido | Descrição |
     |---|---|---|
@@ -77,11 +77,11 @@ Agora, altere a agenda da função, para que seja executada a cada hora, em vez 
 
 Agora tem uma função que funciona uma vez a cada hora, à hora.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Criaste uma função baseada num horário. Para obter mais informações sobre os gatilhos do temporizador, consulte [a execução do código de programação com funções Azure](functions-bindings-timer.md).
 

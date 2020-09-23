@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 5a48ea0747a110720a29a9c34fa2dca0f5a74f16
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: c0f4c4deaa57b1414a3ef55226e4c451b53ba72c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84310007"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971310"
 ---
 # <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Tutorial: Criar e passear através do modelo de aplicação de monitorização do painel solar 
 
@@ -25,7 +25,7 @@ Este tutorial guia-o através do processo de criação da aplicação de monitor
 > [!div class="checklist"]
 > * Crie gratuitamente a aplicação do painel solar
 > * Walk-through de aplicação
-> * Limpar recursos
+> * Limpar os recursos
 
 
 Se não tiver uma subscrição, [crie uma conta de teste gratuita](https://azure.microsoft.com/free)
@@ -96,7 +96,7 @@ Clique no **separador modelos do dispositivo** para ver o modelo do dispositivo 
 > ![Modelo de dispositivos de painel solar](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se decidir não continuar a utilizar esta aplicação, elimine a sua aplicação com os seguintes passos:
 
 1. Do painel esquerdo, abra o separador administração
@@ -105,8 +105,9 @@ Se decidir não continuar a utilizar esta aplicação, elimine a sua aplicação
     > [!div class="mx-imgBorder"]
     > ![Excluir aplicação](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
 
-
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre a arquitetura de aplicativos de painel solar consulte [o artigo do conceito](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
+* Saiba mais sobre a arquitetura de aplicativos de painel solar refere-se a 
+> [!div class="nextstepaction"]
+> [o artigo conceito](https://docs.microsoft.com/azure/iot-central/energy/concept-iot-central-solar-panel-app)
 * Crie modelos de aplicação de painel solar gratuitamente: [aplicativo painel solar](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
 * Saiba mais sobre o IoT Central, consulte [a visão geral do IoT Central](https://docs.microsoft.com/azure/iot-central/)

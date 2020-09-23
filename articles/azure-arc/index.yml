@@ -10,23 +10,29 @@ metadata:
   author: MGoedtel
   ms.author: magoedte
   ms.date: 08/21/2020
-  ms.openlocfilehash: 6dec6bb451e7a330138c9a2a65f2a7dec7202a6a
-  ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+  ms.openlocfilehash: a2bf337f5bcd5d4fb5810025b6d2aaa8da15201c
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/28/2020
-  ms.locfileid: "89051326"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90908229"
 highlightedContent:
   items:
+  - title: Sobre o Azure Arc
+    itemType: overview
+    url: overview.md
   - title: Servidores preparados para o Azure Arc (pré-visualização)
     itemType: overview
     url: ./servers/overview.md
   - title: Kubernetes preparado para o Azure Arc (pré-visualização)
     itemType: overview
     url: ./kubernetes/overview.md
-  - title: Sobre o Azure Arc
+  - title: Serviços de dados preparados para Azure Arc (pré-visualização)
     itemType: overview
-    url: overview.md
+    url: ./data/overview.md
+  - title: SQL Server preparado para Azure Arc (pré-visualização)
+    itemType: overview
+    url: https://docs.microsoft.com/en-us/sql/sql-server/
 productDirectory:
   title: Serviços preparados para o Azure Arc
   summary: Veja como executar serviços em qualquer local.
@@ -43,13 +49,31 @@ productDirectory:
     - url: ./servers/index.yml
       text: Ver mais...
   - title: Kubernetes ativado pelo Azure Arc
-    imageSrc: ./media/containers-101-kubernetes-services.svg
+    imageSrc: ./media/01088-icon-arc-kubernetes-menu.svg
     links:
     - url: ./kubernetes/connect-cluster.md
       text: Ligar cluster
     - url: ./kubernetes/use-gitops-connected-cluster.md
       text: Implementar configurações com o GitOps
     - url: ./kubernetes/index.yml
+      text: Ver mais...
+  - title: Serviços de dados preparados para Azure Arc (pré-visualização)
+    imageSrc: ./media/manage-756-azure-arc.svg
+    links:
+    - url: ./data/install-client-tools.md
+      text: Instalar ferramentas
+    - url: ./data/create-sql-managed-instance.md
+      text: Criar Instância Gerida do SQL
+    - url: ./data/create-postgresql-hyperscale-server-group.md
+      text: Criar PostgreSQL Hyperscale
+    - url: ./data/index.yml
+      text: Ver mais...
+  - title: SQL Server preparado para Azure Arc (pré-visualização)
+    imageSrc: ./media/01850-icon-arc-sql-server-menu.svg
+    links:
+    - url: https://docs.microsoft.com/sql/sql-server/azure-arc/assess
+      text: Avaliar as suas instâncias do SQL
+    - url: https://docs.microsoft.com/sql/sql-server/azure-arc/overview
       text: Ver mais...
 conceptualContent:
   title: Introdução

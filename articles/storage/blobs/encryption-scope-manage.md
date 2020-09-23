@@ -4,21 +4,21 @@ description: Aprenda a criar um âmbito de encriptação para isolar dados de bo
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 08/25/2020
+ms.date: 09/17/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 32b46d21228bcd84fc3da11cc6ed42c740fece39
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 9210c54305427c82d5666d68573fd3af41e8cef7
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870260"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972187"
 ---
 # <a name="create-and-manage-encryption-scopes-preview"></a>Criar e gerir os âmbitos de encriptação (pré-visualização)
 
-Os âmbitos de encriptação (pré-visualização) permitem-lhe gerir a encriptação ao nível de uma bolha ou recipiente individual. Um âmbito de encriptação isola os dados do blob num enclave seguro numa conta de armazenamento. Pode utilizar âmbitos de encriptação para criar limites seguros entre dados que residem na mesma conta de armazenamento, mas que pertencem a diferentes clientes. Para obter mais informações sobre os âmbitos de [encriptação, consulte os âmbitos de encriptação para armazenamento blob (pré-visualização)](../common/storage-service-encryption.md#encryption-scopes-for-blob-storage-preview).
+Os âmbitos de encriptação (pré-visualização) permitem-lhe gerir a encriptação ao nível de uma bolha ou recipiente individual. Um âmbito de encriptação isola os dados do blob num enclave seguro numa conta de armazenamento. Pode utilizar âmbitos de encriptação para criar limites seguros entre dados que residem na mesma conta de armazenamento, mas que pertencem a diferentes clientes. Para obter mais informações sobre os âmbitos de [encriptação, consulte os âmbitos de encriptação para armazenamento blob (pré-visualização)](encryption-scope-overview.md).
 
 Este artigo mostra como criar um âmbito de encriptação. Também mostra como especificar um âmbito de encriptação quando cria uma bolha ou recipiente.
 
@@ -26,7 +26,7 @@ Este artigo mostra como criar um âmbito de encriptação. Também mostra como e
 
 ## <a name="create-an-encryption-scope"></a>Criar um âmbito de encriptação
 
-Pode criar âmbitos de encriptação com uma chave gerida pela Microsoft ou com uma chave gerida pelo cliente que está armazenada no Cofre de Chaves Azure. Para criar um âmbito de encriptação com uma chave gerida pelo cliente, tem primeiro de criar um cofre de chave Azure e adicionar a chave que pretende utilizar para o âmbito. O cofre-chave deve ter as propriedades de **Proteção** de **Eliminação Suave** e Purga ativadas e deve estar na mesma região que a conta de armazenamento. Para obter mais informações, consulte [as teclas geridas pelo cliente com o Azure Key Vault para gerir a encriptação do Armazenamento Azure](../common/encryption-customer-managed-keys.md).
+Pode criar um âmbito de encriptação com uma chave gerida pela Microsoft ou com uma chave gerida pelo cliente que é armazenada no Azure Key Vault ou no Azure Key Vault Managed Hardware Security Model (HSM) (pré-visualização). Para criar um âmbito de encriptação com uma chave gerida pelo cliente, tem primeiro de criar um cofre chave ou gerido hSM e adicionar a chave que pretende utilizar para o âmbito. O cofre-chave ou o HSM gerido devem ter proteção de purga ativada e devem estar na mesma região que a conta de armazenamento.
 
 Um âmbito de encriptação é automaticamente ativado quando o cria. Depois de criar o âmbito de encriptação, pode especipulá-lo quando criar uma bolha. Também pode especificar um âmbito de encriptação predefinido quando criar um recipiente, que se aplica automaticamente a todas as bolhas do recipiente.
 
@@ -41,11 +41,9 @@ Para criar um âmbito de encriptação no portal Azure, siga estes passos:
 1. No painel De **Âmbito de Encriptação** Create, insira um nome para o novo âmbito.
 1. Selecione o tipo de encriptação, quer **as teclas geridas pela Microsoft** quer as **teclas geridas pelo Cliente**.
     - Se selecionar **teclas geridas pela Microsoft,** clique em **Criar** para criar o âmbito de encriptação.
-    - Se selecionar **teclas geridas pelo Cliente,** especifique um cofre, chave e versão chave para utilizar para este âmbito de encriptação, como mostra a seguinte imagem.
+    - Se selecionar **teclas geridas pelo Cliente,** especifique um cofre-chave ou uma versão gerida por HSM, chave e chave para utilizar para este âmbito de encriptação, como mostra a seguinte imagem.
 
     :::image type="content" source="media/encryption-scope-manage/create-encryption-scope-customer-managed-key-portal.png" alt-text="Screenshot mostrando como criar o âmbito de encriptação no portal Azure":::
-
-Para obter mais informações sobre a configuração das chaves geridas pelo cliente com o Cofre da Chave Azure para encriptação de armazenamento Azure, consulte [as chaves geridas pelo cliente com cofre de chaves Azure utilizando o portal Azure](../common/storage-encryption-keys-portal.md).
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
@@ -76,9 +74,9 @@ New-AzStorageEncryptionScope -ResourceGroupName $rgName `
 
 ### <a name="create-an-encryption-scope-protected-by-customer-managed-keys"></a>Criar um âmbito de encriptação protegido por chaves geridas pelo cliente
 
-Para criar um novo âmbito de encriptação protegido por chaves geridas pelo cliente com Azure Key Vault, configurar primeiro as chaves geridas pelo cliente para a conta de armazenamento. Deve atribuir uma identidade gerida à conta de armazenamento e, em seguida, usar a identidade gerida para configurar a política de acesso para o cofre chave para que a conta de armazenamento tenha permissões para aceder a ela. Para obter mais informações, consulte [as chaves geridas pelo cliente com o Azure Key Vault utilizando o PowerShell](../common/storage-encryption-keys-powershell.md).
+Para criar um novo âmbito de encriptação protegido por chaves geridas pelo cliente armazenadas num cofre ou HSM gerido, configurar primeiro as chaves geridas pelo cliente para a conta de armazenamento. Deve atribuir uma identidade gerida à conta de armazenamento e, em seguida, usar a identidade gerida para configurar a política de acesso para o cofre-chave ou gerido HSM para que a conta de armazenamento tenha permissões de acesso.
 
-Para configurar as teclas geridas pelo cliente para utilização com um âmbito de encriptação, tanto as propriedades de **Proteção** de **Eliminação Suave** como de Purga devem ser ativadas no cofre da chave. O cofre-chave deve estar na mesma região que a conta de armazenamento. Para obter mais informações, consulte [as teclas geridas pelo cliente com o Azure Key Vault para gerir a encriptação do Armazenamento Azure](../common/encryption-customer-managed-keys.md).
+Para configurar as chaves geridas pelo cliente para utilização com um âmbito de encriptação, a proteção de purga deve ser ativada no cofre da chave ou no HSM gerido. O cofre-chave ou o HSM gerido devem estar na mesma região que a conta de armazenamento.
 
 Lembre-se de substituir os valores de espaço reservado no exemplo pelos seus próprios valores:
 
@@ -132,9 +130,9 @@ az storage account encryption-scope create \
 
 Para criar um novo âmbito de encriptação protegido pelas teclas geridas pela Microsoft, ligue para o comando [de encriptação de encriptação da conta de armazenamento az,](/cli/azure/storage/account/encryption-scope#az-storage-account-encryption-scope-create) especificando o `--key-source` parâmetro como `Microsoft.Storage` . Lembre-se de substituir os valores do espaço reservado pelos seus próprios valores:
 
-Para criar um novo âmbito de encriptação protegido por chaves geridas pelo cliente com Azure Key Vault, configurar primeiro as chaves geridas pelo cliente para a conta de armazenamento. Deve atribuir uma identidade gerida à conta de armazenamento e, em seguida, usar a identidade gerida para configurar a política de acesso para o cofre chave para que a conta de armazenamento tenha permissões para aceder a ela. Para obter mais informações, consulte [as chaves geridas pelo cliente com o Azure Key Vault utilizando o Azure CLI](../common/storage-encryption-keys-cli.md).
+Para criar um novo âmbito de encriptação protegido por chaves geridas pelo cliente num cofre de chaves ou por um HSM gerido, configurar primeiro as chaves geridas pelo cliente para a conta de armazenamento. Deve atribuir uma identidade gerida à conta de armazenamento e, em seguida, usar a identidade gerida para configurar a política de acesso para o cofre chave para que a conta de armazenamento tenha permissões para aceder a ela. Para obter mais informações, consulte [as chaves geridas pelo Cliente para encriptação de armazenamento Azure](../common/customer-managed-keys-overview.md).
 
-Para configurar as teclas geridas pelo cliente para utilização com um âmbito de encriptação, tanto as propriedades de **Proteção** de **Eliminação Suave** como de Purga devem ser ativadas no cofre da chave. O cofre-chave deve estar na mesma região que a conta de armazenamento. Para obter mais informações, consulte [as teclas geridas pelo cliente com o Azure Key Vault para gerir a encriptação do Armazenamento Azure](../common/encryption-customer-managed-keys.md).
+Para configurar as chaves geridas pelo cliente para utilização com um âmbito de encriptação, a proteção de purga deve ser ativada no cofre da chave ou no HSM gerido. O cofre-chave ou o HSM gerido devem estar na mesma região que a conta de armazenamento.
 
 Lembre-se de substituir os valores de espaço reservado no exemplo pelos seus próprios valores:
 
@@ -173,6 +171,8 @@ az storage account encryption-scope create \
 
 ---
 
+Para aprender a configurar a encriptação do Armazenamento Azure com chaves geridas pelo cliente num cofre de chaves, consulte [a encriptação Configure com as teclas geridas pelo cliente armazenadas no Cofre da Chave Azure](../common/customer-managed-keys-configure-key-vault.md). Para configurar as chaves geridas pelo cliente num HSM gerido, consulte [encriptação configure com teclas geridas pelo cliente armazenadas em Azure Key Vault Managed HSM (pré-visualização)](../common/customer-managed-keys-configure-key-vault-hsm.md).
+
 ## <a name="list-encryption-scopes-for-storage-account"></a>Listar os âmbitos de encriptação para conta de armazenamento
 
 # <a name="portal"></a>[Portal](#tab/portal)
@@ -183,14 +183,14 @@ Para ver os âmbitos de encriptação de uma conta de armazenamento no portal Az
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para listar os âmbitos de encriptação disponíveis para uma conta de armazenamento com o PowerShell, ligue para o comando Get-AzStorageEncryptionScope. Lembre-se de substituir os valores de espaço reservado no exemplo pelos seus próprios valores:
+Para listar os âmbitos de encriptação disponíveis para uma conta de armazenamento com o PowerShell, ligue para o comando **Get-AzStorageEncryptionScope.** Lembre-se de substituir os valores de espaço reservado no exemplo pelos seus próprios valores:
 
 ```powershell
 Get-AzStorageEncryptionScope -ResourceGroupName $rgName `
     -StorageAccountName $accountName
 ```
 
-Para listar todos os âmbitos de encriptação de um grupo de recursos por conta de armazenamento, utilize a sintaxe do gasoduto da seguinte forma:
+Para listar todos os âmbitos de encriptação de um grupo de recursos por conta de armazenamento, utilize a sintaxe do gasoduto:
 
 ```powershell
 Get-AzStorageAccount -ResourceGroupName $rgName | Get-AzStorageEncryptionScope
@@ -210,6 +210,10 @@ az storage account encryption-scope list \
 
 ## <a name="create-a-container-with-a-default-encryption-scope"></a>Criar um recipiente com um âmbito de encriptação padrão
 
+Quando criar um recipiente, pode especificar um âmbito de encriptação padrão. As bolhas naquele recipiente utilizarão esse âmbito por defeito.
+
+Uma bolha individual pode ser criada com o seu próprio âmbito de encriptação, a menos que o recipiente esteja configurado para exigir que todas as bolhas utilizem o seu âmbito padrão.
+
 # <a name="portal"></a>[Portal](#tab/portal)
 
 Para criar um recipiente com um âmbito de encriptação padrão no portal Azure, crie primeiro o âmbito de encriptação descrito na [Criar um âmbito de encriptação](#create-an-encryption-scope). Em seguida, siga estes passos para criar o recipiente:
@@ -225,7 +229,7 @@ Para criar um recipiente com um âmbito de encriptação padrão no portal Azure
 
 Para criar um recipiente com um âmbito de encriptação padrão com o PowerShell, ligue para o comando [New-AzRmStorageContainer,](/powershell/module/az.storage/new-azrmstoragecontainer) especificando o âmbito para o `-DefaultEncryptionScope` parâmetro. O comando **New-AzRmStorageContainer** cria um recipiente utilizando o fornecedor de recursos de armazenamento Azure, que permite a configuração de âmbitos de encriptação e outras operações de gestão de recursos.
 
-Uma bolha individual pode ser criada com o seu próprio âmbito de encriptação, a menos que o recipiente esteja configurado para exigir que todas as bolhas utilizem o seu âmbito padrão. Para forçar todas as bolhas num recipiente a utilizar o âmbito padrão do recipiente, deite o `-PreventEncryptionScopeOverride` parâmetro para `true` .
+Para forçar todas as bolhas num recipiente a utilizar o âmbito padrão do recipiente, deite o `-PreventEncryptionScopeOverride` parâmetro para `true` .
 
 ```powershell
 $containerName1 = "container1"
@@ -241,7 +245,7 @@ New-AzRmStorageContainer -ResourceGroupName $rgName `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/cli)
 
-Para criar um recipiente com um âmbito de encriptação padrão com O Azure CLI, ligue para o [recipiente de armazenamento az criar](/cli/azure/storage/container#az-storage-container-create) comando, especificando o âmbito para o `--default-encryption-scope` parâmetro. Uma bolha individual pode ser criada com o seu próprio âmbito de encriptação, a menos que o recipiente esteja configurado para exigir que todas as bolhas utilizem o seu âmbito padrão. Para forçar todas as bolhas num recipiente a utilizar o âmbito padrão do recipiente, deite o `--prevent-encryption-scope-override` parâmetro para `true` .
+Para criar um recipiente com um âmbito de encriptação padrão com O Azure CLI, ligue para o [recipiente de armazenamento az criar](/cli/azure/storage/container#az-storage-container-create) comando, especificando o âmbito para o `--default-encryption-scope` parâmetro. Para forçar todas as bolhas num recipiente a utilizar o âmbito padrão do recipiente, deite o `--prevent-encryption-scope-override` parâmetro para `true` .
 
 O exemplo a seguir utiliza a sua conta Azure AD para autorizar a operação de criação do recipiente. Também pode utilizar a chave de acesso à conta. Para obter mais informações, consulte [Autorizar o acesso aos dados de blob ou fila com o Azure CLI](../common/authorize-data-operations-cli.md).
 
@@ -261,7 +265,7 @@ Se um cliente tentar especificar um âmbito ao carregar uma bolha para um recipi
 
 ## <a name="upload-a-blob-with-an-encryption-scope"></a>Faça upload de uma bolha com um âmbito de encriptação
 
-Quando fizer o upload de uma bolha, pode especificar um âmbito de encriptação para essa bolha, ou utilizar o âmbito de encriptação padrão para o recipiente, se tiver sido especificado. 
+Quando fizer o upload de uma bolha, pode especificar um âmbito de encriptação para essa bolha, ou utilizar o âmbito de encriptação padrão para o recipiente, se tiver sido especificado.
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
@@ -309,6 +313,8 @@ az storage blob upload \
 
 ## <a name="change-the-encryption-key-for-a-scope"></a>Altere a chave de encriptação para um âmbito
 
+Para alterar a chave que protege um âmbito de encriptação de uma chave gerida pela Microsoft para uma chave gerida pelo cliente, certifique-se primeiro de que ativou chaves geridas pelo cliente com Azure Key Vault ou Key Vault HSM para a conta de armazenamento. Para obter mais informações, consulte [a encriptação Configure com teclas geridas pelo cliente armazenadas no Cofre de Chaves Azure](../common/customer-managed-keys-configure-key-vault.md) ou [encriptação Configure com teclas geridas pelo cliente armazenadas no Cofre da Chave Azure](../common/customer-managed-keys-configure-key-vault.md).
+
 # <a name="portal"></a>[Portal](#tab/portal)
 
 Para alterar a chave que protege um âmbito no portal Azure, siga estes passos:
@@ -329,7 +335,7 @@ Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
     -StorageEncryption
 ```
 
-Para alterar a chave que protege um âmbito de encriptação de uma chave gerida pela Microsoft para uma chave gerida pelo cliente, certifique-se primeiro de que ativou chaves geridas pelo cliente com cofre de chave Azure para a conta de armazenamento. Para obter mais informações, consulte [as chaves geridas pelo cliente com o Azure Key Vault utilizando o PowerShell](../common/storage-encryption-keys-powershell.md). Em seguida, ligue para o comando **Update-AzStorageEncryptionScope** e passe nos `-KeyUri` parâmetros e `-KeyvaultEncryption` parâmetros:
+Em seguida, ligue para o comando **Update-AzStorageEncryptionScope** e passe nos `-KeyUri` parâmetros e `-KeyvaultEncryption` parâmetros:
 
 ```powershell
 Update-AzStorageEncryptionScope -ResourceGroupName $rgName `
@@ -351,7 +357,7 @@ az storage account encryption-scope update \
     --key-source Microsoft.Storage
 ```
 
-Para alterar a chave que protege um âmbito de encriptação de uma chave gerida pela Microsoft para uma chave gerida pelo cliente, certifique-se primeiro de que ativou chaves geridas pelo cliente com cofre de chave Azure para a conta de armazenamento. Para obter mais informações, consulte [as chaves geridas pelo cliente com o Azure Key Vault utilizando o Azure CLI](../common/storage-encryption-keys-cli.md). Em seguida, ligue para o comando **de encriptação de encriptação da conta de armazenamento az,** passe no `--key-uri` parâmetro e passe no parâmetro com o valor `--key-source` `Microsoft.KeyVault` :
+Em seguida, ligue para o comando **de encriptação de encriptação da conta de armazenamento az,** passe no `--key-uri` parâmetro e passe no parâmetro com o valor `--key-source` `Microsoft.KeyVault` :
 
 ```powershell
 az storage account encryption-scope update \
@@ -365,6 +371,8 @@ az storage account encryption-scope update \
 ---
 
 ## <a name="disable-an-encryption-scope"></a>Desativar um âmbito de encriptação
+
+Quando um âmbito de encriptação é desativado, já não é cobrado por isso. Desative quaisquer âmbitos de encriptação que não sejam necessários para evitar encargos desnecessários. Para obter mais informações, consulte [a encriptação do Azure Storage para obter dados em repouso](../common/storage-service-encryption.md).
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
@@ -398,4 +406,5 @@ az storage account encryption-scope update \
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Storage encryption for data at rest](../common/storage-service-encryption.md) (Encriptação do Armazenamento do Azure para dados inativos)
-- [Utilize chaves geridas pelo cliente com cofre de chaves Azure para gerir a encriptação de armazenamento Azure](../common/encryption-customer-managed-keys.md)
+- [Âmbitos de encriptação para armazenamento blob (pré-visualização)](encryption-scope-overview.md)
+- [Chaves geridas pelo cliente para encriptação de armazenamento Azure](../common/customer-managed-keys-overview.md)

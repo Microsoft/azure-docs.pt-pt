@@ -1,6 +1,6 @@
 ---
 title: Encriptação do disco Azure numa rede isolada
-description: Este artigo fornece dicas de resolução de problemas para a Encriptação do Disco Azure da Microsoft para Os VMs Linux.
+description: Neste artigo, saiba mais sobre dicas de resolução de problemas para a Encriptação do Disco Azure da Microsoft em VMs Linux.
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: f0ca50d137ef7e6378d2bf8d0ab03127d49a9a88
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 0cc54bcc23e354ae8cc807e63a0039286e295181
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373594"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970957"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Encriptação do disco Azure numa rede isolada
 

@@ -1,25 +1,25 @@
 ---
 title: Residência dos dados
-description: Residência de dados e informações sobre servidores ativados Azure Arc (pré-visualização).
+description: Residência de dados e informações sobre servidores ativados do Azure Arc.
 ms.topic: reference
-ms.date: 08/25/2020
+ms.date: 09/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8f207f5889c1764eebcc6081960ff70c0d5bca3a
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 8b4b8171bd7133e52928a5227c488bd6234ce686
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048861"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908132"
 ---
-# <a name="azure-arc-enabled-servers-preview-data-residency"></a>Servidores ativados Azure Arc (pré-visualização): Residência de dados
+# <a name="azure-arc-enabled-servers-data-residency"></a>Servidores habilitados Azure Arc: Residência de dados
 
-Este artigo explica o conceito de residência de dados e como se aplica aos servidores ativados do Azure Arc (pré-visualização).
+Este artigo explica o conceito de residência de dados e como se aplica aos servidores ativados do Azure Arc.
 
-Os servidores ativados Azure Arc (pré-visualização) **[estão disponíveis em pré-visualização](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** nos **Estados Unidos, Europa ou Ásia-Pacífico.**
+Os servidores azure Arc estão **[disponíveis](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)** nos **Estados Unidos, Europa ou Ásia-Pacífico.**
 
 ## <a name="data-residency"></a>Residência dos dados
 
-Azure Arc ativou servidores (pré-visualização) armazenar as definições de [configuração de extensão Azure VM](manage-vm-extensions.md) (isto é, valores de propriedade) a extensão requer especificar antes de tentar ativar a máquina conectada. Por exemplo, quando ativa a extensão VM do Log Analytics, pede o **ID** do espaço de trabalho log Analytics e **a chave primária**.
+Os servidores ativados Azure Arc armazenam as definições de [configuração de extensão Azure VM](manage-vm-extensions.md) (ou seja, valores de propriedade) a extensão requer especificação antes de tentar ativar a máquina conectada. Por exemplo, quando ativa a extensão VM do Log Analytics, pede o **ID** do espaço de trabalho log Analytics e **a chave primária**.
 
 São também recolhidas informações sobre metadados sobre a máquina conectada. Especificamente:
 
@@ -28,7 +28,7 @@ São também recolhidas informações sobre metadados sobre a máquina conectada
 * Nome de domínio totalmente qualificado do computador (FQDN)
 * Versão do agente da máquina conectada
 
-Os servidores ativados pelo Arco (pré-visualização) permitem especificar a região onde os seus dados serão armazenados. A Microsoft pode replicar-se noutras regiões para a resiliência dos dados, mas a Microsoft não replica ou move dados para fora da geografia. Estes dados são armazenados na região onde o recurso da máquina Azure Arc está configurado. Por exemplo, se a máquina estiver registada com a Arc na região leste dos EUA, estes dados são armazenados na região dos EUA.
+Os servidores ativados pelo Arco permitem especificar a região onde os seus dados serão armazenados. A Microsoft pode replicar-se noutras regiões para a resiliência dos dados, mas a Microsoft não replica ou move dados para fora da geografia. Estes dados são armazenados na região onde o recurso da máquina Azure Arc está configurado. Por exemplo, se a máquina estiver registada com a Arc na região leste dos EUA, estes dados são armazenados na região dos EUA.
 
 Para mais informações sobre a nossa resiliência regional e suporte à conformidade, consulte [a geografia Azure.](https://azure.microsoft.com/global-infrastructure/geographies/)
 

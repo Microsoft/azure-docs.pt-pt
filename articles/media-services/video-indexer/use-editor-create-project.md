@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: 9f16ab34dc9b37806f9c58b22a3f02afe839632e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5eaf17281fef32d682a2dac17b379faf7ec23a53
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73839169"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970081"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Use o editor do Índice de Vídeo para criar projetos
 
@@ -51,11 +51,11 @@ Este artigo mostra como criar um projeto de raiz e também como criar um projeto
     
     Por exemplo, na imagem abaixo, estamos à procura de vídeos que mencionem "GitHub".
     
-    ![GitHub](./media/video-indexer-view-edit/github.png)
+    ![A screenshot mostra a procura de vídeos que mencionem GitHub com dois resultados.](./media/video-indexer-view-edit/github.png)
 
     Pode filtrar ainda mais os seus resultados selecionando **os resultados do Filtro.** Pode filtrar para mostrar vídeos que tenham uma determinada pessoa ou especificar que só pretende ver resultados de vídeo que são de uma determinada língua ou têm um proprietário específico. <br/> Também pode especificar o âmbito da sua consulta. Por exemplo, se pretender pesquisar "GitHub" no OCR, selecione **Texto Visual**.
 
-    ![Filtrar](./media/video-indexer-view-edit/visual-text.png)
+    ![Filtro](./media/video-indexer-view-edit/visual-text.png)
 
     Pode colocar vários filtros em camadas na sua consulta. Utilize os **+** / **-** botões para adicionar/remover filtros. Utilize **filtros limpos** para remover todos os filtros.
 1. Para adicionar vídeos, selecione-os e, em seguida, **selecione Adicionar**.
@@ -63,7 +63,7 @@ Este artigo mostra como criar um projeto de raiz e também como criar um projeto
 
     Pode reorganizar a ordem dos vídeos arrastando e baixando ou selecionando o botão do menu da lista e selecionando **Move down** ou **Move up**. A partir do menu da lista, poderá também remover o vídeo deste projeto. 
 
-    ![Reorganizar](./media/video-indexer-view-edit/rearrange.png)
+    ![O Screenshot mostra o Video Indexer com um menu contextual para um dos vídeos remover, limpar a seleção ou descer.](./media/video-indexer-view-edit/rearrange.png)
     
     Tem a opção de adicionar mais vídeos a este projeto a qualquer momento, selecionando **Vídeos Add**. Também pode adicionar várias ocorrências do mesmo vídeo ao seu projeto. É melhor fazer isto se quiser mostrar um clip de um vídeo e depois um clip de outro e depois outro clip do primeiro vídeo. 
 
@@ -81,7 +81,7 @@ Se clicar na seta descendente no lado direito de cada vídeo, abrirá as ideias 
 
     Por exemplo, pode querer ver clips onde o GitHub é mencionado enquanto Donovan Brown está no ecrã. Para isso, é necessário adicionar um filtro "incluir" que tenha "People" como tipo de insight. Em seguida, é necessário digitar "Donovan Brown" na caixa de pesquisa para o filtro.
     
-    ![Incluir](./media/video-indexer-view-edit/include.png)
+    ![A screenshot mostra o Indexer de Vídeo com Pessoas selecionadas para um filtro de incluem.](./media/video-indexer-view-edit/include.png)
     
     Se quiser clips onde o GitHub é mencionado enquanto Donovan Brown _não_ estiver no ecrã, basta mudar o filtro "incluir" num filtro de "excluir" utilizando o dropdown. 
 
@@ -96,7 +96,7 @@ Se clicar na seta descendente no lado direito de cada vídeo, abrirá as ideias 
 > [!TIP]
 > À medida que está a selecionar e a encomendar os seus clips, pode visualizar o vídeo no leitor no lado direito da página. 
 
-![Pré-visualizar](./media/video-indexer-view-edit/preview.png)
+![A screenshot mostra o Video Indexer com a pré-visualização de um vídeo no lado direito da janela.](./media/video-indexer-view-edit/preview.png)
 
 Lembre-se de guardar o seu projeto quando escoar alterações selecionando **o projeto Save**. 
 
@@ -107,7 +107,7 @@ Lembre-se de guardar o seu projeto quando escoar alterações selecionando **o p
 
 1. Uma vez feito, certifique-se de que o seu projeto foi salvo. Agora pode fazer este projeto. Selecione **Render e Download**. 
 
-    ![Guardar](./media/video-indexer-view-edit/save.png)
+    ![O Screenshot mostra o Video Indexer com a opção de renderizar e descarregar o seu projeto.](./media/video-indexer-view-edit/save.png)
 
     Haverá um popup que lhe dirá que o indexante de vídeo irá renderizar um ficheiro e, em seguida, o link de descarregamento será enviado para o seu e-mail. Selecione Proceder. 
     
@@ -130,7 +130,7 @@ Pode criar um novo projeto diretamente a partir de um vídeo na sua conta.
 
     Isto leva-o à mesma página que usou para criar um novo projeto. Ao contrário do novo projeto, vê-se os segmentos de insights com tempos do vídeo, que tinha começado a editar anteriormente.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [Descrição geral do Video Indexer](video-indexer-overview.md)
 
