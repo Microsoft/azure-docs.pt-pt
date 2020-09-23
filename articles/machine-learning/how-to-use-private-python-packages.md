@@ -10,15 +10,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 2af6749565a7fefd2892b82bcd5dff203eccdedc
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 0f6f5d0ca757b10a16b31864124f1bcf1190674a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661211"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896921"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Use pacotes privados python com aprendizagem automática Azure
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste artigo, aprenda a usar pacotes privados python de forma segura dentro do Azure Machine Learning. As caixas de utilização para pacotes python privados incluem:
 
@@ -98,6 +98,6 @@ Para configurar este armazenamento privado, consulte [Secure a Azure Machine Lea
 
 Depois de completar estas configurações, pode fazer referência aos pacotes na definição de ambiente de aprendizagem automática Azure pelo url completo no armazenamento de bolhas Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
  * Saiba mais sobre [segurança empresarial em Azure Machine Learning](concept-enterprise-security.md)

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: 9cd1db0365cdc4f834516fd4efb0d80dacc75eca
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e7b747bd2babeeccb210bb30c3eb28f22d4befe7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118533"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905791"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-mysql"></a>Validação da encriptação de dados para a base de dados Azure para o MySQL
 
@@ -19,7 +19,7 @@ Este artigo ajuda-o a validar essa encriptação de dados utilizando a chave ger
 
 ## <a name="check-the-encryption-status"></a>Verifique o estado de encriptação
 
-### <a name="from-portal"></a>Do portal
+### <a name="from-portal"></a>No portal
 
 1. Se quiser verificar se a chave do cliente é utilizada para encriptação, siga estes passos:
 
@@ -37,7 +37,7 @@ Este artigo ajuda-o a validar essa encriptação de dados utilizando a chave ger
 
 2. No portal Azure, se conseguir garantir que a chave de encriptação está definida, os dados são encriptados utilizando a chave dos clientes utilizada no portal Azure.
 
-  ![Visão geral da política de acesso](media/concepts-data-access-and-security-data-encryption/byok-validate.png)
+  :::image type="content" source="media/concepts-data-access-and-security-data-encryption/byok-validate.png" alt-text="Visão geral da política de acesso":::
 
 ### <a name="from-cli"></a>Do CLI
 
@@ -53,6 +53,6 @@ Este artigo ajuda-o a validar essa encriptação de dados utilizando a chave ger
 
 [Os Relatórios de Auditoria](https://servicetrust.microsoft.com) também podem ser revistos que fornecem informações sobre o cumprimento das normas de proteção de dados e requisitos regulamentares.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre encriptação de dados, consulte [a Base de Dados Azure para encriptação de dados do MySQL com a chave gerida pelo cliente](concepts-data-encryption-mysql.md).

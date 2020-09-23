@@ -1,18 +1,18 @@
 ---
 title: 'Azure ExpressRoute: Configure peering: PowerShell'
-description: Este artigo explica-lhe os passos para criar e aprovisionar o peering privado, público e da Microsoft de um circuito ExpressRoute. Este artigo também mostra como verificar o estado, atualizar ou eliminar peerings no seu circuito.
+description: Aprenda a criar e gerir a configuração de encaminhamento para um circuito ExpressRoute no modelo de implementação do Gestor de Recursos utilizando o PowerShell.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: e1f1a36e84567a56ddb25366f96d1b2dba1d82fb
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 2c29dc051780b15fb55d446d3f4002c3870fb529
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395575"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968393"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-powershell"></a>Criar e modificar o espreitamento para um circuito ExpressRoute usando PowerShell
 
@@ -305,7 +305,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Passo seguinte, [Ligar uma VNet a um circuito ExpressRoute](expressroute-howto-linkvnet-arm.md).
 

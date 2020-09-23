@@ -3,12 +3,12 @@ title: Azure Service Bus premium e níveis padrão
 description: Este artigo descreve os níveis standard e premium da Azure Service Bus. Compara estes níveis e proporciona diferenças técnicas.
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 82f8dbce7c48cb6efea67de4297239915e46eac8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 31c53a1375078cd5d185945cba55a6e5a6dd5ffb
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386355"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90966787"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Escalões de mensagens Standard e Premium do Service Bus
 
@@ -72,7 +72,7 @@ Há uma série de fatores a ter em conta na hora de decidir o número de unidade
     - Se o uso do CPU for ***inferior a 20%,*** poderá reduzir ***o*** número de unidades de mensagens alocadas ao seu espaço de nome.
     - Se o uso do CPU for ***superior a 70%,*** a sua aplicação beneficiará do ***aumento*** do número de unidades de mensagens alocadas ao seu espaço de nome.
 
-O processo de escalonamento dos recursos atribuídos a um espaço de nomes de Service Bus pode ser automatizado através da utilização de [Runbooks Azure Automation](../automation/automation-quickstart-create-runbook.md).
+Para aprender a configurar um espaço de nomes de Service Bus para escalar automaticamente (aumentar ou diminuir as unidades de mensagens), consulte [atualizar automaticamente as unidades de mensagens](automate-update-messaging-units.md).
 
 > [!NOTE]
 > **A escala** dos recursos atribuídos ao espaço de nome pode ser preventiva ou reativa.
@@ -92,14 +92,13 @@ A introdução às Mensagens Premium é simples e o processo é semelhante ao da
 
 Também pode criar [espaços de nomes Premium com modelos do Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-servicebus-pn-ar/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre Mensagens do Service Bus, veja as ligações seguintes:
 
-* [Apresentando mensagens premium de autocarro do Azure Service (blog post)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-* [Introdução às Mensagens Premium do Azure Service Bus (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
-* [Visão geral de mensagens de ônibus de serviço](service-bus-messaging-overview.md)
-* [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)
+- [Atualize automaticamente as unidades de mensagens](automate-update-messaging-units.md).
+- [Apresentando mensagens premium de autocarro do Azure Service (blog post)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+- [Introdução às Mensagens Premium do Azure Service Bus (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 
 <!--Image references-->
 

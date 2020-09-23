@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: 20e6d26808964c8e697c694bd796af2851e7ca48
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 61339a22fc3823325ff5356112c2df8a800010a0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450548"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985203"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>Utilizar grupos dinâmicos com a Gestão de Atualizações
 
@@ -45,7 +45,7 @@ Para visualizar os resultados da sua consulta dinâmica de grupo, clique em **Pr
 
 Um grupo dinâmico para máquinas não-Azure usa pesquisas guardadas, também chamadas de grupos de computador. Para aprender a criar uma pesquisa guardada, consulte [criar um grupo de computadores](../../azure-monitor/platform/computer-groups.md#creating-a-computer-group). Uma vez criada a sua pesquisa guardada, pode selecioná-la na lista de pesquisas guardadas na **gestão de Atualização** no portal Azure. Clique em **Pré-visualização** para pré-visualizar os computadores na pesquisa guardada.
 
-![Selecione grupos](./media/update-mgmt-groups/select-groups-2.png)
+![A screenshot mostra a página de grupos Select para Non-Azure (Preview) e o painel de pré-visualização no lado direito.](./media/update-mgmt-groups/select-groups-2.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

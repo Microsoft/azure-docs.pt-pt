@@ -8,15 +8,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 02f4fe4f97d3e976675757835e3931666d1c6410
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 23dfee7b78f2606c54525391e1260af69a9b0779
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857762"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898406"
 ---
 # <a name="score-vowpal-wabbit-model"></a>Score Vowpal Wabbit Model
-Este artigo descreve como usar o módulo **Score Vowpal Wabbit Model** no designer de aprendizagem de máquinas Azure (pré-visualização), para gerar pontuações para um conjunto de dados de entrada, utilizando um modelo de Wabbit Vowpal treinado existente.  
+Este artigo descreve como usar o módulo **Score Vowpal Wabbit Model** no designer Azure Machine Learning, para gerar pontuações para um conjunto de dados de entrada, utilizando um modelo de Wabbit Vowpal treinado existente.  
 
 Este módulo fornece a versão mais recente da estrutura Vowpal Wabbit, versão 8.8.1. Utilize este módulo para obter dados utilizando um modelo treinado guardado no formato VW versão 8.  
 
@@ -74,7 +74,7 @@ Vowpal Wabbit tem muitas opções de linha de comando para escolher e afinar alg
 
 Os seguintes parâmetros não são suportados no Azure Machine Learning Studio (clássico).  
 
--   As opções de entrada/saída especificadas em[https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
+-   As opções de entrada/saída especificadas em [https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
   
      Estas propriedades já estão configuradas automaticamente pelo módulo.  
   
@@ -84,6 +84,6 @@ Os seguintes parâmetros não são suportados no Azure Machine Learning Studio (
 
 Todos os argumentos que não os acima descritos são permitidos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

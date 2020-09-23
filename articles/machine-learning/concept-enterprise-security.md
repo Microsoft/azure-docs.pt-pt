@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: a89115d69943ff63d403edff942677b134e7f2a8
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: a3cd250e53fb30e07795b184b5c949505e3b20ae
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024388"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905742"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Segurança empresarial para Azure Machine Learning
 
@@ -63,7 +63,6 @@ A tabela a seguir enumera algumas das principais operações de Aprendizagem aut
 | ---- |:----:|:----:|:----:|
 | Criar área de trabalho | ✓ | ✓ | |
 | Partilhar espaço de trabalho | ✓ | |  |
-| Atualizar espaço de trabalho para edição enterprise | ✓ | |
 | Criar alvo de cálculo | ✓ | ✓ | |
 | Anexar o alvo do cálculo | ✓ | ✓ | |
 | Anexar lojas de dados | ✓ | ✓ | |
@@ -90,12 +89,12 @@ Para obter mais informações sobre identidades geridas, consulte [identidades g
 
 | Recurso | Permissões |
 | ----- | ----- |
-| Área de trabalho | Contribuidor |
+| Área de trabalho | Contribuinte |
 | Conta de armazenamento | Contribuinte de Dados do Armazenamento de Blobs |
 | Key Vault | Acesso a todas as chaves, segredos, certificados |
-| Registo de Contentores do Azure | Contribuidor |
-| Grupo de recursos que contém o espaço de trabalho | Contribuidor |
-| Grupo de recursos que contém o cofre chave (se diferente daquele que contém o espaço de trabalho) | Contribuidor |
+| Registo de Contentores do Azure | Contribuinte |
+| Grupo de recursos que contém o espaço de trabalho | Contribuinte |
+| Grupo de recursos que contém o cofre chave (se diferente daquele que contém o espaço de trabalho) | Contribuinte |
 
 Não recomendamos que os administradores revoguem o acesso da identidade gerida aos recursos mencionados na tabela anterior. Pode restaurar o acesso utilizando a operação das teclas de ressínc.
 
@@ -363,7 +362,7 @@ Aqui estão os detalhes:
 
 [![Fluxo de trabalho de inferência](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing.png#lightbox)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Serviços web secure Azure Machine Learning com TLS](how-to-secure-web-service.md)
 * [Consumir um modelo de Machine Learning implementado como um serviço web](how-to-consume-web-service.md)

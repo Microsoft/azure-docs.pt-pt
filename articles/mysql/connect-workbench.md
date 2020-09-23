@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 1b1249fe7159e2a3a8d2a74d22f274a9766e7922
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 5ec6aab8aaa63b848131d44f78867100f154d251
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185830"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896332"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Use a bancada mySQL workbench para ligar e consultar dados na Base de Dados Azure para o MySQL
 
@@ -40,7 +40,7 @@ Obtenha as informações de ligação necessárias para se ligar à Base de Dado
 3. Clique no nome do servidor.
 
 4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
- ![Nome do servidor da Base de Dados do Azure para o MySQL](./media/connect-php/1_server-overview-name-login.png)
+ :::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Nome do servidor da Base de Dados do Azure para o MySQL":::
 
 ## <a name="connect-to-the-server-by-using-mysql-workbench"></a>Ligar ao servidor com o MySQL Workbench 
 Para ligar ao Servidor MySQL do Azure com a ferramenta da GUI MySQL Workbench:
@@ -49,13 +49,13 @@ Para ligar ao Servidor MySQL do Azure com a ferramenta da GUI MySQL Workbench:
 
 2.    Na caixa de diálogo **Configurar Ligação Nova**, introduza as informações seguintes no separador **Parâmetros**:
 
-![configurar ligação nova](./media/connect-workbench/2-setup-new-connection.png)
+:::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="configurar ligação nova":::
 
 | **Definição** | **Valor sugerido** | **Descrição do campo** |
 |---|---|---|
 |    Nome da Ligação | Ligação de Demonstração | Especifique uma etiqueta para esta ligação. |
-| Método de Ligação | Standard (TCP/IP) | Standard (TCP/IP) é suficiente. |
-| Nome de anfitrião | *nome do servidor* | Especifique o valor de nome de servidor que foi utilizado quando criou a Base de Dados do Azure para MySQL anteriormente. O nosso servidor de exemplo mostrado é mydemoserver.mysql.database.azure.com. Utilize o nome de domínio completamente qualificado (\*.mysql.database.azure.com), conforme mostrado no exemplo. Siga os passos na secção anterior para obter as informações da ligação, se não se lembrar do nome do servidor.  |
+| Connection Method (Método de ligação) | Standard (TCP/IP) | Standard (TCP/IP) é suficiente. |
+| Hostname (Nome do anfitrião) | *nome do servidor* | Especifique o valor de nome de servidor que foi utilizado quando criou a Base de Dados do Azure para MySQL anteriormente. O nosso servidor de exemplo mostrado é mydemoserver.mysql.database.azure.com. Utilize o nome de domínio completamente qualificado (\*.mysql.database.azure.com), conforme mostrado no exemplo. Siga os passos na secção anterior para obter as informações da ligação, se não se lembrar do nome do servidor.  |
 | Porta | 3306 | Utilize sempre a porta 3306 para se ligar à Base de Dados do Azure para MySQL. |
 | Nome de utilizador |  *nome de login de administrador do servidor* | Introduza o nome de utilizador de início de sessão de administrador do servidor que foi fornecido quando criou a Base de Dados do Azure para MySQL anteriormente. O nosso nome de utilizador de exemplo é myadmin@mydemoserver. Siga os passos na secção anterior para obter as informações da ligação, se não se lembrar do nome de utilizador. O formato é *nome de utilizador \@ servername*.
 | Palavra-passe | a sua palavra-passe | Clique **em Loja no Cofre...** botão para guardar a senha. |
@@ -74,7 +74,7 @@ Para ligar ao Servidor MySQL do Azure com a ferramenta da GUI MySQL Workbench:
 ## <a name="create-a-table-insert-data-read-data-update-data-delete-data"></a>Criar uma tabela, inserir dados, ler dados, atualizar dados, eliminar dados
 1. Copie e cole o código de SQL de exemplo num separador de SQL em branco para ilustrar alguns dados de exemplo.
 
-    Este código cria uma base de dados vazia com o nome quickstartdb e, em seguida, cria uma tabela de exemplo com o nome de inventário. Insere algumas linhas e, em seguida, lê as mesmas. Altera os dados com uma instrução de atualização e lê as linhas novamente. Por fim, elimina uma linha e, em seguida, lê as linhas novamente.
+    Este código cria uma base de dados vazia com o nome quickstartdb e, em seguida, cria uma tabela de exemplo com o nome de inventário. Irá inserir algumas linhas e, em seguida, efetuar a respetiva leitura. Altera os dados com uma instrução de atualização e lê as linhas novamente. Por fim, elimina uma linha e lê as linhas novamente.
     
     ```sql
     -- Create a database
@@ -103,7 +103,7 @@ Para ligar ao Servidor MySQL do Azure com a ferramenta da GUI MySQL Workbench:
 
     A captura de ecrã mostra um exemplo do código de SQL no SQL Workbench e o resultado após ter sido executado.
     
-    ![Separador do SQL MySQL Workbench para executar o código do SQL de exemplo](media/connect-workbench/3-workbench-sql-tab.png)
+    :::image type="content" source="media/connect-workbench/3-workbench-sql-tab.png" alt-text="Separador do SQL MySQL Workbench para executar o código do SQL de exemplo":::
 
 2. Para executar o código do SQL de exemplo, clique no ícone de relâmpago na barra de ferramentas do separador **Ficheiro SQL**.
 3. Repare nos três resultados em separadores na secção **Grelha de Resultado** no meio da página. 

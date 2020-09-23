@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: f20abffa429add8edcbffba16529c467cb9506fe
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 21153d3c914864966106bf66edccb3c549398bc7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651103"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898231"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planear e gerir os custos para a Azure Machine Learning
 
@@ -49,7 +49,7 @@ A imagem que se segue mostra a estimativa de custos utilizando a calculadora:
 
 Ao adicionar novos recursos ao seu espaço de trabalho, volte a esta calculadora e adicione aqui o mesmo recurso para atualizar as suas estimativas de custos.
 
-Enquanto a edição enterprise está em pré-visualização, não há nenhuma sobretaxa ML. Quando a edição Enterprise estiver geralmente disponível, terá uma sobretaxa (para treino e inferencing).  Para mais informações, consulte [os preços de Aprendizagem automática Azure.](https://azure.microsoft.com/pricing/details/machine-learning/)
+Para mais informações, consulte [os preços de Aprendizagem automática Azure.](https://azure.microsoft.com/pricing/details/machine-learning/)
 
 ## <a name="get-cost-alerts"></a>Receba alertas de custos
 
@@ -122,7 +122,7 @@ Outra forma de economizar em recursos computacional é a Azure Reserved VM Insta
 A azure Machine Learning Compute suporta casos reservados inerentemente. Se comprar uma instância reservada de um ano ou três anos, aplicaremos automaticamente desconto contra o seu computo gerido Azure Machine Learning.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre:
 * [Gerir e aumentar as quotas de recursos](how-to-manage-quotas.md)

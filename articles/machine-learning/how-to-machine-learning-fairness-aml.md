@@ -11,16 +11,16 @@ ms.reviewer: luquinta
 ms.date: 09/01/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 459189c699b9c48f090d55df98f4618d9e515aaa
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 0332400ce6808e92ba09e3bee3277495f6b6d1a9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279980"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897477"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Utilize a Azure Machine Learning com o pacote fairlearn open-source para avaliar a equidade dos modelos ML (pré-visualização)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Neste guia de como fazer, você aprenderá a usar o pacote De Pitão de código aberto [fairlearn](https://fairlearn.github.io/) com Azure Machine Learning para executar as seguintes tarefas:
 
@@ -321,7 +321,7 @@ Carregar os conhecimentos de equidade de vários modelos num único Run permitir
 [![Painel de comparação de modelo Fairlearn](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png)](./media/how-to-machine-learning-fairness-aml/multi-model-dashboard.png#lightbox)
     
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre a equidade do modelo](concept-fairness-ml.md)
 

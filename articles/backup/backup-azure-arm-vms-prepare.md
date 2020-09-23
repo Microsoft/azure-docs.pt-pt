@@ -3,12 +3,12 @@ title: Apoiar VMs Azure em um cofre dos Serviços de Recuperação
 description: Descreve como apoiar VMs Azure num cofre de Serviços de Recuperação usando o Backup Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 29895c0358547679a9db7b2f4da203e2b546d67f
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 28cc995afc131e747314032c1363f73531e6915c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145659"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986515"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Apoiar VMs Azure em um cofre dos Serviços de Recuperação
 
@@ -41,10 +41,11 @@ Além disso, há algumas coisas que pode precisar fazer em algumas circunstânci
 
 ### <a name="modify-storage-replication"></a>Modificar a replicação do armazenamento
 
-Por predefinição, os cofres utilizam [armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md).
+Por predefinição, os cofres utilizam [armazenamento geo-redundante (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage).
 
 * Se o cofre for o seu mecanismo de reserva primário, recomendamos que utilize GRS.
-* Você pode usar [armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) para uma opção mais barata.
+* Você pode usar [armazenamento localmente redundante (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage) para uma opção mais barata.
+* [O armazenamento redundante de zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replica os seus dados em [zonas de disponibilidade,](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones)garantindo residência de dados e resiliência na mesma região.
 
 Modificar o tipo de replicação de armazenamento da seguinte forma:
 

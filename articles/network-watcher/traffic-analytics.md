@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 8deb3d81895629e817aeb9dbc1eb6520e1fb7aad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f978343bd47c4b8c86653024e651b56c782f768c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83747537"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967500"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -67,7 +67,7 @@ Pode utilizar análises de tráfego para NSGs em qualquer uma das seguintes regi
 * E.U.A. Centro-Sul
 * E.U.A. Central
 * E.U.A. Oeste
-* E.U.A.Oeste 2
+* E.U.A. Oeste 2
 * França Central
 * Europa Ocidental
 * Europa do Norte
@@ -77,7 +77,7 @@ Pode utilizar análises de tráfego para NSGs em qualquer uma das seguintes regi
 * Leste da Austrália
 * Austrália Sudeste
 * Ásia Leste
-* Ásia Sudeste
+* Sudeste Asiático
 * Coreia do Sul Central
 * Índia Central
 * Sul da Índia
@@ -97,7 +97,7 @@ O espaço de trabalho Log Analytics deve existir nas seguintes regiões:
 * E.U.A. Centro-Sul
 * E.U.A. Central
 * E.U.A. Oeste
-* E.U.A.Oeste 2
+* E.U.A. Oeste 2
 * E.U.A. Central
 * França Central
 * Europa Ocidental
@@ -108,7 +108,7 @@ O espaço de trabalho Log Analytics deve existir nas seguintes regiões:
 * Leste da Austrália
 * Austrália Sudeste
 * Ásia Leste
-* Ásia Sudeste
+* Sudeste Asiático
 * Coreia do Sul Central
 * Índia Central
 * Leste do Japão
@@ -339,7 +339,7 @@ Distribuição de tráfego por Gateway de aplicação & Balancer de Carga, topol
  - Sabendo qual sub-rede está a conversar com que porta de entrada de aplicação ou balanceador de carga. Se observar conversas inesperadas, pode corrigir a sua configuração.
  - Se as redes fraudulentas estiverem a conversar com um gateway de aplicação ou um Balancer de Carga, é possível corrigi-lo configurando as regras NSG para bloquear as redes fraudulentas. 
 
-    ![sub-topologia-apresentação-distribuição-tráfego-para-uma-aplicação-gateway-sub-net-com-consideração-para-fluxos](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
+    ![O Screenshot mostra uma topologia de sub-rede com distribuição de tráfego para uma sub-rede de gateway de aplicação no que diz respeito aos fluxos.](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>Ver portas e máquinas virtuais que recebem tráfego da internet
 
@@ -378,11 +378,11 @@ Tem tráfego malicioso no seu ambiente? De onde vem? Para onde está destinado?
 
     ![Top NSG regras estatísticas detalhes na pesquisa de registo](./media/traffic-analytics/top-nsg-rules-statistics-details-in-log-search.png)
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 Para obter respostas a perguntas frequentes, consulte [as FAQ de análise de tráfego.](traffic-analytics-faq.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para aprender a ativar os registos de fluxo, consulte [ativar a registo de fluxo nSG](network-watcher-nsg-flow-logging-portal.md).
 - Para compreender os detalhes do esquema e processamento da Traffic Analytics, consulte [o esquema de análise de tráfego.](traffic-analytics-schema.md)

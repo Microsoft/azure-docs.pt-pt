@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: ed6d9e86143c3a5d6c97c4bd92a07c258bbd1bbc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 501f3e8946023d28d67a33fbbfca661afbc6306d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477464"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898273"
 ---
 # <a name="smote"></a>SMOTE
 
-Este artigo descreve como usar o módulo SMOTE no designer de Aprendizagem automática Azure (pré-visualização) para aumentar o número de casos sub-representados num conjunto de dados que é usado para aprendizagem automática. O SMOTE é uma forma melhor de aumentar o número de casos raros do que simplesmente duplicar os casos existentes.  
+Este artigo descreve como usar o módulo SMOTE no designer de Aprendizagem automática Azure para aumentar o número de casos sub-representados num conjunto de dados que é usado para machine learning. O SMOTE é uma forma melhor de aumentar o número de casos raros do que simplesmente duplicar os casos existentes.  
 
 Liga-se o módulo SMOTE a um conjunto de dados *desequilibrado.* Há muitas razões pelas quais um conjunto de dados pode ser desequilibrado. Por exemplo, a categoria que está a ser alvo pode ser rara na população, ou os dados podem ser difíceis de recolher. Normalmente, usa-se SMOTE quando a *classe* que pretende analisar está sub-representada. 
   
@@ -97,7 +97,7 @@ Para aumentar o número de casos, pode definir o valor da **percentagem de SMOTE
   + Conjunto de técnicas que ajudam o aluno diretamente usando clustering, embalamento ou impulso adaptativo.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

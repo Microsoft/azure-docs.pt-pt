@@ -16,12 +16,12 @@ ms.date: 12/06/2017
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b0437308a0495281e364d42199cc84d9a291cb58
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 13c69dda1e300bcff95b6a017fdeb308a6bbf3a4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89263420"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969253"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-azure-cli"></a>Atribuir um acesso de identidade gerido a um recurso utilizando o Azure CLI
 
@@ -33,24 +33,15 @@ Uma vez configurado um recurso Azure com uma identidade gerida, pode dar à iden
 
 - Se não está familiarizado com as identidades geridas para os recursos da Azure, consulte a [secção de visão geral.](overview.md) **Certifique-se de rever a [diferença entre uma identidade gerida atribuída ao sistema e atribuída ao utilizador](overview.md#managed-identity-types)**.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Para executar os exemplos de script do CLI, tem três opções:
-    - Utilize a Casca de [Nuvem Azure](../../cloud-shell/overview.md) a partir do portal Azure (ver secção seguinte).
-    - Utilize o Azure Cloud Shell incorporado através do botão "Try It", localizado no canto superior direito de cada bloco de código.
-    - [Instale a versão mais recente do Azure CLI](/cli/azure/install-azure-cli) se preferir utilizar uma consola CLI local. 
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+- Para executar os scripts de exemplo, tem duas opções:
+    - Utilize o [Azure Cloud Shell,](../../cloud-shell/overview.md)que pode abrir utilizando o botão **Try It** no canto superior direito dos blocos de código.
+    - Executar scripts localmente instalando a versão mais recente do [Azure CLI,](/cli/azure/install-azure-cli)em seguida, inicie sessão no Azure usando [login az](/cli/azure/reference-index#az-login). Utilize uma conta associada à subscrição do Azure na qual pretende criar recursos.
 
 ## <a name="use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Use o Azure RBAC para atribuir um acesso de identidade gerido a outro recurso
 
 Depois de ter ativado a identidade gerida num recurso Azure, como uma [máquina virtual Azure](qs-configure-cli-windows-vm.md) ou [um conjunto de escala de máquina virtual Azure:](qs-configure-cli-windows-vmss.md) 
 
-1. Se estiver a utilizar a CLI do Azure numa consola local, primeiro inicie sessão no Azure com [az login](/cli/azure/reference-index#az-login). Utilize uma conta associada à subscrição Azure sob a qual pretende implementar o conjunto de escala de VM ou máquina virtual:
-
-   ```azurecli-interactive
-   az login
-   ```
-
-2. Neste exemplo, estamos a dar acesso a uma máquina virtual Azure a uma conta de armazenamento. Primeiro usamos [a lista de recursos az](/cli/azure/resource/#az-resource-list) para obter o principal de serviço para a máquina virtual chamada myVM:
+1. Neste exemplo, estamos a dar acesso a uma máquina virtual Azure a uma conta de armazenamento. Primeiro usamos [a lista de recursos az](/cli/azure/resource/#az-resource-list) para obter o principal de serviço para a máquina virtual chamada myVM:
 
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
@@ -61,7 +52,7 @@ Depois de ter ativado a identidade gerida num recurso Azure, como uma [máquina 
    spID=$(az resource list -n DevTestVMSS --query [*].identity.principalId --out tsv)
    ```
 
-3. Assim que tiver o ID principal do serviço, utilize [a az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) para dar à máquina virtual ou conjunto de escala de máquina virtual "Reader" acesso a uma conta de armazenamento chamada "myStorageAcct":
+1. Assim que tiver o ID principal do serviço, utilize [a az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) para dar à máquina virtual ou conjunto de escala de máquina virtual "Reader" acesso a uma conta de armazenamento chamada "myStorageAcct":
 
    ```azurecli-interactive
    az role assignment create --assignee $spID --role 'Reader' --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/myStorageAcct

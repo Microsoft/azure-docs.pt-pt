@@ -1,5 +1,5 @@
 ---
-title: Os oleodutos exemplo & conjuntos de dados para o designer (pré-visualização)
+title: Exemplo de oleodutos & conjuntos de dados para o designer
 titleSuffix: Azure Machine Learning
 description: Utilize amostras no designer de aprendizagem de máquinas Azure para iniciar os seus oleodutos de aprendizagem automática.
 services: machine-learning
@@ -10,21 +10,21 @@ author: likebupt
 ms.author: keli19
 ms.date: 09/09/2020
 ms.custom: designer
-ms.openlocfilehash: cbeb37599d28241dac3829af3891b2810cca4dce
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 15393a0e618c14fbaff46a51a300284d8afb4b77
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662110"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889750"
 ---
-# <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Os oleodutos exemplo & conjuntos de dados para o designer de aprendizagem de máquinas Azure (pré-visualização)
+# <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Pipelines de exemplo & conjuntos de dados para o designer de aprendizagem de máquinas Azure
 
 Use os exemplos incorporados no designer de Aprendizagem automática Azure para começar rapidamente a construir os seus próprios oleodutos de aprendizagem automática. O [repositório gitHub](https://github.com/Azure/MachineLearningDesigner) do designer de machine learning Azure contém documentação detalhada para ajudá-lo a entender alguns cenários comuns de aprendizagem automática.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree).
-* Um espaço de trabalho de aprendizagem automática Azure com a Enterprise SKU.
+* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree)
+* Uma área de trabalho do Azure Machine Learning 
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
@@ -136,7 +136,7 @@ Os conjuntos de dados da amostra estão disponíveis na categoria **Datasets** -
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Aprenda os fundamentos da análise preditiva e machine learning com [tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
+Aprenda os fundamentos da análise preditiva e machine learning com [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
 

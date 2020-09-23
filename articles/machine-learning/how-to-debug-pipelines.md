@@ -10,17 +10,16 @@ ms.author: laobri
 ms.date: 08/28/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, devx-track-python
-ms.openlocfilehash: cad1c8b7250ddf1e675145e764abcc90b4db9d86
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 616cdb1d0940ea6f64c3be3d687adaa9c2a98cc2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661726"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889977"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depurar e resolver problemas de pipelines de machine learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Neste artigo, aprende-se a resolver problemas e a depurar gasodutos de [aprendizagem automática](concept-ml-pipelines.md) no [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) e [no Azure Machine Learning designer (pré-visualização)](https://docs.microsoft.com/azure/machine-learning/concept-designer). 
+Neste artigo, aprende-se a depurar e resolver [os problemas de aprendizagem](concept-ml-pipelines.md) de máquinas no [SDK de Aprendizagem automática Azure](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) e [no designer de Machine Learning Azure.](https://docs.microsoft.com/azure/machine-learning/concept-designer) São fornecidas informações sobre como:
 
 ## <a name="troubleshooting-tips"></a>Sugestões de resolução de problemas
 
@@ -108,31 +107,7 @@ logger.warning("I am an OpenCensus warning statement, find me in Application Ins
 logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
 ``` 
 
-### <a name="finding-and-reading-pipeline-log-files"></a>Encontrar e ler ficheiros de registo de gasodutos
-
-O ficheiro de registo `70_driver_log.txt` contém: 
-
-* Todas as declarações impressas durante a execução do seu script
-* O traço da pilha para o script 
-
-Para encontrar este e outros ficheiros de registo no portal, clique primeiro no pipeline executado no seu espaço de trabalho.
-
-![Página de lista de execução de gasoduto](./media/how-to-debug-pipelines/pipelinerun-01.png)
-
-Navegue para a página de detalhes do pipeline run.
-
-![Página de detalhe de execução do pipeline](./media/how-to-debug-pipelines/pipelinerun-02.png)
-
-Clique no módulo para o passo específico. Navegue para o **separador Registos.** Outros registos incluem informações sobre o processo de construção de imagens do ambiente e scripts de preparação de etapas.
-
-![Pipeline executar separador de registo de página de página de execução](./media/how-to-debug-pipelines/pipelinerun-03.png)
-
-> [!TIP]
-> As execuções para *oleodutos publicados* podem ser encontradas no **separador Endpoints** no seu espaço de trabalho. As execuções *de gasodutos não publicados* podem ser encontradas em **Experiências** ou **Oleodutos.**
-
-Para obter mais informações sobre o registo e rastreio a partir de um `ParallelRunStep` , consulte [Debug e resolução de problemas ParallelRunStep](how-to-debug-parallel-run-step.md).
-
-## <a name="logging-in-azure-machine-learning-designer-preview"></a>Login no Azure Machine Learning designer (pré-visualização)
+## <a name="azure-machine-learning-designer"></a>Estruturador do Azure Machine Learning
 
 Para os oleodutos criados no designer, pode encontrar o ficheiro **70_driver_log** na página de autoria ou na página de detalhes do pipeline run.
 
@@ -172,7 +147,7 @@ Para obter mais informações sobre a utilização da biblioteca OpenCensus Pyth
 
 Em alguns casos, poderá ser necessário depurar interativamente o código Python utilizado no seu gasoduto ML. Ao utilizar o Código de Estúdio Visual (Código VS) e o depuro, pode anexar-se ao código tal como funciona no ambiente de treino. Para mais informações, visite a [depuragem interativa no guia do Código VS.](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte a referência SDK para obter ajuda com o pacote [de núcleo de gasodutos azureml](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) e o pacote [de passos de gasodutos azureml.](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true)
 

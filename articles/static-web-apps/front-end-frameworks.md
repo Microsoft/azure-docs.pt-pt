@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 07/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 3220b9d56ff7107245a0a00aac44bb58f87099f9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4b1bc58b6b4a87cd6e5e09e83020a38261b8746f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075975"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905368"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Configurar quadros front-end e bibliotecas com pré-visualização de aplicações web estáticas Azure
 
@@ -35,6 +35,7 @@ A intenção das colunas de mesa é explicada pelos seguintes itens:
 | [Angular Universal](https://angular.io/guide/universal) | `dist/<APP_NAME>/browser` | `npm run prerender` |
 | [Aurelia](https://aurelia.io/) | `dist` | n/a |
 | [Backbone.js](https://backbonejs.org/) | `/` | n/a |
+| [Blazor](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) | `wwwroot` | n/a |
 | [Ember](https://emberjs.com/) | `dist` | n/a |
 | [Flutter](https://flutter.dev/) | `build/web` | `flutter build web` |
 | [Quadro 7](https://framework7.io/) | `www` | `npm run build-prod` |

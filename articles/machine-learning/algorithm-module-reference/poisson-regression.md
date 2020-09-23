@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: 6682d9426ed3fe011fe5c493ec34fcdf0a2b35b7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a1a09357c7f80d4af0198a33a2e0007782ef232f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097844"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905254"
 ---
 # <a name="poisson-regression"></a>Regressão de Poisson
 
-Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
+Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
 Utilize este módulo para criar um modelo de regressão poisson num oleoduto. A regressão de Poisson destina-se à previsão de valores numéricos, tipicamente conta. Portanto, deve utilizar este módulo para criar o seu modelo de regressão apenas se os valores que está a tentar prever se encaixarem nas seguintes condições:
 
@@ -49,7 +49,7 @@ Como a variável de resposta tem uma distribuição poisson, o modelo faz pressu
 
 ## <a name="how-to-configure-poisson-regression"></a>Como configurar a Regressão de Poisson
 
-1. Adicione o módulo **de regressão poisson** ao seu pipeline no Designer (pré-visualização). Pode encontrar este módulo em **algoritmos de aprendizagem automática,** na categoria **Regressão.**
+1. Adicione o módulo **de Regressão Poisson** ao seu pipeline no designer. Pode encontrar este módulo em **algoritmos de aprendizagem automática,** na categoria **Regressão.**
 
 2. Adicione um conjunto de dados que contenha dados de treino do tipo correto. 
 

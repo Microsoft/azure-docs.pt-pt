@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/03/2020
-ms.openlocfilehash: b9b256a3d3c1636cac55bcb1790182240d2199c0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 83927c9df9a4f1a6ab32c15c481898ec68f53c4c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661877"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898143"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace-preview"></a>Configure Azure Private Link para um espaço de trabalho de aprendizagem de máquinas Azure (pré-visualização)
 
@@ -54,6 +54,6 @@ Uma vez que a comunicação ao espaço de trabalho só é permitida a partir da 
 Para obter informações sobre máquinas virtuais Azure, consulte a [documentação das Máquinas Virtuais.](/azure/virtual-machines/)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a segurança do seu espaço de trabalho Azure Machine Learning, consulte o artigo de visão geral do [isolamento e privacidade da rede Virtual.](how-to-network-security-overview.md)

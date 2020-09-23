@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/11/2018
-ms.openlocfilehash: e12f0cd44143621d34096a6c1161a22a89d21d9b
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: c046d2e437004146b5ee4c53dd98942ca1781ad4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86077661"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983737"
 ---
 # <a name="branching-and-chaining-activities-in-an-azure-data-factory-pipeline-using-the-azure-portal"></a>Atividades de ramificação e acorrentação num oleoduto da Azure Data Factory utilizando o portal Azure
 
@@ -24,7 +24,7 @@ ms.locfileid: "86077661"
 
 Neste tutorial, vai criar um pipeline do Data Factory que demonstra algumas das funcionalidades de fluxo de controlo. Este pipeline cria uma cópia simples de um contentor do Armazenamento de Blobs do Azure para outro contentor na mesma conta de armazenamento. Se a atividade Copy tiver êxito, o pipeline envia detalhes da operação Copy bem-sucedida (por exemplo, a quantidade de dados escritos) num e-mail de êxito. Se a atividade Copy falhar, o pipeline envia detalhes da falha da cópia (por exemplo, a mensagem de erro) num e-mail de falha. Ao longo do tutorial, vai ver como passar os parâmetros.
 
-Uma descrição geral de alto nível do cenário: ![Descrição geral](media/tutorial-control-flow-portal/overview.png)
+Uma visão geral de alto nível do cenário: ![ Diagrama mostra Azure Blob Storage, que é o alvo de uma cópia, que, no sucesso, envia um e-mail com detalhes ou, em falha, envia um e-mail com detalhes de erro.](media/tutorial-control-flow-portal/overview.png)
 
 Vai executar os seguintes passos neste tutorial:
 
@@ -151,7 +151,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 4. Selecione **V2** para a **versão**.
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 6. Selecione **Afixar ao dashboard**.     
-7. Clique em **Criar**.      
+7. Clique em **Create** (Criar).      
 8. No painel de instrumentos, vê-se o seguinte azulejo com estado: **Implantação da fábrica de dados**.
 
     ![Mosaico “implementar a fábrica de dados”](media/tutorial-control-flow-portal/deploying-data-factory.png)
@@ -198,7 +198,7 @@ Neste passo, vai criar um pipeline com uma atividade Copy e duas atividades Web.
 
     1. Introduza **AzureStorageLinkedService** em **Nome**.
     2. Selecione a sua conta de Armazenamento do Azure em **Nome da conta de armazenamento**.
-    3. Clique em **Guardar**.
+    3. Clique em **Save** (Guardar).
 
    ![Novo serviço ligado do Armazenamento do Azure](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. Introduza `@pipeline().parameters.sourceBlobContainer` para a pasta e `emp.txt` para o nome do ficheiro. Utilize o parâmetro de pipeline sourceBlobContainer para definir o caminho da pasta do conjunto de dados.
@@ -346,4 +346,4 @@ Neste tutorial, executou os passos seguintes:
 
 Agora, pode avançar para a secção Conceitos para obter mais informações sobre o Azure Data Factory.
 > [!div class="nextstepaction"]
->[Pipelines e atividades](concepts-pipelines-activities.md)
+>[Gasodutos e atividades](concepts-pipelines-activities.md)

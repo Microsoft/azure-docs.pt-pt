@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Criar um balanceador de carga - modelo Azure'
+title: 'Quickstart: Criar um equilibrador de carga pública - modelo Azure'
 titleSuffix: Azure Load Balancer
-description: Este quickstart mostra como criar um equilibrador de carga utilizando o modelo Azure Resource Manager.
+description: Este quickstart mostra como criar um equilibrador de carga utilizando um modelo de Gestor de Recursos Azure.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -15,16 +15,20 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: allensu
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: d83d58d608fc184f94ae70e60c56fe8fdc1e5eaa
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 66d702846bac5825239e891ce47f8cca5bb857f0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88706052"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984420"
 ---
-# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Quickstart: Criar um balanceador de carga para carregar VMs de equilíbrio utilizando um modelo ARM
+# <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-by-using-an-arm-template"></a>Quickstart: Criar um equilibrador de carga público para carregar VMs de equilíbrio utilizando um modelo ARM
 
-O balanceamento de carga oferece um nível mais elevado de disponibilidade e dimensionamento ao propagar os pedidos recebidos por múltiplas máquinas virtuais (VMs). Este quickstart mostra-lhe como implementar um modelo de Gestor de Recursos Azure (modelo ARM) que cria um balanceador de carga Standard para carregar VMs de equilíbrio. A utilização de um modelo ARM dá menos passos em comparação com outros métodos de implantação.
+O balanceamento de carga oferece um nível mais elevado de disponibilidade e dimensionamento ao propagar os pedidos recebidos por múltiplas máquinas virtuais (VMs). 
+
+Este arranque rápido mostra-lhe como implantar um balanceador de carga padrão para carregar máquinas virtuais de equilíbrio.
+
+A utilização de um modelo ARM dá menos passos em comparação com outros métodos de implantação.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -40,7 +44,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-load-balancer-standard-create/).
 
-O Balancer de Carga e os SKUs IP Públicos devem coincidir. Quando criar um Balancer de Carga Padrão, também deve criar um novo endereço IP público standard que esteja configurado como frontend para o balançador de carga Standard. Se pretender criar um Balanceador de Carga Básico, utilize [este modelo](https://azure.microsoft.com/resources/templates/201-2-vms-loadbalancer-natrules/). A Microsoft recomenda a utilização do Standard SKU para cargas de trabalho de produção.
+O equilibrador de carga e os SKUs IP públicos devem coincidir. Quando cria um balanceador de carga padrão, também deve criar um novo endereço IP público padrão que é configurado como o frontend para o balançador de carga padrão. Se pretender criar um equilibrador de carga básico, utilize [este modelo](https://azure.microsoft.com/resources/templates/201-2-vms-loadbalancer-natrules/). A Microsoft recomenda a utilização de SKU padrão para cargas de trabalho de produção.
 
 :::code language="json" source="~/quickstart-templates/101-load-balancer-standard-create/azuredeploy.json":::
 
@@ -52,7 +56,7 @@ Vários recursos Azure foram definidos no modelo:
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
 - [**Microsoft.Compute/virutalMachines**](/azure/templates/microsoft.compute/virtualmachines) (3 deles).
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces) (3 deles).
-- [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3 delas): use para configurar o IIS e as páginas web.
+- [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions) (3 delas): use para configurar o Servidor de Informações da Internet (IIS) e as páginas web.
 
 Para encontrar mais modelos relacionados com o Azure Load Balancer, consulte [os modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 
@@ -91,7 +95,7 @@ Leva cerca de 10 minutos para implantar o modelo. Quando concluída, a saída é
 
 ![Modelo de implementação do gestor de recursos do balanceador de carga padrão Azure](./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-powershell-output.png)
 
-Azure PowerShell é usado para implementar o modelo. Além do Azure PowerShell, também pode utilizar o portal Azure CLI e a REST API. Para aprender outros métodos de implementação, consulte [os modelos de implementação](../azure-resource-manager/templates/deploy-portal.md).
+Azure PowerShell é usado para implementar o modelo. Também pode utilizar o portal Azure, Azure CLI e REST API. Para aprender outros métodos de implementação, consulte [os modelos de implementação](../azure-resource-manager/templates/deploy-portal.md).
 
 ## <a name="review-deployed-resources"></a>Revisão dos recursos implantados
 
@@ -113,15 +117,25 @@ Azure PowerShell é usado para implementar o modelo. Além do Azure PowerShell, 
 
 Para ver o equilibrador de carga distribuir tráfego através dos três VMs, você pode forçar uma atualização do seu navegador web a partir da máquina do cliente.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando já não precisar deles, elimine o grupo de recursos, o equilibrador de carga e todos os recursos relacionados. Para tal, vá ao portal Azure, selecione o grupo de recursos que contém o equilibrador de carga e, em seguida, **selecione Delete resource group**.
+Quando já não precisar, elimine o: 
+
+* Grupo de recursos
+* Balanceador de carga
+* Recursos relacionados
+
+Vá ao portal Azure, selecione o grupo de recursos que contém o equilibrador de carga e, em seguida, **selecione Eliminar grupo de recursos**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, criou um equilibrador de carga Standard, anexou VMs a ele, configuraram a regra de tráfego do balanceador de carga, fez uma sonda de saúde e, em seguida, testou o equilibrador de carga.
+Neste início rápido, irá:
 
-Para saber mais, continue para os tutoriais para Balancer de Carga.
+* Criei um balanceador de carga padrão e ligou-lhe VMs.
+* Configurado a regra de tráfego do balanceador de carga, e a sonda de saúde.
+* Testei o equilibrador de carga.
+
+Para saber mais, continue os tutoriais para O Balancer de Carga Azure.
 
 > [!div class="nextstepaction"]
 > [Tutoriais do Balanceador de Carga do Azure](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

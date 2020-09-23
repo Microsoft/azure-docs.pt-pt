@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: f5e71697ca6ce9e2585bbb903ad8c46744e05e13
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e2922d19dbcad7da2808a86896e39d21420e73d5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462399"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904741"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de Resolução de Problemas do Centro de Segurança do Azure
 
@@ -132,11 +132,11 @@ Se ocorrerem problemas ao carregar o dashboard do Centro de Segurança, certifiq
 
 ## <a name="contacting-microsoft-support"></a>Contactar o Suporte da Microsoft
 
-Alguns problemas podem ser identificados usando as diretrizes fornecidas neste artigo, outros que você também pode encontrar documentado no Centro de Segurança público [Microsoft Q&página de perguntas](https://docs.microsoft.com/answers/topics/azure-security-center.html). No entanto, se precisar de mais resolução de problemas, pode abrir um novo pedido de suporte utilizando **o portal Azure,** como mostra abaixo:
+Alguns problemas podem ser identificados usando as diretrizes fornecidas neste artigo, outros que você também pode encontrar documentado no Centro de Segurança público [Microsoft Q&página A](https://docs.microsoft.com/answers/topics/azure-security-center.html). No entanto, se precisar de mais resolução de problemas, pode abrir um novo pedido de suporte utilizando **o portal Azure,** como mostra abaixo:
 
 ![Suporte da Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 Neste documento, aprendeu a configurar as políticas de segurança no Centro de Segurança do Azure. Para saber mais acerca do Centro de Segurança do Azure, consulte o seguinte:
 

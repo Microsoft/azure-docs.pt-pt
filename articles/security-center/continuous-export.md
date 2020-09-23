@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 4d5cff416c1ac54e54d06e8def121db65bb7d191
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: cf8fdd8d91c035d374277c4752fb761c0c4e72c7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433942"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905628"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Exportar alertas e recomendações de segurança
 
@@ -33,8 +33,8 @@ Utilizando estas ferramentas pode:
 
 |Aspeto|Detalhes|
 |----|:----|
-|Estado de libertação:|Geralmente disponível|
-|Preços:|Escalão gratuito|
+|Estado de libertação:|Geralmente disponível (GA)|
+|Preços:|Gratuito|
 |Funções e permissões necessárias:|**Papel de administrador de segurança** no grupo de recursos (ou **Proprietário)**<br>Também deve ter permissões de escrita para o recurso alvo|
 |Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![Yes](./media/icons/yes-icon.png) China Gov (para Event Hub), Outro Gov|
 |||
@@ -123,13 +123,13 @@ Além disso, se pretender mover automaticamente os dados exportados do seu Centr
 
 ## <a name="continuous-export-to-a-log-analytics-workspace"></a>Exportação contínua para um espaço de trabalho Log Analytics
 
-Se quiser analisar os dados do Azure Security Center dentro de um espaço de trabalho do Log Analytics ou utilizar alertas Azure juntamente com o Security Center, configurar a exportação contínua para o seu espaço de trabalho Log Analytics.
+Se quiser analisar os dados do Azure Security Center dentro de um espaço de trabalho do Log Analytics ou utilizar alertas Azure juntamente com o Security Center, confmem de exportação contínua para o seu espaço de trabalho Log Analytics.
 
-Para exportar para um espaço de trabalho log Analytics, você deve ter as soluções log analytics do Security Center ativadas no seu espaço de trabalho. Se estiver a utilizar o portal Azure, a solução de nível livre do Security Center é automaticamente ativada quando ativa a exportação contínua. No entanto, se estiver a configurar as suas definições de exportação contínuas programáticamente, deve selecionar manualmente o nível de preços gratuito ou padrão para o espaço de trabalho necessário a partir das **definições de preços &**.  
+Para exportar para um espaço de trabalho log Analytics, você deve ter as soluções log analytics do Security Center ativadas no seu espaço de trabalho. Se estiver a utilizar o portal Azure, a solução gratuita do Security Center é automaticamente ativada quando ativa a exportação contínua. No entanto, se estiver a configurar as suas definições de exportação contínuas programáticamente, deve ligar ou desligar manualmente o Azure Defender dentro ou fora da página de **definições de preços &.**
 
 ### <a name="log-analytics-tables-and-schemas"></a>Registar tabelas e esquemas de Analítica
 
-Os alertas e recomendações de segurança são armazenados nas tabelas *SecurityAlert* e *SecurityRecommendations,* respectivamente. O nome da solução Log Analytics que contém estas tabelas depende se você está no nível livre ou padrão (ver [preços](security-center-pricing.md)): Segurança ('Segurança e Auditoria') ou SecurityCenterFree.
+Os alertas e recomendações de segurança são armazenados nas tabelas *SecurityAlert* e *SecurityRecommendations,* respectivamente. O nome da solução Log Analytics que contém estas tabelas depende se tem o Azure Defender ativado: Segurança ('Segurança e Auditoria') ou SecurityCenterFree.
 
 ![A tabela *SecurityAlert* em Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
 
@@ -180,7 +180,7 @@ Saiba mais sobre [os preços do espaço de trabalho Log Analytics.](https://azur
 Saiba mais sobre [os preços do Azure Event Hub](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a configurar as exportações contínuas das suas recomendações e alertas. Também aprendeu a descarregar os seus dados de alerta como um ficheiro CSV. 
 

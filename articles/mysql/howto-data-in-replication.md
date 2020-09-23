@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 8/7/2020
-ms.openlocfilehash: f8dbdf87eef193540fd5c1bf9d9e7f3794ae46ce
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 8ebb524a5297380fca575ce6849fe4c5f15507cb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168223"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903987"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a base de dados Azure para a replicação de dados do MySQL
 
@@ -23,7 +23,7 @@ Este artigo descreve como configurar a [replicação de dados na](concepts-data-
 > A Microsoft suporta um ambiente diversificado e inclusão. Este artigo contém referências à palavra _escravo._ O guia de estilo da Microsoft [para comunicação sem preconceitos](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) reconhece isto como uma palavra de exclusão. A palavra é usada neste artigo para consistência porque atualmente é a palavra que aparece no software. Quando o software for atualizado para remover a palavra, este artigo será atualizado para estar em alinhamento.
 >
 
-Para criar uma réplica na Base de Dados Azure para o serviço MySQL, [a replicação de dados](concepts-data-in-replication.md) sincroniza os dados de um servidor MySQL no local, em máquinas virtuais (VMs) ou em serviços de base de dados em nuvem. A Replicação de Dados de Entrada é baseada na replicação baseada na posição dos ficheiros de registo binário (binlog) nativo para MySQL. Para saber mais sobre a replicação do binlog, consulte a visão geral da [replicação do binlog MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+Para criar uma réplica na Base de Dados Azure para o serviço MySQL, [a replicação de dados](concepts-data-in-replication.md)  sincroniza os dados de um servidor MySQL no local, em máquinas virtuais (VMs) ou em serviços de base de dados em nuvem. A Replicação de Dados de Entrada é baseada na replicação baseada na posição dos ficheiros de registo binário (binlog) nativo para MySQL. Para saber mais sobre a replicação do binlog, consulte a visão geral da [replicação do binlog MySQL](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
 Reveja as [limitações e requisitos](concepts-data-in-replication.md#limitations-and-considerations) da replicação de data-in antes de executar os passos neste artigo.
 
@@ -105,15 +105,15 @@ Os passos seguintes preparam e configuram o servidor MySQL alojado no local, num
 
    Para criar o papel de replicação na bancada mySQL Workbench, abra o painel **de Utilizadores e Privilégios** do painel de **Gestão.** Em seguida, clique na **Conta Adicionar.** 
  
-   ![Utilizadores e Privilégios](./media/howto-data-in-replication/users_privileges.png)
+   :::image type="content" source="./media/howto-data-in-replication/users_privileges.png" alt-text="Utilizadores e Privilégios":::
 
    Digite o nome de utilizador no campo Nome de Início de **Sessão.** 
 
-   ![Utilizador sincronizado](./media/howto-data-in-replication/syncuser.png)
+   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Utilizador sincronizado":::
  
    Clique no painel **De Funções Administrativas** e, em seguida, selecione **Replication Slave** da lista de **Privilégios Globais**. Em seguida, clique em **Aplicar** para criar o papel de replicação.
 
-   ![Escravo da Replicação](./media/howto-data-in-replication/replicationslave.png)
+   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Escravo da Replicação":::
 
 1. Desajuste o servidor principal para o modo apenas de leitura
 
@@ -133,7 +133,7 @@ Os passos seguintes preparam e configuram o servidor MySQL alojado no local, num
    ```
    Os resultados devem ser como seguir. Certifique-se de que regista o nome do ficheiro binário, uma vez que será utilizado em etapas posteriores.
 
-   ![Resultados do Estado-Mestre](./media/howto-data-in-replication/masterstatus.png)
+   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Resultados do Estado-Mestre":::
  
 ## <a name="dump-and-restore-master-server"></a>Despeje e restaure o servidor principal
 
@@ -169,8 +169,8 @@ Os passos seguintes preparam e configuram o servidor MySQL alojado no local, num
    - master_host: nome de anfitrião do servidor principal
    - master_user: nome de utilizador para o servidor principal
    - master_password: palavra-passe para o servidor principal
-   - master_log_file: nome de ficheiro de registo binário da execução`show master status`
-   - master_log_pos: posição de log binário de correr`show master status`
+   - master_log_file: nome de ficheiro de registo binário da execução `show master status`
+   - master_log_pos: posição de log binário de correr `show master status`
    - master_ssl_ca: contexto do certificado de CA. Se não utilizar sSl, passe em corda vazia.
        - Recomenda-se passar este parâmetro como uma variável. Consulte os seguintes exemplos para obter mais informações.
 
@@ -226,7 +226,7 @@ Os passos seguintes preparam e configuram o servidor MySQL alojado no local, num
    show slave status;
    ```
 
-   Se o estado `Slave_IO_Running` de e `Slave_SQL_Running` são "sim" e o valor de `Seconds_Behind_Master` "0", a replicação está a funcionar bem. `Seconds_Behind_Master`indica quão tarde é a réplica. Se o valor não for "0", significa que a réplica está a processar atualizações. 
+   Se o estado `Slave_IO_Running` de e `Slave_SQL_Running` são "sim" e o valor de `Seconds_Behind_Master` "0", a replicação está a funcionar bem. `Seconds_Behind_Master` indica quão tarde é a réplica. Se o valor não for "0", significa que a réplica está a processar atualizações. 
 
 ## <a name="other-stored-procedures"></a>Outros procedimentos armazenados
 
