@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: e3dc2990e810096310617e468a533a65626008ff
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 72d5a722e6c1e6b936c6ec0386036317e887bb92
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542658"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969830"
 ---
 # <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>Quickstart: Configurar um Azure VM para ligar à Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -53,10 +53,10 @@ Os passos seguintes criam uma nova sub-rede no SQL Managed Instance VNet para qu
    | ---------------- | ----------------- | ----------- |
    | **Nome** | Qualquer nome válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming).|
    | **Intervalo de endereços (bloco CIDR)** | Uma gama válida | O valor predefinido é bom para este arranque rápido.|
-   | **Grupo de segurança de rede** | Nenhuma | O valor predefinido é bom para este arranque rápido.|
-   | **Tabela de rotas** | Nenhuma | O valor predefinido é bom para este arranque rápido.|
+   | **Grupo de segurança de rede** | Nenhum | O valor predefinido é bom para este arranque rápido.|
+   | **Tabela de rotas** | Nenhum | O valor predefinido é bom para este arranque rápido.|
    | **Pontos finais de serviço** | 0 selecionados | O valor predefinido é bom para este arranque rápido.|
-   | **Delegação de sub-rede** | Nenhuma | O valor predefinido é bom para este arranque rápido.|
+   | **Delegação de sub-rede** | Nenhum | O valor predefinido é bom para este arranque rápido.|
 
    ![Nova sub-rede sql de instância gerida para cliente VM](./media/connect-vm-instance-configure/new-subnet.png)
 
@@ -85,7 +85,7 @@ A forma mais fácil de criar uma máquina virtual cliente com todas as ferrament
    | **Localização** | A localização do grupo de recursos | Este valor é preenchido com base no grupo de recursos selecionado. |
    | **Nome da máquina virtual**  | Qualquer nome válido | Para nomes válidos, veja [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming).|
    |**Nome de utilizador Admin**|Qualquer nome de utilizador válido|Para nomes válidos, veja [Regras e restrições de nomenclatura](/azure/architecture/best-practices/resource-naming). Não utilize "serveradmin", pois é um papel reservado ao nível do servidor.<br>Utilize este nome de utilizador sempre que [se ligar ao VM](#connect-to-the-virtual-machine).|
-   |**Palavra-passe**|Qualquer palavra-passe válida|A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Utilize esta palavra-passe sempre que [ligar ao VM](#connect-to-the-virtual-machine).|
+   |**Palavra-passe**|Qualquer palavra-passe válida|A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Utilize esta palavra-passe sempre que [ligar ao VM](#connect-to-the-virtual-machine).|
    | **Tamanho da máquina virtual** | Qualquer tamanho válido | O padrão neste modelo de **Standard_B2s** é suficiente para este arranque rápido. |
    | **Localização**|[grupo de recursos().localização].| Não mude este valor. |
    | **Nome da rede virtual**|A rede virtual em que criou o caso gerido|
@@ -110,7 +110,7 @@ Os passos a seguir mostram-lhe como ligar-se à sua máquina virtual recém-cria
 
 1. Após a conclusão da implementação, vá para o recurso de máquina virtual.
 
-    ![VM](./media/connect-vm-instance-configure/vm.png)  
+    ![O Screenshot mostra o portal Azure com a página Overview para uma máquina virtual selecionada e o Connect em destaque.](./media/connect-vm-instance-configure/vm.png)  
 
 2. Selecione **Ligar**.
 

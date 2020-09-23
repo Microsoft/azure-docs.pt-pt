@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 0f8da31dbe59412ebd57c1f3523089062e5089a6
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 3e5b747e55c8f246167bcf8bbde3542146e69706
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875912"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891962"
 ---
 # <a name="table-storage-output-from-azure-stream-analytics"></a>Saída de armazenamento de mesa da Azure Stream Analytics
 
@@ -45,4 +45,4 @@ Para obter o tamanho máximo da mensagem, consulte [os limites de armazenamento 
 * [Quickstart: Crie um trabalho Azure Stream Analytics usando um modelo ARM](quick-create-azure-resource-manager.md)
 * [Quickstart: Criar um trabalho stream analytics usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Visual Studio](stream-analytics-quick-create-vs.md)
-* [Quickstart: Criar um trabalho Azure Stream Analytics em Código de Estúdio Visual](quick-create-vs-code.md)
+* [Quickstart: Criar um trabalho Azure Stream Analytics em Código de Estúdio Visual](quick-create-visual-studio-code.md)

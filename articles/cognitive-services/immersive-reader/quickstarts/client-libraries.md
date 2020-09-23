@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Use a biblioteca de clientes imersivos Reader'
+title: 'Quickstart: Biblioteca de clientes imersivos reader'
 titleSuffix: Azure Cognitive Services
-description: A API do Leitor Imersivo oferece bibliotecas de clientes que facilitam a integração das capacidades de pesquisa nas suas aplicações. Use este quickstart para começar a enviar pedidos de pesquisa e obter os resultados de volta.
+description: A biblioteca de clientes Immersive Reader facilita a integração do serviço Immersive Reader nas suas aplicações web para melhorar a compreensão da leitura. Neste arranque rápido, você aprenderá a usar o Leitor Imersivo para a seleção de textos, reconhecendo partes da fala, lendo texto selecionado em voz alta, tradução e muito mais.
 services: cognitive-services
 author: nitinme
 manager: nitinme
@@ -9,17 +9,18 @@ zone_pivot_groups: programming-languages-set-twenty
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: quickstart
-ms.date: 05/20/2020
+ms.date: 09/14/2020
 ms.author: nitinme
-ms.custom: devx-track-csharp
-ms.openlocfilehash: c5f02c473fb4a44fb8c0235658d3c8f6e3279844
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.custom: cog-serv-seo-aug-2020
+keywords: exibir imagens, partes da fala, ler texto selecionado, traduzir palavras, compreensão de leitura
+ms.openlocfilehash: 621be6293b4ac487cafafc14498524c97fdc6d82
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505413"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978260"
 ---
-# <a name="quickstart-use-the-immersive-reader-client-library"></a>Quickstart: Use a biblioteca de clientes imersivos Reader
+# <a name="quickstart-get-started-with-immersive-reader"></a>Quickstart: Começa com o Leitor Imersivo
 
 ::: zone pivot="programming-language-csharp"
 

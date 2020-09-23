@@ -1,14 +1,14 @@
 ---
 title: Descrição geral do exemplo de esquema Impacto DoD Nível 5
 description: Descrição geral do exemplo Impacto DoD Nível 5. Este exemplo de esquema ajuda os clientes a avaliar controlos de Impacto DoD Nível 5 específicos.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: 0889da5f0eb9d177589d8ebc6a9a17b61fec624b
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 15e2c5990ba32363441f8ca7cd19672cadc16d51
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85804378"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978091"
 ---
 # <a name="overview-of-the-dod-impact-level-5-blueprint-sample"></a>Descrição geral do exemplo de esquema Impacto DoD Nível 5
 

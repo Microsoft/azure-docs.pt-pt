@@ -323,11 +323,12 @@
           items:
             - name: Predefinição de tarefas
               href: indexer-task-preset.md
+    - name: Analisar conteúdo
+      items:
         - name: Processar com o Editor de Rostos
           href: media-services-face-redaction.md
-          items:
-            - name: Instruções de Redação de Rostos
-              href: media-services-redactor-walkthrough.md
+        - name: Instruções de Redação de Rostos
+          href: media-services-redactor-walkthrough.md
     - name: Configurar telemetria
       href: media-services-telemetry-overview.md
       items:

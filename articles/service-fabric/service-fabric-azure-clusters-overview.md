@@ -1,18 +1,18 @@
 ---
 title: Criar clusters no Windows Server e Linux
-description: Os clusters de tecido de serviço funcionam no Windows Server e linux, o que significa que poderá implementar e hospedar aplicações de Tecido de Serviço em qualquer lugar que possa executar o Windows Server ou o Linux.
+description: Os clusters de tecido de serviço funcionam no Windows Server e linux. Pode implementar e hospedar aplicações de Tecido de Serviço em qualquer lugar que possa executar Windows Server ou Linux.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: 03b9cce0d8e4666630aa6568597e08d1f13386ff
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2c0cc1ddc58347933b498b015c562c3822e8a688
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422815"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978708"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Visão geral dos clusters de tecido de serviço em Azure
 Um cluster de tecido de serviço é um conjunto de máquinas virtuais ou físicas ligadas à rede em que os seus microserviços são implantados e geridos. Uma máquina ou VM que faz parte de um cluster é chamada de nó de cluster. Os aglomerados podem escalar para milhares de nós. Se adicionar novos nós ao cluster, o Service Fabric reequilibra as réplicas de partição de serviço e as instâncias através do aumento do número de nós. O desempenho geral da aplicação melhora e a contenção para o acesso à memória diminui. Se os nós do cluster não estiverem a ser utilizados de forma eficiente, pode diminuir o número de nós no cluster. O Tecido de Serviço reequilibra novamente as réplicas de partição e instâncias através do número reduzido de nós para melhor utilizar o hardware em cada nó.
@@ -47,7 +47,7 @@ Pode utilizar conjuntos de escala para implantar e gerir uma coleção de máqui
 
 Para obter mais informações, leia [os tipos de nó de nó de tecido de serviço e conjuntos de balança de máquinas virtuais](service-fabric-cluster-nodetypes.md).
 
-### <a name="azure-load-balancer"></a>Azure Load Balancer
+### <a name="azure-load-balancer"></a>Balanceador de Carga do Azure
 As instâncias VM são unidas por trás de um [equilibrador de carga Azure](../load-balancer/load-balancer-overview.md), que está associado a um [endereço IP público](../virtual-network/public-ip-addresses.md) e etiqueta DNS.  Quando fornece um cluster com * &lt; nome &gt; de cluster,* o nome DNS, * &lt; nome de &gt; cluster. &lt; localização &gt; .cloudapp.azure.com* é a etiqueta DNS associada ao equilibrador de carga em frente ao conjunto de escala.
 
 Os VMs num cluster têm [apenas endereços IP privados](../virtual-network/private-ip-addresses.md).  O tráfego de tráfego de gestão e o tráfego de serviços são encaminhados através do público virado para o balancer de carga.  O tráfego de rede é encaminhado para estas máquinas através das regras NAT (os clientes ligam-se a nós/instâncias específicos) ou regras de equilíbrio de carga (o tráfego vai para o robin redondo dos VMs).  Um equilibrador de carga tem um IP público associado com um nome DNS no formato: * &lt; clustername &gt; . &lt; localização &gt; .cloudapp.azure.com*.  Um IP público é outro recurso Azure no grupo de recursos.  Se definir vários tipos de nós num cluster, é criado um equilibrador de carga para cada conjunto de tipo/escala de nó. Ou, pode configurar um único balançador de carga para vários tipos de nós.  O nó primário tem o nome de cluster de etiqueta DNS * &lt; &gt; . &lt; localização &gt; .cloudapp.azure.com*, outros tipos de nós têm o nó de conjunto de rótulo DNS * &lt; &gt; - &lt; &gt; . &lt; localização &gt; .cloudapp.azure.com*.
@@ -100,11 +100,11 @@ Para mais informações, leia [a atualização dos agrupamentos.](service-fabric
 | --- | --- |
 | Windows Server 2012 R2 | Todas as versões |
 | Windows Server 2016 | Todas as versões |
-| Servidor Windows 1709 | 6,0 |
+| Servidor Windows 1709 | 6.0 |
 | Servidor Windows 1803 | 6.4 |
 | Windows Server 1809 | 6.4.654.9590 |
 | Windows Server 2019 | 6.4.654.9590 |
-| Linux Ubuntu 16.04 | 6,0 |
+| Linux Ubuntu 16.04 | 6.0 |
 | Linux Ubuntu 18.04 | 7.1 |
 
 Para mais informações consulte [ver versões de cluster suportadas em Azure](./service-fabric-versions.md#supported-operating-systems)
@@ -114,7 +114,7 @@ Para mais informações consulte [ver versões de cluster suportadas em Azure](.
 >
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Leia mais sobre [a fixação,](service-fabric-cluster-security.md) [dimensionamento](service-fabric-cluster-scaling.md)e [modernização dos](service-fabric-cluster-upgrade.md) agrupamentos Azure.
 
 Saiba mais sobre [as opções de suporte do Tecido de Serviço.](service-fabric-support.md)

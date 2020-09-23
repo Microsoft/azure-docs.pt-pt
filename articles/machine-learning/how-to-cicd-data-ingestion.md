@@ -12,12 +12,12 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 7a52dcabb448c39d9ae4e4edb4f5b7f701be6603
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 47b41e807c4d7b9a9fce6591da6655db74f483f3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228890"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971263"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps para um oleoduto de ingestão de dados
 
@@ -168,11 +168,11 @@ labels = np.array(data['target'])
 
 Este nome é diferente para ***ambientes Dev,*** ***QA,*** ***UAT***e ***PROD.*** Num oleoduto complexo com múltiplas atividades, pode haver várias propriedades personalizadas. É uma boa prática recolher todos esses valores num só local e defini-los como ***variáveis***de gasoduto:
 
-![adf-variáveis](media/how-to-cicd-data-ingestion/adf-variables.png)
+![O Screenshot mostra um Portátil chamado PrepareData e M L Execute Pipeline chamado M L Execute Pipeline no topo com o separador Variáveis selecionado abaixo com a opção de adicionar novas variáveis, cada uma com um nome, tipo e valor predefinido.](media/how-to-cicd-data-ingestion/adf-variables.png)
 
 As atividades do gasoduto podem referir-se às variáveis do gasoduto utilizando-as efetivamente:
 
-![adf-notebook-parâmetros](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
+![O Screenshot mostra um portátil chamado PrepareData e M L Execute Pipeline chamado M L Execute Pipeline na parte superior com o separador Definições selecionado abaixo.](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
 
 O espaço de trabalho da Azure Data Factory não expõe variáveis ***de*** gasodutos como parâmetros de modelos do Azure Resource Manager por padrão. O espaço de trabalho utiliza o [Modelo de Parametização Padrão](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) ditando quais as propriedades do pipeline que devem ser expostas como parâmetros do modelo do Gestor de Recursos Azure. Para adicionar variáveis de pipeline à lista, atualize a `"Microsoft.DataFactory/factories/pipelines"` secção do Modelo de [Parâmetroção Padrão](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) com o seguinte corte e coloque o ficheiro de resultados json na raiz da pasta de origem:
 

@@ -8,15 +8,14 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 0725a97aecab5d03c2f5e3937c181a95a7b97c2a
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: c90d11ba630dbb1e37054715855ae5547a8a034b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461515"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902727"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Criar conjuntos de dados de aprendizagem automática Azure a partir de conjuntos de dados abertos do Azure
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Neste artigo, aprende a trazer dados de enriquecimento curados nas suas experiências locais ou remotas de aprendizagem automática com conjuntos de dados [de aprendizagem de máquinas Azure](../machine-learning/overview-what-is-azure-ml.md) e [conjuntos de dados Azure Open](https://docs.microsoft.com/azure/open-datasets/). 
 
@@ -126,7 +125,7 @@ Utilize os seus conjuntos de dados nas suas experiências de aprendizagem autom�
 
 Por exemplo, e demonstrações da funcionalidade Open Datasets, consulte estes [cadernos de amostras](samples.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Treine o seu primeiro modelo ML.](../machine-learning/tutorial-1st-experiment-sdk-train.md)
 

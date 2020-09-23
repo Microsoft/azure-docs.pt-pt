@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 8cc2930422bf644f217737d0f0ba585c243575ee
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4627c094c3913d01f06c237b133e1ed0ea4ed2e0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503009"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969797"
 ---
 # <a name="managed-api-reference-for-azure-sql-managed-instance"></a>Referência API gerida para Azure SQL Caso Gerido
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -44,6 +44,8 @@ Para criar e gerir casos geridos com a Azure PowerShell, utilize os seguintes cm
 |[Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance)|Devolve informações sobre um caso gerido.|
 |[Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)|Define propriedades para uma instância gerida.|
 |[Remove-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance)|Remove um caso gerido.|
+|[Get-AzSqlInstanceOperação](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstanceoperation)|Obtém uma lista de operações de gestão realizadas na instância gerida ou operação específica.|
+|[Stop-AzSqlInstanceOperação](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstanceoperation)|Cancela a operação de gestão específica realizada na instância gerida.|
 |[New-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|Cria uma base de dados SQL Managed Instance.|
 |[Sebase de Dados Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|Devolve informações sobre uma base de dados SQL Managed Instance.|
 |[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|Remove uma base de dados SQL Managed Instance.|
@@ -63,6 +65,9 @@ Para criar e configurar casos geridos com [o Azure CLI,](/cli/azure)utilize os [
 |[az sql mi show](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-show)|Obtém os detalhes para um caso gerido.|
 |[az sql mi atualização](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)|Atualiza um caso gerido.|
 |[az sql mi apagar](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-delete)|Remove um caso gerido.|
+|[az sql mi op lista](https://docs.microsoft.com/cli/azure/sql/mi/op#az_sql_mi_op_list)|Obtém uma lista de operações de gestão realizadas na instância gerida.|
+|[az sql mi op show](https://docs.microsoft.com/cli/azure/sql/mi/op#az_sql_mi_op_show)|Obtém a operação de gestão específica realizada na instância gerida.|
+|[az sql mi op cancelar](https://docs.microsoft.com/cli/azure/sql/mi/op#az_sql_mi_op_cancel)|Cancela a operação de gestão específica realizada na instância gerida.|
 |[az sql midb criar](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |Cria uma base de dados gerida.|
 |[az sql midb lista](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|Listas disponíveis bases de dados geridas.|
 |[az sql midb restaurar](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Restaura uma base de dados gerida.|
@@ -80,8 +85,8 @@ Para criar e configurar bases de dados de casos após a criação da instância 
 
 | Comando | Descrição |
 | --- | --- |
-|[CRIAR BASE DE DADOs](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Cria uma nova base de dados de casos em SQL Managed Instance. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifica uma base de dados de casos em SQL Managed Instance.|
+|[CRIAR BASE DE DADOs](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true)|Cria uma nova base de dados de casos em SQL Managed Instance. Tem de estar ligado à base de dados principal para criar uma nova base de dados.|
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true) |Modifica uma base de dados de casos em SQL Managed Instance.|
 
 ## <a name="rest-api-create-and-configure-managed-instances"></a>REST API: Criar e configurar instâncias geridas
 
@@ -95,6 +100,9 @@ Para criar e configurar casos geridos, utilize estes pedidos de API REST.
 |[Casos Geridos - Lista](https://docs.microsoft.com/rest/api/sql/managedinstances/list)|Devolve uma lista de casos geridos numa subscrição.|
 |[Instâncias geridas - Lista por Grupo de Recursos](https://docs.microsoft.com/rest/api/sql/managedinstances/listbyresourcegroup)|Devolve uma lista de casos geridos num grupo de recursos.|
 |[Casos Geridos - Atualização](https://docs.microsoft.com/rest/api/sql/managedinstances/update)|Atualiza um caso gerido.|
+|[Operações de instância geridas - Lista por Instância Gerida](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/listbymanagedinstance)|Obtém uma lista de operações de gestão realizadas na instância gerida.|
+|[Operações de instância geridas - Obter](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/get)|Obtém a operação de gestão específica realizada na instância gerida.|
+|[Operações de Ocorrência Gerida - Cancelar](https://docs.microsoft.com/rest/api/sql/managedinstanceoperations/cancel)|Cancela a operação de gestão específica realizada na instância gerida.|
 
 ## <a name="next-steps"></a>Passos seguintes
 

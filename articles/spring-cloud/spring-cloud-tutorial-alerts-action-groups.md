@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 856bace0c67c5afedd6305158326af46037e7f21
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: dc8dffb12dcd205671e2219dbef45ac14f9f7df7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299232"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892535"
 ---
 # <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Tutorial: Como monitorizar os recursos da Cloud da primavera usando alertas e grupos de ação
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C #
 
 A Azure Spring Cloud alerta para o suporte de recursos com base em condições como armazenamento disponível, taxa de pedidos ou utilização de dados. Um alerta envia notificação quando as tarifas ou condições cumprem as especificações definidas.
 
@@ -58,11 +60,11 @@ Na página do **grupo de ação Add:**
 
 ## <a name="set-up-alert"></a>Configurar alerta 
 
-Os passos anteriores criaram um **Grupo de Ação** que utiliza o e-mail. Também pode utilizar notificações telefónicas, webhooks, funções Azure, etc.  
+Os passos anteriores criaram um **Grupo de Ação** que utiliza o e-mail. Também pode utilizar notificações telefónicas, webhooks, funções Azure, etc. Os seguintes passos configuram um **Alerta**.
 
-Para configurar um **Alerta,** volte à página **Alertas** e clique em **'Gerir Regras de Alerta'.**
+1. navegar de volta para a página **Alertas** e clicar **em Regras de Alerta de Gestão**.
 
-  ![Portal screenshot definir alerta](media/alerts-action-groups/alerts-2.png)
+   ![Portal screenshot definir alerta](media/alerts-action-groups/alerts-2.png)
 
 1. Selecione o **recurso** para o alerta.
 
@@ -84,9 +86,9 @@ Para configurar um **Alerta,** volte à página **Alertas** e clique em **'Gerir
 
 1. Clique em **Concluído**.
 
-Para obter mais informações sobre as condições disponíveis para monitorizar, consulte [as opções do portal do Utilizador](spring-cloud-concept-metrics.md#user-metrics-options).
+   Para obter mais informações sobre as condições disponíveis para monitorizar, consulte [as opções do portal do Utilizador](spring-cloud-concept-metrics.md#user-metrics-options).
 
- Em **AÇÕES**, clique **em Selecionar grupo de ação**. A partir do painel **de ações** selecione o **Grupo de Ação**previamente definido .
+1. Em **AÇÕES**, clique **em Selecionar grupo de ação**. A partir do painel **de ações** selecione o **Grupo de Ação**previamente definido .
 
    ![Screenshot Portal nova regra de alerta 4](media/alerts-action-groups/alerts-3-3.png) 
 
@@ -98,13 +100,13 @@ Para obter mais informações sobre as condições disponíveis para monitorizar
 
    ![Screenshot Portal nova regra de alerta 5](media/alerts-action-groups/alerts-3-4.png)
 
-Verifique se a nova regra de alerta está ativada.
+1. Verifique se a nova regra de alerta está ativada.
 
    ![Screenshot Portal nova regra de alerta 6](media/alerts-action-groups/alerts-4.png)
 
 Uma regra também pode ser criada usando a página **Métricas:**
 
-   ![Screenshot Portal nova regra de alerta 7](media/alerts-action-groups/alerts-5.png)
+![Screenshot Portal nova regra de alerta 7](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

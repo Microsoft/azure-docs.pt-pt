@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/29/2019
-ms.openlocfilehash: 24ca9d84e8e05b2ffe093dc54963c1ac39464105
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1853bbb0e44526988b34ed23126664c5a2285a7f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119621"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907508"
 ---
 # <a name="auto-grow-storage-using-the-azure-portal-in-azure-database-for-postgresql---single-server"></a>Armazenamento de crescimento automático utilizando o portal Azure na Base de Dados Azure para PostgreSQL - Servidor Único
 Este artigo descreve como pode configurar uma Base de Dados Azure para o armazenamento de servidores PostgreSQL crescer sem afetar a carga de trabalho.
@@ -32,14 +32,14 @@ Siga estes passos para definir o armazenamento do servidor PostgreSQL crescer au
 
 3. Na secção **de crescimento automático,** selecione **Sim** para permitir o crescimento automático do armazenamento.
 
-    ![Base de Dados Azure para PostgreSQL - Settings_Pricing_tier - Crescimento automático](./media/howto-auto-grow-storage-portal/3-auto-grow.png)
+    :::image type="content" source="./media/howto-auto-grow-storage-portal/3-auto-grow.png" alt-text="Base de Dados Azure para PostgreSQL - Settings_Pricing_tier - Crescimento automático":::
 
 4. Clique em **OK** para guardar as alterações.
 
 5. Uma notificação confirmará que o crescimento de automóveis foi ativado com sucesso.
 
-    ![Azure Database for PostgreSQL - sucesso de crescimento automático](./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png)
+    :::image type="content" source="./media/howto-auto-grow-storage-portal/5-auto-grow-successful.png" alt-text="Azure Database for PostgreSQL - sucesso de crescimento automático":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba [como criar alertas sobre métricas.](howto-alert-on-metric.md)

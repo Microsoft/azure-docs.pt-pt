@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para o Azure IoT Hub
 description: Lista controlos de conformidade regulamentar da política Azure disponíveis para O Hub Azure IoT. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.topic: sample
 author: robinsh
 ms.author: robinsh
 ms.service: iot-hub
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 8776a66fbf76b9bcd2ce26fcda9d9b34d594ffbe
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 6ae471aecd9993b69da339d00a52701e5d0b4008
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019207"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987775"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-iot-hub"></a>Controlos de conformidade regulamentar da política Azure para o Azure IoT Hub
 

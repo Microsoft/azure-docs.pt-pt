@@ -8,15 +8,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 34caefba5bae660ca150f6e447b1d59b7174c768
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 6bc9f69440be772910ea8200b5ccf7d5a5122ae6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857755"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907797"
 ---
 # <a name="train-vowpal-wabbit-model"></a>Train Vowpal Wabbit Model
-Este artigo descreve como usar o módulo **Modelo Wabbit Train Vowpal** no designer de aprendizagem de máquinas Azure (pré-visualização), para criar um modelo de aprendizagem automática utilizando o Vowpal Wabbit.  
+Este artigo descreve como usar o módulo **Modelo Wabbit Train Vowpal** no designer Azure Machine Learning, para criar um modelo de aprendizagem automática utilizando o Vowpal Wabbit.  
 
 Para utilizar o Vowpal Wabbit para machine learning, formate a sua entrada de acordo com os requisitos do Vowpal Wabbit e prepare os dados no formato necessário. Utilize este módulo para especificar os argumentos da linha de comando Vowpal Wabbit. 
 
@@ -112,7 +112,7 @@ Geralmente, todos, menos um conjunto limitado de argumentos são apoiados. Para 
 
 Não são suportados os seguintes parâmetros:
 
--   As opções de entrada/saída especificadas em[https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
+-   As opções de entrada/saída especificadas em [https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
   
      Estas propriedades já estão configuradas automaticamente pelo módulo.  
   
@@ -124,6 +124,6 @@ Não são suportados os seguintes parâmetros:
 
 Uma vez que o objetivo do serviço é apoiar utilizadores experientes do Vowpal Wabbit, os dados de entrada devem ser preparados com antecedência utilizando o formato de texto nativo Vowpal Wabbit, em vez do formato de conjunto de dados utilizado por outros módulos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

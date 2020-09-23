@@ -1,14 +1,14 @@
 ---
 title: Alertas de registo do Azure Monitor para contentores Microsoft Docs
-description: Este artigo descreve como criar alertas personalizados baseados em consultas de registo para memória e utilização de CPU do Azure Monitor para contentores.
+description: Este artigo descreve como criar alertas de registo personalizados para memória e utilização de CPU do Azure Monitor para recipientes.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: c023471ae041fa524fc4a2164c633ca80bcfdd88
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2d86edc5994070ba909c6e3a0da2cf76e8359773
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098221"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973728"
 ---
 # <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Como criar alertas de registo do Azure Monitor para contentores
 

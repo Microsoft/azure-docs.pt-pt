@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: ae2d91233df25885bdfd765481f4bb6a1a36da37
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 0111da00962f267387e66978952e8a7c9f5d7308
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958733"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970047"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Buy a custom domain name for Azure App Service (Comprar um nome de domínio personalizado para o Serviço de Aplicações do Azure)
 
@@ -51,7 +51,7 @@ No painel de navegação esquerdo da página da aplicação, desloque-se para a 
 
 O escalão atual da aplicação é realçado com um limite azul. Confirme que a aplicação não está no escalão **F1**. O DNS personalizado não é suportado no escalão **F1**. 
 
-![Verificar o escalão de preço](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+:::image type="content" source="./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png" alt-text="Screenshot do menu de navegação à esquerda da página da aplicação com Scale up (plano de Serviço de Aplicações) selecionado.":::
 
 Se o plano de Serviço de Aplicações não estiver no nível **F1,** feche a página **Scale up** e salte para Comprar [o domínio](#buy-the-domain).
 
@@ -61,7 +61,7 @@ Selecione qualquer uma das camadas não gratuitas (**D1**, **B1**, **B2**, **B3*
 
 Clique em **Aplicar**.
 
-![Verificar o escalão de preço](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
+:::image type="content" source="./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png" alt-text="Screenshot dos níveis de preços de domínio personalizados na categoria Produção com o separador De Produção, plano B1 e o botão Apply realçado.":::
 
 Quando vir a notificação seguinte, significa que a operação de dimensionamento está completa.
 

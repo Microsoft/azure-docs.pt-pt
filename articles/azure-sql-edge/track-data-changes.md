@@ -1,6 +1,6 @@
 ---
-title: Acompanhar as alterações de dados em Azure SQL Edge (Pré-visualização)
-description: Saiba mais sobre o rastreio de alterações e altere a captura de dados no Azure SQL Edge (Preview).
+title: Acompanhe as alterações de dados no Azure SQL Edge
+description: Saiba mais sobre o rastreio de alterações e alterar a captura de dados em Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,14 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 6d0a081f2b0adb143a6b37a647a00014846f8fe2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7d5d5f74a816bf745faf5decf761cd453f40123
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669601"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900061"
 ---
-# <a name="track-data-changes-in-azure-sql-edge-preview"></a>Acompanhar as alterações de dados em Azure SQL Edge (Pré-visualização)
+# <a name="track-data-changes-in-azure-sql-edge"></a>Acompanhe as alterações de dados no Azure SQL Edge
 
 O Azure SQL Edge suporta as duas funcionalidades do SQL Server que rastreiam as alterações aos dados numa base de dados: [alterar o rastreio](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#Tracking) e alterar a captura de [dados](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#Capture). Estas funcionalidades permitem que as aplicações determinem as alterações da linguagem de modificação de dados (inserir, atualizar e apagar operações) que foram feitas nas tabelas dos utilizadores numa base de dados. Pode ativar a captura de dados de alteração e alterar o rastreio na mesma base de dados. Não são necessárias considerações especiais.
 
@@ -58,12 +58,12 @@ Além destas colunas de período, uma tabela temporal também contém uma refer�
 
 Para mais informações, consulte [as tabelas Temporal.](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Streaming de dados em Azure SQL Edge (Pré-visualização)](stream-data.md)
-- [Machine learning e IA com ONNX em Azure SQL Edge (Pré-visualização)](onnx-overview.md)
-- [Configure a replicação para Azure SQL Edge (Pré-visualização)](configure-replication.md)
-- [Backup e restaurar bases de dados em Azure SQL Edge (Pré-visualização)](backup-restore.md)
+- [Streaming de dados em Azure SQL Edge ](stream-data.md)
+- [Machine learning e IA com ONNX em Azure SQL Edge ](onnx-overview.md)
+- [Configure a replicação para Azure SQL Edge](configure-replication.md)
+- [Backup e restaurar bases de dados em Azure SQL Edge](backup-restore.md)
 
 
 

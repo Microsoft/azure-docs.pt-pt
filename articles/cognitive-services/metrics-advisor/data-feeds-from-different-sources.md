@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: aahi
-ms.openlocfilehash: 4dc3c46b65bab48b8923af985f0c2c29fcddc53b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f9ab340e73ce8d58da63a0089073ac4770bf2d52
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938190"
+ms.locfileid: "90973391"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Adicione feeds de dados de diferentes fontes de dados ao Metrics Advisor
 
@@ -27,10 +27,10 @@ Utilize este artigo para encontrar as configurações e requisitos para ligar di
 | ---------------------|-------------|
 |**Básica** | Terá de ser capaz de fornecer parâmetros básicos para aceder a fontes de dados. Por exemplo, uma cadeia de ligação ou uma chave. Os administradores de feed de dados são capazes de ver estas credenciais. |
 | **AzureManagedIdentity** | [Identidades geridas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para recursos Azure é uma característica do Azure Ative Directory. Fornece aos serviços Azure uma identidade gerida automaticamente no Azure AD. Pode utilizar a identidade para autenticar qualquer serviço que suporte a autenticação AZure AD.|
-| **AzuresQLConnectionString**| Guarde o seu fio de ligação AzureSQL como entidade de **autenticação** no Metrics Advisor e use-o diretamente sempre que estiver a bordo de dados de métricas. Apenas os administradores da entidade autenticação podem visualizar estas credenciais, mas permite que os espectadores autorizados criem feeds de dados sem precisarem de saber detalhes para as credenciais. |
-| **DataLakeGen2SharedKey**| Guarde a sua chave de conta de lago de dados como entidade de **autenticação** no Metrics Advisor e use-a diretamente sempre que estiver a bordo de dados de métricas. Apenas os administradores da entidade autenticação são capazes de visualizar estas credenciais, mas permite que os espectadores autorizados criem feed de dados sem precisarem de conhecer os detalhes credenciais.|
-| **ServicePrincipal**| Guarde o seu titular de serviço como entidade de **autenticação** no Metrics Advisor e use-o diretamente sempre que estiver a bordo de dados de métricas. Apenas os administradores da entidade autenticação são capazes de visualizar as credenciais, mas permite que os espectadores autorizados criem feed de dados sem precisarem de saber os detalhes credenciais.|
-| **ServiçoPrincipalInKeyVault**|Guarde o seu principal de serviço no KeyVault como entidade de **autenticação** no Metrics Advisor e use-o diretamente sempre que estiver a bordo de dados de métricas. Apenas os administradores da **entidade autenticação** são capazes de visualizar as credenciais, mas também deixam os espectadores capazes de criar feed de dados sem precisar de saber credenciais detalhadas. |
+| **AzuresQLConnectionString**| Guarde a sua cadeia de ligação AzureSQL como entidade **credencial** no Metrics Advisor e use-a diretamente sempre que estiver a bordo de dados de métricas. Apenas os administradores da entidade Credencial são capazes de ver estas credenciais, mas permite que os espectadores autorizados criem feeds de dados sem precisarem de saber detalhes para as credenciais. |
+| **DataLakeGen2SharedKey**| Guarde a sua chave de conta de lago de dados como uma **entidade credencial** no Metrics Advisor e use-a diretamente de cada vez que estiver a bordo de dados de métricas. Apenas os administradores da entidade Credencial são capazes de ver estas credenciais, mas permite que os espectadores autorizados criem feed de dados sem precisarem de saber os detalhes credenciais.|
+| **Diretor de serviços**| Guarde o seu principal de serviço como **entidade credencial** no Metrics Advisor e use-o diretamente sempre que estiver a bordo de dados de métricas. Apenas os administradores da entidade Credencial são capazes de ver as credenciais, mas permite que os espectadores autorizados criem feed de dados sem precisarem de saber os detalhes credenciais.|
+| **Diretor de serviço do cofre chave**|Guarde o seu principal de serviço num cofre-chave como **entidade credencial** no Metrics Advisor e use-o diretamente sempre que estiver a bordo de dados de métricas. Apenas os administradores de uma **entidade credencial** são capazes de ver as credenciais, mas também deixam os espectadores capazes de criar feed de dados sem precisar de saber credenciais detalhadas. |
 
 ## <a name="data-sources-supported-and-corresponding-authentication-types"></a>Fontes de dados suportadas e correspondentes tipos de autenticação
 
@@ -41,8 +41,8 @@ Utilize este artigo para encontrar as configurações e requisitos para ligar di
 |[**Armazenamento Azure Blob (JSON)**](#blob) | Básico<br>ManagedIdentity|
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Básico |
 |[**Azure Data Explorer (Kusto)**](#kusto) | Básico<br>ManagedIdentity|
-|[**Azure Data Lake Storage Gen2**](#adl) | Básico<br>DataLakeGen2SharedKey<br>ServicePrincipal<br>ServiçoPrincipalInKeyVault<br> |
-|[**Base de Dados Azure SQL / Servidor SQL**](#sql) | Básico<br>ManagedIdentity<br>ServicePrincipal<br>ServiçoPrincipalInKeyVault<br>AzuresQLConnectionString
+|[**Azure Data Lake Storage Gen2**](#adl) | Básico<br>DataLakeGen2SharedKey<br>Service principal (Principal de serviço)<br>Diretor de serviço do cofre chave<br> |
+|[**Base de Dados Azure SQL / Servidor SQL**](#sql) | Básico<br>ManagedIdentity<br>Service principal (Principal de serviço)<br>Diretor de serviço do cofre chave<br>AzuresQLConnectionString
 |[**Armazenamento de Tabelas do Azure**](#table) | Básico | 
 |[**Search Elástico**](#es) | Básico |
 |[**Solicitar**](#http) | Básico | 
@@ -51,7 +51,7 @@ Utilize este artigo para encontrar as configurações e requisitos para ligar di
 |[**MySQL**](#mysql) | Básico |
 |[**PostgreSQL**](#pgsql)| Básico|
 
-Crie uma **Entidade de Autenticação** e utilize-a para autenticar as suas fontes de dados. As seguintes secções especificam os parâmetros exigidos para a autenticação *básica.* 
+Crie uma **entidade credencial** e utilize-a para autenticar as suas fontes de dados. As seguintes secções especificam os parâmetros exigidos para a autenticação *básica.* 
 
 ## <a name="span-idappinsightsazure-application-insightsspan"></a><span id="appinsights">Azure Application Insights</span>
 

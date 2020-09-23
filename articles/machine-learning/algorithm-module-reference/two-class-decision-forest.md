@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/03/2020
-ms.openlocfilehash: 4de0014abfde32fc4b863afe1cc9000b25d30e83
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 9870b5366ac629fe1b10cfde15a58b85c7c6fbc3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89503876"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907715"
 ---
 # <a name="two-class-decision-forest-module"></a>Módulo florestal de decisão de duas classes
 
-Este artigo descreve um módulo no designer de Aprendizagem automática Azure (pré-visualização).
+Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
 
 Utilize este módulo para criar um modelo de aprendizagem automática baseado no algoritmo das florestas de decisão.  
 
@@ -107,6 +107,6 @@ Após o treino estar completo:
 
 + Para utilizar o modelo para pontuar, adicione o módulo **'Marcar',** a um pipeline.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: aa9b186e74ed3b8fe5496afd5b21c54f50537d5f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d9acd322c454002613e21e8591c3e83aeec2d51e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049790"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979383"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Problemas de resolução de problemas que permitem ou visualizam o perfil de insights de aplicações
 
@@ -79,12 +79,12 @@ Para que o Profiler funcione corretamente:
    1. No menu **Ferramentas,** selecione **WebJobs Dashboard**.  
       O **painel WebJobs** abre. 
    
-      ![profiler-webjob]   
+      ![O screenshot mostra o painel WebJobs, que exibe o nome, estado e última hora de trabalho.][profiler-webjob]   
    
    1. Para ver os detalhes do trabalho web, incluindo o registo, selecione o link **ApplicationInsightsProfiler3.**  
      Abre-se o painel **de detalhes contínuo do WebJob.**
 
-      ![profiler-webjob-log]
+      ![A screenshot mostra o painel de detalhes contínuo do WebJob.][profiler-webjob-log]
 
 Se não consegue perceber porque é que o Profiler não está a trabalhar para si, pode descarregar o registo e enviá-lo para a nossa equipa para obter serviceprofilerhelp@microsoft.com assistência. 
     
@@ -168,7 +168,7 @@ Para verificar as definições que foram usadas para configurar o Azure Diagnost
 
 1. Certifique-se de que o iKey na linha de comando do Profiler está correto. 
 
-1. Utilizando o caminho encontrado noconfig.jsanterior *no* ficheiro, verifique o ficheiro de registo do Profiler, chamado **BootstrapN.log**. Apresenta as informações de depurador que indicam as definições que o Profiler está a utilizar. Também apresenta mensagens de estado e erro do Profiler.  
+1. Utilizando o caminho encontrado noconfig.jsanterior * no* ficheiro, verifique o ficheiro de registo do Profiler, chamado **BootstrapN.log**. Apresenta as informações de depurador que indicam as definições que o Profiler está a utilizar. Também apresenta mensagens de estado e erro do Profiler.  
 
     Para os VMs, o ficheiro costuma estar aqui:
     ```

@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 56f392210aac6045a9dc8cc3522d36092162f26c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ce8dbe017e3cc80588cd1aa37ad02a82199ccc10
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086120"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892577"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analisar registos e métricas com definições de diagnóstico
+
+**Este artigo aplica-se a:** ✔️ Java ✔️ C #
 
 Utilizando a funcionalidade de diagnóstico da Azure Spring Cloud, pode analisar registos e métricas com qualquer um dos seguintes serviços:
 
@@ -25,11 +27,11 @@ Utilizando a funcionalidade de diagnóstico da Azure Spring Cloud, pode analisar
 Escolha a categoria de registo e a categoria métrica que pretende monitorizar.
 
 > [!TIP]
-> Só querem transmitir os vossos registos? Confira este [comando Azure CLI!](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs)
+> Só querem transmitir os vossos registos? Confira este [comando Azure CLI!](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest&preserve-view=true#ext-spring-cloud-az-spring-cloud-app-logs)
 
 ## <a name="logs"></a>Registos
 
-|Registo | Descrição |
+|Registar | Descrição |
 |----|----|
 | **AplicaçãoConsola** | Registo de consola de todas as aplicações do cliente. |
 | **SystemLogs** | Atualmente, apenas os registos [do Servidor Config da Nuvem de primavera](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) nesta categoria. |
@@ -106,7 +108,7 @@ Existem vários métodos para visualizar registos e métricas como descrito nas 
     | limit 50
     ```
 > [!NOTE]
-> `==`é sensível a caso, mas `=~` não é.
+> `==` é sensível a caso, mas `=~` não é.
 
 Para saber mais sobre a linguagem de consulta que é usada no Log Analytics, consulte as consultas de registo do [Azure Monitor](../azure-monitor/log-query/query-language.md).
 
@@ -176,7 +178,7 @@ AppPlatformLogsforSpring
 
 O Azure Monitor fornece um suporte extensivo para consulta de registos de aplicações utilizando o Log Analytics. Para saber mais sobre este serviço, consulte [Começar com consultas de log no Azure Monitor.](../azure-monitor/log-query/get-started-queries.md) Para obter mais informações sobre consultas de construção para analisar os registos de aplicações, consulte [a visão geral das consultas de registo no Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas Frequentes (FAQ)
 
 ### <a name="how-to-convert-multi-line-java-stack-traces-into-a-single-line"></a>Como converter vestígios de pilhas de Java multi-linhas numa única linha?
 
@@ -203,3 +205,7 @@ AppPlatformLogsforSpring
 | extend Log = array_strcat(split(Log, '\\n'), '\n')
 ```
 Poderá utilizar a mesma estratégia para outras bibliotecas de registos Java.
+
+## <a name="next-steps"></a>Passos seguintes
+
+* [Quickstart: Implemente a sua primeira aplicação Azure Spring Cloud](spring-cloud-quickstart.md)

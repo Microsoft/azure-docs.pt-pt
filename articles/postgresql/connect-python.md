@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
-ms.openlocfilehash: a9303909eb98fc0ff2d7582fa7f5807a879e7958
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 9fb0c02bcf040b1d27831e72d31ff07a7c38ad0a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182687"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901814"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Quickstart: Use Python para ligar e consultar dados na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -46,7 +46,7 @@ A ligação a uma base de dados Azure para base de dados PostgreSQL requer o nom
    
    Também precisa da sua senha de administração. Se esquecer, pode repor a partir desta página. 
    
-   ![Nome do servidor da Base de Dados do Azure para PostgreSQL](./media/connect-python/1-connection-string.png)
+   :::image type="content" source="./media/connect-python/1-connection-string.png" alt-text="Nome do servidor da Base de Dados do Azure para PostgreSQL":::
 
 ## <a name="how-to-run-the-python-examples"></a>Como executar os exemplos python
 
@@ -55,9 +55,9 @@ Para cada exemplo de código neste artigo:
 1. Crie um novo ficheiro num editor de texto. 
    
 1. Adicione o exemplo de código ao ficheiro. No código, substitua:
-   - `<server-name>`e `<admin-username>` com os valores que copiou do portal Azure.
-   - `<admin-password>`com a palavra-passe do seu servidor.
-   - `<database-name>`com o nome da sua Base de Dados Azure para base de dados PostgreSQL. Uma base de dados padrão chamada *postgres* foi criada automaticamente quando criou o seu servidor. Pode mudar o nome dessa base de dados ou criar uma nova base de dados utilizando comandos SQL. 
+   - `<server-name>` e `<admin-username>` com os valores que copiou do portal Azure.
+   - `<admin-password>` com a palavra-passe do seu servidor.
+   - `<database-name>` com o nome da sua Base de Dados Azure para base de dados PostgreSQL. Uma base de dados padrão chamada *postgres* foi criada automaticamente quando criou o seu servidor. Pode mudar o nome dessa base de dados ou criar uma nova base de dados utilizando comandos SQL. 
    
 1. Guarde o ficheiro na pasta do projeto com uma extensão *.py,* como *postgres-insert.py*. Para o Windows, certifique-se de que a codificação UTF-8 é selecionada quando guardar o ficheiro. 
    
@@ -105,7 +105,7 @@ conn.close()
 
 Quando o código funciona com sucesso, produz a seguinte saída:
 
-![Saída da linha de comandos](media/connect-python/2-example-python-output.png)
+:::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Saída da linha de comandos":::
 
 ## <a name="read-data"></a>Ler dados
 O exemplo de código a seguir liga-se à sua Base de Dados Azure para a base de dados PostgreSQL e utiliza [cursor.exefofo](http://initd.org/psycopg/docs/cursor.html#execute) com a declaração SQL **SELECT** para ler dados. Esta função aceita uma consulta e devolve um resultado definido para iterar através da [utilização de cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). 

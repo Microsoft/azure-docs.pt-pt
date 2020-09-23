@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 3a3090e627eef1229089b12e3106ce12b3ae3b04
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 077f38d385571a07a577f518e45ca495f6c07dc5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90021853"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972757"
 ---
 |Name<br /><sub>(Portal Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -27,7 +27,7 @@ ms.locfileid: "90021853"
 |[Backup geo-redundante a longo prazo deve ser ativado para bases de dados Azure SQL](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd38fc420-0735-4ef3-ac11-c806f651a570) |Esta política audita qualquer Base de Dados Azure SQL com cópia de segurança geo-redundante a longo prazo não ativada. |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/GeoRedundant_SQLDatabase_AuditIfNotExists.json) |
 |[As ligações privadas de ponto final na Base de Dados Azure SQL devem ser ativadas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7698e800-9299-47a6-b3b6-5a0fee576eed) |As ligações de ponto final privados impõem uma comunicação segura, permitindo a conectividade privada à Base de Dados Azure SQL. |auditoria |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_PrivateEndpoint_Audit.json) |
 |[O acesso à rede pública na Base de Dados Azure SQL deve ser desativado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1b8ca024-1d5c-4dec-8995-b1a932b41780) |A desativação da propriedade de acesso à rede pública melhora a segurança, garantindo que a sua Base de Dados Azure SQL só pode ser acedida a partir de um ponto final privado. Esta configuração nega todos os logins que correspondam às regras de firewall baseadas em IP ou em rede virtual. |auditoria |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServer_PublicNetworkAccess_Audit.json) |
-|[Os dados sensíveis nas suas bases de dados SQL devem ser classificados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcc9835f2-9f6b-4cc8-ab4a-f8ef615eb349) |O Azure Security Center monitoriza os resultados da descoberta e classificação de dados para as suas bases de dados SQL e fornece recomendações para classificar os dados sensíveis nas suas bases de dados para uma melhor monitorização e segurança |AuditIfNotExists, Desativado |[1.0.0-pré-visualização](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbDataClassification_Audit.json) |
+|[Os dados sensíveis nas suas bases de dados SQL devem ser classificados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcc9835f2-9f6b-4cc8-ab4a-f8ef615eb349) |O Azure Security Center monitoriza os resultados da descoberta e classificação de dados para as suas bases de dados SQL e fornece recomendações para classificar os dados sensíveis nas suas bases de dados para uma melhor monitorização e segurança |AuditIfNotExists, Desativado |[2.0.0-pré-visualização](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_SQLDbDataClassification_Audit.json) |
 |[As definições de auditoria sql devem ter grupos de ação configurados para capturar atividades críticas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7ff426e2-515f-405a-91c8-4f2333442eb5) |A propriedade AuditActionsAndGroups deve conter pelo menos SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP, FAILED_DATABASE_AUTHENTICATION_GROUP, BATCH_COMPLETED_GROUP para garantir uma auditoria completa |AuditIfNotExists, Desativado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditing_ActionsAndGroups_Audit.json) |
 |[Base de Dados SQL deve evitar usar redundância de backup GRS](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb219b9cf-f672-4f96-9ab0-f5a3ac5e1c13) |As bases de dados devem evitar a utilização de armazenamento GRS para cópias de segurança se as regras de residência de dados exigirem que os dados permaneçam dentro de uma região específica. |Negar, Deficiente |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlDb_BlockGrsBackupRedundancy_Deny.json) |
 |[SQL Managed Instance deve ter a versão TLS mínima de 1.2](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa8793640-60f7-487c-b5c3-1d37215905c4) |Definir a versão mínima TLS para 1.2 melhora a segurança garantindo que a sua SQL Managed Instance só pode ser acedida a partir de clientes que utilizem TLS 1.2. A utilização de versões de TLS inferiores a 1.2 não é recomendável, uma vez que têm vunerabilidades de segurança bem documentadas. |Auditoria, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlManagedInstance_MiniumTLSVersion_Audit.json) |

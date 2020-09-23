@@ -1,14 +1,14 @@
 ---
 title: Guia de resolução de problemas para a Azure Service Bus Microsoft Docs
-description: Este artigo fornece uma lista de exceções de mensagens Azure Service Bus e sugeriu ações a serem tomadas quando a exceção ocorre.
+description: Este artigo fornece dicas e recomendações de resolução de problemas para alguns problemas que você pode ver ao usar o Azure Service Bus.
 ms.topic: article
-ms.date: 07/15/2020
-ms.openlocfilehash: 822a97a230a8646ddadde21eedc6c23d5e3efbd6
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.date: 09/16/2020
+ms.openlocfilehash: 39d2bf14f88e8efabcddda98268a187009cf029e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067057"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885713"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guia de resolução de problemas para o ônibus de serviço Azure
 Este artigo fornece dicas e recomendações de resolução de problemas para alguns problemas que você pode ver ao usar o Azure Service Bus. 

@@ -1,7 +1,7 @@
 ---
-title: Erros do módulo do designer de resolução de problemas (pré-visualização)
+title: Erros do módulo de design de resolução de problemas
 titleSuffix: Azure Machine Learning
-description: Códigos de erro do módulo de resolução de problemas no designer de aprendizagem automática Azure (pré-visualização)
+description: Códigos de erro do módulo de resolução de problemas no designer de aprendizagem de máquinas Azure
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 023a28c6f1d89d0975ff8ecac2466c51c05fa9da
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: c0a55780687b4c03d6809d1d740bf0b0afcd63fd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876925"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908092"
 ---
-# <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceções e códigos de erro para o designer (pré-visualização)
+# <a name="exceptions-and-error-codes-for-the-designer"></a>Exceções e códigos de erro para o designer
 
-Este artigo descreve as mensagens de erro e os códigos de exceção no designer de aprendizagem automática Azure (pré-visualização) para ajudá-lo a resolver problemas nos seus oleodutos de aprendizagem automática.
+Este artigo descreve as mensagens de erro e os códigos de exceção no designer de Aprendizagem automática Azure para ajudá-lo a resolver problemas nos seus oleodutos de aprendizagem automática.
 
 Pode encontrar a mensagem de erro no designer seguindo estes passos:  
 
@@ -255,8 +255,8 @@ Se o modelo foi treinado utilizando qualquer um dos módulos de formação espec
 
 |Tipo de modelo|Módulo de formação| Módulo de pontuação|
 |----|----|----|
-|qualquer classificador|[Preparar Modelo](train-model.md) |[Modelo de Pontuação](score-model.md)|
-|qualquer modelo de regressão|[Preparar Modelo](train-model.md) |[Modelo de Pontuação](score-model.md)|
+|qualquer classificador|[Preparar Modelo](train-model.md) |[Modelo de Classificação](score-model.md)|
+|qualquer modelo de regressão|[Preparar Modelo](train-model.md) |[Modelo de Classificação](score-model.md)|
 
 <!--| clustering models| [Train Clustering Model](train-clustering-model.md) or [Sweep Clustering](sweep-clustering.md)| [Assign Data to Clusters](assign-data-to-clusters.md)|
 | anomaly detection - One-Class SVM | [Train Anomaly Detection Model](train-anomaly-detection-model.md) |[Score Model](score-model.md)|
@@ -491,7 +491,7 @@ Também pode acontecer que uma coluna de etiqueta esteja presente no conjunto de
 
 **Resolução:**
 
-+ Abra o módulo que gerou o erro e determine se está presente uma coluna de etiqueta. O nome ou tipo de dados da coluna não importa, desde que a coluna contenha um único resultado (ou variável dependente) que esteja a tentar prever. Se não tiver a certeza de qual coluna tem a etiqueta, procure um nome genérico como *Classe* ou *Target*. 
++ Abra o módulo que gerou o erro e determine se está presente uma coluna de etiqueta. O nome ou tipo de dados da coluna não importa, desde que a coluna contenha um único resultado (ou variável dependente) que esteja a tentar prever. Se não tiver a certeza de qual coluna tem a etiqueta, procure um nome genérico como  *Classe* ou *Target*. 
 +  Se o conjunto de dados não incluir uma coluna de etiqueta, é possível que a coluna da etiqueta tenha sido explicitamente ou acidentalmente removida a montante. Também pode ser que o conjunto de dados não seja a saída de um módulo de pontuação a montante.
 + Para marcar explicitamente a coluna como coluna de etiqueta, adicione o módulo [editar metadados](edit-metadata.md) e ligue o conjunto de dados. Selecione apenas a coluna de etiqueta e **selecione Label** da lista de retirada **de campos.** 
 + Se a coluna errada for escolhida como a etiqueta, pode selecionar **a etiqueta Clear** dos **Campos** para fixar os metadados na coluna. 
