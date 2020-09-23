@@ -5,12 +5,12 @@ ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.openlocfilehash: 4039a70bf90bc8f4b7932dbf40d8369e9773abf3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6a596eff70bfc20b5a6752ef47398bd14d527c97
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321824"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973331"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Criar e implementar modelos ARM utilizando o IntelliJ IDEA
 
@@ -60,13 +60,13 @@ Em vez de criar um modelo de raiz, pode abrir um modelo dos [Modelos de Início 
 
 ## <a name="edit-and-update-an-existing-deployment"></a>Editar e atualizar uma implementação existente
 
-1. Selecione **Editar Implementação** a partir do menu de clique direito ou a visualização das propriedades do show antes. Outra visão do separador estará aberta, mostrando o modelo e os ficheiros de parâmetros para a implementação no Azure. Para guardar esses ficheiros para locais, pode clicar em **Ficheiros de Modelo de Exportação** ou **Ficheiros de Parâmetros de Exportação**.
+1. Selecione **Editar Implementação** a partir do menu de clique direito ou a visualização das propriedades do show antes. Outra visão do separador estará aberta, mostrando o modelo e os ficheiros de parâmetros para a implementação no Azure. Para guardar esses ficheiros para locais, pode clicar em **Ficheiros de Modelo de Exportação**  ou **Ficheiros de Parâmetros de Exportação**.
 
     ![Implementação de edição de modelo de gestor de recursos](./media/create-templates-use-intellij/resource-manager-edit-deployment.png)
 
 1. Pode editar os dois ficheiros nesta página e implementar as alterações no Azure. Aqui modificamos o valor do **armazenamentoAcolho** em ficheiros de parâmetros, de `Standard_LRS` `Standard_GRS` . Em seguida, clique em **Atualizar a Implementação** na parte inferior e confirme a atualização.
 
-    ![Implementação de edição de modelo de gestor de recursos](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
+    ![A screenshot mostra o modelo de Gestor de Recursos com a pronta de atualização visualizada.](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
 
 1. Após a implementação da atualização concluída, pode verificar no portal que a conta de armazenamento criada é alterada para `Standard_GRS` .
 

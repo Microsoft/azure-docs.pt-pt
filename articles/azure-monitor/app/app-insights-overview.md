@@ -4,12 +4,12 @@ description: Gestão de Desempenho de Aplicações e controlo da utilização da
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: da57bcb7ed434893548ae74fdb3cd9ac1ab5b245
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 4576c8a7657ea3da1f8a732c2efd38302f33300c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526838"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974040"
 ---
 # <a name="what-is-application-insights"></a>O que é o Application Insights?
 Application Insights, uma funcionalidade do [Azure Monitor,](../overview.md)é um serviço extensível de Gestão de Desempenho de Aplicações (APM) para desenvolvedores e profissionais de DevOps. Use-o para monitorizar as suas aplicações ao vivo. Irá detetar automaticamente anomalias de desempenho e inclui poderosas ferramentas de análise para ajudá-lo a diagnosticar problemas e a entender o que os utilizadores realmente fazem com a sua aplicação.  Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Funciona para apps em uma grande variedade de plataformas, incluindo .NET, Node.js, Java e Python hospedados no local, híbridos ou qualquer nuvem pública. Integra-se com o seu processo de DevOps e tem pontos de ligação a diversas outras ferramentas de programação. Pode monitorizar e analisar a telemetria de aplicações móveis ao integrar com o Visual Studio App Center.
@@ -58,7 +58,7 @@ Existem muitas formas para explorar os seus dados. Veja estes artigos:
 | [**Dashboards**](./overview-dashboard.md)<br/>Combine dados de vários recursos e partilhe-os com outras pessoas. Ideais para aplicações com vários componentes e para visualização contínua na sala de equipa. |![Exemplo de dashboards](./media/app-insights-overview/dashboard-tn.png) |
 | [**Live Metrics Stream**](./live-stream.md)<br/>Quando implementa uma compilação nova, veja estes indicadores de desempenho em tempo quase real, para ter a certeza de que está tudo a funcionar conforme esperado. |![Exemplo de métricas em direto](./media/app-insights-overview/live-metrics-tn.png) |
 | [**Análise**](../log-query/log-query-overview.md)<br/>Responda a perguntas difíceis sobre o desempenho e a utilização da sua aplicação através desta poderosa linguagem de consultas. |![Exemplo de análise](./media/app-insights-overview/analytics-tn.png) |
-| [**Visual Studio**](./visual-studio.md)<br/>Veja os dados de desempenho no código. Aceda ao código a partir dos rastreios de pilha.|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
+| [**Visual Studio**](./visual-studio.md)<br/>Veja os dados de desempenho no código. Aceda ao código a partir dos rastreios de pilha.|![Screenshot mostra Detalhes de Exceção no Estúdio Visual e um exemplo de ir codificar a partir de traços de pilha.](./media/app-insights-overview/visual-studio-tn.png) |
 | [**Debugger snapshot**](./snapshot-debugger.md)<br/>Depure instantâneos de amostra de operações em tempo real, com valores de parâmetro.|![Visual Studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](./export-power-bi.md)<br/>Integre métricas de utilização com outras métricas de business intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**API REST**](https://dev.applicationinsights.io/)<br/>Escreva código para executar consultas nas métricas e nos dados não processados.| ![API REST](./media/app-insights-overview/rest-tn.png) |

@@ -1,6 +1,6 @@
 ---
 title: Parâmetros de recursos de livros do Azure Monitor
-description: Simplificar relatórios complexos com livros de trabalho parametrizados pré-construídos e personalizados
+description: Aprenda a usar parâmetros de recursos para permitir a recolha de recursos em livros de trabalho. Utilize os parâmetros de recurso para definir o âmbito a partir do qual os dados são retirados.
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: b5822c1af4f3bc5d9519af93054a01c3cdc82001
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a4d4e095e065e9f505ba1b9b46f0d31fb1783eb2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504996"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972853"
 ---
 # <a name="workbook-resource-parameters"></a>Parâmetros de recursos do livro
 
@@ -27,12 +27,12 @@ Os valores dos apanhadores de recursos podem vir do contexto do livro, da lista 
 2. Escolha _Adicionar parâmetros_ dos links dentro do livro.
 3. Clique no botão azul _adicionar parâmetro._
 4. No novo painel de parâmetros que aparece, insira:
-    1. Nome do parâmetro:`Applications`
-    2. Tipo de parâmetro:`Resource picker`
-    3. Necessário:`checked`
-    4. Permitir várias seleções:`checked`
-5. Obtenha dados de:`Workbook Resources`
-6. Incluir apenas tipos de recursos:`Application Insights`
+    1. Nome do parâmetro: `Applications`
+    2. Tipo de parâmetro: `Resource picker`
+    3. Necessário: `checked`
+    4. Permitir várias seleções: `checked`
+5. Obtenha dados de: `Workbook Resources`
+6. Incluir apenas tipos de recursos: `Application Insights`
 7. Escolha 'Guardar' da barra de ferramentas para criar o parâmetro.
 
 ![Imagem mostrando a criação de um parâmetro de recurso usando recursos de livro](./media/workbooks-resources/resource-create.png)
@@ -42,13 +42,13 @@ Os valores dos apanhadores de recursos podem vir do contexto do livro, da lista 
 2. Escolha _Adicionar parâmetros_ dos links dentro do livro.
 3. Clique no botão azul _adicionar parâmetro._
 4. No novo painel de parâmetros que aparece, insira:
-    1. Nome do parâmetro:`Applications`
-    2. Tipo de parâmetro:`Resource picker`
-    3. Necessário:`checked`
-    4. Permitir várias seleções:`checked`
-5. Obtenha dados de:`Query`
-    1. Tipo de consulta:`Azure Resource Graph`
-    2. Assinaturas:`Use default subscriptions`
+    1. Nome do parâmetro: `Applications`
+    2. Tipo de parâmetro: `Resource picker`
+    3. Necessário: `checked`
+    4. Permitir várias seleções: `checked`
+5. Obtenha dados de: `Query`
+    1. Tipo de consulta: `Azure Resource Graph`
+    2. Assinaturas: `Use default subscriptions`
     3. No controlo de consultas, adicione este corte
     ```kusto
     where type == 'microsoft.insights/components'
@@ -68,11 +68,11 @@ Os valores dos apanhadores de recursos podem vir do contexto do livro, da lista 
 2. Escolha _Adicionar parâmetros_ dos links dentro do livro.
 3. Clique no botão azul _adicionar parâmetro._
 4. No novo painel de parâmetros que aparece, insira:
-    1. Nome do parâmetro:`Applications`
-    2. Tipo de parâmetro:`Resource picker`
-    3. Necessário:`checked`
-    4. Permitir várias seleções:`checked`
-5. Obtenha dados de:`JSON`
+    1. Nome do parâmetro: `Applications`
+    2. Tipo de parâmetro: `Resource picker`
+    3. Necessário: `checked`
+    4. Permitir várias seleções: `checked`
+5. Obtenha dados de: `JSON`
     1. No controlo de conteúdos, adicione este json snippet
     ```json
     [
@@ -111,7 +111,7 @@ Os valores dos apanhadores de recursos podem vir do contexto do livro, da lista 
 | `{Applications:subscription}` | A subscrição do recurso selecionado |  |
 | `{Applications:grid}` | Uma grelha que mostra as propriedades dos recursos. Útil para renderizar em um bloco de texto enquanto depurando  |  |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Começar a](workbooks-visualizations.md) aprender mais sobre livros de trabalho muitas opções de visualizações ricas.
 * [Controle](workbooks-access-control.md) e partilhe o acesso aos seus recursos do livro.

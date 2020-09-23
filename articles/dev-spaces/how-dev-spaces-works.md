@@ -5,12 +5,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 description: Descreve os processos que alimentam a Azure Dev Spaces
 keywords: Espaços Azure Dev, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
-ms.openlocfilehash: 48bde5f3cc6f397d51a31f80f41ab299ba8866ee
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 81408ed4bbe5322538d893b29c7397104c5b0844
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212543"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981264"
 ---
 # <a name="how-azure-dev-spaces-works"></a>Como funciona o Azure Dev Spaces
 
@@ -22,9 +22,9 @@ O Azure Dev Spaces fornece-lhe múltiplas formas de iterar e depurar rapidamente
 
 A Azure Dev Spaces reduz o esforço de desenvolvimento, teste e iteração da sua aplicação Kubernetes no contexto do seu cluster AKS. Esta redução de esforço permite que os desenvolvedores se concentrem na lógica de negócio das suas aplicações e não configuram os seus serviços para funcionar em Kubernetes.
 
-### <a name="local-process-with-kubernetes"></a>Processo Local com o Kubernetes
+### <a name="bridge-to-kubernetes"></a>Ponte para Kubernetes
 
-Com o Processo Local com Kubernetes, pode ligar o seu computador de desenvolvimento ao seu cluster Kubernetes, permitindo-lhe executar e depurar código no seu computador de desenvolvimento como se estivesse a funcionar no cluster. O Azure Dev Spaces redireciona o tráfego entre o seu cluster conectado, executando uma cápsula no seu cluster que funciona como um agente remoto para redirecionar o tráfego entre o seu computador de desenvolvimento e o cluster. Esta reorientação de tráfego permite que o código no seu computador de desenvolvimento e serviços em execução no seu cluster se comunique como se estivessem no mesmo cluster. Para obter mais informações sobre a ligação do seu computador de desenvolvimento a um cluster Kubernetes, consulte [como funciona o Processo Local com kubernetes.][how-it-works-local-process-kubernetes]
+Com Bridge to Kubernetes, pode ligar o seu computador de desenvolvimento ao seu cluster Kubernetes, permitindo-lhe executar e depurar código no seu computador de desenvolvimento como se estivesse a funcionar no cluster. A ponte para Kubernetes redireciona o tráfego entre o seu cluster conectado, executando uma cápsula no seu cluster que funciona como um agente remoto para redirecionar o tráfego entre o seu computador de desenvolvimento e o cluster. Esta reorientação de tráfego permite que o código no seu computador de desenvolvimento e serviços em execução no seu cluster se comunique como se estivessem no mesmo cluster. Para obter mais informações sobre a ligação do seu computador de desenvolvimento a um cluster Kubernetes, consulte [como funciona a Ponte para Kubernetes.][how-it-works-bridge-to-kubernetes]
 
 ### <a name="run-your-code-in-aks"></a>Executar o seu código em AKS
 
@@ -47,8 +47,8 @@ Também pode utilizar As Ações GitHub com Espaços Azure Dev para testar alter
 Para começar a ligar o seu computador de desenvolvimento local ao seu cluster AKS, consulte [Ligue o seu computador de desenvolvimento a um cluster AKS.][connect]
 
 
-[connect]: https://code.visualstudio.com/docs/containers/local-process-kubernetes
-[how-it-works-local-process-kubernetes]: /visualstudio/containers/overview-local-process-kubernetes
+[connect]: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+[how-it-works-bridge-to-kubernetes]: /visualstudio/containers/overview-bridge-to-kubernetes
 [how-it-works-prep]: how-dev-spaces-works-prep.md
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
 [how-it-works-routing]: how-dev-spaces-works-routing.md

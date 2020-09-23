@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 6c3f4cfe7c896b317edc5897098a1c18c98dc826
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: f7301809b3befc41110a32062d6e478c412fa56e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962643"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981113"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Proteja um nome DNS personalizado com uma ligação TLS/SSL no Azure App Service
 
@@ -24,7 +24,7 @@ Garantir um [domínio personalizado](app-service-web-tutorial-custom-domain.md) 
 - [Adicione um certificado privado ao Serviço de Aplicações](configure-ssl-certificate.md) que satisfaça todos os [requisitos de certificado privado.](configure-ssl-certificate.md#private-certificate-requirements)
 -  Crie uma ligação TLS ao domínio personalizado correspondente. Este segundo passo é abordado por este artigo.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Atualizar o escalão de preço da sua aplicação
@@ -108,7 +108,7 @@ Há duas mudanças que precisa de fazer, potencialmente:
 
 Em vários navegadores, navegue para `https://<your.custom.domain>` verificar se serve a sua aplicação.
 
-![Navegação do portal para a aplicação do Azure](./media/configure-ssl-bindings/app-with-custom-ssl.png)
+:::image type="content" source="./media/configure-ssl-bindings/app-with-custom-ssl.png" alt-text="Screenshot mostrando um exemplo de navegação para o seu domínio personalizado com o URL de contoso.com realçado.":::
 
 O seu código de aplicação pode inspecionar o protocolo através do cabeçalho "x-appservice-proto". O cabeçalho terá um valor de `http` ou `https` . 
 

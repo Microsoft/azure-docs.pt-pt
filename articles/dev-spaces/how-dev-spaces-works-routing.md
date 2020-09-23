@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Descreve os processos que alimentam a Azure Dev Spaces e como funciona o encaminhamento
 keywords: Espaços Azure Dev, Dev Spaces, Docker, Kubernetes, Azure, AKS, Serviço Azure Kubernetes, contentores
-ms.openlocfilehash: abdd8a573b7e120c5494b8878c2eb19813fc9507
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 6987bbaaebe342b571d5b19fe0e37bebd5b8b6e1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213400"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981310"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>Como o encaminhamento funciona com a Azure Dev Spaces
 
@@ -64,11 +64,7 @@ Ao utilizar *o azureuser,* todos os pedidos de *serviço A* serão encaminhados 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para ver alguns exemplos de como funciona o Azure Dev Spaces para fornecer iteração e desenvolvimento rápidos, veja [como funciona o Processo Local com Kubernetes,][how-it-works-local-process-kubernetes]Como funciona a [depuração remota do seu código com a Azure Dev Spaces][how-it-works-remote-debugging], e o [GitHub Actions & Serviço Azure Kubernetes.][pr-flow]
+Para ver um exemplo de como a Azure Dev Spaces utiliza o encaminhamento para proporcionar uma rápida iteração e desenvolvimento, veja [como funciona a depuração remota do seu código com a Azure Dev Spaces][how-it-works-remote-debugging].
 
 
-[helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
-[how-it-works-local-process-kubernetes]: /visualstudio/containers/overview-local-process-kubernetes
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
-[pr-flow]: how-to/github-actions.md
-[troubleshooting]: troubleshooting.md

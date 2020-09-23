@@ -1,18 +1,18 @@
 ---
 title: 'VPN Gateway: cliente VPN para ligações de protocolo P2S OpenVPN: Autenticação Azure AD'
-description: Pode utilizar o P2S VPN para ligar ao seu VNet utilizando a autenticação AD Azure
+description: Saiba como configurar um cliente VPN para se conectar a uma rede virtual utilizando a autenticação point-to-site VPN e Azure Ative Directory.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: 781d3aeea6a5568aec065ec4b1cbcfacb74836a6
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: a1e2804b45efe95ee1f67c3aadbefccd805d1aa2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434678"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981882"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Autenticação do Azure Ative Directory: Configurar um cliente VPN para ligações de protocolo P2S OpenVPN
 
@@ -243,6 +243,6 @@ azurevpn -i azurevpnconfig.xml
 para forçar a importação usar o interruptor **-f** também
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte [Criar um inquilino do Azure Ative Directory para ligações P2S Open VPN que utilizam a autenticação AZURE AD](openvpn-azure-ad-tenant.md).

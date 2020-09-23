@@ -4,12 +4,12 @@ description: Este tutorial detalha o backup de vários VMs Azure para um cofre d
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 33090a0156d147fee5ab362b284ec503039617c4
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 53a5df430a3ea57201ecb19bac68ef9f073beb14
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181736"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980960"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Fazer cópias de segurança de VMs do Azure com o PowerShell
 
@@ -48,7 +48,7 @@ Neste tutorial, ficará a saber como:
 Um [cofre dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) é um recipiente lógico que armazena dados de backup para recursos protegidos, como os VMs Azure. Quando um trabalho de reserva funciona, cria um ponto de recuperação dentro do cofre dos Serviços de Recuperação. Em seguida, pode utilizar um destes pontos de recuperação para restaurar dados para um determinado ponto no tempo.
 
 * Neste tutorial, cria-se o cofre no mesmo grupo de recursos e local que o VM que pretende fazer.
-* O Azure Backup lida automaticamente com o armazenamento para dados com cópia de segurança. Por predefinição, o cofre utiliza [o Armazenamento Geo-Redundante (GRS)](../storage/common/storage-redundancy.md). A geo-redundância garante que os dados com cópias de segurança são replicados numa região secundária de Azure, a centenas de quilómetros da região primária.
+* O Azure Backup lida automaticamente com o armazenamento para dados com cópia de segurança. Por predefinição, o cofre utiliza [o Armazenamento Geo-Redundante (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage). A geo-redundância garante que os dados com cópias de segurança são replicados numa região secundária de Azure, a centenas de quilómetros da região primária.
 
 Crie o cofre da seguinte forma:
 

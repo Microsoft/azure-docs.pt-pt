@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: ac087a7ba241534c08c4e5737973861727ab01ca
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 46234f3b4bfd467db9b5754b5590603ff3d42915
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069583"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974543"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalar e configurar a extensão de diagnóstico do Windows Azure (WAD)
 [A extensão de diagnóstico Azure](diagnostics-extension-overview.md) é um agente no Azure Monitor que recolhe dados de monitorização do sistema operativo convidado e cargas de trabalho de máquinas virtuais Azure e outros recursos compute. Este artigo fornece detalhes sobre a instalação e configuração da extensão de diagnóstico do Windows e uma descrição de como os dados são armazenados e conta de Armazenamento Azure.
@@ -51,7 +51,7 @@ Pode instalar e configurar a extensão de diagnóstico numa máquina virtual ind
 
 6. No **separador 'Registares',** selecione os registos para recolher a partir da máquina virtual. Os registos podem ser enviados para centros de armazenamento ou evento, mas não para o Azure Monitor. Utilize o [agente Log Analytics](log-analytics-agent.md) para recolher registos de convidados no Azure Monitor.
 
-   ![Registos](media/diagnostics-extension-windows-install/logs.png)
+   ![A screenshot mostra o separador Logs com diferentes registos selecionados para uma máquina virtual.](media/diagnostics-extension-windows-install/logs.png)
 
 7. No **separador Crash, especifique** quaisquer processos para recolher os depósitos de memória após um acidente. Os dados serão escritos na conta de armazenamento para a definição de diagnóstico, e pode especificar opcionalmente um recipiente blob.
 
@@ -59,7 +59,7 @@ Pode instalar e configurar a extensão de diagnóstico numa máquina virtual ind
 
 8. No **separador Sinks, especifique** se deve enviar os dados para outros locais que não o armazenamento Azure. Se selecionar **o Azure Monitor,** os dados de desempenho dos hóspedes serão enviados para as Métricas do Monitor Azure. Não é possível configurar os centros de eventos que se afundam utilizando o portal Azure.
 
-   ![Pias](media/diagnostics-extension-windows-install/sinks.png)
+   ![A screenshot mostra o separador Sinks com a opção Enviar dados de diagnóstico para a opção Azure Monitor Ativado.](media/diagnostics-extension-windows-install/sinks.png)
    
    Se não tiver ativado uma Identidade Atribuída do Sistema configurada para a sua máquina virtual, poderá ver o aviso abaixo quando guardar uma configuração com a pia do Monitor Azure. Clique no banner para ativar a identidade atribuída ao sistema.
    
@@ -67,7 +67,7 @@ Pode instalar e configurar a extensão de diagnóstico numa máquina virtual ind
 
 9. No **Agente,** pode alterar a conta de armazenamento, definir a quota do disco e especificar se deve recolher registos de infraestruturas de diagnóstico.  
 
-   ![Agente](media/diagnostics-extension-windows-install/agent.png)
+   ![A screenshot mostra o separador Agente com a opção de definir a conta de armazenamento.](media/diagnostics-extension-windows-install/agent.png)
 
 10. Clique **em Guardar** para guardar a configuração. 
 

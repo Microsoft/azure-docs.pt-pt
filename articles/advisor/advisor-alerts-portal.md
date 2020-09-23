@@ -3,12 +3,12 @@ title: Crie alertas do Azure Advisor para novas recomendações usando o portal 
 description: Crie alertas do Azure Advisor para nova recomendação
 ms.topic: article
 ms.date: 09/09/2019
-ms.openlocfilehash: 0b3984b82cd5265f4940cd88597ccb29d51e1118
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 837f12a12e532902ee76e345afa430f758f79c10
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507221"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973657"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Criar alertas do Azure Advisor sobre novas recomendações através do portal Azure 
 
@@ -63,8 +63,7 @@ Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](.
 
 8. Na secção de detalhes do Alerta, forneça ao seu alerta um nome e uma breve descrição. Se quiser que o seu alerta esteja ativado, deixe **a regra de ativação na** seleção da criação definida para **Sim**. Em seguida, selecione o grupo de recursos para guardar o seu alerta para. Isto não afetará o âmbito de aplicação da recomendação. 
 
-    ![Banner do conselheiro de Azure](./media/advisor-alerts/create8.png)
-
+    :::image type="content" source="./media/advisor-alerts/create8.png" alt-text="Screenshot da secção de detalhes do alerta.":::
 
 
 ## <a name="configure-recommendation-alerts-to-use-a-webhook"></a>Configure alertas de recomendação para usar um webhook
@@ -170,7 +169,7 @@ Se não utilizar o esquema comum, a sua carga útil parece ser o seguinte:
 }
 ```
 
-Em qualquer esquema, pode identificar eventos de recomendação do Advisor procurando **eventoSource** `Recommendation` é e **operationName** é `Microsoft.Advisor/recommendations/available/action` .
+Em qualquer esquema, pode identificar eventos de recomendação do Advisor procurando **eventoSource** `Recommendation` é e **operationName**  é `Microsoft.Advisor/recommendations/available/action` .
 
 Alguns dos outros campos importantes que pode querer utilizar são: 
 
@@ -188,17 +187,17 @@ A partir do Azure Advisor, pode editar, eliminar ou desativar e ativar os alerta
 
 1. No **portal,** selecione **Azure Advisor**.
 
-    ![Banner do conselheiro de Azure](./media/advisor-alerts/create1.png)
+    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Screenshot do menu do portal Azure mostrando Azure Advisor selecionado.":::
 
 2. Na secção **de Monitorização** do menu esquerdo, selecione **Alertas**.
 
-    ![Banner do conselheiro de Azure](./media/advisor-alerts/create2.png)
+    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Screenshot do menu do portal Azure mostrando alertas selecionados.":::
 
 3. Para editar um alerta, clique no nome Alerta para abrir o alerta e editar os campos que pretende editar.
 
 4. Para eliminar, ativar ou desativar um alerta, clique na elipse no final da linha e, em seguida, selecione a ação que pretende tomar.
  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Obtenha uma [visão geral dos alertas de registo de atividades](../azure-monitor/platform/alerts-overview.md)e aprenda a receber alertas.
 - Saiba mais sobre [grupos de ação.](../azure-monitor/platform/action-groups.md)

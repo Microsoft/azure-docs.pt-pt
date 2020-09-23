@@ -4,14 +4,14 @@ description: Saiba mais sobre a loja transacional Azure Cosmos DB (baseada em li
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: fdaffef6c682bd1f9c81f14af6cd949816f7555a
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 17dce45e73a5620db2201534126900d8e571ec45
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505527"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900275"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>O que é Azure Cosmos DB Analytical Store (Preview)?
 
@@ -34,7 +34,7 @@ A loja analítica Azure Cosmos DB aborda os desafios de complexidade e latência
 
 Utilizando o Azure Synapse Link, pode agora construir soluções HTAP sem ETL ligando diretamente à loja analítica Azure Cosmos DB da Synapse Analytics. Permite-lhe executar análises em larga escala em tempo real nos seus dados operacionais.
 
-## <a name="analytical-store-details"></a>Detalhes da loja analítica
+## <a name="features-of-analytical-store"></a>Características da loja analítica 
 
 Quando ativa a loja analítica num recipiente DB Azure Cosmos, uma nova loja de colunas é criada internamente com base nos dados operacionais do seu recipiente. Esta loja de colunas é persistido separadamente da loja transacional orientada para a linha para aquele recipiente. As inserções, atualizações e eliminações dos seus dados operacionais são automaticamente sincronizadas na loja analítica. Não precisa do feed de alteração ou etl para sincronizar os dados.
 
@@ -70,35 +70,94 @@ Ao utilizar divisórias horizontais, a loja transacional Azure Cosmos DB pode di
 
 #### <a name="automatically-handle-schema-updates"></a><a id="analytical-schema"></a>Lidar automaticamente com atualizações de esquemas
 
-A loja de transações Azure Cosmos DB é schema-agnóstica, e permite-lhe iterar nas suas aplicações transacionais sem ter de lidar com schema ou gestão de índices. Em contraste com isso, a loja analítica Azure Cosmos DB é schematizada para otimizar para o desempenho de consulta analítica. Com capacidade de auto-sincronização, a Azure Cosmos DB gere a inferência de esquema sobre as últimas atualizações da loja transacional.  Também gere a representação de esquemas na loja analítica fora da caixa, o que inclui o tratamento de tipos de dados aninhados.
+A loja de transações Azure Cosmos DB é schema-agnóstica, e permite-lhe iterar nas suas aplicações transacionais sem ter de lidar com schema ou gestão de índices. Em contraste com isso, a loja analítica Azure Cosmos DB é schematizada para otimizar para o desempenho de consulta analítica. Com a capacidade de auto-sincronização, a Azure Cosmos DB gere a inferência de esquema sobre as últimas atualizações da loja transacional.  Também gere a representação de esquemas na loja analítica fora da caixa, o que inclui o tratamento de tipos de dados aninhados.
 
-Existe uma evolução de esquemas, onde novas propriedades são adicionadas ao longo do tempo, a loja analítica apresenta automaticamente um esquema sindicalizado em todos os esquemas históricos na loja transacional.
+À medida que o seu esquema evolui, e novas propriedades são adicionadas ao longo do tempo, a loja analítica apresenta automaticamente um esquema sindicalizado em todos os esquemas históricos na loja transacional.
 
-Se todos os dados operacionais em Azure Cosmos DB seguirem um esquema bem definido para análise, então o esquema é automaticamente inferido e representado corretamente na loja analítica. Se o esquema bem definido para análise, tal como definido abaixo, for violado por certos itens, estes não serão incluídos na loja analítica. Se tiver cenários bloqueados devido a esquemas bem definidos para definição de análise, envie um e-mail à equipa DB do [Azure Cosmos](mailto:cosmosdbsynapselink@microsoft.com).
+##### <a name="schema-constraints"></a>Restrições de esquema
 
-Um esquema bem definido para a análise é definido com as seguintes considerações:
+Os seguintes constrangimentos são aplicáveis nos dados operacionais da Azure Cosmos DB quando permite que a loja analítica infera e represente corretamente o esquema:
 
-* Uma propriedade sempre tem o mesmo tipo em vários itens
-
-  * Por exemplo, `{"a":123} {"a": "str"}` não tem um esquema bem definido porque às `"a"` vezes é uma corda e às vezes um número. 
+* Você pode ter um máximo de 200 propriedades em qualquer nível de nidificação no esquema e uma profundidade máxima de nidificação de 5.
   
-    Neste caso, a loja analítica regista o tipo de dados `“a”` como o tipo de dados do primeiro item que ocorre durante o tempo de vida do `“a”` recipiente. Os itens em que o tipo de `“a”` dados difere não serão incluídos na loja analítica.
+  * Um item com 201 propriedades ao nível superior não satisfaz este constrangimento e, portanto, não será representado na loja analítica.
+  * Um item com mais de cinco níveis aninhados no esquema também não satisfaz este constrangimento e, portanto, não será representado na loja analítica. Por exemplo, o seguinte item não satisfaz o requisito:
+
+     `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
+
+* Os nomes dos imóveis devem ser únicos quando comparados com o caso de forma insensível. Por exemplo, os seguintes itens não satisfazem esta restrição e, portanto, não estarão representados na loja analítica:
+
+  `{"Name": "fred"} {"name": "john"}` – "Nome" e "nome" são os mesmos quando comparados de forma insensível.
+
+##### <a name="schema-representation"></a>Representação de Schema
+
+Existem dois modos de representação de esquemas na loja analítica. Estes modos têm trocas entre a simplicidade de uma representação colunar, manuseando os esquemas polimórficos e a simplicidade da experiência de consulta:
+
+* Representação de esquemas bem definidos
+* Representação total do esquema de fidelidade
+
+> [!NOTE]
+> Para as contas API SQL (Core), quando a loja analítica está ativada, a representação de esquemas padrão na loja analítica está bem definida. Enquanto que para a Azure Cosmos DB API para contas MongoDB, a representação de esquemas padrão na loja analítica é uma representação total do esquema de fidelidade. Se tiver cenários que exijam uma representação de esquema diferente da oferta padrão para cada uma destas APIs, contacte a equipa DB do [Azure Cosmos](mailto:cosmosdbsynapselink@microsoft.com) para o permitir.
+
+**Representação de esquemas bem definidos**
+
+A representação de esquema bem definida cria uma simples representação tabular dos dados schema-agnósticos na loja transacional. A representação de esquemas bem definidas tem as seguintes considerações:
+
+* Uma propriedade tem sempre o mesmo tipo em vários itens.
+
+  * Por exemplo, `{"a":123} {"a": "str"}` não tem um esquema bem definido porque às `"a"` vezes é uma corda e às vezes um número. Neste caso, a loja analítica regista o tipo de dados `“a”` como o tipo de dados do primeiro item que ocorre durante o tempo de vida do `“a”` recipiente. Os itens em que o tipo de `“a”` dados difere não serão incluídos na loja analítica.
   
     Esta condição não se aplica a propriedades nulas. Por exemplo, `{"a":123} {"a":null}` ainda está bem definido.
 
-* Os tipos de matriz devem conter um único tipo repetido
+* Os tipos de matriz devem conter um único tipo repetido.
 
-  * Por exemplo, `{"a": ["str",12]}` não é um esquema bem definido porque a matriz contém uma mistura de tipos inteiros e de cordas
+  * Por exemplo, `{"a": ["str",12]}` não é um esquema bem definido porque a matriz contém uma mistura de tipos inteiros e de cordas.
 
-* Há um máximo de 200 propriedades em qualquer nível de nidificação de um esquema e uma profundidade máxima de nidificação de 5
+> [!NOTE]
+> Se a loja analítica Azure Cosmos DB seguir a representação de esquemas bem definida e a especificação acima for violada por certos itens, esses itens não serão incluídos na loja analítica.
 
-  * Um item com 201 propriedades no nível superior não tem um esquema bem definido.
+**Representação total do esquema de fidelidade**
 
-  * Um item com mais de cinco níveis aninhados no esquema também não tem um esquema bem definido. Por exemplo, `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
+A representação total do esquema de fidelidade foi concebida para lidar com toda a amplitude de esquemas polimórficos nos dados operacionais schema-agnósticos. Nesta representação de esquema, nenhum item é retirado da loja analítica, mesmo que as restrições de esquema bem definidas (que não são campos de tipo de dados mistos nem matrizes de tipo de dados mistos) sejam violadas.
 
-* Os nomes de propriedade são únicos quando comparados de forma insensível
+Isto é conseguido traduzindo as propriedades das folhas dos dados operacionais para a loja analítica com colunas distintas com base no tipo de dados de valores na propriedade. Os nomes da propriedade da folha são estendidos com tipos de dados como um sufixo no esquema de loja analítica de modo que podem ser consultas sem ambiguidade.
 
-  * Por exemplo, os seguintes itens não têm um esquema bem definido `{"Name": "fred"} {"name": "john"}` – e são os `"Name"` `"name"` mesmos quando comparados de uma forma insensível num caso insensível
+Por exemplo, vamos recolher o seguinte documento de amostra na loja transacional:
+
+```json
+{
+name: "John Doe",
+age: 32,
+profession: "Doctor",
+address: {
+  streetNo: 15850,
+  streetName: "NE 40th St.",
+  zip: 98052
+},
+salary: 1000000
+}
+```
+
+A propriedade da folha `streetName` dentro do objeto aninhado `address` será representada no esquema de loja analítica como uma coluna `address.object.streetName.int32` . O tipo de dados é adicionado como um sufixo à coluna. Desta forma, se outro documento for adicionado à loja transacional onde o valor da propriedade da folha `streetNo` é "123" (note que é uma corda), o esquema da loja analítica evolui automaticamente sem alterar o tipo de coluna previamente escrita. Uma nova coluna adicionada à loja analítica `address.object.streetName.string` como onde este valor de "123" é armazenado.
+
+**Tipo de dados para mapa de sufixo**
+
+Aqui está um mapa de todos os tipos de dados de propriedade e suas representações de sufixo na loja analítica:
+
+|Tipo de dados original  |Sufixo  |Exemplo  |
+|---------|---------|---------|
+| Double (Duplo) |  ".float64" |    24.99|
+| Matriz | ".array" |    ["a", "b"]|
+|Binário | ".binário" |0|
+|Booleano    | ".bool"   |Verdadeiro|
+|Int32  | ".int32"  |123|
+|Int64  | ".int64"  |255486129307|
+|Nulo   | ".nulo"   | nulo|
+|Cadeia|    ".string" | "ABC"|
+|Timestamp |    ".timetamp" |  Tempo de carregamento (0,0)|
+|DateTime   |".data"    | ISODate ("2020-08-21T07:43:07.375Z")|
+|ObjectId   |".objectId"    | ObjectId("5f3f7b59330ec25c132623a2")|
+|Documento   |".objeto" |    {"a": "a"}|
 
 ### <a name="cost-effective-archival-of-historical-data"></a>Arquivo rentável de dados históricos
 
@@ -155,19 +214,21 @@ A TTL Analítica num recipiente é definida utilizando a `AnalyticalStoreTimeToL
 * Se o presente e o valor for definido para algum número positivo "n": os itens expirarão a partir da loja analítica "n" segundos após o seu último tempo modificado na loja transacional. Esta definição pode ser alavancada se pretender reter os seus dados operacionais por um período limitado de tempo na loja analítica, independentemente da conservação dos dados na loja transacional
 
 Alguns pontos a considerar:
-*   Depois de a loja analítica ser ativada com um valor TTL analítico, pode ser atualizada para um valor válido diferente mais tarde 
-*   Embora a TTL transacional possa ser definida ao nível do recipiente ou do item, a TTL analítica só pode ser definida ao nível do contentor atualmente
-*   Pode obter uma maior retenção dos seus dados operacionais na loja analítica, definindo >TTL analítico = TTL transacional ao nível do contentor
-*   A loja analítica pode ser feita para espelhar a loja transacional, definindo TTL analítico = TTL transacional
 
-Quando ativa a loja de analítica num recipiente:
- * utilizando o Portal Azure, o TTL analítico é definido para o valor padrão de -1. Pode alterar este valor para 'n' segundos, navegando para as definições do contentor no Data Explorer. 
+*   Depois de a loja analítica ser ativada com um valor TTL analítico, pode ser atualizada para um valor válido diferente mais tarde. 
+*   Embora a TTL transacional possa ser definida ao nível do recipiente ou do item, a TTL analítica só pode ser definida ao nível do recipiente atualmente.
+*   Pode obter uma maior retenção dos seus dados operacionais na loja analítica, definindo >TTL Analítica = TTL transacional ao nível do recipiente.
+*   A loja analítica pode ser feita para espelhar a loja transacional, definindo TTL analítico = TTL transacional.
+
+Quando ativa a loja analítica num recipiente:
+
+* A partir do portal Azure, a opção TTL analítica é definida para o valor padrão de -1. Pode alterar este valor para 'n' segundos, navegando para as definições do contentor no Data Explorer. 
  
- * utilizando Azure SDK ou Powershell ou CLI, o TTL analítico pode ser ativado definindo-o para -1 ou 'n'. 
+* A partir do Azure SDK ou PowerShell ou CLI, a opção TTL analítica pode ser ativada definindo-a para -1 ou 'n'. 
 
 Para saber mais, consulte [como configurar a TTL analítica num recipiente](configure-synapse-link.md#create-analytical-ttl).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais, consulte os seguintes documentos:
 
