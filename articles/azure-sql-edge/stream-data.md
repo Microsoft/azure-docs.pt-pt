@@ -1,6 +1,6 @@
 ---
-title: Streaming de dados em Azure SQL Edge (Pré-visualização)
-description: Saiba mais sobre o streaming de dados em Azure SQL Edge (Preview).
+title: Streaming de dados em Azure SQL Edge
+description: Saiba mais sobre o streaming de dados em Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,23 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 866c74fbdfcfcef7cbb7d6cddb360c4265a2f776
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca22b3d2c00bfef128455df4ad6b9bb6411f8a13
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669618"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900561"
 ---
-# <a name="data-streaming-in-azure-sql-edge-preview"></a>Streaming de dados em Azure SQL Edge (Pré-visualização)
+# <a name="data-streaming-in-azure-sql-edge"></a>Streaming de dados em Azure SQL Edge
 
-O Azure SQL Edge (Preview) fornece as seguintes opções para implementar o streaming de dados: 
-
-- Implantação de postos de trabalho Azure Stream Analytics criados em Azure. Para obter mais informações, consulte [os trabalhos de Deploy Azure Stream Analytics](deploy-dacpac.md).
-- Utilização do streaming T-SQL para criar trabalhos de streaming em Azure SQL Edge, sem a necessidade de configurar trabalhos de streaming em Azure. 
-
-Embora seja possível utilizar ambas as opções para implementar o streaming de dados em Azure SQL Edge, deve utilizar apenas uma delas. Quando se está a usar ambos, pode haver condições de corrida que afetam o funcionamento das operações de streaming de dados.
-
-O streaming T-SQL é o foco deste artigo. Fornece streaming de dados em tempo real, análise e processamento de eventos para analisar e processar volumes elevados de dados de streaming rápido de múltiplas fontes, simultaneamente. O streaming T-SQL é construído utilizando o mesmo motor de streaming de alto desempenho que alimenta o [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction) no Microsoft Azure. A funcionalidade suporta um conjunto de capacidades semelhantes oferecidas pelo Azure Stream Analytics a correr no limite.
+O Azure SQL Edge fornece uma implementação nativa das capacidades de streaming de dados chamada T-SQL Streaming. Fornece streaming de dados em tempo real, análise e processamento de eventos para analisar e processar volumes elevados de dados de streaming rápido de múltiplas fontes, simultaneamente. O streaming T-SQL é construído utilizando o mesmo motor de streaming de alto desempenho que alimenta o [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction) no Microsoft Azure. A funcionalidade suporta um conjunto de capacidades semelhantes oferecidas pelo Azure Stream Analytics a correr no limite.
 
 Tal como acontece com o Stream Analytics, o Streaming T-SQL reconhece padrões e relações na informação extraída de várias fontes de entrada IoT, incluindo dispositivos, sensores e aplicações. Pode utilizar estes padrões para desencadear ações e iniciar fluxos de trabalho. Por exemplo, pode criar alertas, dar informações a uma solução de reporte ou visualização ou armazenar os dados para posterior utilização. 
 
@@ -49,7 +42,6 @@ Um trabalho de análise de fluxo consiste em:
 - **Saída de fluxo**: Isto define as ligações a uma fonte de dados para escrever o fluxo de dados para. A Azure SQL Edge suporta atualmente os seguintes tipos de saída de fluxo
     - Hub de borda
     - SQL (A saída SQL pode ser uma base de dados local no caso de Azure SQL Edge, ou um servidor SQL remoto ou base de dados Azure SQL.) 
-    - Armazenamento de Blobs do Azure
 
 - **Consulta de fluxo**: Isto define a transformação, agregações, filtro, triagem e junções a aplicar no fluxo de entrada, antes de ser escrito para a saída do fluxo. A consulta de fluxo baseia-se na mesma linguagem de consulta que a utilizada pela Stream Analytics. Para obter mais informações, consulte [stream Analytics Consulta idioma](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?).
 
@@ -65,9 +57,11 @@ As seguintes limitações e restrições aplicam-se ao streaming T-SQL.
 
 - Apenas um trabalho de streaming pode estar ativo a qualquer momento específico. Os postos de trabalho que já estão a decorrer têm de ser interrompidos antes de iniciarem outro trabalho.
 - Cada execução de trabalho em streaming é desfasada. Se o trabalho de streaming contiver múltiplas consultas, cada consulta é avaliada por ordem de série.
+- Quando interrompeu um trabalho de streaming em Azure SQL Edge, pode haver algum atraso antes do próximo trabalho de streaming poder ser iniciado. Este atraso é introduzido porque o processo de streaming subjacente tem de ser interrompido em resposta ao pedido de paragem do emprego e, em seguida, reiniciado em resposta ao pedido de emprego inicial. 
+- T-SQL Streaming até 32 divisórias para um fluxo kafka. As tentativas de configurar uma contagem de divisórias mais elevada resultarão num erro. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Criar um trabalho stream analytics em Azure SQL Edge (Pré-visualização)](create-stream-analytics-job.md)
-- [Visualização de metadados associados a trabalhos de streaming em Azure SQL Edge (Pré-visualização)](streaming-catalog-views.md)
+- [Crie um trabalho stream analytics em Azure SQL Edge ](create-stream-analytics-job.md)
+- [Visualização de metadados associados a trabalhos de streaming em Azure SQL Edge ](streaming-catalog-views.md)
 - [Criar fluxo externo](create-external-stream-transact-sql.md)

@@ -2,22 +2,22 @@
 title: 'Quickstart: Language Understanding (LUIS) Bibliotecas de clientes SDK'
 description: Crie e questione uma aplicação LUIS com as bibliotecas de clientes LUIS SDK com este quickstart usando C#, Python ou JavaScript.
 ms.topic: quickstart
-ms.date: 09/01/2020
-keywords: Azure, inteligência artificial, ai, processamento de linguagem natural, nlp, compreensão da linguagem natural, nlu, ai conversa, ai conversador, ai chatbot, chatbot maker, LUIS, nlp ai, luis ai, azure luis, compreensão da linguagem natural
+ms.date: 09/14/2020
+keywords: Azure, inteligência artificial, ai, processamento de linguagem natural, nlp, LUIS, azure luis, compreensão da linguagem natural, ai chatbot, chatbot maker, compreensão da linguagem natural
 ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: 6bcdca85125d44475fadfd195c1dfda88f761f88
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 64288bbffa2d2c24e2f719477d98426f52da4070
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89323248"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972612"
 ---
 # <a name="quickstart-language-understanding-luis-sdk-client-libraries-to-create-and-query-your-luis-app"></a>Quickstart: Language Understanding (LUIS) SDK bibliotecas de clientes para criar e consultar a sua app LUIS
 
-Crie e questione uma aplicação LUIS com as bibliotecas de clientes LUIS SDK com este quickstart usando C#, Python ou JavaScript.
+Crie e questione uma aplicação de inteligência artificial Azure LUIS (IA) com as bibliotecas de clientes LUIS SDK com este quickstart usando C#, Python ou JavaScript.
 
-A Compreensão da Linguagem (LUIS) permite-lhe aplicar inteligência personalizada de aprendizagem automática ao texto de linguagem natural e conversadora de um utilizador para prever o significado geral e retirar informações relevantes e detalhadas.
+A Compreensão da Linguagem (LUIS) permite-lhe aplicar o processamento de linguagem natural (NLP) ao texto de linguagem natural e conversacional de um utilizador para prever o significado geral e retirar informações relevantes e detalhadas.
 
 * A biblioteca de clientes **SDK** de autor permite-lhe criar, editar, treinar e publicar a sua aplicação LUIS. * A biblioteca de clientes **SDK de previsão** permite-lhe consultar a aplicação publicada.
 
@@ -45,11 +45,13 @@ Pode eliminar a aplicação do [portal LUIS](https://www.luis.ai) e eliminar os 
 * Formação - se tiver um erro de formação, isto geralmente indica uma aplicação vazia (sem intenções com palavras de exemplo), ou uma app com intenções ou entidades que estão mal formadas.
 * Erros diversos - porque o código chama para as bibliotecas do cliente com texto e objetos JSON, certifique-se de que não alterou o código.
 
-Outros erros - se tiver um erro não coberto na lista anterior, avise-nos dando feedback na parte inferior desta página. Inclua a linguagem de programação e a versão das bibliotecas cliente que instalou. 
+Outros erros - se tiver um erro não coberto na lista anterior, avise-nos dando feedback na parte inferior desta página. Inclua a linguagem de programação e a versão das bibliotecas cliente que instalou.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [O que é a API de Compreensão linguística (LUIS) ?](what-is-luis.md)
 * [O que há de novo?](whats-new.md)
 * [Intenções](luis-concept-intent.md), [entidades](luis-concept-entity-types.md), e [exemplos de declarações](luis-concept-utterance.md), e [entidades pré-construídas](luis-reference-prebuilt-entities.md)
 * O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code).
+* Compreensão da linguagem natural: [compreensão da linguagem natural (NLU) e processamento de linguagem natural (NLP)](artificial-intelligence.md)
+* Bots: [Chatbots da IA](luis-csharp-tutorial-bf-v4.md "tutorial de criador de chatbot")

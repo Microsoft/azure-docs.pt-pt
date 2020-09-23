@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 7e4073ec45f4c21f33d20924a9948e72f961c7f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 842563319e09a001fd6e85403d8aee6fb14690ee
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74967342"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884425"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Colocação de mesa na Base de Dados Azure para PostgreSQL – Hiperescala (Citus)
 
@@ -22,7 +22,7 @@ Colocação significa armazenar informações relacionadas juntos nos mesmos nó
 
 Na Base de Dados Azure para PostgreSQL – Hyperscale (Citus), uma linha é armazenada num fragmento se o haxixe do valor na coluna de distribuição se enquadrar na gama de haxixe do fragmento. Fragmentos com o mesmo intervalo de haxixe são sempre colocados no mesmo nó. As linhas com valores de coluna de distribuição iguais estão sempre no mesmo nó entre tabelas.
 
-![Fragmentos](media/concepts-hyperscale-colocation/colocation-shards.png)
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-shards.png" alt-text="Fragmentos":::
 
 ## <a name="a-practical-example-of-colocation"></a>Um exemplo prático de colocação
 
@@ -96,7 +96,7 @@ Posteriormente, os resultados dos dois passos devem ser combinados pela aplicaç
 
 Executar as consultas deve consultar dados em fragmentos espalhados por nós.
 
-![Consultas ineficientes](media/concepts-hyperscale-colocation/colocation-inefficient-queries.png)
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Consultas ineficientes":::
 
 Neste caso, a distribuição de dados cria inconvenientes substanciais:
 
@@ -134,10 +134,10 @@ GROUP BY page_id;
 
 Devido ao filtro e a aderir a tenant_id, a Hyperscale (Citus) sabe que toda a consulta pode ser respondida utilizando o conjunto de fragmentos com posições que contêm os dados para esse inquilino em particular. Um único nó PostgreSQL pode responder à consulta num único passo.
 
-![Melhor consulta](media/concepts-hyperscale-colocation/colocation-better-query.png)
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Melhor consulta":::
 
 Em alguns casos, as consultas e esquemas de mesa devem ser alterados para incluir o ID do inquilino em constrangimentos únicos e condições de união. Esta mudança é geralmente simples.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Veja como os dados dos inquilinos são indicados no [tutorial de vários inquilinos.](tutorial-design-database-hyperscale-multi-tenant.md)

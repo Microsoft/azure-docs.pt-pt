@@ -4,12 +4,12 @@ description: Monitorize a sua aplicação web em tempo real com métricas person
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: c12126c23ce1f1e2bd72f88eead5b8f34e4fd83d
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 1b8b4c43c559831810db9b92da6c2743556cd2ac
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142218"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973590"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: Monitor & Diagnóstico com latência de 1 segundo
 
@@ -148,7 +148,7 @@ Tal como acontece com as métricas, pode especificar quaisquer critérios arbitr
 
 Consulte os detalhes de um item no feed ao vivo clicando nele. Pode fazer uma pausa no feed clicando em **Pausa** ou simplesmente deslocando-se para baixo ou clicando num item. O feed ao vivo será retomado depois de voltar ao topo, ou clicando no balcão dos itens recolhidos durante a pausa.
 
-![Falhas ao vivo amostradas](./media/live-stream/sample-telemetry.png)
+![A screenshot mostra a janela de telemetria Sample com uma exceção selecionada e os detalhes de exceção apresentados na parte inferior da janela.](./media/live-stream/sample-telemetry.png)
 
 ## <a name="filter-by-server-instance"></a>Filtrar por instância do servidor
 
@@ -180,7 +180,7 @@ No ficheiro applicationinsights.config, adicione o AuthenticationApiKey ao Quick
 </Add>
 ```
 
-### <a name="aspnet-core"></a>Núcleo de ASP.NET
+### <a name="aspnet-core"></a>ASP.NET Core
 
 Para ASP.NET aplicações [Core,](./asp-net-core.md) siga as instruções abaixo.
 
@@ -259,7 +259,7 @@ As métricas básicas incluem pedido, dependência e taxa de exceção. As métr
 
 Live Metrics Stream utiliza diferentes endereços IP do que outros telemetria de Insights de Aplicação. Certifique-se de que [os endereços IP](./ip-addresses.md) estão abertos na sua firewall. Verifique também se as [portas de saída do Live Metrics Stream](./ip-addresses.md#outgoing-ports) estão abertas na firewall dos seus servidores.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Monitorização da utilização com Insights de Aplicação](./usage-overview.md)
 * [Usando a pesquisa de diagnóstico](./diagnostic-search.md)

@@ -6,17 +6,17 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
-ms.openlocfilehash: 50881071380bbe5d245ed458d162e62bfabd108a
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.custom: references_regions
+ms.openlocfilehash: a375656f579e626d8f41afe49adc3f2ebdb3b27d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061500"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891710"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configure e use Azure Synapse Link para Azure Cosmos DB (pré-visualização)
 
 Synapse Link for Azure Cosmos DB é uma capacidade de processamento transacional e analítico híbrido nativo da nuvem (HTAP) que lhe permite executar análises em tempo real sobre dados operacionais em Azure Cosmos DB. A Synapse Link cria uma integração apertada e perfeita entre a Azure Cosmos DB e a Azure Synapse Analytics.
-
 
 > [!IMPORTANT]
 > Para utilizar o Azure Synapse Link, certifique-se de que fornece a sua conta Azure Cosmos & espaço de trabalho Azure Synapse Analytics numa das regiões apoiadas. A azure Synapse Link está atualmente disponível nas seguintes regiões de Azure: EUA West Central, East US2, North Europe, West Europe, South Central US, Southeast Asia, Australia East, East U2, UK South.
@@ -26,7 +26,9 @@ Utilize os seguintes passos para executar consultas analíticas com a Ligação 
 * [Ativar o Synapse Link para as suas contas Azure Cosmos](#enable-synapse-link)
 * [Criar uma loja analítica ativada recipiente Azure Cosmos](#create-analytical-ttl)
 * [Ligue a sua base de dados Azure Cosmos a um espaço de trabalho da Sinapse](#connect-to-cosmos-database)
-* [Consultar a loja analítica usando a Faísca de Sinapse](#query-analytical-store)
+* [Consultar a loja analítica usando a Faísca de Sinapse](#query-analytical-store-spark)
+* [Consultar a loja analítica usando o sinapse SQL sem servidor](#query-analytical-store-sql-on-demand)
+* [Use o sinapse SQL sem servidor para analisar e visualizar dados em Power BI](#analyze-with-powerbi)
 
 ## <a name="enable-azure-synapse-link-for-azure-cosmos-accounts"></a><a id="enable-synapse-link"></a>Ativar a Ligação Azure Synapse para contas Azure Cosmos
 
@@ -207,9 +209,20 @@ container.replace(containerProperties).block();
 
 Utilize as instruções em [Connect to Azure Synapse Link](../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md) sobre como aceder a uma base de dados DB Azure Cosmos do Azure Synapse Analytics Studio com Azure Synapse Link.
 
-## <a name="query-using-synapse-spark"></a><a id="query-analytical-store"></a> Consulta usando faísca de sinapse
+## <a name="query-analytical-store-using-apache-spark-for-azure-synapse-analytics"></a><a id="query-analytical-store-spark"></a> Loja analítica de consulta usando Apache Spark para Azure Synapse Analytics
 
 Utilize as instruções no artigo da [loja analítica Da Consulta Azure Cosmos DB](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) sobre como consultar a Synapse Spark. Este artigo dá alguns exemplos sobre como você pode interagir com a loja analítica a partir de gestos da Sinapse. Esses gestos são visíveis quando clicas à direita num contentor. Com gestos, pode gerar rapidamente código e ajustá-lo às suas necessidades. Também são perfeitos para descobrir dados com um único clique.
+
+## <a name="query-the-analytical-store-using-synapse-sql-serverless"></a><a id="query-analytical-store-sql-on-demand"></a> Consultar a loja analítica usando o sinapse SQL sem servidor
+
+Sinaapse SQL serverless (uma funcionalidade de pré-visualização que, anteriormente referida como **SQL on-demand**) permite-lhe consultar e analisar dados nos seus contentores DB Azure Cosmos que estão habilitados com Azure Synapse Link. Pode analisar dados em quase tempo real sem afetar o desempenho das suas cargas de trabalho transacionais. Oferece uma sintaxe T-SQL familiar para consultar dados da loja analítica e conectividade integrada a uma ampla gama de ferramentas de consulta bi e ad-hoc através da interface T-SQL. Para saber mais, consulte a loja de analítica De consulta utilizando o artigo [sem servidor Synapse SQL.](../synapse-analytics/sql/on-demand-workspace-overview.md)
+
+> [!NOTE]
+> A utilização da loja analítica Azure Cosmos DB com servidor Sinaapse SQL está atualmente sob pré-visualização fechada. Para solicitar acesso, contacte a equipa DB da [Azure Cosmos.](mailto:cosmosdbsynapselink@microsoft.com)
+
+## <a name="use-synapse-sql-serverless-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>Use o sinapse SQL sem servidor para analisar e visualizar dados em Power BI
+
+Pode construir uma base de dados sem servidor Sinaapse SQL e visualizações sobre a Synapse Link para Azure Cosmos DB. Mais tarde, você pode consultar os contentores Azure Cosmos e, em seguida, construir um modelo com Power BI sobre essas vistas para refletir essa consulta. Para saber mais, veja como usar [o sinapse SQL sem servidor para analisar os dados do Azure Cosmos DB com o artigo Synapse Link.](synapse-link-power-bi.md)
 
 ## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
 
@@ -217,9 +230,9 @@ O [modelo Azure Resource Manager](manage-sql-with-resource-manager.md#azure-cosm
 
 ## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Começando com Azure Synpase Link - Amostras
 
-Pode encontrar amostras para começar com a Azure Synapse Link no [GitHub.](https://aka.ms/cosmosdb-synapselink-samples) Estas soluções de ponta a ponta com cenários IoT e Retail.
+Pode encontrar amostras para começar com a Azure Synapse Link no [GitHub.](https://aka.ms/cosmosdb-synapselink-samples) Estas soluções de ponta a ponta com cenários IoT e retail. Também pode encontrar as amostras correspondentes à Azure Cosmos DB API para a MongoDB no mesmo repo sob a pasta [MongoDB.](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks/PySpark/Synapse%20Link%20for%20Cosmos%20DB%20samples/MongoDB) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais, consulte os seguintes documentos:
 

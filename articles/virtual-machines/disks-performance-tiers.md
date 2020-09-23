@@ -8,16 +8,16 @@ ms.date: 09/22/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4ad0ce1aef45dc4126d3ce17c7093b885f1b8bd7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aa188babf56d4a825059fe6103e2e07745eb134f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938017"
+ms.locfileid: "90974124"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Níveis de desempenho para discos geridos (pré-visualização)
 
-A Azure Disk Storage oferece atualmente capacidades de rebentamento incorporadas para obter um desempenho mais elevado para lidar com tráfego inesperado de curto prazo. Os SSDs Premium têm a flexibilidade para aumentar o desempenho do disco sem aumentar o tamanho real do disco, permitindo-lhe corresponder às necessidades de desempenho da sua carga de trabalho e reduzir custos. Isto é ideal para eventos que temporariamente requerem um nível de desempenho consistentemente mais elevado, como compras de férias, testes de desempenho ou execução de um ambiente de treino. Para lidar com estes eventos, pode selecionar um nível de desempenho mais elevado durante o tempo necessário e voltar ao nível original quando o desempenho adicional já não for necessário.
+A Azure Disk Storage oferece atualmente capacidades de rebentamento incorporadas para obter um desempenho mais elevado para lidar com tráfego inesperado de curto prazo. Os SSDs Premium têm a flexibilidade para aumentar o desempenho do disco sem aumentar o tamanho real do disco, permitindo-lhe corresponder às necessidades de desempenho da sua carga de trabalho e reduzir custos, esta funcionalidade está atualmente em pré-visualização. Isto é ideal para eventos que temporariamente requerem um nível de desempenho consistentemente mais elevado, como compras de férias, testes de desempenho ou execução de um ambiente de treino. Para lidar com estes eventos, pode selecionar um nível de desempenho mais elevado durante o tempo necessário e voltar ao nível original quando o desempenho adicional já não for necessário.
 
 ## <a name="how-it-works"></a>Como funciona
 

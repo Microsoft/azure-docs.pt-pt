@@ -1,0 +1,80 @@
+---
+title: 'Quickstart: Criar um módulo de segurança twin'
+description: Neste arranque rápido, aprenda a criar um Duplo Desíduo para IoT para utilização com Azure Defender para IoT.
+services: defender-for-iot
+ms.service: defender-for-iot
+documentationcenter: na
+author: mlottner
+manager: rkarlin
+editor: ''
+ms.devlang: na
+ms.topic: quickstart
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 11/08/2019
+ms.author: mlottner
+ms.openlocfilehash: 822e9dc237dd6f4d73e1860c6a0b240fb94c3105
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90947559"
+---
+# <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Quickstart: Criar um módulo de azureiotsecurity twin
+
+Este quickstart explica como criar gémeos individuais de módulos _de azureiotsecurity_ para novos dispositivos, ou criar módulos gémeos para todos os dispositivos num Hub IoT.
+
+## <a name="understanding-azureiotsecurity-module-twins"></a>Compreender gémeos módulos de azureiotsegurança
+
+Para as soluções IoT construídas em Azure, os gémeos de dispositivo desempenham um papel fundamental tanto na gestão do dispositivo como na automatização de processos.
+
+O Defender for IoT oferece uma integração completa com a sua plataforma de gestão de dispositivos IoT existente, permitindo-lhe gerir o estado de segurança do dispositivo, bem como utilizar as capacidades de controlo de dispositivos existentes.
+O Defender para a integração IoT é conseguido utilizando o mecanismo gémeo IoT Hub.
+
+Consulte [os gémeos módulos IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) para saber mais sobre o conceito geral de gémeos módulos no Azure IoT Hub.
+
+O Defender for IoT utiliza o mecanismo twin do módulo e mantém um módulo de segurança twin nomeado _azureiotsecurity_ para cada um dos seus dispositivos.
+
+O módulo de segurança twin contém todas as informações relevantes para a segurança do dispositivo para cada um dos seus dispositivos.
+
+Para utilizar plenamente as funcionalidades do Defender para ioT, terá de criar, configurar e utilizar estes módulos de segurança gémeos para todos os dispositivos do serviço.
+
+## <a name="create-azureiotsecurity-module-twin"></a>Criar módulo de azureiotsecurity twin
+
+os gémeos _módulos de azureiotsecurity_ podem ser criados de duas formas:
+
+1. [Script de lote de módulo](https://aka.ms/iot-security-github-create-module) - cria automaticamente o módulo twin para novos dispositivos ou dispositivos sem um módulo gémeo utilizando a configuração padrão.
+1. Editar manualmente cada módulo gémeo individualmente com configurações específicas para cada dispositivo.
+
+>[!NOTE]
+> A utilização do método do lote não substituirá os gémeos módulos de azureiotsegurança existentes. A utilização do método do lote APENAs cria novos módulos gémeos para dispositivos que ainda não têm um módulo de segurança gémeo.
+
+Consulte a [configuração do agente](how-to-agent-configuration.md) para aprender a modificar ou alterar a configuração de um módulo gémeo existente.
+
+Para criar manualmente um novo módulo _de insegurança azureiot para_ um dispositivo, utilize as seguintes instruções:
+
+1. No seu Hub IoT, localize e selecione o dispositivo para o quais deseja criar um módulo de segurança twin.
+1. Clique no seu dispositivo e, em seguida, em **Adicionar identidade do módulo**.
+1. No campo Nome de Identidade do **Módulo,** insira **a azureiotsecurity**.
+
+1. Clique em **Save** (Guardar).
+
+## <a name="verify-creation-of-a-module-twin"></a>Verifique a criação de um módulo gémeo
+
+Para verificar se existe um módulo de segurança gémeo para um dispositivo específico:
+
+1. No seu Azure IoT Hub, selecione **dispositivos IoT** do menu **Explorers.**
+1. Introduza o ID do dispositivo ou selecione uma opção no campo do **dispositivo de consulta** e clique em **dispositivos de consulta**.
+    ![Dispositivos de consulta](./media/quickstart/verify-security-module-twin.png)
+1. Selecione o dispositivo ou clique duas vezes nele para abrir a página de detalhes do Dispositivo.
+1. Selecione o menu **de identidades do Módulo** e confirme a existência do módulo de insegurança **azureiot** na lista de identidades do módulo associadas ao dispositivo.
+    ![Módulos associados a um dispositivo](./media/quickstart/verify-security-module-twin-3.png)
+
+Para saber mais sobre a personalização das propriedades do Defender para gémeos módulos IoT, consulte [a configuração do Agente](how-to-agent-configuration.md).
+
+## <a name="next-steps"></a>Passos seguintes
+
+Avance para o próximo artigo para aprender a investigar recomendações de segurança...
+
+> [!div class="nextstepaction"]
+> [Investigar recomendações de segurança](quickstart-investigate-security-recommendations.md)

@@ -7,20 +7,17 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/07/2020
-ms.openlocfilehash: f901833caf0623de643e0372c53658fa7da8c8be
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.date: 09/22/2020
+ms.openlocfilehash: 1400f3c3d15698a5f1a145e8e0750ad7c4e9cec8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463721"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971410"
 ---
 # <a name="accessing-data-in-storage-accounts-securely-via-trusted-service-exception"></a>Aceder aos dados nas contas de armazenamento de forma segura através de uma exceção de serviço fidedigno
 
 Os indexantes que acedem aos dados nas contas de armazenamento podem utilizar a capacidade de exceção do [serviço fidedigno](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para aceder de forma segura aos dados. Este mecanismo oferece aos clientes que não conseguem conceder acesso a [indexante através de regras de firewall IP](search-indexer-howto-access-ip-restricted.md) uma alternativa simples, segura e gratuita para aceder a dados em contas de armazenamento.
-
-> [!NOTE]
-> O acesso à conta de armazenamento através do sistema atribuído à identidade de um serviço de pesquisa ainda se encontra em pré-visualização. Esta funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção.
 
 ## <a name="step-1-configure-connection-to-the-storage-account-via-identity"></a>Passo 1: Configurar a ligação à conta de armazenamento por identidade
 
@@ -34,7 +31,7 @@ No portal Azure, navegue para o separador "Firewalls and Virtual Networks" da co
 
 Os indexantes poderão agora aceder aos dados na conta de armazenamento, mesmo que a conta seja protegida através das regras de firewall IP.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os indexantes de armazenamento Azure:
 

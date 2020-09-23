@@ -1,14 +1,14 @@
 ---
 title: Controlos de amostra de amostra do DoD Impact Level 5
 description: Controlo do mapeamento da amostra de planta do DoD Impact Level 5. Cada controlo é mapeado para uma ou mais Políticas Azure que ajudam na avaliação.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: a7d1439a73cf387cee773d558ced50ce1c07f6dc
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 456560a8042b239a4d53e1c309742650c00bfa6a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921321"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978366"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-5-blueprint-sample"></a>Mapeamento de controlo da amostra de planta do DoD Impact Level 5
 
@@ -307,11 +307,8 @@ Esta planta ajuda-o a gerir falhas no sistema de informação atribuindo defini�
 
 ## <a name="si-02-06-flaw-remediation--removal-of-previous-versions-of-software--firmware"></a>SI-02 (06) Correção de Falhas Remoção de Versões Anteriores de Software / Firmware
 
-Este projeto atribui definições de política que o ajudam a garantir que as aplicações estão a utilizar a versão mais recente do Quadro .NET, HTTP, Java, PHP, Python e TLS. Esta planta também atribui uma definição de política que garante que os Serviços Kubernetes são atualizados para a sua versão não vulnerável.
+Este projeto atribui definições de política que o ajudam a garantir que as aplicações estão a usar a versão mais recente de HTTP, Java, PHP, Python e TLS. Esta planta também atribui uma definição de política que garante que os Serviços Kubernetes são atualizados para a sua versão não vulnerável.
 
-- Certifique-se de que a versão ".NET Framework" é a mais recente, se usada como parte da aplicação API
-- Certifique-se de que a versão '.NET Framework' é a mais recente, se usada como parte da App de Função
-- Certifique-se de que a versão '.NET Framework' é a mais recente, se usada como parte da aplicação Web
 - Certifique-se de que 'VERSÃO HTTP' é a mais recente, se usada para executar a aplicação Api
 - Certifique-se de que 'versão HTTP' é a mais recente, se usada para executar a aplicação 'Função'
 - Certifique-se de que 'VERSÃO HTTP' é a mais recente, se usada para executar a aplicação Web
@@ -319,7 +316,6 @@ Este projeto atribui definições de política que o ajudam a garantir que as ap
 - Certifique-se de que 'Versão Java' é a mais recente, se usada como parte da aplicação Function
 - Certifique-se de que 'Versão Java' é a mais recente, se usada como parte da aplicação Web
 - Certifique-se de que a 'versão PHP' é a mais recente, se usada como parte da aplicação Api
-- Certifique-se de que a 'versão PHP' é a mais recente, se usada como parte da aplicação Function
 - Certifique-se de que a 'versão PHP' é a mais recente, se usada como parte da aplicação WEB
 - Certifique-se de que 'Python version' é a mais recente, se usada como parte da app Api
 - Certifique-se de que 'Versão Python' é a mais recente, se usada como parte da aplicação Function

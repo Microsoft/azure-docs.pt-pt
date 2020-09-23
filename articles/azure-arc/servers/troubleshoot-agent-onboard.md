@@ -1,18 +1,18 @@
 ---
-title: Resolução de problemas Azure Arc ativou problemas de ligação de agentes (pré-visualização)
-description: Este artigo diz como resolver problemas e resolver problemas com o agente da Máquina Conectada que surgem com o Azure Arc ativado servidores (pré-visualização) ao tentar ligar-se ao serviço.
-ms.date: 07/20/2020
+title: Resolução de problemas Azure Arc ativou problemas de ligação ao agente de servidores
+description: Este artigo diz como resolver problemas e resolver problemas com o agente da Máquina Conectada que surgem com o Azure Arc ativado servidores ao tentar ligar-se ao serviço.
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: aeb370fb6cd4eacf20c1acf29e84c03e5e322d39
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 36feb6a65ec52d99dfd664ae54cb099ea6a7e239
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213544"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900685"
 ---
 # <a name="troubleshoot-the-connected-machine-agent-connection-issues"></a>Resolução de problemas dos problemas de ligação do agente da máquina conectado
 
-Este artigo fornece informações sobre resolução de problemas e resolução de problemas que podem ocorrer enquanto tenta configurar os servidores ativados do Arco Azure (pré-visualização) Agente de máquinas conectadas para Windows ou Linux. Estão incluídos os métodos de instalação interativos e à escala ao configurar a ligação ao serviço. Para obter informações [gerais, consulte a visão geral dos servidores ativados pelo Arc](./overview.md).
+Este artigo fornece informações sobre resolução de problemas e resolução de problemas que podem ocorrer enquanto tenta configurar o Azure Arc ativou o agente de máquinas conectadas para Windows ou Linux. Estão incluídos os métodos de instalação interativos e à escala ao configurar a ligação ao serviço. Para obter informações [gerais, consulte a visão geral dos servidores ativados pelo Arc](./overview.md).
 
 ## <a name="agent-verbose-log"></a>Registo verboso do agente
 

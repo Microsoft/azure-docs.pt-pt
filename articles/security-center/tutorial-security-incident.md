@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: dc19d74953db48ccf51d4731e2b9feccb2294041
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c508591fe9909578dcc04b0922c0b76691898743
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076397"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901081"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutorial: responder a incidentes de segurança
 O Centro de Segurança analisa continuamente as suas cargas de trabalho da cloud híbrida com análises avançadas e informações de ameaças para o alertar de atividades maliciosas. Além disso, pode integrar alertas de outros produtos e serviços de segurança no Centro de Segurança e criar alertas personalizados com base nos seus próprios indicadores ou origens de informações. Assim que for gerado um alerta, é necessária uma ação rápida para analisar e remediar. Neste tutorial, vai aprender a:
@@ -32,7 +32,7 @@ O Centro de Segurança analisa continuamente as suas cargas de trabalho da cloud
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para analisar as funcionalidades abrangidas por este tutorial, você deve estar no nível de preços padrão do Security Center. Pode tentar o Security Center Standard sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O início rápido [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) (Incluir a sua subscrição do Azure no Centro de Segurança Standard) explica-lhe como atualizar para Standard.
+Para analisar as funcionalidades abrangidas por este tutorial, tem de ter o Azure Defender habilitado. Pode tentar a Azure Defender sem custos. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/). O quickstart [Começar com o Security Center](security-center-get-started.md) acompanha-o como fazer o upgrade.
 
 ## <a name="scenario"></a>Cenário
 A Contoso migrou recentemente alguns dos recursos no local para o Azure, incluindo algumas cargas de trabalho de linha de negócio baseadas em máquinas virtuais e bases de dados SQL. De momento, a CSIRT (Equipa de Resposta a Incidentes de Segurança Informática) da Contoso tem dificuldade em investigar problemas de segurança porque as informações de segurança não estão integradas com as respetivas ferramentas atuais de resposta a incidentes. Esta falta de integração apresenta um problema durante a fase de Deteção (demasiados falsos positivos), bem como durante as fases de Avaliação e Diagnóstico. Como parte desta migração, eles decidem se pretendem que o Centro de Segurança os ajude a resolver este problema.
@@ -68,13 +68,13 @@ O Centro de Segurança proporciona uma vista unificada de todos os alertas de se
 
    ![Alertas de segurança](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
 
-2. Na lista de alertas, clique num incidente de segurança, que é uma coleção de alertas, para saber mais sobre o mesmo. É aberto **Incidente de segurança detetado**.
+2. Na lista de alertas, selecione um incidente de segurança, que é uma coleção de alertas, para saber mais sobre este incidente. É aberto **Incidente de segurança detetado**.
 
-   ![Incidente de segurança](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+   ![Incidente de segurança detetado](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
 
 3. Neste ecrã, a descrição do incidente de segurança aparece na parte superior e a lista de alertas que fazem parte do mesmo. Clique no alerta que pretende investigar mais aprofundadamente para obter mais informações.
 
-   ![Incidente de segurança](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+   ![Detalhes de alerta do incidente](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
    O tipo de alerta pode variar. Leia [Compreender os alertas de segurança no Centro de Segurança do Azure ](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) para obter mais detalhes sobre o tipo de alerta e possíveis passos de remediação. Para os alertas que podem ser dispensados em segurança, clique com o botão direito do rato nos mesmos e selecione a opção **Dispensar**:
 
@@ -97,15 +97,14 @@ Pode utilizar as funcionalidades de pesquisa do Centro de Segurança para locali
 
 Para fazer uma pesquisa, abra o dashboard do **Centro de Segurança**, clique em **Pesquisar** no painel de navegação do lado esquerdo, selecione a área de trabalho que contém as entidades que pretende pesquisar, escreva a consulta de pesquisa e clique no botão de pesquisa.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se pretender continuar a trabalhar com os quickstarts e tutoriais subsequentes, continue a executar o nível padrão e mantenha o provisionamento automático ativado. Se não pretender continuar ou quiser voltar para o Escalão gratuito:
+Outros inícios rápidos e tutoriais desta coleção têm por base este início rápido. Se pretender continuar a trabalhar com os rápidos e tutoriais subsequentes, mantenha o provisionamento automático e o Azure Defender ativado. Se não pretender continuar ou desejar desativar o Azure Defender:
 
-1. Regresse ao menu principal do Centro de Segurança e selecione **Política de Segurança**.
-2. Selecione a subscrição ou a política para a qual pretende voltar como Gratuita. **Política de segurança** abre-se.
-3. Em **COMPONENTES DA POLÍTICA**, selecione **Escalão de preço**.
-4. Selecione **Livre** para alterar a subscrição do nível padrão para o nível Livre.
-5. Selecione **Guardar**.
+1. Volte ao menu principal do Centro de Segurança e **selecione preços e configurações**.
+1. Selecione a subscrição que pretende desvalorizar.
+1. Desemaça **o Azure Defender.**
+1. Selecione **Guardar**.
 
 Se pretender desativar aprovisionamento automático:
 
