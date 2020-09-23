@@ -4,12 +4,12 @@ description: Compreender quais são as regras de ação no Azure Monitor e como 
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 083db4ad046ee586f139309b62eedf0fcc2ffa6a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 723da36093c895a3a4aefbe66c2d8ca2ac0cba32
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045721"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983148"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (pré-visualização)
 
@@ -21,7 +21,7 @@ As regras de ação ajudam-no a definir ou suprimir ações em qualquer âmbito 
 
 ### <a name="suppression-of-alerts"></a>Supressão de alertas
 
-Há muitos cenários em que é útil suprimir as notificações que os alertas geram. Estes cenários vão desde a supressão durante uma janela de manutenção planeada até à supressão durante o horário não comercial. Por exemplo, a equipa responsável pela **ContosoVM** quer suprimir notificações de alerta para o próximo fim de semana, porque a **ContosoVM** está a ser submetida a uma manutenção planeada.
+Há muitos cenários em que é útil suprimir as notificações que os alertas geram. Estes cenários vão desde a supressão durante uma janela de manutenção planeada até à supressão durante o horário não comercial. Por exemplo, a equipa responsável pela  **ContosoVM** quer suprimir notificações de alerta para o próximo fim de semana, porque a **ContosoVM** está a ser submetida a uma manutenção planeada.
 
 Embora a equipa possa desativar cada regra de alerta configurada manualmente no **ContosoVM** (e ative-a novamente após a manutenção), não é um processo simples. As regras de ação ajudam-no a definir a supressão de alerta em escala com a capacidade de configurar de forma flexível o período de supressão. No exemplo anterior, a equipa pode definir uma regra de ação sobre **o ContosoVM** que suprime todas as notificações de alerta para o fim de semana.
 
@@ -44,11 +44,11 @@ Pode aceder à funcionalidade selecionando **ações** de Gestão a partir da p�
 
 Selecione **+ Nova Regra de Ação**.
 
-![Adicionar nova regra de ação](media/alerts-action-rules/action-rules-new-rule.png)
+![A screenshot mostra a página 'Gerir acções' com o botão New Action Rule realçado.](media/alerts-action-rules/action-rules-new-rule.png)
 
 Em alternativa, pode criar uma regra de ação enquanto configura uma regra de alerta.
 
-![Adicionar nova regra de ação](media/alerts-action-rules/action-rules-alert-rule.png)
+![A screenshot mostra a página de regra criar com o botão de regra de ação Criar realçado.](media/alerts-action-rules/action-rules-alert-rule.png)
 
 Deve agora ver a página de fluxo para criar regras de ação. Configure os seguintes elementos:
 
@@ -111,19 +111,19 @@ Por último, configurar os seguintes detalhes para a regra de ação:
 
 Pode criar regras de ação com o CLI Azure utilizando o comando [de criação de regra de ação do monitor az.](/cli/azure/ext/alertsmanagement/monitor/action-rule#ext-alertsmanagement-az-monitor-action-rule-create)  A `az monitor action-rule` referência é apenas uma das muitas [referências Azure CLI para o Azure Monitor](/cli/azure/azure-cli-reference-for-monitor).
 
-### <a name="prepare-your-environment"></a>Preparar o seu ambiente
+### <a name="prepare-your-environment"></a>Preparar o ambiente
 
 1. [Instalar a CLI do Azure](/cli/azure/install-azure-cli)
 
    Se preferir, também pode usar a Azure Cloud Shell para completar os passos deste artigo.  Azure Cloud Shell é um ambiente de conchas interativas que utiliza através do seu navegador.  Inicie a Cloud Shell utilizando um destes métodos:
 
-   - Open Cloud Shell indo para[https://shell.azure.com](https://shell.azure.com)
+   - Open Cloud Shell indo para [https://shell.azure.com](https://shell.azure.com)
 
    - Selecione o botão **Cloud Shell** na barra de menu no canto superior direito no [portal Azure](https://portal.azure.com)
 
-1. Inicia sessão.
+1. Inicie sessão.
 
-   Se estiver a utilizar uma instalação local do CLI, inicie sessão com o comando [de login az.](/cli/azure/reference-index#az-login)  Siga os passos apresentados no seu terminal para completar o processo de autenticação.
+   Se estiver a utilizar uma instalação local do CLI, inicie sessão com o comando [de login az.](/cli/azure/reference-index#az-login)  Siga os passos apresentados no seu terminal para concluir o processo de autenticação.
 
     ```azurecli
     az login
@@ -255,7 +255,7 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 Os alertas de registo que cria com o número de opções [de resultados](alerts-unified-log.md) geram uma única instância de alerta utilizando todo o resultado da pesquisa (que pode abranger vários computadores). Neste cenário, se uma regra de ação utilizar o filtro **Contexto de Alerta (carga útil),** atua na hora de alerta desde que haja uma correspondência. No Cenário 2, descrito anteriormente, se os resultados de pesquisa do alerta de registo gerado contiverem **tanto o Computador-01** como o **Computador-02,** toda a notificação é suprimida. Não há nenhuma notificação gerada para **o Computador-02.**
 
-![Regras de ação e alertas de registo (número de resultados)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
+![O diagrama mostra as regras de ação e os alertas de registo com uma única instância de alerta realçada.](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
 Para utilizar melhor os alertas de registo com regras de ação, crie alertas de registo com a opção [de medição métrica.](alerts-unified-log.md) Casos de alerta separados são gerados por esta opção, com base no seu campo de grupo definido. Em seguida, no cenário 2, são geradas instâncias de alerta separadas para **Computador-01** e **Computador-02**. Devido à regra de ação descrita no cenário, apenas a notificação para **Computador-01** é suprimida. A notificação para **Computador-02** continua a disparar normalmente.
 
@@ -272,7 +272,7 @@ Depois de definir um âmbito à medida que configura uma regra de ação, pode v
 * Um superconjunto: Por exemplo, a regra de ação que está a definir está num grupo de recursos, e a regra de ação sobreposta está na subscrição que contém o grupo de recursos.
 * Uma intersecção: Por exemplo, a regra de ação que está a definir está em **VM1** e **VM2,** e a regra de ação sobreposta está em **VM2** e **VM3**.
 
-![Regras de ação sobrepostas](media/alerts-action-rules/action-rules-overlapping.png)
+![O Screenshot mostra a página New Action Rule com as regras de ação sobrepostas apresentadas nas regras de Ação definidas na mesma janela de âmbito.](media/alerts-action-rules/action-rules-overlapping.png)
 
 ### <a name="while-im-configuring-an-alert-rule-is-it-possible-to-know-if-there-are-already-action-rules-defined-that-might-act-on-the-alert-rule-im-defining"></a>Enquanto estou a configurar uma regra de alerta, é possível saber se já existem regras de ação definidas que possam agir na regra de alerta que estou a definir?
 

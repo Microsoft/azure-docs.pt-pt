@@ -12,57 +12,60 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2020
 ms.author: memildin
-ms.openlocfilehash: c01ed6dbbd6e1f7febfb99df11d2ee67cb1e5465
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd4487d3d0664699a32eec2ab47297839eaf8a8a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800613"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894882"
 ---
 # <a name="container-security-in-security-center"></a>Segurança de contentores no Centro de Segurança
 
-O Azure Security Center é a solução nativa do Azure para proteger os seus contentores. O Centro de Segurança pode proteger os seguintes tipos de recursos de contentores:
+O Azure Security Center é a solução nativa do Azure para proteger os seus contentores.
 
+O Centro de Segurança pode proteger os seguintes tipos de recursos de contentores:
 
+| Tipo de recurso | Proteções oferecidas pelo Centro de Segurança |
+|:--------------------:|-----------|
+| ![Serviço Kubernetes](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png)<br>**Aglomerados de Serviço Azure Kubernetes (AKS)** | - Avaliação contínua das configurações dos seus clusters AKS para fornecer visibilidade em configurações erradas e diretrizes para ajudá-lo a resolver quaisquer problemas descobertos.<br>[Saiba mais sobre o endurecimento do ambiente através de recomendações de segurança.](#environment-hardening)<br><br>- Proteção contra ameaças para aglomerados AKS e nós Linux. Os alertas para atividades suspeitas são fornecidos pelo [Defensor Azure opcional para Kubernetes.](defender-for-kubernetes-introduction.md)<br>[Saiba mais sobre a proteção do tempo de execução para nós e agrupamentos AKS](#run-time-protection-for-aks-nodes-and-clusters).|
+| ![Hospedeiro de contentores](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png)<br>**Anfitriões de contentores**<br>(VMs em execução Docker) | - Avaliação contínua das configurações do Docker para fornecer visibilidade em configurações erradas e diretrizes para ajudá-lo a resolver quaisquer problemas descobertos com o  [Azure Defender](defender-for-servers-introduction.md)opcional para servidores .<br>[Saiba mais sobre o endurecimento do ambiente através de recomendações de segurança.](#environment-hardening)|
+| ![Registo de contentores](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png)<br>**Registos do Registo de Contentores de Azure (ACR)** | - Ferramentas de avaliação e gestão de vulnerabilidades para as imagens nos registos ACR baseados no Azure Resource Manager com o [Opcional Azure Defender para registos de contentores.](defender-for-container-registries-introduction.md)<br>[Saiba mais sobre a digitalização das suas imagens de contentores para obter vulnerabilidades.](#vulnerability-management---scanning-container-images) |
+|||
 
-|Recurso |Name  |Detalhes  |
-|:---------:|---------|---------|
-|![Hospedeiro de contentores](./media/security-center-virtual-machine-recommendations/icon-container-host-rec.png)|Anfitriões de contentores (máquinas virtuais que estão a executar Docker)|O Centro de Segurança analisa as suas configurações do Docker e fornece-lhe visibilidade sobre as configurações incorretas ao disponibilizar uma lista de todas as regras com falhas que foram analisadas. O Security Center fornece diretrizes para ajudá-lo a resolver estes problemas rapidamente e economizar tempo. O Centro de Segurança avalia continuamente as configurações do Docker e fornece o estado mais recente.|
-|![Serviço Kubernetes](./media/security-center-virtual-machine-recommendations/icon-kubernetes-service-rec.png)|Aglomerados de Serviço Azure Kubernetes (AKS)|Obtenha uma visibilidade mais profunda para os seus nós AKS, tráfego em nuvem e controlos de segurança com [o pacote AKS opcional do Security Center](azure-kubernetes-service-integration.md) para utilizadores de nível padrão.|
-|![Registo de contentor](./media/security-center-virtual-machine-recommendations/icon-container-registry-rec.png)|Registos do Registo de Contentores de Azure (ACR)|Obtenha uma visibilidade mais profunda sobre as vulnerabilidades das imagens nos registos ACR baseados no ARM com [o pacote ACR opcional do Security Center](azure-kubernetes-service-integration.md) para utilizadores de nível padrão.|
-||||
+Este artigo descreve como pode utilizar o Security Center, juntamente com os planos opcionais do Azure Defender para registos de contentores, cortes e Kubernetes, para melhorar, monitorizar e manter a segurança dos seus contentores e das suas aplicações.
 
-
-Este artigo descreve como pode usar estes pacotes para melhorar, monitorizar e manter a segurança dos seus contentores e das suas apps. Você vai aprender como o Centro de Segurança ajuda com estes aspetos fundamentais da segurança do contentor:
+Você vai aprender como o Centro de Segurança ajuda com estes aspetos fundamentais da segurança do contentor:
 
 - [Gestão de vulnerabilidades - digitalização de imagens de contentores](#vulnerability-management---scanning-container-images)
-- [Endurecimento ambiental - monitorização contínua da sua configuração Docker e aglomerados de Kubernetes](#environment-hardening)
-- [Proteção em tempo de execução - Deteção de ameaças em tempo real](#run-time-protection---real-time-threat-detection)
+- [Endurecimento do ambiente](#environment-hardening)
+- [Proteção do tempo de execução para os nódoas e aglomerados AKS](#run-time-protection-for-aks-nodes-and-clusters)
 
-[![Separador de segurança do Azure Security Center](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
+A imagem que se segue mostra a página de inventário do ativo e os vários tipos de recursos de contentores protegidos pelo Security Center.
 
-Para obter instruções sobre como utilizar estas funcionalidades, consulte [a segurança dos seus recipientes](monitor-container-security.md).
+:::image type="content" source="./media/container-security/container-security-tab.png" alt-text="Recursos relacionados com contentores na página de inventário de ativos do Security Center" lightbox="./media/container-security/container-security-tab.png":::
 
 ## <a name="vulnerability-management---scanning-container-images"></a>Gestão de vulnerabilidades - digitalização de imagens de contentores
-Para monitorizar o registo do contentor Azure baseado na ARM, certifique-se de que está no nível padrão do Centro de Segurança (ver [preços).](/azure/security-center/security-center-pricing) Em seguida, ative o pacote opcional de registos de contentores. Quando uma nova imagem é empurrada, o Security Center digitaliza a imagem usando um scanner do fornecedor líder de pesquisa de vulnerabilidades da indústria, Qualys.
 
-Quando os problemas forem encontrados – pelo Qualys ou pelo Security Center – será notificado no painel do Centro de Segurança. Para cada vulnerabilidade, o Security Center fornece recomendações acccáveis, juntamente com uma classificação de gravidade, e orientações para como remediar o problema. Para obter mais informações sobre as recomendações do Centro de Segurança para os contentores, consulte a [lista de referência das recomendações.](recommendations-reference.md#recs-containers)
+Para monitorizar as imagens nos registos de contentores Azure baseados em Recursos Azure, ative [o Azure Defender para registos de contentores](defender-for-container-registries-introduction.md). O Centro de Segurança verifica quaisquer imagens retiradas nos últimos 30 dias, empurradas para o seu registo, ou importadas. O scanner integrado é fornecido pelo fornecedor líder de pesquisa de vulnerabilidades da indústria, Qualys.
+
+Quando forem encontrados problemas – pelo Qualys ou pelo Security Center – será notificado no [painel Azure Defender](azure-defender-dashboard.md). Para cada vulnerabilidade, o Security Center fornece recomendações acccáveis, juntamente com uma classificação de gravidade, e orientações para como remediar o problema. Para obter mais informações sobre as recomendações do Centro de Segurança para os contentores, consulte a [lista de referência das recomendações.](recommendations-reference.md#recs-containers)
 
 O Centro de Segurança filtra e classifica as descobertas do scanner. Quando uma imagem é saudável, o Centro de Segurança marca-a como tal. O Centro de Segurança gera recomendações de segurança apenas para imagens que têm problemas a resolver. Ao notificar apenas quando há problemas, o Centro de Segurança reduz o potencial de alertas informativos indesejados.
 
 ## <a name="environment-hardening"></a>Endurecimento do ambiente
 
 ### <a name="continuous-monitoring-of-your-docker-configuration"></a>Monitorização contínua da sua configuração Docker
+
 O Azure Security Center identifica contentores não geridos alojados em IaaS Linux VMs, ou outras máquinas Linux que executam contentores Docker. O Centro de Segurança avalia continuamente as configurações destes contentores. Em seguida, compara-os com o [Center for Internet Security (CIS) Docker Benchmark](https://www.cisecurity.org/benchmark/docker/).
 
-O Centro de Segurança inclui todo o conjunto de regras do CIS Docker Benchmark e alerta-o se os seus contentores não satisfizerem nenhum dos controlos. Quando encontra configurações erradas, o Centro de Segurança gera recomendações de segurança. Utilize a página de **recomendações** para ver recomendações e remediar questões. Você também verá as recomendações no **separador Contentores** que exibe todas as máquinas virtuais implantadas com Docker. 
+O Centro de Segurança inclui todo o conjunto de regras do CIS Docker Benchmark e alerta-o se os seus contentores não satisfizerem nenhum dos controlos. Quando encontra configurações erradas, o Centro de Segurança gera recomendações de segurança. Utilize a página de **recomendações** para ver recomendações e remediar questões. Você também verá as recomendações no **separador Contentores** que exibe todas as máquinas virtuais implantadas com Docker. Os controlos de referência do CIS não são executados em instâncias geridas pela AKS ou VMs geridos por Databricks.
 
 Para obter mais informações sobre as recomendações relevantes do Centro de Segurança que possam aparecer para esta funcionalidade, consulte a secção de [recipientes](recommendations-reference.md#recs-containers) da tabela de referência de recomendações.
 
 Quando está a explorar os problemas de segurança de um VM, o Security Center fornece informações adicionais sobre os contentores na máquina. Essas informações incluem a versão Docker e o número de imagens em execução no anfitrião. 
 
->[!NOTE]
-> Estes controlos de referência do CIS não serão executados em instâncias geridas pela AKS ou em VMs geridos por Databricks.
+Para monitorizar os recipientes não geridos alojados nos VMs IaaS Linux, ative o [Azure Defender](defender-for-servers-introduction.md)opcional para servidores .
+
 
 ### <a name="continuous-monitoring-of-your-kubernetes-clusters"></a>Monitorização contínua dos seus clusters Kubernetes
 O Security Center trabalha em conjunto com o Azure Kubernetes Service (AKS), o serviço de orquestração de contentores gerido pela Microsoft para desenvolver, implantar e gerir aplicações contentorizadas.
@@ -73,15 +76,28 @@ A AKS fornece controlos de segurança e visibilidade na postura de segurança do
 
 Para obter mais informações sobre as recomendações relevantes do Centro de Segurança que possam aparecer para esta funcionalidade, consulte a secção de [recipientes](recommendations-reference.md#recs-containers) da tabela de referência de recomendações.
 
-## <a name="run-time-protection---real-time-threat-detection"></a>Proteção em tempo de execução - Deteção de ameaças em tempo real
+###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Melhores práticas de proteção da carga de trabalho utilizando o controlo de admissão de Kubernetes
+
+Instale o  **addon Azure Policy para kubernetes** para obter um pacote de recomendações para proteger as cargas de trabalho dos seus recipientes Kubernetes.
+
+Tal como explicado nesta [página da Política Azure para kubernetes,](../governance/policy/concepts/policy-for-kubernetes.md)o add-on estende o webhook do controlador de admissão [gatekeeper v3](https://github.com/open-policy-agent/gatekeeper)de código aberto   para o Agente de Política [Aberta](https://www.openpolicyagent.org/). Os controladores de admissão kubernetes são plugins que impõem a forma como os seus clusters são usados. O addon regista-se como um gancho web para o controlo de admissão de Kubernetes e permite aplicar aplicações e salvaguardas em escala nos seus clusters de forma centralizada e consistente. 
+
+Quando tiver instalado o addon no seu cluster AKS, todos os pedidos para o servidor API de Kubernetes serão monitorizados contra o conjunto de boas práticas predefinido antes de serem persistidos no cluster. Em seguida, pode configurar para **impor** as melhores práticas e mandatá-las para futuras cargas de trabalho. 
+
+Por exemplo, pode ordenar que os contentores privilegiados não sejam criados, e quaisquer pedidos futuros para o fazer serão bloqueados.
+
+Saiba mais em [Proteger as cargas de trabalho dos Seus Kubernetes.](kubernetes-workload-protections.md)
+
+
+## <a name="run-time-protection-for-aks-nodes-and-clusters"></a>Proteção do tempo de execução para os nódoas e aglomerados AKS
 
 [!INCLUDE [AKS in ASC threat protection](../../includes/security-center-azure-kubernetes-threat-protection.md)]
 
 
 
+## <a name="next-steps"></a>Passos seguintes
 
-## <a name="next-steps"></a>Próximos passos
+Nesta visão geral, você aprendeu sobre os elementos fundamentais da segurança do contentor no Azure Security Center. Para materiais relacionados ver:
 
-Nesta visão geral, você aprendeu sobre os elementos fundamentais da segurança do contentor no Azure Security Center. Continue a [monitorizar a segurança dos seus contentores](monitor-container-security.md).
-> [!div class="nextstepaction"]
-> [Monitorização da segurança dos seus contentores](monitor-container-security.md)
+- [Introdução ao Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
+- [Introdução ao Azure Defender para registos de contentores](defender-for-container-registries-introduction.md)

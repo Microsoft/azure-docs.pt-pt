@@ -1,6 +1,6 @@
 ---
 title: Ver funções atribuídas a um grupo no Azure Ative Directory Microsoft Docs
-description: Pré-visualizar funções Azure AD personalizadas para delegar a gestão de identidade. Gerir as funções Azure no portal Azure, PowerShell ou Graph API.
+description: Saiba como as funções atribuídas a um grupo podem ser vistas usando o centro de administração Azure AD. Os grupos de visualização e as funções atribuídas são permissões de utilizador predefinidas.
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b7613fb70299a70e4389b97c2647a26cb7c3374
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 0c0a34b3861c82b3d2ef54a36108f9ea522d716d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476212"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983103"
 ---
 # <a name="view-roles-assigned-to-a-group-in-azure-active-directory"></a>Ver funções atribuídas a um grupo no Azure Ative Directory
 
@@ -63,4 +63,4 @@ GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments?$f
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Use grupos de nuvem para gerir atribuições de funções](roles-groups-concept.md)
-- [Funções de resolução de problemas atribuídas a grupos de nuvem](roles-groups-faq-troubleshooting.md)
+- [Resolver problemas de funções atribuídas a grupos de cloud](roles-groups-faq-troubleshooting.md)

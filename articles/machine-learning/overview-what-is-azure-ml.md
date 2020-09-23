@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 72de3c45d0def7cf4a48884ee49be256179ac0a4
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: f8be403a9aa095a24ec4802aad0364b535ed7c5a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659506"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902899"
 ---
 # <a name="what-is-azure-machine-learning"></a>O que é o Azure Machine Learning?
 
@@ -32,7 +32,7 @@ O serviço também interopera com populares ferramentas de deep learning e refor
 > **Julgamento livre!**  Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree) Receberá créditos para gastar em serviços do Azure. Depois de serem utilizados, pode manter a conta e utilizar os [serviços gratuitos do Azure](https://azure.microsoft.com/free/). O seu cartão de crédito não será cobrado, a menos que altere explicitamente as suas definições e peça para ser cobrado.
 
 
-## <a name="what-is-machine-learning"></a>O que é a machine learning?
+## <a name="what-is-machine-learning"></a>O que é machine learning?
 
 A aprendizagem automática é uma técnica da ciência de dados que permite aos computadores utilizar dados existentes para prever futuros comportamentos, resultados e tendências. Ao utilizar o machine learning, os computadores aprendem sem serem explicitamente programados.
 
@@ -41,7 +41,7 @@ As previsões ou predições de machine learning podem tornar as aplicações e 
 ## <a name="machine-learning-tools-to-fit-each-task"></a>Ferramentas de aprendizagem automática para se adaptar a cada tarefa 
 
 A Azure Machine Learning fornece todas as ferramentas que os desenvolvedores e cientistas de dados precisam para os seus fluxos de trabalho de aprendizagem automática, incluindo:
-+ O [designer Azure Machine Learning](tutorial-designer-automobile-price-train-score.md) (pré-visualização): módulos de arrastar-n-drop para construir as suas experiências e, em seguida, implementar gasodutos.
++ O [designer Azure Machine Learning](tutorial-designer-automobile-price-train-score.md): módulos de arrastar-n-drop para construir as suas experiências e, em seguida, implementar oleodutos.
 
 + Cadernos Jupyter: use os [nossos cadernos de exemplo](https://github.com/Azure/MachineLearningNotebooks) ou crie os seus próprios cadernos para aproveitar as nossas amostras <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">de SDK para as</a> amostras de Python para a sua aprendizagem automática. 
 
@@ -71,7 +71,7 @@ Também pode [automatizar o treino e afinação](tutorial-auto-train-models.md) 
 
 [O Azure Machine Learning studio](https://studio.azureml.net) é um portal web em Azure Machine Learning para opções de baixo código e sem código para formação de modelos, implementação e gestão de ativos. O estúdio integra-se com o Azure Machine Learning SDK para uma experiência perfeita. Para mais informações, consulte [o estúdio Azure Machine Learning.](overview-what-is-machine-learning-studio.md)
 
-+ **Azure Machine Learning designer (pré-visualização)**
++ **Estruturador do Azure Machine Learning**
 
   Utilize [o designer](concept-designer.md) para treinar e implementar modelos de aprendizagem automática sem escrever nenhum código. Experimente o tutorial do [designer](tutorial-designer-automobile-price-train-score.md) para começar. 
 
@@ -125,16 +125,7 @@ A Azure Machine Learning trabalha com outros serviços na plataforma Azure, e ta
 
 A sua conta de Armazenamento Azure, metas de computação e outros recursos podem ser utilizados de forma segura dentro de uma rede virtual para treinar modelos e realizar inferência. Para mais informações, consulte [o isolamento da rede virtual e a visão geral da privacidade.](how-to-network-security-overview.md)
 
-## <a name="basic--enterprise-editions"></a><a name="sku"></a>Edições básicas & Enterprise
-
-A Azure Machine Learning oferece duas edições adaptadas às suas necessidades de aprendizagem automática:
-+ **Básico**: Ótimo para o desenvolvimento de código aberto à escala de nuvem com uma experiência de código-primeiro.
-
-+ **Enterprise**: All of Basic plus a web interface (studio) + secure, comprehensive ML lifecycle management for all skill levels.
-
-Para saber mais sobre estas edições e quais as capacidades que desbloqueiam, leia o [artigo "Azure Machine Learning Editions".](concept-editions.md)
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Crie a sua primeira experiência com o seu método preferido:
   + [Use cadernos Python para treinar & implementar modelos ML](tutorial-1st-experiment-sdk-setup.md)

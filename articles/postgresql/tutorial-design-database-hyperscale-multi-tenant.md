@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Conceber uma base de dados multi-inquilinos - Hiperescala (Citus) - Base de Dados Azure para PostgreSQL'
-description: Este tutorial mostra como desenhar uma base de dados multi-inquilinos usando a Base de Dados Azure para a Hiperescala Pós-SQL (Citus).
+description: Este tutorial mostra como alimentar uma aplicação multi-inquilino escalável com Base de Dados Azure para Hiperescala PósgreSQL (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: b28307783957af2613152c2a8305f3650aa352ac
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: ef0f542a27f378b6132d8ef19b55f386d4102d53
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530731"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895258"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutorial: desenhe uma base de dados multi-inquilinos utilizando a Base de Dados Azure para PostgreSQL – Hyperscale (Citus)
 
@@ -275,6 +275,5 @@ Nos passos anteriores, criou recursos Azure num grupo de servidores. Se não esp
 
 Neste tutorial, aprendeu a providenciar um grupo de servidores Hyperscale (Citus). Ligou-se a ele com o PSQL, criou um esquema e distribuiu dados. Aprendeu a consultar dados dentro e entre inquilinos, e a personalizar o esquema por inquilino.
 
-Em seguida, conheça os conceitos de hiperescala.
-> [!div class="nextstepaction"]
-> [Tipos de nó de hiperescala](https://aka.ms/hyperscale-concepts)
+- Saiba mais sobre [os tipos de nó de](https://aka.ms/hyperscale-concepts) grupo de servidor
+- Determine o melhor [tamanho inicial](howto-hyperscale-scaling.md#picking-initial-size) para o seu grupo de servidor

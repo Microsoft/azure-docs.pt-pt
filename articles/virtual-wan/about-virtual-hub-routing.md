@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f5116b3dfd53c5272ef7bb11d1719b7ee62416c4
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 51480a49aab2c1277eeb846c593fcb2bc858d1f0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055797"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983712"
 ---
 # <a name="about-virtual-hub-routing"></a>Acerca do encaminhamento do hub virtual
 
@@ -89,7 +89,7 @@ Por favor, considere o seguinte ao configurar o encaminhamento VIRTUAL WAN:
 * O Virtual Hub não suporta a rota estática para 0.0.0.0/0 e próxima ligação de rede virtual de lúpulo (ou um IP de um aparelho na ligação VNet)
 * Todas as informações relativas à rota 0.0.0.0/0 estão confinadas à tabela de rotas de um centro local. Esta rota não se propaga através dos centros.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para configurar o encaminhamento, consulte [Como configurar o encaminhamento do hub virtual](how-to-virtual-hub-routing.md).
 

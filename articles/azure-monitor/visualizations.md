@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 195e606a66b1b49821fc1b46381fdc551f142a6a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4c9f74f5a9950a299b34e22c1e86dd91f8c82364
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325530"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983594"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizar dados do Azure Monitor
 Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados de registo e métrica armazenados no Azure Monitor.
@@ -21,7 +21,7 @@ Visualizações como gráficos e gráficos podem ajudá-lo a analisar os seus da
 ## <a name="workbooks"></a>Livros
 Os livros de trabalho são [documentos](./platform/workbooks-overview.md) interativos que fornecem informações profundas sobre os seus dados, investigação e colaboração dentro da equipa. Exemplos específicos onde os livros são úteis são guias de resolução de problemas e autópsias de incidentes.
 
-![Livro](media/visualizations/workbook.png)
+![O diagrama mostra imagens de várias páginas de um livro, incluindo Análise de Visualizações de Página, Utilização e Tempo Gasto na Página.](media/visualizations/workbook.png)
 
 ### <a name="advantages"></a>Vantagens
 - Suporta métricas e registos.
@@ -39,7 +39,7 @@ Os livros de trabalho são [documentos](./platform/workbooks-overview.md) intera
 ## <a name="azure-dashboards"></a>Dashboards do Azure
 [Os dashboards Azure](../azure-portal/azure-portal-dashboards.md) são a principal tecnologia de dashboarding para o Azure. Eles são particularmente úteis para fornecer um único painel de vidro sobre a sua infraestrutura e serviços Azure permitindo-lhe identificar rapidamente questões importantes.
 
-![Dashboard](media/visualizations/dashboard.png)
+![A screenshot mostra um exemplo de um Painel Azure com informações personalizáveis.](media/visualizations/dashboard.png)
 
 Aqui está um vídeo sobre a criação de dashboards.
 
@@ -88,7 +88,7 @@ Aqui está um vídeo sobre a criação de dashboards.
 ## <a name="grafana"></a>Grafana
 [Grafana](https://grafana.com/) é uma plataforma aberta que se destaca em dashboards operacionais. É particularmente útil para detetar e isolar e trilar incidentes operacionais. Pode adicionar [plugin de fonte de dados Grafana Azure Monitor](platform/grafana-plugin.md) à sua assinatura Azure para que ele visualize os seus dados de métricas Azure.
 
-![Grafana](media/visualizations/grafana.png)
+![A imagem mostra visualizações de Grafana.](media/visualizations/grafana.png)
 
 ### <a name="advantages"></a>Vantagens
 - Ricas visualizações.
@@ -117,10 +117,10 @@ Pode aceder aos dados em registo e dados métricos no Azure Monitor através da 
 > [!IMPORTANT]
 > As opiniões estão em vias de ser depreciadas. Consulte [o Azure Monitor ver designer para guia de transição de livros](platform/view-designer-conversion-overview.md) de trabalho para obter orientações sobre a conversão de visualizações em livros de trabalho.
 
-[As vistas no Azure Monitor](platform/view-designer.md) permitem-lhe criar visualizações personalizadas com dados de registo. São utilizados [através da monitorização de soluções](insights/solutions.md) para apresentar os dados que recolhem.
+[As vistas no Azure Monitor](platform/view-designer.md)  permitem-lhe criar visualizações personalizadas com dados de registo. São utilizados [através da monitorização de soluções](insights/solutions.md) para apresentar os dados que recolhem.
 
 
-![Vista](media/visualizations/view.png)
+![A screenshot mostra um azulejo de solução de monitorização do contentor e a visão detalhada do Monitor Azure que se abre quando o seleciona.](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Vantagens
 - Visualizações ricas para dados de registo.

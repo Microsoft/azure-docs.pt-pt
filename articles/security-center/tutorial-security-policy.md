@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 94a0c0af5071397ee4deb859f8f58f2ed1c73a77
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: db1b73e36a4917f1a10754424b472284094b563e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277668"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894570"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
@@ -33,7 +33,7 @@ O Azure Security Center faz as suas recomendações de segurança com base nas s
 
 O Centro de Segurança oferece as seguintes opções para trabalhar com políticas de segurança:
 
-* **Ver e editar a política de incumprimento incorporada** - Quando ativar o Security Center, uma iniciativa incorporada chamada "DEFAULT ASC" é automaticamente atribuída a todas as subscrições registadas do Security Center (níveis de preços gratuitos ou padrão). Para personalizar esta iniciativa, pode ativar ou desativar políticas individuais dentro dela. Consulte a lista de [políticas de segurança incorporadas](security-center-policy-definitions.md) para entender as opções disponíveis fora da caixa.
+* **Ver e editar a política de padrão incorporada** - Quando ativar o Security Center, uma iniciativa incorporada chamada "ASC default" é automaticamente atribuída a todas as subscrições registadas do Security Center. Para personalizar esta iniciativa, pode ativar ou desativar políticas individuais dentro dela. Consulte a lista de [políticas de segurança incorporadas](security-center-policy-definitions.md) para entender as opções disponíveis fora da caixa.
 
 * **Adicione as suas próprias políticas personalizadas** - Se quiser personalizar as iniciativas de segurança aplicadas à sua subscrição, pode fazê-lo dentro do Security Center. Em seguida, receberá recomendações se as suas máquinas não seguirem as políticas que cria. Para obter instruções sobre a construção e atribuição de políticas personalizadas, consulte [utilizando políticas de segurança personalizadas](custom-security-policies.md).
 
@@ -128,7 +128,7 @@ Para obter mais informações sobre recomendações, consulte [recomendações d
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Este artigo explicava as políticas de segurança. Para obter informações relacionadas, consulte os seguintes artigos:
 
 * Para obter instruções sobre como definir políticas usando o PowerShell, consulte [Quickstart: Criar uma atribuição de política para identificar recursos não conformes utilizando o módulo Azure PowerShell](../governance/policy/assign-policy-powershell.md)

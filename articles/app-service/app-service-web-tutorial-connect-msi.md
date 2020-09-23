@@ -5,19 +5,19 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: devx-track-csharp, mvc, cli-validate
-ms.openlocfilehash: 882188c638c77fa0055f1c2d2e664d97a4fe9359
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 19e1d71cd766a99a32e90e2f83dc717ba56b795f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962269"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984042"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Utilizar uma identidade gerida para proteger a ligação da Base de Dados SQL do Azure a partir do Serviço de Aplicações
 
 O [Serviço de Aplicações](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática no Azure. Também oferece uma [identidade gerida](overview-managed-identity.md) para a sua aplicação, que é uma solução chave na mão para proteger o acesso à [Base de Dados SQL do Azure](/azure/sql-database/) e a outros serviços do Azure. As identidades geridas no Serviço de Aplicações retiram a necessidade de ter segredos nas suas aplicações, como credenciais nas cadeias de ligação, o que as torna mais seguras. Neste tutorial, irá adicionar identidade gerida à aplicação web de amostra que construiu num dos seguintes tutoriais: 
 
-- [Tutorial: Criar uma aplicação ASP.NET no Azure com a Base de Dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md)
-- [Tutorial: Construir uma aplicação de base de dados core e SQL de ASP.NET no Azure App Service](tutorial-dotnetcore-sqldb-app.md)
+- [Tutorial: Construir uma app ASP.NET em Azure com Base de Dados Azure SQL](app-service-web-tutorial-dotnet-sqldatabase.md)
+- [Tutorial: Construir uma aplicação ASP.NET de base de dados core e Azure SQL em Azure App Service](tutorial-dotnetcore-sqldb-app.md)
 
 Quando tiver terminado, a aplicação de exemplo irá ligar-se à Base de Dados SQL em segurança sem ser preciso o nome de utilizador e a palavras-passe.
 

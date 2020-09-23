@@ -7,15 +7,106 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: f9f03c355e1e619d004c8ec8c1cc2f91932db744
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: 96a97b9b141d434f201da4c7e36f6715186a652e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89046838"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903098"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Quickstart: Monitorização de aplicativos Azure Spring Cloud com registos, métricas e rastreio
 
+::: zone pivot="programming-language-csharp"
+Com a capacidade de monitorização incorporada em Azure Spring Cloud, você pode depurar e monitorizar problemas complexos. A Azure Spring Cloud integra [o rastreio distribuído](https://steeltoe.io/docs/3/tracing/distributed-tracing) de Steeltoe com os Insights de [Aplicação](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)da Azure. Esta integração fornece registos, métricas e capacidade de rastreio distribuídos a partir do portal Azure.
+
+Os seguintes procedimentos explicam como utilizar o Log Streaming, Log Analytics, Metrics e Distributed Tracing com a aplicação de amostra que implementou nos quickstarts anteriores.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* Complete os arranques rápidos anteriores desta série:
+
+  * [Serviço Azure Spring Cloud](spring-cloud-quickstart-provision-service-instance.md).
+  * [Configurar o servidor de configuração Azure Spring Cloud](spring-cloud-quickstart-setup-config-server.md).
+  * [Construa e implemente aplicativos.](spring-cloud-quickstart-deploy-apps.md)
+
+## <a name="logs"></a>Registos
+
+Existem duas formas de ver registos na Nuvem de primavera do Azure: **Registar streaming** de registos em tempo real por instância de aplicação ou **Log Analytics** para registos agregados com capacidade de consulta avançada.
+
+### <a name="log-streaming"></a>Streaming de registos
+
+Pode utilizar o streaming de registo no CLI Azure com o seguinte comando.
+
+```azurecli
+az spring-cloud app logs -n solar-system-weather -f
+```
+
+Verá uma saída semelhante ao seguinte exemplo:
+
+```output
+=> ConnectionId:0HM2HOMHT82UK => RequestPath:/weatherforecast RequestId:0HM2HOMHT82UK:00000003, SpanId:|e8c1682e-46518cc0202c5fd9., TraceId:e8c1682e-46518cc0202c5fd9, ParentId: => Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.Controllers.WeatherForecastController.Get (Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather)
+Executing action method Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.Controllers.WeatherForecastController.Get (Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather) - Validation state: Valid
+←[40m←[32minfo←[39m←[22m←[49m: Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.Controllers.WeatherForecastController[0]
+
+=> ConnectionId:0HM2HOMHT82UK => RequestPath:/weatherforecast RequestId:0HM2HOMHT82UK:00000003, SpanId:|e8c1682e-46518cc0202c5fd9., TraceId:e8c1682e-46518cc0202c5fd9, ParentId: => Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.Controllers.WeatherForecastController.Get (Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather)
+Retrieved weather data from 4 planets
+←[40m←[32minfo←[39m←[22m←[49m: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+
+=> ConnectionId:0HM2HOMHT82UK => RequestPath:/weatherforecast RequestId:0HM2HOMHT82UK:00000003, SpanId:|e8c1682e-46518cc0202c5fd9., TraceId:e8c1682e-46518cc0202c5fd9, ParentId: => Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather.Controllers.WeatherForecastController.Get (Microsoft.Azure.SpringCloud.Sample.SolarSystemWeather)
+Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyValuePair`2[[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]][]'.
+←[40m←[32minfo←[39m←[22m←[49m: Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker[2]
+```
+
+> [!TIP]
+> Use `az spring-cloud app logs -h` para explorar mais parâmetros e funcionalidade de fluxo de log.
+
+### <a name="log-analytics"></a>Log Analytics
+
+1. Vá ao **serviço! Página geral** e selecione **Registos** na secção **De Monitorização.** Selecione **Executar** numa das consultas de amostra para Azure Spring Cloud.
+
+   [![Entrada de Logs Analytics ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png)](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
+    
+1. Edite a consulta para remover as cláusulas Onde que limitam o visor a registos de aviso e erro.
+
+1. Em `Run` seguida, selecione , e verá registos. Consulte [os docs Azure Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries) para obter mais orientações sobre consultas de escrita.
+
+   [![Logs Analítica consulta - Steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/logs-query-steeltoe.png#lightbox)
+
+## <a name="metrics"></a>Métricas
+
+1. No portal Azure, vá ao **serviço! Página geral** e selecione **Métricas** na secção **de Monitorização.** Adicione a sua primeira métrica selecionando `system.cpu.usage` para **Metric** e `Avg` para **Agregação** para ver a linha do tempo para uma utilização geral do CPU.
+
+   [![Entrada métrica - Steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png#lightbox)
+    
+1. Clique em **Adicionar filtro** na barra de ferramentas, selecione para ver `App=solar-system-weather` a utilização do CPU apenas para a aplicação **de clima do sistema solar.**
+
+   [![Use filtro em métricas - Steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-filter-steeltoe.png#lightbox)
+
+1. Desprezem o filtro criado no passo anterior, selecione **Apply Splitting**e selecione `App` para **Valores** para ver a utilização do CPU por diferentes aplicações.
+
+   [![Aplicar divisão em métricas - Steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-split-steeltoe.png#lightbox)
+
+## <a name="distributed-tracing"></a>Rastreio distribuído
+
+1. No portal Azure, vá ao **serviço! Página de visão geral** e selecione **Rastreio distribuído** na secção **De Monitorização.** Em seguida, selecione o separador mapa de **aplicação 'Ver'** à direita.
+
+   [![Entrada de rastreio distribuída - Steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png)](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-entry.png#lightbox)
+
+1. Agora pode ver o estado das chamadas entre apps. 
+
+   [![Visão geral de rastreio distribuído - Steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-overview-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-overview-steeltoe.png#lightbox)
+    
+1. Selecione a ligação entre o **sistema solar-clima** e **o fornecedor de clima planetário** para ver mais detalhes como chamadas mais lentas por métodos HTTP.
+
+   [![Rastreio distribuído - Steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-call-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-call-steeltoe.png#lightbox)
+    
+1. Por fim, **selecione Investigate Performance** para explorar uma análise de desempenho mais poderosa.
+
+   [![Desempenho de rastreio distribuído - Steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance-steeltoe.png#lightbox)
+::: zone-end
+
+::: zone pivot="programming-language-java"
 Com a capacidade de monitorização incorporada em Azure Spring Cloud, você pode depurar e monitorizar problemas complexos. A Azure Spring Cloud integra [a Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) com os Insights de [Aplicação](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)da Azure. Esta integração fornece registos, métricas e capacidade de rastreio distribuídos a partir do portal Azure. Os seguintes procedimentos explicam como usar o log streaming, log analytics, métricas e rastreio distribuído com aplicações PiggyMetrics implementadas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -110,15 +201,17 @@ Para obter os registos usando O Kit de Ferramentas Azure para IntelliJ:
 
    [![Desempenho de ](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance.png) rastreio distribuído](media/spring-cloud-quickstart-logs-metrics-tracing/tracing-performance.png#lightbox)
 
+::: zone-end
+
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Nos passos anteriores, criou os recursos do Azure num grupo de recursos. Se não espera precisar destes recursos no futuro, elimine o grupo de recursos do portal ou executando o seguinte comando na Cloud Shell:
+Nestes quickstarts, criou recursos Azure que continuarão a acumular encargos se permanecerem na sua subscrição. Se não espera precisar destes recursos no futuro, elimine o grupo de recursos utilizando o portal ou executando o seguinte comando na Cloud Shell:
 
 ```azurecli
-az group delete --name <your resource group name; for example: hellospring-1558400876966-rg> --yes
+az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
 ```
 
-Nos passos anteriores, também definiu o nome do grupo de recursos predefinido. Para limpar o padrão, executar o seguinte comando na Cloud Shell:
+Num início rápido anterior, também definiu o nome do grupo de recursos predefinido. Se não pretender continuar até ao próximo arranque rápido, limpe o padrão executando o seguinte comando CLI:
 
 ```azurecli
 az configure --defaults group=
@@ -126,9 +219,11 @@ az configure --defaults group=
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para explorar mais sobre a capacidade de monitorização fora da caixa para Azure Spring Cloud, consulte:
+Para explorar mais capacidades de monitorização da Azure Spring Cloud, consulte:
 
 > [!div class="nextstepaction"]
-> Serviços de [diagnóstico](diagnostic-services.md) 
->  [Rastreio](spring-cloud-tutorial-distributed-tracing.md) 
->  distribuído [Registos de fluxo em tempo real](spring-cloud-howto-log-streaming.md)
+> [Serviços de diagnóstico](diagnostic-services.md)
+>
+> [Rastreio distribuído](spring-cloud-tutorial-distributed-tracing.md)
+>
+> [Registos de fluxo em tempo real](spring-cloud-howto-log-streaming.md)

@@ -6,14 +6,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 08/07/2020
+ms.date: 09/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: 088d1e409f14fdba02311d1ff17eb655f6e41ad3
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 64056ef2f63331686553c52040af9e10ee0ac468
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053461"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982989"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Conector Azure IoT para guia de resolução de problemas FHIR (pré-visualização)
 
@@ -25,6 +25,34 @@ Pode utilizar as cópias JSON de mapeamento de conversão para edição e arquiv
 
 > [!TIP]
 > Se vai abrir um bilhete [de Suporte Técnico Azure](https://azure.microsoft.com/support/create-ticket/) para o Conector Azure IoT para FHIR, certifique-se de incluir cópias do seu mapeamento de conversão JSON para ajudar no processo de resolução de problemas.
+
+## <a name="device-and-fhir-conversion-mapping-json-template-validations-for-azure-iot-connector-for-fhir-preview"></a>Validações do modelo JSON de Mapeamento de Dispositivo e FHIR para Conector Azure IoT para FHIR (pré-visualização)
+Nesta secção, você vai aprender sobre o processo de validação que O Conector Azure IoT para FHIR executa para validar os modelos de mapeamento de JSON de conversão de dispositivo e FHIR antes de permitir que sejam guardados para uso.  Estes elementos são necessários no Mapeamento de Conversão de Dispositivo e FHIR JSON.
+
+**Mapeamento de dispositivos**
+
+|Elemento|Necessário|
+|:-------|:------|
+|Nome tipo|Verdadeiro|
+|TipoMatchExpression|Verdadeiro|
+|DeviceIdExpression|Verdadeiro|
+|TempotampExpressão|Verdadeiro|
+|Valores[]. ValorName|Verdadeiro|
+|Valores[]. ValueExpression|Verdadeiro|
+
+> [!NOTE]
+> Valores[]. ValorName e Valores[]. ValueExpression
+>
+> Estes elementos só são necessários se tiver uma entrada de valor na matriz - é válido não ter valores mapeados. Isto é usado quando a telemetria que está a ser enviada é um evento. Por exemplo: Quando um dispositivo IoMT wearable é colocado ou removido. Os elementos(s) não têm quaisquer valores exceto um nome que Azure IoT Connector para partidas fHIR e emite. Na conversão FHIR, o Conector Azure IoT para FHIR mapeia-o para um conceito codificante baseado no tipo semântico - não são povoados valores reais.
+
+**Mapeamento FHIR**
+
+|Elemento|Necessário|
+|:------|:-------|
+|Nome tipo|Verdadeiro|
+
+> [!NOTE]
+> Este é o único elemento de mapeamento FHIR necessário validado neste momento.
 
 ## <a name="error-messages-and-fixes-for-azure-iot-connector-for-fhir-preview"></a>Mensagens de erro e correções para O Conector Azure IoT para FHIR (pré-visualização)
 
@@ -42,8 +70,8 @@ Pode utilizar as cópias JSON de mapeamento de conversão para edição e arquiv
 
 ##  <a name="why-is-my-azure-iot-connector-for-fhir-preview-data-not-showing-up-in-azure-api-for-fhir"></a>Porque é que o meu Conector Azure IoT para os dados FHIR (pré-visualização) não aparece na Azure API para o FHIR?
 
-|Questões potenciais  |Correções            |
-|------------------|-----------------|
+|Questões potenciais|Correções|
+|----------------|-----|
 |Os dados ainda estão a ser tratados.|Os dados são divulgados à Azure API para FHIR em lotes (a cada ~15 minutos).  É possível que os dados ainda estejam a ser tratados e seja necessário um tempo adicional para que os dados sejam persistidos na API Azure para fHIR.|
 |O mapeamento da conversão do dispositivo JSON não foi configurado.|Configure e guarde o mapeamento de conversão do dispositivo em conformidade JSON.|
 |O mapeamento de conversão FHIR JSON não foi configurado.|Configure e guarde o mapeamento de conversão FHIR em conformidade com o JSON.|
@@ -67,22 +95,22 @@ As cópias do ficheiro de mapeamento devem ser fornecidas ao Suporte Técnico do
 
 1. Selecione **"IoT Connector (pré-visualização)"** no lado inferior esquerdo da AZure API para o painel de recursos FHIR na secção **"Add-ins".**
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="Conector IoT" lightbox="media/iot-troubleshoot/map-files-main-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-main-with-box.png" alt-text="Conector IoT1" lightbox="media/iot-troubleshoot/map-files-main-with-box.png":::
 
 2. Selecione o **"Conector"** do qual estará a copiar o mapeamento de conversão JSON.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="Conector IoT" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="Conector IoT2" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
 > [!NOTE]
 > Este processo também pode ser utilizado para copiar e guardar o conteúdo do **"Configure FHIR mapping"** JSON.
 
 3. Selecione **"Configure o mapeamento do dispositivo".**
 
-    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="Conector IoT" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
+    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="Conector IoT3" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
 4. Selecione o conteúdo do JSON e faça uma operação de cópia (por exemplo: Selecione Ctrl + c). 
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="Conector IoT" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="Conector IoT4" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
 5. Faça uma operação de pasta (por exemplo: Selecione Ctrl + v) num novo ficheiro dentro de um editor (por exemplo: Visual Studio Code, Notepad) e guarde o ficheiro com uma extensão *.json.
 

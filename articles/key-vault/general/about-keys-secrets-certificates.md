@@ -1,5 +1,5 @@
 ---
-title: Sobre chaves, segredos e certificados do Azure Key Vault - Azure Key Vault
+title: Visão geral do Azure Key Vault REST API
 description: Visão geral da interface Azure Key Vault REST e detalhes do desenvolvedor para chaves, segredos e certificados.
 services: key-vault
 author: msmbaldwin
@@ -9,23 +9,49 @@ ms.service: key-vault
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: cb8a29c5d2eff46eecb2cf977bfb492f28731e68
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b2d3753cd31b54c500b2757520f2634eb1b2794a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043631"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983271"
 ---
-# <a name="about-keys-secrets-and-certificates"></a>Acerca de chaves, segredos e certificados
+# <a name="azure-key-vault-rest-api-overview"></a>Visão geral do Azure Key Vault REST API
 
-O Azure Key Vault permite que as aplicações e utilizadores do Microsoft Azure armazenem e utilizem vários tipos de dados secretos/chave:
+O Azure Key Vault permite que as aplicações e utilizadores do Microsoft Azure armazenem e utilizem vários tipos de dados secretos/chave. O fornecedor de recursos Key Vault suporta dois tipos de recursos: cofres e HSMs geridos.
 
-- Chaves criptográficas: Suporta vários tipos de chaves e algoritmos e permite a utilização de Módulos de Segurança de Hardware (HSM) para teclas de alto valor. Para mais informações, consulte [sobre as teclas.](../keys/about-keys.md)
-- Segredos: Fornece armazenamento seguro de segredos, tais como palavras-passe e cadeias de conexão de base de dados. Para mais informações, consulte [Sobre os segredos.](../secrets/about-secrets.md)
-- Certificados: Suporta certificados, que são construídos em cima de chaves e segredos e adicionam uma funcionalidade de renovação automatizada. Para mais informações, consulte [sobre os certificados.](../certificates/about-certificates.md)
-- Armazenamento Azure: Pode gerir as chaves de uma conta de Armazenamento Azure para si. Internamente, o Key Vault pode listar as teclas (sincronização) com uma Conta de Armazenamento Azure e regenerar (rodar) as teclas periodicamente. Para obter mais informações, consulte [Gerir as chaves da conta de armazenamento com o Key Vault](../secrets/overview-storage-keys.md).
+## <a name="dns-suffixes-for-base-url"></a>Sufixos dns para URL base
+ A tabela abaixo mostra o sufixo de URL DE BASE DNS usado pelo ponto final do plano de dados para abóbadas e piscinas HSM geridas em vários ambientes de nuvem.
 
-Para obter informações mais gerais sobre o Key Vault, consulte [About Azure Key Vault](overview.md).
+Ambiente em nuvem | Sufixo DNS para cofres | Sufixo dns para HSMs geridos
+---|---|---
+Nuvem de Azure | .vault.azure.net | .managedhsm.azure.net
+Nuvem de Azure China | .vault.azure.cn | Não suportado
+Azure US Government | .vault.usgovcloudapi.net | Não suportado
+Nuvem Alemã Azure | .vault.microsoftazure.de | Não suportado
+|||
+
+
+## <a name="object-types"></a>Tipos de objetos
+ A tabela abaixo mostra os tipos de objetos e os seus sufixos no URL base.
+
+Tipo de Objeto|Sufixo URL|Cofres|Piscinas HSM geridas
+--|--|--|--
+**Chaves criptográficas**||
+Chaves protegidas por HSM|/chaves|Suportado|Suportado
+Chaves protegidas por software|/chaves|Suportado|Não suportado
+**Outros tipos de objetos**||
+Segredos|/segredos|Suportado|Não suportado
+Certificados|/certificados|Suportado|Não suportado
+Chaves de contas de armazenamento|/contagem de armazenamento|Suportado|Não suportado
+|||
+- **Teclas criptográficas**: Suporta vários tipos de chaves e algoritmos e permite a utilização de chaves protegidas por software e protegidas por HSM. Para mais informações, consulte [sobre as teclas.](../keys/about-keys.md)
+- **Segredos**: Fornece armazenamento seguro de segredos, tais como palavras-passe e cadeias de conexão de base de dados. Para mais informações, consulte [Sobre os segredos.](../secrets/about-secrets.md)
+- **Certificados**: Suporta certificados, que são construídos em cima de chaves e segredos e adicionam uma funcionalidade de renovação automatizada. Para mais informações, consulte [sobre os certificados.](../certificates/about-certificates.md)
+- **Chaves da conta Azure Storage**: Pode gerir as chaves de uma conta de armazenamento Azure para si. Internamente, o Key Vault pode listar as teclas (sincronização) com uma Conta de Armazenamento Azure e regenerar (rodar) as teclas periodicamente. Para obter mais informações, consulte [Gerir as chaves da conta de armazenamento com o Key Vault](../secrets/overview-storage-keys.md).
+
+Para obter informações mais gerais sobre o Key Vault, consulte [About Azure Key Vault](overview.md). Para obter mais informações sobre piscinas geridas de HSM, veja o que é [Azure Key Vault Managed HSM?](../managed-hsm/overview.md)
+
 
 ## <a name="data-types"></a>Tipos de dados
 
@@ -52,15 +78,20 @@ Os objetos são identificados exclusivamente dentro do Key Vault usando um URL. 
 
 Para mais informações, consulte [Autenticação, pedidos e respostas](authentication-requests-and-responses.md)
 
-Um identificador de objetos tem o seguinte formato geral:  
+Um identificador de objetos tem o seguinte formato geral (dependendo do tipo de recipiente):  
 
-`https://{keyvault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
+- **Para cofres:**`https://{vault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
+
+- **Para piscinas geridas de HSM:**`https://{hsm-name}.managedhsm.azure.net/{object-type}/{object-name}/{object-version}`  
+
+> [!NOTE]
+> Consulte [o suporte do tipo de objeto](#object-types) para tipos de objetos suportados por cada tipo de recipiente.
 
 Em que:  
 
 | Elemento | Descrição |  
 |-|-|  
-|`keyvault-name`|O nome de um cofre chave no serviço Microsoft Azure Key Vault.<br /><br /> Os nomes key Vault são selecionados pelo utilizador e são globalmente únicos.<br /><br /> O nome do Cofre da Chave deve ser uma corda de caracteres 3-24, contendo apenas 0-9, a-z, A-Z, e ..|  
+|`vault-name` ou `hsm-name`|O nome de um cofre ou de uma piscina HSM gerida no serviço Microsoft Azure Key Vault.<br /><br />Os nomes do cofre e os nomes de piscinas geridos do HSM são selecionados pelo utilizador e são globalmente únicos.<br /><br />O nome do cofre e o nome da piscina gerida HSM devem ser uma corda de caracteres 3-24, contendo apenas 0-9, a-z, A-Z, e -.|  
 |`object-type`|O tipo de objeto, "chaves", "segredos" ou "certificados".|  
 |`object-name`|Um `object-name` é um nome fornecido pelo utilizador e deve ser único dentro de um Cofre chave. O nome deve ser uma corda de caracteres 1-127, começando com uma letra e contendo apenas 0-9, a-z, A-Z, e -.|  
 |`object-version`|Um `object-version` é um identificador de cadeia de 32 caracteres gerado pelo sistema que é opcionalmente usado para abordar uma versão única de um objeto.|  

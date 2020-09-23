@@ -4,28 +4,40 @@ description: Este quickstart mostra-lhe como criar e gerir a sua base de conheci
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
-zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 60ba7d18e9da791373914fef7962e32396a489f0
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+zone_pivot_groups: programming-languages-set-sixteen
+ms.openlocfilehash: 1517b84b38aaf1878b63d85c3e2f867bcd8e6586
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934179"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982738"
 ---
 # <a name="quickstart-qna-maker-client-library"></a>Quickstart: Biblioteca de clientes QnA Maker
 
 Começa com a biblioteca de clientes da QnA Maker. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas.
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Get intent with C# and REST](../includes/quickstart-sdk-csharp.md)]
+[!INCLUDE [QnA Maker C# client library quickstart](../includes/quickstart-sdk-csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
-[!INCLUDE [Get intent with Node.js and REST](../includes/quickstart-sdk-nodejs.md)]
+[!INCLUDE [QnA Maker Javascript client library quickstart](../includes/quickstart-sdk-nodejs.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Get intent with Python and REST](../includes/quickstart-sdk-python.md)]
+[!INCLUDE [QnA Maker Python client library quickstart](../includes/quickstart-sdk-python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-java"
+[!INCLUDE [QnA Maker Java client library quickstart](../includes/quickstart-sdk-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-go"
+[!INCLUDE [QnA Maker Go client library quickstart](../includes/quickstart-sdk-go.md)]
+::: zone-end
+
+::: zone pivot="programming-language-ruby"
+[!INCLUDE [QnA Maker Ruby client library quickstart](../includes/quickstart-sdk-ruby.md)]
 ::: zone-end
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

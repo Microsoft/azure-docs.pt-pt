@@ -1,6 +1,6 @@
 ---
-title: Ativar o Arco Azure em Kubernetes no dispositivo GPU Azure Stack Edge Microsoft Docs
-description: Descreve como ativar o Azure Arc num cluster Kubernetes existente no seu dispositivo GPU Azure Stack Edge.
+title: Ativar o Arco Azure em Kubernetes no dispositivo GPU Azure Stack Edge Pro/ Microsoft Docs
+description: Descreve como ativar o Azure Arc num cluster Kubernetes existente no seu dispositivo GPU Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,27 +8,27 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 3405f28d5f306e8370bae72eb5f3f3c406235c3d
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 423345739ca5c078fbff4f267e1e8a118abf107c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322029"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903194"
 ---
-# <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-gpu-device"></a>Ativar o Azure Arc no cluster Kubernetes no seu dispositivo GPU Azure Stack Edge
+# <a name="enable-azure-arc-on-kubernetes-cluster-on-your-azure-stack-edge-pro-gpu-device"></a>Ativar o Azure Arc no cluster Kubernetes no seu dispositivo GPU Azure Stack Edge Pro
 
-Este artigo mostra-lhe como ativar o Azure Arc num cluster Kubernetes existente no seu dispositivo Azure Stack Edge. 
+Este artigo mostra-lhe como ativar o Azure Arc num cluster Kubernetes existente no seu dispositivo Azure Stack Edge Pro. 
 
-Este procedimento destina-se a quem tenha revisto as [cargas de trabalho de Kubernetes no dispositivo Azure Stack Edge](azure-stack-edge-gpu-kubernetes-workload-management.md) e esteja familiarizado com os conceitos de [What is Azure Arc enabled Kubernetes (Preview)?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)
+Este procedimento destina-se a quem tenha revisto as [cargas de trabalho de Kubernetes no dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-kubernetes-workload-management.md) e esteja familiarizado com os conceitos de [What is Azure Arc enabled Kubernetes (Preview)?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview)
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de poder ativar o Azure Arc no cluster Kubernetes, certifique-se de que completou os seguintes pré-requisitos no seu dispositivo Azure Stack Edge e o cliente que utilizará para aceder ao dispositivo:
+Antes de poder ativar o Azure Arc no cluster Kubernetes, certifique-se de que completou os seguintes pré-requisitos no seu dispositivo Azure Stack Edge Pro e o cliente que utilizará para aceder ao dispositivo:
 
 ### <a name="for-device"></a>Para o dispositivo
 
-1. Tem credenciais de entrada num dispositivo Azure Stack Edge de 1 nó.
+1. Tem credenciais de entrada num dispositivo Azure Stack Edge Pro de 1 nó.
     1. O dispositivo está ativado. Ver [Ativar o dispositivo](azure-stack-edge-gpu-deploy-activate.md).
     1. O dispositivo tem o papel computacional configurado através do portal Azure e tem um cluster Kubernetes. Consulte [o cálculo Configure](azure-stack-edge-gpu-deploy-configure-compute.md).
 
@@ -37,19 +37,19 @@ Antes de poder ativar o Azure Arc no cluster Kubernetes, certifique-se de que co
 
 ### <a name="for-client-accessing-the-device"></a>Para o cliente aceder ao dispositivo
 
-1. Tem um sistema de clientes Windows que será utilizado para aceder ao dispositivo Azure Stack Edge.
+1. Tem um sistema de clientes Windows que será utilizado para aceder ao dispositivo Azure Stack Edge Pro.
   
     - O cliente está a executar o Windows PowerShell 5.0 ou mais tarde. Para descarregar a versão mais recente do Windows PowerShell, aceda à [Instalação do Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - Também pode ter qualquer outro cliente com um [sistema operativo suportado.](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) Este artigo descreve o procedimento quando se utiliza um cliente Windows. 
     
-1. Completou o procedimento descrito no [Access the Kubernetes cluster no dispositivo Azure Stack Edge](azure-stack-edge-gpu-create-kubernetes-cluster.md). Tu:
+1. Completou o procedimento descrito no [Access the Kubernetes cluster no dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md). Tu:
     
     - Instalado `kubectl` no cliente  <!--and saved the `kubeconfig` file with the user configuration to C:\\Users\\&lt;username&gt;\\.kube. -->
     
-    - Certifique-se de que a `kubectl` versão do cliente não é distorcida mais do que uma versão da versão master kubernetes em execução no seu dispositivo Azure Stack Edge. 
+    - Certifique-se de que a `kubectl` versão do cliente não é distorcida mais do que uma versão da versão master kubernetes em execução no seu dispositivo Azure Stack Edge Pro. 
       - Utilize `kubectl version` para verificar a versão do kubectl em execução no cliente. Tome nota da versão completa.
-      - Na UI local do seu dispositivo Azure Stack Edge, aceda à **atualização de Software** e note o número da versão do servidor Kubernetes. 
+      - Na UI local do seu dispositivo Azure Stack Edge Pro, aceda à **atualização de Software** e note o número da versão do servidor Kubernetes. 
     
         ![Verifique o número da versão do servidor Kubernetes](media/azure-stack-edge-gpu-connect-powershell-interface/verify-kubernetes-version-1.png)      
       
@@ -142,7 +142,7 @@ Siga estes passos para configurar o cluster Kubernetes para a gestão do Arco Az
 
     `Set-HcsKubernetesAzureArcAgent -SubscriptionId "<Your Azure Subscription Id>" -ResourceGroupName "<Resource Group Name>" -ResourceName "<Azure Arc resource name (shouldn't exist already)>" -Location "<Region associated with resource group>" -TenantId "<Tenant Id of service principal>" -ClientId "<App id of service principal>" -ClientSecret "<Password of service principal>"`
 
-    Para implantar o Arco Azure no dispositivo Azure Stack Edge, certifique-se de que está a utilizar uma [região suportada para o Arco Azure](../azure-arc/kubernetes/overview.md#supported-regions). Azure Arc está atualmente em pré-visualização. Também pode descobrir o nome exato da região para passar no cmdlet usando o `az account list-locations` comando.
+    Para implantar o Arco Azure no dispositivo Azure Stack Edge Pro, certifique-se de que está a utilizar uma [região suportada para o Arco Azure](../azure-arc/kubernetes/overview.md#supported-regions). Azure Arc está atualmente em pré-visualização. Também pode descobrir o nome exato da região para passar no cmdlet usando o `az account list-locations` comando.
     
     Segue-se um exemplo:
    
@@ -222,6 +222,6 @@ Para remover a gestão do Arco Azure, siga estes passos:
     `Remove-HcsKubernetesAzureArcAgent` 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Para entender como executar uma implementação do Arco Azure, consulte [implementar uma aplicação apátrida php guestbook com Redis via GitOps num dispositivo Azure Stack Edge](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md)
+Para entender como executar uma implementação do Arco Azure, consulte [implementar uma aplicação apátrida php guestbook com Redis via GitOps num dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md)

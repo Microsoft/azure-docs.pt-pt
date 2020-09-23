@@ -4,20 +4,18 @@ ms.author: memildin
 manager: rkarlin
 ms.date: 06/30/2020
 ms.topic: include
-ms.openlocfilehash: ba695337a1da1e440895f6b9f6fe2eb34f5041e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1b650fa5a0e9ba2f7019e6e67690d9d1fd65e72a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800614"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894902"
 ---
 O Security Center fornece proteção contra ameaças em tempo real para os seus ambientes contentorizados e gera alertas para atividades suspeitas. Pode utilizar estas informações para remediar rapidamente problemas de segurança e aumentar a segurança dos contentores.
 
 O Centro de Segurança fornece proteção contra ameaças a diferentes níveis: 
 
-* **Nível de anfitrião** - O agente Log Analytics monitoriza o Linux para atividades suspeitas. O agente aciona alertas para atividades suspeitas originárias do nó ou de um contentor que nele corre. Exemplos de tais atividades incluem deteção de conchas web e conexão com endereços IP suspeitos conhecidos.
-
-    Para uma visão mais profunda da segurança do seu ambiente contentorizado, o agente monitoriza análises específicas do contentor. Irá desencadear alertas para eventos como a criação de contentores privilegiados, acesso suspeito aos servidores da API e servidores Secure Shell (SSH) que estão dentro de um contentor do Docker.
+* **Nível de anfitrião (fornecido pelo Azure Defender para servidores)** - Utilizando o mesmo agente Log Analytics que o Security Center utiliza em outros VMs, o Azure Defender monitoriza os seus nós Linux AKS para atividades suspeitas, tais como deteção de conchas web e ligação com endereços IP suspeitos conhecidos. O agente também monitoriza análises específicas de contentores, tais como criação privilegiada de contentores, acesso suspeito a servidores API e servidores Secure Shell (SSH) que estão dentro de um contentor Docker.
 
     >[!IMPORTANT]
     > Se optar por não instalar os agentes nos seus anfitriões, receberá apenas um subconjunto dos benefícios de proteção contra ameaças e alertas de segurança. Ainda receberá alertas relacionados com análises de rede e comunicações com servidores maliciosos.
@@ -25,7 +23,7 @@ O Centro de Segurança fornece proteção contra ameaças a diferentes níveis:
     Para obter uma lista dos alertas de nível de anfitrião AKS, consulte a [tabela de alertas de referência](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost).
 
 
-* Ao **nível do cluster AKS,** a proteção contra ameaças baseia-se na análise dos registos de auditoria da Kubernetes. Para ativar esta monitorização **sem agente,** adicione a opção Kubernetes à sua subscrição a partir da página **de definições & de preços** (ver [preços).](https://docs.microsoft.com/azure/security-center/security-center-pricing) Para gerar alertas a este nível, o Security Center monitoriza os seus serviços geridos pela AKS utilizando os registos recuperados pela AKS. Exemplos de eventos a este nível incluem dashboards kubernetes expostos, criação de papéis privilegiados elevados, e a criação de suportes sensíveis.
+* **Nível de cluster AKS (fornecido pelo Azure Defender for Kubernetes)** - Ao nível do cluster, a proteção contra ameaças baseia-se na análise dos registos de auditoria da Kubernetes. Para ativar esta monitorização **sem agente,** ative o Azure Defender. Para gerar alertas a este nível, o Security Center monitoriza os seus serviços geridos pela AKS utilizando os registos recuperados pela AKS. Exemplos de eventos a este nível incluem dashboards kubernetes expostos, criação de papéis privilegiados elevados, e a criação de suportes sensíveis.
 
     >[!NOTE]
     > O Security Center gera alertas de segurança para as ações e implementações do Serviço Azure Kubernetes que ocorrem após a opção Kubernetes estar ativada nas definições de subscrição. 

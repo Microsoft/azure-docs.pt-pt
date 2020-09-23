@@ -9,16 +9,16 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e7cfc707aa4bccdcd72e45efa3693ebd8f88a211
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 9b320c765b258473acd6fa553831b4f075cca9ba
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189920"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983251"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Funcionalidades de dados do cliente do Azure Key Vault
 
-O Azure Key Vault recebe dados do cliente durante a criação ou atualização de cofres, chaves, segredos, certificados e contas de armazenamento geridas. Estes dados do Cliente são diretamente visíveis no portal Azure e através da API REST. Os dados do cliente podem ser editados ou eliminados atualizando ou eliminando o objeto que contém os dados.
+O Azure Key Vault recebe dados do cliente durante a criação ou atualização de cofres, piscinas geridas de HSM, chaves, segredos, certificados e contas de armazenamento geridas. Estes dados do Cliente são diretamente visíveis no portal Azure e através da API REST. Os dados do cliente podem ser editados ou eliminados atualizando ou eliminando o objeto que contém os dados.
 
 Os registos de acesso ao sistema são gerados quando um utilizador ou aplicação acede ao Key Vault. Registos de acesso detalhados estão disponíveis para os clientes que usam a Azure Insights.
 
@@ -52,7 +52,7 @@ Os registos de diagnóstico Azure Key Vault que contenham dados pessoais podem s
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Azure Key Vault Logging](logging.md))
+- [Azure Key Vault Logging](logging.md)
 
 - [Descrição geral da eliminação recuperável do Azure Key Vault](soft-delete-cli.md)
 

@@ -1,5 +1,5 @@
 ---
-title: O que é o estúdio Azure Machine Learning?
+title: O que é o Azure Machine Learning Studio (clássico)?
 description: O estúdio Azure Machine Learning é um portal web para espaços de trabalho de Aprendizagem automática Azure. O estúdio combina experiências sem código e código para criar uma plataforma inclusiva de ciência de dados.
 services: machine-learning
 ms.service: machine-learning
@@ -8,14 +8,14 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 4f6252ffbb880e347a89594cb267fb99d576dc7a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 40a4fbd956b12d469247cb178007d0259cbeac75
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89040459"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902924"
 ---
-# <a name="what-is-azure-machine-learning-studio"></a>O que é o estúdio Azure Machine Learning?
+# <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio (clássico)?
 
 Neste artigo, você aprende sobre o azure machine learning studio, o portal web para desenvolvedores de cientistas de dados em [Azure Machine Learning](overview-what-is-azure-ml.md). O estúdio combina experiências sem código e código para uma plataforma inclusiva de ciência de dados.
 
@@ -34,13 +34,13 @@ O estúdio oferece múltiplas experiências de autoria dependendo do projeto tip
 
   Escreva e execute o seu próprio código em [servidores jupyter notebook geridos](how-to-run-jupyter-notebooks.md) que estão diretamente integrados no estúdio. 
 
-+ **Azure Machine Learning designer (pré-visualização)**
++ **Estruturador do Azure Machine Learning**
 
   Utilize o designer para treinar e implementar modelos de aprendizagem automática sem escrever nenhum código. Arraste e deixe cair conjuntos de dados e módulos para criar oleodutos ML. Experimente o tutorial do [designer.](tutorial-designer-automobile-price-train-score.md)
 
     ![Exemplo de designer de aprendizagem de máquinas Azure](media/concept-designer/designer-drag-and-drop.gif)
 
-+ **UI de aprendizagem automática de máquinas (pré-visualização)**
++ **UI de aprendizagem automática de máquinas**
 
   Aprenda a criar [experiências automatizadas](tutorial-first-experiment-automated-ml.md) de ML com uma interface fácil de usar. 
 
@@ -82,7 +82,7 @@ A tabela seguinte resume as principais diferenças entre ml Studio (clássico) e
 
 | Funcionalidade | Estúdio ML (clássico) | Azure Machine Learning |
 |---| --- | --- |
-| Interface arrastar e largar | Experiência clássica | Experiência atualizada - [Azure Machine Learning designer (pré-visualização)](concept-designer.md) <br/>(Requer espaço de trabalho da Empresa) | 
+| Interface arrastar e largar | Experiência clássica | Experiência atualizada - [Azure Machine Learning designer](concept-designer.md)| 
 | SDKs de código | Não suportado | Totalmente integrado com [Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/) e [R](tutorial-1st-r-experiment.md) SDKs |
 | Experimentação | Escalável (limite de dados de formação de 10 GB) | Escala com alvo de computação |
 | Metas de computação de formação | Alvo de computação proprietária, suporte de CPU apenas | Ampla gama de objetivos de [computação de formação](concept-compute-target.md#train)personalizáveis. Inclui suporte de GPU e CPU | 

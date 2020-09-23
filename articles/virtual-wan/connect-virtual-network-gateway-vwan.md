@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9d94904e580cefb53b2c71d21259bebfc07c1ad6
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6dac922f1a50dd54973f7eefff7011aab3b49994
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431286"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983758"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Ligue um Gateway VPN (gateway de rede virtual) ao VIRTUAL WAN
 
@@ -41,13 +41,13 @@ Crie um gateway de rede virtual **VPN Gateway** em modo ativo para a sua rede vi
 
 Na página **de Configuração** de gateway de rede virtual, ative o modo ative.
 
-![ativa-ativa](./media/connect-virtual-network-gateway-vwan/active.png "ativa-ativa")
+![ativo ativo](./media/connect-virtual-network-gateway-vwan/active.png "ativa-ativa")
 
 ### <a name="bgp-setting"></a><a name="BGP"></a>Definição de BGP
 
 Na página **configuração** do gateway de rede virtual, pode configurar o **BGP ASN**. Mude o BGP ASN. O BGP ASN não pode ser 65515. 66515 será usado pela Azure Virtual WAN.
 
-![BGP](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
+![O Screenshot mostra uma página de configuração de gateway de rede virtual com o Configure BGP ASN selecionado.](./media/connect-virtual-network-gateway-vwan/bgp.png "bgp")
 
 ### <a name="public-ip-addresses"></a><a name="pip"></a>Endereços IP públicos
 
@@ -138,7 +138,7 @@ Pode testar a conectividade criando duas máquinas virtuais, uma na lateral do g
 4. Clique **em OK** para criar a ligação de rede virtual.
 5. A conectividade está agora definida entre os VMs. Você deve ser capaz de ping um VM do outro, a menos que existam quaisquer firewalls ou outras políticas que bloqueiem a comunicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter medidas para configurar uma política personalizada do IPsec, consulte [configurar uma política personalizada do IPsec para o VIRTUAL WAN](virtual-wan-custom-ipsec-portal.md).
 Para obter mais informações sobre o WAN Virtual, consulte [About Azure Virtual WAN](virtual-wan-about.md) e o [Azure Virtual WAN FAQ](virtual-wan-faq.md).
