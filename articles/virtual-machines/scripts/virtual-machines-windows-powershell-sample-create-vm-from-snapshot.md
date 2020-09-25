@@ -1,6 +1,6 @@
 ---
 title: Criar VM a partir de instantâneo (Windows) - Amostra PowerShell
-description: Amostra de script Azure PowerShell - Crie um VM a partir de um instantâneo
+description: Azure PowerShell Script Sample - Crie um VM a partir de uma imagem com um exemplo windows.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: ramankumarlive
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: ff0a94fd4b36602863281fb91e261f31d5ad0b39
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: be8af12d1154216386737d653b231a81868eb4ed
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89072609"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320120"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-powershell-windows"></a>Criar uma máquina virtual a partir de um instantâneo com PowerShell (Windows)
 

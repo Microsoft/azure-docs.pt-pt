@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/21/2020
-ms.openlocfilehash: 550f3367fe2e5283aff788b36203e988361590ad
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 9/23/2020
+ms.openlocfilehash: 4eb9ffceada245f7a7f4b2631a79330fb497a452
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937119"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331731"
 ---
 # <a name="connectivity-and-networking-concepts-for-azure-database-for-mysql---flexible-server-preview"></a>Conceitos de conectividade e networking para Azure Database for MySQL - Servidor Flexível (Pré-visualização)
 
@@ -62,6 +62,8 @@ Aqui estão alguns conceitos a conhecer ao utilizar redes virtuais com servidore
 
    O seu servidor flexível MySQL deve estar numa sub-rede que é **delegada apenas** para uso de servidor flexível MySQL. Esta delegação significa que apenas os Servidores Flexíveis da Base de Dados do Azure para MySQL podem utilizar essa sub-rede. Nenhum outro tipo de recurso do Azure pode estar na sub-rede delegada. Delega uma sub-rede atribuindo a sua propriedade de delegação como Microsoft.DBforMySQL/flexibleServers.
 
+* **Grupos de segurança de rede (NSG)** As regras de segurança nos grupos de segurança da rede permitem filtrar o tipo de tráfego de rede que pode fluir dentro e fora das sub-redes de rede virtuais e interfaces de rede. Reveja a [visão geral](../../virtual-network/network-security-groups-overview.md) do grupo de segurança da rede para obter mais informações.
+
 
 ### <a name="unsupported-virtual-network-scenarios"></a>Cenários de rede virtual não suportados
 * Ponto final público (ou IP público ou DNS) - Um servidor flexível implantado numa rede virtual não pode ter um ponto final público
@@ -108,11 +110,9 @@ Considere os seguintes pontos quando o acesso à Base de Dados do Microsoft Azur
 ## <a name="hostname"></a>Hostname (Nome do anfitrião)
 Independentemente da opção de networking que escolha, recomendamos que utilize sempre um nome de domínio totalmente qualificado (FQDN) como nome de hospedeiro ao ligar-se ao seu servidor flexível. O endereço IP do servidor não é garantido permanecer estático. A utilização do FQDN irá ajudá-lo a evitar alterações na sua cadeia de ligação. 
 
-Um dos cenários em que o IP muda é se estiver a utilizar HA redundante de zona e uma falha acontecer entre o primário e o secundário. A utilização do FQDN significa que pode voltar a tentar ligações com a mesma cadeia de ligação.
-
 Exemplo
 * Recomendado `hostname = servername.mysql.database.azure.com`
-* Evite utilizar `hostname = 10.0.0.4` (endereço privado) ou `hostname = 40.2.45.67` (IP público)
+* Sempre que possível, evite a utilização `hostname = 10.0.0.4` (de um endereço privado) ou `hostname = 40.2.45.67` (um IP público)
 
 
 

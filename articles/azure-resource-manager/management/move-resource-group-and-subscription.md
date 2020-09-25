@@ -4,12 +4,12 @@ description: Utilize o Azure Resource Manager para mover recursos para um novo g
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 43b5cd8c9fa5947ff8f345bd0cd3ad26d9e61923
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: cd05fe045532ee1b1f1fb88e502d786daabf9365
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603157"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319559"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -34,6 +34,10 @@ Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao
    * [Orientação de movimento em rede](./move-limitations/networking-move-limitations.md)
    * [Orientação de mudança de serviços de recuperação](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Máquinas virtuais movem orientação](./move-limitations/virtual-machines-move-limitations.md)
+
+1. Se mover um recurso que tenha uma função Azure atribuída diretamente ao recurso (ou recurso infantil), a atribuição de funções não é movida e torna-se órfã. Depois da mudança, tens de recriar a tarefa de função. Eventualmente, a atribuição de funções órfãs será automaticamente removida, mas é uma boa prática remover a atribuição de funções antes de mover o recurso.
+
+    Para obter informações sobre como gerir atribuições de funções, consulte [atribuições de funções list Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) e [adicione ou remova atribuições de funções Azure](../../role-based-access-control/role-assignments-portal.md).
 
 1. As assinaturas de origem e destino devem estar ativas. Se tiver problemas em ativar uma conta que tenha sido desativada, [crie um pedido de suporte Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Selecione **Gestão de Subscrição** para o tipo de emissão.
 

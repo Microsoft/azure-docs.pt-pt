@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd16dd5a20a677568c928f805c1aaa5f2c222f24
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: a0fc1bc3158e04c9b1f677af7ef2375ac3ed2ce7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279946"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320052"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Corrigir regras padrão modificadas no Azure AD Connect
 
@@ -73,7 +73,7 @@ Se as extensões não funcionarem para si, tente adicionar duas novas regras de 
 #### <a name="add-an-inbound-sync-rule"></a>Adicione uma regra de sincronização de entrada
 Uma regra de sincronização de entrada significa que a fonte para o atributo é um espaço de conector, e o alvo é o metaverso. Por exemplo, ter um novo fluxo de atributos do Ative Directory para o Azure Ative Directory, crie uma nova regra de sincronização de entrada. Lançar o **Editor de Regras de Sincronização,** selecione **Entrada** como direção e selecione Adicionar **nova regra**. 
 
- ![Editor de Regras de Sincronização](media/how-to-connect-fix-default-rules/default3a.png)
+ ![Screenshot que mostra o "Synchronization Rules Editor" com "Inbound" e "Add new rule" selecionados.](media/how-to-connect-fix-default-rules/default3a.png)
 
 Siga a sua própria convenção de nomeação para nomear a regra. Aqui, utilizamos **o Custom In a partir de AD - Utilizador.** Isto significa que a regra é uma regra personalizada, e é uma regra de entrada do espaço do conector ative para o metaverso.   
 
@@ -176,7 +176,7 @@ Selecione **Pré-visualização...**
 
 Na janela pré-visualização, **selecione Gerar Pré-visualização** e **Import Attribute Flow** no painel esquerdo.
 
-![Pré-visualizar](media/how-to-connect-fix-default-rules/default14.png)
+![Screenshot que mostra a janela "Preview" com "Import Attribute Flow" e "Generate Preview" selecionados.](media/how-to-connect-fix-default-rules/default14.png)
  
 Aqui, note que a regra recém-adicionada é executada no objeto, e definiu o `cloudFiltered` atributo para verdadeiro.
 
@@ -190,7 +190,7 @@ Note que na regra modificada, o `msExchMailboxGuid` atributo é alterado para o 
  
 Para corrigir as suas regras para alterá-las de volta para as definições predefinidas, elimine a regra modificada e ative a regra por defeito. Certifique-se de que não perde a personalização que está a tentar alcançar. Quando estiver pronto, faça **a sincronização completa.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Hardware e pré-requisitos](how-to-connect-install-prerequisites.md) 
 - [Definições expressas](how-to-connect-install-express.md)
 - [Definições personalizadas](how-to-connect-install-custom.md)

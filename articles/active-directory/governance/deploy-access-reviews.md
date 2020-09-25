@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7154bc1f033806d359726cff8ed227f2219559ec
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 51983e52643d587fc497a1a67fcb0cd29dbb7f17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461039"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306570"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Planeamento Azure Ative Directy Access Reviews implementação
 
@@ -37,7 +37,7 @@ ms.locfileid: "89461039"
 
 * Automatizar os resultados da revisão, tais como a eliminação do acesso dos utilizadores aos recursos
 
-  ![Planejando avaliações de acesso](./media/deploy-access-review/1-planning-review.png)
+  ![Diagrama que mostra o fluxo de avaliações de acesso.](./media/deploy-access-review/1-planning-review.png)
 
 Access Reviews é uma capacidade [de governança de identidade Azure AD.](identity-governance-overview.md) As outras capacidades são [Gestão de Direitos,](entitlement-management-overview.md) [Gestão de Identidade Privilegiada](../privileged-identity-management/pim-configure.md) e Termos de [Utilização.](../conditional-access/terms-of-use.md) Juntos, ajudam as organizações a abordar estas quatro questões:
 
@@ -300,7 +300,7 @@ Ao [criar um Pacote de Acesso,](entitlement-management-access-package-create.md)
 
 Abra o separador Ciclo de Vida para deslocar-se para baixo para avaliações de acesso.
 
- ![Editar política](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
+ ![Screenshot que mostra a "política de edição" no separador "Ciclo de Vida".](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
 
 ## <a name="plan-access-reviews-for-groups"></a>Análises de Acesso ao Plano para grupos
 
@@ -419,7 +419,7 @@ Depois de ter preparado uma estratégia e um plano para rever o acesso aos recur
 
 Para reduzir o risco de acesso à estagnação, os administradores podem permitir revisões periódicas de utilizadores que tenham atribuições ativas a um pacote de acesso. Siga as instruções no link abaixo:
 
-| Artigos de procedimentos| Descrição |
+| Artigos de procedimentos| Description |
 | - | - |
 | [Criar comentários de acesso](entitlement-management-access-reviews-create.md)| Ativar comentários sobre pacote de acesso. |
 | [Realizar comentários de acesso](entitlement-management-access-reviews-review-access.md)| Execute comentários de acesso a outros utilizadores que estejam atribuídos a um Pacote de Acesso. |
@@ -433,7 +433,7 @@ Para reduzir o risco de acesso à estagnação, os administradores podem permiti
 
 As necessidades de acesso a grupos e aplicações para funcionários e hóspedes provavelmente mudam ao longo do tempo. Para reduzir o risco associado a atribuições de acessos à porta, os administradores podem criar revisões de acesso para membros do grupo ou acesso a aplicações. Siga as instruções no link abaixo:
 
-| Artigos de procedimentos| Descrição |
+| Artigos de procedimentos| Description |
 | - | - |
 | [Criar comentários de acesso](create-access-review.md)| Crie uma ou mais avaliações de acesso para membros do grupo ou acesso a aplicações. |
 | [Realizar comentários de acesso](perform-access-review.md)| Realize uma revisão de acesso para membros de um grupo ou utilizadores com acesso a uma aplicação. |
@@ -446,11 +446,11 @@ As necessidades de acesso a grupos e aplicações para funcionários e hóspedes
 
 Para reduzir o risco associado a atribuições de papéis antigos, deve rever regularmente o acesso a funções privilegiadas de Azure AD.
 
-![rever papéis de anúncios azure](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
+![Screenshot que mostra a lista de "Membros de Revisão" de papéis de Azure A D.](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
 
 Siga as instruções nos links abaixo:
 
-| Artigos de procedimentos | Descrição |
+| Artigos de procedimentos | Description |
 | - | - |
  [Criar comentários de acesso](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Criar avaliações de acesso para funções privilegiadas da Azure AD em PIM |
 | [Autorreveja o seu acesso](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Se estiver designado para uma função administrativa, aprove ou negue o acesso ao seu papel |
@@ -465,7 +465,7 @@ Para reduzir o risco associado a atribuições de funções velhas, deve rever r
 
 Siga as instruções nos links abaixo:
 
-| Artigos de procedimentos| Descrição |
+| Artigos de procedimentos| Description |
 | - | -|
 | [Criar comentários de acesso](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Criar avaliações de acesso para funções privilegiadas de recursos Azure em PIM |
 | [Autorreveja o seu acesso](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Se estiver designado para uma função administrativa, aprove ou negue o acesso ao seu papel |
@@ -511,7 +511,7 @@ As atividades de Access Reviews são registadas e disponíveis nos [registos de 
 
 Para consultas mais avançadas e análise de Avaliações de Acesso, e para acompanhar as alterações e a conclusão de avaliações, recomendamos que exporte os seus Registos de Auditoria AZure AD para [Azure Log Analytics](../reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) ou Azure Event Hub. Quando armazenado no Azure Log Analytics, pode utilizar a [poderosa linguagem analítica](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md) – e construir os seus próprios dashboards.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Conheça as tecnologias abaixo relacionadas.
 

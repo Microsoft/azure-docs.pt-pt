@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 35a93669bf301b3be1d560a0777751c12f3c9d14
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f18746242ef9f680f44be1fd614c6c769289aadb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001914"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331578"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Utilize o emulador Azurite para o desenvolvimento local do armazenamento Azure
 
@@ -555,6 +555,12 @@ O Azurite está alinhado com a lógica de manuseamento de erros do Azure Storage
 A azurite suporta a replicação geo-redundante de acesso à leitura (RA-GRS). Para obter recursos de armazenamento, aceda à localização secundária através `-secondary` da anexação do nome da conta. Por exemplo, o seguinte endereço pode ser usado para aceder a uma bolha utilizando o secundário apenas de leitura em Azurite:
 
 `http://127.0.0.1:10000/devstoreaccount1-secondary/mycontainer/myblob.txt`
+
+### <a name="table-support"></a>Suporte de mesa
+
+O apoio às mesas em Azurite está atualmente em desenvolvimento e aberto à contribuição! Para obter os últimos progressos, consulte o projeto [da Tabela Azurite V3.](https://github.com/Azure/Azurite/wiki/Azurite-V3-Table)
+
+O suporte para funções duráveis requer tabelas.
 
 ## <a name="azurite-is-open-source"></a>Azurite é de código aberto
 

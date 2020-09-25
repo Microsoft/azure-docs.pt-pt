@@ -2,13 +2,13 @@
 title: Mobilizar recursos para a subscrição
 description: Descreve como criar um grupo de recursos num modelo de Gestor de Recursos Azure. Também mostra como implantar recursos no âmbito de subscrição do Azure.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 3889f5a06f138114dfe4511d0957558d6d803c8e
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.date: 09/24/2020
+ms.openlocfilehash: cd1d0a05fc1039d8e99b0af6fc8019face4516bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605180"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284793"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos de recursos e recursos ao nível de subscrição
 
@@ -62,7 +62,7 @@ Outros tipos suportados incluem:
 * [eventoSubscrições](/azure/templates/microsoft.eventgrid/eventsubscriptions)
 * [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
 
-### <a name="schema"></a>Esquema
+## <a name="schema"></a>Esquema
 
 O esquema que utiliza para implementações de nível de subscrição é diferente do esquema para implementações de grupos de recursos.
 
@@ -77,6 +77,20 @@ O esquema para um ficheiro de parâmetro é o mesmo para todos os âmbitos de im
 ```json
 https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
+
+## <a name="deployment-scopes"></a>Âmbitos de implantação
+
+Ao implementar uma subscrição, pode direcionar uma subscrição e quaisquer grupos de recursos dentro da subscrição. Não é possível implantar uma subscrição diferente da subscrição-alvo. O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
+
+Os recursos definidos na secção de recursos do modelo são aplicados à subscrição.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
+
+Para direcionar um grupo de recursos dentro da subscrição, adicione uma implementação aninhada e inclua a `resourceGroup` propriedade. No exemplo seguinte, a implantação aninhada visa um grupo de recursos chamado `rg2` .
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
+
+Neste artigo, você pode encontrar modelos que mostram como implementar recursos para diferentes âmbitos. Para um modelo que cria um grupo de recursos e implementa uma conta de armazenamento para ele, consulte [Criar grupo de recursos e recursos](#create-resource-group-and-resources). Para um modelo que cria um grupo de recursos, aplica-lhe um bloqueio e atribui-lhe uma função para o grupo de recursos, consulte o [controlo de acesso](#access-control).
 
 ## <a name="deployment-commands"></a>Comandos de implantação
 
@@ -112,49 +126,6 @@ Para implementações de nível de subscrição, deve fornecer uma localização
 Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome predefinido é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo denominado **azuredeploy.jscria** um nome de implementação padrão de **azuredeploy**.
 
 Para cada nome de implantação, a localização é imutável. Não é possível criar uma implantação num local quando há uma implantação existente com o mesmo nome num local diferente. Se obter o código de erro `InvalidDeploymentLocation` , utilize um nome diferente ou o mesmo local que a colocação anterior para esse nome.
-
-## <a name="deployment-scopes"></a>Âmbitos de implantação
-
-Ao implementar uma subscrição, pode direcionar uma subscrição e quaisquer grupos de recursos dentro da subscrição. Não é possível implantar uma subscrição diferente da subscrição-alvo. O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
-
-Os recursos definidos na secção de recursos do modelo são aplicados à subscrição.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        subscription-level-resources
-    ],
-    "outputs": {}
-}
-```
-
-Para direcionar um grupo de recursos dentro da subscrição, adicione uma implementação aninhada e inclua a `resourceGroup` propriedade. No exemplo seguinte, a implantação aninhada visa um grupo de recursos chamado `rg2` .
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "nestedDeployment",
-            "resourceGroup": "rg2",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    nested-template-with-resource-group-resources
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
-
-Neste artigo, você pode encontrar modelos que mostram como implementar recursos para diferentes âmbitos. Para um modelo que cria um grupo de recursos e implementa uma conta de armazenamento para ele, consulte [Criar grupo de recursos e recursos](#create-resource-group-and-resources). Para um modelo que cria um grupo de recursos, aplica-lhe um bloqueio e atribui-lhe uma função para o grupo de recursos, consulte o [controlo de acesso](#access-control).
 
 ## <a name="use-template-functions"></a>Use funções de modelo
 

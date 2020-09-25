@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: f8c7e2cfb17ca48a67a009f532a9cbb6894cc05d
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: b0908aee6253a3be486f71c245ea1eee2ff8b9bb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442603"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319474"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure Private Link para Azure SQL Database e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -23,28 +23,6 @@ O Private Link permite-lhe ligar-se a vários serviços PaaS em Azure através d
 
 > [!IMPORTANT]
 > Este artigo aplica-se tanto à Base de Dados Azure SQL como à Azure Synapse Analytics (antiga SQL Data Warehouse). Para simplificar, o termo "base de dados" refere-se a ambas as bases de dados na Base de Dados Azure SQL e na Azure Synapse Analytics. Da mesma forma, quaisquer referências ao 'servidor' referem-se ao [servidor lógico SQL](logical-servers.md) que acolhe a Base de Dados Azure SQL e a Azure Synapse Analytics. Este artigo *não* se aplica a **Azure SQL Managed Instance**.
-
-## <a name="data-exfiltration-prevention"></a>Data exfiltration prevention (Prevenção da transferência de dados não autorizada)
-
-A exfiltração de dados na Base de Dados Azure SQL é quando um utilizador autorizado, como um administrador de base de dados é capaz de extrair dados de um sistema e movê-lo para fora da organização. Por exemplo, o utilizador desloca os dados para uma conta de armazenamento detida por terceiros.
-
-Considere um cenário com um utilizador que executa o SQL Server Management Studio (SSMS) dentro de uma máquina virtual Azure conectando-se a uma base de dados na Base de Dados SQL. Esta base de dados está no centro de dados dos EUA. O exemplo abaixo mostra como limitar o acesso com pontos finais públicos na Base de Dados SQL utilizando controlos de acesso à rede.
-
-1. Desative todo o tráfego de serviço Azure para a Base de Dados SQL através do ponto final público, definindo Allow Azure Services to **OFF**. Certifique-se de que não são permitidos endereços IP nas regras de firewall de nível de servidor e base de dados. Para obter mais informações, consulte a [Base de Dados Azure SQL e os controlos de acesso à rede Azure Synapse Analytics](network-access-controls-overview.md).
-1. Apenas permita o tráfego na base de dados na Base de Dados SQL utilizando o endereço IP privado do VM. Para obter mais informações, consulte os artigos sobre [as regras](firewall-configure.md)de Service [Endpoint](vnet-service-endpoint-rule-overview.md) e de firewall de rede virtual .
-1. No Azure VM, reduza o âmbito de ligação de saída utilizando grupos de segurança de [rede (NSGs)](../../virtual-network/manage-network-security-group.md) e tags de serviço da seguinte forma
-    - Especifique uma regra NSG para permitir o tráfego para tag de serviço = SQL. WestUs - apenas permitindo a ligação à SQL Database nos EUA
-    - Especifique uma regra NSG (com uma **prioridade maior)** para negar o tráfego para tag de serviço = SQL - negando ligações à Base de Dados SQL em todas as regiões
-
-No final desta configuração, o Azure VM só pode ligar-se a uma base de dados na Base de Dados SQL na região oeste dos EUA. No entanto, a conectividade não se restringe a uma única base de dados na Base de Dados SQL. O VM ainda pode ligar-se a qualquer base de dados na região oeste dos EUA, incluindo as bases de dados que não fazem parte da subscrição. Embora tenhamos reduzido o âmbito da exfiltração de dados no cenário acima para uma região específica, não o eliminámos completamente.
-
-Com o Private Link, os clientes podem agora configurar controlos de acesso à rede como os NSGs para restringir o acesso ao ponto final privado. Os recursos individuais do Azure PaaS são então mapeados para pontos finais privados específicos. Um insider malicioso só pode aceder ao recurso PaaS mapeado (por exemplo, uma base de dados na Base de Dados SQL) e nenhum outro recurso. 
-
-## <a name="on-premises-connectivity-over-private-peering"></a>Conectividade no local sobre o espreitamento privado
-
-Quando os clientes se ligam ao ponto final público a partir de máquinas no local, o seu endereço IP precisa de ser adicionado à firewall baseada em IP utilizando uma [regra de firewall ao nível do Servidor](firewall-create-server-level-portal-quickstart.md). Embora este modelo funcione bem para permitir o acesso a máquinas individuais para dev ou testar cargas de trabalho, é difícil de gerir em ambiente de produção.
-
-Com o Private Link, os clientes podem permitir o acesso transversal ao ponto final privado utilizando o [ExpressRoute,](../../expressroute/expressroute-introduction.md)o perspero privado ou o túnel VPN. Os clientes podem então desativar todos os acessos através do ponto final público e não utilizar a firewall baseada em IP para permitir quaisquer endereços IP.
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Como configurar o Link Privado para a Base de Dados Azure SQL 
 
@@ -71,6 +49,12 @@ Uma vez que o administrador de rede cria o Ponto Final Privado (PE), o administr
 
 1. Após aprovação ou rejeição, a lista refletirá o estado apropriado juntamente com o texto de resposta.
 ![Screenshot de todos os PECs após aprovação][5]
+
+## <a name="on-premises-connectivity-over-private-peering"></a>Conectividade no local sobre o espreitamento privado
+
+Quando os clientes se ligam ao ponto final público a partir de máquinas no local, o seu endereço IP precisa de ser adicionado à firewall baseada em IP utilizando uma [regra de firewall ao nível do Servidor](firewall-create-server-level-portal-quickstart.md). Embora este modelo funcione bem para permitir o acesso a máquinas individuais para dev ou testar cargas de trabalho, é difícil de gerir em ambiente de produção.
+
+Com o Private Link, os clientes podem permitir o acesso transversal ao ponto final privado utilizando o [ExpressRoute,](../../expressroute/expressroute-introduction.md)o perspero privado ou o túnel VPN. Os clientes podem então desativar todos os acessos através do ponto final público e não utilizar a firewall baseada em IP para permitir quaisquer endereços IP.
 
 ## <a name="use-cases-of-private-link-for-azure-sql-database"></a>Utilizar casos de Link Privado para Base de Dados Azure SQL 
 
@@ -154,6 +138,22 @@ Siga os passos aqui para utilizar [o SSMS para ligar à Base de Dados SQL.](conn
 select client_net_address from sys.dm_exec_connections 
 where session_id=@@SPID
 ````
+
+## <a name="data-exfiltration-prevention"></a>Data exfiltration prevention (Prevenção da transferência de dados não autorizada)
+
+A exfiltração de dados na Base de Dados Azure SQL é quando um utilizador autorizado, como um administrador de base de dados é capaz de extrair dados de um sistema e movê-lo para fora da organização. Por exemplo, o utilizador desloca os dados para uma conta de armazenamento detida por terceiros.
+
+Considere um cenário com um utilizador que executa o SQL Server Management Studio (SSMS) dentro de uma máquina virtual Azure conectando-se a uma base de dados na Base de Dados SQL. Esta base de dados está no centro de dados dos EUA. O exemplo abaixo mostra como limitar o acesso com pontos finais públicos na Base de Dados SQL utilizando controlos de acesso à rede.
+
+1. Desative todo o tráfego de serviço Azure para a Base de Dados SQL através do ponto final público, definindo Allow Azure Services to **OFF**. Certifique-se de que não são permitidos endereços IP nas regras de firewall de nível de servidor e base de dados. Para obter mais informações, consulte a [Base de Dados Azure SQL e os controlos de acesso à rede Azure Synapse Analytics](network-access-controls-overview.md).
+1. Apenas permita o tráfego na base de dados na Base de Dados SQL utilizando o endereço IP privado do VM. Para obter mais informações, consulte os artigos sobre [as regras](firewall-configure.md)de Service [Endpoint](vnet-service-endpoint-rule-overview.md) e de firewall de rede virtual .
+1. No Azure VM, reduza o âmbito de ligação de saída utilizando grupos de segurança de [rede (NSGs)](../../virtual-network/manage-network-security-group.md) e tags de serviço da seguinte forma
+    - Especifique uma regra NSG para permitir o tráfego para tag de serviço = SQL. WestUs - apenas permitindo a ligação à SQL Database nos EUA
+    - Especifique uma regra NSG (com uma **prioridade maior)** para negar o tráfego para tag de serviço = SQL - negando ligações à Base de Dados SQL em todas as regiões
+
+No final desta configuração, o Azure VM só pode ligar-se a uma base de dados na Base de Dados SQL na região oeste dos EUA. No entanto, a conectividade não se restringe a uma única base de dados na Base de Dados SQL. O VM ainda pode ligar-se a qualquer base de dados na região oeste dos EUA, incluindo as bases de dados que não fazem parte da subscrição. Embora tenhamos reduzido o âmbito da exfiltração de dados no cenário acima para uma região específica, não o eliminámos completamente.
+
+Com o Private Link, os clientes podem agora configurar controlos de acesso à rede como os NSGs para restringir o acesso ao ponto final privado. Os recursos individuais do Azure PaaS são então mapeados para pontos finais privados específicos. Um insider malicioso só pode aceder ao recurso PaaS mapeado (por exemplo, uma base de dados na Base de Dados SQL) e nenhum outro recurso. 
 
 ## <a name="limitations"></a>Limitações 
 As ligações ao ponto final privado apenas **suportam o Proxy** como a política de [ligação](connectivity-architecture.md#connection-policy)

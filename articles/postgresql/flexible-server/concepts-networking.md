@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 963c9c06409eca2b2f836388b94f8b80484a671a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: e4d3a594011cb57ce6dfd951215d0ae7471ae7c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90936982"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331680"
 ---
 # <a name="networking-overview---azure-database-for-postgresql---flexible-server"></a>Visão geral de networking - Base de dados Azure para PostgreSQL - Servidor Flexível
 
@@ -62,7 +62,7 @@ Aqui estão alguns conceitos a conhecer ao usar redes virtuais com servidores fl
 
    O seu servidor flexível PostgreSQL deve estar numa sub-rede que é **delegada apenas** para uso de servidor flexível PostgreSQL. Esta delegação significa que apenas a Base de Dados Azure para servidores flexíveis postgresQL pode utilizar essa sub-rede. Nenhum outro tipo de recurso do Azure pode estar na sub-rede delegada. Delega uma sub-rede atribuindo a sua propriedade de delegação como Microsoft.DBforPostgreSQL/flexibleServers.
 
-Saiba como criar um servidor flexível com acesso privado (integração VNet) [no portal Azure](how-to-manage-virtual-network-portal.md) ou [no Azure CLI](how-to-manage-virtual-network-cli.md).
+* **Grupos de segurança de rede (NSG)** As regras de segurança nos grupos de segurança da rede permitem filtrar o tipo de tráfego de rede que pode fluir dentro e fora das sub-redes de rede virtuais e interfaces de rede. Reveja a [visão geral](../../virtual-network/network-security-groups-overview.md) do grupo de segurança da rede para obter mais informações.
 
 
 ### <a name="unsupported-virtual-network-scenarios"></a>Cenários de rede virtual não suportados
@@ -71,6 +71,7 @@ Saiba como criar um servidor flexível com acesso privado (integração VNet) [n
 * O tamanho da sub-rede (espaços de endereço) não pode ser aumentado uma vez que os recursos existem na sub-rede
 * Os VNets que espreitam em todas as regiões não são suportados
 
+Saiba como criar um servidor flexível com acesso privado (integração VNet) [no portal Azure](how-to-manage-virtual-network-portal.md) ou [no Azure CLI](how-to-manage-virtual-network-cli.md).
 
 ## <a name="public-access-allowed-ip-addresses"></a>Acesso público (endereços IP permitidos)
 As características do método de acesso público incluem:
@@ -107,12 +108,9 @@ Considere os seguintes pontos quando o acesso à Base de Dados do Microsoft Azur
 ## <a name="hostname"></a>Hostname (Nome do anfitrião)
 Independentemente da opção de networking que escolha, recomendamos que utilize sempre um nome de domínio totalmente qualificado (FQDN) como nome de hospedeiro ao ligar-se ao seu servidor flexível. O endereço IP do servidor não é garantido permanecer estático. A utilização do FQDN irá ajudá-lo a evitar alterações na sua cadeia de ligação. 
 
-Um dos cenários em que o IP muda é se estiver a utilizar HA redundante de zona e uma falha acontecer entre o primário e o secundário. A utilização do FQDN significa que pode voltar a tentar ligações com a mesma cadeia de ligação.
-
 Exemplo
 * Recomendado `hostname = servername.postgres.database.azure.com`
-* Evite utilizar `hostname = 10.0.0.4` (endereço privado) ou `hostname = 40.2.45.67` (endereço público)
-
+* Sempre que possível, evite a utilização `hostname = 10.0.0.4` (de um endereço privado) ou `hostname = 40.2.45.67` (um endereço público)
 
 
 ## <a name="tls-and-ssl"></a>TLS e SSL

@@ -14,30 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2019
 ms.author: yelevin
-ms.openlocfilehash: 51e6c74a8b80b94ca552645cfbb76bd4e162a62b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: cd84a4b50ba32ee3f562ace9b2583cf5e561be84
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650065"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320392"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Ligue a sua solução externa utilizando o Formato Comum de Eventos
 
 
 Quando liga uma solução externa que envia mensagens CEF, existem três passos para a ligação com o Azure Sentinel:
 
-PASSO 1: [Ligue o CEF implantando o agente](connect-cef-agent.md) STEP 2: Executar [passos específicos da solução](connect-cef-solution-config.md) PASSO 3: [Verificar conectividade](connect-cef-verify.md)
+PASSO 1: [Ligue o CEF implantando um reencaminhador Syslog/CEF](connect-cef-agent.md) PASSO 2: [Executar passos específicos da solução](connect-cef-solution-config.md) PASSO 3: [Verificar conectividade](connect-cef-verify.md)
 
-Este artigo descreve como a ligação funciona, fornece pré-requisitos e dá-lhe os passos para implantar o agente em soluções de segurança que enviam mensagens common Event Format (CEF) em cima do Syslog. 
+Este artigo descreve como a ligação funciona, fornece pré-requisitos e fornece os passos para a implementação do agente em soluções de segurança que enviam mensagens common Event Format (CEF) em cima do Syslog. 
 
 > [!NOTE] 
 > Os dados são armazenados na localização geográfica do espaço de trabalho em que está a executar o Azure Sentinel.
 
-Para fazer esta ligação, é necessário colocar um agente numa máquina Linux dedicada (VM ou no local) para apoiar a comunicação entre o aparelho e o Azure Sentinel. O diagrama seguinte descreve a configuração no caso de um Linux VM em Azure.
+Para escoar esta ligação, é necessário utilizar um servidor Syslog Forwarder para suportar a comunicação entre o aparelho e o Azure Sentinel.  O servidor é composto por uma máquina Linux dedicada (VM ou no local) com o agente Log Analytics para o Linux instalado. 
+
+O diagrama seguinte descreve a configuração no caso de um Linux VM em Azure:
 
  ![CEF em Azure](./media/connect-cef/cef-syslog-azure.png)
 
-Alternativamente, esta configuração existirá se utilizar um VM noutra nuvem ou uma máquina no local. 
+Alternativamente, esta configuração existirá se utilizar um VM noutra nuvem ou uma máquina no local: 
 
  ![CEF nas instalações](./media/connect-cef/cef-syslog-onprem.png)
 
@@ -46,7 +48,7 @@ Alternativamente, esta configuração existirá se utilizar um VM noutra nuvem o
 
 Certifique-se de configurar a segurança da máquina de acordo com a política de segurança da sua organização. Por exemplo, pode configurar a sua rede para alinhar com a sua política de segurança da rede corporativa e alterar as portas e protocolos no daemon para se alinhar com os seus requisitos. Pode utilizar as seguintes instruções para melhorar a configuração de segurança da máquina:  [Secure VM in Azure,](../virtual-machines/security-policy.md) [Best Practices for Network security](../security/fundamentals/network-best-practices.md).
 
-Para utilizar a comunicação TLS entre a solução de segurança e a máquina Syslog, terá de configurar o daemon Syslog (rsyslog ou syslog-ng) para comunicar em TLS: [Encriptar o tráfego de syslog com TLS -rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [encriptar as mensagens de registo com TLS -syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
+Para utilizar a comunicação TLS entre a fonte Syslog e o Syslog Forwarder, terá de configurar o daemon Syslog (rsyslog ou syslog-ng) para comunicar em TLS: [Encriptar o tráfego de syslog com TLS -rsyslog,](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html) [encriptar as mensagens de registo com TLS -syslog-ng](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
 
  
 ## <a name="prerequisites"></a>Pré-requisitos

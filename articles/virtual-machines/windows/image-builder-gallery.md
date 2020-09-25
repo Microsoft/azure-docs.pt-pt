@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: 07b9e3e7529aa867a4baf51ffe5c4bbf23599d32
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 96603d27f53161c72c9e81bb7b84fdc6ab5d1ca2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836195"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320069"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Pré-visualização: Criar uma imagem do Windows e distribuí-la para uma Galeria de Imagens Partilhadas 
 
@@ -22,7 +22,7 @@ Vamos usar um modelo .json para configurar a imagem. O ficheiro .json que estamo
 
 Para distribuir a imagem por uma Galeria de Imagens Partilhadas, o modelo utiliza [a SharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) como o valor para a `distribute` secção do modelo.
 
-O Azure Image Builder executa automaticamente sysprep para generalizar a imagem, este é um comando genérico sysprep, que pode [ser sobreposto](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully) se necessário. 
+O Azure Image Builder executa automaticamente sysprep para generalizar a imagem, este é um comando genérico sysprep, que pode [ser sobreposto](../linux/image-builder-troubleshoot.md#vms-created-from-aib-images-do-not-create-successfully) se necessário. 
 
 Esteja ciente de quantas vezes você camada personalizações. Pode executar o comando Sysprep até 8 vezes numa única imagem do Windows. Depois de executar o Sysprep 8 vezes, tem de recriar a sua imagem do Windows. Para mais informações, consulte [Limites sobre quantas vezes pode executar sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep). 
 

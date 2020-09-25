@@ -1,6 +1,6 @@
 ---
 title: Crie um conjunto de escala a partir de uma imagem generalizada com Azure PowerShell
-description: Crie um conjunto de escala usando uma imagem generalizada numa Galeria de Imagens Partilhadas.
+description: Crie um conjunto de escala usando uma imagem generalizada numa Galeria de Imagens Partilhadas utilizando o PowerShell.
 author: cynthn
 ms.service: virtual-machine-scale-sets
 ms.subservice: imaging
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 3b8c9d46a5bc5dde3e39bfa5673247ca752d2a89
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 22bd1ed88f61689eec9312392f7f58d137f703e0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077558"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331527"
 ---
-# <a name="create-a-scale-set-from-a-generalized-image"></a>Criar um conjunto de escala a partir de uma imagem generalizada
+# <a name="create-a-scale-set-from-a-generalized-image-using-powershell"></a>Crie um conjunto de escala a partir de uma imagem generalizada usando PowerShell 
 
 Crie um VM a partir de uma versão de imagem generalizada armazenada numa [Galeria de Imagens Partilhadas.](shared-image-galleries.md) Se pretender criar um conjunto de escala utilizando uma imagem especializada, consulte [Configurar instâncias de escala a partir de uma imagem especializada](instance-specialized-image-version-powershell.md).
 
@@ -181,4 +181,4 @@ Também pode criar recursos da Galeria de Imagens Partilhadas utilizando modelos
 - [Criar uma Definição de Imagem num Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)
 - [Criar uma Versão de Imagem num Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 
-Para mais informações sobre galerias de imagem partilhadas, consulte a [Visão Geral.](shared-image-galleries.md) Se tiver problemas, consulte [as galerias de imagem partilhadas .](troubleshooting-shared-images.md)
+Para mais informações sobre galerias de imagem partilhadas, consulte a [Visão Geral.](shared-image-galleries.md) Se tiver problemas, consulte [as galerias de imagem partilhadas .](../virtual-machines/troubleshooting-shared-images.md)

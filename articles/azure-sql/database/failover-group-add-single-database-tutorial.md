@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 06/19/2019
-ms.openlocfilehash: 4caad36d21d3facb97dc358fdfee61e89c420213
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 23b78acb226b0d4de637dc653e6edb3bb4177219
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496343"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263594"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Tutorial: Adicione uma Base de Dados Azure SQL a um grupo de autofailover
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -80,7 +80,7 @@ Crie o seu grupo de failover e adicione-lhe a sua base de dados utilizando o por
    - **Nome do grupo failover**: Digite um nome único de grupo de failover, tais como `failovergrouptutorial` .
    - **Servidor secundário**: Selecione a opção para *configurar as definições necessárias* e, em seguida, escolha **criar um novo servidor**. Em alternativa, pode escolher um servidor já existente como servidor secundário. Depois de introduzir os seguintes valores, **selecione Select**.
       - **Nome do servidor**: Digite um nome único para o servidor secundário, tal como `mysqlsecondary` .
-      - **Início de administração do servidor**: Tipo`azureuser`
+      - **Início de administração do servidor**: Tipo `azureuser`
       - **Palavra-passe**: Digite uma palavra-passe complexa que satisfaça os requisitos de senha.
       - **Localização**: Escolha uma localização a partir da entrega, tal como `East US` . Esta localização não pode ser a mesma localização do seu servidor primário.
 
@@ -327,7 +327,7 @@ Esta parte do tutorial utiliza os seguintes cmdlets Azure CLI:
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Limpe os recursos eliminando o grupo de recursos.
 

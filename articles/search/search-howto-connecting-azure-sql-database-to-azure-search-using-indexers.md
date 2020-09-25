@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: a1dd88e9007a878ffdf6e5d836391c30c952c35a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 631f5afbac4337cd0852f46ac4a336107f042397
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923029"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331646"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Ligue e indexe o conteúdo Azure SQL usando um indexador de pesquisa cognitiva Azure
 
@@ -74,7 +74,9 @@ Dependendo de vários fatores relacionados com os seus dados, a utilização do 
     }
    ```
 
-   Pode obter a cadeia de ligação do [portal Azure;](https://portal.azure.com) usar a `ADO.NET connection string` opção.
+   A cadeia de ligação pode seguir qualquer um dos formatos abaixo:
+    1. Pode obter a cadeia de ligação do [portal Azure;](https://portal.azure.com) usar a `ADO.NET connection string` opção.
+    1. Uma cadeia de ligação de identidade gerida que não inclui uma chave de conta com o seguinte formato: `Initial Catalog|Database=<your database name>;ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Sql/servers/<your SQL Server name>/;Connection Timeout=connection timeout length;` . Para utilizar esta cadeia de ligação, siga as instruções para [configurar uma ligação indexante a uma Base de Dados Azure SQL utilizando uma identidade gerida](search-howto-managed-identities-sql.md).
 
 2. Crie o índice de pesquisa cognitiva Azure alvo se ainda não tiver um. Pode criar um índice utilizando o [portal](https://portal.azure.com) ou a [API do Índice de Criação](/rest/api/searchservice/Create-Index). Certifique-se de que o esquema do seu índice-alvo é compatível com o esquema da tabela de origem - consulte o mapeamento entre os tipos de [dados de pesquisa cognitiva SQL e Azure .](#TypeMapping)
 
@@ -350,7 +352,7 @@ Estas definições são utilizadas no `parameters.configuration` objeto na defin
 
 **P: Posso utilizar o indexador Azure SQL com bases de dados SQL em funcionamento em IaaS VMs em Azure?**
 
-Yes. No entanto, tem de permitir que o seu serviço de pesquisa se conecte à sua base de dados. Para obter mais informações, consulte [configurar uma ligação de um indexante de Pesquisa Cognitiva Azure ao SQL Server num VM Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
+Sim. No entanto, tem de permitir que o seu serviço de pesquisa se conecte à sua base de dados. Para obter mais informações, consulte [configurar uma ligação de um indexante de Pesquisa Cognitiva Azure ao SQL Server num VM Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md).
 
 **P: Posso utilizar o indexador Azure SQL com bases de dados SQL a funcionar no local?**
 
@@ -362,11 +364,11 @@ Não. Não apoiamos este cenário, porque não testámos o indexante com bases d
 
 **P: Posso criar vários indexadores em execução num horário?**
 
-Yes. No entanto, apenas um indexante pode estar a funcionar com um nó de cada vez. Se precisar de vários indexadores em execução em simultâneo, considere aumentar o seu serviço de pesquisa para mais de uma unidade de pesquisa.
+Sim. No entanto, apenas um indexante pode estar a funcionar com um nó de cada vez. Se precisar de vários indexadores em execução em simultâneo, considere aumentar o seu serviço de pesquisa para mais de uma unidade de pesquisa.
 
 **P: Executar um indexante afeta a minha carga de trabalho de consulta?**
 
-Yes. O Indexer funciona num dos nós do seu serviço de pesquisa, e os recursos do nó são partilhados entre indexação e serviço de tráfego de consulta e outros pedidos de API. Se executar cargas de trabalho de indexação e consulta intensivas e encontrar uma taxa elevada de 503 erros ou aumentar os tempos de resposta, considere [aumentar o seu serviço de pesquisa](search-capacity-planning.md).
+Sim. O Indexer funciona num dos nós do seu serviço de pesquisa, e os recursos do nó são partilhados entre indexação e serviço de tráfego de consulta e outros pedidos de API. Se executar cargas de trabalho de indexação e consulta intensivas e encontrar uma taxa elevada de 503 erros ou aumentar os tempos de resposta, considere [aumentar o seu serviço de pesquisa](search-capacity-planning.md).
 
 **P: Posso usar uma réplica secundária num [cluster de falha](../azure-sql/database/auto-failover-group-overview.md) como fonte de dados?**
 

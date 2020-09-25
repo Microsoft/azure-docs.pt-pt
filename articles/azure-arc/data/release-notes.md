@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5908083be4e6ed389b606754ffef41a4a371c3e3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d22976254cc804ca53060fb284abde8e80a684e6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938727"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319735"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notas de lançamento - Azure Arc habilitado serviços de dados (Pré-visualização)
 
@@ -28,6 +28,14 @@ Os serviços de dados habilitados Azure Arc são lançados para pré-visualizaç
 - Hiperescala pós-alta
 
 Para obter [instruções, o que são os serviços de dados habilitados a Azure Arc?](overview.md)
+
+### <a name="known-issues"></a>Problemas conhecidos
+
+Aplicam-se a esta versão as seguintes questões:
+
+* **Eliminação do grupo de servidores pós-escala PostgreSQL**: Se tiver alterado a configuração do seu grupo ou exemplo de servidor, aguarde que a operação de edição esteja concluída antes de eliminar um grupo de servidores de hiperescala PostgreSQL.
+
+* ** `azdata notebook run` pode falhar:** Para contornar este problema, corra `azdata notebook run` num ambiente virtual Python. Este problema também se manifesta numa tentativa falhada de criar um exemplo gerido pelo SQL ou um grupo de servidores de hiperescala PostgreSQL utilizando o assistente de implementação do Azure Data Studio. Neste caso, pode abrir o caderno e clicar no botão **Executar todos** os botões na parte superior do caderno.
 
 ## <a name="next-steps"></a>Passos seguintes
 

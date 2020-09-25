@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: ce0e03407349505d54aeb22b164fa8593446967d
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: cd1dc953c35233010250bf7f959c94d1de50fe4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653034"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319797"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Configuração da infraestrutura do Gateway de Aplicação
 
@@ -20,10 +20,10 @@ A infraestrutura de gateway de aplicações inclui a rede virtual, sub-redes, gr
 
 ## <a name="virtual-network-and-dedicated-subnet"></a>Rede virtual e sub-rede dedicada
 
-Um gateway de aplicações é uma implementação dedicada na sua rede virtual. Dentro da sua rede virtual, é necessária uma sub-rede dedicada para o gateway de aplicações. Pode ter várias instâncias de uma determinada implementação de gateway de aplicação numa sub-rede. Também pode implementar outros gateways de aplicações na sub-rede. Mas não pode implementar nenhum outro recurso na sub-rede de gateway de aplicações.
+Um gateway de aplicações é uma implementação dedicada na sua rede virtual. Dentro da sua rede virtual, é necessária uma sub-rede dedicada para o gateway de aplicações. Pode ter várias instâncias de uma determinada implementação de gateway de aplicação numa sub-rede. Também pode implementar outros gateways de aplicações na sub-rede. Mas não pode implementar nenhum outro recurso na sub-rede de gateway de aplicações. Não é possível misturar Standard_v2 e Standard Azure Application Gateway na mesma sub-rede.
 
 > [!NOTE]
-> Não é possível misturar Standard_v2 e Standard Azure Application Gateway na mesma sub-rede.
+> [As políticas de ponto final do serviço de rede virtual](../virtual-network/virtual-network-service-endpoint-policies-overview.md) não são atualmente suportadas numa sub-rede do Gateway de Aplicação.
 
 ### <a name="size-of-the-subnet"></a>Tamanho da sub-rede
 
@@ -113,6 +113,6 @@ Para este cenário, utilize NSGs na sub-rede Do Gateway de Aplicação. Colocar 
 
   Qualquer cenário em que o 0.0.0.0/0 tenha de ser redirecionado através de qualquer aparelho virtual, de uma rede virtual de hub/spoke, ou no local (túneis forçados) não é suportado para v2.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais sobre a configuração do endereço IP front-end](configuration-front-end-ip.md).

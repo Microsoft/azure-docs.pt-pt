@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 4d0800ff8a35c5c91b067a85dfcc089f2e343d1f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 3cd6febfc774b214a8c1ae8553e6c127c4f452fa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86090969"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319083"
 ---
 # <a name="batch-processing-kit-for-speech-containers"></a>Kit de processamento de lote para recipientes de fala
 
@@ -35,7 +35,7 @@ O recipiente do kit de lote está disponível gratuitamente no centro [GitHub](h
 | Troca de ponto final | Adicione, remova ou modifique os pontos finais do recipiente da fala durante o tempo de funcionamento sem interromper o progresso do lote. As atualizações são imediatas. |
 | Registo em tempo real | Registo em tempo real de pedidos de tentativas, relógios e razões de falha, com ficheiros de registo SDK de fala para cada ficheiro áudio. |
 
-## <a name="get-the-container-image-with-docker-pull"></a>Obtenha a imagem do recipiente com`docker pull`
+## <a name="get-the-container-image-with-docker-pull"></a>Obtenha a imagem do recipiente com `docker pull`
 
 Utilize o comando de puxar o [estivador](https://docs.docker.com/engine/reference/commandline/pull/) para descarregar o mais recente recipiente do kit de lote.
 
@@ -76,6 +76,8 @@ O cliente do lote pode detetar dinamicamente se um ponto final ficar indisponív
 > * Este exemplo utiliza o mesmo diretório `/my_nfs` () para o ficheiro de configuração e as entradas, saídas e diretórios de registos. Pode utilizar diretórios hospedados ou montados em NFS para estas pastas.
 > * Executar o cliente irá `–h` listar os parâmetros disponíveis da linha de comando e os seus valores predefinidos. 
 
+
+#### <a name="linux"></a>[Linux](#tab/linux)
 Use o comando Docker `run` para ligar o recipiente. Isto irá iniciar uma concha interativa dentro do recipiente.
 
 ```Docker
@@ -94,6 +96,18 @@ Para executar o cliente do lote e o recipiente num único comando:
 docker run --rm -ti -v  /mnt/my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -log_level DEBUG -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config   
 ```
 
+#### <a name="windows"></a>[Windows](#tab/windows)
+
+Para executar o cliente do lote e o recipiente num único comando:
+
+```Docker
+docker run --rm -ti -v   c:\my_nfs:/my_nfs docker.io/batchkit/speech-batch-kit:latest  -config  /my_nfs/config.yaml -input_folder /my_nfs/audio_files -output_folder /my_nfs/transcriptions -log_folder  /my_nfs/logs -nbest 1 -m ONESHOT -diarization  None -language en-US -strict_config
+
+```
+
+---
+
+
 O cliente vai começar a correr. Se um ficheiro áudio já tiver sido transcrito numa execução anterior, o cliente saltará automaticamente o ficheiro. Os ficheiros são enviados com uma repetição automática se ocorrerem erros transitórios, e pode diferenciar entre os erros que pretende que o cliente rejueça. Num erro de transcrição, o cliente continuará a transcrição, e pode voltar a tentar sem perder o progresso.  
 
 ## <a name="run-modes"></a>Modos de execução 
@@ -102,7 +116,7 @@ O kit de processamento de lote oferece três modos, utilizando o `--run-mode` pa
 
 #### <a name="oneshot"></a>[Um tiro](#tab/oneshot)
 
-`ONESHOT`o modo transcreve um único lote de ficheiros áudio (de um diretório de entrada e lista de ficheiros opcionais) para uma pasta de saída.
+`ONESHOT` o modo transcreve um único lote de ficheiros áudio (de um diretório de entrada e lista de ficheiros opcionais) para uma pasta de saída.
 
 :::image type="content" source="media/containers/batch-oneshot-mode.png" alt-text="Um diagrama que mostra os ficheiros de processamento do recipiente do kit de lote no modo oneshot.":::
 
@@ -117,7 +131,7 @@ O kit de processamento de lote oferece três modos, utilizando o `--run-mode` pa
 > [!TIP]
 > Se vários ficheiros forem adicionados ao diretório de entrada ao mesmo tempo, pode melhorar o desempenho adicionando-os num intervalo regular.
 
-`DAEMON`o modo transcreve os ficheiros existentes numa determinada pasta e transcreve continuamente novos ficheiros de áudio à medida que são adicionados.          
+`DAEMON` o modo transcreve os ficheiros existentes numa determinada pasta e transcreve continuamente novos ficheiros de áudio à medida que são adicionados.          
 
 :::image type="content" source="media/containers/batch-daemon-mode.png" alt-text="Um diagrama que mostra os ficheiros de processamento do recipiente do kit de lote no modo Daemon.":::
 
@@ -130,14 +144,14 @@ O kit de processamento de lote oferece três modos, utilizando o `--run-mode` pa
 
 #### <a name="rest"></a>[REST](#tab/rest)
 
-`REST`modo é um modo de servidor API que fornece um conjunto básico de pontos finais HTTP para submissão de ficheiros áudio, verificação de estado e sondagens longas. Também permite o consumo programático usando uma extensão de módulo python, ou importando como uma submula.
+`REST` modo é um modo de servidor API que fornece um conjunto básico de pontos finais HTTP para submissão de ficheiros áudio, verificação de estado e sondagens longas. Também permite o consumo programático usando uma extensão de módulo python, ou importando como uma submula.
 
 :::image type="content" source="media/containers/batch-rest-api-mode.png" alt-text="Um diagrama que mostra os ficheiros de processamento do recipiente do kit de lote no modo Daemon.":::
 
 1. Defina os pontos finais do recipiente speech que o cliente do lote utilizará no `config.yaml` ficheiro. 
 2. Envie um pedido HTTP a um dos pontos finais do servidor API. 
         
-    |Ponto Final  |Descrição  |
+    |Ponto final  |Descrição  |
     |---------|---------|
     |`/submit`     | Ponto final para a criação de novos pedidos de lote.        |
     |`/status`     | Ponto final para verificar o estado de um pedido de lote. A ligação permanecerá aberta até que o lote esteja concluído.       |
@@ -158,6 +172,6 @@ O cliente cria um ficheiro *run.log* no diretório especificado pelo `-log_folde
 
 O diretório de saída especificado `-output_folder` conterá um *run_summary.jsem*   arquivo, que é periodicamente reescrito a cada 30 segundos ou sempre que novas transcrições estejam terminadas. Pode utilizar este ficheiro para verificar o progresso à medida que o lote prossegue. Também conterá as estatísticas finais de execução e o estado final de cada ficheiro quando o lote estiver concluído. O lote é concluído quando o processo tiver uma saída limpa. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como instalar e executar contentores](speech-container-howto.md)

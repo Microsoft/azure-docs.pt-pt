@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 0affcb3c1bab6eb5616c69bb15faf423895328b0
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: c2589b47c1619dd528ab843dcf4befd0da227d16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322522"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331493"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes sobre discos de VM IaaS do Azure e discos premium geridos e não geridos
 
@@ -30,7 +30,7 @@ Um disco gerido padrão criado a partir de um VHD de 80 GB é tratado como o pr�
 
 **Existem custos de transação para discos geridos padrão?**
 
-Yes. É cobrado por cada transação. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/storage).
+Sim. É cobrado por cada transação. Para obter mais informações, veja a [página de preços](https://azure.microsoft.com/pricing/details/storage).
 
 **Para um disco gerido padrão, serei cobrado pelo tamanho real dos dados no disco ou pela capacidade prevista do disco?**
 
@@ -42,11 +42,11 @@ O preço dos discos geridos premium é o mesmo que discos premium não geridos.
 
 **Posso alterar o tipo de conta de armazenamento (Standard ou Premium) dos meus discos geridos?**
 
-Yes. Pode alterar o tipo de conta de armazenamento dos seus discos geridos utilizando o portal Azure, o PowerShell ou o Azure CLI.
+Sim. Pode alterar o tipo de conta de armazenamento dos seus discos geridos utilizando o portal Azure, o PowerShell ou o Azure CLI.
 
 **Posso usar um ficheiro VHD numa conta de armazenamento Azure para criar um disco gerido com uma subscrição diferente?**
 
-Yes.
+Sim.
 
 **Posso usar um ficheiro VHD numa conta de armazenamento Azure para criar um disco gerido numa região diferente?**
 
@@ -62,11 +62,11 @@ Não. Os VMs num conjunto de disponibilidade devem utilizar todos os discos geri
 
 **Os Discos Geridos são a opção padrão no portal Azure?**
 
-Yes.
+Sim.
 
 **Posso criar um disco gerido vazio?**
 
-Yes. Pode criar um disco vazio. Um disco gerido pode ser criado independentemente de um VM, por exemplo, sem o ligar a um VM.
+Sim. Pode criar um disco vazio. Um disco gerido pode ser criado independentemente de um VM, por exemplo, sem o ligar a um VM.
 
 **Qual é a contagem de domínio de avaria suportada para um conjunto de disponibilidade que utiliza Discos Geridos?**
 
@@ -102,7 +102,7 @@ Não.
 
 **Se eu criar um disco de 128 GB e depois aumentar o tamanho para 130 gibibytes (GiB), serei cobrado para o próximo tamanho do disco (256 GiB)?**
 
-Yes.
+Sim.
 
 **Posso criar armazenamento localmente redundante, armazenamento geo-redundante e discos geridos de armazenamento redundante?**
 
@@ -191,7 +191,7 @@ Desmonte o disco de todos os VMs aos que está ligado. Em seguida, edite a propr
 
 **Pode redimensionar um disco partilhado?**
 
-Yes.
+Sim.
 
 **Posso permitir escrever um acelerador num disco que também tenha discos partilhados ativados?**
 
@@ -310,11 +310,11 @@ Yes
 
 **A encriptação do lado do servidor é ativada por padrão quando crio um disco gerido?**
 
-Yes. Os Discos Geridos são encriptados com encriptação do lado do servidor com teclas geridas pela plataforma. 
+Sim. Os Discos Geridos são encriptados com encriptação do lado do servidor com teclas geridas pela plataforma. 
 
 **O volume de arranque é encriptado por padrão num disco gerido?**
 
-Yes. Por padrão, todos os discos geridos são encriptados, incluindo o disco SO.
+Sim. Por padrão, todos os discos geridos são encriptados, incluindo o disco SO.
 
 **Quem gere as chaves de encriptação?**
 
@@ -330,15 +330,15 @@ Não. A encriptação do lado do servidor com as chaves geridas pela plataforma 
 
 **A Recuperação do Site Azure suporta encriptação do lado do servidor com chave gerida pelo cliente para cenários de recuperação de desastres no local para Azure e Azure para cenários de recuperação de desastres do Azure?**
 
-Yes. 
+Sim. 
 
 **Posso fazer backup de Discos Geridos encriptados com encriptação do lado do servidor com chave gerida pelo cliente utilizando o serviço de backup Azure?**
 
-Yes.
+Sim.
 
 **São encriptadas imagens e imagens geridas?**
 
-Yes. Todas as imagens e imagens geridas são automaticamente encriptadas. 
+Sim. Todas as imagens e imagens geridas são automaticamente encriptadas. 
 
 **Posso converter VMs com discos não geridos que estão localizados em contas de armazenamento que são ou foram previamente encriptadas para discos geridos?**
 
@@ -352,7 +352,7 @@ Não. Mas se exportar um VHD para uma conta de armazenamento encriptada a partir
 
 **Se um VM utilizar uma série de tamanhos que suporte discos Premium SSD, como um DSv2, posso anexar discos de dados premium e standard?** 
 
-Yes.
+Sim.
 
 **Posso anexar discos de dados premium e padrão a uma série de tamanho que não suporta discos Premium SSD, tais como séries D, Dv2, G ou F?**
 
@@ -433,7 +433,7 @@ Pode tirar uma fotografia dos seus pequenos discos e, em seguida, criar um disco
 
 **Pode redimensionar os Discos Geridos existentes de tamanhos inferiores a 4 tebibytes (TiB) para novos tamanhos de disco recém-introduzidos até 32 TiB?**
 
-Yes.
+Sim.
 
 **Quais são os maiores tamanhos de disco suportados pelo serviço de backup de backup e Azure Site Recovery?**
 
@@ -483,7 +483,7 @@ Não. Atualmente, pode ligar um objeto de acesso a disco a uma rede virtual na m
 
 **Posso utilizar um SAS URI de um disco/instantâneo para descarregar o VHD subjacente de um VM na mesma sub-rede que a sub-rede do ponto final privado associado ao disco?**
 
-Yes.
+Sim.
 
 **Posso utilizar um SAS URI de um disco/instantâneo para descarregar o VHD subjacente de um VM não na mesma sub-rede que a sub-rede do ponto final privado não associado ao disco?**
 
@@ -491,6 +491,6 @@ Não.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>E se a minha pergunta não for respondida aqui?
 
-Se a sua pergunta não estiver listada aqui, avise-nos e nós o ajudaremos a encontrar uma resposta. Pode colocar uma pergunta no final deste artigo nos comentários. Para se envolver com a equipa de Armazenamento Azure e outros membros da comunidade sobre este artigo, utilize a [MSDN Microsoft Q&Uma página de perguntas para o Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
+Se a sua pergunta não estiver listada aqui, avise-nos e nós o ajudaremos a encontrar uma resposta. Pode colocar uma pergunta no final deste artigo nos comentários. Para se envolver com a equipa de Armazenamento Azure e outros membros da comunidade sobre este artigo, utilize a [página de perguntas do Microsoft Q&A para o Azure Storage](https://docs.microsoft.com/answers/products/azure?product=storage).
 
 Para solicitar funcionalidades, envie os seus pedidos e ideias para o [fórum de feedback do Azure Storage](https://feedback.azure.com/forums/217298-storage).

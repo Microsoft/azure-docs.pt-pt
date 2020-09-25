@@ -17,12 +17,12 @@ ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31c76b78d4ab7a3f305b52526b7e4ce14f3b1ede
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: e4dcc7ed6076c3bac723d709f50f1b3ab2ce8f58
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278042"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319933"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Alterar a senha de conta de serviço ADSync
 Se alterar a palavra-passe da conta de serviço ADSync, o Serviço de Sincronização não poderá iniciar-se corretamente até ter abandonado a chave de encriptação e reiniciado a palavra-passe da conta de serviço ADSync. 
@@ -52,7 +52,7 @@ Para garantir que não recebe estes erros, siga os procedimentos de [abandono da
  
 ## <a name="abandoning-the-adsync-service-account-encryption-key"></a>Abandono da chave de encriptação da conta de serviço ADSync
 >[!IMPORTANT]
->Os seguintes procedimentos aplicam-se apenas à construção Azure AD Connect 1.1.443.0 ou mais. Isto não pode ser usado para versões mais recentes do Azure AD Connect.
+>Os seguintes procedimentos aplicam-se apenas à construção Azure AD Connect 1.1.443.0 ou mais. Isto não pode ser usado para versões mais recentes do Azure AD Connect porque abandonar a chave de encriptação é manuseado pelo Azure AD ligar-se quando altera a palavra-passe da conta de serviço de sincronização de AD para que não sejam necessários os seguintes passos nas versões mais recentes.   
 
 Utilize os seguintes procedimentos para abandonar a chave de encriptação.
 
@@ -88,7 +88,7 @@ Abandone a chave de encriptação existente para que possa ser criada nova chave
 
 4. Executar o comando: `./miiskmu.exe /a`
 
-![Azure AD Connect Sync Encryption Key Utility](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
+![Screenshot que mostra PowerShell depois de executar o comando.](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
 
 #### <a name="provide-the-password-of-the-ad-ds-connector-account"></a>Fornecer a palavra-passe da conta AD DS Connector
 Como as palavras-passe existentes armazenadas dentro da base de dados já não podem ser desencriptadas, é necessário fornecer ao Serviço de Sincronização a palavra-passe da conta AD DS Connector. O Serviço de Sincronização encripta as palavras-passe utilizando a nova chave de encriptação:
@@ -101,7 +101,7 @@ Como as palavras-passe existentes armazenadas dentro da base de dados já não p
 5. No diálogo pop-up, selecione **Connect to Ative Directory Forest**:
 6. Introduza a palavra-passe da conta DS AD na caixa de texto **password.** Se não sabe a sua palavra-passe, deve defini-la para um valor conhecido antes de realizar este passo.
 7. Clique **em OK** para guardar a nova palavra-passe e feche o diálogo pop-up.
-![Azure AD Connect Sync Encryption Key Utility](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
+![Screenshot que mostra a página "Connect to Ative Directory Forest" na janela "Propriedades".](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
 
 #### <a name="reinitialize-the-password-of-the-adsync-service-account"></a>Reinitializar a palavra-passe da conta de serviço ADSync
 Não é possível fornecer diretamente a palavra-passe da conta de serviço Azure AD ao Serviço de Sincronização. Em vez disso, precisa de utilizar o **cmdlet Add-ADSyncAADServiceAccount** para reiniciar a conta de serviço Azure AD. O cmdlet reinicia a palavra-passe da conta e coloca-a à disposição do Serviço de Sincronização:
@@ -119,7 +119,7 @@ Agora que o Serviço de Sincronização tem acesso à chave de encriptação e a
 1. Aceda ao Gestor de Controlo de Serviços do Windows (START → Serviços).
 2. Selecione **Microsoft Azure AD Sync** e clique em Reiniciar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 **Tópicos de visão geral**
 
 * [Azure AD Connect sync: Entenda e personalize a sincronização](how-to-connect-sync-whatis.md)

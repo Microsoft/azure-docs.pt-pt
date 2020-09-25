@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 67529ce3546046eaba75bd3beacd7bb9b96445fe
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a2e99440a7c8f33eee9d3c9fe2276ac3868ff4b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939297"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331765"
 ---
 # <a name="scheduled-maintenance-in-azure-database-for-mysql--flexible-server"></a>Manutenção agendada na Base de Dados do Azure para MySQL – Servidor flexível
 
@@ -46,5 +46,5 @@ Em casos raros, o evento de manutenção pode ser cancelado pelo sistema ou pode
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [alterar o horário de manutenção](how-to-maintenance-portal.md)
-* Saiba como [obter notificações sobre a próxima manutenção](/azure/service-health/service-notifications.md) usando a Azure Service Health
-* Saiba como [configurar alertas sobre os próximos eventos de manutenção programada](/azure/service-health/resource-health-alert-monitor-guide.md)
+* Saiba como [obter notificações sobre a próxima manutenção](../../service-health/service-notifications.md) usando a Azure Service Health
+* Saiba como [configurar alertas sobre os próximos eventos de manutenção programada](../../service-health/resource-health-alert-monitor-guide.md)

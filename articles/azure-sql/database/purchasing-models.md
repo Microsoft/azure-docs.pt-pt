@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 05/28/2020
-ms.openlocfilehash: a11894eb94b73d8d31ca7135be2ba9c05eca5e04
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: aef29eef7eb53c4cc4ffcc4926f9efe533374178
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075889"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319457"
 ---
 # <a name="choose-between-the-vcore-and-dtu-purchasing-models---azure-sql-database-and-sql-managed-instance"></a>Escolha entre os modelos de compra vCore e DTU - Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -36,8 +36,8 @@ A tabela e gráfico a seguir comparam e contrastam os modelos de compra baseados
 
 |**Modelo de compra**|**Descrição**|**Melhor para**|
 |---|---|---|
-|Baseada em DTU|Este modelo baseia-se numa medida agregada de recursos de computação, armazenamento e E/S. Os tamanhos dos cálculos são expressos em DTUs para bases de dados únicas e em unidades elásticas de transação de bases de dados (eDTUs) para piscinas elásticas. Para obter mais informações sobre DTUs e eDTUs, veja [o que são DTUs e eDTUs?](purchasing-models.md#dtu-based-purchasing-model)|Clientes que querem opções de recursos simples e pré-configuradas|
-|vCore|Este modelo permite-lhe escolher independentemente os recursos de computação e armazenamento. O modelo de compra baseado em vCore também permite usar [o Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) para o SQL Server para economizar custos.|Clientes que valorizam flexibilidade, controlo e transparência|
+|Baseado em DTU|Este modelo baseia-se numa medida agregada de recursos de computação, armazenamento e E/S. Os tamanhos da computação são expressos em DTUs para bases de dados individuais e em unidades de transação de base de dados elástica (eDTUs) para conjuntos elásticos. Para obter mais informações sobre DTUs e eDTUs, veja [O que são DTUs e eDTUs?](purchasing-models.md#dtu-based-purchasing-model).|Clientes que querem opções de recursos simples e pré-configuradas|
+|vCore|Este modelo permite-lhe escolher independentemente os recursos de computação e armazenamento. O modelo de compra baseado em vCore também lhe permite utilizar o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) para o SQL Server para reduzir custos.|Clientes que valorizam flexibilidade, controlo e transparência|
 ||||  
 
 ![Comparação de modelos de preços](./media/purchasing-models/pricing-model.png)
@@ -76,8 +76,8 @@ No modelo de compra baseado em vCore, pode escolher entre os níveis de serviço
 
 O modelo de compra baseado em vCore permite-lhe escolher independentemente os recursos de computação e armazenamento, combinar o desempenho no local e otimizar o preço. No modelo de compra baseado em vCore, você paga por:
 
-- Calcular recursos (o nível de serviço + o número de vCores e a quantidade de memória + a geração de hardware).
-- O tipo e a quantidade de dados e armazenamento de registos.
+- Os recursos de computação (escalão de serviço + número de vCores e a quantidade de memória + geração do hardware).
+- O tipo e a quantidade de armazenamento de dados e registos.
 - Armazenamento de backup (RA-GRS).
 
 > [!IMPORTANT]
@@ -127,7 +127,7 @@ Pode adicionar eDTUs adicionais a um pool existente sem tempo de inatividade na 
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Determinar o número de DTUs necessário por uma carga de trabalho
 
-Se pretender migrar uma carga de trabalho virtual existente no local ou da máquina virtual SQL Server para a Base de Dados SQL, utilize a [calculadora DTU](https://dtucalculator.azurewebsites.net/) para aproximar o número de DTUs necessários. Para uma carga de trabalho existente na Base de Dados SQL, utilize [insights de desempenho de consulta](query-performance-insight-use.md) para compreender o seu consumo de recursos de base de dados (DTUs) e obtenha informações mais profundas para otimizar a sua carga de trabalho. A visão dinâmica de gestão [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) (DMV) permite-lhe ver o consumo de recursos durante a última hora. A vista de catálogo [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) exibe o consumo de recursos nos últimos 14 dias, mas com uma menor fidelidade de médias de cinco minutos.
+Se pretender migrar uma carga de trabalho virtual existente no local ou da máquina virtual SQL Server para a Base de Dados SQL, utilize a [calculadora DTU](https://dtucalculator.azurewebsites.net/) para aproximar o número de DTUs necessários. Para uma carga de trabalho existente na Base de Dados SQL, utilize [insights de desempenho de consulta](query-performance-insight-use.md) para compreender o seu consumo de recursos de base de dados (DTUs) e obtenha informações mais profundas para otimizar a sua carga de trabalho. A [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) visão dinâmica de gestão (DMV) permite-lhe ver o consumo de recursos durante a última hora. A [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) vista do catálogo exibe o consumo de recursos nos últimos 14 dias, mas com uma menor fidelidade de médias de cinco minutos.
 
 ### <a name="determine-dtu-utilization"></a>Determinar a utilização do DTU
 
@@ -135,7 +135,7 @@ Para determinar a percentagem média de utilização do DTU/eDTU em relação ao
 
 `avg_dtu_percent = MAX(avg_cpu_percent, avg_data_io_percent, avg_log_write_percent)`
 
-Os valores de entrada desta fórmula podem ser obtidos a partir [de sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)e [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) DMVs. Por outras palavras, para determinar a percentagem de utilização do DTU/eDTU para o limite DTU/eDTU de uma base de dados ou de um pool elástico, escolha o maior valor percentual a partir do seguinte: `avg_cpu_percent` , e num dado `avg_data_io_percent` `avg_log_write_percent` momento.
+Os valores de entrada desta fórmula podem ser obtidos a partir de [sys.dm_db_resource_stats,](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)e [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) DMVs. Por outras palavras, para determinar a percentagem de utilização do DTU/eDTU para o limite DTU/eDTU de uma base de dados ou de um pool elástico, escolha o maior valor percentual a partir do seguinte: `avg_cpu_percent` , e num dado `avg_data_io_percent` `avg_log_write_percent` momento.
 
 > [!NOTE]
 > O limite de DTU de uma base de dados é determinado pela CPU, lê-se, escreve e memória disponível para a base de dados. No entanto, como o motor sql Database normalmente utiliza toda a memória disponível para a sua cache de dados para melhorar o desempenho, o `avg_memory_usage_percent` valor será geralmente próximo de 100 por cento, independentemente da carga atual da base de dados. Portanto, embora a memória influencie indiretamente o limite de DTU, não é utilizada na fórmula de utilização do DTU.
@@ -168,7 +168,7 @@ Não. Não precisas de desligar a aplicação. Os novos níveis de serviço ofer
 
 Sim, pode converter facilmente a sua base de dados para qualquer objetivo de desempenho suportado utilizando o portal Azure, PowerShell, O CLI Azure, T-SQL ou a API REST. Consulte [Gerir bases de dados únicas](single-database-scale.md) e gerir [piscinas elásticas.](elastic-pool-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre o modelo de compra baseado em vCore, consulte [o modelo de compra baseado em vCore.](service-tiers-vcore.md)
 - Para obter mais informações sobre o modelo de compra baseado na DTU, consulte o [modelo de compra baseado na DTU.](service-tiers-dtu.md)

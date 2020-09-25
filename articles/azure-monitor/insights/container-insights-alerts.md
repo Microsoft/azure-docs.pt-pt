@@ -3,12 +3,12 @@ title: Criar alertas de desempenho para o Azure Monitor para contentores Microso
 description: Este artigo descreve como criar alertas personalizados baseados em consultas de registo para memória e utilização de CPU do Azure Monitor para contentores.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 5d73f4399d10683597fb2a2e8a3a2ab4ba0d1165
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1041b8bfe299a0daac633e478c906c746759d50f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75730930"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319542"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Como posso configurar alertas para problemas de desempenho no Azure Monitor para contentores
 
@@ -277,7 +277,7 @@ InsightsMetrics
 
 ## <a name="create-an-alert-rule"></a>Criar uma regra de alerta
 
-Siga estes passos para criar um alerta de registo no Azure Monitor utilizando uma das regras de pesquisa de registo que foi fornecida anteriormente. Para criar usando um modelo ARM, consulte a [criação do alerta de registo de amostra usando o modelo de recurso Azure.](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template)
+Siga estes passos para criar um alerta de registo no Azure Monitor utilizando uma das regras de pesquisa de registo que foi fornecida anteriormente. Para criar usando um modelo ARM, consulte [amostras de criação de alerta de registo usando o modelo de recurso Azure.](../platform/alerts-log-create-templates.md)
 
 >[!NOTE]
 >O procedimento a seguir para criar uma regra de alerta para a utilização de recursos de contentores requer que você mude para um novo registo alerta API como descrito na [preferência da API da Switch para alertas de registo](../platform/alerts-log-api-switch.md).
@@ -305,7 +305,7 @@ Siga estes passos para criar um alerta de registo no Azure Monitor utilizando um
 13. Selecione um Grupo de **Ação** existente ou crie um novo grupo. Este passo garante que as mesmas ações são tomadas sempre que um alerta é desencadeado. Configurar com base na forma como a sua equipa de operações de TI ou DevOps gere incidentes.
 14. Selecione **Criar a regra de alerta** para completar a regra de alerta. Começa imediatamente a executar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte [exemplos de consulta](container-insights-log-search.md#search-logs-to-analyze-data) de registos para ver consultas e exemplos pré-definidos para avaliar ou personalizar para alertar, visualizar ou analisar os seus clusters.
 - Para saber mais sobre o Azure Monitor e como monitorizar outros aspetos do seu cluster Kubernetes, consulte o desempenho do [cluster De Kubernetes](container-insights-analyze.md) e [veja a saúde do cluster Kubernetes.](container-insights-health.md)

@@ -3,12 +3,12 @@ title: 'Tutorial: Integrar-se com agentes virtuais de potência - QnA Maker'
 description: Neste tutorial, melhore a qualidade da sua base de conhecimento com aprendizagem ativa. Reveja, aceite ou rejeite, ou adicione sem remover ou alterar as questões existentes.
 ms.topic: tutorial
 ms.date: 06/08/2020
-ms.openlocfilehash: f1d51f6ad8892252161238eb71fbb02f463463fd
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6d00833a1331ebca9b070d90f32ee30c56bd5f96
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84635392"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319219"
 ---
 # <a name="tutorial-add-your-knowledge-base-to-power-virtual-agents"></a>Tutorial: Adicione a sua base de conhecimentos a Agentes Virtuais de Energia
 Crie e estenda um bot [de Agentes Virtuais de Energia](https://powervirtualagents.microsoft.com/) para fornecer respostas a partir da sua base de conhecimento.
@@ -152,7 +152,7 @@ O procedimento a seguir cria um fluxo power-automatização que:
 1. Selecione a caixa de ação **Generate Answer** e preencha as definições do QnA Maker a partir de uma secção anterior intitulada [Criar e publicar uma base de conhecimento](#create-and-publish-a-knowledge-base). O seu **Anfitrião de Serviço** na seguinte imagem refere-se ao anfitrião **da** base de conhecimento e encontra-se no formato de `https://YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker` .
 
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-fill-in-generate-answer-settings.png" alt-text="Screenshot parcial do fluxo do modelo QnA Maker com botão Continue realçado.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-fill-in-generate-answer-settings.png" alt-text="Screenshot parcial do fluxo do modelo do Fabricante QnA com resposta Generate (Preview) realçada.":::
 
 1. Selecione **Guardar** para guardar o fluxo.
 
@@ -199,10 +199,10 @@ Para que o agente encontre e ligue ao fluxo, o fluxo deve ser incluído numa sol
 
 1. A partir da barra de ferramentas de contexto, **selecione Save**, para guardar os detalhes de tela de autoria para o tópico.
 
-Aqui está o que o agente final tela.
+Aqui está o que o último agente tela parece.
 
 > [!div class="mx-imgBorder"]
-> ![Screenshot da tela do agente final](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-topic-authoring-canvas-full-flow.png)
+> ![A screenshot mostra a tela do agente final com frases de gatilho, ação e, em seguida, secções de mensagem.](../media/how-to-integrate-power-virtual-agent/power-virtual-agent-topic-authoring-canvas-full-flow.png)
 
 ## <a name="test-the-agent"></a>Teste o agente
 
@@ -244,7 +244,7 @@ Para partilhar o site de demonstração, configuure-o como um canal.
 
 1. Copie o link e **selecione Guardar**. Cole o link para o seu site de demonstração num e-mail para a sua escola ou membros da organização.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar a base de conhecimento, remova os recursos do QnA Maker no portal Azure.
 

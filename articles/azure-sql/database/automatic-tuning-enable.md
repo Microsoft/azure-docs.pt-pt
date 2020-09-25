@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 12/03/2019
-ms.openlocfilehash: e7a3dd1c58f2bddb767dcac4ac2b5e354be77f65
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: dfd21a38c46238dbd9d58d3eae5b3f9414d3c5fc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90981460"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284504"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Permitir a sintonização automática no portal Azure para monitorizar consultas e melhorar o desempenho da carga de trabalho
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ A sintonização automática pode ser ativada no servidor ou no nível da base d
 
 - O [portal Azure](automatic-tuning-enable.md#azure-portal)
 - [Rest API](automatic-tuning-enable.md#rest-api) chama
-- [Comandos T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)
+- [Comandos T-SQL](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true)
 
 > [!NOTE]
 > Para Azure SQL Managed Instance, a opção suportada FORCE_LAST_GOOD_PLAN só pode ser configurada através [de T-SQL.](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) A configuração baseada no portal Azure e as opções automáticas de afinação de índices descritas neste artigo não se aplicam à Instância Gerida Azure SQL.
@@ -109,7 +109,7 @@ A definição da opção de sintonização individual para ON irá sobrepor qual
 > No caso de [geo-replicação ativa,](auto-failover-group-overview.md)a sintonização automática só deve ser configurada na base de dados primária. As ações de afinação aplicadas automaticamente, tais como por exemplo, a criação ou eliminação de índices será automaticamente replicada para o secundário apenas de leitura. Tentar ativar a sintonização automática via T-SQL no secundário apenas de leitura resultará numa falha, uma vez que ter uma configuração de sintonização diferente no secundário apenas de leitura não é suportado.
 >
 
-Para obter mais opções de T-SQL para configurar a sintonização automática, consulte [OPções DE SET ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
+Para obter mais opções de T-SQL para configurar a sintonização automática, consulte [OPções DE SET ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current&preserve-view=true).
 
 ## <a name="disabled-by-the-system"></a>Desativado pelo sistema
 

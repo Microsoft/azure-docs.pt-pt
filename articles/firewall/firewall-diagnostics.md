@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 09/17/2020
 ms.author: victorh
-ms.openlocfilehash: 92fc4252dd52236e2cc4e8fdfdd2afa32059a721
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 784459282007edab599d54edff0d2b38eed07b34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376949"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320647"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Monitorar registos e métricas do Azure Firewall
 
@@ -35,14 +35,17 @@ Pode demorar alguns minutos até que os dados sejam apresentados nos seus regist
 1. No portal Azure, abra o seu grupo de recursos de firewall e selecione a firewall.
 2. Em **Monitorização**, selecione **Definições de diagnóstico**.
 
-   No Azure Firewall, estão disponíveis dois registos específicos do serviço:
+   Para a Azure Firewall, estão disponíveis quatro registos específicos do serviço:
 
    * AzureFirewallApplicationRule
    * AzureFirewallNetworkRule
+   * AzureFirewallThreatIntelLog
+   * AzureFirewallDnsProxy
+
 
 3. **Selecione Adicionar a definição de diagnóstico**. A página **Definições de diagnóstico** fornece as definições para os registos de diagnóstico.
 5. Neste exemplo, os registos do Azure Monitor armazenam os registos, por isso **digite a análise do registo de Firewall** para o nome.
-6. Em **Log**, selecione **AzureFireapplicationRule** e **AzureFirewallNetworkRule** para recolher registos para regras de aplicação e rede.
+6. Em **Log**, selecione **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule**, **AzureFirewallThreatIntelLog**e **AzureFirewallDnsProxy** para recolher os registos.
 7. Selecione **Enviar para Registar Analytics** para configurar o seu espaço de trabalho.
 8. Selecione a sua subscrição.
 9. Selecione **Guardar**.
@@ -94,7 +97,7 @@ Também pode ligar à sua conta de armazenamento e obter as entradas de registo 
 ## <a name="view-metrics"></a>Ver métricas
 Navegue por uma Firewall Azure, em **Métricas selecionadas** **de Monitorização** . Para ver os valores disponíveis, selecione a lista pendente **MÉTRICA**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que configuraste a tua firewall para recolher registos, podes explorar registos do Azure Monitor para visualizar os teus dados.
 

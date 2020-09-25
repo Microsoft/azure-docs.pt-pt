@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 06/03/2019
-ms.openlocfilehash: f6872ff362777f4357b2b4345d0535bc940eda66
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 01daf0af039a00f6a81b850b07cfcf6d901a7732
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982913"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284640"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificações por e-mail para afinação automática
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -248,7 +248,7 @@ Ao ajustar o script PowerShell, pode ajustar a saída e a formatação do e-mail
 
 Poderá ainda personalizar a solução para construir notificações de email com base num evento específico de afinação e em vários destinatários, para várias subscrições ou bases de dados, dependendo dos seus cenários personalizados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre como a sintonização automática pode ajudá-lo a melhorar o desempenho da base de dados, ver [sintonização automática na Base de Dados Azure SQL](automatic-tuning-overview.md).
 - Para ativar a sintonização automática na Base de Dados Azure SQL para gerir a sua carga de trabalho, consulte [Ativar a sintonização automática](automatic-tuning-enable.md).

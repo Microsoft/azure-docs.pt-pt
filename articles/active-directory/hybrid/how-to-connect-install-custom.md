@@ -14,12 +14,12 @@ ms.date: 06/10/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39eb45f4488c0ddc63ab8e7357a122b47777feee
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: aed5dcf98e37b0d075804985355bdabe3b50b712
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662348"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295350"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Definições personalizadas** do Azure AD Connect são utilizadas quando pretende mais opções para a instalação. São utilizadas se tiver várias florestas ou se pretender configurar funcionalidades opcionais não abrangidas na instalação rápida. São utilizadas em todos os casos em que a opção [**instalação rápida**](how-to-connect-install-express.md) não satisfaz a sua implementação ou topologia.
@@ -37,7 +37,7 @@ Quando instalar os serviços de sincronização, pode deixar a secção de confi
 
 ![Componentes necessários](./media/how-to-connect-install-custom/requiredcomponents2.png)
 
-| Configuração opcional | Descrição |
+| Configuração opcional | Description |
 | --- | --- |
 | Utilizar um SQL Server existente |Permite-lhe especificar o nome do SQL Server e o nome da instância. Escolha esta opção se já tiver um servidor de base de dados que pretende utilizar. Introduza o nome da instância, seguido de uma vírgula e do número de porta em **Nome da Instância**, caso o SQL Server não tenha a navegação ativada.  Em seguida, especifique o nome da base de dados Azure AD Connect.  Os seus privilégios SQL determinam se será criada uma nova base de dados ou se o seu administrador SQL deve criar a base de dados com antecedência.  Se tiver permissões SQL SA, consulte [como instalar utilizando uma base de dados existente.](how-to-connect-install-existing-database.md)  Se tiver sido delegada permissões (DBO) consulte [instalar Azure AD Connect com permissões de administrador delegadas sql](how-to-connect-install-sql-delegation.md). |
 | Utilizar uma conta de serviço existente |Por predefinição, o Azure AD Connect utiliza uma conta de serviço virtual para ser utilizada pelos serviços de sincronização. Se utilizar um servidor do SQL remoto ou um proxy que exija a autenticação, tem de utilizar uma **conta de serviço gerido** ou utilizar uma conta de serviço no domínio e conhecer a palavra-passe. Nesses casos, introduza a conta a utilizar. Certifique-se de que o utilizador que está a executar a instalação é um SA no SQL Server, para possa ser criado um início sessão para a conta de serviço.  Consulte [as contas e permissões do Azure AD Connect](reference-connect-accounts-permissions.md#adsync-service-account). </br></br>Com a compilação mais recente, o aprovisionamento da base de dados pode agora ser realizado fora de banda pelo administrador SQL e, em seguida, instalado pelo administrador do Azure AD Connect com direitos de proprietário da base de dados.  Para obter mais informações, veja [Instalar o Azure AD Connect com permissões de administrador do SQL delegado](how-to-connect-install-sql-delegation.md).|
@@ -46,9 +46,9 @@ Quando instalar os serviços de sincronização, pode deixar a secção de confi
 ### <a name="user-sign-in"></a>Início de sessão do utilizador
 Depois de instalar os componentes necessários, é-lhe pedido que selecione o método de início de sessão único dos utilizadores. A tabela seguinte fornece uma breve descrição das opções disponíveis. Para obter uma descrição completa dos métodos de início de sessão, consulte [Início de sessão do utilizador](plan-connect-user-signin.md).
 
-![Início de Sessão de Utilizador](./media/how-to-connect-install-custom/usersignin4.png)
+![Screenshot que mostra a página "User'in" com "Password Hash Synchronization" selecionada.](./media/how-to-connect-install-custom/usersignin4.png)
 
-| Opção Início de Sessão Único | Descrição |
+| Opção Início de Sessão Único | Description |
 | --- | --- |
 | Sincronização hash de palavra-passe |Os utilizadores são capazes de iniciar sôms nos serviços de cloud da Microsoft, como o Microsoft 365, utilizando a mesma palavra-passe que usam na sua rede de acesso. As palavras-passe dos utilizadores são sincronizadas para o Azure AD como um hash de palavra-passe e a autenticação ocorre na nuvem. Para obter mais informações, veja [Password hash synchronization (Sincronização hash de palavra-passe)](how-to-connect-password-hash-synchronization.md). |
 |Autenticação pass-through|Os utilizadores são capazes de iniciar sôms nos serviços de cloud da Microsoft, como o Microsoft 365, utilizando a mesma palavra-passe que usam na sua rede de acesso.  A palavra-passe dos utilizadores é transmitida para o controlador de domínio do Active Directory no local para ser validada.
@@ -75,7 +75,7 @@ Se receber um erro e tiver problemas com a conectividade, veja [Resolver problem
 ### <a name="connect-your-directories"></a>Ligar os diretórios
 Para ligar ao seu serviço do Active Directory Domain Services, o Azure AD Connect precisa do nome da floresta e das credenciais de uma conta com permissões suficientes.
 
-![Ligar o Diretório](./media/how-to-connect-install-custom/connectdir01.png)
+![Screenshot que mostra a página "Conecte os seus diretórios".](./media/how-to-connect-install-custom/connectdir01.png)
 
 Depois de introduzir o nome da floresta e de clicar em **Adicionar Diretório**, é apresentada uma caixa de diálogo de pop-up que mostra as opções seguintes:
 
@@ -174,7 +174,7 @@ Este ecrã permite-lhe selecionar as funcionalidades opcionais para os seus cen�
 
 
 
-| Funcionalidades Opcionais | Descrição |
+| Funcionalidades Opcionais | Description |
 | --- | --- |
 | Implementação Híbrida do Exchange |A funcionalidade De Implementação Híbrida exchange permite a coexistência de caixas de correio Exchange tanto no local como na Microsoft 365. O Azure AD Connect está a sincronizar um conjunto específico de [atributos](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) do Azure AD para o diretório no local. |
 | Pastas Públicas de Correio do Exchange | A funcionalidade Pastas Públicas de Correio do Exchange permite-lhe sincronizar objetos de Pastas Públicas ativadas para correio do seu Active Directory no local para o Azure AD. |
@@ -300,7 +300,7 @@ Se tiver selecionado a Conta de Serviço Gerida de Grupo e esta funcionalidade n
 ### <a name="select-the-azure-ad-domain-that-you-wish-to-federate"></a>Selecionar o domínio do Azure AD que pretende federar
 Esta configuração é utilizada para configurar a relação de federação entre o AD FS e o Azure AD. Configura o AD FS para emitir tokens de segurança para o Azure AD e configura o Azure AD para confiar nos tokens desta instância específica do AD FS. Esta página permite-lhe apenas configurar um domínio único na instalação inicial. Pode configurar mais domínios posteriormente, executando novamente o Azure AD Connect.
 
-![Domínio do Azure AD](./media/how-to-connect-install-custom/adfs6.png)
+![Screenshot que mostra a página "Azure AD Domain".](./media/how-to-connect-install-custom/adfs6.png)
 
 ### <a name="verify-the-azure-ad-domain-selected-for-federation"></a>Verificar o domínio do Azure AD selecionado para federação
 Quando seleciona o domínio a ser federado, o Azure AD Connect fornece-lhe as informações necessárias para verificar um domínio não verificado. Consulte [Adicionar e verificar o domínio](../fundamentals/add-custom-domain.md) para saber como utilizar estas informações.
@@ -320,7 +320,7 @@ Configurar o PingFederate com o Azure AD Connect é simples e exige apenas algun
 ### <a name="verify-the-domain"></a>Verificar o domínio
 Depois de selecionar a Federação com PingFederate, ser-lhe-á pedido para verificar o domínio que pretende federar.  Selecione o domínio na caixa da lista pendente.
 
-![Verificar Domínio](./media/how-to-connect-install-custom/ping1.png)
+![Screenshot que mostra o "Azure AD Domain" com o domínio de exemplo "contoso.com" selecionado.](./media/how-to-connect-install-custom/ping1.png)
 
 ### <a name="export-the-pingfederate-settings"></a>Exportar as definições do PingFederate
 
@@ -394,7 +394,7 @@ A secção seguinte contém resoluções de problemas e informações que pode u
 ### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>“A base de dados ADSync já contém dados e não pode ser substituída”
 Quando instalar o Azure AD Connect e selecionar a opção **Utilize um servidor SQL existente** na página de componentes **necessários,** poderá encontrar um erro que indique que a base **de dados ADSync já contém dados e não pode ser substituída. Por favor, retire a base de dados existente e tente novamente.**
 
-![Erro](./media/how-to-connect-install-custom/error1.png)
+![Screenshot que mostra a página "Instalar componentes necessários".](./media/how-to-connect-install-custom/error1.png)
 
 Isto deve-se ao facto de já haver uma base de dados com o nome **ADSync** na instância do SQL do SQL Server, que especificou nas caixas de texto abaixo.
 
@@ -410,7 +410,7 @@ Por fim, tem de eliminá-la.  Para tal, pode utilizar o **Microsoft SQL Server M
 
 Depois de eliminar a base de dados **ADSync**, pode clicar no botão **instalar** para repetir a instalação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Uma vez concluída a instalação, termine e inicie novamente sessão no Windows antes de utilizar o Synchronization Service Manager ou Editor de Regras de Sincronização.
 
 Agora que já tem o Azure AD Connect instalado, pode [verificar a instalação e atribuir licenças](how-to-connect-post-installation.md).

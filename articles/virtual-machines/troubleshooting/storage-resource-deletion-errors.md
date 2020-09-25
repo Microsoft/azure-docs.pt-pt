@@ -1,6 +1,6 @@
 ---
 title: Falhas nos recursos de armazenamento de resolução de problemas nos VMs do Linux em Azure Microsoft Docs
-description: Como resolver problemas ao eliminar os recursos de armazenamento que contêm VHDs anexados.
+description: Aprenda a resolver problemas em VMs Linux ao eliminar recursos de armazenamento que contenham VHDs anexados.
 keywords: ''
 services: virtual-machines
 author: genlin
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 8f145dcf8d476009d81056b3f4f970460209a5bc
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8209f5b7fc02f59c33ad0a7b58ec6305d6eecf0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649742"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320086"
 ---
 # <a name="troubleshoot-storage-resource-deletion-errors"></a>Resolver problemas de erros de eliminação de recursos de armazenamento
 

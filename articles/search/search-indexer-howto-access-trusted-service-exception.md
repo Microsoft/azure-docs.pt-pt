@@ -8,16 +8,19 @@ ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 1400f3c3d15698a5f1a145e8e0750ad7c4e9cec8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 30fc71e6f59766a759cdb8e4e503123623f48bd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971410"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320477"
 ---
 # <a name="accessing-data-in-storage-accounts-securely-via-trusted-service-exception"></a>Aceder aos dados nas contas de armazenamento de forma segura através de uma exceção de serviço fidedigno
 
 Os indexantes que acedem aos dados nas contas de armazenamento podem utilizar a capacidade de exceção do [serviço fidedigno](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) para aceder de forma segura aos dados. Este mecanismo oferece aos clientes que não conseguem conceder acesso a [indexante através de regras de firewall IP](search-indexer-howto-access-ip-restricted.md) uma alternativa simples, segura e gratuita para aceder a dados em contas de armazenamento.
+
+> [!NOTE]
+> O suporte para aceder a dados em contas de armazenamento através de uma exceção de serviço fidedigno está limitado ao armazenamento de Azure Blob e ao armazenamento do Azure Data Lake Gen2. O armazenamento da mesa Azure não é suportado.
 
 ## <a name="step-1-configure-connection-to-the-storage-account-via-identity"></a>Passo 1: Configurar a ligação à conta de armazenamento por identidade
 

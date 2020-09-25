@@ -7,13 +7,13 @@ ms.date: 02/19/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 466a1318dbe0a9299eebb9259ef8e0fe9bbbc0e7
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: 208e06e9bd8fcf26674a11f79d2bd6878ca4f633
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433094"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331561"
 ---
 # <a name="azure-storage-samples-using-v12-javascript-client-libraries"></a>Amostras de armazenamento Azure usando bibliotecas de clientes v12 JavaScript
 
@@ -421,7 +421,7 @@ Consulte os seguintes guias se estiver à procura de instruções sobre como ins
 * [Começar com o serviço de fila Azure em JavaScript](../queues/storage-quickstart-queues-nodejs.md)
 * [Começar com o serviço de mesa Azure em JavaScript](../../cosmos-db/table-storage-how-to-use-nodejs.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre amostras para outras línguas:
 

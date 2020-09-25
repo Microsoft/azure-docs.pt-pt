@@ -1,6 +1,6 @@
 ---
 title: Criar VM a partir de snapshot (Linux) - Amostra PowerShell
-description: Amostra de script Azure PowerShell - Crie um VM a partir de um instantâneo
+description: Azure PowerShell Script Sample - Crie um VM a partir de uma imagem com um exemplo Linux.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: ramankumarlive
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 42c9903b783df4b3392b6aab3a69bbb66da90a75
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: e39c703452b5bb6855062c1c3efbde29d2becd1e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078168"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320154"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-powershell-linux"></a>Criar uma máquina virtual a partir de um instantâneo com PowerShell (Linux)
 

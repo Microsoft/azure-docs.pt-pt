@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 09/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: ca9a796483c52e2e74231dfcbb67a72b913d35d7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5f570f13fd39bd25b37c35a2c823e64eaa02fef5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89073000"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295401"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Alterar a forma como uma conta de armazenamento é replicada
 
@@ -39,8 +39,8 @@ A tabela a seguir fornece uma visão geral de como mudar de cada tipo de replica
 
 | Comutação | ... para o LRS | ... a GRS/RA-GRS | ... para ZRS | ... para GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>... do LRS</b> | N/D | Utilize o portal Azure, PowerShell ou CLI para alterar a definição de replicação<sup>1</sup> | Realizar uma migração manual <br /><br />Solicite uma migração ao vivo | Realizar uma migração manual <br /><br /> OU <br /><br /> Mude primeiro para GRS/RA-GRS e, em seguida, solicite uma migração ao vivo<sup>1</sup> |
-| <b>... de GRS/RA-GRS</b> | Use o portal Azure, PowerShell ou CLI para alterar a definição de replicação | N/D | Realizar uma migração manual <br /><br /> OU <br /><br /> Mude primeiro para LRS e, em seguida, solicite uma migração ao vivo | Realizar uma migração manual <br /><br /> Solicite uma migração ao vivo |
+| <b>... do LRS</b> | N/D | Utilize o portal Azure, PowerShell ou CLI para alterar a definição de replicação<sup>1</sup> | Realizar uma migração manual <br /><br /> OU <br /><br /> Solicite uma migração ao vivo | Realizar uma migração manual <br /><br /> OU <br /><br /> Mude primeiro para GRS/RA-GRS e, em seguida, solicite uma migração ao vivo<sup>1</sup> |
+| <b>... de GRS/RA-GRS</b> | Use o portal Azure, PowerShell ou CLI para alterar a definição de replicação | N/D | Realizar uma migração manual <br /><br /> OU <br /><br /> Mude primeiro para LRS e, em seguida, solicite uma migração ao vivo | Realizar uma migração manual <br /><br /> OU <br /><br /> Solicite uma migração ao vivo |
 | <b>... da ZRS</b> | Realizar uma migração manual | Realizar uma migração manual | N/D | Utilize o portal Azure, PowerShell ou CLI para alterar a definição de replicação<sup>1,2</sup> |
 | <b>... de GZRS/RA-GZRS</b> | Realizar uma migração manual | Realizar uma migração manual | Use o portal Azure, PowerShell ou CLI para alterar a definição de replicação | N/D |
 
@@ -48,11 +48,11 @@ A tabela a seguir fornece uma visão geral de como mudar de cada tipo de replica
 <sup>2</sup> A conversão de ZRS para GZRS/RA-GZRS ou vice-versa não é apoiada nas seguintes regiões: US East 2, US East, Europe West.
 
 > [!CAUTION]
-> Se tiver feito uma falha de [conta](storage-disaster-recovery-guidance.md) na sua conta (RA-)GRS ou (RA-)GZRS, a conta é localmente redundante na nova região primária após o failover. A migração ao vivo para ZRS ou GZRS para uma conta LRS resultante de um failover não é suportada. Terá de efetuar uma [migração manual](#perform-a-manual-migration-to-zrs) para ZRS ou GZRS.
+> Se tiver feito uma falha de [conta](storage-disaster-recovery-guidance.md) na sua conta (RA-)GRS ou (RA-)GZRS, a conta é localmente redundante na nova região primária após o failover. A migração ao vivo para ZRS ou GZRS para uma conta LRS resultante de um failover não é suportada. Isto é verdade mesmo no caso das chamadas operações de repusão. Por exemplo, se efetuar uma falha de conta de RA-GZRS para o LRS na região secundária, e depois configurá-la novamente para RA-GRS e executar outra falha de conta para a região primária original, não pode contactar o suporte para a migração original ao vivo para RA-GZRS na região primária. Em vez disso, terá de realizar uma migração manual para ZRS ou GZRS.
 
 ## <a name="change-the-replication-setting"></a>Alterar a definição de replicação
 
-Pode utilizar o portal Azure, PowerShell ou Azure CLI para alterar a definição de replicação para uma conta de armazenamento, desde que não esteja a alterar a forma como os dados são replicados na região primária. Se estiver a migrar do LRS na região primária para o ZRS na região primária ou vice-versa, então deve realizar uma [migração manual](#perform-a-manual-migration-to-zrs) ou uma [migração ao vivo.](#request-a-live-migration-to-zrs)
+Pode utilizar o portal Azure, PowerShell ou Azure CLI para alterar a definição de replicação para uma conta de armazenamento, desde que não esteja a alterar a forma como os dados são replicados na região primária. Se você está migrando de LRS na região primária para ZRS na região primária ou vice-versa, então você deve realizar uma migração manual ou uma migração ao vivo.
 
 Alterar a forma como a sua conta de armazenamento é replicada não resulta em tempo de inação para as suas aplicações.
 
@@ -89,7 +89,7 @@ az storage account update \
 
 ---
 
-## <a name="perform-a-manual-migration-to-zrs"></a>Realizar uma migração manual para o ZRS
+## <a name="perform-a-manual-migration-to-zrs-gzrs-or-ra-gzrs"></a>Realizar uma migração manual para ZRS, GZRS ou RA-GZRS
 
 Se quiser alterar a forma como os dados na sua conta de armazenamento são replicados na região primária, movendo-se de LRS para ZRS ou vice-versa, então pode optar por realizar uma migração manual. A migração manual proporciona mais flexibilidade do que a migração em direto. Você controla o tempo de uma migração manual, então use esta opção se precisar que a migração complete até uma determinada data.
 
@@ -102,9 +102,11 @@ Com uma migração manual, copia os dados da sua conta de armazenamento existent
 - Copie os dados utilizando uma ferramenta existente, como a AzCopy, uma das bibliotecas de clientes do Azure Storage ou uma ferramenta de terceiros fiável.
 - Se estiver familiarizado com Hadoop ou HDInsight, pode anexar a conta de armazenamento de fonte e a conta de armazenamento de destino ao seu cluster. Em seguida, paralelize o processo de cópia de dados com uma ferramenta como o DistCp.
 
-## <a name="request-a-live-migration-to-zrs"></a>Solicite uma migração ao vivo para o ZRS
+## <a name="request-a-live-migration-to-zrs-gzrs-or-ra-gzrs"></a>Solicite uma migração ao vivo para ZRS, GZRS ou RA-GZRS
 
-Se precisar de migrar a sua conta de armazenamento de LRS ou GRS para ZRS na região primária sem tempo de inatividade da aplicação, pode solicitar uma migração ao vivo da Microsoft. Durante uma migração ao vivo, pode aceder a dados na sua conta de armazenamento, sem perda de durabilidade ou disponibilidade. O Azure Storage SLA é mantido durante o processo de migração. Não há perda de dados associada a uma migração ao vivo. Os pontos finais do serviço, as chaves de acesso, as assinaturas de acesso partilhado e outras opções de conta permanecem inalteradas após a migração.
+Se precisar de migrar a sua conta de armazenamento de LRS para ZRS na região primária sem tempo de inatividade da aplicação, pode solicitar uma migração ao vivo da Microsoft. Para migrar de LRS para GZRS ou RA-GZRS, mude primeiro para GRS ou RA-GRS e, em seguida, solicite uma migração ao vivo. Da mesma forma, você pode solicitar uma migração ao vivo de GRS ou RA-GRS para GZRS ou RA-GZRS. Para migrar de GRS ou RA-GRS para ZRS, mude primeiro para LRS e, em seguida, solicite uma migração ao vivo.
+
+Durante uma migração ao vivo, pode aceder a dados na sua conta de armazenamento sem perda de durabilidade ou disponibilidade. O Azure Storage SLA é mantido durante o processo de migração. Não há perda de dados associada a uma migração ao vivo. Os pontos finais do serviço, as chaves de acesso, as assinaturas de acesso partilhado e outras opções de conta permanecem inalteradas após a migração.
 
 O ZRS suporta apenas contas v2 para fins gerais, por isso certifique-se de atualizar a sua conta de armazenamento antes de submeter um pedido de migração ao vivo para zRS. Para obter mais informações, consulte [upgrade para uma conta de armazenamento v2 para fins gerais.](storage-account-upgrade.md) Uma conta de armazenamento deve conter dados a serem migrados através da migração ao vivo.
 

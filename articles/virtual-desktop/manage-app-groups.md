@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 52f495753d055730c1ad42444c83cf3d5cd4c1d3
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: beac9f64b12a07d2fc900099ee1f107e4981f17e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461430"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320222"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Tutorial: Gerir grupos de aplicações com o portal Azure
 
@@ -32,7 +32,8 @@ Se já criou um VM de anfitrião de pool e sessão utilizando o portal Azure ou 
 
 1.  Inicie sessão no [portal do Azure](https://portal.azure.com/).
    
-   >! [NOTA] Se está a assinar o portal gov dos EUA, vá em [https://portal.azure.us/](https://portal.azure.us/) vez disso.
+    >[!NOTE]
+    > Se está a assinar o portal gov dos EUA, vá em [https://portal.azure.us/](https://portal.azure.us/) vez disso.
 
 2.  Procure e selecione **Windows Virtual Desktop**.
 

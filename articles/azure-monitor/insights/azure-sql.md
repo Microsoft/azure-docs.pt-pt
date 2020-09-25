@@ -5,14 +5,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.date: 02/21/2020
+ms.date: 09/19/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: c871f5fbbe63747c71e1f6ecf83a47c0cd30970e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 663c852574667e45a39241575d6b50038495c33d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318033"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319593"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitor Azure SQL Database usando Azure SQL Analytics (Pré-visualização)
 
@@ -31,28 +31,28 @@ Para obter uma visão geral prática sobre a utilização da solução Azure SQL
 
 O Azure SQL Analytics é uma solução de monitorização de nuvem que suporta o streaming de telemetria de diagnóstico para todas as suas bases de dados Azure SQL. Como o Azure SQL Analytics não utiliza agentes para ligar ao Azure Monitor, não suporta a monitorização do SQL Server hospedado no local ou em máquinas virtuais.
 
-| Origem Ligada | Suportado | Descrição |
+| Origem Ligada | Suportado | Description |
 | --- | --- | --- |
 | [Definições de diagnósticos](../platform/diagnostic-settings.md) | **Sim** | As métricas Azure e os dados de registo são enviados diretamente para os Registos do Monitor Azure pela Azure. |
-| [Conta de armazenamento Azure](../platform/resource-logs.md#send-to-log-analytics-workspace) | Não | O Azure Monitor não lê os dados de uma conta de armazenamento. |
-| [Agentes do Windows](../platform/agent-windows.md) | Não | Os agentes diretos do Windows não são utilizados pela Azure SQL Analytics. |
-| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não | Os agentes Linux diretos não são usados pela Azure SQL Analytics. |
-| [Grupo de gestão do System Center Operations Manager](../platform/om-agents.md) | Não | Uma ligação direta do agente gestor de operações ao Azure Monitor não é utilizada pela Azure SQL Analytics. |
+| [Conta de armazenamento Azure](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | O Azure Monitor não lê os dados de uma conta de armazenamento. |
+| [Agentes do Windows](../platform/agent-windows.md) | No | Os agentes diretos do Windows não são utilizados pela Azure SQL Analytics. |
+| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | No | Os agentes Linux diretos não são usados pela Azure SQL Analytics. |
+| [Grupo de gestão do System Center Operations Manager](../platform/om-agents.md) | No | Uma ligação direta do agente gestor de operações ao Azure Monitor não é utilizada pela Azure SQL Analytics. |
 
 ## <a name="azure-sql-analytics-options"></a>Opções Azure SQL Analytics
 
 A tabela abaixo descreve opções suportadas para duas versões do painel Azure SQL Analytics, uma para Azure SQL Database, e outra para bases de dados de Azure SQL Managed Instance.
 
-| Opção Azure SQL Analytics | Descrição | Suporte à base de dados SQL | Suporte de instância gerida sql |
+| Opção Azure SQL Analytics | Description | Suporte à base de dados SQL | Suporte ao SQL Managed Instance |
 | --- | ------- | ----- | ----- |
-| Recurso por tipo | Perspetiva que conta todos os recursos monitorizados. | Sim | Sim |
-| Informações | Fornece perfuração hierárquica em Insights Inteligentes para o desempenho. | Sim | Sim |
-| Erros | Fornece perfuração hierárquica em erros SQL que aconteceram nas bases de dados. | Sim | Sim |
-| Tempos limite | Fornece perfuração hierárquica em intervalos de TEMPO SQL que aconteceram nas bases de dados. | Sim | Não |
-| Bloqueios | Fornece perfuração hierárquica em bloqueios SQL que aconteceram nas bases de dados. | Sim | Não |
-| A base de dados espera | Fornece perfuração hierárquica em estatísticas de espera SQL no nível da base de dados. Inclui resumos do tempo total de espera e do tempo de espera por tipo de espera. |Sim | Não |
-| Duração da consulta | Fornece perfuração hierárquica nas estatísticas de execução de consultas tais como duração da consulta, utilização de CPU, utilização de IO de dados, utilização do Log IO. | Sim | Sim |
-| Esperas de consultas | Fornece perfuração hierárquica nas estatísticas de espera de consulta por categoria de espera. | Sim | Sim |
+| Recurso por tipo | Perspetiva que conta todos os recursos monitorizados. | Yes | Yes |
+| Informações | Fornece perfuração hierárquica em Insights Inteligentes para o desempenho. | Yes | Yes |
+| Erros | Fornece perfuração hierárquica em erros SQL que aconteceram nas bases de dados. | Yes | Yes |
+| Tempos limite | Fornece perfuração hierárquica em intervalos de TEMPO SQL que aconteceram nas bases de dados. | Yes | No |
+| Bloqueios | Fornece perfuração hierárquica em bloqueios SQL que aconteceram nas bases de dados. | Yes | No |
+| A base de dados espera | Fornece perfuração hierárquica em estatísticas de espera SQL no nível da base de dados. Inclui resumos do tempo total de espera e do tempo de espera por tipo de espera. |Yes | No |
+| Duração da consulta | Fornece perfuração hierárquica nas estatísticas de execução de consultas tais como duração da consulta, utilização de CPU, utilização de IO de dados, utilização do Log IO. | Yes | Yes |
+| Esperas de consultas | Fornece perfuração hierárquica nas estatísticas de espera de consulta por categoria de espera. | Yes | Yes |
 
 ## <a name="configuration"></a>Configuração
 
@@ -230,6 +230,9 @@ AzureMetrics
 > - A saída é uma lista de recursos de base de dados que estão acima do storage_threshold dentro do time_range definido.
 
 #### <a name="alert-on-intelligent-insights"></a>Alerta sobre insights inteligentes
+
+> [!IMPORTANT]
+> Caso uma base de dados esteja a ter um bom desempenho, e que não tenha sido gerada nenhuma Informação Inteligente, esta consulta falhará com uma mensagem de erro: Não conseguiu resolver a expressão escalara denominada "rootCauseAnalysis_s". Este comportamento é esperado para todos os casos em que não existam insights inteligentes para a base de dados.
 
 ```
 let alert_run_interval = 1h;

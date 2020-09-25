@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 09/09/2020
-ms.openlocfilehash: 5c24bd80721f626e38dcb886e89231c0b86056df
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.date: 09/15/2020
+ms.openlocfilehash: 52cb5ac5423aac0599ba2827667ee670dde286a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650975"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331663"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Lockbox do cliente para Microsoft Azure
 
@@ -32,22 +32,23 @@ Os seguintes serviços estão agora em pré-visualização para o Lockbox do cli
 
 - Gestão de API
 - Serviço de Aplicações do Azure
-- Base de Dados do Azure para MySQL
-- Azure Databricks
-- Azure Synapse Analytics
 - Serviços Cognitivos
 - Container Registry
+- Base de Dados do Azure para MySQL
+- Azure Databricks
+- Azure Data Box
+- Azure Data Explorer
 - Azure Data Factory
 - Base de Dados do Azure para PostgreSQL
-- Azure Kubernetes Service
-- Azure Data Box
+- Funções do Azure
 - HDInsight
-- Funções
+- Azure Kubernetes Service
+- Azure Monitor
 - Storage do Azure
 - BD SQL do Azure
-- Azure Data Explorer
-- Máquinas virtuais (agora também abrangendo o acesso a despejos de memória e discos geridos)
 - Transferências de assinaturas Azure
+- Azure Synapse Analytics
+- Máquinas virtuais (agora também abrangendo o acesso a despejos de memória e discos geridos)
 
 Para ativar o Bloqueio do Cliente para estas ofertas de pré-visualização para a sua organização, inscreva-se no [Customer Lockbox para pré-visualização pública Azure](https://aka.ms/customerlockbox/insiderprogram).
 
@@ -146,7 +147,7 @@ Os pedidos de bloqueio do cliente não são desencadeados nos seguintes cenário
 
 - Um engenheiro da Microsoft acede à plataforma Azure como parte da resolução de problemas e inadvertidamente tem acesso aos dados dos clientes. Por exemplo, a Equipa de Rede Azure executa a resolução de problemas que resulta numa captura de pacotes num dispositivo de rede. No entanto, se o cliente encriptar os dados enquanto este se encontrava em trânsito, o engenheiro não consegue ler os dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O Customer Lockbox está automaticamente disponível para todos os clientes que tenham um plano de [suporte Azure](https://azure.microsoft.com/support/plans/) com um nível mínimo de **Programador.**
 

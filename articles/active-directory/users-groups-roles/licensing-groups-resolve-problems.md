@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0d7703af48ba33edea81ca45516191266a79fa4
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 7006ecd760a886fdebe50becb2ab366ff79cf057
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799558"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319814"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licenças para um grupo no Azure Ative Directory
 
@@ -87,7 +87,7 @@ Para resolver este problema, é necessário certificar-se de que o plano necess�
 
 ## <a name="usage-location-isnt-allowed"></a>Localização de utilização não é permitida
 
-**Problema:** Alguns serviços da Microsoft não estão disponíveis em todos os locais devido às leis e regulamentos locais. Antes de poder atribuir uma licença a um utilizador, tem de especificar a propriedade **de localização de Utilização** para o utilizador. Pode especificar a localização na secção Definições de Perfil do **Utilizador**  >  **Profile**  >  **Settings** no portal Azure.
+**Problema:** Alguns serviços da Microsoft não estão disponíveis em todos os locais devido às leis e regulamentos locais. Antes de poder atribuir uma licença a um utilizador, tem de especificar a propriedade **de localização de Utilização** para o utilizador. Pode especificar a localização na secção De edição de perfil do **utilizador**  >  **Profile**  >  **Edit** no portal Azure.
 
 Quando a Azure AD tenta atribuir uma licença de grupo a um utilizador cuja localização de utilização não é suportada, falha e regista um erro no utilizador.
 

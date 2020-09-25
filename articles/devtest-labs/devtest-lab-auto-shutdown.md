@@ -3,12 +3,12 @@ title: Gerir políticas de autoshutdown na Azure DevTest Labs Microsoft Docs
 description: Aprenda a definir a política de autoshutdown para um laboratório para que as máquinas virtuais sejam automaticamente desligadas quando não estão a ser utilizadas.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a30070470f9a75ec5c56d448cd09ca82dd0cbce7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3532e4859bd63c81cb9b9cda973064e5ef8357ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287555"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320715"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configurar autoshutdown para laboratório e calcular máquinas virtuais em Azure DevTest Labs
 
@@ -162,7 +162,7 @@ Para começar, crie uma aplicação lógica na sua subscrição Azure utilizando
     }
     ```
     
-    ![Pedido corpo JSON Schema](./media/devtest-lab-auto-shutdown/request-json.png)
+    ![Screenshot que mostra o "Request Body JSON Schema".](./media/devtest-lab-auto-shutdown/request-json.png)
 7. Selecione **+ Novo passo** no designer, e siga estes passos:
     1. Pesquisa rumo **ao Office 365 Outlook - Envie um e-mail**. 
     2. Selecione **Enviar um e-mail** de **Ações**. 

@@ -1,25 +1,19 @@
 ---
 title: Integre o Relé Azure com o Azure Private Link Service
 description: Saiba como integrar o Azure Relay com o Azure Private Link Service
-ms.date: 06/23/2020
+ms.date: 09/24/2020
 ms.topic: article
-ms.openlocfilehash: e5c35f9333378a5f0b87956e8a916491d51e3cb3
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 10d82fe8e272ed18dcc339830dfef0f71d4b2ddb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719432"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263882"
 ---
 # <a name="integrate-azure-relay-with-azure-private-link-preview"></a>Integre o Relé Azure com Link Privado Azure (Pré-visualização)
 O Azure **Private Link Service** permite-lhe aceder aos serviços Azure (por exemplo, Azure Relay, Azure Service Bus, Azure Event Hubs, Azure Storage e Azure Cosmos DB) e a Azure acolheu serviços de cliente/parceiro sobre um ponto final privado na sua rede virtual. Para mais informações, consulte [O que é Azure Private Link (Preview)?](../private-link/private-link-overview.md)
 
 Um **ponto final privado** é uma interface de rede que permite que as suas cargas de trabalho em execução numa rede virtual se conectem de forma privada e segura a um serviço que tenha um recurso de **ligação privada** (por exemplo, um espaço de nome Relay). O ponto final privado utiliza um endereço IP privado a partir do seu VNet, efetivamente trazendo o serviço para o seu VNet. Todo o tráfego para o serviço pode ser encaminhado através do ponto final privado, pelo que não são necessários gateways, dispositivos NAT, ExpressRoute, ligações VPN ou endereços IP públicos. O tráfego entre a sua rede virtual e o serviço atravessa a rede de espinha dorsal da Microsoft, eliminando a exposição da Internet pública. Pode fornecer um nível de granularidade no controlo de acesso, permitindo ligações a espaços específicos de nomes Azure Relay. 
-
-
-> [!IMPORTANT]
-> Esta funcionalidade encontra-se atualmente em **pré-visualização.** 
->
-> Atualmente, apoiamos ligações de ligações privadas em clientes remetentes. 
 
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Adicione um ponto final privado usando o portal Azure
@@ -158,7 +152,7 @@ Quando criar um ponto final privado, a ligação tem de ser aprovada. Se o recur
 
 Existem quatro estados de provisionamento:
 
-| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Descrição |
+| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Description |
 |--|--|--|
 | Nenhum | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do espaço de identificação Azure Relay. |
 | Aprovar | Aprovado | A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada. |
@@ -167,7 +161,7 @@ Existem quatro estados de provisionamento:
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Aprovar, rejeitar ou remover uma ligação de ponto final privado
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 1. Na barra de pesquisa, escreva em **Relay.**
 1. Selecione o **espaço de nomes** que pretende gerir.
 1. Selecione o **separador 'Rede'.**

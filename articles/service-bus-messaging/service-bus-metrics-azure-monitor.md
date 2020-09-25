@@ -3,12 +3,12 @@ title: Métricas de autocarro da Azure Service em Azure Monitor Microsoft Docs
 description: Este artigo explica como usar o Azure Monitor para monitorizar as entidades de Service Bus (filas, tópicos e subscrições).
 ms.topic: article
 ms.date: 07/15/2020
-ms.openlocfilehash: 3081b46bebdba8e83e5584178b37aab2dffee599
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 158662a5d0fc3489b2cac638b28a64aa218b888e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065017"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320443"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas de ônibus de serviço Azure em Azure Monitor
 
@@ -147,7 +147,7 @@ A Azure Service Bus suporta as seguintes dimensões para métricas no Azure Moni
     2. Introduza uma **descrição** para o alerta.
     3. Selecione **a gravidade** para o alerta. 
 
-        ![Detalhes do alerta](./media/service-bus-metrics-azure-monitor/alert-details.png)
+        ![Screenshot da página de regras Criar. Defina detalhes de alerta é expandido e os campos para nome da regra de alerta, Descrição e Severidade são destacados.](./media/service-bus-metrics-azure-monitor/alert-details.png)
 1. Na página **de regras Criar,** expandir **Definir grupo de ação,** selecionar **Novo grupo de ação,** e fazer as seguintes ações na página do **grupo de ação Add**. 
     1. Insira um nome para o grupo de ação.
     2. Insira um nome curto para o grupo de ação. 
@@ -161,7 +161,7 @@ A Azure Service Bus suporta as seguintes dimensões para métricas no Azure Moni
         2. Digite o **endereço de e-mail.** 
         3. Selecione **OK**.
 
-            ![Detalhes do alerta](./media/service-bus-metrics-azure-monitor/add-action-group.png)
+            ![Screenshot da página do grupo de ação Add. Uma Ação denominada "Enviar e-mails" com o tipo de Ação Email/SMS/Push/Voice está a ser adicionada ao grupo.](./media/service-bus-metrics-azure-monitor/add-action-group.png)
         4. Na página do **grupo de ação Add,** selecione **OK**. 
 1. Na página **'Criar' regra,** selecione **Criar a regra de alerta**. 
 

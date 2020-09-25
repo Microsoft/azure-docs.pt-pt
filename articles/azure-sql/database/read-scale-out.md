@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 2e7c931d6d99187b4ee7985be19374048c226312
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: bd393a897052dd0bd49851eee424c99ad1fcfb1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442195"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319432"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Use réplicas apenas de leitura para descarregar cargas de trabalho de consulta apenas de leitura
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -195,6 +195,6 @@ Desta forma, a criação de uma geo-réplica fornece mais duas réplicas apenas 
 > [!NOTE]
 > Não existe um round-robin automático ou qualquer outro encaminhamento equilibrado de carga entre as réplicas de uma base de dados secundária geo-replicada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre a oferta de hiperescala sql Database, consulte [o nível de serviço hyperscale](service-tier-hyperscale.md).

@@ -8,16 +8,16 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/17/2020
 ms.author: ambapat
-ms.openlocfilehash: b90d868042e9fb947afdfae9acf35262912eff94
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ce275674704cd7538f25a2d3f31d0e65aecd7925
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997471"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320630"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>Importa chaves protegidas pelo HSM para o HSM gerido (BYOK)
 
- Azure Key Vault Managed HSM suporta a importação de chaves geradas no seu módulo de segurança de hardware no local (HSM); as teclas nunca sairão do limite de proteção HSM. Este cenário é muitas vezes referido como *trazer a sua própria chave* (BYOK). O HSM gerido utiliza a família nCipher nShield de HSMs (FIPS 140-2 Nível 3 validado) para proteger as suas chaves.
+ Azure Key Vault Managed HSM suporta a importação de chaves geradas no seu módulo de segurança de hardware no local (HSM); as teclas nunca sairão do limite de proteção HSM. Este cenário é muitas vezes referido como *trazer a sua própria chave* (BYOK). O HSM gerido utiliza os adaptadores Marvell LiquidSecurity HSM (FIPS 140-2 Nível 3 validado) para proteger as suas chaves.
 
 Utilize as informações deste artigo para o ajudar a planear, gerar e transferir as suas próprias chaves protegidas pelo HSM para usar com o Managed HSM.
 
@@ -70,9 +70,9 @@ Para obter mais informações sobre as opções de login através do CLI, dê um
 
 ## <a name="supported-key-types"></a>Supported key types (Tipos de chaves suportados)
 
-|Nome da chave|Tipo de chave|Tamanho da chave|Origem|Descrição|
+|Nome da chave|Tipo de chave|Tamanho da chave|Origem|Description|
 |---|---|---|---|---|
-|Chave de troca (KEK)|RSA| 2.048-bit<br />3,072 bit<br />4.096-bit|HSM gerido|Um par de chaves RSA apoiado pelo HSM gerado em HSM gerido|
+|Chave de troca (KEK)|RSA| 2.048-bit<br />3,072 bit<br />4.096-bit|HSM Gerido|Um par de chaves RSA apoiado pelo HSM gerado em HSM gerido|
 |Chave-alvo|RSA|2.048-bit<br />3,072 bit<br />4.096-bit|Fornecedor HSM|A chave a ser transferida para o HSM gerido|
 
 ## <a name="generate-and-transfer-your-key-to-the-managed-hsm"></a>Gerencie e transfira a sua chave para o HSM gerido

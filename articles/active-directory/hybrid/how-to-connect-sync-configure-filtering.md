@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0852171544f179315535d234f5a2680d918e7d85
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 6a68d7574d16485c378f6066a652471d52fa0c30
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084843"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319984"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
 Ao utilizar a filtragem, pode controlar quais os objetos que aparecem no Diretório Ativo Azure (AD) a partir do seu diretório no local. A configuração padrão leva todos os objetos em todos os domínios nas florestas configuradas. Em geral, esta é a configuração recomendada. Os utilizadores que utilizam cargas de trabalho microsoft 365, como Exchange Online e Skype for Business, beneficiam de uma lista completa de endereços globais para que possam enviar e-mails e ligar para todos. Com a configuração padrão, teriam a mesma experiência que teriam com uma implementação no local de Exchange ou Lync.
@@ -113,7 +113,7 @@ Para definir o filtro de domínio, faça os seguintes passos:
    ![Propriedades do conector](./media/how-to-connect-sync-configure-filtering/connectorproperties.png)  
 4. Clique **em Configurar Partições do Diretório.**
 5. Na lista **de divisórias de diretório Select,** selecione e desescole os domínios conforme necessário. Verifique se apenas as divisórias que pretende sincronizar estão selecionadas.  
-   ![Partições](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
+   ![Screenshot que mostra as divisórias do diretório na janela "Propriedades".](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
    Se alterou a sua infraestrutura de Ative Directory no local e adicionou ou removeu domínios da floresta, clique no botão **Refresh** para obter uma lista atualizada. Quando te refrescas, pede-te credenciais. Fornecer quaisquer credenciais com acesso lido ao Windows Server Ative Directory. Não tem de ser o utilizador que está pré-voizado na caixa de diálogo.  
    ![Atualização necessária](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. Quando terminar, feche o diálogo **Propriedades** clicando **OK**. Se remover os domínios da floresta, uma mensagem pop-up diz que um domínio foi removido e que a configuração será limpa.
@@ -279,7 +279,7 @@ Neste exemplo, altera-se a filtragem de modo a que apenas os utilizadores que te
 5. No pop-up, **responda Sim** para criar uma cópia da regra.
 6. Na página **Descrição,** **altere a Precedência** para um valor não reutilizado, como 50.
 7. Clique em **Filtrar** o filtro na navegação à esquerda e, em seguida, clique na **cláusula Adicionar**. No **Atributo**, selecione **correio.** No **Operador**, selecione **ENDSWITH**. In **Value**, type ** \@ contoso.com**e, em seguida, clique na **cláusula Adicionar**. No **Atributo**, selecione **userPrincipalName**. No **Operador**, selecione **ENDSWITH**. In **Value**, tipo ** \@ contoso.com**.
-8. Clique em **Guardar**.
+8. Clique em **Save** (Guardar).
 9. Para completar a configuração, é necessário executar uma **sincronização completa**. Continuar a ler A secção [Aplicar e verificar alterações](#apply-and-verify-changes).
 
 ## <a name="apply-and-verify-changes"></a>Aplicar e verificar alterações

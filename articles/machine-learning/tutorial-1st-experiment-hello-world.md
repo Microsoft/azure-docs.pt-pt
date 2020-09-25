@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 98f4c30d03763e070b1bdc32a5e6e099556916ab
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 52a9932db4fc261b8f3d740a316af3e852559a32
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90946642"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320494"
 ---
 # <a name="tutorial-run-hello-world-python-script-part-2-of-4"></a>Tutorial: Executar roteiro python "Hello World" (Parte 2 de 4)
 
@@ -124,7 +124,7 @@ Aqui está uma descrição de como o script de controlo funciona:
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       Submete o teu guião. Esta submissão chama-se [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true).  Uma corrida encapsula uma única execução do seu código. Use uma execução para monitorizar o progresso do script, capturar a saída, analisar os resultados, visualizar métricas e muito mais.
+       Submete o teu guião. Esta submissão chama-se [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true).  Uma corrida encapsula uma única execução do seu código. Use uma execução para monitorizar o progresso do script, capturar a saída, analisar os resultados, visualizar métricas e muito mais.
    :::column-end:::
 :::row-end:::
 :::row:::

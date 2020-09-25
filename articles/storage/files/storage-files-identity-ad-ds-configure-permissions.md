@@ -5,20 +5,42 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 09/16/2020
 ms.author: rogarana
-ms.openlocfilehash: 5e293bb98405affd824d4bbc50b6f24c5a0e3c11
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: de0f58b54f0cb5ad450949bb1a7b8744f081227d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999620"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320341"
 ---
 # <a name="part-three-configure-directory-and-file-level-permissions-over-smb"></a>Parte três: configurar o diretório e as permissões de nível de ficheiro sobre o SMB 
 
 Antes de iniciar este artigo, certifique-se de que preencheu o artigo anterior, [atribua permissões de nível de partilha a uma identidade](storage-files-identity-ad-ds-assign-permissions.md) para garantir que as suas permissões de nível de partilha estão em vigor.
 
 Depois de atribuir permissões de nível de partilha com o RBAC, tem de configurar ACLs do Windows adequados no nível de raiz, diretório ou ficheiro, para tirar partido do controlo de acesso granular. Pense nas permissões de nível de partilha rbac como o gatekeeper de alto nível que determina se um utilizador pode aceder à partilha. Enquanto os ACLs do Windows funcionam a um nível mais granular para determinar que operações o utilizador pode fazer ao nível do diretório ou do ficheiro. Tanto as permissões de nível de partilha como de nível de ficheiro/diretório são aplicadas quando um utilizador tenta aceder a um ficheiro/diretório, por isso, se houver uma diferença entre qualquer um deles, apenas o mais restritivo será aplicado. Por exemplo, se um utilizador tiver acesso de leitura/escrita ao nível do ficheiro, mas apenas ler a nível de partilha, então só pode ler esse ficheiro. O mesmo seria verdade se fosse invertido, e um utilizador tivesse acesso lido/escrito ao nível da partilha, mas apenas lido ao nível do ficheiro, ainda só pode ler o ficheiro.
+
+## <a name="rbac-permissions"></a>Permissões do RBAC
+
+A tabela a seguir contém as permissões DO RBAC relacionadas com esta configuração:
+
+
+| Papel incorporado  | Permissão NTFS  | Acesso resultante  |
+|---------|---------|---------|
+|Leitor de Partilhas SMB de Dados de Ficheiros de Armazenamento | Controlo total, Modificar, Ler, Escrever, Executar | Ler e executar  |
+|     |   Leitura |     Leitura  |
+|Contribuinte de Partilhas SMB de Dados de Ficheiros de Armazenamento  |  Controlo total    |  Modificar, Ler, Escrever, Executar |
+|     |  Modificar         |  Modificar    |
+|     |  Ler e executar |  Ler e executar |
+|     |  Leitura           |  Leitura    |
+|     |  Escrita          |  Escrita   |
+|Contribuinte Elevado de Partilhas SMB de Dados de Ficheiros de Armazenamento | Controlo total  |  Modificar, Ler, Escrever, Editar, Executar |
+|     |  Modificar          |  Modificar |
+|     |  Ler e executar  |  Ler e executar |
+|     |  Leitura            |  Leitura   |
+|     |  Escrita           |  Escrita  |
+
+
 
 ## <a name="supported-permissions"></a>Permissões apoiadas
 

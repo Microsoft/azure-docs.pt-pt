@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 9d4f30c5946e07b9f71c007d6f3f61efcae28637
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: b2a01e816c0f0569c207aa65e5027b935210e3b9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89296520"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331782"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Resolução de problemas do aparelho Esmigósia Azure Migrar e descoberta
 
@@ -234,6 +234,7 @@ Erros típicos de descoberta de aplicações são resumidos na tabela.
 9033: Não é possível descobrir como o nome de utilizador VM contém caracteres inválidos.     |   Os caracteres inválidos foram detetados no nome de utilizador.   |   Forneça novamente a credencial VM, garantindo que não existem caracteres inválidos.
 9034: O nome de utilizador fornecido não está no formato UPN.    |   O nome de utilizador não está no formato UPN.  |   Certifique-se de que o nome de utilizador está no formato Nome Principal do Utilizador (UPN).
 9035: Não é possível descobrir como o modo linguagem Powershell não está definido como "Linguagem Completa".  |   O modo linguístico para Powershell no VM convidado não está definido para linguagem completa.   |   Certifique-se de que o modo de linguagem PowerShell está definido para "Linguagem Completa".
+9037: A recolha de dados parou temporariamente, uma vez que o tempo de resposta em VM é demasiado elevado.    |   O VM descoberto está a demorar muito tempo a responder     |   Nenhuma ação necessária. Uma nova tentativa será tentada em 24 horas para a descoberta da aplicação e 3 horas para análise de dependência (sem agente).
 1000: O tipo de sistema operativo não é suportado.   |   O sistema operativo que funciona no servidor não é nem Windows nem Linux.    |   Os tipos de sistema operativo suportado são apenas Windows e Linux.
 10001: O script para a descoberta do servidor não é encontrado no aparelho.    |   A descoberta não está a funcionar como esperado.   |   Contacte o Microsoft Support para obter uma resolução.
 10002: A tarefa da Discovery não foi concluída a tempo.     |   O agente discovery não está a funcionar como esperado.     |   O problema deve resolver-se automaticamente em 24 horas. Se o problema persistir, contacte o Microsoft Support.
@@ -248,5 +249,5 @@ Erros típicos de descoberta de aplicações são resumidos na tabela.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Configurar um aparelho para [VMware,](how-to-set-up-appliance-vmware.md) [Hiper-V](how-to-set-up-appliance-hyper-v.md)ou [servidores físicos](how-to-set-up-appliance-physical.md).

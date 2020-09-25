@@ -9,14 +9,14 @@ ms.devlang: azurecli
 ms.topic: sample
 author: juliemsft
 ms.author: jrasnick
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: bd2f8005300aeb77a88be2609246f2d760154e36
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: c4df9ecc025bbffb63730273be06f54cf46f613c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232015"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319402"
 ---
 # <a name="use-the-azure-cli-to-monitor-and-scale-a-single-database-in-azure-sql-database"></a>Utilize o CLI Azure para monitorizar e escalar uma única base de dados na Base de Dados Azure SQL
 
@@ -57,7 +57,7 @@ az group delete --name $resource
 
 Este script utiliza os seguintes comandos. Cada comando na tabela liga à documentação específica do comando.
 
-| Script | Descrição |
+| Script | Description |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Comandos do servidor. |
 | [az sql db show-usage](/cli/azure/sql#az-sql-show-usage) | Mostra as informações de utilização de tamanho de uma base de dados. |

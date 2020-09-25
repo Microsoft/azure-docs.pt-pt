@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 643e49bdba76051c873ed549d5f6c21487f34056
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: b0c23955248a3468ee6bd624ebf7281bc6c3c961
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90108800"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319610"
 ---
 # <a name="migrate-from-bing-maps-to-azure-maps"></a>Migrar de Bing Maps para Azure Maps
 
@@ -36,7 +36,7 @@ A tabela seguinte fornece uma lista de alto nível de funcionalidades do Bing Ma
 | UWP SDK                               | Planeado            |
 | WPF SDK                               | Planeado            |
 | APIs de serviço de descanso                     | ✓                  |
-| Autosuggest                           | ✓                  |
+| Sugestão Automática                           | ✓                  |
 | Instruções (incluindo o camião)          | ✓                  |
 | Matriz de distância                       | ✓                  |
 | Elevações                            | Planeado            |
@@ -81,6 +81,15 @@ Segue-se um plano de migração de alto nível.
 4.  Migrar o teu código de aplicação.
 5.  Teste a sua aplicação migratória.
 6.  Coloque a sua aplicação migratória para a produção.
+
+## <a name="create-an-azure-maps-account"></a>Criar uma conta do Azure Maps
+
+Para criar uma conta Azure Maps e ter acesso à plataforma Azure Maps, siga estes passos:
+
+1. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+2. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+3. Criar uma [conta Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys). 
+4. [Obtenha a sua chave de subscrição Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) ou configurar a autenticação do Azure Ative Directory para uma maior segurança.
 
 ## <a name="azure-maps-technical-resources"></a>Recursos técnicos Azure Maps
 

@@ -7,15 +7,15 @@ author: mgblythe
 ms.author: mblythe
 ms.date: 01/08/2020
 ms.topic: how-to
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: d19809df7f79f1d1fa84a90d552dbe5bf2449ea5
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 4e8d7054fb0df265285bda223e360ea61612aaf2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386899"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263951"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Use um azulejo de marcação nos dashboards Azure para mostrar conteúdo personalizado
 
@@ -62,6 +62,6 @@ Pode utilizar qualquer combinação de texto simples, sintaxe markdown e conteú
 * iframes - `<iframe>` as etiquetas serão removidas.
 * Estilo - `<style>` as etiquetas serão removidas. Os atributos de estilo inline em elementos HTML não são oficialmente suportados. Pode descobrir que alguns elementos de estilo inline funcionam para si, mas se interferirem com o layout do portal, podem deixar de funcionar a qualquer momento. O azulejo markdown destina-se a conteúdo básico e estático que utiliza os estilos padrão do portal.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para criar um dashboard personalizado, consulte [Criar e partilhar dashboards no portal Azure](../azure-portal/azure-portal-dashboards.md)
