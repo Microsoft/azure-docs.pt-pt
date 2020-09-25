@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: azfuncdf
-ms.openlocfilehash: 954b322536c5430608597c2e67c474fefeb5fb25
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 50ed473d61dff19f41f77a79513c0ddab521e56f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90004940"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325747"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Orquestradores Singleton em Funções Duradouras (Funções Azure)
 
@@ -31,11 +31,14 @@ public static async Task<HttpResponseMessage> RunSingle(
     string instanceId,
     ILogger log)
 {
-    // Check if an instance with the specified ID already exists.
+    // Check if an instance with the specified ID already exists or an existing one stopped running(completed/failed/terminated).
     var existingInstance = await starter.GetStatusAsync(instanceId);
-    if (existingInstance == null)
+    if (existingInstance == null 
+    || existingInstance.RuntimeStatus == OrchestrationRuntimeStatus.Completed 
+    || existingInstance.RuntimeStatus == OrchestrationRuntimeStatus.Failed 
+    || existingInstance.RuntimeStatus == OrchestrationRuntimeStatus.Terminated)
     {
-        // An instance with the specified ID doesn't exist, create one.
+        // An instance with the specified ID doesn't exist or an existing one stopped running, create one.
         dynamic eventData = await req.Content.ReadAsAsync<object>();
         await starter.StartNewAsync(functionName, instanceId, eventData);
         log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
@@ -43,7 +46,7 @@ public static async Task<HttpResponseMessage> RunSingle(
     }
     else
     {
-        // An instance with the specified ID exists, don't create one.
+        // An instance with the specified ID exists or an existing one still running, don't create one.
         return new HttpResponseMessage(HttpStatusCode.Conflict)
         {
             Content = new StringContent($"An instance with ID '{instanceId}' already exists."),
@@ -95,16 +98,19 @@ module.exports = async function(context, req) {
     const instanceId = req.params.instanceId;
     const functionName = req.params.functionName;
 
-    // Check if an instance with the specified ID already exists.
+    // Check if an instance with the specified ID already exists or an existing one stopped running(completed/failed/terminated).
     const existingInstance = await client.getStatus(instanceId);
-    if (!existingInstance) {
-        // An instance with the specified ID doesn't exist, create one.
+    if (!existingInstance 
+        || existingInstance.runtimeStatus == "Completed" 
+        || existingInstance.runtimeStatus == "Failed" 
+        || existingInstance.runtimeStatus == "Terminated") {
+        // An instance with the specified ID doesn't exist or an existing one stopped running, create one.
         const eventData = req.body;
         await client.startNew(functionName, instanceId, eventData);
         context.log(`Started orchestration with ID = '${instanceId}'.`);
         return client.createCheckStatusResponse(req, instanceId);
     } else {
-        // An instance with the specified ID exists, don't create one.
+        // An instance with the specified ID exists or an existing one still running, don't create one.
         return {
             status: 409,
             body: `An instance with ID '${instanceId}' already exists.`,
@@ -156,7 +162,7 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
     existing_instance = await client.get_status(instance_id)
 
-    if existing_instance != None:
+    if existing_instance != None or existing_instance.runtime_status in ["Completed", "Failed", "Terminated"]:
         event_data = req.get_body()
         instance_id = await client.start_new(function_name, instance_id, event_data)
         logging.info(f"Started orchestration with ID = '{instance_id}'.")
@@ -178,7 +184,7 @@ Por padrão, os IDs de instância são gerados aleatoriamente GUIDs. No exemplo 
 
 Os detalhes de implementação da função orquestradora não importam. Pode ser uma função orquestradora regular que começa e completa, ou pode ser uma que corre para sempre (isto é, uma [Orquestração Eterna).](durable-functions-eternal-orchestrations.md) O importante é que só há um caso a decorrer de cada vez.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Conheça as características http nativas das orquestrações](durable-functions-http-features.md)

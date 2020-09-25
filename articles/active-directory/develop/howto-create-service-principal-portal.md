@@ -12,16 +12,16 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 3b060d7caff425414cc7f4e8bbea5d9a29572094
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d14e31aa4fbeb2d29137c554f14333e1617c484a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178948"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265906"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>How to: Utilizar o portal para criar uma aplicação e um principal de serviço do Azure AD que possam aceder aos recursos
 
-Este artigo mostra-lhe como criar uma nova aplicação e principal de serviço Azure Ative Directory (Azure AD) que pode ser usado com o controlo de acesso baseado em funções. Quando tem aplicações, serviços hospedados ou ferramentas automatizadas que precisam de aceder ou modificar recursos, pode criar uma identidade para a aplicação. Esta identidade é conhecida como um principal de serviço. O acesso aos recursos é restringido pelas funções atribuídas ao principal serviço, dando-lhe o controlo sobre quais os recursos que podem ser acedidos e a que nível. Por motivos de segurança, é sempre recomendado utilizar os principais de serviço com ferramentas automatizadas, em vez de permitir que iniciem sessão com uma identidade de utilizador. 
+Este artigo mostra-lhe como criar uma nova aplicação e principal de serviço Azure Ative Directory (Azure AD) que pode ser usado com o controlo de acesso baseado em funções. Quando tem aplicações, serviços hospedados ou ferramentas automatizadas que precisam de aceder ou modificar recursos, pode criar uma identidade para a aplicação. Esta identidade é conhecida como um principal de serviço. O acesso aos recursos é restringido pelas funções atribuídas ao principal serviço, dando-lhe o controlo sobre quais os recursos que podem ser acedidos e a que nível. Por motivos de segurança, é sempre recomendado utilizar os principais de serviço com ferramentas automatizadas, em vez de permitir que iniciem sessão com uma identidade de utilizador.
 
 Este artigo mostra-lhe como usar o portal para criar o principal serviço no portal Azure. Centra-se numa aplicação de um único inquilino em que o pedido se destina a funcionar dentro de apenas uma organização. Você normalmente usa aplicações de inquilino único para aplicações de linha de negócio que funcionam dentro da sua organização.  Também pode [utilizar a Azure PowerShell para criar um principal serviço.](howto-authenticate-service-principal-powershell.md)
 
@@ -129,12 +129,13 @@ Ao iniciar sessão programática, tem de passar o ID do inquilino com o seu pedi
 
    ![Copiar o ID da aplicação (cliente)](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-## <a name="upload-a-certificate-or-create-a-secret-for-signing-in"></a>Faça upload de um certificado ou crie um segredo para iniciar sessão
-Existem dois tipos de autenticação disponível para os principais serviços: autenticação baseada em palavra-passe (segredo de aplicação) e autenticação baseada em certificados.  Recomendamos a utilização de um certificado, mas também pode criar um novo segredo de aplicação.
+## <a name="authentication-two-options"></a>Autenticação: Duas opções
 
-### <a name="upload-a-certificate"></a>Faça upload de um certificado
+Existem dois tipos de autenticação disponível para os principais serviços: autenticação baseada em palavra-passe (segredo de aplicação) e autenticação baseada em certificados. *Recomendamos a utilização de um certificado,* mas também pode criar um segredo de aplicação.
 
-Pode usar um certificado existente se tiver um.  Opcionalmente, pode criar um certificado auto-assinado *apenas*para fins de teste . Para criar um certificado auto-assinado, abra o PowerShell e [execute o Certificado New-SelfSigned](/powershell/module/pkiclient/new-selfsignedcertificate) com os seguintes parâmetros para criar o certificado na loja de certificados do utilizador no seu computador: 
+### <a name="option-1-upload-a-certificate"></a>Opção 1: Carregar um certificado
+
+Pode usar um certificado existente se tiver um.  Opcionalmente, pode criar um certificado auto-assinado *apenas*para fins de teste . Para criar um certificado auto-assinado, abra o PowerShell e [execute o Certificado New-SelfSigned](/powershell/module/pkiclient/new-selfsignedcertificate) com os seguintes parâmetros para criar o certificado na loja de certificados do utilizador no seu computador:
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -163,7 +164,7 @@ Para fazer o upload do certificado:
 
 Depois de registar o certificado com a sua candidatura no portal de registo de candidaturas, é necessário ativar o código de candidatura do cliente para utilizar o certificado.
 
-### <a name="create-a-new-application-secret"></a>Criar um novo segredo da aplicação
+### <a name="option-2-create-a-new-application-secret"></a>Opção 2: Criar um novo segredo de aplicação
 
 Se optar por não utilizar um certificado, pode criar um novo segredo de aplicação.
 
@@ -178,14 +179,15 @@ Se optar por não utilizar um certificado, pode criar um novo segredo de aplica�
    ![Copie o valor secreto porque não pode recuperar isto mais tarde](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>Configure políticas de acesso aos recursos
-Tenha em mente que poderá ter de configurar permissões adicionais sobre recursos a que a sua aplicação necessita de aceder. Por exemplo, também deve [atualizar as políticas de acesso de um cofre chave](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) para dar acesso à sua aplicação a chaves, segredos ou certificados.  
+Tenha em mente que poderá ter de configurar permissões adicionais sobre recursos a que a sua aplicação necessita de aceder. Por exemplo, também deve [atualizar as políticas de acesso de um cofre chave](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) para dar acesso à sua aplicação a chaves, segredos ou certificados.
 
-1. No [portal Azure,](https://portal.azure.com)navegue para o cofre e selecione **as políticas de acesso**.  
+1. No [portal Azure,](https://portal.azure.com)navegue para o cofre e selecione **as políticas de acesso**.
 1. **Selecione Adicionar a política de acesso,** em seguida, selecione as permissões de chave, segredo e certificado que pretende conceder à sua candidatura.  Selecione o principal de serviço que criou anteriormente.
 1. **Selecione Adicionar** para adicionar a política de acesso e, em seguida, **guardar** para cometer as suas alterações.
     ![Adicionar política de acesso](./media/howto-create-service-principal-portal/add-access-policy.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba como utilizar o [Azure PowerShell para criar um principal de serviço.](howto-authenticate-service-principal-powershell.md)
-* Para saber especificar políticas de segurança, consulte [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).  
+* Para saber especificar políticas de segurança, consulte [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 * Para obter uma lista de ações disponíveis que podem ser concedidas ou negadas aos utilizadores, consulte [as operações do Fornecedor de Recursos do Gestor de Recursos da Azure.](../../role-based-access-control/resource-provider-operations.md)
+* Para obter informações sobre como trabalhar com registos de aplicações utilizando o **Microsoft Graph,** consulte a referência API [de aplicações.](/graph/api/resources/application)

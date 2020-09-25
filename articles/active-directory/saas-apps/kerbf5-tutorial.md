@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure AD integração única com F5 / Microsoft Docs'
-description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o F5.
+description: Saiba como configurar um único sign-on (SSO) entre o Azure Ative Directory e o F5.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
-ms.openlocfilehash: b48b8c1282f90788846b9dc3b64a5ea1ee018a3c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9db53e36dee318d39d34d26a548d1d32cbbec3b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535990"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266076"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Azure Ative Directory integração única (SSO) com F5
 
@@ -174,7 +174,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+   1. Clique em **Create** (Criar).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -279,7 +279,7 @@ Configura um servidor AAA do Diretório Ativo no Access Policy Manager (APM) par
 
 1. No separador Principal, clique em **Política de Acesso > servidores AAA > Ative Directory**. O ecrã da lista de servidores de diretório ativo abre.
 
-2. Clique em **Criar**. O ecrã de propriedades do Novo Servidor abre.
+2. Clique em **Create** (Criar). O ecrã de propriedades do Novo Servidor abre.
 
 3. No campo **Nome,** escreva um nome único para o servidor de autenticação.
 

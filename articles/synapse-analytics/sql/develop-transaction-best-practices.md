@@ -1,6 +1,6 @@
 ---
 title: Otimizar transações para piscina SQL
-description: Aprenda a otimizar o desempenho do seu código transacional no pool SQL (data warehouse) ao mesmo tempo que minimiza o risco de retrocessos longos.
+description: Saiba como otimizar o desempenho do seu código transacional na piscina SQL.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 0156cfb0720e78b87abc36f0811db69bc8435894
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 174ae84e66f10db4ad24ed561b228f0031492d97
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503196"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288652"
 ---
 # <a name="optimize-transactions-in-sql-pool"></a>Otimizar transações em pool SQL
 
@@ -84,7 +84,7 @@ Carregar dados numa tabela não vazia com um índice agrupado pode muitas vezes 
 
 ## <a name="optimize-deletes"></a>Otimizar eliminações
 
-DELETE é uma operação totalmente iniciada.  Se precisar de eliminar uma grande quantidade de dados numa tabela ou numa divisória, muitas vezes faz mais sentido para `SELECT` os dados que pretende guardar, que podem ser executados como uma operação minimamente registada.  Para selecionar os dados, crie uma nova tabela com [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Uma vez criado, use [o RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para trocar a sua mesa antiga com a mesa recém-criada.
+DELETE é uma operação totalmente iniciada.  Se precisar de eliminar uma grande quantidade de dados numa tabela ou numa divisória, muitas vezes faz mais sentido para `SELECT` os dados que pretende guardar, que podem ser executados como uma operação minimamente registada.  Para selecionar os dados, crie uma nova tabela com [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Uma vez criado, use [o RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para trocar a sua mesa antiga com a mesa recém-criada.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.

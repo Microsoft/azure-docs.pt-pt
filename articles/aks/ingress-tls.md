@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador de entrada NGINX que
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 452e7d1e8dad0a3ae3d6393598f5f24ef2153aa8
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 30fb0d000a64c7e460dd0ccf7e7eaf4b67957c8c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855932"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335573"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Criar um controlador de entrada HTTPS no Serviço Azure Kubernetes (AKS)
 
@@ -84,7 +84,7 @@ Adicione um registo *A* à sua zona DE DNS com o endereço IP externo do serviç
 az network dns record-set a add-record \
     --resource-group myResourceGroup \
     --zone-name MY_CUSTOM_DOMAIN \
-    --record-set-name '*' \
+    --record-set-name * \
     --ipv4-address MY_EXTERNAL_IP
 ```
 

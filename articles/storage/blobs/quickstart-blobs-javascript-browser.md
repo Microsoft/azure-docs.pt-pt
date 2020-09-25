@@ -7,13 +7,13 @@ ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 1f3ec5b2b1c46b40c6f99836fc10778c98b59d4c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: eebfa61632bc49d5df35c17ba2d2faca0382001c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431994"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336144"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -118,7 +118,7 @@ npm install --save @azure/storage-blob
 
 #### <a name="bundle-the-azure-blob-storage-client-library"></a>Embrulhe a biblioteca de clientes de armazenamento Azure Blob
 
-Para utilizar bibliotecas Azure SDK num site, converta o seu código para trabalhar dentro do navegador. Faz-se isto usando uma ferramenta chamada "bundler". A agregação leva o código JavaScript escrito usando convenções [deNode.js](https://nodejs.org) e converte-o num formato que é entendido pelos navegadores. Este artigo de arranque rápido utiliza o [pacote de encomendas.](https://parceljs.org/)
+Para utilizar bibliotecas Azure SDK num site, converta o seu código para trabalhar dentro do navegador. Faz-se isto usando uma ferramenta chamada "bundler". A agregação leva o código JavaScript escrito usando convenções [ deNode.js](https://nodejs.org) e converte-o num formato que é entendido pelos navegadores. Este artigo de arranque rápido utiliza o [pacote de encomendas.](https://parceljs.org/)
 
 Instale a parcela executando o seguinte `npm` comando na janela do terminal:
 
@@ -298,7 +298,7 @@ Clique na consola **Terminal** no Código do Estúdio Visual e prima CTRL+C para
 
 Para limpar os recursos criados durante este arranque rápido, vá ao [portal Azure](https://portal.azure.com) e elimine o grupo de recursos que criou na secção [Pré-Requisitos.](#prerequisites)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, aprendeu a carregar, listar e apagar bolhas usando JavaScript. Também aprendeu a criar e apagar um recipiente de armazenamento de bolhas.
 

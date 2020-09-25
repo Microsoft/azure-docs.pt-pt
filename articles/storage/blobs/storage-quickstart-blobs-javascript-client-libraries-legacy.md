@@ -3,18 +3,18 @@ title: 'Quickstart: Armazenamento Azure Blob para JavaScript v10 no navegador'
 description: Aprenda a carregar, listar e apagar bolhas usando JavaScript v10 SDK numa página HTML.
 services: storage
 author: mhopkins-msft
-ms.custom: mvc, devx-track-javascript
+ms.custom: mvc, devx-track-js
 ms.service: storage
 ms.author: mhopkins
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 3982e54d06f2e84c4e8e8703e70e9a26773c389a
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 134408704d54479fbbe0dfb5094f2920fa2e74be
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87429207"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336195"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -183,7 +183,7 @@ Em seguida, cole o html seguinte em *index.html* após a etiqueta `</body>` de f
 </script>
 ```
 
-Este código adiciona uma referência ao ficheiro de script e fornece um lugar para o seu próprio código JavaScript. Para efeitos deste arranque rápido, estamos *a* usar oazure-storage-blob.jsficheiro de scripts para que possas abri-lo no Código VS, ler o seu conteúdo e definir pontos de rutura. Na produção, deve utilizar o ficheiro *deazure-storage.blob.min.js* mais compacto que também é fornecido no ficheiro zip.
+Este código adiciona uma referência ao ficheiro de script e fornece um lugar para o seu próprio código JavaScript. Para efeitos deste arranque rápido, estamos * a * usar oazure-storage-blob.jsficheiro de scripts para que possas abri-lo no Código VS, ler o seu conteúdo e definir pontos de rutura. Na produção, deve utilizar o ficheiro * deazure-storage.blob.min.js* mais compacto que também é fornecido no ficheiro zip.
 
 Pode saber mais sobre cada função de armazenamento de bolhas na [documentação de referência.](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/index) Note que algumas das funções no SDK só estão disponíveis em Node.js ou apenas disponíveis no navegador.
 
@@ -359,7 +359,7 @@ Neste ponto, você pode lançar a página e experimentar para obter uma sensaç�
 
 Para limpar os recursos criados durante este arranque rápido, vá ao [portal Azure](https://portal.azure.com) e elimine o grupo de recursos que criou na secção Pré-Requisitos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, criou um site simples que acede ao armazenamento de blob a partir do JavaScript baseado no navegador. Para saber como pode hospedar um website em armazenamento de bolhas, continue até ao seguinte tutorial:
 

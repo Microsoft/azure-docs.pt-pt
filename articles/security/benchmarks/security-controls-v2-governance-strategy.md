@@ -4,21 +4,21 @@ description: Azure Security Benchmark V2 Governação e Estratégia
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e8a5196bf71712caae1218933ed13345f4cecd99
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 255e5533dc19036624042a0b82116c4dc107d762
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059276"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336229"
 ---
-# <a name="security-control-governance-and-strategy"></a>Controlo de Segurança: Governação e Estratégia
+# <a name="security-control-v2-governance-and-strategy"></a>Controlo de Segurança V2: Governação e Estratégia
 
-A Cópia de Segurança e Recuperação abrange os controlos para garantir que as cópias de segurança de dados e de configuração nos diferentes níveis de serviço sejam executadas, validadas e protegidas.
+A governação e a estratégia fornecem orientações para assegurar uma estratégia de segurança coerente e uma abordagem de governação documentada para orientar e manter a garantia de segurança, incluindo o estabelecimento de funções e responsabilidades para as diferentes funções de segurança na nuvem, estratégia técnica unificada e apoio a políticas e normas.
 
-## <a name="gs-1-define-asset-management-and-protection-strategy"></a>GS-1: Definir estratégia de gestão e proteção de ativos
+## <a name="gs-1-define-asset-management-and-data-protection-strategy"></a>GS-1: Definir estratégia de gestão de ativos e proteção de dados
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
@@ -44,47 +44,70 @@ Esta estratégia deve incluir orientações, políticas e normas documentadas pa
 
 -   Padrões criptográficos adequados
 
-Nota: A sua abordagem de gestão e proteção de ativos para nuvem e no local pode ser diferente dependendo de vários fatores, tais como serviço de aplicação/modelo de hospedagem, riscos de negócio e requisito de conformidade. 
-
+Para mais informações, consulte as seguintes referências:
 - [Recomendação de arquitetura de segurança Azure - Armazenamento, dados e encriptação](https://docs.microsoft.com/azure/architecture/framework/security/storage-data-encryption?toc=/security/compass/toc.json&amp;bc=/security/compass/breadcrumb/toc.json)
 
 - [Fundamentos de Segurança Azure - Segurança de dados Azure, encriptação e armazenamento](../fundamentals/encryption-overview.md)
 
 - [Cloud Adopt Framework - Segurança de dados Azure e melhores práticas de encriptação](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices?toc=/azure/cloud-adoption-framework/toc.json&amp;bc=/azure/cloud-adoption-framework/_bread/toc.json)
 
-- [Azure Security Benchmark - Gestão de ativos](/azure/security/benchmarks/security-controls-v2-asset-management)
+- [Azure Security Benchmark - Gestão de ativos](/azure/security/benchmarks/security-benchmark-v2-asset-management)
 
-- [Benchmark de segurança Azure - Proteção de Dados](/azure/security/benchmarks/security-controls-v2-data-protection)
+- [Benchmark de segurança Azure - Proteção de Dados](/azure/security/benchmarks/security-benchmark-v2-data-protection)
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Todas as partes interessadas](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-2-define-security-posture-management-strategy"></a>GS-2: Definir estratégia de gestão da postura de segurança
+## <a name="gs-2-define-enterprise-segmentation-strategy"></a>GS-2: Definir estratégia de segmentação empresarial
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| GS-2 | 20, 3, 5 | RA, CM, SC |
+| GS-2 | 4, 9, 16 | AC, CA, SC |
+
+Estabeleça uma estratégia em toda a empresa para segmentar o acesso a ativos utilizando uma combinação de identidade, rede, aplicação, subscrição, grupo de gestão e outros controlos.
+
+Equilibra cuidadosamente a necessidade de separação de segurança com a necessidade de permitir o funcionamento diário dos sistemas que precisam de comunicar entre si e aceder aos dados.
+
+Certifique-se de que a estratégia de segmentação é implementada de forma consistente em todos os tipos de controlo, incluindo modelos de segurança de rede, identidade e acesso, e modelos de permissão/acesso de aplicações e controlos de processos humanos.
+
+- [Orientação sobre estratégia de segmentação em Azure (vídeo)](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
+
+- [Orientação sobre estratégia de segmentação em Azure (documento)](/security/compass/governance#enterprise-segmentation-strategy)
+
+- [Alinhar a segmentação da rede com a estratégia de segmentação empresarial](/security/compass/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy)
+
+**Responsabilidade**: Cliente
+
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
+
+- [Todas as partes interessadas](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
+
+## <a name="gs-3-define-security-posture-management-strategy"></a>GS-3: Definir estratégia de gestão da postura de segurança
+
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+|--|--|--|--|
+| GS-3 | 20, 3, 5 | RA, CM, SC |
 
 Medindo e atenuando continuamente os riscos para os seus ativos individuais e para o ambiente em que estão hospedados. Priorize ativos de alto valor e superfícies de ataque altamente expostas, tais como aplicações publicadas, entradas de rede e pontos de saída, pontos finais de utilizador e administrador, etc.
 
-- [Azure Security Benchmark - Postura e gestão de vulnerabilidades](/azure/security/benchmarks/security-controls-v2-posture-vulnerability-management)
+- [Azure Security Benchmark - Postura e gestão de vulnerabilidades](/azure/security/benchmarks/security-benchmark-v2-posture-vulnerability-management)
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Todas as partes interessadas](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-3-align-organization-roles-responsibilities-and-accountabilities"></a>GS-3: Alinhar papéis de organização, responsabilidades e responsabilidades
+## <a name="gs-4-align-organization-roles-responsibilities-and-accountabilities"></a>GS-4: Alinhar papéis de organização, responsabilidades e responsabilidades
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| GS-3 | N/D | PL, PM |
+| GS-4 | N/D | PL, PM |
 
-Certifique-se de que documenta e comunica uma estratégia clara para funções e responsabilidades na sua organização de segurança. Priorizar a prestação de contas claras às decisões de segurança, a educação sobre o modelo de responsabilidade partilhada e a educação técnica para a segurança na nuvem. 
+Certifique-se de que documenta e comunica uma estratégia clara para funções e responsabilidades na sua organização de segurança. Priorizar a prestação de contas claras às decisões de segurança, educar todos no modelo de responsabilidade partilhada e educar as equipas técnicas em tecnologia para garantir a nuvem.
 
 - [Azure Security Best Practice 1 - Pessoas: Educar equipas na jornada de segurança na nuvem](https://aka.ms/AzSec1)
 
@@ -94,15 +117,15 @@ Certifique-se de que documenta e comunica uma estratégia clara para funções e
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Todas as partes interessadas](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-4-define-network-security-strategy"></a>GS-4: Definir estratégia de segurança de rede
+## <a name="gs-5-define-network-security-strategy"></a>GS-5: Definir estratégia de segurança de rede
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| GS-4 | 9 | CA |
+| GS-5 | 9 | CA |
 
 Estabeleça uma abordagem de segurança da rede Azure como parte da estratégia global de controlo de acesso à segurança da sua organização.  
 
@@ -120,11 +143,11 @@ Esta estratégia deve incluir orientações, políticas e normas documentadas pa
 
 -   Artefactos de segurança da rede atualizados (por exemplo, diagramas de rede, arquitetura de rede de referência)
 
-Nota: A sua abordagem de segurança da rede para nuvem e no local pode ser diferente dependendo de vários fatores, tais como o modelo de serviço de aplicação, exposição a ameaças e configuração da rede híbrida.
+Para mais informações, consulte as seguintes referências:
 
 - [Azure Security Best Practice 11 - Arquitetura. Estratégia de segurança unificada única](https://aka.ms/AzSec11)
 
-- [Benchmark de segurança Azure - Segurança de rede](/azure/security/benchmarks/security-controls-v2-network-security)
+- [Benchmark de segurança Azure - Segurança de rede](/azure/security/benchmarks/security-benchmark-v2-network-security)
 
 - [Visão geral da segurança da rede Azure](../fundamentals/network-overview.md)
 
@@ -132,15 +155,15 @@ Nota: A sua abordagem de segurança da rede para nuvem e no local pode ser difer
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Todas as partes interessadas](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-5-define-identity-and-privileged-access-strategy"></a>GS-5: Definir estratégia de identidade e acesso privilegiado
+## <a name="gs-6-define-identity-and-privileged-access-strategy"></a>GS-6: Definir estratégia de identidade e acesso privilegiado
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| GS-5 | 16, 4 | AC, AU, SC |
+| GS-6 | 16, 4 | AC, AU, SC |
 
 Estabeleça uma identidade Azure e abordagens privilegiadas de acesso como parte da estratégia global de controlo de acesso à segurança da sua organização.  
 
@@ -156,11 +179,11 @@ Esta estratégia deve incluir orientações, políticas e normas documentadas pa
 
 -   Revisão e reconciliação da identidade do utilizador e acesso
 
-Nota: A sua identidade e abordagem privilegiada de acesso para nuvem e no local pode ser diferente dependendo de vários fatores, tais como a trajetória de acesso a dados/aplicações, o modelo de serviço e a estratégia de acesso ao cliente/parceiro.
+Para mais informações, consulte as seguintes referências:
 
-- [Azure Security Benchmark - Gestão de identidade](/azure/security/benchmarks/security-controls-v2-identity-management)
+- [Azure Security Benchmark - Gestão de identidade](/azure/security/benchmarks/security-benchmark-v2-identity-management)
 
-- [Benchmark de Segurança Azure - Acesso privilegiado](/azure/security/benchmarks/security-controls-v2-privileged-access)
+- [Benchmark de Segurança Azure - Acesso privilegiado](/azure/security/benchmarks/security-benchmark-v2-privileged-access)
 
 - [Azure Security Best Practice 11 - Arquitetura. Estratégia de segurança unificada única](https://aka.ms/AzSec11)
 
@@ -168,15 +191,15 @@ Nota: A sua identidade e abordagem privilegiada de acesso para nuvem e no local 
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Todas as partes interessadas](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-6-define-logging-and-threat-response-strategy"></a>GS-6: Definir a estratégia de resposta ao abate e à ameaça
+## <a name="gs-7-define-logging-and-threat-response-strategy"></a>GS-7: Definir a estratégia de resposta ao abate e à ameaça
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| GS-6 | 19 | IR, AU, RA, SC |
+| GS-7 | 19 | IR, AU, RA, SC |
 
 Estabeleça uma estratégia de resposta à exploração madeireira e a ameaças para detetar e remediar rapidamente as ameaças, cumprindo os requisitos de conformidade. Priorize fornecer aos analistas alertas de alta qualidade e experiências perfeitas para que se concentrem em ameaças em vez de integração e passos manuais. 
 
@@ -196,11 +219,10 @@ Esta estratégia deve incluir orientações, políticas e normas documentadas pa
 
 -   Processos de tratamento de incidentes e atividades pós-incidente, tais como lições aprendidas e retenção de provas
 
-Nota: A sua abordagem de deteção de registos e ameaças para nuvem e no local pode ser diferente dependendo de vários fatores, tais como requisitos de conformidade, paisagem de ameaças e capacidade de deteção e remediação. 
+Para mais informações, consulte as seguintes referências:
+- [Azure Security Benchmark - Registo e deteção de ameaças](/azure/security/benchmarks/security-benchmark-v2-logging-threat-detection)
 
-- [Azure Security Benchmark - Registo e deteção de ameaças](/azure/security/benchmarks/security-controls-v2-logging-threat-detection)
-
-- [Azure Security Benchmark - Resposta a incidentes](/azure/security/benchmarks/security-controls-v2-incident-response)
+- [Azure Security Benchmark - Resposta a incidentes](/azure/security/benchmarks/security-benchmark-v2-incident-response)
 
 - [Azure Security Best Practice 4 - Processo. Atualizar processos de resposta a incidentes para cloud](https://aka.ms/AzSec11)
 
@@ -210,15 +232,15 @@ Nota: A sua abordagem de deteção de registos e ameaças para nuvem e no local 
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Todas as partes interessadas](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-## <a name="gs-7-define-backup-and-recovery-strategy"></a>GS-7: Definir estratégia de backup e recuperação
+## <a name="gs-8-define-backup-and-recovery-strategy"></a>GS-8: Definir estratégia de backup e recuperação
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| GS-7 | 10 | CP |
+| GS-8 | 10 | CP |
 
 Estabeleça uma estratégia de backup e recuperação da Azure para a sua organização. 
 
@@ -230,9 +252,8 @@ Esta estratégia deve incluir orientações, políticas e normas documentadas pa
 
 -   Proteção de cópias de segurança utilizando controlo de acesso e encriptação de dados
 
-Nota: A sua abordagem de backup e recuperação para nuvem e no local pode ser diferente dependendo dos múltiplos fatores, tais como redundância de infraestrutura, serviço de aplicação/modelo de hospedagem e requisitos de conformidade.
-
-- [Benchmark de segurança Azure - Backup e recuperação](/azure/security/benchmarks/security-controls-v2-backup-recovery)
+Para mais informações, consulte as seguintes referências:
+- [Benchmark de segurança Azure - Backup e recuperação](/azure/security/benchmarks/security-benchmark-v2-backup-recovery)
 
 - [Quadro Azure Well-Architecture - Backup e recuperação de desastres para aplicações Azure](/azure/architecture/framework/resiliency/backup-and-recovery)
 
@@ -240,7 +261,7 @@ Nota: A sua abordagem de backup e recuperação para nuvem e no local pode ser d
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Todas as partes interessadas](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 

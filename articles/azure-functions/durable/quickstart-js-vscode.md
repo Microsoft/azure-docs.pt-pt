@@ -1,17 +1,17 @@
 ---
 title: Crie a sua primeira função durável em Azure utilizando o JavaScript
-description: Crie e publique uma Função Azure Durável utilizando o Código do Estúdio Visual.
+description: Crie e publique uma Função Azure Durável em JavaScript utilizando o Código de Estúdio Visual.
 author: anthonychu
 ms.topic: quickstart
 ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7614cec43fd9b2f294a04ed266cb0614f6cde872
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-js
+ms.openlocfilehash: f8ffa90ba0f1ac32d4691165fabf3d8eb9fb7605
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291840"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335454"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Create your first durable function in JavaScript (Criar a sua primeira função durável em JavaScript)
 
@@ -186,7 +186,7 @@ Depois de verificar que a função é executada corretamente no computador local
 
 ## <a name="test-your-function-in-azure"></a>Testar a sua função no Azure
 
-1. Copie o URL do acionador de HTTP no painel **Resultados**. O URL que chama a sua função desencadeada por HTTP deve estar neste formato:`http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
+1. Copie o URL do acionador de HTTP no painel **Resultados**. O URL que chama a sua função desencadeada por HTTP deve estar neste formato: `http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
 
 2. Cole este novo URL do pedido HTTP na barra de endereço do browser. Deverá obter a mesma resposta de estado que antes quando utilizar a aplicação publicada.
 

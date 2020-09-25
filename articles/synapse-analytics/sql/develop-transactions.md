@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c5d23770aab0bde745152d918adfe83209819899
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: de36d1eda21903480eee986df72c5274e1aa6dff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500764"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288618"
 ---
 # <a name="use-transactions-in-sql-pool"></a>Utilize transações em piscina SQL
 
@@ -29,10 +29,10 @@ Como seria de esperar, o pool SQL suporta transações como parte da carga de tr
 
 A piscina SQL implementa transações acid. O nível de isolamento do suporte transacional é incumpridor de READ UNCOMMITTEDED.  Pode alterá-lo para READ COMMITTED SNAPSHOT ISOLATION, ligando a READ_COMMITTED_SNAPSHOT opção de base de dados para uma base de dados do utilizador quando ligado à base de dados principal.  
 
-Uma vez ativadas, todas as transações nesta base de dados são executadas sob LEITURA DE ISOLAMENTO INSTANTÂNEO E a definição de LEITURA NÃO COMPROMETIDA ao nível da sessão não será honrada. Consulte [as opções ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest) para obter mais informações.
+Uma vez ativadas, todas as transações nesta base de dados são executadas sob LEITURA DE ISOLAMENTO INSTANTÂNEO E a definição de LEITURA NÃO COMPROMETIDA ao nível da sessão não será honrada. Consulte [as opções ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest&preserve-view=true) para obter mais informações.
 
 ## <a name="transaction-size"></a>Tamanho da transação
-Uma única transação de modificação de dados é limitada em tamanho. O limite é aplicado por distribuição. Portanto, a atribuição total pode ser calculada multiplicando o limite pela contagem de distribuição. 
+Uma única transação de modificação de dados é limitada em tamanho. O limite é aplicado por distribuição. Como tal, a atribuição total pode ser calculada multiplicando o limite pela contagem de distribuição. 
 
 Para aproximar o número máximo de linhas na transação divida a tampa de distribuição pelo tamanho total de cada linha. Para colunas de comprimento variável, considere tomar um comprimento médio da coluna em vez de usar o tamanho máximo.
 
@@ -138,7 +138,7 @@ Msg 111233, Nível 16, Estado 1, Linha 1 111233; A transação atual abortou e q
 
 Não vai conseguir a saída das funções ERROR_*.
 
-Na piscina SQL o código precisa de ser ligeiramente alterado:
+Na piscina SQL, o código precisa de ser ligeiramente alterado:
 
 ```sql
 SET NOCOUNT ON;
@@ -181,7 +181,7 @@ Tudo o que mudou foi que o ROLLBACK da transação tinha de acontecer antes da l
 
 ## <a name="error_line-function"></a>Error_Line() função
 
-Vale também a pena notar que o pool SQL não implementa nem suporta a função ERROR_LINE(). Se tiver isto no seu código, tem de o remover para estar em conformidade com a piscina SQL. Utilize etiquetas de consulta no seu código para implementar funcionalidades equivalentes. Para mais detalhes, consulte o artigo [LABEL.](develop-label.md)
+Vale também a pena notar que o pool SQL não implementa nem suporta a função ERROR_LINE(). Se tiver esta função no seu código, tem de a remover para estar em conformidade com a piscina SQL. Utilize etiquetas de consulta no seu código para implementar funcionalidades equivalentes. Para mais informações, consulte o artigo [LABEL.](develop-label.md)
 
 ## <a name="use-of-throw-and-raiserror"></a>Utilização de THROW e RAISERROR
 
@@ -193,9 +193,7 @@ THROW é a implementação mais moderna para aumentar exceções na piscina SQL,
 
 ## <a name="limitations"></a>Limitações
 
-O pool SQL tem algumas outras restrições relacionadas com transações.
-
-São os seguintes:
+O pool SQL tem algumas outras restrições relacionadas com transações. São os seguintes:
 
 * Sem transações distribuídas
 * Não são permitidas transações aninhadas

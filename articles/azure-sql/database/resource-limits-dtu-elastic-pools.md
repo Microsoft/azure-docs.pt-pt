@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: sachinpMSFT
 ms.author: sachinp
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 07/28/2020
-ms.openlocfilehash: 48d8b0519ca1b312909f8b48a7fd8a25d0f8b919
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: e5417f41c241efad57dad048bbcfd1a5ab778d40
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225823"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325356"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Limites de recursos para piscinas elásticas utilizando o modelo de compra DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -167,7 +167,7 @@ A tabela seguinte descreve as propriedades para bases de dados aginhadas.
 | Armazenamento máximo por base de dados |O tamanho máximo da base de dados definido pelo utilizador para uma base de dados numa piscina. No entanto, as bases de dados partilhadas partilham o armazenamento de piscinas atribuído. Mesmo que o armazenamento máximo total *por base de dados* seja superior ao espaço total disponível de armazenamento *disponível da piscina,* o espaço total realmente utilizado por todas as bases de dados não poderá exceder o limite de piscina disponível. O tamanho máximo da base de dados refere-se ao tamanho máximo dos ficheiros de dados e não inclui o espaço utilizado pelos ficheiros de registo. |
 |||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para limites de recursos vCore para uma única base de [dados, consulte os limites de recursos para bases de dados únicas utilizando o modelo de compra vCore](resource-limits-vcore-single-databases.md)
 * Para limites de recursos DTU para uma única base de [dados, consulte os limites de recursos para bases de dados únicas utilizando o modelo de compra do DTU](resource-limits-dtu-single-databases.md)

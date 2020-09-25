@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 35e5e688f5589c23c7c583c7bcbca3fd0956eec7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ffee15776a48b6495f78b6becf81c620e1dc4d69
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937251"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336314"
 ---
 # <a name="scheduled-maintenance-in-azure-database-for-postgresql--flexible-server"></a>Manutenção programada na Base de Dados Azure para PostgreSQL – Servidor flexível
  
@@ -46,5 +46,5 @@ Se o evento de manutenção for cancelado pelo sistema ou não tiver concluído 
 ## <a name="next-steps"></a>Passos seguintes
  
 * Saiba como [alterar o horário de manutenção](how-to-maintenance-portal.md)
-* Saiba como [obter notificações sobre a próxima manutenção](/azure/service-health/service-notifications.md) usando a Azure Service Health
-* Saiba como [configurar alertas sobre os próximos eventos de manutenção programada](/azure/service-health/resource-health-alert-monitor-guide.md)
+* Saiba como [obter notificações sobre a próxima manutenção](../../service-health/service-notifications.md) usando a Azure Service Health
+* Saiba como [configurar alertas sobre os próximos eventos de manutenção programada](../../service-health/resource-health-alert-monitor-guide.md)

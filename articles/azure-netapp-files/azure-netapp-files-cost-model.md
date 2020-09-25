@@ -12,18 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 78af9c12fb54b63e1a94c8b41a7ec2ac5c9b4e27
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c4eebae6909c9ef0969bc85bcb9a985db2a7c02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84142151"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325611"
 ---
 # <a name="cost-model-for-azure-netapp-files"></a>Modelo de custo para os Azure NetApp Files 
 
-Compreender o modelo de custos para a Azure NetApp Files ajuda-o a gerir as suas despesas a partir do serviço.
+Compreender o modelo de custos para a Azure NetApp Files ajuda-o a gerir as suas despesas a partir do serviço. 
+
+Para modelo de custos específico para a replicação transversal, consulte [o modelo custo para a replicação entre regiões.](cross-region-replication-introduction.md#cost-model-for-cross-region-replication)
 
 ## <a name="calculation-of-capacity-consumption"></a>Cálculo do consumo de capacidade
 
@@ -61,6 +63,7 @@ Pode aumentar manualmente ou diminuir o tamanho da piscina. No entanto, aplicam-
 * Um incremento de 1-TiB após a compra mínima inicial de 4-TiB
 * Um incremento mínimo de faturação de uma hora
 * O tamanho da piscina a provisionada não pode ser diminuído para menos do que a capacidade total utilizada na piscina.
+* Para piscinas de capacidade com QoS manual, o tamanho da piscina só pode ser diminuído se o tamanho e o nível de serviço fornecerem mais produção do que a produção real atribuída de todos os volumes.
 
 ## <a name="behavior-of-maximum-size-pool-overage"></a>Comportamento de excesso de piscina de tamanho máximo   
 
@@ -89,8 +92,9 @@ O diagrama abaixo ilustra estes conceitos:
 
 O consumo de capacidade de instantâneos nos Ficheiros Azure NetApp é cobrado contra a quota do volume-mãe.  Como resultado, partilha a mesma taxa de faturação que o pool de capacidade a que pertence o volume.  No entanto, ao contrário do volume ativo, o consumo instantâneo é medido com base na capacidade incremental consumida.  As fotos dos Ficheiros Azure NetApp são de natureza diferencial. Dependendo da taxa de alteração dos dados, os instantâneos consomem frequentemente muito menos capacidade do que a capacidade lógica do volume ativo. Por exemplo, assuma que tem uma imagem instantânea de um volume de 500 GiB que contém apenas 10 GiB de dados diferenciais. A capacidade que é cobrada contra a quota de volume para esse instantâneo seria 10 GiB, não 500 GiB. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Página de preços do Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/)
 * [Níveis de serviços do Azure NetApp Files](azure-netapp-files-service-levels.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)
+* [Modelo de custos para a replicação entre regiões](cross-region-replication-introduction.md#cost-model-for-cross-region-replication)

@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 497c6f669699f1e1ce879c0c7da2593256b97448
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: jrasnick
+ms.openlocfilehash: 48b6639ad8228347737669fffca06eb660a25874
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501104"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288703"
 ---
 # <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Conecte-se ao SQL synapse com power BI Professional
 
@@ -30,7 +30,7 @@ Neste tutorial, passaremos os passos para ligar o desktop Power BI ao SQL on dem
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Ferramenta para emitir consultas:
+Precisa das seguintes ferramentas para emitir consultas:
 
 - Cliente SQL à sua escolha:
 

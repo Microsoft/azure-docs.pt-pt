@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Criar um dispositivo de geofência e pista no Azure Maps'
-description: Aprenda a criar uma geofence. Veja como rastrear dispositivos em relação à geofence utilizando o serviço espacial Azure Maps.
+title: 'Tutorial: Criar um geofence e rastrear dispositivos num Mapa do Microsoft Azure'
+description: Tutorial sobre como criar uma geofence. Veja como rastrear dispositivos relativos à geofence utilizando o serviço Espacial Azure Maps
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 8/11/2020
+ms.date: 8/20/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b374bbe086281c7f7914334be6ca275f0fd05b7f
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 7a0c39b6d2369a1279fee3905083f0660a4aabb8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056514"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335199"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: configurar um perímetro geográfico com o Azure Maps
 
@@ -429,14 +429,14 @@ Na resposta anterior à GeoJSON, o equipamento permaneceu na geofência do local
 
 Na resposta anterior à GeoJSON, o equipamento permaneceu na geofência do local principal, mas saiu da geofência do subseita. Note-se, no entanto, que o `userTime` valor é após o definido nos `expiredTime` dados de geofência. Como resultado, o `isEventPublished` parâmetro está definido para , e o gestor de `false` operações não recebe uma notificação de e-mail.
 
-### <a name="location-547637988-1221338344"></a>Localização 5 (47.637988,-122.1338344)
+### <a name="location-5-4763799--122134505"></a>Localização 5 (47.63799, -122.134505)
 
 1. Perto do topo da aplicação Postman, selecione **New**. Na janela **Criar Novo,** selecione **Request**. Insira um **nome de Pedido** para o pedido. Faça-o *localização 5*. Selecione a coleção criada na [secção de dados de GeojSON de Geofencing upload](#upload-geofencing-geojson-data)e, em seguida, selecione **Save**.
 
 2. Selecione o método **GET** HTTP no separador construtor e introduza o seguinte URL. Certifique-se de que substitui `{Azure-Maps-Primary-Subscription-key}` a sua chave de subscrição primária e com a que `{udid}` `udid` guardou na secção de [dados de GeoJSON de Geofencing Upload](#upload-geofencing-geojson-data).
 
     ```HTTP
-    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
 3. Selecione **Send** (Enviar). O seguinte GeoJSON aparece na janela de resposta:
@@ -469,13 +469,10 @@ Na resposta anterior à GeoJSON, o equipamento permaneceu na geofência do local
 
 Na resposta anterior à GeoJSON, o equipamento saiu da geofência do local principal. Como resultado, o `isEventPublished` parâmetro é definido para , e o gestor de `true` operações recebe uma notificação de e-mail indicando que o equipamento saiu de uma geofence.
 
-## <a name="next-steps"></a>Próximos passos
+
+Também pode [enviar notificações por e-mail usando apps de rede de eventos e lógicas](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps) e verificar [handlers de eventos suportados na grelha de eventos](https://docs.microsoft.com/azure/event-grid/event-handlers) usando Azure Maps.
+
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Lidar com tipos de conteúdo em Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type)
-
-> [!div class="nextstepaction"]
-> [Envie notificações por e-mail usando a Grade de Eventos e Aplicações Lógicas](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps)
-
-> [!div class="nextstepaction"]
-> [Manipuladores de eventos apoiados na Grade de Eventos](https://docs.microsoft.com/azure/event-grid/event-handlers)

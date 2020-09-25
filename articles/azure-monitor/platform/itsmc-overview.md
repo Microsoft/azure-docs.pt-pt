@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 989399bcc86547b914deb442fa9793f6d79d0606
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0940521873b8d6746381acbd8e6c4c6d3a273c49
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325326"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325764"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure às ferramentas do ITSM com o Conector de Gestão de Serviços de TI
 
@@ -114,8 +114,8 @@ Os Grupos de Ação fornecem uma forma modular e reutilizável de desencadear a�
 
 Utilize o seguinte procedimento:
 
-1. No portal Azure, clique em **Monitor**.
-2. No painel esquerdo, clique em **Grupos de Ação**. Aparece a janela **do grupo de ação Add.**
+1. No portal Azure, clique em  **Monitor**.
+2. No painel esquerdo, clique em  **Grupos de Ação**. Aparece a janela **do grupo de ação Add.**
 
     ![Grupos de Ação](media/itsmc-overview/action-groups.png)
 
@@ -137,6 +137,10 @@ Ao criar/editar uma regra de alerta Azure, utilize um grupo action, que tem uma 
 > [!NOTE]
 >
 > Para obter informações sobre os preços da ITSM Action, consulte [a página de preços dos](https://azure.microsoft.com/pricing/details/monitor/) Grupos de Ação.
+
+> [!NOTE]
+>
+> O campo de descrição curta na definição de regra de alerta é limitado a 40 caracteres quando é enviado usando ação ITSM.
 
 
 ## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizar e analisar o incidente e alterar os dados do pedido
@@ -228,7 +232,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Data de fim planeada
 - Data de início do trabalho
 - Data de fim do trabalho
-- Descrição
+- Description
 - Computador
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dados de saída para um incidente do ServiceNow
@@ -275,7 +279,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Data de fim prevista |
 | WorkStartDate_t  | Data de início real |
 | WorkEndDate_t | Data de fim real|
-| Description_s | Descrição |
+| Description_s | Description |
 | Computador  | Item de configuração |
 
 
@@ -289,7 +293,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 2. Se os dados do ServiceNow não estiverem a ser sincronizados com o Log Analytics, certifique-se de que a instância ServiceNow não está a dormir. ServiceNow Dev Instances às vezes dorme quando ocioso por um longo período. Caso contrário, informe o assunto.
 3. Se o Log Analytics alertar o fogo mas os itens de trabalho não forem criados em produtos ou itens de configuração ITSM não forem criados/ligados a itens de trabalho ou a qualquer outra informação genérica, procure nos seguintes locais:
-   -  ITSMC: A solução mostra um resumo de ligações/artigos de trabalho/computadores, etc. Clique no azulejo que mostra o **Estado do Conector,** que o leva a **registar pesquisa** com a consulta relevante. Veja os registos de registos com LogType_S como ERROR para obter mais informações.
+   -  ITSMC: A solução mostra um resumo de ligações/artigos de trabalho/computadores, etc. Clique no azulejo que mostra o **Estado do Conector,** que o leva a **registar pesquisa**  com a consulta relevante. Veja os registos de registos com LogType_S como ERROR para obter mais informações.
    - **Registar Página de pesquisa:** ver os erros/informações relacionadas usando a consulta `*` ServiceDeskLog_CL `*` .
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Implementação de Aplicativo Web do Gestor de Serviços de Resolução de Problemas

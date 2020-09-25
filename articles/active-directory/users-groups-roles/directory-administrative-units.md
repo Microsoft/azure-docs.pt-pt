@@ -1,5 +1,5 @@
 ---
-title: Gestão de unidades administrativas (pré-visualização) - Azure AD / Microsoft Docs
+title: Unidades administrativas em Diretório Ativo Azure Microsoft Docs
 description: Utilização de unidades administrativas para uma delegação mais granular de permissões no Diretório Ativo do Azure
 services: active-directory
 documentationcenter: ''
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.topic: overview
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 07/27/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5854ef57a08218fee4479eb9e075824f4a1ff781
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: a31c4a5c9d20b5b248f7d722ed3d9289bbb4dded
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376388"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335821"
 ---
-# <a name="administrative-units-management-in-azure-active-directory-preview"></a>Gestão de unidades administrativas no Diretório Ativo Azure (pré-visualização)
+# <a name="administrative-units-in-azure-active-directory"></a>Unidades administrativas em Diretório Ativo Azure
 
-Este artigo descreve unidades administrativas no Azure Ative Directory (Azure AD). Uma unidade administrativa é um recurso AD Azure que pode ser um recipiente para outros recursos AZure AD. Nesta versão de pré-visualização, uma unidade administrativa pode conter apenas utilizadores e grupos.
+Este artigo descreve unidades administrativas no Azure Ative Directory (Azure AD). Uma unidade administrativa é um recurso AD Azure que pode ser um recipiente para outros recursos AZure AD. Uma unidade administrativa pode conter apenas utilizadores e grupos.
 
 As unidades administrativas permitem-lhe conceder permissões administrativas restritas a um departamento, região ou outro segmento da sua organização que define. Pode utilizar unidades administrativas para delegar permissões a administradores regionais ou para definir a política a nível granular. Por exemplo, um administrador de conta de utilizador poderia atualizar informações de perfil, redefinir palavras-passe e atribuir licenças para utilizadores apenas na sua unidade administrativa.
 
@@ -44,11 +44,11 @@ A utilização de unidades administrativas requer uma licença Azure Ative Direc
 
 ## <a name="manage-administrative-units"></a>Gerir unidades administrativas
 
-Nesta versão de pré-visualização, pode gerir unidades administrativas utilizando o portal Azure, cmdlets e scripts PowerShell ou o Microsoft Graph. Pode consultar a nossa documentação para mais detalhes:
+Pode gerir unidades administrativas utilizando o portal Azure, cmdlets e scripts PowerShell ou o Microsoft Graph. Pode consultar a nossa documentação para mais detalhes:
 
 - [Criar, remover, preencher e adicionar funções às unidades administrativas](roles-admin-units-manage.md): Complete os procedimentos de como fazer
-- [Trabalhar com unidades de administração](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0): Como trabalhar com unidades administrativas utilizando o PowerShell
-- [Suporte de gráfico de unidade administrativa](/graph/api/resources/administrativeunit?view=graph-rest-beta): Documentação detalhada no Microsoft Graph para unidades administrativas.
+- [Trabalhar com unidades de administração](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true): Como trabalhar com unidades administrativas utilizando o PowerShell
+- [Suporte de gráfico de unidade administrativa](/graph/api/resources/administrativeunit?view=graph-rest-beta&preserve-view=true): Documentação detalhada no Microsoft Graph para unidades administrativas.
 
 ### <a name="planning-your-administrative-units"></a>Planejando as suas unidades administrativas
 
@@ -101,7 +101,7 @@ gestão administrativa do licenciamento do grupo   |    Suportado  |    Suportad
 
 As unidades administrativas aplicam âmbito apenas às permissões de gestão. Não impedem que membros ou administradores utilizem as suas [permissões de utilizador predefinidas](../fundamentals/users-default-permissions.md) para navegar em outros utilizadores, grupos ou recursos fora da unidade administrativa. No centro de administração microsoft 365, os utilizadores fora das unidades administrativas de um administrador de âmbito são filtrados, mas pode navegar em outros utilizadores no portal AD AD, PowerShell e outros serviços da Microsoft.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Gestão de AUs](roles-admin-units-manage.md)
 - [Gerir utilizadores em AUs](roles-admin-units-add-manage-users.md)

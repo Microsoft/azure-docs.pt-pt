@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: fc306dbca3191f04a85f2c5cc88d41336c13e09c
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: dc47bf73f39d73861c166674a692932d51064e6d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496394"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288533"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL on demand (pré-visualização) em Azure Synapse Analytics 
 
@@ -25,9 +25,11 @@ SQL on-demand é um serviço de consulta sobre os dados no seu lago de dados. Pe
 - Uma sintaxe T-SQL familiar para consultar dados em vigor sem a necessidade de copiar ou carregar dados numa loja especializada. 
 - Conectividade integrada através da interface T-SQL que oferece uma ampla gama de ferramentas de inteligência empresarial e consulta ad-hoc, incluindo os condutores mais populares. 
 
-O SQL on demand é um sistema de processamento de dados distribuído, construído para grande escala de dados e cálculo. O SQL on demand permite-lhe analisar o seu Big Data em segundos a minutos, dependendo da carga de trabalho. Graças à tolerância à execução de consultas incorporadas, o sistema fornece altas taxas de fiabilidade e sucesso, mesmo para consultas de longa duração envolvendo grandes conjuntos de dados.
+O SQL on demand é um sistema de processamento de dados distribuído, construído para dados em larga escala e funções computacionais. O SQL on demand permite-lhe analisar o seu Big Data em segundos a minutos, dependendo da carga de trabalho. Graças à tolerância à execução de consultas incorporadas, o sistema fornece altas taxas de fiabilidade e sucesso, mesmo para consultas de longa duração envolvendo grandes conjuntos de dados.
 
-O SQL on-demand é sem servidor, portanto não há infraestruturas para configurar ou clusters para manter. Um ponto final predefinido para este serviço é fornecido em cada espaço de trabalho Azure Synapse, para que possa começar a consultar dados assim que o espaço de trabalho for criado. Não há qualquer custo para os recursos reservados, está apenas a ser cobrado pelos dados digitalizados por consultas que executou, daí que este modelo seja um verdadeiro modelo pay-per-use.  
+O SQL on-demand é sem servidor, portanto não há infraestruturas para configurar ou clusters para manter. Um ponto final predefinido para este serviço é fornecido em cada espaço de trabalho Azure Synapse, para que possa começar a consultar dados assim que o espaço de trabalho for criado. 
+
+Não há qualquer custo para os recursos reservados, está apenas a ser cobrado pelos dados processados por consultas que executou, daí que este modelo seja um verdadeiro modelo pay-per-use.  
 
 Se utilizar o Apache Spark para a Azure Synapse no seu pipeline de dados, para a preparação de dados, limpeza ou enriquecimento, pode [consultar as tabelas externas de Faíscas](develop-storage-files-spark-tables.md) que criou no processo, diretamente a partir do SQL on-demand. Utilize [o Private Link](../security/how-to-connect-to-workspace-with-private-links.md) para trazer o seu ponto final a pedido do SQL para o seu [VNet de espaço de trabalho gerido.](../security/synapse-workspace-managed-vnet.md)  
 
@@ -56,7 +58,7 @@ A SQL on demand permite que as ferramentas de consulta ad-hoc sql existentes e f
 
 ## <a name="t-sql-support"></a>Suporte T-SQL
 
-O SQL on-demand oferece área de superfície de consulta T-SQL, que é ligeiramente melhorada/estendida em alguns aspetos para acomodar para experiências em torno de consulta de dados semi-estruturados e não estruturados. Além disso, alguns aspetos da língua T-SQL não são suportados devido à conceção do SQL a pedido, como exemplo, a funcionalidade DML não é atualmente suportada.
+O SQL on-demand oferece área de superfície de consulta T-SQL, que é ligeiramente melhorada/estendida em alguns aspetos para acomodar para experiências em torno de consulta de dados semi-estruturados e não estruturados. Além disso, alguns aspetos da língua T-SQL não são suportados devido ao design do SQL on-demand, como exemplo, a funcionalidade DML não é atualmente suportada.
 
 - A carga de trabalho pode ser organizada usando conceitos familiares:
 - Bases de dados - O ponto final a pedido do SQL pode ter várias bases de dados.
@@ -77,7 +79,7 @@ T-SQL suportado:
 - CETAS - CRIE UMA TABELA EXTERNA COMO SELEÇÃO
 - Declarações DDL relacionadas apenas com pontos de vista e segurança
 
-SQL on demand não tem armazenamento local, apenas objetos de metadados são armazenados em bases de dados. Por conseguinte, a T-SQL relacionada com os seguintes conceitos não é suportada:
+SQL on demand não tem armazenamento local, apenas objetos de metadados são armazenados em bases de dados. Portanto, a T-SQL relacionada com os seguintes conceitos não é suportada:
 
 - Tabelas
 - Acionadores

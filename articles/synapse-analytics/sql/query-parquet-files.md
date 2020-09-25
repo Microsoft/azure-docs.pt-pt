@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 8083edaf647f52a07d55dddf21fe5751340783be
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: jrasnick
+ms.openlocfilehash: 35eef6951f844ab60caec70033e41e23a7920d3a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496241"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288312"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Ficheiros De consulta Parquet utilizando SQL on-demand (pré-visualização) em Azure Synapse Analytics
 
@@ -22,7 +22,7 @@ Neste artigo, você aprenderá a escrever uma consulta usando SQL on demand (pr�
 
 ## <a name="quickstart-example"></a>Exemplo de arranque rápido
 
-`OPENROWSET`função permite-lhe ler o conteúdo do ficheiro parquet fornecendo o URL ao seu ficheiro.
+`OPENROWSET` função permite-lhe ler o conteúdo do ficheiro parquet fornecendo o URL ao seu ficheiro.
 
 ### <a name="read-parquet-file"></a>Leia o arquivo parquet
 
@@ -57,7 +57,7 @@ Se uma fonte de dados estiver protegida com chave SAS ou identidade personalizad
 
 ### <a name="explicitly-specify-schema"></a>Especificar explicitamente o esquema
 
-`OPENROWSET`permite especificar explicitamente quais as colunas que pretende ler a partir do ficheiro usando a `WITH` cláusula:
+`OPENROWSET` permite especificar explicitamente quais as colunas que pretende ler a partir do ficheiro usando a `WITH` cláusula:
 
 ```sql
 select top 10 *

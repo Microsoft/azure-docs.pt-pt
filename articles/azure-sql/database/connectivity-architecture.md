@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: carlrab, vanto
+ms.reviewer: sstein, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 10108fdf4f2b7090eaeaa4b378992c2e94d3b04c
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 71bd250cbfb2642a291d495273c4cd66ebb2c350
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489583"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325390"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Azure SQL Database e Azure Synapse Analytics arquitetura de conectividade
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -122,7 +122,7 @@ Os pormenores sobre a forma como o tráfego deve ser migrado para novos Gateways
 | E.U.A. Oeste 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
 |                      |                    |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre como alterar a política de ligação da Base de Dados Azure SQL para um servidor, consulte [a política de conn- policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).
 - Para obter informações sobre o comportamento de ligação da Base de Dados Azure SQL para clientes que utilizem ADO.NET 4.5 ou uma versão posterior, consulte [portões para além de 1433 para ADO.NET 4.5](adonet-v12-develop-direct-route-ports.md).

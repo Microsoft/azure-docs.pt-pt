@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Encaminhar veículos elétricos utilizando Cadernos Azure (Python) Microsoft Azure Maps'
-description: Encaminhe os veículos elétricos utilizando apis e cadernos Azure Maps do Microsoft Azure Maps.
+description: Tutorial sobre como encaminhar veículos elétricos utilizando APIs e Azure Maps do Microsoft Azure Maps
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 506429f51ac442b73adea98058a833f52a728c72
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 28fcdc992f98ff380467718314148984559a7fee
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88639754"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335233"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Tutorial: Encaminhe veículos elétricos utilizando cadernos Azure (Python)
 
@@ -76,7 +76,7 @@ Para acompanhar este tutorial, você precisa criar um projeto Azure Notebooks e 
 
 Tente entender a funcionalidade que é implementada no ficheiro Jupyter Notebook. Executar o código, no ficheiro do Caderno Jupyter, uma célula de cada vez. Pode executar o código em cada célula selecionando o botão **Executar** na parte superior da aplicação Jupyter Notebook.
 
-  ![O botão Executar](./media/tutorial-ev-routing/run.png)
+  ![Botão Executar](./media/tutorial-ev-routing/run.png)
 
 ## <a name="install-project-level-packages"></a>Instalar pacotes de nível de projeto
 
@@ -387,8 +387,6 @@ display(Image(staticMapImage))
 
 ![Um mapa mostrando a rota](./media/tutorial-ev-routing/route.png)
 
-## <a name="next-steps"></a>Passos seguintes
-
 Neste tutorial, você aprendeu a chamar Azure Maps REST APIs diretamente e visualizar os dados do Azure Maps usando Python.
 
 Para explorar as APIs Azure Maps que são usadas neste tutorial, consulte:
@@ -399,7 +397,11 @@ Para explorar as APIs Azure Maps que são usadas neste tutorial, consulte:
 * [Render - Obter imagem de mapa](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 * [Matriz de rota pós-rota](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [Obter Direções de Rota](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
+* [Azure Maps REST APIs](https://docs.microsoft.com/azure/azure-maps/consumption-model)
 
-Para obter uma lista completa de APIs DE REST Azure Maps, consulte [Azure Maps REST APIs](https://docs.microsoft.com/azure/azure-maps/consumption-model).
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre os Cadernos Azure, consulte [os Cadernos Azure.](https://docs.microsoft.com/azure/notebooks)
+Para saber mais sobre cadernos Azure, ver
+
+> [!div class="nextstepaction"]
+> [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 09/22/2019
 ms.author: b-juche
-ms.openlocfilehash: 639f1e09fdb5603965209e5b5ee6c224ad238b76
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 818b3b59b1113875b6486ffe64bc8d2d30d613d3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533126"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325470"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Níveis de serviços do Azure NetApp Files
 Os níveis de serviço são um atributo de um pool de capacidade. Os níveis de serviço são definidos e diferenciados pela produção máxima permitida para um volume no pool de capacidade com base no contingente atribuído ao volume.
@@ -30,29 +30,47 @@ O Azure NetApp Files suporta três níveis de serviço: *Ultra,* *Premium*e *Sta
 
 * <a name="Ultra"></a>Armazenamento ultra
 
-    O nível de armazenamento ultra fornece até 128 MiB/s de produção por 1 TiB da quota de volume atribuída. 
+    O nível de armazenamento Ultra fornece até 128 MiB/s de produção por 1 TiB de capacidade aprovisionada. 
 
 * <a name="Premium"></a>Armazenamento premium
 
-    O nível de armazenamento Premium fornece até 64 MiB/s de produção por 1 TiB da quota de volume atribuída. 
+    O nível de armazenamento Premium fornece até 64 MiB/s de produção por 1 TiB de capacidade abastada. 
 
 * <a name="Standard"></a>Armazenamento padrão
 
-    O nível de armazenamento standard fornece até 16 MiB/s de produção por 1 TiB da quota de volume atribuída.
+    O nível de armazenamento standard fornece até 16 MiB/s de produção por 1 TiB de capacidade abastada.
 
 ## <a name="throughput-limits"></a>Limites de débito
 
 O limite de produção de um volume é determinado pela combinação dos seguintes fatores:
 * O nível de serviço da capacidade de piscina a que o volume pertence
 * A quota atribuída ao volume  
+* O tipo QoS *(automático* ou *manual)* da piscina de capacidade  
 
-Este conceito é ilustrado no diagrama abaixo:
+### <a name="throughput-limit-examples-of-volumes-in-an-auto-qos-capacity-pool"></a>Limite de produção exemplos de volumes num pool de capacidade de QoS automático
+
+O diagrama abaixo mostra exemplos de limites de produção de volumes num pool de capacidade de QoS automático:
 
 ![Ilustração de nível de serviço](../media/azure-netapp-files/azure-netapp-files-service-levels.png)
 
-No exemplo 1 acima, um volume de um pool de capacidade com o nível de armazenamento Premium que é atribuído 2 TiB de quota será atribuído um limite de produção de 128 MiB/s (2 TiB * 64 MiB/s). Este cenário aplica-se independentemente do tamanho da piscina de capacidade ou do consumo real de volume.
+* No exemplo 1 acima, um volume de um pool de capacidade de QoS automático com o nível de armazenamento Premium que é atribuído 2 TiB de quota será atribuído um limite de produção de 128 MiB/s (2 TiB * 64 MiB/s). Este cenário aplica-se independentemente do tamanho da piscina de capacidade ou do consumo real de volume.
 
-No exemplo 2 acima, um volume de um pool de capacidade com o nível de armazenamento Premium que é atribuído 100 GiB de quota será atribuído um limite de produção de 6,25 MiB/s (0.09765625 TiB * 64 MiB/s). Este cenário aplica-se independentemente do tamanho da piscina de capacidade ou do consumo real de volume.
+* No exemplo 2 acima, um volume de um pool de capacidade de QoS automático com o nível de armazenamento Premium que é atribuído 100 GiB de quota será atribuído um limite de produção de 6.25 MiB/s (0.09765625 TiB * 64 MiB/s). Este cenário aplica-se independentemente do tamanho da piscina de capacidade ou do consumo real de volume.
+
+### <a name="throughput-limit-examples-of-volumes-in-a-manual-qos-capacity-pool"></a>Limite de produção exemplos de volumes num pool manual de capacidade QoS 
+
+Se utilizar um pool manual de capacidade QoS, pode atribuir a capacidade e a produção para um volume de forma independente. Quando criar um volume num pool manual de capacidade QoS, pode especificar o valor de produção (MiB/S). A produção total atribuída a volumes num pool manual de capacidade QoS depende do tamanho da piscina e do nível de serviço. É tapado por (Tamanho da Piscina de Capacidade em TiB x Nível de Serviço Nível De Produção/TiB). Por exemplo, um pool de capacidade de 10 TiB com o nível de serviço Ultra tem uma capacidade total de produção de 1280 MiB/s (10 TiB x 128 MiB/s/TiB) disponível para os volumes.
+
+Para um sistema SAP HANA, este pool de capacidade pode ser usado para criar os seguintes volumes. Cada volume fornece o tamanho e produção individual para satisfazer os requisitos da sua aplicação:
+
+* Volume de dados SAP HANA: Tamanho 4 TB com até 704 MiB/s
+* Volume de log SAP HANA: Tamanho 0.5 TB com até 256 MiB/s
+* Volume compartilhado SAP HANA: Tamanho 1 TB com até 64 MiB/s
+* Volume de backup SAP HANA: Tamanho 4.5 TB com até 256 MiB/s
+
+O diagrama abaixo ilustra os cenários para os volumes SAP HANA:
+
+![Cenários de volume QoS SAP HANA](../media/azure-netapp-files/qos-sap-hana-volume-scenarios.png) 
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -61,3 +79,4 @@ No exemplo 2 acima, um volume de um pool de capacidade com o nível de armazenam
 - [Configurar um conjunto de capacidade](azure-netapp-files-set-up-capacity-pool.md)
 - [Acordo de Nível de Serviço (SLA) para ficheiros Azure NetApp](https://azure.microsoft.com/support/legal/sla/netapp/)
 - [Alterar o nível de serviço de um volume de forma dinâmica](dynamic-change-volume-service-level.md) 
+- [Objetivos ao nível do serviço para a replicação entre regiões](cross-region-replication-introduction.md#service-level-objectives)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 7addc87f3096a75a55d0ea3b5804fd0006d5cb8c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 66dfd198b543ec49fabe381b50174b182cf070c7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526491"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336042"
 ---
 # <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparar uma VM do Windows com os comandos de reparação da Máquina Virtual do Azure
 
@@ -77,7 +77,7 @@ Para obter documentação e instruções adicionais, consulte [a reparação az 
 3. Execute `az vm repair create`. Este comando criará uma cópia do disco DE para o VM não funcional, criará um VM de reparação num novo Grupo de Recursos e anexará a cópia do disco OS.  A VM de reparação terá o mesmo tamanho e região que o VM não funcional especificado. O grupo de recursos e o nome VM utilizados em todas as etapas serão para o VM não funcional. Se o seu VM estiver a utilizar a Encriptação do Disco Azure, o comando tentará desbloquear o disco encriptado de modo a que fique acessível quando ligado ao VM de reparação.
 
    ```azurecli-interactive
-   az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
+   az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password 'password!234' --verbose
    ```
 
 4. Execute `az vm repair run`. Este comando executará o script de reparação especificado no disco anexo através do VM de reparação. Se o guia de resolução de problemas que está a utilizar estiver a utilizar, por favor, utilize-o aqui, caso contrário poderá utilizar `az vm repair list-scripts` para ver os scripts de reparação disponíveis. O grupo de recursos e o nome VM utilizados aqui são para o VM não funcional utilizado no passo 3.
@@ -102,7 +102,7 @@ CLI do Azure
 az vm boot-diagnostics enable --name myVMDeployed --resource-group myResourceGroup --storage https://mystor.blob.core.windows.net/
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Se tiver problemas de ligação ao seu VM, consulte [as ligações RDP de resolução de problemas a um Azure VM](./troubleshoot-rdp-connection.md).
 * Para problemas com o acesso a aplicações em execução no seu VM, consulte [problemas de conectividade da aplicação Troubleshoot em máquinas virtuais em Azure](./troubleshoot-app-connection.md).

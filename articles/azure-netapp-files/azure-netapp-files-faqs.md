@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/22/2020
 ms.author: b-juche
-ms.openlocfilehash: 9822d7bd769ea161ddcf195d695f27024351ca4b
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 4b8c879a89da47a081e4b95382d17b3d2baede9d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662452"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325577"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp
 
@@ -132,6 +132,12 @@ O Azure NetApp Files suporta NFSv3 e NFSv4.1. Pode [criar um volume](azure-netap
 
 Pode especificar se a conta raiz pode aceder ao volume ou não utilizando a política de exportação do volume. Consulte [a política de exportação configurar para um volume NFS](azure-netapp-files-configure-export-policy.md) para obter mais detalhes.
 
+### <a name="can-i-use-the-same-file-path-volume-creation-token-for-multiple-volumes"></a>Posso utilizar o mesmo caminho de ficheiro (símbolo de criação de volume) para vários volumes?
+
+Sim, pode. No entanto, o caminho do ficheiro deve ser utilizado numa subscrição diferente ou numa região diferente.   
+
+Por exemplo, cria-se um volume chamado `vol1` . E depois cria-se outro volume também chamado `vol1` de um pool de capacidade diferente, mas na mesma subscrição e região. Neste caso, a utilização do mesmo nome de volume `vol1` causará um erro. Para utilizar o mesmo caminho de arquivo, o nome deve estar numa região ou subscrição diferente.
+
 ## <a name="smb-faqs"></a>FAQs sobre o SMB
 
 ### <a name="which-smb-versions-are-supported-by-azure-netapp-files"></a>Quais as versões SMB suportadas por Ficheiros Azure NetApp?
@@ -161,12 +167,6 @@ O Azure NetApp Files suporta versões windows Server 2008r2SP1-2019 de Serviços
 ### <a name="why-does-the-available-space-on-my-smb-client-not-show-the-provisioned-size"></a>Porque é que o espaço disponível no meu cliente SMB não mostra o tamanho a provisionado?
 
 O tamanho do volume reportado pelo cliente SMB é o tamanho máximo que o volume de Ficheiros Azure NetApp pode crescer. O tamanho do volume dos Ficheiros Azure NetApp, tal como mostrado no cliente SMB, não reflete a quota ou o tamanho do volume. Pode obter o tamanho ou quota de volume dos Ficheiros Azure NetApp através do portal Azure ou da API.
-
-<!--
-### Does Azure NetApp Files support Kerberos encryption?
-
-Yes, by default, Azure NetApp Files supports both AES-128 and AES-256 encryption for traffic between the service and the targeted Active Directory domain controllers. See [Create an SMB volume for Azure NetApp Files](azure-netapp-files-create-volumes-smb.md) for requirements. 
--->
 
 <!--
 ### Does Azure NetApp Files support LDAP signing? 
@@ -259,7 +259,7 @@ Não. A Azure Data Box não suporta ficheiros Azure NetApp atualmente.
 
 Não. O serviço Azure Import/Export não suporta atualmente ficheiros Azure NetApp.
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 - [Microsoft Azure ExpressRoute FAQs](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 - [Microsoft Azure Virtual Network FAQ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)

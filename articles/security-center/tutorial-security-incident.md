@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: c508591fe9909578dcc04b0922c0b76691898743
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 08e04749eae7158abb501f9a4d127cdd7a89a391
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90901081"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336280"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Tutorial: responder a incidentes de segurança
 O Centro de Segurança analisa continuamente as suas cargas de trabalho da cloud híbrida com análises avançadas e informações de ameaças para o alertar de atividades maliciosas. Além disso, pode integrar alertas de outros produtos e serviços de segurança no Centro de Segurança e criar alertas personalizados com base nos seus próprios indicadores ou origens de informações. Assim que for gerado um alerta, é necessária uma ação rápida para analisar e remediar. Neste tutorial, vai aprender a:
@@ -76,7 +76,7 @@ O Centro de Segurança proporciona uma vista unificada de todos os alertas de se
 
    ![Detalhes de alerta do incidente](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
-   O tipo de alerta pode variar. Leia [Compreender os alertas de segurança no Centro de Segurança do Azure ](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) para obter mais detalhes sobre o tipo de alerta e possíveis passos de remediação. Para os alertas que podem ser dispensados em segurança, clique com o botão direito do rato nos mesmos e selecione a opção **Dispensar**:
+   O tipo de alerta pode variar. Leia [Compreender os alertas de segurança no Centro de Segurança do Azure ](security-center-alerts-type.md) para obter mais detalhes sobre o tipo de alerta e possíveis passos de remediação. Para os alertas que podem ser dispensados em segurança, clique com o botão direito do rato nos mesmos e selecione a opção **Dispensar**:
 
    ![Alerta](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
 

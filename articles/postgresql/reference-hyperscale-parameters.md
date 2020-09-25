@@ -1,5 +1,5 @@
 ---
-title: Parâmetros do servidor - Hiperescala (Hiperescala (Citus) - Base de Dados Azure para PostgreSQL
+title: Parâmetros do servidor - Hiperescala (Citus) - Base de Dados Azure para PostgreSQL
 description: Parâmetros na Hiperescala (Citus) SQL API
 author: jonels-msft
 ms.author: jonels
@@ -7,23 +7,23 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: 2b4d3d44cb4e78f52ab03f31e58df5e66118ae25
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 07f966c7b0be542f848f1a0a4eaf2b5549735b4b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441515"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336246"
 ---
 # <a name="server-parameters"></a>Parâmetros do servidor
 
 Existem vários parâmetros do servidor que afetam o comportamento da Hiperescala (Citus), tanto a partir do PostgreSQL padrão, como específicos de Hyperscale (Citus).
 Estes parâmetros podem ser definidos no portal Azure para um grupo de servidores de Hiperescala (Citus). Na categoria **Definições,** escolha **parâmetros de nó do trabalhador** ou **parâmetros do nó coordenador**. Estas páginas permitem definir parâmetros para todos os nós dos trabalhadores, ou apenas para o nó coordenador.
 
-## <a name="hyperscale-parameters"></a>Parâmetros de hiperescala
+## <a name="hyperscale-citus-parameters"></a>Parâmetros de hiperescala (Citus)
 
 > [!NOTE]
 >
-> Os grupos de servidores de hiperescala que executam versões mais antigas do Citus Engine podem não oferecer todos os parâmetros listados abaixo.
+> Os grupos de servidores de hiperescala (Citus) que executam versões mais antigas do Citus Engine podem não oferecer todos os parâmetros listados abaixo.
 
 ### <a name="general-configuration"></a>Configuração geral
 
@@ -383,7 +383,7 @@ Por predefinição, a Hyperscale (Citus) mostra a saída de uma única tarefa ar
 * [xmlbinário](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-XMLBINARY) - Define como os valores binários devem ser codificados em XML
 * [xmloption](https://www.postgresql.org/docs/current/runtime-config-client.html#GUC-XMLOPTION) - Define se os dados de XML em operações implícitas de análise e serialização devem ser considerados como documentos ou fragmentos de conteúdo
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Outra forma de configuração, além dos parâmetros do servidor, são as opções de [configuração](concepts-hyperscale-configuration-options.md) de recursos num grupo de servidores Hyperscale (Citus).
 * A base de dados postgreSQL subjacente também tem [parâmetros de configuração.](http://www.postgresql.org/docs/current/static/runtime-config.html)

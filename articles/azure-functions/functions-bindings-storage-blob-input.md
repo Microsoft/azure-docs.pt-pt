@@ -1,17 +1,17 @@
 ---
 title: Ligação de entrada de armazenamento Azure Blob para funções Azure
-description: Saiba como fornecer dados de armazenamento Azure Blob a uma Função Azure.
+description: Saiba como fornecer dados de ligação de entrada de armazenamento Azure Blob a uma Função Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: de590af49e39832a52bf733319b86300ecab2a34
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: f5a01724bfefd50297182f998b46f99eacca5843
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213286"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325781"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Ligação de entrada de armazenamento Azure Blob para funções Azure
 
@@ -302,7 +302,7 @@ O `@BlobInput` atributo dá-lhe acesso à bolha que desencadeou a função. Se u
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `Blob` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para `blob` . |
 |**direção** | n/a | Deve ser definido para `in` . As exceções são anotados na secção [de utilização.](#usage) |

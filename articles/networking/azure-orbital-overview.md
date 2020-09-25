@@ -5,14 +5,14 @@ services: vnf-manager
 author: wamota
 ms.service: vnf-manager
 ms.topic: overview
-ms.date: 09/11/2020
+ms.date: 09/22/2020
 ms.author: wamota
-ms.openlocfilehash: 5a858531f578612be8190625ae371992babca34e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fcc44bb1c8017d63ee7926a31177aebaafd832fc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947579"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336382"
 ---
 # <a name="what-is-azure-orbital-preview"></a>Orbital que é o Azure Orbital? (Pré-visualização)
 

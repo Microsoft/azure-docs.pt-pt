@@ -4,17 +4,17 @@ description: Aprenda a utilizar o módulo Microsoft Azure Maps Indoor Maps para 
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 07/20/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 4bfb017bb085d22c187e8074ba4f2b026d17f442
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.custom: devx-track-js
+ms.openlocfilehash: d006ec692a2345f6b79c4be29446340cf4af6095
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815951"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335352"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Utilize o módulo Azure Maps Indoor Maps
 

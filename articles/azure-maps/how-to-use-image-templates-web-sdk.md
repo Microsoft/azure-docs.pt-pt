@@ -4,17 +4,17 @@ description: Aprenda a adicionar ícones de imagem e polígonos cheios de padrõ
 author: rbrundritt
 ms.author: richbrun
 ms.date: 8/6/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: d6c7ba255b0dcec280d05eab36be71b8c9a726ae
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: codepen, devx-track-js
+ms.openlocfilehash: f43c0086cfd6e51e0fbcd5d30911aa6c8e9a6518
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086560"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335556"
 ---
 # <a name="how-to-use-image-templates"></a>Como utilizar modelos de imagem
 

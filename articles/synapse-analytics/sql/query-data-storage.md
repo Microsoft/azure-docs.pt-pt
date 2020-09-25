@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 93e6b373aa125facb3a3eddecc926438c919b335
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.reviewer: jrasnick
+ms.openlocfilehash: 0ac54eb5d6350cc234eb7036a3a1dc97a4f1b083
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489746"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288380"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Ficheiros de armazenamento de consultas utilizando recursos SQL on-demand (pré-visualização) dentro do Sinaapse SQL
 
@@ -52,7 +52,7 @@ WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
 
 Reveja o artigo [de ficheiros Query Parquet](query-parquet-files.md) para obter exemplos de utilização.
 
-## <a name="query-csv-files"></a>Ficheiros CSV de consulta
+## <a name="query-csv-files"></a>Consultar ficheiros CSV
 
 Para consultar os dados de origem CSV, utilize o FORMATO = 'CSV'. Pode especificar o esquema do ficheiro CSV como parte da `OPENROWSET` função quando consultar ficheiros CSV:
 
@@ -248,7 +248,7 @@ Os dados de demonstração contêm os seguintes conjuntos de dados:
 - Amostra de arquivos Parquet com colunas aninhadas
 - Livros em formato JSON
 
-| Folder path                                                  | Descrição                                                  |
+| Folder path                                                  | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | /csv/                                                        | Pasta-mãe para dados em formato CSV                         |
 | /csv/população/<br />/csv/população-unix/<br />/csv/população unix-hdr/<br />/csv/população-unix-hdr-escape<br />/csv/população-unix-hdr-citado | Pastas com ficheiros de dados da População em diferentes formatos CSV. |
@@ -264,7 +264,7 @@ Os dados de demonstração contêm os seguintes conjuntos de dados:
 
 Para obter mais informações sobre como consultar diferentes tipos de ficheiros e criar e utilizar pontos de vista, consulte os seguintes artigos:
 
-- [Ficheiros CSV de consulta](query-single-csv-file.md)
+- [Consultar ficheiros CSV](query-single-csv-file.md)
 - [Consultar ficheiros de Parquet](query-parquet-files.md)
 - [Consultar ficheiros JSON](query-json-files.md)
 - [Valores aninhados de consulta](query-parquet-nested-types.md)

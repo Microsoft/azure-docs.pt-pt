@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e5a5b06bc95d022cfad66118db4b55e9369b5bd
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a0ee8661ca985e1882cff54d2fc2cdc5e9ad0a22
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661886"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335974"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrar da federação para a autenticação pass-through para o Azure Ative Directory
 
@@ -283,9 +283,9 @@ Seguinte. implementar métodos de autenticação adicionais:
 
 4. Executar a instalação do agente de autenticação. Durante a instalação, deve introduzir as credenciais de uma conta De Administrador Global.
 
-   ![Screenshot que mostra o botão de instalação na página do Pacote de Agente de autenticação de ligação AD do Microsoft Azure](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
+   ![Screenshot que mostra o botão de instalação que utiliza para executar o Pacote agente de autenticação de ligação AD do Microsoft Azure.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
 
-   ![Screenshot que mostra a página de inscrição](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
+   ![Screenshot que mostra a página de sindes de sção da Microsoft.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
 
 5. Quando o agente de autenticação estiver instalado, pode voltar à página de saúde do agente de autenticação pass-through para verificar o estado dos agentes adicionais.
 
@@ -327,7 +327,7 @@ Primeiro, ativar a autenticação pass-through:
    * **O sinal único sem emenda** está definido para **Ativado**.
    * **A autenticação pass-through** está definida para **Ativado**.
    
-   ![Screenshot que mostra as definições na secção de insente do utilizador](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
+   ![Screenshot que mostra as definições para verificar na secção de insuição do Utilizador.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
 8. Selecione **a autenticação pass-through** e verifique se o estado está **ativo**.<br />
    
    Se o agente de autenticação não estiver ativo, complete alguns [passos de resolução de problemas](./tshoot-connect-pass-through-authentication.md) antes de continuar com o processo de conversão do domínio no passo seguinte. Corre o risco de causar uma paragem de autenticação se converter os seus domínios antes de validar que os seus agentes de autenticação pass-through estão instalados com sucesso e que o seu estado **Ativo** no portal Azure.
@@ -368,7 +368,7 @@ Complete a conversão utilizando o módulo Azure AD PowerShell:
    * **O sinal único sem emenda** está definido para **Ativado**.
    * **A autenticação pass-through** está definida para **Ativado**.<br />
 
-   ![Screenshot que mostra as definições na secção de insente do utilizador](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)<br />
+   ![Screenshot que mostra as definições na secção de insuição do Utilizador no portal AD AZure.](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)<br />
 
 ## <a name="testing-and-next-steps"></a>Testes e próximos passos
 
@@ -455,7 +455,7 @@ Também pode ligar o registo para resolução de problemas.
 
 Para mais informações, consulte [a autenticação pass-through do Troubleshoot Azure Ative Directory](./tshoot-connect-pass-through-authentication.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre os conceitos de [design Azure AD Connect](plan-connect-design-concepts.md).
 * Escolha a [autenticação certa.](./choose-ad-authn.md)

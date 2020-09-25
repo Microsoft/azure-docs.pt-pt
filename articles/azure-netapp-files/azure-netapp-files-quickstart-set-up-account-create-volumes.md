@@ -6,14 +6,14 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
-ms.date: 06/09/2020
+ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: c8f431a609dafc1064b901cfdda8d170124cf0f9
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 1506ab7210f8b98614f51e5168555068cce0afbb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089246"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325679"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Quickstart: Configurar ficheiros Azure NetApp e criar um volume NFS 
 
@@ -186,14 +186,15 @@ O seguinte corte de código mostra como criar uma conta NetApp num modelo de Ges
 
 3. Clique **+ Adicione piscinas.** 
 
-    ![Clique em Adicionar piscinas](../media/azure-netapp-files/azure-netapp-files-click-add-pools.png)  
+    ![Clique em Adicionar piscinas](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)  
 
 4. Fornecer informações sobre o pool de capacidade: 
-    1. **Insira a mypool1** como o nome da piscina.
-    2. Selecione **Premium** para o nível de serviço. 
-    3. Especifique **4 (TiB)** como o tamanho da piscina. 
+    * **Insira a mypool1** como o nome da piscina.
+    * Selecione **Premium** para o nível de serviço. 
+    * Especifique **4 (TiB)** como o tamanho da piscina. 
+    * Utilize o tipo **Auto** QoS.
 
-5. Clique em **OK**.
+5. Clique em **Create** (Criar).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -416,7 +417,7 @@ Quando terminar e se quiser, pode eliminar o grupo de recursos. A ação de elim
 
 3. Na página do grupo de recursos, clique **em Eliminar o grupo de recursos**.
 
-    ![Eliminar grupo de recursos](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
+    ![Screenshot que realça o botão do grupo de recursos Delete.](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
 
     É aberta uma janela com um aviso sobre os recursos que serão eliminados com o grupo de recursos.
 
