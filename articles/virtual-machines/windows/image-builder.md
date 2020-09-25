@@ -7,12 +7,12 @@ ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
-ms.openlocfilehash: f0d8a37f0edc161cbd73bf7438dc1c9486c4251b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 62d80426dec6f5d63d8fa5d67d64d6aafb881110
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027942"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320018"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Pré-visualização: Criar um Windows VM com Azure Image Builder
 
@@ -161,7 +161,7 @@ vi helloImageTemplateWin.json
 ```
 
 > [!NOTE]
-> Para a imagem de origem, deve sempre [especificar uma versão,](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure)não pode utilizar `latest` .
+> Para a imagem de origem, deve sempre [especificar uma versão,](../linux/image-builder-troubleshoot.md#build--step-failed-for-image-version)não pode utilizar `latest` .
 > Se adicionar ou alterar o grupo de recursos para onde a imagem é distribuída, deve escoar as [permissões no](#create-a-user-assigned-identity-and-set-permissions-on-the-resource-group) grupo de recursos.
  
 ## <a name="create-the-image"></a>Criar a imagem
@@ -179,13 +179,13 @@ az resource create \
 
 Quando estiver concluído, isto devolverá uma mensagem de sucesso à consola e criará uma `Image Builder Configuration Template` na `$imageResourceGroup` . Pode ver este recurso no grupo de recursos no portal Azure, se ativar 'Mostrar tipos ocultos'.
 
-Em segundo plano, o Image Builder também criará um grupo de recursos de encenação na sua subscrição. Este grupo de recursos é utilizado para a construção de imagens. Será neste formato:`IT_<DestinationResourceGroup>_<TemplateName>`
+Em segundo plano, o Image Builder também criará um grupo de recursos de encenação na sua subscrição. Este grupo de recursos é utilizado para a construção de imagens. Será neste formato: `IT_<DestinationResourceGroup>_<TemplateName>`
 
 > [!Note]
 > Não deve eliminar diretamente o grupo de recursos de encenação. Primeiro, elimine o artefacto do modelo de imagem, isto fará com que o grupo de recursos de encenação seja eliminado.
 
 Se o serviço reportar uma falha durante a submissão do modelo de configuração de imagem:
--  Reveja estes [passos de resolução de problemas.](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) 
+-  Reveja estes [passos de resolução de problemas.](../linux/image-builder-troubleshoot.md#troubleshoot-image-template-submission-errors) 
 - Terá de eliminar o modelo, utilizando o seguinte corte, antes de voltar a tentar a submissão.
 
 ```azurecli-interactive
@@ -208,7 +208,7 @@ az resource invoke-action \
 
 Espere até que a construção esteja completa. Isto pode levar cerca de 15 minutos.
 
-Se encontrar algum erro, por favor reveja estes passos [de resolução de problemas.](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting)
+Se encontrar algum erro, por favor reveja estes passos [de resolução de problemas.](../linux/image-builder-troubleshoot.md#troubleshoot-common-build-errors)
 
 
 ## <a name="create-the-vm"></a>Criar a VM

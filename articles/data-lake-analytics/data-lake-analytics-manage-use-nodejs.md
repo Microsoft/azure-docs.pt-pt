@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 5347218c17af89e58ae6219b860a8db03e1bf89b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 86f5f4faaaf1c2177e3dcbb8f357bca54554aacd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415011"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318641"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Gerir a Análise do Azure Data Lake com o Azure SDK para Node.js
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -128,5 +128,5 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 });
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 * [Microsoft Azure SDK para Node.js](https://github.com/azure/azure-sdk-for-node)

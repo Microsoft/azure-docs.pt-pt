@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: e45afed3332d26006cf0b4296986edb6f6588962
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 2a93f612f5aeb5c2d3a4b83d580b9548f45e4c05
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421735"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329164"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configure uma ligação ponto-a-local a um VNet utilizando a autenticação RADIUS: PowerShell
 
@@ -24,8 +24,9 @@ Uma ligação VPN P2S é iniciada a partir dos dispositivos Windows e Mac. Os cl
 
 * Servidor RADIUS
 * Autenticação de certificado nativo VPN Gateway
+* Autenticação nativa do Azure Ative Directory (apenas Windows 10)
 
-Este artigo ajuda-o a configurar uma configuração P2S com autenticação utilizando o servidor RADIUS. Se pretender autenticar utilizando certificados gerados e autenticação de certificados nativos de gateway VPN, consulte [configurar uma ligação ponto-a-local a um VNet utilizando a autenticação de certificado nativo de gateway VPN](vpn-gateway-howto-point-to-site-rm-ps.md).
+Este artigo ajuda-o a configurar uma configuração P2S com autenticação utilizando o servidor RADIUS. Se pretender autenticar utilizando certificados gerados e autenticação de certificados nativos de gateway VPN, consulte [configurar uma ligação ponto-a-local a um VNet utilizando a autenticação de certificados nativos de gateway VPN](vpn-gateway-howto-point-to-site-rm-ps.md) ou [Criar um inquilino do Diretório Ativo Azure para ligações de protocolo P2S OpenVPN](openvpn-azure-ad-tenant.md) para autenticação do Azure Ative Directory.
 
 ![Diagrama de ligação - RADIUS](./media/point-to-site-how-to-radius-ps/p2sradius.png)
 
@@ -40,7 +41,7 @@ As ligações Ponto a Site não precisam de nenhum dispositivo VPN ou endereço 
 As ligações de P2S requerem o seguinte:
 
 * Um gateway de VPN RouteBased. 
-* Um servidor RADIUS para lidar com a autenticação do utilizador. O servidor RADIUS pode ser implantado no local ou no Azure VNet.
+* Um servidor RADIUS para lidar com a autenticação do utilizador. O servidor RADIUS pode ser implantado no local ou no Azure VNet. Também pode configurar dois servidores RADIUS para uma elevada disponibilidade.
 * Um pacote de configuração do cliente VPN para os dispositivos Windows que se ligará ao VNet. Um pacote de configuração de cliente VPN fornece as definições necessárias para que um cliente VPN se conecte sobre o P2S.
 
 ## <a name="about-active-directory-ad-domain-authentication-for-p2s-vpns"></a><a name="aboutad"></a>Sobre a autenticação de domínio do Diretório Ativo (AD) para VPNs P2S
@@ -223,6 +224,17 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
+   Para especificar **dois** servidores RADIUS **(Pré-visualização)** utilize a seguinte sintaxe. Modifique o valor **-VpnClientProtocol conforme** necessário
+
+    ```azurepowershell-interactive
+    $radiusServer1 = New-AzRadiusServer -RadiusServerAddress 10.1.0.15 -RadiusServerSecret $radiuspd -RadiusServerScore 30
+    $radiusServer2 = New-AzRadiusServer -RadiusServerAddress 10.1.0.16 -RadiusServerSecret $radiuspd -RadiusServerScore 1
+
+    $radiusServers = @( $radiusServer1, $radiusServer2 )
+
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $actual -VpnClientAddressPool 201.169.0.0/16 -VpnClientProtocol "IkeV2" -RadiusServerList $radiusServers
+    ```
+
 ## <a name="6-download-the-vpn-client-configuration-package-and-set-up-the-vpn-client"></a>6. <a name="vpnclient"></a> Descarregue o pacote de configuração do cliente VPN e crie o cliente VPN
 
 A configuração do cliente VPN permite que os dispositivos se conectem a um VNet sobre uma ligação P2S.Para gerar um pacote de configuração do cliente VPN e configurar o cliente VPN, consulte [criar uma configuração de cliente VPN para autenticação RADIUS](point-to-site-vpn-client-configuration-radius.md).
@@ -274,6 +286,6 @@ Este FAQ aplica-se a P2S usando a autenticação RADIUS
 
 [!INCLUDE [Point-to-Site RADIUS FAQ](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/). Para compreender melhor o funcionamento em rede e as máquinas virtuais, veja [Descrição geral da rede VM do Azure e Linux](../virtual-machines/linux/azure-vm-network-overview.md).

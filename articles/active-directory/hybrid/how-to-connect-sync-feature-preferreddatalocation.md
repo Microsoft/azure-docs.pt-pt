@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad2bf071d4aa5b49541c710ef9b0793a1076ea9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 1ec5757b41da630c4cb09ad0c096aee87572615d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662501"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319899"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Azure Ative Directory Connect sync: Configurar a localização de dados preferenciais para os recursos da Microsoft 365
 O objetivo deste tópico é interpor como configurar o atributo para localização de dados preferenciais no Azure Ative Directory (Azure AD) Connect sync. Quando alguém utiliza capacidades Multi-Geo no Microsoft 365, utiliza este atributo para designar a geolocalização dos dados microsoft 365 do utilizador. (Os termos *região* e *geo* são utilizados intercambiavelmente.)
@@ -118,7 +118,7 @@ Nem todos os atributos AD AZure são importados para o espaço de conector Ative
 4. Certifique-se de que o atributo de origem selecionado para utilizar é verificado na lista de atributos. Se não vir o seu atributo, selecione a caixa de verificação **'Mostrar Tudo'.**
 5. Para guardar, selecione **OK**.
 
-![Screenshot do Gestor de Serviço de Sincronização e caixa de diálogo de propriedades](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
+![Screenshot que mostra a caixa de diálogo do Gestor de Serviço de Sincronização e propriedades com a lista de "Atributos" em destaque.](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step2.png)
 
 ## <a name="step-4-add-preferreddatalocation-to-the-azure-ad-connector-schema"></a>Passo 4: **AdicionarDataLocation preferencial** ao esquema do conector AZure AD
 **Este passo só é necessário se executar a versão 1.3.21 ou mais antiga do Connect. Se estiver em 1.4.18 ou mais novo, então salte para o passo 5.**  
@@ -143,7 +143,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
     | Atributo | Valor | Detalhes |
     | --- | --- | --- |
     | Name | *Fornecer um nome* | Por exemplo, "In from AD – User preferredDataLocation" |
-    | Descrição | *Fornecer uma descrição personalizada* |  |
+    | Description | *Fornecer uma descrição personalizada* |  |
     | Sistema Conectado | *Escolha o conector ative de diretório no local* |  |
     | Tipo de objeto de sistema conectado | **Utilizador** |  |
     | Tipo de objeto metaverso | **Pessoa** |  |
@@ -172,7 +172,7 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
     | Atributo | Valor | Detalhes |
     | ----- | ------ | --- |
     | Name | *Fornecer um nome* | Por exemplo, "out to Azure AD – User preferredDataLocation" |
-    | Descrição | *Fornecer uma descrição* ||
+    | Description | *Fornecer uma descrição* ||
     | Sistema Conectado | *Selecione o Conector AD Azure* ||
     | Tipo de objeto de sistema conectado | **Utilizador** ||
     | Tipo de objeto metaverso | **Pessoa** ||
@@ -262,7 +262,7 @@ Re-activar o programador de sincronização incorporado:
 ![Screenshot de Exchange Online PowerShell](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-mailboxregion.png)  
 Assumindo que o seu inquilino foi marcado para poder usar esta funcionalidade, a caixa de correio é transferida para o geo correto. Isto pode ser verificado olhando para o nome do servidor onde a caixa de correio está localizada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o Multi-Geo na Microsoft 365:
 

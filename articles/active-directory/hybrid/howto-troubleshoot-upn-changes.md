@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: caf0fdf5fd167987ea0fd7111a05b04bd5bf848f
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 6a1acdbeb29091bae0be214b740023f13928506a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279793"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319848"
 ---
 # <a name="plan-and-troubleshoot-user-principal-name-changes-in-azure-active-directory"></a>Plano e resolução de problemas Alterações do Nome Principal do Utilizador no Diretório Ativo do Azure
 
@@ -94,7 +94,7 @@ Consulte as questões e soluções alternativas conhecidas neste documento.
 
 Quando estiver a sincronizar as contas dos utilizadores do Ative Directory para a Azure AD, certifique-se de que as UPNs no mapa do Ative Directory são para domínios verificados em Azure AD.
 
-![Screenshot de domínios verificados](./media/howto-troubleshoot-upn-changes/verified-domains.png)
+![Screenshot que mostra exemplos de UPNs mapeados para os domínios Azure A D verificados.](./media/howto-troubleshoot-upn-changes/verified-domains.png)
 
 Se o valor do atributo UserPrincipalName não corresponder a um domínio verificado em Ad Azure, o processo de sincronização substitui o sufixo por um valor padrão .onmicrosoft.com.
 
@@ -246,7 +246,7 @@ Para remover referências a UPNs antigos, os utilizadores devem [redefinir a cha
 
 Os utilizadores do OneDrive são conhecidos por experimentarem problemas após alterações na UPN. Para obter mais informações, consulte [como as alterações da UPN afetam as funcionalidades de URL e OneDrive OneDrive](/onedrive/upn-changes).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte estes recursos:
 * [Azure AD Connect: Conceitos de design](./plan-connect-design-concepts.md)

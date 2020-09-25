@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos Azure na sua organização.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: a049134a32fd6026cc1e0c4044a7b9d08fb9bd8f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f9b64255723c6e53a6d8fe945bf19506ba30644e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895377"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330286"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -102,16 +102,19 @@ Recomendamos que desfase o **modo** `all` na maioria dos casos. Todas as defini�
 
 `indexed` deve ser usado na criação de políticas que imponham tags ou locais. Embora não seja necessário, impede que recursos que não suportam tags e locais apareçam como incompatíveis nos resultados de conformidade. A exceção são **grupos de recursos** e **subscrições.** As definições de política que impõem a localização ou as tags num grupo de recursos ou subscrição devem definir **o modo** `all` de e especificamente direcionar o `Microsoft.Resources/subscriptions/resourceGroups` ou o `Microsoft.Resources/subscriptions` tipo. Por exemplo, consulte [Padrão: Etiquetas - Amostra #1](../samples/pattern-tags.md). Para obter uma lista de recursos que suportem tags, consulte [o suporte da Tag para os recursos da Azure.](../../../azure-resource-manager/management/tag-support.md)
 
-### <a name="resource-provider-modes-preview"></a><a name="resource-provider-modes"></a>Modos fornecedores de recursos (pré-visualização)
+### <a name="resource-provider-modes"></a>Modos fornecedores de recursos
 
-Os seguintes modos de Fornecedor de Recursos são atualmente suportados durante a pré-visualização:
+O seguinte nó do Fornecedor de Recursos é totalmente suportado:
 
-- `Microsoft.ContainerService.Data` para gerir as regras do controlador de admissão no [Serviço Azure Kubernetes](../../../aks/intro-kubernetes.md). As definições que utilizam este modo fornecedor de recursos **devem** utilizar o efeito [EnforceRegoPolicy.](./effects.md#enforceregopolicy) Este modo está a ser _depreciado._
-- `Microsoft.Kubernetes.Data` para gerir os seus clusters Kubernetes em ou fora de Azure. Definições que utilizam este modo de fornecedor de recursos utilizam _auditoria_de efeitos, _negar_e _desativar_. A utilização do efeito [EnforceOPAConstraint](./effects.md#enforceopaconstraint) está a ser _depreciada._
+- `Microsoft.Kubernetes.Data` para gerir os seus clusters Kubernetes em ou fora de Azure. Definições que utilizam este modo de fornecedor de recursos utilizam _auditoria_de efeitos, _negar_e _desativar_. A utilização do efeito [EnforceOPAConstraint](./effects.md#enforceopaconstraint) é _depreciada._
+
+Os seguintes modos de Fornecedor de Recursos são atualmente suportados como **pré-visualização:**
+
+- `Microsoft.ContainerService.Data` para gerir as regras do controlador de admissão no [Serviço Azure Kubernetes](../../../aks/intro-kubernetes.md). As definições que utilizam este modo fornecedor de recursos **devem** utilizar o efeito [EnforceRegoPolicy.](./effects.md#enforceregopolicy) Este modo é _precotado._
 - `Microsoft.KeyVault.Data` para a gestão de cofres e certificados em [Azure Key Vault](../../../key-vault/general/overview.md).
 
 > [!NOTE]
-> Os modos de Fornecedor de Recursos suportam apenas definições de políticas incorporadas e não suportam iniciativas durante a pré-visualização.
+> Os modos fornecedor de recursos suportam apenas definições de políticas incorporadas.
 
 ## <a name="metadata"></a>Metadados
 
@@ -552,9 +555,9 @@ A Azure Policy apoia os seguintes tipos de efeito:
 - **Negar:** gera um evento no registo de atividades e falha o pedido
 - **ImplementarIfNotExists**: implementa um recurso relacionado se já não existir
 - **Deficiente:** não avalia recursos para o cumprimento da regra da política
-- **EnforceOPAConstraint** (pré-visualização): configura o controlador de admissões do Agente de Política Aberta com gatekeeper v3 para clusters Kubernetes auto-geridos em Azure (pré-visualização)
-- **EnforceRegoPolicy** (pré-visualização): configura o controlador de admissões de Agente de Política Aberta com Gatekeeper v2 no Serviço Azure Kubernetes
 - **Modificar:** adicionar, atualizar ou remover as tags definidas de um recurso
+- **EnforceOPAConstraint** (preterido): configura o controlador de admissão de Agente de Política Aberta com Gatekeeper v3 para clusters kubernetes auto-geridos em Azure
+- **EnforceRegoPolicy** (precotado): configura o controlador de admissões de Agente de Política Aberta com Gatekeeper v2 no Serviço Azure Kubernetes
 
 Para obter detalhes completos sobre cada efeito, ordem de avaliação, propriedades e exemplos, consulte [Understanding Azure Policy Effects](effects.md).
 
@@ -592,6 +595,18 @@ As seguintes funções só estão disponíveis nas regras políticas:
 - `requestContext().apiVersion`
   - Devolve a versão API do pedido que desencadeou a avaliação da política (exemplo: `2019-09-01` ).
     Este valor é a versão API que foi utilizada no pedido PUT/PATCH para avaliações sobre criação/atualização de recursos. A versão mais recente da API é sempre utilizada durante a avaliação de conformidade sobre os recursos existentes.
+- `policy()`
+  - Devolve as seguintes informações sobre a política que está a ser avaliada. As propriedades podem ser acedidas a partir do objeto devolvido (exemplo: `[policy().assignmentId]` ).
+  
+  ```json
+  {
+    "assignmentId": "/subscriptions/ad404ddd-36a5-4ea8-b3e3-681e77487a63/providers/Microsoft.Authorization/policyAssignments/myAssignment",
+    "definitionId": "/providers/Microsoft.Authorization/policyDefinitions/34c877ad-507e-4c82-993e-3452a6e0ad3c",
+    "setDefinitionId": "/providers/Microsoft.Authorization/policySetDefinitions/42a694ed-f65e-42b2-aa9e-8052e9740a92",
+    "definitionReferenceId": "StorageAccountNetworkACLs"
+  }
+  ```
+  
   
 #### <a name="policy-function-example"></a>Exemplo de função política
 

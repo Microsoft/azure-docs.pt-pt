@@ -1,26 +1,26 @@
 ---
 title: Descrição geral da segurança
-description: Informações de segurança sobre os servidores ativados do Azure Arc (pré-visualização).
+description: Informações de segurança sobre os servidores ativados do Azure Arc.
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 17641fab9933d9d6a60c2b21912f755acc01a6dd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/23/2020
+ms.openlocfilehash: be79be3030af76425b54fd683784d0e216ac2cf5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89447861"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329045"
 ---
-# <a name="azure-arc-for-servers-preview-security-overview"></a>Azure Arc para servidores (pré-visualização) visão geral de segurança
+# <a name="azure-arc-for-servers-security-overview"></a>Azure Arc para visão geral de segurança dos servidores
 
 Este artigo descreve a configuração de segurança e considerações que deve avaliar antes de implementar servidores ativados pelo Azure Arc na sua empresa.
 
 ## <a name="identity-and-access-control"></a>Identidade e controlo de acesso
 
-Cada servidor Azure Arc habilitado tem uma identidade gerida como parte de um grupo de recursos dentro de uma subscrição do Azure que representa o servidor que executa no local ou outro ambiente de nuvem. O acesso a este recurso é controlado pelo controlo de acesso baseado em funções padrão [Azure.](../../role-based-access-control/overview.md) A partir da página [**Controlo de Acesso (IAM)**](../../role-based-access-control/role-assignments-portal.md#access-control-iam) no portal Azure, pode verificar quem tem acesso ao seu servidor ativado Azure Arc.
+Cada servidor Azure Arc habilitado tem uma identidade gerida como parte de um grupo de recursos dentro de uma subscrição do Azure, esta identidade representa o servidor que executa no local ou outro ambiente de nuvem. O acesso a este recurso é controlado pelo controlo de acesso baseado em funções padrão [Azure.](../../role-based-access-control/overview.md) A partir da página [**Controlo de Acesso (IAM)**](../../role-based-access-control/role-assignments-portal.md#access-control-iam) no portal Azure, pode verificar quem tem acesso ao seu servidor ativado Azure Arc.
 
 :::image type="content" source="./media/security-overview/access-control-page.png" alt-text="Azure Arc permitiu o controlo de acesso ao servidor" border="false" lightbox="./media/security-overview/access-control-page.png":::
 
-Os utilizadores e aplicações [que](../../role-based-access-control/built-in-roles.md#contributor) concedem ao contribuinte ou administrador o acesso ao recurso podem escoar alterações ao recurso, incluindo a implantação ou eliminação de [extensões](manage-vm-extensions.md) na máquina. As extensões podem incluir scripts arbitrários que funcionam num contexto privilegiado, por isso considere qualquer colaborador no recurso Azure como um administrador indireto do servidor não-Azure.
+Os utilizadores e aplicações [que](../../role-based-access-control/built-in-roles.md#contributor) concedem ao contribuinte ou administrador o acesso ao recurso podem escoar alterações ao recurso, incluindo a implantação ou eliminação de [extensões](manage-vm-extensions.md) na máquina. As extensões podem incluir scripts arbitrários que funcionam num contexto privilegiado, por isso considere qualquer colaborador no recurso Azure como um administrador indireto do servidor.
 
 A **função de Azure Connected Machine Onboarding** está disponível para o embarque à escala e só é capaz de ler ou criar novos servidores ativados pelo Arco em Azure. Não pode ser utilizado para eliminar servidores já registados ou gerir extensões. Como uma boa prática, recomendamos apenas atribuir este papel ao diretor de serviço Azure Ative (Azure AD) usado para máquinas a bordo em escala.
 
@@ -28,9 +28,9 @@ Os utilizadores como membro da função **de Administrador de Recursos da Máqui
 
 ## <a name="agent-security-and-permissions"></a>Segurança do agente e permissões
 
-Para gerir o agente Azure Connected Machine (azcmagent), no Windows a sua conta de utilizador precisa de ser membro do grupo de Administradores locais, e no Linux tem de ter permissões de acesso à raiz.
+Para gerir o agente Azure Connected Machine (azcmagent) no Windows, a sua conta de utilizador precisa de ser membro do grupo de Administradores locais. No Linux, deve ter permissões de acesso à raiz.
 
-O agente Azure Connected Machine é composto por três serviços que funcionam na sua máquina.
+O agente Azure Connected Machine é composto por três serviços, que funcionam na sua máquina.
 
 * O serviço Hybrid Instance Medata Service (himds) é responsável por todas as funcionalidades centrais do Arc. Isto inclui o envio de batimentos cardíacos para o Azure, expondo um serviço de metadados de instância local para outras aplicações para aprender sobre o ID de recursos Azure da máquina, e recuperar fichas AD AZure para autenticar para outros serviços Azure. Este serviço funciona como uma conta de serviço virtual desprivileçada no Windows, e como o utilizador **de eleds** no Linux.
 
@@ -54,6 +54,6 @@ Embora o Serviço de Metadados de Instância Híbrida possa ser acedido por qual
 
 O agente Azure Connected Machine utiliza a autenticação de chave pública para comunicar com o serviço Azure. Depois de embarcar num servidor para Azure Arc, uma chave privada é guardada no disco e usada sempre que o agente comunica com o Azure. Se roubada, a chave privada pode ser usada noutro servidor para comunicar com o serviço e agir como se fosse o servidor original. Isto inclui o acesso ao sistema de identidade atribuída e quaisquer recursos a que a identidade tenha acesso. O ficheiro chave privado está protegido apenas para permitir que a conta **de itds** o leia. Para evitar ataques offline, recomendamos vivamente a utilização de encriptação completa do disco (por exemplo, BitLocker, dm-crypt, etc.) no volume do sistema operativo do seu servidor.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Antes de avaliar ou ativar os servidores (pré-visualização) do Arc através de várias máquinas híbridas, [reveja](agent-overview.md) a visão geral do agente da Máquina Conectada para compreender os requisitos, detalhes técnicos sobre o agente e métodos de implementação.
+Antes de avaliar ou ativar os servidores ativados pelo Arc em várias máquinas híbridas, [reveja a visão geral do agente da Máquina Conectada](agent-overview.md) para compreender os requisitos, detalhes técnicos sobre o agente e métodos de implementação.

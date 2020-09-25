@@ -2,13 +2,13 @@
 title: Mobilizar recursos para o grupo de gestão
 description: Descreve como implantar recursos no âmbito do grupo de gestão num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 09/15/2020
-ms.openlocfilehash: 2325e9f5a03f7451492c9b9b8e929df95ddc3852
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.date: 09/24/2020
+ms.openlocfilehash: 0c5ed8d2427a9e0329db6ebd7f0aa48aa4912a48
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605231"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284827"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Criar recursos ao nível do grupo de gestão
 
@@ -45,7 +45,7 @@ Para gerir os seus recursos, utilize:
 
 * [tags](/azure/templates/microsoft.resources/tags)
 
-### <a name="schema"></a>Esquema
+## <a name="schema"></a>Esquema
 
 O esquema que usa para implementações de grupos de gestão é diferente do esquema para implementações de grupos de recursos.
 
@@ -60,6 +60,30 @@ O esquema para um ficheiro de parâmetro é o mesmo para todos os âmbitos de im
 ```json
 https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
+
+## <a name="deployment-scopes"></a>Âmbitos de implantação
+
+Ao ser implantado num grupo de gestão, pode direcionar o grupo de gestão especificado no comando de implantação ou pode selecionar outros grupos de gestão no arrendatário.
+
+Os recursos definidos na secção de recursos do modelo são aplicados ao grupo de gestão a partir do comando de implantação.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-mg.json" highlight="5":::
+
+Para direcionar outro grupo de gestão, adicione uma implantação aninhada e especifique a `scope` propriedade. Definir a `scope` propriedade para um valor no formato `Microsoft.Management/managementGroups/<mg-name>` .
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/scope-mg.json" highlight="10,17,22":::
+
+Também pode direcionar subscrições ou grupos de recursos dentro de um grupo de gestão. O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
+
+Para direcionar uma subscrição dentro do grupo de gestão, utilize uma implantação aninhada e a `subscriptionId` propriedade.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-subscription.json" highlight="10,18":::
+
+Para direcionar um grupo de recursos dentro dessa subscrição, adicione outra implantação aninhada e a `resourceGroup` propriedade.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/mg-to-resource-group.json" highlight="10,21,25":::
+
+Para utilizar uma implementação de grupo de gestão para criar um grupo de recursos dentro de uma subscrição e implementar uma conta de armazenamento para esse grupo de recursos, consulte [Implementar para subscrição e grupo de recursos](#deploy-to-subscription-and-resource-group).
 
 ## <a name="deployment-commands"></a>Comandos de implantação
 
@@ -94,97 +118,6 @@ Para implementações de nível de grupo de gestão, deve fornecer uma localiza�
 Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome predefinido é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo denominado **azuredeploy.jscria** um nome de implementação padrão de **azuredeploy**.
 
 Para cada nome de implantação, a localização é imutável. Não é possível criar uma implantação num local quando há uma implantação existente com o mesmo nome num local diferente. Se obter o código de erro `InvalidDeploymentLocation` , utilize um nome diferente ou o mesmo local que a colocação anterior para esse nome.
-
-## <a name="deployment-scopes"></a>Âmbitos de implantação
-
-Ao ser destacado para um grupo de gestão, pode direcionar o grupo de gestão especificado no comando de implantação ou outros grupos de gestão no arrendatário. Também pode direcionar subscrições ou grupos de recursos dentro de um grupo de gestão. O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
-
-Os recursos definidos na secção de recursos do modelo são aplicados ao grupo de gestão a partir do comando de implantação.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        management-group-level-resources
-    ],
-    "outputs": {}
-}
-```
-
-Para direcionar outro grupo de gestão, adicione uma implantação aninhada e especifique a `scope` propriedade.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "mgName": {
-            "type": "string"
-        }
-    },
-    "variables": {
-        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2019-10-01",
-            "name": "nestedDeployment",
-            "scope": "[variables('mgId')]",
-            "location": "eastus",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    nested-template-with-resources-in-different-mg
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
-
-Para direcionar uma subscrição dentro do grupo de gestão, utilize uma implantação aninhada e a `subscriptionId` propriedade. Para direcionar um grupo de recursos dentro dessa subscrição, adicione outra implantação aninhada e a `resourceGroup` propriedade.
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "resources": [
-    {
-      "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-06-01",
-      "name": "nestedSub",
-      "location": "westus2",
-      "subscriptionId": "00000000-0000-0000-0000-000000000000",
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": [
-            {
-              "type": "Microsoft.Resources/deployments",
-              "apiVersion": "2020-06-01",
-              "name": "nestedRG",
-              "resourceGroup": "rg2",
-              "properties": {
-                "mode": "Incremental",
-                "template": {
-                  nested-template-with-resources-in-resource-group
-                }
-              }
-            }
-          ]
-        }
-      }
-    }
-  ]
-}
-```
-
-Para utilizar uma implementação de grupo de gestão para criar um grupo de recursos dentro de uma subscrição e implementar uma conta de armazenamento para esse grupo de recursos, consulte [Implementar para subscrição e grupo de recursos](#deploy-to-subscription-and-resource-group).
 
 ## <a name="use-template-functions"></a>Use funções de modelo
 

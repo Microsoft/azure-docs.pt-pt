@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3853d0e5754f368043414ea4eaade8c4adf179e9
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5e55526e0a63a0c603e2b62ccb3ac0efed911cff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661864"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295231"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronização do Azure AD Connect: entender a configuração predefinida
 Este artigo explica as regras de configuração fora da caixa. Documenta as regras e como estas regras impactam a configuração. Também o percorre através da configuração padrão da sincronização Azure AD Connect. O objetivo é que o leitor compreenda como o modelo de configuração, chamado provisionamento declarativo, está a funcionar num exemplo do mundo real. Este artigo pressupõe que já instalou e configurar a sincronização Azure AD Connect utilizando o assistente de instalação.
@@ -148,7 +148,7 @@ Uma vez que esta regra é uma regra fora de caixa, recebes um aviso quando abres
 
 Uma Regra de Sincronização tem quatro secções de configuração: Descrição, filtro de scoping, regras de junção e transformações.
 
-#### <a name="description"></a>Descrição
+#### <a name="description"></a>Description
 A primeira secção fornece informações básicas, como um nome e descrição.
 
 ![Separador de descrição no editor de regras de Sync](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
@@ -160,7 +160,7 @@ Também pode ver que esta regra de sincronização é usada para sincronização
 #### <a name="scoping-filter"></a>Filtro de escotagem
 A secção filtro de deteção é utilizada para configurar quando deve aplicar-se uma Regra de Sincronização. Uma vez que o nome da Regra de Sincronização que está a analisar indica que deve ser aplicado apenas para utilizadores ativados, o âmbito está configurado para que o utilizador de atributoS **ADControl** não tenha o conjunto bit 2. Quando o motor de sincronização encontra um utilizador em AD, aplica esta regra de sincronização quando **o utilizadorAccountControl** é definido para o valor decimal 512 (utilizador normal ativado). Não aplica a regra quando o utilizador tem **o userAccountControl** definido para 514 (utilizador normal desativado).
 
-![Scoping tab in Sync rule editor](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
+![Screenshot que mostra a secção "Filtrar o filtro" da janela "Editar a regra de sincronização de entrada".](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
 O filtro de deteção tem Grupos e Cláusulas que podem ser aninhados. Todas as cláusulas dentro de um grupo devem ser satisfeitas para que uma Regra de Sincronização seja aplicada. Quando vários grupos são definidos, pelo menos um grupo deve ser satisfeito para que a regra se aplique. Ou seja, um OR lógico é avaliado entre grupos e um AND lógico é avaliado dentro de um grupo. Um exemplo desta configuração pode ser encontrado na regra de sincronização de saída **para a AAD – Group Join**. Existem vários grupos de filtros de sincronização, por exemplo, um para grupos de segurança e `securityEnabled EQUAL True` outro para grupos de distribuição `securityEnabled EQUAL False` ( ).
 
@@ -229,7 +229,7 @@ Agora sabemos o suficiente sobre as Regras de Sincronização para sermos capaze
 | In from AD – User Exchange |Só existe se o Exchange tiver sido detetado. Flui todos os atributos de intercâmbio de infraestruturas. |
 | In from AD – User Lync |Só existe se lync for detetado. Flui todas as infraestruturas que a Lync atribui. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Leia mais sobre o modelo de configuração na [Compreensão declarativa.](concept-azure-ad-connect-sync-declarative-provisioning.md)
 * Leia mais sobre a linguagem de expressão em [Compreensão Declarativas Expressões.](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
 * Continuar a ler Como funciona a configuração fora da caixa na [compreensão dos utilizadores e dos contactos](concept-azure-ad-connect-sync-user-and-contacts.md)

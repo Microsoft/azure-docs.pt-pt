@@ -4,12 +4,12 @@ description: Fornece um resumo das configurações e limitações de suporte par
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: aac7b7d39102a1fe115ddea483aee36af79e7fc4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 6137201f8accb901ffe1892d9876b172411cfe6b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612117"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329603"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte Azure Migrate
 
@@ -21,7 +21,7 @@ A tabela resume os cenários de descoberta, avaliação e migração suportados.
 
 **Implementação** | **Detalhes** 
 --- | --- 
-**Deteção** | Pode descobrir metadados de máquina e dados de desempenho dinâmicos.
+**Descoberta** | Pode descobrir metadados de máquina e dados de desempenho dinâmicos.
 **Descoberta de aplicativos** | Pode descobrir apps, funções e funcionalidades em execução em VMware VMs. Atualmente esta funcionalidade está limitada apenas à descoberta. A avaliação está atualmente ao nível da máquina. Ainda não oferecemos avaliações baseadas em aplicativos, papéis ou funcionalidades. 
 **Avaliação** | Avaliar as cargas de trabalho e os dados em execução em VMware VMs, Hiper-VMs e servidores físicos. Avalie usando a avaliação do servidor Azure Migrate, o Microsoft Data Migration Assistant (DMA), bem como outras ferramentas e ofertas isv.
 **Migração** | Migrar cargas de trabalho e dados em execução em servidores físicos, VMware VMs, VMs Hiper-V, servidores físicos e VMS baseados na nuvem para Azure. Migrar usando o Azure Migrate Server Assessment e o Azure Database Migration Service (DMS), bem como outras ferramentas e ofertas isv.
@@ -34,7 +34,7 @@ A tabela resume os cenários de descoberta, avaliação e migração suportados.
 
 O suporte específico da ferramenta é resumido na tabela.
 
-**Ferramenta** | **Avaliar** | **Migrar** 
+**Ferramenta** | **Avaliar** | **Migrate** 
 --- | --- | ---
 Avaliação do servidor Azure Migrate | Avaliar [VMware VMs,](tutorial-prepare-vmware.md) [VMs hiper-V](tutorial-prepare-hyper-v.md)e [servidores físicos](tutorial-prepare-physical.md). |  Não disponível (NA)
 Migração do Servidor do Azure Migrate | ND | Migrar [VMware VMs,](tutorial-migrate-vmware.md) [Hiper-VMs](tutorial-migrate-hyper-v.md)e [servidores físicos](tutorial-migrate-physical-virtual-machines.md).
@@ -69,7 +69,7 @@ Para a Azure Migrar para trabalhar com o Azure, precisa destas permissões antes
 
 **Tarefa** | **Permissões** | **Detalhes**
 --- | --- | ---
-Criar um projeto Azure Migrate | A sua conta Azure precisa de permissões para criar um projeto. | Configurar para [VMware,](tutorial-prepare-vmware.md#assign-permissions-to-create-project) [Hiper-V,](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project)ou [servidores físicos](tutorial-prepare-physical.md#assign-permissions-to-create-project).
+Criar um projeto do Azure Migrate | A sua conta Azure precisa de permissões para criar um projeto. | Configurar para [VMware,](tutorial-prepare-vmware.md#assign-permissions-to-create-project) [Hiper-V,](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project)ou [servidores físicos](tutorial-prepare-physical.md#assign-permissions-to-create-project).
 Registe o aparelho Azure Migrate| A Azure Migrate usa um [aparelho Azure Migrate](migrate-appliance.md) leve para avaliar máquinas com avaliação do servidor Azure Migrate e para executar [migração sem agentes](server-migrate-overview.md) de VMware VMs com Migração de Servidores Azure Migrate. Este aparelho descobre máquinas e envia metadados e dados de desempenho para a Azure Migrate.<br/><br/> Durante o registo, os fornecedores de registo (Microsoft.OffAzure, Microsoft.Migrate e Microsoft.KeyVault) estão registados com a subscrição escolhida no aparelho, de modo a que a subscrição funcione com o fornecedor de recursos. Para se registar, precisa de acesso do Colaborador ou proprietário na subscrição.<br/><br/> **VMware**-Durante o embarque, a Azure Migrate cria duas aplicações Azure Ative Directory (Azure AD). A primeira aplicação comunica entre os agentes do aparelho e o serviço Azure Migrate. A aplicação não tem permissões para fazer chamadas de gestão de recursos Azure ou ter acesso a recursos do RBAC. A segunda aplicação acede a um Azure Key Vault criado na subscrição do utilizador apenas para migração de VMware sem agente. Na migração sem agente, a Azure Migrate cria um Cofre-Chave para gerir as chaves de acesso à conta de armazenamento de replicação na sua subscrição. Tem acesso RBAC no Cofre da Chave Azure (no inquilino do cliente) quando a descoberta é iniciada a partir do aparelho.<br/><br/> **Hiper-V**- Durante o embarque. Azure Migrate cria uma aplicação AD Azure. A aplicação comunica entre os agentes do aparelho e o serviço Azure Migrate. A aplicação não tem permissões para fazer chamadas de gestão de recursos Azure ou ter acesso a recursos do RBAC. | Configurar para [VMware,](tutorial-prepare-vmware.md#assign-permissions-to-create-azure-ad-apps) [Hiper-V,](tutorial-prepare-hyper-v.md#assign-permissions-to-create-azure-ad-apps)ou [servidores físicos](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance).
 Crie um cofre chave para migração sem agente VMware | Para migrar VMware VMs com a migração do servidor Azure Migrate Sem agente, a Azure Migrate cria um Cofre-Chave para gerir as chaves de acesso à conta de armazenamento de replicação na sua subscrição. Para criar o cofre, define permissões (Proprietário, ou Administrador de Dados e De acesso ao Utilizador) no grupo de recursos em que reside o projeto Azure Migrate. | [Estabeleça](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) permissões.
 
@@ -92,9 +92,12 @@ França | França Central
 Índia | Índia Central ou Sul da Índia
 Japão |  Japão Leste ou Japão Oeste
 Coreia | Coreia do Sul ou Coreia do Sul
+Suíça | Suíça Norte
 Reino Unido | Reino Unido Sul ou Reino Unido Oeste
 Estados Unidos da América | Central EUA ou Oeste 2
 
+> [!NOTE]
+> Para a geografia suíça, a Suíça West só está disponível para utilizadores da REST EPI e precisa de uma subscrição whitelist.
 
 ## <a name="supported-geographies-azure-government"></a>Geografias apoiadas (Governo Azure)
 

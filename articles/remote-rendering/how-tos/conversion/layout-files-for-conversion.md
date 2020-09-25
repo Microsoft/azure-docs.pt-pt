@@ -5,12 +5,12 @@ author: MalcolmTyrrell
 ms.author: matyrr
 ms.date: 09/03/2020
 ms.topic: how-to
-ms.openlocfilehash: 8acd19408c328ef3f534ba7bc41c96e395f768be
-ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
+ms.openlocfilehash: 13c4b841fe2d0b62472628d9382b5f6ee3d1fa6c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89510981"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318080"
 ---
 # <a name="laying-out-files-for-conversion"></a>Preparação de ficheiros para conversão
 
@@ -28,6 +28,10 @@ Se os caminhos forem armazenados como caminhos relativos e a localização relat
 
 > [!Note]
 > Recomendamos que coloque ficheiros no recipiente de entrada para que as localizações relativas dos ficheiros sejam as mesmas que eram quando o ativo foi criado.
+
+> [!Note]
+> Prefere criar ativos que transportem caminhos relativos.
+> O tutorial sobre [a configuração de materiais para 3ds Max](../../tutorials/modeling/3dsmax-material-setup.md) dá um exemplo 3ds Max de como garantir que um ativo usa caminhos relativos.
 
 ## <a name="finding-textures"></a>Encontrar texturas
 
@@ -66,6 +70,6 @@ Isto poderia ser corrigido movendo a pasta Texturas ao lado do ativo.
 > [!Note]
 > Se as texturas não forem encontradas, um possível remédio é garantir que o ativo é um irmão de alguma subtree que contém as texturas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Conversão de modelo](model-conversion.md)

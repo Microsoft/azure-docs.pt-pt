@@ -11,12 +11,12 @@ ms.date: 05/19/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43edb9ba6cdd73ce195a8b4eb60071b6831b7223
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e771a988faca98d009b97b1e705ddac7110a255f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526940"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266501"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>Aprovisionamento na cloud piloto de uma floresta do AD sincronizada existente 
 
@@ -40,7 +40,7 @@ Seguem-se os pré-requisitos necessários para completar este tutorial
 - Um ambiente de teste com Azure AD Connect sync versão 1.4.32.0 ou mais tarde
 - Um UO ou grupo que esteja no âmbito de sincronização e possa ser utilizado o piloto. Recomendamos começar com um pequeno conjunto de objetos.
 - Um servidor que executa o Windows Server 2012 R2 ou mais tarde que irá hospedar o agente de provisionamento.  Este não pode ser o mesmo servidor que o servidor Azure AD Connect.
-- A âncora de origem para a sincronização do AAD Connect deve ser *objectGuid* ou *ms-ds-consistênciaGUID*
+- Âncora de origem para a sincronização AZure AD Connect deve ser *objectGuid* ou *ms-ds-consistênciaGUID*
 
 ## <a name="update-azure-ad-connect"></a>Atualização Azure AD Connect
 
@@ -54,7 +54,7 @@ A azure AD Connect sincroniza as alterações ocorridas no seu diretório no loc
 3.  Execute `Set-ADSyncScheduler -SyncCycleEnabled $false`.
 
 >[!NOTE] 
->Se estiver a executar o seu próprio programador personalizado para sincronização AAD Connect, desative o programador. 
+>Se estiver a executar o seu próprio programador personalizado para sincronização Azure AD Connect, desative o programador. 
 
 ## <a name="create-custom-user-inbound-rule"></a>Criar regra de entrada de utilizador personalizado
 
@@ -62,7 +62,7 @@ A azure AD Connect sincroniza as alterações ocorridas no seu diretório no loc
  ![Menu de editor de regras de sincronização](media/how-to-cloud-custom-user-rule/user8.png)</br>
  
  2. **Selecione 'Entrada'** na lista de espera para Direction e clique em **Adicionar nova regra**.
- ![Regra personalizada](media/how-to-cloud-custom-user-rule/user1.png)</br>
+ ![Screenshot que mostra a janela "Ver e gerir as suas regras de sincronização" com "Entrada" e o botão "Adicionar nova regra" selecionado.](media/how-to-cloud-custom-user-rule/user1.png)</br>
  
  3. Na página **Descrição,** insira o seguinte e clique em **Seguinte**:
 
@@ -74,7 +74,7 @@ A azure AD Connect sincroniza as alterações ocorridas no seu diretório no loc
     **Tipo de ligação:** Junte-se<br>
     **Precedência:** Fornecer um valor único no sistema<br>
     **Etiqueta:** Deixe isto vazio.<br>
-    ![Regra personalizada](media/how-to-cloud-custom-user-rule/user2.png)</br>
+    ![Screenshot que mostra a página "Criar regra de sincronização de entrada - Descrição" com valores introduzidos.](media/how-to-cloud-custom-user-rule/user2.png)</br>
  
  4. Na página do **filtro Descodi,** insira o ou ou o grupo de segurança que deseja que o piloto seja baseado.  Para filtrar em OU, adicione a parte ou do nome distinto. Esta regra será aplicada a todos os utilizadores que se encontrem nessa U.  Assim, se o DN terminar com "OU=CPUsers,DC=contoso,DC=com, adicionaria este filtro.  Em seguida, clique em **Seguinte**. 
 
@@ -83,31 +83,31 @@ A azure AD Connect sincroniza as alterações ocorridas no seu diretório no loc
     |Scoping OU|DN|ENDSWITH|Nome distinto da U.|
     |Grupo de scoping||ISMEMBEROF|Nome distinto do grupo de segurança.|
 
-    ![Regra personalizada](media/how-to-cloud-custom-user-rule/user3.png)</br>
+    ![Screenshot que mostra a página "Criar regra de sincronização de entrada - filtro de scoping" com um valor de filtro de deteção introduzido.](media/how-to-cloud-custom-user-rule/user3.png)</br>
  
  5. Na página **'Unir** regras', clique em **Seguinte**.
  6. Na página **Transformações,** adicione uma transformação constante: fluir Fiel ao atributo CloudNoFlow. Clique em **Adicionar**.
- ![Regra personalizada](media/how-to-cloud-custom-user-rule/user4.png)</br>
+ ![Screenshot que mostra a página "Criar regra de sincronização de entrada - Transformações" com um fluxo de "transformação constante" adicionado.](media/how-to-cloud-custom-user-rule/user4.png)</br>
 
 Devem ser seguidos os mesmos passos para todos os tipos de objetos (utilizador, grupo e contacto). Repita os passos por conector AD configurado /por floresta AD. 
 
 ## <a name="create-custom-user-outbound-rule"></a>Criar regra de saída personalizada do utilizador
 
  1. Selecione **Outbound** da lista de drop-down para Direction e clique na **regra Adicionar**.
- ![Regra personalizada](media/how-to-cloud-custom-user-rule/user5.png)</br>
+ ![Screenshot que mostra a Direção "Outbound" selecionada e o botão "Adicionar nova regra" realçado.](media/how-to-cloud-custom-user-rule/user5.png)</br>
  
  2. Na página **Descrição,** insira o seguinte e clique em **Seguinte**:
 
     **Nome:** Dê à regra um nome significativo<br>
     **Descrição:** Adicione uma descrição significativa<br>
-    **Sistema conectado:** Escolha o conector AAD para o qual está a escrever a regra de sincronização personalizada<br>
+    **Sistema conectado:** Escolha o conector AD Azure para o qual está a escrever a regra de sincronização personalizada para<br>
     **Tipo de objeto de sistema ligado:** Utilizador<br>
     **Tipo de objeto metaverso:** Pessoa<br>
     **Tipo de ligação:** JoinNoFlow<br>
     **Precedência:** Fornecer um valor único no sistema<br>
     **Etiqueta:** Deixe isto vazio.<br>
     
-    ![Regra personalizada](media/how-to-cloud-custom-user-rule/user6.png)</br>
+    ![Screenshot que mostra a página "Descrição" com propriedades inseridas.](media/how-to-cloud-custom-user-rule/user6.png)</br>
  
  3. Na página do **filtro de scoping,** escolha **cloudNoFlow** igual **True**. Em seguida, clique em **Seguinte**.
  ![Regra personalizada](media/how-to-cloud-custom-user-rule/user7.png)</br>
@@ -122,14 +122,14 @@ Devem ser seguidos os mesmos passos para todos os tipos de objetos (utilizador, 
 2. Descarregue o agente de provisionamento de nuvem Azure AD Connect utilizando os passos [descritos aqui.](how-to-install.md#install-the-agent)
 3. Executar o provisionamento em nuvem Azure AD Connect (AADConnectProvisioningAgent.Installer)
 3. No ecrã de respingo, **aceite** os termos de licenciamento e clique em **Instalar**.</br>
-![Ecrã de Boas-Vindas](media/how-to-install/install1.png)</br>
+![Screenshot que mostra o ecrã de respingo "Microsoft Azure A D Connect Provisioning Agent".](media/how-to-install/install1.png)</br>
 
 4. Uma vez concluída esta operação, o assistente de configuração será lançado.  Inscreva-se na sua conta de administrador global Azure AD.
 5. No ecrã **do Diretório Ativo Connect,** clique em **Adicionar diretório** e, em seguida, inscreva-se na sua conta de administrador Ative Directory.  Esta operação irá adicionar o seu diretório no local.  Clique em **Seguinte**.</br>
-![Ecrã de Boas-Vindas](media/how-to-install/install3.png)</br>
+![Screenshot que mostra o ecrã "Connect Ative Directory" com um valor de diretório introduzido.](media/how-to-install/install3.png)</br>
 
 6. No ecrã completo da **Configuração,** clique em **Confirmar**.  Esta operação registará e reiniciará o agente.</br>
-![Ecrã de Boas-Vindas](media/how-to-install/install4.png)</br>
+![Screenshot que mostra o ecrã "Configuração completa" com o botão "Confirmar" selecionado.](media/how-to-install/install4.png)</br>
 
 7. Uma vez concluída esta operação, deverá ver um aviso **de que foi verificado com sucesso.**  Pode clicar em **Sair.**</br>
 ![Ecrã de Boas-Vindas](media/how-to-install/install5.png)</br>
@@ -141,7 +141,7 @@ A verificação do agente ocorre no portal Azure e no servidor local que está a
 ### <a name="azure-portal-agent-verification"></a>Verificação do agente do portal Azure
 Para verificar se o agente está a ser visto pela Azure siga estes passos:
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 2. À esquerda, selecione **Azure Ative Directory**, clique em **Azure AD Connect** e no center select **Manage provisioning (pré-visualização)**.</br>
 ![Portal do Azure](media/how-to-install/install6.png)</br>
 

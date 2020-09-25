@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 80fcebec76788ca9ec754b35c57f9965f38c2c0e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1d2a0d79a5cdd53f8376c088fc986c20908575eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037104"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329466"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Expandir os servidores de ficheiros do Windows com o Azure File Sync
 
@@ -32,7 +32,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-## <a name="prepare-your-environment"></a>Preparar o seu ambiente
+## <a name="prepare-your-environment"></a>Preparar o ambiente
 
 Para este tutorial, tem de fazer o seguinte antes de poder implementar o Azure File Sync:
 
@@ -250,7 +250,7 @@ Implementou o Serviço de Sincronização do Azure e instalou o agente na VM do 
 
 Registar o seu servidor Windows com um Serviço de Sincronização de Armazenamento estabelece uma relação de confiança entre o seu servidor (ou cluster) e o Serviço de Sincronização de Armazenamento. Um servidor só pode ser registado num Serviço de Sincronização de Armazenamento. Pode sincronizar-se com outros servidores e ações de ficheiros Azure que estão associadas a esse Serviço de Sincronização de Armazenamento.
 
-O UI de Registo do Servidor deve abrir-se automaticamente depois de instalar o agente Azure File Sync. Se não o fizer, pode abri-lo manualmente a partir da localização do ficheiro:`C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.`
+O UI de Registo do Servidor deve abrir-se automaticamente depois de instalar o agente Azure File Sync. Se não o fizer, pode abri-lo manualmente a partir da localização do ficheiro: `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.`
 
 1. Quando o UI de Registo do Servidor abrir no VM, selecione **OK**.
 1. Selecione Iniciar o **S-In.**
@@ -261,7 +261,7 @@ O UI de Registo do Servidor deve abrir-se automaticamente depois de instalar o a
 
    | Valor | Descrição |
    | ----- | ----- |
-   | **Assinatura Azure** | A subscrição que contém o Serviço de Sincronização de Armazenamento neste tutorial. |
+   | **Subscrição do Azure** | A subscrição que contém o Serviço de Sincronização de Armazenamento neste tutorial. |
    | **Grupo de Recursos** | O grupo de recursos que contém o Serviço de Sincronização de Armazenamento. Use _o afsresgroup101918_ para este tutorial. |
    | **Serviço de Sincronização de Armazenamento** | O nome do Serviço de Sincronização de Armazenamento. Use _afssyncservice02_ para este tutorial. |
 
@@ -313,7 +313,9 @@ Os ficheiros estão agora sincronizados na partilha de ficheiros do Azure e no W
 
 ![Armazenamento do Azure sincronizado com êxito](media/storage-sync-files-extend-servers/files-synced-in-azurestorage.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Se quiser limpar os recursos que criou neste tutorial, retire primeiro os pontos finais do serviço de sincronização de armazenamento. Em seguida, desinsuse o servidor com o seu serviço de sincronização de armazenamento, remova os grupos de sincronização e elimine o serviço de sincronização.
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 

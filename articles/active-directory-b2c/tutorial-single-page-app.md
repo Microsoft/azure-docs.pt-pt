@@ -7,16 +7,16 @@ author: msmimart
 manager: celestedg
 ms.author: mimart
 ms.date: 04/04/2020
-ms.custom: mvc, seo-javascript-september2019, devx-track-javascript
+ms.custom: mvc, seo-javascript-september2019, devx-track-js
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: c8aca82567de0b564aadc355b198502450dd7a5c
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: 42c2ca777a999a4d4387646110ed88af84631183
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87169808"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258919"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-with-azure-ad-b2c"></a>Tutorial: Ativar a autenticação numa aplicação de uma página com Azure AD B2C
 
@@ -92,7 +92,7 @@ Agora que obteve a amostra, atualize o código com o nome do seu inquilino Azure
 
 1. Abra o ficheiro *authConfig.js* dentro da pasta *JavaScriptSPA.*
 1. No `msalConfig` objeto, atualize:
-    * `clientId`com valor com o **ID de Aplicação (cliente)** que gravou num passo anterior
+    * `clientId` com valor com o **ID de Aplicação (cliente)** que gravou num passo anterior
     * `authority`URI com o seu nome de inquilino Azure AD B2C e o nome do fluxo de utilizador de inscrição/inscrição que criou como parte dos pré-requisitos (por exemplo, *B2C_1_signupsignin1)*
 
     ```javascript
@@ -168,7 +168,7 @@ Neste momento, a aplicação ainda está a tentar comunicar com a API registada 
 
 Passe para o próximo tutorial da série para ativar a API protegida (ver a secção [etapas seguintes).](#next-steps)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, configura uma aplicação de uma página para trabalhar com um fluxo de utilizador no seu inquilino Azure AD B2C para fornecer inscrição e inscrição na capacidade. Completou estes passos:
 

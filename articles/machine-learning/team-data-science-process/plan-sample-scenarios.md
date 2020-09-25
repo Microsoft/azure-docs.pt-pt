@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d462f146f3f094602835d88e48815d5537c58665
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: afbc16f0fb30c1ada22b668771525288602cda44
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078787"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296642"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Cenários de análises avançadas no Azure Machine Learning
 Este artigo descreve a variedade de fontes de dados de amostra e cenários-alvo que podem ser tratados pelo Processo de Ciência de [Dados de Equipa (TDSP)](overview.md). O TDSP fornece uma abordagem sistemática para que as equipas colaborem na construção de aplicações inteligentes. Os cenários aqui apresentados ilustram as opções disponíveis no fluxo de trabalho de processamento de dados que dependem das características dos dados, das localizações de origem e dos repositórios-alvo em Azure.
@@ -31,7 +31,7 @@ Cada uma das secções seguintes apresenta um cenário de amostra. Para cada cen
 > 
 > * [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md)
 >   <br/>
-> * [Criar um espaço de trabalho para aprendizagem de máquinas Azure](../studio/create-workspace.md)
+> * [Criar uma área de trabalho do Azure Machine Learning](../classic/create-workspace.md)
 > 
 > 
 

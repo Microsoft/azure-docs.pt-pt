@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 9f3d95d7ae725dba700b0a060ba74552d6b83ad5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fbd4c4ecfa2be9815e5d301a02460dc28171716a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84172369"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329266"
 ---
 # <a name="public-ip-addresses"></a>Endereços IP públicos
 
@@ -60,7 +60,7 @@ Endereços IP públicos standard SKU:
 > [!NOTE]
 > Apenas endereços IP públicos com SKU básico estão disponíveis quando se utilizam [o IMDS do serviço de metadados de exemplo.](../virtual-machines/windows/instance-metadata-service.md) O SKU padrão não é suportado.
 
-### <a name="basic"></a>Básica
+### <a name="basic"></a>Básico
 
 Todos os endereços IP públicos criados antes da introdução de SKUs são endereços IP públicos de SKU Básico. 
 
@@ -165,16 +165,24 @@ Pode associar um endereço IP público a um [Gateway de Aplicação](../applicat
 * Atribua um IP público básico **dinâmico** a uma configuração frontal do gateway de aplicação V1. 
 * Atribua um endereço SKU padrão **estático** a uma configuração frontal V2.
 
+## <a name="azure-firewall"></a>Azure Firewall
+
+[O Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) permite-lhe criar, impor e registar políticas de aplicação e conectividade de rede em subscrições e redes virtuais.
+
+Só pode associar endereços IP públicos **estáticos** padrão com uma firewall. Isto permite que firewalls externos identifiquem tráfego originário da sua rede virtual. 
+
+
 ## <a name="at-a-glance"></a>De relance
 
 A tabela a seguir mostra a propriedade através da qual um IP público pode ser associado a um recurso de alto nível e aos possíveis métodos de atribuição.
 
 | Recurso de nível superior | Associação de endereço IP | Dinâmica | Estático |
 | --- | --- | --- | --- |
-| Máquina virtual |Interface de rede |Sim |Sim |
-| Balanceador de carga com acesso à Internet |Configuração de front-end |Sim |Sim |
-| Gateway de VPN |Configuração de IP do gateway |Sim |Não |
+| Máquina virtual |Interface de rede |Yes |Yes |
+| Balanceador de carga com acesso à Internet |Configuração de front-end |Yes |Yes |
+| Gateway de VPN |Configuração de IP do gateway |Yes |No |
 | Gateway de aplicação |Configuração de front-end |Sim (apenas V1) |Sim (apenas V2) |
+| Azure Firewall | Configuração de front-end | No | Yes|
 
 ## <a name="limits"></a>Limites
 
@@ -186,7 +194,7 @@ Os limites são por região e por subscrição. [Suporte de contato](https://por
 
 Os endereços IP públicos podem ter custos nominais. Para saber mais sobre os preços dos endereços IP no Azure, reveja a página [Preços de Endereços IP](https://azure.microsoft.com/pricing/details/ip-addresses).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais [sobre endereços IP privados em Azure](private-ip-addresses.md)
 * [Deploy a VM with a static public IP using the Azure portal (Implementar uma VM com IP público estático através do portal do Azure)](virtual-network-deploy-static-pip-arm-portal.md)
 

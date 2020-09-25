@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 09/23/2020
 ms.author: erhopf
-ms.openlocfilehash: d4da9a819d7aa96992259112c75154b1651341ac
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: c55d69e99715a0c646c4e836df06cf105f9770bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604773"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319136"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspecionar dados da Voz Personalizada
 
@@ -35,7 +35,7 @@ Siga estas instruções para criar um teste:
 3. Clique **em Adicionar Teste**.
 4. **Selecione Inspecionar a qualidade (dados áudio-only)**. Dê ao teste um nome, descrição e selecione o seu conjunto de dados áudio.
 5. Selecione até dois modelos que gostaria de testar.
-6. Clique em **Criar**.
+6. Clique em **Create** (Criar).
 
 Depois de um teste ter sido criado com sucesso, pode ver como um modelo transcreve o conjunto de dados áudio especificado ou compara os resultados de dois modelos lado a lado.
 
@@ -79,17 +79,19 @@ Depois de os dados terem sido importados com sucesso, pode clicar nos conjuntos 
 
 ### <a name="edit-transcription-by-listening-to-audio"></a>Editar transcrição ouvindo áudio
 
-Depois de o upload de dados ter sido bem sucedido, clique em cada nome de item para ver detalhes dos dados. A página de detalhes lista todos os ficheiros do seu conjunto de dados e pode clicar na expressão desejada. Para cada expressão, pode reproduzir o áudio e examinar as transcrições e editar as transcrições se encontrar erros de inserção, supressão ou substituição. Consulte a [avaliação de dados como fazer para](how-to-custom-speech-evaluate-data.md) obter mais detalhes sobre os tipos de erros.
+Depois de o upload de dados ter sido bem sucedido, clique em cada nome de item para ver detalhes dos dados. Também pode utilizar **Antes** e **Seguinte** para mover entre cada ficheiro.
+
+A página de detalhes lista todos os segmentos em cada ficheiro áudio, e pode clicar na expressão desejada. Para cada expressão, pode reproduzir o áudio e examinar as transcrições e editar as transcrições se encontrar erros de inserção, supressão ou substituição. Consulte a [avaliação de dados como fazer para](how-to-custom-speech-evaluate-data.md) obter mais detalhes sobre os tipos de erros.
 
 ![Página do editor](media/custom-speech/custom-speech-editor.png)
 
-Se o ficheiro áudio for longo, é automaticamente segmentado em pedaços menores. Pode editá-los um a um usando **Antes** e **Próximo** para mover entre páginas. Depois de fazer edições, clique no botão **Guardar.**
+Depois de fazer edições, clique no botão **Guardar.**
 
 ### <a name="export-datasets-from-the-editor"></a>Conjuntos de dados de exportação do Editor
 
 Para exportar conjuntos de dados de volta para o separador **Dados,** navegue na página de detalhes de dados e clique no botão **Exportar** todos os ficheiros como um novo conjunto de dados. Também pode filtrar os ficheiros pelo último tempo editado, durações de áudio, etc. para selecionar parcialmente os ficheiros pretendidos. 
 
-![Exportar os dados](media/custom-speech/custom-speech-editor-export.png)
+![Exportar dados](media/custom-speech/custom-speech-editor-export.png)
 
 Os ficheiros exportados para Dados serão utilizados como um conjunto de dados novinho em folha e não afetarão nenhuma das entidades existentes de dados/formação/teste.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15f4f5d9eea8f53a894289160df00a1c1d8d8048
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 0f1bde255355e7a4f47df6a3969837410692cef5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601763"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266064"
 ---
 # <a name="continuous-access-evaluation"></a>Avaliação contínua de acesso
 
@@ -66,8 +66,8 @@ Este processo permite o cenário em que os utilizadores perdem acesso a ficheiro
 
 | | Aplicativos web de escritório | Aplicativos Win32 do Office Win32 | Escritório para iOS | Escritório para Android | Escritório para Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| **SharePoint Online** | Suportado | Suportado | Não suportado | Suportado | Suportado |
-| **Exchange Online** | Suportado | Suportado | Não suportado | Suportado | Suportado |
+| **SharePoint Online** | Não suportado | Suportado | Suportado | Suportado | Suportado |
+| **Exchange Online** | Não suportado | Suportado | Suportado | Suportado | Suportado |
 
 ### <a name="client-side-claim-challenge"></a>Desafio de reclamação do lado do cliente
 

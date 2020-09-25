@@ -3,12 +3,12 @@ title: Eliminações do histórico de implementações
 description: Descreve como o Azure Resource Manager elimina automaticamente as implementações do histórico de implementação. As implementações são eliminadas quando o histórico está perto de ultrapassar o limite de 800.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 1d4f49fe6b90e672b65aa97971426186384da02f
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 0c5d972eea9bc9cf2bf8716b26cd0e07d0a07b82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605214"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284738"
 ---
 # <a name="automatic-deletions-from-deployment-history"></a>Supressões automáticas do histórico de implantação
 
@@ -16,7 +16,7 @@ Sempre que implementa um modelo, as informações sobre a implementação são e
 
 O Azure Resource Manager elimina automaticamente as implementações do seu histórico à medida que se aproxima do limite. A eliminação automática é uma mudança do comportamento do passado. Anteriormente, tinha de eliminar manualmente as implementações do histórico de implementação para evitar um erro. Esta alteração foi implementada no dia 6 de agosto de 2020.
 
-**As supressões automáticas são suportadas para implantações de grupos de recursos. Atualmente, as implementações no histórico de implantação para [subscrição,](deploy-to-subscription.md) [grupo de gestão](deploy-to-management-group.md)e implantações de [inquilinos](deploy-to-tenant.md) não são eliminadas.**
+**As supressões automáticas são suportadas para implantações de grupos de recursos. Atualmente, as implementações na história para [subscrição,](deploy-to-subscription.md) [grupo de gestão](deploy-to-management-group.md)e implantações [de inquilinos](deploy-to-tenant.md) não são automaticamente eliminadas.**
 
 > [!NOTE]
 > Excluir uma implantação da história não afeta nenhum dos recursos que foram mobilizados.

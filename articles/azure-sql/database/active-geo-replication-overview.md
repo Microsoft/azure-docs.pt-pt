@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: a269796c072a235e4ecd47731ca37a774750a3cf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3526510e4cbd77ffe1f468512e1128dcebe9b1da
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018387"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330847"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Criação e utilização de geo-replicação ativa - Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -210,13 +210,13 @@ Recomendamos a [utilização de regras de firewall IP de nível de base de dados
 
 ## <a name="upgrading-or-downgrading-primary-database"></a>Atualizar ou degradar base de dados primária
 
-Pode atualizar ou desclassificar uma base de dados primária para um tamanho de computação diferente (dentro do mesmo nível de serviço, não entre o Final Geral e a Critical De Negócios) sem desligar quaisquer bases de dados secundárias. Ao atualizar, recomendamos que atualize primeiro a base de dados secundária e, em seguida, atualize a base de dados primária. Ao reduzir, inverta a ordem: desclasse primeiro a primária e, em seguida, downgrade o secundário. Ao atualizar ou desclassificar a base de dados para um nível de serviço diferente, esta recomendação é executada.
+Pode atualizar ou desclassificar uma base de dados primária para um tamanho de computação diferente (dentro do mesmo nível de serviço, não entre o Final Geral e a Critical De Negócios) sem desligar quaisquer bases de dados secundárias. Ao atualizar, recomendamos que atualize primeiro a base de dados secundária e, em seguida, atualize a base de dados primária. Se mudar para uma versão anterior, inverta a ordem: mude primeiro a base de dados primária para uma versão anterior e, em seguida, mude a secundária para uma versão anterior. Quando atualizar a base de dados ou mudar para um escalão de serviço superior ou inferior, será aplicada esta recomendação.
 
 > [!NOTE]
-> Se criou a base de dados secundária como parte da configuração do grupo de failover, não é aconselhável desclassificar a base de dados secundária. Isto é para garantir que o seu nível de dados tem capacidade suficiente para processar a sua carga de trabalho regular após a ativação da falha.
+> Se tiver criado uma base de dados secundária como parte da configuração do grupo de ativação pós-falha, não será recomendável mudar a base de dados secundária para uma versão anterior. Isto é para garantir que o seu nível de dados tem capacidade suficiente para processar a sua carga de trabalho regular após a ativação da falha.
 
 > [!IMPORTANT]
-> A base de dados primária de um grupo de failover não pode escalar para um nível mais alto a menos que a base de dados secundária seja dimensionada primeiro para o nível superior. Se tentar escalar a base de dados primária antes da escala da base de dados secundária, poderá receber o seguinte erro:
+> A base de dados primária num grupo de ativação pós-falha não pode ser dimensionada para um escalão superior, a menos que a base de dados secundária seja dimensionada primeiro para o escalão superior. Se tentar escalar a base de dados primária antes da escala da base de dados secundária, poderá receber o seguinte erro:
 >
 > `Error message: The source database 'Primaryserver.DBName' cannot have higher edition than the target database 'Secondaryserver.DBName'. Upgrade the edition on the target before upgrading the source.`
 >
@@ -248,9 +248,9 @@ Como discutido anteriormente, a geo-replicação ativa também pode ser gerida p
 
 | Comando | Descrição |
 | --- | --- |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Use o argumento ADD SECONDARY ON SERVER para criar uma base de dados secundária para uma base de dados existente e inicie a replicação de dados |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Utilize FAILOVER ou FORCE_FAILOVER_ALLOW_DATA_LOSS para mudar uma base de dados secundária para ser primária para iniciar a falha |
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Utilize remover SECUNDÁRIO NO SERVIDOR para terminar uma replicação de dados entre uma Base de Dados SQL e a base de dados secundária especificada. |
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Use o argumento ADD SECONDARY ON SERVER para criar uma base de dados secundária para uma base de dados existente e inicie a replicação de dados |
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Utilize FAILOVER ou FORCE_FAILOVER_ALLOW_DATA_LOSS para mudar uma base de dados secundária para ser primária para iniciar a falha |
+| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Utilize remover SECUNDÁRIO NO SERVIDOR para terminar uma replicação de dados entre uma Base de Dados SQL e a base de dados secundária especificada. |
 | [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Retorna informações sobre todos os links de replicação existentes para cada base de dados num servidor. |
 | [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Obtém o último tempo de replicação, o último atraso de replicação, e outras informações sobre a ligação de replicação para uma determinada base de dados. |
 | [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Mostra o estado de todas as operações de base de dados, incluindo o estado das ligações de replicação. |

@@ -1,27 +1,29 @@
 ---
 title: O que é a API do Detetor de Anomalias?
 titleSuffix: Azure Cognitive Services
-description: Utilize os algoritmos avançados da API do Detetor de Anomalias para identificar anomalias nos dados da série de tempo.
+description: Utilize os algoritmos da API do Detetor de Anomalias para aplicar a deteção de anomalias nos dados da série de tempo.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.author: aahi
-ms.openlocfilehash: ba094709d78d92b678e3aa5ad9995923888caf00
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+keywords: deteção de anomalias, aprendizagem automática, algoritmos
+ms.custom: cog-serv-seo-aug-2020
+ms.openlocfilehash: 2e48c189df23ed94cd54e1bc9097b7d9709c9ed3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887512"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319321"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>O que é a API do Detetor de Anomalias?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-A API do Detetor de Anomalias permite-lhe monitorizar e detetar anomalias nos dados da série de tempo com aprendizagem automática. A API do Detetor de Anomalias adapta-se identificando e aplicando automaticamente os modelos mais adequados aos seus dados, independentemente da indústria, cenário ou volume de dados. Utilizando os dados da série de tempo, a API determina limites para a deteção de anomalias, valores esperados e quais os pontos de dados que são anomalias.
+A API do Detetor de Anomalias permite-lhe monitorizar e detetar anomalias nos dados da série-tempo sem ter de conhecer a aprendizagem automática. Os algoritmos da API do Detetor de Anomalias adaptam-se identificando e aplicando automaticamente os modelos mais adequados aos seus dados, independentemente da indústria, cenário ou volume de dados. Utilizando os dados da série de tempo, a API determina limites para a deteção de anomalias, valores esperados e quais os pontos de dados que são anomalias.
 
 ![Detetar alterações de padrões nos pedidos de serviço](./media/anomaly_detection2.png)
 
@@ -33,7 +35,7 @@ Com o Detetor de Anomalias, pode detetar automaticamente anomalias ao longo dos 
 
 |Funcionalidade  |Descrição  |
 |---------|---------|
-|Detete anomalias à medida que ocorrem em tempo real. | Detete anomalias nos seus dados de streaming utilizando pontos de dados previamente vistos para determinar se o seu último é uma anomalia. Esta operação gera um modelo utilizando os pontos de dados que envia e determina se o ponto alvo é uma anomalia. Ao ligar para a API a cada novo ponto de dados que gerar, pode monitorizar os seus dados à medida que estes são criados. |
+|Deteção de anomalias em tempo real. | Detete anomalias nos seus dados de streaming utilizando pontos de dados previamente vistos para determinar se o seu último é uma anomalia. Esta operação gera um modelo utilizando os pontos de dados que envia e determina se o ponto alvo é uma anomalia. Ao ligar para a API a cada novo ponto de dados que gerar, pode monitorizar os seus dados à medida que estes são criados. |
 |Detete anomalias em todo o seu conjunto de dados como um lote. | Utilize as suas séries de tempo para detetar quaisquer anomalias que possam existir ao longo dos seus dados. Esta operação gera um modelo utilizando todos os dados da série de tempo, com cada ponto analisado com o mesmo modelo.         |
 |Detete pontos de alteração em todo o seu conjunto de dados como um lote. | Utilize as suas séries de tempo para detetar quaisquer pontos de mudança de tendência que existam nos seus dados. Esta operação gera um modelo utilizando todos os dados da série de tempo, com cada ponto analisado com o mesmo modelo.    |
 | Obtenha informações adicionais sobre os seus dados. | Obtenha detalhes úteis sobre os seus dados e quaisquer anomalias observadas, incluindo valores esperados, limites de anomalias e posições. |

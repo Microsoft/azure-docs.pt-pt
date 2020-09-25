@@ -1,26 +1,28 @@
 ---
-title: 'Quickstart: Biblioteca de clientes Do Reconhecimento de Formulários / Microsoft Docs'
-description: Começa com a biblioteca do cliente [Nome do Produto].
+title: 'Quickstart: Biblioteca de clientes do Reconhecimento de Formulários'
+titleSuffix: Azure Cognitive Services
+description: Utilize a biblioteca do cliente Do Reconhecimento de Formulários para criar uma aplicação de processamento de formulários que extrai pares de chaves/valor e dados de tabela dos seus documentos personalizados.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/17/2020
+ms.date: 09/21/2020
 ms.author: pafarley
-ms.custom: devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: 0aa72b595bf60184aa840922a3d8a6496bb983a7
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
+keywords: tratamento de formulários, processamento automatizado de dados
+ms.openlocfilehash: eb3fc3ebe5c3d9f659758a14ba620018671d95f5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934362"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318946"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library"></a>Quickstart: Use a biblioteca do cliente Do Reconhecimento de Formulários
 
-Começa com a biblioteca do cliente Do Reconhecimento de Formulários. O Form Recogniser é um Serviço Cognitivo que utiliza tecnologia de machine learning para identificar e extrair pares de chaves/valor e dados de tabela a partir de documentos de formulário. Em seguida, gera a saída de dados estruturados, que inclui as relações no ficheiro original. Siga estes passos para instalar o pacote SDK e experimente o código de exemplo para tarefas básicas.
+Começa com a biblioteca do cliente Do Reconhecimento de Formulários no idioma à tua escolha. Azure Form Recogniser é um serviço cognitivo que permite construir software automatizado de processamento de dados usando tecnologia de machine learning. Identificar e extrair texto, pares chave/valor e dados de tabela do seu formulário documenta &mdash; os dados estruturados de saídas de serviço que incluem as relações no ficheiro original. Siga estes passos para instalar o pacote SDK e experimente o código de exemplo para tarefas básicas.
 
 Utilize a biblioteca do cliente Do Reconhecimento de Formulários para:
 

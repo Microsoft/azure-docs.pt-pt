@@ -9,12 +9,12 @@ ms.date: 07/09/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.custom: references_regions
-ms.openlocfilehash: 2743dc0164f604c9c5e033aacc3e58fae42a1fd2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f5cf8f8ef004dacc9fe2bbdd1b815f2ae5275311
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948383"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298121"
 ---
 # <a name="quickstart-get-a-phone-number-using-the-azure-portal"></a>Quickstart: Obtenha um número de telefone usando o portal Azure
 
@@ -117,7 +117,7 @@ Selecione o separador Números de Telefone no menu para gerir os seus números d
 
 Questões e questões comuns:
 
-- Apenas EUA e Canadá apoiam a compra de números de telefone neste momento. Isto baseia-se no endereço de faturação da subscrição a que o recurso está associado. Neste momento, não é possível mover o recurso para outra subscrição.
+- Apenas os EUA são apoiados para comprar números de telefone neste momento. Isto baseia-se no endereço de faturação da subscrição a que o recurso está associado. Neste momento, não é possível mover um recurso para outra subscrição.
 
 - Quando um número de telefone é apagado, o número de telefone não será libertado ou poderá ser recomprado até ao final do ciclo de faturação.
 

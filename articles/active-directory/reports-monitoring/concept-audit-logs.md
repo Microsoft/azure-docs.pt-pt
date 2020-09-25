@@ -13,20 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 07/17/2019
+ms.date: 09/17/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86eec0cf7108e2d3b47f7b98dbdaffe76be8afd8
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 23cfc2ea17e1801ec4caeea9e8933cfdc72e33d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603515"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331255"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Relatório de atividade de auditoria no portal do Azure Active Directory 
 
 Com relatórios do Azure Ative Directory (Azure AD), pode obter a informação necessária para determinar como está o seu ambiente.
+
+
 
 A arquitetura de reporte consiste nos seguintes componentes:
 
@@ -45,7 +47,7 @@ Este artigo dá-lhe uma visão geral do relatório de auditoria.
 
 ## <a name="audit-logs"></a>Registos de auditoria
 
-Os registos de auditoria da Azure AD fornecem registos de atividades do sistema para o cumprimento. Para aceder ao relatório de auditoria, selecione **os registos** de auditoria na secção de **Monitorização** do **Diretório Ativo Azure**. Note que os registos de auditoria podem ter uma latência de até uma hora, pelo que pode demorar tanto tempo para que os dados da atividade de auditoria apareçam no portal depois de ter concluído a tarefa.
+Os registos de auditoria da Azure AD fornecem registos de atividades do sistema para o cumprimento. Para aceder ao relatório de auditoria, selecione **os registos** de auditoria na secção de **Monitorização** do **Diretório Ativo Azure**. 
 
 
 
@@ -62,15 +64,15 @@ Um registo de auditoria tem uma vista de lista predefinida que mostra:
 
 Pode personalizar a vista de lista ao clicar em **Colunas** na barra de ferramentas.
 
-![Registos de auditoria](./media/concept-audit-logs/columns.png "Registos de auditoria")
+![Colunas de auditoria](./media/concept-audit-logs/columns.png "Colunas de auditoria")
 
 Isto permite-lhe apresentar campos adicionais ou remover campos que já são apresentados.
 
-![Registos de auditoria](./media/concept-audit-logs/columnselect.png "Registos de auditoria")
+![Remover campos](./media/concept-audit-logs/columnselect.png "Remover campos")
 
 Selecione um item na vista da lista para obter informações mais detalhadas.
 
-![Registos de auditoria](./media/concept-audit-logs/details.png "Registos de auditoria")
+![selecionar item](./media/concept-audit-logs/details.png "Selecione item")
 
 
 ## <a name="filtering-audit-logs"></a>Filtrar registos de auditoria
@@ -85,7 +87,7 @@ Pode filtrar os dados da auditoria nos seguintes campos:
 - Iniciado por (Actor)
 - Intervalo de datas
 
-![Registos de auditoria](./media/concept-audit-logs/filter.png "Registos de auditoria")
+![Objeto de filtro](./media/concept-audit-logs/filter.png "Objeto de filtro")
 
 O filtro **'Serviço'** permite-lhe selecionar a partir de uma lista de drop-down dos seguintes serviços:
 
@@ -157,7 +159,7 @@ Quando selecionar um período de tempo personalizado, pode configurar uma hora d
 
 Também pode optar por descarregar os dados filtrados, até 250.000 registos, selecionando o botão **Descarregar.** Pode descarregar os registos no formato CSV ou JSON. O número de registos que pode descarregar está limitado pelas políticas de retenção do [relatório Azure Ative Directory](reference-reports-data-retention.md).
 
-![Registos de auditoria](./media/concept-audit-logs/download.png "Registos de auditoria")
+![Transferir dados](./media/concept-audit-logs/download.png "Transferir dados")
 
 ## <a name="audit-logs-shortcuts"></a>Atalhos dos registos de auditoria
 
@@ -170,7 +172,7 @@ Para além do **Azure Active Directory**, o portal do Azure proporciona-lhe dois
 
 Com os relatórios de auditoria baseados em utilizadores e grupos, poderá obter respostas a perguntas como:
 
-- Que tipos de atualizações os utilizadores aplicaram?
+- Que tipos de atualizações foram aplicadas aos utilizadores?
 
 - Quantos utilizadores foram alterados?
 
@@ -188,11 +190,11 @@ Com os relatórios de auditoria baseados em utilizadores e grupos, poderá obter
 
 Se pretender rever apenas os dados de auditoria que estão relacionados com os utilizadores, pode encontrar uma visão filtrada nos **registos** de Auditoria na secção de **Monitorização** do **separador Utilizadores.** Este ponto de entrada tem **a Gestão do Utilizador** como categoria pré-selecionado.
 
-![Registos de auditoria](./media/concept-audit-logs/users.png "Registos de auditoria")
+![Utilizador](./media/concept-audit-logs/users.png "Utilizador")
 
 Se pretender rever apenas os dados de auditoria que estão relacionados com grupos, pode encontrar uma visão filtrada nos **registos** de auditoria na secção de **Monitorização** do separador **Grupos.** Este ponto de entrada tem **a GroupManagement** como categoria pré-selecionado.
 
-![Registos de auditoria](./media/concept-audit-logs/groups.png "Registos de auditoria")
+![Grupos de filtros](./media/concept-audit-logs/groups.png "Grupos de filtros")
 
 ### <a name="enterprise-applications-audit-logs"></a>Registos de auditoria de aplicações empresariais
 
@@ -206,7 +208,7 @@ Com os relatórios de auditoria baseados em aplicações, poderá obter resposta
 
 Se pretender rever os dados de auditoria relacionados com as suas aplicações, pode encontrar uma vista filtrada nos **registos de Auditoria** na secção **Atividade** da lâmina de aplicações da **Enterprise.** Este ponto de entrada tem **aplicações da Empresa** pré-selecionadas como **o Tipo de Aplicação**.
 
-![Registos de auditoria](./media/concept-audit-logs/enterpriseapplications.png "Registos de auditoria")
+![Aplicações empresariais](./media/concept-audit-logs/enterpriseapplications.png "Aplicações Empresariais")
 
 ## <a name="microsoft-365-activity-logs"></a>Registos de atividades da Microsoft 365
 

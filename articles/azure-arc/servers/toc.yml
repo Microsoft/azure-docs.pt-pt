@@ -10,7 +10,7 @@
   items:
     - name: Ativar o agente de servidores compatível com o Arc
       href: ./learn/quick-enable-hybrid-vm.md
-- name: Tutorials (Tutoriais)
+- name: Tutoriais
   items:
     - name: Atribuir política para avaliar a conformidade
       href: ./learn/tutorial-assign-policy-portal.md
@@ -47,6 +47,8 @@
       items:
         - name: Problemas de ligação do agente
           href: troubleshoot-agent-onboard.md
+        - name: Problemas da Extensão da VM
+          href: troubleshoot-vm-extensions.md
 - name: Referência
   items:
     - name: Residência dos dados

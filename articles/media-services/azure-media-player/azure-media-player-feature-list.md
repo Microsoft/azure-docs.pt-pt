@@ -6,19 +6,19 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: 41e090b9e1d4c091bd3972afd296c5751e6b8c58
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 88048c3328114f17b30859efb41bb9f059b71439
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082720"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296370"
 ---
 # <a name="feature-list"></a>Lista de funcionalidades #
 Aqui está a lista de funcionalidades testadas e funcionalidades não apoiadas:
 
 | Funcionalidade | TESTADO | PARCIALMENTE TESTADO | NÃO TESTADO | SEM APOIO | NOTAS |
 | ------- | ------ | ---------------- | -------- | ----------- | ----- |
-| Reproduzir                                |        |                  |          |             |                                                                                                                      |
+| **Reproduzir**                                |        |                  |          |             |                                                                                                                      |
 | Reprodução básica a pedido                | X      |                  |          |             | Suporta streams apenas da Azure Media Services                                                                      |
 | Reprodução ao vivo básica                     | X      |                  |          |             | Suporta streams apenas da Azure Media Services                                                                      |
 | AES                                     | X      |                  |          |             | Suporta o Serviço de Entrega de Chaves de Serviços de Media Azure                                                                   |
@@ -26,12 +26,12 @@ Aqui está a lista de funcionalidades testadas e funcionalidades não apoiadas:
 | PlayReady                               | X      |                  |          |             | Suporta o Serviço de Entrega de Chaves de Serviços de Media Azure                                                                   |
 | Widevine                                |        | X                |          |             | Suporta caixas pssh largas delineadas em manifesto                                                                    |
 | FairPlay                                |        | X                |          |             | Suporta o Serviço de Entrega de Chaves de Serviços de Media Azure                                                                   |
-| Técnicos                                   |        |                  |          |             |                                                                                                                      |
+| **Técnicos**                                   |        |                  |          |             |                                                                                                                      |
 | MSE/EME (AzureHtml5JS)                  | X      |                  |          |             |                                                                                                                      |
 | Recuo flash (flashss)                | X      |                  |          |             | Nem todas as funcionalidades estão disponíveis nesta tecnologia.                                                                         |
 | Silverlight Fallback SilverlightSS      | X      |                  |          |             | Nem todas as funcionalidades estão disponíveis nesta tecnologia.                                                                         |
 | Passagem do HLS nativo (Html5)         |        | X                |          |             | Nem todas as funcionalidades estão disponíveis nesta tecnologia devido às restrições da plataforma.                                            |
-| Funcionalidades                                |        |                  |          |             |                                                                                                                      |
+| **Funcionalidades**                                |        |                  |          |             |                                                                                                                      |
 | Suporte da API                             | X      |                  |          |             | Ver lista de questões conhecidas                                                                                                |
 | UI básico                                | X      |                  |          |                                                                                                                                    |
 | Inicialização através do JavaScript       | X      |                  |          |             |                                                                                                                      |
@@ -40,7 +40,7 @@ Aqui está a lista de funcionalidades testadas e funcionalidades não apoiadas:
 | Segmentação - Index Based        |        |                  |          | X           |                                                                                                                      |
 | Segmentação - Byte Based         |        |                  |          | X           |                                                                                                                      |
 | Reescrita de URL da Azure Media Services       |        | X                |          |             |                                                                                                                      |
-| Acessibilidade - Legendas e Legendas  |        | X                |          |             |  WebVTT suportado a pedido, CEA 708 ao vivo parcialmente testado                                                       |
+| Acessibilidade - Legendas e Legendas  | X      |                 |          |             |  WebVTT (a pedido), CEA 708 (a pedido e ao vivo) e IMSC1 (a pedido e ao vivo)                                                       |
 | Acessibilidade - Hotkeys                 | X      |                  |          |             |                                                                                                                      |
 | Acessibilidade - Alto Contraste           |        | X                |          |             |                                                                                                                      |
 | Acessibilidade - Foco do separador               |        | X                |          |             |                                                                                                                      |
@@ -55,13 +55,13 @@ Aqui está a lista de funcionalidades testadas e funcionalidades não apoiadas:
 | Fluxo multi-áudio                      |        | X                |          |             | O interruptor de áudio programático é suportado nas tecnologias AzureHtml5JS e FlashSS, e está disponível através da seleção de UI em AzureHtml5JS, FlashSS e nativo Html5 (em Safari).  A maioria das plataformas requer os mesmos dados privados codec para mudar os fluxos de áudio (mesmo codec, canal, taxa de amostragem, etc.). |
 | Localização UI                         |        | X                |          |             |                                                                                                                      |
 | Reprodução de vários casos                 |        |                  |          | X           | Este cenário pode funcionar para alguns técnicos, mas atualmente não é suportado e não testado. Você também pode fazer com que isto funcione usando iframes |
-| Suporte a anúncios                             |        | x                |          |             | A AMP suporta a inserção de anúncios lineares pré-médios e pós-rolos de servidores de anúncios compatíveis com VAST para VOD na tecnologia AzureHtml5JS |
+| Suporte a anúncios                             |        | X                |          |             | A AMP suporta a inserção de anúncios lineares pré-médios e pós-rolos de servidores de anúncios compatíveis com VAST para VOD na tecnologia AzureHtml5JS |
 | Análise                               |        | X                |          |             | A AMP fornece a capacidade de ouvir eventos de análise e diagnóstico para enviar para um Backend Analytics à sua escolha.  Todos os eventos e propriedades não estão disponíveis em tecnologias devido a limitações da plataforma.                                                                            |
-| Peles personalizadas                            |        |                  | X        |             | Rode os controlos de definição para falsos em AMP e utilize o seu próprio HTML e CSS.           |
+| Peles personalizadas                            |        |                  | X        |             | Este cenário pode ser alcançado rodando os controlos de definição para falsos em AMP e usando o seu próprio HTML e CSS.           |
 | Procurar bar scrubbing                      |        |                  |          | X           |                                                                                                                      |
 | Trick-Play                              |        |                  |          | X           |                                                                                                                      |
-| Apenas áudio                              |        |                  |          | X           | Pode funcionar em algumas tecnologias para o Adaptive Streaming, mas atualmente não é suportado e não funciona em AzureHtml5JS. A reprodução progressiva de MP3 pode funcionar com a tecnologia HTML5 se a plataforma a suportar.                                                                                                        |
-| Apenas vídeo                              |        |                  |          | X           | Pode funcionar em algumas tecnologias para o Adaptive Streaming, mas atualmente não é suportado e não funciona em AzureHtml5JS.      |
+| Apenas áudio                              | X      |                  |          |           | Suportado em AzureHtml5JS. A reprodução progressiva de MP3 pode funcionar com a tecnologia HTML5 se a plataforma a suportar.                                                                                                        |
+| Apenas vídeo                              | X      |                  |          |           | Suportado em AzureHtml5JS.                                                                                                        |
 | Apresentação pluástico               |        |                  |          | X                                                                                                                                  |
 | Vários ângulos de câmara                  |        |                  |          | X           |                                                                                                                      |
 | Velocidade de reprodução                          |        | X                |          |             | A velocidade de reprodução é suportada na maioria dos cenários, exceto no caso móvel devido a um bug parcial no Chrome                 |

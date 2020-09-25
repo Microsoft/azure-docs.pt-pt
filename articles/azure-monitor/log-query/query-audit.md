@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
-ms.openlocfilehash: bfaa9d8908d9401441d8811c3edcd087781b1d89
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: df937ba7f23f2789d929a043c7239ababb24374f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458642"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285065"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Consultas de auditoria em Registos do Monitor Azure (pré-visualização)
 Os registos de auditoria de consulta de registo fornecem telemetria sobre consultas de registo executadas no Azure Monitor. Isto inclui informações como quando uma consulta foi executada, quem a executou, que ferramenta foi usada, o texto de consulta, e estatísticas de desempenho descrevendo a execução da consulta.
@@ -64,11 +64,12 @@ Um registo de auditoria é criado cada vez que uma consulta é executada. Se env
 
 ## <a name="considerations"></a>Considerações
 
+- As consultas só são registadas quando executadas num contexto de utilizador. Nenhum serviço-a-serviço dentro de Azure será registado. Os dois conjuntos primários de consultas que esta exclusão engloba são cálculos de faturação e execuções de alerta automatizados. No caso de alertas, apenas a consulta de alerta agendada em si não será registada; a execução inicial do alerta no ecrã de criação de alerta é executada num contexto de utilizador e estará disponível para efeitos de auditoria. 
 - As estatísticas de desempenho não estão disponíveis para consultas provenientes do proxy Azure Data Explorer. Todos os outros dados para estas consultas continuarão a ser preenchidos.
 - A dica *h* sobre cordas que [obfusca as cordas literais](/azure/data-explorer/kusto/query/scalar-data-types/string#obfuscated-string-literals) não terá um efeito nos registos de auditoria de consulta. As consultas serão capturadas exatamente como submetidas sem que a corda seja obfundada. Deve garantir que apenas os utilizadores que tenham direitos de conformidade para ver estes dados são capazes de o fazer utilizando os vários modos RBAC disponíveis nos espaços de trabalho do Log Analytics.
 - Para consultas que incluam dados de vários espaços de trabalho, a consulta só será captada nos espaços de trabalho a que o utilizador tem acesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [as definições de diagnóstico](../platform/diagnostic-settings.md).
 - Saiba mais sobre [a otimização de consultas de registo.](query-optimization.md)

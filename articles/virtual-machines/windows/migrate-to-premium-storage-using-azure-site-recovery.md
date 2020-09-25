@@ -1,18 +1,18 @@
 ---
 title: Migrar os seus VMs do Windows para O Azure Premium Storage com recuperação do site Azure
-description: Migrar as suas máquinas virtuais existentes para o Azure Premium Storage utilizando a Recuperação do Site. O Premium Storage oferece suporte a discos de alto desempenho e baixa latência para cargas de trabalho intensivas em I/O em funcionamento em Máquinas Virtuais Azure.
+description: Saiba como migrar os discos VM de uma conta de armazenamento padrão para uma conta de armazenamento premium utilizando a Recuperação do Site Azure.
 author: luywang
 ms.service: virtual-machines-windows
 ms.topic: how-to
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 51fa0c063de106f627fc097910514e7c5416ee51
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 203176c4c7ffed95cb4f1616f29f3953fcc0afc5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525964"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320103"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para armazenamento premium usando a recuperação do site Azure
 
@@ -207,7 +207,7 @@ A Recuperação do Site criará uma instância VM cujo tipo seja o mesmo que ou 
 * [Proteção contra monitorização e resolução de problemas para máquinas virtuais e servidores físicos](../../site-recovery/site-recovery-monitor-and-troubleshoot.md)
 * [Microsoft Q&Uma página de perguntas para a recuperação do site do Microsoft Azure](/answers/topics/azure-site-recovery.html)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para cenários específicos para máquinas virtuais migratórias, consulte os seguintes recursos:
 

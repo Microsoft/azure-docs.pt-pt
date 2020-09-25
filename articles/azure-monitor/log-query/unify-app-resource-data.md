@@ -7,12 +7,12 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/02/2020
-ms.openlocfilehash: 40ce2844e33c9a71f87e434a6a3e9f8e0f7e3cc6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 360578a36b92711c55b1fc65befa1b3df7927aad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322113"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330898"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificar vários recursos de insights de aplicação do monitor Azure 
 Este artigo descreve como consultar e visualizar todos os dados de registo de insights de aplicação num só local, mesmo quando estão em diferentes subscrições do Azure, como substituto da depreciação do Conector de Insights de Aplicação. O número de recursos de Application Insights que pode incluir numa única consulta está limitado a 100.
@@ -57,7 +57,7 @@ A consulta utiliza o esquema de Insights de Aplicação, embora a consulta seja 
 ![Exemplo de resultados de consulta cruzada](media/unify-app-resource-data/app-insights-query-results.png)
 
 >[!NOTE]
->[A consulta de recursos cruzados](./cross-workspace-query.md) nos alertas de registo é suportada na nova [API agendada deQueryRules](/rest/api/monitor/scheduledqueryrules). Por predefinição, o Azure Monitor utiliza a [api de alerta de log analytics para](../platform/api-alerts.md) criar novas regras de alerta de registo a partir do portal Azure, a menos que mude de [API de alertas](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api)de registo legados . Após a troca, a nova API torna-se o padrão para novas regras de alerta no portal Azure e permite criar regras de alerta de registo de consulta de recursos cruzados. Pode criar regras de alerta de registo [de consulta de recursos cruzados](./cross-workspace-query.md) sem fazer o switch utilizando o modelo ARM para a API agendada para a [API de Tesouros agendados](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – mas esta regra de alerta é gerível embora [agendada API](/rest/api/monitor/scheduledqueryrules) e não a partir do portal Azure.
+>[As consultas de recursos cruzados](./cross-workspace-query.md) nos alertas de registo só são suportadas na atual [API agendada para a API](/rest/api/monitor/scheduledqueryrules). Se estiver a utilizar o legado Log Analytics Alerts API, terá de [mudar para a API atual.](../platform/alerts-log-api-switch.md) [Ver modelos de exemplo.](../platform/alerts-log-create-templates.md)
 
 ## <a name="application-insights-and-log-analytics-workspace-schema-differences"></a>Insights de Aplicação e Diferenças de esquemas de espaço de trabalho do Log Analytics
 A tabela seguinte mostra as diferenças de esquema entre Log Analytics e Application Insights.  
@@ -76,7 +76,7 @@ A tabela seguinte mostra as diferenças de esquema entre Log Analytics e Applica
 | DisponibilidadeTestName | name |
 | DisponibilidadeTimestamp | carimbo de data/hora |
 | Browser | client_browser |
-| Cidade | client_city |
+| City | client_city |
 | ClientIP | client_IP |
 | Computador | cloud_RoleInstance | 
 | País | client_CountryOrRegion | 

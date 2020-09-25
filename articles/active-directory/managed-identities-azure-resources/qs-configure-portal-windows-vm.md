@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/10/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ed19b9dae179c3e4fe89a9ce28df4ad0cd080af
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e35366e35fc127057020906ac6d3dfb0f207ab72
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89263217"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331340"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>Configure identidades geridas para recursos Azure num VM usando o portal Azure
 
@@ -63,7 +63,7 @@ Para permitir a identidade gerida atribuída pelo sistema num VM que foi origina
 
 3. Em **Sistema atribuído**, **Estado**, selecione **On** e, em seguida, clique em **Guardar**:
 
-   ![Screenshot da página de configuração](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
+   ![Screenshot que mostra a página "Identidade (pré-visualização)" com o estado "Sistema atribuído" definido para "On".](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ### <a name="remove-system-assigned-managed-identity-from-a-vm"></a>Remover identidade gerida atribuída pelo sistema a partir de um VM
 
@@ -99,7 +99,7 @@ Para atribuir uma identidade atribuída ao utilizador a um VM, a sua conta neces
 1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta associada à subscrição Azure que contém o VM.
 2. Navegue para o VM desejado e clique em **Identidade,** **Utilizador designado** e, em seguida, ** \+ Adicione**.
 
-   ![Adicionar identidade gerida atribuída ao utilizador à VM](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot1.png)
+   ![Screenshot que mostra a página "Identidade" com "User assigned" selecionado e o botão "Adicionar" realçado.](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot1.png)
 
 3. Clique na identidade atribuída ao utilizador que pretende adicionar ao VM e, em seguida, clique em **Adicionar**.
 

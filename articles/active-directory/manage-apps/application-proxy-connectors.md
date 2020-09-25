@@ -1,6 +1,6 @@
 ---
 title: Compreenda os conectores Proxy da aplicação AD Azure / Microsoft Docs
-description: Cobre o básico sobre conectores proxy de aplicação AD Azure.
+description: Saiba mais sobre os conectores Azure AD Application Proxy.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 236e8e32eedce1a075aa4b3d1600c9c5595b7e2c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7f14c757df8bcc38bf226cb6346c400087c2d7a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764677"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319831"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Compreenda os conectores Proxy de aplicação AD Azure
 
@@ -99,7 +99,7 @@ Em geral, quanto mais utilizadores tiver, maior será uma máquina. Abaixo está
 |8|32|270|1190|
 |16|64|245|1200*|
 
-\*Esta máquina utilizou uma definição personalizada para elevar alguns dos limites de ligação predefinidos para além das definições recomendadas .NET. Recomendamos que faça um teste com as definições predefinidoras antes de contactar o suporte para que este limite seja alterado para o seu inquilino.
+\* Esta máquina utilizou uma definição personalizada para elevar alguns dos limites de ligação predefinidos para além das definições recomendadas .NET. Recomendamos que faça um teste com as definições predefinidoras antes de contactar o suporte para que este limite seja alterado para o seu inquilino.
 
 > [!NOTE]
 > Não há muita diferença no TPS máximo entre 4, 8 e 16 máquinas nucleares. A principal diferença entre estes é a latência esperada.
@@ -183,7 +183,7 @@ Pode examinar o estado do serviço na janela dos Serviços. O conector é compos
 
  ![Exemplo: Janela de serviços mostrando serviços Azure AD local](./media/application-proxy-connectors/aad-connector-services.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Publicar aplicações em redes e locais separados utilizando grupos de conector](application-proxy-connector-groups.md)
 - [Trabalhar com servidores proxy existentes no local](application-proxy-configure-connectors-with-proxy-servers.md)

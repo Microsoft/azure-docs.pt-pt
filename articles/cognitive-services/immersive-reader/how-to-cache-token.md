@@ -9,13 +9,13 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: metan
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 6850012272251c910362b61363dacd9090976680
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 250fe6279288002fad1b6c12b158ffae3d83c264
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918422"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318862"
 ---
 # <a name="how-to-cache-the-authentication-token"></a>Como cache o símbolo de autenticação
 

@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: ba4b8f1d3aaa9b06f3bc24e9e267f6778734152a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: bad81e8929cd0c5c66c87fd9f6cc11dc746b3e5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903742"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317798"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Saída de filas de autocarros de serviço a partir de Azure Stream Analytics
 
@@ -24,7 +24,7 @@ No [nível de compatibilidade 1.2](stream-analytics-compatibility-level.md), o A
 
 A tabela que se segue lista os nomes dos imóveis e as suas descrições para a criação de uma saída de fila.
 
-| Nome da propriedade | Descrição |
+| Nome da propriedade | Description |
 | --- | --- |
 | Alias de saída |Um nome amigável usado em consultas para direcionar a saída de consulta para esta fila de serviço. |
 | Espaço de nome de ônibus de serviço |Um contentor para um conjunto de entidades de mensagens. |
@@ -51,6 +51,22 @@ O tamanho máximo da mensagem é de 256 KB por mensagem para o nível Standard e
 ## <a name="custom-metadata-properties-for-output"></a>Propriedades de metadados personalizados para saída
 
 Pode anexar colunas de consulta como propriedades do utilizador às suas mensagens de saída. Estas colunas não entram na carga. As propriedades estão presentes na forma de um dicionário na mensagem de saída. *Chave* é o nome da coluna e *valor* é o valor da coluna no dicionário de propriedades. Todos os tipos de dados stream Analytics são suportados, exceto Record e Array.
+
+No exemplo seguinte, os campos `DeviceId` são `DeviceStatus` adicionados aos metadados.
+
+1. Utilize a seguinte consulta:
+
+   ```sql
+   select *, DeviceId, DeviceStatus from iotHubInput
+   ```
+
+1. Configurar `DeviceId,DeviceStatus` como colunas de propriedade na saída.
+
+   :::image type="content" source="media/service-bus-queues-output/property-columns.png" alt-text="Colunas de propriedade":::
+
+A imagem a seguir é das propriedades de mensagens de saída esperadas inspecionadas no EventHub utilizando [o Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
+
+:::image type="content" source="media/service-bus-queues-output/custom-properties.png" alt-text="Propriedades personalizadas do evento":::
 
 ## <a name="system-properties"></a>Propriedades do sistema
 

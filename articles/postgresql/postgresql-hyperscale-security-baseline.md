@@ -1,22 +1,22 @@
 ---
-title: Linha de segurança Azure para Base de Dados Azure para PostgreSQL - Hiperescala
-description: A Base de Dados Azure para postgreSQL - Linha de base de segurança de hiperescala fornece orientações processuais e recursos para a implementação das recomendações de segurança especificadas no Benchmark de Segurança Azure.
+title: Linha de base de segurança Azure para Azure Database for PostgreSQL - Hyperscale (Citus)
+description: A base de dados Azure para postgresql - hiperescala (Citus) fornece orientações processuais e recursos para a implementação das recomendações de segurança especificadas no Benchmark de Segurança Azure.
 author: msmbaldwin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 37ebd1702ed8ef059b38378b89f5a5cb61748568
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c82451ca9f1f974aba7578b0dfc4f6f0eb99ac16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231304"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318131"
 ---
-# <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale"></a>Linha de segurança Azure para Base de Dados Azure para PostgreSQL - Hiperescala
+# <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale-citus"></a>Linha de base de segurança Azure para Azure Database for PostgreSQL - Hyperscale (Citus)
 
-A Linha de Base de Segurança Azure para Azure Database for PostgreSQL - Hyperscale contém recomendações que o ajudarão a melhorar a postura de segurança da sua implementação.
+A Base de Segurança Azure para Base de Dados de Azure para PostgreSQL - Hiperescala (Citus) contém recomendações que o ajudarão a melhorar a postura de segurança da sua implantação.
 
 A linha de base para este serviço é extraída da [versão 1.0 do Azure Security Benchmark,](https://docs.microsoft.com/azure/security/benchmarks/overview)que fornece recomendações sobre como pode garantir as suas soluções em nuvem no Azure com a nossa orientação de boas práticas.
 
@@ -631,7 +631,7 @@ Pré-digitalizar qualquer conteúdo que seja enviado para recursos Azure não co
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: Execute cópias de segurança completas do sistema e faça backups de backups de qualquer tecla gerida pelo cliente
 
-**Orientação**: Pelo menos uma vez por dia, a Azure Database for PostgreSQL retira cópias de segurança instantâneas dos ficheiros de dados e do registo de transações de bases de dados. As cópias de segurança permitem restaurar um servidor a qualquer ponto no tempo dentro do período de retenção. O período de retenção é atualmente de 35 dias para todos os clusters. Todas as cópias de segurança são encriptadas utilizando encriptação AES de 256 bits.
+**Orientação**: Pelo menos uma vez por dia, a Azure Database for PostgreSQL retira cópias de segurança instantâneas dos ficheiros de dados e do registo de transações de bases de dados. As cópias de segurança permitem restaurar um servidor a qualquer ponto no tempo dentro do período de retenção. O período de retenção é atualmente de 35 dias para todos os clusters. Todas as cópias de segurança são encriptadas através da encriptação AES de 256 bits.
 
 Nas regiões de Azure que suportam zonas de disponibilidade, os instantâneos de backup são armazenados em três zonas de disponibilidade. Enquanto pelo menos uma zona de disponibilidade estiver on-line, o cluster Hyperscale (Citus) é ressaltável.
 

@@ -1,18 +1,18 @@
 ---
 title: Interligar-se com a China usando Azure Virtual WAN e secure Hub
-description: Saiba mais sobre a conectividade de ramo-a-ramo automatizado virtual WAN, regiões disponíveis e parceiros.
+description: Aprenda a interligar-se com a China usando a Azure Virtual WAN e um hub seguro.
 services: virtual-wan
 author: skishen525
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 09/22/2020
 ms.author: sukishen
-ms.openlocfilehash: d89a3c65eb8d8bffd4cf87160286d1905bd1ba5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d95330c14e0d088bdee03c0edbc2eb9d1deb12cb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83747618"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329232"
 ---
 # <a name="interconnect-with-china-using-azure-virtual-wan-and-secure-hub"></a>Interligar-se com a China usando Azure Virtual WAN e Secure Hub
 
@@ -141,7 +141,7 @@ Atualmente o ExpressRoute Global Reach não está disponível em todos os paíse
 
 Pode, por exemplo, configurar um ExpressRoute com o Microsoft Peering e ligar um túnel VPN através desse que espreita o Azure Virtual WAN. Agora, permitiu, mais uma vez, o trânsito entre a VPN e a ExpressRoute sem Global Reach e o fornecedor e serviço de terceiros, como o Megaport Cloud.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos para obter mais informações:
 

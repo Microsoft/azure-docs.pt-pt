@@ -1,18 +1,18 @@
 ---
 title: Interpretação do seu Cartão de Pontuação Microsoft Docs
-description: O FAQ para Azure Internet Analyzer.
+description: Aprenda a interpretar o seu cartão de pontuação. O separador de cartões de pontuação contém os resultados agregados e analisados dos seus testes.
 services: internet-analyzer
 author: mattcalder
 ms.service: internet-analyzer
 ms.topic: how-to
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 5ed8621fbfd1528bfffeaa986fa9c2e17c19f82b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f43d094193fb266d1ecec7089b44d8b3fd5e9b43
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744039"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330218"
 ---
 # <a name="interpreting-your-scorecard"></a>Interpretar a tabela de indicadores
 
@@ -31,7 +31,7 @@ O separador marcador pode ser encontrado no menu de recursos do Analisador de In
 
 O número de medições tem impacto na confiança da análise. Quanto maior for a contagem, mais preciso será o resultado. No mínimo, os testes devem visar um mínimo de 100 medições por ponto final por dia. Se as contagens de medição forem muito baixas, por favor, configuure o cliente JavaScript para executar com mais frequência na sua aplicação. A medição conta para os pontos finais A e B deve ser muito semelhante, embora se esperem pequenas diferenças e sejam boas. Em caso de grandes diferenças, os resultados não devem ser de confiança.
 
-## <a name="percentiles"></a>Percentiles
+## <a name="percentiles"></a>Percentis
 
 A latência, medida em milissegundos, é uma métrica popular para medir a velocidade entre uma fonte e destino na Internet. Os dados de latência não são normalmente distribuídos (isto é, não segue uma "Curva do Sino") porque existe uma "cauda longa" de grandes valores de latência que distorcem os resultados ao utilizar estatísticas como a média aritmética. Como alternativa, os percentí do percentiles fornecem uma forma "livre de distribuição" de analisar dados. Como exemplo, o percentil mediano, ou 50º, resume o meio da distribuição - metade dos valores estão acima dele e metade está abaixo dele. Um valor percentil 75 significa que é maior que 75% de todos os valores na distribuição. O Analisador de Internet refere-se a percentíliles em abreviatura como P50, P75 e P95.
 
@@ -50,11 +50,11 @@ Intervalos de confiança (CI) são uma gama de valores que têm a probabilidade 
 
 Para o Analisador de Internet, um intervalo de confiança estreito é bom porque mostra que a métrica da amostra é provavelmente muito próxima da métrica da população real. Um largo intervalo de confiança significa menos certeza de que a nossa métrica da amostra reflete a verdadeira métrica da população. A melhor forma de melhorar o CI é aumentar as contagens de medição.
 
-## <a name="time-series"></a>Séries horr as. 
+## <a name="time-series"></a>Série temporal 
 
 Uma série de tempo mostra como uma métrica muda com o tempo. Na Internet, existem muitos fatores temporais que têm impacto no desempenho, como períodos de tráfego máximo, diferenças populacionais durante a semana e feriados.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais, consulte a nossa [Visão Geral do Analisador de Internet.](internet-analyzer-overview.md)

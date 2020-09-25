@@ -3,21 +3,22 @@ title: IBM Db2 Azure Virtual Machines DBMS implantação para carga de trabalho 
 description: Implementação em IBM DB2 do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
 services: virtual-machines-linux,virtual-machines-windows
 author: msjuergent
-manager: patfilot
+manager: bburns
 tags: azure-resource-manager
+keywords: Azure, Db2, SAP, IBM
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/18/2020
+ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bc881b1b366a152c2d592463c8025ea1087307cf
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: a2be5daf5bcad0f5b4530ba7a76986dae4833aa5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461966"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331272"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementação em IBM DB2 do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
 
@@ -80,58 +81,58 @@ Para o Azure M-Series VM, a escrita de latência nos registos de transações po
 
 O IBM Db2 para aplicações SAP NetWeaver é suportado em qualquer tipo de VM listado na nota de suporte SAP [1928533].  As famílias VM recomendadas para executar a base de dados IBM Db2 são Esd_v4/Eas_v4/Es_v3 e séries M/M_v2 para grandes bases de dados multi-terabytes. O desempenho do disco de registo de transações IBM Db2 pode ser melhorado permitindo o Acelerador de Escrita da série M. 
 
-Segue-se uma configuração de base para vários tamanhos e utilizações de SAP em implementações Db2 de pequena a muito grande:
+Segue-se uma configuração de base para vários tamanhos e utilizações de SAP em implementações Db2 de pequeno a grande. A lista baseia-se no armazenamento premium Azure. No entanto, o disco Azure Ultra também é totalmente suportado com Db2 e também pode ser usado. Basta utilizar os valores de capacidade, saída de rutura e IOPS rebentando para definir a configuração do disco Ultra. Pode limitar o IOPS para o /db2/ <SID> /log_dir por volta de 5000 IOPS. 
 
 #### <a name="extra-small-sap-system-database-size-50---200-gb-example-solution-manager"></a>Sistema EXTRA pequeno SAP: tamanho da base de dados 50 - 200 GB: exemplo Solution Manager
 | Nome VM / Tamanho |Ponto de montagem Db2 |Disco Premium do Azure |NR de Discos |IOPS |Produção [MB/s] |Tamanho [GB] |IOPS de explosão |Burst Thr [GB] | Tamanho de listra | Colocação em cache |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-|E4ds_v4 |/db2 |P6 |1 |240  |50  |64  |3.500  |170  ||  |
-|vCPU: 4 |/db2/ <SID> /sapdata |P10 |2 |1.000  |200  |256  |7.000  |340  |256 KB |ReadOnly |
-|RAM: 32 GiB |/db2/ <SID> /saptmp |P6 |1 |240  |50  |128  |3.500  |170  | ||
-| |/db2/ <SID> /log_dir |P6 |2 |480  |100  |128  |7.000  |340  |64 KB ||
-| |/db2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3.500  |170  || |
+|E4ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  ||  |
+|vCPU: 4 |/db2/ <SID> /sapdata |P10 |2 |1,000  |200  |256  |7,000  |340  |256 KB |ReadOnly |
+|RAM: 32 GiB |/db2/ <SID> /saptmp |P6 |1 |240  |50  |128  |3500  |170  | ||
+| |/db2/ <SID> /log_dir |P6 |2 |480  |100  |128  |7,000  |340  |64 KB ||
+| |/db2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3500  |170  || |
 
 #### <a name="small-sap-system-database-size-200---750-gb-small-business-suite"></a>Pequeno sistema SAP: tamanho da base de dados 200 - 750 GB: pequena Suíte de Negócios
 | Nome VM / Tamanho |Ponto de montagem Db2 |Disco Premium do Azure |NR de Discos |IOPS |Produção [MB/s] |Tamanho [GB] |IOPS de explosão |Burst Thr [GB] | Tamanho de listra | Colocação em cache |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-|E16ds_v4 |/db2 |P6 |1 |240  |50  |64  |3.500  |170  || |
-|vCPU: 16 |/db2/ <SID> /sapdata |P15 |4 |4.400  |500  |1.024  |14.000  |680  |256 KB |ReadOnly |
-|RAM: 128 GiB |/db2/ <SID> /saptmp |P6 |2 |480  |100  |128  |7.000  |340  |128 KB ||
-| |/db2/ <SID> /log_dir |P15 |2 |2.200  |250  |512  |7.000  |340  |64 KB ||
-| |/db2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3.500  |170  ||| 
+|E16ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  || |
+|vCPU: 16 |/db2/ <SID> /sapdata |P15 |4 |4,400  |500  |1.024  |14,000  |680  |256 KB |ReadOnly |
+|RAM: 128 GiB |/db2/ <SID> /saptmp |P6 |2 |480  |100  |128  |7,000  |340  |128 KB ||
+| |/db2/ <SID> /log_dir |P15 |2 |2.200  |250  |512  |7,000  |340  |64 KB ||
+| |/db2/ <SID> /offline_log_dir |P10 |1 |500  |100  |128  |3500  |170  ||| 
 
 #### <a name="medium-sap-system-database-size-500---1000-gb-small-business-suite"></a>Sistema SAP médio: tamanho da base de dados 500 - 1000 GB: pequena Suíte de Negócios
 | Nome VM / Tamanho |Ponto de montagem Db2 |Disco Premium do Azure |NR de Discos |IOPS |Produção [MB/s] |Tamanho [GB] |IOPS de explosão |Burst Thr [GB] | Tamanho de listra | Colocação em cache |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-|E32ds_v4 |/db2 |P6 |1 |240  |50  |64  |3.500  |170  || |
-|vCPU: 32 |/db2/ <SID> /sapdata |P30 |2 |10.000  |400  |2.048  |10.000  |400  |256 KB |ReadOnly |
-|RAM: 256 GiB |/db2/ <SID> /saptmp |P10 |2 |1.000  |200  |256  |7.000  |340  |128 KB ||
-| |/db2/ <SID> /log_dir |P20 |2 |4.600  |300  |1.024  |7.000  |340  |64 KB ||
-| |/db2/ <SID> /offline_log_dir |P15 |1 |1.100  |125  |256  |3.500  |170  ||| 
+|E32ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  || |
+|vCPU: 32 |/db2/ <SID> /sapdata |P30 |2 |10,000  |400  |2.048  |10,000  |400  |256 KB |ReadOnly |
+|RAM: 256 GiB |/db2/ <SID> /saptmp |P10 |2 |1,000  |200  |256  |7,000  |340  |128 KB ||
+| |/db2/ <SID> /log_dir |P20 |2 |4,600  |300  |1.024  |7,000  |340  |64 KB ||
+| |/db2/ <SID> /offline_log_dir |P15 |1 |1100  |125  |256  |3500  |170  ||| 
 
 #### <a name="large-sap-system-database-size-750---2000-gb-business-suite"></a>Grande sistema SAP: tamanho da base de dados 750 - 2000 GB: Business Suite
 | Nome VM / Tamanho |Ponto de montagem Db2 |Disco Premium do Azure |NR de Discos |IOPS |Produção [MB/s] |Tamanho [GB] |IOPS de explosão |Burst Thr [GB] | Tamanho de listra | Colocação em cache |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-|E64ds_v4 |/db2 |P6 |1 |240  |50  |64  |3.500  |170  || |
-|vCPU: 64 |/db2/ <SID> /sapdata |P30 |4 |20.000  |800  |4.096  |20.000  |800  |256 KB |ReadOnly |
-|RAM: 504 GiB |/db2/ <SID> /saptmp |P15 |2 |2.200  |250  |512  |7.000  |340  |128 KB ||
-| |/db2/ <SID> /log_dir |P20 |4 |9.200  |600  |2.048  |14.000  |680  |64 KB ||
-| |/db2/ <SID> /offline_log_dir |P20 |1 |2.300  |150  |512  |3.500  |170  || |
+|E64ds_v4 |/db2 |P6 |1 |240  |50  |64  |3500  |170  || |
+|vCPU: 64 |/db2/ <SID> /sapdata |P30 |4 |20 000  |800  |4.096  |20 000  |800  |256 KB |ReadOnly |
+|RAM: 504 GiB |/db2/ <SID> /saptmp |P15 |2 |2.200  |250  |512  |7,000  |340  |128 KB ||
+| |/db2/ <SID> /log_dir |P20 |4 |9,200  |600  |2.048  |14,000  |680  |64 KB ||
+| |/db2/ <SID> /offline_log_dir |P20 |1 |2300  |150  |512  |3500  |170  || |
 
-#### <a name="large-multi-terabyte-sap-system-database-size-2tb-global-business-suite-system"></a>Grande sistema SAP multi-terabyte: tamanho da base de dados 2TB+: Sistema Global Business Suite
+#### <a name="large-multi-terabyte-sap-system-database-size-2-tb-global-business-suite-system"></a>Grande sistema SAP multi-terabyte: tamanho da base de dados 2 TB+: Sistema Global Business Suite
 | Nome VM / Tamanho |Ponto de montagem Db2 |Disco Premium do Azure |NR de Discos |IOPS |Produção [MB/s] |Tamanho [GB] |IOPS de explosão |Burst Thr [GB] | Tamanho de listra | Colocação em cache |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-|M128s |/db2 |P10 |1 |500  |100  |128  |3.500  |170  || |
-|vCPU: 128 |/db2/ <SID> /sapdata |P40 |4 |30.000  |1.000  |8.192  |30.000  |1.000  |256 KB |ReadOnly |
-|RAM: 2048 GiB |/db2/ <SID> /saptmp |P20 |2 |4.600  |300  |1.024  |7.000  |340  |128 KB ||
-| |/db2/ <SID> /log_dir |P30 |4 |20.000  |800  |4.096  |20.000  |800  |64 KB |WriteAccelerator |
-| |/db2/ <SID> /offline_log_dir |P30 |1 |5.000  |200  |1.024  |5.000  |200  || |
+|M128s |/db2 |P10 |1 |500  |100  |128  |3500  |170  || |
+|vCPU: 128 |/db2/ <SID> /sapdata |P40 |4 |30,000  |1.000  |8.192  |30,000  |1.000  |256 KB |ReadOnly |
+|RAM: 2048 GiB |/db2/ <SID> /saptmp |P20 |2 |4,600  |300  |1.024  |7,000  |340  |128 KB ||
+| |/db2/ <SID> /log_dir |P30 |4 |20 000  |800  |4.096  |20 000  |800  |64 KB |WriteAccelerator |
+| |/db2/ <SID> /offline_log_dir |P30 |1 |5000  |200  |1.024  |5000  |200  || |
 
 
 ### <a name="backuprestore"></a>Cópia de segurança/Restauro
 A funcionalidade de backup/restauro para IBM Db2 para LUW é suportada da mesma forma que nos sistemas operativos padrão do Windows Server e Hiper-V.
 
-Tem de se certificar de que tem uma estratégia de backup de bases de dados válida. 
+Certifique-se de que tem uma estratégia de backup de base de dados válida. 
 
 Tal como nas implementações de metal nu, o desempenho de backup/restauro depende de quantos volumes podem ser lidos em paralelo e qual poderá ser a produção desses volumes. Além disso, o consumo de CPU utilizado pela compressão de backup pode desempenhar um papel significativo em VMs com até oito fios de CPU. Portanto, pode-se supor:
 
@@ -226,6 +227,12 @@ Todas as outras áreas gerais como os Conjuntos de Disponibilidade de Azure ou a
 [2191498]:https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
+
+
+## <a name="next-steps"></a>Passos seguintes
+Leia o artigo 
+
+- [Considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md)
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com

@@ -8,12 +8,12 @@ ms.date: 06/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 485a054a91bd3db9b116cf80a4e457d013c20ea1
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c8a1d1c0f8de742bdafa130cce6927a472efd8f7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071079"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329351"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser utilizadas de forma totalmente integrada no Windows e no Windows Server. Este artigo aborda as considerações relativas à utilização de uma partilha de ficheiros do Azure com o Windows e o Windows Server.
@@ -24,18 +24,18 @@ Pode utilizar as partilhas de ficheiros do Azure numa instalação do Windows qu
 
 | Versão do Windows        | Versão do SMB | Montável em VM do Azure | Montado no local |
 |------------------------|-------------|-----------------------|-----------------------|
-| Windows Server 2019 | SMB 3.0 | Sim | Sim |
-| Windows 10<sup>1</sup> | SMB 3.0 | Sim | Sim |
-| Windows Server semi-anual canal<sup>2</sup> | SMB 3.0 | Sim | Sim |
-| Windows Server 2016 | SMB 3.0 | Sim | Sim |
-| Windows 8.1 | SMB 3.0 | Sim | Sim |
-| Windows Server 2012 R2 | SMB 3.0 | Sim | Sim |
-| Windows Server 2012 | SMB 3.0 | Sim | Sim |
-| Windows 7<sup>3</sup> | SMB 2.1 | Sim | Não |
-| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Sim | Não |
+| Windows Server 2019 | SMB 3.0 | Yes | Yes |
+| Windows 10<sup>1</sup> | SMB 3.0 | Yes | Yes |
+| Windows Server semi-anual canal<sup>2</sup> | SMB 3.0 | Yes | Yes |
+| Windows Server 2016 | SMB 3.0 | Yes | Yes |
+| Windows 8.1 | SMB 3.0 | Yes | Yes |
+| Windows Server 2012 R2 | SMB 3.0 | Yes | Yes |
+| Windows Server 2012 | SMB 3.0 | Yes | Yes |
+| Windows 7<sup>3</sup> | SMB 2.1 | Yes | No |
+| Windows Server 2008 R2<sup>3</sup> | SMB 2.1 | Yes | No |
 
-<sup>1</sup> Windows 10, versões 1507, 1607, 1709, 1803, 1809, 1903 e 1909.  
-<sup>2</sup> Windows Server, versões 1809, 1903 e 1909.  
+<sup>1</sup> Windows 10, versões 1507, 1607, 1803, 1809, 1903, 1909 e 2004.  
+<sup>2</sup> Windows Server, versões 1809, 1903, 1909, 2004.  
 <sup>3</sup> O suporte regular da Microsoft para o Windows 7 e o Windows Server 2008 R2 terminou. Só é possível adquirir suporte adicional para atualizações de segurança através do [programa Extended Security Update (ESU).](https://support.microsoft.com/help/4497181/lifecycle-faq-extended-security-updates) Recomendamos vivamente a migração destes sistemas operativos.
 
 > [!Note]  
@@ -58,7 +58,7 @@ O portal Azure fornece-lhe um script que pode usar para montar a sua partilha de
 
 Para obter este roteiro:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Navegue para a conta de armazenamento que contém a partilha de ficheiros que gostaria de montar.
 1. Selecione **Partilhas de ficheiros**.
 1. Selecione a partilha de ficheiros que gostaria de montar.

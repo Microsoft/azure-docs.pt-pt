@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/18/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: f955b5347bc5a2c0fe1fd8a93e14badab1f354c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68238a084684aeda557690812403995a4dc1e8c9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753280"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317672"
 ---
 # <a name="configure-an-openvpn-client-for-azure-virtual-wan"></a>Configure um cliente OpenVPN para a Azure Virtual WAN
 
@@ -24,7 +24,7 @@ Crie uma configuração VPN do utilizador (ponto a local). Certifique-se de que 
 
 [!INCLUDE [configuration steps](../../includes/vpn-gateway-vwan-config-openvpn-clients.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a VPN do utilizador (ponto a local), consulte [as ligações VPN do utilizador](virtual-wan-point-to-site-portal.md).
 

@@ -1,6 +1,6 @@
 ---
 title: Colaboração B2B API e personalização - Azure Ative Directory
-description: A colaboração do B2B Azure Active Directory suporta as relações entre empresas, permitindo a parceiros de negócios acederem, seletivamente, às suas aplicações empresariais
+description: A colaboração do Azure Ative Directory B2B apoia as suas relações intercompreitárias, permitindo aos parceiros de negócio aceder seletivamente às suas aplicações corporativas.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9f62ece12732c45037bcad328eec162bebb4e6a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 2cc959d23aebea082d873e9474998e7f17b1b320
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909555"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295163"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Ative Directy B2B colaboração API e personalização
 
@@ -80,7 +80,7 @@ Neste modo, quem estiver a usar a API precisa de ter as permissões para criar c
 
 No contexto apenas da aplicação, a aplicação precisa do Utilizador.Convidar.Todas as possibilidades para o convite ter sucesso.
 
-Para mais informações, consulte:https://developer.microsoft.com/graph/docs/authorization/permission_scopes
+Para mais informações, consulte: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell

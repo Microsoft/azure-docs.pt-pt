@@ -1,6 +1,6 @@
 ---
 title: Criar FQDN para um VM no portal Azure
-description: Saiba como criar um Nome de Domínio Totalmente Qualificado, ou FQDN, para uma máquina virtual baseada em Gestor de Recursos no portal Azure.
+description: Saiba como criar um Nome de Domínio Totalmente Qualificado, ou FQDN, para uma máquina virtual Linux no portal Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: networking
@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9ac44c8d157102a39df9c580938589862dafd0a4
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: deae22ad0c763e48df053d19beefba6054ed2767
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371894"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331476"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Crie um nome de domínio totalmente qualificado no portal Azure para um Linux VM
 

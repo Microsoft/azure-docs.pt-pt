@@ -4,17 +4,17 @@ description: Azure Security Benchmark V2 Logging e Deteção de Ameaças
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 24ddca37a729a459382fc96a2f6e0ef1a7832f37
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 9ada1956af2dabdb8e5deff33722af7a8691dd19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059297"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295469"
 ---
-# <a name="security-control-logging-and-threat-detection"></a>Controlo de Segurança: Registo e Deteção de Ameaças
+# <a name="security-control-v2-logging-and-threat-detection"></a>Controlo de Segurança V2: Registo e deteção de ameaças
 
 A deteção de registos e deteção de ameaças abrange os controlos de deteção de ameaças no Azure e a capacitação, recolha e armazenamento de registos de auditoria para os serviços Azure. Isto inclui permitir processos de deteção, investigação e remediação com controlos para gerar alertas de alta qualidade com deteção de ameaças nativas nos serviços Azure; inclui também a recolha de registos com o Azure Monitor, a centralização da análise de segurança com o Azure Sentinel, a sincronização do tempo e a retenção de registos. 
 
@@ -40,11 +40,11 @@ Além disso, use o Azure Sentinel para construir regras de análise, que caçam 
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Segurança de infraestrutura e pontos finais](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Operações de segurança (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -77,11 +77,11 @@ O Azure Security Center também pode alertar para certas atividades suspeitas, c
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Segurança de infraestrutura e pontos finais](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Operações de segurança (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -111,11 +111,11 @@ Ativar e recolher registos de recursos do grupo de segurança da rede (NSG), reg
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Segurança de infraestrutura e pontos finais](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Operações de segurança (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -129,7 +129,7 @@ Ativar e recolher registos de recursos do grupo de segurança da rede (NSG), reg
 |--|--|--|--|
 | LT-4 | 6.2, 6.3, 8.8 | AU-3, AU-12 |
 
-Permitir a exploração madeireira dos recursos Azure para satisfazer os requisitos de conformidade, deteção e investigação de ameaças e caça a ameaças. 
+Permitir a exploração madeireira dos recursos Azure para satisfazer os requisitos de conformidade, deteção de ameaças, caça e investigação de incidentes. 
 
 Pode utilizar o Azure Security Center e a Azure Policy para permitir registos de recursos e registar a recolha de dados nos recursos da Azure para acesso a registos de auditoria, segurança e recursos. Os registos de atividade, que estão automaticamente disponíveis, incluem fonte de evento, data, utilizador, marcação de tempo, endereços de origem, endereços de destino e outros elementos úteis. 
 
@@ -141,13 +141,13 @@ Pode utilizar o Azure Security Center e a Azure Policy para permitir registos de
 
 **Responsabilidade**: Compartilhado
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-- [Operações de segurança (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 Segurança de infraestrutura e pontos finais 
 
-- [Segurança de Aplicações e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Segurança de aplicações e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
 - [Informações sobre ameaças](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
@@ -171,7 +171,7 @@ Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que s
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -185,25 +185,25 @@ Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que s
 |--|--|--|--|
 | LT-6 | 6.4 | AU-3, AU-11 |
 
-Configure a sua retenção de registo de acordo com a sua conformidade, regulação e outros requisitos. 
+Configure a sua retenção de registos de acordo com os seus requisitos de conformidade, regulação e negócio. 
 
 No Azure Monitor, pode definir o período de retenção do espaço de trabalho do Log Analytics de acordo com os regulamentos de conformidade da sua organização. Utilize o espaço de trabalho Azure Storage, Data Lake ou Log Analytics para armazenamento de longo prazo e arquivo.
 
 - [Alterar o período de retenção de dados em Log Analytics](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-Como configurar a política de retenção para os registos de conta de armazenamento Azure: ttps://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging
+- [Como configurar a política de retenção para os registos de conta de armazenamento Azure](../../storage/common/storage-monitor-storage-account.md#configure-logging)
 
 - [Alertas e recomendações do Centro de Segurança Azure](../../security-center/continuous-export.md)
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
 - [Segurança de Aplicações e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-- [Operações de segurança (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
 
 - [Gestão de conformidade de segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -225,7 +225,7 @@ Todos os registos gerados por recursos dentro do Azure fornecem carimbos de temp
 
 **Responsabilidade**: Compartilhado
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Política e normas](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 

@@ -78,7 +78,7 @@
     - name: Criar um ponto final SCIM e configurar o aprovisionamento
       href: use-scim-to-provision-users-and-groups.md
     - name: Automatizar a configuração com o MS Graph
-      href: application-provisioning-configure-api.md
+      href: 'https://docs.microsoft.com/graph/application-provisioning-configure-api'
 - name: Referência
   items:
     - name: Conformidade do protocolo SCIM 2.0

@@ -2,13 +2,13 @@
 title: Mobilizar recursos para inquilino
 description: Descreve como implantar recursos no âmbito do inquilino num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: 9b653f3fd4ed66f23521ea3ec8f9972e3b6cc09c
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.date: 09/24/2020
+ms.openlocfilehash: af75e4f0e51ac685986e57b3b92a23dd37174460
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468560"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284764"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Criar recursos ao nível dos inquilinos
 
@@ -42,7 +42,7 @@ Para gerir custos, utilize:
 * [instruções](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
 * [faturaSecções](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
 
-### <a name="schema"></a>Esquema
+## <a name="schema"></a>Esquema
 
 O esquema que você usa para implantações de inquilinos é diferente do esquema para implantações de grupos de recursos.
 
@@ -78,11 +78,23 @@ O Administrador Global do Diretório Ativo Azure não tem automaticamente permis
 
 O principal tem agora as permissões necessárias para implementar o modelo.
 
+## <a name="deployment-scopes"></a>Âmbitos de implantação
+
+Ao ser destacado para um inquilino, pode direcionar o inquilino ou grupos de gestão, subscrições e grupos de recursos no arrendatário. O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
+
+Os recursos definidos na secção de recursos do modelo são aplicados ao arrendatário.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-tenant.json" highlight="5":::
+
+Para direcionar um grupo de gestão dentro do inquilino, adicione uma implantação aninhada e especifique o `scope` imóvel.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/tenant-to-mg.json" highlight="10,17,22":::
+
 ## <a name="deployment-commands"></a>Comandos de implantação
 
 Os comandos para implantações de inquilinos são diferentes dos comandos para implantações de grupos de recursos.
 
-Para o Azure CLI, utilize [o inquilino de implantação az criar:](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create)
+Para o Azure CLI, utilize [o inquilino de implantação az criar:](/cli/azure/deployment/tenant#az-deployment-tenant-create)
 
 ```azurecli-interactive
 az deployment tenant create \
@@ -109,56 +121,6 @@ Para implantações de nível de inquilino, você deve fornecer uma localizaçã
 Pode fornecer um nome para a implementação ou utilizar o nome de implementação predefinido. O nome predefinido é o nome do ficheiro do modelo. Por exemplo, a implementação de um modelo denominado **azuredeploy.jscria** um nome de implementação padrão de **azuredeploy**.
 
 Para cada nome de implantação, a localização é imutável. Não é possível criar uma implantação num local quando há uma implantação existente com o mesmo nome num local diferente. Se obter o código de erro `InvalidDeploymentLocation` , utilize um nome diferente ou o mesmo local que a colocação anterior para esse nome.
-
-## <a name="deployment-scopes"></a>Âmbitos de implantação
-
-Ao ser destacado para um inquilino, pode direcionar o inquilino ou grupos de gestão, subscrições e grupos de recursos no arrendatário. O utilizador que implementa o modelo deve ter acesso ao âmbito especificado.
-
-Os recursos definidos na secção de recursos do modelo são aplicados ao arrendatário.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        tenant-level-resources
-    ],
-    "outputs": {}
-}
-```
-
-Para direcionar um grupo de gestão dentro do inquilino, adicione uma implantação aninhada e especifique o `scope` imóvel.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "mgName": {
-            "type": "string"
-        }
-    },
-    "variables": {
-        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
-    },
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "nestedMG",
-            "scope": "[variables('mgId')]",
-            "location": "eastus",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    nested-template-with-resources-in-mg
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
 
 ## <a name="use-template-functions"></a>Use funções de modelo
 
@@ -251,7 +213,7 @@ O [modelo a seguir](https://github.com/Azure/azure-quickstart-templates/tree/mas
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender sobre a atribuição de funções, consulte atribuições de [funções Add Azure utilizando modelos do Gestor de Recursos Azure](../../role-based-access-control/role-assignments-template.md).
 * Também pode implementar modelos ao [nível de subscrição](deploy-to-subscription.md) ou [ao nível do grupo de gestão.](deploy-to-management-group.md)

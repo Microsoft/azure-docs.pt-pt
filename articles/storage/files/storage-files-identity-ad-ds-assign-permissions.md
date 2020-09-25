@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 16c8058da30821a53a20cf3ea6afdb0e4dbfcb77
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 287bd02a11c71fbdd29b28b5ec9fc8424a477fea
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535098"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320358"
 ---
 # <a name="part-two-assign-share-level-permissions-to-an-identity"></a>Parte dois: atribuir permissões de nível de partilha a uma identidade
 
@@ -47,7 +47,7 @@ Para atribuir um papel de Azure a uma identidade AD Azure, utilizando o [portal 
 1. No portal Azure, vá à sua partilha de ficheiros ou [crie uma partilha de ficheiros](storage-how-to-create-file-share.md).
 1. Selecione **Controlo de Acesso (IAM)**.
 1. **Selecione Adicionar uma atribuição de função**
-1. Na lâmina de atribuição de **funções Add,** selecione a função incorporada adequada (Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor) da lista **Role.** Deixar **Atribuir acesso à** definição predefinida: **utilizador, grupo ou principal de serviço Azure**. Selecione a identidade AD Azure alvo pelo nome ou endereço de e-mail. A identidade AD AD selecionada deve ser uma identidade híbrida e não pode ser apenas uma identidade em nuvem. Isto significa que a mesma identidade também está representada na DS AD.
+1. Na lâmina de atribuição de **funções Add,** selecione a função incorporada adequada (Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor) da lista **Role.** Deixar **Atribuir acesso à** definição predefinida: **utilizador, grupo ou principal de serviço Azure**. Selecione a identidade AD Azure alvo pelo nome ou endereço de e-mail. **A identidade AD AD selecionada deve ser uma identidade híbrida e não pode ser apenas uma identidade em nuvem.** Isto significa que a mesma identidade também está representada na DS AD.
 1. **Selecione Guardar** para completar a operação de atribuição de funções.
 
 ### <a name="powershell"></a>PowerShell

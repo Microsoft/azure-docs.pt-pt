@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: db0c5890add303d85bdec76e00b8377567226a38
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cece53544bfc8287f6ef542575d92b05032991f0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904710"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318046"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para máquinas
 
@@ -45,7 +45,7 @@ Os dois separadores abaixo mostram as funcionalidades do Azure Security Center q
 |Avaliação de patches de SO em falta|✔|✔|✔|Azure: Grátis<br><br>Non-Azure: Sim|
 |Avaliação de erros de segurança|✔|✔|✔|Azure: Não<br><br>Non-Azure: Sim|
 |[Avaliação da proteção do ponto final](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: Não<br><br>Non-Azure: Sim|
-|Avaliação da encriptação do disco|✔|✔|-|Gratuito|
+|Avaliação da encriptação do disco|✔</br>(para [cenários apoiados)](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)|✔|-|Gratuito|
 |Avaliação da vulnerabilidade de terceiros|✔|-|-|Gratuito|
 |[Avaliação da segurança da rede](security-center-network-recommendations.md)|✔|✔|-|Gratuito|
 
@@ -69,7 +69,7 @@ Os dois separadores abaixo mostram as funcionalidades do Azure Security Center q
 |Avaliação de patches de SO em falta|✔|✔|✔|Azure: Grátis<br><br>Non-Azure: Sim|
 |Avaliação de erros de segurança|✔|✔|✔|Azure: Grátis<br><br>Non-Azure: Sim|
 |[Avaliação da proteção do ponto final](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Gratuito|
-|Avaliação da encriptação do disco|✔|✔|-|Gratuito|
+|Avaliação da encriptação do disco|✔</br>(para [cenários apoiados)](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)|✔|-|Gratuito|
 |Avaliação da vulnerabilidade de terceiros|✔|-|-|Gratuito|
 |[Avaliação da segurança da rede](security-center-network-recommendations.md)|✔|✔|-|Gratuito|
 

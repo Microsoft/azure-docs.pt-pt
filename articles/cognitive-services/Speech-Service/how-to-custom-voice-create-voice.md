@@ -1,7 +1,7 @@
 ---
 title: Criar um serviço de voz personalizada - serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Quando estiver pronto para fazer o upload dos seus dados, vá ao portal Voz Personalizada. Criar ou selecionar um projeto De Voz Personalizada. O projeto deve partilhar a linguagem/localidade certa e as propriedades de género como os dados que pretende utilizar para a sua formação de voz.
+description: Quando estiver pronto para fazer o upload dos seus dados, vá ao portal Voz Personalizada. Criar ou selecionar um projeto De Voz Personalizada. O projeto deve partilhar a língua/localidade certa e as propriedades de género como os dados que pretende utilizar para a sua formação de voz.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 5f087a2880c16218905a4410a2f591511a155ffd
-ms.sourcegitcommit: d7fba095266e2fb5ad8776bffe97921a57832e23
+ms.openlocfilehash: 3747033fcaf65e0c6da07e9f1bb625771958bb4f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84629004"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319066"
 ---
 # <a name="create-a-custom-voice"></a>Criar uma voz personalizada
 
@@ -28,7 +28,7 @@ Consulte os idiomas suportados para obter voz personalizada: [linguagem para per
 
 ## <a name="upload-your-datasets"></a>Faça upload dos seus conjuntos de dados
 
-Quando estiver pronto para fazer o upload dos seus dados, aceda ao [portal Voz Personalizada](https://aka.ms/custom-voice-portal). Criar ou selecionar um projeto De Voz Personalizada. O projeto deve partilhar a linguagem/localidade certa e as propriedades de género como os dados que pretende utilizar para a sua formação de voz. Por exemplo, selecione `en-GB` se as gravações áudio que tiver são feitas em inglês com sotaque britânico.
+Quando estiver pronto para fazer o upload dos seus dados, aceda ao [portal Voz Personalizada](https://aka.ms/custom-voice-portal). Criar ou selecionar um projeto De Voz Personalizada. O projeto deve partilhar a língua/localidade certa e as propriedades de género como os dados que pretende utilizar para a sua formação de voz. Por exemplo, selecione `en-GB` se as gravações áudio que tiver são feitas em inglês com sotaque britânico.
 
 Vá ao separador **Dados** e clique em **Enviar dados.** No assistente, selecione o tipo de dados correto que corresponda ao que preparou.
 
@@ -47,8 +47,8 @@ O quadro que se segue mostra os estados de tratamento dos conjuntos de dados imp
 | Estado | Significado |
 | ----- | ------- |
 | Em processamento | O seu conjunto de dados foi recebido e está a ser processado. |
-| Bem-sucedido | O seu conjunto de dados foi validado e pode agora ser utilizado para construir um modelo de voz. |
-| Falhou | O seu conjunto de dados foi falhado durante o processamento devido a muitas razões, por exemplo, erros de ficheiros, problemas de dados ou problemas de rede. |
+| Com êxito | O seu conjunto de dados foi validado e pode agora ser utilizado para construir um modelo de voz. |
+| Com falhas | O seu conjunto de dados foi falhado durante o processamento devido a muitas razões, por exemplo, erros de ficheiros, problemas de dados ou problemas de rede. |
 
 Após a validação estar completa, pode ver o número total de expressões correspondidas para cada um dos seus conjuntos de dados na coluna **Utterances.** Se o tipo de dados selecionado requer segmentação de áudio longo, esta coluna apenas reflete as expressões que segmentamos para si, quer com base nas suas transcrições, quer através do serviço de transcrição de fala. Pode ainda descarregar o conjunto de dados validado para ver os resultados dos detalhes das expressões importadas com sucesso e as suas transcrições de mapeamento. Atenção: a segmentação de áudio longo pode demorar mais de uma hora a completar o processamento de dados.
 
@@ -89,8 +89,8 @@ O estado mostrado reflete o processo de conversão do seu conjunto de dados para
 | Estado | Significado |
 | ----- | ------- |
 | Em processamento | O teu modelo de voz está a ser criado. |
-| Bem-sucedido | O seu modelo de voz foi criado e pode ser implementado. |
-| Falhou | O seu modelo de voz falhou na formação devido a muitas razões, por exemplo, problemas de dados invisíveis ou problemas de rede. |
+| Com êxito | O seu modelo de voz foi criado e pode ser implementado. |
+| Com falhas | O seu modelo de voz falhou na formação devido a muitas razões, por exemplo, problemas de dados invisíveis ou problemas de rede. |
 
 O tempo de formação varia consoante o volume de dados áudio processados. Os tempos típicos variam de cerca de 30 minutos para centenas de proclamações a 40 horas para 20.000 proclamações. Uma vez que o seu treino de modelo seja bem sucedido, você pode começar a testá-lo.
 
@@ -117,7 +117,7 @@ Depois de a sua fonte de voz ter sido construída com sucesso, pode testá-la an
     > [!NOTE]
     > A linguagem do seu texto deve ser a mesma que a língua do seu tipo de letra de voz. Só podem ser testados modelos treinados com sucesso. Apenas texto simples é apoiado neste passo.
 
-5.  Clique em **Criar**.
+5.  Clique em **Create** (Criar).
 
 Uma vez submetido o seu pedido de teste, voltará à página de teste. A tabela inclui agora uma entrada que corresponde ao seu novo pedido e à coluna de estado. Pode levar alguns minutos para sintetizar o discurso. Quando a coluna de estado diz **"Bem sucedido",** pode reproduzir o áudio ou transferir a entrada de texto (um ficheiro .txt) e a saída de áudio (um ficheiro .wav) e fazer uma audição adicional para obter qualidade.
 
@@ -143,7 +143,7 @@ Os testes online do ponto final também estão disponíveis através do portal d
 
 O ponto final personalizado é funcionalmente idêntico ao ponto final padrão que é usado para pedidos de texto-a-fala. Consulte [a API REST](rest-text-to-speech.md) para obter mais informações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Guia: Grave as suas amostras de voz](record-custom-voice-samples.md)
 * [Referência de API text-to-speech](rest-text-to-speech.md)

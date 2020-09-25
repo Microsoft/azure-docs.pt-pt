@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 21b90f423a3ba3c7fa38334c79aec9dc65a250cd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b79bf5e8ead16bbdf9c69e8d7faae43fa778ab3e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079185"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316584"
 ---
 # <a name="limits-and-quotas"></a>Limites e quotas
 
@@ -39,7 +39,7 @@ Espera-se que o número de imagens de formação por projeto e etiquetas por pro
 |[Outras chamadas da API](https://go.microsoft.com/fwlink/?linkid=865446) (Transações por Segundo)|10|10|
 |Tipos de imagem aceites|jpg, png, bmp, gif|jpg, png, bmp, gif|
 |Min altura/largura de imagem em pixéis|256 (ver nota)|256 (ver nota)|
-|Altura/largura de imagem máxima em pixéis|ilimitado|ilimitado|
+|Altura/largura de imagem máxima em pixéis|10,240|10,240|
 |Tamanho de imagem max (upload de imagem de treino) |6 MB|6 MB|
 |Tamanho da imagem máxima (previsão)|4 MB|4 MB|
 |Regiões max por imagem de treino de deteção de objetos|300|300|
@@ -47,3 +47,4 @@ Espera-se que o número de imagens de formação por projeto e etiquetas por pro
 
 > [!NOTE]
 > Imagens inferiores a 256 pixels serão aceites, mas de luxo.
+> Rácio de aspeto de imagem não deve ser maior que 25

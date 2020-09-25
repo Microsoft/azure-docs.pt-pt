@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: bbec605f25c2e74178bdb5c28d0a7995e4e265f1
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9e032b8bb2dd8c82e8b076517f4309baae41c6f9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690396"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320324"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API do Azure Time Series Insights
 
@@ -85,7 +85,7 @@ Por **passo 3,** separar as credenciais da sua aplicação e do seu utilizador p
 
    1. Em C#, o seguinte código pode adquirir o token em nome da aplicação. Para obter uma amostra completa de como consultar dados de um ambiente Gen1, leia [os dados de consulta utilizando C#](time-series-insights-query-data-csharp.md).
 
-        Consulte o [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)] repo para aceder ao código C#. 
+        Consulte o [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs)] repo para aceder ao código C#.
 
    1. O token pode então ser passado no `Authorization` cabeçalho quando a aplicação chama a AZure Time Series Insights API.
 
@@ -110,19 +110,19 @@ Para realizar consultas autenticadas contra o [Azure Time Series Insights REST A
 
 Os cabeçalhos de pedido necessários são descritos abaixo.
 
-| Cabeçalho de pedido exigido | Descrição |
+| Cabeçalho de pedido exigido | Description |
 | --- | --- |
 | Autorização | Para autenticar com a Azure Time Series Insights, um token OAuth 2.0 Bearer válido deve ser passado no cabeçalho **de autorização.** |
 
 > [!IMPORTANT]
 > O símbolo deve ser emitido exatamente para o `https://api.timeseries.azure.com/` recurso (também conhecido como o "público" do token).
 
-> * O [seu Carteiro](https://www.getpostman.com/) **AuthURL** será, portanto,: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com/.default`
+> * O [seu Carteiro](https://www.getpostman.com/) **AuthURL** será, portanto,: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?scope=https://api.timeseries.azure.com//.default`
 > * `https://api.timeseries.azure.com/` é válido, mas `https://api.timeseries.azure.com` não é.
 
 Os cabeçalhos de pedido opcionais são descritos abaixo.
 
-| Cabeçalho de pedido opcional | Descrição |
+| Cabeçalho de pedido opcional | Description |
 | --- | --- |
 | Tipo de conteúdo | só `application/json` é suportado. |
 | x-ms-cliente-pedido-id | Um pedido de identificação do cliente. O serviço regista este valor. Permite que o serviço rastreie a operação através dos serviços. |
@@ -131,7 +131,7 @@ Os cabeçalhos de pedido opcionais são descritos abaixo.
 
 Os cabeçalhos de resposta opcionais mas recomendados são descritos abaixo.
 
-| Cabeçalho de resposta | Descrição |
+| Cabeçalho de resposta | Description |
 | --- | --- |
 | Tipo de conteúdo | Só `application/json` é apoiado. |
 | x-ms-request-id | ID de pedido gerado pelo servidor. Pode ser usado para contactar a Microsoft para investigar um pedido. |

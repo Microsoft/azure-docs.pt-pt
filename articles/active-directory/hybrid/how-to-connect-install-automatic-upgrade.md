@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcc6de1ce50e86f177023a0a66c436633c8d502c
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 9c8dcc8766b21551f3cd62289805fe735ef0f333
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053291"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317621"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: atualização automática
 Esta característica foi introduzida com a construção [1.1.105.0 (lançada fevereiro de 2016)](reference-connect-version-history.md).  Esta funcionalidade foi atualizada na [build 1.1.561](reference-connect-version-history.md) e agora suporta cenários adicionais que anteriormente não eram suportados.
@@ -63,15 +63,15 @@ Também é possível obter um resultado que não seja um UpgradeResult, ou seja,
 
 Em seguida, certifique-se de que abriu os URLs necessários no seu representante ou firewall. A atualização automática está a utilizar o Azure AD Connect Health, conforme descrito na [visão geral](#overview). Se utilizar um representante, certifique-se de que a Saúde foi configurada para utilizar um [servidor proxy](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy). Teste também a [conectividade de Saúde](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service) ao Azure AD.
 
-Com a conectividade com a Azure AD verificada, é hora de olhar para os eventlogs. Inicie o espectador do evento e olhe no eventlog **da Aplicação.** Adicione um filtro de eventlog para a fonte **Azure AD Connect Upgrade** e a gama de id do evento **300-399**.  
-![Filtro Eventlog para upgrade automático](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
+Com a conectividade com a Azure AD verificada, é hora de olhar para os eventlogs. Inicie o espectador do evento e olhe no eventlog **da Aplicação.** Adicione um filtro de eventlog para a fonte **Azure AD Connect Upgrade** e a gama de ID do evento **300-399**.  
+![Screenshot que mostra a janela "Filter Current Log" com "Fontes de evento" e a caixa de IDs de evento "Incluir/Excluir" realçada.](./media/how-to-connect-install-automatic-upgrade/eventlogfilter.png)  
 
 Agora pode ver os registos associados ao estado de atualização automática.  
 ![Filtro Eventlog para upgrade automático](./media/how-to-connect-install-automatic-upgrade/eventlogresult.png)  
 
 O código de resultados tem um prefixo com uma visão geral do estado.
 
-| Prefixo do código de resultados | Descrição |
+| Prefixo do código de resultados | Description |
 | --- | --- |
 | Success |A instalação foi atualizada com sucesso. |
 | UpgradeAborted |Uma condição temporária parou a atualização. Será novamente julgado e a expectativa é que tenha sucesso mais tarde. |
@@ -79,7 +79,7 @@ O código de resultados tem um prefixo com uma visão geral do estado.
 
 Aqui está uma lista das mensagens mais comuns que encontra. Não enumera todos, mas a mensagem de resultados deve ser clara com o problema.
 
-| Mensagem de Resultados | Descrição |
+| Mensagem de Resultados | Description |
 | --- | --- |
 | **UpgradeAborted** | |
 | UpgradeAbortedCouldNotSetUpgradeMarker |Não podia escrever ao registo. |

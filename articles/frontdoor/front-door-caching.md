@@ -1,6 +1,6 @@
 ---
 title: Azure Front Door - caching / Microsoft Docs
-description: Este artigo ajuda-o a entender como a Porta Frontal Azure monitoriza a saúde dos seus backends
+description: Este artigo ajuda-o a compreender o comportamento da Porta da Frente com regras de encaminhamento que permitiram o caching.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/16/2020
 ms.author: duau
-ms.openlocfilehash: aada5b976721fdfed31131095f7f2b12aefefea9
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 221627a756c69d11ec5385b12970bb835d6a0a0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024286"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318459"
 ---
 # <a name="caching-with-azure-front-door"></a>Caching com Azure Front Door
 O documento que se segue especifica o comportamento para a Porta frontal com regras de encaminhamento que permitiram o caching. Front Door é uma moderna Rede de Entrega de Conteúdos (CDN) e assim, juntamente com a aceleração dinâmica do site e o equilíbrio de carga, também suporta comportamentos de caching como qualquer outro CDN.
@@ -113,7 +113,7 @@ As purgas de cache na porta da frente são insensíveis. Além disso, são agnó
 2. Cache-Control: max-age=\<seconds>
 3. Expira: \<http-date>
 
-Cabeçalhos de resposta cache-Control que indicam que a resposta não será em cache como Cache-Control: privado, Cache-Control: no-cache e Cache-Control: não há loja é honrada. No entanto, se houver vários pedidos a bordo de um POP para o mesmo URL, podem partilhar a resposta. Se não houver cache-control o comportamento padrão é que o AFD cache o recurso por X quantidade de tempo onde X é escolhido aleatoriamente entre 1 a 3 dias.
+Cabeçalhos de resposta cache-Control que indicam que a resposta não será em cache como Cache-Control: privado, Cache-Control: no-cache e Cache-Control: não há loja é honrada.  Se não houver cache-control o comportamento padrão é que o AFD cache o recurso por X quantidade de tempo onde X é escolhido aleatoriamente entre 1 a 3 dias.
 
 ## <a name="request-headers"></a>Cabeçalhos do pedido
 
@@ -127,7 +127,7 @@ A duração da cache pode ser configurada tanto no Front Door Designer como no R
 
 A duração da cache definida através do Rules Engine é uma verdadeira sobreposição de cache, o que significa que utilizará o valor de substituição independentemente do que é o cabeçalho de resposta de origem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
 - Saiba [como funciona o Front Door](front-door-routing-architecture.md).

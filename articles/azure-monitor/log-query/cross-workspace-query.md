@@ -6,27 +6,30 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: 7cfa3d5652e13ddc88db70674049069a5b391297
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e2f9430ae039cc54c3e6180eb8ea76791d17f67f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322130"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285133"
 ---
-# <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Realize consultas de registo de recursos cruzados no Azure Monitor  
+# <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Realize consulta de log no Azure Monitor que se estende por espaços de trabalho e apps
+
+Azure Monitor Logs suporta consulta em vários espaços de trabalho do Log Analytics e aplicações De Insights de Aplicação no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição. Isto fornece-lhe uma visão de todo o sistema dos seus dados.
+
+Existem dois métodos para consultar dados que são armazenados em múltiplos espaços de trabalho e apps:
+1. Explicitamente especificando o espaço de trabalho e os detalhes da aplicação. Esta técnica é detalhada neste artigo.
+2. Implicitamente usando [consultas de contexto de recursos.](../platform/design-logs-deployment.md#access-mode) Quando consultar no contexto de um recurso específico, grupo de recursos ou uma subscrição, os dados relevantes serão recolhidos de todos os espaços de trabalho que contenham dados para estes recursos. Os dados do Application Insights que são armazenados em apps, não serão recolhidos.
 
 > [!IMPORTANT]
 > Se estiver a utilizar uma telemetria [de recursos de aplicações baseada no espaço de trabalho,](../app/create-workspace-resource.md) é armazenada num espaço de trabalho do Log Analytics com todos os outros dados de registo. Utilize a expressão log() para escrever uma consulta que inclua aplicação em vários espaços de trabalho. Para várias aplicações no mesmo espaço de trabalho, você não precisa de uma consulta de espaço de trabalho transversal.
 
-Anteriormente com o Azure Monitor, só era possível analisar dados dentro do espaço de trabalho atual, e limitou a sua capacidade de consulta em vários espaços de trabalho definidos na sua subscrição.  Além disso, só é possível pesquisar itens de telemetria recolhidos a partir da sua aplicação baseada na Web com Application Insights diretamente em Application Insights ou no Visual Studio. Isto também fez com que fosse um desafio analisar de forma nativa os dados operacionais e de aplicação em conjunto.
-
-Agora pode consultar não só vários espaços de trabalho do Log Analytics, mas também dados de uma aplicação específica de Insights de Aplicação no mesmo grupo de recursos, outro grupo de recursos ou outra subscrição. Isto fornece-lhe uma visão de todo o sistema dos seus dados. Só é possível realizar este tipo de consultas no [Log Analytics.](./log-query-overview.md)
 
 ## <a name="cross-resource-query-limits"></a>Limites de consulta de recursos cruzados 
 
 * O número de recursos de Application Insights e espaços de trabalho log Analytics que pode incluir numa única consulta está limitado a 100.
 * A consulta de recursos cruzados não é suportada no View Designer. Pode autorizar uma consulta no Log Analytics e fixá-la no painel Azure para [visualizar uma consulta de registo](../learn/tutorial-logs-dashboards.md). 
-* A consulta de recursos cruzados nos alertas de registo é suportada na nova [API agendada deQueryRules](/rest/api/monitor/scheduledqueryrules). Por predefinição, o Azure Monitor utiliza a [api de alerta de log analytics para](../platform/api-alerts.md) criar novas regras de alerta de registo a partir do portal Azure, a menos que mude de [API de alertas](../platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api)de registo legados . Após a troca, a nova API torna-se o padrão para novas regras de alerta no portal Azure e permite criar regras de alerta de registo de consulta de recursos cruzados. Pode criar regras de alerta de registo de consulta de recursos cruzados sem escamar o interruptor utilizando o [modelo Azure Resource Manager para a API agendada](../platform/alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template) – mas esta regra de alerta é gerível apesar da [API de Regras Api e](/rest/api/monitor/scheduledqueryrules) não do portal Azure.
+* As consultas de recursos cruzados nos alertas de registo só são suportadas na atual [API agendada para a API](/rest/api/monitor/scheduledqueryrules). Se estiver a utilizar o legado Log Analytics Alerts API, terá de [mudar para a API atual.](../platform/alerts-log-api-switch.md)
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Consulta através de espaços de trabalho log analytics e de Insights de Aplicação
@@ -132,7 +135,7 @@ applicationsScoping
 ```
 
 >[!NOTE]
->Este método não pode ser usado com alertas de registo porque a validação de acesso dos recursos da regra de alerta, incluindo espaços de trabalho e aplicações, é realizada no momento de criação de alerta. A adição de novos recursos à função após a criação de alerta não é suportada. Se preferir utilizar a função para a deteção de recursos em alertas de registo, tem de editar a regra de alerta no portal ou com um modelo de Gestor de Recursos para atualizar os recursos agrafado. Em alternativa, pode incluir a lista de recursos na consulta de alerta de registo.
+> Este método não pode ser usado com alertas de registo porque a validação de acesso dos recursos da regra de alerta, incluindo espaços de trabalho e aplicações, é realizada no momento de criação de alerta. A adição de novos recursos à função após a criação de alerta não é suportada. Se preferir utilizar a função para a deteção de recursos em alertas de registo, tem de editar a regra de alerta no portal ou com um modelo de Gestor de Recursos para atualizar os recursos agrafado. Em alternativa, pode incluir a lista de recursos na consulta de alerta de registo.
 
 
 ![Timechart](media/cross-workspace-query/chart.png)

@@ -1,34 +1,36 @@
 ---
-title: Definições de candidatura - LUIS
-description: As definições de aplicações para aplicações de compreensão linguística dos Serviços Cognitivos Azure estão armazenadas na aplicação e portal.
+title: Definições de aplicação - LUIS
+description: As definições de aplicações para aplicações de compreensão de idiomas Azure Cognitive Services são armazenadas na aplicação e portal.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/04/2020
-ms.openlocfilehash: 7b545e0959a43520b7d643ef8c0658a1e1a3b295
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 0578e3c3c952a475c6beb01ffcf354e19eda6e26
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83590995"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319168"
 ---
-# <a name="app-and-version-settings"></a>Definições de aplicativos e versão
+# <a name="app-and-version-settings"></a>Definições de aplicações e versão
 
-Estas configurações são armazenadas na app [exportada](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) e atualizadas com as APIs rest ou portal LUIS.
+Estas configurações são armazenadas na aplicação [exportada](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) e atualizadas com o portal REST APIs ou LUIS.
 
-Alterar as definições da versão da aplicação repõe o estado de treino da aplicação para destreinado.
+Alterar as definições da versão da aplicação reinicia o estado de formação da aplicação para não treinar.
 
 [!INCLUDE [App and version settings](includes/app-version-settings.md)]
 
 
-A referência de texto e os exemplos incluem:
+Referência de texto e exemplos incluem:
 
 * [Pontuação](#punctuation-normalization)
-* [Diacritics](#diacritics-normalization)
+* [Diacríticos](#diacritics-normalization)
 
-## <a name="diacritics-normalization"></a>Normalização dos diacríticos
+## <a name="diacritics-normalization"></a>Normalização diacrítica
 
-As seguintes declarações mostram como a normalização dos diacritics tem impacto nas expressões:
+As seguintes declarações mostram como a normalização dos diacríticos impacta as expressões:
 
-|Com diacritics definido para falso|Com diacritics definidos para verdade|
+|Com diacríticos definidos para falso|Com diacríticos definidos para verdade|
 |--|--|
 |`quiero tomar una piña colada`|`quiero tomar una pina colada`|
 |||
@@ -37,7 +39,7 @@ As seguintes declarações mostram como a normalização dos diacritics tem impa
 
 #### <a name="brazilian-portuguese-pt-br-diacritics"></a>`pt-br`Diacríticos portugueses brasileiros
 
-|Diacritics definido para falso|Diacritics definido para verdade|
+|Diacríticos definidos para falso|Diacrítico definido para verdadeiro|
 |-|-|
 |`á`|`a`|
 |`â`|`a`|
@@ -55,7 +57,7 @@ As seguintes declarações mostram como a normalização dos diacritics tem impa
 
 #### <a name="dutch-nl-nl-diacritics"></a>`nl-nl`Diacríticos holandeses
 
-|Diacritics definido para falso|Diacritics definido para verdade|
+|Diacríticos definidos para falso|Diacrítico definido para verdadeiro|
 |-|-|
 |`á`|`a`|
 |`à`|`a`|
@@ -72,9 +74,9 @@ As seguintes declarações mostram como a normalização dos diacritics tem impa
 
 #### <a name="french-fr--diacritics"></a>`fr-`Diacríticos franceses
 
-Isto inclui subculturas francesas e canadianas.
+Isto inclui as subculturas francesas e canadianas.
 
-|Diacritics definido para falso|Diacritics definido para verdade|
+|Diacríticos definidos para falso|Diacrítico definido para verdadeiro|
 |--|--|
 |`é`|`e`|
 |`à`|`a`|
@@ -93,7 +95,7 @@ Isto inclui subculturas francesas e canadianas.
 
 #### <a name="german-de-de-diacritics"></a>`de-de`Diacríticos alemães
 
-|Diacritics definido para falso|Diacritics definido para verdade|
+|Diacríticos definidos para falso|Diacrítico definido para verdadeiro|
 |--|--|
 |`ä`|`a`|
 |`ö`|`o`|
@@ -101,7 +103,7 @@ Isto inclui subculturas francesas e canadianas.
 
 #### <a name="italian-it-it-diacritics"></a>`it-it`Diacríticos italianos
 
-|Diacritics definido para falso|Diacritics definido para verdade|
+|Diacríticos definidos para falso|Diacrítico definido para verdadeiro|
 |--|--|
 |`à`|`a`|
 |`è`|`e`|
@@ -116,9 +118,9 @@ Isto inclui subculturas francesas e canadianas.
 
 #### <a name="spanish-es--diacritics"></a>`es-`Diacríticos espanhóis
 
-Isto inclui tanto o espanhol como o mexicano canadiano.
+Isto inclui tanto o espanhol como o canadiano mexicano.
 
-|Diacritics definido para falso|Diacritics definido para verdade|
+|Diacríticos definidos para falso|Diacrítico definido para verdadeiro|
 |-|-|
 |`á`|`a`|
 |`é`|`e`|
@@ -132,14 +134,14 @@ Isto inclui tanto o espanhol como o mexicano canadiano.
 
 As seguintes declarações mostram como a pontuação impacta as expressões:
 
-|Com pontuação definida para Falso|Com pontuação definida para True|
+|Com pontuação definida para Falso|Com pontuação definida para Verdadeiro|
 |--|--|
 |`Hmm..... I will take the cappuccino`|`Hmm I will take the cappuccino`|
 |||
 
 ### <a name="punctuation-removed"></a>Pontuação removida
 
-A pontuação a seguir é removida com `NormalizePunctuation` a verdadeira.
+A seguinte pontuação é removida com `NormalizePunctuation` é definida como verdadeira.
 
 |Pontuação|
 |--|
