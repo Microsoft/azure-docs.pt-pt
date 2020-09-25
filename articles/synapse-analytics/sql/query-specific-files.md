@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 04a308805dd69c4d9245d287a391f1e7fa7d50f2
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.reviewer: jrasnick
+ms.openlocfilehash: c03051e2c8fddc21e4399375faeff6a40fb4d0d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055571"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288108"
 ---
 # <a name="use-file-metadata-in-queries"></a>Use metadados de ficheiros em consultas
 
@@ -22,7 +22,7 @@ O SQL on-demand pode abordar vários ficheiros e pastas conforme descrito nas pa
 
 Por vezes, poderá ser necessário saber qual o ficheiro ou fonte de pasta que se relaciona com uma linha específica no conjunto de resultados.
 
-Pode utilizar a função `filepath` e `filename` devolver nomes de ficheiros e/ou o caminho no conjunto de resultados. Ou pode usá-los para filtrar dados com base no nome do ficheiro e/ou no caminho da pasta. Estas funções são descritas na [função](query-data-storage.md#filename-function) de nome de ficheiro da secção sintaxe e [função de filepa .](query-data-storage.md#filepath-function) Abaixo você encontrará breves descrições ao longo de amostras.
+Pode utilizar a função `filepath` e `filename` devolver nomes de ficheiros e/ou o caminho no conjunto de resultados. Ou pode usá-los para filtrar dados com base no nome do ficheiro e/ou no caminho da pasta. Estas funções são descritas na [função](query-data-storage.md#filename-function) de nome de ficheiro da secção sintaxe e [função de filepa .](query-data-storage.md#filepath-function) Nas secções seguintes, encontrará pequenas descrições ao longo de amostras.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

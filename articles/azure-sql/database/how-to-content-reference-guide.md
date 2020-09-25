@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlr
+ms.reviewer: sstein
 ms.date: 01/14/2020
-ms.openlocfilehash: e5fd842e47c606c8f41aafe72253c1c4a1e885f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa79af1047862e8694fa6342942ffd0793bafcb6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324403"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335012"
 ---
 # <a name="configure-and-manage-content-reference---azure-sql-database"></a>Configurar e gerir referência de conteúdo - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Neste artigo pode encontrar uma referência de conteúdo de vários guias, scrip
 
 - [Configure Azure Ative Directory (Azure AD) auth](authentication-aad-configure.md)
 - [Configure acesso condicional](conditional-access-configure.md)
-- [Auth AD multi-factor Azure](authentication-mfa-ssms-overview.md)
+- [Autenticação multifator do Azure AD](authentication-mfa-ssms-overview.md)
 - [Configurar a autenticação multi-factor](authentication-mfa-ssms-configure.md)
 - [Configurar a política de retenção temporal](temporal-tables-retention-policy.md)
 - [Configurar o TDE com o BYOK](transparent-data-encryption-byok-configure.md)
@@ -134,6 +134,6 @@ Neste artigo pode encontrar uma referência de conteúdo de vários guias, scrip
 - [Indexador de vídeos de SaaS](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
 - [Segurança de aplicação SaaS](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [como fazer guias para Azure SQL Managed Instance](../managed-instance/how-to-content-reference-guide.md)

@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 7f10454eff7958f59cf16b19e98918062b2a61a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 71032c49ac5164f13189baf64668f8998fdc186a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886319"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276089"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como funciona a Azure Machine Learning: Arquitetura e conceitos
 
@@ -102,24 +102,17 @@ Produz-se uma corrida quando se envia um guião para treinar um modelo. Uma corr
 
 [Espaço de](#workspace)  >  trabalho [Experiências](#experiments)  >  [Correr](#runs)  >  **Configuração de execução**
 
-Uma configuração de execução é um conjunto de instruções que define como um script deve ser executado em um alvo de computação especificado. A configuração inclui um vasto conjunto de definições de comportamento, tais como se usar um ambiente python existente ou usar um ambiente Conda que é construído a partir de uma especificação.
+Uma configuração de execução define como um script deve ser executado em um alvo de computação especificado. Utiliza a configuração para especificar o script, o alvo do cálculo e o ambiente Azure ML para executar, quaisquer configurações específicas do trabalho distribuídas e algumas propriedades adicionais. Para obter mais informações sobre o conjunto completo de opções configuráveis para execuções, consulte [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true).
 
 Uma configuração de execução pode ser persistido num ficheiro dentro do diretório que contém o seu script de treino.   Ou pode ser construído como um objeto na memória e usado para submeter uma corrida.
 
-Por exemplo, executar configurações, ver [Utilize um alvo de computação para treinar o seu modelo](how-to-set-up-training-targets.md).
-
-### <a name="estimators"></a>Estimadores
-
-Para facilitar a formação de modelos com quadros populares, a classe de estimador permite-lhe construir facilmente configurações de execução. Pode criar e utilizar um [Estimador](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true) genérico para submeter scripts de formação que utilizem qualquer estrutura de aprendizagem que escolher (como o scikit-learn).
-
-Para obter mais informações sobre os estimadores, consulte [os modelos Train ML com estimadores.](how-to-train-ml-models.md)
+Por exemplo, executar configurações, ver [Configurar uma execução de treino](how-to-set-up-training-targets.md).
 
 ### <a name="snapshots"></a>Instantâneos
 
 [Espaço de](#workspace)  >  trabalho [Experiências](#experiments)  >  [Correr](#runs)  >  **Instantâneo**
 
 Quando submete uma execução, o Azure Machine Learning comprime o diretório que contém o script como ficheiro zip e envia-o para o alvo do cálculo. O ficheiro zip é então extraído, e o script é executado lá. A Azure Machine Learning também armazena o ficheiro zip como um instantâneo como parte do registo de execução. Qualquer pessoa com acesso ao espaço de trabalho pode navegar num registo de execução e descarregar o instantâneo.
-
 
 ### <a name="logging"></a>Registo
 
@@ -133,7 +126,7 @@ Existem várias formas de visualizar os seus registos: monitorizar o estado da e
 
 ### <a name="git-tracking-and-integration"></a>Rastreio e integração de Git
 
-Quando se inicia uma corrida de treinamento onde o diretório de origem é um repositório local de Git, a informação sobre o repositório é armazenada na história da execução. Isto funciona com runs submetidos usando um estimador, pipeline ML ou script run. Também funciona para as execuções submetidas a partir do SDK ou machine learning CLI.
+Quando se inicia uma corrida de treinamento onde o diretório de origem é um repositório local de Git, a informação sobre o repositório é armazenada na história da execução. Isto funciona com runs submetidos usando uma configuração de execução de script ou pipeline ML. Também funciona para as execuções submetidas a partir do SDK ou machine learning CLI.
 
 Para obter mais informações, consulte [a integração do Git para a Azure Machine Learning.](concept-train-model-git-integration.md)
 

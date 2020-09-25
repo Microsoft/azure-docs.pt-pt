@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: f4afaf536a9c65758ad030e5cdeeee5fb97074d7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7cf9f18701317482284a3f1fa4b69a2c2927f64a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046675"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287717"
 ---
 # <a name="diagnose-azure-synapse-studio-preview-connectivity-issues-with-powershell-script"></a>Diagnosticar problemas de conectividade do Azure Synapse Studio (pré-visualização) com script PowerShell
 
@@ -27,13 +27,13 @@ O Azure Synapse Studio (pré-visualização) depende de um conjunto de pontos fi
 
 ## <a name="troubleshooting-steps"></a>Passos de resolução de problemas
 
-Clique no seguinte link e clique em "Guardar o alvo como":
+Clique com o botão direito no seguinte link e selecione "Guardar o alvo como":
 
 - [Test-AzureSynapse.ps1](https://go.microsoft.com/fwlink/?linkid=2119734)
 
 Em alternativa, pode abrir o link diretamente e guardar o ficheiro de script aberto. Não guarde o endereço do link acima, pois pode mudar no futuro.
 
-No explorador de ficheiros, clique com o botão direito no ficheiro de script descarregado e clique em "Executar com PowerShell".
+No explorador de ficheiros, clique com o botão direito no ficheiro de script descarregado e selecione "Run with PowerShell".
 
 ![Executar ficheiro de script descarregado com PowerShell](media/troubleshooting-synapse-studio-powershell/run-with-powershell.png)
 
@@ -58,4 +58,4 @@ Se for administrador de rede e afinar a configuração de firewall para o Azure 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Se os passos anteriores não ajudarem a resolvê-lo, [crie um bilhete de apoio](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).
+Se os passos anteriores não ajudarem a resolver o seu problema, [crie um bilhete de apoio](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).

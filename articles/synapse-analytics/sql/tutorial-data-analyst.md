@@ -1,6 +1,6 @@
 ---
 title: Utilize SQL on-demand (pré-visualização) para analisar conjuntos de dados Azure Open no Azure Synapse Studio (pré-visualização)
-description: Neste tutorial, você aprenderá a realizar facilmente a análise de dados exploratórios combinando diferentes conjuntos de dados Azure Open usando SQL on-demand (pré-visualização) e visualizar os resultados no Azure Synapse Studio.
+description: Aprenda a realizar facilmente a análise de dados exploratórios combinando diferentes conjuntos de dados Azure Open usando SQL on-demand (pré-visualização) e visualize os resultados no Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2fc98e927fcf9686f0f39dae600f944b485c5a06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: jrasnick
+ms.openlocfilehash: 6325c5c597ce0f85615780f7970a4a3c6c4c451b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089146"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288057"
 ---
 # <a name="use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Use SQL on-demand para analisar conjuntos de dados Azure Open e visualizar os resultados no Azure Synapse Studio
 
@@ -135,7 +135,7 @@ Mais uma vez, pode visualizar facilmente os dados traçando o gráfico **da Colu
 
 ![Gráfico de coluna mostrando número diário de passeios para 2016](./media/tutorial-data-analyst/7.png)
 
-Do gráfico de enredo, você pode ver que há um padrão semanal, com os sábados como o dia de pico. Durante os meses de verão, há menos passeios de táxi por causa de férias. Há também algumas quedas significativas no número de passeios de táxi sem um padrão claro de quando e por que eles ocorrem.
+Do gráfico de enredo, você pode ver que há um padrão semanal, com os sábados como o dia de pico. Durante os meses de verão, há menos passeios de táxi por causa de férias. Além disso, note algumas quedas significativas no número de passeios de táxi sem um padrão claro de quando e por que eles ocorrem.
 
 Em seguida, vamos ver se as quedas se relacionam com feriados públicos, juntando-se ao conjunto de dados de passeios de táxi de NYC com o conjunto de dados de Feriados Públicos:
 

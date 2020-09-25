@@ -4,12 +4,12 @@ description: Este tutorial irá acompanhá-lo como configurar a sua arquitetura 
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 27cc64eee31755bcefc9d0d82b7d06e52efcf183
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e37cb6a0679ee2e249de4ed8fa31c40d5082ea4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004549"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324132"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Construa a sua própria recuperação de desastres para tópicos personalizados na Grade de Eventos
 A recuperação de desastres centra-se na recuperação de uma grave perda de funcionalidade de aplicação. Este tutorial irá acompanhá-lo como configurar a sua arquitetura de eventos para recuperar se o serviço de Grade de Eventos se tornar insalubre numa determinada região.
@@ -72,7 +72,7 @@ Primeiro, crie dois tópicos de Grade de Eventos. Estes tópicos funcionarão co
    * Selecione o gancho web do tipo ponto final.
    * Desaponte o ponto final para o URL do seu recetor de eventos, que deve parecer algo como: `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-     ![Assinatura do evento principal da grelha de evento](./media/custom-disaster-recovery/create-primary-es.png)
+     ![Screenshot que mostra a página "Create Event Subscription - Basic" com os valores "Name", "Endpoint Type" e "Endpoint" em destaque.](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. Repita o mesmo fluxo para criar o seu tópico secundário e subscrição. Desta vez, substitua o sufixo "primário" por "secundário" para facilitar o rastreio. Finalmente, certifique-se de colocá-lo em uma região de Azure diferente. Enquanto pode colocá-lo onde quiser, recomenda-se que use as [Regiões Emparelhadas Azure.](../best-practices-availability-paired-regions.md) Colocar o tema secundário e a subscrição numa região diferente garante que os seus novos eventos fluirão mesmo que a região primária desça.
 

@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 336409b8b6f804b224b87d5fb11fded0654b8619
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0cdc9e242c2254cafaf0af75bcb8f8879cf3eb58
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90895529"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287833"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Azure Synapse Link (pré-visualização) para funcionalidades suportadas pelo Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Existem dois tipos de contentores em Azure Cosmos DB:
 > [!IMPORTANT]
 > A azure Synapse Link for Azure Cosmos DB é atualmente suportado em espaços de trabalho da Synapse que não têm gerido a rede virtual ativada. 
 
-Pode ligar-se a um recipiente DB Azure Cosmos sem permitir a Synapse Link, caso em que só pode ler/escrever na loja transacional. Segue-se a lista das funcionalidades atualmente suportadas no Synapse Link para Azure Cosmos DB. 
+Pode ligar-se a um recipiente DB Azure Cosmos sem permitir a Ligação Synapse. Neste cenário, só pode ler/escrever na loja transacional. Segue-se uma lista das funcionalidades atualmente suportadas no Synapse Link para Azure Cosmos DB. 
 
 | Categoria              | Descrição |[Spark](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) | [SQL sem servidor](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- | ----------------------------------------------------------- |
@@ -39,12 +39,12 @@ Pode ligar-se a um recipiente DB Azure Cosmos sem permitir a Synapse Link, caso 
 | **Ler**    | Tipo de recipiente DB Azure Cosmos que pode ser lido | OLTP / HTAP | HTAP  |
 | **Escrita**   | O tempo de execução do Azure Synapse pode ser usado para escrever dados num contentor DB Azure Cosmos | Yes | No |
 
-* Se escrever dados num contentor DB Azure Cosmos da Spark, isso acontece através da loja transacional da Azure Cosmos DB e impactará o desempenho das cargas de trabalho transacionais na Azure Cosmos DB e consumirá Unidades de Pedido.
-* A integração da piscina Sinaapse SQL através de tabelas externas não é suportada atualmente.
-
+* Se escrever dados num contentor DB Azure Cosmos da Spark, este processo acontece através da loja transacional da Azure Cosmos DB. Irá impactar o desempenho transacional da Azure Cosmos DB consumindo Unidades de Pedido.
+* A integração da piscina SQL através de mesas externas não é suportada atualmente.
+ 
 ## <a name="supported-code-generated-actions-for-spark"></a>Ações geradas por código para faíscas
 
-| Gesto              | Descrição |OLTP |HTAP  |
+| Gesto              | Description |OLTP |HTAP  |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **Carregar para DataFrame** |Carregue e leia dados num DataFrame de Faísca |✓| ✓ |
 | **Criar mesa spark** |Crie uma tabela que aponte para um recipiente DB Azure Cosmos|✓| ✓ |
@@ -53,10 +53,9 @@ Pode ligar-se a um recipiente DB Azure Cosmos sem permitir a Synapse Link, caso 
 | **Escrever streaming DataFrame para contentor** |Os dados de fluxo usando o feed de alteração DB do Azure Cosmos|✓| ✓ |
 
 
-
 ## <a name="supported-code-generated-actions-for-sql-serverless"></a>Ações geradas por código suportadas para o sql sem servidor
 
-| Gesto              | Descrição |OLTP |HTAP |
+| Gesto              | Description |OLTP |HTAP |
 | -------------------- | ----------------------------------------------------------- |----------------------------------------------------------- |----------------------------------------------------------- |
 | **Explorar dados** |Explore dados de um recipiente com sintaxe T-SQL familiar e inferência automática de esquemas|X| ✓ |
 | **Criar vistas e construir relatórios de BI** |Crie uma vista SQL para ter acesso direto a um recipiente para BI através do sinapse SQL sem servidor |X| ✓ |

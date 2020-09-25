@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 54fe96ecee99f3de37667d255b57b89c34aecc14
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 2701b4cd17a132de07c031166bbe4cb1086227e9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406431"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324781"
 ---
 Este guia mostra como instalar o [SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) de discurso para JavaScript para utilização com uma página web.
 
@@ -29,11 +29,11 @@ Crie uma nova pasta vazia. No caso de querer alojar o exemplo num servidor Web, 
 ## <a name="unpack-the-speech-sdk-for-javascript-into-that-folder"></a>Descompactar o SDK de Voz para JavaScript nessa pasta
 
 Transfira o SDK de Voz como um [pacote .zip](https://aka.ms/csspeech/jsbrowserpackage) e descompacte-o para a pasta recentemente criada. Isto resulta em cinco ficheiros a serem desembalados:
-* `microsoft.cognitiveservices.speech.sdk.bundle.js`Uma versão legível humana do Speech SDK.
-* `microsoft.cognitiveservices.speech.sdk.bundle.js.map`Um ficheiro de mapa usado para depurar código SDK.
-* `microsoft.cognitiveservices.speech.sdk.bundle.d.ts`Definições de objeto para utilização com TypeScript
-* `microsoft.cognitiveservices.speech.sdk.bundle-min.js`Uma versão minificada do SDK do Discurso.
-* `speech-processor.js`Código para melhorar o desempenho em alguns navegadores.
+* `microsoft.cognitiveservices.speech.sdk.bundle.js` Uma versão legível humana do Speech SDK.
+* `microsoft.cognitiveservices.speech.sdk.bundle.js.map` Um ficheiro de mapa usado para depurar código SDK.
+* `microsoft.cognitiveservices.speech.sdk.bundle.d.ts` Definições de objeto para utilização com TypeScript
+* `microsoft.cognitiveservices.speech.sdk.bundle-min.js` Uma versão minificada do SDK do Discurso.
+* `speech-processor.js` Código para melhorar o desempenho em alguns navegadores.
 
 ## <a name="create-an-indexhtml-page"></a>Criar uma página index.html
 

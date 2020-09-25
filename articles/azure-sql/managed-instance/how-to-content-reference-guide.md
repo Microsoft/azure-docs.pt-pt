@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlr
+ms.reviewer: sstein
 ms.date: 04/16/2019
-ms.openlocfilehash: de8d1b7aba7763799228c831af61bf83a79937bb
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 332b5198f046d0096e95e79e27cbc49408e6d136
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167985"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325203"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Referência de conteúdo de instância gerida Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -48,7 +48,7 @@ Neste artigo pode encontrar uma referência de conteúdo a vários guias, script
 
 - [Configurar a autenticação do Azure AD](../database/authentication-aad-configure.md)
 - [Configurar o acesso condicional](../database/conditional-access-configure.md)
-- [Auth AD multi-factor Azure](../database/authentication-mfa-ssms-overview.md)
+- [Autenticação multifator do Azure AD](../database/authentication-mfa-ssms-overview.md)
 - [Configurar a autenticação multifator](../database/authentication-mfa-ssms-configure.md)
 - [Configurar uma política de retenção temporal](../database/temporal-tables-retention-policy.md)
 - [Configurar o TDE com o BYOK](../database/transparent-data-encryption-byok-configure.md)
@@ -77,7 +77,7 @@ Neste artigo pode encontrar uma referência de conteúdo a vários guias, script
 
 ### <a name="alerting"></a>Alertas
 
-- [Criar alertas sobre instância gerida](alerts-create.md)
+- [Criar alertas na instância gerida](alerts-create.md)
 
 ## <a name="operations"></a>Operações
 

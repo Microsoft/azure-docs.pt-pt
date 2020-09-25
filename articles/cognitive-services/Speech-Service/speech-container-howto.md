@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 09/24/2020
 ms.author: aahi
-ms.openlocfilehash: b51319716035cc4f59d50922846b067f4eda31d3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6a1f8cc9526d1f8393f8e7aa434587d8e4c0e979
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900477"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334684"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Instalar e executar recipientes de serviço de fala 
 
@@ -37,12 +37,12 @@ Os contentores de Voz permitem que os clientes criem uma arquitetura de aplicaç
 >
 > Para utilizar os recipientes de fala deve submeter um pedido on-line e aprová-lo. Consulte a **aprovação do Pedido para executar a** secção do recipiente abaixo para obter mais informações.
 
-| Função | Funcionalidades | Mais Recente |
+| Contentor | Funcionalidades | Mais Recente |
 |--|--|--|
-| Conversão de voz em texto | Analisa o sentimento e transcreve gravações contínuas de voz em tempo real ou de lotes com resultados intermédios.  | 2.3.1 |
-| Discurso-a-texto personalizado | Utilizando um modelo personalizado do [portal Discurso Personalizado,](https://speech.microsoft.com/customspeech)transcreve gravações contínuas de discursos em tempo real ou de lotes em texto com resultados intermédios. | 2.3.1 |
-| Conversão de texto em voz | Converte o texto para discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.5.0 |
-| Texto-a-discurso personalizado | Utilizando um modelo personalizado do [portal Voz Personalizada,](https://aka.ms/custom-voice-portal)converte o texto em discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.5.0 |
+| Conversão de voz em texto | Analisa o sentimento e transcreve gravações contínuas de voz em tempo real ou de lotes com resultados intermédios.  | 2.5.0 |
+| Discurso-a-texto personalizado | Utilizando um modelo personalizado do [portal Discurso Personalizado,](https://speech.microsoft.com/customspeech)transcreve gravações contínuas de discursos em tempo real ou de lotes em texto com resultados intermédios. | 2.5.0 |
+| Conversão de texto em voz | Converte o texto para discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.7.0 |
+| Texto-a-discurso personalizado | Utilizando um modelo personalizado do [portal Voz Personalizada,](https://aka.ms/custom-voice-portal)converte o texto em discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.7.0 |
 | Deteção de linguagem da fala | Detetar a linguagem falada em ficheiros áudio. | 1.0 |
 | Texto-a-discurso neural | Converte o texto em discurso sonoro natural usando a tecnologia de rede neural profunda, permitindo um discurso mais natural sintetizado. | 1.1.0 |
 
@@ -96,7 +96,7 @@ O núcleo e a memória correspondem às `--cpus` `--memory` definições e confi
 
 ## <a name="request-approval-to-the-run-the-container"></a>Solicitar aprovação para a execução do contentor
 
-Preencha e envie o [formulário de pedido](https://aka.ms/cognitivegate) para solicitar o acesso ao contentor. 
+Preencha e envie o [formulário de pedido](https://aka.ms/csgate) para solicitar o acesso ao contentor. 
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
@@ -468,7 +468,7 @@ Este comando:
 * Se o modelo personalizado foi previamente descarregado, o `ModelId` é ignorado.
 * Remove automaticamente o recipiente depois de sair. A imagem do recipiente ainda está disponível no computador anfitrião.
 
-# <a name="language-detection"></a>[Deteção de Idioma](#tab/lid)
+# <a name="speech-language-detection"></a>[Deteção de linguagem da fala](#tab/lid)
 
 Para executar o recipiente *de deteção de linguagem* da fala, execute o seguinte `docker run` comando.
 
@@ -482,7 +482,7 @@ ApiKey={API_KEY}
 
 Este comando: 
 
-* Executa um recipiente de deteção de linguagem da fala a partir da imagem do recipiente.
+* Executa um recipiente de deteção de linguagem da fala a partir da imagem do recipiente. Atualmente não será cobrado por executar esta imagem. 
 * Atribui 1 núcleos de CPU e 1 gigabyte (GB) de memória.
 * Expõe a porta TCP 5003 e atribui um pseudo-TTY para o recipiente.
 * Remove automaticamente o recipiente depois de sair. A imagem do recipiente ainda está disponível no computador anfitrião.
@@ -509,7 +509,7 @@ docker run --rm -v ${HOME}:/root -ti antsu/on-prem-client:latest ./speech-to-tex
 | Contentores | URL anfitrião SDK | Protocolo |
 |--|--|--|
 | Discurso-a-texto padrão e discurso-a-texto personalizado | `ws://localhost:5000` | WS |
-| Texto-a-discurso (incluindo Standard, Custom e Neural), deteção linguística | `http://localhost:5000` | HTTP |
+| Texto-a-discurso (incluindo Standard, Custom e Neural), deteção de linguagem da fala | `http://localhost:5000` | HTTP |
 
 Para obter mais informações sobre a utilização dos protocolos WSS e HTTPS, consulte a [segurança do contentor.](../cognitive-services-container-support.md#azure-cognitive-services-container-security)
 

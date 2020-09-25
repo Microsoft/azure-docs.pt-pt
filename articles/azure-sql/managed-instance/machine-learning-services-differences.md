@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: garyericson
 ms.author: garye
-ms.reviewer: carlrab, davidph
+ms.reviewer: sstein, davidph
 manager: cgronlun
 ms.date: 05/27/2020
-ms.openlocfilehash: f267b155fe21e5dee1a7c488c999fe194ed38eb1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9ff2de18042c466bdd8fa6c71194fff4286c820d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504123"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325101"
 ---
 # <a name="key-differences-between-machine-learning-services-in-azure-sql-managed-instance-and-sql-server"></a>Principais diferenças entre o Machine Learning Services no SQL Managed Instance e no SQL Server
 
@@ -78,7 +78,7 @@ Se não existir memória suficiente disponível para R, receberá uma mensagem d
 
 A utilização da memória depende da quantidade utilizada nos scripts R e do número de consultas paralelas em execução. Se receber os erros acima, poderá dimensionar a base de dados para um escalão de serviço mais elevado para resolver o problema.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a visão geral, [Serviços de Aprendizagem automática em Azure SQL Gestded Instance](machine-learning-services-overview.md).
 - Para aprender a usar Python em serviços de machine learning, consulte [os scripts Run Python](https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=sql-server-ver15).

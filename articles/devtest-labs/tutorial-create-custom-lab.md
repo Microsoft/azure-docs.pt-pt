@@ -3,12 +3,12 @@ title: Criar um laboratório com o Azure DevTest Labs | Microsoft Docs
 description: Neste tutorial, você cria um laboratório em Azure DevTest Labs usando o portal Azure. Um administrador de laboratório cria um laboratório, cria VMs no laboratório, e configura políticas.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: 9d016b38beb2f338a97ac862a060dc5ec3a77780
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4b59edd4ab1204d6683cf95a02070d10b1abe061
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85476568"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324285"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutorial: Configurar um laboratório com o Azure DevTest Labs
 Neste tutorial, vai criar um laboratório com o portal do Azure. O administrador do laboratório configura um laboratório numa organização, cria VMs no laboratório e configura as políticas. Os utilizadores do laboratório (por exemplo: o programador e os técnicos de teste) reivindicam as VMs no laboratório, ligam-se a elas e utilizam-nas. 
@@ -56,7 +56,7 @@ Os passos seguintes mostram como utilizar o portal do Azure para criar um labora
     2. Para **Nome de utilizador**, introduza um nome para o utilizador com acesso à máquina virtual. 
     3. Em **Palavra-passe**,introduza a palavra-passe do utilizador. 
 
-        ![Escolher uma base](./media/tutorial-create-custom-lab/new-virtual-machine.png)
+        ![Screenshot que mostra a página "Criar recursos de laboratório" Definições Básicas.](./media/tutorial-create-custom-lab/new-virtual-machine.png)
 1. Selecione O separador **definições avançadas.**
     1. Para **Tornar esta máquina reclamável**, selecione **Sim**.
     2. Confirme que a **contagem de instâncias** está definida como **1**. Se for definida como **2**, serão criadas duas VMs com os nomes: `<base image name>00' and <base image name>01`. Por exemplo: `win10vm00` e `win10vm01`.     
@@ -86,7 +86,7 @@ Os passos seguintes mostram como utilizar o portal do Azure para criar um labora
 
         ![Adicionar utilizador](./media/tutorial-create-custom-lab/add-user.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 O próximo tutorial mostra como um utilizador do laboratório pode reivindicar e ligar-se a uma VM no laboratório. Se não quiser completar esse tutorial e quiser limpar os recursos criados como parte deste tutorial, siga estes passos: 
 
 1. No portal do Azure, selecione **Grupos de recursos** no menu. 

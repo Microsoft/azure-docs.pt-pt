@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/11/2019
 ms.author: erhopf
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e5c83b4b8e579223fa8bc00e1347e5cb2f92fca1
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 6a7fbac72c73ae44d158d91653b3713b271f8da4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406430"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324782"
 ---
 Este guia mostra como instalar o [SDK de voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para JavaScript para utilização com NodeJS. Se só quer que o nome do pacote seja iniciado por conta própria, fumem `npm install microsoft-cognitiveservices-speech-sdk` do seu projeto existente.
 

@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Política de filtragem geo-filtrante Configure WAF - Porta frontal Azure
-description: Neste tutorial, aprende-se a criar uma política de geo-filtragem e associa a política ao anfitrião front door existente.
+description: Neste tutorial, aprende-se a criar uma política de WAF de geo-filtragem e associa a política ao anfitrião frontend existente.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 20aa038e15b1ae5734ad6f463c6f450368617119
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: f9b5869f7dd472c50ffb2c1c0dce765200f53882
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090040"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324031"
 ---
 # <a name="tutorial-how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Tutorial: Como configurar uma política de WAF de geo-filtragem para a sua Porta frontal
 Este tutorial mostra como utilizar o Azure PowerShell para criar uma política de filtragem geográfica de exemplo e associá-la ao anfitrião de front-end do Front Door existente. Esta política de geo-filtragem da amostra bloqueará os pedidos de todos os outros países/regiões, com exceção dos Estados Unidos.

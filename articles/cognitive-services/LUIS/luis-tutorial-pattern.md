@@ -1,14 +1,16 @@
 ---
 title: 'Tutorial: Padrões - LUIS'
 description: Use padrões para aumentar a intenção e a previsão da entidade, ao mesmo tempo que fornece menos palavras de exemplo neste tutorial. O padrão é fornecido como um exemplo de expressão de modelo, que inclui sintaxe para identificar entidades e texto ignorável.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/06/2020
-ms.openlocfilehash: 3ca8bb15d19b0fa0dd6b33d35a380c0b1b07abe0
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 9814304aed4d7a5f307fb2179491b0fa9635fd68
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86039505"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324659"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Tutorial: Adicione formatos comuns de expressão de modelo de padrão para melhorar as previsões
 
@@ -529,7 +531,7 @@ Se chegar à conclusão que o seu padrão, ao incluir uma entidade Pattern.any, 
 
 Este tutorial acrescentou padrões para ajudar LUIS a prever a intenção com uma pontuação significativamente maior sem ter que adicionar mais palavras de exemplo. A marcação de entidades e de texto ignorável permitiu que o LUIS aplicasse o padrão a uma maior variedade de expressões.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 

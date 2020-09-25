@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: c699186c77bba16e96de2dc8b5968f5a83a5a9ce
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 4d00abdd3caf6c77b2227d9edfea3cc23d13e392
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461770"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288227"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Consumo de recursos SQL de Sinapse
 
@@ -29,7 +29,7 @@ Recomendações sobre a escolha do número ideal de unidades de armazém de dado
 
 ### <a name="data-warehouse-units"></a>Unidades do Data Warehouse
 
-Uma piscina Sinapse SQL representa uma coleção de recursos analíticos que estão sendo a provisionados. Os recursos analíticos são definidos como uma combinação de CPU, memória e IO. Estes três recursos são agregados em unidades de escala de computação chamadas Data Warehouse Units (DWUs). Uma DWU é uma medida abstrata e normalizada do desempenho e recursos de computação. Uma alteração ao seu nível de serviço altera o número de DWUs que estão disponíveis para o sistema, o que por sua vez ajusta o desempenho e o custo do seu sistema.
+Uma piscina Sinapse SQL representa uma coleção de recursos analíticos que estão sendo a provisionados. Os recursos analíticos são definidos como uma combinação de CPU, memória e IO. Estes três recursos são agregados em unidades de escala de computação chamadas Data Warehouse Units (DWUs). Uma DWU é uma medida abstrata e normalizada do desempenho e recursos de computação. Uma alteração ao seu nível de serviço altera o número de DWUs que estão disponíveis para o sistema. Por sua vez, esta alteração ajusta o desempenho e o custo do seu sistema.
 
 Para um desempenho mais elevado, pode aumentar o número de unidades de armazém de dados. Para menos desempenho, reduza as unidades de armazém de dados. Os custos de armazenamento e de computação são faturados em separado, pelo que a alteração das unidades do armazém de dados não afeta os custos de armazenamento.
 
@@ -73,7 +73,7 @@ Cada nível de desempenho utiliza uma unidade de medida ligeiramente diferente p
 
 Tanto os DWUs como os cDWUs suportam a computação de escala para cima ou para baixo, e para o cálculo de pausas quando não precisa de usar o armazém de dados. Estas operações são todas a pedido. A Gen2 usa uma cache local baseada em disco nos nós computacional para melhorar o desempenho. Quando escala ou pausa o sistema, a cache é invalidada e, por isso, é necessário um período de aquecimento da cache antes de ser alcançado um desempenho ótimo.  
 
-À medida que aumenta as unidades de armazém de dados, está a aumentar linearmente os recursos informáticos. A Gen2 proporciona o melhor desempenho de consulta e a mais alta escala. Os sistemas gen2 também fazem o maior uso da cache.
+À medida que aumentas as unidades de armazém de dados, estás a aumentar linearmente os recursos informáticos. A Gen2 proporciona o melhor desempenho de consulta e a mais alta escala. Os sistemas gen2 também fazem o maior uso da cache.
 
 #### <a name="capacity-limits"></a>Limites de capacidade
 
@@ -124,11 +124,11 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 Para alterar DWUs:
 
-1. Abra o [portal Azure,](https://portal.azure.com)abra a sua base de dados e clique em **Escala**.
+1. Abra o [portal Azure,](https://portal.azure.com)abra a sua base de dados e selecione **Escala**.
 
 2. Em **Escala**, mova o deslizador para a esquerda ou para a direita para alterar a definição DWU.
 
-3. Clique em **Guardar**. É apresentada uma mensagem de confirmação. Clique em **sim** para confirmar ou **não** para cancelar.
+3. Selecione **Guardar**. É apresentada uma mensagem de confirmação. Selecione **sim** para confirmar ou **não** para cancelar.
 
 #### <a name="powershell"></a>PowerShell
 
@@ -176,7 +176,7 @@ Para obter mais exemplos de API REST, consulte [REST APIs para Azure Synapse Ana
 
 ### <a name="check-status-of-dwu-changes"></a>Verificar o estado das alterações da DWU
 
-As alterações da DWU podem demorar vários minutos a ser concluídas. Se estiver a escalonar automaticamente, considere a lógica de implementação para garantir que determinadas operações foram concluídas antes de prosseguir com outra ação.
+As alterações da DWU podem demorar vários minutos a ser concluídas. Se estiver a escalonar automaticamente, considere implementar a lógica para garantir que determinadas operações foram concluídas antes de prosseguir com outra ação.
 
 Verificar o estado da base de dados através de vários pontos finais permite-lhe implementar corretamente a automatização. O portal fornece notificação após a conclusão de uma operação e das bases de dados do estado atual, mas não permite a verificação programática do Estado.
 

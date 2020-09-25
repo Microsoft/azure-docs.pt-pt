@@ -9,14 +9,14 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: juliemsft
 ms.author: jrasnick
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 14c6193b4a4373d754e3e90d573eccd2735de56c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 949be1a87e46b4602ef504ac71c9e7558940a364
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87085034"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334886"
 ---
 # <a name="use-powershell-to-monitor-and-scale-an-elastic-pool-in-azure-sql-database"></a>Use powerShell para monitorizar e escalar uma piscina elástica na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]

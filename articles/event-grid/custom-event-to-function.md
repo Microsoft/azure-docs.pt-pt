@@ -3,12 +3,12 @@ title: 'Quickstart: Enviar eventos personalizados para a Função Azure - Grade 
 description: 'Quickstart: Use Azure Event Grid e Azure CLI ou portal para publicar um tópico e subscrever esse evento. Uma Função Azure é utilizada para o ponto final.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 26ddfd1aeb61d3786edcdfca1acf5e293e4145ae
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: aea52bcaa94d6f288e86e44e1a0f294796d8e4a3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115099"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324435"
 ---
 # <a name="quickstart-route-custom-events-to-an-azure-function-with-event-grid"></a>Quickstart: Encaminhe eventos personalizados para uma função Azure com grade de evento
 
@@ -17,14 +17,17 @@ O Azure Event Grid é um serviço de eventos para a cloud. A Azure Functions é 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-azure-function"></a>Criar a Função do Azure
+Antes de subscrever o tópico personalizado, crie uma função para lidar com os eventos. 
 
-Antes de subscrever o tópico personalizado, vamos criar uma função para lidar com os eventos. No portal Azure, clique em 'Criar um recurso' e escreva 'função' e, em seguida, escolha 'App de função' e clique em criar. Selecione 'Criar novo' no grupo de recursos e dê-lhe um nome. Vais usar isto para o resto do tutorial. Dê um nome à App de Função, deixe o toggle 'Publicar' em 'Código', selecione qualquer tempo de execução e região e, em seguida, bata na criação.
+1. Criar uma aplicação de função utilizando instruções a partir de [criar uma aplicação de função](../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
+2. Criar uma função utilizando o **Gatilho da grelha de eventos**. Selecione Se esta for a sua primeira utilização deste gatilho, poderá ter de clicar em 'Instalar' para instalar a extensão.
+    1. Na página **'App' 'Função',** selecione **Funções** no menu esquerdo, procure grelha **de eventos** nos modelos e, em seguida, selecione **o gatilho da Grelha de Eventos Azure**. 
 
-Assim que a sua App de Função estiver pronta, navegue para ela e clique em '+ Nova Função'. Selecione 'In-portal' para ambiente de desenvolvimento e o hit continue. Ao criar uma função, escolha 'Mais modelos' para ver mais modelos e, em seguida, procure por 'Azure Event Grid Trigger' e selecione-o. Se esta for a primeira vez que utiliza este gatilho, poderá ter de clicar em 'Instalar' para instalar a extensão.
+        :::image type="content" source="./media/custom-event-to-function/function-event-grid-trigger.png" alt-text="Selecione o gatilho da grelha de eventos":::
+3. Na página **Nova Função,** insira um nome para a função e selecione **Criar Função**.
 
-![Gatilho da grelha de evento de função](./media/custom-event-to-function/grid-trigger.png)
-
-Depois de instalar a extensão, clique em continuar, dar um nome à sua função e, em seguida, bater criar.
+    :::image type="content" source="./media/custom-event-to-function/new-function-page.png" alt-text="Página nova da função":::
+4. Utilize a página **Código + Teste** para ver o código existente para a função e atualizá-lo. 
 
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
@@ -43,7 +46,7 @@ Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual
 4. Na página **'Criar Tópico',** siga estes passos:
 
     1. Forneça um **nome** único para o tema personalizado. O nome do tópico deve ser exclusivo, porque este é representado por uma entrada DNS. Não utilize o nome apresentado na imagem. Em vez disso, crie o seu próprio nome - deve estar entre 3-50 caracteres e conter apenas valores a-z, A-Z, 0-9 e "-".
-    2. Selecione a sua **subscrição** do Azure.
+    2. Selecione a sua **subscrição Azure**.
     3. Selecione o mesmo grupo de recursos dos passos anteriores.
     4. Selecione um **local** para o tópico da grelha do evento.
     5. Mantenha o valor predefinido **Esquema de Grelha de Evento** para o campo **Desío de Esquema de Evento.** 
@@ -81,8 +84,12 @@ Subscreva um tópico do Event Grid para comunicar ao Event Grid os eventos que p
     5. Para o ponto final da função, selecione a Subscrição Azure e o Grupo de Recursos em que a Sua App de Função está e, em seguida, selecione a App de Função e a função que criou anteriormente. Selecione **Confirmar a Seleção**.
 
        ![Indicar o URL de ponto final](./media/custom-event-to-function/provide-endpoint.png)
-
-    6. De volta à página **de Subscrição de Eventos,** selecione **Criar**.
+    6. Este passo é opcional, mas recomendado para cenários de produção. Na página De Subscrição de **Eventos Create,** mude para o separador **Funcionalidades Avançadas** e desa ajuste os valores para **eventos Max por lote** e tamanho do lote preferido em **quilobytes**. 
+    
+        O lote pode dar-lhe alta produção. Para **eventos Max por lote,** desemote o número máximo de eventos que uma subscrição incluirá num lote. O tamanho do lote preferido define o limite superior preferido do tamanho do lote em bytes de quilo, mas pode ser ultrapassado se um único evento for maior do que este limiar.
+    
+        :::image type="content" source="./media/custom-event-to-function/enable-batching.png" alt-text="Ativar o loteamento":::
+    6. Na página **'Criar Subscrição de** Eventos', selecione **Criar**.
 
 ## <a name="send-an-event-to-your-topic"></a>Enviar um evento para o seu tópico
 
@@ -168,7 +175,7 @@ Acionou o evento e o Event Grid enviou a mensagem para o ponto final que configu
 
 ![Início de gatilho de função bem-sucedida](./media/custom-event-to-function/successful-function.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se quiser continuar a trabalhar com este evento, não limpe os recursos criados neste artigo. Caso contrário, elimine os recursos que criou neste artigo.
 
 1. Selecione **Grupos de Recursos** no menu esquerdo. Se não o vir no menu esquerdo, selecione **Todos os Serviços** no menu esquerdo e selecione **Grupos de Recursos**. 
@@ -180,7 +187,7 @@ Se quiser continuar a trabalhar com este evento, não limpe os recursos criados 
 
     O outro grupo de recursos que vê na imagem foi criado e usado pela janela Cloud Shell. Elimine-o se não pretender utilizar a janela Cloud Shell mais tarde. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

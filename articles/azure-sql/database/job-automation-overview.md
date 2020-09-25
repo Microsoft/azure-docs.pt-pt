@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: overview
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlr
+ms.reviewer: sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: 8c9bdb059008a3d9e33631c3101cb7b459660119
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 78758fbfd14810cb7320d95026f8d4af647a3f2f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436787"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334961"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizar tarefas de gestão utilizando trabalhos de base de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -192,7 +192,7 @@ A imagem seguinte mostra um agente de tarefa a executar tarefas nos diferentes t
 |[**Agente de Tarefa Elástica**](#elastic-job-agent) | O recurso do Azure que cria para executar e gerir tarefas. |
 |[**Base de dados da tarefa**](#job-database) | Uma base de dados na Base de Dados Azure SQL que o agente de trabalho utiliza para armazenar dados relacionados com o trabalho, definições de emprego, etc. |
 |[**Grupo de destino**](#target-group) | O conjunto de servidores, conjuntos, bases de dados e mapas de shard no qual executar uma tarefa. |
-|[**Trabalho**](#job) | Um trabalho é uma unidade de trabalho que é composta por uma ou mais etapas de [trabalho.](#job-step) Os passos de tarefa especificam o script T-SQL a executar, bem como outros detalhes necessários para executar o script. |
+|[**Tarefa**](#job) | Um trabalho é uma unidade de trabalho que é composta por uma ou mais etapas de [trabalho.](#job-step) Os passos de tarefa especificam o script T-SQL a executar, bem como outros detalhes necessários para executar o script. |
 
 #### <a name="elastic-job-agent"></a>Agente de Tarefa Elástica
 

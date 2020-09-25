@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: ebaddbcacbc20097b2ec5606244650ea2916edfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e751a77d40403c7bdd4644e8e6fb03ff89063e8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324543"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335076"
 ---
 # <a name="manage-file-space-for-databases-in-azure-sql-database"></a>Gerir o espaço de ficheiros para bases de dados na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -45,7 +45,7 @@ A maioria das métricas de espaço de armazenamento apresentadas no portal Azure
 
 No entanto, as seguintes APIs também medem o tamanho do espaço atribuído para bases de dados e piscinas elásticas:
 
-- T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
+- T-SQL:  [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
 ### <a name="shrinking-data-files"></a>Redução de ficheiros de dados
@@ -64,7 +64,7 @@ Compreender as seguintes quantidades de espaço de armazenamento é importante p
 |**Espaço de dados utilizado**|A quantidade de espaço usado para armazenar dados de base de dados em 8 páginas KB.|Geralmente, o espaço utilizado aumenta (diminui) nos inserções (elimina). Em alguns casos, o espaço utilizado não muda em inserções ou elimina dependendo da quantidade e padrão dos dados envolvidos na operação e de qualquer fragmentação. Por exemplo, eliminar uma linha de cada página de dados não diminui necessariamente o espaço utilizado.|
 |**Espaço de dados atribuído**|A quantidade de espaço de ficheiros formatado disponibilizado para armazenar dados de base de dados.|A quantidade de espaço atribuído cresce automaticamente, mas nunca diminui após a eliminação. Este comportamento garante que as inserções futuras são mais rápidas, uma vez que o espaço não precisa de ser reformatado.|
 |**Espaço de dados atribuído mas não uso**|A diferença entre a quantidade de espaço de dados atribuído e o espaço de dados utilizado.|Esta quantidade representa a quantidade máxima de espaço livre que pode ser recuperada diminuindo os ficheiros de dados da base de dados.|
-|**Tamanho máximo de dados**|A quantidade máxima de espaço que pode ser usada para armazenar dados de bases de dados.|A quantidade de espaço de dados atribuído não pode crescer para além do tamanho máximo dos dados.|
+|**Tamanho máximo dos dados**|A quantidade máxima de espaço que pode ser usada para armazenar dados de bases de dados.|A quantidade de espaço de dados atribuído não pode crescer para além do tamanho máximo dos dados.|
 
 O diagrama seguinte ilustra a relação entre os diferentes tipos de espaço de armazenamento para uma base de dados.
 
@@ -120,7 +120,7 @@ Compreender as seguintes quantidades de espaço de armazenamento é importante p
 |**Espaço de dados utilizado**|A soma do espaço de dados utilizado por todas as bases de dados na piscina elástica.||
 |**Espaço de dados atribuído**|A soma do espaço de dados atribuído por todas as bases de dados no pool elástico.||
 |**Espaço de dados atribuído mas não uso**|A diferença entre a quantidade de espaço de dados atribuído e o espaço de dados utilizado por todas as bases de dados no pool elástico.|Esta quantidade representa a quantidade máxima de espaço atribuído ao pool elástico que pode ser recuperado através da redução dos ficheiros de dados da base de dados.|
-|**Tamanho máximo de dados**|A quantidade máxima de espaço de dados que pode ser usado pela piscina elástica para todas as suas bases de dados.|O espaço atribuído à piscina elástica não deve exceder o tamanho máximo da piscina elástica.  Se esta condição ocorrer, então o espaço atribuído que não é reutilizado pode ser recuperado diminuindo os ficheiros de dados da base de dados.|
+|**Tamanho máximo dos dados**|A quantidade máxima de espaço de dados que pode ser usado pela piscina elástica para todas as suas bases de dados.|O espaço atribuído à piscina elástica não deve exceder o tamanho máximo da piscina elástica.  Se esta condição ocorrer, então o espaço atribuído que não é reutilizado pode ser recuperado diminuindo os ficheiros de dados da base de dados.|
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Consultar uma piscina elástica para informações de espaço de armazenamento
 
@@ -232,11 +232,11 @@ Para obter mais informações sobre este comando, consulte as opções [BASE DE 
 
 Após os ficheiros de dados da base de dados serem encolhidos, os índices podem fragmentar-se e perder a sua eficácia de otimização de desempenho. Se ocorrer uma degradação do desempenho, considere a reconstrução dos índices de base de dados. Para obter mais informações sobre índices de fragmentação e reconstrução, consulte [Reorganizar e Reconstruir Índices](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre os tamanhos máximos da base de dados, consulte:
   - [Limites de modelo de compra baseados em Azure SQL Para uma única base de dados](resource-limits-vcore-single-databases.md)
-  - [Limites de recursos para bases de dados únicas utilizando o modelo de compra baseado em DTU](resource-limits-dtu-single-databases.md)
+  - [Limites de recursos das bases de dados individuais com o modelo de compra baseado em DTU](resource-limits-dtu-single-databases.md)
   - [Azure SQL Database vCore-based modelo de compra limites para piscinas elásticas](resource-limits-vcore-elastic-pools.md)
   - [Limites de recursos para piscinas elásticas utilizando o modelo de compra baseado em DTU](resource-limits-dtu-elastic-pools.md)
 - Para obter mais informações sobre o `SHRINKDATABASE` comando, consulte [SHRINKDATABASE](/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql).

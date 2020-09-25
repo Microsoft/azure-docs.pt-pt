@@ -4,13 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/12/2020
 ms.author: trbye
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 5d1d7008151ae61a72368d3d8ecfaf545a2080fa
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: f480419bb25f3fe8d49c6b4af4a5d1873e286b58
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406180"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324763"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -155,7 +155,7 @@ Podemos verificar o estado recuperando o conteúdo no Url que obtivemos quando o
 
 Aqui está o código de sondagens com exibição de estado para tudo, exceto uma conclusão bem sucedida, vamos fazê-lo a seguir. 
 
-`CheckTranscriptionStatus`toma o URL de estado do pedido de transcrição e sonda-o a cada 5 segundos até que indique sucesso ou erro. Em seguida, chama `PrintResults` para imprimir os resultados da transcrição. Vamos implementar a `PrintResults` seguir.
+`CheckTranscriptionStatus` toma o URL de estado do pedido de transcrição e sonda-o a cada 5 segundos até que indique sucesso ou erro. Em seguida, chama `PrintResults` para imprimir os resultados da transcrição. Vamos implementar a `PrintResults` seguir.
 ```csharp
 function CheckTranscriptionStatus(statusUrl) {
     transcription = null;

@@ -8,13 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 4840363b2f6645fceca80f6dd57ece64fb2c8163
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 7f887aac91bdb1b8c752806c7c5076708a40bc10
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419925"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276174"
 ---
 # <a name="implement-the-device-model-behavior"></a>Implemente o comportamento do modelo do dispositivo
 
@@ -37,8 +37,8 @@ Neste artigo, vai aprender a:
 
 A secção de [Simulação](../../articles/iot-accelerators/iot-accelerators-remote-monitoring-device-schema.md#simulation) do esquema do modelo do dispositivo define o estado interno de um dispositivo simulado:
 
-- `InitialState`define valores iniciais para todas as propriedades do objeto do estado do dispositivo.
-- `Script`identifica um ficheiro JavaScript que funciona numa programação para atualizar o estado do dispositivo.
+- `InitialState` define valores iniciais para todas as propriedades do objeto do estado do dispositivo.
+- `Script` identifica um ficheiro JavaScript que funciona numa programação para atualizar o estado do dispositivo.
 
 O exemplo a seguir mostra a definição do objeto do estado do dispositivo para um dispositivo de refrigeração simulado:
 
@@ -79,9 +79,9 @@ function main(context, previousState, previousProperties) {
 
 O `context` parâmetro tem as seguintes propriedades:
 
-- `currentTime`como uma corda com formato`yyyy-MM-dd'T'HH:mm:sszzz`
-- `deviceId`Por exemplo`Simulated.Chiller.123`
-- `deviceModel`Por exemplo`Chiller`
+- `currentTime` como uma corda com formato `yyyy-MM-dd'T'HH:mm:sszzz`
+- `deviceId`Por exemplo `Simulated.Chiller.123`
+- `deviceModel`Por exemplo `Chiller`
 
 O `state` parâmetro contém o estado do dispositivo mantido pelo serviço de simulação do dispositivo. Este valor é o `state` objeto devolvido pela chamada anterior a `main` .
 
@@ -200,9 +200,9 @@ function main(context, previousState, previousProperties) {
 
 O `context` parâmetro tem as seguintes propriedades:
 
-- `currentTime`como uma corda com formato`yyyy-MM-dd'T'HH:mm:sszzz`
-- `deviceId`Por exemplo`Simulated.Chiller.123`
-- `deviceModel`Por exemplo`Chiller`
+- `currentTime` como uma corda com formato `yyyy-MM-dd'T'HH:mm:sszzz`
+- `deviceId`Por exemplo `Simulated.Chiller.123`
+- `deviceModel`Por exemplo `Chiller`
 
 O `state` parâmetro contém o estado do dispositivo mantido pelo serviço de simulação do dispositivo.
 
@@ -210,9 +210,9 @@ O `properties` parâmetro contém as propriedades do dispositivo que são escrit
 
 Existem três funções globais que pode usar para ajudar a implementar o comportamento do método:
 
-- `updateState`para atualizar o estado detido pelo serviço de simulação.
-- `updateProperty`para atualizar uma única propriedade do dispositivo.
-- `sleep`para interromper a execução para simular uma tarefa de longa duração.
+- `updateState` para atualizar o estado detido pelo serviço de simulação.
+- `updateProperty` para atualizar uma única propriedade do dispositivo.
+- `sleep` para interromper a execução para simular uma tarefa de longa duração.
 
 O exemplo a seguir mostra uma versão abreviada do script **IncreasePressure-method.js** utilizado pelos dispositivos refrigeradores simulados:
 
@@ -257,7 +257,7 @@ Se houver um erro de sintaxe, o intérprete falha e escreve uma `Jint.Runtime.Ja
 
 O [artigo de execução local do serviço](https://github.com/Azure/device-simulation-dotnet#running-the-service-locally-eg-for-development-tasks) no GitHub mostra-lhe como executar o serviço de simulação do dispositivo localmente. A execução do serviço local torna mais fácil depurar os seus dispositivos simulados antes de os implantar na nuvem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo descreveu como definir o comportamento do seu próprio modelo de dispositivo simulado personalizado. Este artigo mostrou-lhe como:
 

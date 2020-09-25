@@ -1,5 +1,5 @@
 ---
-title: Perguntas Frequentes (FAQ)
+title: Perguntas Mais Frequentes (FAQ)
 titleSuffix: Azure SQL Managed Instance
 description: Perguntas frequentes (FAQ) sobre o Azure SQL Managed Instance
 services: sql-database
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 2e3bf8251cfb5da20cade65831ef34dbc6709b1b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 74c603576016b72edddb4c0fe7aa970bd8626a4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887393"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325220"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ) sobre o Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -94,7 +94,7 @@ Trata-se de uma limitação atual do componente subjacente que verifica o nome d
 
 **Como posso escalar o meu caso?**
 
-Pode escalar a sua instância gerida a partir do [portal Azure,](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation) [Modelos PowerShell,](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell) [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) ou [ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+Pode escalar a sua instância gerida a partir do [portal Azure,](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation) [Modelos PowerShell,](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell) [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) ou [ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **Posso mover o meu Caso Gerido de uma região para outra?**
 
@@ -102,7 +102,7 @@ Sim, pode. Para obter instruções, consulte [mover recursos através das regiõ
 
 **Como posso apagar o meu Caso Gerido?**
 
-Pode eliminar Instâncias Geridas através do portal Azure, [PowerShell,](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0) [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) ou [Resource Manager REST APIs](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
+Pode eliminar Instâncias Geridas através do portal Azure, [PowerShell,](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0&preserve-view=true) [Azure CLI](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) ou [Resource Manager REST APIs](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
 
 **Quanto tempo demora a criar ou atualizar um caso, ou a restaurar uma base de dados?**
 
@@ -135,9 +135,9 @@ A instância gerida oferece os mesmos níveis de desempenho por computação e t
 
 Uma opção é [exportar uma base de dados para BACPAC](../database/database-export.md) e, em seguida, [importar o ficheiro BACPAC.](../database/database-import.md) Esta é a abordagem recomendada se a sua base de dados for inferior a 100 GB.
 
-[A replicação transacional](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017) pode ser utilizada se todas as tabelas da base de dados tiverem chaves *primárias* e não existirem objetos OLTP na base de dados.
+[A replicação transacional](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) pode ser utilizada se todas as tabelas da base de dados tiverem chaves *primárias* e não existirem objetos OLTP na base de dados.
 
-As cópias de segurança nativas COPY_ONLY retiradas de instâncias geridas não podem ser restauradas no SQL Server porque a instância gerida tem uma versão de base de dados mais alta em comparação com o SQL Server. Para obter mais detalhes, consulte [a cópia de segurança.](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15)
+As cópias de segurança nativas COPY_ONLY retiradas de instâncias geridas não podem ser restauradas no SQL Server porque a instância gerida tem uma versão de base de dados mais alta em comparação com o SQL Server. Para obter mais detalhes, consulte [a cópia de segurança.](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true)
 
 **Como posso migrar a minha instância do SQL Server para o SQL Managed Instance?**
 
@@ -184,11 +184,11 @@ Para todas as opções possíveis para monitorizar e alertar sobre o consumo e d
 
 **Posso usar o PERFIL SQL para rastreio de desempenho?**
 
-Sim, o Perfil SQL é suportado ou SQL Managed Instance. Para mais detalhes, consulte [o SqL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15).
+Sim, o Perfil SQL é suportado ou SQL Managed Instance. Para mais detalhes, consulte [o SqL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true).
 
 **O Database Advisor e o Questionry Performance Insight são suportados para bases de dados de casos geridos?**
 
-Não, não são apoiados. Pode utilizar [DMVs](../database/monitoring-with-dmvs.md) e [Loja de Consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15) juntamente com o [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15) e [xEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15) para monitorizar as suas bases de dados.
+Não, não são apoiados. Pode utilizar [DMVs](../database/monitoring-with-dmvs.md) e [Loja de Consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15&preserve-view=true) juntamente com o [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true) e [xEvents](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15&preserve-view=true) para monitorizar as suas bases de dados.
 
 **Posso criar alertas métricos no SQL Managed Instance?**
 
@@ -228,7 +228,7 @@ Para acompanhar quando foram realizadas cópias de segurança automatizadas em C
 
 **O apoio a pedido é apoiado?**
 
-Sim, pode criar uma cópia-apenas cópia de backup no seu Azure Blob Storage, mas só será restaurado em Caso Gerido. Para mais informações, consulte [a cópia de segurança.](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15) No entanto, a cópia de segurança só é impossível se a base de dados for encriptada pelo TDE gerido pelo serviço, uma vez que o certificado utilizado para encriptação é inacessível. Nesse caso, utilize a função de restauro ponto-a-tempo para mover a base de dados para outra SQL Managed Instance ou mudar para a chave gerida pelo cliente.
+Sim, pode criar uma cópia-apenas cópia de backup no seu Azure Blob Storage, mas só será restaurado em Caso Gerido. Para mais informações, consulte [a cópia de segurança.](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true) No entanto, a cópia de segurança só é impossível se a base de dados for encriptada pelo TDE gerido pelo serviço, uma vez que o certificado utilizado para encriptação é inacessível. Nesse caso, utilize a função de restauro ponto-a-tempo para mover a base de dados para outra SQL Managed Instance ou mudar para a chave gerida pelo cliente.
 
 **A restauração nativa (de ficheiros .bak) para Instância Gerida é suportada?**
 
@@ -390,7 +390,7 @@ Sim, a Encriptação de Dados Transparente é suportada para a SQL Managed Insta
 
 **Posso aproveitar o modelo "traga a sua própria chave" para o TDE?**
 
-Sim, o Azure Key Vault para o cenário BYOK está disponível para Azure SQL Managed Instance. Para mais detalhes, consulte [a Encriptação de Dados Transparente com a chave gerida pelo cliente](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key).
+Sim, o Azure Key Vault para o cenário BYOK está disponível para Azure SQL Managed Instance. Para mais detalhes, consulte [a Encriptação de Dados Transparente com a chave gerida pelo cliente](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key&preserve-view=true).
 
 **Posso migrar uma base de dados de servidor SQL encriptada?**
 
@@ -509,6 +509,10 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 
 
 ## <a name="service-updates"></a>Atualizações de serviço
+
+**O que é a alteração root CA para Azure SQL Database & SQL Managed Instance?**
+
+Consulte [a rotação do certificado para a base de dados Azure SQL & sql Caso gerido](https://docs.microsoft.com/azure/azure-sql/updates/ssl-root-certificate-expiring). 
 
 **O que é um evento de manutenção planeado para a SQL Managed Instance?**
 

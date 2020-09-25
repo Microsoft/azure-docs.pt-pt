@@ -10,14 +10,14 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 792fede4fd76469ee3f8ae2550d0e3f3a25126a7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fd091cedb67c07b7de2c7e8540e99c3e8daf7dcf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073442"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323836"
 ---
 # <a name="use-powershell-to-create-a-managed-instance"></a>Use o PowerShell para criar um caso gerido
 

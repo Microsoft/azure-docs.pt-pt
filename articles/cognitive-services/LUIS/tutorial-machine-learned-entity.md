@@ -1,14 +1,16 @@
 ---
 title: 'Tutorial: extrair dados estruturados com entidade de aprendizagem automática - LUIS'
 description: Extrair dados estruturados a partir de uma expressão utilizando a entidade de aprendizagem automática. Para aumentar a precisão da extração, adicione subentidades com características.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
-ms.openlocfilehash: eb9761a3d3a98a3318fe0adc6fa170652639a9a1
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 01262ee0271849793c4393b1ea8e18c4179ad4e0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86045608"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334736"
 ---
 # <a name="tutorial-extract-structured-data-from-user-utterance-with-machine-learning-entities-in-language-understanding-luis"></a>Tutorial: Extrair dados estruturados da expressão do utilizador com entidades de aprendizagem automática em Compreensão linguística (LUIS)
 
@@ -79,12 +81,12 @@ Para extrair detalhes sobre uma encomenda de pizza, crie uma entidade de alto n�
 
 1. Na **caixa de tipo de entidade,** selecione **Add Structure** e selecione **Seguinte**. A estrutura é necessária para adicionar subentidades como o tamanho e a quantidade.
 
-    ![Adicionar estrutura à entidade](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
+    ![Screenshot mostra a janela Escolher uma janela tipo de entidade com a opção de estrutura Add verificada.](media/tutorial-machine-learned-entity/add-structure-to-entity.png)
 
 1. Na caixa **de subentidades adicionar (opcional),** selecione **+** na `Order` linha, adicione e como `Size` `Quantity` subentidades, em seguida, **selecione Criar**.
 
     > [!div class="mx-imgBorder"]
-    > ![Adicionar estrutura à entidade](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
+    > ![A screenshot mostra a janela de subentências adicionar (opcional) com subentências realçadas.](media/tutorial-machine-learned-entity/add-subentities-when-creating-machine-learned-entity.png)
 
 ## <a name="edit-subentities-to-improve-extraction"></a>Editar subentidades para melhorar a extração
 
@@ -114,14 +116,14 @@ Adicionar uma lista de tamanhos conhecidos que a aplicação do cliente reconhec
 
     |Valor normalizado|Sinónimos|
     |--|--|
-    |Small|sm, sml, minúsculo, menor|
+    |Pequeno|sm, sml, minúsculo, menor|
     |Médio|md, mdm, regular, média, meio|
     |Grande|lg, lrg, grande|
     |XLarge|xl, maior, gigante|
 
 
     > [!div class="mx-imgBorder"]
-    > ![Adicionar estrutura à entidade](media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
+    > ![A screenshot mostra a janela SizeList e os itens da Lista com xLarge selecionados.](media/tutorial-machine-learned-entity/size-list-entity-with-synonyms.png)
 
 ### <a name="add-feature-of-sizelist-entity"></a>Adicionar funcionalidade da entidade SizeList
 
@@ -160,7 +162,7 @@ A adição de uma entidade numeram pré-construída também ajudará a extraçã
 Na página de detalhes da Entidade para entidade **de Encomenda,** selecione o asterisco, `*` para tanto a funcionalidade @ **SizeList** como a função **@ número.** O asterisco aparece na mesma etiqueta que o nome da característica.
 
 > [!div class="mx-imgBorder"]
-> ![Adicionar estrutura à entidade](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
+> ![A screenshot mostra a @SizeList função com o asterisco e aviso de retenção.](media/tutorial-machine-learned-entity/set-required-feature-on-subentity.png)
 
 <a name="label-text-as-entities-in-example-utterances"></a>
 <a name="label-example-utterance-to-teach-luis-about-the-entity"></a>
@@ -200,7 +202,7 @@ Para treinar a aplicação, selecione **Train**. A formação aplica as alteraç
 1. Para alterar a previsão numa entidade rotulada, selecione a marca de verificação na mesma linha.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot parcial de novo exemplo de expressão previsto com entidade](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
+    > ![A screenshot mostra uma expressão de exemplo com a marca de verificação realçada.](media/tutorial-machine-learned-entity/confirm-entity-prediction-for-new-example-utterance-added.png)
 
     Neste momento, a entidade de aprendizagem automática está a trabalhar porque pode encontrar a entidade dentro de um novo exemplo. Ao adicionar declarações de exemplo, se a entidade não for prevista corretamente, rotule a entidade e as subentências. Se a entidade for prevista corretamente, certifique-se de confirmar as previsões.
 

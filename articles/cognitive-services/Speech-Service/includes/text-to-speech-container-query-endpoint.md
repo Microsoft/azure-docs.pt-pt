@@ -8,12 +8,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 50926074c09ef8f438b0abb53a4eb5f1813871b3
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 7e5ea8dcddce31a414d983d14fba483eb388d5d5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321051"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334685"
 ---
 O recipiente fornece [APIs de ponta com base em REST](../rest-text-to-speech.md). Existem muitos [projetos de código fonte de amostra](https://github.com/Azure-Samples/Cognitive-Speech-TTS) para plataforma, enquadramento e variações linguísticas disponíveis.
 
@@ -47,9 +47,10 @@ Vamos construir um pedido HTTP POST, fornecendo alguns cabeçalhos e uma carga d
 curl -s -v -X POST http://localhost:5000/speech/synthesize/cognitiveservices/v1 \
  -H 'Accept: audio/*' \
  -H 'Content-Type: application/ssml+xml' \
- -H 'X-Microsoft-OutputFormat: riff-16khz-16bit-mono-pcm' \
- -d '<speak version="1.0" xml:lang="en-US"><voice name="{VOICE_NAME}">This is a test, only a test.</voice></speak>'
+ -H 'X-Microsoft-OutputFormat: riff-24khz-16bit-mono-pcm' \
+ -d '<speak version="1.0" xml:lang="en-US"><voice name="{VOICE_NAME}">This is a test, only a test.</voice></speak>' > output.wav
 ```
+
 
 Este comando:
 

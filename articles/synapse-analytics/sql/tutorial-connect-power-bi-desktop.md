@@ -8,17 +8,17 @@ ms.topic: tutorial
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 325a2015e4107a20dfaec22e904cf3cc6ce3085d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: jrasnick
+ms.openlocfilehash: a5944f4d512914c956d8e6fbbdbd1b8c30e35417
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089180"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288040"
 ---
 # <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Tutorial: Use SQL on-demand com Power BI Desktop & criar um relatório
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, irá aprender a:
 
 > [!div class="checklist"]
 >
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 Para concluir este tutorial, precisa dos seguintes pré-requisitos:
 
 - [Power BI Desktop](https://powerbi.microsoft.com/downloads/) - necessário para visualizar os dados e criar um relatório.
-- [Espaço de trabalho Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-synapse-studio) - necessário para criar base de dados, fonte de dados externa e vista.
+- [Espaço de trabalho Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-synapse-studio) - necessário para criar base de dados, fonte de dados externa, e visualização.
 
 Opcional:
 
@@ -45,7 +45,7 @@ Valores para os seguintes parâmetros:
 | Endereço de ponto final de serviço a pedido da SQL    | Usado como nome de servidor                                   |
 | SqL região de ponto final de serviço a pedido     | Usado para determinar o armazenamento utilizado nas amostras |
 | Nome de utilizador e senha para acesso ao ponto final | Usado para aceder ao ponto final                               |
-| Base de dados que utilizará para criar pontos de vista     | A base de dados utilizada como ponto de partida nas amostras       |
+| Base de dados que utilizará para criar vistas     | A base de dados utilizada como ponto de partida nas amostras       |
 
 ## <a name="1---create-database"></a>1 - Criar base de dados
 
@@ -100,7 +100,7 @@ Os dados de demonstração contêm os seguintes conjuntos de dados:
 
 População dos EUA por sexo e raça para cada condado dos EUA, proveniente de 2000 e 2010 Censos Decennial em formato parquet.
 
-| Folder path                                                  | Descrição                                                  |
+| Folder path                                                  | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | /libertação/                                                    | Pasta-mãe para dados na conta de armazenamento de demonstração               |
 | /lançamento/us_population_county/                               | Ficheiros de dados populacionais dos EUA no formato Parquet, divididos por ano usando o esquema de partição hive/Hadoop. |
@@ -151,7 +151,7 @@ Crie o relatório para Power BI Desktop utilizando os seguintes passos:
 
    ![Selecione colunas de interesse para gerar um relatório de mapa.](./media/tutorial-connect-power-bi-desktop/step-6-select-columns-of-interest.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Uma vez feito o uso deste relatório, elimine os recursos com os seguintes passos:
 
