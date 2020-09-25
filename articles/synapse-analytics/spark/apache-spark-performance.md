@@ -1,6 +1,6 @@
 ---
 title: Otimizar empregos de faíscas para desempenho
-description: Este artigo fornece uma introdução ao Apache Spark in Azure Synapse Analytics e aos diferentes conceitos.
+description: Este artigo fornece uma introdução a Apache Spark in Azure Synapse Analytics.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 89040057798ec4c909cac584ed96c187e79b5581
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f8eb87909ffdf9ce15108d78bed425bf6c142262
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089265"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249472"
 ---
 # <a name="optimize-apache-spark-jobs-preview-in-azure-synapse-analytics"></a>Otimizar os empregos da Apache Spark (pré-visualização) no Azure Synapse Analytics
 
-Aprenda a otimizar a configuração do cluster [Apache Spark](https://spark.apache.org/) para a sua carga de trabalho particular.  O problema mais comum é a pressão da memória, devido a configurações inadequadas (em especial, executores com tamanho incorreto), operações de execução longa e tarefas que resultam em Operações cartesianas. Pode acelerar os postos de trabalho com o caching apropriado, e permitindo [distorcer os dados.](#optimize-joins-and-shuffles) Para obter o melhor desempenho, monitorize e reveja execuções de empregos de spark de longa duração e de consumo de recursos.
+Aprenda a otimizar uma configuração de cluster [Apache Spark](https://spark.apache.org/) para a sua carga de trabalho particular.  O problema mais comum é a pressão da memória, devido a configurações inadequadas (em especial, executores com tamanho incorreto), operações de execução longa e tarefas que resultam em Operações cartesianas. Pode acelerar os postos de trabalho com o caching apropriado, e permitindo [distorcer os dados.](#optimize-joins-and-shuffles) Para obter o melhor desempenho, monitorize e reveja execuções de empregos de spark de longa duração e de consumo de recursos.
 
 As seguintes secções descrevem otimizações e recomendações comuns de emprego spark.
 
@@ -52,7 +52,7 @@ As versões Spark anteriores usam RDDs para dados abstratos, Spark 1.3 e 1.6 int
 
 A faísca suporta muitos formatos, tais como csv, json, xml, parquet, orc e avro. A faísca pode ser estendida para suportar muitos mais formatos com fontes de dados externas - para mais informações, consulte [os pacotes Apache Spark](https://spark-packages.org).
 
-O melhor formato para desempenho é o parquet com *compressão snappy,* que é o padrão em Spark 2.x. O Parquet armazena dados em formato colunar, e está altamente otimizado em Spark. Além disso, enquanto *a compressão snappy* pode resultar em ficheiros maiores do que a compressão gzip. Devido à natureza splittable desses ficheiros, eles vão descomprimir mais rapidamente]
+O melhor formato para desempenho é o parquet com *compressão snappy,* que é o padrão em Spark 2.x. O Parquet armazena dados em formato colunar, e está altamente otimizado em Spark. Além disso, embora *a compressão snappy* possa resultar em ficheiros maiores do que a compressão gzip. Devido à natureza splittable desses ficheiros, eles vão descomprimir mais rapidamente]
 
 ## <a name="use-the-cache"></a>Utilizar a cache
 

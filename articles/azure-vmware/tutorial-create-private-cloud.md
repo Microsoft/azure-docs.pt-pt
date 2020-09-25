@@ -2,19 +2,19 @@
 title: Tutorial - Implantar o cluster vSphere em Azure
 description: Aprenda a implementar um cluster vSphere em Azure usando Azure VMWare Solution
 ms.topic: tutorial
-ms.date: 09/07/2020
-ms.openlocfilehash: 2aa9d64dfa143e77b0edcc0c32a853645803ef67
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/21/2020
+ms.openlocfilehash: 47ad5ca5e9d6b116ea48e1120b5ad3defaec7509
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985950"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254647"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Tutorial: Implementar uma nuvem privada Azure VMware Solution em Azure
 
 A Azure VMware Solution dá-lhe a capacidade de implantar um cluster vSphere em Azure. A implantação inicial mínima é de três anfitriões. Anfitriões adicionais podem ser adicionados um de cada vez, até um máximo de 16 anfitriões por cluster. 
 
-Como a Azure VMware Solution não lhe permite gerir a sua nuvem privada com o seu vCenter no local no lançamento, configuração adicional e ligação a uma instância vCenter local, rede virtual e mais é necessária. Estes procedimentos e pré-requisitos conexos estão abrangidos por este tutorial.
+Como a Azure VMware Solution não lhe permite gerir a sua nuvem privada com o vCenter no local no lançamento, é necessária uma configuração adicional. Estes procedimentos e pré-requisitos conexos estão abrangidos por este tutorial.
 
 Neste tutorial, ficará a saber como:
 
@@ -43,11 +43,11 @@ Pode criar uma nuvem privada Azure VMware Solution utilizando o [portal Azure](#
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Em vez do portal Azure para criar uma nuvem privada Azure VMware Solution, pode utilizar o Azure CLI utilizando a Azure Cloud Shell. É uma concha interativa gratuita com ferramentas Azure comuns pré-instaladas e configuradas para usar com a sua conta. 
+Em vez do portal Azure para criar uma nuvem privada Azure VMware Solution, pode utilizar o Azure CLI utilizando a Azure Cloud Shell.  Para obter uma lista de comandos que pode utilizar com a Solução VMware [Azure, consulte os comandos Azure Vmware](https://docs.microsoft.com/cli/azure/ext/vmware/vmware).
 
 #### <a name="open-azure-cloud-shell"></a>Abrir o Azure Cloud Shell
 
-Para abrir a Cloud Shell, selecione **Experimente-a** a partir do canto superior direito de um bloco de código. Também pode lançar cloud Shell num separador de navegador indo para [https://shell.azure.com/bash](https://shell.azure.com/bash) . Selecione **Copy** para copiar os blocos de código, cole-o na Cloud Shell e prima **Enter** para executá-lo.
+Selecione **Experimente-o** no canto superior direito de um bloco de código. Também pode lançar cloud Shell num separador de navegador indo para [https://shell.azure.com/bash](https://shell.azure.com/bash) . Selecione **Copy** para copiar os blocos de código, cole-o na Cloud Shell e prima **Enter** para executá-lo.
 
 #### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -60,7 +60,7 @@ az group create --name myResourceGroup --location eastus
 
 #### <a name="create-a-private-cloud"></a>Criar uma cloud privada
 
-Forneça um nome de grupo de recursos, um nome para a nuvem privada, uma localização, o tamanho do cluster.
+Forneça um nome para o grupo de recursos e a nuvem privada, uma localização e o tamanho do cluster.
 
 | Propriedade  | Descrição  |
 | --------- | ------------ |
@@ -95,6 +95,10 @@ Uma vez que uma nuvem privada é eliminada, não há como recuperar as máquinas
  
 3. Insira o nome da nuvem privada e selecione **Sim**. Em poucas horas, o processo de supressão estará concluído.  
 
+## <a name="azure-vmware-commands"></a>Comandos Azure VMware
+
+Para obter uma lista de comandos que pode utilizar com a Solução VMware [Azure, consulte os comandos Azure Vmware](https://docs.microsoft.com/cli/azure/ext/vmware/vmware).
+
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
@@ -104,7 +108,8 @@ Neste tutorial, ficou a saber como:
 > * Verifique a nuvem privada implantada
 > * Elimine uma nuvem privada Azure VMware Solution
 
-Continue até ao próximo tutorial para aprender a criar uma rede virtual para uso com a sua nuvem privada como parte da criação de gestão local para os seus clusters de nuvem privada.
+Continue até ao próximo tutorial para aprender a criar uma caixa de salto. Usa a caixa de salto para se ligar ao seu ambiente para que possa gerir a sua nuvem privada localmente.
+
 
 > [!div class="nextstepaction"]
-> [Criar uma Rede Virtual](tutorial-configure-networking.md)
+> [Aceda a uma nuvem privada Azure VMware Solution](tutorial-access-private-cloud.md)

@@ -1,6 +1,6 @@
 ---
 title: O que são dispositivos registados Azure AD?
-description: Saiba como a gestão da identidade do dispositivo pode ajudá-lo a gerir dispositivos que estão a aceder a recursos no seu ambiente.
+description: Saiba como os dispositivos registados Azure AD fornecem aos seus utilizadores suporte para os cenários do Dispositivo Bring Your Own (BYOD) ou dispositivos móveis.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1ce0723c0064cee711e851d16f4080a722e7539
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 72c40b7962090492f8b4b85e555a947130c3628d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85554863"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256443"
 ---
 # <a name="azure-ad-registered-devices"></a>Dispositivos registados no Azure AD
 
 O objetivo dos dispositivos registados Azure AD é fornecer aos seus utilizadores suporte para os cenários do Bring Your Own Device (BYOD) ou dispositivos móveis. Nestes cenários, um utilizador pode aceder aos recursos controlados pelo Azure Ative Directory da sua organização utilizando um dispositivo pessoal.
 
-| Azure AD Registado | Descrição |
+| Azure AD Registado | Description |
 | --- | --- |
 | **Definição** | Registado em Azure AD sem necessidade de conta organizacional para iniciar seduca no dispositivo |
 | **Público primário** | Aplicável a todos os utilizadores com os seguintes critérios: |
@@ -59,7 +59,7 @@ Um utilizador da sua organização quer aceder a ferramentas para e-mail, report
 
 Outro utilizador quer aceder ao seu email organizacional no seu telemóvel Android pessoal que tem sido enraizado. A sua empresa necessita de um dispositivo compatível e criou uma política de conformidade intune para bloquear quaisquer dispositivos enraizados. O funcionário está impedido de aceder a recursos organizacionais neste dispositivo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Gerir identidades do dispositivo utilizando o portal Azure](device-management-azure-portal.md)
-- [Gerir dispositivos em Azure AD](manage-stale-devices.md)
+- [Gerir identidades de dispositivos com o portal do Azure](device-management-azure-portal.md)
+- [Gerir dispositivos obsoletos no AAD](manage-stale-devices.md)

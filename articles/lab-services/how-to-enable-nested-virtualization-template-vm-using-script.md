@@ -1,14 +1,14 @@
 ---
 title: Ativar a virtualização aninhada num modelo VM em Azure Lab Services (Script) Microsoft Docs
-description: Aprenda a criar um VM modelo com vários VMs no interior.  Por outras palavras, ative a virtualização aninhada num modelo VM em Azure Lab Services.
+description: Aprenda a criar um VM modelo com vários VMs no interior usando um script.  Por outras palavras, ative a virtualização aninhada num modelo VM em Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a45257dffffc98c3f650c5b1753158edd9bfbede
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ae50bd11ab9a8adb769920f6d473a2ff2ce9342
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445751"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251500"
 ---
 # <a name="enable-nested-virtualization-on-a-template-virtual-machine-in-azure-lab-services-using-a-script"></a>Ativar a virtualização aninhada em uma máquina virtual de modelo em Azure Lab Services usando um script
 
@@ -29,7 +29,7 @@ Os passos deste artigo focam-se na configuração da virtualização aninhada pa
 
         ![Sites fidedignos](./media/how-to-enable-nested-virtualization-template-vm-using-script/trusted-sites-dialog.png)
 1. Descarregue os ficheiros do repositório git como descrito nos passos seguintes.
-    1. Vai [https://github.com/Azure/azure-devtestlab/](https://github.com/Azure/azure-devtestlab/) para.
+    1. Vai  [https://github.com/Azure/azure-devtestlab/](https://github.com/Azure/azure-devtestlab/) para.
     1. Clique no botão **Clone ou Download.**
     1. Clique **em Baixar ZIP**.
     1. Extrair o ficheiro ZIP
@@ -63,7 +63,7 @@ Os passos deste artigo focam-se na configuração da virtualização aninhada pa
 
 Agora a sua máquina de modelo está pronta para criar máquinas virtuais Hyper-V. Consulte [Criar uma máquina virtual em Hiper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v) para obter instruções sobre como criar máquinas virtuais Hiper-V. Consulte também o [Microsoft Evaluation Center](https://www.microsoft.com/evalcenter/) para verificar os sistemas operativos e o software disponíveis.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os próximos passos são comuns para montar qualquer laboratório.
 

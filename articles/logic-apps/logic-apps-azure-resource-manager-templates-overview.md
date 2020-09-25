@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 9d3c5a914fe472dd7e4f797cb633e65951bf07e7
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: a3d7386e976551d70fbbc08930b2ab5603aa5d50
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871467"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269051"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Visão geral: Automatizar a implementação para apps Azure Logic utilizando modelos de Gestor de Recursos Azure
 
@@ -34,12 +34,14 @@ Para obter mais informações sobre os modelos do Gestor de Recursos, consulte e
 * [Melhores práticas do modelo do Azure Resource Manager](../azure-resource-manager/templates/template-best-practices.md)
 * [Desenvolver modelo do Azure Resource Manager para consistência da cloud](../azure-resource-manager/templates/templates-cloud-consistency.md)
 
+Para informações de recursos de modelo específicas de apps lógicas, contas de integração, artefactos de conta de integração e ambientes de serviços de integração, consulte [os tipos de recursos microsoft.logic](/azure/templates/microsoft.logic/allversions).
+
 Para modelos de aplicativos de lógica de amostra, consulte estes exemplos:
 
 * [Modelo completo](#full-example-template) que é usado para os exemplos deste tópico
 * [Modelo de aplicativo de lógica quickstart de amostra](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) no GitHub
 
-Para obter informações sobre recursos de modelo específicas de aplicações lógicas, contas de integração e artefactos de conta de integração, consulte [os tipos de recursos microsoft.Logic](/azure/templates/microsoft.logic/allversions).
+Para as aplicações lógicas REST API, comece com a visão geral da [AZure Logic Apps REST API](/rest/api/logic).
 
 <a name="template-structure"></a>
 
@@ -280,7 +282,7 @@ Para obter informações gerais sobre os recursos do modelo e seus atributos, co
 
 ### <a name="logic-app-resource-definition"></a>Definição de recurso de aplicativo lógico
 
-A definição de recursos da sua aplicação lógica começa com o `properties` objeto, que inclui esta informação:
+A [definição](/azure/templates/microsoft.logic/workflows) de recursos de fluxo de trabalho da sua aplicação lógica num modelo começa com o `properties` objeto, que inclui esta informação:
 
 * O estado da sua aplicação lógica na implementação
 * O ID para qualquer conta de integração usada pela sua aplicação lógica
@@ -327,14 +329,38 @@ Aqui estão os atributos específicos da definição de recursos de aplicação 
 
 | Atributo | Necessário | Tipo | Descrição |
 |-----------|----------|------|-------------|
-| `state` | Sim | Cadeia | O estado da sua aplicação lógica em implementação onde `Enabled` significa que a sua aplicação lógica está ao vivo e significa que a sua `Disabled` aplicação lógica está inativa. Por exemplo, se não estiver pronto para a sua aplicação lógica entrar em direto mas quiser implementar uma versão de projeto, pode usar a `Disabled` opção. |
-| `integrationAccount` | Não | Objeto | Se a sua aplicação lógica utilizar uma conta de integração, que armazena artefactos para cenários business-to-business (B2B), este objeto inclui o `id` atributo, que especifica o ID para a conta de integração. |
-| `definition` | Sim | Objeto | A definição subjacente do fluxo de trabalho da sua aplicação lógica, que é o mesmo objeto que aparece na visão de código e está totalmente descrito na referência de Schema para o tópico [de Linguagem de Definição de Fluxo de Trabalho.](../logic-apps/logic-apps-workflow-definition-language.md) Nesta definição de fluxo de trabalho, o `parameters` objeto declara parâmetros para os valores a utilizar no tempo de execução da aplicação lógica. Para obter mais informações, consulte [a definição e os parâmetros do Fluxo de Trabalho.](#workflow-definition-parameters) <p><p>Para ver os atributos na definição de fluxo de trabalho da sua aplicação lógica, mude de "design view" para "code view" no portal Azure ou Visual Studio, ou utilizando uma ferramenta como [o Azure Resource Explorer](https://resources.azure.com). |
-| `parameters` | Não | Objeto | Os [valores do parâmetro de definição de fluxo de trabalho](#workflow-definition-parameters) para usar no tempo de execução da aplicação lógica. As definições de parâmetros para estes valores aparecem dentro [do objeto de parâmetros da definição de fluxo de trabalho.](#workflow-definition-parameters) Além disso, se a sua aplicação lógica utilizar [conectores geridos](../connectors/apis-list.md) para aceder a outros serviços e sistemas, este objeto inclui um `$connections` objeto que define os valores de ligação a utilizar no tempo de execução. |
-| `accessControl` | Não | Objeto | Para especificar atributos de segurança para a sua aplicação lógica, como restringir o acesso IP a gatilhos de pedido ou executar entradas e saídas de histórico. Para obter mais informações, consulte [acesso seguro a aplicações lógicas.](../logic-apps/logic-apps-securing-a-logic-app.md) |
+| `state` | Sim | String | O estado da sua aplicação lógica em implementação onde `Enabled` significa que a sua aplicação lógica está ao vivo e significa que a sua `Disabled` aplicação lógica está inativa. Por exemplo, se não estiver pronto para a sua aplicação lógica entrar em direto mas quiser implementar uma versão de projeto, pode usar a `Disabled` opção. |
+| `integrationAccount` | No | Objeto | Se a sua aplicação lógica utilizar uma conta de integração, que armazena artefactos para cenários business-to-business (B2B), este objeto inclui o `id` atributo, que especifica o ID para a conta de integração. |
+| `definition` | Yes | Objeto | A definição subjacente do fluxo de trabalho da sua aplicação lógica, que é o mesmo objeto que aparece na visão de código e está totalmente descrito na referência de Schema para o tópico [de Linguagem de Definição de Fluxo de Trabalho.](../logic-apps/logic-apps-workflow-definition-language.md) Nesta definição de fluxo de trabalho, o `parameters` objeto declara parâmetros para os valores a utilizar no tempo de execução da aplicação lógica. Para obter mais informações, consulte [a definição e os parâmetros do Fluxo de Trabalho.](#workflow-definition-parameters) <p><p>Para ver os atributos na definição de fluxo de trabalho da sua aplicação lógica, mude de "design view" para "code view" no portal Azure ou Visual Studio, ou utilizando uma ferramenta como [o Azure Resource Explorer](https://resources.azure.com). |
+| `parameters` | No | Objeto | Os [valores do parâmetro de definição de fluxo de trabalho](#workflow-definition-parameters) para usar no tempo de execução da aplicação lógica. As definições de parâmetros para estes valores aparecem dentro [do objeto de parâmetros da definição de fluxo de trabalho.](#workflow-definition-parameters) Além disso, se a sua aplicação lógica utilizar [conectores geridos](../connectors/apis-list.md) para aceder a outros serviços e sistemas, este objeto inclui um `$connections` objeto que define os valores de ligação a utilizar no tempo de execução. |
+| `accessControl` | No | Objeto | Para especificar atributos de segurança para a sua aplicação lógica, como restringir o acesso IP a gatilhos de pedido ou executar entradas e saídas de histórico. Para obter mais informações, consulte [acesso seguro a aplicações lógicas.](../logic-apps/logic-apps-securing-a-logic-app.md) |
 ||||
 
-Para obter informações sobre recursos de modelo específicas de aplicações lógicas, contas de integração e artefactos de conta de integração, consulte [os tipos de recursos microsoft.Logic](/azure/templates/microsoft.logic/allversions).
+Para obter mais informações sobre definições de recursos para estes objetos de Aplicações Lógicas, consulte [os tipos de recursos microsoft.logic](/azure/templates/microsoft.logic/allversions):
+
+* [Definição de recursos de fluxo de trabalho](/azure/templates/microsoft.logic/workflows)
+* [Definição de recursos de ambiente de serviço de integração](/azure/templates/microsoft.logic/integrationserviceenvironments)
+* [Ambiente de serviço de integração gerido definição de recursos API](/azure/templates/microsoft.logic/integrationserviceenvironments/managedapis)
+
+* [Definição de recursos de conta de integração](/azure/templates/microsoft.logic/integrationaccounts)
+
+* Artefactos de conta de integração:
+
+  * [Definição de recursos do acordo](/azure/templates/microsoft.logic/integrationaccounts/agreements)
+
+  * [Definição de recursos de montagem](/azure/templates/microsoft.logic/integrationaccounts/assemblies)
+
+  * [Definição de recursos de configuração de lote](/azure/templates/microsoft.logic/integrationaccounts/batchconfigurations)
+
+  * [Definição de recursos de certificado](/azure/templates/microsoft.logic/integrationaccounts/certificates)
+
+  * [Definição de recursos de mapa](/azure/templates/microsoft.logic/integrationaccounts/maps)
+
+  * [Definição de recursos de parceiro](/azure/templates/microsoft.logic/integrationaccounts/partners)
+
+  * [Definição de recursos de esquema](/azure/templates/microsoft.logic/integrationaccounts/schemas)
+
+  * [Definição de recursos de sessão](/azure/templates/microsoft.logic/integrationaccounts/sessions)
 
 <a name="workflow-definition-parameters"></a>
 

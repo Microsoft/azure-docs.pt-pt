@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: reference
 ms.date: 08/10/2020
-ms.openlocfilehash: eaada1981929cec890ce3c8ca89fe47393730b05
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 16c3a45e0d88a0546772b3fdc855c90f2e450d14
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88137027"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250336"
 ---
 # <a name="functions-in-the-hyperscale-citus-sql-api"></a>Funções na Hiperescala (Citus) SQL API
 
@@ -20,7 +20,7 @@ Esta secção contém informações de referência para as funções definidas p
 
 > [!NOTE]
 >
-> Grupos de servidores de hiperescala que executam versões mais antigas do Citus Engine podem não oferecer todas as funções listadas abaixo.
+> Os grupos de servidores de hiperescala (Citus) que executam versões mais antigas do Citus Engine podem não oferecer todas as funções listadas abaixo.
 
 ## <a name="table-and-shard-ddl"></a>Mesa e Shard DDL
 
@@ -269,7 +269,7 @@ SELECT column_to_column_name(logicalrelid, partkey) AS dist_col_name
  WHERE logicalrelid='products'::regclass;
 ```
 
-Saída:
+Resultado:
 
 ```
 ┌───────────────┐
@@ -735,7 +735,7 @@ SELECT isolate_tenant_to_new_shard('lineitem', 135);
 └─────────────────────────────┘
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Muitas das funções neste artigo modificam [tabelas de metadados do](reference-hyperscale-metadata.md) sistema
 * [Os parâmetros do servidor](reference-hyperscale-parameters.md) personalizam o comportamento de algumas funções

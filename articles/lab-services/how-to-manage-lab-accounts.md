@@ -3,12 +3,12 @@ title: Gerir contas de laboratório nos Serviços Azure Lab Microsoft Docs
 description: Saiba como criar uma conta de laboratório, ver todas as contas do laboratório ou apagar uma conta de laboratório numa subscrição do Azure.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 13b477504833b8d72845735304563eef334c49ac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33e5e42f65fdd34bb37b12947b5173700ad7970c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445496"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251665"
 ---
 # <a name="create-and-manage-lab-accounts"></a>Criar e gerir contas de laboratório
 Nos Serviços de Laboratório Azure, uma conta de laboratório é um recipiente para tipos de laboratório geridos, como laboratórios de sala de aula. Um administrador cria uma conta de laboratório com os Serviços Azure Lab e dá acesso aos donos de laboratórios que podem criar laboratórios na conta. Este artigo descreve como criar uma conta de laboratório, ver todas as contas do laboratório ou apagar uma conta de laboratório.
@@ -41,9 +41,9 @@ Os passos seguintes mostram como utilizar o portal do Azure para criar uma conta
         > A propriedade **do intervalo de endereços** só se aplica se uma **rede virtual de pares** estiver ativada para o laboratório.
 
         ![Criar conta de laboratório -> Advanced](./media/how-to-manage-lab-accounts/create-lab-account-advanced.png)  
-6. **Selecione Seguinte: Tags** na parte inferior da página para mudar para o separador **Tags.** Adicione todas as etiquetas que pretenda associar à conta de laboratório. As etiquetas são pares de nome/valor que lhe permitem categorizar recursos e visualizar a faturação consolidada aplicando a mesma etiqueta a múltiplos recursos e grupos de recursos. Para mais informações, consulte [utilize etiquetas para organizar os seus recursos Azure.](../azure-resource-manager/management/tag-resources.md)
+6. Selecione **Seguinte: Tags** na parte inferior da página para mudar para o **separador Tags.** Adicione todas as etiquetas que queira associar à conta de laboratório. As etiquetas são pares de nome/valor que lhe permitem categorizar recursos e visualizar a faturação consolidada aplicando a mesma etiqueta a múltiplos recursos e grupos de recursos. Para mais informações, consulte [utilize etiquetas para organizar os seus recursos Azure.](../azure-resource-manager/management/tag-resources.md)
 
-    ![Criar contas de laboratório -> Tags](./media/how-to-manage-lab-accounts/create-lab-account-tags.png)
+    ![Screenshot que mostra a página "Criar conta de laboratório" com o separador Tags realçado.](./media/how-to-manage-lab-accounts/create-lab-account-tags.png)
 7. Selecione **Review + criar** na parte inferior desta página para mudar para o **separador 'Rever +' criar.** 
 4. Reveja as informações resumidas nesta página e selecione **Criar**. 
 
@@ -83,5 +83,5 @@ Siga as instruções da secção anterior que exibe contas de laboratório numa 
 > [!NOTE]
 > Também pode utilizar o módulo Az.LabServices PowerShell (pré-visualização) para gerir contas de laboratório. Para mais informações, consulte a página inicial do [Az.LabServices no GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte outros artigos na secção **"Como-a-Guias**  ->  **Criar e configurar contas de laboratório" (dono** de conta de laboratório) da tabela de conteúdos (TOC). 

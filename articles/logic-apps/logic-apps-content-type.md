@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
-ms.openlocfilehash: ae0abe288edda2ce01311d8533b1f104409efce0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3a71c78dcbaa5fb02927e9a2cfdea40cd5b26130
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75666878"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269102"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Lidar com tipos de conteúdo em Azure Logic Apps
 
@@ -61,7 +61,7 @@ A Logic Apps fornece a capacidade para gerar fichas fáceis de usar que represen
   
   2. Em **Entrar ou colar uma amostra de carga JSON,** fornecer uma carga útil da amostra e, em seguida, escolher **Feito**. Por exemplo: 
 
-     ![Fornecer a amostra JSON carga útil](./media/logic-apps-content-type/request-trigger.png)
+     ![Screenshot que mostra a janela "Quando um pedido HTTP é recebido" com uma carga útil JSON de amostra.](./media/logic-apps-content-type/request-trigger.png)
 
      O esquema gerado aparece agora no seu gatilho.
 
@@ -136,13 +136,13 @@ Para preservar alguns tipos de dados, a Logic Apps converte o conteúdo numa cad
 
 Esta lista descreve como as Aplicações Lógicas convertem o conteúdo quando utiliza estas [funções:](../logic-apps/workflow-definition-language-functions-reference.md)
 
-* `json()`: Lança dados para`application/json`
-* `xml()`: Lança dados para`application/xml`
-* `binary()`: Lança dados para`application/octet-stream`
-* `string()`: Lança dados para`text/plain`
+* `json()`: Lança dados para `application/json`
+* `xml()`: Lança dados para `application/xml`
+* `binary()`: Lança dados para `application/octet-stream`
+* `string()`: Lança dados para `text/plain`
 * `base64()`: Converte o conteúdo numa cadeia codificada base64
-* `base64toString()`: Converte uma cadeia codificada de base64 para`text/plain`
-* `base64toBinary()`: Converte uma cadeia codificada de base64 para`application/octet-stream`
+* `base64toString()`: Converte uma cadeia codificada de base64 para `text/plain`
+* `base64toBinary()`: Converte uma cadeia codificada de base64 para `application/octet-stream`
 * `dataUri()`: Converte uma cadeia para um URI de dados
 * `dataUriToBinary()`: Converte um URI de dados a uma cadeia binária
 * `dataUriToString()`: Converte um URI de dados a uma cadeia

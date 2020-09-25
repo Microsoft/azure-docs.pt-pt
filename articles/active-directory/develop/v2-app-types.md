@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: f8906c5fb934546ac8b1a95f817874f91f6c3b95
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: c468ecb390a3ad321f9fe0619204994dfbf3fbb4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015811"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256761"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicações para plataforma de identidade microsoft
 
@@ -118,6 +118,9 @@ Neste fluxo, a aplicação recebe um código de autorização a partir do ponto 
 
 ![Mostra o fluxo de autenticação de aplicativos nativo](./media/v2-app-types/convergence-scenarios-native.svg)
 
+> [!NOTE]
+> Se a aplicação utilizar o webview do sistema predefinido, verifique as informações sobre a funcionalidade "Confirmar o meu Registo" e código de erro AADSTS50199 nos [códigos de autenticação e erro de autorização Azure](reference-aadsts-error-codes.md).
+
 ## <a name="daemons-and-server-side-apps"></a>Daemons e aplicativos do lado do servidor
 
 As aplicações que têm processos de longa duração ou que operam sem interação com um utilizador também precisam de uma forma de aceder a recursos seguros, como APIs web. Estas aplicações podem autenticar e obter fichas utilizando a identidade da aplicação, em vez da identidade delegada de um utilizador, com o fluxo de credenciais de cliente OAuth 2.0. Pode provar a identidade da aplicação usando um segredo ou certificado do cliente. Para obter mais informações, consulte [a aplicação da consola .NET Core daemon utilizando a plataforma de identidade da Microsoft](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2).
@@ -128,6 +131,6 @@ Neste fluxo, a app interage diretamente com o `/token` ponto final para obter ac
 
 Para construir uma app Daemon, consulte a [documentação](v2-oauth2-client-creds-grant-flow.md)das credenciais do cliente, ou experimente uma [aplicação de amostra .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que está familiarizado com os tipos de aplicações suportadas pela plataforma de identidade da Microsoft, saiba mais sobre [o OAuth 2.0 e o OpenID Connect](active-directory-v2-protocols.md) para obter uma compreensão dos componentes do protocolo utilizados pelos diferentes cenários.

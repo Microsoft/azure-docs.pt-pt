@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 87b674a9c6b7f7d591b39f1baf54c4d54082f306
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 8549fba2071ce98b206b3babe073137817aa3145
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987312"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252838"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerir pontos finais e rotas em Azure Digital Twins (portal)
 
@@ -27,7 +27,7 @@ Também pode gerir pontos finais e rotas com os [ApIs eventRoutes,](how-to-use-a
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Você vai precisar de uma **conta Azure** (você pode configurar uma [gratuitamente aqui)](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Você precisará de uma **instância Azure Digital Twins** na sua assinatura Azure. Se ainda não tiver um caso, pode criar um utilizando os passos em [*Como-a-: Configurar um caso e autenticação*](how-to-set-up-instance-scripted.md). Ter os seguintes valores da configuração útil para usar mais tarde neste artigo:
+* Você precisará de uma **instância Azure Digital Twins** na sua assinatura Azure. Se ainda não tiver um caso, pode criar um utilizando os passos em [*Como-a-: Configurar um caso e autenticação*](how-to-set-up-instance-portal.md). Ter os seguintes valores da configuração útil para usar mais tarde neste artigo:
     - Nome da instância
     - Grupo de recursos
 
@@ -58,7 +58,7 @@ Uma vez criado o tópico, pode ligá-lo à Azure Digital Twins a partir da pági
 
 A partir do menu de exemplos, selecione _Endpoints_. Em seguida, a partir da página *Endpoints* que se segue, selecione *+ Crie um ponto final*. 
 
-Na página *'Criar'* que se abre, pode criar um ponto final de grelha de _evento tipo,_ selecionando o botão de rádio correspondente. Complete os outros detalhes: insira um nome para o seu ponto final no campo _Nome,_ escolha a sua _Subscrição_ a partir do dropdown e escolha o tópico de grelha de _evento_ pré-criado a partir do terceiro dropdown.
+Na página *'Criar'* que se abre, pode criar um ponto final de grelha de _evento tipo,_ selecionando o botão de rádio correspondente. Complete os outros detalhes: insira um nome para o seu ponto final no campo _Nome,_ escolha a sua _Subscrição_ a partir do dropdown e escolha o tópico de grelha de  _evento_ pré-criado a partir do terceiro dropdown.
 
 Em seguida, crie o seu ponto final batendo _Save_.
 
@@ -133,8 +133,8 @@ Uma definição de rota de evento contém estes elementos:
 * O nome da rota que pretende usar
 * O nome do ponto final que quer usar
 * Um filtro que define quais os eventos enviados para o ponto final
-    - Para desativar a rota para que não sejam enviados eventos, use um valor de filtro de`false`
-    - Para ativar uma rota que não tenha filtragem específica, use um valor de filtro de`true`
+    - Para desativar a rota para que não sejam enviados eventos, use um valor de filtro de `false`
+    - Para ativar uma rota que não tenha filtragem específica, use um valor de filtro de `true`
     - Para obter mais informações sobre qualquer outro tipo de filtro, consulte a secção [*de eventos do Filtro*](#filter-events) abaixo.
 
 Uma única rota pode permitir a seleção de várias notificações e tipos de eventos.

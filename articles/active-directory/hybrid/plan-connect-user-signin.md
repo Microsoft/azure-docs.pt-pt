@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd198a132f64c26f775a8212c22b77201d579260
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 3365a58a0c667ca55b74a5120cdd7a78ad0abc79
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657145"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299915"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect opções de inscrição do utilizador
 O Azure Ative Directory (Azure AD) Connect permite que os seus utilizadores entrem em súmia e recursos no local utilizando as mesmas palavras-passe. Este artigo descreve conceitos-chave para cada modelo de identidade para ajudá-lo a escolher a identidade que pretende usar para iniciar sessão no Azure AD.
@@ -179,7 +179,7 @@ Pode alterar o método de entrada do utilizador a partir da federação, sincron
 
 Na página seguinte, é-lhe pedido que forneça as credenciais para a Azure AD.
 
-![Ligar ao Azure AD](./media/plan-connect-user-signin/changeusersignin2.png)
+![Screenshot que mostra onde deve escrever as credenciais para Azure AD.](./media/plan-connect-user-signin/changeusersignin2.png)
 
 Na página **de insusição do Utilizador,** selecione o pedido de inscrição do utilizador.
 
@@ -190,6 +190,6 @@ Na página **de insusição do Utilizador,** selecione o pedido de inscrição d
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [a integração das suas identidades no local com o Azure Ative Directory](whatis-hybrid-identity.md).
 - Saiba mais sobre [os conceitos de design Azure AD Connect](plan-connect-design-concepts.md).

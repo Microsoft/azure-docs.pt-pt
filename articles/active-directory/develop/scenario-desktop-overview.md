@@ -12,38 +12,28 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 92f0909660427e414264442523dba3ed2abe0142
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6cbb574245c7b11d2437693d60fd952becedba3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83771864"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257559"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Cenário: Aplicativo de desktop que chama APIs web
 
 Aprenda tudo o que precisa para construir uma aplicação de desktop que chame APIs web.
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## <a name="get-started"></a>Introdução
 
-Se ainda não o fez, crie a sua primeira aplicação seguindo o arranque rápido do desktop .NET, o quickstart da Plataforma Universal windows (UWP) ou o arranque rápido da aplicação nativa macOS:
+Se ainda não o fez, crie a sua primeira aplicação completando um arranque rápido:
 
-> [!div class="nextstepaction"]
-> [Início rápido: Adquirir um token e chamar a Microsoft Graph API a partir de uma aplicação de ambiente de trabalho do Windows](./quickstart-v2-windows-desktop.md)
-
-
-> [!div class="nextstepaction"]
-> [Quickstart: Adquira um token e ligue para a Microsoft Graph API a partir de uma aplicação UWP](./quickstart-v2-uwp.md)
-
-> [!div class="nextstepaction"]
-> [Quickstart: Adquira um token e ligue para a Microsoft Graph API a partir de uma aplicação nativa do macOS](./quickstart-v2-ios.md)
+- [Início rápido: Adquirir um token e chamar a Microsoft Graph API a partir de uma aplicação de ambiente de trabalho do Windows](./quickstart-v2-windows-desktop.md)
+- [Quickstart: Adquira um token e ligue para a Microsoft Graph API a partir de uma aplicação UWP](./quickstart-v2-uwp.md)
+- [Quickstart: Adquira um token e ligue para a Microsoft Graph API a partir de uma aplicação nativa do macOS](./quickstart-v2-ios.md)
 
 ## <a name="overview"></a>Descrição geral
 
-Escreve uma aplicação para desktop e pretende iniciar sísem os utilizadores na sua aplicação e ligar para apis web como o Microsoft Graph, outras APIs da Microsoft ou a sua própria API web. Tem várias possibilidades:
+Escreve uma aplicação para desktop e pretende iniciar sísem os utilizadores na sua aplicação e ligar para apis web como o Microsoft Graph, outras APIs da Microsoft ou a sua própria API web. Tem várias opções:
 
 - Pode utilizar a aquisição de fichas interativas:
 
@@ -65,7 +55,11 @@ Escreve uma aplicação para desktop e pretende iniciar sísem os utilizadores n
 
 As aplicações para desktop têm várias especificidades. Dependem principalmente da sua aplicação que utilize ou não autenticação interativa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="recommended-reading"></a>Leitura recomendada
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Aplicativo de ambiente de trabalho: Registo de aplicações](scenario-desktop-app-registration.md)

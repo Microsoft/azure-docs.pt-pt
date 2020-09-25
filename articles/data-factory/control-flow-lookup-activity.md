@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: e75921e5ee5b148d81c637800f46403d3d410f42
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.date: 09/23/2020
+ms.openlocfilehash: fd345f0eed5bd7140047b12a3c1a7471872c8bb7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613484"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270445"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de procura na Fábrica de Dados Azure
 
@@ -31,7 +31,7 @@ A atividade de procura lê e devolve o conteúdo de um ficheiro ou tabela de con
 
 As seguintes fontes de dados são suportadas para a atividade de Procura. 
 
-A atividade de Lookup pode voltar até 5000 linhas; se o conjunto de resultados contiver mais registos, as primeiras 5000 linhas serão devolvidas. A produção da atividade Do Lookup suporta até 2 MB de tamanho, a atividade falhará se o tamanho exceder o limite. Atualmente, a duração mais longa para a atividade de Lookup antes do intervalo é de uma hora.
+A atividade de Lookup pode voltar até 5000 linhas; se o conjunto de resultados contiver mais registos, as primeiras 5000 linhas serão devolvidas. A produção da atividade do Lookup suporta até cerca de 4 MB de tamanho, a atividade falhará se o tamanho exceder o limite. Atualmente, a duração mais longa para a atividade de Lookup antes do intervalo é de uma hora.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -389,7 +389,7 @@ Aqui estão algumas limitações da atividade de Lookup e soluções alternativa
 | A atividade de Lookup tem um máximo de 5.000 linhas, e um tamanho máximo de 2 MB. | Desenhe um oleoduto de dois níveis onde o gasoduto exterior itera sobre um gasoduto interior, que recupera dados que não excedam as linhas máximas ou o tamanho. |
 | | |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte outras atividades de fluxo de controlo suportadas pela Data Factory: 
 
 - [Executar atividade de Pipeline](control-flow-execute-pipeline-activity.md)

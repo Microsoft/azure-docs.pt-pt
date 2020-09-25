@@ -12,22 +12,18 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 4e530f76c8301dc74f73b675befa6f0710aedab7
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c9ff9ae811a29685937b922f04a277e663e26f1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026633"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257369"
 ---
 # <a name="scenario-protected-web-api"></a>Cenário: API web protegida
 
 Neste cenário, aprende-se a expor uma API web. Também aprende a proteger a API web para que apenas os utilizadores autenticados possam aceder à sua rede.
 
 Para utilizar a sua API web, precisa de ativar utilizadores autenticados com contas de trabalho e escola ou ativar contas pessoais da Microsoft.
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="specifics"></a>Especificidades
 
@@ -39,6 +35,10 @@ Aqui estão informações específicas que precisa de saber para proteger as API
 - Se criar um novo registo de aplicativos API web, escolha a [versão de acesso aceite](reference-app-manifest.md#accesstokenacceptedversion-attribute) pela sua API web para `2` . Para as APIs web legacy, a versão token aceite pode ser `null` , mas este valor restringe o público de entrada apenas às organizações, e as contas pessoais da Microsoft (MSA) não serão suportadas.
 - A configuração de código para a API web deve validar o token utilizado quando a API web é chamada.
 - O código nas ações do controlador deve validar as funções ou âmbitos no token.
+
+## <a name="recommended-reading"></a>Leitura recomendada
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

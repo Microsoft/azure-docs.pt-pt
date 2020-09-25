@@ -1,6 +1,6 @@
 ---
 title: SSO sessões em Azure Ative Directy B2C / Microsoft Docs
-description: Configurar o comportamento da sessão no Azure Ative Directory B2C.
+description: Uma visão geral do comportamento da sessão configurada no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ea8c40faad4ee709ae98f868e36fd42e46501bea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0004c874a2011a78bb5cfe67ff0a840224d47bbb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82927042"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258970"
 ---
 # <a name="azure-ad-b2c-session"></a>Sessão Azure AD B2C
 
@@ -112,7 +112,7 @@ Quando redireciona o utilizador para o ponto final de assinatura Azure AD B2C (t
 
 As aplicações devem responder a este pedido, limpando qualquer sessão que identifique o utilizador e devolvendo uma `200` resposta. Se pretender apoiar uma única sinseção na sua aplicação, tem de implementar uma `LogoutUrl` no código da sua aplicação. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [configurar o comportamento da sessão no fluxo do utilizador](session-behavior.md).
 - Saiba como configurar o comportamento da [sessão em políticas personalizadas.](session-behavior-custom-policy.md)

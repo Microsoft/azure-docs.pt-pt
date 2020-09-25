@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 09/18/2019
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 30f9f1998ee133c2546c9f4de7a99c51feb8740f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 5ec419be5c7549553788d009f09fa3e0fb8655e4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166200"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258290"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inicialize as aplicações do cliente utilizando MSAL.NET
 Este artigo descreve a inicialização de aplicações de cliente público e cliente confidencial utilizando a Microsoft Authentication Library para .NET (MSAL.NET).  Para saber mais sobre os tipos de aplicação do cliente e opções de configuração de aplicações, leia a [visão geral](msal-client-applications.md).
@@ -96,7 +96,7 @@ Nos cortes de código que utilizam os construtores de aplicações, uma série d
 
 Os modificadores que pode definir num cliente público ou um construtor de aplicações de clientes confidenciais são:
 
-|Modificador | Descrição|
+|Modificador | Description|
 |--------- | --------- |
 |`.WithAuthority()` 7 sobreposições | Define a autoridade de incumprimento do pedido a uma autoridade AD Azure, com a possibilidade de escolher a Nuvem Azure, o público, o inquilino (ID do inquilino ou nome de domínio), ou fornecer diretamente a autoridade URI.|
 |`.WithAdfsAuthority(string)` | Define a autoridade por incumprimento do pedido como uma autoridade ADFS.|
@@ -115,7 +115,7 @@ Os modificadores que pode definir num cliente público ou um construtor de aplic
 
 Os modificadores que pode definir num construtor de aplicações de cliente público em Xamarin.iOS são:
 
-|Modificador | Descrição|
+|Modificador | Description|
 |--------- | --------- |
 |`.WithIosKeychainSecurityGroup()` | **Apenas Xamarin.iOS**: Define o grupo de segurança do porta-chaves iOS (para a persistência da cache).|
 
@@ -123,7 +123,7 @@ Os modificadores que pode definir num construtor de aplicações de cliente púb
 
 Os modificadores que pode definir num construtor de aplicações de cliente confidencial são:
 
-|Modificador | Descrição|
+|Modificador | Description|
 |--------- | --------- |
 |`.WithCertificate(X509Certificate2 certificate)` | Define o certificado que identifica o pedido com Azure AD.|
 |`.WithClientSecret(string clientSecret)` | Define o segredo do cliente (palavra-passe de aplicação) identificando a aplicação com Azure AD.|
@@ -137,7 +137,7 @@ Vamos assumir que a sua candidatura é uma aplicação de linha de negócio, que
 ```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithAadAuthority(AzureCloudInstance.AzurePublic, tenantId)
+        .WithAuthority(AzureCloudInstance.AzurePublic, tenantId)
         .Build();
 ```
 
@@ -146,7 +146,7 @@ Onde se torna interessante é que a programação para as nuvens nacionais foi a
 ```csharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithAadAuthority(AzureCloudInstance.AzureUsGovernment, AadAuthorityAudience.AzureAdMultipleOrgs)
+        .WithAuthority(AzureCloudInstance.AzureUsGovernment, AadAuthorityAudience.AzureAdMultipleOrgs)
         .Build();
 ```
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/20/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f9db8a50e670e3c6af7adce0a8efcf3ce569ac89
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b1206d9e4d6eec7b2bf029310360f563849d61d6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009632"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268305"
 ---
 # <a name="analyzers-for-text-processing-in-azure-cognitive-search"></a>Analisadores para processamento de texto em Pesquisa Cognitiva Azure
 
@@ -147,7 +147,7 @@ Caminhando por este exemplo:
 * Neste caso, o analisador personalizado é "my_analyzer", que por sua vez utiliza um tokenizer padrão personalizado "my_standard_tokenizer" e dois filtros simbólicos: filtro de asciifolding minúsculo e personalizado "my_asciifolding".
 * Também define 2 filtros de carvão personalizados "map_dash" e "remove_whitespace". O primeiro substitui todos os traços por sublinhados enquanto o segundo remove todos os espaços. Os espaços precisam de ser UTF-8 codificados nas regras de mapeamento. Os filtros de carvão são aplicados antes da tokenização e afetarão os tokens resultantes (o tokenizer padrão quebra-se no traço e nos espaços, mas não em sublinhado).
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -206,7 +206,7 @@ Caminhando por este exemplo:
         }
      ]
   }
-~~~~
+```
 
 <a name="Per-field-analyzer-assignment-example"></a>
 
@@ -216,7 +216,7 @@ O analisador Standard é o padrão. Suponha que pretende substituir o padrão po
 
 O elemento "analisador" substitui o analisador Standard numa base campo a campo. Não há sobreposição global. Neste exemplo, `text1` usa o analisador de padrões `text2` e, que não especifica um analisador, utiliza o padrão.
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -239,7 +239,7 @@ O elemento "analisador" substitui o analisador Standard numa base campo a campo.
         }
      ]
   }
-~~~~
+```
 
 <a name="Mixing-analyzers-for-indexing-and-search-operations"></a>
 
@@ -248,7 +248,7 @@ O elemento "analisador" substitui o analisador Standard numa base campo a campo.
 As APIs incluem atributos de índice adicionais para especificar diferentes analisadores para indexação e pesquisa. Os atributos **searchAnalyzer** e **indexAnalyzer** devem ser especificados como um par, substituindo o atributo **de um único analisador.**
 
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -267,7 +267,7 @@ As APIs incluem atributos de índice adicionais para especificar diferentes anal
         },
      ],
   }
-~~~~
+```
 
 <a name="Language-analyzer-example"></a>
 
@@ -275,7 +275,7 @@ As APIs incluem atributos de índice adicionais para especificar diferentes anal
 
 Os campos que contêm cordas em diferentes línguas podem usar um analisador de idiomas, enquanto outros campos retêm o padrão (ou usam algum outro analisador predefinido ou personalizado). Se utilizar um analisador de idiomas, este deve ser utilizado tanto para operações de indexação como para operações de pesquisa. Os campos que usam um analisador de idiomas não podem ter diferentes analisadores para indexar e pesquisar.
 
-~~~~
+```json
   {
      "name":"myindex",
      "fields":[
@@ -300,7 +300,7 @@ Os campos que contêm cordas em diferentes línguas podem usar um analisador de 
         }
      ],
   }
-~~~~
+```
 
 ## <a name="c-examples"></a>Exemplos C#
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 424a05d6a096538aa296bb11863702b816410fb9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0eed3b6d68e8bfe62e9589b2ef4074df92445095
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480650"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258784"
 ---
 # <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Como as relações de confiança funcionam para as florestas de recursos em Azure Ative Directory Domain Services
 
@@ -99,12 +99,12 @@ Por exemplo, quando se cria uma confiança florestal unidirecional entre a *Flor
 Antes de criar uma confiança florestal, tem de verificar se tem a infraestrutura correta do Sistema de Nome de Domínio (DNS) no local. Os fundos florestais só podem ser criados quando uma das seguintes configurações de DNS estiver disponível:
 
 * Um servidor DNS de raiz único é o servidor DE DNS raiz para ambos os espaços de nome DNS florestais - a zona raiz contém delegações para cada um dos espaços de nomes DNS e as dicas de raiz de todos os servidores DNS incluem o servidor DE DNS raiz.
-* Onde não existe um servidor DNS de raiz partilhada, e os servidores DNS raiz para cada espaço de nome DNS da floresta usam os reencaminhadores condicional de DNS para cada espaço de nome DNS para encaminhar consultas para nomes no outro espaço de nome.
+* Quando não existe um servidor DNS de raiz partilhada e os servidores DNS de raiz em cada espaço de nome DNS da floresta usam os reencaminhadores de ADN para cada espaço de nome DNS para encaminhar consultas para nomes no outro espaço de nome.
 
     > [!IMPORTANT]
     > A floresta de recursos Azure AD Domain Services deve utilizar esta configuração DNS. Hospedar um espaço de nome DNS que não seja o espaço de nome DNS da floresta de recursos não é uma característica dos Serviços de Domínio AD Azure. Os reencaminhadores condicionalistas são a configuração adequada.
 
-* Onde não existe um servidor DNS de raiz partilhada, e os servidores DNS de raiz para cada espaço de nome DNS floresta são usados zonas secundárias DNS são configurados em cada espaço de nome DNS para encaminhar consultas para nomes no outro espaço de nome.
+* Quando não existe um servidor DNS de raiz partilhada e os servidores DNS de raiz em cada espaço de nome DNS da floresta são utilizados as zonas secundárias DNS são configuradas em cada espaço de nome DNS para encaminhar consultas para nomes no outro espaço de nome.
 
 Para criar uma confiança florestal, você deve ser um membro do grupo Dedmins de Domínio (no domínio das raízes da floresta) ou do grupo Enterprise Admins em Ative Directory. A cada fundo é atribuída uma senha que os administradores de ambas as florestas devem saber. Os membros da Enterprise Admins em ambas as florestas podem criar os fundos em ambas as florestas ao mesmo tempo e, neste cenário, uma palavra-passe que é criptograficamente aleatória é gerada e escrita automaticamente para ambas as florestas.
 

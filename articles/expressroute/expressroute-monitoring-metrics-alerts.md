@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: duau
-ms.openlocfilehash: fc83e5e8d14250ed163a56830311533144bbe344
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 6f502b8ad8ac268cc937150f4effdf9edf8eef15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395439"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252634"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitorização, métricas e alertas do ExpressRoute
 
@@ -154,8 +154,21 @@ Pode ver pacotes por segundo atravessando o portal.
 Nos **Critérios de Alerta,** pode selecionar **O Registo de Atividade** para o Tipo de Sinal e selecionar o Sinal.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg" alt-text="registos de atividades":::
+
+## <a name="additional-metrics-in-log-analytics"></a>Métricas adicionais em Log Analytics
+
+Também pode ver as métricas ExpressRoute navegando para o seu recurso de circuito ExpressRoute e selecionando o separador *Logs.* Para quaisquer métricas que consultar, a saída conterá as colunas abaixo.
+
+|**Coluna**|**Tipo**|**Descrição**|
+| --- | --- | --- |
+|TimeGrain|string|PT1M (os valores métricos são empurrados a cada minuto)|
+|de palavras|real|Normalmente igual a 2 (cada MSEE empurra um único valor métrico a cada minuto)|
+|Mínimo|real|O mínimo dos dois valores métricos empurrados pelos dois MSEEs|
+|Máximo|real|O maxiumum dos dois valores métricos empurrados pelos dois MSEEs|
+|Média|real|Igual a (Mínimo + Máximo)/2|
+|Total|real|Soma dos dois valores métricos de ambos os PME (o valor principal a focar-se na métrica consultada)|
   
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Configurar a ligação do ExpressRoute.
   

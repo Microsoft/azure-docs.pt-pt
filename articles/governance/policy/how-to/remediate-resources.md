@@ -1,14 +1,14 @@
 ---
 title: Identificar recursos em não conformidade
 description: Este guia acompanha-o através da reparação de recursos que não estão em conformidade com as políticas da Política Azure.
-ms.date: 08/27/2020
+ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 52d8ef6dd66c52edd574b2ccfa51da16623a1afb
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 3b2d145322be8b70e096e49be892018952519cf0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651366"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269850"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Remediar recursos não conformes com a Política Azure
 
@@ -17,12 +17,16 @@ Os recursos que não sejam compatíveis com uma **política de implantaçãoIfNo
 ## <a name="how-remediation-security-works"></a>Como funciona a segurança da reparação
 
 Quando a Política Azure executa o modelo na definição de política **doIfNotExists,** fá-lo utilizando uma [identidade gerida](../../../active-directory/managed-identities-azure-resources/overview.md).
-A Azure Policy cria uma identidade gerida para cada atribuição, mas deve ter detalhes sobre quais as funções a conceder a identidade gerida. Se a identidade gerida faltar, este erro é apresentado durante a atribuição da apólice ou uma iniciativa. Ao utilizar o portal, a Azure Policy concede automaticamente à identidade gerida as funções listadas assim que a atribuição começa. A _localização_ da identidade gerida não afeta o seu funcionamento com a Política Azure.
+A Azure Policy cria uma identidade gerida para cada atribuição, mas deve ter detalhes sobre quais as funções a conceder a identidade gerida. Se a identidade gerida faltar, este erro é apresentado durante a atribuição da apólice ou uma iniciativa. Ao utilizar o portal, a Azure Policy concede automaticamente à identidade gerida as funções listadas assim que a atribuição começa. Ao utilizar o SDK, as funções devem ser concedidas manualmente à identidade gerida. A _localização_ da identidade gerida não afeta o seu funcionamento com a Política Azure.
 
 :::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Screenshot de uma política de implementaçãoIfNotExists que está faltando uma permissão definida sobre a identidade gerida." border="false":::
 
 > [!IMPORTANT]
-> Se um recurso modificado por **deployIfNotExists** ou **modificar** estiver fora do âmbito da atribuição de políticas ou o modelo acessar propriedades em recursos fora do âmbito da atribuição de políticas, a identidade gerida da atribuição deve ser [manualmente concedida acesso](#manually-configure-the-managed-identity) ou a implementação de remediação falhará.
+> Nos seguintes cenários, a identidade gerida da atribuição deve ser [autorizada manualmente](#manually-configure-the-managed-identity) a ter acesso ou a implementação de reparação falhará:
+>
+> - Se a atribuição for criada através da SDK
+> - Se um recurso modificado por **implementarIfNotExists** ou **modificar** está fora do âmbito da atribuição de políticas
+> - Se o modelo acessa propriedades em recursos fora do âmbito da atribuição de políticas
 
 ## <a name="configure-policy-definition"></a>Configurar definição de política
 
@@ -182,7 +186,7 @@ Para outros cmdlets e exemplos de remediação, consulte o módulo [Az.PolicyIns
 
 Uma forma simplificada de criar uma tarefa de reparação é fazê-lo a partir do portal Azure durante a atribuição de políticas. Se a definição de política a atribuir for um **implementadorIfNotExists** ou um efeito **Modificar,** o assistente no **separador Remediação** oferece uma opção _de tarefa de remediação._ Se esta opção for selecionada, é criada uma tarefa de reparação ao mesmo tempo que a atribuição de políticas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

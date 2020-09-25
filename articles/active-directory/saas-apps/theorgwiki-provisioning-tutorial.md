@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 5959ccd2699ef1162779a4a1d90ab6bb8af1bbbf
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0a72ea413e7298c8e6cb622cb985e6516435b451
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544854"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255853"
 ---
 # <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>Tutorial: Configurar TheOrgWiki para fornecimento automático de utilizadores
 
 O objetivo deste tutorial é demonstrar os passos a serem realizados no TheOrgWiki e no Azure Ative Directory (Azure AD) para configurar a Azure AD para fornecimento e desavisagem automática de utilizadores e/ou grupos ao TheOrgWiki.
 
 > [!NOTE]
-> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte [automatizar o fornecimento e desprovisionamento de aplicações saaS com diretório Azure Ative.](../app-provisioning/user-provisioning.md)
+> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona e perguntas frequentes, veja [Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS no Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Este conector encontra-se atualmente em Visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -55,23 +55,23 @@ Antes de configurar o TheOrgWiki para o fornecimento automático de utilizadores
 
 1. Inscreva-se na sua [Consola de Administração TheOrgWiki](https://www.theorgwiki.com/login/). Clique na **Consola de Administração.**
 
-    ![TheOrgWiki Add SCIM](media/theorgwiki-provisioning-tutorial/login.png)
+    ![Screenshot de Org Wiki com o avatar do utilizador e a Consola Admin chamadas.](media/theorgwiki-provisioning-tutorial/login.png)
 
 2. Na consola de administração, clique no **separador Definições**. 
 
-    ![TheOrgWiki Add SCIM](media/theorgwiki-provisioning-tutorial/settings.png)
+    ![Screenshot da Consola de Administração Org Wiki com o separador Definições chamado.](media/theorgwiki-provisioning-tutorial/settings.png)
     
 3. Navegar para contas **de serviço.**
 
-    ![TheOrgWiki Add SCIM](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
+    ![Screenshot da página 'Contas de Serviço' na Consola Org Wiki Admin.](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
 
-4. Clique em **+Conta de Serviço.** No **tipo de conta de serviço**,selecione **Token Based**. Clique em **Guardar**.
+4. Clique em **+Conta de Serviço.** No **tipo de conta de serviço**,selecione **Token Based**. Clique em **Save** (Guardar).
 
-    ![TheOrgWiki Add SCIM](media/theorgwiki-provisioning-tutorial/auth.png)
+    ![Screenshot da caixa de diálogo de nova conta de serviço com as opções de Serviço Tipo de Conta, Token Based e Save.](media/theorgwiki-provisioning-tutorial/auth.png)
 
 5.  Copiar os **Tokens Ativos.** Este valor será introduzido no campo Secret Token no separador Provisioning da sua aplicação TheOrgWiki no portal Azure.
      
-    ![TheOrgWiki Add SCIM](media/theorgwiki-provisioning-tutorial/token.png)
+    ![Screenshot da caixa de diálogo de provisionamento de S C I M.](media/theorgwiki-provisioning-tutorial/token.png)
 
 ## <a name="add-theorgwiki-from-the-gallery"></a>Adicione TheOrgWiki da galeria
 
@@ -95,15 +95,15 @@ Para configurar o TheOrgWiki para o fornecimento automático de utilizadores com
 
 5. Selecione o **botão De Inscrição para OOrgWiki** que irá redirecioná-lo para a página de login do TheOrgWiki. 
 
-    ![TheOrgWiki Add SCIM](media/theorgwiki-provisioning-tutorial/image00.png)
+    ![Screenshot da página de login do Org Wiki com o URL chamado](media/theorgwiki-provisioning-tutorial/image00.png)
 
 6.  No canto superior direito, **selecione Login**.
 
-    ![TheOrgWiki Add SCIM](media/theorgwiki-provisioning-tutorial/image02.png)
+    ![Screenshot do canto superior direito da página de login com a opção 'Log In' chamada.](media/theorgwiki-provisioning-tutorial/image02.png)
 
 7. Como o TheOrgWiki é uma aplicação OpenIDConnect, opte por iniciar sessão no OrgWiki utilizando a sua conta de trabalho da Microsoft.
 
-    ![TheOrgWiki Add SCIM](media/theorgwiki-provisioning-tutorial/image03.png)
+    ![Screenshot do sinal org Wiki na página com a opção Iniciar com a Microsoft chamada.](media/theorgwiki-provisioning-tutorial/image03.png)
     
 8. Após uma autenticação bem sucedida, a aplicação será automaticamente adicionada ao seu inquilino e será redirecionado para a sua conta TheOrgWiki.
 
@@ -116,21 +116,21 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 ### <a name="to-configure-automatic-user-provisioning-for-theorgwiki-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para o TheOrgWiki em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais** e, em seguida, **Todas as aplicações**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **TheOrgWiki**.
 
     ![O link OrgWiki na lista de Aplicações](common/all-applications.png)
 
-3. Selecione o **separador Provisioning.**
+3. Selecione o separador **Aprovisionamento**.
 
-    ![Separador de provisionamento](common/provisioning.png)
+    ![Screenshot das opções De gestão com a opção Provisioning chamada.](common/provisioning.png)
 
-4. Desa ajuste o **modo de provisionamento** para **automático**.
+4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
-    ![Separador de provisionamento](common/provisioning-automatic.png)
+    ![Screenshot da lista de retirada do modo de provisionamento com a opção Automática chamada.](common/provisioning-automatic.png)
 
 5. Sob a secção **de Credenciais de Administração,** entrada `https://<TheOrgWiki Subdomain        value>.theorgwiki.com/api/v2/scim/v2/` na URL do **inquilino.** 
 
@@ -145,9 +145,9 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 7. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e verifique a caixa de verificação - **Envie uma notificação de e-mail quando ocorrer uma falha**.
 
-    ![E-mail de notificação](common/provisioning-notification-email.png)
+    ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-8. Clique em **Guardar**.
+8. Clique em **Save** (Guardar).
 
 9. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to TheOrgWiki**.
 
@@ -157,19 +157,19 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Atributos do utilizador TheOrgWiki](media/theorgwiki-provisioning-tutorial/userattribute.png).
 
-11. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+11. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 12. Para ativar o serviço de fornecimento de AD Azure para o TheOrgWiki, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
-    ![Estatuto de Provisionamento Toggled On](common/provisioning-toggle-on.png)
+    ![Estado do Aprovisionamento Ativado](common/provisioning-toggle-on.png)
 
 13. Defina os utilizadores e/ou grupos que deseja prestar à OrgWiki, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
-    ![Âmbito de provisionamento](common/provisioning-scope.png)
+    ![Âmbito de Aprovisionamento](common/provisioning-scope.png)
 
-14. Quando estiver pronto para a provisão, clique em **Guardar**.
+14. Quando estiver pronto para aprovisionar, clique em **Guardar**.
 
-    ![Configuração de provisionamento de poupança](common/provisioning-configuration-save.png)
+    ![Guardar Configuração de Aprovisionamento](common/provisioning-configuration-save.png)
 
 Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser efetua do que as sincronizações subsequentes. Para obter mais informações sobre o tempo que os utilizadores e/ou grupos demorarão a providenciar, consulte [quanto tempo demorará a providenciar aos utilizadores](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 

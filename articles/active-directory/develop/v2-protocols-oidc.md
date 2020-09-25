@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 741e7a13513d571fbaabd17016b2282a860271cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71e930898f1f86622357f9e02da69be7bf2f8088
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263283"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256590"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidade da Microsoft e protocolo OpenID Connect
 
@@ -37,9 +37,9 @@ O fluxo de entrada mais básico tem os passos mostrados no diagrama seguinte. Ca
 
 O OpenID Connect descreve um documento de metadados [(RFC)](https://openid.net/specs/openid-connect-discovery-1_0.html) que contém a maioria das informações necessárias para que uma aplicação faça o sôm. Isto inclui informações como os URLs a utilizar e a localização das chaves de assinatura pública do serviço. Pode encontrar este documento anexando o caminho do documento de descoberta para a URL da autoridade:
 
-Caminho do documento de descoberta:`/.well-known/openid-configuration`
+Caminho do documento de descoberta: `/.well-known/openid-configuration`
 
-Autoridade:`https://login.microsoftonline.com/{tenant}/v2.0`
+Autoridade: `https://login.microsoftonline.com/{tenant}/v2.0`
 
 A `{tenant}` lata leva um de quatro valores:
 
@@ -118,7 +118,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parâmetro | Condição | Descrição |
 | --- | --- | --- |
-| `tenant` | Necessário | Pode utilizar o `{tenant}` valor no caminho do pedido para controlar quem pode iniciar sê-lo na aplicação. Os valores permitidos `common` `organizations` são, `consumers` e os identificadores de inquilinos. Para mais informações, consulte [o protocolo básico.](active-directory-v2-protocols.md#endpoints) |
+| `tenant` | Obrigatório | Pode utilizar o `{tenant}` valor no caminho do pedido para controlar quem pode iniciar sê-lo na aplicação. Os valores permitidos `common` `organizations` são, `consumers` e os identificadores de inquilinos. Para mais informações, consulte [o protocolo básico.](active-directory-v2-protocols.md#endpoints) |
 | `client_id` | Necessário | O **ID da Aplicação (cliente)** que o [portal Azure – Experiência de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) atribuído à sua app. |
 | `response_type` | Necessário | Deve incluir `id_token` para o iniciar sê-in OpenID Connect. Também pode incluir outros `response_type` valores, tais `code` como. |
 | `redirect_uri` | Recomendado | O URI redirecionado da sua app, onde as respostas de autenticação podem ser enviadas e recebidas pela sua app. Deve corresponder exatamente a um dos URIs de redirecionamento que registou no portal, exceto que deve ser codificado URL. Se não estiver presente, o ponto final escolherá um redirect_uri registado aleatoriamente para enviar o utilizador de volta. |
@@ -172,7 +172,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 A tabela a seguir descreve códigos de erro que podem ser devolvidos no `error` parâmetro da resposta de erro:
 
-| Código de erro | Descrição | Ação do cliente |
+| Código de erro | Description | Ação do cliente |
 | --- | --- | --- |
 | `invalid_request` | Erro de protocolo, como um parâmetro em falta, exigido. |Corrija e reenvia o pedido. Este é um erro de desenvolvimento que normalmente é apanhado durante os testes iniciais. |
 | `unauthorized_client` | O pedido do cliente não pode solicitar um código de autorização. |Isto ocorre geralmente quando a aplicação do cliente não está registada no Azure AD ou não é adicionada ao inquilino AZure AD do utilizador. A aplicação pode solicitar ao utilizador instruções para instalar a aplicação e adicioná-la ao Azure AD. |
@@ -249,7 +249,7 @@ Os parâmetros de resposta significam a mesma coisa, independentemente do fluxo 
 
 | Parâmetro | Descrição |
 | --- | --- |
-| `token` | O token que será usado para chamar o ponto final do UserInfo.|
+| `access_token` | O token que será usado para chamar o ponto final do UserInfo.|
 | `token_type` | Sempre "Portador" |
 | `expires_in`| Quanto tempo até o sinal de acesso expirar, em segundos. |
 | `scope` | As permissões concedidas no token de acesso.  Note que, uma vez que o ponto final do UserInfo está hospedado no MS Graph, pode haver âmbitos gráficos adicionais listados aqui (por exemplo, user.read) se foram previamente concedidos à app.  Isto porque um símbolo de um determinado recurso inclui sempre todas as permissões concedidas ao cliente.  |
@@ -292,7 +292,7 @@ GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?
 post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 ```
 
-| Parâmetro | Condição | Descrição |
+| Parâmetro | Condição | Description |
 | ----------------------- | ------------------------------- | ------------ |
 | `post_logout_redirect_uri` | Recomendado | O URL para o qual o utilizador é redirecionado após a assinatura com sucesso. Se o parâmetro não estiver incluído, o utilizador é mostrado uma mensagem genérica que é gerada pelo ponto final da plataforma de identidade da Microsoft. Este URL deve corresponder a um dos URIs de redirecionamento registados para a sua aplicação no portal de registo de aplicações. |
 
@@ -300,7 +300,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 Quando redireciona o utilizador para o `end_session_endpoint` ponto final da plataforma de identidade da Microsoft, o ponto final da plataforma de identidade microsoft limpa a sessão do utilizador a partir do navegador. No entanto, o utilizador pode ainda ser inscrito noutras aplicações que utilizem as contas da Microsoft para autenticação. Para permitir que essas aplicações assinem o utilizador simultaneamente, o ponto final da plataforma de identidade da Microsoft envia um pedido HTTP GET para o registo `LogoutUrl` de todas as aplicações a que o utilizador se encontra atualmente inscrito. As aplicações devem responder a este pedido, limpando qualquer sessão que identifique o utilizador e devolvendo uma `200` resposta. Se pretender apoiar uma única sinseção na sua aplicação, tem de implementar tal `LogoutUrl` no código da sua aplicação. Pode definir o `LogoutUrl` portal de registo de aplicações.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Reveja a [documentação Do UtilizadorInfo](userinfo.md)
 * Saiba como [personalizar os valores num token](active-directory-claims-mapping.md) com dados dos seus sistemas no local. 

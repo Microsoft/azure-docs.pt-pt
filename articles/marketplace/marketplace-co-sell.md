@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/15/2020
-ms.openlocfilehash: 41dd683bb0ff5be4a48cd05f24663dd51c66a15b
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/23/2020
+ms.openlocfilehash: f0996ba6cd914043ad31500934141ad8770a1c50
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984639"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268728"
 ---
 # <a name="co-sell-partner-engagement"></a>Compromisso entre parceiros para venda conjunta
 
@@ -36,7 +36,7 @@ Ofertas que atingem **a Azure IP Co-venda** de estatuto incentivado obtenha este
 * A taxa de serviço no mercado é reduzida de 20% para 10%. Este desconto aplica-se à sua oferta IaaS ou SaaS vendida através do mercado comercial. Consulte [a Taxa de Serviço Reduzida](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) para mais detalhes.
 * Os parceiros Cloud Solution Provider (CSP) recebem um incentivo de 10% para vender a sua oferta IaaS ou SaaS. Saiba mais sobre o programa CSP no [programa Cloud Solution Provider](cloud-solution-providers.md).
 * As vendas da sua oferta através do mercado comercial contribuirão para os compromissos de consumo da Azure dos clientes. Os clientes elegíveis verão a oferta marcada como **"Azure benefit elegível"** no Portal Azure. Consulte [o benefício do compromisso de consumo da Azure](azure-consumption-commitment-benefit.md) para mais detalhes.
-* A sua oferta receberá um crachá **de "soluções preferenciais"** nas montras. O crachá promove a qualidade, desempenho e capacidade das ofertas para atender às necessidades dos clientes numa determinada área vertical ou de solução da indústria. Saiba mais [em soluções Preferidas no Microsoft AppSource e no Azure Marketplace.](preferred-solutions.md)
+* Ofertas que alcançam **Azure IP Co-venda incentivado** ou **Aplicações Empresariais Co-vender** o status incentivado receberá um crachá **de "soluções preferenciais"** nas montras. O crachá promove a qualidade, desempenho e capacidade de uma oferta para atender às necessidades dos clientes numa determinada área vertical ou de solução da indústria. Saiba mais [em soluções Preferidas no Microsoft AppSource e no Azure Marketplace.](preferred-solutions.md)
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>Co-venda de etapas e requisitos de publicação
 

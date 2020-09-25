@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: e72875135243733a6acf03bb3aa6fb9405392d9d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a7fb97f1036515f82fa3e61c18f95eadf0af704d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940321"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301708"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Introdução ao Azure Defender para Kubernetes
 
@@ -44,14 +44,14 @@ O Centro de Segurança fornece proteção contra ameaças a diferentes níveis:
 
 - **Nível de anfitrião (fornecido pelo Azure Defender para servidores)** - Utilizando o mesmo agente Log Analytics que o Security Center utiliza em outros VMs, o Azure Defender monitoriza os seus nós Linux AKS para atividades suspeitas, tais como deteção de conchas web e ligação com endereços IP suspeitos conhecidos. O agente também monitoriza análises específicas de contentores, tais como criação privilegiada de contentores, acesso suspeito a servidores API e servidores Secure Shell (SSH) que estão dentro de um contentor Docker.
 
-    Para obter uma lista dos alertas de nível de anfitrião AKS, consulte a [tabela de alertas de referência](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost).
+    Para obter uma lista dos alertas de nível de anfitrião AKS, consulte a [tabela de alertas de referência](alerts-reference.md#alerts-containerhost).
 
     >[!IMPORTANT]
     > Se optar por não instalar os agentes nos seus anfitriões, receberá apenas um subconjunto dos benefícios de proteção contra ameaças e alertas de segurança. Ainda receberá alertas relacionados com análises de rede e comunicações com servidores maliciosos.
 
 - **Nível de cluster AKS (fornecido pelo Azure Defender for Kubernetes)** - Ao nível do cluster, a proteção contra ameaças baseia-se na análise dos registos de auditoria da Kubernetes. Para ativar esta monitorização **sem agente,** ative o Azure Defender. Para gerar alertas a este nível, o Security Center monitoriza os seus serviços geridos pela AKS utilizando os registos recuperados pela AKS. Exemplos de eventos a este nível incluem dashboards kubernetes expostos, criação de papéis privilegiados elevados, e a criação de suportes sensíveis.
 
-    Para obter uma lista dos alertas de nível de cluster AKS, consulte a [tabela de alertas de referência](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster).
+    Para obter uma lista dos alertas de nível de cluster AKS, consulte a [tabela de alertas de referência](alerts-reference.md#alerts-akscluster).
 
     >[!NOTE]
     > O Security Center gera alertas de segurança para as ações e implementações do Serviço Azure Kubernetes que ocorrem após a opção Kubernetes estar ativada nas definições de subscrição. 

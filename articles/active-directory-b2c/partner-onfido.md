@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5ff2fe74a0dd5064232fcef3178aec2967ef6812
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 5d0835114844069d4ebdc992b872f9be1f0b3ca6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683866"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259225"
 ---
 # <a name="tutorial-for-configuring-onfido-with-azure-active-directory-b2c"></a>Tutorial para configurar Onfido com Azure Ative Directory B2C
 
@@ -50,7 +50,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 ![screenshot para onfido-arquitetura-diagrama](media/partner-onfido/onfido-architecture-diagram.png)
 
-|Passo | Descrição |
+|Passo | Description |
 |:-----| :-----------|
 | 1. | O utilizador chega a uma página de login. O utilizador inscreve-se para criar uma nova conta e introduz informações na página. Azure AD B2C recolhe os atributos do utilizador. A aplicação do cliente Onfido hospedada no Azure AD B2C faz verificações preliminares para a informação do utilizador.
 | 2. | Azure AD B2C chama a API de camada média e transmite os atributos do utilizador.
@@ -94,7 +94,7 @@ As definições de aplicação podem ser configuradas no [serviço app em Azure.
 
 1. Crie um [recipiente de armazenamento de bolhas na sua conta de armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
 
-2. Guarde os ficheiros de UI da pasta UI para o seu recipiente blob.
+2. Guarde os ficheiros de UI da [pasta UI](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/UI) para o seu recipiente blob.
 
 3. Permitir o acesso do CORS ao recipiente de armazenamento que criou seguindo estas instruções:
 
@@ -124,7 +124,7 @@ As definições de aplicação podem ser configuradas no [serviço app em Azure.
 
 #### <a name="replace-the-configuration-values"></a>Substitua os valores de configuração
 
-Nas políticas personalizadas fornecidas, encontre os seguintes espaços reservados e substitua-os pelos valores correspondentes da sua instância.
+Nas [políticas personalizadas](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/Policies)fornecidas, encontre os seguintes espaços reservados e substitua-os pelos valores correspondentes da sua instância.
 
 | Marcador de posição | Substituir por valor | Exemplo  |
 |:---------------|:----------------|:-------------------|

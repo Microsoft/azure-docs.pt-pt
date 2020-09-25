@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: aahi
-ms.openlocfilehash: 440f901f06e431c371b7445f4a04499c475c9aa1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5ffa5398143bff4e24d81a28a541e16c44700c99
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940585"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254028"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Como: Implementar uma aplicação web people Counting
 
@@ -181,8 +181,8 @@ Depois de introduzir os parâmetros acima, clique em **Review+Create** e crie a 
 
 Aguarde a conclusão da configuração e navegue para o seu recurso no portal Azure. Aceda à secção **de configuração** e adicione as **duas seguintes definições de aplicação**.
 
-* `EventHubConsumerGroup` – O nome de corda do grupo de consumidores do seu hub Azure IoT, pode criar um novo grupo de consumidores no seu hub IoT ou utilizar o grupo padrão. 
-* `IotHubConnectionString` – A cadeia de ligação ao seu hub Azure IoT, isto pode ser recuperado a partir da secção de teclas do seu recurso de ioT Azure IoT ![ Parâmetros de configuração](./media/spatial-analysis/solution-app-config-page.png)
+* `EventHubConsumerGroup` – O nome de corda do grupo de consumidores do seu Azure IoT Hub, pode criar um novo grupo de consumidores no seu IoT Hub ou utilizar o grupo padrão. 
+* `IotHubConnectionString` – O fio de ligação ao seu Azure IoT Hub, este pode ser recuperado a partir da secção de teclas do seu recurso Azure IoT Hub ![ Configure Parâmetros de configuração](./media/spatial-analysis/solution-app-config-page.png)
 
 Assim que estas 2 definições forem adicionadas, clique em **Guardar**. Em seguida, clique em **Autenticação/Autorização** no menu de navegação à esquerda e atualize-o com o nível de autenticação pretendido. Recomendamos o expresso do Azure Ative Diretor (Azure AD). 
 

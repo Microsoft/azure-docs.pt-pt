@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 06/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: dcf80ffa26ecaeb0f4481b3997146c07bd89be10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7d89942ad5209b854b8df486ad3e59a3976edfc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392934"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259056"
 ---
 # <a name="tutorial-for-configuring-typingdna-with-azure-active-directory-b2c"></a>Tutorial para configurar o TNA da tipografia com o Azure Ative Directory B2C
 
@@ -36,9 +36,9 @@ Nesta passagem, aprenda a integrar uma aplicação de pagamento online de amostr
 
 2. Quando o utilizador submeter a página, a biblioteca DadopingDNA calculará a característica da dactilografia do utilizador. Depois disso, insira a informação num campo de texto oculto que o Azure AD B2C tenha prestado. Este campo está escondido com CSS.  
 
-    A amostra contém ficheiros HTML com as modificações JavaScript e CSS, e é referenciada pelas `api.selfasserted.tdnasignin` definições e `api.selfasserted.tdnasignup` conteúdo. Consulte o [conteúdo da página](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#hosting-the-page-content) para alojar os seus ficheiros HTML.
+    A [amostra contém ficheiros HTML](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignUp.cshtml) com as modificações JavaScript e CSS, e é referenciada pelas `api.selfasserted.tdnasignin` definições e `api.selfasserted.tdnasignup` conteúdo. Consulte o [conteúdo da página](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#hosting-the-page-content) para alojar os seus ficheiros HTML.
 
-3. O Azure AD B2C tem agora o padrão de dactilografia dentro do saco de reclamação quando o utilizador apresenta as suas credenciais. Deve chamar uma API (sua) para passar estes dados para o ponto final da API da TipingDNA REST. Esta API está incluída na amostra (dactilografia DNA-API-Interface).
+3. O Azure AD B2C tem agora o padrão de dactilografia dentro do saco de reclamação quando o utilizador apresenta as suas credenciais. Deve chamar uma API (sua) para passar estes dados para o ponto final da API da TipingDNA REST. Esta API está incluída na [amostra (dactilografia DNA-API-Interface)](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface).
 4. A API de camada média passa então os dados do padrão de dactilografia para a API DA TIPINGDNA REST. Na inscrição, o ponto final do utilizador de [verificação](https://api.typingdna.com/index.html#api-API_Services-GetUser) é chamado para confirmar que o utilizador não existia e, em seguida, o ponto final do [padrão de poupança](https://api.typingdna.com/index.html#api-API_Services-saveUserPattern) é chamado para salvar o primeiro padrão de dactilografia do utilizador.
 
 > [!NOTE]
@@ -61,7 +61,7 @@ As chamadas REST API são modeladas `validationTechnicalProfiles` `LocalAccountS
 
 ### <a name="sign-in"></a>Iniciar sessão
 
-No início de sing-in subsequente, o padrão de dactilografia do utilizador é calculado da mesma forma que no início da inscrição usando o HTML personalizado. Uma vez que o perfil de dactilografia esteja dentro do saco de reclamação Azure AD B2C, a Azure AD B2C irá ligar para a sua API para ligar para o ponto final da API REST da TypingDNA. O ponto final do utilizador de [verificação](https://api.typingdna.com/index.html#api-API_Services-GetUser) é chamado para confirmar a existência do utilizador. Em seguida, verifique se o ponto final do [padrão](https://api.typingdna.com/index.html#api-API_Services-verifyTypingPattern) é chamado para devolver o `net_score` . Esta `net_score` é uma indicação de quão perto o padrão de dactilografia estava ao original em inscrição.
+No início de sing-in subsequente, o padrão de dactilografia do utilizador é calculado da mesma forma que no início da inscrição usando o [HTML personalizado](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/TypingDNA/source-code/selfAssertedSignIn.cshtml). Uma vez que o perfil de dactilografia esteja dentro do saco de reclamação Azure AD B2C, a Azure AD B2C irá ligar para a sua API para ligar para o ponto final da API REST da TypingDNA. O ponto final do utilizador de [verificação](https://api.typingdna.com/index.html#api-API_Services-GetUser) é chamado para confirmar a existência do utilizador. Em seguida, verifique se o ponto final do [padrão](https://api.typingdna.com/index.html#api-API_Services-verifyTypingPattern) é chamado para devolver o `net_score` . Esta `net_score` é uma indicação de quão perto o padrão de dactilografia estava ao original em inscrição.
 
 Este padrão de dactilografia é modelado com `validationTechnicalProfiles` `SelfAsserted-LocalAccountSignin-Email-TDNA` dentro :
 
@@ -99,7 +99,7 @@ Este padrão de dactilografia é modelado com `validationTechnicalProfiles` `Sel
 
  Se o utilizador obtiver um padrão de dactilografia que tenha um padrão `net_score` elevado, pode guardar isto usando o ponto final do padrão de dactilografia da [digitação.](https://api.typingdna.com/index.html#api-API_Services-saveUserPattern)  
 
-A sua API deve devolver uma reclamação se quiser que o ponto `saveTypingPattern` final de padrão de dactilografia dactografia seja chamado por Azure AD B2C (através da sua API).
+A sua API deve devolver uma reclamação se quiser que o ponto  `saveTypingPattern` final de padrão de dactilografia dactografia seja chamado por Azure AD B2C (através da sua API).
 
 O exemplo no repo contém uma API (DigitingDNA-API-Interface) que está configurada com as seguintes propriedades.
 
@@ -158,14 +158,14 @@ Estes limiares devem ser ajustados no seu caso de utilização.
 
 ## <a name="integrate-typingdna-with-azure-ad-b2c"></a>Integrar o TNA da tipografia com o Azure AD B2C
 
-1. Hospedar a TipografiaDNA-API-Interface no seu fornecedor de hospedagem de eleição
-2. Substitua todas as instâncias de `apiKey` e `apiSecret` em solução de dactilografia DANA-API-Interface pelas credenciais do seu painel de tipografiaDNA
+1. Hospedar a [TipografiaDNA-API-Interface](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) no seu fornecedor de hospedagem de eleição
+2. Substitua todas as instâncias de `apiKey` e `apiSecret` em solução de [dactilografia DANA-API-Interface](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface) pelas credenciais do seu painel de tipografiaDNA
 3. Hospedar os ficheiros HTML no seu fornecedor de eleição seguindo os requisitos do CORS [aqui](https://docs.microsoft.com/azure/active-directory-b2c/custom-policy-ui-customization#3-configure-cors)
 4. Substitua os elementos LoadURI para as `api.selfasserted.tdnasignup` definições e `api.selfasserted.tdnasignin` conteúdo no ficheiro no ficheiro para o `TrustFrameworkExtensions.xml` URI dos ficheiros HTML alojados, respectivamente.
 5. Criar uma chave de política B2C no quadro de experiência de identidade na lâmina Azure AD no **portal Azure**. Utilize a `Generate` opção e nomeie esta chave `tdnaHashedId` .
 6. Substitua os TenantId's nos ficheiros de política
-7. Substitua os ServiceURLs em todos os perfis técnicos da API da Tipografia DNA REST (REST-TDNA-CheckUser, REST-TDNA-SaveUser, REST-TDNA-CheckUser) com o ponto final para a sua API de TypingDNA-API-Interface.
-8. Faça o upload dos ficheiros de política para o seu inquilino.
+7. Substitua os ServiceURLs em todos os perfis técnicos da API da Tipografia DNA REST (REST-TDNA-CheckUser, REST-TDNA-SaveUser, REST-TDNA-CheckUser) com o ponto final para a sua [API de TypingDNA-API-Interface](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/source-code/TypingDNA-API-Interface).
+8. Faça o upload [dos ficheiros de política](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/TypingDNA/policy) para o seu inquilino.
 
 ## <a name="test-the-user-flow"></a>Teste o fluxo do utilizador
 
@@ -190,7 +190,7 @@ Estes limiares devem ser ajustados no seu caso de utilização.
 
 • Inscreva-se [aqui](https://b2cprod.b2clogin.com/b2cprod.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_SU_TDNA&client_id=51d907f8-db14-4460-a1fd-27eaeb2a74da&nonce=defaultNonce&redirect_uri=https://jwt.ms/&scope=openid&response_type=id_token&prompt=login) e inscreva-se [aqui](https://b2cprod.b2clogin.com/b2cprod.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_SI_TDNA&client_id=51d907f8-db14-4460-a1fd-27eaeb2a74da&nonce=defaultNonce&redirect_uri=https://jwt.ms/&scope=openid&response_type=id_token&prompt=login)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações adicionais, reveja os seguintes artigos:
 

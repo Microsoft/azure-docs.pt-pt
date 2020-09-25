@@ -1,22 +1,20 @@
 ---
-title: 'Tutorial: Escalar uma nuvem privada'
-description: Neste tutorial, utiliza o portal Azure para escalar uma nuvem privada Azure VMware Solution Preview.
+title: Tutorial - Escalar uma nuvem privada
+description: Neste tutorial, você usa o portal Azure para escalar uma nuvem privada Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 08/21/2020
-ms.openlocfilehash: dddfbddd57f3ad6b541d11c360aeadea4383044a
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/21/2020
+ms.openlocfilehash: e1226eb98607a34869bda1f998c7cecea2e50919
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750426"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254419"
 ---
-# <a name="tutorial-scale-an-azure-vmware-solution-preview-private-cloud"></a>Tutorial: Escalar uma solução Azure VMware Preview nuvem privada
+# <a name="tutorial-scale-an-azure-vmware-solution-private-cloud"></a>Tutorial: Escalar uma nuvem privada Azure VMware Solution
 
-Para tirar o máximo partido da experiência em nuvem privada Azure VMware Solution, dimensione os clusters e anfitriões para refletir o que precisa para cargas de trabalho planeadas. Uma vez que a Azure VMware Solution não suporta o seu vCenter no local durante a pré-visualização, terá de utilizar o que já criou através do portal Azure.
+Para tirar o máximo partido da sua experiência em nuvem privada Azure VMware Solution, dimensione os clusters e anfitriões para refletir o que precisa para cargas de trabalho planeadas. Pode escalar o número de aglomerados e o número de anfitriões numa nuvem privada, conforme necessário para a carga de trabalho da sua aplicação. As limitações de desempenho e disponibilidade de serviços específicos devem ser abordadas caso a caso dentro do ambiente de nuvem privada Azure VMware Solution. Os limites do cluster e do hospedeiro são fornecidos no artigo de [conceito de nuvem privada.](concepts-private-clouds-clusters.md)
 
-Pode escalar o número de aglomerados e o número de anfitriões numa nuvem privada, conforme necessário para a carga de trabalho da sua aplicação. As limitações de desempenho e disponibilidade de serviços específicos devem ser abordadas caso a caso dentro do ambiente em nuvem de pré-visualização da Solução Azure VMware. Os limites do cluster e do hospedeiro numa nuvem privada são fornecidos [no artigo de conceito de nuvem privada.](concepts-private-clouds-clusters.md)
-
-Neste tutorial, você usa o portal Azure para:
+Neste tutorial, você usará o portal Azure para:
 
 > [!div class="checklist"]
 > * Adicione um cluster a uma nuvem privada existente
@@ -24,7 +22,7 @@ Neste tutorial, você usa o portal Azure para:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Precisa de uma nuvem privada para completar este tutorial. Se ainda não criou uma nuvem privada, utilize o [tutorial de nuvem privada](tutorial-create-private-cloud.md) para criar uma nuvem privada e configurar a rede para a sua nuvem privada VMware em Azure para configurar a rede virtual necessária.
+Precisa de uma nuvem privada para completar este tutorial. Se ainda não criou uma nuvem privada, utilize o [programa de criação de um tutorial de nuvem privada](tutorial-create-private-cloud.md) para criar uma e configurar a rede para a sua nuvem privada VMware em Azure para configurar a rede virtual necessária.
 
 ## <a name="add-a-new-cluster"></a>Adicione um novo cluster
 

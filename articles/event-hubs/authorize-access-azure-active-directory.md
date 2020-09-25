@@ -3,12 +3,12 @@ title: Autorizar o acesso com o Azure Active Directory
 description: Este artigo fornece informações sobre a autorização de acesso aos recursos do Event Hubs utilizando o Azure Ative Directory.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 101e40420493156c7b1a0c3c5b767eda023e62c6
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: d26838831964b66beea4ed1e3c6e9873cfce247e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831843"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270037"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizar o acesso aos recursos do Event Hubs utilizando o Azure Ative Directory
 O Azure Event Hubs suporta a utilização do Azure Ative Directory (Azure AD) para autorizar pedidos aos recursos do Event Hubs. Com o Azure AD, pode utilizar o controlo de acesso baseado em funções (RBAC) para conceder permissões a um principal de segurança, que pode ser um utilizador ou um diretor de serviço de aplicação. Para saber mais sobre papéis e atribuições de papéis, consulte [compreender os diferentes papéis.](../role-based-access-control/overview.md)
@@ -33,9 +33,13 @@ Quando um papel de Azure é atribuído a um diretor de segurança da AZure, a Az
 ## <a name="azure-built-in-roles-for-azure-event-hubs"></a>Azure papéis incorporados para Azure Event Hubs
 A Azure fornece as seguintes funções incorporadas do Azure para autorizar o acesso aos dados do Event Hubs utilizando Azure AD e OAuth:
 
-- [Azure Event Hubs Data owner](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner): Use esta função para dar acesso completo aos recursos do Event Hubs.
-- [Remetente de dados Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Use esta função para dar acesso ao envio aos recursos do Event Hubs.
-- [Recetor de dados Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Utilize esta função para dar acesso ao consumo/receção dos recursos do Event Hubs.
+| Função | Description | 
+| ---- | ----------- | 
+[Proprietário de dados Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner) | Use esta função para dar acesso completo aos recursos do Event Hubs. |
+| [Remetente de dados do Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender) | Use esta função para dar acesso ao envio aos recursos do Event Hubs. |
+| [Recetor de dados Azure Event Hubs](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver) | Utilize esta função para dar acesso ao consumo/receção aos recursos do Event Hubs. |
+| Leitor de Registo de Schema (Pré-visualização) | Leia e liste grupos de registo de Schema e esquemas. |
+| Contribuinte do Registo de Schema (Pré-visualização) | Leia, escreva e elimine os grupos e esquemas do Registo de Schema. |
 
 ## <a name="resource-scope"></a>Âmbito do recurso 
 Antes de atribuir um papel de Azure a um diretor de segurança, determine o âmbito de acesso que o diretor de segurança deve ter. As melhores práticas ditam que é sempre melhor conceder apenas o âmbito mais estreito possível.

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 1/3/2020
+ms.date: 09/23/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: f1c35fc80a4ab5b293a974b8f2901716e65f32b1
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 5d1aa4ff87b272911e4e39076f337ea249b962d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705695"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256607"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto final da plataforma de identidades da Microsoft
 
@@ -48,15 +48,15 @@ Em OAuth 2.0, estes tipos de permissões são *chamados de âmbitos*. Também s�
 * Escreva para o calendário de um utilizador usando `Calendars.ReadWrite`
 * Enviar correio como um utilizador que utiliza por `Mail.Send`
 
-Uma aplicação solicita mais frequentemente estas permissões especificando os âmbitos de aplicação em pedidos para a plataforma de identidade da Microsoft autorizar o ponto final. No entanto, determinadas permissões de elevado privilégio só podem ser concedidas através do consentimento do administrador e solicitadas/concedidas utilizando o [ponto final](v2-permissions-and-consent.md#admin-restricted-permissions)de consentimento do administrador . Leia mais para saber mais.
+Uma aplicação solicita mais frequentemente estas permissões especificando os âmbitos de aplicação em pedidos para a plataforma de identidade da Microsoft autorizar o ponto final. No entanto, determinadas permissões de elevado privilégio só podem ser concedidas através do consentimento do administrador e solicitadas/concedidas utilizando o [ponto final](#admin-restricted-permissions)de consentimento do administrador . Leia mais para saber mais.
 
 ## <a name="permission-types"></a>Tipos de permissão
 
 A plataforma de identidade da Microsoft suporta dois tipos de permissões: **permissões delegadas** e **permissões de aplicação.**
 
-* **As permissões delegadas** são utilizadas por apps que tenham um utilizador inscrito presente. Para estas aplicações, o utilizador ou um administrador consente com as permissões que a aplicação solicita, e a aplicação é delegada permissão para agir como utilizador inscrito ao então fazer chamadas para o recurso-alvo. Algumas permissões delegadas podem ser consentidas por utilizadores não administrativos, mas algumas permissões privilegiadas mais elevadas requerem [o consentimento do administrador](v2-permissions-and-consent.md#admin-restricted-permissions). Para saber quais as funções de administrador que podem consentir com permissões delegadas, consulte [permissões de função do Administrador em Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+* **As permissões delegadas** são utilizadas por apps que tenham um utilizador inscrito presente. Para estas aplicações, o utilizador ou um administrador consente com as permissões que a aplicação solicita, e a aplicação é delegada permissão para agir como utilizador inscrito ao então fazer chamadas para o recurso-alvo. Algumas permissões delegadas podem ser consentidas por utilizadores não administrativos, mas algumas permissões privilegiadas mais elevadas requerem [o consentimento do administrador](#admin-restricted-permissions). Para saber quais as funções de administrador que podem consentir com permissões delegadas, consulte [permissões de função do Administrador em Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
-* **As permissões de aplicação** são utilizadas por apps que funcionam sem a presença de um utilizador inscrito; por exemplo, aplicativos que funcionam como serviços de fundo ou daemons.  As permissões de pedido só podem ser [consentidas por um administrador.](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)
+* **As permissões de aplicação** são utilizadas por apps que funcionam sem a presença de um utilizador inscrito; por exemplo, aplicativos que funcionam como serviços de fundo ou daemons.  As permissões de pedido só podem ser [consentidas por um administrador.](#requesting-consent-for-an-entire-tenant)
 
 _Permissões eficazes_ são as permissões que a sua aplicação terá ao efetivo pedidos para o recurso-alvo. É importante entender a diferença entre as permissões delegadas e as permissões de aplicação que a sua aplicação é concedida e as suas permissões efetivas ao fazer chamadas para o recurso-alvo.
 
@@ -302,6 +302,16 @@ response_type=token            //code or a hybrid flow is also possible here
 
 Isto produz um ecrã de consentimento para todas as permissões registadas (se aplicável com base nas descrições acima de consentimento `/.default` e), em seguida, devolve um id_token, em vez de um token de acesso.  Este comportamento existe para certos clientes legados que se deslocam da ADAL para a MSAL, e **não devem** ser utilizados por novos clientes direcionados para o ponto final da plataforma de identidade da Microsoft.
 
+### <a name="client-credentials-grant-flow-and-default"></a>Fluxo de concessão de credenciais de cliente e /.default
+
+Outra utilização `./default` é quando se solicita permissões de aplicação (ou *funções)* numa aplicação não interativa como uma app daemon que utiliza o fluxo de concessão de [credenciais](v2-oauth2-client-creds-grant-flow.md) do cliente para chamar uma API web.
+
+Para criar permissões de aplicação (funções) para uma API web, consulte [Como: Adicionar funções de aplicação na sua aplicação.](howto-add-app-roles-in-azure-ad-apps.md)
+
+Os pedidos de credenciais de cliente na sua aplicação **de clientes devem** `scope={resource}/.default` incluir, onde está a `{resource}` API web que a sua aplicação pretende ligar. A emissão de um pedido de credenciais de cliente com permissões individuais de aplicação (funções) **não** é suportada. Todas as permissões de aplicação (funções) que tenham sido concedidas para essa API web serão incluídas no token de acesso devolvido.
+
+Para conceder acesso às permissões de candidatura que define, incluindo a concessão de consentimento administrativo para a aplicação, consulte [Quickstart: Configure uma aplicação do cliente para aceder a uma API web.](quickstart-configure-app-access-web-apis.md)
+
 ### <a name="trailing-slash-and-default"></a>Corte de fuga e /.padrão
 
 Alguns URIs de recursos têm um corte de fuga ( `https://contoso.com/` ao contrário `https://contoso.com` de), que pode causar problemas com a validação simbólica.  Isto pode ocorrer principalmente quando se solicita um símbolo para a Azure Resource Management ( `https://management.azure.com/` ), que tem um corte de fuga no seu recurso URI e exige que esteja presente quando o token é solicitado.  Assim, ao solicitar um token para `https://management.azure.com/` e utilizar , deve solicitar - tome nota do duplo `/.default` `https://management.azure.com//.default` corte!
@@ -311,3 +321,8 @@ Em geral - se você validou que o token está sendo emitido, e o token está sen
 ## <a name="troubleshooting-permissions-and-consent"></a>Permissões e consentimento para resolução de problemas
 
 Se você ou os utilizadores da sua aplicação estiverem a ver erros inesperados durante o processo de consentimento, consulte este artigo para etapas de resolução de problemas: [Erro inesperado ao efetuar o consentimento de uma aplicação](../manage-apps/application-sign-in-unexpected-user-consent-error.md).
+
+## <a name="next-steps"></a>Passos seguintes
+
+* [Fichas de ID Plataforma de identidade da Microsoft](id-tokens.md)
+* [Fichas de acesso Plataforma de identidade da Microsoft](access-tokens.md)

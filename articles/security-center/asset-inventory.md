@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/22/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: e62973c83db90df2857186fe6a556278a3c41a7d
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 68ddbe73bcf4c0e934a5a8be0246214086a7618c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977458"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302048"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory-and-management-tools"></a>Explore e gere os seus recursos com ferramentas de inventário e gestão de ativos
 
@@ -54,7 +54,7 @@ A página de inventário fornece as seguintes ferramentas:
 - **Resumos** - Antes de definir quaisquer filtros, uma tira proeminente de valores no topo da vista de inventário mostra:
 
     - **Recursos totais**: O número total de recursos ligados ao Centro de Segurança.
-    - **Recursos insalubres**: Recursos com recomendações de segurança ativas. [Saiba mais sobre recomendações de segurança.](https://docs.microsoft.com/azure/security-center/security-center-recommendations)
+    - **Recursos insalubres**: Recursos com recomendações de segurança ativas. [Saiba mais sobre recomendações de segurança.](security-center-recommendations.md)
     - **Recursos não monitorizados**: Recursos com problemas de monitorização de agentes - eles têm o agente Log Analytics implantado, mas o agente não está a enviar dados ou tem outros problemas de saúde.
 
 - **Filtros** - Os múltiplos filtros no topo da página fornecem uma forma de refinar rapidamente a lista de recursos de acordo com a pergunta que está a tentar responder. Por exemplo, se quiser responder à pergunta *Qual das minhas máquinas com a etiqueta 'Produção' está a faltar ao agente Log Analytics?* **Agent monitoring** **Tags**

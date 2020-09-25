@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
-ms.openlocfilehash: 373629c86f2d842ad2e02dd2b66739f3963bf7ed
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 6366824b8dc7f63f99ebda2a542d95d3eb1c6146
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064558"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301206"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>Como integrar o RabbitMQ com o Azure Service Bus
 
@@ -112,7 +112,7 @@ Na interface De Gestão RabbitMQ podemos `Queues` ir, selecionar a `azure` fila 
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/first-message.png" alt-text="Publicar primeira mensagem":::
 
-Volte para Azure e inspecione a sua fila. Clique `Service Bus Explorer` no painel esquerdo. Se tudo correr bem, verá que a sua fila agora tem uma mensagem. Parabéns!
+Volte para Azure e inspecione a sua fila. Clique `Service Bus Explorer` no painel esquerdo e, em seguida, clique no botão _Peek._ Se tudo correr bem, verá que a sua fila agora tem uma mensagem. Parabéns!
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/service-bus-queue.png" alt-text="Fila de ônibus de serviço Azure":::
 
@@ -136,3 +136,8 @@ Parabéns! Conseguiu muito! Conseguiu levar as suas mensagens da RabbitMQ para a
 Seguindo os passos anteriores, integrou áreas do seu org que estavam fora de Azure. O plugin da Pá permitiu-lhe enviar mensagens da RabbitMQ para a Azure Service Bus. Isto tem enormes vantagens, uma vez que agora pode permitir que terceiros de confiança conectem as suas apps com a sua implementação Azure.
 
 No final, as mensagens são sobre permitir ligações, e com esta técnica acabamos de abrir uma nova.
+
+## <a name="next-steps"></a>Passos seguintes
+
+- Saiba mais sobre [o Azure Service Bus](./service-bus-messaging-overview.md)
+- Saiba mais sobre [o suporte amQP 1.0 em Service Bus](./service-bus-amqp-overview.md)

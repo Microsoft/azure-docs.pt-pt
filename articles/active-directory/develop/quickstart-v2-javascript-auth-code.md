@@ -1,7 +1,7 @@
 ---
 title: Inscreva-se nos utilizadores em aplicações de página única JavaScript (SPA) com código auth ! Rio Azure
 titleSuffix: Microsoft identity platform
-description: Saiba como uma aplicação JavaScript pode chamar uma API que requer acesso a tokens usando a plataforma de identidade da Microsoft.
+description: Saiba como uma aplicação de página única JavaScript (SPA) pode iniciar scontabilidade pessoal, contas de trabalho e contas escolares utilizando o fluxo de código de autorização.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-javascript
-ms.openlocfilehash: 461f05b90b79852194d657a5dcbc3ba7583cff8d
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
+ms.openlocfilehash: 224ce2ea64016db7b632ac36193f39e679c8da4b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115191"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257984"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow"></a>Quickstart: Inicie os utilizadores e obtenha um token de acesso num JavaScript SPA utilizando o fluxo de código auth
 
@@ -111,9 +111,9 @@ Este arranque rápido utiliza MSAL.js 2.0 com o fluxo de código de autorizaçã
 >
 > Modifique os valores na `msalConfig` secção descrita aqui:
 >
-> - `Enter_the_Application_Id_Here`é o **ID de Aplicação (cliente)** para a aplicação que registou.
-> - `Enter_the_Cloud_Instance_Id_Here`é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, `https://login.microsoftonline.com/` entre. Para nuvens **nacionais** (por exemplo, China), ver [nuvens nacionais.](authentication-national-cloud.md)
-> - `Enter_the_Tenant_info_here`é definido para um dos seguintes:
+> - `Enter_the_Application_Id_Here` é o **ID de Aplicação (cliente)** para a aplicação que registou.
+> - `Enter_the_Cloud_Instance_Id_Here` é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, `https://login.microsoftonline.com/` entre. Para nuvens **nacionais** (por exemplo, China), ver [nuvens nacionais.](authentication-national-cloud.md)
+> - `Enter_the_Tenant_info_here` é definido para um dos seguintes:
 >   - Se a sua candidatura suporta *contas neste diretório organizacional,* substitua este valor pelo **ID** do Inquilino ou **nome de Inquilino.** Por exemplo, `contoso.microsoft.com`.
 >   - Se a sua candidatura suportar *contas em qualquer diretório organizacional,* substitua este valor por `organizations` .
 >   - Se a sua aplicação suportar *contas em qualquer diretório organizacional e contas pessoais da Microsoft,* substitua este valor por `common` . **Para este arranque rápido,** utilize `common` .
@@ -152,7 +152,7 @@ Este arranque rápido utiliza MSAL.js 2.0 com o fluxo de código de autorizaçã
 >
 > [!div renderon="docs"]
 >
-> `Enter_the_Graph_Endpoint_Here`é o ponto final que as chamadas da API serão feitas contra. Para o serviço API do Microsoft Graph principal(global), `https://graph.microsoft.com/` insira (inclua o corte dianteiro). Para obter mais informações sobre o Microsoft Graph nas nuvens nacionais, consulte [a implementação nacional da nuvem](/graph/deployments).
+> `Enter_the_Graph_Endpoint_Here` é o ponto final que as chamadas da API serão feitas contra. Para o serviço API do Microsoft Graph principal(global), `https://graph.microsoft.com/` insira (inclua o corte dianteiro). Para obter mais informações sobre o Microsoft Graph nas nuvens nacionais, consulte [a implementação nacional da nuvem](/graph/deployments).
 >
 > Os `graphMeEndpoint` `graphMailEndpoint` valores e valores no ficheiro *graphConfig.js* devem ser semelhantes ao seguinte se estiver a utilizar o serviço API principal (global) da Microsoft Graph:
 >

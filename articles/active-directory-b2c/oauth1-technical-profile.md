@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d570ddbcf974936bbaa78be5799e7bd42fa6d514
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b54cff85da02415bbc9dfa9ead037ced48cb58f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204086"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259446"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico OAuth1 numa política personalizada do Azure Ative Directory B2C
 
@@ -37,7 +37,7 @@ O **atributo nome** do elemento **Protocolo** tem de ser definido para `OAuth1` 
 
 ## <a name="input-claims"></a>Reclamações de entrada
 
-Os **elementos InputClaims** e **InputClaimsTransformations** estão vazios ou ausentes.
+Os **elementos InputClaims** e **InputClaimsTransformations**  estão vazios ou ausentes.
 
 ## <a name="output-claims"></a>Reclamações de saída
 
@@ -70,13 +70,13 @@ O perfil técnico também devolve alegações que não são devolvidas pelo forn
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| client_id | Sim | O identificador de aplicação do fornecedor de identidade. |
-| ProviderName | Não | O nome do fornecedor de identidade. |
-| request_token_endpoint | Sim | O URL do ponto final do token de pedido de acordo com RFC 5849. |
-| authorization_endpoint | Sim | O URL do ponto final de autorização de acordo com o RFC 5849. |
-| access_token_endpoint | Sim | O URL do ponto final simbólico de acordo com o RFC 5849. |
-| ReclamaçõesEndpoint | Não | O URL do ponto final de informação do utilizador. |
-| ReclamaçõesResponseFormat | Não | O formato de resposta de reclamações.|
+| client_id | Yes | O identificador de aplicação do fornecedor de identidade. |
+| ProviderName | No | O nome do fornecedor de identidade. |
+| request_token_endpoint | Yes | O URL do ponto final do token de pedido de acordo com RFC 5849. |
+| authorization_endpoint | Yes | O URL do ponto final de autorização de acordo com o RFC 5849. |
+| access_token_endpoint | Yes | O URL do ponto final simbólico de acordo com o RFC 5849. |
+| ReclamaçõesEndpoint | No | O URL do ponto final de informação do utilizador. |
+| ReclamaçõesResponseFormat | No | O formato de resposta de reclamações.|
 
 ## <a name="cryptographic-keys"></a>Chaves criptográficas
 
@@ -84,27 +84,12 @@ O elemento **CryptographicKeys** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| client_secret | Sim | O segredo do cliente da aplicação do fornecedor de identidade.   |
+| client_secret | Yes | O segredo do cliente da aplicação do fornecedor de identidade.   |
 
 ## <a name="redirect-uri"></a>URI de Redirecionamento
 
-Quando configurar o URL de redirecionamento do seu fornecedor de identidade, insira `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp` . Certifique-se de substituir **o inquilino** pelo seu nome de inquilino (por exemplo, contosob2c.onmicrosoft.com) e **o policyId** pelo identificador da sua apólice (por exemplo, b2c_1a_policy). O URI de redirecionamento tem de estar em todas as minúsculas. Adicione um URL de redirecionamento para todas as políticas que utilizem o login do fornecedor de identidade.
-
-Se estiver a utilizar o domínio **b2clogin.com** em vez de **login.microsoftonline.com** Certifique-se de que utiliza b2clogin.com em vez de login.microsoftonline.com.
+Quando configurar o URI de redirecionamento do seu fornecedor de identidade, insira `https://{tenant-name}.b2clogin.com/{tenant-name}.onmicrosoft.com/{policy-id}/oauth1/authresp` . Certifique-se de substituir `{tenant-name}` pelo nome do seu inquilino (por exemplo, contosob2c) e pelo `{policy-id}` identificador da sua política (por exemplo, b2c_1a_policy). O URI de redirecionamento tem de estar em todas as minúsculas. Adicione um URL de redirecionamento para todas as políticas que utilizem o login do fornecedor de identidade.
 
 Exemplos:
 
 - [Adicione o Twitter como um fornecedor de identidade OAuth1 usando políticas personalizadas](identity-provider-twitter-custom.md)
-
-
-
-
-
-
-
-
-
-
-
-
-

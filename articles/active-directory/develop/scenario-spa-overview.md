@@ -11,31 +11,26 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 60e4ca80faa2c8787a13d87ab06cad9243299e50
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: dc0aee2e6c1b06850ffd0385626955a9798e7aeb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291960"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257321"
 ---
 # <a name="scenario-single-page-application"></a>Cenário: Aplicação de página única
 
 Aprenda tudo o que precisa para construir uma aplicação de uma página (SPA).
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
 ## <a name="getting-started"></a>Introdução
 
-Pode criar a sua primeira aplicação seguindo o arranque rápido do JavaScript SPA:
+Se ainda não o fez, crie a sua primeira aplicação completando o arranque rápido javaScript SPA:
 
-> [!div class="nextstepaction"]
-> [Quickstart: Aplicação de página única](./quickstart-v2-javascript.md)
+[Quickstart: Aplicação de página única](./quickstart-v2-javascript.md)
 
 ## <a name="overview"></a>Descrição geral
 
-Muitas aplicações web modernas são construídas como aplicações de página única do lado do cliente. Os desenvolvedores escrevem-nos utilizando o JavaScript ou uma estrutura SPA como Angular, Vue e React. Estas aplicações são executadas num navegador web e têm características de autenticação diferentes das aplicações tradicionais do lado do servidor. 
+Muitas aplicações web modernas são construídas como aplicações de página única do lado do cliente. Os desenvolvedores escrevem-nos utilizando o JavaScript ou uma estrutura SPA como Angular, Vue e React. Estas aplicações são executadas num navegador web e têm características de autenticação diferentes das aplicações tradicionais do lado do servidor.
 
 A plataforma de identidade da Microsoft fornece **duas** opções para permitir que aplicações de uma página única assinem nos utilizadores e obtenham fichas para aceder a serviços de back-end ou APIs web:
 
@@ -57,7 +52,11 @@ Para ativar este cenário para a sua aplicação, precisa:
 * Configuração de aplicação com as propriedades de aplicação registada, como o ID da aplicação.
 * Utilizar a Microsoft Authentication Library para JavaScript (MSAL.js) para fazer o fluxo de autenticação para iniciar súblio e adquirir fichas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="recommended-reading"></a>Leitura recomendada
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Registo de aplicações](scenario-spa-app-registration.md)
+> [Registo da aplicação](scenario-spa-app-registration.md)

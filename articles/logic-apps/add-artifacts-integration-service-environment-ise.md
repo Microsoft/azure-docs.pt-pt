@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
-ms.openlocfilehash: d8fe945b028b574e71ae24b1483ad8e7fd67b01d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dc4798df05b760074ff06d95d9712204a3cf3e5a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078717"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269748"
 ---
 # <a name="add-resources-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Adicione recursos ao seu ambiente de serviço de integração (ISE) em Azure Logic Apps
 
@@ -40,7 +40,7 @@ Para construir aplicativos lógicos que funcionam no seu ambiente de serviço de
 
 1. Forneça informações sobre a aplicação lógica que pretende criar, por exemplo:
 
-   ![Selecione ambiente de serviço de integração](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
+   ![Screenshot que mostra a janela "Logic App" "Create" com informações de exemplo inseridas.](./media/add-artifacts-integration-service-environment-ise/create-logic-app-integration-service-environment.png)
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
@@ -121,7 +121,7 @@ Para utilizar conectores personalizados no seu ISE, crie esses conectores person
 
 1. A partir da lista **Localização,** na secção ambientes de **serviço de Integração,** selecione o mesmo ISE que as suas aplicações lógicas usam, e selecione **Criar,** por exemplo:
 
-   ![Selecione ambiente de serviço de integração](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
+   ![Screenshot que mostra a janela "Create Logic Apps Custom Connector" com informações de exemplo selecionadas.](./media/add-artifacts-integration-service-environment-ise/create-custom-connector-integration-service-environment.png)
 
 1. Selecione o seu novo conector personalizado e, em seguida, **selecione Editar,** por exemplo:
 

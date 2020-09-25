@@ -1,6 +1,6 @@
 ---
 title: Autenticação intermediada no Android Rio Azure
-titlesuffix: Microsoft identity platform
+titleSuffix: Microsoft identity platform
 description: Uma visão geral da autenticação intermediada & autorização para Android na plataforma de identidade da Microsoft
 services: active-directory
 author: shoatman
@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 08/25/2020
+ms.date: 09/17/2020
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman, hahamil, brianmel
-ms.openlocfilehash: 9042318d29b9a7fc8c2064bdf845d6f0d5a4f3e8
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 2bb48971e86c2b61742735020469865fa969bee3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853863"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258417"
 ---
 # <a name="brokered-authentication-in-android"></a>Autenticação intermediada no Android
 
-Deve utilizar um dos corretores de autenticação da Microsoft para participar em Sign-On Único (SSO) em todo o dispositivo e para cumprir as políticas organizacionais de acesso condicional. A integração com um corretor proporciona os seguintes benefícios:
+Deve utilizar um dos corretores de autenticação da Microsoft para participar em um único sign-on (SSO) em todo o dispositivo e para cumprir as políticas organizacionais de Acesso Condicional. A integração com um corretor proporciona os seguintes benefícios:
 
 - Dispositivo único de inscrição
 - Acesso condicional para:
@@ -33,14 +33,11 @@ Deve utilizar um dos corretores de autenticação da Microsoft para participar e
   -  através de Android AccountManager & Definições de Conta
   - "Conta de Trabalho" - tipo de conta personalizada
 
-No Android, o Microsoft Authentication Broker é um componente que está incluído na [Microsoft Authenticator App](https://play.google.com/store/apps/details?id=com.azure.authenticator) e [no Portal da Empresa Intune](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal)
-
-> [!TIP]
-> Apenas uma aplicação que hospeda o corretor estará ativa como corretor de cada vez. Qual aplicação está ativa como corretor é determinada por ordem de instalação no dispositivo. O primeiro a ser instalado, ou o último presente no dispositivo, torna-se o corretor ativo.
+No Android, o Microsoft Authentication Broker é um componente que está incluído na [Microsoft Authenticator App](https://play.google.com/store/apps/details?id=com.azure.authenticator) e [no Portal da Empresa Intune.](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal)
 
 O diagrama que se segue ilustra a relação entre a sua aplicação, a Microsoft Authentication Library (MSAL) e os corretores de autenticação da Microsoft.
 
-![Diagrama de implementação de corretor](./media/brokered-auth/brokered-deployment-diagram.png)
+![Diagrama mostrando como uma aplicação se relaciona com MSAL, aplicações de corretor e o gestor de conta Android.](./media/brokered-auth/brokered-deployment-diagram.png)
 
 ## <a name="installing-apps-that-host-a-broker"></a>Instalação de aplicativos que acolhem um corretor
 
@@ -58,11 +55,15 @@ Se um dispositivo ainda não tiver uma aplicação de corretagem instalada, a MS
 
 Quando um corretor é instalado num dispositivo, todos os pedidos de fichas interativos subsequentes (chamadas `acquireToken()` para) são tratados pelo corretor e não localmente pela MSAL. Qualquer estado SSO anteriormente disponível para a MSAL não está disponível para o corretor. Como resultado, o utilizador terá de autenticar novamente ou selecionar uma conta a partir da lista de contas existentes conhecidas pelo dispositivo.
 
-A instalação de um corretor não requer que o utilizador volte a iniciar sedu. Só quando o utilizador precisar de resolver um `MsalUiRequiredException` será que o próximo pedido irá para o corretor. `MsalUiRequiredException` é jogado por uma série de razões, e precisa ser resolvido interativamente. Estas são algumas razões comuns:
+A instalação de um corretor não requer que o utilizador volte a iniciar sedutil. Só quando o utilizador precisar de resolver um `MsalUiRequiredException` será que o próximo pedido irá para o corretor. `MsalUiRequiredException` pode ser jogado por várias razões, e precisa ser resolvido interativamente. Por exemplo:
 
 - O utilizador alterou a palavra-passe associada à sua conta.
 - A conta do utilizador já não cumpre uma política de Acesso Condicional.
 - O utilizador revogou o seu consentimento para que a app fosse associada à sua conta.
+
+#### <a name="multiple-brokers"></a>Vários corretores
+
+Se vários corretores forem instalados num dispositivo, o corretor que foi instalado primeiro é sempre o corretor ativo. Apenas um único corretor pode estar ativo num dispositivo.
 
 ### <a name="when-a-broker-is-uninstalled"></a>Quando um corretor é desinstalado
 
@@ -74,40 +75,46 @@ Se o Portal da Empresa Intune estiver instalado e estiver a funcionar como corre
 
 ### <a name="generating-a-redirect-uri-for-a-broker"></a>Gerando um URI de redirecionamento para um corretor
 
-Tem de registar um URI de redirecionamento que seja compatível com o corretor. O URI de redirecionamento para o corretor precisa de incluir o nome do pacote da sua aplicação, bem como a representação codificada base64 da assinatura da sua aplicação.
+Tem de registar um URI de redirecionamento que seja compatível com o corretor. O URI de redirecionamento para o corretor deve incluir o nome do pacote da sua aplicação e a representação codificada base64 da assinatura da sua aplicação.
 
 O formato do URI de redirecionamento é: `msauth://<yourpackagename>/<base64urlencodedsignature>`
 
-Gere a sua assinatura codificada de url Base64 utilizando as chaves de assinatura da sua aplicação. Aqui estão alguns comandos de exemplo que usam as suas chaves de sinalização de depuração:
+Pode utilizar [o keytool](https://manpages.debian.org/buster/openjdk-11-jre-headless/keytool.1.en.html) para gerar um hash de assinatura codificado base64 utilizando as teclas de assinatura da sua aplicação e, em seguida, usar o portal Azure para gerar o seu URI de redirecionamento usando esse haxixe.
 
-#### <a name="macos"></a>macOS
+Linux e macOS:
 
 ```bash
 keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64
 ```
 
-#### <a name="windows"></a>Windows
+Windows:
 
 ```powershell
 keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.keystore | openssl sha1 -binary | openssl base64
 ```
 
-Consulte [a sua aplicação](https://developer.android.com/studio/publish/app-signing) para obter informações sobre a assinatura da sua aplicação.
+Depois de gerar um hash de assinatura com *tecla,* use o portal Azure para gerar o URI de redirecionamento:
+
+1. Inscreva-se no [portal Azure](https://protal.azure.com) e selecione a sua aplicação Android em **registos de Aplicações.**
+1. Selecione **Autenticação**  >  **Adicione uma plataforma**  >  **Android**.
+1. No **painel de configuração** da sua aplicação Android que abre, insira o **hash Signature** que gerou anteriormente e um nome **pacote.**
+1. Selecione o **botão Configurar.**
+
+O portal Azure gera o URI de redirecionamento para si e exibe-o no campo URI de **redirecionamento** de **configuração** Android.
+
+Para obter mais informações sobre a assinatura da sua aplicação, consulte [a sua aplicação](https://developer.android.com/studio/publish/app-signing) no Android Studio User Guide.
 
 > [!IMPORTANT]
 > Use a sua chave de assinatura de produção para a versão de produção da sua aplicação.
 
 ### <a name="configure-msal-to-use-a-broker"></a>Configure a MSAL para usar um corretor
 
-Para utilizar um corretor na sua aplicação, tem de atestar que configuraste o seu redirecionamento de corretor. Por exemplo, inclua ambos os seus corretores ativados redirecionamento URI -- e indicar que o registou -- incluindo o seguinte no seu ficheiro de configuração MSAL:
+Para utilizar um corretor na sua aplicação, tem de atestar que configuraste o seu redirecionamento de corretor. Por exemplo, inclua ambos os seus corretores ativados redirecionamento URI -- e indicar que o registou -- incluindo as seguintes definições no seu ficheiro de configuração MSAL:
 
-```javascript
+```json
 "redirect_uri" : "<yourbrokerredirecturi>",
 "broker_redirect_uri_registered": true
 ```
-
-> [!TIP]
-> O novo registo de aplicações do portal Azure ajuda-o a gerar o corretor redirecionando o URI. Se registou a sua aplicação utilizando a experiência mais antiga, ou o fez usando o portal de registo de aplicações da Microsoft, poderá ter de gerar o URI de redirecionamento e atualizar manualmente a lista de URIs de redirecionamento no portal.
 
 ### <a name="broker-related-exceptions"></a>Exceções relacionadas com corretores
 
@@ -116,7 +123,7 @@ A MSAL comunica com o corretor de duas formas:
 - Serviço ligado a corretor
 - Conta AndroidManager
 
-A MSAL utiliza primeiro o serviço de corretagem porque ligar para este serviço não requer permissões Android. Se a ligação ao serviço vinculado falhar, a MSAL utilizará a API do Android AccountManager. A MSAL só o faz se a sua aplicação já tiver recebido a `"READ_CONTACTS"` permissão.
+A MSAL utiliza primeiro o serviço com ligação a corretores porque ligar para este serviço não requer permissões Android. Se a ligação ao serviço vinculado falhar, a MSAL utilizará a API do Android AccountManager. A MSAL só o faz se a sua aplicação já tiver recebido a `"READ_CONTACTS"` permissão.
 
 Se tiver um `MsalClientException` código de `"BROKER_BIND_FAILURE"` erro, então existem duas opções:
 
@@ -131,3 +138,7 @@ Pode não ser imediatamente claro que a integração do corretor está a funcion
 1. Nas definições do seu dispositivo Android, procure uma conta recém-criada correspondente à conta que autenticou. A conta deve ser do tipo *De Trabalho.*
 
 Pode remover a conta das definições se quiser repetir o teste.
+
+## <a name="next-steps"></a>Passos seguintes
+
+[O modo de dispositivo partilhado para dispositivos Android](msal-android-shared-devices.md) permite configurar um dispositivo Android para que possa ser facilmente partilhado por vários colaboradores.

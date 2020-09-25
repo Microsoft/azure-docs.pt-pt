@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/30/2020
+ms.date: 09/24/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8c0b6ba4045e1e92d395752f106258d3c0709108
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 84f488863a39307ac7b55d5238fab786084a3614
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87486744"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259548"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalize a interface do utilizador no Azure Ative Directory B2C
 
@@ -34,7 +34,7 @@ Se utilizar [fluxos de utilizador,](user-flow-overview.md)pode alterar a aparên
 Utilize o [portal Azure](tutorial-customize-ui.md) para configurar a personalização da UI para os fluxos dos utilizadores.
 
 > [!TIP]
-> Se pretender modificar apenas o logótipo do banner, a imagem de fundo e a cor de fundo das páginas de fluxo do utilizador, pode experimentar a funcionalidade [de marca (pré-visualização)](#company-branding-preview) descrita mais tarde neste artigo.
+> Se pretender modificar apenas o logótipo do banner, a imagem de fundo e a cor de fundo das páginas de fluxo do utilizador, pode experimentar a funcionalidade [de marca Da Empresa](#company-branding) descrita mais tarde neste artigo.
 
 ### <a name="custom-policies"></a>Políticas personalizadas
 
@@ -155,16 +155,14 @@ A tabela que se segue lista os fragmentos HTML que o Azure AD B2C se funde no `<
 | Inscrição de conta local | Contém um formulário para inscrição de conta local com base num endereço de e-mail ou num nome de utilizador. O formulário pode conter diferentes controlos de entrada, tais como caixa de entrada de texto, caixa de entrada de palavra-passe, botão de rádio, caixas de entrega de uma única seleção e caixas de verificação multi-selecionadas. |
 | Inscrição de conta social | Pode aparecer quando se inscreve usando uma conta existente de um fornecedor de identidade social, como facebook ou Google. É usado quando informações adicionais devem ser recolhidas do cliente usando um formulário de inscrição. |
 | Inscrição ou inscrição unificada | Lida com a inscrição e o sismo de clientes que podem utilizar fornecedores de identidade social como facebook, Google ou contas locais. |
-| Multi-factor authentication | Os clientes podem verificar os seus números de telefone (usando texto ou voz) durante a inscrição ou a inscrição. |
+| Autenticação multifator | Os clientes podem verificar os seus números de telefone (usando texto ou voz) durante a inscrição ou a inscrição. |
 | Erro | Fornece informações de erro ao cliente. |
 
-## <a name="company-branding-preview"></a>Marca da empresa (pré-visualização)
+## <a name="company-branding"></a>Imagem corporativa
 
 Pode personalizar as páginas de fluxo do utilizador com um logotipo de banner, imagem de fundo e cor de fundo utilizando [a marca](../active-directory/fundamentals/customize-branding.md)Azure Ative Directory Company .
 
 Para personalizar as suas páginas de fluxo de utilizador, primeiro configura a marca da empresa no Azure Ative Directory, depois ativa-a nos layouts de página dos fluxos do seu utilizador em Azure AD B2C.
-
-[!INCLUDE [preview note](../../includes/active-directory-b2c-public-preview.md)]
 
 ### <a name="configure-company-branding"></a>Configurar o branding da empresa
 

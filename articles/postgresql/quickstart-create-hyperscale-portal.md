@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 08/17/2020
-ms.openlocfilehash: 1a16283f3d04c9ad331a04c3a36b49055635d76e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e43e20ceb5e84d652fee9ca4db6d5dc871ed1e4f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906491"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268457"
 ---
 # <a name="quickstart-create-a-hyperscale-citus-server-group-in-the-azure-portal"></a>Quickstart: criar um grupo de servidores Hyperscale (Citus) no portal Azure
 
@@ -25,7 +25,7 @@ A Base de Dados do Azure para o PostgreSQL é um serviço gerido com o qual pode
 
 Uma vez ligado ao nó coordenador de hiperescala utilizando o psql, pode completar algumas tarefas básicas.
 
-Dentro dos servidores hyperscale existem três tipos de tabelas:
+Dentro dos servidores Hyperscale (Citus) existem três tipos de tabelas:
 
 - Tabelas distribuídas ou estantes de fragmentos (espalhadas para ajudar a escalar para desempenho e paralelização)
 - Tabelas de referência (várias cópias mantidas)
@@ -71,7 +71,7 @@ CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-Em seguida, pegaremos as mesas postgres no nó coordenador e diremos à Hyperscale para os apanhar pelos trabalhadores. Para tal, vamos fazer uma consulta para cada mesa especificando a chave para o enromer. No exemplo atual, vamos resolver tanto os eventos como a mesa dos utilizadores `user_id` em:
+Em seguida, pegaremos as mesas postgres no nó coordenador e diremos à Hyperscale (Citus) para os apanhar pelos trabalhadores. Para tal, vamos fazer uma consulta para cada mesa especificando a chave para o enromer. No exemplo atual, vamos resolver tanto os eventos como a mesa dos utilizadores `user_id` em:
 
 ```sql
 SELECT create_distributed_table('github_events', 'user_id');
@@ -117,7 +117,7 @@ ORDER BY hour;
 
 Até agora, as consultas envolveram exclusivamente os \_ eventos github, mas podemos combinar esta informação com os utilizadores do \_ Github. Uma vez que nós encaderramos tanto os utilizadores como os eventos no mesmo identificador ( `user_id` ), as filas de ambas as tabelas com iDs de utilizador correspondentes serão [colocamos](concepts-hyperscale-colocation.md) nos mesmos nós da base de dados e podem ser facilmente unidas.
 
-Se nos `user_id` juntarmos, a Hyperscale pode empurrar a execução da junta para baixo em fragmentos para execução em paralelo nos nós dos trabalhadores. Por exemplo, vamos encontrar os utilizadores que criaram o maior número de repositórios:
+Se nos `user_id` juntarmos, a Hyperscale (Citus) pode empurrar a execução da junta para baixo em fragmentos para execução em paralelo nos nós dos trabalhadores. Por exemplo, vamos encontrar os utilizadores que criaram o maior número de repositórios:
 
 ```sql
 SELECT gu.login, count(*)

@@ -1,6 +1,7 @@
 ---
-title: Plataforma de identidade da Microsoft Python daemon Rio Azure
-description: Saiba como um processo Python pode obter um token de acesso e chamar uma API protegida pelo ponto final da plataforma de identidade da Microsoft, usando a identidade da própria app
+title: 'Quickstart: Ligue para o Microsoft Graph de um daemon Python Rio Azure'
+titleSuffix: Microsoft identity platform
+description: Neste quickstart, você aprende como um processo Python pode obter um token de acesso e chamar uma API protegida pelo ponto final da plataforma de identidade Microsoft, usando a própria identidade da app
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 0969afa95009255981381d41268f416a615dd9f3
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 2c280b8241819155f32942a399caa7f916db3827
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683749"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257746"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Quickstart: Adquira um token e ligue para a Microsoft Graph API a partir de uma aplicação de consola Python usando a identidade da app
 
@@ -189,7 +190,7 @@ app = msal.ConfidentialClientApplication(
     client_credential=config["secret"])
 ```
 
-> | Em que: |Descrição |
+> | Em que: |Description |
 > |---------|---------|
 > | `config["secret"]` | É o segredo do cliente criado para a aplicação no Portal Azure. |
 > | `config["client_id"]` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
@@ -210,7 +211,7 @@ if not result:
     result = app.acquire_token_for_client(scopes=config["scope"])
 ```
 
-> |Em que:| Descrição |
+> |Em que:| Description |
 > |---------|---------|
 > | `config["scope"]` | Contém os âmbitos solicitados. Para clientes confidenciais, este deve utilizar o formato semelhante `{Application ID URI}/.default` para indicar que os âmbitos que estão a ser solicitados são os que estão definidos estáticamente no objeto da aplicação definido no Portal Azure (para o Microsoft Graph, aponta `{Application ID URI}` `https://graph.microsoft.com` para). Para APIs web personalizado, `{Application ID URI}` é definido em Expor uma secção **API** no Registo de Aplicação do Portal Azure (Pré-visualização). |
 
@@ -224,18 +225,3 @@ Para saber mais sobre aplicações daemon, consulte a página de aterragem do ce
 
 > [!div class="nextstepaction"]
 > [Aplicação Daemon que chama APIs web](scenario-daemon-overview.md)
-
-Para o tutorial de aplicação da daemon, consulte:
-
-> [!div class="nextstepaction"]
-> [Tutorial de consola da Daemon Python](https://github.com/Azure-Samples/ms-identity-python-daemon)
-
-Saiba mais sobre permissões e consentimento:
-
-> [!div class="nextstepaction"]
-> [Permissões e Consentimento](v2-permissions-and-consent.md)
-
-Para saber mais sobre o fluxo de auth para este cenário, consulte o fluxo de credenciais de clientes de 2.0 do Óau:
-
-> [!div class="nextstepaction"]
-> [Credenciais de cliente Oauth flow](v2-oauth2-client-creds-grant-flow.md)

@@ -1,6 +1,6 @@
 ---
-title: Modificar a Microsoft identificar contas de aplicações da plataforma [ Azure
-description: Configure uma aplicação registada na plataforma de identidade da Microsoft para alterar quem ou que contas podem aceder à aplicação.
+title: 'Quickstart: Modificar as contas de aplicações da plataforma da Microsoft Rio Azure'
+description: Neste arranque rápido, configura uma aplicação registada na plataforma de identidade da Microsoft para alterar quem, ou que contas, pode aceder à aplicação.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 2850ca3f23e61be54702878c0683af9fdb1fad91
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d143bde9c22bc726f00b5c209d1b7fbc131905b0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826864"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258018"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Quickstart: Modificar as contas suportadas por uma aplicação
 
@@ -27,11 +27,7 @@ Neste início rápido, vai aprender a modificar a configuração da sua aplicaç
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, certifique-se de que cumpre estes pré-requisitos:
-
-* Saiba mais sobre as [permissões e consentimentos](v2-permissions-and-consent.md) suportados, que é importante compreender se estiver a criar aplicações que têm de ser utilizadas por outros utilizadores ou aplicações.
-* Ter um inquilino com aplicações registadas.
-  * Se não tiver aplicações registadas, [saiba como registar aplicações na plataforma de identidade da Microsoft](quickstart-register-app.md).
+* Conclusão do [Quickstart: Registar uma aplicação com a plataforma de identidade microsoft](quickstart-register-app.md)
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Iniciar sessão no portal do Azure e selecionar a aplicação
 
@@ -39,7 +35,7 @@ Antes de poder configurar a aplicação, siga estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure** e, em seguida, selecione **os registos**da App .
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure** e, em seguida, selecione **registos de Aplicações**.
 1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, verá a página **Descrição Geral** da aplicação ou a página de registo principal.
 1. Siga os passos para [alterar o registo de aplicação para suportar diferentes contas](#change-the-application-registration-to-support-different-accounts).
 1. Se tiver uma aplicação de página única, [ative a concessão implícita de OAuth 2.0](#enable-oauth-20-implicit-grant-for-single-page-applications).
@@ -69,7 +65,7 @@ Por predefinição, a concessão implícita de OAuth 2.0 está desativada nas ap
 
 ### <a name="to-enable-oauth-20-implicit-grant"></a>Para permitir a concessão implícita de OAuth 2.0
 
-1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure** e, em seguida, selecione **os registos**da App .
+1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure** e, em seguida, selecione **registos de Aplicações**.
 1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, verá a página **Descrição Geral** da aplicação ou a página de registo principal.
 1. Na página **Descrição geral** da aplicação, selecione a secção **Autenticação**.
 1. Em **Definições avançadas**, localize a secção **Concessão implícita**.
@@ -78,13 +74,5 @@ Por predefinição, a concessão implícita de OAuth 2.0 está desativada nas ap
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre outros inícios rápidos de gestão de aplicações relacionados:
-
-* [Registar uma aplicação na plataforma de identidade da Microsoft](quickstart-register-app.md)
-* [Configurar uma aplicação cliente para aceder a APIs Web](quickstart-configure-app-access-web-apis.md)
-* [Configurar uma aplicação para expor APIs Web](quickstart-configure-app-expose-web-apis.md)
-* [Remover uma aplicação registada na plataforma de identidade da Microsoft](quickstart-remove-app.md)
-
-Para saber mais sobre os dois objetos do Azure AD que representam uma aplicação registada e o relacionamento entre os mesmos, veja [Application objects and service principal objects](app-objects-and-service-principals.md) (Objetos da aplicação e objetos do principal de serviço).
-
-Para saber mais sobre as diretrizes de imagem corporativa que deve seguir quando desenvolver aplicações com o Azure Active Directory, veja [Diretrizes de imagem corporativa para aplicações](howto-add-branding-in-azure-ad-apps.md).
+> [!div class="nextstepaction"]
+> [Diretrizes de imagem corporativa para aplicações](howto-add-branding-in-azure-ad-apps.md)

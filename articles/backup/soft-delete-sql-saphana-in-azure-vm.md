@@ -3,59 +3,18 @@ title: Excluir suave para servidor SQL em Azure VM e SAP HANA em cargas de traba
 description: Saiba como a eliminação suave para o servidor SQL em Azure VM e SAP HANA em cargas de trabalho Azure VM torna as cópias de segurança mais seguras.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 26525ec758b3a27d6e0e1b9754b11041bd1fa0d2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2a442997d426ff0bf4c74b0b45f7657cc0593b82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022297"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254300"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Excluir suave para servidor SQL em Azure VM e SAP HANA em cargas de trabalho Azure VM
 
 O Azure Backup agora fornece uma eliminação suave para o servidor SQL em Azure VM e SAP HANA em cargas de trabalho Azure VM. Isto para além do já suportado cenário de eliminação suave da [máquina Azure Virtual.](soft-delete-virtual-machines.md)
 
 [A eliminação suave](backup-azure-security-feature-cloud.md) é uma funcionalidade de segurança para ajudar a proteger os dados de backup mesmo após a eliminação. Com a eliminação suave, mesmo que um ator malicioso elimine a cópia de segurança de uma base de dados (ou os dados de cópia de segurança sejam acidentalmente eliminados), os dados de backup são retidos por mais 14 dias. Isto permite a recuperação desse item de backup sem perda de dados. Esta retenção adicional de 14 dias dos dados de backup no estado de "soft delete" não incorre em qualquer custo para o cliente.
-
->[!NOTE]
->Uma vez que a pré-visualização é ativada para uma subscrição, não é possível desativar a exclusão suave apenas para o servidor SQL ou DBs SAP HANA, mantendo-o ativado para máquinas virtuais no mesmo cofre. Pode criar abóbadas separadas para controlo granular.
-
-## <a name="steps-to-enroll-in-preview"></a>Passos para se inscrever na pré-visualização
-
-1. Inscreva-se na sua Conta Azure.
-
-   ```powershell
-   Login-AzureRmAccount
-   ```
-
-2. Selecione a subscrição que pretende inscrever na pré-visualização:
-
-   ```powershell
-   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-   ```
-
-3. Registe esta subscrição do programa de pré-visualização:
-
-   ```powershell
-   Register-AzureRMProviderFeature -FeatureName WorkloadBackupSoftDelete -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
-4. Aguarde 30 minutos para que a subscrição seja inscrita na pré-visualização.
-
-5. Para verificar o estado, executar os seguintes cmdlets:
-
-   ```powershell
-   Get-AzureRmProviderFeature -FeatureName WorkloadBackupSoftDelete -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
-6. Assim que a subscrição aparecer como registada, execute o seguinte comando:
-
-   ```powershell
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
->[!NOTE]
->Sempre que um novo cofre/abóbada é criado sob a subscrição ativada por eliminação suave, o seguinte comando precisa de ser reendo para permitir a funcionalidade para os cofres recém-criados.<BR>
-> `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
 ## <a name="soft-delete-for-sql-server-in-azure-vm-using-azure-portal"></a>Excluir suave para servidor SQL em Azure VM usando o portal Azure
 

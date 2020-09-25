@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 82462af3f1fc939cb30730360f75303cb1be9432
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cf90065ad40ca46068700473ad71b598619764ec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90901180"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301470"
 ---
 # <a name="billing-questions"></a>Perguntas sobre faturação
 
@@ -27,7 +27,7 @@ O Centro de Segurança é oferecido com e sem Azure Defender:
 
 - **Sem o Azure Defender**, o Security Center proporciona visibilidade ao estado de segurança dos seus recursos Azure, política básica de segurança, recomendações de segurança e integração com produtos e serviços de segurança dos parceiros.
 
-- **O Azure Defender** adiciona capacidades de proteção de ameaças que incluem alertas de segurança, inteligência de ameaça, análise comportamental, deteção de anomalias e relatórios de atribuição de ameaças. Pode começar um julgamento gratuito de 30 dias do Azure Defender. Para atualizar, [selecione PriceIng Tier](https://docs.microsoft.com/azure/security-center/security-center-pricing) na política de segurança. Para saber mais, veja a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
+- **O Azure Defender** adiciona capacidades de proteção de ameaças que incluem alertas de segurança, inteligência de ameaça, análise comportamental, deteção de anomalias e relatórios de atribuição de ameaças. Pode começar um julgamento gratuito de 30 dias do Azure Defender. [Saiba mais sobre a modernização.](security-center-pricing.md)
 
 ## <a name="how-can-i-track-who-in-my-organization-enabled-azure-defender-changes-in-azure-security-center"></a>Como posso rastrear quem na minha organização permitiu mudanças no Azure Defender no Azure Security Center
 As Subscrições Azure podem ter vários administradores com permissões para alterar as definições de preços. Para saber que utilizador realizou uma alteração, utilize o Registo de Atividades Azure. 

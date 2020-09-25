@@ -13,12 +13,12 @@ ms.date: 09/09/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: f550cb4e9069055da6569492b35fc7fe75d70980
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 70ab4a151fe73b59663fd8fa16170b2e507c2511
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594055"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258064"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>Considerações para a utilização de Xamarin iOS com MSAL.NET
 
@@ -81,7 +81,7 @@ Para mais informações, consulte a [documentação sobre direitos iOS.](https:/
 
 ### <a name="enable-token-cache-sharing-across-ios-applications"></a>Permitir a partilha de cache de token em aplicações iOS
 
-A partir de MSAL 2.x, pode especificar um grupo de acesso de chaveiro para persistir a cache simbólica em várias aplicações. Esta definição permite-lhe partilhar a cache simbólica entre várias aplicações que têm o mesmo grupo de acesso ao chaveiro. Pode partilhar o dinheiro simbólico entre [ADAL.NET](https://aka.ms/adal-net) aplicações, aplicações MSAL.NET Xamarin.iOS e aplicações nativas do iOS que foram desenvolvidas em [ADAL.objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) ou [MSAL.objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc).
+A partir de MSAL 2.x, pode especificar um grupo de acesso de chaveiro para persistir a cache simbólica em várias aplicações. Esta definição permite-lhe partilhar a cache simbólica entre várias aplicações que têm o mesmo grupo de acesso ao chaveiro. Pode partilhar a cache simbólica entre [aplicações ADAL.NET,](https://aka.ms/adal-net) aplicações MSAL.NET Xamarin.iOS e aplicações nativas do iOS que foram desenvolvidas em [ADAL.objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) ou [MSAL.objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc).
 
 Ao partilhar a cache simbólica, permite um único sign-on (SSO) entre todas as aplicações que usam o mesmo grupo de acesso ao chaveiro.
 
@@ -147,11 +147,11 @@ Nestes casos, utilize [MSAL.NET 4.4.0+](https://www.nuget.org/packages/Microsoft
 
 Se tiver dúvidas ou quiser reportar um problema que encontrou no MSAL.NET, abra um problema no repositório [AzureAD/microsoft-authentication-library-for-dotnet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues) no GitHub.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre propriedades para xamarin iOS, consulte o parágrafo de [considerações específicas](https://github.com/Azure-Samples/active-directory-xamarin-native-v2/tree/master/1-Basic#ios-specific-considerations) para o iOS do ficheiro README.md da amostra seguinte:
 
-Sample | Plataforma | Descrição
+Sample | Plataforma | Description
 ------ | -------- | -----------
 [https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, Universal Windows Platform (UWP) | Uma aplicação simples Xamarin Forms que mostra como usar o MSAL para autenticar contas pessoais da Microsoft e AD AD AZure através do ponto final Azure AD 2.0. A aplicação também mostra como usar o token resultante para aceder ao Microsoft Graph.
 

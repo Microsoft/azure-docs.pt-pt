@@ -3,12 +3,12 @@ title: Ativar o ambiente de trabalho remoto gráfico para o Linux nos Serviços 
 description: Saiba como permitir o ambiente de trabalho remoto para máquinas virtuais Linux em um laboratório em Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4f50510adf978aeb63b2b5337d21e6f9dec76196
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8db01ca57d90739a57cd9bbb3caf63ada5f26fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445768"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251614"
 ---
 # <a name="enable-graphical-remote-desktop-for-linux-virtual-machines-in-azure-lab-services"></a>Ativar o ambiente de trabalho remoto gráfico para máquinas virtuais Linux nos Serviços Azure Lab
 Este artigo mostra-lhe como fazer as seguintes tarefas:
@@ -46,7 +46,7 @@ Este passo só é necessário para ligar usando RDP.  Se em vez disso planeia ut
 
 1.  Durante a criação do laboratório, o instrutor tem a opção de ativar a **conexão de ambiente de trabalho remoto.**  O instrutor deve **permitir** que esta opção abra a porta no Linux VM que é necessário para uma sessão de ambiente de trabalho remoto RDP.  Caso contrário, se esta opção for deixada **desativada,** apenas a porta para SSH é aberta.
   
-    ![Ativar a ligação remota do ambiente de trabalho para uma imagem Linux](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
+    ![Screenshot que mostra a janela "Novo laboratório" com a opção "Ativar a ligação remota do ambiente de trabalho".](./media/how-to-enable-remote-desktop-linux/enable-rdp-option.png)
 
 2. Na caixa de mensagem de **ligação ao ambiente de trabalho remoto ativada,** selecione **Continue com o Ambiente de Trabalho Remoto**. 
 
@@ -103,8 +103,8 @@ Siga os passos abaixo com base no tipo de computador utilizado para ligar ao mod
 
 O cliente X2Go é utilizado para ligar a um modelo VM que tem X2Go configurado.  Utilizando as informações de ligação SSH do modelo VM, siga os passos no artigo de como [ligar a um VM utilizando X2Go](how-to-use-remote-desktop-linux-student.md#connect-to-the-student-vm-using-x2go).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois de um instrutor configurar RDP ou X2Go no seu modelo VM e publicar, os alunos podem ligar-se aos seus VMs através do ambiente de trabalho remoto gui ou SSH.
 
 Para obter mais informações, consulte:
- - [Ligue-se a um Linux VM](how-to-use-remote-desktop-linux-student.md)
+ - [Ligar a uma VM do Linux](how-to-use-remote-desktop-linux-student.md)

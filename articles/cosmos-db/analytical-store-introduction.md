@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: 17dce45e73a5620db2201534126900d8e571ec45
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 75ad602eb6b9a0ce52b2b4c4115f351668327c43
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900275"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253196"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>O que é Azure Cosmos DB Analytical Store (Preview)?
 
@@ -60,7 +60,7 @@ Não há qualquer impacto no desempenho das suas cargas de trabalho transacionai
 
 ### <a name="auto-sync"></a>Auto-Sincronização
 
-Auto-Sync refere-se à capacidade totalmente gerida do Azure Cosmos DB onde os inserções, atualizações, eliminações para dados operacionais são automaticamente sincronizados da loja transacional para a loja analítica em tempo real dentro de 5 minutos.
+Auto-Sync refere-se à capacidade totalmente gerida do Azure Cosmos DB onde os inserções, atualizações, eliminações para dados operacionais são automaticamente sincronizados da loja transacional para a loja analítica em tempo real. A latência de sincronização automática é geralmente dentro de 2 minutos. Em caso de base de dados de produção partilhada com um grande número de contentores, a latência auto-sincronizada de contentores individuais pode ser maior e demorar até 5 minutos. Gostaríamos de saber mais como esta latência se encaixa nos seus cenários. Para isso, por favor contacte a equipa DB da [Azure Cosmos.](mailto:cosmosdbsynapselink@microsoft.com)
 
 A capacidade de auto-sincronização juntamente com a loja analítica proporciona os seguintes benefícios principais:
 
@@ -138,7 +138,7 @@ salary: 1000000
 }
 ```
 
-A propriedade da folha `streetName` dentro do objeto aninhado `address` será representada no esquema de loja analítica como uma coluna `address.object.streetName.int32` . O tipo de dados é adicionado como um sufixo à coluna. Desta forma, se outro documento for adicionado à loja transacional onde o valor da propriedade da folha `streetNo` é "123" (note que é uma corda), o esquema da loja analítica evolui automaticamente sem alterar o tipo de coluna previamente escrita. Uma nova coluna adicionada à loja analítica `address.object.streetName.string` como onde este valor de "123" é armazenado.
+A propriedade da folha `streetNo` dentro do objeto aninhado `address` será representada no esquema de loja analítica como uma coluna `address.object.streetNo.int32` . O tipo de dados é adicionado como um sufixo à coluna. Desta forma, se outro documento for adicionado à loja transacional onde o valor da propriedade da folha `streetNo` é "123" (note que é uma corda), o esquema da loja analítica evolui automaticamente sem alterar o tipo de coluna previamente escrita. Uma nova coluna adicionada à loja analítica `address.object.streetNo.string` como onde este valor de "123" é armazenado.
 
 **Tipo de dados para mapa de sufixo**
 

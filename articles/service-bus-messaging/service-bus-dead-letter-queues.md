@@ -4,12 +4,12 @@ description: Descreve filas de cartas mortas no Azure Service Bus. As filas de a
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 5f7fb65a2a1a6d6529177cd20a85a6d845c119d4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4dbd1216d3ff81e785f16ebed6ceabfa5d5897db
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021685"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301028"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Visão geral das filas de cartas mortas do Service Bus
 
@@ -62,7 +62,7 @@ As mensagens expiradas só são purgadas e transferidas para o DLQ quando há pe
 
 ## <a name="errors-while-processing-subscription-rules"></a>Erros durante o processamento das regras de subscrição
 
-Quando a propriedade [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) é ativada para uma subscrição, quaisquer erros que ocorram enquanto a regra do filtro SQL de uma subscrição executa são capturados no DLQ juntamente com a mensagem ofensiva.
+Quando a propriedade [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) é ativada para uma subscrição, quaisquer erros que ocorram enquanto a regra do filtro SQL de uma subscrição executa são capturados no DLQ juntamente com a mensagem ofensiva. Não utilize esta opção num ambiente de produção em que nem todos os tipos de mensagens tenham assinantes.
 
 ## <a name="application-level-dead-lettering"></a>Letras mortas ao nível da aplicação
 

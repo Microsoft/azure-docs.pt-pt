@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 04/29/2020
-ms.openlocfilehash: 41e511bce3599dd341ccf8192612e3f08111245a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41dc4e97e847e9e7d9863631cdb20b72d3f35d9b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82598424"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269374"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Gerir o ambiente de serviço de integração (ISE) no Azure Logic Apps
 
@@ -122,7 +122,7 @@ A unidade base Premium ISE tem capacidade fixa, por isso, se precisar de mais pr
    * [**Escala manual**](#manual-scale): Escala com base no número de unidades de processamento que pretende utilizar.
    * [**Autoescala personalizada**](#custom-autoscale): Escala com base em métricas de desempenho selecionando de vários critérios e especificando as condições de limiar para o cumprimento desses critérios.
 
-   ![Selecione o tipo de escala que deseja](./media/ise-manage-integration-service-environment/select-scale-out-options.png)
+   ![Screenshot que mostra a página "Scale out" com "escala manual" selecionada.](./media/ise-manage-integration-service-environment/select-scale-out-options.png)
 
 <a name="manual-scale"></a>
 

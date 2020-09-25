@@ -1,24 +1,24 @@
 ---
-title: 'Quickstart: Configurar alta disponibilidade com o serviço Azure Front Door'
-description: Este quickstart descreve como usar o Azure Front Door Service para a sua aplicação web global altamente disponível e de alto desempenho.
+title: 'Quickstart: Configurar alta disponibilidade com o Serviço de Porta Frontal Azure - Portal Azure'
+description: Este quickstart mostra como usar o Azure Front Door Service para a sua aplicação web global altamente disponível e de alto desempenho, utilizando o portal Azure.
 services: front-door
-documentationcenter: ''
+documentationcenter: na
 author: duongau
-editor: ''
-ms.assetid: ''
+manager: KumudD
+Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2020
+ms.date: 09/16/2020
 ms.author: duau
-ms.openlocfilehash: 16ebfe7ae39d63f455e39c677acc61b31d40bb5a
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 4846438f8479fe622570aa515a4d8b40cccc57b8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569242"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252311"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>Início Rápido: criar um Front Door para uma aplicação Web global de elevada disponibilidade
 
@@ -38,35 +38,33 @@ Se ainda não tiver uma aplicação web, use os seguintes passos para definir ex
 
 1. Inicie sessão no portal do Azure em https://portal.azure.com.
 
-1. A partir da página inicial ou do menu Azure, **selecione Criar um recurso**.
+1. No lado superior esquerdo do ecrã, selecione **Criar um**  >   **WebApp**de recursos .
 
-1. Selecione **Web** > **Aplicação Web**.
+    :::image type="content" source="media/quickstart-create-front-door/front-door-create-web-app.png" alt-text="Criar uma aplicação Web no portal do Azure":::
 
-   ![Criar uma aplicação Web no portal do Azure](media/quickstart-create-front-door/create-web-app-azure-front-door.png)
+1. No **separador Basics** da página **'Criar Aplicação Web',** insira ou selecione as seguintes informações.
 
-1. Na **Web App,** selecione a **Subscrição** a utilizar.
-
-1. Para **o Grupo de Recursos**, selecione Criar **novos**. Introduza *FrontDoorQS_rg1* para o **Nome** e selecione **OK**.
-
-1. Em **Detalhes de Exemplo,** insira um **nome** único para a sua aplicação web. Este exemplo utiliza *o WebAppContoso-1*.
-
-1. Selecione uma **pilha de tempo de execução,** neste exemplo, *.NET Core 2.1 (LTS)*.
-
-1. Selecione uma região, como *a Central US.*
-
-1. Para **o Plano do Windows**, selecione Criar **novos**. Insira *o myAppServicePlanCentralUS* para **nome** e selecione **OK**.
-
-1. Certifique-se de que o **Sku e** o tamanho **são normais S1 100 total ACU, memória de 1,75 GB**.
+    | Definição                 | Valor                                              |
+    | ---                     | ---                                                |
+    | **Subscrição**               | Selecione a sua subscrição. |    
+    | **Grupo de recursos**       | **Selecione Criar novo** e introduza *FrontDoorQS_rg1* na caixa de texto.|
+    | **Nome**                   | Introduza um **Nome** único para a sua aplicação web. Este exemplo utiliza *o WebAppContoso-1*. |
+    | **Publicar** | Selecione **Código**. |
+    | **Pilha de runtime**         | Selecione **.NET Core 2.1 (LTS)**. |
+    | **Sistema Operativo**          | Selecione **Windows**. |
+    | **Região**           | Selecione **Central US**. |
+    | **Plano do Windows** | Selecione **Criar novo** e insira *o myAppServicePlanCentralUS* na caixa de texto. |
+    | **SKU e tamanho** | Selecione **Standard S1 100 total ACU, memória de 1,75 GB**. |
 
 1. Selecione **Rever + criar,** rever o **Resumo**e, em seguida, selecione **Criar**. Pode levar alguns minutos para a colocação estar completa.
 
-   ![Resumo de revisão para aplicação web](media/quickstart-create-front-door/web-app-summary-azure-front-door.png)
+    :::image type="content" source="media/quickstart-create-front-door/create-web-app.png" alt-text="Resumo de revisão para aplicação web":::
 
 Depois da sua implementação estar concluída, crie uma segunda aplicação web. Utilizar o mesmo procedimento com os mesmos valores, com exceção dos seguintes valores:
 
 | Definição          | Valor     |
 | ---              | ---  |
-| **Grupo de recursos**   | Selecione **Novo** e *introduza FrontDoorQS_rg2* |
+| **Grupo de recursos**   | Selecione **Criar novo** e introduza *FrontDoorQS_rg2* |
 | **Nome**             | Insira um nome único para a sua Web App, neste exemplo, *WebAppContoso-2*  |
 | **Região**           | Uma região diferente, neste exemplo, *South Central US* |
 | **Plano de Serviço de**  >  Aplicações **Plano Windows**         | Selecione **Novo** e insira *myAppServicePlanSouthCentralUS,* e depois selecione **OK** |
@@ -75,35 +73,55 @@ Depois da sua implementação estar concluída, crie uma segunda aplicação web
 
 Configure a Porta Frontal Azure para direcionar o tráfego do utilizador com base na latência mais baixa entre os dois servidores de aplicações web. Para começar, adicione um anfitrião frontal para a Porta frontal Azure.
 
-1. A partir da página inicial ou do menu Azure, **selecione Criar um recurso**. **Selecione porta**frontal de rede  >  **Front Door**.
+1. A partir da página inicial ou do menu Azure, **selecione Criar um recurso**. **Selecione Networking**  >  **Ver todas as**portas da  >  **frente**.
 
-1. In **Create a Front Door**, selecione uma **subscrição**.
+1. No **separador Básicos** de Criar uma página **da porta da frente,** insira ou selecione as seguintes informações e, em seguida, selecione **Seguinte: Configuração**.
 
-1. Para **o grupo de recursos**, selecione **New**, em seguida, *introduza FrontDoorQS_rg0* e selecione **OK**.  Em vez disso, pode utilizar um grupo de recursos existente.
-
-1. Se criou um grupo de recursos, selecione uma **localização do grupo de Recursos**e, em seguida, selecione **Seguinte: Configuração**.
+    | Definição | Valor |
+    | --- | --- |
+    | **Subscrição** | Selecione a sua subscrição. |    
+    | **Grupo de recursos** | **Selecione Criar novo** e introduza *FrontDoorQS_rg0* na caixa de texto.|
+    | **Localização do grupo de recursos** | Selecione **Central US**. |
 
 1. Em **Frontends/domínios,** selecione **+** para abrir Adicione um **anfitrião frontend**.
 
 1. Para **o nome hospedeiro,** insira um nome de anfitrião globalmente único. Este exemplo utiliza *contoso-frontend*. Selecione **Adicionar**.
 
-   ![Adicione um anfitrião frontal para Azure Front Door](media/quickstart-create-front-door/add-frontend-host-azure-front-door.png)
+    :::image type="content" source="media/quickstart-create-front-door/add-frontend-host-azure-front-door.png" alt-text="Adicione um anfitrião frontal para Azure Front Door":::
 
 Em seguida, crie uma piscina de backend que contenha as suas duas aplicações web.
 
 1. Ainda em **Criar uma Porta frontal,** em **piscinas backend,** selecione **+** para abrir Adicione uma piscina de **backend**.
 
-1. Para **nome**, insira *myBackendPool*.
+1. Para **nomear**, insira *myBackendPool*e, em seguida, selecione **Adicione um backend**.
 
-1. **Selecione Adicione um backend**. Para **o tipo de anfitrião Backend**, selecione App *Service*.
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool.png" alt-text="Adicione uma piscina de backend":::
 
-1. Selecione a sua subscrição e, em seguida, escolha a primeira aplicação web que criou a partir do nome de **anfitrião Backend.** Neste exemplo, a aplicação web era *WebAppContoso-1*. Selecione **Adicionar**.
+1. Na lâmina de backend Adicionar uma lâmina **de backend,** selecione as seguintes informações e selecione **Adicionar**.
 
-1. **Selecione Adicione novamente um backend.** Para **o tipo de anfitrião Backend**, selecione App *Service*.
+    | Definição | Valor |
+    | --- | --- |
+    | **Tipo de anfitrião backend** | Selecione **o serviço de aplicações**. |   
+    | **Subscrição** | Selecione a sua subscrição. |    
+    | **Nome do anfitrião backend** | Selecione a primeira aplicação web que criou. Neste exemplo, a aplicação web era *WebAppContoso-1*. |
 
-1. Selecione a sua subscrição, novamente, e escolha a segunda aplicação web que criou a partir do nome de **anfitrião Backend.** Selecione **Adicionar**.
+    **Deixe todos os outros campos padrão.*
 
-   ![Adicione um anfitrião de backend à sua Porta da Frente](media/quickstart-create-front-door/add-backend-host-pool-azure-front-door.png)
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-backend.png" alt-text="Adicione um anfitrião de backend à sua Porta da Frente":::
+
+1. **Selecione Adicione novamente um backend.** selecione as seguintes informações e **selecione Adicionar**.
+
+    | Definição | Valor |
+    | --- | --- |
+    | **Tipo de anfitrião backend** | Selecione **o serviço de aplicações**. |   
+    | **Subscrição** | Selecione a sua subscrição. |    
+    | **Nome do anfitrião backend** | Selecione a segunda aplicação web que criou. Neste exemplo, a aplicação web era *WebAppContoso-2*. |
+
+    **Deixe todos os outros campos padrão.*
+
+1. **Selecione Adicione** a lâmina de **piscina de backend** para completar a configuração da piscina de backend.
+
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-backend-pool-complete.png" alt-text="Adicione uma piscina de backend para Azure Front Door":::
 
 Finalmente, adicione uma regra de encaminhamento. Uma regra de encaminhamento mapeia o seu anfitrião frontal para a piscina de backend. A regra remete um pedido `contoso-frontend.azurefd.net` para **o myBackendPool**.
 
@@ -111,12 +129,14 @@ Finalmente, adicione uma regra de encaminhamento. Uma regra de encaminhamento ma
 
 1. In **Adicionar uma regra**, para **nome,** *insira o LocalizaçãoRule*. Aceite todos os valores predefinidos e, em seguida, **selecione Adicione** para adicionar a regra de encaminhamento.
 
+    :::image type="content" source="media/quickstart-create-front-door/front-door-add-a-rule.png" alt-text="Adicione uma regra à sua porta da frente":::
+
    >[!WARNING]
    > **Deve** certificar-se de que cada um dos anfitriões frontais da porta da frente tem uma regra de encaminhamento com um caminho predefinido `\*` () associado a ela. Ou seja, em todas as suas regras de encaminhamento deve haver pelo menos uma regra de encaminhamento para cada um dos seus anfitriões frontend definidos no caminho padrão `\*` (). Se não o fizer, poderá resultar em que o tráfego do utilizador final não seja corretamente encaminhado.
 
 1. Selecione **Rever + Criar**e, em seguida, **Criar**.
 
-   ![Porta frontal Azure configurada](media/quickstart-create-front-door/configuration-azure-front-door.png)
+    :::image type="content" source="media/quickstart-create-front-door/configuration-azure-front-door.png" alt-text="Porta frontal Azure configurada":::
 
 ## <a name="view-azure-front-door-in-action"></a>Ver Azure Front Door em ação
 
@@ -141,7 +161,7 @@ Para testar o failover global instantâneo em ação, experimente os seguintes p
 
 1. Atualize o seu browser. Desta vez, deve ver uma mensagem de erro.
 
-   ![Ambas as instâncias da aplicação web pararam](media/quickstart-create-front-door/web-app-stopped-message.png)
+   :::image type="content" source="media/quickstart-create-front-door/web-app-stopped-message.png" alt-text="Ambas as instâncias da aplicação web pararam":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

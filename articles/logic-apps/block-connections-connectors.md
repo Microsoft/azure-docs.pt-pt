@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: cccc45f182f3ae826440df8bc163080b82226c9f
-ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
+ms.openlocfilehash: bd6afa8b3776ed48d4b25a36b2902265fa0ab5c4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87172084"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269765"
 ---
 # <a name="block-connections-created-by-connectors-in-azure-logic-apps"></a>Ligações de blocos criadas por conectores em Azure Logic Apps
 
@@ -121,15 +121,15 @@ Para bloquear a criação de uma ligação completamente numa aplicação lógic
 
 1. Na **definição de Política,** forneça as informações para a sua definição de política, com base nas propriedades descritas sob o exemplo:
 
-   ![Propriedades de definição de política](./media/block-connections-connectors/policy-definition-create-connections-1.png)
+   ![Screenshot que mostra as propriedades de "Definição de Política".](./media/block-connections-connectors/policy-definition-create-connections-1.png)
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Localização de definição** | Sim | <*Nome de subscrição Azure*> | A assinatura Azure para usar para a definição de política <p><p>1. Para encontrar a sua subscrição, selecione o botão elipses **(...**) . <br>2. A partir da lista **de assinaturas,** encontre e selecione a sua subscrição. <br>3. Quando terminar, **selecione Select**. |
-   | **Nome** | Sim | <*nome de definição de política*> | O nome a usar para a definição de política |
-   | **Descrição** | Não | <*nome de definição de política*> | Uma descrição para a definição de política |
-   | **Categoria** | Sim | **Aplicativos lógicos** | O nome de uma categoria ou nova categoria existente para a definição de política |
-   | **Imposição de políticas** | Sim | **Ativado** | Esta definição especifica se ativa ou desativa a definição de política quando salva o seu trabalho. |
+   | **Localização de definição** | Yes | <*Nome de subscrição Azure*> | A assinatura Azure para usar para a definição de política <p><p>1. Para encontrar a sua subscrição, selecione o botão elipses **(...**) . <br>2. A partir da lista **de assinaturas,** encontre e selecione a sua subscrição. <br>3. Quando terminar, **selecione Select**. |
+   | **Nome** | Yes | <*nome de definição de política*> | O nome a usar para a definição de política |
+   | **Descrição** | No | <*nome de definição de política*> | Uma descrição para a definição de política |
+   | **Categoria** | Yes | **Aplicativos lógicos** | O nome de uma categoria ou nova categoria existente para a definição de política |
+   | **Imposição de políticas** | Yes | **Ativado** | Esta definição especifica se ativa ou desativa a definição de política quando salva o seu trabalho. |
    ||||
 
 1. De acordo com **a REGRA POLÍTICA,** a caixa de edição JSON é pré-povoada com um modelo de definição de política. Substitua este modelo pela [definição de política](../governance/policy/concepts/definition-structure.md) com base nas propriedades descritas na tabela abaixo e seguindo esta sintaxe:
@@ -155,7 +155,7 @@ Para bloquear a criação de uma ligação completamente numa aplicação lógic
    | `mode` | `All` | O modo que determina os tipos de recursos que a apólice avalia. <p><p>Este cenário `mode` `All` define-se a , que aplica a política aos grupos de recursos Azure, subscrições e todos os tipos de recursos. <p><p>Para obter mais informações, consulte [a estrutura de definição de política - modo](../governance/policy/concepts/definition-structure.md#mode). |
    | `if` | `{condition-to-evaluate}` | A condição que determina quando aplicar a regra da política <p><p>Neste cenário, `{condition-to-evaluate}` determina-se se o `api.id` valor em `Microsoft.Web/connections/api.id` `*managedApis/{connector-name}` fósforos, que especifica um valor wildcard (*). <p><p>Para obter mais informações, consulte [a estrutura de definição de política - Regra de política.](../governance/policy/concepts/definition-structure.md#policy-rule) |
    | `field` | `Microsoft.Web/connections/api.id` | O `field` valor a comparar com a condição <p><p>Neste cenário, `field` usa o [*pseudónimo,*](../governance/policy/concepts/definition-structure.md#aliases) `Microsoft.Web/connections/api.id` para aceder ao valor na propriedade do conector, `api.id` . |
-   | `like` | `*managedApis/{connector-name}` | O operador lógico e o valor a utilizar para comparar o `field` valor <p><p>Neste cenário, o `like` operador e o personagem wildcard (*) certificam-se de que a regra funciona independentemente da região, e a `*managedApis/{connector-name}` cadeia, é o valor a corresponder onde `{connector-name}` está o ID para o conector que pretende bloquear. <p><p>Por exemplo, suponha que pretende bloquear a criação de ligações a plataformas de redes sociais ou bases de dados: <p><p>- Twitter:`twitter` <br>- Instagram:`instagram` <br>- Facebook:`facebook` <br>- Pinterest:`pinterest` <br>- SQL Server ou Azure SQL:`sql` <p><p>Para encontrar estes IDs do conector, consulte [o ID de referência do conector](#connector-reference-ID) mais cedo neste tópico. |
+   | `like` | `*managedApis/{connector-name}` | O operador lógico e o valor a utilizar para comparar o `field` valor <p><p>Neste cenário, o `like` operador e o personagem wildcard (*) certificam-se de que a regra funciona independentemente da região, e a `*managedApis/{connector-name}` cadeia, é o valor a corresponder onde `{connector-name}` está o ID para o conector que pretende bloquear. <p><p>Por exemplo, suponha que pretende bloquear a criação de ligações a plataformas de redes sociais ou bases de dados: <p><p>- Twitter: `twitter` <br>- Instagram: `instagram` <br>- Facebook: `facebook` <br>- Pinterest: `pinterest` <br>- SQL Server ou Azure SQL: `sql` <p><p>Para encontrar estes IDs do conector, consulte [o ID de referência do conector](#connector-reference-ID) mais cedo neste tópico. |
    | `then` | `{effect-to-apply}` | O efeito a aplicar quando a `if` condição é satisfeita <p><p>Neste cenário, `{effect-to-apply}` é bloquear e falhar um pedido ou operação que não cumpra a política. <p><p>Para obter mais informações, consulte [a estrutura de definição de política - Regra de política.](../governance/policy/concepts/definition-structure.md#policy-rule) |
    | `effect` | `deny` | É `effect` bloquear o pedido, que é criar a ligação especificada <p><p>Para obter mais informações, consulte [os efeitos da Política de Azure - Negar](../governance/policy/concepts/effects.md#deny). |
    ||||
@@ -180,7 +180,7 @@ Para bloquear a criação de uma ligação completamente numa aplicação lógic
 
    Aqui está a forma como aparece a caixa **POLICY RULE:**
 
-   ![Regra para definição de política](./media/block-connections-connectors/policy-definition-create-connections-2.png)
+   ![Screenshot que mostra a caixa "POLICY RULE" com um exemplo de regra de política.](./media/block-connections-connectors/policy-definition-create-connections-2.png)
 
    Para vários conectores, pode adicionar mais condições, por exemplo:
 
@@ -246,11 +246,11 @@ Quando cria uma ligação dentro de uma aplicação lógica, essa ligação exis
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Localização de definição** | Sim | <*Nome de subscrição Azure*> | A assinatura Azure para usar para a definição de política <p><p>1. Para encontrar a sua subscrição, selecione o botão elipses **(...**) . <br>2. A partir da lista **de assinaturas,** encontre e selecione a sua subscrição. <br>3. Quando terminar, **selecione Select**. |
-   | **Nome** | Sim | <*nome de definição de política*> | O nome a usar para a definição de política |
-   | **Descrição** | Não | <*nome de definição de política*> | Uma descrição para a definição de política |
-   | **Categoria** | Sim | **Aplicativos lógicos** | O nome de uma categoria ou nova categoria existente para a definição de política |
-   | **Imposição de políticas** | Sim | **Ativado** | Esta definição especifica se ativa ou desativa a definição de política quando salva o seu trabalho. |
+   | **Localização de definição** | Yes | <*Nome de subscrição Azure*> | A assinatura Azure para usar para a definição de política <p><p>1. Para encontrar a sua subscrição, selecione o botão elipses **(...**) . <br>2. A partir da lista **de assinaturas,** encontre e selecione a sua subscrição. <br>3. Quando terminar, **selecione Select**. |
+   | **Nome** | Yes | <*nome de definição de política*> | O nome a usar para a definição de política |
+   | **Descrição** | No | <*nome de definição de política*> | Uma descrição para a definição de política |
+   | **Categoria** | Yes | **Aplicativos lógicos** | O nome de uma categoria ou nova categoria existente para a definição de política |
+   | **Imposição de políticas** | Yes | **Ativado** | Esta definição especifica se ativa ou desativa a definição de política quando salva o seu trabalho. |
    ||||
 
 1. De acordo com **a REGRA POLÍTICA,** a caixa de edição JSON é pré-povoada com um modelo de definição de política. Substitua este modelo pela [definição de política](../governance/policy/concepts/definition-structure.md) com base nas propriedades descritas na tabela abaixo e seguindo esta sintaxe:
@@ -276,7 +276,7 @@ Quando cria uma ligação dentro de uma aplicação lógica, essa ligação exis
    | `mode` | `All` | O modo que determina os tipos de recursos que a apólice avalia. <p><p>Este cenário `mode` `All` define-se a , que aplica a política aos grupos de recursos Azure, subscrições e todos os tipos de recursos. <p><p>Para obter mais informações, consulte [a estrutura de definição de política - modo](../governance/policy/concepts/definition-structure.md#mode). |
    | `if` | `{condition-to-evaluate}` | A condição que determina quando aplicar a regra da política <p><p>Neste cenário, `{condition-to-evaluate}` determina se a saída da corda `[string(field('Microsoft.Logic/workflows/parameters'))]` contém a corda, `{connector-name}` . <p><p>Para obter mais informações, consulte [a estrutura de definição de política - Regra de política.](../governance/policy/concepts/definition-structure.md#policy-rule) |
    | `value` | `[string(field('Microsoft.Logic/workflows/parameters'))]` | O valor a comparar com a condição <p><p>Neste cenário, `value` é a saída da corda `[string(field('Microsoft.Logic/workflows/parameters'))]` de , que converte o objeto dentro do objeto para uma `$connectors` `Microsoft.Logic/workflows/parameters` corda. |
-   | `contains` | `{connector-name}` | O operador lógico e valor a utilizar para comparar com a `value` propriedade <p><p>Neste cenário, o `contains` operador garante que a regra funciona independentemente do local onde `{connector-name}` aparece, onde a `{connector-name}` cadeia, é o ID para o conector que pretende restringir ou bloquear. <p><p>Por exemplo, suponha que pretende bloquear a utilização de ligações a plataformas de redes sociais ou bases de dados: <p><p>- Twitter:`twitter` <br>- Instagram:`instagram` <br>- Facebook:`facebook` <br>- Pinterest:`pinterest` <br>- SQL Server ou Azure SQL:`sql` <p><p>Para encontrar estes IDs do conector, consulte [o ID de referência do conector](#connector-reference-ID) mais cedo neste tópico. |
+   | `contains` | `{connector-name}` | O operador lógico e valor a utilizar para comparar com a `value` propriedade <p><p>Neste cenário, o `contains` operador garante que a regra funciona independentemente do local onde `{connector-name}` aparece, onde a `{connector-name}` cadeia, é o ID para o conector que pretende restringir ou bloquear. <p><p>Por exemplo, suponha que pretende bloquear a utilização de ligações a plataformas de redes sociais ou bases de dados: <p><p>- Twitter: `twitter` <br>- Instagram: `instagram` <br>- Facebook: `facebook` <br>- Pinterest: `pinterest` <br>- SQL Server ou Azure SQL: `sql` <p><p>Para encontrar estes IDs do conector, consulte [o ID de referência do conector](#connector-reference-ID) mais cedo neste tópico. |
    | `then` | `{effect-to-apply}` | O efeito a aplicar quando a `if` condição é satisfeita <p><p>Neste cenário, `{effect-to-apply}` é bloquear e falhar um pedido ou operação que não cumpre a política. <p><p>Para obter mais informações, consulte [a estrutura de definição de política - Regra de política.](../governance/policy/concepts/definition-structure.md#policy-rule) |
    | `effect` | `deny` | O `effect` é ou bloquear o pedido para salvar uma `deny` aplicação lógica que usa a ligação especificada <p><p>Para obter mais informações, consulte [os efeitos da Política de Azure - Negar](../governance/policy/concepts/effects.md#deny). |
    ||||
@@ -329,16 +329,16 @@ Em seguida, você precisa atribuir a definição de política onde você quer ap
 
 1. De acordo com **o Básico,** forneça esta informação para a atribuição de políticas:
 
-   | Propriedade | Obrigatório | Descrição |
+   | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Âmbito** | Sim | Os recursos onde quer fazer cumprir a atribuição de políticas. <p><p>1. Ao lado da caixa **Scope,** selecione o botão elipses **(...**) . <br>2. A partir da lista **de assinaturas,** selecione a subscrição do Azure. <br>3. Opcionalmente, a partir da lista **do Grupo de Recursos,** selecione o grupo de recursos. <br>4. Quando terminar, **selecione Select**. |
-   | **Exclusões** | Não | Quaisquer recursos da Azure para excluir da atribuição de políticas. <p><p>1. Ao lado da caixa **Exclusions,** selecione o botão elipses **(...**) . <br>2. Na lista **de recursos,** selecione o recurso > **Adicionar ao Âmbito Selecionado.** <br>3. Quando terminar, **selecione Save**. |
-   | **Definição de política** | Sim | O nome para a definição de política que quer atribuir e impor. Este exemplo continua com o exemplo da política do Instagram, "Bloquear as ligações do Instagram". <p><p>1. Ao lado da caixa **de definição de política,** selecione o botão elipses **(...**) . <br>2. Encontre e selecione a definição de política utilizando o filtro **Tipo** ou a caixa **de busca.** <br>3. Quando terminar, **selecione Select**. |
-   | **Nome da atribuição** | Sim | O nome a usar para a atribuição de políticas, se diferente da definição de política |
-   | **ID de atribuição** | Sim | O ID gerado automaticamente para a atribuição de políticas |
-   | **Descrição** | Não | Uma descrição para a atribuição de políticas |
-   | **Imposição de políticas** | Sim | A definição que permite ou desativa a atribuição de políticas |
-   | **Atribuído por** | Não | O nome para a pessoa que criou e aplicou a atribuição de política |
+   | **Âmbito** | Yes | Os recursos onde quer fazer cumprir a atribuição de políticas. <p><p>1. Ao lado da caixa **Scope,** selecione o botão elipses **(...**) . <br>2. A partir da lista **de assinaturas,** selecione a subscrição do Azure. <br>3. Opcionalmente, a partir da lista **do Grupo de Recursos,** selecione o grupo de recursos. <br>4. Quando terminar, **selecione Select**. |
+   | **Exclusões** | No | Quaisquer recursos da Azure para excluir da atribuição de políticas. <p><p>1. Ao lado da caixa **Exclusions,** selecione o botão elipses **(...**) . <br>2. Na lista **de recursos,** selecione o recurso > **Adicionar ao Âmbito Selecionado.** <br>3. Quando terminar, **selecione Save**. |
+   | **Definição de política** | Yes | O nome para a definição de política que quer atribuir e impor. Este exemplo continua com o exemplo da política do Instagram, "Bloquear as ligações do Instagram". <p><p>1. Ao lado da caixa **de definição de política,** selecione o botão elipses **(...**) . <br>2. Encontre e selecione a definição de política utilizando o filtro **Tipo** ou a caixa **de busca.** <br>3. Quando terminar, **selecione Select**. |
+   | **Nome da atribuição** | Yes | O nome a usar para a atribuição de políticas, se diferente da definição de política |
+   | **ID de atribuição** | Yes | O ID gerado automaticamente para a atribuição de políticas |
+   | **Descrição** | No | Uma descrição para a atribuição de políticas |
+   | **Imposição de políticas** | Yes | A definição que permite ou desativa a atribuição de políticas |
+   | **Atribuído por** | No | O nome para a pessoa que criou e aplicou a atribuição de política |
    ||||
 
    Por exemplo, atribuir a política a um grupo de recursos Azure utilizando o exemplo do Instagram:
@@ -363,7 +363,7 @@ Para experimentar a sua política, comece a criar uma ligação utilizando o con
 
 A mensagem inclui esta informação:
 
-| Descrição | Conteúdo |
+| Description | Conteúdo |
 |-------------|---------|
 | Razão para o fracasso | `"Resource 'instagram' was disallowed by policy."` |
 | Nome da atribuição | `"Block Instagram connections"` |
@@ -371,6 +371,6 @@ A mensagem inclui esta informação:
 | ID de definição de política | `"/subscriptions/xxxxxXXXXXxxxxxXXXXXxxxxxXXXXX/providers/Microsoft.Authorization/policyDefinitions/b5ddcfec-1b24-4cac-a353-360846a59f24"` |
 |||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a Política Azure](../governance/policy/overview.md)

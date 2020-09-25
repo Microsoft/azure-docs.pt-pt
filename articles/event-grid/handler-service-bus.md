@@ -3,12 +3,12 @@ title: Filas de autocarros de serviço e tópicos como manipuladores de eventos 
 description: Descreve como pode usar filas e tópicos de Service Bus como manipuladores de eventos para eventos Azure Event Grid.
 ms.topic: conceptual
 ms.date: 09/03/2020
-ms.openlocfilehash: 9edf9ebd66eca2f1a6749d40ee22437bf17e55c4
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 00f937a66ff17c2d5f502fe976675c999ee02a58
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440801"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270173"
 ---
 # <a name="service-bus-queues-and-topics-as-event-handlers-for-azure-event-grid-events"></a>Filas de autocarros de serviço e tópicos como manipuladores de eventos para eventos Azure Event Grid
 Um manipulador de eventos é o local onde o evento é enviado. O manipulador toma mais algumas medidas para processar o evento. Vários serviços da Azure são automaticamente configurados para lidar com eventos e **a Azure Service Bus** é um deles. 
@@ -51,9 +51,9 @@ az eventgrid event-subscription create \
 ```
 
 ## <a name="message-properties"></a>Propriedades de mensagens
-Se utilizar um **tópico de ônibus de serviço ou fila** como manipulador de eventos para eventos a partir da Grade de Eventos, desemote os seguintes cabeçalhos de mensagem: 
+Se utilizar um **tópico de ônibus de serviço ou fila** como manipulador de eventos para eventos a partir da Grade de Eventos, estas são as propriedades que recebe nos cabeçalhos de mensagens: 
 
-| Nome da propriedade | Descrição |
+| Nome da propriedade | Description |
 | ------------- | ----------- | 
 | nome de subscrição aeg | Nome da subscrição do evento. |
 | aeg-entrega-contagem | <p>Número de tentativas feitas para o evento.</p> <p>Exemplo: "1"</p> |
@@ -157,5 +157,8 @@ O ID do sistema interno para a mensagem será mantido em toda a reentrega do eve
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+> [!NOTE]
+> Entregar eventos a uma fila de autocarros da Azure Servive ou tópico **em outro inquilino** não é suportado. 
+
+## <a name="next-steps"></a>Passos seguintes
 Consulte o artigo [dos manipuladores do Evento](event-handlers.md) para obter uma lista de manipuladores de eventos suportados. 

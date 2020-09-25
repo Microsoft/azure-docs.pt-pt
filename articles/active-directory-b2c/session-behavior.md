@@ -1,6 +1,6 @@
 ---
 title: Configure comportamento da sessão - Azure Ative Directory B2C / Microsoft Docs
-description: Configurar o comportamento da sessão no Azure Ative Directory B2C.
+description: Saiba como configurar o comportamento da sessão no Azure Ative Directory B2C.
 services: active-directory-b2c
 author: msmimart
 manager: celestedg
@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c47b0249824a3683b8f24cc01cc5eea5ccf32585
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f2d6d00ea06bb362d82b5fbdff658b729eed17cd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87482673"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258989"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurar comportamento de sessão no Azure Ative Directory B2C
 
@@ -45,7 +45,7 @@ Pode utilizar as seguintes propriedades para gerir sessões de aplicações web:
 
     ![Definições de propriedade de comportamento de sessão no portal Azure](./media/session-behavior/session-behavior.png)
 
-8. Clique em **Guardar**.
+8. Clique em **Save** (Guardar).
 
 ## <a name="next-steps"></a>Passos seguintes
 

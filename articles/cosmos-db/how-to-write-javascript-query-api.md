@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: tisande
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 2182e77ee673ea655762c765e2cfccb3decbe6af
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 4251a9ec0766f6e1956e4885b58dc874e01b0960
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420180"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253076"
 ---
 # <a name="how-to-write-stored-procedures-and-triggers-in-azure-cosmos-db-by-using-the-javascript-query-api"></a>Como escrever procedimentos e gatilhos armazenados em Azure Cosmos DB utilizando a consulta JavaScript API
 
@@ -23,7 +23,7 @@ O Azure Cosmos DB permite-lhe executar consultas otimizadas utilizando uma inter
 A amostra de código a seguir é um exemplo de como a consulta JavaScript API é usada no contexto de um procedimento armazenado. O procedimento armazenado insere um item Azure Cosmos que é especificado por um parâmetro de entrada e atualiza um documento de metadados utilizando o `__.filter()` método, com minSize, maxSize e totalSize com base na propriedade do tamanho do item de entrada.
 
 > [!NOTE]
-> `__`(duplo-sublinhado) é um pseudónimo para `getContext().getCollection()` quando se utiliza a API de consulta JavaScript.
+> `__` (duplo-sublinhado) é um pseudónimo para `getContext().getCollection()` quando se utiliza a API de consulta JavaScript.
 
 ```javascript
 /**
@@ -79,7 +79,7 @@ function insertDocumentAndUpdateMetadata(item) {
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos para saber sobre procedimentos armazenados, gatilhos e funções definidas pelo utilizador em Azure Cosmos DB:
 

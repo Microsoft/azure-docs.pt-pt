@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 332c33ce46298e5338587cd4d001466d30c1a9e6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 138b3b35633b432193a1972421f05d0a8e52b90a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937191"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301369"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteger cargas de trabalho do Kubernetes
 
@@ -95,11 +95,15 @@ O Azure Security Center inclui um conjunto de recomendações que estão dispon�
     1. Selecione **Guardar**.
 
 
-1. Para impor qualquer uma das recomendações, desacordo com o separador **Desaplico** na Política de Segurança do Centro de Segurança: **Deny**
+1. Para impor qualquer uma das recomendações, 
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Negar opção para parâmetro da Política Azure":::
+    1. Abra a página de detalhes da recomendação e selecione **Deny**:
 
-    Isto negará qualquer pedido não conforme aos seus clusters AKS
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Negar opção para parâmetro da Política Azure":::
+
+        Isto abrirá o painel onde definirá o âmbito. 
+
+    1. Quando definir o âmbito, selecione **Alterar para negar**.
 
 1. Para ver quais recomendações se aplicam aos seus clusters:
 

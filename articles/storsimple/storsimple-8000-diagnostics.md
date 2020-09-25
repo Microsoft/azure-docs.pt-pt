@@ -1,6 +1,6 @@
 ---
 title: Ferramenta de diagnóstico para resolver problemas Dispositivo StorSimple 8000 Microsoft Docs
-description: Descreve os modos de dispositivo StorSimple e explica como utilizar o Windows PowerShell para o StorSimple alterar o modo de dispositivo.
+description: Este artigo fornece uma visão geral da ferramenta de diagnóstico e descreve como a ferramenta pode ser usada com um dispositivo StorSimple.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d3e9aff1a38bbabc4f878a4d2e2fb96dafe59c92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca674f38b5c327123bc1d13dd284f84f614881b4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504462"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300450"
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Utilize a Ferramenta de Diagnóstico StorSimple para resolver problemas de dispositivos da série 8000
 
@@ -414,11 +414,11 @@ Controller0>
 
 Aqui está uma tabela que descreve para que os vários parâmetros do Windows PowerShell no mapa de informações do sistema. 
 
-| Parâmetro PowerShell    | Descrição  |
+| Parâmetro PowerShell    | Description  |
 |-------------------------|------------------|
 | ID da Instância             | Cada controlador tem um identificador único ou um GUID associado a ele.|
 | Name                    | O nome amigável do dispositivo configurado através do portal Azure durante a implementação do dispositivo. O nome padrão amigável é o número de série do dispositivo. |
-| Modelo                   | O modelo do seu dispositivo da série StorSimple 8000. O modelo pode ser 8100 ou 8600.|
+| Modelação                   | O modelo do seu dispositivo da série StorSimple 8000. O modelo pode ser 8100 ou 8600.|
 | SerialNumber            | O número de série do dispositivo é atribuído na fábrica e tem 15 caracteres de comprimento. Por exemplo, 8600-SHX0991003G44HT indica:<br> 8600 - É o modelo do dispositivo.<br>SHX – É o local de fabrico.<br> 0991003 - É um produto específico. <br> G44HT- os últimos 5 dígitos são incrementados para criar números de série únicos. Isto pode não ser um conjunto sequencial.|
 | TimeZone                | O fuso horário do dispositivo configurado no portal Azure durante a implantação do dispositivo.|
 | CurrentController       | O controlador a que está ligado através da interface Windows PowerShell do seu dispositivo StorSimple.|
@@ -438,7 +438,7 @@ Aqui está uma tabela que descreve para que os vários parâmetros do Windows Po
 | RemoteManagementMode    | Indica se o dispositivo pode ser gerido remotamente através da sua interface Windows PowerShell. |
 | FipsMode                | Indica se o modo Padrão Federal de Processamento de Informação (FIPS) dos Estados Unidos está ativado no seu dispositivo. A norma FIPS 140 define algoritmos criptográficos aprovados para uso pelos sistemas informáticos do governo federal dos EUA para a proteção de dados sensíveis. Para os dispositivos que executam a Atualização 4 ou posterior, o modo FIPS é ativado por predefinição. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda a [sintaxe do cmdlet Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
 

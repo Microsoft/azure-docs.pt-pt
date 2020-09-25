@@ -1,14 +1,14 @@
 ---
 title: Visão geral do agente Windows da máquina conectada
 description: Este artigo fornece uma visão detalhada do agente de servidores ativado Azure Arc disponível, que suporta a monitorização de máquinas virtuais hospedadas em ambientes híbridos.
-ms.date: 09/02/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 990b5999a8483c6417049ac5ab965843c2b13659
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 01f1b291fee57d94b95bdeeef5f9f24b011e9fca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908170"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255048"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores ativado pelo Azure Arc
 
@@ -85,7 +85,7 @@ Etiquetas de serviço:
 
 URLs:
 
-| Recursos do agente | Descrição |
+| Recursos do agente | Description |
 |---------|---------|
 |`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
@@ -131,6 +131,9 @@ Também pode registar os fornecedores de recursos no portal Azure seguindo os pa
 
 As máquinas de ligação no seu ambiente híbrido diretamente com o Azure podem ser realizadas utilizando métodos diferentes, dependendo dos seus requisitos. A tabela a seguir destaca cada método para determinar qual o melhor funciona para a sua organização.
 
+> [!IMPORTANT]
+> O agente 'Máquina Conectada' não pode ser instalado numa máquina virtual Azure Windows. Se tentar, a instalação deteta-o e recua.
+
 | Método | Descrição |
 |--------|-------------|
 | Interativamente | Instale manualmente o agente num único ou pequeno número de máquinas seguindo os passos das [máquinas Connect a partir do portal Azure](onboard-portal.md).<br> A partir do portal Azure, pode gerar um script e executá-lo na máquina para automatizar os passos de instalação e configuração do agente.|
@@ -151,7 +154,7 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
 * As seguintes pastas de instalação são criadas durante a instalação.
 
-    |Pasta |Descrição |
+    |Pasta |Description |
     |-------|------------|
     |%ProgramFiles%\AzureConnectedMachineAgent |Caminho de instalação predefinido que contenha os ficheiros de suporte do agente.|
     |%ProgramData%\AzureConnectedMachineAgent |Contém os ficheiros de configuração do agente.|
@@ -163,21 +166,21 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
 * Os seguintes serviços Windows são criados na máquina-alvo durante a instalação do agente.
 
-    |Nome do serviço |Nome a apresentar |Nome do processo |Descrição |
+    |Nome do serviço |Nome a apresentar |Nome do processo |Description |
     |-------------|-------------|-------------|------------|
     |osds |Serviço de Metadados de Caso Híbrido Azure |himds.exe |Este serviço implementa o serviço de metadados Azure Instance (IMDS) para gerir a ligação ao Azure e a identidade Azure da máquina conectada.|
     |DscService |Serviço de Configuração de Hóspedes |dsc_service.exe |A base de código de configuração do estado desejada (DSC v2) utilizada dentro do Azure para implementar a Política de Hóspedes.|
 
 * As seguintes variáveis ambientais são criadas durante a instalação do agente.
 
-    |Name |Valor predefinido |Descrição |
+    |Name |Valor predefinido |Description |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
 
 * Existem vários ficheiros de registo disponíveis para resolução de problemas. São descritos na tabela seguinte.
 
-    |Registar |Descrição |
+    |Registar |Description |
     |----|------------|
     |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Regista detalhes do serviço e interação dos agentes (HIMDS) com o Azure.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Contém a saída dos comandos da ferramenta azcmagent, quando o argumento verboso (v) é utilizado.|
@@ -202,7 +205,7 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 * As seguintes pastas de instalação são criadas durante a instalação.
 
-    |Pasta |Descrição |
+    |Pasta |Description |
     |-------|------------|
     |/var/opt/azcmagent/ |Caminho de instalação predefinido que contenha os ficheiros de suporte do agente.|
     |/opt/azcmagent/ |
@@ -214,25 +217,25 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 * Os seguintes daemons são criados na máquina-alvo durante a instalação do agente.
 
-    |Nome do serviço |Nome a apresentar |Nome do processo |Descrição |
+    |Nome do serviço |Nome a apresentar |Nome do processo |Description |
     |-------------|-------------|-------------|------------|
     |himdsd.service |Serviço de Metadados de Caso Híbrido Azure |/opt/azcmagent/bin/himds |Este serviço implementa o serviço de metadados Azure Instance (IMDS) para gerir a ligação ao Azure e a identidade Azure da máquina conectada.|
     |dscd.service |Serviço de Configuração de Hóspedes |/opt/DSC/dsc_linux_service |Esta é a base de código de configuração do estado desejada (DSC v2) usada dentro do Azure para implementar a Política de Hóspedes.|
 
 * Existem vários ficheiros de registo disponíveis para resolução de problemas. São descritos na tabela seguinte.
 
-    |Registar |Descrição |
+    |Registar |Description |
     |----|------------|
     |/var/opt/azcmagent/log/himds.log |Regista detalhes do serviço e interação dos agentes (HIMDS) com o Azure.|
     |/var/opt/azcmagent/log/azcmagent.log |Contém a saída dos comandos da ferramenta azcmagent, quando o argumento verboso (v) é utilizado.|
     |/opt/logs/dsc.log |Regista detalhes da atividade de serviço da DSC,<br> em particular a conectividade entre o serviço de himas e a Política Azure.|
     |/opt/logs/dsc.telemetry.txt |Grava detalhes sobre telemetria de serviço DSC e registo verboso.|
     |/var/lib/GuestConfig/ext_mgr_logs |Grava detalhes sobre o componente do agente de extensão.|
-    |/var/log/GuestConfig/extension_logs|Grava detalhes da extensão instalada.|
+    |/var/lib/GuestConfig/extension_logs|Grava detalhes da extensão instalada.|
 
 * As seguintes variáveis ambientais são criadas durante a instalação do agente. Estas variáveis estão definidas em `/lib/systemd/system.conf.d/azcmagent.conf` .
 
-    |Name |Valor predefinido |Descrição |
+    |Name |Valor predefinido |Description |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
@@ -244,4 +247,6 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar a avaliar os servidores ativados do Azure Arc, siga o artigo [Ligue as máquinas híbridas ao Azure a partir do portal Azure](onboard-portal.md).
+* Para começar a avaliar os servidores ativados do Azure Arc, siga o artigo [Ligue as máquinas híbridas ao Azure a partir do portal Azure](onboard-portal.md).
+
+* As informações relativas à resolução de problemas podem ser encontradas no guia do [agente da máquina conectado de resolução de problemas.](troubleshoot-agent-onboard.md)

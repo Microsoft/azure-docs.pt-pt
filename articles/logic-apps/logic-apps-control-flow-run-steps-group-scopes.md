@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 65f9ee8f67ac4efb6ab26fa0912d11d7be7c571d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ef8862ebbcdd1ee79178af56b7c6cc81c7a68a43
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520906"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269289"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Executar ações com base no estado de grupo utilizando âmbitos em Azure Logic Apps
 
@@ -21,7 +21,7 @@ Para verificar o estado de um âmbito, pode utilizar os mesmos critérios que ut
 
 Por exemplo, aqui está uma aplicação lógica de alto nível que usa um âmbito para executar ações específicas e uma condição para verificar o estado do âmbito. Se quaisquer ações no âmbito falharem ou terminarem inesperadamente, o âmbito está marcado como "Falhado" ou "Abortado", respectivamente, e a aplicação lógica envia uma mensagem "Scope failed". Se todas as ações âmbitodas forem bem sucedidas, a aplicação lógica envia uma mensagem "Scope succeeded".
 
-![Configurar o gatilho "Agenda - Recorrência"](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
+![O diagrama mostra o fluxo de âmbito da aplicação lógica com exemplos de "Scope failed" e "Scope succeeded".](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -77,7 +77,7 @@ Pode guardar a sua aplicação lógica a qualquer momento, por isso guarde o seu
       | ------- | ----- | ----------- |
       | **Waypoint 1** | <*começar*> | Insira a origem da sua rota. | 
       | **Waypoint 2** | <*fim*> | Entre no destino da sua rota. | 
-      | **Evitar** | Nenhum | Insira itens para evitar no seu percurso, como autoestradas, portagens, e assim por diante. Para obter valores possíveis, consulte [Calcular uma rota.](/bingmaps/rest-services/routes/calculate-a-route) | 
+      | **Evitação** | Nenhum | Insira itens para evitar no seu percurso, como autoestradas, portagens, e assim por diante. Para obter valores possíveis, consulte [Calcular uma rota.](/bingmaps/rest-services/routes/calculate-a-route) | 
       | **Otimizar** | timeWithTraffic | Selecione um parâmetro para otimizar o seu percurso, como distância, tempo com informações de tráfego correntes, e assim por diante. Este exemplo usa este valor: "timeWithTraffic" | 
       | **Distance unit** | <*sua preferência*> | Introduza a unidade de distância para calcular o seu percurso. Este exemplo usa este valor: "Mile" | 
       | **Travel mode** | Driving | Insira o modo de viagem para a sua rota. Este exemplo usa este valor "Driving" | 
@@ -143,7 +143,7 @@ Pode guardar a sua aplicação lógica a qualquer momento, por isso guarde o seu
    1. Quando tiver terminado, selecione **OK**.
 
    <!-- markdownlint-disable MD038 -->
-   1. Após a resolução da expressão, adicione este texto com um espaço líder:``` minutes```
+   1. Após a resolução da expressão, adicione este texto com um espaço líder: ``` minutes```
   
        O seu campo **body** agora se parece com este exemplo:
 
@@ -192,7 +192,7 @@ Em seguida, adicione um âmbito para que possa agrupar ações específicas e av
    
       `result('Scope')[0]['status']`
 
-      ![Adicionar expressão que verifica o estado do âmbito](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
+      ![Screenshot que mostra a janela "Adicionar expressão" com a expressão de resultado realçada.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
    1. Para ambas as linhas, a seleção **é igual à** do operador. 
    
@@ -391,7 +391,7 @@ Se estiver a trabalhar na visão de código, pode definir uma estrutura de âmbi
 * Para dúvidas, visite a página de perguntas do [Microsoft Q&Uma página de perguntas para aplicações Azure Logic](/answers/topics/azure-logic-apps.html).
 * Para submeter ou votar em funcionalidades e sugestões, visite o site de feedback do [utilizador do Azure Logic Apps](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Passos de execução com base numa condição (declarações condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Passos de execução com base em diferentes valores (declarações de switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)

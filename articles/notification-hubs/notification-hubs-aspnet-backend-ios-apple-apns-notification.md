@@ -1,8 +1,8 @@
 ---
 title: Envie notificações push a utilizadores específicos que utilizem os Hubs de Notificação Azure Microsoft Docs
-description: Saiba como enviar notificações push para utilizadores específicos com os Hubs de Notificação do Azure.
+description: Saiba como enviar notificações push para utilizadores específicos do iOS utilizando os Hubs de Notificação Azure.
 documentationcenter: ios
-author: sethm
+author: sethmanheim
 manager: femila
 services: notification-hubs
 ms.service: notification-hubs
@@ -14,12 +14,12 @@ ms.date: 08/07/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 0d53709a9fd7cb3f40f540e1bb96c2be12b75f2c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 167c666c536ee33531fd069dbd1edb530331a9f3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88004169"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302194"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push a utilizadores específicos usando hubs de notificação do Azure
 
@@ -312,7 +312,7 @@ Se pretender utilizar as Aplicações Móveis como serviço de backend, consulte
     ```
 
     > [!NOTE]
-    > O seguinte corte não é um esquema de autenticação segura, deve substituir a implementação do com o seu mecanismo específico de `createAndSetAuthenticationHeaderWithUsername:AndPassword:` autenticação que gere um token de autenticação a ser consumido pela classe cliente de registo, por exemplo, OAuth, Ative Directy.
+    > O seguinte corte não é um esquema de autenticação segura, deve substituir a implementação do com o seu mecanismo específico de    `createAndSetAuthenticationHeaderWithUsername:AndPassword:` autenticação que gere um token de autenticação a ser consumido pela classe cliente de registo, por exemplo, OAuth, Ative Directy.
 
 10. Em seguida, na `@implementation` secção de , adicione o seguinte `ViewController.m` código, que adiciona a implementação para definir o token do dispositivo e o cabeçalho de autenticação.
 

@@ -11,20 +11,16 @@ ms.workload: identity
 ms.date: 01/31/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: df5755c585d99333bf0c64ca08705309b4d4fc58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c01724340df7e0efffe9847b49e1fe9d444ee01
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253125"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257627"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Cenário: Aplicação Daemon que chama APIs web
 
 Aprenda tudo o que precisa para construir uma aplicação daemon que chama APIs web.
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="overview"></a>Descrição geral
 
@@ -59,7 +55,11 @@ Para os desenvolvedores, a experiência de ponta a ponta para este cenário tem 
 - A configuração da [aplicação](./scenario-daemon-app-configuration.md) necessita de fornecer credenciais de clientes partilhadas com a Azure AD durante o registo da candidatura.
 - O [âmbito](scenario-daemon-acquire-token.md#scopes-to-request) utilizado para adquirir um símbolo com o fluxo de credenciais do cliente tem de ser um âmbito estático.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="recommended-reading"></a>Leitura recomendada
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Daemon app - registo de aplicativos](./scenario-daemon-app-registration.md)

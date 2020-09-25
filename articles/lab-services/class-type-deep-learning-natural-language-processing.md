@@ -1,14 +1,14 @@
 ---
 title: Criar um laboratório focado em deep learning usando os Serviços Azure Lab Microsoft Docs
-description: Aprende a criar um laboratório para ensinar a escrever em Linux.
+description: Aprenda a criar um laboratório focado na aprendizagem profunda no processamento de linguagem natural (NLP) usando os Serviços Azure Lab.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: c5ac93109d24c0d5936c8f271276c02e4e6f6c19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01199e76b7b9cb1a6360b5aba010d0cfd8936c23
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443949"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251461"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Criar um laboratório focado na aprendizagem profunda no processamento de linguagem natural usando os Serviços Azure Lab
 Este artigo mostra-lhe como criar um laboratório focado na aprendizagem profunda no processamento de linguagem natural (NLP) usando os Serviços Azure Lab. O processamento de linguagem natural (NLP) é uma forma de inteligência artificial (IA) que permite aos computadores com capacidades de tradução, reconhecimento de voz e outras capacidades de compreensão da linguagem.  
@@ -36,7 +36,7 @@ Siga [este tutorial](tutorial-setup-classroom-lab.md) para criar um novo laborat
 
 A Máquina Virtual de Ciência de Dados para a imagem Linux fornece os quadros e ferramentas de aprendizagem profunda necessários para este tipo de aula. Como resultado, após a criação da máquina de modelo, você não precisa personalizá-lo ainda mais. Pode ser publicado para os alunos usarem. Selecione o botão **Publicar** na página do modelo para publicar o modelo para o laboratório.  
 
-## <a name="cost"></a>Custo
+## <a name="cost"></a>Cost
 Se quiser estimar o custo deste laboratório, pode usar o seguinte exemplo: 
 
 Para uma turma de 25 alunos com 20 horas de horário de aula programado e 10 horas de quota para trabalhos de casa ou tarefas, o preço para o laboratório seria - 25 alunos * (20 + 10) horas * 139 Unidades de Laboratório * 0,01 USD por hora = 1042,5 USD
@@ -46,7 +46,7 @@ Mais detalhes sobre os preços, consulte o [Azure Lab Services Pricing](https://
 ## <a name="conclusion"></a>Conclusão
 Este artigo acompanhou-o através dos degraus para criar um laboratório para a aula de processamento de linguagem natural. Você pode usar uma configuração semelhante para outras aulas de aprendizagem profunda.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Os próximos passos são comuns para a criação de qualquer laboratório:
 
 - [Adicionar utilizadores](tutorial-setup-classroom-lab.md#add-users-to-the-lab)

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/22/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 5c2fb330149d3e6530e7cb0fc3350d5db3fa24cf
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a88894bb7462e9ac3afd16d69ae820dd98543a5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88683883"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259378"
 ---
 # <a name="tutorial-for-configuring-experian-with-azure-active-directory-b2c"></a>Tutorial para configurar Experian com Azure Ative Directory B2C
 
@@ -58,7 +58,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 ![screenshot para experian-arquitetura-diagrama](media/partner-experian/experian-architecture-diagram.png)
 
-|Passo | Descrição |
+|Passo | Description |
 |:-----| :-----------|
 | 1. | O utilizador chega a uma página de login. O utilizador seleciona a inscrição para criar uma nova conta e introduz informações na página. Azure AD B2C recolhe os atributos do utilizador.
 | 2. | Azure AD B2C chama a API de camada média e transmite os atributos do utilizador.
@@ -77,7 +77,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 ### <a name="part-1---deploy-the-api"></a>Parte 1 - Implantar a API
 
-Implementar o código API fornecido para um serviço Azure. O código pode ser publicado a partir do Visual Studio, seguindo estas [instruções](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+Implementar o [código API](https://github.com/azure-ad-b2c/partner-integrations/blob/master/samples/Experian/CrossCoreIntegrationApi/CrossCoreIntegrationApi.sln) fornecido para um serviço Azure. O código pode ser publicado a partir do Visual Studio, seguindo estas [instruções](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
 
 >[!NOTE]
 >Você precisará do URL do serviço implantado para configurar Azure AD com as configurações necessárias.
@@ -117,7 +117,7 @@ Consulte este [documento](https://docs.microsoft.com/azure/active-directory-b2c/
 
 ### <a name="part-5---replace-the-configuration-values"></a>Parte 5 - Substitua os valores de configuração
 
-Nas políticas personalizadas fornecidas, encontre os seguintes espaços reservados e substitua-os pelos valores correspondentes da sua instância
+Nas [políticas personalizadas](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Experian/policy)fornecidas, encontre os seguintes espaços reservados e substitua-os pelos valores correspondentes da sua instância
 
 |                      Marcador de posição                       |                                   Substituir por valor                                 |                   Exemplo                    |
 | ------------------------------------------------------ | -------------------------------------------------------------------------------- | -------------------------------------------- |

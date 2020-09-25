@@ -3,16 +3,16 @@ title: Isentar um recurso das recomendações de segurança do Azure Security Ce
 description: Saiba como isentar um recurso das recomendações de segurança e da pontuação segura
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
+ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b4d043812800bec1070624382755aeb355ea595a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f3ac2f82882dfd7eb1e15e9a5287cf1d6f5b32d2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940261"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301538"
 ---
 # <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>Isentar um recurso de recomendações e pontuação segura
 
@@ -62,7 +62,7 @@ O recurso será listado como não aplicável e a razão será mostrada como "ise
 
     :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modificação de uma isenção":::
 
-    A razão de cada isenção está incluída na tabela. 
+    A razão de cada isenção está incluída na tabela (1).
 
     Para modificar ou eliminar uma isenção, selecione o menu de elipses ("...") como mostrado (2).
 

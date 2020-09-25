@@ -3,16 +3,16 @@ title: Webhooks para responder a ações de registo
 description: Aprenda a usar webhooks para desencadear eventos quando as ações de pressão ou de puxar ocorrem nos repositórios de registo.
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 3d0a12b6e742b0209cbb746a70686423f2fb5627
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1db1098da81e6cf9ecb262c99f705b77af2efd26
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83685028"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253399"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Usando webhooks de registo de contentores Azure
 
-Os registos de contentores do Azure armazenam e gerem imagens de contentores do Docker privadas, de forma semelhante a como o Docker Hub armazena imagens do Docker públicas. Também pode acolher repositórios para [gráficos Helm](container-registry-helm-repos.md) (pré-visualização), um formato de embalagem para implementar aplicações para Kubernetes. Você pode usar webhooks para desencadear eventos quando certas ações ocorrem em um dos seus repositórios de registo. Os webhooks podem responder a eventos ao nível do registo, ou podem ser examinados até uma etiqueta de repositório específica. Com um registo [geo-replicado,](container-registry-geo-replication.md) configura cada webhook para responder a eventos numa réplica regional específica.
+Os registos de contentores do Azure armazenam e gerem imagens de contentores do Docker privadas, de forma semelhante a como o Docker Hub armazena imagens do Docker públicas. Também pode acolher repositórios para [gráficos Helm](container-registry-helm-repos.md) (pré-visualização), um formato de embalagem para implementar aplicações para Kubernetes. Você pode usar webhooks para desencadear eventos quando certas ações ocorrem em um dos seus repositórios de registo. Os webhooks podem responder a eventos ao nível do registo, ou podem ser examinados até uma etiqueta de repositório específica. Com um registo  [geo-replicado,](container-registry-geo-replication.md) configura cada webhook para responder a eventos numa réplica regional específica.
 
 Para obter mais informações sobre os pedidos do webhook, consulte [a referência do esquema do webhook do registo do contentor Azure.](container-registry-webhook-reference.md)
 
@@ -41,7 +41,7 @@ Para obter mais informações sobre os pedidos do webhook, consulte [a referênc
 
 Exemplo webhook formulário:
 
-![UI de criação webhook da ACR no portal Azure](./media/container-registry-webhook/webhook.png)
+![Screenshot que mostra a criação de webhook U I no portal Azure.](./media/container-registry-webhook/webhook.png)
 
 ## <a name="create-webhook---azure-cli"></a>Criar webhook - Azure CLI
 
@@ -89,7 +89,7 @@ Cada webhook pode ser eliminado selecionando o webhook e, em seguida, o botão *
 az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 ### <a name="webhook-schema-reference"></a>Referência de esquema webhook
 

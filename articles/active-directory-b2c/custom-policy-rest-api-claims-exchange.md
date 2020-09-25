@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 997a6941e2ccc26dabe1a593fe938094099bc98d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e22a6028f5b7fa8cf81ddf0e3e2a550859aad0ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388991"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259599"
 ---
 # <a name="walkthrough-add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Walkthrough: Add REST API reclama trocas de trocas para políticas personalizadas no Azure Ative Directory B2C
 
@@ -41,7 +41,7 @@ O seguinte código JSON ilustra os dados que a Azure AD B2C enviará para o seu 
 ```json
 {
     "objectId": "User objectId",
-    "language": "Current UI language"
+    "lang": "Current UI language"
 }
 ```
 
@@ -210,7 +210,7 @@ Guarde os ficheiros que alterou: *TrustFrameworkBase.xml*, e *TrustFrameworkExte
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a proteger as suas APIs, consulte os seguintes artigos:
 

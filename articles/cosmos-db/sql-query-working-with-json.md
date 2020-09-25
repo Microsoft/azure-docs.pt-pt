@@ -1,21 +1,21 @@
 ---
-title: Trabalhar com a JSON em Azure Cosmos DB
+title: Trabalhar com o JSON no Azure Cosmos DB
 description: Saiba como consultar e aceder a propriedades aninhadas da JSON e usar personagens especiais em Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/19/2020
 ms.author: tisande
-ms.openlocfilehash: a569b0122f9122b141b64ded21dbd9be1d766a41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 355f73d46215aa9e05f4ea6d91bb173c77509b63
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83699118"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270859"
 ---
-# <a name="working-with-json-in-azure-cosmos-db"></a>Trabalhar com a JSON em Azure Cosmos DB
+# <a name="working-with-json-in-azure-cosmos-db"></a>Trabalhar com o JSON no Azure Cosmos DB
 
-Na API SQL (Core) da Azure Cosmos DB, os itens são armazenados como JSON. O sistema de tipo e expressões são restritos a lidar apenas com tipos de JSON. Para mais informações, consulte a [especificação JSON.](https://www.json.org/)
+Na API SQL (Core) do Azure Cosmos DB, os itens são armazenados como JSON. O sistema de tipos e as expressões são restringidos para processar apenas os tipos JSON. Para mais informações, consulte a [especificação JSON.](https://www.json.org/)
 
 Vamos resumir alguns aspetos importantes do trabalho com a JSON:
 
@@ -138,6 +138,34 @@ WHERE EXISTS(
     WHERE n.checkingAccount < 0
 )
 ```
+
+## <a name="difference-between-null-and-undefined"></a>Diferença entre nulo e indefinido
+
+Se uma propriedade não for definida num item, então o seu valor é `undefined` . Um imóvel com o valor `null` deve ser explicitamente definido e atribuído um `null` valor.
+
+Por exemplo, considere este item da amostra:
+
+```json
+{
+  "id": "AndersenFamily",
+  "lastName": "Andersen",
+  "address": {
+      "state": "WA",
+      "county": "King",
+      "city": "Seattle"
+      },
+  "creationDate": null
+}
+```
+
+Neste exemplo, o imóvel `isRegistered` tem um valor de porque é `undefined` omitido do item. A propriedade `creationDate` tem um `null` valor.
+
+A Azure Cosmos DB suporta duas funções úteis do sistema de verificação de tipo para `null` e `undefined` propriedades:
+
+* [IS_NULL](sql-query-is-null.md) - verifica se um valor de propriedade é `null`
+* [IS_DEFINED](sql-query-is-defined.md) - verifica se um valor de propriedade é definido
+
+Você pode aprender sobre [operadores apoiados](sql-query-operators.md) e seu comportamento para `null` valores e `undefined` valores.
 
 ## <a name="reserved-keywords-and-special-characters-in-json"></a>Palavras-chave reservadas e caracteres especiais em JSON
 
@@ -273,7 +301,7 @@ Eis um exemplo:
     WHERE f.id = "AndersenFamily"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução](sql-query-getting-started.md)
 - [Cláusula SELECT](sql-query-select.md)
