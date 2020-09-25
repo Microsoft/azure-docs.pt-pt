@@ -8,13 +8,13 @@ ms.service: application-gateway
 ms.topic: quickstart
 ms.date: 08/27/2020
 ms.author: victorh
-ms.custom: mvc, devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: b6b2077a71870d619c023b0d66c37ebc043aa3f3
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.openlocfilehash: fb577947942ffce640f91daf0050f6796f93222b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961759"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311687"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Início Rápido: Direcionar tráfego da Web com o Gateway de Aplicação do Azure - CLI do Azure
 

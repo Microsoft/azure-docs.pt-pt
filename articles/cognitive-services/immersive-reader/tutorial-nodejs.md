@@ -10,13 +10,13 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: metan
-ms.custom: devx-track-javascript
-ms.openlocfilehash: a8cd8bacc749ef44ee23e98709f04f75757f5919
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.custom: devx-track-js
+ms.openlocfilehash: 1ac23ad66cadc553095ff869b665a6bba2fba6f3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516338"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262285"
 ---
 # <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Tutorial: Lançar o Leitor Imersivo (Node.js)
 

@@ -4,13 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 520cbeab2e6edc707299119ca4073668245a57c0
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: a80f357ec780fe9faa0c5c21150ca4747fe1a5da
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406214"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283071"
 ---
 ## <a name="start-with-some-boilerplate-code"></a>Comece com um código de placa de caldeira
 

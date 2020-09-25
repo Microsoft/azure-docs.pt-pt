@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e9496dc70d847d0e9e830a216e8f435b1c48d878
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: devx-track-js
+ms.openlocfilehash: a24d1716448363a199151a50a260bbdbd1e8e634
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900989"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249489"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integre a Azure Stream Analytics com Azure Machine Learning (Preview)
 
@@ -137,7 +137,7 @@ FROM input
 
 SELECT udf.score(Dataframe)
 INTO output
-FROM input
+FROM Dataframe
 ```
 
 O seguinte JSON é um pedido de exemplo da consulta anterior:

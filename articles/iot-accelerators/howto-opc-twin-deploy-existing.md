@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: b971ec13c71ccfd7d28ae6987593d09201b9b764
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4d005b3a4712cfff0321e7a16f49c0e882cc9e0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73824122"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282124"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Implementar o OPC Twin para um projeto existente
+
+> [!IMPORTANT]
+> Enquanto atualizamos este artigo, consulte [a Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
 O módulo OPC Twin funciona no IoT Edge e fornece vários serviços de borda aos serviços OPC Twin e Registry.
 
@@ -137,7 +140,7 @@ Inquilino da AAD para usar.
 -credentials
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a implantar o OPC Twin para um projeto existente, eis o próximo passo sugerido:
 

@@ -5,12 +5,12 @@ ms.service: data-lake-analytics
 ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.topic: how-to
 ms.date: 08/02/2017
-ms.openlocfilehash: 32684ea72df63de5b82941b3ef44e9d579d09eb4
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 717ad8bfaa9ddfcfa5775654408601ca13d3a636
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131893"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282617"
 ---
 # <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Utilizar o Browser de Tarefas e o Visualizador de Tarefas do Azure Data Lake Analytics
 Os arquivos do serviço Azure Data Lake Analytics submeteram empregos numa loja de consultas. Neste artigo, você aprende a usar Job Browser e Job View em Azure Data Lake Tools para o Visual Studio para encontrar as informações históricas do trabalho. 
@@ -38,7 +38,7 @@ A Visão de Trabalho contém:
     
       O Estatuto do Trabalho descreve as fases de trabalho:
     
-      ![Azure Data Lake Analytics estado de trabalho fases de trabalho](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
+      ![Screenshot que mostra as fases de trabalho do Azure Data Lake Analytics.](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-phases.png)
     
     * Preparação: Faça o upload do seu script para a nuvem, compilando e otimizando o script utilizando o serviço de compilação.
     * Fila: Os postos de trabalho são postos em fila quando estão à espera de recursos suficientes, ou os postos de trabalho excedem os empregos máximos simultâneos por limitação de conta. A definição de prioridade determina a sequência de trabalhos em fila - quanto menor o número, maior a prioridade.
@@ -50,7 +50,7 @@ A Visão de Trabalho contém:
     
       As informações básicas sobre o trabalho mostram na parte inferior do painel de Resumo de Emprego.
     
-      ![Azure Data Lake Analytics estado de trabalho fases de trabalho](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
+      ![Screenshot que mostra o Resumo de Trabalho com descrições em caixas de texto.](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-job-info.png)
     
     * Resultado do trabalho: Bem sucedido ou falhado. O trabalho pode falhar em todas as fases.
     * Duração total: Tempo do relógio de parede (duração) entre o tempo de envio e o tempo de fim.
@@ -60,10 +60,10 @@ A Visão de Trabalho contém:
     * Conta: A conta Data Lake Analytics usada para gerir o trabalho.
     * Autor: O utilizador que submeteu o trabalho, pode ser uma conta de uma pessoa real ou uma conta do sistema.
     * Prioridade: A prioridade do trabalho. Quanto menor for o número, maior é a prioridade. Só afeta a sequência dos trabalhos na fila. A definição de uma prioridade mais elevada não impede a gestão de postos de trabalho.
-    * Paralelismo: O número máximo solicitado de Unidades de Análise simultâneas do Azure Data Lake Analytics (ADLAUs), também conhecidos como vértices. Atualmente, um vértice é igual a um VM com dois núcleos virtuais e seis GB de RAM, embora isso possa ser atualizado em futuras atualizações do Data Lake Analytics.
+    * Paralelismo: O número máximo solicitado de Unidades de Análise simultâneas do Azure Data Lake Analytics (ADLAUs), também conhecidas como vértices. Atualmente, um vértice é igual a um VM com dois núcleos virtuais e seis GB de RAM, embora isso possa ser atualizado em futuras atualizações do Data Lake Analytics.
     * Bytes Left: Bytes que precisam de ser processados até que o trabalho termine.
     * Bytes leia/escreve: Bytes que foram lidos/escritos desde que o trabalho começou a funcionar.
-    * Vértices totais: O trabalho é dividido em muitas peças de trabalho, cada obra é chamada de vértice. Este valor descreve quantas peças de trabalho o trabalho consiste. Você pode considerar um vértice como uma unidade de processo básico, também conhecido como Azure Data Lake Analytics Unit (ADLAU), e os vértices podem ser executados em paralelo. 
+    * Vértices totais: O trabalho é dividido em muitas peças de trabalho, cada obra é chamada de vértice. Este valor descreve quantas peças de trabalho o trabalho consiste. Pode considerar um vértice como uma unidade de processo básico, também conhecida como Azure Data Lake Analytics Unit (ADLAU), e os vértices podem ser executados em paralelo. 
     * Concluído/Running/Failed: A contagem de vértices concluídos/em execução/falhados. Os vértices podem falhar devido tanto ao código do utilizador como às falhas do sistema, mas as retrações do sistema falharam automaticamente algumas vezes. Se o vértice ainda for falhado depois de voltar a tentar, todo o trabalho falhará.
 * Gráfico de trabalho
   
@@ -71,7 +71,7 @@ A Visão de Trabalho contém:
   
     ![Azure Data Lake Analytics estado de trabalho fases de trabalho](./media/data-lake-analytics-data-lake-tools-view-jobs/data-lake-tools-logical-to-physical-plan.png)
   
-    Um trabalho é dividido em muitas peças de trabalho. Cada obra é chamada de Vertex. Os vértices são agrupados como Super Vertex (aka palco), e visualizados como Job Graph. Os cartazes verdes do palco no gráfico de trabalho mostram os palcos.
+    Um trabalho é dividido em muitas peças de trabalho. Cada obra é chamada de Vertex. Os vértices são agrupados como Super Vertex (também conhecido como palco), e visualizados como Job Graph. Os cartazes verdes do palco no gráfico de trabalho mostram os palcos.
   
     Cada vértice numa fase está a fazer o mesmo tipo de trabalho com diferentes peças dos mesmos dados. Por exemplo, se tiver um ficheiro com um dado de Tuberculose, e houver centenas de vértices a ler dele, cada um deles está a ler um pedaço. Esses vértices são agrupados na mesma fase e fazem o mesmo trabalho em diferentes peças do mesmo ficheiro de entrada.
   

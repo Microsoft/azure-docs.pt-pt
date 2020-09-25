@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/03/2020
 ms.author: tisande
-ms.openlocfilehash: b06a8737c1ceb538417f966a989ccb39069f4d4c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 546b664c74980b3522fefed82c00eec414641eaa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116303"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326631"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Dados geoespaciais de índice com Azure Cosmos DB
 
@@ -77,15 +77,15 @@ O seguinte snippet JSON mostra uma política de indexação com indexação espa
 **Política de indexação de contentores JSON com indexação espacial de geografia**
 
 ```json
-    {
-       "automatic":true,
-       "indexingMode":"Consistent",
-        "includedPaths": [
+{
+    "automatic": true,
+    "indexingMode": "Consistent",
+    "includedPaths": [
         {
             "path": "/*"
         }
-        ],
-        "spatialIndexes": [
+    ],
+    "spatialIndexes": [
         {
             "path": "/*",
             "types": [
@@ -96,8 +96,8 @@ O seguinte snippet JSON mostra uma política de indexação com indexação espa
             ]
         }
     ],
-       "excludedPaths":[]
-    }
+    "excludedPaths": []
+}
 ```
 
 > [!NOTE]
@@ -123,7 +123,7 @@ Crie uma caixa de delimitação que contenha todos (ou a maioria) dos seus dados
 Aqui está um exemplo de política de indexação que indexa dados **de geometria** com **geoespacialConfig** definido para `geometry` :
 
 ```json
- {
+{
     "indexingMode": "consistent",
     "automatic": true,
     "includedPaths": [
@@ -161,7 +161,7 @@ A política de indexação acima tem uma caixa de **limites** de (-10, 10) para 
 > [!NOTE]
 > Se tentar adicionar uma política de indexação com uma **caixa de delimitação** a um recipiente com `geography` tipo de dados, falhará. Deve modificar o **GeoespacialConfig** do recipiente para ser `geometry` antes de adicionar uma caixa de **delimitação**. Pode adicionar dados e modificar o restante da sua política de indexação (como os caminhos e tipos) antes ou depois de selecionar o tipo de dados geoespaciais para o recipiente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a começar com o suporte geoespacial em Azure Cosmos DB, a seguir pode:
 

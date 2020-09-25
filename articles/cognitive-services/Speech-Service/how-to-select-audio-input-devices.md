@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 80671a40b5933a89962fa07b267d7e99e475657f
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 0e67d0ae4d875699b26fdcd30093b0c2bf373458
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406695"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282991"
 ---
 # <a name="how-to-select-an-audio-input-device-with-the-speech-sdk"></a>Como: Selecione um dispositivo de entrada de áudio com o SDK de fala
 
@@ -135,6 +135,10 @@ void ListEndpoints()
 
         // Print endpoint friendly name and endpoint ID.
         printf("Endpoint %d: \"%S\" (%S)\n", i, varName.pwszVal, pwszID);
+
+        CoTaskMemFree(pwszID);
+        pwszID = NULL;
+        PropVariantClear(&varName);
     }
 
 Exit:
@@ -381,12 +385,12 @@ permite a utilização de um auricular Bluetooth para uma aplicação ativada pe
 
 Em JavaScript o método [MediaDevices.enumeradedevices()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) pode ser usado para enumerar os dispositivos de mídia e encontrar um ID do dispositivo para passar `fromMicrophone(...)` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Explore as nossas amostras no GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalizar modelos de idioma](how-to-customize-language-model.md)

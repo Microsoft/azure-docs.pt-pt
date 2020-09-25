@@ -1,20 +1,22 @@
 ---
-title: O que é o serviço Face?
+title: O que é o serviço Azure Face?
 titleSuffix: Azure Cognitive Services
-description: O serviço Azure Cognitive Services Face fornece algoritmos que são usados para detetar, reconhecer e analisar rostos humanos em imagens.
+description: O serviço Azure Face fornece algoritmos de IA que utiliza para detetar, reconhecer e analisar rostos humanos em imagens.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 9/01/2020
+ms.date: 9/17/2020
 ms.author: pafarley
-ms.openlocfilehash: 1dc970a16c3b031b311c5b98ca43613d9ecf39d4
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.custom: cog-serv-seo-aug-2020
+keywords: reconhecimento facial, software de reconhecimento facial, análise facial, correspondência facial, app de reconhecimento facial, pesquisa facial por imagem, pesquisa de reconhecimento facial
+ms.openlocfilehash: 0a7e242add9fdaa9e169a4003e8ad8f39b1fb111
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421577"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262489"
 ---
 # <a name="what-is-the-azure-face-service"></a>O que é o serviço Azure Face?
 
@@ -23,16 +25,16 @@ ms.locfileid: "89421577"
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-O serviço Azure Cognitive Services Face fornece algoritmos que detetam, reconhecem e analisam rostos humanos em imagens. A capacidade de processar a informação do rosto humano é importante em muitos cenários de software diferentes. Os cenários de exemplo incluem segurança, interface natural do utilizador, análise e gestão de conteúdos de imagem, aplicações móveis e robótica.
+O serviço Azure Face fornece algoritmos de IA que detetam, reconhecem e analisam rostos humanos em imagens. O software de reconhecimento facial é importante em muitos cenários diferentes, tais como segurança, interface natural do utilizador, análise e gestão de conteúdos de imagem, aplicações móveis e robótica.
 
-O serviço Face fornece várias funções diferentes que são descritas nas seguintes secções.
+O serviço Face fornece várias funções de análise facial diferentes que são descritas nas seguintes secções.
 
 ## <a name="face-detection"></a>Deteção de rostos
 
-O serviço Face deteta rostos humanos numa imagem e devolve as coordenadas do retângulo das suas localizações. Opcionalmente, a deteção facial pode extrair uma série de atributos relacionados com o rosto. Exemplos são pose de cabeça, sexo, idade, emoção, pelos faciais e óculos.
+O serviço Face deteta rostos humanos numa imagem e devolve as coordenadas do retângulo das suas localizações. Opcionalmente, a deteção facial pode extrair uma série de atributos relacionados com o rosto, tais como pose de cabeça, sexo, idade, emoção, pelos faciais e óculos.
 
 > [!NOTE]
-> A funcionalidade de deteção facial também está disponível através da API de [Visão Computacional.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) Se pretender fazer mais operações com dados faciais, utilize o serviço Face, que é o serviço discutido neste artigo.
+> A funcionalidade de deteção facial também está disponível através do [serviço de Visão de Computador.](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) No entanto, se pretender fazer mais operações com dados faciais, deverá utilizar este serviço.
 
 ![Uma imagem de uma mulher e de um homem, com retângulos desenhados em torno dos seus rostos e idade e género exibidos](./Images/Face.detection.jpg)
 
@@ -44,7 +46,9 @@ A API verificar faz uma autenticação contra duas faces detetadas ou de um rost
 
 ## <a name="find-similar-faces"></a>Encontrar rostos semelhantes
 
-A API Find Similar compara um rosto alvo com um conjunto de rostos de candidatos para encontrar um conjunto menor de rostos que se parecem com a face alvo. Dois modos de trabalho, matchPerson e matchFace, são suportados. O modo matchPerson retorna rostos semelhantes depois de filtrar para a mesma pessoa utilizando a [API verificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). O modo MatchFace ignora o filtro da mesma pessoa. Devolve uma lista de rostos de candidatos semelhantes que podem ou não pertencer à mesma pessoa.
+A API Find Similar enfrenta a correspondência entre a face do alvo e um conjunto de rostos de candidatos, encontrando um conjunto menor de rostos que se parecem com a face do alvo. Isto é útil para fazer uma pesquisa facial por imagem. 
+
+Dois modos de trabalho, **matchPerson** e **matchFace,** são suportados. O modo **matchPerson** retorna faces semelhantes após a filtragem para a mesma pessoa utilizando a [API verificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). O modo **MatchFace** ignora o filtro da mesma pessoa. Devolve uma lista de rostos de candidatos semelhantes que podem ou não pertencer à mesma pessoa.
 
 O exemplo a seguir mostra a face do alvo:
 
@@ -54,15 +58,15 @@ E estas imagens são os rostos dos candidatos:
 
 ![Cinco imagens de pessoas a sorrir. As imagens a e b mostram a mesma pessoa.](./Images/FaceFindSimilar.Candidates.jpg)
 
-Para encontrar quatro faces semelhantes, o modo matchPerson retorna a e b, que mostram a mesma pessoa que a face do alvo. O modo matchFace devolve a, b, c, e d &mdash; exatamente quatro candidatos, mesmo que alguns não sejam a mesma pessoa que o alvo ou tenham baixa semelhança. Para obter mais informações, consulte o guia de conceitos [de reconhecimento facial](concepts/face-recognition.md) ou a documentação de referência da [API Find Similar.](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)
+Para encontrar quatro faces semelhantes, o modo **matchPerson** retorna a e b, que mostram a mesma pessoa que a face do alvo. O modo **matchFace** devolve a, b, c, e d &mdash; exatamente quatro candidatos, mesmo que alguns não sejam a mesma pessoa que o alvo ou tenham baixa semelhança. Para obter mais informações, consulte o guia de conceitos [de reconhecimento facial](concepts/face-recognition.md) ou a documentação de referência da [API Find Similar.](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)
 
 ## <a name="face-grouping"></a>Agrupamento de rostos
 
-A API Agrupamento divide um conjunto de rostos desconhecidos em vários grupos com base na semelhança. Cada grupo é um subconjunto adequado e desassociado do conjunto original de rostos. Todos os rostos de um grupo são suscetíveis de pertencer à mesma pessoa. Pode haver vários grupos diferentes para uma única pessoa. Os grupos são diferenciados por outro fator, como a expressão, por exemplo. Para obter mais informações, consulte o guia de conceitos [de reconhecimento facial](concepts/face-recognition.md) ou a documentação de referência da [API do Grupo.](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238)
+A API Agrupamento divide um conjunto de rostos desconhecidos em vários grupos com base na semelhança. Cada grupo é um subconjunto adequado e desassociado do conjunto original de rostos. Todos os rostos de um grupo são suscetíveis de pertencer à mesma pessoa. Pode haver vários grupos diferentes para uma única pessoa. Os grupos são diferenciados por outro fator, como a expressão, por exemplo. Para mais informações, consulte o guia de conceitos [de reconhecimento facial](concepts/face-recognition.md) ou a documentação de referência da [API do Grupo.](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238)
 
 ## <a name="person-identification"></a>Identificação de pessoas
 
-A API de identificação é usada para identificar um rosto detetado contra uma base de dados de pessoas. Esta funcionalidade pode ser útil para a marcação automática de imagens em software de gestão de fotografias. Cria-se a base de dados com antecedência e pode editá-la com o tempo.
+A API de identificação é usada para identificar um rosto detetado contra uma base de dados de pessoas (pesquisa de reconhecimento facial). Esta funcionalidade pode ser útil para a marcação automática de imagens em software de gestão de fotografias. Cria-se a base de dados com antecedência e pode editá-la com o tempo.
 
 A imagem a seguir mostra um exemplo de uma base de dados chamada `"myfriends"` . Cada grupo pode conter até 1 milhão de objetos pessoais diferentes. Cada objeto de pessoa pode ter 248 rostos registados.
 
@@ -87,8 +91,8 @@ As seguintes aplicações de amostra mostram algumas formas de utilizar o servi�
 
 Tal como acontece com todos os recursos dos Serviços Cognitivos, os desenvolvedores que utilizam o serviço Face devem estar cientes das políticas da Microsoft sobre os dados dos clientes. Para mais informações, consulte a [página de Serviços Cognitivos](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) no Microsoft Trust Center.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Siga um arranque rápido para implementar um cenário de deteção facial em código:
+Siga um quickstart para codificar os componentes básicos de uma aplicação de reconhecimento facial no idioma à sua escolha.
 
-- [Quickstart: Detete rostos numa imagem utilizando o .NET SDK com C#](quickstarts/csharp.md). Outras línguas estão disponíveis.
+- [Início rápido da biblioteca do cliente.](quickstarts/client-libraries.md)

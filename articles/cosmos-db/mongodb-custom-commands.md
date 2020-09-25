@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: lbosq
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7b0ac1e301705b24d706638deb3ee0a15d49c87b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 4b069dea3f07477fcbca21e08166cdfad8cad2cf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415096"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326733"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utilize comandos de extensão MongoDB para gerir os dados armazenados na API da Azure Cosmos para o MongoDB 
 
@@ -33,7 +33,7 @@ Os seguintes comandos de extensão fornecem a capacidade de criar e modificar re
 * [Coleção de atualização](#update-collection)
 * [Obter coleção](#get-collection)
 
-## <a name="create-database"></a><a id="create-database"></a>Criar base de dados
+## <a name="create-database"></a><a id="create-database"></a> Criar base de dados
 
 O comando de extensão de base de dados cria uma nova base de dados MongoDB. O nome da base de dados pode ser utilizado a partir do contexto da base de dados definido pelo `use database` comando. A tabela a seguir descreve os parâmetros dentro do comando:
 
@@ -86,7 +86,7 @@ use test
 db.runCommand({customAction: "CreateDatabase", autoScaleSettings: { maxThroughput: 20000 } });
 ```
 
-## <a name="update-database"></a><a id="update-database"></a>Base de dados de atualização
+## <a name="update-database"></a><a id="update-database"></a> Base de dados de atualização
 
 O comando de extensão da base de dados de atualização atualiza as propriedades associadas à base de dados especificada. A tabela a seguir descreve os parâmetros dentro do comando:
 
@@ -129,7 +129,7 @@ db.runCommand({customAction: "UpdateDatabase", autoScaleSettings: { maxThroughpu
 ```
 
 
-## <a name="get-database"></a><a id="get-database"></a>Obtenha base de dados
+## <a name="get-database"></a><a id="get-database"></a> Obtenha base de dados
 
 O comando de extensão da base de dados devolve o objeto da base de dados. O nome da base de dados é utilizado a partir do contexto da base de dados com o qual o comando é executado.
 
@@ -154,7 +154,7 @@ Se o comando for bem sucedido, a resposta contém um documento com os seguintes 
 |---------|---------|---------|
 |  `ok`   |   `int`     |   Estado de resposta. 1 == sucesso. 0 == falha.      |
 | `database`    |    `string`        |   O nome da base de dados.      |
-|   `provisionedThroughput`  |    `int`      |    Produção provisida que é definida na base de dados se a base de dados estiver a utilizar o [nível de base de dados manual](set-throughput.md#set-throughput-on-a-database)     |
+|   `provisionedThroughput`  |    `int`      |    Produção provisida que é definida na base de dados se a base de dados estiver a utilizar o  [nível de base de dados manual](set-throughput.md#set-throughput-on-a-database)     |
 | `autoScaleSettings` | `Object` | Este objeto contém os parâmetros de capacidade associados à base de dados se estiver a utilizar o [modo De escala automática](provision-throughput-autoscale.md). O `maxThroughput` valor descreve a maior quantidade de Unidades de Pedido que a base de dados será aumentada de forma dinâmica. |
 
 Se o comando falhar, uma resposta de comando personalizada por defeito é devolvida. Consulte a [saída padrão](#default-output) do comando personalizado para os parâmetros na saída.
@@ -195,7 +195,7 @@ Se a base de dados tiver uma [produção autoesta pública](provision-throughput
 }
 ```
 
-## <a name="create-collection"></a><a id="create-collection"></a>Criar coleção
+## <a name="create-collection"></a><a id="create-collection"></a> Criar coleção
 
 O comando de extensão de coleção criar uma nova coleção MongoDB. O nome da base de dados é utilizado a partir do contexto de bases de dados definido pelo `use database` comando. O formato do comando CreateCollection é o seguinte:
 
@@ -213,8 +213,8 @@ A tabela a seguir descreve os parâmetros dentro do comando:
 
 | **Campo** | **Tipo** | **Necessário** | **Descrição** |
 |---------|---------|---------|---------|
-| `customAction` | `string` | Obrigatório | Nome do comando personalizado. Deve ser "CreateCollection".|
-| `collection` | `string` | Obrigatório | O nome da coleção. Não são permitidos caracteres ou espaços especiais.|
+| `customAction` | `string` | Necessário | Nome do comando personalizado. Deve ser "CreateCollection".|
+| `collection` | `string` | Necessário | O nome da coleção. Não são permitidos caracteres ou espaços especiais.|
 | `offerThroughput` | `int` | Opcional | Provisão para definir na base de dados. Se este parâmetro não for fornecido, irá incumprimento ao mínimo, 400 RU/s. * Para especificar a potência para além de 10.000 RU/s, `shardKey` o parâmetro é necessário.|
 | `shardKey` | `string` | Necessário para coleções com grande produção | O caminho para a Chave de Fragmentos para a coleção de fragmentos. Este parâmetro é necessário se definir mais de 10.000 RU/s em `offerThroughput` .  Se for especificado, todos os documentos inseridos exigirão esta chave e valor. |
 | `autoScaleSettings` | `Object` | Necessário para [o modo autoescala](provision-throughput-autoscale.md) | Este objeto contém as definições associadas ao modo de capacidade de autoescalação. Pode configurar o `maxThroughput` valor, que descreve a maior quantidade de Unidades de Pedido que a coleção será aumentada de forma dinâmica. |
@@ -288,7 +288,7 @@ use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection", shardKey: "a.b", autoScaleSettings: { maxThroughput: 20000 }});
 ```
 
-## <a name="update-collection"></a><a id="update-collection"></a>Coleção de atualização
+## <a name="update-collection"></a><a id="update-collection"></a> Coleção de atualização
 
 O comando de extensão de recolha de atualização atualiza as propriedades associadas à recolha especificada.
 
@@ -324,7 +324,7 @@ use test
 db.runCommand({customAction: "UpdateCollection", collection: "testCollection", offerThroughput: 1200 });
 ```
 
-## <a name="get-collection"></a><a id="get-collection"></a>Obter coleção
+## <a name="get-collection"></a><a id="get-collection"></a> Obter coleção
 
 O comando personalizado de recolha de recolha devolve o objeto de coleção.
 
@@ -413,7 +413,7 @@ Se a recolha estiver a partilhar a [produção de nível de base de dados](set-t
 ```
 
 
-## <a name="default-output-of-a-custom-command"></a><a id="default-output"></a>Saída padrão de um comando personalizado
+## <a name="default-output-of-a-custom-command"></a><a id="default-output"></a> Saída padrão de um comando personalizado
 
 Se não for especificada, uma resposta personalizada contém um documento com os seguintes campos:
 
@@ -429,7 +429,7 @@ Por exemplo:
 { "ok" : 1 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, você pode proceder para aprender os seguintes conceitos Azure Cosmos DB: 
 

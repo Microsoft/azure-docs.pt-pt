@@ -1,14 +1,14 @@
 ---
-title: 'Tutorial: Criar um segmento de rede NSX-T na Solução VMware Azure'
-description: Neste tutorial, criou os segmentos de rede NSX-T que são usados para VMs em vCenter
+title: Tutorial - Criar um segmento de rede NSX-T na Solução VMware Azure
+description: Saiba como criar os segmentos de rede NSX-T que são usados para VMs em vCenter
 ms.topic: tutorial
-ms.date: 07/16/2020
-ms.openlocfilehash: cee65211cbef25ec029c68888bc8e6059f7c7896
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/21/2020
+ms.openlocfilehash: 780cac15efc043b9ae44b77af1234adca3fec5a1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750459"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254538"
 ---
 # <a name="tutorial-create-an-nsx-t-network-segment-in-azure-vmware-solution"></a>Tutorial: Criar um segmento de rede NSX-T na Solução VMware Azure
 
@@ -23,7 +23,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Uma nuvem privada Azure VMware Solution com acesso às interfaces de gestão vCenter e NSX-T Manager são necessárias para completar este tutorial. Consulte o [Tutorial: Configurar a rede para a sua nuvem privada VMware em Azure](tutorial-configure-networking.md).
+Uma nuvem privada Azure VMware Solution com acesso às interfaces de gestão vCenter e NSX-T Manager são necessárias para completar este tutorial. Para obter mais informações, consulte a [rede Configure para a sua nuvem privada VMware no tutorial Azure.](tutorial-configure-networking.md)
 
 ## <a name="provision-a-network-segment-in-nsx-t"></a>Fornecimento de um segmento de rede em NSX-T
 
@@ -71,7 +71,12 @@ Uma nuvem privada Azure VMware Solution com acesso às interfaces de gestão vCe
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, criou os segmentos de rede NSX-T que são utilizados para VMs em vCenter. Agora pode utilizar o [Tutorial: Criar uma Biblioteca de conteúdos para implantar VMs na Solução VMware Azure](tutorial-deploy-vm-content-library.md) para criar uma Biblioteca de Conteúdos em vCenter e a disponibilização de um VM na rede que criou neste tutorial.
+Neste tutorial, criou os segmentos de rede NSX-T que são utilizados para VMs em vCenter. Pode agora [criar uma Biblioteca de conteúdos para implantar VMs na Solução VMware Azure](deploy-vm-content-library.md) e a disponibilização de um VM na rede que criou neste tutorial.
+
+Caso contrário, continue até ao próximo tutorial para aprender a criar o ExpressRoute Global Reach olhando para uma nuvem privada numa Solução VMware Azure.
+
+> [!div class="nextstepaction"]
+> [Par no local ambientes para uma nuvem privada](tutorial-expressroute-global-reach-private-cloud.md)
 
 <!-- LINKS - external-->
 

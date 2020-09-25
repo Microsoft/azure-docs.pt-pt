@@ -8,14 +8,14 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
-ms.custom: seodec18, devx-track-javascript
+ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: e9cb30ca64fe697f9b8304f55381709083b8fbd2
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c16d7ccba24680604bc7f083f7242edd53abe102
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424244"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282906"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Criar uma app angular com API da Azure Cosmos DB para a MongoDB - Construa a UI com a Angular
 
@@ -492,7 +492,7 @@ Agora que temos o componente, como podemos proceder para que apareça no ecrã? 
 
      :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part3/azure-cosmos-db-mongodb-mean-app.png" alt-text="Aplicação Hero em execução local":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Nesta parte do tutorial, fez o seguinte:
 

@@ -4,16 +4,16 @@ description: Aprenda a adicionar formas aos mapas. Consulte amostras de código 
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9dd8718a6a96627781a578edb514d797e40f01fb
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 6ff64f975550a0222fd56325115bc98976fb038a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037427"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311313"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Adicione uma forma a um mapa usando Azure Maps Android SDK
 
@@ -238,7 +238,7 @@ A **Camada de Polígono** permite-lhe tornar a área do polígono no mapa. Siga 
     });
     ```
 
-    O corte de código acima obtém primeiro uma instância de controlo do mapa Azure Maps utilizando o método de retorno **onReady().** Em seguida, cria um objeto de origem de dados utilizando a classe **DataSource** e adiciona-o ao mapa. Um objeto **Polygon** é então criado a partir de uma lista de objetos **point** e é adicionado à fonte de dados. Uma **Camada de Poligon** produz dados embrulhados na fonte de dados no mapa. Em seguida, cria uma camada de polígono para tornar a área do polígono e adiciona-lhe a fonte de dados. Uma **Camada de Linha** torna os objetos de linha embrulhados numa fonte de dados. A última parte do corte de código cria uma camada de linha para tornar o contorno do polígono e adiciona-lhe a fonte de dados.
+    O corte de código acima obtém primeiro uma instância de controlo do mapa Azure Maps utilizando o método de retorno **onReady().** Em seguida, cria um objeto de origem de dados utilizando a classe **DataSource** e adiciona-o ao mapa. Um objeto **Polygon** é então criado a partir de uma lista de objetos **point**  e é adicionado à fonte de dados. Uma **Camada de Poligon** produz dados embrulhados na fonte de dados no mapa. Em seguida, cria uma camada de polígono para tornar a área do polígono e adiciona-lhe a fonte de dados. Uma **Camada de Linha** torna os objetos de linha embrulhados numa fonte de dados. A última parte do corte de código cria uma camada de linha para tornar o contorno do polígono e adiciona-lhe a fonte de dados.
 
     Depois de adicionar o corte de código acima, `MainActivity.java` deve parecer-se com o abaixo:
 

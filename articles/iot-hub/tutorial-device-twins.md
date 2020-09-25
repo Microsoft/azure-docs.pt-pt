@@ -13,13 +13,13 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-- devx-track-javascript
-ms.openlocfilehash: f3dad81a5cba9dd817e0d4e75590d374fe059358
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+- devx-track-js
+ms.openlocfilehash: 0aee3fef5c2b9e7e1d8cdd8c3d27192b17161351
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424108"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251886"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -260,7 +260,7 @@ Em alternativa, utilize a CLI:
 az group delete --name tutorial-iot-hub-rg
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a sincronizar informações de estado entre os seus dispositivos e o seu hub do IoT. Avance para o próximo tutorial para saber como utilizar dispositivos duplos para implementar um processo de atualização de firmware.
 

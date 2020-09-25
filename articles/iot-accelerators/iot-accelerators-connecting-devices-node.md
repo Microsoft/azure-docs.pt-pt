@@ -8,13 +8,13 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.custom: mqtt, devx-track-javascript
-ms.openlocfilehash: ab697778e00def1e23a3124b14458f1acb994041
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mqtt, devx-track-js
+ms.openlocfilehash: 7982c094117d3cd40d26873ca2250edbda81b1ad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423359"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261639"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Ligue o seu dispositivo ao acelerador de solução de monitorização remota (Node.js)
 
@@ -39,7 +39,7 @@ Certifique-se de que [Node.js](https://nodejs.org/) versão 4.0.0 ou posterior �
 
 1. Na `remotemonitoring` pasta, crie um ficheiro chamado **remote_monitoring.js**. Abra este ficheiro num editor de texto.
 
-1. No ficheiro **remote_monitoring.js,** adicione as `require` seguintes declarações:
+1. No ficheiro **remote_monitoring.js, ** adicione as `require` seguintes declarações:
 
     ```javascript
     var Protocol = require('azure-iot-device-mqtt').Mqtt;

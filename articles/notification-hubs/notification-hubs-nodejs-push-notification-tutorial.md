@@ -17,13 +17,13 @@ ms.date: 04/29/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d9b914c631c829c2e3dc71940a171cdb3dc81960
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-js
+ms.openlocfilehash: 34962686ae36764a6dc16b164e91004be9ef038d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077497"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250424"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Envio de notificações push com a Azure Notification Hubs e Node.js
 
@@ -49,7 +49,7 @@ Os Hubs de Notificação Azure fornecem uma infraestrutura de fácil utilizaçã
 
 ## <a name="create-a-nodejs-application"></a>Criar uma aplicação Node.js
 
-O primeiro passo neste tutorial é criar uma nova aplicação de Node.js em branco. Para obter instruções sobre a criação de uma aplicação Node.js, consulte [Criar e implementar uma aplicação Node.js no Web Site Azure][nodejswebsite],Node.js Cloud [Service][Node.js Cloud Service] utilizando o Windows PowerShell ou Web Site [com WebMatrix][webmatrix].
+O primeiro passo neste tutorial é criar uma nova aplicação de Node.js em branco. Para obter instruções sobre a criação de uma aplicação Node.js, consulte [Criar e implementar uma aplicação Node.js no Web Site Azure][nodejswebsite],Node.js Cloud [ Service][Node.js Cloud Service] utilizando o Windows PowerShell ou Web Site [com WebMatrix][webmatrix].
 
 ## <a name="configure-your-application-to-use-notification-hubs"></a>Configure a sua aplicação para utilizar os centros de notificação
 
@@ -96,10 +96,10 @@ Obtenha o valor de ligação `connectionstring` a partir do portal [Azure] reali
 
 O `NotificationHubService` objeto expõe as seguintes instâncias de objeto para o envio de notificações push para dispositivos e aplicações específicas:
 
-- **Android** - use o `GcmService` objeto, que está disponível em`notificationHubService.gcm`
-- **iOS** - use o `ApnsService` objeto, que é acessível em`notificationHubService.apns`
-- **Windows Phone** - use o `MpnsService` objeto, que está disponível em`notificationHubService.mpns`
-- **Universal Windows Platform** - use o `WnsService` objeto, que está disponível em`notificationHubService.wns`
+- **Android** - use o `GcmService` objeto, que está disponível em `notificationHubService.gcm`
+- **iOS** - use o `ApnsService` objeto, que é acessível em `notificationHubService.apns`
+- **Windows Phone** - use o `MpnsService` objeto, que está disponível em `notificationHubService.mpns`
+- **Universal Windows Platform** - use o `WnsService` objeto, que está disponível em `notificationHubService.wns`
 
 ### <a name="how-to-send-push-notifications-to-android-applications"></a>Como: Enviar notificações push para aplicações Android
 
@@ -155,7 +155,7 @@ O `MpnsService` objeto fornece um método que pode ser usado para enviar `send` 
 
 - **Etiquetas** - o identificador de etiquetas. Se não for fornecida qualquer etiqueta, a notificação é enviada a todos os clientes.
 - **Carga útil** - a carga xml da mensagem.
-- **Nome do alvo**  -  `toast` para notificações de torradas. `token`para notificações de azulejos.
+- **Nome do alvo**  -  `toast` para notificações de torradas. `token` para notificações de azulejos.
 - **NotificationClass** - A prioridade da notificação. Consulte a secção **elementos do cabeçalho HTTP** das [notificações Push de um](/previous-versions/windows/xna/bb200104(v=xnagamestudio.41)) documento do servidor para obter valores válidos.
 - **Opções** - cabeçalhos de pedido opcionais.
 - **Callback** - a função de retorno.

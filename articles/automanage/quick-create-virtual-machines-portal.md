@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: 43e0805a828a2ed32d23984b6ffef95a7e710953
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f1dc37173dff8e694ba4d1e5aa9a1b14e462581a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947456"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311585"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>Quickstart: Ativar a auto-produção do Azure para máquinas virtuais no portal Azure
 
@@ -28,7 +28,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta](https://azure.microsof
 > As contas de teste gratuitas não têm acesso às máquinas virtuais utilizadas neste tutorial. Por favor, atualize para uma subscrição Pay-As-You-Go.
 
 > [!IMPORTANT]
-> É necessária a seguinte permissão RBAC para permitir a autoadministração: Função **de proprietário** ou **colaborador,** juntamente com as funções **de Administrador de Acesso ao Utilizador.**
+> É necessário ter a função **Contribuinte** para permitir a auto-produção utilizando uma Conta de Automanagem existente. Se estiver a ativar a Automanage com uma nova Conta de Autoadministração, precisa das seguintes permissões: Função **de proprietário** ou **colaborador,** juntamente com as funções **de Administrador de Acesso ao Utilizador.**
 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 989496885445a8a0a8d3bbc1a789975a2875c6e0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2aed3ea48935a62d68f739594a265649a2e1292d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939913"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311534"
 ---
 # <a name="create-sql-managed-instance---azure-arc-using-azure-data-studio"></a>Criar exemplo gerido pelo SQL - Azure Arc usando a Azure Data Studio
 
@@ -48,7 +48,8 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 - Lançar Azure Data Studio
 - No separador Ligações, clique nos três pontos no topo esquerdo e escolha "Nova Implementação"
 - A partir das opções de implementação, selecione **Azure SQL caso gerido - Azure Arc** 
-  > **Nota:** Pode ser solicitado que instale o Azdata CLI aqui se não estiver instalado.
+  > [!NOTE]
+  > Pode ser solicitado que instale o Azdata CLI aqui se não estiver instalado.
 - Aceite os termos de Privacidade e licença e clique em **Selecionar** na parte inferior
 
 

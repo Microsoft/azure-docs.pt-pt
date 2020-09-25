@@ -1,6 +1,6 @@
 ---
 title: Envie notificações push para iOS usando Azure Notification Hubs e a versão iOS SDK 3.0.0 pré-visualização 1
-description: Neste tutorial, você aprende a usar os Hubs de Notificação Azure e o serviço de Notificação Apple Push para enviar notificações push para dispositivos iOS.
+description: Neste tutorial, aprende a utilizar os Hubs de Notificação Azure e o serviço de Notificação Apple Push para enviar notificações push para dispositivos iOS (versão 3.0.0-preview1).
 author: sethmanheim
 ms.author: sethm
 ms.date: 06/19/2020
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: bec4b771387854c40045f2b57afe7ead6c52f2c7
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 25f18eb0f55560b7abd250b8511b2e250ea55852
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836042"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250441"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs-version-300-preview1"></a>Tutorial: Enviar notificações push para aplicações iOS usando Hubs de Notificação Azure (versão 3.0.0-preview1)
 

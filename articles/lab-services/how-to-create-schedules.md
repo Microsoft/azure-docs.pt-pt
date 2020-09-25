@@ -3,12 +3,12 @@ title: Criar horários para laboratórios de sala de aula nos Serviços Azure La
 description: Aprenda a criar horários para laboratórios de sala de aula em Azure Lab Services para que os VMs nos laboratórios comecem e fechem numa hora especificada.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: d6dcdd8d09c2c71c2d41aebd358639883ccfb33d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4eb4e2459069b61990f51f8d8de76522b736723e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445785"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326444"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Criar e gerir horários para laboratórios de sala de aula em Azure Lab Services 
 Os horários permitem-lhe configurar um laboratório de sala de aula de tal forma que os VMs no laboratório comecem e desliguem automaticamente numa hora especificada. Pode definir um horário único ou um horário recorrente. Os seguintes procedimentos dão-lhe passos para criar e gerir horários para um laboratório de sala de aula: 
@@ -27,7 +27,7 @@ Crie um evento programado para o laboratório para que os VMs no laboratório se
 
 1. Mude para a página **Agendas** e **selecione Adicionar evento agendado** na barra de ferramentas. 
 
-    ![Adicione o botão de agenda na página Agendas](./media/how-to-create-schedules/add-schedule-button.png)
+    ![Screenshot que mostra a página "Agendar" dos Serviços Azure Lab, com o botão de agenda adicionar selecionado.](./media/how-to-create-schedules/add-schedule-button.png)
 2. Confirme que **a Standard** está selecionada do **tipo Evento**. Selecione **Iniciar apenas** para especificar apenas a hora de início para os VMs. Selecione **Parar apenas** para especificar apenas o tempo de paragem para os VMs. 
 7. Na secção **Repetir,** selecione o horário atual. 
 
@@ -71,7 +71,7 @@ Na página de **eventos agendada para Editar,** pode atualizar o horário e sele
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 - [Como administrador, crie e gere contas de laboratório](how-to-manage-lab-accounts.md)

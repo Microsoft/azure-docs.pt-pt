@@ -3,12 +3,12 @@ title: Ver e usar o modelo de gestor de recursos Azure de uma máquina virtual
 description: Saiba como usar o modelo Azure Resource Manager a partir de uma máquina virtual para criar outros VMs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: e58b54d61653f1edba3c3893edb902a94fbf9f2b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7f969abe1ca903a226e73c5c70781dce512c2926
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87272696"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282513"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Criar máquinas virtuais usando um modelo de Gestor de Recursos Azure 
 
@@ -23,7 +23,7 @@ Existem duas formas de criar VMs em DevTest Labs usando um modelo de Gestor de R
 
 - Os modelos de gestor de recursos que usam um tipo de recurso Microsoft.DevTestLab/labs/virtualmachines (conforme declarado na propriedade "recursos" no modelo) podem providenciar VMs de laboratório individuais. Cada VM aparece então como um único item na lista de máquinas virtuais da DevTest Labs:
 
-   ![Lista de VMs como itens individuais na lista de máquinas virtuais da DevTest Labs](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
+   ![Screenshot que mostra a lista de máquinas virtuais como itens únicos na lista de máquinas virtuais DavTest Labs.](./media/devtest-lab-use-arm-template/devtestlab-lab-vm-single-item.png)
 
    Este tipo de modelo de Gestor de Recursos pode ser fornecido através do comando Azure PowerShell **New-AzResourceGroupDeployment** ou através da **implementação**do grupo Azure CLI az . Requer permissões de administrador, para que os utilizadores que são designados com uma função de utilizador da DevTest Labs não possam executar a implementação. 
 
@@ -40,7 +40,7 @@ O restante deste artigo discute os modelos do Gestor de Recursos que utilizam o 
 ## <a name="view-and-save-a-virtual-machines-resource-manager-template"></a>Ver e guardar o modelo de Gestor de Recursos de uma máquina virtual
 1. Siga os passos na [Create your first VM in a lab](tutorial-create-custom-lab.md#add-a-vm-to-the-lab) para começar a criar uma máquina virtual.
 1. Introduza as informações necessárias para a sua máquina virtual e adicione todos os artefactos que desejar para este VM.
-1. Swtich para o **separador Definições Avançadas.** 
+1. Mude para o **separador Definições Avançadas.** 
 1. Na parte inferior da janela configurar definições, escolha **Ver MODELO ARM**.
 1. Copie e guarde o modelo de Gestor de Recursos para usar mais tarde para criar outra máquina virtual.
 

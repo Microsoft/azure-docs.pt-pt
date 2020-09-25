@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: a3424a42e86b47d4103dd41ca143b5bc7be3796a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 52c18f8d51f18b9bc167a99fbafda2365824dfc9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545935"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312146"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Tutorial: Configurar Zscaler para fornecimento automático de utilizadores
 
 O objetivo deste tutorial é demonstrar os passos a serem realizados no Diretório Ativo Zscaler e Azure (Azure AD) para configurar a Azure AD para fornecimento e desavisionamento automática de utilizadores e/ou grupos à Zscaler.
 
 > [!NOTE]
-> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte [automatizar o fornecimento e desprovisionamento de aplicações saaS com diretório Azure Ative.](../active-directory-saas-app-provisioning.md)
+> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona e perguntas frequentes, veja [Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS no Azure Active Directory](../active-directory-saas-app-provisioning.md).
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -84,71 +84,71 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Zscaler**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Zscaler**.
 
     ![O link Zscaler na lista de Aplicações](common/all-applications.png)
 
-3. Selecione o **separador Provisioning.**
+3. Selecione o separador **Aprovisionamento**.
 
-    ![Provisão Zscaler](./media/zscaler-provisioning-tutorial/provisioning-tab.png)
+    ![Screenshot da barra lateral Zscaler - Provisioning Enterprise Application com a opção Provisioning realçada.](./media/zscaler-provisioning-tutorial/provisioning-tab.png)
 
-4. Desa ajuste o **modo de provisionamento** para **automático**.
+4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
-    ![Provisão Zscaler](./media/zscaler-provisioning-tutorial/provisioning-credentials.png)
+    ![Screenshot da página de provisionamento com o modo de provisionamento definido para Automático.](./media/zscaler-provisioning-tutorial/provisioning-credentials.png)
 
 5. Sob a secção **de Credenciais de Administrador,** insira o URL do **inquilino** e **o Token Secreto** da sua conta Zscaler, conforme descrito no Passo 6.
 
 6. Para obter o URL do **inquilino** e **o Token Secreto,** navegue para **a Administração > Configurações de Autenticação** na interface de utilizador do portal Zscaler e clique em **SAML** em **Tipo de Autenticação**.
 
-    ![Provisão Zscaler](./media/zscaler-provisioning-tutorial/secret-token-1.png)
+    ![Screenshot da página Definições de Autenticação.](./media/zscaler-provisioning-tutorial/secret-token-1.png)
 
     Clique em **Configurar SAML** para abrir opções **SAML de configuração.**
 
-    ![Provisão Zscaler](./media/zscaler-provisioning-tutorial/secret-token-2.png)
+    ![Screenshot da caixa de diálogo Configure S A M L com as caixas de texto Base U R L e Bearer Token chamadas.](./media/zscaler-provisioning-tutorial/secret-token-2.png)
 
     Selecione **Ativar o Provisionamento baseado em SCIM** para recuperar **o URL base** e o **token do portador**e, em seguida, guarde as definições. Copie o **URL base** para o URL **do inquilino,** e **o Bearer Token**  para **Secret Token** no portal Azure.
 
 7. Ao povoar os campos mostrados no Passo 5, clique em **Test Connection** para garantir que o Azure AD pode ligar-se ao Zscaler. Se a ligação falhar, certifique-se de que a sua conta Zscaler tem permissões de Administração e tente novamente.
 
-    ![Provisão Zscaler](./media/zscaler-provisioning-tutorial/test-connection.png)
+    ![Screenshot da secção credenciais de administrador com a opção de ligação de teste chamada.](./media/zscaler-provisioning-tutorial/test-connection.png)
 
 8. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e verifique a caixa de verificação **Enviar por e-mail uma notificação de e-mail quando ocorrer uma falha**.
 
-    ![Provisão Zscaler](./media/zscaler-provisioning-tutorial/notification.png)
+    ![Screenshot da caixa de texto de e-mail de notificação.](./media/zscaler-provisioning-tutorial/notification.png)
 
-9. Clique em **Guardar**.
+9. Clique em **Save** (Guardar).
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users para Zscaler**.
 
-    ![Provisão Zscaler](./media/zscaler-provisioning-tutorial/user-mappings.png)
+    ![Screenshot da secção Mappings com a opção Synchronize Azure Ative Directory Users to Zscaler.](./media/zscaler-provisioning-tutorial/user-mappings.png)
 
 11. Reveja os atributos do utilizador que são sincronizados de Azure AD a Zscaler na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador em Zscaler para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    ![Provisão Zscaler](./media/zscaler-provisioning-tutorial/user-attribute-mappings.png)
+    ![Screenshot da secção De mapeamentos de atributos com sete mapeamentos exibidos.](./media/zscaler-provisioning-tutorial/user-attribute-mappings.png)
 
 12. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to Zscaler**.
 
-    ![Provisão Zscaler](./media/zscaler-provisioning-tutorial/group-mappings.png)
+    ![Screenshot da secção Mappings com a opção Synchronize Azure Ative Directory Groups to Zscaler.](./media/zscaler-provisioning-tutorial/group-mappings.png)
 
 13. Reveja os atributos do grupo que são sincronizados de Azure AD a Zscaler na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar com os grupos em Zscaler para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    ![Provisão Zscaler](./media/zscaler-provisioning-tutorial/group-attribute-mappings.png)
+    ![Screenshot da secção De mapeamentos de atributos com três mapeamentos exibidos.](./media/zscaler-provisioning-tutorial/group-attribute-mappings.png)
 
-14. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](./../active-directory-saas-scoping-filters.md).
+14. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](./../active-directory-saas-scoping-filters.md).
 
 15. Para ativar o serviço de prestação de Ad Azure para zscaler, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
-    ![Provisão Zscaler](./media/zscaler-provisioning-tutorial/provisioning-status.png)
+    ![Screenshot da opção Estado de Provisionamento definida para On.](./media/zscaler-provisioning-tutorial/provisioning-status.png)
 
 16. Defina os utilizadores e/ou grupos que deseja prestar à Zscaler, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
-    ![Provisão Zscaler](./media/zscaler-provisioning-tutorial/scoping.png)
+    ![Screenshot da definição de Âmbito com a opção sync apenas atribuída a utilizadores e grupos destacados.](./media/zscaler-provisioning-tutorial/scoping.png)
 
-17. Quando estiver pronto para a provisão, clique em **Guardar**.
+17. Quando estiver pronto para aprovisionar, clique em **Guardar**.
 
-    ![Provisão Zscaler](./media/zscaler-provisioning-tutorial/save-provisioning.png)
+    ![Screenshot do Zscaler - Provisioning Enterprise Application sidebar com a opção Save chamada.](./media/zscaler-provisioning-tutorial/save-provisioning.png)
 
 Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de fornecimento AZure AD esteja em execução. Pode utilizar a secção Detalhes da **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de fornecimento de AD Azure em Zscaler.
 
@@ -156,12 +156,12 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../active-directory-saas-provisioning-reporting.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-provisioning-tutorial/tutorial-general-01.png

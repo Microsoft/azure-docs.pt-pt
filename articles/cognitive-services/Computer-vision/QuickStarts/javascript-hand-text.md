@@ -10,13 +10,13 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: pafarley
-ms.custom: seodec18, devx-track-javascript
-ms.openlocfilehash: 75c5b8fa8542de2bb3d7bed438d6025303f75cb0
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: seodec18, devx-track-js
+ms.openlocfilehash: c3f0b7c262fc774e43f2f63ebf09a1a08beea686
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407392"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262676"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>Quickstart: Extrair texto impresso e manuscrito utilizando a API e o JavaScript da Visão de Computador
 
@@ -385,7 +385,7 @@ O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e aprese
 ```
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Explore uma aplicação JavaScript que utiliza a Visão de Computador para realizar o reconhecimento de caracteres óticos (OCR); criar miniaturas cortadas inteligentemente; e detetar, categorizar, etiquetar e descrever características visuais em imagens. 
 

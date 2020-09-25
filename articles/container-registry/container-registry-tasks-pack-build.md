@@ -3,13 +3,13 @@ title: Construa imagem com Buildpack Nativo nuvem
 description: Utilize o comando de construção de az acr para construir uma imagem de contentor a partir de uma aplicação e empurre para o Registo do Contentor de Azure, sem usar um Dockerfile.
 ms.topic: article
 ms.date: 10/24/2019
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f99175165e01a9287a66c59957fc7a239b00393a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-js
+ms.openlocfilehash: cad7d5c066dd8c8a7468833cb67e6085f067417a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077225"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262115"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Construa e empurre uma imagem a partir de uma aplicação usando um Cloud Native Buildpack
 
@@ -31,7 +31,7 @@ No mínimo, especifique o seguinte quando `az acr pack build` correr:
 * Um dos locais de [contexto suportado para tarefas](container-registry-tasks-overview.md#context-locations) ACR, como um diretório local, um repo GitHub, ou uma bola de tarball remoto
 * O nome de uma imagem de construtor buildpack adequada para a sua aplicação. Azure Container Registry caches imagens de construtora, tais como `cloudfoundry/cnb:0.0.34-cflinuxfs3` para construções mais rápidas.  
 
-`az acr pack build`suporta outras funcionalidades dos comandos ACR Tasks, incluindo variáveis de [execução](container-registry-tasks-reference-yaml.md#run-variables) e [registos de execução](container-registry-tasks-logs.md) de tarefas que são transmitidos e também guardados para posterior recuperação.
+`az acr pack build` suporta outras funcionalidades dos comandos ACR Tasks, incluindo variáveis de [execução](container-registry-tasks-reference-yaml.md#run-variables) e [registos de execução](container-registry-tasks-logs.md) de tarefas que são transmitidos e também guardados para posterior recuperação.
 
 ## <a name="example-build-nodejs-image-with-cloud-foundry-builder"></a>Exemplo: Construa Node.js imagem com o construtor cloud foundry
 

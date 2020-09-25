@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 8d71cccfe0ebd049607d5b51e7211739c3a7209b
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 89013e3b6ec9a0a6112e8b7fdcde4870be331d79
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468713"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282311"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta o gráfico gémeo Azure Digital Twins
 
@@ -25,6 +25,15 @@ O resto deste artigo fornece exemplos de como utilizar estas operações.
 ## <a name="query-syntax"></a>Sintaxe de consulta
 
 Esta secção contém consultas de amostra que ilustram a estrutura linguística de consulta e realizam possíveis operações de consulta em [gémeos digitais.](concepts-twins-graph.md)
+
+### <a name="show-all-existing-digital-twins"></a>Mostrar todos os gémeos digitais existentes
+
+Aqui está a consulta básica que devolverá uma lista de todos os gémeos digitais no caso:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+```
 
 ### <a name="select-top-items"></a>Selecione itens de topo
 
@@ -169,7 +178,7 @@ AND Room.$dtId IN ['room1', 'room2']
 
 Pode **combinar** qualquer um dos tipos de consulta acima, utilizando operadores de combinação para incluir mais detalhes numa única consulta. Aqui estão alguns exemplos adicionais de consultas compostas que consultam mais de um tipo de descritor gémeo ao mesmo tempo.
 
-| Descrição | Consulta |
+| Description | Consulta |
 | --- | --- |
 | Fora dos dispositivos que a *Sala 123* tem, devolva os dispositivos MxChip que servem o papel de Operador | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
 | Arranja gémeos que têm uma relação chamada *Contém* com outro gémeo que tem uma ID de *id1* | `SELECT Room`<br>`FROM DIGITIALTWINS Room`<br>`JOIN Thermostat ON Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |
@@ -208,8 +217,8 @@ As seguintes funções de corda são suportadas:
 
 | Função | Descrição |
 | -------- | ----------- |
-| STARTS_WITH(x, y) | Devolve um Boolean indicando se a primeira expressão de corda começa com a segunda. |
-| ENDS_WITH(x, y) | Devolve um Boolean indicando se a primeira expressão de corda termina com a segunda. |
+| STARTWITH (x, y) | Devolve um Boolean indicando se a primeira expressão de corda começa com a segunda. |
+| ENDSWITH (x, y) | Devolve um Boolean indicando se a primeira expressão de corda termina com a segunda. |
 
 ## <a name="run-queries-with-an-api-call"></a>Executar consultas com uma chamada de API
 
@@ -287,6 +296,6 @@ Abaixo estão algumas dicas para consulta com Azure Digital Twins.
         ```
 * Os nomes e valores dos imóveis são sensíveis ao caso, por isso tenha cuidado para usar os nomes exatos definidos nos modelos. Se os nomes dos imóveis estiverem mal escritos ou mal arquivados, o conjunto de resultados está vazio sem erros devolvidos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as [APIs e SDKs das Gémeas Digitais Azure,](how-to-use-apis-sdks.md)incluindo a API de Consulta, que é usada para executar as consultas deste artigo.

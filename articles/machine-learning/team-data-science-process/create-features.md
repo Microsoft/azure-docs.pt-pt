@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: c31cf0e5c655f53e8838c92f5463d3a85c2f6f65
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e84a3930d350ec45cef7119342e3e4d2d5daaee
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836826"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250662"
 ---
 # <a name="feature-engineering-in-data-science"></a>Engenharia de recursos em ciência de dados
 
-Neste artigo, aprende-se sobre engenharia de recursos e o seu papel na melhoria dos dados na aprendizagem automática. Aprenda com exemplos ilustrativos retirados de experiências [do Azure Machine Learning Studio (clássico).](../studio/what-is-ml-studio.md) 
+Neste artigo, aprende-se sobre engenharia de recursos e o seu papel na melhoria dos dados na aprendizagem automática. Aprenda com exemplos ilustrativos retirados de experiências [do Azure Machine Learning Studio (clássico).](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) 
 
 * **Engenharia de recursos**: O processo de criação de novas funcionalidades a partir de dados brutos para aumentar o poder preditivo do algoritmo de aprendizagem. As funcionalidades concebidas devem capturar informações adicionais que não sejam facilmente visíveis no conjunto de funcionalidades originais.
 * **Seleção de recursos**: O processo de seleção do subconjunto chave das funcionalidades para reduzir a dimensionalidade do problema de treino.
@@ -74,7 +74,7 @@ Uma comparação dos resultados de desempenho dos quatro modelos é resumida no 
 
 Os melhores resultados são mostrados pelas características A+B+C. A taxa de erro diminui quando o conjunto adicional de recursos está incluído nos dados de formação. Verifica a presunção de que o conjunto de funcionalidades B, C fornece informações relevantes adicionais para a tarefa de regressão. Mas adicionar a funcionalidade D não parece fornecer qualquer redução adicional na taxa de erro.
 
-## <a name="example-2-create-features-for-text-mining"></a><a name="example2"></a>Exemplo 2: Criar funcionalidades para a mineração de texto
+## <a name="example-2-create-features-for-text-mining"></a><a name="example2"></a> Exemplo 2: Criar funcionalidades para a mineração de texto
 
 A engenharia de recursos é amplamente aplicada em tarefas relacionadas com a mineração de texto, tais como classificação de documentos e análise de sentimento. Uma vez que peças individuais de texto bruto geralmente servem como dados de entrada, o processo de engenharia de recursos é necessário para criar as características que envolvem frequências de palavras/frases.
 
@@ -101,7 +101,7 @@ A engenharia e a seleção de recursos também podem combinar para tornar a apre
 
 Nem sempre é necessariamente para realizar engenharia de recursos ou seleção de recursos. Depende dos dados, do algoritmo selecionado e do objetivo da experiência.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para criar funcionalidades para dados em ambientes específicos, consulte os seguintes artigos:
 

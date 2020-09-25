@@ -6,13 +6,13 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-javascript
-ms.openlocfilehash: ba0fd6cf7214beeaca9e93b1fe003a144c247cb5
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js
+ms.openlocfilehash: 0e94d21bd6550a7d62ef3e7dec302c53f9851a4a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077004"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326325"
 ---
 # <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Quickstart: Use as filas de ônibus de serviço em Azure com Node.js e o pacote azure-sb
 Neste tutorial, aprende-se a criar aplicações Node.js para enviar mensagens e receber mensagens de uma fila de autocarros da Azure Service usando o pacote [azure-sb.](https://www.npmjs.com/package/azure-sb) As amostras são escritas em JavaScript e utilizam o [módulo Azure](https://www.npmjs.com/package/azure) Node.js que utiliza internamente o pacote azure-sb.
@@ -34,7 +34,7 @@ Neste tutorial, aprende-se a criar aplicações Node.js para enviar mensagens e 
  
 
 ## <a name="create-a-nodejs-application"></a>Criar uma aplicação Node.js
-Crie uma aplicação de Node.js em branco. Para obter instruções sobre como criar uma aplicação Node.js, consulte [Criar e implementar uma aplicação Node.js num Website Azure][Create and deploy a Node.js application to an Azure Website], ouNode.js Cloud [Service][Node.js Cloud Service] utilizando o Windows PowerShell.
+Crie uma aplicação de Node.js em branco. Para obter instruções sobre como criar uma aplicação Node.js, consulte [Criar e implementar uma aplicação Node.js num Website Azure][Create and deploy a Node.js application to an Azure Website], ouNode.js Cloud [ Service][Node.js Cloud Service] utilizando o Windows PowerShell.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configure a sua aplicação para utilizar o Service Bus
 Para utilizar o Azure Service Bus, baixe e use o pacote Node.js Azure. Este pacote inclui um conjunto de bibliotecas que comunicam com os serviços Service Bus REST.
@@ -71,7 +71,7 @@ O módulo Azure lê a variável ambiente `AZURE_SERVICEBUS_CONNECTION_STRING` pa
 Para um exemplo de definição das variáveis ambientais no [portal Azure][Azure portal] para um Website Azure, consulte [Node.js Aplicação Web com Armazenamento.][Node.js Web Application with Storage]
 
 ## <a name="create-a-queue"></a>Criar uma fila
-O objeto **ServiceBusService** permite-lhe trabalhar com as filas do Service Bus. O seguinte código cria um objeto **ServiceBusService.** Adicione-o perto do topo do ficheiro **server.js,** após a declaração de importação do módulo Azure:
+O objeto **ServiceBusService** permite-lhe trabalhar com as filas do Service Bus. O seguinte código cria um objeto **ServiceBusService.** Adicione-o perto do topo do ficheiro **server.js, ** após a declaração de importação do módulo Azure:
 
 ```javascript
 var serviceBusService = azure.createServiceBusService();

@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 3c6385ff804b047cca11587ce5da5a0a682fdce8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 365cb0912d84f0664b2a5432cd54cd553df62466
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84307933"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282028"
 ---
 # <a name="build-and-deploy-the-opc-vault-certificate-management-service"></a>Construa e implemente o serviço de gestão de certificados OPC Vault
+
+> [!IMPORTANT]
+> Enquanto atualizamos este artigo, consulte [a Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
 Este artigo explica como implantar o serviço de gestão de certificados OPC Vault em Azure.
 
@@ -75,9 +78,9 @@ Um script PowerShell fornece uma maneira fácil de implementar o microservice OP
    > [!NOTE]
    > Em caso de problemas, consulte a secção "Falhas de resolução de problemas" mais tarde no artigo.
 
-8. Abra o seu navegador favorito e abra a página da aplicação:`https://myResourceGroup.azurewebsites.net`
+8. Abra o seu navegador favorito e abra a página da aplicação: `https://myResourceGroup.azurewebsites.net`
 8. Dê à aplicação web e ao microserviço OPC Vault alguns minutos para aquecer após a implementação. A página inicial da web pode parar de responder na primeira utilização, por um minuto, até obter as primeiras respostas.
-11. Para dar uma olhada na API de Swagger, abra:`https://myResourceGroup-service.azurewebsites.net`
+11. Para dar uma olhada na API de Swagger, abra: `https://myResourceGroup-service.azurewebsites.net`
 13. Para iniciar um servidor GDS local com dotnet, comece `.\myResourceGroup-gds.cmd` . Com o Docker, `.\myResourceGroup-dockergds.cmd` começa.
 
 É possível recolocar uma construção com as mesmas definições. Esteja ciente de que tal operação renova todos os segredos da aplicação, e pode redefinir algumas configurações nos registos de candidaturas do Azure Ative (Azure AD).
@@ -174,7 +177,7 @@ Isto é para reconstruir e redistribuir apenas as aplicações web, e para recon
 [docker-url]: https://www.docker.com/
 [dotnet-install]: https://www.microsoft.com/net/learn/get-started
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a implantar o Cofre OPC do zero, pode:
 

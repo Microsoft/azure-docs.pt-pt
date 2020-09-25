@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: 904355b28af93d4a277f2158b1548517118a67ba
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e2729a5dca54bb7e65e9504f89bd203f9928b120
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90529422"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251648"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatizar a rotação de um segredo para recursos com dois conjuntos de credenciais de autenticação
 
@@ -67,6 +67,8 @@ akvrotationstorage2    akvrotation      eastus      Microsoft.Storage/storageAcc
 ```
 
 ## <a name="create-and-deploy-storage-account-key-rotation-function"></a>Criar e implementar função de rotação da chave da conta de armazenamento
+> [!IMPORTANT]
+> Abaixo o modelo requer Cofre chave, conta de armazenamento Azure e Função Azure para estar no mesmo grupo de recursos
 
 Em seguida, crie uma app de função com uma identidade gerida pelo sistema, além dos outros componentes necessários, e implemente funções de rotação de chaves de conta de armazenamento
 

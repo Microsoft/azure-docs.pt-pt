@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b88d017110f4d7b9859f2d801c5405ecee1589c5
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 3f9064c25581523167918b84a2d0027747e32bd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297472"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282379"
 ---
 # <a name="manage-digital-twins"></a>Gerir duplos digitais
 
@@ -166,7 +166,7 @@ O resultado de chamar `object result = await client.DigitalTwins.GetByIdAsync("m
 As propriedades definidas do gémeo digital são devolvidas como propriedades de alto nível no twin digital. Os metadados ou informações do sistema que não fazem parte da definição DTDL são devolvidos com um `$` prefixo. As propriedades dos metadados incluem:
 * A identificação do gémeo digital neste exemplo de Azure Digital Twins, como `$dtId` .
 * `$etag`, um campo HTTP padrão atribuído pelo servidor web
-* Outras propriedades numa `$metadata` secção. Incluem-se:
+* Outras propriedades numa `$metadata` secção. Estes incluem:
     - O DTMI do modelo do gémeo digital.
     - Estado de sincronização para cada propriedade escrita. Isto é mais útil para dispositivos, onde é possível que o serviço e o dispositivo tenham estatutos divergentes (por exemplo, quando um dispositivo está offline). Atualmente, esta propriedade aplica-se apenas a dispositivos físicos ligados ao IoT Hub. Com os dados na secção de metadados, é possível compreender o estado total de uma propriedade, bem como os últimos timetamps modificados. Para obter mais informações sobre o estado de sincronização, consulte [este tutorial do IoT Hub](../iot-hub/tutorial-device-twins.md) sobre o estado do dispositivo sincronizado.
     - Metadados específicos do serviço, como do IoT Hub ou da Azure Digital Twins. 
@@ -384,7 +384,18 @@ Os gémeos também podem ser geridos usando o CLI das Gémeas Digitais Azure. Os
 
 [!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="view-all-digital-twins"></a>Ver todos os gémeos digitais
+
+Para ver todos os gémeos digitais no seu caso, use uma [consulta.](how-to-query-graph.md) Pode fazer uma consulta com as [APIs de Consulta](how-to-use-apis-sdks.md) ou os [comandos CLI](how-to-use-cli.md).
+
+Aqui está o corpo da consulta básica que devolverá uma lista de todos os gémeos digitais no caso:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+``` 
+
+## <a name="next-steps"></a>Passos seguintes
 
 Veja como criar e gerir relações entre os seus gémeos digitais:
 * [*Como fazer: Gerir o gráfico gémeo com relacionamentos*](how-to-manage-graph.md)

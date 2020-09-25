@@ -3,12 +3,12 @@ title: Faça upload do ficheiro VHD para Azure DevTest Labs usando o Storage Exp
 description: Faça upload do ficheiro VHD para a conta de armazenamento do laboratório usando o Microsoft Azure Storage Explorer
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6ed6ace63a135628b6d306b946c0356091bf1bd2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: d4e421932ebba5d4f389000c12bcf44ac2f37599
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654519"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282532"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>Faça upload do ficheiro VHD para a conta de armazenamento do laboratório usando o Microsoft Azure Storage Explorer
 
@@ -90,13 +90,13 @@ Os passos seguintes acompanham-no através do upload de um ficheiro VHD para a D
 
     1. No painel direito do Storage Explorer, deverá ver uma lista das bolhas no recipiente de bolhas de **uploads** da conta de armazenamento do laboratório. Na barra de ferramentas do editor blob, selecione **Upload** 
         
-        ![Botão Carregar][6]
+        ![Screenshot que mostra o painel direito do Explorador de Armazenamento com o botão "Upload" selecionado.][6]
     
     1. A partir do menu de entrega do **Upload,** selecione **Ficheiros upload...**.
     
     1. No diálogo de **ficheiros upload,** selecione a elipse.
         
-        ![Selecione ficheiro][8]  
+        ![Screenshot que mostra o diálogo "Carregar ficheiros" com a elipse selecionada.][8]  
 
     1. Nos **ficheiros Select para carregar** o diálogo, navegue para o ficheiro VHD pretendido, selecione-o e, em seguida, selecione **Abrir**.
     

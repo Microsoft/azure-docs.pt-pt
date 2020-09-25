@@ -11,14 +11,17 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c664d4859a306387b4eafa2f19ab5877ccf6eb1b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a4b65195488f101d36aaf73956f1422bfccbbf9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81686962"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282141"
 ---
 # <a name="run-opc-publisher"></a>Executar o Publicador OPC
+
+> [!IMPORTANT]
+> Enquanto atualizamos este artigo, consulte [a Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
 Este artigo descreve como executar ad debug OPC Publisher. Aborda também considerações de desempenho e memória.
 
@@ -375,7 +378,7 @@ Para adicionar o OPC Publisher como módulo à sua implementação IoT Edge, ace
 1. Selecione **módulos de conjunto**.
 1. **Selecione Adicionar** em **Módulos de Implementação** e, em seguida, **Módulo de Borda IoT**.
 1. No campo **Nome,** **insira a editora.**
-1. No campo **Image URI,** insira`mcr.microsoft.com/iotedge/opc-publisher:<tag>`
+1. No campo **Image URI,** insira `mcr.microsoft.com/iotedge/opc-publisher:<tag>`
 1. Pode encontrar as etiquetas disponíveis no [Docker Hub](https://hub.docker.com/_/microsoft-iotedge-opc-publisher)
 1. Cole o seguinte JSON no campo **Opções de Criação de Recipientes:**
 
@@ -519,7 +522,7 @@ O ambiente de tempo de execução afeta a forma como os certificados são persis
 
 - Funcionando de forma nativa no Windows, não é possível utilizar uma loja de certificados de aplicação do tipo `Directory` porque o acesso à chave privada falha. Neste caso, utilize a opção `--at X509Store` .
 - Funcionando como recipiente linux docker, você pode mapear as lojas de certificados para o sistema de ficheiros anfitrião com a opção de execução do estivador `-v <hostdirectory>:/appdata` . Esta opção torna o certificado persistente em todas as aplicações.
-- Funcionando como recipiente linux docker e você quer usar uma loja X509 para o certificado de aplicação, use a opção de execução do estivador `-v x509certstores:/root/.dotnet/corefx/cryptography/x509stores` e a opção de aplicação`--at X509Store`
+- Funcionando como recipiente linux docker e você quer usar uma loja X509 para o certificado de aplicação, use a opção de execução do estivador `-v x509certstores:/root/.dotnet/corefx/cryptography/x509stores` e a opção de aplicação `--at X509Store`
 
 ## <a name="performance-and-memory-considerations"></a>Considerações de desempenho e memória
 
@@ -531,9 +534,9 @@ Quando gere o OPC Publisher, tem de estar atento aos seus requisitos de desempen
 
 A memória e o desempenho são interdependentes e ambos dependem da configuração de quantos nós configura para publicar. Certifique-se de que os seguintes parâmetros satisfazem os seus requisitos:
 
-- IoT Hub envia intervalo:`--si`
-- Tamanho da mensagem IoT Hub `1` (padrão):`--ms`
-- Capacidade de fila de itens monitorizados:`--mq`
+- IoT Hub envia intervalo: `--si`
+- Tamanho da mensagem IoT Hub `1` (padrão): `--ms`
+- Capacidade de fila de itens monitorizados: `--mq`
 
 O `--mq` parâmetro controla o limite superior da capacidade da fila interna, que tampona todas as notificações de alteração de valor do nó OPC. Se o Editor OPC não puder enviar mensagens para o IoT Hub com rapidez suficiente, esta fila tampona as notificações. O parâmetro define o número de notificações que podem ser tamponadas. Se vir o número de itens nesta fila a aumentar nos seus testes, então para evitar perder mensagens deve:
 
@@ -713,6 +716,6 @@ Se não tiver um servidor OPC UA real, pode utilizar a [amostra OPC UA PLC](http
 
 Implementa uma série de tags, que geram dados aleatórios e tags com anomalias. Pode estender a amostra se precisar de simular valores adicionais de etiqueta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a gerir a OPC Publisher, os próximos passos recomendados são aprender sobre [o OPC Twin](overview-opc-twin.md) e [o OPC Vault.](overview-opc-vault.md)

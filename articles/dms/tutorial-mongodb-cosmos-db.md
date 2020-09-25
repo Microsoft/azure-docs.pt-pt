@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: 08fa94dbe71299a6653df0b40aa5083375526172
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5e335659a26568ae11a17425c4e53c53f02a843
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78255581"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282362"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Tutorial: Migrar a MongoDB para a API da Azure Cosmos para a MongoDB offline usando DMS
 
@@ -183,7 +183,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
     > [!NOTE]
     > Execute a migração e recolha da base de dados em paralelo utilizando múltiplas instâncias do Serviço de Migração da Base de Dados Azure, se necessário, para acelerar a execução.
 
-    Também pode especificar uma chave de fragmento para aproveitar [a partição em Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview) para uma escalabilidade ideal. Certifique-se de rever as [melhores práticas para selecionar uma chave de fragmento/partição](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey).
+    Também pode especificar uma chave de fragmento para aproveitar [a partição em Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview) para uma escalabilidade ideal. Certifique-se de rever as  [melhores práticas para selecionar uma chave de fragmento/partição](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey).
 
     ![Selecione tabelas de coleções](media/tutorial-mongodb-to-cosmosdb/dms-collection-setting.png)
 
@@ -224,6 +224,6 @@ Depois de migrar os dados armazenados na base de dados mongoDB para a API da Azu
 
 * [Informações de serviço do Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Reveja as orientações de migração para cenários adicionais no [Guia de Migração da Base de Dados da](https://datamigration.microsoft.com/)Microsoft .

@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 464d945708fba83877fe6cef9ec1b64ec444bd95
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 7b1030c816bff5b50c0c47a16fa5f1812bb16b15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650422"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250832"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Ativar aplicações, processos ou fluxos de trabalho ci/CD baseados em eventos de Aprendizagem automática Azure (pré-visualização)
 
@@ -62,7 +62,7 @@ Estes eventos são publicados através da Azure Event Grid. Utilizando o portal 
 
 Ao configurar os seus eventos, pode aplicar filtros apenas para acionar dados específicos do evento. No exemplo abaixo, para eventos alterados de estado de execução, pode filtrar por tipos de execução. O evento só dispara quando os critérios são cumpridos. Consulte o esquema de grelha de [eventos Azure Machine Learning](/azure/event-grid/event-schema-machine-learning) para saber mais sobre os dados do evento que pode filtrar. 
 
-As subscrições de eventos de aprendizagem automática Azure estão protegidas pelo controlo de acesso baseado em funções (RBAC). Apenas [o colaborador ou proprietário](how-to-assign-roles.md#default-roles) de um espaço de trabalho pode criar, atualizar e eliminar subscrições de eventos.  Os filtros podem ser aplicados a subscrições de eventos durante a [criação](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) da subscrição do evento ou posteriormente. 
+As subscrições de eventos de aprendizagem automática Azure estão protegidas pelo controlo de acesso baseado em funções (RBAC). Apenas [o colaborador ou proprietário](how-to-assign-roles.md#default-roles) de um espaço de trabalho pode criar, atualizar e eliminar subscrições de eventos.  Os filtros podem ser aplicados a subscrições de eventos durante a [criação](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) da subscrição do evento ou posteriormente. 
 
 
 1. Vá ao portal Azure, selecione uma nova subscrição ou uma existente. 
@@ -126,14 +126,14 @@ A Azure Event Grid permite que os clientes construam manipuladores de mensagens 
 
 1. Selecione o ponto final para publicar o evento para. Na seguinte imagem, o __centro de eventos__ é o ponto final selecionado:
 
-    ![selecione-event-handler](./media/how-to-use-event-grid/select-event-handler.png)
+    ![manipulador de eventos](./media/how-to-use-event-grid/select-event-handler.png)
 
 Uma vez confirmada a sua seleção, clique em __Criar__. Após a configuração, estes eventos serão empurrados para o seu ponto final.
 
 
 ### <a name="set-up-with-the-cli"></a>Configurar com o CLI
 
-Pode instalar o mais recente [Azure CLI,](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)ou utilizar o Azure Cloud Shell que é fornecido como parte da sua subscrição Azure.
+Pode instalar o mais recente [Azure CLI,](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)ou utilizar o Azure Cloud Shell que é fornecido como parte da sua subscrição Azure.
 
 Para instalar a extensão 'Grade de Eventos', utilize o seguinte comando a partir do CLI:
 
@@ -164,15 +164,15 @@ Use [aplicativos Azure Logic](https://docs.microsoft.com/azure/logic-apps/) para
 
 1. No portal Azure, vá ao seu espaço de trabalho Azure Machine Learning e selecione o separador eventos a partir da barra esquerda. A partir daqui, selecione __aplicativos Logic__. 
 
-    ![selecione-lógica-ap](./media/how-to-use-event-grid/select-logic-ap.png)
+    ![select-logic-app](./media/how-to-use-event-grid/select-logic-ap.png)
 
 1. Inscreva-se na UI da Aplicação Lógica e selecione o serviço de Machine Learning como o tipo de tópico. 
 
-    ![seleciona-tipo de tópico](./media/how-to-use-event-grid/select-topic-type.png)
+    ![tipo de tópico](./media/how-to-use-event-grid/select-topic-type.png)
 
 1. Selecione para que eventos a notificar. Por exemplo, a seguinte imagem __RunCompleted__.
 
-    ![select-event runcomplete](./media/how-to-use-event-grid/select-event-runcomplete.png)
+    ![selecione-event-run-complete](./media/how-to-use-event-grid/select-event-runcomplete.png)
 
 1. Pode utilizar o método de filtragem na secção acima ou adicionar filtros apenas para ativar a aplicação lógica num subconjunto de tipos de eventos. Na imagem seguinte, é utilizado um __filtro prefixo__ de __/datadriftID/runs/__
 
@@ -180,15 +180,15 @@ Use [aplicativos Azure Logic](https://docs.microsoft.com/azure/logic-apps/) para
 
 1. Em seguida, adicione um passo para consumir este evento e procure por e-mail. Existem várias contas de correio diferentes que pode usar para receber eventos. Também pode configurar condições para quando enviar um alerta de e-mail.
 
-    ![selecione-email-ação](./media/how-to-use-event-grid/select-email-action.png)
+    ![e-mail-ação](./media/how-to-use-event-grid/select-email-action.png)
 
 1. Selecione __Enviar um e-mail__ e preencher os parâmetros. No assunto, pode incluir o Tipo de __Evento__ e __Tópico__ para ajudar a filtrar eventos. Também pode incluir um link para a página do espaço de trabalho para execuções no corpo da mensagem. 
 
-    ![configurar-e-mail-corpo](./media/how-to-use-event-grid/configure-email-body.png)
+    ![configure-email](./media/how-to-use-event-grid/configure-email-body.png)
 
 1. Para guardar esta ação, **selecione Save As** no canto esquerdo da página. Do bar direito que aparece, confirme a criação desta ação.
 
-    ![confirmar lógica-app-create](./media/how-to-use-event-grid/confirm-logic-app-create.png)
+    ![confirmar lógica-app-criação](./media/how-to-use-event-grid/confirm-logic-app-create.png)
 
 
 ### <a name="example-data-drift-triggers-retraining"></a>Exemplo: Deriva de dados desencadeia reconversão
@@ -204,7 +204,7 @@ Antes de começar, execute as seguintes ações:
 
 Neste exemplo, um simples oleoduto Data Factory é usado para copiar ficheiros numa loja de bolhas e executar um pipeline de Machine Learning publicado. Para obter mais informações sobre este cenário, veja como configurar um passo de [Machine Learning na Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-machine-learning-service)
 
-![adf-mlpipeline-estágio](./media/how-to-use-event-grid/adf-mlpipeline-stage.png)
+![adf-mlpipeline](./media/how-to-use-event-grid/adf-mlpipeline-stage.png)
 
 1. Comece com a criação da aplicação lógica. Vá ao [portal Azure,](https://portal.azure.com)procure por Aplicações Lógicas e selecione create.
 
@@ -212,31 +212,31 @@ Neste exemplo, um simples oleoduto Data Factory é usado para copiar ficheiros n
 
 1. Preencha a informação solicitada. Para simplificar a experiência, utilize o mesmo grupo de subscrição e recursos que o seu Pipeline de Fábrica de Dados Azure e o espaço de trabalho Azure Machine Learning.
 
-    ![configuração-up-logic-app-for-adf](./media/how-to-use-event-grid/set-up-logic-app-for-adf.png)
+    ![configuração-up-logic-app-adf](./media/how-to-use-event-grid/set-up-logic-app-for-adf.png)
 
 1. Uma vez criado a aplicação lógica, selecione __Quando ocorrer um evento de recursos de Grade de Eventos__. 
 
-    ![selecione-event-grid-trigger](./media/how-to-use-event-grid/select-event-grid-trigger.png)
+    ![selecione-eventgrid-trigger](./media/how-to-use-event-grid/select-event-grid-trigger.png)
 
 1. Faça login e preencha os detalhes do evento. Desaprote o __nome de recurso__ para o nome do espaço de trabalho. Defina o __tipo de evento__ para __datasetDriftDetected__.
 
-    ![login-e-add-evento](./media/how-to-use-event-grid/login-and-add-event.png)
+    ![login-add-event](./media/how-to-use-event-grid/login-and-add-event.png)
 
 1. Adicione um novo passo e procure __a Azure Data Factory.__ __Selecione Criar uma corrida de gasodutos__. 
 
-    ![create-adfpipeline-run](./media/how-to-use-event-grid/create-adfpipeline-run.png)
+    ![criar-adf-pipeline-run](./media/how-to-use-event-grid/create-adfpipeline-run.png)
 
 1. Faça login e especifique o pipeline Azure Data Factory publicado para executar.
 
-    ![especificar-adf-pipeline](./media/how-to-use-event-grid/specify-adf-pipeline.png)
+    ![especificar-adfpipeline](./media/how-to-use-event-grid/specify-adf-pipeline.png)
 
 1. Guarde e crie a aplicação lógica utilizando o botão **de poupança** no topo esquerdo da página. Para ver a sua aplicação, vá ao seu espaço de trabalho no [portal Azure](https://portal.azure.com) e clique em **Eventos.**
 
-    ![show-logic-app-webhook](./media/how-to-use-event-grid/show-logic-app-webhook.png)
+    ![show-logicapp-webhook](./media/how-to-use-event-grid/show-logic-app-webhook.png)
 
 Agora, o gasoduto da fábrica de dados é acionado quando ocorre a deriva. Veja detalhes sobre a sua deriva de dados e o pipeline de aprendizagem automática no [novo portal do espaço de trabalho.](https://ml.azure.com) 
 
-![espaço view-in-work](./media/how-to-use-event-grid/view-in-workspace.png)
+![espaço de visão-trabalho](./media/how-to-use-event-grid/view-in-workspace.png)
 
 ### <a name="example-deploy-a-model-based-on-tags"></a>Exemplo: Implementar um modelo baseado em etiquetas
 

@@ -10,33 +10,35 @@ ms.date: 08/12/2020
 ms.author: euang
 ms.reviewer: euang
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: 3d65a7771ff2bd8807a5f02278b0455ee103dbd6
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: f25aae64e117452cd689b68c5478e7431d1a21bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526345"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249370"
 ---
-# <a name="hyperspace---an-indexing-subsystem-for-apache-spark"></a>Hiperespaço - Subsistema de indexação para Apache Spark
+# <a name="hyperspace-an-indexing-subsystem-for-apache-spark"></a>Hiperespaço: Subsistema de indexação para Apache Spark
 
-O hiperespaço introduz a capacidade de os utilizadores do Apache Spark criarem índices nos seus conjuntos de dados (por exemplo, CSV, JSON, Parquet, etc.) e alavancarem-nos para uma consulta potencial e aceleração da carga de trabalho.
+O Hiperspace introduz a capacidade para os utilizadores do Apache Spark criarem índices nos seus conjuntos de dados, tais como CSV, JSON e Parquet, e usá-los para a potencial consulta e aceleração da carga de trabalho.
 
-Neste artigo, destacamos os fundamentos do Hiperespaço, enfatizando a sua simplicidade e mostrando como pode ser usado por qualquer um.
+Neste artigo, destacamos os fundamentos do Hiperespaço, enfatizamos a sua simplicidade e mostramos como pode ser usado por qualquer um.
 
-Isenção de responsabilidade: O hiperespaço ajuda a acelerar as suas cargas de trabalho/consultas em duas circunstâncias:
+Isenção de responsabilidade: O hiperespaço ajuda a acelerar as suas cargas de trabalho ou consultas em duas circunstâncias:
 
-* As consultas contêm filtros em predicados com elevada seletividade (por exemplo, pretende selecionar 100 linhas correspondentes de um milhão de filas de candidatos)
-* As consultas contêm uma junção que requer baralhadores pesados (por exemplo, você quer juntar um conjunto de dados de 100 GB com um conjunto de dados de 10 GB)
+* As consultas contêm filtros em predicados com elevada seletividade. Por exemplo, é melhor selecionar 100 linhas correspondentes de um milhão de candidatos.
+* As consultas contêm uma junção que requer baralhações pesadas. Por exemplo, é melhor juntar-se a um conjunto de dados de 100 GB com um conjunto de dados de 10 GB.
 
 É possível que queira monitorizar cuidadosamente as suas cargas de trabalho e determinar se a indexação está a ajudá-lo caso a caso.
 
-Este documento também está disponível em formato caderno, para [Python,](https://github.com/microsoft/hyperspace/blob/master/notebooks/python/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)para [C#](https://github.com/microsoft/hyperspace/blob/master/notebooks/csharp/Hitchhikers%20Guide%20to%20Hyperspace.ipynb) e [Scala](https://github.com/microsoft/hyperspace/blob/master/notebooks/scala/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)
+Este documento também está disponível em formato caderno, para [Python,](https://github.com/microsoft/hyperspace/blob/master/notebooks/python/Hitchhikers%20Guide%20to%20Hyperspace.ipynb) [C#](https://github.com/microsoft/hyperspace/blob/master/notebooks/csharp/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)e [Scala](https://github.com/microsoft/hyperspace/blob/master/notebooks/scala/Hitchhikers%20Guide%20to%20Hyperspace.ipynb)
 
 ## <a name="setup"></a>Configuração
 
-Para começar, inicie uma nova sessão de Faíscas. Uma vez que este documento é um tutorial apenas para ilustrar o que o Hyperspace pode oferecer, irá fazer uma alteração de configuração que nos permite destacar o que o Hyperspace está a fazer em pequenos conjuntos de dados. Por padrão, a Spark usa a rede de transmissão para otimizar as consultas de junção quando o tamanho dos dados para um lado da junção é pequeno (o que é o caso dos dados da amostra que usamos neste tutorial). Portanto, desativamos as transmissões para que, mais tarde, quando executarmos consultas de junção, a Spark use a sesutar de tipo-fusão. Isto é principalmente para mostrar como os índices de hiperespaço seriam usados em escala para acelerar consultas de junção.
+Para começar, inicie uma nova sessão de Faíscas. Uma vez que este documento é um tutorial apenas para ilustrar o que o Hyperspace pode oferecer, irá fazer uma alteração de configuração que nos permite destacar o que o Hyperspace está a fazer em pequenos conjuntos de dados. 
 
-A saída de executar a célula abaixo mostra uma referência à sessão spark criada com sucesso e imprime '-1' como o valor para o config de junção modificado, o que indica que a junção de transmissão é desativada com sucesso.
+Por padrão, a Spark usa a rede de transmissão para otimizar as consultas de junção quando o tamanho dos dados para um lado da junção é pequeno (o que é o caso dos dados da amostra que usamos neste tutorial). Portanto, desativamos as transmissões para que, mais tarde, quando executarmos consultas de junção, a Spark use a sesutar de tipo-fusão. Isto é principalmente para mostrar como os índices de hiperespaço seriam usados em escala para acelerar consultas de junção.
+
+A saída de executar a seguinte célula mostra uma referência à sessão spark criada com sucesso e imprime '-1' como o valor para o config de junção modificado, o que indica que a junção de transmissão é desativada com sucesso.
 
 :::zone pivot = "programming-language-scala"
 
@@ -44,7 +46,7 @@ A saída de executar a célula abaixo mostra uma referência à sessão spark cr
 // Start your Spark session
 spark
 
-// Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently hyperspace indexes utilize SortMergeJoin to speed up query.
+// Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently, Hyperspace indexes utilize SortMergeJoin to speed up query.
 spark.conf.set("spark.sql.autoBroadcastJoinThreshold", -1)
 
 // Verify that BroadcastHashJoin is set correctly
@@ -57,10 +59,10 @@ println(spark.conf.get("spark.sql.autoBroadcastJoinThreshold"))
 :::zone pivot = "programming-language-python"
 
 ```python
-# Start your Spark session
+# Start your Spark session.
 spark
 
-# Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently Hyperspace indexes utilize SortMergeJoin to speed up query.
+# Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently, Hyperspace indexes utilize SortMergeJoin to speed up query.
 spark.conf.set("spark.sql.autoBroadcastJoinThreshold", -1)
 
 # Verify that BroadcastHashJoin is set correctly 
@@ -72,10 +74,10 @@ print(spark.conf.get("spark.sql.autoBroadcastJoinThreshold"))
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-// Disable BroadcastHashJoin, so Spark™ will use standard SortMergeJoin. Currently hyperspace indexes utilize SortMergeJoin to speed up query.
+// Disable BroadcastHashJoin, so Spark will use standard SortMergeJoin. Currently, Hyperspace indexes utilize SortMergeJoin to speed up query.
 spark.Conf().Set("spark.sql.autoBroadcastJoinThreshold", -1);
 
-// Verify that BroadcastHashJoin is set correctly 
+// Verify that BroadcastHashJoin is set correctly.
 Console.WriteLine(spark.Conf().Get("spark.sql.autoBroadcastJoinThreshold"));
 ```
 
@@ -88,13 +90,13 @@ res3: org.apache.spark.sql.SparkSession = org.apache.spark.sql.SparkSession@297e
 -1
 ```
 
-## <a name="data-preparation"></a>Preparação de Dados
+## <a name="data-preparation"></a>Preparação de dados
 
-Para preparar o seu ambiente, irá criar registos de dados de amostra e guardá-los como ficheiros de dados de parquet. Enquanto o Parquet é usado para ilustração, pode utilizar outros formatos, como o CSV. Nas células subsequentes, você verá como você criar vários índices de Hiperespaço neste conjunto de dados da amostra e como você pode fazer Spark usá-los ao executar consultas.
+Para preparar o seu ambiente, criará registos de dados de amostras e guardá-los-á como ficheiros de dados do Parquet. O parquet é usado para ilustração, mas também pode usar outros formatos, como o CSV. Nas células subsequentes, verá como pode criar vários índices de Hiperespaço neste conjunto de dados da amostra e fazer com que o Spark os utilize ao executar consultas.
 
 Os registos de exemplo correspondem a dois conjuntos de dados: departamento e funcionário. Deve configurar os caminhos "empLocation" e "deptLocation" para que na conta de armazenamento eles apitarem para a localização desejada para guardar ficheiros de dados gerados.
 
-A produção de correr abaixo da célula mostra o conteúdo dos nossos conjuntos de dados como listas de trigémeos seguidos de referências aos DataFrames criados para salvar o conteúdo de cada conjunto de dados na nossa localização preferida.
+A produção de execução da célula seguinte mostra o conteúdo dos nossos conjuntos de dados como listas de trigémeos seguidos de referências aos DataFrames criados para salvar o conteúdo de cada conjunto de dados na nossa localização preferida.
 
 :::zone pivot = "programming-language-scala"
 
@@ -240,9 +242,9 @@ empLocation: String = /your-path/employees.parquet
 deptLocation: String = /your-path/departments.parquet  
 ```
 
-Vamos verificar o conteúdo dos ficheiros parquet que criamos acima para garantir que contêm registos esperados em formato correto. Mais tarde usamos estes ficheiros de dados para criar índices de Hiperespaço e executar consultas de amostras.
+Vamos verificar o conteúdo dos ficheiros Parquet que criamos para garantir que contêm registos esperados no formato correto. Mais tarde, usaremos estes ficheiros de dados para criar índices de Hiperespaço e executar consultas de amostras.
 
-Executando a célula abaixo, a saída exibe as linhas nos quadros de dados de funcionários e departamentos de forma tabular. Devem existir 14 funcionários e 4 departamentos, cada um combinando com um dos trigémeos que criou na célula anterior.
+Executar os seguintes produtos e saídas celulares que exibem as linhas nos quadros de dados de funcionários e departamentos de forma tabular. Devem existir 14 funcionários e 4 departamentos, cada um combinando com um dos trigémeos que criou na célula anterior.
 
 :::zone pivot = "programming-language-scala"
 
@@ -262,7 +264,7 @@ deptDF.show()
 
 ```python
 
-# emp_Location and dept_Location are the user defined locations above to save parquet files
+# emp_Location and dept_Location are the user-defined locations above to save parquet files
 emp_DF = spark.read.parquet(emp_Location)
 dept_DF = spark.read.parquet(dept_Location)
 
@@ -278,7 +280,7 @@ dept_DF.show()
 
 ```csharp
 
-// empLocation and deptLocation are the user defined locations above to save parquet files
+// empLocation and deptLocation are the user-defined locations above to save parquet files
 DataFrame empDF = spark.Read().Parquet(empLocation);
 DataFrame deptDF = spark.Read().Parquet(deptLocation);
 
@@ -329,18 +331,22 @@ deptDF: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 1 mo
 
 ## <a name="indexes"></a>Índices
 
-O hiperespaço permite criar índices em registos digitalizados a partir de ficheiros de dados persistidos. Uma vez criada com sucesso, uma entrada correspondente ao índice é adicionada aos metadados do Hiperespaço. Estes metadados são mais tarde utilizados pelo otimizador da Apache Spark (com as nossas extensões) durante o processamento de consultas para encontrar e utilizar índices adequados.
+O hiperespaço permite criar índices em registos digitalizados a partir de ficheiros de dados persistidos. Depois de terem sido criados com sucesso, uma entrada que corresponde ao índice é adicionada aos metadados do Hiperespaço. Estes metadados são mais tarde utilizados pelo otimizador da Apache Spark (com as nossas extensões) durante o processamento de consultas para encontrar e utilizar índices adequados.
 
-Uma vez criados índices, pode executar várias ações:
+Após a criação de índices, pode executar várias ações:
+
+* **Refresque se os dados subjacentes forem alterando.** Pode refrescar um índice existente para capturar as alterações.
+* **Apague se o índice não for necessário.** Pode executar uma eliminação suave, ou seja, o índice não é fisicamente apagado, mas é marcado como "eliminado" para que não seja mais utilizado nas suas cargas de trabalho.
+* **Vácuo se um índice deixar de ser necessário.** Pode aspirar um índice, que força a eliminação física dos conteúdos de índice e metadados associados completamente a partir dos metadados do Hyperspace.
 
 Refresque se os dados subjacentes forem alterando, pode atualizar um índice existente para capturar isso.
 Elimine se o índice não for necessário, pode executar um soft-delete que é, o índice não é fisicamente eliminado, mas é marcado como 'eliminado' para que não seja mais utilizado nas suas cargas de trabalho.
-Vácuo se um índice deixar de ser necessário, pode aspirar, o que força a eliminação física dos conteúdos do índice e dos metadados associados completamente a partir dos metadados do Hyperspace.
-As secções abaixo mostram como tais operações de gestão de índices podem ser feitas no Hiperespaço.
 
-Primeiro, é necessário importar as bibliotecas necessárias e criar um exemplo de Hiperespaço. Mais tarde, utilizará este caso para invocar diferentes APIs do Hiperespaço para criar índices nos dados da sua amostra e modificar esses índices.
+As seguintes secções mostram como tais operações de gestão de índices podem ser feitas no Hiperespaço.
 
-A saída de correr abaixo da célula mostra uma referência à instância criada do Hiperespaço.
+Primeiro, é necessário importar as bibliotecas necessárias e criar um exemplo de Hiperespaço. Mais tarde, você usará este caso para invocar diferentes APIs hiperespaciais para criar índices nos seus dados de amostra e modificar esses índices.
+
+A saída de executar a célula seguinte mostra uma referência à instância criada do Hiperespaço.
 
 :::zone pivot = "programming-language-scala"
 
@@ -388,9 +394,10 @@ hyperspace: com.microsoft.hyperspace.Hyperspace = com.microsoft.hyperspace.Hyper
 
 Para criar um índice de Hiperespaço, é necessário fornecer duas informações:
 
-Um DataFrame de Faísca que faz referência aos dados a indexados.
-Um objeto de configuração de índice: IndexConfig, que especifica o nome do índice, indexado e incluído colunas do índice.
-Começa por criar três índices de Hiperespaço nos dados da nossa amostra: dois índices no conjunto de dados do departamento denominado "deptIndex1" e "deptIndex2", e um índice no conjunto de dados dos colaboradores denominado 'empIndex'. Para cada índice, é necessário um IndexConfig correspondente para capturar o nome juntamente com as listas de colunas para as colunas indexadas e incluídas. Correr abaixo da célula cria estes índiceConfigs e a sua saída lista-os.
+* Um DataFrame de Faísca que faz referência aos dados a indexados.
+* Um objeto de configuração de índice, IndexConfig, que especifica o nome do índice e as colunas indexadas e incluídas do índice.
+
+Começa por criar três índices de Hiperespaço nos dados da nossa amostra: dois índices no conjunto de dados do departamento denominado "deptIndex1" e "deptIndex2" e um índice no conjunto de dados dos colaboradores denominado "empIndex". Para cada índice, é necessário um IndexConfig correspondente para capturar o nome juntamente com as listas de colunas para as colunas indexadas e incluídas. Executar a seguinte célula cria estes IndexConfigs, e a sua saída lista-os.
 
 > [!Note]
 > Uma coluna de índice é uma coluna que aparece nos filtros ou se junta condições. Uma coluna incluída é uma coluna que aparece no seu select/project.
@@ -403,7 +410,7 @@ FROM T
 WHERE Y = 2
 ```
 
-X pode ser uma coluna de índice e Y pode ser uma coluna incluída.
+X pode ser uma coluna de índice, e Y pode ser uma coluna incluída.
 
 :::zone pivot = "programming-language-scala"
 
@@ -454,8 +461,7 @@ empIndexConfig: com.microsoft.hyperspace.index.IndexConfig = [indexName: empInde
 deptIndexConfig1: com.microsoft.hyperspace.index.IndexConfig = [indexName: deptIndex1; indexedColumns: deptid; includedColumns: deptname]  
 deptIndexConfig2: com.microsoft.hyperspace.index.IndexConfig = [indexName: deptIndex2; indexedColumns: location; includedColumns: deptname]  
 ```
-
-Agora, cria três índices usando as configurações do índice. Para isso, você invoca o comando "createIndex" no nosso caso Hyperspace. Este comando requer uma configuração de índice e o dataFrame que contém linhas para ser indexado. Correr a célula abaixo cria três índices.
+Agora, cria três índices usando as configurações do índice. Para isso, você invoca o comando "createIndex" no nosso caso Hyperspace. Este comando requer uma configuração de índice e o dataFrame que contém linhas para ser indexado. Executar a seguinte célula cria três índices.
 
 :::zone pivot = "programming-language-scala"
 
@@ -505,14 +511,17 @@ import com.microsoft.hyperspace.index.Index
 
 ## <a name="list-indexes"></a>Índices de listas
 
-O código abaixo mostra como pode listar todos os índices disponíveis numa instância hyperspace. Utiliza a API de "indexes" que devolve informações sobre os índices existentes como um DataFrame de Faísca para que possa realizar operações adicionais. Por exemplo, pode invocar operações válidas neste DataFrame para verificar o seu conteúdo ou analisá-lo mais aprofundadamente (por exemplo, filtrar índices específicos ou agrupar-se de acordo com alguma propriedade desejada).
+O código que se segue mostra como pode listar todos os índices disponíveis numa instância hyperspace. Utiliza a API de "indexes" que devolve informações sobre os índices existentes como um DataFrame de Faísca para que possa realizar operações adicionais. 
 
-Abaixo a célula usa a ação de 'show' do DataFrame para imprimir completamente as linhas e mostrar detalhes dos nossos índices de forma tabular. Para cada índice, pode ver todas as informações que o Hyperspace armazenou sobre o mesmo nos metadados. Notará imediatamente o seguinte:
+Por exemplo, pode invocar operações válidas neste DataFrame para verificar o seu conteúdo ou analisá-lo mais aprofundadamente (por exemplo, filtrar índices específicos ou agrupar-se de acordo com alguma propriedade desejada).
 
-* "config.indexName", "config.indexedColumns", "config.includecolumns" e "status.status" são os campos a que um utilizador normalmente se refere.
-* "dfSignature" é gerado automaticamente pelo Hyperspace e é único para cada índice. O hiperespaço utiliza esta assinatura internamente para manter o índice e explorá-lo no tempo de consulta.
+A célula que se segue utiliza a ação de 'show' do DataFrame para imprimir completamente as linhas e mostrar detalhes dos nossos índices de forma tabular. Para cada índice, pode ver todas as informações que o Hyperspace armazenou sobre o mesmo nos metadados. Notará imediatamente o seguinte:
 
-Na produção abaixo, os três índices devem ter "ATIVE" como estado e o seu nome, colunas indexadas e colunas incluídas devem corresponder ao que definimos nas configurações de índice acima.
+* config.indexName, config.indexedColumns, config.includeColumns, e status.status são os campos a que um utilizador normalmente se refere.
+* dfSignature é gerado automaticamente pelo Hyperspace e é único para cada índice. O hiperespaço utiliza esta assinatura internamente para manter o índice e explorá-lo no tempo de consulta.
+
+
+Na seguinte produção, os três índices devem ter "ATIVE" como estado e o seu nome, colunas indexadas e colunas incluídas devem corresponder ao que definimos nas configurações de índice acima.
 
 :::zone pivot = "programming-language-scala"
 
@@ -554,9 +563,11 @@ Resultados em:
 
 ## <a name="delete-indexes"></a>Eliminar índices
 
-Pode deixar cair um índice existente utilizando a API "deleteIndex" e fornecendo o nome do índice. A eliminação do índice faz uma eliminação suave: Atualiza principalmente o estado do índice nos metadados do Hiperespaço de "ATIVE" para "DELETED". Isto excluirá o índice de queda de qualquer otimização de consultas futuras e o Hyperspace já não escolhe esse índice para qualquer consulta. No entanto, os ficheiros de índice para um índice eliminado continuam disponíveis (uma vez que é um soft-delete), de modo que o índice pode ser restaurado se o utilizador pedir.
+Pode deixar cair um índice existente utilizando a API "deleteIndex" e fornecendo o nome do índice. A eliminação do índice faz uma eliminação suave: Atualiza principalmente o estado do índice nos metadados do Hiperespaço de "ATIVE" para "DELETED". Isto excluirá o índice de queda de qualquer otimização de consultas futuras e o Hyperspace já não escolhe esse índice para qualquer consulta. 
 
-Abaixo a célula elimina índice com o nome "deptIndex2" e lista os metadados do Hiperespacspace depois disso. A saída deve ser semelhante à célula acima para "List Indexes", com exceção do "deptIndex2", que agora deve ter o seu estatuto alterado para "DELETED".
+No entanto, os ficheiros de índice para um índice eliminado continuam disponíveis (uma vez que é um soft-delete), de modo que o índice pode ser restaurado se o utilizador pedir.
+
+A célula seguinte elimina o índice com o nome "deptIndex2" e lista os metadados do Hiperespacia depois disso. A saída deve ser semelhante à célula acima para "List Indexes", com exceção do "deptIndex2", que agora deve ter o seu estatuto alterado para "DELETED".
 
 :::zone pivot = "programming-language-scala"
 
@@ -602,7 +613,7 @@ Resultados em:
 
 ## <a name="restore-indexes"></a>Restaurar índices
 
-Pode utilizar a API "restoreIndex" para restaurar um índice eliminado. Isto trará de volta a versão mais recente do índice para o status ATIVE e torna-o utilizável novamente para consultas. A célula abaixo mostra um exemplo de utilização "restaurar o Index". Elimina "deptIndex1" e restaura-o. A saída mostra que "deptIndex1" entrou pela primeira vez no estado "DELETED" depois de invocar o comando "deleteIndex" e voltou ao estado "ATIVE" depois de chamar "restoreIndex".
+Pode utilizar a API "restoreIndex" para restaurar um índice eliminado. Isto trará de volta a versão mais recente do índice para o status ATIVE e torna-o utilizável novamente para consultas. A célula que se segue mostra um exemplo de utilização "restaurar o Index". Elimina "deptIndex1" e restaura-o. A saída mostra que "deptIndex1" entrou pela primeira vez no estado "DELETED" depois de invocar o comando "deleteIndex" e voltou ao estado "ATIVE" depois de chamar "restoreIndex".
 
 :::zone pivot = "programming-language-scala"
 
@@ -666,9 +677,9 @@ Resultados em:
 
 ## <a name="vacuum-indexes"></a>Índices de vácuo
 
-Pode executar uma eliminação dura que seja, remover totalmente os ficheiros e a entrada de metadados para um índice eliminado utilizando o comando "vacuumIndex". Uma vez feito, esta ação é irreversível, uma vez que elimina fisicamente todos os ficheiros de índice (razão pela qual é uma eliminação difícil).
+Pode executar uma eliminação dura, isto é, remover completamente os ficheiros e a entrada de metadados para um índice eliminado utilizando o comando **vacuumIndex.** Esta ação é irreversível. Elimina fisicamente todos os ficheiros de índice, e é por isso que é difícil apagar.
 
-A célula abaixo aspira o índice "deptIndex2" e mostra metadados hiperespaciais após aspirar. Deverá ver entradas de metadados para dois índices "deptIndex1" e "empIndex" ambos com estatuto "ATIVE" e sem entrada para "deptIndex2".
+A célula que se segue aspira o índice "deptIndex2" e mostra metadados hiperespaciais após a aspiração. Deverá ver entradas de metadados para dois índices "deptIndex1" e "empIndex" ambos com estatuto "ATIVE" e sem entrada para "deptIndex2".
 
 :::zone pivot = "programming-language-scala"
 
@@ -711,13 +722,14 @@ Resultados em:
 |        empIndex|             [deptId]|             [empName]|`deptId` INT,`emp...|com.microsoft.cha...|30768c6c9b2533004...|Relation[empId#32...|       200|abfss://datasets@...|      ACTIVE|              0|
 ```
 
-## <a name="enabledisable-hyperspace"></a>Ativar/Desativar o Hiperespaço
+## <a name="enable-or-disable-hyperspace"></a>Ativar ou desativar o Hiperespaço
 
 O hiperespaço fornece APIs para ativar ou desativar o uso do índice com o Spark.
 
-Ao utilizar o comando "enableHyperspace", as regras de otimização do Hiperespaço tornam-se visíveis para o otimizador spark e explorarão os índices de Hiperespaço existentes para otimizar as consultas dos utilizadores.
-Ao utilizar o comando "DisableHyperspace", as regras do Hiperespaço já não se aplicam durante a otimização de consultas. Note-se que o hiperespaço não tem impacto nos índices criados, uma vez que permanecem intactos.
-A célula abaixo mostra como pode usar estes comandos para ativar ou desativar o hiperespaço. A saída mostra simplesmente uma referência à sessão spark existente cuja configuração é atualizada.
+* Ao utilizar o comando **enableHyperspace,** as regras de otimização do Hiperespaço tornam-se visíveis para o otimizador de Faíscas e exploram os índices de Hiperespaço existentes para otimizar as consultas dos utilizadores.
+* Ao utilizar o comando **Desativação Do Espaço,** as regras do Hiperespaço já não se aplicam durante a otimização de consultas. O hiperespaço incapacitante não tem impacto nos índices criados porque permanecem intactos.
+
+A célula que se segue mostra como pode utilizar estes comandos para ativar ou desativar o Hiperespaço. A saída mostra uma referência à sessão spark existente cuja configuração é atualizada.
 
 :::zone pivot = "programming-language-scala"
 
@@ -768,9 +780,9 @@ res51: org.apache.spark.sql.Spark™Session = org.apache.spark.sql.SparkSession@
 
 ## <a name="index-usage"></a>Utilização de índices
 
-Para fazer com que o Spark utilize índices de Hiperespaço durante o processamento de consultas, é necessário certificar-se de que o Hiperspace está ativado.
+Para fazer com que o Spark utilize índices de Hiperespaço durante o processamento de consultas, tem de se certificar de que o Hiperspace está ativado.
 
-A célula abaixo ativa o Hiperespaço e cria dois DataFrames contendo os registos de dados da amostra, que utiliza para executar consultas de exemplo. Para cada DataFrame, são impressas algumas linhas de amostra.
+A célula que se segue ativa o Hiperespaço e cria dois DataFrames contendo os registos de dados da amostra, que utiliza para executar consultas de exemplo. Para cada DataFrame, são impressas algumas linhas de amostra.
 
 :::zone pivot = "programming-language-scala"
 
@@ -857,11 +869,11 @@ deptDFrame: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 
 Atualmente, o Hyperspace tem regras para explorar índices para dois grupos de consultas:
 
 * Consultas de seleção com pré-predicados de filtragem de seleção de procura ou de alcance.
-* Junte-se a consultas com uma igualdade junte-se predicado (isto é, Equi-joins).
+* Junte as consultas com uma igualdade junte-se predicado (isto é, equijoins).
 
 ## <a name="indexes-for-accelerating-filters"></a>Índices para acelerar filtros
 
-A primeira consulta de exemplo faz uma procura nos registos do departamento (ver abaixo da célula). Em SQL, esta consulta parece o seguinte:
+O primeiro exemplo de consulta faz uma procura nos registos do departamento, como mostrado na célula seguinte. Em SQL, esta consulta parece o seguinte exemplo:
 
 ```sql
 SELECT deptName
@@ -869,12 +881,12 @@ FROM departments
 WHERE deptId = 20
 ```
 
-A saída de correr a célula abaixo mostra:
+A saída de executar as seguintes células mostra:
 
 * Resultado da consulta, que é um nome de departamento único.
 * Plano de consulta que Spark usou para executar a consulta.
 
-No plano de consulta, o operador "FileScan" na parte inferior do plano mostra a fonte de dados de onde os registos foram lidos. A localização deste ficheiro indica o caminho para a versão mais recente do índice "deptIndex1". Isto mostra que de acordo com a consulta e usando as regras de otimização do Hiperespaço, Spark decidiu explorar o índice adequado em tempo de execução.
+No plano de consulta, o operador **FileScan** na parte inferior do plano mostra a fonte de dados de onde os registos foram lidos. A localização deste ficheiro indica o caminho para a versão mais recente do índice "deptIndex1". Esta informação mostra que de acordo com a consulta e usando as regras de otimização do Hiperespaço, Spark decidiu explorar o índice adequado em tempo de execução.
 
 :::zone pivot = "programming-language-scala"
 
@@ -954,7 +966,7 @@ Project [deptName#534]
    +- *(1) FileScan parquet [deptId#533,deptName#534] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId), EqualTo(deptId,20)], ReadSchema: struct<deptId:int,deptName:string>
 ```
 
-O segundo exemplo é uma consulta de seleção de gama nos registos do departamento. Em SQL, esta consulta parece o seguinte:
+O segundo exemplo é uma consulta de seleção de gama nos registos do departamento. Em SQL, esta consulta parece o seguinte exemplo:
 
 ```sql
 SELECT deptName
@@ -962,7 +974,7 @@ FROM departments
 WHERE deptId > 20
 ```
 
-Semelhante ao primeiro exemplo, a saída da célula abaixo mostra os resultados da consulta (nomes de dois departamentos) e o plano de consulta. A localização do ficheiro de dados no operador fileScan mostra que o 'deptIndex1' foi usado para executar a consulta.
+Semelhante ao primeiro exemplo, a saída da célula seguinte mostra os resultados da consulta (nomes de dois departamentos) e o plano de consulta. A localização do ficheiro de dados no operador **fileScan** mostra que "deptIndex1" foi usado para executar a consulta.
 
 :::zone pivot = "programming-language-scala"
 
@@ -1041,16 +1053,14 @@ Project [deptName#534]
 +- *(1) Filter (isnotnull(deptId#533) && (deptId#533 > 20))
    +- *(1) FileScan parquet [deptId#533,deptName#534] Batched: true, Format: Parquet, Location: InMemoryFileIndex[abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspaceon..., PartitionFilters: [], PushedFilters: [IsNotNull(deptId), GreaterThan(deptId,20)], ReadSchema: struct<deptId:int,deptName:string>
 ```
-
-O terceiro exemplo é uma consulta que junta o departamento e os registos dos funcionários na identificação do departamento. A declaração equivalente sql é mostrada abaixo:
+O terceiro exemplo é uma consulta que junta o departamento e os registos dos funcionários na identificação do departamento. A declaração sql equivalente é mostrada da seguinte forma:
 
 ```sql
 SELECT employees.deptId, empName, departments.deptId, deptName
 FROM   employees, departments
 WHERE  employees.deptId = departments.deptId
 ```
-
-A saída de executar a célula abaixo mostra os resultados da consulta, que são os nomes de 14 funcionários e o nome do departamento em que cada funcionário trabalha. O plano de consulta também está incluído na saída. Note como as localizações dos ficheiros para dois operadores de FileScan mostram que a Spark usou índices "empIndex" e "deptIndex1" para executar a consulta.
+A saída de executar a seguinte célula mostra os resultados da consulta, que são os nomes de 14 funcionários e o nome do departamento em que cada funcionário trabalha. O plano de consulta também está incluído na saída. Note como as localizações dos ficheiros para dois operadores **de FileScan** mostram que a Spark usou índices "empIndex" e "deptIndex1" para executar a consulta.
 
 :::zone pivot = "programming-language-scala"
 
@@ -1165,7 +1175,7 @@ Project [empName#528, deptName#534]
 
 ## <a name="support-for-sql-semantics"></a>Apoio à semântica SQL
 
-A utilização do índice é transparente para saber se utiliza o DataFrame API ou o Spark SQL. O exemplo a seguir mostra o mesmo exemplo de junção como antes, na forma sql, mostrando a utilização de índices se aplicável.
+A utilização do índice é transparente para saber se utiliza o DataFrame API ou o Spark SQL. O exemplo a seguir mostra o mesmo exemplo de junção como antes, na forma SQL, mostrando a utilização de índices se aplicável.
 
 :::zone pivot = "programming-language-scala"
 
@@ -1286,7 +1296,7 @@ Project [empName#528, deptName#534]
 
 ## <a name="explain-api"></a>Explique a API
 
-Os índices são ótimos, mas como sabe se estão a ser usados? O hiperespaço permite que os utilizadores comparem o seu plano original vs o plano dependente de índices atualizado antes de executar a sua consulta. Tem a opção de escolher entre o modo html/plaintext/consola para exibir a saída do comando.
+Os índices são ótimos, mas como sabe se estão a ser usados? O hiperespaço permite que os utilizadores comparem o seu plano original com o plano dependente de índices atualizado antes de executarem a sua consulta. Tem a opção de escolher entre HTML, texto simples ou modo consola para exibir a saída do comando.
 
 A célula que se segue mostra um exemplo com HTML. A secção realçada representa a diferença entre os planos originais e atualizados, juntamente com os índices utilizados.
 
@@ -1367,12 +1377,12 @@ empIndex:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/<container>/i
 
 ## <a name="refresh-indexes"></a>Atualizar índices
 
-Se os dados originais sobre os quais um índice foi criado mudar, então o índice deixará de capturar o estado mais recente dos dados. Pode refrescar um índice tão velho usando o comando "refreshIndex". Isto faz com que o índice seja totalmente reconstruído e atualiza-o de acordo com os registos de dados mais recentes (não se preocupe, vamos mostrar-lhe como atualizar gradualmente o seu índice em outros cadernos).
+Se os dados originais sobre os quais um índice foi criado alterarem, o índice deixará de capturar o estado mais recente dos dados. Pode refrescar um índice velho utilizando o comando **RefreshIndex.** Este comando faz com que o índice seja totalmente reconstruído e atualiza-o de acordo com os registos de dados mais recentes. Vamos mostrar-lhe como refrescar gradualmente o seu índice em outros cadernos.
 
-As duas células abaixo mostram um exemplo para este cenário:
+As duas células que se seguem mostram um exemplo para este cenário:
 
-* A primeira célula adiciona mais dois departamentos aos dados originais dos departamentos. Lê e imprime lista de departamentos para verificar se novos departamentos são adicionados corretamente. A produção mostra seis departamentos no total: quatro antigos e dois novos. Invocando atualizações "refreshIndex" "deptIndex1" para que o índice capture novos departamentos.
-* A segunda célula corre o nosso exemplo de consulta de seleção de alcance. Os resultados devem agora conter quatro departamentos: dois são os que foram vistos antes quando fizemos a consulta acima, e dois são os novos departamentos que acabámos de adicionar.
+* A primeira célula adiciona mais dois departamentos aos dados originais dos departamentos. Lê e imprime uma lista de departamentos para verificar se novos departamentos são adicionados corretamente. A produção mostra seis departamentos no total: quatro antigos e dois novos. Invocando **atualizações Index** "deptIndex1" para que o índice capture novos departamentos.
+* A segunda célula executa o nosso exemplo de consulta de seleção de alcance. Os resultados devem agora conter quatro departamentos: dois são os vistos antes quando fizemos a consulta anterior, e dois são os novos departamentos que adicionámos.
 
 ### <a name="specific-index-refresh"></a>Atualização específica do índice
 

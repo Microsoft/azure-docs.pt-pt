@@ -10,15 +10,15 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/02/2020
 ms.author: erhopf
-ms.custom: devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
+ms.custom: devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-two-with-js
 keywords: reconhecimento de intenção
-ms.openlocfilehash: 1bc8e7da760d1037185aed5ef0538055d5e697f2
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 8380db20ca3c4896aa37222dd5db450c9843b5ab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400998"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283072"
 ---
 # <a name="get-started-with-intent-recognition"></a>Começar com reconhecimento de intenção
 

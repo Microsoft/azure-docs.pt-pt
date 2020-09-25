@@ -1,17 +1,17 @@
 ---
 title: Configurar aplicativos de Node.js
 description: Saiba como configurar uma aplicação Node.js nas instâncias nativas do Windows, ou num recipiente Linux pré-construído, no Azure App Service. Este artigo mostra as tarefas de configuração mais comuns.
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: e6daf176504427c96f8dce0a4e9a6b6d5e999a0a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 48b111966d58af80b6c34fa17231034f4f0cc213
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080118"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311840"
 ---
 # <a name="configure-a-nodejs-app-for-azure-app-service"></a>Configurar um aplicativo de Node.js para o Azure App Service
 
@@ -94,13 +94,13 @@ Se implementar a sua aplicação utilizando pacotes Git ou zip com automatizaç�
 1. Executar script personalizado se especificado por `PRE_BUILD_SCRIPT_PATH` .
 1. Corra `npm install` sem bandeiras, que inclua npm `preinstall` e `postinstall` scripts e também `devDependencies` instala.
 1. Executar `npm run build` se um script de construção for especificado no seupackage.jsligado *.*
-1. Corra `npm run build:azure` se uma escritura de construção:azure for especificada no seupackage.js*em*.
+1. Corra `npm run build:azure` se uma escritura de construção:azure for especificada no seupackage.js* em*.
 1. Executar script personalizado se especificado por `POST_BUILD_SCRIPT_PATH` .
 
 > [!NOTE]
-> Conforme descrito nos [npm docs](https://docs.npmjs.com/misc/scripts), scripts nomeados `prebuild` e `postbuild` executados antes e depois `build` , respectivamente, se especificado. `preinstall`e `postinstall` correr antes e `install` depois, respectivamente.
+> Conforme descrito nos [npm docs](https://docs.npmjs.com/misc/scripts), scripts nomeados `prebuild` e `postbuild` executados antes e depois `build` , respectivamente, se especificado. `preinstall` e `postinstall` correr antes e `install` depois, respectivamente.
 
-`PRE_BUILD_COMMAND`e `POST_BUILD_COMMAND` são variáveis ambientais que estão vazias por defeito. Para executar comandos pré-construção, defina `PRE_BUILD_COMMAND` . Para executar comandos pós-construção, defina `POST_BUILD_COMMAND` .
+`PRE_BUILD_COMMAND` e `POST_BUILD_COMMAND` são variáveis ambientais que estão vazias por defeito. Para executar comandos pré-construção, defina `PRE_BUILD_COMMAND` . Para executar comandos pós-construção, defina `POST_BUILD_COMMAND` .
 
 O exemplo a seguir especifica as duas variáveis a uma série de comandos, separados por vírgulas.
 
@@ -131,7 +131,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-npm-start"></a>Executar npm start
 
-Para iniciar a utilização da sua `npm start` aplicação, certifique-se apenas de que `start` um script está napackage.js*no* ficheiro. Por exemplo:
+Para iniciar a utilização da sua `npm start` aplicação, certifique-se apenas de que `start` um script está napackage.js* no* ficheiro. Por exemplo:
 
 ```json
 {
@@ -144,7 +144,7 @@ Para iniciar a utilização da sua `npm start` aplicação, certifique-se apenas
 }
 ```
 
-Para utilizar umpackage.jspersonalizado *no* seu projeto, execute o seguinte comando na [Cloud Shell](https://shell.azure.com):
+Para utilizar umpackage.jspersonalizado * no* seu projeto, execute o seguinte comando na [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<filename>.json"
@@ -199,7 +199,7 @@ Uma vez terminado com a depuragem, pare o depurante selecionando **Disconnect**.
 
 ## <a name="access-environment-variables"></a>Aceder a variáveis de ambiente
 
-No Serviço de Aplicações, pode [definir definições](configure-common.md) de aplicações fora do seu código de aplicação. Depois pode aceder-lhes usando o padrão de Node.js. Por exemplo, para aceder a uma configuração de aplicação chamada `NODE_ENV` , use o seguinte código:
+No Serviço de Aplicações, pode [configurar as definições da aplicação](configure-common.md) fora do código da aplicação. Depois pode aceder-lhes usando o padrão de Node.js. Por exemplo, para aceder a uma definição da aplicação chamada `NODE_ENV`, utilize o seguinte código:
 
 ```javascript
 process.env.NODE_ENV
@@ -209,7 +209,7 @@ process.env.NODE_ENV
 
 Por predefinição, o Serviço de Aplicações constrói automatização `npm install --production` quando reconhece que uma aplicação Node.js é implementada através da implementação de Git ou Zip com automatização de construção ativada. Se a sua aplicação necessitar de alguma das ferramentas populares de automação, como Grunt, Bower ou Gulp, precisa de fornecer um [script de implementação personalizado](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) para executá-lo.
 
-Para ativar o seu repositório para executar estas ferramentas, precisa adicioná-las às dependências *empackage.js.* Por exemplo:
+Para ativar o seu repositório para executar estas ferramentas, precisa adicioná-las às dependências * empackage.js.* Por exemplo:
 
 ```json
 "dependencies": {
@@ -337,7 +337,7 @@ Quando uma aplicação de Node.js de trabalho se comporta de forma diferente no 
 ::: zone pivot="platform-linux"
 
 > [!div class="nextstepaction"]
-> [Serviço de Aplicações Linux FAQ](faq-app-service-linux.md)
+> [FAQ do Serviço de Aplicações no Linux](faq-app-service-linux.md)
 
 ::: zone-end
 

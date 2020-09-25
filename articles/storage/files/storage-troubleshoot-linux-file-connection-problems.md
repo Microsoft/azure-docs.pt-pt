@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 4044690bf042d05e4efd531826fab6cb5459b3b7
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 0be60208146681135c7502746a271e4e007dc0ea
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707650"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249591"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Problemas de resolução de ficheiros Azure em Linux (SMB)
 
@@ -49,7 +49,7 @@ As causas comuns para este problema são:
 
 ### <a name="solution"></a>Solução
 
-Para resolver o problema, utilize a [ferramenta de resolução de problemas para erros de montagem de Ficheiros Azure no Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). Esta ferramenta:
+Para resolver o problema, utilize a [ferramenta de resolução de problemas para erros de montagem de Ficheiros Azure no Linux](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux). Esta ferramenta:
 
 * Ajuda-o a validar o ambiente de funcionamento do cliente.
 * Deteta a configuração incompatível do cliente que causaria falha de acesso para ficheiros Azure.

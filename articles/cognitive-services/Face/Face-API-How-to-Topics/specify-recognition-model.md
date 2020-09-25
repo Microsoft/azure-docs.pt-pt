@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: longl
 ms.custom: devx-track-csharp
-ms.openlocfilehash: da34c2aa8a178a99f325bef8beb4a7e7685b3cbc
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: d250fc005c5760a3eecc2793d02b6f2a9161e663
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931476"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283042"
 ---
 # <a name="specify-a-face-recognition-model"></a>Especifique um modelo de reconhecimento facial
 
@@ -35,10 +35,11 @@ Continuar a ler Para saber como especificar um modelo selecionado em diferentes 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Deve estar familiarizado com os conceitos de deteção e identificação de rostos de IA. Se não estiver, veja estes guias primeiro:
+Deve estar familiarizado com os conceitos de deteção e identificação de rostos de IA. Se não estiver, consulte estes guias primeiro:
 
+* [Conceitos de deteção de rosto](../concepts/face-detection.md)
+* [Conceitos de reconhecimento facial](../concepts/face-recognition.md)
 * [Como detetar rostos numa imagem](HowtoDetectFacesinImage.md)
-* [Como identificar rostos numa imagem](HowtoIdentifyFacesinImage.md)
 
 ## <a name="detect-faces-with-specified-model"></a>Detetar rostos com modelo especificado
 

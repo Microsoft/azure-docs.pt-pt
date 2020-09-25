@@ -1,7 +1,7 @@
 ---
 title: Suporte linguístico - Bing Web Search API
 titleSuffix: Azure Cognitive Services
-description: Uma lista de línguas naturais, países e regiões que são apoiados pela API bing news search.
+description: Uma lista de línguas naturais, países e regiões que são apoiadas pela API de Pesquisa Web de Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 9425de6e75a9a46d71ff85ce49b0650c8e7a9a16
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: e378bc88d28173eaed0308db3034a54236d63098
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68882679"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262829"
 ---
-# <a name="language-and-region-support-for-the-bing-web-search-api"></a>Suporte de língua e região para a API de pesquisa web bing
+# <a name="language-and-region-support-for-the-bing-web-search-api"></a>Suporte linguístico e regional para a API de Pesquisa Web de Bing
 
-A API bing Web Search suporta mais de três dezenas de países ou regiões, muitos com mais de uma língua. Especificar um país ou região com uma consulta ajuda a refinar os resultados de pesquisa com base nos interesses do país ou das regiões. Os resultados podem incluir ligações ao Bing, e estas ligações podem localizar a experiência do utilizador Bing de acordo com o país/região ou língua especificado.
+A API de Pesquisa Web Bing suporta mais de três dezenas de países ou regiões, muitos com mais de uma língua. Especificar um país ou região com uma consulta ajuda a refinar os resultados da pesquisa com base nesse país ou regiões interesses. Os resultados podem incluir ligações a Bing, e estas ligações podem localizar a experiência do utilizador Bing de acordo com o país/região ou idioma especificado.
 
-Pode especificar um país ou `cc` região utilizando o parâmetro de consulta. Quando um país ou região é especificado, deve especificar um ou mais códigos linguísticos com o [ `Accept-Language` cabeçalho](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Utilize a [tabela Mercados](#markets) para uma lista de línguas suportadas em cada mercado.
+Pode especificar um país ou região utilizando o `cc` parâmetro de consulta. Quando um país ou região é especificado, deve especificar um ou mais códigos linguísticos com o [ `Accept-Language` cabeçalho](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Utilize a [tabela Mercados](#markets) para uma lista de línguas suportadas em cada mercado.
 
-Em alternativa, pode especificar o `mkt` mercado com o parâmetro de consulta e um código da tabela **Mercados.** Especificar um mercado simultaneamente especifica um país ou região e uma língua preferida. Pode definir explicitamente a `setLang` linguagem com o parâmetro de consulta.
+Em alternativa, pode especificar o mercado com o `mkt` parâmetro de consulta e um código da tabela **Mercados.** Especificar um mercado especifica simultaneamente um país ou região e uma língua preferida. Pode definir explicitamente o idioma com o `setLang` parâmetro de consulta.
 
 ## <a name="countriesregions"></a>Países/regiões
 
@@ -40,7 +40,7 @@ Em alternativa, pode especificar o `mkt` mercado com o parâmetro de consulta e 
 |Finlândia|FI|
 |França|FR|
 |Alemanha|DE|
-|RAE de Hong Kong|HK|
+|R.A.E. de Hong Kong|HK|
 |Índia|IN|
 |Indonésia|ID|
 |Itália|TI|
@@ -64,14 +64,14 @@ Em alternativa, pode especificar o `mkt` mercado com o parâmetro de consulta e 
 |Taiwan|TW|
 |Turquia|TR|
 |Reino Unido|GB|
-|Estados Unidos|EUA|
+|Estados Unidos da América|EUA|
 
 ## <a name="markets"></a>Mercados
 
-|Pais/região|Idioma|Código de Mercado|
+|Pais/região|Linguagem|Código de Mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
-|Austrália|Inglês|en-UA|
+|Austrália|Inglês|en-AU|
 |Áustria|Alemão|de-AT|
 |Bélgica|Neerlandês|nl-BE|
 |Bélgica|Francês|fr-BE|
@@ -83,7 +83,7 @@ Em alternativa, pode especificar o `mkt` mercado com o parâmetro de consulta e 
 |Finlândia|Finlandês|fi-FI|
 |França|Francês|fr-FR|
 |Alemanha|Alemão|de-DE|
-|RAE de Hong Kong|Chinês Tradicional|zh-HK|
+|R.A.E. de Hong Kong|Chinês Tradicional|zh-HK|
 |Índia|Inglês|en-IN|
 |Indonésia|Inglês|en-ID|
 |Itália|Italiano|it-IT|
@@ -108,8 +108,8 @@ Em alternativa, pode especificar o `mkt` mercado com o parâmetro de consulta e 
 |Taiwan|Chinês Tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
 |Reino Unido|Inglês|en-GB|
-|Estados Unidos|Inglês|pt-PT|
-|Estados Unidos|Espanhol|es-EUA|
+|Estados Unidos da América|Inglês|pt-PT|
+|Estados Unidos da América|Espanhol|es-EUA|
 
 ## <a name="next-steps"></a>Passos seguintes
 

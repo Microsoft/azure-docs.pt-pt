@@ -10,19 +10,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/10/2018
+ms.date: 09/24/2020
 ms.author: duau
-ms.openlocfilehash: ee9a883cbd69826e30d6f2416d588792a8c17b1c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ebc0ee2e029e1f349972e3cd7fada46495534d54
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648812"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252413"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Tutorial: Adicionar um domínio personalizado ao Front Door
 Neste tutorial, ficará a saber como adicionar um domínio personalizado ao Front Door. Quando utiliza a Porta Frontal Azure para a entrega da aplicação, é necessário um domínio personalizado se quiser que o seu próprio nome de domínio seja visível no seu pedido de utilizador final. Ter um nome de domínio visível pode ser conveniente para os seus clientes e útil para fins de imagem corporativa.
 
-Depois de criar um Front Door, o anfitrião de front-end predefinido, que é um subdomínio de `azurefd.net`, é incluído no URL para entregar conteúdos do Front Door a partir do seu back-end por predefinição (por exemplo, https:\//contoso.azurefd.net/activeusers.htm). Para sua comodidade, o Azure Front Door oferece a opção de associar um domínio personalizado ao anfitrião predefinido. Com esta opção, os seus conteúdos são entregues com um domínio personalizado no seu URL em vez de um nome de domínio pertencente ao Front Door (por exemplo, https:\//www.contoso.com/photo.png). 
+Depois de criar uma Porta frontal, o anfitrião frontal predefinido, que é uma subdomínio de `azurefd.net` , está incluído no URL para entregar o conteúdo da Porta Frontal a partir do seu backend por padrão (por exemplo, https: \/ /contoso-frontend.azurefd.net/activeusers.htm). Para sua comodidade, o Azure Front Door oferece a opção de associar um domínio personalizado ao anfitrião predefinido. Com esta opção, os seus conteúdos são entregues com um domínio personalizado no seu URL em vez de um nome de domínio pertencente ao Front Door (por exemplo, https:\//www.contoso.com/photo.png). 
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -46,7 +46,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="create-a-cname-dns-record"></a>Criar um registo DNS CNAME
 
-Antes de utilizar um domínio personalizado com a porta da frente, tem primeiro de criar um registo de nome canónico (CNAME) com o seu fornecedor de domínio para apontar para o anfitrião frontal da porta da frente (digamos contoso.azurefd.net). Um registo CNAME é um tipo de registo DNS que mapeia um nome de domínio de origem para um nome de domínio de destino. Para a porta frontal Azure, o nome de domínio de origem é o seu nome de domínio personalizado e o nome de domínio de destino é o nome de anfitrião padrão da porta frontal. Depois de a Porta Frontal verificar o registo CNAME que cria, o tráfego dirigido ao domínio personalizado de origem (como www \. contoso.com) é encaminhado para o anfitrião frontal de destino especificado (como contoso.azurefd.net). 
+Antes de utilizar um domínio personalizado com a porta da frente, tem primeiro de criar um registo de nome canónico (CNAME) com o seu fornecedor de domínio para apontar para o anfitrião frontal da porta da frente (digamos contoso.azurefd.net). Um registo CNAME é um tipo de registo DNS que mapeia um nome de domínio de origem para um nome de domínio de destino. Para a porta frontal Azure, o nome de domínio de origem é o seu nome de domínio personalizado e o nome de domínio de destino é o nome de anfitrião padrão da porta frontal. Depois de a Porta Frontal verificar o registo CNAME que cria, o tráfego dirigido ao domínio personalizado de origem (como www \. contoso.com) é encaminhado para o anfitrião frontal de destino especificado (como contoso-frontend.azurefd.net). 
 
 Um domínio personalizado e o seu subdomínio podem ser associados apenas a uma única porta frontal de cada vez. No entanto, pode utilizar subdomínios diferentes do mesmo domínio personalizado para diferentes Portas Frontais utilizando vários registos CNAME. Também pode mapear um domínio personalizado com subdomínios diferentes para a mesma Porta frontal.
 
@@ -67,13 +67,13 @@ Para criar um registo CNAME com o subdomínio afdverify:
 
     | Origem                    | Tipo  | Destino                     |
     |---------------------------|-------|---------------------------------|
-    | afdverify.www.contoso.com | CNAME | afdverify.contoso.azurefd.net |
+    | afdverify.www.contoso.com | CNAME | afdverify.contoso-frontend.azurefd.net |
 
     - Fonte: Introduza o seu nome de domínio personalizado, incluindo o subdomínio afdverify, no seguinte formato: afdverify. _ &lt; nome &gt; de domínio personalizado_. Por exemplo, afdverify.www.contoso.com.
 
     - Type (Tipo): introduza *CNAME*.
 
-    - Destino: Introduza o anfitrião frontal padrão, incluindo o subdomínio afdverify, no seguinte formato: afdverify. _ &lt; nome &gt; de ponto final_.azurefd.net. Por exemplo, afdverify.contoso.azurefd.net.
+    - Destino: Introduza o anfitrião frontal padrão, incluindo o subdomínio afdverify, no seguinte formato: afdverify. _ &lt; nome &gt; de ponto final_.azurefd.net. Por exemplo, afdverify.contoso-frontend.azurefd.net.
 
 4. Guarde as alterações.
 
@@ -93,7 +93,7 @@ Por exemplo, o procedimento para a entidade de registo de domínios GoDaddy é o
 
     - Anfitrião: introduza o subdomínio do domínio personalizado que vai utilizar, incluindo o nome de subdomínio afdverify. Por exemplo, afdverify.www.
 
-    - Aponta para: introduza o nome do seu anfitrião de front-end do Front Door predefinido, incluindo o nome de subdomínio afdverify. Por exemplo, afdverify.contoso.azurefd.net. 
+    - Aponta para: introduza o nome do seu anfitrião de front-end do Front Door predefinido, incluindo o nome de subdomínio afdverify. Por exemplo, afdverify.contoso-frontend.azurefd.net. 
 
     - TTL: Deixe *uma hora* selecionada.
 
@@ -144,13 +144,13 @@ Para criar um registo CNAME para o domínio personalizado:
 
     | Origem          | Tipo  | Destino           |
     |-----------------|-------|-----------------------|
-    | <www.contoso.com> | CNAME | contoso.azurefd.net |
+    | <www.contoso.com> | CNAME | contoso-frontend.azurefd.net |
 
    - Fonte: Introduza o seu nome de domínio personalizado (por exemplo, www \. contoso.com).
 
    - Type (Tipo): introduza *CNAME*.
 
-   - Destino: introduza o anfitrião de front-end do Front Door predefinido. Deve estar no seguinte formato:_ &lt; nome de anfitrião &gt; _.azurefd.net. Por exemplo, contoso.azurefd.net.
+   - Destino: introduza o anfitrião de front-end do Front Door predefinido. Deve estar no seguinte formato:_ &lt; nome de anfitrião &gt; _.azurefd.net. Por exemplo, contoso-frontend.azurefd.net.
 
 4. Guarde as alterações.
 

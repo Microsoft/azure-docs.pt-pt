@@ -9,16 +9,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 86b15b0059c2e3466ef65daeb53780798b3882d0
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c959231826125349ecd6a62afe529248f7ac2eec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079256"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326801"
 ---
 # <a name="form-recognizer-encryption-of-data-at-rest"></a>Encriptação do Reconhecimento de Formulários de Dados em repouso
 
-O Azure Form Recogniser encripta automaticamente os seus dados quando os persiste na nuvem. A encriptação Do Reconhecimento de Formulários protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e de conformidade.
+O Azure Form Recogniser encripta automaticamente os seus dados ao persistência na nuvem. A encriptação Do Reconhecimento de Formulários protege os seus dados para o ajudar a cumprir os seus compromissos de segurança organizacional e de conformidade.
 
 [!INCLUDE [cognitive-services-about-encryption](../includes/cognitive-services-about-encryption.md)]
 

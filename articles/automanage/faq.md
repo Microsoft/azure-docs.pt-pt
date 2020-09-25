@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: ed97f7861f5dd959fd41ac22b4e497f492dbc3a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fa24c0db398c4c799d218ff5e8ec8e3d3e321742
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940172"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311551"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Perguntas frequentes para Azure Automanage para VMs
 
@@ -36,7 +36,9 @@ São os seguintes pré-requisitos para permitir a auto-produção da Azure:
 
 **Que permissão do RBAC é necessária para permitir a auto-produção?**
 
-Os utilizadores devem ter a função proprietário. Em alternativa, os utilizadores podem ter a função de Contribuinte juntamente com a função de Administrador de Acesso ao Utilizador para aplicar a Automanage.
+Se estiver a ativar a auto-gestão num VM com uma Conta de Auto-gestão existente, precisa de uma função de Contribuinte para o Grupo de Recursos onde reside o VM. 
+
+Se estiver a utilizar uma nova Conta de Autoadministração ao habilitar, os utilizadores devem ter a função De Proprietário ou ter função de Administrador de Acesso ao Utilizador + para a subscrição.
 
 
 **Que regiões são apoiadas?**
@@ -82,6 +84,11 @@ Sim, temos uma política incorporada que aplicará automaticamente a Automanage 
 **O que é uma conta de auto-produção?**
 
 A Conta De Gestão Automática é um MSI (Identidade de Serviço Gerido) que fornece o contexto de segurança ou a identidade sob a qual ocorrem as operações automatizadas.
+
+
+**Ao ativar a auto-produção, tem impacto em VMs adicionais para além dos VM(s) que selecionei?**
+
+Se o seu VM estiver ligado a um espaço de trabalho log analytics existente, reutilizaremos esse espaço de trabalho para aplicar estas soluções: Change Tracking, Inventory e Update Management. Todos os VMs ligados a esse espaço de trabalho terão essas soluções ativadas. 
 
 
 **Posso alterar o perfil de configuração do meu VM?**

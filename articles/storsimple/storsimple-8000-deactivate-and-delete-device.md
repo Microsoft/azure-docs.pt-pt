@@ -1,6 +1,6 @@
 ---
 title: Desativar e apagar um dispositivo da série StorSimple 8000 Microsoft Docs
-description: Descreve como remover o dispositivo StorSimple do serviço, desativando-o primeiro e depois eliminando-o.
+description: Saiba como desativar e eliminar um dispositivo StorSimple que esteja ligado a um serviço StorSimple Device Manager.
 services: storsimple
 documentationcenter: ''
 author: alkohli
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 825a10bec7a9d415bdcf76e5b6f28f04060bb411
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64163011506380eec87457a2d8a2f699ec56dc68
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514031"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249642"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Desativar e eliminar um dispositivo StorSimple
 
@@ -100,7 +100,7 @@ Se estiver interessado em eliminar o dispositivo mas quiser reter os dados, ent�
        ![Dispositivo StorSimple desativado](./media/storsimple-8000-deactivate-and-delete-device/deactivate6.png)
    3. Depois de a eliminação estar concluída com sucesso, é notificado. A lista de dispositivos também atualiza para refletir a eliminação.
 
-## <a name="deactivate-and-delete-a-cloud-appliance"></a>Desativar e apagar um aparelho em nuvem
+## <a name="deactivate-and-delete-a-cloud-appliance"></a>Desativar e eliminar uma aplicação da cloud
 
 Para um StorSimple Cloud Appliance, a desativação do portal desativa e elimina a máquina virtual, bem como os recursos criados quando foi a provisionado. Depois de a aplicação da cloud ter sido desativada, não é possível restaurá-la para o estado anterior.
 
@@ -116,7 +116,7 @@ A desativação resulta nas seguintes ações:
 
 Depois de desativar o aparelho em nuvem, pode eliminá-lo da lista de dispositivos. Selecione o dispositivo desativado, clique à direita e, em seguida, clique em **Eliminar**. O StorSimple notifica-o assim que o dispositivo for eliminado e a lista de atualizações dos dispositivos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para restaurar o dispositivo desativado para as falhas de fábrica, vá [para redefinir o dispositivo para as definições predefinidos da fábrica](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 * Para assistência técnica, [contacte o Microsoft Support](storsimple-8000-contact-microsoft-support.md).

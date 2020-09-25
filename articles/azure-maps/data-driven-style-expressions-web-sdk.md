@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: ea88797a6423118cba40d117a37dc9df75b0b7a1
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: codepen, devx-track-js
+ms.openlocfilehash: 539145836849bb66bcf1f12a97ea405fe84c47bd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089450"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311381"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressões de estilo orientadas por dados (Web SDK)
 
@@ -98,6 +98,8 @@ As expressões de dados fornecem acesso aos dados da propriedade numa funcionali
 | `['length', string | array]` | número | Obtém o comprimento de uma corda ou de uma matriz. |
 | `['in', boolean | string | number, array]` | boolean | Determina se um item existe numa matriz |
 | `['in', substring, string]` | boolean | Determina se um sub-adupe existe numa cadeia |
+| `['index-of', boolean | string | number, array | string]`<br/><br/>`['index-of', boolean | string | number, array | string, number]` | número | Retorna a primeira posição na qual um item pode ser encontrado numa matriz ou um sublpemento pode ser encontrado numa cadeia, ou `-1` se a entrada não puder ser encontrada. Aceita um índice opcional de onde iniciar a pesquisa. |
+| `['slice', array | string, number]`<br/><br/>`['slice', array | string, number, number]` | `string`\|matriz | Devolve um item de uma matriz ou de um sub-cordão a partir de uma cadeia a partir de um índice de início especificado, ou entre um índice inicial e um índice final se definido. O valor de retorno é inclusivo do índice inicial, mas não do índice final. |
 
 **Exemplos**
 
@@ -151,8 +153,11 @@ Aqui estão alguns exemplos adicionais de como usar expressões de dados:
 //Get item [0][1] from a 2D array "properties.array2d[0][1]" = "b"
 ['at', 1, ['at', 0, ['get', 'array2d']]]
 
-//Check to see if a value is in an array property "properties.abcArray.indexOf('a') !== -1" = true
+//Check to see if a value is in an array "properties.abcArray.indexOf('a') !== -1" = true
 ['in', 'a', ['get', 'abcArray']]
+
+//Gets the index of the value 'b' in an array "properties.abcArray.indexOf('b')" = 1
+['index-of', 'b', ['get', 'abcArray']]
 
 //Get the length of an array "properties.abcArray.length" = 3
 ['length', ['get', 'abcArray']]
@@ -162,6 +167,12 @@ Aqui estão alguns exemplos adicionais de como usar expressões de dados:
 
 //Check that "fillColor" exists as a subproperty of "_style".
 ['has', 'fillColor', ['get', '_style']]
+
+//Slice an array starting at index 2 "properties.abcArray.slice(2)" = ['c']
+['slice', ['get', 'abcArray'], 2]
+
+//Slice a string from index 0 to index 4 "properties.entityType.slice(0, 4)" = 'rest'
+['slice', ['get', 'entityType'], 0, 4]
 ```
 
 ## <a name="math-expressions"></a>Expressões matemáticas
@@ -225,8 +236,8 @@ Ao comparar valores, a comparação é estritamente dactilografada. Valores de d
 
 | Expression | Tipo de retorno | Description |
 |------------|-------------|-------------|
-| `['! ', boolean]` | boolean | Negação lógica. Retorna `true` se a entrada for , e se a entrada for `false` `false` `true` . |
-| `['!= ', value, value]` | boolean | Retorna `true` se os valores de entrada não forem iguais, `false` caso contrário. |
+| `['!', boolean]` | boolean | Negação lógica. Retorna `true` se a entrada for , e se a entrada for `false` `false` `true` . |
+| `['!=', value, value]` | boolean | Retorna `true` se os valores de entrada não forem iguais, `false` caso contrário. |
 | `['<', value, value]` | boolean | Devoluções `true` se a primeira entrada for estritamente inferior à segunda, caso `false` contrário. Os argumentos são necessários para ser ambas as cordas ou ambos os números. |
 | `['<=', value, value]` | boolean | Devoluções `true` se a primeira entrada for inferior ou igual à segunda, `false` caso contrário. Os argumentos são necessários para ser ambas as cordas ou ambos os números. |
 | `['==', value, value]` | boolean | Retorna `true` se os valores de entrada forem iguais, `false` caso contrário. Os argumentos são necessários para ser ambas as cordas ou ambos os números. |

@@ -4,16 +4,16 @@ description: Aprenda a adicionar uma camada de azulejos a um mapa. Veja um exemp
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 04/26/2019
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: bae1d06f1b5a96ad99d970613d957ce75a0c1393
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 905085d5b0787697d6094bd1337420ee8ae61d90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037359"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311094"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Adicione uma camada de azulejo a um mapa usando o Azure Maps Android SDK
 
@@ -30,12 +30,12 @@ Uma camada de azulejos carrega em azulejos de um servidor. Estas imagens podem s
 
 O URL de azulejos passados para uma camada de azulejos deve ser um URL http/https para um recurso TileJSON ou um modelo de URL de azulejos que utiliza os seguintes parâmetros: 
 
-* `{x}`- X posição do azulejo. Também precisa `{y}` `{z}` e. .
-* `{y}`- Posição Y do azulejo. Também precisa `{x}` `{z}` e. .
-* `{z}`- Zoom nível do azulejo. Também precisa `{x}` `{y}` e. .
-* `{quadkey}`- Identificador de azulejos de azulejos baseado na convenção de nomeação do sistema de azulejos Bing Maps.
-* `{bbox-epsg-3857}`- Uma cadeia de caixa de limitação com o formato `{west},{south},{east},{north}` no Sistema de Referência Espacial EPSG 3857.
-* `{subdomain}`- Um espaço reservado para os valores do subdomínio, se o valor do subdomínio for especificado.
+* `{x}` - X posição do azulejo. Também precisa `{y}` `{z}` e. .
+* `{y}` - Posição Y do azulejo. Também precisa `{x}` `{z}` e. .
+* `{z}` - Zoom nível do azulejo. Também precisa `{x}` `{y}` e. .
+* `{quadkey}` - Identificador de azulejos de azulejos baseado na convenção de nomeação do sistema de azulejos Bing Maps.
+* `{bbox-epsg-3857}` - Uma cadeia de caixa de limitação com o formato `{west},{south},{east},{north}` no Sistema de Referência Espacial EPSG 3857.
+* `{subdomain}` - Um espaço reservado para os valores do subdomínio, se o valor do subdomínio for especificado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

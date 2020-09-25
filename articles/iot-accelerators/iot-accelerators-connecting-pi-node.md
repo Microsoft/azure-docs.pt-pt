@@ -8,13 +8,13 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dobett
-ms.custom: mqtt, devx-track-javascript
-ms.openlocfilehash: 0cc576c1fe4ef9d952a616f1d5daed38d0b4b922
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mqtt, devx-track-js
+ms.openlocfilehash: 46f8f811e7d1a019fa332cd289892d110531c84d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423223"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261554"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Ligue o seu dispositivo Raspberry Pi ao acelerador de solução de monitorização remota (Node.js)
 
@@ -95,7 +95,7 @@ Complete os seguintes passos utilizando `ssh` a ligação ao seu Raspberry Pi:
 
 1. Na `remotemonitoring` pasta, crie um ficheiro chamado **remote_monitoring.js**. Abra este ficheiro num editor de texto. No Raspberry Pi, você pode usar os `nano` editores ou `vi` editores de texto.
 
-1. No ficheiro **remote_monitoring.js,** adicione as `require` seguintes declarações:
+1. No ficheiro **remote_monitoring.js, ** adicione as `require` seguintes declarações:
 
     ```javascript
     var Protocol = require('azure-iot-device-mqtt').Mqtt;

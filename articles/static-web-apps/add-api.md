@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 4dd253aa5dc1b8b89b1b387a555dde416c601f9c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: devx-track-js
+ms.openlocfilehash: c84367a5e3ab57090f59196e8474c14cba87f32b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691501"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250152"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicione uma API a Azure Static Web Apps Preview com Funções Azure
 
@@ -257,7 +257,7 @@ Em seguida, adicione os seguintes detalhes de construção.
 
     :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Acesso url de aplicativo estático a partir do portal Azure":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não quiser manter esta aplicação para posterior utilização, pode utilizar os seguintes passos para eliminar a App Web Estática Azure e os seus recursos relacionados.
 

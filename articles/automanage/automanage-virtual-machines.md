@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 8e48a5c896c4927b82f7d77f31b7f1c47fd156c5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 089cf07854f1f29eda7028db614edb1028e5d66a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940861"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311568"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage para máquinas virtuais
 
@@ -43,12 +43,11 @@ Existem vários pré-requisitos a considerar antes de tentar ativar a auto-produ
 
 - Apenas VMs do Servidor windows
 - Os VMs devem estar a funcionar
-- VMs definidos não escala apenas
 - Os VMs devem estar numa região apoiada
 - O utilizador deve ter permissões corretas
 - Os VMs não devem ligar-se a um espaço de trabalho de análise de registo numa subscrição diferente
 
-É necessária a seguinte permissão RBAC para permitir a autoadministração: Função **de proprietário** ou **colaborador,** juntamente com as funções **de Administrador de Acesso ao Utilizador.**
+É necessário ter a função **Contribuinte** para permitir a auto-produção utilizando uma Conta de Automanagem existente. Se estiver a ativar a Automanage com uma nova Conta de Autoadministração, precisa das seguintes permissões: Função **de proprietário** ou **colaborador,** juntamente com as funções **de Administrador de Acesso ao Utilizador.**
 
 É igualmente importante notar que a Automanage apenas suporta vMs Windows localizados nas seguintes regiões: Europa Ocidental, Leste dos EUA, Eua Ocidental 2, Canadá Central, Centro Ocidental DOS EUA.
 
@@ -105,7 +104,7 @@ A Conta De Auto-Produção é o contexto de segurança ou a identidade em que oc
 Na experiência do portal Azure, quando está a permitir a auto-managem nos seus VMs, existe uma queda avançada na lâmina **de boas práticas enable Azure VM** que lhe permite atribuir ou criar manualmente a Conta de Auto-managem.
 
 > [!NOTE]
-> É necessária a seguinte permissão RBAC para permitir a autoadministração: Função **de proprietário** ou **colaborador,** juntamente com as funções **de Administrador de Acesso ao Utilizador.**
+> É necessário ter a função **Contribuinte** para permitir a auto-produção utilizando uma Conta de Automanagem existente. Se estiver a ativar a Automanage com uma nova Conta de Autoadministração, precisa das seguintes permissões: Função **de proprietário** ou **colaborador,** juntamente com as funções **de Administrador de Acesso ao Utilizador.**
 
 
 ## <a name="status-of-vms"></a>Estatuto dos VM

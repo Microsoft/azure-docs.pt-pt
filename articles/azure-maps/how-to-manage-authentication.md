@@ -5,16 +5,16 @@ description: Familiarize-se com a autenticação do Azure Maps. Veja qual a abor
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 8fc27ea4de7e81f1279f68d2e4a1a7fde1fcf41f
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3383971b9984e6f565feebc3bdfb968fb77cbe85
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037342"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91311109"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gerir a autenticação em Azure Maps
 
@@ -43,7 +43,7 @@ A tabela que se segue descreve cenários comuns de autenticação e autorizaçã
 > [!IMPORTANT]
 > A Microsoft recomenda a implementação do Azure Ative Directory (Azure AD) com controlo de acesso baseado em funções (RBAC) para aplicações de produção.
 
-| Scenario                                                                                    | Autenticação | Autorização | Esforço de desenvolvimento | Esforço operacional |
+| Cenário                                                                                    | Autenticação | Autorização | Esforço de desenvolvimento | Esforço operacional |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
 | [Aplicação de cliente fidedigna de daemon /não-interativa](./how-to-secure-daemon-app.md)        | Chave Partilhada     | N/D           | Médio             | Alto               |
 | [Aplicação de cliente fidedigna de daemon /não-interativa](./how-to-secure-daemon-app.md)        | Azure AD       | Alto          | Baixo                | Médio             |

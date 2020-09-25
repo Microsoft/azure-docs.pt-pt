@@ -5,20 +5,23 @@ description: Começar com a Azure Cognitive Services criando e subscrevendo um r
 services: cognitive-services
 author: aahill
 manager: nitinme
+keywords: serviços cognitivos, inteligência cognitiva, soluções cognitivas, serviços ai
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: 079ab59652c9ba709d8476c33a538b1d4a9f4846
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 623982826f82e44b8d031d19002d33e0a8e798bd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907015"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326869"
 ---
-# <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Criar um recurso de Serviços Cognitivos utilizando o portal Azure
+# <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>Quickstart: Criar um recurso de Serviços Cognitivos utilizando o portal Azure
 
 Utilize este quickstart para começar a utilizar os Serviços Cognitivos Azure. Depois de criar um recurso de Serviço Cognitivo no portal Azure, você receberá um ponto final e uma chave para autenticar as suas aplicações.
+
+Os Azure Cognitive Services são serviços de base na nuvem com APIs rest, e SDKs da biblioteca de clientes disponíveis para ajudar os desenvolvedores a construir inteligência cognitiva em aplicações sem ter inteligência artificial direta (IA) ou habilidades ou conhecimentos de ciência de dados. O Azure Cognitive Services permite que os desenvolvedores adicionem facilmente funcionalidades cognitivas nas suas aplicações com soluções cognitivas que podem ver, ouvir, falar, entender e até começar a raciocinar.
 
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
@@ -60,6 +63,7 @@ Utilize este quickstart para começar a utilizar os Serviços Cognitivos Azure. 
     | [Face](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace)                    |                         | [Criador de FAQ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)                     | [Personalizador](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)     | [Pesquisa de Entidades do Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingEntitySearch) |
     | [Reconhecedor de Tinta Digital](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Análise de Texto](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Assistente de Métricas](https://go.microsoft.com/fwlink/?linkid=2142156)                    | [Verificação Ortográfica do Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
     |           |                         | [Tradutor](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Sugestão Automática do Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
+
     ***
 
 3. Na página **Criar,** forneça as seguintes informações:
@@ -74,7 +78,7 @@ Utilize este quickstart para começar a utilizar os Serviços Cognitivos Azure. 
     | **Escalão de preço** | O custo da sua conta de Serviços Cognitivos depende das opções que escolher e da sua utilização. Para mais informações, consulte os [detalhes dos preços da](https://azure.microsoft.com/pricing/details/cognitive-services/)API.
     | **Grupo de recursos** | O grupo de recursos Azure que conterá o seu recurso de Serviços Cognitivos. Pode criar um novo grupo ou adicioná-lo a um grupo pré-existente. |
 
-    ![Tela de criação de recursos](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
+    ![Tela de criação de recursos multi-serviço](media/cognitive-services-apis-create-account/resource_create_screen-multi.png)
 
     Clique em **Create** (Criar).
 
@@ -88,7 +92,7 @@ Utilize este quickstart para começar a utilizar os Serviços Cognitivos Azure. 
     | **Escalão de preço** | O custo da sua conta de Serviços Cognitivos depende das opções que escolher e da sua utilização. Para mais informações, consulte os [detalhes dos preços da](https://azure.microsoft.com/pricing/details/cognitive-services/)API.
     | **Grupo de recursos** | O grupo de recursos Azure que conterá o seu recurso de Serviços Cognitivos. Pode criar um novo grupo ou adicioná-lo a um grupo pré-existente. |
 
-    ![Tela de criação de recursos únicos](media/cognitive-services-apis-create-account/resource_create_screen.png)
+    ![Tela de criação de recursos de serviço único](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
     Clique em **Create** (Criar).
 

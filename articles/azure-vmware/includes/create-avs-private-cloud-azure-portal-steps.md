@@ -2,14 +2,16 @@
 title: Implementar Solução VMware Azure
 description: Passos para implementar a Solução VMware Azure utilizando o portal Azure.
 ms.topic: include
-ms.date: 09/07/2020
-ms.openlocfilehash: bd839cf81e6f28f2db973a0dd604ba241caf2128
-ms.sourcegitcommit: 8791f69d44150767807d215cafc4076f3ed43f9f
+ms.date: 09/21/2020
+ms.openlocfilehash: 4fa2925cf284871c4a168d2b69d4fbd3a81de878
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512380"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254649"
 ---
+<!-- Used in avs-deployment.md and tutorial-create-private-cloud.md -->
+
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. **Selecione Criar um novo recurso.** No **tipo de** caixa de texto `Azure VMware Solution` Marketplace, e selecione **Azure VMware Solution** da lista. Na janela **Azure VMware Solution,** selecione **Criar**

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
-ms.openlocfilehash: d09f13a65a72c6c856a7fcd3d943ec116f3da43f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f60b62faa36352ab1221b23332fca695f32a3d74
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76721868"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250645"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Referência rápida para um pipeline de dados automático para predições do Azure Machine Learning
 A **ficha de batota automatizada do pipeline de dados microsoft Azure Machine Learning** ajuda-o a navegar através da tecnologia que pode utilizar para levar os seus dados ao seu serviço web Machine Learning, onde pode ser pontuado pelo seu modelo de análise preditiva.
@@ -35,7 +35,6 @@ Descarregue a folha de batota aqui: ** [Microsoft Azure Machine Learning ficha d
 
 
 ## <a name="more-help-with-machine-learning-studio"></a>Mais ajuda no Machine Learning Studio
-* Para uma visão geral do Microsoft Azure Machine Learning, consulte [Introdução à aprendizagem automática no Microsoft Azure](../studio/what-is-machine-learning.md).
-* Para obter uma explicação de como implementar um serviço web de pontuação, consulte [implementar um serviço web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
-* Para uma discussão sobre como consumir um serviço web de pontuação, consulte [Como consumir um serviço Web de Aprendizagem automática Azure](../studio/consume-web-services.md).
-
+* Para uma visão geral do Microsoft Azure Machine Learning, consulte [Introdução à aprendizagem automática no Microsoft Azure](../classic/index.yml).
+* Para obter uma explicação de como implementar um serviço web de pontuação, consulte [implementar um serviço web Azure Machine Learning](../classic/deploy-a-machine-learning-web-service.md).
+* Para uma discussão sobre como consumir um serviço web de pontuação, consulte [Como consumir um serviço Web de Aprendizagem automática Azure](../classic/consume-web-services.md).

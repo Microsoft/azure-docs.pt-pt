@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: e7e7845b458d6d1a37b65fb79e0e7e9c13b0d07d
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 512f901c33ebce4fef06629fe78976a071820c87
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646931"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251444"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
@@ -72,7 +72,7 @@ Escolha um ou ambos os seguintes ambientes de script para ajudar a gerir a sua a
 
 Recomendamos adicionar as seguintes ferramentas ao seu ambiente de desenvolvimento:
 
-* [Explorador de Armazenamento do Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Explorador do Storage do Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Código do Estúdio Visual](https://code.visualstudio.com/) com as seguintes extensões:
     * Extensão: [Ferramentas do gestor de recursos Azure](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     * Extensão: [Embelezamento](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
@@ -188,7 +188,7 @@ Aqui está um exemplo de como a informação de oferta aparece no Azure Marketpl
 5. Endereço de política de privacidade (link)
 6. Nome da oferta
 7. Resumo
-8. Descrição
+8. Description
 9. Screenshots/vídeos
 
 <br>Aqui está um exemplo de como a oferta de informação aparece no portal Azure:
@@ -214,7 +214,7 @@ Forneça uma breve descrição da sua oferta, até 100 caracteres. Esta descriç
 
 Forneça uma descrição mais longa da sua oferta, até 256 caracteres. Esta descrição pode ser utilizada nos resultados da pesquisa.
 
-#### <a name="description"></a>Descrição
+#### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -559,7 +559,7 @@ Para permitir que a Unidade de Teste seja implantada em seu nome, crie e forneç
 * **ID do inquilino Azure AD** (obrigatório) – Insira o seu ID do inquilino Azure Ative [(AD).](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Para encontrar este ID, inscreva-se no [portal Azure](https://portal.azure.com/), selecione o separador Ative Directory no menu esquerdo, selecione **Propriedades**, em seguida, procure o número de ID do **diretório** listado (como 50c464d3-4930-494c-963c-1e951d15360e). Também pode procurar o ID do inquilino da sua organização usando o seu url de nome de domínio em:  [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 * **Nome do inquilino Azure AD** (obrigatório para Dynamic 365) – Insira o seu nome Azure Ative Directory (AD). Para encontrar este nome, inscreva-se no [portal Azure,](https://portal.azure.com/)no canto superior direito o nome do seu inquilino será listado no nome da sua conta.
 * **ID da aplicação AD AZure** (obrigatório) – Introduza o ID da aplicação Azure Ative [(AD).](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Para encontrar este ID, inscreva-se no [portal Azure](https://portal.azure.com/), selecione o separador Ative Directory no menu de navegação à esquerda, selecione **registos de aplicações**, em seguida, procure o número **de ID da aplicação** listado (como 50c464d3-4930-494c-963c-1e951d15360e).
-* **Azure Ative Directory application cliente secret** (obrigatório) – Insira o [segredo do seu cliente de](../../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)aplicação Azure AD). Para encontrar este valor, inscreva-se no [portal Azure](https://portal.azure.com/). Selecione o separador **Azure Ative Directory** no menu de navegação à esquerda, selecione **registos de Aplicações**e, em seguida, selecione a sua aplicação de test drive. Em seguida, selecione **Certificados e segredos**, selecione **Novo segredo de cliente,** introduza uma descrição, selecione **Nunca** em **Expiração,** em seguida, escolha **Adicionar**. Certifique-se de copiar o valor antes de sair desta página.)
+* **Azure Ative Directory application cliente secret** (obrigatório) – Insira o [segredo do seu cliente de](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)aplicação Azure AD). Para encontrar este valor, inscreva-se no [portal Azure](https://portal.azure.com/). Selecione o separador **Azure Ative Directory** no menu de navegação à esquerda, selecione **registos de Aplicações**e, em seguida, selecione a sua aplicação de test drive. Em seguida, selecione **Certificados e segredos**, selecione **Novo segredo de cliente,** introduza uma descrição, selecione **Nunca** em **Expiração,** em seguida, escolha **Adicionar**. Certifique-se de copiar o valor antes de sair desta página.)
 
 **Selecione Guardar o projeto** antes de continuar.
 
@@ -600,6 +600,6 @@ O passo **de validação manual** no processo de publicação representa uma rev
 
 Se tiver erros numa ou mais das etapas de publicação, corrija-as antes de voltar a publicar a sua oferta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Atualizar uma oferta existente no Marketplace Comercial](./update-existing-offer.md)
