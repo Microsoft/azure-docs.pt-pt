@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: da0c00f0b4a8f2c49996fbcb9b34ee4a1ab65273
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 6648a20e03facad4b791cacba8513f9f1aa7d2f0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856650"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291916"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-database"></a>Questões conhecidas/limitações de migração com migrações online para Azure SQL Database
 
@@ -40,7 +40,7 @@ Se a sua base de dados de origem for constituída por uma ou mais tabelas tempor
 
 **Solução**
 
-Siga os passos abaixo.
+Utilize os passos seguintes.
 
 1. Encontre as tabelas temporais no seu esquema de origem utilizando a consulta abaixo.
 
@@ -66,7 +66,7 @@ Pode ver uma exceção SQL que sugere que "ntext é incompatível com a hierarqu
 
 **Solução**
 
-Siga os passos abaixo.
+Utilize os passos seguintes.
 
 1. Encontre as tabelas de utilizador que incluem colunas com o tipo de dados hierárquicas utilizando a consulta abaixo.
 
@@ -82,7 +82,7 @@ Siga os passos abaixo.
 
 **Solução**
 
-Siga os passos abaixo.
+Utilize os passos seguintes.
 
 1. Encontre os gatilhos que estão atualmente ativos na base de dados de origem utilizando a consulta abaixo:
 

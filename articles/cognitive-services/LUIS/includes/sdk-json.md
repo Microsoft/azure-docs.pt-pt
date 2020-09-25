@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 08/12/2020
 ms.topic: include
-ms.custom: include file, devx-track-javascript
+ms.custom: include file, devx-track-js
 ms.author: diberry
-ms.openlocfilehash: 7d1c9e396f088fb64c3a71a868cdefee803e4730
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 0bbbae783d4e46a09674702a317489309fddc513
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88237432"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327296"
 ---
 A resposta de previsão é um objeto JSON, incluindo a intenção e quaisquer entidades encontradas.
 

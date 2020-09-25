@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Verifique a ortografia com a REST API e Ruby - Bing Spell Check'
+title: 'Quickstart: Verifique a ortografia com a API REST e a Ruby - Bing Spell Check'
 titleSuffix: Azure Cognitive Services
-description: Comece a usar a API bing spell check REST para verificar a ortografia e a gramática com este arranque rápido.
+description: Começa a usar a API E a Ruby do Bing Spell Check rest e da Ruby para verificar a ortografia e a gramática.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.openlocfilehash: fae466124244f5d2b04ad6e59681011b9c5ba974
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 0b29ba1b09123784bfbac6fda4f5a1c6953f4e49
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993529"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327396"
 ---
-# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Quickstart: Verifique a ortografia com o Bing Spell Check REST API e Ruby
+# <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Quickstart: Verifique a ortografia com a API de Verificação ortográfica Bing Check REST e Ruby
 
-Use este quickstart para fazer a sua primeira chamada para a API de Bing Spell Check REST usando Ruby. Este simples pedido envia um pedido à API e devolve uma lista de correções sugeridas. 
+Utilize este arranque rápido para fazer a sua primeira chamada para a API Bing Spell Check REST utilizando a Ruby. Esta simples aplicação envia um pedido à API e devolve uma lista de correções sugeridas. 
 
-Embora esta aplicação esteja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria dos idiomas de programação. O código fonte para esta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
+Embora esta aplicação esteja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. O código fonte desta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/ruby/Search/BingSpellCheckv7.rb)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,7 +32,7 @@ Embora esta aplicação esteja escrita em Ruby, a API é um serviço Web RESTful
 
 ## <a name="create-and-initialize-the-application"></a>Criar e inicializar a aplicação
 
-1. Crie um novo ficheiro Ruby no seu editor favorito ou IDE, e adicione os seguintes requisitos: 
+1. Crie um novo ficheiro Ruby no seu editor favorito ou IDE e adicione os seguintes requisitos: 
 
     ```ruby
     require 'net/http'
@@ -40,11 +40,11 @@ Embora esta aplicação esteja escrita em Ruby, a API é um serviço Web RESTful
     require 'json'
     ```
 
-2. Crie variáveis para a sua chave de subscrição, ponto final URI e caminho. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso. Crie os parâmetros do seu pedido:
+2. Crie variáveis para a sua chave de subscrição, ponto final URI e caminho. Pode utilizar o ponto final global no seguinte código ou utilizar o ponto final [de subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso. Crie os parâmetros de pedido:
 
-   1. Atribua o seu código de mercado ao `mkt` parâmetro com o `=` operador. O código de mercado é o código do país/região a quem faz o pedido. 
+   1. Atribua o seu código de mercado ao `mkt` parâmetro com o `=` operador. O código de mercado é o código do país/região a que faz o pedido. 
 
-   1. Adicione o `mode` parâmetro com o operador `&` e, em seguida, atribua o modo de verificação ortográfica. O modo pode ser `proof` (captura a maioria dos erros ortográficos/gramaticais) ou (apanha a maioria dos `spell` erros ortográficos, mas não tantos erros gramaticais). 
+   1. Adicione o `mode` parâmetro com o operador `&` e, em seguida, atribua o modo de verificação ortográfica. O modo pode ser `proof` (apanha a maioria dos erros ortográficos/gramaticais) ou `spell` (apanha a maioria dos erros ortográficos, mas não tantos erros gramaticais). 
 
     ```ruby
     key = 'ENTER YOUR KEY HERE'
@@ -53,9 +53,9 @@ Embora esta aplicação esteja escrita em Ruby, a API é um serviço Web RESTful
     params = 'mkt=en-us&mode=proof'
     ```
 
-## <a name="send-a-spell-check-request"></a>Envie um pedido de verificação de feitiços
+## <a name="send-a-spell-check-request"></a>Enviar um pedido de verificação ortográfica
 
-1. Crie um URI a partir da corda uri, caminho e parâmetros do seu hospedeiro. Detete a sua consulta para conter o texto que pretende soletrar.
+1. Crie um URI a partir do seu hospedeiro uri, caminho e linha de parâmetros. Desa esta medida de mente para conter o texto que pretende soletrar.
 
    ```ruby
    uri = URI(uri + path + params)
@@ -81,7 +81,7 @@ Embora esta aplicação esteja escrita em Ruby, a API é um serviço Web RESTful
     end
     ```
 
-4. Obtenha a resposta JSON e imprima-a para a consola. 
+4. Obtenha a resposta JSON e imprima-a na consola. 
 
     ```ruby
     result = JSON.pretty_generate(JSON.parse(response.body))
@@ -90,13 +90,13 @@ Embora esta aplicação esteja escrita em Ruby, a API é um serviço Web RESTful
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Construa e gereno seu projeto. Se estiver a utilizar a linha de comando, utilize o seguinte comando para executar a aplicação:
+Construa e execute o seu projeto. Se estiver a utilizar a linha de comando, utilize o seguinte comando para executar a aplicação:
 
    ```bash
    ruby <FILE_NAME>.rb
    ```
 
-## <a name="example-json-response"></a>Exemplo resposta JSON
+## <a name="example-json-response"></a>Exemplo JSON resposta
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 
@@ -138,10 +138,10 @@ Construa e gereno seu projeto. Se estiver a utilizar a linha de comando, utilize
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../tutorials/spellcheck.md)
 
 - [O que é a API de Verificação Ortográfica do Bing?](../overview.md)
-- [Referência de Bing Spell Check API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Bing Spell Check Referência V7 da API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

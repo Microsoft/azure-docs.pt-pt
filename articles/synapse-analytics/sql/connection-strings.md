@@ -10,18 +10,18 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 42a1110b089d5edf9793bf2bb2c699a717a4b1a4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: aa940b00e9c23ab08244ea55c0cd22a8d5f1897f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004974"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289383"
 ---
 # <a name="connection-strings-for-synapse-sql-preview"></a>Cadeias de ligação para Synapse SQL (pré-visualização)
 
 Pode ligar-se ao Synapse SQL (pré-visualização) com vários protocolos de aplicação diferentes, tais como, [ADO.NET,](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx) [ODBC,](https://msdn.microsoft.com/library/jj730314.aspx) [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)e [JDBC.](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx) Abaixo estão alguns exemplos de ligações cordas para cada protocolo. 
 
-Também pode utilizar o portal Azure para construir a sua cadeia de ligação.  Para construir a sua cadeia de ligação utilizando o portal Azure, navegue para a sua lâmina de base de *dados,* sob o essencial clique nas *cadeias de ligação da base de dados Show*.
+Também pode utilizar o portal Azure para construir a sua cadeia de ligação.  Para construir a sua cadeia de ligação utilizando o portal Azure, navegue para a sua lâmina de base de *dados,* sob o essencial selecione *Série de ligações de base de dados*.
 
 ## <a name="sample-adonet-connection-string"></a>Cadeia de conexão ADO.NET amostra
 

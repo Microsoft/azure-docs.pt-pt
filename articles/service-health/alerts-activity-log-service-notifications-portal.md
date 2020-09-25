@@ -1,14 +1,14 @@
 ---
 title: Receba alertas de registo de atividades em notificações de serviço da Azure usando o portal Azure
-description: Ser notificado via SMS, e-mail ou webhook quando o serviço Azure ocorrer.
+description: Saiba como utilizar o portal Azure para configurar alertas de registo de atividade para notificações de saúde de serviço utilizando o portal Azure.
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: b90940c4532370e7742f736708625ddec283aab1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 88fbdeeb8bdcc239f1591e053aaf4fb1c36b9b19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499289"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289791"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications-using-the-azure-portal"></a>Criar alertas de registo de atividades nas notificações de serviço utilizando o portal Azure
 ## <a name="overview"></a>Descrição geral

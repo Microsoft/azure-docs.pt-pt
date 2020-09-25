@@ -1,16 +1,16 @@
 ---
 title: Segurança da rede para recursos da Grelha de Eventos Azure
-description: Este artigo descreve como configurar o acesso a partir de pontos finais privados
+description: Este artigo descreve como usar tags de serviço para saídas, regras de firewall IP para entrada e pontos finais privados para entrada com Azure Event Grid.
 author: VidyaKukke
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: vkukke
-ms.openlocfilehash: 1887b6b5919a8b0f6e8f570b2471d74d9541df31
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 81544d71db5131f76dc2f9a613b6fd89ed57d076
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119247"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326461"
 ---
 # <a name="network-security-for-azure-event-grid-resources"></a>Segurança da rede para recursos da Grelha de Eventos Azure
 Este artigo descreve como utilizar as seguintes funcionalidades de segurança com a Azure Event Grid: 
@@ -27,7 +27,7 @@ Pode utilizar tags de serviço para definir controlos de acesso à rede em [grup
 
 | Etiqueta de serviço | Objetivo | Pode usar entrada ou saída? | Pode ser regional? | Pode usar com Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|
-| AzureEventGrid | Grelha de Eventos Azure. | Ambos | Não | Não |
+| AzureEventGrid | Grelha de Eventos Azure. | Ambos | No | No |
 
 
 ## <a name="ip-firewall"></a>Firewall de IP 
@@ -57,7 +57,7 @@ Quando se cria um ponto final privado, o registo DNS CNAME para o recurso é atu
 
 Quando resolve o URL de ponto final tópico ou de ponto final de domínio de fora do VNet com o ponto final privado, ele resolve para o ponto final público do serviço. Os registos de recursos DNS para 'topicA', quando resolvidos de fora do **VNet** que hospeda o ponto final privado, serão:
 
-| Name                                          | Tipo      | Valor                                         |
+| Nome                                          | Tipo      | Valor                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | CNAME     | \<Azure traffic manager profile\>
@@ -66,7 +66,7 @@ Pode negar ou controlar o acesso a um cliente fora do VNet através do ponto fin
 
 Quando resolvido a partir do VNet que hospeda o ponto final privado, o URL de ponto final tópico ou domínio resolve-se para o endereço IP do ponto final privado. Os registos de recursos DNS para o tópico 'topicA', quando resolvidos a partir de **dentro do VNet** que alberga o ponto final privado, serão:
 
-| Name                                          | Tipo      | Valor                                         |
+| Nome                                          | Tipo      | Valor                                         |
 | --------------------------------------------- | ----------| --------------------------------------------- |  
 | `topicA.westus.eventgrid.azure.net`             | CNAME     | `topicA.westus.privatelink.eventgrid.azure.net` |
 | `topicA.westus.privatelink.eventgrid.azure.net` | A         | 10.0.0.5
@@ -83,10 +83,10 @@ A tabela que se segue descreve os vários estados da ligação privada ao ponto 
 
 | Estado de Ligação   |  Publicar com sucesso (Sim/Não) |
 | ------------------ | -------------------------------|
-| Aprovado           | Sim                            |
-| Rejeitado           | Não                             |
-| Pendente            | Não                             |
-| Desligado       | Não                             |
+| Aprovado           | Yes                            |
+| Rejeitado           | No                             |
+| Pendente            | No                             |
+| Desligado       | No                             |
 
 Para que a publicação seja bem sucedida, o estado de ligação de ponto final privado deve ser **aprovado**. Se uma ligação for rejeitada, não pode ser aprovada usando o portal Azure. A única possibilidade é apagar a ligação e criar uma nova.
 
@@ -95,7 +95,7 @@ Para que a publicação seja bem sucedida, o estado de ligação de ponto final 
 
 **A** funcionalidade IP Firewall está disponível nos níveis básico e premium da Grade de Eventos. Permitimos criar até 16 regras ip firewall por tópico ou domínio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Pode configurar firewall IP para o seu recurso Desempaçar o acesso através da internet pública a partir de apenas um conjunto selecionado de endereços IP ou intervalos de endereços IP. Para obter instruções passo a passo, consulte [a firewall IP configurar](configure-firewall.md).
 
 Pode configurar pontos finais privados para restringir o acesso apenas a partir de redes virtuais selecionadas. Para obter instruções passo a passo, consulte [pontos finais privados configure](configure-private-endpoints.md).
