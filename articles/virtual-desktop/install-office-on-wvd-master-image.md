@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 05/02/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1596dd8c03ba546c47429183e5d237579f1634f1
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: b6369013d605ae538ad611a28a90e9c099bb7d80
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442927"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326053"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Instalar o Office numa imagem principal de VHD
 
@@ -79,7 +79,7 @@ A amostra XML seguinte instalará o lançamento mensal do Canal Empresarial.
   <RemoveMSI/>
   <Updates Enabled="FALSE"/>
   <Display Level="None" AcceptEULA="TRUE" />
-  <Logging Level=" Standard" Path="%temp%\WVDOfficeInstall" />
+  <Logging Level="Standard" Path="%temp%\WVDOfficeInstall" />
   <Property Name="FORCEAPPSHUTDOWN" Value="TRUE"/>
   <Property Name="SharedComputerLicensing" Value="1"/>
 </Configuration>
@@ -161,6 +161,6 @@ O Windows Virtual Desktop não suporta o Skype para o Negócios.
 
 Para obter ajuda na instalação do Microsoft Teams, consulte [utilizar as Equipas da Microsoft no ambiente de trabalho virtual do Windows](teams-on-wvd.md). A otimização dos meios de comunicação para equipas do Microsoft no Windows Virtual Desktop está disponível na pré-visualização.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que adicionou o Office à imagem, pode continuar a personalizar a sua imagem principal de VHD. Consulte [Preparar e personalizar uma imagem master VHD](set-up-customize-master-image.md).

@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: tutorial
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 04c732b857c06246bdc636f01afd2689c98c2b0d
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 3b2e4a1ae5ff43283893b286dafb38491a1181b4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831622"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308230"
 ---
 # <a name="tutorial-receive-device-data-through-azure-iot-hub"></a>Tutorial: Receba dados do dispositivo através do Azure IoT Hub
 
@@ -48,10 +48,10 @@ Este passo define um ponto final para o qual o Hub IoT iria encaminhar os dados.
 
 Aqui está a lista de parâmetros a utilizar com o comando para criar um ponto final:
 
-|Parâmetro PowerShell|Parâmetro CLI|Descrição|
+|Parâmetro PowerShell|Parâmetro CLI|Description|
 |---|---|---|
 |ResourceGroupName|resource-group|Nome do grupo de recursos do seu recurso IoT Hub.|
-|Nome|nome do hub|Nome do seu recurso IoT Hub.|
+|Name|nome do hub|Nome do seu recurso IoT Hub.|
 |Nome de ponto final|nome de ponto final|Use um nome que gostaria de atribuir ao ponto final que está a ser criado.|
 |Tipo de ponto final|endpoint-type|Tipo de ponto final com o que o IoT Hub precisa de se conectar. Utilize o valor literal de "EventHub" para PowerShell e "eventhub" para CLI.|
 |EndpointResourceGroup|endpoint-recursos-grupo|Nome do grupo de recursos para o seu Conector Azure IoT para Azure API da FHIR para recurso FHIR. Pode obter este valor na página geral da Azure API para FHIR.|
@@ -61,15 +61,15 @@ Aqui está a lista de parâmetros a utilizar com o comando para criar um ponto f
 ### <a name="add-a-message-route"></a>Adicionar uma rota de mensagem
 Este passo define uma rota de mensagem utilizando o ponto final acima criado. Crie uma rota utilizando o comando [Add-AzIotHubRoute](https://docs.microsoft.com/powershell/module/az.iothub/Add-AzIoTHubRoute) PowerShell ou [a rota az iot hub criar](https://docs.microsoft.com/cli/azure/iot/hub/route#az-iot-hub-route-create) o comando CLI, com base na sua preferência.
 
-Aqui está a lista de parâmetros a utilizar com o comando para criar um ponto final:
+Aqui está a lista de parâmetros a utilizar com o comando para adicionar uma rota de mensagem:
 
-|Parâmetro PowerShell|Parâmetro CLI|Descrição|
+|Parâmetro PowerShell|Parâmetro CLI|Description|
 |---|---|---|
 |ResourceGroupName|g|Nome do grupo de recursos do seu recurso IoT Hub.|
-|Nome|nome do hub|Nome do seu recurso IoT Hub.|
+|Name|nome do hub|Nome do seu recurso IoT Hub.|
 |Nome de ponto final|nome de ponto final|Nome do ponto final que criou acima.|
 |Nome da Rota|nome de rota|Um nome que pretende atribuir à rota de mensagem que está a ser criada.|
-|Fonte|fonte-tipo|Tipo de dados para enviar para o ponto final. Utilize o valor literal de "DeviceMessages" para PowerShell e "devicemessages" para OCli.|
+|Origem|fonte-tipo|Tipo de dados para enviar para o ponto final. Utilize o valor literal de "DeviceMessages" para PowerShell e "devicemessages" para OCli.|
 
 ## <a name="send-device-message-to-iot-hub"></a>Enviar mensagem do dispositivo para ioT Hub
 

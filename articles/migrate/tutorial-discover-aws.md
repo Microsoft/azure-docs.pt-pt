@@ -4,12 +4,12 @@ description: Saiba como descobrir instâncias AWS com avaliação do servidor Az
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: c2d91e0b2c2eaa2df8b01aca60e5a0e18e251fb8
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e48d123a9317d35cd2bb8e38a29d23cae3b75eb8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603701"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275460"
 ---
 # <a name="tutorial-discover-aws-instances-with-server-assessment"></a>Tutorial: Descubra instâncias AWS com avaliação do servidor
 
@@ -47,7 +47,7 @@ Para criar um projeto Azure Migrate e registar o aparelho Azure Migrate, precisa
 - Permissões de colaborador ou proprietário numa subscrição do Azure.
 - Permissões para registar aplicações do Azure Ative Directory.
 
-Se acabou de criar uma conta Azure gratuita, é o proprietário da sua subscrição. Se não for o proprietário da subscrição, trabalhe com o proprietário para atribuir as permissões da seguinte forma:
+Se acabou de criar uma conta gratuita do Azure, é o proprietário da sua subscrição. Se não for o proprietário da subscrição, trabalhe com o proprietário para atribuir as permissões da seguinte forma:
 
 1. No portal Azure, procure por "subscrições", e em **Serviços,** **selecione Subscrições**.
 
@@ -76,7 +76,18 @@ Crie uma conta que o aparelho possa utilizar para aceder a instâncias AWS.
 
 - Para os servidores do Windows, crie uma conta de utilizador local em todos os servidores do Windows que pretende incluir na descoberta. Adicione a conta de utilizador aos seguintes grupos: - Utilizadores de Gestão Remota - Utilizadores do Monitor de Desempenho - Utilizadores do Registo de Desempenho.
  - Nos servidores Linux, precisa de uma conta de superutilizador nos servidores Linux que deseja detetar.
-
+- A Azure Migrate utiliza a autenticação de palavra-passe ao descobrir casos AWS. As instâncias AWS não suportam a autenticação de palavra-passe por padrão. Antes de descobrir a ocorrência, tem de ativar a autenticação de senhas.
+    - Para máquinas Windows, permita a porta WinRM 5985 (HTTP). Isto permite chamadas remotas de WMI.
+    - Para máquinas Linux:
+        1. Inscreva-se em cada máquina Linux.
+        2. Abra o ficheiro sshd_config : vi /etc/ssh/sshd_config
+        3. No ficheiro, localizar a linha **passwordAustração** e alterar o valor para **sim**.
+        4. Guarde o ficheiro e feche-o. Reinicie o serviço de ssh.
+    - Se estiver a utilizar um utilizador de raiz para descobrir os seus VMs Linux, certifique-se de que o login de raiz é permitido nos VMs.
+        1. Inscreva-se em cada máquina Linux
+        2. Abra o ficheiro sshd_config : vi /etc/ssh/sshd_config
+        3. No ficheiro, localizar a linha **PermitRootLogin** e alterar o valor para **sim**.
+        4. Guarde o ficheiro e feche-o. Reinicie o serviço de ssh.
 
 ## <a name="set-up-a-project"></a>Criar um projeto
 
@@ -118,7 +129,7 @@ Para configurar o aparelho:
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Gere a chave do projeto Azure Migrate
 
-1. In **Migration Goals**  >  **Servers**  >  **Azure Migrate: Server Assessment**, select **Discover**.
+1. Em **Objetivos de Migração** > **Servidores** > **Azure Migrate: Avaliação do Servidor**, selecione **Detetar**.
 2. In **Discover machines**  >  **Are your machines virtualized?** **Physical or other (AWS, GCP, Xen, etc.)**
 3. Na **tecla de projeto 1:Generate Azure Migrate,** forneça um nome para o aparelho Azure Migrate que irá configurar para a descoberta de servidores físicos ou virtuais. O nome deve ser alfanumérico com 14 caracteres ou menos.
 1. Clique na **chave Gerar** para iniciar a criação dos recursos Azure necessários. Por favor, não feche a página das máquinas Discover durante a criação de recursos.
@@ -244,7 +255,7 @@ Isto começa a ser descoberto. Leva aproximadamente 2 minutos por servidor para 
 
 Após o fim da descoberta, pode verificar se os servidores aparecem no portal.
 
-1. Abra o painel Azure Migrate.
+1. Abra o dashboard do Azure Migrate.
 2. Em **Azure Migrate - Servidores**  >  **Azure Migrate:** Página de Avaliação do servidor, clique no ícone que exibe a contagem para **servidores descobertos**.
 
 ## <a name="next-steps"></a>Passos seguintes

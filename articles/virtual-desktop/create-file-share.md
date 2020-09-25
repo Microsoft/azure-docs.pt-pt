@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ced763ca4abd32f3b824f05f2f5786a5d9cfd4c4
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 583384d6f0ec71dc724868db61ee07ead7269607
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825448"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287326"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Criar um recipiente de perfil com ficheiros Azure e DS AD
 
@@ -29,7 +29,7 @@ Primeiro, terá de criar uma conta de armazenamento do Azure Files.
 
 Para criar uma conta de armazenamento:
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 
 2. Procure uma **conta de armazenamento** na barra de pesquisa.
 
@@ -56,7 +56,7 @@ Para criar uma partilha de ficheiros:
 
 1. Selecione **Ir para recurso**.
 
-2. Na página 'Vista Geral', selecione **'Ficheiro'.**
+2. Na página Descrição geral, selecione **Partilhas de ficheiros**.
 
 3. Selecione **+Ações de arquivo,** crie uma nova partilha de **ficheiros**com perfil nomeado , em seguida, introduza uma quota apropriada ou deixe o campo em branco sem quota.
 
@@ -154,7 +154,7 @@ Para configurar as suas permissões NTFS:
 2. Executar o seguinte comando para montar a partilha de ficheiros Azure e atribuir-lhe uma letra de unidade:
 
      ```cmd
-     net use <desired-drive-letter>: <UNC-pat> <SA-key> /user:Azure\<SA-name>
+     net use <desired-drive-letter>: <UNC-path> <SA-key> /user:Azure\<SA-name>
      ```
 
 3. Executar o seguinte comando para rever as permissões de acesso à partilha de ficheiros Azure:

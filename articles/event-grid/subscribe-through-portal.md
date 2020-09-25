@@ -3,12 +3,12 @@ title: Subscrições da Azure Event Grid através do portal
 description: Este artigo descreve como criar subscrições de Event Grid para as fontes suportadas, como o Azure Blob Storage, utilizando o portal Azure.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: acbf83d6df0c7d74da5e561d98d0c3df23d5fbd5
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e80e2243c93ab38187646256f567d6ab73c40100
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526464"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308508"
 ---
 # <a name="subscribe-to-events-through-portal"></a>Subscreva eventos através do portal
 
@@ -40,7 +40,7 @@ Para criar uma subscrição de Grade de Eventos para qualquer uma das fontes de 
 
 1. Forneça detalhes adicionais sobre a subscrição do evento, como o ponto final para lidar com eventos e um nome de subscrição.
 
-   ![Fornecer detalhes de subscrição](./media/subscribe-through-portal/provide-subscription-details.png)
+   ![Screenshot que mostra as secções "Detalhes do Ponto Final" e "Detalhes de subscrição de eventos" com um valor de nome de subscrição introduzido.](./media/subscribe-through-portal/provide-subscription-details.png)
 
 1. Para ativar as letras mortas e personalizar as políticas de repetição, selecione **Funcionalidades Adicionais**.
 

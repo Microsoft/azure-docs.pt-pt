@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: da944f74fd6214e1b69a3ee7d230e72accd4e2e4
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 2830d8b82f5b53300d0af3f48e55b573d78ad295
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084367"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287394"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar uma piscina de anfitriões com o portal Azure
 
@@ -48,7 +48,8 @@ Para começar a criar a sua nova piscina de anfitriões:
 
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com/).
    
-   >! [NOTA] Se está a assinar o portal gov dos EUA, vá em [https://portal.azure.us/](https://portal.azure.us/) vez disso.
+   >[!NOTE]
+   > Se está a assinar o portal gov dos EUA, vá em [https://portal.azure.us/](https://portal.azure.us/) vez disso.
 
 2. Introduza o **Ambiente de Trabalho Virtual do Windows** na barra de pesquisa e, em seguida, encontre e selecione o Windows Virtual **Desktop** em Serviços.
 

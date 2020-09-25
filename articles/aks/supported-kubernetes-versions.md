@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: fb5b9c446ea5574970b14c683fac258c17199fef
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: a36eb588c7128f13fb21b368d308ed00171fbb4b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565381"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335539"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Supported Kubernetes versions in Azure Kubernetes Service (AKS) (Versões do Kubernetes suportadas no Azure Kubernetes Service [AKS])
 
@@ -135,12 +135,11 @@ Para a história do lançamento passado, veja [aqui.](https://en.wikipedia.org/w
 
 |  Versão K8s | Liberação a montante  | Pré-visualização da AKS  | AKS GA  | Fim da Vida |
 |--------------|-------------------|--------------|---------|-------------|
+| 1.16  | 19-19 de setembro  | Jan 2019   | Mar 2020  | 1.19 GA | 
 | 1.17  | Dez-09-19  | Jan 2019   | Jul 2020  | 1.20 GA | 
 | 1.18  | Mar-23-20  | Maio de 2020   | Agosto 2020  | 1.21 GA | 
-| 1.19  | Ago-04-20  | Agosto 2020   | Nov 2020  | 1.22 GA | 
-| 1.20  | *Nov 2020    | *Dez 2020   | *Jan 2021  | 1.23 GA | 
-
-\* Pendente confirmação da data de lançamento a montante.
+| 1.19  | Ago-04-20  | Sep 2020   | Nov 2020  | 1.22 GA | 
+| 1.20  | Dez-08-20  | jan 2021   | Mar 2021  | 1.23 GA | 
 
 ## <a name="faq"></a>FAQ
 
@@ -181,7 +180,7 @@ Para atualizar, a partir de *1.12.x*  ->  *1.14.x,* primeiro upgrade a partir de
 
 Saltar várias versões só pode ser feito quando o upgrade de uma versão não suportada de volta para uma versão suportada. Por exemplo, o upgrade a partir de um *1.10.x* não suportado --> um *1.15.x* suportado pode ser concluído.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre como atualizar o seu cluster, consulte [upgrade de um cluster Azure Kubernetes Service (AKS).][aks-upgrade]
 

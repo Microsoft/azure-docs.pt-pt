@@ -1,17 +1,17 @@
 ---
 title: Criar uma nova versão de imagem a partir de uma versão de imagem existente usando Azure Image Builder (pré-visualização)
-description: Crie uma nova versão de imagem VM a partir de uma versão de imagem existente utilizando o Azure Image Builder.
+description: Crie uma nova versão de imagem VM a partir de uma versão de imagem existente utilizando o Azure Image Builder no Windows.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2020
 ms.topic: how-to
 ms.service: virtual-machines-windows
-ms.openlocfilehash: bdae608d573bc411242b4bf66ea033a7df421cfc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7515e0a39d1cf0da74d2a23457443e96716b4275
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005706"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335957"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-windows"></a>Pré-visualização: Criar uma nova versão de imagem VM a partir de uma versão de imagem existente utilizando O Azure Image Builder no Windows
 
@@ -171,8 +171,8 @@ dir c:\
 ```
 
 Deve agora ver dois diretórios:
-- `buildActions`que foi criado na primeira versão de imagem.
-- `buildActions2`que foi criado como parte a atualização da primeira versão de imagem para criar a segunda versão de imagem.
+- `buildActions` que foi criado na primeira versão de imagem.
+- `buildActions2` que foi criado como parte a atualização da primeira versão de imagem para criar a segunda versão de imagem.
 
 
 ## <a name="next-steps"></a>Passos seguintes

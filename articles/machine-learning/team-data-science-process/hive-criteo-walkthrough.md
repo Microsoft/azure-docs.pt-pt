@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dc05722ee79f72b2931cb1fa6106f742c5bc0e15
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 99595e27b17db716b09325d5dd80633bf44ffb02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274208"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336654"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>O processo de ciência de dados da equipa em ação - Usando um cluster de hadoop Azure HDInsight num conjunto de dados de 1-TB
 
@@ -67,7 +67,7 @@ Crie o seu ambiente Azure Data Science para construir soluções de análise pre
 
    * Ligue a conta de armazenamento criada no passo 1 com o seu cluster HDInsight quando for criada. Esta conta de armazenamento é utilizada para aceder a dados que podem ser processados dentro do cluster.
    * Ativar o acesso remoto ao nó de cabeça do cluster após a sua criação. Lembre-se das credenciais de acesso remoto que especifica aqui (diferentes das credenciais especificadas na criação do cluster): complete os seguintes procedimentos.
-3. [Criar um espaço de trabalho Azure Machine Learning Studio (clássico):](../studio/create-workspace.md)Este espaço de trabalho Azure Machine Learning é utilizado para construir modelos de aprendizagem automática após uma exploração inicial de dados e amostragem no cluster HDInsight.
+3. [Criar um espaço de trabalho Azure Machine Learning Studio (clássico):](../classic/create-workspace.md)Este espaço de trabalho Azure Machine Learning é utilizado para construir modelos de aprendizagem automática após uma exploração inicial de dados e amostragem no cluster HDInsight.
 
 ## <a name="get-and-consume-data-from-a-public-source"></a><a name="getdata"></a>Obtenha e consuma dados de uma fonte pública
 O conjunto de dados [criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) pode ser acedido clicando no link, aceitando os termos de uso e fornecendo um nome. Um instantâneo é mostrado aqui:
@@ -98,7 +98,7 @@ Aqui está o que um primeiro login típico para o headnode cluster parece:
 
 Agora está configurado e pronto para começar a primeira parte da passagem: exploração de dados usando a Hive e preparando os dados para o Azure Machine Learning.
 
-## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a>Criar base de dados e tabelas de Colmeias
+## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a> Criar base de dados e tabelas de Colmeias
 Para criar tabelas de Colmeia para o nosso conjunto de dados Criteo, abra a Linha de ***Comando Hadoop*** no ambiente de trabalho do nó de cabeça e insira o diretório da Colmeia inserindo o comando
 
 ```console
@@ -208,7 +208,7 @@ criteo_train
 Time taken: 1.437 seconds, Fetched: 4 row(s)
 ```
 
-## <a name="data-exploration-in-hive"></a><a name="exploration"></a>Exploração de dados na Colmeia
+## <a name="data-exploration-in-hive"></a><a name="exploration"></a> Exploração de dados na Colmeia
 Agora está pronto para fazer uma exploração básica de dados na Colmeia. Começa-se por contar o número de exemplos nas tabelas de dados do comboio e do teste.
 
 ### <a name="number-of-train-examples"></a>Número de exemplos de comboios
@@ -402,7 +402,7 @@ e5f3fd8d        a0aaffa6        792250
 Time taken: 560.22 seconds, Fetched: 15 row(s)
 ```
 
-## <a name="down-sample-the-datasets-for-azure-machine-learning"></a><a name="downsample"></a>Para baixo, amostra os conjuntos de dados para Azure Machine Learning
+## <a name="down-sample-the-datasets-for-azure-machine-learning"></a><a name="downsample"></a> Para baixo, amostra os conjuntos de dados para Azure Machine Learning
 Tendo explorado os conjuntos de dados e demonstrado como fazer este tipo de exploração para quaisquer variáveis (incluindo combinações), para baixo amostrar os conjuntos de dados para que os modelos em Azure Machine Learning possam ser construídos. Lembre-se que o foco do problema é: dado um conjunto de atributos de exemplo (valores de recurso de Col2 - Col40), prever se Col1 é um 0 (sem clique) ou um 1 (clique).
 
 Para reduzir a amostra dos conjuntos de dados do comboio e do teste para 1% do tamanho original, utilize a função RAND nativa da Hive(). O próximo guião, [amostra&#95;colmeia&#95;criteo&#95;downsample&#95;comboio&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) faz isso para o conjunto de dados do comboio:
@@ -471,7 +471,7 @@ Com isto, está pronto para usar o nosso comboio e conjuntos de dados de teste p
 
 Há um componente importante final antes de passar para a Azure Machine Learning, que diz respeito à tabela de contagem. Na próxima subsecção, a tabela de contagem é discutida em alguns detalhes.
 
-## <a name="a-brief-discussion-on-the-count-table"></a><a name="count"></a>Uma breve discussão na mesa de contagem
+## <a name="a-brief-discussion-on-the-count-table"></a><a name="count"></a> Uma breve discussão na mesa de contagem
 Como viu, várias variáveis categóricas têm uma alta dimensionalidade. No walkthrough, é apresentada uma poderosa técnica chamada [Learning With Counts](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) para codificar estas variáveis de forma eficiente e robusta. Mais informações sobre esta técnica estão no link fornecido.
 
 >[!NOTE]
@@ -480,7 +480,7 @@ Como viu, várias variáveis categóricas têm uma alta dimensionalidade. No wal
 
 Para construir tabelas de contagem nos dados da contagem, utilize os dados na pasta em bruto/contagem. Na secção de modelação, os utilizadores são mostrados como construir estas tabelas de contagem para funcionalidades categóricas de raiz, ou, em alternativa, usar uma tabela de contagem pré-construída para as suas explorações. No que se segue, quando se referem "tabelas de contagem pré-construídas", referimo-nos à utilização das tabelas de contagem que foram fornecidas. Instruções detalhadas sobre como aceder a estas tabelas são fornecidas na secção seguinte.
 
-## <a name="build-a-model-with-azure-machine-learning"></a><a name="aml"></a>Construir um modelo com Azure Machine Learning
+## <a name="build-a-model-with-azure-machine-learning"></a><a name="aml"></a> Construir um modelo com Azure Machine Learning
 O nosso processo de construção de modelos em Azure Machine Learning segue estes passos:
 
 1. [Obtenha os dados das tabelas da Colmeia no Azure Machine Learning](#step1)
@@ -491,7 +491,7 @@ O nosso processo de construção de modelos em Azure Machine Learning segue este
 
 Agora está pronto para construir modelos no estúdio Azure Machine Learning. Os nossos dados recolhidos são guardados como tabelas de Colmeia no cluster. Utilize o módulo de **dados de importação de aprendizagem de máquinas** Azure para ler estes dados. As credenciais para aceder à conta de armazenamento deste cluster são fornecidas no que se segue.
 
-### <a name="step-1-get-data-from-hive-tables-into-azure-machine-learning-using-the-import-data-module-and-select-it-for-a-machine-learning-experiment"></a><a name="step1"></a>Passo 1: Obtenha dados das tabelas da Colmeia para o Azure Machine Learning utilizando o módulo de dados de importação e selecione-os para uma experiência de aprendizagem automática
+### <a name="step-1-get-data-from-hive-tables-into-azure-machine-learning-using-the-import-data-module-and-select-it-for-a-machine-learning-experiment"></a><a name="step1"></a> Passo 1: Obtenha dados das tabelas da Colmeia para o Azure Machine Learning utilizando o módulo de dados de importação e selecione-os para uma experiência de aprendizagem automática
 Comece por selecionar uma experiência em branco **+NEW**  ->  **EXPERIMENT**  ->  **EXPERIMENT.** Em seguida, a partir da caixa **de pesquisa** na parte superior esquerda, procure por "Dados de Importação". Arraste e deixe cair o módulo **de Dados de Importação** na tela de experiência (a parte central do ecrã) para utilizar o módulo para acesso a dados.
 
 Isto é o que os **Dados de Importação** parecem ao obter dados da tabela Hive:
@@ -525,7 +525,7 @@ Para selecionar o conjunto de dados guardado para utilização numa experiência
 >
 >
 
-### <a name="step-2-create-an-experiment-in-azure-machine-learning-to-predict-clicks--no-clicks"></a><a name="step2"></a>Passo 2: Criar uma experiência em Azure Machine Learning para prever cliques / sem cliques
+### <a name="step-2-create-an-experiment-in-azure-machine-learning-to-predict-clicks--no-clicks"></a><a name="step2"></a> Passo 2: Criar uma experiência em Azure Machine Learning para prever cliques / sem cliques
 A nossa experiência do Azure Machine Learning Studio (clássico) é assim:
 
 ![Experiência de Aprendizagem automática](./media/hive-criteo-walkthrough/xRpVfrY.png)
@@ -602,7 +602,7 @@ Este excerto mostra que, para as colunas contadas, obtém-se as contagens e odds
 
 Está agora pronto para construir um modelo Azure Machine Learning utilizando estes conjuntos de dados transformados. Na secção seguinte mostra como isto pode ser feito.
 
-### <a name="step-3-build-train-and-score-the-model"></a><a name="step3"></a>Passo 3: Construir, treinar e marcar o modelo
+### <a name="step-3-build-train-and-score-the-model"></a><a name="step3"></a> Passo 3: Construir, treinar e marcar o modelo
 
 #### <a name="choice-of-learner"></a>Escolha do aprendiz
 Primeiro, tens de escolher um aprendiz. Usa uma árvore de decisão de duas classes como aprendiz. Aqui estão as opções padrão para este aluno:
@@ -616,12 +616,12 @@ Para treinar, basta invocar um módulo **Train Model.** As duas entradas são o 
 
 ![Módulo modelo de trem](./media/hive-criteo-walkthrough/2bZDZTy.png)
 
-#### <a name="score-the-model"></a>Pontuar o modelo
+#### <a name="score-the-model"></a>Classificar o modelo
 Uma vez treinado um modelo, está pronto para marcar no conjunto de dados do teste e para avaliar o seu desempenho. Faça-o utilizando o módulo **'Modelo de Pontuação'** apresentado na seguinte figura, juntamente com um módulo **De Modelo avaliar:**
 
 ![Módulo do modelo de pontuação](./media/hive-criteo-walkthrough/fydcv6u.png)
 
-### <a name="step-4-evaluate-the-model"></a><a name="step4"></a>Passo 4: Avaliar o modelo
+### <a name="step-4-evaluate-the-model"></a><a name="step4"></a> Passo 4: Avaliar o modelo
 Finalmente, deve analisar o desempenho do modelo. Normalmente, para dois problemas de classificação de classe (binário), uma boa medida é a AUC. Para visualizar esta curva, ligue o módulo **'Modelo de Pontuação'** a um módulo **De Modelo de Avaliação.** Clicar em **visualizar** no módulo **Modelo avaliar** produz um gráfico como o seguinte:
 
 ![Avaliar modelo BDT módulo](./media/hive-criteo-walkthrough/0Tl0cdg.png)
@@ -630,7 +630,7 @@ Em problemas de classificação binários (ou duas classes), uma boa medida de p
 
 ![Visualizar módulo de modelo de avaliação](./media/hive-criteo-walkthrough/IRfc7fH.png)
 
-### <a name="step-5-publish-the-model-as-a-web-service"></a><a name="step5"></a>Passo 5: Publicar o modelo como um serviço Web
+### <a name="step-5-publish-the-model-as-a-web-service"></a><a name="step5"></a> Passo 5: Publicar o modelo como um serviço Web
 A capacidade de publicar um modelo Azure Machine Learning como serviços web com um mínimo de alarido é uma característica valiosa para torná-lo amplamente disponível. Uma vez feito, qualquer pessoa pode fazer chamadas para o serviço web com dados de entrada para os quais precisam de previsões, e o serviço web usa o modelo para devolver essas previsões.
 
 Em primeiro lugar, guarde o nosso modelo treinado como um objeto de Modelo Treinado clicando no módulo **Modelo de Comboio** e utilizando a opção Save as Train **Model.**
@@ -695,4 +695,3 @@ A chave API predefinida foi substituída pela chave API do nosso webservice. Cli
 Para os dois exemplos de teste questionados no quadro JSON do script Python, obtém respostas no formulário "Etiquetas Pontuadas, Probabilidades Pontuadas". Neste caso, foram escolhidos os valores predefinidos que o código pré-enlatado prevê (0's para todas as colunas numéricas e o "valor" da cadeia para todas as colunas categóricas).
 
 Em conclusão, o nosso walkthrough mostra como lidar com conjuntos de dados em larga escala usando Azure Machine Learning. Começou com um terabyte de dados, construiu um modelo de previsão, e implantou-o como um serviço web na nuvem.
-

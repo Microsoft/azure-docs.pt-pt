@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b980f809074c275a5e62098d4162e4cb4340a0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 84e692540d376c95a4a981249eba42060ed4ab80
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89259375"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287105"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Iniciar sedutação na máquina virtual do Windows em Azure utilizando a autenticação do Azure Ative Directory (Preview)
 
@@ -49,7 +49,7 @@ As seguintes distribuições do Windows são atualmente suportadas durante a pr�
 - Windows 10 1809 e mais tarde
 
 > [!IMPORTANT]
-> A ligação remota aos VMs aderidos ao Azure AD só é permitida a partir de PCs windows 10 que são Azure AD unidos ou híbrido Azure AD unidos ao **mesmo** diretório que o VM. 
+> A ligação remota aos VMs aderidos ao Azure AD só é permitida a partir de PCs windows 10 que são registados a Azure AD (a partir do Windows 10 20H1), Azure AD unidos ou híbrido Azure AD unidos ao **mesmo** diretório que o VM. 
 
 As seguintes regiões de Azure são atualmente apoiadas durante a pré-visualização desta funcionalidade:
 
@@ -192,7 +192,7 @@ az role assignment create \
 Para obter mais informações sobre como utilizar o Azure RBAC para gerir o acesso aos seus recursos de subscrição Azure, consulte os seguintes artigos:
 
 - [Adicione ou remova atribuições de funções Azure usando Azure CLI](../../role-based-access-control/role-assignments-cli.md)
-- [Adicione ou remova atribuições de funções Azure usando o portal Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](../../role-based-access-control/role-assignments-portal.md)
 - [Adicione ou remova as atribuições de funções Azure utilizando a Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="using-conditional-access"></a>Usando acesso condicional
@@ -224,7 +224,7 @@ Está agora a fazer sessão no Windows Server 2019 Azure virtual machine com as 
 > [!NOTE]
 > Pode salvar o . O ficheiro RDP localmente no seu computador para lançar futuras ligações remotas de ambiente de trabalho à sua máquina virtual em vez de ter de navegar para a página geral da máquina virtual no portal Azure e utilizar a opção de ligação.
 
-## <a name="troubleshoot"></a>Resolução de problemas
+## <a name="troubleshoot"></a>Resolver Problemas
 
 ### <a name="troubleshoot-deployment-issues"></a>Resolver problemas de implementação
 

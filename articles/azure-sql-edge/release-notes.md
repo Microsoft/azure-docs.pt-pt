@@ -10,12 +10,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 3306e51fe2fdbb2586be9684432d8f8c310afe95
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: afd78acadf133a9f128eec402eba9d0eed51b8e3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90900588"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284487"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Notas de lançamento do Azure SQL Edge 
 
@@ -23,17 +23,23 @@ Este artigo descreve o que é novo e o que mudou a cada nova construção de Azu
 
 ## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge - 1.0.0 (RTM)
 
-### <a name="sql-engine-build-number---15020001549"></a>NÚMERO DE CONSTRUÇÃO DO MOTOR SQL - 15.0.2000.1549
+### <a name="sql-engine-build-number---15020001552"></a>NÚMERO DE CONSTRUÇÃO DO MOTOR SQL - 15.0.2000.1552
 
 ### <a name="whats-new"></a>Novidades
 1. Ubuntu 18.04 imagens de contentores à base. 
 2. Suporte `IGNORE NULL` e `RESPECT NULL` sintaxe com `LAST_VALUE()` e `FIRST_VALUE()` funções. 
 3. Melhorias de fiabilidade para PREVISÃO com ONNX.
-4. Assistência à limpeza baseada na política de retenção de dados.      
-   - Suporte para limpeza otimizada para índices de lojas de colunas agrupadas.
+4. Assistência à limpeza baseada na política de retenção de dados.
+   - Suporte de tampão para tarefa de limpeza de retenção para resolução de problemas.
 5. Suporte de novas funcionalidades 
    - Recuperação Rápida
    - Afinação automática de consultas
+   - Ativar cenários de execução paralela
+6. Melhorias na poupança de energia para o modo de baixa potência
+7. Streaming de novos suportes de funcionalidades 
+   - [Snapshot Windows](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics) : novo tipo de janela que permite agrupar-se por eventos que chegam exatamente ao mesmo tempo. 
+   - Ativar [o TopOne](https://docs.microsoft.com/stream-analytics-query/topone-azure-stream-analytics) e [o CollectTop](https://docs.microsoft.com/stream-analytics-query/collecttop-azure-stream-analytics) como função analítica, isto permitirá devolver registos encomendados pela coluna à sua escolha, sem o necessário para fazer parte de uma janela. 
+   - Melhorias na [MATCH_RECOGNIZE.](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics) 
 
 ### <a name="fixes"></a>Correções
 1. Mensagens de erro adicionais e detalhes para resolução de problemas das operações de streaming da TSQL. 
@@ -41,9 +47,13 @@ Este artigo descreve o que é novo e o que mudou a cada nova construção de Azu
 3. Correções do motor de streaming TSQL: 
    - Limpeza para trabalho de streaming parado 
    - Correções para localização e melhorias no manuseamento de unicódigo
+   - Melhorar a depurabilidade para o streaming de TSQL edge, permitir que os utilizadores questionem erros de falha de trabalho a partir de get_streaming_job.
 4. Limpeza baseada em política de retenção de dados
    - Correções para cenários de criação de políticas de retenção e limpeza.
 5. Correções para tarefas de temporizador de fundo para melhorar a poupança de energia para o modo de baixa potência.
+
+### <a name="known-issues"></a>Problemas Conhecidos 
+1. Date_Bucket Função T-SQL não pode ser utilizada numa coluna computada.
 
 
 ## <a name="ctp-23"></a>CTP 2.3

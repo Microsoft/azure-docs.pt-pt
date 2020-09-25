@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: d3094a8cca317e53dd3b8bc8e9b32b956c89a376
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 98b7f9b1ed5e09a1f731e45f8ca2d148a4084986
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904191"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336161"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Resolução de problemas problemas comuns da Nuvem de primavera de Azure
 
@@ -131,7 +131,7 @@ Não é possível carregar um ficheiro *.zip* para uma aplicação .NET Core Ste
 
 Quando implementa o seu pacote de aplicações utilizando o [Azure CLI,](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)o CLI Azure sonda periodicamente o progresso da implantação e, no final, apresenta o resultado da implantação.
 
-Certifique-se de que a sua aplicação está embalada no formato correto de ficheiro *.zip.* Se não estiver embalado corretamente, o processo será pendurado ou receberá uma mensagem de erro.
+Certifique-se de que a sua aplicação está embalada no formato correto de ficheiro *.zip.* Se não estiver embalado corretamente, o processo deixará de responder ou receberá uma mensagem de erro.
 ::: zone-end
 
 ::: zone pivot="programming-language-java"

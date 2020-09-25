@@ -8,14 +8,14 @@ ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 05/07/2019
-ms.openlocfilehash: 1c2dd3f93abf6418b99bf28d11f2df254b024971
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 498d00b4f6a0ca16d07663641a46f30109b39d5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708659"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325067"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Configure o ponto final público em Azure SQL Gestd Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -40,7 +40,7 @@ Devido à sensibilidade dos dados que estão em caso gerido, a configuração pa
 
 ## <a name="enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal"></a>Permitir o ponto final público para uma instância gerida no portal Azure
 
-1. Lançar o portal Azure em<https://portal.azure.com/.>
+1. Lançar o portal Azure em <https://portal.azure.com/.>
 1. Abra o grupo de recursos com a instância gerida e selecione a **instância gerida sql** em que pretende configurar o ponto final público.
 1. Nas definições **de Segurança,** selecione o **separador rede Virtual.**
 1. Na página de configuração da rede Virtual, selecione **Ativar** e, em seguida, o ícone **Guardar** para atualizar a configuração.
@@ -82,7 +82,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 ## <a name="allow-public-endpoint-traffic-on-the-network-security-group"></a>Permitir o tráfego de pontos finais públicos no grupo de segurança da rede
 
-1. Se tiver a página de configuração do caso gerido ainda aberta, navegue para **SQL managed instance** o **separador Visão Geral.** Selecione o link **rede virtual/sub-rede,** que o levará à página de configuração da rede Virtual.
+1. Se tiver a página de configuração da instância gerida ainda aberta, navegue para o **separador Visão** Geral. Caso contrário, volte ao seu recurso de **instância gerido SQL.** Selecione o link **rede virtual/sub-rede,** que o levará à página de configuração da rede Virtual.
 
     ![mi-overview.png](./media/public-endpoint-configure/mi-overview.png)
 
@@ -116,6 +116,6 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
     ![mi-public-endpoint-conn-string.png](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como utilizar [a Azure SQL Managed Instance de forma segura com o ponto final público](public-endpoint-overview.md).

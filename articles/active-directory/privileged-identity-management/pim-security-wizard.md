@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/07/2020
+ms.date: 09/01/2020
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1de7e98a9cb57f83b87589ceddedc3cdd80927
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b826c6a1fd5a60247f8c69cb10cd24e7e001fe71
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005967"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335889"
 ---
 # <a name="discovery-and-insights-preview-for-azure-ad-roles-formerly-security-wizard"></a>Discovery and Insights (pré-visualização) para os papéis de Azure AD (anteriormente Assistente de Segurança)
 
@@ -29,9 +29,9 @@ Se estiver a começar com a Gestão de Identidade Privilegiada (PIM) na sua orga
 
 Antes da sua organização começar a usar Gestão de Identidade Privilegiada, todas as atribuições de funções são permanentes. Os utilizadores estão sempre nas suas funções atribuídas mesmo quando não precisam dos seus privilégios. A descoberta e insights (pré-visualização), que substitui o antigo Assistente de Segurança, mostra-lhe uma lista de funções privilegiadas e quantos utilizadores estão atualmente nessas funções. Pode listar atribuições para uma função para saber mais sobre os utilizadores designados se um ou mais deles não forem familiares.
 
-:heavy_check_mark: **A Microsoft recomenda** que mantenha 2 contas de vidro de rutura que são permanentemente atribuídas à função de administrador global que não requer autenticação multi-factor ao iniciar sessão. Pode usá-las em qualquer cenário de vidro de rutura ou no caso de ninguém ser capaz de elevar para o seu papel de Administrador Global.
+:heavy_check_mark: A Microsoft recomenda que mantenha **duas** contas de vidro de rutura que são permanentemente atribuídas ao papel de administrador global. Certifique-se de que estas contas não requerem o mesmo mecanismo de autenticação de vários fatores que as suas contas administrativas normais para iniciar sedutação, conforme descrito em [Gerir contas de acesso de emergência em Azure AD](../users-groups-roles/directory-emergency-access.md).
 
-Além disso, mantenha as atribuições de funções permanentes se um utilizador tiver uma conta Microsoft (por outras palavras, uma conta que utilize para iniciar sessão em serviços da Microsoft como o Skype, ou Outlook.com). Se necessitar de autenticação multi-factor para ser ativada nessa função, o utilizador ficará bloqueado.
+Além disso, mantenha as atribuições de funções permanentes se um utilizador tiver uma conta Microsoft (por outras palavras, uma conta que utilize para iniciar sessão em serviços da Microsoft como o Skype, ou Outlook.com). Se necessitar de autenticação multi-factor para um utilizador com uma conta Microsoft para ativar uma atribuição de funções, o utilizador será bloqueado.
 
 ## <a name="open-discovery-and-insights-preview"></a>Open Discovery e insights (pré-visualização)
 
@@ -49,7 +49,7 @@ Além disso, mantenha as atribuições de funções permanentes se um utilizador
 
 1. Reveja a lista de atribuições de funções de Administrador Global.
 
-    ![Reduzir administradores globais - Painel de papéis mostrando todos os membros](./media/pim-security-wizard/new-global-administrator-list.png)
+    ![Reduzir os administradores globais - Painel de funções mostrando todos os Administradores Globais](./media/pim-security-wizard/new-global-administrator-list.png)
 
 1. Selecione **Seguinte** para selecionar os utilizadores ou grupos que pretende tornar elegíveis e, em seguida, selecione Fazer **a atribuição** **Deselegível** ou Remover .
 

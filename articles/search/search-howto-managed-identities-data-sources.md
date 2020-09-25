@@ -9,14 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: a057c0d35a465447cc0be99b574ffeebb671115a
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 787c7d7df5f013dd4477e466c02a2b323b4b59df
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971547"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275103"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity"></a>Configurar uma ligação indexante a uma fonte de dados utilizando uma identidade gerida
+
+> [!IMPORTANT] 
+> A criação de uma ligação a uma fonte de dados utilizando uma identidade gerida não é suportada com o nível de Pesquisa Cognitiva Free Azure.
 
 Um [indexante](search-indexer-overview.md) em Azure Cognitive Search é um crawler que fornece uma maneira de extrair dados da sua fonte de dados para a Pesquisa Cognitiva Azure. Um indexante obtém uma ligação de fonte de dados a partir do objeto de origem de dados que cria. O objeto de origem de dados geralmente inclui credenciais para a fonte de dados-alvo. Por exemplo, o objeto de origem de dados pode incluir uma chave de conta de armazenamento Azure se quiser indexar dados a partir de um recipiente de armazenamento de bolhas.
 

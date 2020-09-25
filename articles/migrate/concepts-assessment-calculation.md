@@ -3,12 +3,12 @@ title: Avaliações de Azure VM na Avaliação do Servidor Migratório Azure
 description: Conheça as avaliações na Avaliação do Servidor Azure Migrate
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 1d9c887f42089611ce7402aa32174958cd8c0b07
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 4020df3ef77e4b8ae0618108f539322092b93079
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261859"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275528"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Visão geral da avaliação do servidor (migrar para VMs Azure)
 
@@ -27,15 +27,15 @@ Existem dois tipos de avaliações que pode criar usando Azure Migrate: Avaliaç
 
 **Tipo de Avaliação** | **Detalhes**
 --- | --- 
-**VM do Azure** | Avaliações para migrar os seus servidores no local para máquinas virtuais Azure. <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md)no local, [VMs hiper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para Azure utilizando este tipo de avaliação.
-**Solução VMware no Azure (AVS)** | Avaliações para migrar os seus servidores no local para [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md) no local para migração para Azure VMware Solution (AVS) utilizando este tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
+**VM do Azure** | Avaliações para migrar os seus servidores no local para máquinas virtuais do Azure. <br/><br/> Pode avaliar as [VMs VMware](how-to-set-up-appliance-vmware.md) no local, as [VMs Hyper-V](how-to-set-up-appliance-hyper-v.md) e os [servidores físicos](how-to-set-up-appliance-physical.md) para a migração para o Azure com este tipo de avaliação.
+**Solução VMware no Azure (AVS)** | Avaliações para migrar os seus servidores no local para o [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Pode avaliar as [VMs VMware](how-to-set-up-appliance-vmware.md) no local para a migração para o Azure VMware Solution (AVS) com este tipo de avaliação.[Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
 
 As avaliações que cria com a Avaliação do Servidor são uma imagem pontual dos dados. Uma avaliação Azure VM na Avaliação do Servidor fornece duas opções de critérios de dimensionamento:
 
 **Tipo de avaliação** | **Detalhes** | **Dados**
 --- | --- | ---
-**Baseado no desempenho** | Avaliações que fazem recomendações com base em dados de desempenho recolhidos | A recomendação sobre o tamanho dos VM baseia-se em dados de utilização de CPU e RAM.<br/><br/> A recomendação do tipo disco baseia-se nas operações de entrada/saída por segundo (IOPS) e na produção dos discos no local. Os tipos de discos são discos Azure Standard HDD, Azure Standard SSD e Azure Premium.
-**As-is in-ins** | Avaliações que não usam dados de desempenho para fazer recomendações | A recomendação de tamanho VM baseia-se no tamanho vM no local.<br/><br> O tipo de disco recomendado baseia-se no tipo de armazenamento selecionado para a avaliação.
+**Com base no desempenho** | Avaliações que fazem recomendações com base nos dados de desempenho recolhidos | A recomendação sobre o tamanho dos VM baseia-se em dados de utilização de CPU e RAM.<br/><br/> A recomendação do tipo disco baseia-se nas operações de entrada/saída por segundo (IOPS) e na produção dos discos no local. Os tipos de discos são discos Azure Standard HDD, Azure Standard SSD e Azure Premium.
+**Como está no local** | Avaliações que não usam dados de desempenho para fazer recomendações | A recomendação de tamanho VM baseia-se no tamanho vM no local.<br/><br> O tipo de disco recomendado baseia-se no tipo de armazenamento selecionado para a avaliação.
 
 ## <a name="how-do-i-run-an-assessment"></a>Como faço uma avaliação?
 
@@ -80,7 +80,7 @@ Se utilizar o aparelho para ser descoberto, recolhe dados de desempenho para con
     - **Hiper-V VMs**: Um ponto de amostra é recolhido a cada 30 segundos.
     - **Servidores físicos**: Um ponto de amostra é recolhido a cada cinco minutos.
 
-1. O aparelho combina os pontos de amostra para criar um único ponto de dados a cada 10 minutos. Para criar o ponto de dados, o aparelho seleciona os valores de pico de todas as amostras. Em seguida, envia o ponto de dados para Azure.
+1. O aparelho combina os pontos de amostra para criar um único ponto de dados a cada 10 minutos para servidores VMware e Hiper-V, e a cada 5 minutos para servidores físicos. Para criar o ponto de dados, o aparelho seleciona os valores de pico de todas as amostras. Em seguida, envia o ponto de dados para Azure.
 1. A Avaliação do Servidor armazena todos os pontos de dados de 10 minutos do último mês.
 1. Quando cria uma avaliação, a Avaliação do Servidor identifica o ponto de dados apropriado a utilizar para a utilização de direitos. A identificação baseia-se nos valores percentil para o *histórico de desempenho* e *utilização do percentil.*
 
@@ -154,7 +154,7 @@ Propriedade | Detalhes | Estatuto de prontidão Azure
 **Núcleos** | Cada máquina não deve ter mais de 128 núcleos, que é o número máximo que um Azure VM suporta.<br/><br/> Se o histórico de desempenho estiver disponível, Azure Migrate considera os núcleos utilizados para comparação. Se as definições de avaliação especificarem um fator de conforto, o número de núcleos utilizados é multiplicado pelo fator de conforto.<br/><br/> Se não houver histórico de desempenho, a Azure Migrate utiliza os núcleos atribuídos para aplicar o fator de conforto. | Pronto se o número de núcleos estiver dentro do limite
 **RAM** | Cada máquina não deve ter mais de 3.892 GB de RAM, que é o tamanho máximo que uma série M Azure Standard_M128m &nbsp; <sup>suportes de 2</sup> VM. [Saiba mais](../virtual-machines/sizes.md).<br/><br/> Se o histórico de desempenho estiver disponível, a Azure Migrate considera a RAM utilizada para comparação. Se for especificado um fator de conforto, a RAM utilizada é multiplicada pelo fator de conforto.<br/><br/> Se não houver história, a RAM atribuída é usada para aplicar um fator de conforto.<br/><br/> | Pronto se a quantidade de RAM estiver dentro do limite
 **Disco de armazenamento** | O tamanho atribuído de um disco não deve ser superior a 32 TB. Embora o Azure suporte discos de 64-TB com discos Azure Ultra SSD, Azure Migrate: A Avaliação do Servidor verifica atualmente 32 TB como limite de tamanho do disco porque ainda não suporta Ultra SSD. <br/><br/> O número de discos ligados à máquina, incluindo o disco SO, deve ser de 65 ou menos. | Pronto se o tamanho e o número do disco estiverem dentro dos limites
-**Rede** | Uma máquina não deve ter mais de 32 interfaces de rede (NICs) ligadas a ela. | Pronto se o número de NICs estiver dentro do limite
+**Redes** | Uma máquina não deve ter mais de 32 interfaces de rede (NICs) ligadas a ela. | Pronto se o número de NICs estiver dentro do limite
 
 ### <a name="guest-operating-system"></a>Sistema operativo convidado
 

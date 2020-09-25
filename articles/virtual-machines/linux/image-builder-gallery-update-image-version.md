@@ -1,6 +1,6 @@
 ---
 title: Criar uma nova versão de imagem VM a partir de uma versão de imagem existente usando Azure Image Builder (pré-visualização)
-description: Crie uma nova versão de imagem VM a partir de uma versão de imagem existente utilizando o Azure Image Builder.
+description: Crie uma nova versão de imagem VM a partir de uma versão de imagem existente utilizando o Azure Image Builder em Linux.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2020
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: f233a6fc557d9dbb62585e8cca85f175b3bc3e26
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 142b4a85826b9e9a95b17dc631045aab603f3859
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010602"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307335"
 ---
 # <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder-in-linux"></a>Pré-visualização: Criar uma nova versão de imagem VM a partir de uma versão de imagem existente usando Azure Image Builder em Linux
 

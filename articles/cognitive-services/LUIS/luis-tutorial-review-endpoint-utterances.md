@@ -2,14 +2,16 @@
 title: 'Tutorial: Rever as declarações de ponto final - LUIS'
 description: Neste tutorial, melhore as previsões da aplicação verificando ou corrigindo as expressões recebidas através do ponto final LUIS HTTP de que a LUIS não tem a certeza. Algumas expressões podem ser validadas para a intenção e outras podem ter de ser validadas para a entidade.
 services: cognitive-services
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 07/02/2020
-ms.openlocfilehash: 082e625efeeb4764aaa1ac5101eb2b0013348b19
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: b8f8fa2cd3c9c22187bb95c55d9de2abb2e8caec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85959050"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324642"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrigir previsões inseguras através da revisão das declarações de ponto final
 Neste tutorial, melhore as previsões das aplicações verificando ou corrigindo as expressões, recebidas através do ponto final LUIS HTTPS, de que a LUIS não tem a certeza. Você deve rever as declarações de ponto final como uma parte regular da sua manutenção agendada LUIS.
@@ -216,7 +218,7 @@ Pode questionar-se sobre o motivo pelo qual não deve adicionar mais expressões
 ## <a name="why-is-the-top-intent-on-the-utterance-list"></a>Por que motivo a intenção principal está na lista de expressões?
 Algumas expressões de ponto final terão uma classificação de predição elevada na lista de revisão. Ainda tem de rever e validar essas expressões. Estão na lista porque a intenção mais alta seguinte tinha uma classificação demasiado próxima da classificação da intenção principal. Pretende ter cerca de 15% de diferença entre as duas intenções principais.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 

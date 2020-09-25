@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 431b45f4ef3431e7fd1d34cf80278892470c36ef
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 24f8a60c5b955096f1661877416936b747a16979
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660847"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306400"
 ---
 # <a name="risky-ip-report-public-preview"></a>Relatório IP arriscado (pré-visualização pública)
 Os clientes AD FS podem expor pontos finais de autenticação de palavra-passe na internet para fornecer serviços de autenticação para os utilizadores finais acederem a aplicações SaaS como a Microsoft 365. Neste caso, é possível que um ator indevido tente inícios de sessão no seu sistema do AD FS para adivinhar a palavra-passe de um utilizador final e obter acesso aos recursos das aplicações. O AD FS proporciona a funcionalidade de bloqueio de conta de extranet para evitar estes tipos de ataques a partir do AD FS no Windows Server 2012 R2. Se tiver uma versão inferior, recomendamos vivamente que atualize o sistema do AD FS para o Windows Server 2016. <br />
@@ -39,9 +39,9 @@ Além disso, é possível que um único endereço IP tente vários inícios de s
 > 
 
 ## <a name="what-is-in-the-report"></a>O que está no relatório?
-O sinal falhado nos endereços IP do cliente da atividade é agregado através de servidores Proxy de aplicação web. Cada item no relatório de IP em Risco mostra informações agregadas sobre as atividades de início de sessão do AD FS falhadas que excedam o limiar designado. Disponibiliza as informações seguintes: ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
+O sinal falhado nos endereços IP do cliente da atividade é agregado através de servidores Proxy de aplicação web. Cada item no relatório de IP em Risco mostra informações agregadas sobre as atividades de início de sessão do AD FS falhadas que excedam o limiar designado. Fornece as seguintes informações: ![ Screenshot que mostra um relatório IP arriscado com cabeçalhos de coluna realçados.](./media/how-to-connect-health-adfs/report4a.png)
 
-| Item de Relatório | Descrição |
+| Item de Relatório | Description |
 | ------- | ----------- |
 | Time Stamp (Carimbo de Data/Hora) | Mostra o carimbo de data/hora com base na hora local do portal do Azure quando a janela de tempo da deteção é iniciada.<br /> Todos os eventos diários são gerados à meia-noite, no fuso horário UTC. <br />O carimbo de data/hora dos eventos de hora é arredondado para o início da hora. Pode ver a hora de início da primeira atividade em “firstAuditTimestamp” no ficheiro exportado. |
 | Trigger Type (Tipo de Acionador) | Mostra o tipo da janela de tempo da deteção. Os tipos de acionadores de agregação são horários ou diários. É útil para detetar um ataque de força bruta de frequência elevada por oposição a um ataque lento, em que o número de tentativas é distribuído ao longo do dia. |
@@ -52,7 +52,7 @@ O sinal falhado nos endereços IP do cliente da atividade é agregado através d
 
 Por exemplo, o item de relatório abaixo indica que, na janela entre as 18:00 e as 19:00 do dia 28/02/2018, o endereço IP <i>104.2XX.2XX.9</i> não teve erros de palavra-passe errada e teve 284 erros de bloqueio de extranet. Foram afetados 14 utilizadores individuais dentro dos critérios. O evento de atividade excedeu o limiar designado de hora do relatório. 
 
-![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4b.png)
+![Screenshot que mostra um exemplo de uma entrada de relatório IP arriscado.](./media/how-to-connect-health-adfs/report4b.png)
 
 > [!NOTE]
 > - Só aparecerão na lista do relatório as atividades que excedam o limiar designado. 
@@ -60,7 +60,7 @@ Por exemplo, o item de relatório abaixo indica que, na janela entre as 18:00 e 
 > - Este relatório de alerta não mostra endereços IP do Exchange nem endereços IP privados. Permanecem incluídos na lista de exportação. 
 >
 
-![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4c.png)
+![Screenshot que mostra o relatório IP risky com o "Download", "Definições de notificação" e "Definições de limiar" realçados.](./media/how-to-connect-health-adfs/report4c.png)
 
 ## <a name="load-balancer-ip-addresses-in-the-list"></a>Endereços IP do balançador de carga na lista
 O balanceador de carga agregou as atividades de início de sessão falhadas e atingiu o limiar de alerta. Se vir endereços IP do balanceador de carga, é altamente provável que o seu balanceador de carga externo não esteja a enviar o endereço IP cliente quando transmite o pedido para o servidor Proxy de Aplicação Web. Configure o seu balanceador de carga corretamente para o reencaminhamento do endereço IP do cliente. 
@@ -68,7 +68,7 @@ O balanceador de carga agregou as atividades de início de sessão falhadas e at
 ## <a name="download-risky-ip-report"></a>Baixar relatório IP de risco 
 Ao utilizar a funcionalidade **Exportar**, é possível exportar toda a lista de endereços IP em risco dos últimos 30 dias a partir do portal do Connect Health. O resultado da exportação incluíra todas as atividades de início de sessão do AD FS falhadas em cada janela de tempo de deteção, pelo que pode personalizar a filtragem após a exportação. Para além das agregações realçadas no portal, o resultado da exportação também mostrará mais detalhes sobre as atividades de início de sessão falhadas por endereço IP:
 
-|  Item de Relatório  |  Descrição  | 
+|  Item de Relatório  |  Description  | 
 | ------- | ----------- | 
 | firstAuditTimestamp | Mostra o primeiro carimbo de data/hora de quando as atividades falhadas se iniciaram durante a janela de tempo de deteção.  | 
 | lastAuditTimestamp | Mostra o último carimbo de data/hora de quando as atividades falhadas terminaram durante a janela de tempo de deteção.  | 
@@ -83,7 +83,7 @@ O limiar de alerta pode ser atualizado a partir das Definições do Limiar. Para
 
 ![Portal do Azure AD Connect Health](./media/how-to-connect-health-adfs/report4d.png)
 
-| Item do Limiar | Descrição |
+| Item do Limiar | Description |
 | --- | --- |
 | (Bad U/P + Extranet Lockout) / Day [(U/P incorreta + Bloqueio de Extranet) / Dia]  | Definição do limiar para reportar a atividade e acionar a notificação de alerta quando a contagem de Palavras-passe Erradas mais a contagem de Bloqueios de Extranet o excede por **dia**. |
 | (Bad U/P + Extranet Lockout) / Hour [U/P incorreta + Bloqueio de Extranet / Hora] | Definição do limiar para reportar a atividade e acionar a notificação de alerta quando a contagem de Palavras-passe Erradas mais a contagem de Bloqueios de Extranet o excede por **hora**. |
@@ -116,6 +116,6 @@ Deve adicionar um endereço IP malicioso identificado à firewall ou bloqueá-lo
 É necessária a permissão Administrador Global ou [Leitor de Segurança](../../role-based-access-control/built-in-roles.md#security-reader). Contacte o administrador global para obter acesso.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Instalação do Agente do Azure AD Connect Health](how-to-connect-health-agent-install.md)

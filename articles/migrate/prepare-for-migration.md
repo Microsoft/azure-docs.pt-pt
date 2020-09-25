@@ -4,12 +4,12 @@ description: Saiba como preparar máquinas no local para migração com a Azure 
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: MVC
-ms.openlocfilehash: 8acbb867d98a547787e207c410d4e1a852aa68f3
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: ed5a1b6dc47c91815cc88200ddd1b1246603f806
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606823"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275409"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparar máquinas no local para migração para Azure
 
@@ -109,11 +109,13 @@ Configure esta definição manualmente da seguinte forma:
 
 Azure Migrate completa estas ações automaticamente para estas versões
 
-- Red Hat Enterprise Linux 7.0+, 6.5+
-- CentOS 7.0+, 6.5+
+- Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x
+- Cent OS 7.7, 7.6, 7.5, 7.4, 6.x
 - SUSE Linux Enterprise Server 12 SP1+
-- Ubuntu 18.04LTS, 16.04LTS, 14.04LTS
+- SUSE Linux Enterprise Server 15 SP1
+- Ubuntu 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
 - Debian 8, 7
+- Oracle Linux 7.7, 7.7-CI
 
 Para outras versões, prepare as máquinas como resumido na tabela.  
 
@@ -134,11 +136,11 @@ O quadro seguinte resume os passos realizados automaticamente para os sistemas o
 | Ação                                      | Migração \- VMware baseada em agente | Migração de VMware sem agente | Hyper\-V   |
 |---------------------------------------------|-------------------------------|----------------------------|------------|
 | Instalar serviços de integração Hyper \- V Linux | Yes                           | Yes                        | Não necessário |
-| Ativar o registo da consola em série do Azure         | Yes                           | Sim                        | No         |
-| Atualizar o ficheiro do mapa do dispositivo                      | Sim                           | No                         | No         |
-| Atualizar entradas fstab                        | Yes                           | Sim                        | No         |
-| Remover a regra udev                            | Yes                           | Sim                        | No         |
-| Atualizar interfaces de rede                   | Yes                           | Sim                        | No         |
+| Ativar o registo da consola em série do Azure         | Yes                           | Yes                        | No         |
+| Atualizar o ficheiro do mapa do dispositivo                      | Yes                           | No                         | No         |
+| Atualizar entradas fstab                        | Yes                           | Yes                        | No         |
+| Remover a regra udev                            | Yes                           | Yes                        | No         |
+| Atualizar interfaces de rede                   | Yes                           | Yes                        | No         |
 | Ativar ssh                                  | No                            | No                         | No         |
 
 Saiba mais sobre os passos para [executar um Linux VM em Azure,](../virtual-machines/linux/create-upload-generic.md)e obtenha instruções para algumas das populares distribuições do Linux.

@@ -1,6 +1,6 @@
 ---
 title: Segurança do disco gerido
-description: Saiba mais sobre o disco a rebentar para discos Azure e explosão de disco para máquinas virtuais Azure
+description: Saiba mais sobre o disco a rebentar para discos Azure e o disco a rebentar para máquinas virtuais Azure no Linux.
 author: albecker1
 ms.author: albecker
 ms.date: 09/22/2020
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 107b1cbde35ef639883f86153859679a834735a3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2e5fc8bde2c79a355fb7963c9101c4b040f97fa7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891844"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275166"
 ---
 # <a name="managed-disk-bursting"></a>Segurança do disco gerido
 [!INCLUDE [managed-disks-bursting](../../../includes/managed-disks-bursting.md)]

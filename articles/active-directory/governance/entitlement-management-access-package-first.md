@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e58a98f8503c271eec113298a7e7a0cab5e0003e
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 9df1226d4b61326f8e5aa6f9b71d36eb5a33e81e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707497"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306519"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Crie o seu primeiro pacote de acesso na gestão de direitos Azure AD
 
@@ -29,7 +29,7 @@ Gerir o acesso a todos os recursos de que os colaboradores precisam, como grupos
 
 Neste tutorial, trabalha para o Woodgrove Bank como administrador de TI. Foi-lhe pedido que criasse um pacote de recursos para uma campanha de marketing que os utilizadores internos podem pedir por si próprios. Os pedidos não requerem aprovação e o acesso do utilizador expira após 30 dias. Para este tutorial, os recursos da campanha de marketing são apenas membros de um único grupo, mas pode ser uma coleção de grupos, aplicações ou sites SharePoint Online.
 
-![Scenario overview (Descrição geral do cenário)](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
+![Diagrama que mostra a visão geral do cenário.](./media/entitlement-management-access-package-first/elm-scenario-overview.png)
 
 Neste tutorial, ficará a saber como:
 
@@ -110,7 +110,7 @@ Um pacote de *acesso* é um pacote de recursos que uma equipa ou projeto precisa
 
      Por defeito, vê grupos dentro do catálogo geral. Quando selecionar um grupo fora do catálogo Geral, que pode ver se verifica a caixa de verificação **See,** será adicionado ao catálogo Geral.
 
-    ![Novo pacote de acesso - Separador de funções de recursos](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
+    ![Screenshot que mostra o separador "Novo pacote de acesso - funções de recursos" e a janela "Select groups".](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 
 10. Clique **em Selecionar** para adicionar o grupo à lista.
 

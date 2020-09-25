@@ -1,13 +1,15 @@
 ---
 title: Parâmetros de cadeia de consulta V3 API
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/30/2020
-ms.openlocfilehash: 47727f6df772669fa323a10cd099764a6d35cb6a
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 14380dd781fc1eebfe7edb0a816ff8af0f2f17b4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610795"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309438"
 ---
 Os parâmetros de cadeia de consulta V3 API incluem:
 

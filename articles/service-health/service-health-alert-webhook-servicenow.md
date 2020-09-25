@@ -3,13 +3,13 @@ title: Envie alertas de saúde do serviço Azure com o ServiceNow
 description: Receba notificações personalizadas sobre eventos de saúde de serviço para o seu caso ServiceNow.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 68175dc17c1601eab097b94d4eefaa2706731f5c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: f120e9d950cc349d0331a476dbfbfe9d7e599f0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432521"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307573"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>Envie alertas de saúde do serviço Azure com o ServiceNow usando webhooks
 
@@ -43,9 +43,9 @@ Este artigo mostra-lhe como integrar alertas de saúde do serviço Azure com o S
 
     >[!NOTE]
     >Tem de atualizar o `<secret>` , e valorizar no script `<group>` `<email>` abaixo.
-    >* `<secret>`deve ser uma corda aleatória, como um GUID
-    >* `<group>`deve ser o grupo ServiceNow que quer atribuir o incidente a
-    >* `<email>`deve ser a pessoa específica a quem pretende atribuir o incidente (opcional)
+    >* `<secret>` deve ser uma corda aleatória, como um GUID
+    >* `<group>` deve ser o grupo ServiceNow que quer atribuir o incidente a
+    >* `<email>` deve ser a pessoa específica a quem pretende atribuir o incidente (opcional)
     >
 
     ```javascript
@@ -193,7 +193,7 @@ Este artigo mostra-lhe como integrar alertas de saúde do serviço Azure com o S
 
 1. Vá ao [ServiceNow](https://www.servicenow.com/) confirmar que a sua integração foi configurada com sucesso.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba como [configurar notificações webhook para os sistemas de gestão de problemas existentes](service-health-alert-webhook-guide.md).
 - Reveja o [esquema de alerta de registo de atividade webhook](../azure-monitor/platform/activity-log-alerts-webhook.md). 
 - Saiba mais sobre [as notificações de saúde do serviço.](./service-notifications.md)

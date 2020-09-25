@@ -3,7 +3,7 @@ title: Conceber e implementar uma base de dados da Oracle no Azure Microsoft Doc
 description: Desenhe e implemente uma base de dados Oracle no seu ambiente Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: rgardler
+author: dbakevlar
 manager: ''
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: rogardle
-ms.openlocfilehash: 0dd787916159637ce92a29a5d4baa1ffe7a09ba4
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.author: kegorman
+ms.openlocfilehash: 70de7363634cee2790a40ecf056134cf002c762d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510016"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274712"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Conceça e implemente uma base de dados oracle em Azure
 
@@ -46,7 +46,7 @@ O quadro que se segue enumera algumas das diferenças entre uma implementação 
 
 |  | Implementação no local | Implementação do Azure |
 | --- | --- | --- |
-| **Rede** |LAN/WAN  |SDN (rede definida por software)|
+| **Redes** |LAN/WAN  |SDN (rede definida por software)|
 | **Grupo de segurança** |Ferramentas de restrição IP/porta |[Grupo de Segurança de Rede (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
 | **Resiliência** |MTBF (tempo médio entre falhas) |MTTR (tempo médio para a recuperação)|
 | **Manutenção planeada** |Remendos/upgrades|[Conjuntos de disponibilidade](../../windows/infrastructure-example.md) (patching/upgrades geridos pelo Azure) |

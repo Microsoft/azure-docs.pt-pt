@@ -4,16 +4,17 @@ description: Se for um novo utilizador a iniciar sessão no portal LUIS, a exper
 services: cognitive-services
 ms.custom: ''
 ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.date: 09/08/2020
 ms.topic: how-to
 ms.author: a-sakand
 author: skandil
-ms.openlocfilehash: 58212fc35df7f230682d4f80b5eadf6cd8ca0902
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 22f5ab332c52a3b567b37089def6e4a494a15d29
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90008066"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309477"
 ---
 # <a name="sign-in-to-luis-portal"></a>Iniciar sessão no portal LUIS
 
@@ -97,6 +98,6 @@ Uma conta associada a uma subscrição do Azure permite-lhe selecionar a sua sub
 * Ao criar um novo recurso, certifique-se de que o nome do recurso apenas inclui caracteres alfanuméricos, '-', e não pode começar ou terminar com '-'. Caso contrário, falhará.
 * Certifique-se de que tem as [permissões adequadas na sua subscrição para criar um recurso Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles). Se não tiver as permissões adequadas, contacte a administração da sua subscrição para lhe dar permissões suficientes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [iniciar uma nova aplicação](luis-how-to-start-new-app.md)
