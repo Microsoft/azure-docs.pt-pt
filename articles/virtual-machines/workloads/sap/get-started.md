@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/08/2020
+ms.date: 09/23/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 986e4fd8c7043f5c01868302ffc2b554e2ce76f7
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: f778e996eeda0f2b850864c9c90cd522c411b032
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567083"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328025"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -82,6 +82,7 @@ Nesta secção pode encontrar informações sobre como configurar o SSO com a ma
 
 ## <a name="change-log"></a>Alterar Registo
 
+- 09/02/2020: Adicionar novos SKUs certificados para HLI em [SKUs disponíveis para HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) 
 - 09/08/2020: Alteração da [elevada disponibilidade de SAP HANA em VMs Azure em SLES](./sap-hana-high-availability.md) para clarificar definições de pedra
 - 09/03/2020: Alteração nas [configurações de armazenamento de máquinas virtuais SAP HANA Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) para se adaptar ao mínimo de 2 IOPS por 1 GB de capacidade com disco ultra
 - 09/02/2020: Alteração dos [SKUs disponíveis para o HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus) para ser mais transparente naquilo que os SKUs são certificados pela HANA

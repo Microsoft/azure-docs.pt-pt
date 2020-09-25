@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 04f2b0e989edcb182c6c52ff0479902035137810
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 3f2fd9f2b75faeeb2d40bd71d074a929e86eebdf
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561828"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358377"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Visão geral das opções de autenticação baseadas na identidade do Azure Files para acesso AMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -114,7 +114,7 @@ O diagrama seguinte representa o fluxo de trabalho para a autenticação Azure A
 
 - Primeiro, não precisa de criar a identidade em Azure AD DS para representar a conta de armazenamento. Isto é realizado pelo processo de habilitação em segundo plano.
 
-- Em segundo lugar, todos os utilizadores existentes em Azure AD podem ser autenticados e autorizados. O utilizador pode ser apenas em nuvem ou híbrido. A sincronização de Azure AD a Azure AD DS é gerida pela plataforma sem necessitar de qualquer configuração do utilizador. No entanto, o cliente deve ser domínio associado à Azure AD DS, não pode ser a Azure AD aderido ou registado. 
+- Em segundo lugar, todos os utilizadores que existam em Azure AD podem ser autenticados e autorizados. O utilizador pode ser apenas em nuvem ou híbrido. A sincronização de Azure AD a Azure AD DS é gerida pela plataforma sem necessitar de qualquer configuração do utilizador. No entanto, o cliente deve ser domínio associado à Azure AD DS, não pode ser a Azure AD aderido ou registado. 
 
 :::image type="content" source="media/storage-files-active-directory-overview/Files-Azure-AD-DS-Diagram.png" alt-text="Diagrama":::
 

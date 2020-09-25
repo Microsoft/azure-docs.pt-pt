@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: a14ac8089aa29a592164168e6ccfc4fd2342f68c
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 50ca6eacc7e75a3ff391401e7ced0e3583f1a285
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661525"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357578"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Discurso ao Texto frequentemente feito perguntas
 
@@ -29,7 +29,7 @@ Se não conseguir encontrar respostas para as suas perguntas nestas PERGUNTAS, c
 
 **P: Por onde começo se quero usar um modelo de base?**
 
-**R**: Primeiro, obtenha uma [chave de subscrição](get-started.md). Se pretender fazer chamadas REST para os modelos de base pré-deplorados, consulte as [APIs REST](rest-apis.md). Se quiser utilizar webSockets, [descarregue o SDK](speech-sdk.md).
+**R**: Primeiro, obtenha uma [chave de subscrição](overview.md#try-the-speech-service-for-free). Se pretender fazer chamadas REST para os modelos de base pré-deplorados, consulte as [APIs REST](rest-apis.md). Se quiser utilizar webSockets, [descarregue o SDK](speech-sdk.md).
 
 **P: Preciso sempre de construir um modelo de fala personalizado?**
 

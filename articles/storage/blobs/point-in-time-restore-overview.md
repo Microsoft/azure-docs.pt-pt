@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 7fbebf21b79d2a533de0a872dfe6a10bc8f8e7e5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 32d0c44abed2d4ace4c8896922ed7f6ed8b596ff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987027"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326104"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauro pontual para bolhas de bloco
 
@@ -37,13 +37,6 @@ Apenas uma operação de restauro pode ser executada numa conta de armazenamento
 
 A operação **Restore Blob Ranges** devolve um ID de restauro que identifica exclusivamente a operação. Para verificar o estado de uma restauração pontual, ligue para a operação **Get Restore Status** com o ID de restauro devolvido da operação Restore **Blob Ranges.**
 
-Tenha em mente as seguintes limitações em operações de restauro:
-
-- Um bloco que foi carregado através de [Put Block](/rest/api/storageservices/put-block) ou Put Block [de URL](/rest/api/storageservices/put-block-from-url), mas não cometido através da Put [Block List](/rest/api/storageservices/put-block-list), não faz parte de uma bolha e, portanto, não é restaurado como parte de uma operação de restauro.
-- Uma bolha com um arrendamento ativo não pode ser restaurada. Se uma bolha com um arrendamento ativo for incluída na gama de bolhas para restaurar, a operação de restauro falhará atomicamente.
-- As imagens instantâneas não são criadas ou eliminadas como parte de uma operação de restauro. Apenas a bolha da base é restaurada ao seu estado anterior.
-- Se uma bolha se moveu entre os níveis quentes e frescos no período entre o momento presente e o ponto de restauro, a bolha é restaurada para o seu nível anterior. No entanto, uma bolha que se tenha deslocado para o nível de arquivo não será restaurada.
-
 > [!IMPORTANT]
 > Quando executa uma operação de restauro, o Azure Storage bloqueia as operações de dados nas bolhas das gamas que estão a ser restauradas durante a operação. As operações de leitura, escrita e eliminação estão bloqueadas na localização primária. Por esta razão, as operações como a listagem de contentores no portal Azure podem não funcionar como esperado enquanto a operação de restauro estiver em curso.
 >
@@ -56,8 +49,8 @@ Tenha em mente as seguintes limitações em operações de restauro:
 
 A restauração pontual requer que as seguintes funcionalidades de Armazenamento Azure sejam ativadas antes de poder permitir a restauração pontual:
 
-- [Excluir suave](soft-delete-overview.md)
-- [Alterar alimentação](storage-blob-change-feed.md)
+- [Eliminação recuperável](soft-delete-overview.md)
+- [Feed de alterações](storage-blob-change-feed.md)
 - [Versão blob](versioning-overview.md)
 
 ### <a name="retention-period-for-point-in-time-restore"></a>Período de retenção para restauro pontual
@@ -76,9 +69,12 @@ Para iniciar uma operação de restauro, um cliente deve ter permissões de escr
 
 A restauração pontual para as bolhas de blocos tem as seguintes limitações e questões conhecidas:
 
-- Apenas as bolhas de bloco numa conta de armazenamento v2 de uso geral padrão podem ser restauradas como parte de uma operação de restauro pontual. As bolhas de apêndice, as bolhas de página e as bolhas de bloco premium não são restauradas. Se tiver apagado um recipiente durante o período de retenção, esse recipiente não será restaurado com a operação de restauro pontual. Para saber se protege os recipientes da eliminação, consulte [a eliminação suave para recipientes (pré-visualização)](soft-delete-container-overview.md).
-- Apenas as bolhas de bloqueio nos níveis quentes ou frescos podem ser restauradas numa operação de restauro pontual. Restaurar bolhas de bloco no nível de arquivo não é suportado. Por exemplo, se um blob na camada de acesso frequente tiver sido movido para a camada de arquivo há dois dias e uma operação de restauro restaurar para um ponto há três dias, o blob não é restaurado para a camada de acesso frequente. Para restaurar uma bolha arquivada, desloque-a primeiro para fora do nível de arquivo.
-- Se uma bolha de bloco na gama a restaurar tiver um arrendamento ativo, a operação de restauro pontual falhará. Quebre quaisquer locações ativas antes de iniciar a operação de restauro.
+- Apenas as bolhas de bloco numa conta de armazenamento v2 de uso geral padrão podem ser restauradas como parte de uma operação de restauro pontual. As bolhas de apêndice, as bolhas de página e as bolhas de bloco premium não são restauradas. 
+- Se tiver apagado um recipiente durante o período de retenção, esse recipiente não será restaurado com a operação de restauro pontual. Se tentar restaurar uma gama de bolhas que incluam bolhas num recipiente apagado, a operação de restauro pontual falhará. Para saber se protege os recipientes da eliminação, consulte [a eliminação suave para recipientes (pré-visualização)](soft-delete-container-overview.md).
+- Se uma bolha se moveu entre os níveis quentes e frescos no período entre o momento presente e o ponto de restauro, a bolha é restaurada para o seu nível anterior. Restaurar bolhas de bloco no nível de arquivo não é suportado. Por exemplo, se um blob na camada de acesso frequente tiver sido movido para a camada de arquivo há dois dias e uma operação de restauro restaurar para um ponto há três dias, o blob não é restaurado para a camada de acesso frequente. Para restaurar uma bolha arquivada, desloque-a primeiro para fora do nível de arquivo. Para obter mais informações, consulte [os dados do blob rehidrata do nível de arquivo.](storage-blob-rehydration.md)
+- Um bloco que foi carregado através de [Put Block](/rest/api/storageservices/put-block) ou Put Block [de URL](/rest/api/storageservices/put-block-from-url), mas não cometido através da Put [Block List](/rest/api/storageservices/put-block-list), não faz parte de uma bolha e, portanto, não é restaurado como parte de uma operação de restauro.
+- Uma bolha com um arrendamento ativo não pode ser restaurada. Se uma bolha com um arrendamento ativo for incluída na gama de bolhas para restaurar, a operação de restauro falhará atomicamente. Quebre quaisquer locações ativas antes de iniciar a operação de restauro.
+- As imagens instantâneas não são criadas ou eliminadas como parte de uma operação de restauro. Apenas a bolha da base é restaurada ao seu estado anterior.
 - Restaurar espaços de nome plano e hierárquico de armazenamento de dados Azure Data Lake Gen2 não é suportado.
 
 > [!IMPORTANT]

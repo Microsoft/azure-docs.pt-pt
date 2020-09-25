@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 368843cf9b6e59497fe00e69433ae0d14b3f3398
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb962efd4bcf82518a80eb120579db7835e7115c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84042814"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356779"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Saiba como providenciar novos inquilinos e registá-los no catálogo
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -86,7 +86,7 @@ Para entender como a aplicação de Ingressos Wingtip implementa o novo provisio
 
 2. Para adicionar um breakpoint, coloque o seu cursor em qualquer lugar da linha que diz *New-Tenant ' .* Em seguida, pressione F9.
 
-   ![Ponto de rutura](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
+   ![Screenshot mostra um script com New-Tenant destacado para adicionar um breakpoint.](./media/saas-dbpertenant-provision-and-catalog/breakpoint.png)
 
 3. Para executar o guião, prima F5.
 
@@ -162,7 +162,7 @@ Outros padrões de provisionamento não incluídos neste tutorial:
 Com o padrão de a provisionamento automático, um pedido de cliente ou script submete um pedido de provisionamento a uma fila a ser processada pelo serviço de fornecimento. Em seguida, ele sonda o serviço para determinar a conclusão. Se for utilizado o pré-fornecimento, os pedidos são tratados rapidamente. O serviço fornece uma base de dados de substituição em segundo plano.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

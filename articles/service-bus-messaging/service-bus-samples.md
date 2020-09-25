@@ -5,12 +5,12 @@ author: spelluru
 ms.topic: article
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 750ee2f05e81fe18560a20227aefb52ca343e07b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 2f2392630c0023c8d6321a5716075a65e8127dd0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067533"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326274"
 ---
 # <a name="service-bus-messaging-samples"></a>Amostras de mensagens de ônibus de serviço
 As amostras de mensagens Service Bus demonstram características-chave nas [mensagens service bus](https://azure.microsoft.com/services/service-bus/). Atualmente, pode encontrar as amostras nos seguintes locais:
@@ -20,6 +20,7 @@ As amostras de mensagens Service Bus demonstram características-chave nas [mens
 | .NET, Java e Gestão | https://github.com/Azure/azure-service-bus/ |
 | Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples |
 | Python | https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus |
+| Ir| https://github.com/Azure/azure-service-bus-go/ |
 
 ## <a name="service-bus-explorer"></a>Explorador do Service Bus
 

@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: cae0ec1daed8277d1e7e4f3c5cbc701965ac00b8
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: b272426f865636640e0a2fafde46cbebbe6eb363
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661763"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327498"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referência do motor de regras standard para a CDN do Azure
 
@@ -40,7 +40,7 @@ Incluído neste limite é uma *regra global padrão.* A regra global não tem co
 
 Cada ponto final Azure CDN pode ter até 25 regras. Cada regra pode ter até dez condições de jogo e cinco ações. Os preços do Motor de Regras seguem as dimensões abaixo: 
 - Regras: $1 por regra por mês 
-- Pedidos Processados: $0,60 por milhão de requets
+- Pedidos Processados: $0,60 por milhão de pedidos
 - As primeiras 5 regras permanecerão livres
 
 ## <a name="syntax"></a>Syntax
@@ -61,7 +61,7 @@ Um sinal por cento é usado para indicar codificação de URL (por exemplo, `%20
 
 Atualmente apoiamos o personagem wildcard na Condição de **Jogo urlPath** no motor de regras padrão. O \* personagem é um wildcard que representa um ou mais caracteres. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Condições de jogo no motor de regras standard](cdn-standard-rules-engine-match-conditions.md)
 - [Ações no motor de regras Standard](cdn-standard-rules-engine-actions.md)

@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Criar um Azure WAF v2 no Application Gateway - Modelo de Gestor de Recursos Azure'
 titleSuffix: Azure Application Gateway
-description: Saiba como usar um modelo de Gestor de Recursos Azure (modelo ARM) para criar uma Firewall de Aplicação Web v2 no Gateway de aplicações Azure.
+description: Aprenda a usar um modelo de arranque rápido (modelo ARM) do Gestor de Recursos Azure para criar uma Firewall de Aplicação Web v2 no Gateway de aplicações Azure.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: quickstart
-ms.date: 04/02/2020
+ms.date: 09/16/2020
 ms.author: victorh
-ms.openlocfilehash: b0a430ebfb19ca529ae96698173df27d18e6dd10
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 036503f95a7dc1aaa5690bacc01d07034e6d162f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705202"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266960"
 ---
 # <a name="quickstart-create-an-azure-waf-v2-on-application-gateway-using-an-arm-template"></a>Quickstart: Criar um Azure WAF v2 no Gateway de aplicação usando um modelo ARM
 
@@ -85,7 +85,7 @@ Utilize o IIS para testar o gateway de aplicações:
 
    Refresque o seu navegador várias vezes e deverá ver ligações tanto para o myVM1 como para o myVM2.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não precisar dos recursos que criou com o gateway de aplicações, elimine o grupo de recursos. Isto remove o gateway de aplicação e todos os recursos relacionados.
 

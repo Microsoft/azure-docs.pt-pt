@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 6887371e50f5b7e8706cac0a0700873c42bdac06
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0463d11466859c0f30901a0afd960bdc7b2599a5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321650"
+ms.locfileid: "91357793"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-azure-sql-database-elastic-pools"></a>Estratégias de recuperação de desastres para aplicações que utilizam piscinas elásticas Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -78,7 +78,7 @@ Sou uma aplicação SaaS madura com ofertas de serviços hierárquicos e diferen
 
 Para apoiar este cenário, separe os inquilinos do julgamento dos inquilinos pagos colocando-os em piscinas elásticas separadas. Os clientes de teste têm eDTU mais baixo ou vCores por inquilino e SLA mais baixo com um tempo de recuperação mais longo. Os clientes pagadores estão em uma piscina com eDTU mais alto ou vCores por inquilino e um SLA mais alto. Para garantir o menor tempo de recuperação, as bases de dados dos inquilinos pagadores são geo-replicadas. Esta configuração é ilustrada no diagrama seguinte.
 
-![Figura 4](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
+![O diagrama mostra uma região primária e uma região D R que empregam a geo-replicação entre a base de dados de gestão e os clientes pagos piscina primária e piscina secundária sem replicação para o pool de clientes experimentais.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-4.png)
 
 Como no primeiro cenário, as bases de dados de gestão estão bastante ativas, pelo que utiliza uma única base de dados geo-replicada para ela (1). Isto garante o desempenho previsível para novas subscrições de clientes, atualizações de perfis e outras operações de gestão. A região em que residem as primárias das bases de dados de gestão é a região primária e a região em que residem os secundários das bases de dados de gestão é a região DR.
 
@@ -86,7 +86,7 @@ As bases de dados dos inquilinos dos clientes pagadores têm bases de dados ativ
 
 Se ocorrer uma paralisação na região primária, os passos de recuperação para colocar a sua aplicação online são ilustrados no diagrama seguinte:
 
-![Figura 5](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
+![O diagrama mostra uma paragem para a região primária, com falha na base de dados de gestão, piscina secundária de clientes pagos, e criação e restauro para clientes experimentais.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-5.png)
 
 * Falha imediata nas bases de dados de gestão para a região DR (3).
 * Altere o fio de ligação da aplicação para apontar para a região DR. Agora, todas as novas contas e bases de dados de inquilinos são criadas na região dr. Os clientes de teste existentes vêem os seus dados temporariamente indisponíveis.
@@ -99,7 +99,7 @@ Neste momento, a sua candidatura está novamente online na região dr. Todos os 
 
 Quando a região primária for recuperada pelo Azure *depois de* ter restaurado a aplicação na região dr pode continuar a executar a aplicação naquela região ou pode decidir voltar à região primária. Se a região primária for recuperada *antes* do processo de incumprimento estar concluído, considere a falha de imediato. O failback toma os passos ilustrados no diagrama seguinte:
 
-![Figura 6](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
+![O diagrama mostra os passos de recuo para implementar depois de restaurar a região primária.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-6.png)
 
 * Cancele todos os pedidos de geo-restauro pendentes.
 * Falha nas bases de dados de gestão (8). Após a recuperação da região, as antigas primárias tornam-se automaticamente secundárias. Agora torna-se o principal novamente.  
@@ -128,7 +128,7 @@ Para apoiar este cenário, utilize três piscinas elásticas separadas. Provisã
 
 Para garantir o menor tempo de recuperação durante as paralisações, as bases de dados dos inquilinos pagadores são geo-replicadas com 50% das bases de dados primárias em cada uma das duas regiões. Da mesma forma, cada região tem 50% das bases de dados secundárias. Desta forma, se uma região estiver offline, apenas 50% das bases de dados dos clientes pagos são impactadas e têm de falhar. As outras bases de dados permanecem intactas. Esta configuração é ilustrada no seguinte diagrama:
 
-![Figura 4](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
+![O diagrama mostra uma região primária chamada Região A e região secundária chamada Região B que empregam a geo-replicação entre a base de dados de gestão e os clientes pagos piscina primária e piscina secundária sem replicação para o pool de clientes experimentais.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-7.png)
 
 Tal como nos cenários anteriores, as bases de dados de gestão estão bastante ativas, pelo que as configuram como bases de dados monografas geo-replicadas (1). Isto garante o desempenho previsível das novas subscrições de clientes, atualizações de perfis e outras operações de gestão. A região A é a principal região das bases de dados de gestão e a região B é utilizada para a recuperação das bases de dados de gestão.
 
@@ -136,7 +136,7 @@ As bases de dados dos inquilinos dos clientes pagadores também são geo-replica
 
 O diagrama seguinte ilustra os passos de recuperação a tomar se ocorrer uma paragem na região A.
 
-![Figura 5](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
+![O diagrama mostra uma paralisação para a região primária, com falha na base de dados de gestão, piscina secundária de clientes pagos, e criação e restauro para clientes experimentais na região B.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-8.png)
 
 * Falhe imediatamente nas bases de dados de gestão para a região B (3).
 * Altere o fio de ligação da aplicação para apontar para as bases de dados de gestão na região B. Modifique as bases de dados de gestão para garantir que as novas contas e bases de dados de inquilinos são criadas na região B e as bases de dados de inquilinos existentes também lá são encontradas. Os clientes de teste existentes vêem os seus dados temporariamente indisponíveis.
@@ -152,7 +152,7 @@ Neste momento, a sua candidatura está novamente online na região B. Todos os c
 
 Quando a região A é recuperada, você precisa decidir se você quer usar a região B para clientes experimentais ou não voltar a usar o pool de clientes experimentais na região A. Um dos critérios poderia ser a percentagem de bases de dados de inquilinos em ensaio alteradas desde a recuperação. Independentemente dessa decisão, você precisa reequilibrar os inquilinos pagos entre duas piscinas. o diagrama seguinte ilustra o processo quando as bases de dados dos inquilinos do ensaio falham na região A.  
 
-![Figura 6](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
+![O diagrama mostra os passos de recuo para implementar após o restabelecimento da Região A.](./media/disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-9.png)
 
 * Cancele todos os pedidos de geo-restauro pendentes para testar a piscina DR.
 * Falha na base de dados de gestão (8). Após a recuperação da região, as antigas primárias tornaram-se automaticamente secundárias. Agora torna-se o principal novamente.  

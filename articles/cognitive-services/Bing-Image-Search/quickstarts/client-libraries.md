@@ -11,13 +11,13 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 03/04/2020
 ms.author: aahi
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: fa6b9ceece6cc3cc625b06ff12cef25b62ea7bd4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
+ms.openlocfilehash: d139706ff0e5d04d15dee237fc25ad73f92da4db
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922315"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327426"
 ---
 # <a name="quickstart-use-the-bing-image-search-client-library"></a>Quickstart: Use a biblioteca de clientes Bing Image Search
 

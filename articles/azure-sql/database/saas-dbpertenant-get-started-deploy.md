@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 8d71f6e71a7cd6033e570742a23016df0c25dd27
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: cfe440cb8ac98518547248485201b85dc0d0076d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542251"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356830"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Implementar e explorar uma app SaaS multitenant que utiliza o padrão de base de dados por inquilino com Base de Dados Azure SQL
 
@@ -128,7 +128,7 @@ A aplicação Wingtip utiliza [*o Azure Traffic Manager*](../../traffic-manager
 
     As partes do formato anterior são explicadas na tabela seguinte.
 
-    | Parte url        | Descrição       |
+    | Parte url        | Description       |
     | :-------------- | :---------------- |
     | eventos.wingtip-dpt | Os eventos partes da aplicação Wingtip.<br /><br /> *-dpt* distingue a *implementação de bilhetes* wingtip por base de dados de outros. Exemplos são as implementações *de* uma única aplicação por inquilino *(-sa)* ou *uma base de dados multitenante* *(-mt).* |
     | . * &lt; utilizador &gt; * | *af1* no exemplo. |
@@ -225,7 +225,7 @@ Agora que começou a trabalhar contra a coleção de inquilinos, vamos ver algun
 1. No [portal Azure,](https://portal.azure.com)consulte a sua lista de servidores SQL. Em seguida, abra o servidor **user-dpt-do-catálogo. &lt; &gt; **
     - O servidor de catálogo contém duas bases de dados, **tenantcatalog** e **basetenantdb** (uma base de dados de modelos copiada para criar novos inquilinos).
 
-   ![Bases de Dados](./media/saas-dbpertenant-get-started-deploy/databases.png)
+   ![A screenshot mostra uma página geral do servidor de catálogo com as duas bases de dados.](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Volte para a sua lista de servidores SQL.
 

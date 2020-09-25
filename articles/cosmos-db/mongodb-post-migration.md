@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: lbosq
-ms.openlocfilehash: 055604c399aa1641e823f24af499102bfff3ed0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93a9058dec66ffe2e1c7ad4b15d9bf4eba12c647
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263097"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358530"
 ---
 # <a name="post-migration-optimization-steps-when-using-azure-cosmos-dbs-api-for-mongodb"></a>Etapas de otimização pós-migração ao utilizar a API da Azure Cosmos para a MongoDB
 
@@ -35,7 +35,7 @@ Neste guia, vai aprender a:
 2. A partir do [portal Azure,](https://www.portal.azure.com/)no painel esquerdo abra o menu **Todos os recursos** e encontre a conta DB Azure Cosmos para a qual emigrou os seus dados.
 3. Abra a **lâmina de ligação.** O painel do lado direito contém todas as informações de que precisa para se ligar com êxito à sua conta.
 4. Utilize as informações de ligação na configuração da sua aplicação (ou noutros locais relevantes) para refletir a API da Azure Cosmos para a ligação mongoDB na sua aplicação.
-:::image type="content" source="./media/mongodb-post-migration/connection-string.png" alt-text="Fio de conexão":::
+:::image type="content" source="./media/mongodb-post-migration/connection-string.png" alt-text="A screenshot mostra as definições de uma cadeia de ligação.":::
 
 Para mais detalhes, consulte a [aplicação Connect a MongoDB na página DB do Azure Cosmos.](connect-mongodb-account.md)
 
@@ -60,7 +60,7 @@ A Azure Cosmos DB oferece 5 níveis de consistência bem [definidos.](consistenc
 
 A maioria dos utilizadores deixa o seu nível de consistência na definição de consistência da sessão predefinida. No entanto, [existem compensações de disponibilidade e desempenho para vários níveis de consistência.](consistency-levels-tradeoffs.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ligar uma aplicação MongoDB ao Azure Cosmos DB](connect-mongodb-account.md)
 * [Ligue-se à conta DB da Azure Cosmos usando o Studio 3T](mongodb-mongochef.md)

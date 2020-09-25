@@ -11,12 +11,12 @@ ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e46c6d1c14d226522a1d534418b91076efeaaccf
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f1c4fe8268d24026609f55d76a102a5c9a4e8295
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070722"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356321"
 ---
 # <a name="azure-sql-managed-instance-connection-types"></a>Tipos de ligação do Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -27,14 +27,14 @@ Este artigo explica como os clientes se ligam à Azure SQL Managed Instance depe
 
 Azure SQL Managed Instance suporta os seguintes dois tipos de ligação:
 
-- **Redirecionamento (recomendado):** Os clientes estabelecem ligações diretamente ao nó que hospeda a base de dados. Para permitir a conectividade utilizando o redirecionamento, tem de abrir firewalls e Grupos de Segurança de Rede (NSG) para permitir o acesso nas portas 1433 e 11000-11999. Os pacotes vão diretamente para a base de dados, e, portanto, existem melhorias de desempenho de latência e produção usando redirecionamento sobre proxy.
-- **Proxy (padrão):** Neste modo, todas as ligações estão a utilizar um componente de gateway proxy. Para permitir a conectividade, é necessário abrir apenas a porta 1433 para redes privadas e o porto 3342 para a ligação pública. A escolha deste modo pode resultar numa maior latência e menor produção, dependendo da natureza da carga de trabalho. Recomendamos vivamente a política de redireccionamento da ligação sobre a política de ligação por procuração para a menor latência e maior produção.
+- **Redirecionamento (recomendado):** Os clientes estabelecem ligações diretamente ao nó que hospeda a base de dados. Para ativar a conectividade através do redirecionamento, tem de abrir as firewalls e os Grupos de Segurança de Rede (NSG) para permitir o acesso nas portas 1433 e 11000-11999. Os pacotes vão diretamente para a base de dados e, portanto, há melhorias de desempenho de débito e latência através do redirecionamento em vez do proxy.
+- **Proxy (padrão):** Neste modo, todas as ligações estão a utilizar um componente de gateway proxy. Para ativar a conectividade, apenas a porta 1433 para as redes privadas e a porta 3342 para a ligação pública precisam de ser abertas. Escolher este modo pode resultar numa latência superior e débito inferior, dependendo da natureza da carga de trabalho. É altamente recomendável a política de ligação de redirecionamento em vez da política de ligação de proxy para obter a menor latência e o maior débito.
 
 ## <a name="redirect-connection-type"></a>Redirecione o tipo de ligação
 
 No tipo de ligação de redirecionamento, após a sessão TCP ser estabelecida para o motor SQL, a sessão do cliente obtém o destino IP virtual do nó de cluster virtual do balançador de carga. Os pacotes subsequentes fluem diretamente para o nó de cluster virtual, contornando o gateway. O diagrama que se segue ilustra este fluxo de tráfego.
 
-![redirect.png](./media/connection-types-overview/redirect.png)
+![O diagrama mostra uma rede no local com redireccionamento-db ligado a uma porta de entrada numa rede virtual Azure e uma consulta de redirecionamento ligada a um nó primário de base de dados na rede virtual.](./media/connection-types-overview/redirect.png)
 
 > [!IMPORTANT]
 > Atualmente, o tipo de ligação de redireccionamento funciona apenas para um ponto final privado. Independentemente da definição do tipo de ligação, as ligações que entram no ponto final público seriam através de um representante.
@@ -43,7 +43,7 @@ No tipo de ligação de redirecionamento, após a sessão TCP ser estabelecida p
 
 No tipo de ligação proxy, a sessão TCP é estabelecida usando o gateway e todos os pacotes subsequentes fluem através dele. O diagrama que se segue ilustra este fluxo de tráfego.
 
-![proxy.png](./media/connection-types-overview/proxy.png)
+![O diagrama mostra uma rede no local com um proxy ligado a um gateway numa rede virtual Azure, conectando-se ao lado de um nó primário de base de dados na rede virtual.](./media/connection-types-overview/proxy.png)
 
 ## <a name="changing-connection-type"></a>Alteração do tipo de ligação
 

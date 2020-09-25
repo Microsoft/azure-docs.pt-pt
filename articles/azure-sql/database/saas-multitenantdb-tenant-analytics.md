@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: 9339ed7d0ab122420b37a67a96ee0d9d324e2f15
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 446517f56d1f5ba6fa32408489f07411ee1a3e02
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442910"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356813"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Análise de inquilinos cruzados usando dados extraídos - app multi-inquilino
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ Neste tutorial, ficará a saber como:
 > - Consulta a base de dados de análise.
 > - Use o Power BI para visualização de dados para destacar as tendências dos dados dos inquilinos e fazer recomendações para melhorias.
 
-![arquiteturaOverView](./media/saas-multitenantdb-tenant-analytics/architectureOverview.png)
+![O diagrama mostra uma visão geral da arquitetura usada para este artigo.](./media/saas-multitenantdb-tenant-analytics/architectureOverview.png)
 
 ## <a name="offline-tenant-analytics-pattern"></a>Padrão de análise de inquilino offline
 
@@ -53,7 +53,7 @@ Em seguida, os dados agregados são triturados em um conjunto de tabelas [de esq
 
 Juntas as tabelas central e de dimensão permitem um processamento analítico eficiente. O esquema de estrelas utilizado neste tutorial é exibido na seguinte imagem:
  
-![StarSchema](./media/saas-multitenantdb-tenant-analytics/StarSchema.png)
+![O diagrama da base de dados mostra quatro objetos de base de dados ligados a um objeto central de base de dados.](./media/saas-multitenantdb-tenant-analytics/StarSchema.png)
 
 Finalmente, as mesas de esquema de estrelas são questionadas. Os resultados da consulta são apresentados visualmente para destacar insights sobre o comportamento do inquilino e o seu uso da aplicação. Com este esquema de estrelas, você pode executar consultas que ajudam a descobrir itens como:
 
@@ -111,7 +111,7 @@ Consulte os seguintes itens de base de dados no SSMS Object Explorer expandindo 
 - As mesas de esquema de estrelas são **fact_Tickets,** **dim_Customers,** **dim_Venues,** **dim_Events**e **dim_Dates.**
 - O **procedimento sp_ShredRawExtractedData** armazenado é utilizado para povoar as tabelas de esquemas estelares das tabelas de dados brutos.
 
-![inquilinosAnalytics](./media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
+![O Screenshot mostra o S S M S Object Explorer para o nó da loja de análise, incluindo mesas, vistas e nós.](./media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
 
 ## <a name="data-extraction"></a>Extração de dados 
 
@@ -139,7 +139,7 @@ Cada trabalho extrai os seus dados e coloca-os na loja de análise. Há um traba
 4. Prima **f5** para executar o script que cria e executa o trabalho que extrai bilhetes e dados de clientes de cada base de dados de inquilinos. O trabalho guarda os dados na loja de análise.
 5. Consultar a tabela TicketsRawData na base de dados de inquilinos, para garantir que a mesa é preenchida com informações de bilhetes de todos os inquilinos.
 
-![ticketExtracts](./media/saas-multitenantdb-tenant-analytics/ticketExtracts.png)
+![A screenshot mostra a base de dados ExtractTickets com os TicketsRawData d b o selecionados no Object Explorer.](./media/saas-multitenantdb-tenant-analytics/ticketExtracts.png)
 
 Repita os passos anteriores, exceto que desta vez **substitua \ExtractTickets.sql** por **\ExtractVenuesEvents.sql** no passo 2.
 
@@ -159,7 +159,7 @@ Nesta secção do tutorial, você define e executou um trabalho que funde os dad
 4. Dê tempo suficiente para que o trabalho corra com sucesso.
     - Verifique a coluna **lifecycle** da tabela jobs.jobs_execution para obter o estado de trabalho. Certifique-se **de** que o trabalho foi bem sucedido antes de prosseguir. Uma execução bem sucedida exibe dados semelhantes ao seguinte gráfico:
 
-![triturar oJob](./media/saas-multitenantdb-tenant-analytics/shreddingJob.PNG)
+![A screenshot mostra o resultado bem sucedido de executar o procedimento de sp_ShredRawExtractedData.](./media/saas-multitenantdb-tenant-analytics/shreddingJob.PNG)
 
 ## <a name="data-exploration"></a>Exploração de dados
 
@@ -174,11 +174,11 @@ Use os seguintes passos para ligar ao Power BI e importar as vistas que criou an
 3. Na janela **Obter Dados,** selecione Azure SQL Database.
 4. Na janela de login da base de dados, insira o nome do seu servidor (catálogo-mt- \<User\> .database.windows.net). Selecione **Importar** para **o Modo de Conectividade de Dados**e, em seguida, clique em OK. 
 
-    ![powerBISignIn](./media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
+    ![A screenshot mostra a caixa de diálogo de base de dados SQL Server onde pode introduzir o Servidor e a Base de Dados.](./media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
 5. Selecione **a Base de Dados** no painel esquerdo e, em seguida, introduza o nome do utilizador = *desenvolvedor*, e introduza a palavra-passe = *P \@ ssword1*. Clique em **Ligar**.  
 
-    ![Dados de dados-assinados](./media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
+    ![A screenshot mostra o diálogo de base de dados SQL Server onde pode introduzir um nome de utilizador e palavra-passe.](./media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 
 6. No painel **Do Navegador,** sob a base de dados de análise, selecione as tabelas star-schema: fact_Tickets, dim_Events, dim_Venues, dim_Customers e dim_Dates. Em seguida, **selecione Carregar**. 
 
@@ -186,13 +186,13 @@ Parabéns! Você carregou os dados com sucesso no Power BI. Agora você pode com
 
 Começa por analisar os dados de venda de bilhetes para ver a variação do uso nos locais. Selecione as seguintes opções no Power BI para traçar um gráfico de barras do número total de bilhetes vendidos por cada local. Devido à variação aleatória no gerador de bilhetes, os seus resultados podem ser diferentes.
  
-![TotalTicketsByVenues](./media/saas-multitenantdb-tenant-analytics/TotalTicketsByVenues.PNG)
+![A screenshot mostra uma visualização e controlos de Power B I para a visualização de dados no lado direito.](./media/saas-multitenantdb-tenant-analytics/TotalTicketsByVenues.PNG)
 
 O lote anterior confirma que o número de bilhetes vendidos por cada local varia. Os locais que vendem mais bilhetes estão a usar o seu serviço mais fortemente do que os locais que vendem menos bilhetes. Pode haver aqui uma oportunidade de adaptar a alocação de recursos de acordo com as diferentes necessidades do inquilino.
 
 Pode analisar ainda mais os dados para ver como as vendas de bilhetes variam ao longo do tempo. Selecione as seguintes opções no Power BI para traçar o número total de bilhetes vendidos por dia por um período de 60 dias.
  
-![SaleVersusDate](./media/saas-multitenantdb-tenant-analytics/SaleVersusDate.PNG)
+![A screenshot mostra power B I visualização intitulada Distribuição de Venda de Bilhetes versus Dia de Venda.](./media/saas-multitenantdb-tenant-analytics/SaleVersusDate.PNG)
 
 O gráfico anterior mostra o pico de venda de bilhetes para alguns locais. Estes picos reforçam a ideia de que alguns locais podem estar a consumir desproporcionalmente os recursos do sistema. Até agora não há nenhum padrão óbvio quando os picos ocorrem.
 

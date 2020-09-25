@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: 467f7b3525883e16e57a06ff97cf4fd386279d22
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: b38ba59b3efc7e5869eecbc84879a6c0a4ce7369
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958240"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360213"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Resolução de problemas erros de ligação intermitente de saída no Serviço de Aplicações Azure
 
@@ -32,7 +32,7 @@ As aplicações e funções hospedadas no serviço Azure App podem apresentar um
 Uma das principais causas destes sintomas é que a instância de aplicação não é capaz de abrir uma nova ligação ao ponto final externo porque atingiu um dos seguintes limites:
 
 * Ligações TCP: Existe um limite para o número de ligações de saída que podem ser feitas. Isto está associado ao tamanho do trabalhador utilizado.
-* Portas SNAT: Como discutido nas [ligações outbound em Azure,](../load-balancer/load-balancer-outbound-connections.md)a Azure utiliza tradução de endereço de rede de origem (SNAT) e um Balancer de Carga (não exposto aos clientes) para comunicar com pontos finais fora de Azure no espaço de endereço IP público. Cada instância no serviço Azure App é inicialmente dado um número pré-atribuído de **128** portas SNAT. Este limite afeta a abertura das ligações ao mesmo hospedeiro e à combinação de porta. Se a sua aplicação criar ligações a uma mistura de endereços e combinações de portas, não utilizará as portas SNAT. As portas SNAT são usadas quando tem chamadas repetidas para o mesmo endereço e combinação de portas. Uma vez que uma porta tenha sido liberada, o porto está disponível para reutilização conforme necessário. O equilibrador de carga da Rede Azure recupera a porta SNAT das ligações fechadas apenas após esperar 4 minutos.
+* Portas SNAT: Como discutido nas [ligações outbound em Azure,](../load-balancer/load-balancer-outbound-connections.md)a Azure utiliza tradução de endereço de rede de origem (SNAT) e um Balancer de Carga (não exposto aos clientes) para comunicar com pontos finais fora de Azure no espaço de endereço IP público, bem como pontos finais internos para a Azure que não estão a tirar partido dos pontos finais de serviço. Cada instância no serviço Azure App é inicialmente dado um número pré-atribuído de **128** portas SNAT. Este limite afeta a abertura das ligações ao mesmo hospedeiro e à combinação de porta. Se a sua aplicação criar ligações a uma mistura de endereços e combinações de portas, não utilizará as portas SNAT. As portas SNAT são usadas quando tem chamadas repetidas para o mesmo endereço e combinação de portas. Uma vez que uma porta tenha sido liberada, o porto está disponível para reutilização conforme necessário. O equilibrador de carga da Rede Azure recupera a porta SNAT das ligações fechadas apenas após esperar 4 minutos.
 
 Quando as aplicações ou funções abrem rapidamente uma nova ligação, podem esgotar rapidamente a sua quota pré-atribuída das 128 portas. São então bloqueados até que uma nova porta SNAT fique disponível, quer através da atribuição dinâmica de portas SNAT adicionais, quer através da reutilização de uma porta SNAT recuperada. As aplicações ou funções que estão bloqueadas devido a esta incapacidade de criar novas ligações começarão a experimentar uma ou mais das questões descritas na secção **Sintomas** deste artigo.
 
@@ -124,7 +124,7 @@ Para outros ambientes, o provedor de revisão ou documentos específicos do cond
 
 Evitar os limites de saída da TCP é mais fácil de resolver, uma vez que os limites são definidos pelo tamanho do seu trabalhador. Pode ver os limites em [Limites Numéricos Cross VM da Sandbox - Conexões TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Nome limite|Descrição|Pequeno (A1)|Meio (A2)|Grande (A3)|Nível isolado (ASE)|
+|Nome limite|Description|Pequeno (A1)|Meio (A2)|Grande (A3)|Nível isolado (ASE)|
 |---|---|---|---|---|---|
 |Ligações|Número de ligações em todo o VM|1920|3968|8064|16 000|
 
@@ -156,7 +156,7 @@ As ligações TCP e as portas SNAT não estão diretamente relacionadas. Um dete
 * O limite de ligações TCP acontece ao nível da instância do trabalhador. O equilíbrio de carga de saída da Rede Azure não utiliza a métrica de ligações TCP para limitar a porta SNAT.
 * Os limites das ligações TCP são descritos em [Limites Numéricos VM Cross Sandbox - Conexões TCP](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)
 
-|Nome limite|Descrição|Pequeno (A1)|Meio (A2)|Grande (A3)|Nível isolado (ASE)|
+|Nome limite|Description|Pequeno (A1)|Meio (A2)|Grande (A3)|Nível isolado (ASE)|
 |---|---|---|---|---|---|
 |Ligações|Número de ligações em todo o VM|1920|3968|8064|16 000|
 

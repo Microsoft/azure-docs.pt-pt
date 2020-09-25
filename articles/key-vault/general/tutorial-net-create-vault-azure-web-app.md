@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Use Azure Key Vault com um webapp Azure em .NET / Microsoft Docs
-description: Neste tutorial, você configura uma aplicação principal ASP.NET para ler um segredo do seu cofre chave.
+description: Neste tutorial, você configura e Azure webapp em uma aplicação ASP.NET núcleo para ler um segredo a partir do seu cofre chave.
 services: key-vault
 author: msmbaldwin
 manager: rajvijan
@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: be18718513e8624db00d502228a3e5af6076d9d7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e537bb74655bce5c8438e22fb9b990b72eab73d7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007082"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336688"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Tutorial: Use uma identidade gerida para ligar o Key Vault a uma App Web Azure com .NET
 

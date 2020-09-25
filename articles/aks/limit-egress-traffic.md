@@ -7,12 +7,12 @@ ms.author: jpalma
 ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
-ms.openlocfilehash: 00a20ece2358f0054e4490ffb914f78b82d9c509
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 236b69b1e10eb80b9c0a5e27b213eb3972209346
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594264"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361046"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlo tráfego de saídas para nós de cluster no Serviço Azure Kubernetes (AKS)
 
@@ -766,7 +766,7 @@ Navegue para o endereço IP frontend Azure Firewall num browser para validar a c
 Devia ver a aplicação de voto AKS. Neste exemplo, o IP público firewall foi `52.253.228.132` .
 
 
-![aks-vote](media/limit-egress-traffic/aks-vote.png)
+![A screenshot mostra a App de Voto A K S com botões para Gatos, Cães e Reset, e totais.](media/limit-egress-traffic/aks-vote.png)
 
 
 ### <a name="clean-up-resources"></a>Limpar os recursos
@@ -777,7 +777,7 @@ Para limpar os recursos do Azure, elimine o grupo de recursos AKS.
 az group delete -g $RG
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu quais portas e moradas para permitir se quiser restringir o tráfego de saídas para o cluster. Também viu como proteger o tráfego de saída usando a Azure Firewall. 
 

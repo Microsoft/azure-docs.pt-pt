@@ -6,13 +6,13 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 45dc137141491938367fb57c6955e8e3145f8ff9
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.custom: devx-track-js
+ms.openlocfilehash: e0bb4df611c6a9cfecf0aadbdfc3a577243856ba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050459"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327623"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: autenticação do Azure SignalR Service com as Funções do Azure Functions
 
@@ -52,7 +52,7 @@ Vai criar e testar a aplicação Funções do Azure localmente. A aplicação ac
 
 1. Clique no botão **Criar um** **+** recurso () para criar um novo recurso Azure.
 
-1. Procure **SignalR Service** e selecione-o. Clique em **Criar**.
+1. Procure **SignalR Service** e selecione-o. Clique em **Create** (Criar).
 
     ![Novo SignalR Service](media/signalr-tutorial-authenticate-azure-functions/signalr-quickstart-new.png)
 
@@ -65,7 +65,7 @@ Vai criar e testar a aplicação Funções do Azure localmente. A aplicação ac
     | Localização | Selecione uma localização perto de si |
     | Escalão de Preço | Gratuito |
 
-1. Clique em **Criar**.
+1. Clique em **Create** (Criar).
 
 1. Depois de implementada a instância, abra-a no portal e localize a sua página de Definições. Altere a definição do modo de serviço para *sem servidor*.
 
@@ -336,7 +336,7 @@ Uma conta de Armazenamento Azure é exigida por uma aplicação de função em e
     | Desempenho | Standard |
     | Tipo de conta | StorageV2 (fins gerais v2) |
     | Replicação | Armazenamento localmente redundante (LRS) |
-    | Nível de acesso | Acesso Frequente |
+    | Nível de acesso | Frequente |
 
 1. Clique **em Rever + criar**e, em seguida, **Criar**.
 
@@ -350,7 +350,7 @@ Uma conta de Armazenamento Azure é exigida por uma aplicação de função em e
 
 1. No **nome do documento índice**, insiraindex.htm* l*.
 
-1. Clique em **Guardar**.
+1. Clique em **Save** (Guardar).
 
 1. Aparece um **ponto final primário.** Reparem neste valor. Será necessário configurar a aplicação de função.
 

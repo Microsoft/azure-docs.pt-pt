@@ -8,15 +8,15 @@ ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 keywords: visão personalizada
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 4efbc76053d96dbd9bdb00c0449e325ca967f49e
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 75ed10046dfbc9e0a0c35614237bc2422d84da13
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604880"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327460"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-client-library"></a>Quickstart: Criar um projeto de deteção de objetos com a biblioteca de clientes Da Visão Personalizada
 

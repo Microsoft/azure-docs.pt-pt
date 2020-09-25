@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: 848a0c9817472086dbaf3973dad9c64e3ed74b10
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: f47569eef7281840108c32283f664c3218de23dc
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954252"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357797"
 ---
 # <a name="configure-always-encrypted-by-using-the-windows-certificate-store"></a>Configure Sempre Encriptado utilizando a loja de certificados Windows
 
@@ -127,7 +127,7 @@ Pode encriptar as colunas agora ou guardar um script PowerShell para ser executa
 
 Verifique se as definições estão todas corretas e clique em **Terminar** para completar a configuração para Sempre Encriptado.
 
-![Resumo](./media/always-encrypted-certificate-store-configure/summary.png)
+![A screenshot mostra a página de resultados com tarefas marcadas como passadas.](./media/always-encrypted-certificate-store-configure/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>Verifique as ações do feiticeiro
 
@@ -532,7 +532,7 @@ Para utilizar o SSMS para aceder aos dados de texto simples, pode adicionar o **
 > [!NOTE]
 > Se ligar com SSMS (ou qualquer cliente) a partir de um computador diferente, não terá acesso às chaves de encriptação e não será capaz de desencriptar os dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de criar uma base de dados que utiliza Sempre Encriptado, poderá querer fazer o seguinte:
 
@@ -544,7 +544,7 @@ Depois de criar uma base de dados que utiliza Sempre Encriptado, poderá querer 
 ## <a name="related-information"></a>Informações relacionadas
 
 * [Sempre encriptado (desenvolvimento do cliente)](https://msdn.microsoft.com/library/mt147923.aspx)
-* [Encriptação de dados transparentes](https://msdn.microsoft.com/library/bb934049.aspx)
+* [Encriptação de Dados Transparente](https://msdn.microsoft.com/library/bb934049.aspx)
 * [Encriptação do servidor SQL](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Assistente sempre encriptado](https://msdn.microsoft.com/library/mt459280.aspx)
 * [Blog sempre encriptado](https://docs.microsoft.com/archive/blogs/sqlsecurity/always-encrypted-key-metadata)

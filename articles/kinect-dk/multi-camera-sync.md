@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 02/20/2020
 ms.topic: article
 keywords: azul, cinect, especificações, hardware, DK, capacidades, profundidade, cor, RGB, IMU, array, profundidade, multi, sincronização
-ms.openlocfilehash: e22f42a69e7d9b8283ec2f2da478dde0c27ce4ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c79101de5e5455ae2ff9fd8b5d8369a3832631c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85277577"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361165"
 ---
 # <a name="synchronize-multiple-azure-kinect-dk-devices"></a>Sincronizar vários dispositivos DK Azure Kinect
 
@@ -26,7 +26,7 @@ Existem muitas razões para usar vários dispositivos Azure Kinect DK, incluindo
 
 - Preencha as oclusões. Embora as transformações de dados do Azure Kinect DK produzam uma única imagem, as duas câmaras (profundidade e RGB) estão na verdade a uma pequena distância. A compensação torna possíveis as oclusões. Uma oclusão ocorre quando um objeto de primeiro plano bloqueia a vista de parte de um objeto de fundo para uma das duas câmaras de um dispositivo. Na imagem de cor resultante, o objeto de primeiro plano parece lançar uma sombra no objeto de fundo.  
    Por exemplo, no diagrama seguinte, a câmara do lado esquerdo vê o pixel cinzento "P2". No entanto, o objeto de primeiro plano branco bloqueia o feixe IR da câmara do lado direito. A câmara do lado direito não tem dados para "P2".  
-   ![Oclusão](./media/occlusion.png)  
+   ![O diagrama mostra duas câmaras direcionadas para o mesmo ponto com uma delas bloqueada.](./media/occlusion.png)  
    Dispositivos sincronizados adicionais podem fornecer os dados obstruídos.
 - Digitalize objetos em três dimensões.
 - Aumente a taxa de fotogramas efetiva para um valor superior a 30 fotogramas por segundo (FPS).
@@ -185,7 +185,7 @@ Existem múltiplas opções para dispositivos de calibração cruzada. A Microso
 
 Para obter mais informações sobre a calibração, consulte [as funções de calibração do Azure Kinect](use-calibration-functions.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de configurar dispositivos sincronizados, também pode aprender a usar o
 > [!div class="nextstepaction"]

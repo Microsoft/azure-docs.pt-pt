@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 09/01/2020
 ms.topic: include
-ms.custom: include file, devx-track-javascript
+ms.custom: include file, devx-track-js
 ms.author: diberry
-ms.openlocfilehash: 51b8fc9aae787b0fe033e9046059a65a4d79616c
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: ef26e104f1541583e2349386a15b43af02070b5c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89323243"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327299"
 ---
 ## <a name="code-examples"></a>Exemplos de código
 

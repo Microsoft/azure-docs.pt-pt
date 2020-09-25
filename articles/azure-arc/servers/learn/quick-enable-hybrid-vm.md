@@ -1,24 +1,24 @@
 ---
-title: Ligue a máquina híbrida com servidores ativados do Arco Azure (pré-visualização)
-description: Saiba como conectar e registar a sua máquina híbrida com servidores ativados Azure Arc (pré-visualização).
+title: Ligue a máquina híbrida com servidores ativados do Arco Azure
+description: Saiba como conectar e registar a sua máquina híbrida com servidores ativados Azure Arc.
 ms.topic: quickstart
-ms.date: 08/12/2020
-ms.openlocfilehash: eacf75871b1f7cc7fc3b703d8859338578e43456
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 09/23/2020
+ms.openlocfilehash: b57f30821a105a99041d8187716b75096116ea8e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213615"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327889"
 ---
-# <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers-preview"></a>Quickstart: Ligue a máquina híbrida com servidores ativados do Arco Azure (pré-visualização)
+# <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers"></a>Quickstart: Ligue a máquina híbrida com servidores ativados do Azure Arc
 
-[Os servidores ativados](../overview.md) (pré-visualização) do Azure Arc permitem gerir e governar as suas máquinas Windows e Linux hospedadas em ambientes no local, borda e multicloud. Neste arranque rápido, irá implementar e configurar o agente Máquina Conectada na sua máquina Windows ou Linux hospedada fora do Azure para gestão por servidores ativados pela Arc (pré-visualização).
+[Os servidores ativados pelo Azure Arc](../overview.md) permitem gerir e governar as suas máquinas Windows e Linux hospedadas em ambientes no local, borda e multicloud. Neste arranque rápido, irá implementar e configurar o agente Máquina Conectada na sua máquina Windows ou Linux hospedada fora do Azure para gestão por servidores ativados pela Arc.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-* A implementação dos servidores ativados pelo Arco (pré-visualização) o agente híbrido connected machine requer que tenha permissões de administrador na máquina para instalar e configurar o agente. No Linux, utilizando a conta raiz, e no Windows, com uma conta que é membro do grupo de Administradores Locais.
+* Implantação dos servidores ativados por Arc, o agente híbrido da máquina conectada requer que tenha permissões de administrador na máquina para instalar e configurar o agente. No Linux, utilizando a conta raiz, e no Windows, com uma conta que é membro do grupo de Administradores Locais.
 
 * Antes de começar, certifique-se de rever os [pré-requisitos](../agent-overview.md#prerequisites) do agente e verificar o seguinte:
 
@@ -28,13 +28,13 @@ ms.locfileid: "88213615"
 
     * Se a máquina ligar através de uma firewall ou servidor proxy para comunicar através da Internet, certifique-se de que os URLs [listados](../agent-overview.md#networking-configuration) não estão bloqueados.
 
-    * Os servidores ativados Azure Arc (pré-visualização) suportam apenas as regiões aqui [especificadas.](../overview.md#supported-regions)
+    * Os servidores ativados Azure Arc suportam apenas as regiões especificadas [aqui.](../overview.md#supported-regions)
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="register-azure-resource-providers"></a>Registar fornecedores de recursos Azure
 
-Os servidores ativados Azure Arc (pré-visualização) dependem dos seguintes fornecedores de recursos Azure na sua subscrição para utilizar este serviço:
+Os servidores ativados Azure Arc dependem dos seguintes fornecedores de recursos Azure na sua subscrição para utilizar este serviço:
 
 * Microsoft.HybridCompute
 * Microsoft.GuestConfiguration
@@ -97,7 +97,7 @@ O script para automatizar o download, instalação e estabelecer a ligação com
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Verificar a ligação com o Azure Arc
 
-Depois de instalar o agente e configurá-lo para ligar aos servidores ativados do Azure Arc (pré-visualização), vá ao portal Azure para verificar se o servidor se ligou com sucesso. Veja a sua máquina no [portal Azure](https://aka.ms/hybridmachineportal).
+Depois de instalar o agente e configurá-lo para ligar aos servidores ativados do Azure Arc, vá ao portal Azure para verificar se o servidor se ligou com sucesso. Veja a sua máquina no [portal Azure](https://aka.ms/hybridmachineportal).
 
 :::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="Uma ligação de máquina bem sucedida" border="false":::
 
@@ -105,7 +105,7 @@ Depois de instalar o agente e configurá-lo para ligar aos servidores ativados d
 
 Agora que ativou a sua máquina híbrida Linux ou Windows e está ligado com sucesso ao serviço, está pronto para permitir que a Azure Policy compreenda a conformidade no Azure.
 
-Para saber como identificar os servidores ativados (pré-visualização) do Azure Arc que não tem o agente Log Analytics instalado, continue ao tutorial:
+Para saber como identificar os servidores ativados pelo Azure Arc que não têm o agente Log Analytics instalado, continue ao tutorial:
 
 > [!div class="nextstepaction"]
 > [Criar uma atribuição de política para identificar recursos não conformes](tutorial-assign-policy-portal.md)

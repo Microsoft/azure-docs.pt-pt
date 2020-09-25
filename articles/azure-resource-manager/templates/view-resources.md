@@ -3,12 +3,12 @@ title: Descubra propriedades de recursos
 description: Descreve como procurar propriedades de recursos.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 75c089ac9d0ca08c788fea1ac9011f018ef0195e
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: c8bbe0dcb1bc9dc9751a1dc0d0b98a6368473546
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057080"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327753"
 ---
 # <a name="discover-resource-properties"></a>Descubra propriedades de recursos
 
@@ -74,7 +74,7 @@ O Resource Explorer está incorporado no portal Azure. Antes de utilizar este m�
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Na caixa de pesquisa, insira o **explorador de recursos**e, em seguida, selecione Resource **Explorer**.
 
-    ![Explorador de Recursos do portal Azure](./media/view-resources/azure-portal-resource-explorer.png)
+    ![A screenshot mostra a procura do Explorador de Recursos no portal Azure.](./media/view-resources/azure-portal-resource-explorer.png)
 
 1. A partir da esquerda, expanda **as Subscrições**e, em seguida, expanda a sua subscrição Azure. Pode encontrar a conta de armazenamento em **fornecedores** ou **Grupos de Recursos.**
 
@@ -114,6 +114,6 @@ Para demonstrar como recuperar informações de esquema utilizando esta ferramen
 
     ![Sku de armazenamento de conta de armazenamento do portal Azure](./media/view-resources/azure-portal-resource-explorer-sku.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu a encontrar informações de esquema de modelo. Para saber mais sobre a criação de modelos de Gestor de Recursos, consulte [compreender a estrutura e a sintaxe dos modelos ARM](./template-syntax.md).

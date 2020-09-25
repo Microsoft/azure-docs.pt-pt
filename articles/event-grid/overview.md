@@ -2,13 +2,13 @@
 title: O que é o Azure Event Grid?
 description: Envie dados de eventos de uma fonte para os manipuladores com a Azure Event Grid. Construa aplicações baseadas em eventos e integre-se com os serviços Azure.
 ms.topic: overview
-ms.date: 07/07/2020
-ms.openlocfilehash: 87ac29c2324c63977c57d60b11b3b930c23a4dd9
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/24/2020
+ms.openlocfilehash: 73d218058c5f95d8c2d2324f1a0e1e77b24f1364
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436872"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326508"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é o Azure Event Grid?
 
@@ -20,18 +20,19 @@ A Azure Event Grid é implementada para maximizar a disponibilidade espalhando-s
 
 Este artigo mostra uma descrição geral do Azure Event Grid. Se quiser começar a utilizar o Event Grid, veja [Criar e encaminhar eventos personalizados com o Azure Event Grid](custom-event-quickstart.md). 
 
-![Modelo de grelha de eventos de fontes e manipuladores](./media/overview/functional-model.png)
+:::image type="content" source="./media/overview/functional-model.png" alt-text="Modelo de grelha de eventos de fontes e manipuladores" lightbox="./media/overview/functional-model.png":::
 
 Esta imagem mostra como o Event Grid conecta fontes e manipuladores, e não é uma lista completa de integrações apoiadas.
 
 ## <a name="event-sources"></a>Origens de eventos
 
-Atualmente, os seguintes serviços do Azure suportam o envio de eventos para o Event Grid:
+Atualmente, os seguintes serviços Azure apoiam o envio de eventos para a Grade de Eventos. Para mais informações sobre uma fonte na lista, selecione o link.
 
 - [Configuração da Aplicação Azure](event-schema-app-configuration.md)
 - [Armazenamento de Blobs do Azure](event-schema-blob-storage.md)
+- [Azure Communication Services](event-schema-communication-services.md) 
 - [Azure Container Registry](event-schema-container-registry.md)
-- [Hubs de Eventos do Azure](event-schema-event-hubs.md)
+- [Azure Event Hubs](event-schema-event-hubs.md)
 - [Hub IoT do Azure](event-schema-iot-hub.md)
 - [Azure Key Vault](event-schema-key-vault.md)
 - [Azure Machine Learning](event-schema-machine-learning.md)

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/15/2019
 ms.author: raynew
-ms.openlocfilehash: ec95cde1f023b4d034c2fae9cc5a54744ccdc9a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4132ca675af136d7fd50b8ddd02277919a5ed28
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549821"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361097"
 ---
 # <a name="create-an-azure-vm-assessment"></a>Criar uma avaliação de VM do Azure
 
@@ -31,7 +31,7 @@ Existem dois tipos de critérios de dimensionamento que pode utilizar para criar
 
 **Avaliação** | **Detalhes** | **Dados**
 --- | --- | ---
-**Baseado no desempenho** | Avaliações com base em dados de desempenho recolhidos | **Tamanho VM recomendado**: Com base em dados de CPU e utilização da memória.<br/><br/> **Tipo de disco recomendado (disco gerido standard ou premium)**: Baseado no IOPS e na produção dos discos no local.
+**Com base no desempenho** | Avaliações com base em dados de desempenho recolhidos | **Tamanho VM recomendado**: Com base em dados de CPU e utilização da memória.<br/><br/> **Tipo de disco recomendado (disco gerido standard ou premium)**: Baseado no IOPS e na produção dos discos no local.
 **Como no local** | Avaliações baseadas no dimensionamento no local. | **Tamanho VM recomendado**: Com base no tamanho VM no local<br/><br> **Tipo de disco recomendado**: Com base na definição do tipo de armazenamento que seleciona para a avaliação.
 
 [Saiba mais](concepts-assessment-calculation.md) sobre avaliações.
@@ -43,35 +43,35 @@ E executar uma avaliação da seguinte forma:
 1. Reveja as [melhores práticas](best-practices-assessment.md) para criar avaliações.
 2. No separador **Servidores,** em **Azure Migrate: Telha de Avaliação** do Servidor, clique em **Avaliar**.
 
-    ![Avaliar](./media/how-to-create-assessment/assess.png)
+    ![A screenshot mostra servidores Azure Migrate com Avaliação selecionados em ferramentas de avaliação.](./media/how-to-create-assessment/assess.png)
 
 3. Nos **servidores avaliação**, selecione o tipo de avaliação como "Azure VM", selecione a fonte de descoberta e especifique o nome de avaliação.
 
-    ![Avaliação Básicos](./media/how-to-create-assessment/assess-servers-azurevm.png)
+    ![Noções Básicas de Avaliação](./media/how-to-create-assessment/assess-servers-azurevm.png)
 
 4. Clique em **Ver tudo** para rever as propriedades de avaliação.
 
-    ![Propriedades de avaliação](./media/how-to-create-assessment//view-all.png)
+    ![Propriedades da avaliação](./media/how-to-create-assessment//view-all.png)
 
-5. Clique **ao lado** de **Selecionar máquinas para avaliar**. Em **Select ou criar um grupo**, selecione Create **New**, e especifique um nome de grupo. Um grupo reúne um ou mais VMs para avaliação.
+5. Clique em **seguinte** para **Selecionar as máquinas a avaliar**. Em **Selecionar ou criar um grupo**, selecione **Criar Novo** e especifique um nome do grupo. Um grupo reúne uma ou mais VMs para avaliação.
 6. No **Adicionar máquinas ao grupo,** selecione VMs para adicionar ao grupo.
-7. Clique **ao lado** do Review + crie **avaliação** para rever os detalhes da avaliação.
+7. Clique em **seguinte** para **Rever + criar avaliação** e reveja os detalhes da avaliação.
 8. Clique **em Criar Avaliação** para criar o grupo e executar a avaliação.
 
     ![Criar uma avaliação](./media/how-to-create-assessment//assessment-create.png)
 
-9. Após a avaliação ser criada, veja-a nos **Servidores**  >  **Azure Migrate: Avaliações de Avaliação do Servidor**  >  **Assessments**.
+9. Após a criação da avaliação, veja-a em **Servidor** > **Azure Migrate: Avaliação do Servidor** > **Avaliações**.
 10. Clique em **Exportar avaliação**, para transferi-la como um ficheiro do Excel.
 
 
 
-## <a name="review-an-azure-vm-assessment"></a>Reveja uma avaliação de Azure VM
+## <a name="review-an-azure-vm-assessment"></a>Rever uma avaliação de VM do Azure
 
-Uma avaliação de Azure VM descreve:
+Uma avaliação de VM do Azure descreve:
 
 - **Prontidão azul**: Se os VM são adequados para a migração para Azure.
 - **Estimativa mensal dos custos**: Os custos estimados mensalmente de cálculo e armazenamento para a execução dos VMs em Azure.
-- **Estimativa mensal dos custos de armazenamento**: Custos estimados para o armazenamento do disco após a migração.
+- **Estimativa do custo de armazenamento mensal**: Custos estimados do armazenamento em disco após a migração.
 
 ### <a name="view-an-azure-vm-assessment"></a>Ver uma avaliação de VM Azure
 
@@ -80,11 +80,11 @@ Uma avaliação de Azure VM descreve:
 
     ![Resumo da avaliação](./media/how-to-create-assessment/assessment-summary.png)
 
-### <a name="review-azure-readiness"></a>Rever prontidão Azure
+### <a name="review-azure-readiness"></a>Rever a preparação para o Azure
 
 1. Em **Azure prontidão**, verifique se os VMs estão prontos para a migração para Azure.
 2. Reveja o estado de VM:
-    - **Pronto para Azure**: A azure Migrate recomenda uma estimativa de tamanho e custo de VM para VMs na avaliação.
+    - **Preparada para o Azure**: O Azure Migrate recomenda um tamanho de VM e estimativas de custo para VMs na avaliação.
     - **Pronto com condições**: Apresenta problemas e sugeriu remediação.
     - **Não está pronto para o Azure**: Apresenta problemas e sugeriu a reparação.
     - **Prontidão desconhecida**: Usado quando a Azure Migrate não consegue avaliar a prontidão, devido a problemas de disponibilidade de dados.
@@ -93,14 +93,14 @@ Uma avaliação de Azure VM descreve:
 
 
 
-### <a name="review-cost-details"></a>Rever detalhes de custos
+### <a name="review-cost-details"></a>Rever os detalhes dos custos
 
-Esta visão mostra o custo estimado de cálculo e armazenamento de VMs em execução em Azure.
+Esta vista mostra o custo estimado de computação e armazenamento da execução das VMs no Azure.
 
-1. Reveja os custos mensais de computação e armazenamento. Os custos são agregados para todos os VMs do grupo avaliado.
+1. Rever os custos mensais de computação e armazenamento. Os custos são agregados para todos os VMs do grupo avaliado.
 
-    - As estimativas de custos baseiam-se nas recomendações de tamanho para uma máquina, e nos seus discos e propriedades.
-    - São apresentados custos mensais estimados para o cálculo e armazenamento.
+    - As estimativas de custo baseiam-se nas recomendações de tamanho para uma máquina e os respetivos discos e propriedades.
+    - Os custos mensais estimados para computação e armazenamento são mostrados.
     - A estimativa de custos é para executar os VMs no local como IaaS VMs. A avaliação do servidor Azure Migrate não considera os custos do PaaS ou do SaaS.
 
 2. Pode rever as estimativas mensais de custos de armazenamento. Esta visão mostra os custos de armazenamento agregados para o grupo avaliado, divididos sobre diferentes tipos de discos de armazenamento.
@@ -130,7 +130,7 @@ As classificações de confiança para uma avaliação são as seguintes.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda a usar [o mapeamento de dependência](how-to-create-group-machine-dependencies.md) para criar grupos de alta confiança.
 - [Saiba mais](concepts-assessment-calculation.md) sobre como são calculadas as avaliações.
