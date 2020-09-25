@@ -969,8 +969,6 @@
           href: kronos-tutorial.md
         - name: Kudos
           href: kudos-tutorial.md
-        - name: Kumolus
-          href: kumolus-tutorial.md
     - name: L - M
       items:
         - name: Land Gorilla Client
@@ -1207,6 +1205,8 @@
           href: oracle-cloud-tutorial.md
         - name: Oracle Fusion ERP
           href: oracle-fusion-erp-tutorial.md
+        - name: Oracle PeopleSoft Protegido por F5 BIG-IP APM
+          href: oracle-peoplesoft-protected-by-f5-big-ip-apm-tutorial.md
         - name: OrgChart Now
           href: orgchartnow-tutorial.md
         - name: Origami
@@ -1325,6 +1325,8 @@
           href: proto.io-tutorial.md
         - name: Proxyclick
           href: proxyclick-tutorial.md
+        - name: Pulse Secure PCS
+          href: pulse-secure-pcs-tutorial.md
         - name: PureCloud da Genesys
           href: purecloud-by-genesys-tutorial.md
         - name: PurelyHR
@@ -1655,8 +1657,6 @@
           href: teamviewer-tutorial.md
         - name: Teamwork.com
           href: teamwork-tutorial.md
-        - name: TeamzSkill
-          href: teamzskill-tutorial.md
         - name: Templafy SAML2
           href: templafy-tutorial.md
         - name: Terraform Enterprise

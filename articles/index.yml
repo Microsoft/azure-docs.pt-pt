@@ -13,12 +13,12 @@ metadata:
   ms.date: 09/10/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: ae4e327b7b4d230bd89baccdd27d5ac416ebb6cb
-  ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+  ms.openlocfilehash: aec131b8c7a3e5092b6b090668fb0eb006b079a3
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/15/2020
-  ms.locfileid: "90087954"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90904136"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -36,7 +36,7 @@ highlightedContent:
 productDirectory:
   title: Procurar produtos do Azure
   items:
-  - title: Detetor de Anomalias (Pré-visualização)
+  - title: Detetor de Anomalias
     summary: Adicione facilmente capacidades de deteção de anomalias às suas aplicações
     imageSrc: https://static.docs.com/ui/media/product/azure/anomaly-detector.svg
     azureCategories:
@@ -144,6 +144,13 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     url: cognitive-services/bing-web-search/overview.md
+  - title: Communication Services
+    summary: Adicionar voz, vídeo e telefonia em tempo real às suas aplicações
+    imageSrc: ./media/index/communication-services.svg
+    azureCategories:
+    - web
+    - mobile
+    url: communication-services/overview.md
   - title: Imagem Digitalizada
     summary: Separe informações acionáveis de imagens
     imageSrc: https://static.docs.com/ui/media/product/azure/cognitive-services.svg
@@ -610,7 +617,7 @@ productDirectory:
     azureCategories:
     - databases
     url: azure-sql/managed-instance/index.yml
-  - title: SQL do Azure no Edge (Pré-visualização)
+  - title: SQL do Azure no Edge
     summary: Motor de dados de pequena quantidade otimizado no edge com IA incorporado
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database-edge.svg
     azureCategories:

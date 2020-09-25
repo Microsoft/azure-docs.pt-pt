@@ -50,6 +50,8 @@
       items:
         - name: Matriz de suporte do Azure Backup
           href: backup-support-matrix.md
+        - name: Matriz de suporte do Centro de Cópias de Segurança
+          href: backup-center-support-matrix.md
         - name: Matriz de suporte de cópia de segurança de VMs do Azure
           href: backup-support-matrix-iaas.md
         - name: Matriz de suporte do DPM/Azure Backup Server (MABS)
@@ -68,6 +70,8 @@
       items:
         - name: FAQ - Cofres dos Serviços de Recuperação
           href: backup-azure-backup-faq.md
+        - name: FAQ - Centro de Cópias de Segurança
+          href: backup-center-faq.md
         - name: FAQ - Cópia de segurança de VMs do Azure
           href: backup-azure-vm-backup-faq.md
         - name: FAQ - Agente MARS
@@ -88,18 +92,36 @@
       href: guidance-best-practices.md
 - name: Guias de procedimentos
   items:
-    - name: Cofre dos Serviços de Recuperação
+    - name: Cofres
+      items:
+        - name: Cofre dos Serviços de Recuperação
+          items:
+            - name: Descrição geral
+              href: backup-azure-recovery-services-vault-overview.md
+            - name: Criar
+              href: backup-create-rs-vault.md
+            - name: Eliminar
+              href: backup-azure-delete-vault.md
+            - name: Mover
+              href: backup-azure-move-recovery-services-vault.md
+            - name: Gerir
+              href: backup-azure-manage-windows-server.md
+        - name: Cofre de cópias de segurança
+          items:
+            - name: Descrição geral
+              href: backup-vault-overview.md
+    - name: Centro de Cópias de Segurança
       items:
         - name: Descrição geral
-          href: backup-azure-recovery-services-vault-overview.md
-        - name: Criar
-          href: backup-create-rs-vault.md
-        - name: Eliminar
-          href: backup-azure-delete-vault.md
-        - name: Mover
-          href: backup-azure-move-recovery-services-vault.md
-        - name: Gerir
-          href: backup-azure-manage-windows-server.md
+          href: backup-center-overview.md
+        - name: Monitorizar e Operar
+          href: backup-center-monitor-operate.md
+        - name: Obter informações
+          href: backup-center-obtain-insights.md
+        - name: Ambiente de governação
+          href: backup-center-govern-environment.md
+        - name: Executar ações
+          href: backup-center-actions.md
     - name: Cópias de segurança de VMs do Azure
       items:
         - name: Descrição geral
@@ -150,6 +172,10 @@
           href: restore-sql-database-azure-vm.md
         - name: Gerir
           href: manage-monitor-sql-database-backup.md
+    - name: Cópia de segurança da Base de Dados do Azure para PostgreSQL
+      items:
+        - name: Backup
+          href: backup-azure-database-postgresql.md
     - name: Cópia de segurança do Windows com o agente MARS
       items:
         - name: Descrição geral

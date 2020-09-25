@@ -137,14 +137,14 @@
             - name: Encriptação do Armazenamento do Azure em repouso
               href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
               items:
-                - name: Chaves geridas pelo cliente com o Azure Key Vault
-                  href: ../common/encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Chaves fornecidas pelo cliente no pedido
-                  href: ../common/encryption-customer-provided-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Encriptação com chaves geridas pelo cliente
+                  href: ../common/customer-managed-keys-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Encriptação no pedido com chaves fornecidas pelo cliente
+                  href: encryption-customer-provided-keys.md
+                - name: Âmbitos de encriptação
+                  href: encryption-scope-overview.md
             - name: Blobs imutáveis
               href: storage-blob-immutable-storage.md
-            - name: Proteção avançada contra ameaças
-              href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Controlos de segurança incorporados
               href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Utilizar Pontos Finais Privados do Azure
@@ -380,19 +380,17 @@
                   items:
                     - name: Verificar o modelo da chave de encriptação da conta
                       href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: Configurar as chaves de encriptação geridas pelo cliente
+                    - name: Configurar a encriptação com chaves geridas pelo cliente
                       items:
-                        - name: Portal
-                          href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                        - name: PowerShell
-                          href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                        - name: CLI do Azure
-                          href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                        - name: Armazenar chaves geridas pelo cliente num cofre de chaves
+                          href: ../common/customer-managed-keys-configure-key-vault.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                        - name: Armazenar chaves geridas pelo cliente num HSM gerido
+                          href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Fornecer uma chave de encriptação num pedido
                   href: storage-blob-customer-provided-key.md
                 - name: Gerir âmbitos de encriptação
                   href: encryption-scope-manage.md
-                - name: Ativar a encriptação da infraestrutura para uma conta de armazenamento
+                - name: Ativar a encriptação da infraestrutura para a conta
                   href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Configurar a encriptação do lado do cliente
               items:
@@ -414,6 +412,8 @@
                       href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: Configurar a versão do TLS para uma aplicação cliente
                       href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Configurar o Azure Defender para proteção contra ameaças
+              href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Definir e gerir políticas de imutabilidade
               href: storage-blob-immutability-policies-manage.md
         - name: Gerir redundância de dados

@@ -1,0 +1,80 @@
+- name: Documentação do HSM Gerido
+  href: index.yml
+- name: Descrição geral
+  items:
+    - name: Acerca do HSM Gerido
+      href: overview.md
+- name: Guias de Início Rápido
+  expanded: true
+  items:
+    - name: CLI
+      href: quick-create-cli.md
+    - name: Modelo Azure Resource Manager
+      href: quick-create-template.md
+- name: Tutorials (Tutoriais)
+  items:
+    - name: Gerir com a CLI do Azure
+      href: key-management.md
+    - name: Gestão de funções do HSM Gerido
+      href: role-management.md
+    - name: Proteger o acesso ao HSM Gerido
+      href: secure-your-managed-hsm.md
+    - name: Configurar o registo para o HSM gerido
+      href: logging.md
+    - name: Recuperação após desastre
+      href: disaster-recovery-guide.md
+    - name: Importar chaves protegidas por HSM para o HSM Gerido
+      href: hsm-protected-keys-byok.md
+    - name: Cópia de segurança e restauro
+      href: backup-restore.md
+- name: Conceitos
+  items:
+    - name: Domínio de segurança
+      href: security-domain.md
+    - name: Melhores práticas
+      href: best-practices.md
+    - name: Controlo de Acesso
+      href: access-control.md
+    - name: Funções incorporadas do RBAC local
+      href: built-in-roles.md
+- name: Guias de procedimentos
+  items: null
+- name: Referência
+  items:
+    - name: Azure PowerShell
+      href: /powershell/module/distaster-recoveryeyvault/?view=azps-1.2.0#key_vault
+    - name: CLI do Azure
+      href: /cli/azure/keyvault
+    - name: .NET
+      href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+    - name: Java
+      href: /java/api/overview/azure/keyvault?view=azure-java-stable
+    - name: Node.js
+      href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
+    - name: Python
+      href: /python/api/overview/azure/key-vault?view=azure-python
+    - name: REST
+      href: /rest/api/keyvault
+    - name: Modelo do Resource Manager
+      href: /azure/templates/microsoft.keyvault/allversions
+      displayName: ARM
+- name: Recursos
+  items:
+    - name: Desenvolva as suas competências com o Microsoft Learn
+      href: /learn/browse/?products=azure-key-vault
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/key-vault/'
+    - name: Disponibilidade de região
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=key-vault'
+    - name: Contrato de Nível de Serviço (SLA)
+      href: 'https://azure.microsoft.com/support/legal/sla/key-vault/'
+    - name: Limites do serviço
+      href: ../general/service-limits.md
+    - name: Estado do serviço
+      href: 'https://azure.microsoft.com/status/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=key-vault'
+    - name: Blogue
+      href: 'https://blogs.technet.com/b/kv/'
+    - name: Comentários sobre o Produto
+      href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

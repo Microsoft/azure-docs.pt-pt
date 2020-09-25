@@ -12,7 +12,7 @@
     - name: Criar um orçamento - Modelo ARM
       href: costs/quick-create-budget-template.md
       displayName: 'ARM template, resource manager template'
-- name: Tutoriais
+- name: Tutorials (Tutoriais)
   items:
     - name: Analisar a fatura de contas individuais
       href: understand/review-individual-bill.md
@@ -180,6 +180,8 @@
               href: manage/grant-access-to-create-subscription.md
             - name: Exportar as informações de subscrição
               href: manage/export-subscriptions.md
+            - name: Eliminar um método de pagamento da faturação do Azure
+              href: manage/delete-azure-payment-method.md
             - name: Alterar cartão de crédito
               href: manage/change-credit-card.md
             - name: Alterar administrador

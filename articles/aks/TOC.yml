@@ -132,6 +132,8 @@
       items:
         - name: Dimensionar um cluster do AKS
           href: scale-cluster.md
+        - name: Parar um cluster AKS (pré-visualizar)
+          href: start-stop-cluster.md
         - name: Atualizar um cluster do AKS
           href: upgrade-cluster.md
         - name: Utilizar SLA de Tempo de Atividade
@@ -307,8 +309,10 @@
           href: /virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context
     - name: Programar e executar aplicações
       items:
-        - name: Utilizar o Processo Local com o Kubernetes com o Visual Studio Code (pré-visualização)
-          href: 'https://code.visualstudio.com/docs/containers/local-process-kubernetes'
+        - name: Utilizar o Bridge to Kubernetes com o Visual Studio Code
+          href: 'https://code.visualstudio.com/docs/containers/bridge-to-kubernetes'
+        - name: Utilizar o Bridge to Kubernetes com o Visual Studio
+          href: /visualstudio/containers/bridge-to-kubernetes
         - name: Instalar aplicações existentes com o Helm
           href: kubernetes-helm.md
         - name: Utilizar o OpenFaaS

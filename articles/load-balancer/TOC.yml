@@ -39,6 +39,10 @@
       href: powershell-samples.md
 - name: Conceitos
   items:
+    - name: Balanceador de carga entre regiões
+      href: cross-region-overview.md
+    - name: Novidades
+      href: whats-new.md
     - name: Componentes
       href: components.md
     - name: Conceitos

@@ -1,0 +1,84 @@
+### YamlMime:Landing
+title: Documentação do HSM Gerido do Azure Key Vault
+summary: Saiba como utilizar o HSM Gerido para criar e manter as chaves que acedem e encriptam recursos, aplicações e soluções na cloud. Tutoriais, referências de API e muito mais.
+metadata:
+  title: Documentação do HSM Gerido do Azure
+  description: Saiba como utilizá-lo para criar e manter chaves que acedem e encriptam recursos, aplicações e soluções na cloud. Tutoriais, referências de API e muito mais.
+  services: key-vault
+  ms.service: key-vault
+  ms.topic: landing-page
+  author: msmbaldwin
+  ms.author: mbaldwin
+  manager: rkarlin
+  ms.date: 09/15/2020
+  ms.openlocfilehash: d17d119528c04b270e9dffe5b824bafcc89472dc
+  ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90992014"
+landingContent:
+- title: Acerca do HSM Gerido do Azure Key Vault (pré-visualização)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é o HSM Gerido do Azure Key Vault?
+      url: overview.md
+    - text: Descrição Geral da API REST
+      url: ../general/about-keys-secrets-certificates.md
+    - text: Chaves e algoritmos suportados
+      url: ../keys/about-keys.md
+- title: Conceito
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Melhores práticas do HSM Gerido
+      url: best-practices.md
+    - text: Controlo de acesso do HSM Gerido
+      url: access-control.md
+    - text: Domínio de segurança
+      url: security-domain.md
+    - text: Funções incorporadas do RBAC local
+      url: built-in-roles.md
+- title: Introdução
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: CLI do Azure
+      url: quick-create-cli.md
+    - text: Azure Resource Manager
+      url: quick-create-template.md
+- title: Guias de Procedimentos
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gerir com a CLI do Azure
+      url: key-management.md
+    - text: Gestão de funções do HSM Gerido
+      url: role-management.md
+    - text: Proteger o acesso ao HSM Gerido
+      url: secure-your-managed-hsm.md
+- title: Tutorials (Tutoriais)
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Cópia de segurança e restauro
+      url: backup-restore.md
+    - text: Recuperação após desastre
+      url: disaster-recovery-guide.md
+    - text: Importar chaves protegidas por HSM (descrição geral)
+      url: hsm-protected-keys-byok.md
+    - text: Configurar o registo em HSMs geridos
+      url: logging.md
+- title: Mais sobre o Key Vault
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Descrição geral do Key Vault
+      url: ../general/overview.md
+    - text: Conceitos básicos do cofre de chaves
+      url: ../general/basic-concepts.md
+    - text: Descrição geral da eliminação recuperável
+      url: ../general/soft-delete-overview.md
+    - text: Descrição geral da segurança
+      url: ../general/overview-security.md

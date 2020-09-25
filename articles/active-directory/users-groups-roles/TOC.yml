@@ -165,18 +165,24 @@
           href: directory-manage-roles-portal.md
         - name: Funções personalizadas
           items:
-            - name: Funções personalizadas
+            - name: Descrição geral das funções personalizadas
               href: roles-custom-overview.md
             - name: Criar uma função personalizada
               href: roles-create-custom.md
             - name: Ver atribuições de funções personalizadas
               href: roles-view-assignments.md
-            - name: Atribuir funções no centro de administração do Azure AD
+            - name: Atribuir funções personalizadas no portal do Azure
               href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
             - name: Atribuir funções personalizadas no PowerShell
               href: roles-assign-powershell.md
+            - name: Atribuir funções personalizadas para aplicações empresariais
+              href: custom-enterprise-apps.md
             - name: Permissões de função personalizada
-              href: roles-custom-available-permissions.md
+              items:
+                - name: Permissões do registo da aplicação
+                  href: roles-custom-available-permissions.md
+                - name: Permissões da aplicação empresarial
+                  href: custom-enterprise-app-permissions.md
             - name: Delegar permissões de administrador de aplicações
               href: roles-delegate-app-roles.md
         - name: Utilizar grupos para gerir atribuições de função
