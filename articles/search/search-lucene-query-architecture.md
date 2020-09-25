@@ -8,12 +8,12 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c2d5b4758f80d07516500c663762d7c8607e2a30
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 50a1656fcb92d9777d4a9476ef2a4c1fd2f2efc6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917963"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329487"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Pesquisa de texto completo em Azure Cognitive Search
 
@@ -51,7 +51,7 @@ Um pedido de pesquisa é uma especificação completa do que deve ser devolvido 
 
 O exemplo a seguir é um pedido de pesquisa que pode enviar para a Azure Cognitive Search utilizando a [API REST](/rest/api/searchservice/search-documents).  
 
-~~~~
+```
 POST /indexes/hotels/docs/search?api-version=2020-06-30
 {
     "search": "Spacious, air-condition* +\"Ocean view\"",
@@ -61,7 +61,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
     "orderby": "geo.distance(location, geography'POINT(-159.476235 22.227659)')", 
     "queryType": "full" 
 }
-~~~~
+```
 
 Para este pedido, o motor de busca faz o seguinte:
 
@@ -76,9 +76,9 @@ A maior parte deste artigo tem a ver com o processamento da *consulta de pesquis
 
 Como notado, a cadeia de consulta é a primeira linha do pedido: 
 
-~~~~
+```
  "search": "Spacious, air-condition* +\"Ocean view\"", 
-~~~~
+```
 
 O parser de consulta separa os operadores (como `*` e `+` no exemplo) dos termos de pesquisa, e desconstrói a consulta de pesquisa em *subqueries* de um tipo suportado: 
 
@@ -104,9 +104,9 @@ Outro parâmetro de pedido de pesquisa que afeta a análise é o `searchMode` pa
 
 Quando `searchMode=any` , que é o padrão, o delimiter do espaço entre espaçoso e ar-condicionado é OR `||` (), tornando o texto de consulta de amostra equivalente a: 
 
-~~~~
+```
 Spacious,||air-condition*+"Ocean view" 
-~~~~
+```
 
 Os operadores `+` explícitos, como em `+"Ocean view"` , são inequívocos na construção de consultas booleanas (o termo *deve coincidir).* Menos óbvio é como interpretar os termos restantes: espaçoso e ar condicionado. O motor de busca deve encontrar fósforos na vista para o mar *e* espaçosos *e* ar condicionado? Ou deve encontrar vista para o mar mais *um dos* termos restantes? 
 
@@ -114,9 +114,9 @@ Por `searchMode=any` predefinição (), o motor de busca assume uma interpretaç
 
 Suponha que agora `searchMode=all` definimos. Neste caso, o espaço é interpretado como uma operação "e". Cada um dos termos restantes deve estar presente no documento para se qualificar como um jogo. A consulta da amostra resultante seria interpretada da seguinte forma: 
 
-~~~~
+```
 +Spacious,+air-condition*+"Ocean view"
-~~~~
+```
 
 Uma árvore de consulta modificada para esta consulta seria a seguinte, onde um documento correspondente é a intersecção dos três subqueries: 
 
@@ -152,16 +152,16 @@ Quando o analisador padrão processa o termo, ele vai minúscula "vista para o o
 
 O comportamento de um analisador pode ser testado utilizando a [API de análise.](/rest/api/searchservice/test-analyzer) Forneça o texto que pretende analisar para ver que termos dado o analisador irá gerar. Por exemplo, para ver como o analisador padrão processaria o texto "ar condicionado", pode emitir o seguinte pedido:
 
-~~~~
+```json
 {
     "text": "air-condition",
     "analyzer": "standard"
 }
-~~~~
+```
 
 O analisador padrão quebra o texto de entrada nos dois tokens seguintes, anotando-os com atributos como compensações de início e fim (utilizados para realçar o impacto) bem como a sua posição (usada para combinar frases):
 
-~~~~
+```json
 {
   "tokens": [
     {
@@ -178,7 +178,7 @@ O analisador padrão quebra o texto de entrada nos dois tokens seguintes, anotan
     }
   ]
 }
-~~~~
+```
 
 <a name="exceptions"></a>
 
@@ -192,7 +192,7 @@ A análise lexical aplica-se apenas a tipos de consulta que requerem termos comp
 
 A recuperação do documento refere-se à procura de documentos com termos correspondentes no índice. Esta fase é melhor entendida através de um exemplo. Vamos começar com um índice de hotéis com o seguinte esquema simples: 
 
-~~~~
+```json
 {
     "name": "hotels",
     "fields": [
@@ -201,11 +201,11 @@ A recuperação do documento refere-se à procura de documentos com termos corre
         { "name": "description", "type": "Edm.String", "searchable": true }
     ] 
 } 
-~~~~
+```
 
 Assuma ainda que este índice contém os seguintes quatro documentos: 
 
-~~~~
+```json
 {
     "value": [
         {
@@ -230,7 +230,7 @@ Assuma ainda que este índice contém os seguintes quatro documentos:
         }
     ]
 }
-~~~~
+```
 
 **Como os termos são indexados**
 
@@ -321,10 +321,12 @@ Cada documento de um conjunto de resultados de pesquisa é atribuído uma pontua
 ### <a name="scoring-example"></a>Exemplo de pontuação
 
 Lembre-se dos três documentos que combinam com a nossa consulta de exemplo:
-~~~~
+
+```
 search=Spacious, air-condition* +"Ocean view"  
-~~~~
-~~~~
+```
+
+```json
 {
   "value": [
     {
@@ -347,7 +349,7 @@ search=Spacious, air-condition* +"Ocean view"
     }
   ]
 }
-~~~~
+```
 
 O documento 1 corresponde melhor à consulta porque tanto o termo *espaçoso* como a frase exigida *vista para* o mar ocorrem no campo de descrição. Os dois documentos seguintes correspondem apenas à expressão vista para o *mar.* Pode ser surpreendente que a pontuação de relevância para os documentos 2 e 3 seja diferente, mesmo que correspondam à consulta da mesma forma. É porque a fórmula de pontuação tem mais componentes do que apenas TF/IDF. Neste caso, o documento 3 foi atribuído a uma pontuação ligeiramente superior porque a sua descrição é mais curta. Saiba mais sobre [a Fórmula de Pontuação Prática de Lucene](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/search/similarities/TFIDFSimilarity.html) para entender como o comprimento do campo e outros fatores podem influenciar a pontuação de relevância.
 

@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a resolver problemas com os erros encontrados
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: a574c43c02c759529c5a0907682c06d4d40fb85a
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 39bc6178d0cabf6c0220d2c54e0c532a6f9a5aa2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376184"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316737"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Falhas de backup de resolução de problemas em máquinas virtuais Azure
 
@@ -105,7 +105,7 @@ Error message: Snapshot operation failed because VSS writers were in a bad state
 
 Este erro ocorre porque os escritores do VSS estavam em mau estado. As extensões de Backup Azure interagem com os ESCRITORES VSS para tirar fotos dos discos. Para resolver este problema, siga estes passos:
 
-Reinicie os escritores vss que estão em mau estado.
+Passo 1: Reiniciar os escritores vss que estão em mau estado.
 - A partir de um pedido de comando elevado, corra ```vssadmin list writers``` .
 - A produção contém todos os escritores vss e o seu estado. Para cada escritor vss com um estado que não é **[1] Estável,** reinicie o serviço do respetivo escritor VSS. 
 - Para reiniciar o serviço, executar os seguintes comandos a partir de uma solicitação de comando elevada:
@@ -117,12 +117,20 @@ Reinicie os escritores vss que estão em mau estado.
 > Reiniciar alguns serviços pode ter impacto no seu ambiente de produção. Certifique-se de que o processo de aprovação é seguido e que o serviço é reiniciado no tempo de inatividade programado.
  
    
-Se reiniciar os escritores do VSS não resolveu o problema e a questão ainda persistir devido a um intervalo, então:
-- Executar o seguinte comando a partir de um pedido de comando elevado (como administrador) para evitar que os fios sejam criados para instantâneos de bolhas.
+Passo 2: Se reiniciar os escritores VSS não resolveu o problema, então executar o seguinte comando a partir de um pedido de comando elevado (como administrador) para evitar que os fios sejam criados para instantâneos blob.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
+Passo 3: Se os passos 1 e 2 não resolverem o problema, então a falha pode ser devido ao timing dos escritores vss devido a IOPS limitado.<br>
+
+Para verificar, navegue nos ***registos de aplicações do Visualizador de Sistema e evento*** e verifique a seguinte mensagem de erro:<br>
+*O provedor de cópia-sombra cronometrou enquanto segurava as gravações para o volume que estava a ser copiado. Isto deve-se provavelmente a uma atividade excessiva no volume por uma aplicação ou um serviço de sistema. Tente novamente mais tarde quando a atividade no volume for reduzida.*<br>
+
+Solução:
+- Verifique se há possibilidades de distribuir a carga pelos discos VM. Isto reduzirá a carga em discos individuais. Pode [verificar o estrangulamento dos IOPs, permitindo métricas de diagnóstico ao nível de armazenamento](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics#install-and-run-performance-diagnostics-on-your-vm).
+- Mude a política de backup para efetuar backups durante as horas de ponta, quando a carga no VM estiver no seu nível mais baixo.
+- Atualize os discos Azure para suportar IOPs mais elevados. [Saiba mais aqui](https://docs.microsoft.com/azure/virtual-machines/disks-types)
 
 ### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensãoFailedVssServiceInBadState - A operação Snapshot falhou devido ao serviço VSS (Volume Shadow Copy) em mau estado
 
@@ -307,6 +315,13 @@ Se tiver uma Política Azure que [regule as etiquetas dentro](../governance/poli
 
 ## <a name="restore"></a>Restauro
 
+#### <a name="disks-appear-offline-after-file-restore"></a>Os discos aparecem offline após a Restauração do Ficheiro
+
+Se depois de restaurado, nota que os discos estão offline então: 
+* Verifique se a máquina onde o script é executado satisfaz os requisitos de SO. [Saiba mais](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements).  
+* Certifique-se de que não está a restaurar a mesma fonte, [Saiba mais](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
+
+
 | Detalhes do erro | Solução |
 | --- | --- |
 | Restaurar falhou com um erro interno na nuvem. |<ol><li>O serviço de nuvem a que está a tentar restaurar está configurado com as definições de DNS. Pode verificar: <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" - Slot "Production" Get-AzureDns -DnsSettings $deployment. DnsSettings**.<br>Se **o Endereço** estiver configurado, as definições de DNS são configuradas.<br> <li>O serviço de nuvem ao qual está a tentar restaurar está configurado com **o ReservedIP**, e os VM existentes no serviço de nuvem estão no estado parado. Pode verificar se um serviço de nuvem reservou um IP utilizando os seguintes cmdlets PowerShell: **$deployment = Get-AzureDeployment -ServiceName "servicename" - Slot "Production" $dep. Nome Reservado.** <br><li>Está a tentar restaurar uma máquina virtual com as seguintes configurações especiais de rede no mesmo serviço de nuvem: <ul><li>Máquinas virtuais em configuração do balanceador de carga, internas e externas.<li>Máquinas virtuais com múltiplos IPs reservados. <li>Máquinas virtuais com vários NICs. </ul><li>Selecione um novo serviço de nuvem na UI ou consulte [considerações de restauro](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) para VMs com configurações especiais de rede.</ol> |
@@ -378,7 +393,7 @@ A cópia de segurança VM baseia-se na emissão de comandos instantâneos para o
 * **Se mais de quatro VMs partilharem o mesmo serviço de nuvem, espalhe os VMs através de várias políticas de backup**. Escalonar os tempos de reserva, por isso não mais do que quatro backups VM começam ao mesmo tempo. Tente separar os tempos ini por uma hora nas apólices.
 * **O VM funciona com cpu alto ou memória**. Se a máquina virtual funciona com alta memória ou utilização de CPU, mais de 90%, a sua tarefa instantânea é a sua tarefa de instantâneo estão na fila e atrasadas. Eventualmente, acaba por ser assim. Se este problema acontecer, tente um backup a pedido.
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 
 O DHCP deve ser ativado dentro do hóspede para que o backup IaaS VM funcione. Se precisar de um IP estático privado, configurá-lo através do portal Azure ou PowerShell. Certifique-se de que a opção DHCP dentro do VM está ativada.
 Obtenha mais informações sobre como configurar um IP estático através do PowerShell:

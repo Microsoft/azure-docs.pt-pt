@@ -5,25 +5,28 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/27/2019
 ms.author: pafarley
-ms.openlocfilehash: 11783f8fac147e6fb2cf371ee1a588cf318a5e9c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 5de121a1a905a58f8b5eaf8e60c1f8da71ee8cd6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "75379447"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276952"
 ---
-O Reconhecimento de Formulários trabalha em documentos de entrada que satisfaçam estes requisitos:
+O Form Recogniser trabalha em documentos de entrada que satisfazem estes requisitos:
 
-* O formato deve ser JPG, PNG, PDF (texto ou digitalizado) ou TIFF. Os PDFs incorporados em texto são os melhores porque não há possibilidade de erro na extração e localização de caracteres.
-* Se os seus PDFs estiverem bloqueados por palavra-passe, tem de remover o bloqueio antes de os submeter.
-* Os documentos PDF e TIFF devem ter 200 páginas ou menos, e o tamanho total do conjunto de dados de formação deve ser de 500 páginas ou menos.
-* Para as imagens, as dimensões devem estar entre 600 x 100 pixels e 4200 x 4200 pixels.
+* O formato deve ser JPG, PNG, PDF (texto ou digitalizado) ou TIFF. Os PDFs incorporados por texto são os melhores porque não há possibilidade de erro na extração e localização do carácter.
+* O tamanho do ficheiro deve ser inferior a 20 MB.
+* As dimensões da imagem devem estar entre 50 x 50 pixels e 10000 x 10000 pixels.
+* As dimensões PDF devem ser no máximo 17 x 17 polegadas, correspondentes aos tamanhos legais ou a3 e menores.
+* No caso de PDF e TIFF, apenas as primeiras 200 páginas são processadas (com uma subscrição de nível livre, apenas as duas primeiras páginas são processadas).
+* O tamanho total do conjunto de dados de formação deve ser de 500 páginas ou menos.
+* Se os seus PDFs estiverem bloqueados por palavra-passe, deve remover o bloqueio antes de os submeter.
 * Se digitalizados a partir de documentos em papel, os formulários devem ser digitalizados de alta qualidade.
-* O texto deve utilizar o alfabeto latino (caracteres em inglês).
+* O texto deve utilizar o alfabeto latino (caracteres ingleses).
 * Para uma aprendizagem não supervisionada (sem dados rotulados), os dados devem conter chaves e valores.
-* Para uma aprendizagem não supervisionada (sem dados rotulados), as teclas devem figurar acima ou à esquerda dos valores; não podem aparecer abaixo ou à direita.
+* Para uma aprendizagem não supervisionada (sem dados rotulados), as chaves devem aparecer acima ou à esquerda dos valores; não podem aparecer abaixo ou à direita.
 
-O Reconhecimento de Formulários não suporta atualmente este tipo de dados de entrada:
+O Form Recogniser não suporta atualmente este tipo de dados de entrada:
 
-* Mesas complexas (mesas aninhadas, cabeçalhos ou células fundidos, e assim por diante).
+* Tabelas complexas (mesas aninhadas, cabeçalhos fundidos ou células, e assim por diante).
 * Caixas de verificação ou botões de rádio.

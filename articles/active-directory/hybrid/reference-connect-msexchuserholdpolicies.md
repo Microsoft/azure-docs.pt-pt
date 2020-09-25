@@ -10,27 +10,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 08/23/2019
+ms.date: 09/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4950906e016b9e1915d18ecacc1edcfda8b4d09
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 2a5a4659671f8d4ded64a4f04f84abf1f67d8825
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279402"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265260"
 ---
 # <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect - msExchUserHoldPolicies e cloudMsExchUserHoldPolicies
 O documento de referência que se segue descreve estes atributos utilizados pela Exchange e a forma correta de editar as regras de sincronização padrão.
 
 ## <a name="what-are-msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>O que são msExchUserHoldPolicies e cloudMsExchUserHoldPolicies?
-Existem dois tipos de [porões](/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) disponíveis para um Servidor de Câmbio: Hold de Litígios e Hold In-Place. Quando o Hold de Litígios está ativado, todas as caixas de correio são colocadas em espera.  Um Hold In-Place é utilizado para preservar apenas os itens que satisfaçam os critérios de uma consulta de pesquisa que definiu utilizando a ferramenta In-Place eDiscovery.
+Existem dois tipos de [porões](https://docs.microsoft.com/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) disponíveis para um Servidor de Câmbio: Hold de Litígios e Hold In-Place. Quando o Hold de Litígios está ativado, todas as caixas de correio são colocadas em espera.  Um Hold In-Place é utilizado para preservar apenas os itens que satisfaçam os critérios de uma consulta de pesquisa que definiu utilizando a ferramenta In-Place eDiscovery.
 
 Os atributos MsExchUserHoldPolcies e cloudMsExchUserHoldPolicies permitem que a AD e a Azure AD no local determinem quais os utilizadores que estão sob um porão, dependendo se estão a utilizar no local Exchange ou Exchange on-line.
 
 ## <a name="msexchuserholdpolicies-synchronization-flow"></a>msExchUserHoldPolicies flow de sincronização
-Por predefinição, a MsExchUserHoldPolcies é sincronizada pela Azure AD Connect diretamente ao atributo msExchUserHoldPolicies no metaverso e, em seguida, ao atributo msExchUserHoldPolices em Azure AD
+Por predefinição, msExchUserHoldPolcies são sincronizados pela Azure AD Connect diretamente ao msExchUserHoldPolicies atributo no metaverso e, em seguida, ao atributo msExchUserHoldPolicies em Azure AD
 
 As tabelas que se seguem descrevem o fluxo:
 
@@ -38,7 +38,7 @@ A caminho do Diretório Ativo:
 
 |Atributo de Diretório Ativo|Nome do atributo|Tipo de fluxo|Atributo metaverso|Regra de Sincronização|
 |-----|-----|-----|-----|-----|
-|Active Directory no local|msExchUserHoldPolicies|Direct|msExchUserHoldPolices|In from AD - User Exchange|
+|Active Directory no local|msExchUserHoldPolicies|Direct|msExchUserHoldPolicies|In from AD - User Exchange|
 
 Saída para Azure AD:
 
@@ -47,7 +47,7 @@ Saída para Azure AD:
 |Azure Active Directory|msExchUserHoldPolicies|Direct|msExchUserHoldPolicies|Out to AAD – UserExchangeOnline|
 
 ## <a name="cloudmsexchuserholdpolicies-synchronization-flow"></a>cloudMsExchUserHoldPolicies synchronization flow
-Por nuvem predefinidaMExchUserHoldPolicies é sincronizado pela Azure AD Connect diretamente para o atributo cloudMsExchUserHoldPolicies no metaverso. Então, se a MSExchUserHoldPolices não for nula no metaverso, o atributo fluiu para o Ative Directory.
+Por nuvem predefinidaMsExchUserHoldPolicies são sincronizados pela Azure AD Connect diretamente para o atributo cloudMsExchUserHoldPolicies no metaverso. Então, se o msExchUserHoldPolicies não for nulo no metaverso, o atributo fluiu para o Ative Directory.
 
 As tabelas que se seguem descrevem o fluxo:
 
@@ -70,5 +70,5 @@ Para permitir que os utilizadores estabeleçam uma política de espera num objet
 
 Em determinadas circunstâncias, por exemplo, se ambas fossem alteradas no local e em Azure ao mesmo tempo, isso poderia causar alguns problemas.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

@@ -6,18 +6,19 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 09/21/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: b3aadab1b4af80f98c57a279b69606a02846e996
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 081d19cc845750f1392e2c1a14229a51d0df4cbc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716848"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276470"
 ---
 # <a name="parameterize-linked-services-in-azure-data-factory"></a>Parametrizar serviços ligados na Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Agora pode parametrizar um serviço ligado e passar valores dinâmicos no tempo de execução. Por exemplo, se pretender ligar-se a diferentes bases de dados no mesmo servidor lógico SQL, pode agora parametrizar o nome da base de dados na definição de serviço ligada. Isto impede-o de criar um serviço ligado para cada base de dados no servidor lógico SQL. Também é possível parametrizar outras propriedades na definição de serviço ligada - por exemplo, *o nome do utilizador.*
@@ -33,7 +34,8 @@ Para uma introdução e demonstração de sete minutos desta funcionalidade, vej
 
 ## <a name="supported-data-stores"></a>Arquivos de dados suportados
 
-Neste momento, a parametrização do serviço ligado é suportada na UI da Fábrica de Dados para as seguintes lojas de dados. Para todas as outras lojas de dados, pode parametrizar o serviço ligado selecionando o ícone **Código** no separador **Ligações** e utilizando o editor JSON.
+Pode parametrizar qualquer tipo de serviço ligado.
+Ao autorizar o serviço ligado na UI, a Data Factory fornece experiência de parametrização incorporada para os seguintes tipos de conectores. Na lâmina de criação/edição de serviços ligados, pode encontrar opções para novos parâmetros e adicionar conteúdo dinâmico.
 
 - Amazon Redshift
 - Azure Cosmos DB (SQL API)
@@ -45,6 +47,13 @@ Neste momento, a parametrização do serviço ligado é suportada na UI da Fábr
 - SQL Server
 - HTTP genérico
 - REST genérico
+
+Para outros tipos, pode parametrizar o serviço ligado editando o JSON na UI:
+
+- Na criação/edição de serviços ligados - > expandir "Advanced" na parte inferior -> verificar "Especificar conteúdo dinâmico no formato JSON" -> especificar a carga útil do serviço ligado JSON. 
+- Ou, depois de criar um serviço ligado sem parametrização, no [centro de gestão](author-visually.md#management-hub) -> serviços Linked -> encontrar o serviço ligado específico -> clique em "Code" (botão {} " para editar o JSON. 
+
+Consulte a [amostra JSON](#json) para adicionar ` parameters` secção para definir parâmetros e referenciar o parâmetro utilizando ` @{linkedService().paraName} ` .
 
 ## <a name="data-factory-ui"></a>IU do Data Factory
 

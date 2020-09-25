@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Sugerir consultas de pesquisa com a Bing Autosuggest REST API e Java'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a começar rapidamente a sugerir termos de pesquisa em tempo real com a Bing Autosuggest API.
+description: Aprenda a começar rapidamente a sugerir termos de pesquisa em tempo real com a Bing Autosuggest API e Java.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/06/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 4850daf8544129e29333be6a807c91106cc11f05
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: dc20b6abaf04b3743218e35d258bc8beab33c542
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321093"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277449"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Quickstart: Sugerir consultas de pesquisa com a Bing Autosuggest REST API e Java
 
@@ -71,7 +71,7 @@ public static String prettify(String json_text) {
 
 ## <a name="construct-and-send-the-search-request"></a>Construa e envie o pedido de pesquisa
 
-1. Criar um novo método nomeado `get_suggestions()` e executar os seguintes passos:
+1. Criar um novo método nomeado  `get_suggestions()` e executar os seguintes passos:
 
    1. Construa o URL para o seu pedido combinando o seu anfitrião API, caminho e codificando a sua consulta de pesquisa. Certifique-se de codificar a consulta antes de apimi-la. Crie uma cadeia de parâmetros para a sua consulta, anexando o código de mercado ao `mkt=` parâmetro, e a sua consulta ao `q=` parâmetro.
     
@@ -92,7 +92,7 @@ public static String prettify(String json_text) {
        //...
        ```
     
-   3. Crie um `HttpsURLConnection` objeto e use para criar uma `openConnection()` ligação. Desaça o método de pedido para `GET` , e adicione a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
+   3. Crie um `HttpsURLConnection` objeto e use para criar uma  `openConnection()` ligação. Desaça o método de pedido para `GET` , e adicione a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
 
       ```java
        //...

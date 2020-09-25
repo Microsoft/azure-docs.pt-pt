@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: b17e2618cd87c0689fa531e893149a1b2fab8d20
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 52df2ad0dc4c60c24e341a9765e31bcf9776bf5e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987191"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277296"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instale e execute o recipiente de análise espacial (Pré-visualização)
 
@@ -30,7 +30,7 @@ O recipiente de análise espacial permite-lhe analisar vídeos de streaming em t
 
 ### <a name="spatial-analysis-container-requirements"></a>Requisitos do contentor de análise espacial
 
-Para executar o recipiente de análise espacial, precisa de um dispositivo computacional com um [GPU NVIDIA Tesla T4](https://www.nvidia.com/data-center/tesla-t4/). Recomendamos que utilize [o Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) com aceleração gpu, no entanto o recipiente funciona em qualquer outra máquina de ambiente de trabalho que cumpra os requisitos mínimos. Vamos referir-nos a este dispositivo como o computador anfitrião.
+Para executar o recipiente de análise espacial, precisa de um dispositivo computacional com um [GPU NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). Recomendamos que utilize [o Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) com aceleração gpu, no entanto o recipiente funciona em qualquer outra máquina de ambiente de trabalho que cumpra os requisitos mínimos. Vamos referir-nos a este dispositivo como o computador anfitrião.
 
 #### <a name="azure-stack-edge-device"></a>[Dispositivo Azure Stack Edge](#tab/azure-stack-edge)
 
@@ -63,7 +63,7 @@ Neste artigo, você irá baixar e instalar os seguintes pacotes de software. O c
 
 ---
 
-| Requisito | Descrição |
+| Requisito | Description |
 |--|--|
 | Câmara | O recipiente de análise espacial não está ligado a uma marca de câmara específica. O dispositivo da câmara precisa de suportar o Protocolo de Streaming em Tempo Real (RTSP) e a codificação H.264, estar acessível ao computador anfitrião e ser capaz de ser transmitido a 15FPS e resolução de 1080p. |
 | Linux OS | [O Ubuntu Desktop 18.04 LTS](http://releases.ubuntu.com/18.04/) deve ser instalado no computador anfitrião.  |
@@ -71,7 +71,7 @@ Neste artigo, você irá baixar e instalar os seguintes pacotes de software. O c
 
 ## <a name="request-approval-to-run-the-container"></a>Solicitar aprovação para executar o contentor
 
-Preencha e submeta o [formulário de pedido](https://aka.ms/cognitivegate) para solicitar aprovação para executar o contentor. 
+Preencha e submeta o [formulário de pedido](https://aka.ms/csgate) para solicitar aprovação para executar o contentor.
 
 O formulário solicita informações sobre si, sobre a sua empresa e sobre o cenário de utilizador para o qual utilizará o recipiente. Depois de submeter o formulário, a equipa dos Serviços Cognitivos da Azure irá analisá-lo e enviar-lhe um e-mail com uma decisão.
 
@@ -116,7 +116,8 @@ Clique em **Create** (Criar). A criação de recursos IoT Hub pode demorar algun
 Quando a função de computação Edge é configurada no dispositivo Edge, cria dois dispositivos: um dispositivo IoT e um dispositivo IoT Edge. Ambos os dispositivos podem ser vistos no recurso IoT Hub. O tempo de execução Azure IoT Edge já estará em funcionamento no dispositivo IoT Edge.            
 
 > [!NOTE]
-> Atualmente apenas a plataforma Linux está disponível para dispositivos IoT Edge. Para ajudar a resolver problemas no dispositivo Azure Stack Edge, consulte o artigo [de registo e resolução de problemas.](spatial-analysis-logging.md)
+> * Atualmente apenas a plataforma Linux é suportada para dispositivos IoT Edge. Para ajudar a resolver problemas no dispositivo Azure Stack Edge, consulte o artigo [de registo e resolução de problemas.](spatial-analysis-logging.md)
+> * Para saber mais sobre como configurar um dispositivo IoT Edge para comunicar através de um servidor proxy, consulte [configurar um dispositivo IoT Edge para comunicar através de um servidor de procuração](https://docs.microsoft.com/azure/iot-edge/how-to-configure-proxy-support#azure-portal)
 
 ###  <a name="enable-mps-on-azure-stack-edge"></a>Ativar MPS no Azure Stack Edge 
 
@@ -260,13 +261,14 @@ az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-reso
 az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
-Se o computador anfitrião não for um dispositivo Azure Stack Edge, terá de instalar a versão 1.0.8 do [Azure IoT Edge.](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) Siga estes passos para descarregar a versão correta: Ubuntu Server 18.04:
+Se o computador anfitrião não for um dispositivo Azure Stack Edge, terá de instalar a versão 1.0.8 do [Azure IoT Edge.](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) Siga estes passos para descarregar a versão correta:
+
+Servidor Ubuntu 18.04:
 ```bash
 curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
 ```
 
 Copie a lista gerada.
-
 ```bash
 sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
 ```
@@ -324,8 +326,8 @@ A tabela seguinte mostra as várias variáveis ambientais utilizadas pelo Módul
 | ARCHON_NODES_LOG_LEVEL | Informação; Verbose | Nível de registo, selecione um dos dois valores|
 | OMP_WAIT_POLICY | PASSIVO | Não modificar|
 | QT_X11_NO_MITSHM | 1 | Não modificar|
-| API_KEY | sua chave API| Recolha este valor a partir do portal Azure a partir do seu recurso Visão de Computador. Pode encontrá-lo na secção **Chave e ponto final** para o seu recurso, no portal Azure. |
-| BILLING_ENDPOINT | o seu Endpoint URI| Recolha este valor a partir do portal Azure a partir do seu recurso Visão de Computador. Pode encontrá-lo na secção **Chave e ponto final** para o seu recurso, no portal Azure.|
+| API_KEY | sua chave API| Recolha este valor a partir do portal Azure a partir do seu recurso Visão de Computador. Pode encontrá-lo na secção **Chave e ponto final** para o seu recurso. |
+| BILLING_ENDPOINT | o seu Endpoint URI| Recolha este valor a partir do portal Azure a partir do seu recurso Visão de Computador. Pode encontrá-lo na secção **Chave e ponto final** para o seu recurso.|
 | EULA | aceitar | Este valor precisa de ser definido para *aceitar* que o contentor corra |
 | EXIBIÇÃO | :1 | Este valor tem de ser igual à saída do `echo $DISPLAY` computador anfitrião. Os dispositivos Azure Stack Edge não têm ecrã. Esta definição não é aplicável|
 
@@ -339,7 +341,6 @@ Assim que atualizar a amostra [DeploymentManifest.jsficheiro](https://go.microso
 az login
 az extension add --name azure-iot
 az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge device name>" --content DeploymentManifest.json -–subscription "<subscriptionId>"
-
 ```
 
 |Parâmetro  |Descrição  |
@@ -366,7 +367,7 @@ Terá de utilizar [operações de análise espacial](spatial-analysis-operations
 
 ## <a name="redeploy-or-delete-the-deployment"></a>Reimplantar ou eliminar a implantação
 
-Se precisar de atualizar a implementação, tem de se certificar de que as suas implementações anteriores estão implantadas com sucesso ou que precisa de eliminar as implementações do Dispositivo IoT Edge que não foram concluídas. Caso contrário, essas implementações continuarão, deixando o sistema em mau estado. Pode utilizar o portal Azure ou o [Azure CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment).
+Se precisar de atualizar a implementação, tem de se certificar de que as suas implementações anteriores estão implantadas com sucesso ou que tem de eliminar as implementações do dispositivo IoT Edge que não foram concluídas. Caso contrário, essas implementações continuarão, deixando o sistema em mau estado. Pode utilizar o portal Azure ou o [Azure CLI](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment).
 
 ## <a name="use-the-output-generated-by-the-container"></a>Utilize a saída gerada pelo recipiente
 

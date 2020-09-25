@@ -2,41 +2,37 @@
 title: Conceitos - Interconectividade da rede
 description: Conheça os principais aspetos e utilize casos de networking e interconectividade na Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 07/23/2020
-ms.openlocfilehash: 3420f6aa61ced7632175f3e12edda9de72639517
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/21/2020
+ms.openlocfilehash: 4ffcdd8ea42df127ee1480927f4fdf2eb8f137b8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750560"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316903"
 ---
-# <a name="azure-vmware-solution-preview-networking-and-interconnectivity-concepts"></a>Conceitos de rede de pré-visualização de soluções Azure VMware e interconectividade
+# <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Conceitos de networking e interconectividade Azure VMware Solution
 
-A Azure VMware Solution (AVS) oferece um ambiente de nuvem privada VMware acessível aos utilizadores e aplicações a partir de ambientes ou recursos baseados em Azure. Serviços como as ligações Azure ExpressRoute e VPN proporcionam a conectividade. Estes serviços requerem gamas específicas de endereços de rede e portas de firewall para permitir os serviços.  
+[!INCLUDE [avs-networking-description](includes/avs-networking-description.md)]
 
-Ao implementar uma nuvem privada, são criadas redes privadas de gestão, provisionamento e vMotion. Eles são usados para o acesso ao vCenter e NSX-T Manager e máquina virtual vMotion ou implementação. Todas as redes privadas estão acessíveis a partir de um VNet em Azure ou de ambientes no local. O ExpressRoute Global Reach é utilizado para ligar nuvens privadas a ambientes no local, e esta ligação requer um VNet com um circuito ExpressRoute na sua subscrição.
+Uma perspetiva útil sobre interconectividade é considerar os dois tipos de implementações em nuvem privada Azure VMware Solution:
 
-Além disso, ao implementar uma nuvem privada, o acesso à internet e aos serviços Azure são fornecidos e fornecidos para que os VM nas redes de produção possam consumi-los.  Por predefinição, o acesso à Internet é desativado para novas nuvens privadas e, a qualquer momento, pode ser ativado ou desativado.
+1. [**A interconectividade básica só de Azure permite-lhe**](#azure-virtual-network-interconnectivity) gerir e utilizar a sua nuvem privada com apenas uma única rede virtual em Azure. Esta implementação é mais adequada para avaliações ou implementações da Azure VMware Solution que não requerem acesso a partir de ambientes no local.
 
-Uma perspetiva útil sobre a interconectividade é considerar os dois tipos de implementações em nuvem privada AVS:
-
-1. [**A interconectividade básica só de Azure permite-lhe**](#azure-virtual-network-interconnectivity) gerir e utilizar a sua nuvem privada com apenas uma única rede virtual em Azure. Esta implementação é mais adequada para avaliações ou implementações avs que não requerem acesso a partir de ambientes no local.
-
-1. [**As instalações completas para a interconectividade de nuvem privada**](#on-premises-interconnectivity) alargam a implementação básica apenas do Azure para incluir a interconectividade entre as nuvens privadas no local e as nuvens privadas AVS.
+1. [**As instalações completas para a interconectividade de nuvem privada**](#on-premises-interconnectivity) alargam a implementação básica apenas do Azure para incluir a interconectividade entre as nuvens privadas do Azure VMware Solution.
  
-Neste artigo, vamos abranger alguns conceitos-chave que estabelecem networking e interconectividade, incluindo requisitos e limitações. Também cobriremos mais informações sobre os dois tipos de implementações de interconectividade privada de nuvem AVS. Este artigo fornece-lhe as informações que precisa de saber para configurar a sua rede para trabalhar corretamente com o AVS.
+Neste artigo, vamos abranger alguns conceitos-chave que estabelecem networking e interconectividade, incluindo requisitos e limitações. Também cobriremos mais informações sobre os dois tipos de implementações de interconectividade em nuvem privada Azure VMware Solution. Este artigo fornece-lhe as informações que precisa de saber para configurar a sua rede para trabalhar corretamente com a Azure VMware Solution.
 
-## <a name="avs-private-cloud-use-cases"></a>Casos de uso de nuvem privada AVS
+## <a name="azure-vmware-solution-private-cloud-use-cases"></a>Casos de uso de nuvem privada Azure VMware Solution
 
-Os casos de utilização de nuvens privadas AVS incluem:
+Os casos de utilização de nuvens privadas Azure VMware Solution incluem:
 - Novas cargas de trabalho VMware VMware na nuvem
-- Carga de trabalho VM a rebentar até à nuvem (apenas no local para AVS)
-- VM migração da carga de trabalho para a nuvem (apenas no local para AVS)
-- Recuperação de desastres (AVS a AVS ou no local para AVS)
+- Carga de trabalho VM a rebentar até à nuvem (apenas no local para a Solução VMware Azure)
+- VM migração de carga de trabalho para a nuvem (apenas no local para Azure VMware Solution)
+- Recuperação de desastres (Solução Azure VMware para Solução VMware Azure ou no local para Azure VMware Solution)
 - Consumo de serviços Azure
 
 > [!TIP]
-> Todos os casos de utilização do serviço AVS estão habilitados com conectividade em nuvem privada.
+> Todas as caixas de utilização do serviço Azure VMware Solution estão ativadas com conectividade na nuvem privada.
 
 ## <a name="azure-virtual-network-interconnectivity"></a>Interconectividade da rede virtual Azure
 
@@ -61,10 +57,10 @@ O diagrama abaixo mostra as instalações para a interconectividade da nuvem pri
 
 Para uma interconectividade total com a sua nuvem privada, ative o ExpressRoute Global Reach e, em seguida, solicite uma chave de autorização e iD de observação privada para o Alcance Global no portal Azure. A chave de autorização e iD de espreitar são usadas para estabelecer o Global Reach entre um circuito ExpressRoute na sua subscrição e o circuito ExpressRoute para a sua nova nuvem privada. Uma vez ligados, os dois circuitos ExpressRoute encaminham o tráfego de rede entre os ambientes no local e a sua nuvem privada.  Consulte o [tutorial para criar um ExpressRoute Global Reach olhando para uma nuvem privada](tutorial-expressroute-global-reach-private-cloud.md) para os procedimentos solicitarem e usarem a chave de autorização e o ID de espreitar.
 
-## <a name="next-steps"></a>Passos seguintes 
 
-- Saiba mais sobre as [considerações e requisitos de conectividade](tutorial-network-checklist.md)em rede . 
-- Saiba mais sobre [conceitos privados de armazenamento em nuvem.](concepts-storage.md)
+
+## <a name="next-steps"></a>Passos seguintes 
+Saiba mais sobre [conceitos privados de armazenamento em nuvem.](concepts-storage.md)
 
 
 <!-- LINKS - external -->

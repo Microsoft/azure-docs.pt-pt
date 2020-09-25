@@ -1,6 +1,6 @@
 ---
 title: Configurar pontos finais da rede Azure File Sync Microsoft Docs
-description: Uma visão geral das opções de networking para Azure File Sync.
+description: Saiba como configurar os pontos finais da rede Azure File Sync.
 author: roygara
 ms.service: storage
 ms.topic: how-to
@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7210d414c06f154395b9128be6ed10175ad1e838
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 747d03b228d41066cfc834b4a9c044b16c767622
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077063"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329368"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configurar pontos finais de rede do Azure File Sync
 A Azure Files e Azure File Sync fornecem dois tipos principais de pontos finais para aceder a ações de ficheiros Azure: 

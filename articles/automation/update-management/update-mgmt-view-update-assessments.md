@@ -3,18 +3,18 @@ title: Ver avaliações de atualização da Azure Automation
 description: Este artigo diz como visualizar avaliações de atualização para implementações de Gestão de Atualização.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 92861304a946e357b2b265cd825eceb8e22f7d2d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 2e32fc7c1872bf18b7f1c995f281a9b09ec45dc8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450403"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264485"
 ---
-# <a name="view-update-assessments"></a>Ver avaliações de atualizações
+# <a name="view-update-assessments-in-update-management"></a>Ver avaliações de atualização na Gestão de Atualização
 
-Na Gestão de Atualizações, pode visualizar informações sobre as suas máquinas, atualizações em falta, atualizações e implementações de atualizações programadas.
+Na Gestão de Atualizações, pode visualizar informações sobre as suas máquinas, atualizações em falta, atualizações e implementações de atualizações programadas. Pode visualizar as informações de avaliação da máquina virtual Azure selecionada, a partir do servidor ativado pelo Arco selecionado, ou da conta Automation em todas as máquinas e servidores configurados.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -22,27 +22,33 @@ Inicie sessão no [portal do Azure](https://portal.azure.com)
 
 ## <a name="view-update-assessment"></a>Ver avaliação de atualizações
 
-Na Gestão de Atualizações, pode visualizar informações sobre as suas máquinas, atualizações em falta, atualizações e implementações de atualizações programadas.
+Para ver a avaliação de atualização a partir de um Azure VM, navegue para **Máquinas Virtuais** e selecione a sua máquina virtual da lista. A partir do menu esquerdo, selecione **as atualizações do Anfitrião +** e, em seguida, selecione **Ir para a Gestão** de Atualização na página de atualizações do **anfitrião + convidado.**
+
+Na Gestão de Atualizações, pode visualizar informações sobre a sua máquina, atualizações em falta, atualizações e implementações de atualização programadas.
+
+[![Vista de avaliação da gestão de atualização para Azure VM](./media/update-mgmt-view-update-assessments/update-assessment-azure-vm.png)](./media/update-mgmt-view-update-assessments/update-assessment-azure-vm-expanded.png#lightbox)
+
+Para visualizar a avaliação da atualização a partir de um servidor ativado pelo Arc, navegue para **Servers - Azure Arc** e selecione o seu servidor a partir da lista. A partir do menu esquerdo, selecione **As atualizações do Convidado e do anfitrião**. Na página **de atualizações do anfitrião + anfitrião,** selecione **Ir para a Gestão de Atualização**.
+
+Na Gestão de Atualizações, pode visualizar informações sobre a sua máquina ativada pelo Arco, atualizações em falta, atualizações e implementações de atualização programadas.
+
+[![Vista de avaliação da gestão de atualização para servidores ativados arc](./media/update-mgmt-view-update-assessments/update-assessment-arc-server.png)](./media/update-mgmt-view-update-assessments/update-assessment-arc-server-expanded.png#lightbox)
+
+Para visualizar a avaliação da atualização em todas as máquinas, incluindo os servidores ativados pelo Arc a partir da sua conta de Automação, navegue para **contas de Automação** e selecione a sua conta Demôm automação com a Gestão de Atualização ativada na lista. Na sua conta Automation, selecione **'Update management'** a partir do menu esquerdo.
+
+As atualizações para o seu ambiente estão listadas na página **de gestão de Atualização.** Se alguma atualização for identificada como desaparecida, uma lista delas é mostrada no separador **atualizações desaparecidos.**
 
 [![Vista padrão de Gestão de Atualização](./media/update-mgmt-overview/update-management-view.png)](./media/update-mgmt-overview/update-management-view-expanded.png#lightbox)
 
-Para visualizar uma avaliação de atualização, execute o seguinte.
+Sob a coluna **COMPLIANCE,** pode ver a última vez que a máquina foi avaliada. Na coluna **DE PRONTIDÃO DO AGENTE DE ATUALIZAÇÃO,** pode ver a saúde do agente de atualização. Se houver algum problema, selecione o link para ir para a documentação de resolução de problemas que pode ajudá-lo a corrigir o problema.
 
-1. No portal Azure, navegue nas **contas de Automação** e selecione a sua conta Demôm automação com a Gestão de Atualização ativada na lista.
+No **link Informação**, selecione o link para uma atualização para abrir o artigo de suporte que lhe dá informações importantes sobre a atualização.
 
-2. Na sua conta Automation, selecione **Update management** a partir do painel esquerdo.
+[![Ver estado de atualização](./media/update-mgmt-view-update-assessments/missing-updates.png)](./media/update-mgmt-view-update-assessments/missing-updates-expanded.png#lightbox)
 
-3. As atualizações para o seu ambiente estão listadas na página **de gestão de Atualização.** Se alguma atualização for identificada como desaparecida, uma lista delas é mostrada no separador **atualizações desaparecidos.**
+Clique em qualquer outro lugar da atualização para abrir o painel de pesquisa de registo. A consulta para a pesquisa de registos está predefinida para essa atualização específica. Pode modificar esta consulta ou criar a sua própria consulta para visualizar informações detalhadas.
 
-   Sob a coluna **COMPLIANCE,** pode ver a última vez que a máquina foi avaliada. Na coluna **DE PRONTIDÃO DO AGENTE DE ATUALIZAÇÃO,** pode ver a saúde do agente de atualização. Se houver algum problema, selecione o link para ir para a documentação de resolução de problemas que pode ajudá-lo a corrigir o problema.
-
-4. No **link Informação**, selecione o link para uma atualização para abrir o artigo de suporte que lhe dá informações importantes sobre a atualização.
-
-     [![Ver estado de atualização](./media/update-mgmt-view-update-assessments/missing-updates.png)](./media/update-mgmt-view-update-assessments/missing-updates-expanded.png#lightbox)
-
-5. Clique em qualquer outro lugar da atualização para abrir o painel de pesquisa de registo. A consulta para a pesquisa de registos está predefinida para essa atualização específica. Pode modificar esta consulta ou criar a sua própria consulta para visualizar informações detalhadas.
-
-    [![Ver resultados de consulta de registo](./media/update-mgmt-view-update-assessments/logsearch-results.png)](./media/update-mgmt-view-update-assessments/logsearch-results-expanded.png#lightbox)
+[![Ver resultados de consulta de registo](./media/update-mgmt-view-update-assessments/logsearch-results.png)](./media/update-mgmt-view-update-assessments/logsearch-results-expanded.png#lightbox)
 
 ## <a name="view-missing-updates"></a>Ver atualizações em falta
 

@@ -6,18 +6,18 @@ documentationcenter: na
 author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 04f502183b8240515ee136ce27d99bd4b5d6277c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 467cbe91f4e516dc6facd2d30c38da1483308b77
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010176"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316975"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Gerir VMs de servidor SQL em Azure utilizando o portal Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: fbec82e25424fd5220aa992cf2dd0e8449e6a0a4
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c8978504244fbf68875ca8cff7a92f042e8e988b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88523138"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329538"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-akamai"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Akamai
 
@@ -101,7 +101,7 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 Todas as configurações listadas abaixo são as mesmas para o **Cenário de Integração 1** e **Cenário 2**. Para o **cenário de Integração 2** tem de configurar o IDP individual na Akamai EAA e a propriedade URL precisa de ser modificada para apontar para o URL da aplicação.
 
-![Importante](./media/header-akamai-tutorial/important.png)
+![Screenshot do separador Geral para AZURESSO-SP no Akamai Enterprise Application Access. Destaca-se o campo URL de configuração de autenticação.](./media/header-akamai-tutorial/important.png)
 
 ## <a name="adding-akamai-from-the-gallery"></a>Adicionar Akamai da galeria
 
@@ -169,7 +169,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+   1. Clique em **Create** (Criar).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -198,11 +198,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Inscreva-se na consola **de acesso à aplicação da Empresa Akamai.**
 1. Na **consola Akamai EAA**, selecione **Identity**  >  **Fornecedores de Identidade** de Identidade e clique em **Adicionar Fornecedor de Identidade**.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure01.png)
+    ![Screenshot da janela de fornecedores de identidade da consola Akamai EAA. Selecione Fornecedores de Identidade no menu Identidade e selecione Adicionar Fornecedor de Identidade.](./media/header-akamai-tutorial/configure01.png)
 
 1. No **Criar Novo Fornecedor de Identidade** execute os seguintes passos:
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure02.png)
+    ![Screenshot do diálogo Criar Novos Fornecedores de Identidade na consola Akamai EAA.](./media/header-akamai-tutorial/configure02.png)
 
     a. Especificar o **Nome Único.**
 
@@ -218,7 +218,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. **Akamai Cloud Zone** - Selecione a zona de nuvem apropriada.
 1. **Validação de Certificados** - Verifique documentação da Akamai (opcional)
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure03.png)
+    ![Screenshot do separador geral da consola Akamai EAA mostrando definições para O Intercept de Identidade, Zona de Nuvem Akamai e Validação de Certificados.](./media/header-akamai-tutorial/configure03.png)
 
 ### <a name="authentication-configuration"></a>Configuração de autenticação
 
@@ -227,37 +227,37 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 3. Assine pedido SAML: padrão não verificado.
 4. Para o Ficheiro de Metadados IDP, adicione a Aplicação na Consola AD Azure.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure04.png)
+    ![Screenshot da configuração de autenticação da consola Akamai EAA mostrando definições para URL, URL de logote, pedido de sinal SAML e ficheiro de metadados IDP.](./media/header-akamai-tutorial/configure04.png)
 
 ### <a name="session-settings"></a>Definições de sessão
 
 Deixe as definições como padrão.
 
-![Akamai configurante](./media/header-akamai-tutorial/sessionsettings.png)
+![Screenshot do diálogo de sessão de consola da Akamai EAA.](./media/header-akamai-tutorial/sessionsettings.png)
 
 ### <a name="directories"></a>Diretórios
 
 Ignore a configuração do diretório.
 
-![Akamai configurante](./media/header-akamai-tutorial/directories.png)
+![Screenshot do separador De consolas Akamai EAA.](./media/header-akamai-tutorial/directories.png)
 
 ### <a name="customization-ui"></a>UI de personalização
 
 Pode adicionar personalização ao IDP.
 
-![Akamai configurante](./media/header-akamai-tutorial/customizationui.png)
+![Screenshot do separador de personalização da consola Akamai EAA mostrando definições para Personalizar UI, configurações de idioma e temas.](./media/header-akamai-tutorial/customizationui.png)
 
 ### <a name="advanced-settings"></a>Definições Avançadas
 
 Ignore as definições de Advance / consulte a documentação da Akamai para mais detalhes.
 
-![Akamai configurante](./media/header-akamai-tutorial/advancesettings.png)
+![Screenshot do separador Configurações Avançadas da consola Akamai EAA mostrando as definições para cliente EAA, Avançado e OIDC para a ponte SAML.](./media/header-akamai-tutorial/advancesettings.png)
 
 ### <a name="deployment"></a>Implementação
 
 1. Clique no Fornecedor de Identidade de Implementação.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/deployment.png)
+    ![Screenshot do separador implementação da consola Akamai EAA mostrando o botão de fornecedor de entidade implementar.](./media/header-akamai-tutorial/deployment.png)
 
 2. Verifique se a implementação foi bem sucedida
 
@@ -267,115 +267,115 @@ Autenticação baseada em cabeçalho de Akamai
 
 1. Escolha **o formulário HTTP personalizado** do Assistente de Aplicações de Adicionar.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure05.png)
+    ![Screenshot do assistente de aplicações de adicionar aplicações da consola Akamai EAA mostrando CustomHTTP listado na secção Aplicações de Acesso.](./media/header-akamai-tutorial/configure05.png)
 
 2. Insira **o nome** e **descrição da aplicação.**
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure06.png)
+    ![Screenshot de um diálogo de aplicação HTTP personalizado mostrando as definições para Nome de Aplicação e Descrição.](./media/header-akamai-tutorial/configure06.png)
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure07.png)
+    ![Screenshot do separador geral da consola Akamai EAA mostrando definições gerais para MYHEADERAPP.](./media/header-akamai-tutorial/configure07.png)
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure08.png)
+    ![Screenshot da consola Akamai EAA mostrando definições para Certificado e Localização.](./media/header-akamai-tutorial/configure08.png)
 
 #### <a name="authentication"></a>Autenticação
 
 1. Selecione **o separador autenticação.**
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure09.png)
+    ![Screenshot da consola Akamai EAA com o separador autenticação selecionado.](./media/header-akamai-tutorial/configure09.png)
 
 2. Atribuir o **fornecedor de identidade**
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure10.png)
+    ![Screenshot do separador de autenticação da consola Akamai EAA para MYHEADERAPP mostrando o conjunto do fornecedor de identidade para Azure AD SSO.](./media/header-akamai-tutorial/configure10.png)
 
 #### <a name="services"></a>Serviços
 
 Clique em Guardar e Ir à Autenticação.
 
-![Akamai configurante](./media/header-akamai-tutorial/configure11.png)
+![Screenshot do separador Serviços de consola Akamai EAA para MYHEADERAPP mostrando o Botão Save e ir para o botão AdvancedSettings no canto inferior direito.](./media/header-akamai-tutorial/configure11.png)
 
 #### <a name="advanced-settings"></a>Definições Avançadas
 
 1. Sob os **cabeçalhos HTTP do Cliente**, especifique o **Atributo CustomerHeader** e **SAML**.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure12.png)
+    ![Screenshot do separador Configurações Avançadas da consola Akamai EAA mostrando o campo URL registado SSO destacado na Autenticação.](./media/header-akamai-tutorial/configure12.png)
 
 1. Clique em Guardar e ir para o botão **De implementação.**
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure13.png)
+    ![Screenshot do separador Configurações Avançadas da consola Akamai EAA mostrando o botão Salvar e ir para o botão De implementação no canto inferior direito.](./media/header-akamai-tutorial/configure13.png)
 
 #### <a name="deploy-the-application"></a>Implementar a Aplicação
 
 1. Clique no botão **Implementar Aplicação.**
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure14.png)
+    ![Screenshot do separador implementação da consola Akamai EAA mostrando o botão de aplicação Implementar.](./media/header-akamai-tutorial/configure14.png)
 
 1. Verifique se a aplicação foi implementada com sucesso.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure15.png)
+    ![Screenshot do separador implementação da consola Akamai EAA mostrando a mensagem de estado da aplicação: "Aplicação implementada com sucesso".](./media/header-akamai-tutorial/configure15.png)
 
 1. Experiência de Utilizador Final.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/enduser01.png)
+    ![Screenshot do ecrã de abertura para myapps.microsoft.com com uma imagem de fundo e um Sinal em diálogo.](./media/header-akamai-tutorial/enduser01.png)
 
-    ![Akamai configurante](./media/header-akamai-tutorial/enduser02.png)
+    ![Screenshot mostrando parte de uma janela de Apps com ícones para add-in, HRWEB, Akamai - CorpApps, Despesas, Grupos e avaliações de Acesso. ](./media/header-akamai-tutorial/enduser02.png)
 
 1. Acesso Condicional.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/conditionalaccess01.png)
+    ![Screenshot da mensagem: Aprovar sinal a pedido. Enviámos uma notificação para o seu dispositivo móvel. Por favor, responda para continuar.](./media/header-akamai-tutorial/conditionalaccess01.png)
 
-    ![Akamai configurante](./media/header-akamai-tutorial/conditionalaccess02.png)
+    ![Screenshot de um ecrã de aplicações mostrando um ícone para o MyHeaderApp.](./media/header-akamai-tutorial/conditionalaccess02.png)
 
 #### <a name="remote-desktop"></a>Ambiente de Trabalho Remoto
 
 1. Escolha **RDP** no Assistente de Aplicações ADD.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure16.png)
+    ![Screenshot do assistente de aplicações de adicionar aplicações da consola Akamai EAA mostrando RDP listado entre as aplicações na secção De Aplicações de Acesso.](./media/header-akamai-tutorial/configure16.png)
 
 1. Insira **o nome** e **descrição da aplicação.**
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure17.png)
+    ![Screenshot de um diálogo de aplicação RDP mostrando definições para Nome de Aplicação e Descrição.](./media/header-akamai-tutorial/configure17.png)
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure18.png)
+    ![Screenshot do separador geral da consola Akamai EAA mostrando definições de identidade da aplicação para SECRETRDPAPP.](./media/header-akamai-tutorial/configure18.png)
 
 1. Especifique o Conector que irá fazer a manutenção disto.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure19.png)
+    ![Screenshot da consola Akamai EAA mostrando definições para Certificado e Localização. Os conectores associados estão definidos para USWST-CON1.](./media/header-akamai-tutorial/configure19.png)
 
 #### <a name="authentication"></a>Autenticação
 
 Clique **em Guardar e ir aos Serviços.**
 
-![Akamai configurante](./media/header-akamai-tutorial/configure20.png)
+![A imagem do separador de autenticação da consola Akamai EAA para o SECRETRDPAPP mostrando o botão Salvar e ir para Serviços está no canto inferior direito.](./media/header-akamai-tutorial/configure20.png)
 
 #### <a name="services"></a>Serviços
 
 Clique **em Guardar e ir para Definições Avançadas**.
 
-![Akamai configurante](./media/header-akamai-tutorial/configure21.png)
+![Screenshot do separador Serviços de consola Da Akamai EAA para SECRETRDPAPP mostrando o Botão Save e ir para o botão AdvancedSettings no canto inferior direito.](./media/header-akamai-tutorial/configure21.png)
 
 #### <a name="advanced-settings"></a>Definições Avançadas
 
 1. Clique **em Guardar e ir para a Implementação**.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure22.png)
+    ![Screenshot do separador Configurações Avançadas da consola Akamai EAA para SECRETRDPAPP mostrando as definições para configuração de ambiente de trabalho remoto.](./media/header-akamai-tutorial/configure22.png)
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure23.png)
+    ![Screenshot do separador Configurações Avançadas da consola Akamai EAA para SECRETRDPAPP mostrando as definições para a configuração de autenticação e verificação de saúde.](./media/header-akamai-tutorial/configure23.png)
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure24.png)
+    ![Screenshot das definições de cabeçalhos HTTP personalizados da consola Akamai EAA para SECRETRDPAPP com o Botão De implementação no canto inferior direito.](./media/header-akamai-tutorial/configure24.png)
 
 1. Experiência de Utilizador Final
 
-    ![Akamai configurante](./media/header-akamai-tutorial/enduser03.png)
+    ![Screenshot de uma janela myapps.microsoft.com com uma imagem de fundo e um sinal em diálogo.](./media/header-akamai-tutorial/enduser03.png)
 
-    ![Akamai configurante](./media/header-akamai-tutorial/enduser02.png)
+    ![Screenshot da janela myapps.microsoft.com Apps com ícones para comentários de Add-in, HRWEB, Akamai - CorpApps, Despesas, Grupos e Access.](./media/header-akamai-tutorial/enduser02.png)
 
 1. Acesso Condicional
 
-    ![Akamai configurante](./media/header-akamai-tutorial/conditionalaccess04.png)
+    ![Screenshot da mensagem de acesso condicional: Aprovar sinal a pedido. Enviámos uma notificação para o seu dispositivo móvel. Por favor, responda para continuar.](./media/header-akamai-tutorial/conditionalaccess04.png)
 
-    ![Akamai configurante](./media/header-akamai-tutorial/conditionalaccess05.png)
+    ![Screenshot de um ecrã de aplicações mostrando ícones para o MyHeaderApp e SecretRDPApp.](./media/header-akamai-tutorial/conditionalaccess05.png)
 
-    ![Akamai configurante](./media/header-akamai-tutorial/conditionalaccess06.png)
+    ![Screenshot do ecrã RS do Windows Server 2012 mostrando ícones genéricos do utilizador. Os ícones para administrador, utilizador e utilizador1 mostram que estão inscritos.](./media/header-akamai-tutorial/conditionalaccess06.png)
 
 1. Em alternativa, também pode escrever diretamente o URL de aplicação RDP.
 
@@ -383,15 +383,15 @@ Clique **em Guardar e ir para Definições Avançadas**.
 
 1. Vá para adicionar aplicações, escolha **SSH**.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure25.png)
+    ![Screenshot do assistente de aplicações de adicionar aplicações da consola Akamai EAA mostrando SSH listado entre as aplicações na secção De Aplicações de Acesso.](./media/header-akamai-tutorial/configure25.png)
 
 1. Insira **o nome** e **descrição da aplicação.**
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure26.png)
+    ![Screenshot de um diálogo de aplicação SSH mostrando as definições para Nome de Aplicação e Descrição.](./media/header-akamai-tutorial/configure26.png)
 
 1. Configurar identidade de aplicação.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure27.png)
+    ![Screenshot do separador geral da consola Akamai EAA mostrando definições de identidade da aplicação para SSH-SECURE.](./media/header-akamai-tutorial/configure27.png)
 
     a. Especificar Nome / Descrição.
 
@@ -407,43 +407,43 @@ Clique **em Guardar e ir para Definições Avançadas**.
 
 Clique em **Guardar e vá aos Serviços.**
 
-![Akamai configurante](./media/header-akamai-tutorial/configure28.png)
+![A imagem do separador de autenticação da consola Akamai EAA para SSH-SECURE mostrando o botão Salvar e ir para Serviços está no canto inferior direito.](./media/header-akamai-tutorial/configure28.png)
 
 #### <a name="services"></a>Serviços
 
 Clique **em Guardar e ir para Definições Avançadas**.
 
-![Akamai configurante](./media/header-akamai-tutorial/configure29.png)
+![Screenshot do separador Serviços de consola Akamai EAA para SSH-SECURE mostrando o Save e ir para o botão AdvancedSettings no canto inferior direito.](./media/header-akamai-tutorial/configure29.png)
 
 #### <a name="advanced-settings"></a>Definições Avançadas
 
 Clique em Guardar e ir Implantar
 
-![Akamai configurante](./media/header-akamai-tutorial/configure30.png)
+![Screenshot do separador Configurações Avançadas da consola Akamai EAA para SSH-SECURE mostrando as definições para a configuração de autenticação e verificação de saúde.](./media/header-akamai-tutorial/configure30.png)
 
-![Akamai configurante](./media/header-akamai-tutorial/configure31.png)
+![Screenshot das definições de cabeçalhos HTTP personalizados da consola Akamai EAA para SSH-SECURE com o Save e ir para o botão de implementação no canto inferior direito.](./media/header-akamai-tutorial/configure31.png)
 
 #### <a name="deployment"></a>Implementação
 
 1. Clique **na aplicação Implementar**.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure32.png)
+    ![Screenshot do separador implementação da consola Akamai EAA para SSH-SECURE mostrando o botão de aplicação Implementar.](./media/header-akamai-tutorial/configure32.png)
 
 1. Experiência de Utilizador Final
 
-    ![Akamai configurante](./media/header-akamai-tutorial/enduser03.png)
+    ![Screenshot de uma janela myapps.microsoft.com Sinal em diálogo.](./media/header-akamai-tutorial/enduser03.png)
 
-    ![Akamai configurante](./media/header-akamai-tutorial/enduser04.png)
+    ![Screenshot da janela apps para myapps.microsoft.com mostrando ícones para comentários de Add-in, HRWEB, Akamai - CorpApps, Despesas, Grupos e Access.](./media/header-akamai-tutorial/enduser04.png)
 
 1. Acesso Condicional
 
-    ![Akamai configurante](./media/header-akamai-tutorial/conditionalaccess04.png)
+    ![Screenshot mostrando a mensagem: Aprova o sinal a pedido. Enviámos uma notificação para o seu dispositivo móvel. Por favor, responda para continuar.](./media/header-akamai-tutorial/conditionalaccess04.png)
 
-    ![Akamai configurante](./media/header-akamai-tutorial/conditionalaccess07.png)
+    ![Screenshot de um ecrã de aplicações mostrando ícones para MyHeaderApp, SSH Secure e SecretRDPApp.](./media/header-akamai-tutorial/conditionalaccess07.png)
 
-    ![Akamai configurante](./media/header-akamai-tutorial/conditionalaccess08.png)
+    ![Screenshot de uma janela de comando para ssh-secure-go.akamai-access.com mostrando uma solicitação de palavra-passe.](./media/header-akamai-tutorial/conditionalaccess08.png)
 
-    ![Akamai configurante](./media/header-akamai-tutorial/conditionalaccess09.png)
+    ![Screenshot de uma janela de comando para ssh-secure-go.akamai-access.com mostrando informações sobre a aplicação e exibindo um pedido de comandos.](./media/header-akamai-tutorial/conditionalaccess09.png)
 
 ### <a name="kerberos-authentication"></a>Autenticação Kerberos
 
@@ -451,54 +451,54 @@ No exemplo abaixo publicaremos um servidor web interno <code>http://frp-app1.sup
 
 #### <a name="general-tab"></a>Separador Geral
 
-![Akamai configurante](./media/header-akamai-tutorial/generaltab.png)
+![Screenshot do separador geral da consola Akamai EAA para MYKERBOROSAPP.](./media/header-akamai-tutorial/generaltab.png)
 
 #### <a name="authentication-tab"></a>Separador de autenticação
 
 Atribuir o Fornecedor de Identidade
 
-![Akamai configurante](./media/header-akamai-tutorial/authenticationtab.png)
+![Screenshot do separador de autenticação da consola Akamai EAA para MYKERBOROSAPP mostrando o fornecedor de identidade definido para Azure AD SSO.](./media/header-akamai-tutorial/authenticationtab.png)
 
 #### <a name="services-tab"></a>Separador de Serviços
 
-![Akamai configurante](./media/header-akamai-tutorial/servicestab.png)
+![Screenshot do separador Serviços de consola Akamai EAA para MYKERBOROSAPP.](./media/header-akamai-tutorial/servicestab.png)
 
 #### <a name="advanced-settings"></a>Definições Avançadas
 
-![Akamai configurante](./media/header-akamai-tutorial/advancesettings02.png)
+![Screenshot do separador Configurações Avançadas da consola Akamai EAA para MYKERBOROSAPP mostrando definições para Aplicações Relacionadas e Autenticação.](./media/header-akamai-tutorial/advancesettings02.png)
 
 > [!NOTE]
 > O SPN para o Web Server tem estado no SPN@Domain Formato ex: `HTTP/frp-app1.superdemo.live@SUPERDEMO.LIVE` para esta demonstração. Deixe o resto das definições por defeito.
 
 #### <a name="deployment-tab"></a>Separador de implementação
 
-![Akamai configurante](./media/header-akamai-tutorial/deploymenttab.png)
+![Screenshot do separador implementação da consola Akamai EAA para MYKERBOROSAPP mostrando o botão de aplicação Implementar.](./media/header-akamai-tutorial/deploymenttab.png)
 
 #### <a name="adding-directory"></a>Adição de Diretório
 
 1. Selecione **AD** a partir do dropdown.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure33.png)
+    ![Screenshot da janela de diretórios de consolas Akamai EAA mostrando um diálogo Create New Directory com AD selecionado na entrega para o Directory Type.](./media/header-akamai-tutorial/configure33.png)
 
 1. Forneça os dados necessários.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/configure34.png)
+    ![Screenshot da janela SUPERDEMOLIVE da consola Akamai EAA com definições para o Nome de Diretório, Serviço de Diretório, Conector e Mapeamento de Atributos.](./media/header-akamai-tutorial/configure34.png)
 
 1. Verifique a Criação do Diretório.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/directorydomain.png)
+    ![Screenshot da janela de diretórios de consolas Akamai EAA mostrando que o diretório superdemo.live foi adicionado.](./media/header-akamai-tutorial/directorydomain.png)
 
 1. Adicione os Grupos/OUs que seriam necessários acesso.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/addgroup.png)
+    ![Screenshot das definições para o diretório superdemo.live. O ícone que seleciona para adicionar Grupos ou OUs é realçado.](./media/header-akamai-tutorial/addgroup.png)
 
 1. No grupo abaixo é chamado EAAGroup e tem 1 Membro.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/eaagroup.png)
+    ![Screenshot dos grupos de consolas Akamai EAA na janela do DIRETÓRIO SUPERDEMOLIVE. O Grupo EAA com 1 Utilizador está listado em Grupos.](./media/header-akamai-tutorial/eaagroup.png)
 
 1. Adicione o Diretório ao Fornecedor **Identity**de Identidade clicando em  >  **Fornecedores de Identidade** de Identidade e clique no separador **Diretório** e clique no **diretório de atribuição**.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/assigndirectory.png)
+    ![Screenshot do separador De diretórios de consolas Da Akamai EAA para Azure AD SSO, mostrando superdemo.live na lista de diretórios atualmente atribuídos.](./media/header-akamai-tutorial/assigndirectory.png)
 
 ### <a name="configure-kcd-delegation-for-eaa-walkthrough"></a>Configure delegação KCD para a EAA Walkthrough
 
@@ -506,14 +506,14 @@ Atribuir o Fornecedor de Identidade
 
 1. No exemplo, usaremos uma conta chamada **EAADelegation**. Pode efetuar isto utilizando os utilizadores do **Ative Directory e o computador** Snappin.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/assigndirectory.png)
+    ![Screenshot do separador De diretórios de consolas Akamai EAA para Azure AD SSO. O diretório superdemo.live está listado em diretórios atualmente atribuídos.](./media/header-akamai-tutorial/assigndirectory.png)
 
     > [!NOTE]
     > O nome de utilizador deve estar num formato específico baseado no **Nome de Interceção de Identidade**. Da figura 1 que vemos é **corpapps.login.go.akamai-access.com**
 
 1. O nome do logotipo do utilizador será:`HTTP/corpapps.login.go.akamai-access.com`
 
-    ![Akamai configurante](./media/header-akamai-tutorial/eaadelegation.png)
+    ![Screenshot mostrando EAADelegation Properties com o primeiro nome definido para "EAADelegation" e user logon name set to HTTP/corpapps.login.go.akamai-access.com.](./media/header-akamai-tutorial/eaadelegation.png)
 
 #### <a name="step-2-configure-the-spn-for-this-account"></a>Passo 2: Configurar o SPN para esta conta
 
@@ -521,13 +521,13 @@ Atribuir o Fornecedor de Identidade
 
 2. setspn -s **Http/corpapps.login.go.akamai-access.com eaadelegation**
 
-    ![Akamai configurante](./media/header-akamai-tutorial/spn.png)
+    ![Screenshot de um Aviso de Comando de Administrador mostrando os resultados do conjunto de comandos Http/corpapps.login.go.akamai-access.com eaadelegation.](./media/header-akamai-tutorial/spn.png)
 
 #### <a name="step-3-configure-delegation"></a>Passo 3: Delegação de Configuração
 
 1. Para a conta EAADelegation clique no separador Delegação.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/spn.png)
+    ![Screenshot de um aviso de comando do administrador mostrando o comando para configurar o SPN.](./media/header-akamai-tutorial/spn.png)
 
     * Especifique a utilização de qualquer protocolo de autenticação
     * Clique em Adicionar e Adicione a Conta Pool de Aplicações para o Website Kerberos. Deverá resolver automaticamente a correção da SPN se estiver configurado corretamente.
@@ -551,35 +551,35 @@ Atribuir o Fornecedor de Identidade
 
 1. Ktpass /out EAADemo.keytab /princ HTTP/corpapps.login.go.akamai-access.com@superdemo.live /mapuser eaadelegation@superdemo.live /pass RANDOMPASS /crypto All ptype KRB5_NT_PRINCIPAL
 
-    ![Akamai configurante](./media/header-akamai-tutorial/administrator.png)
+    ![Screenshot de um aviso de comando do administrador mostrando os resultados do comando para a criação de um Ficheiro Keytab para a AKAMAI EAA.](./media/header-akamai-tutorial/administrator.png)
 
 #### <a name="step-5-import-keytab-in-the-akamai-eaa-console"></a>Passo 5: Import Keytab na consola AKAMAI EAA
 
 1. Clique **System**em  >  **Keytabs de**Sistema .
 
-    ![Akamai configurante](./media/header-akamai-tutorial/keytabs.png)
+    ![Screenshot da consola Akamai EAA mostrando Keytabs sendo selecionados a partir do menu System.](./media/header-akamai-tutorial/keytabs.png)
 
 1. No Tipo Keytab escolha **a Delegação Kerberos.**
 
-    ![Akamai configurante](./media/header-akamai-tutorial/keytabdelegation.png)
+    ![Screenshot do ecrã EAAKEYTAB da consola EAAA da Akamai mostrando as definições de Keytab. O Tipo Keytab está definido para a delegação Kerberos.](./media/header-akamai-tutorial/keytabdelegation.png)
 
 1. Certifique-se de que o Keytab aparece como Implantado e Verificado.
 
-    ![Akamai configurante](./media/header-akamai-tutorial/keytabs02.png)
+    ![Screenshot do ecrã KEYTABS da consola Da Akamai EAA que lista o Keytab da EAA como "Keytab implantado e verificado".](./media/header-akamai-tutorial/keytabs02.png)
 
 1. Experiência do Utilizador
 
-    ![Akamai configurante](./media/header-akamai-tutorial/enduser03.png)
+    ![Screenshot do Sinal em diálogo em myapps.microsoft.com. ](./media/header-akamai-tutorial/enduser03.png)
 
-    ![Akamai configurante](./media/header-akamai-tutorial/enduser04.png)
+    ![Screenshot da janela Apps para myapps.microsoft.com mostrando ícones da App.](./media/header-akamai-tutorial/enduser04.png)
 
 1. Acesso Condicional
 
-    ![Akamai configurante](./media/header-akamai-tutorial/conditionalaccess04.png)
+    ![Screenshot mostrando um sinal de aprovação na mensagem de pedido. a mensagem.](./media/header-akamai-tutorial/conditionalaccess04.png)
 
-    ![Akamai configurante](./media/header-akamai-tutorial/conditionalaccess10.png)
+    ![Screenshot de um ecrã de aplicações mostrando ícones para MyHeaderApp, SSH Secure, SecretRDPApp e myKerberosApp.](./media/header-akamai-tutorial/conditionalaccess10.png)
 
-    ![Akamai configurante](./media/header-akamai-tutorial/conditionalaccess11.png)
+    ![Screenshot do ecrã de respingo para o myKerberosApp. A mensagem "Welcome superdemo\user1" é exibida sobre uma imagem de fundo.](./media/header-akamai-tutorial/conditionalaccess11.png)
 
 ### <a name="create-akamai-test-user"></a>Criar utilizador de teste Akamai
 

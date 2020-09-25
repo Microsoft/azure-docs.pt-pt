@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Obtenha insights de imagem utilizando a API REST e Node.js - Bing Visual Search'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a enviar uma imagem para a API de Pesquisa Visual Bing e obtenha informações sobre isso.
+description: Aprenda a fazer upload de uma imagem utilizando a API de Pesquisa Visual Bing e Node.js e, em seguida, obtenha insights sobre a imagem.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,13 +10,13 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: scottwhi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 1e5594fab6e4b1758e8e3cd722c053b9d3d301ce
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: e96ff9173d920208e067988602323626767d9017
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87404027"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277097"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-nodejs"></a>Quickstart: Obtenha insights de imagem utilizando a API e o Node.js de pesquisa visual Bing Visual
 
@@ -89,7 +89,7 @@ Utilize este quickstart para fazer a sua primeira chamada para a API de Pesquisa
     });
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Construa uma aplicação web de pesquisa visual de uma página](../tutorial-bing-visual-search-single-page-app.md)

@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 02/06/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8dfcdd8195824cb732df2c0c70c338e69630c5cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c39a24664d36e4a69a44b7fe06835572e0cfe75
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753128"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329249"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Migrar para Azure Virtual WAN
 
@@ -27,7 +27,7 @@ O modelo de conectividade Azure hub-and-spoke foi adotado por milhares de nossos
 
 Este artigo mostra como migrar um ambiente híbrido existente para o WAN Virtual.
 
-## <a name="scenario"></a>Scenario
+## <a name="scenario"></a>Cenário
 
 A Contoso é uma organização financeira global com escritórios na Europa e na Ásia. Estão a planear transferir as suas aplicações existentes de um centro de dados no local para a Azure e construíram um design de fundação baseado na arquitetura manual do hub e da fala, incluindo redes virtuais de hub geridos por clientes regionais para conectividade híbrida. Como parte da mudança para tecnologias baseadas na nuvem, a equipa de rede foi incumbida de garantir que a sua conectividade é otimizada para o negócio avançar.
 
@@ -42,7 +42,7 @@ Os seguintes pontos podem ser entendidos a partir da topologia da rede existente
 
 - Alguns destes sites também têm túneis VPN diretamente em Azure para alcançar aplicações hospedadas dentro da nuvem da Microsoft.
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 A equipa de networking foi incumbida de fornecer um modelo de rede global que possa apoiar a migração dos Contoso para a nuvem e deve otimizar nas áreas de custo, escala e desempenho. Em resumo, devem ser cumpridos os seguintes requisitos:
 
@@ -280,6 +280,6 @@ O tráfego é encaminhado da seguinte forma:
 
 ![Fluxo 8](./media/migrate-from-hub-spoke-topology/flow8.png) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a Azure Virtual WAN](virtual-wan-about.md)

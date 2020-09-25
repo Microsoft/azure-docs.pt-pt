@@ -1,6 +1,6 @@
 ---
 title: Papel de Leitores de Diretório no Azure Ative Directory para Azure SQL
-description: As aplicações AD AZure (principais serviços) suportam a criação de utilizadores Azure AD na Base de Dados Azure SQL, Azure SQL Managed Instance e Azure Synapse Analytics
+description: Conheça o papel do leitor de diretório no Azure AD para a Azure SQL.
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse
@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: a517a4b14a64be2b9bf12270eef3d08e14d8f3c8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5a6fb2c1c539c5b8e353f5c3720cb9d001dcbbc9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88556327"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277959"
 ---
 # <a name="directory-readers-role-in-azure-active-directory-for-azure-sql"></a>Papel de Leitores de Diretório no Azure Ative Directory para Azure SQL
 

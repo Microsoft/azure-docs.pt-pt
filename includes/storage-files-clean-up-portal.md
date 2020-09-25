@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 2ddf171090ab4a9e3dbe4506a399cbdbd2621bdd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 842c08ec36730eaab1c37fe61d3855f9e2ddd245
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "67184333"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329465"
 ---
 Quando terminar, pode eliminar o grupo de recursos. A eliminação do grupo de recursos elimina a conta de armazenamento, a partilha de ficheiros do Azure e outros recursos que implementou dentro do grupo de recursos.
 
 1. No menu à esquerda, selecione **Grupos de recursos**.
-2. Clique com o botão direito do rato no grupo de recursos e, em seguida, selecione **Eliminar grupo de recursos**. É aberta uma janela com um aviso sobre os recursos que serão eliminados com o grupo de recursos.
-3. Introduza o nome do grupo de recursos e, em seguida, selecione **Eliminar**.
+1. Clique com o botão direito do rato no grupo de recursos e, em seguida, selecione **Eliminar grupo de recursos**. É aberta uma janela com um aviso sobre os recursos que serão eliminados com o grupo de recursos.
+1. Introduza o nome do grupo de recursos e, em seguida, selecione **Eliminar**.

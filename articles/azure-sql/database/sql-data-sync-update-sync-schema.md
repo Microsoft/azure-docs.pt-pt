@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 11/14/2018
-ms.openlocfilehash: 4d0800d109d17c1233a18966d84a498596e8e834
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b42624506b3fe3a40cd19353c0dc25ecd8a5da02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84188201"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328807"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Automatizar a replicação de alterações de esquema no Azure SQL Data Sync
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -173,7 +173,7 @@ Renomear colunas ou tabelas faz com que o Data Sync deixe de funcionar. Crie uma
 
 Para outros tipos de alterações de esquema - por exemplo, criar procedimentos armazenados ou deixar cair um índice- não é necessário atualizar o esquema de sincronização.
 
-## <a name="troubleshoot-automated-schema-change-replication"></a><a name="troubleshoot"></a>Resolução de problemas replicação automática de alterações de esquemas
+## <a name="troubleshoot-automated-schema-change-replication"></a><a name="troubleshoot"></a> Resolução de problemas replicação automática de alterações de esquemas
 
 A lógica de replicação descrita neste artigo deixa de funcionar em algumas situações, por exemplo, se fizer uma alteração de esquema numa base de dados no local que não é suportada na Base de Dados Azure SQL. Nesse caso, a sincronização da tabela de rastreio de mudança de esquema falha. Precisa de corrigir este problema manualmente:
 
@@ -201,7 +201,7 @@ A lógica de replicação descrita neste artigo deixa de funcionar em algumas si
 
 Se pretender limpar os registos na tabela de rastreio de alteração de esquema, utilize DELETE em vez de TRUNCATE. Nunca volte a utilizar a coluna de identidade na tabela de rastreio de alteração de esquema utilizando o DBCC CHECKIDENT. Pode criar novas tabelas de rastreio de alterações de esquema e atualizar o nome da tabela no gatilho DDL se for necessário reseeding.
 
-## <a name="other-considerations"></a><a name="other"></a>Outras Considerações
+## <a name="other-considerations"></a><a name="other"></a> Outras Considerações
 
 -   Os utilizadores de bases de dados que configuram o centro e as bases de dados dos membros precisam de ter permissão suficiente para executar os comandos de alteração de esquemas.
 
@@ -219,7 +219,7 @@ Se pretender limpar os registos na tabela de rastreio de alteração de esquema,
 
 -   Não utilize o TRUNCATE para limpar dados na tabela de rastreio de alterações de esquema.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a Sincronização de Dados SQL, veja:
 

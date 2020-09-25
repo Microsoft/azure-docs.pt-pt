@@ -7,18 +7,18 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 208b900de20a89a9ecc819ef1254c08fcc628f82
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b09d808201d58b571b2fe5ceb2e228d4e1c21d11
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010227"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316958"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Alterar o modelo de licença de uma máquina virtual do SQL no Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -55,7 +55,7 @@ Alterar o modelo de licenciamento do seu SQL Server VM tem os seguintes requisit
 
 ## <a name="vms-already-registered-with-the-resource-provider"></a>VMs já registados com o fornecedor de recursos 
 
-# <a name="the-azure-portal"></a>[O portal Azure](#tab/azure-portal)
+# <a name="the-azure-portal"></a>[O portal do Azure](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 

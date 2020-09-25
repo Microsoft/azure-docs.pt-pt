@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 98eff02dacb5b44839937f826cd676fe16670cbb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 92990df3049f7fa1074d55fc34734e13d6673cd7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017486"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328824"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Criar uma cópia de segurança de uma máquina virtual no Azure com a CLI
 
@@ -38,7 +38,7 @@ az backup vault create --resource-group myResourceGroup \
     --location eastus
 ```
 
-Por predefinição, o cofre dos Serviços de Recuperação está definido para Armazenamento georredundante. O armazenamento geo-redundante garante que os seus dados de reserva são replicados numa região secundária de Azure que fica a centenas de quilómetros da região primária. Se a definição de redundância de armazenamento precisar de ser modificada, utilize o cmdlet [de backup-propriedades de backup do cofre az.](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set)
+Por predefinição, o cofre dos Serviços de Recuperação está definido para Armazenamento georredundante. O armazenamento geo-redundante garante que os seus dados de reserva são replicados numa região secundária de Azure que fica a centenas de quilómetros da região primária. Se a definição de redundância de armazenamento precisar de ser modificada, utilize o cmdlet [de backup-propriedades de backup do cofre az.](/cli/azure/backup/vault/backup-properties#az-backup-vault-backup-properties-set)
 
 ```azurecli
 az backup vault backup-properties set \
@@ -118,7 +118,7 @@ Quando o *Estado* da tarefa de cópia de segurança mostrar *Concluído*, a VM e
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 
-Quando já não precisar, pode desativar a proteção na VM, remover os pontos de restauro e o cofre dos Serviços de Recuperação e, em seguida, eliminar o grupo de recursos e os recursos da VM associados. Se tiver utilizado uma VM já existente, pode ignorar o último comando [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) para manter o grupo de recursos e a VM.
+Quando já não precisar, pode desativar a proteção na VM, remover os pontos de restauro e o cofre dos Serviços de Recuperação e, em seguida, eliminar o grupo de recursos e os recursos da VM associados. Se tiver utilizado uma VM já existente, pode ignorar o último comando [az group delete](/cli/azure/group#az-group-delete) para manter o grupo de recursos e a VM.
 
 Se pretender experimentar um tutorial de Cópia de Segurança que explica como restaurar dados para a VM, aceda a [Passos seguintes](#next-steps).
 

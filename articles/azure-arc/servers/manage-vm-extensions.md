@@ -1,14 +1,14 @@
 ---
 title: Gestão de extensão VM com servidores ativados Azure Arc
 description: Os servidores ativados do Azure Arc podem gerir a implementação de extensões de máquinas virtuais que fornecem tarefas de configuração e automatização pós-implantação com VMs não-Azure.
-ms.date: 09/02/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 988c4d7b2fcbffb95932fe70d8014de74dd33343
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1c3d50f407f4412a14201dfe669334dbb083d323
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887730"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329079"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gestão de extensão de máquina virtual com servidores ativados do Azure Arc
 
@@ -34,7 +34,7 @@ A funcionalidade de extensão VM só está disponível na lista de [regiões apo
 
 ## <a name="extensions"></a>Extensões
 
-Nesta pré-visualização, estamos a apoiar as seguintes extensões VM nas máquinas Windows e Linux.
+Nesta versão, apoiamos as seguintes extensões VM nas máquinas Windows e Linux.
 
 |Extensão |SO |Publisher |Informações adicionais |
 |----------|---|----------|-----------------------|
@@ -66,10 +66,7 @@ A extensão VM do agente Log Analytics para Linux requer que o Python 2.x seja i
 
 Verifique se a sua máquina corresponde às [versões suportadas](agent-overview.md#supported-operating-systems) do sistema operativo Windows e Linux para o agente Azure Connected Machine.
 
-A versão mínima do agente da Máquina Conectada que é suportada com esta função é:
-
-* Windows - 0.7.x
-* Linux - 0.8.x
+A versão mínima do agente 'Máquina Conectada' que é suportada com esta funcionalidade no Windows e Linux é a versão 1.0.
 
 Para atualizar a sua máquina para a versão do agente necessário, consulte o [agente de atualização](manage-agent.md#upgrading-agent).
 
@@ -77,7 +74,7 @@ Para atualizar a sua máquina para a versão do agente necessário, consulte o [
 
 As extensões VM podem ser aplicadas ao seu Arco para máquina gerida pelo servidor através do portal Azure.
 
-1. A partir do seu navegador, aceda ao [portal Azure.](https://aka.ms/arcserver-preview)
+1. A partir do seu navegador, aceda ao [portal Azure.](https://portal.azure.com)
 
 2. No portal, navegue pelos **Servidores - Azure Arc** e selecione a sua máquina híbrida da lista.
 
@@ -719,22 +716,10 @@ A remoção de uma ou mais extensões de um servidor ativado pelo Arco só pode 
 
 4. Selecione **Desinstalar** e quando for solicitado para verificar, selecione **Sim** para prosseguir.
 
-## <a name="troubleshooting"></a>Resolução de problemas
-
-Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure.
-
-As seguintes etapas de resolução de problemas aplicam-se a todas as extensões de VM.
-
-1. Para verificar o registo do agente Convidado, consulte a atividade quando a sua extensão estava a ser disponibilizada `%SystemDrive%\ProgramData\GuestConfig\ext_mgr_logs` para o Windows e para o Linux sob `/var/lib/GuestConfig/ext_mgr_logs` .
-
-2. Consulte os registos de extensão para obter mais detalhes para o `%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>` Windows. A saída de extensão é registada num ficheiro para cada extensão instalada no Linux sob `/var/lib/GuestConfig/extension_logs` .
-
-3. Verifique secções específicas de resolução de problemas de documentação de extensão para códigos de erro, problemas conhecidos, etc. Informações adicionais de resolução de problemas para cada extensão podem ser encontradas na secção **de resolução de problemas e suporte** na visão geral para a extensão. Isto inclui a descrição dos códigos de erro escritos no registo. Os artigos de extensão estão ligados na [tabela de extensões](#extensions) encontrada anteriormente neste artigo.
-
-4. Olhe para os registos do sistema. Verifique outras operações que possam ter interferido com a extensão, como uma instalação de longa duração de outra aplicação que exigia acesso exclusivo ao gestor de pacotes.
-
 ## <a name="next-steps"></a>Passos seguintes
 
-- Aprenda a gerir a sua máquina utilizando [a Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verificando se a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com o [Azure Monitor com VMs](../../azure-monitor/insights/vminsights-enable-policy.md), e muito mais.
+* As informações relativas à resolução de problemas podem ser encontradas no guia de [extensões VM de resolução de problemas.](troubleshoot-vm-extensions.md)
 
-- Saiba mais sobre [o [Agente Log Analytics]](../../azure-monitor/platform/log-analytics-agent.md). O agente Log Analytics para Windows e Linux é necessário quando pretende recolher dados de monitorização do sistema operativo e da carga de trabalho, geri-lo utilizando livros de aplicação da Automação ou funcionalidades como Update Management, ou utilizar outros serviços Azure como [o Azure Security Center](../../security-center/security-center-intro.md).
+* Aprenda a gerir a sua máquina utilizando [a Azure Policy](../../governance/policy/overview.md), para coisas como [a configuração do hóspede](../../governance/policy/concepts/guest-configuration.md)VM , verificando se a máquina está a reportar ao espaço de trabalho esperado do Log Analytics, permitir a monitorização com o [Azure Monitor com VMs](../../azure-monitor/insights/vminsights-enable-policy.md), e muito mais.
+
+* Saiba mais sobre o [agente Log Analytics.](../../azure-monitor/platform/log-analytics-agent.md) O agente Log Analytics para Windows e Linux é necessário quando pretende recolher dados de monitorização do sistema operativo e da carga de trabalho, geri-lo utilizando livros de aplicação da Automação ou funcionalidades como Update Management, ou utilizar outros serviços Azure como [o Azure Security Center](../../security-center/security-center-intro.md).

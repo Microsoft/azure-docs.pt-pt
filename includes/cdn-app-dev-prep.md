@@ -4,12 +4,12 @@ ms.service: azure-cdn
 ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
-ms.openlocfilehash: 41f2d4540f665137d34d262546cdc1a2edfbae3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4967991b0edaa854acbf6b308596859d662311fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77608717"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316766"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de escrever o código de gestão cdn, deve fazer alguma preparação para permitir que o código interaja com o Gestor de Recursos Azure. Para fazer esta preparação, você precisa:
@@ -20,16 +20,16 @@ Antes de escrever o código de gestão cdn, deve fazer alguma preparação para 
 
 ### <a name="creating-the-resource-group"></a>Criar o grupo de recursos
 1. Inscreva-se no [Portal Azure](https://portal.azure.com).
-2. Clique em **Criar um recurso**.
+2. Clique **em Criar um recurso.**
 3. Procure por **grupo de recursos** e no painel de grupo de recursos, clique em **Criar**.
 
     ![Criação de um novo grupo de recursos](./media/cdn-app-dev-prep/cdn-new-rg-1-include.png)
 3. Nomeie o seu grupo de recursos *CdnConsoleTutorial*.  Selecione a sua subscrição e escolha um local perto de si.  Se desejar, pode clicar no Pin para a caixa **de verificação do painel** de instrumentos para fixar o grupo de recursos no painel de instrumentos do portal.  Pinning torna mais fácil de encontrar mais tarde.  Depois de ter feito as suas seleções, clique em **Criar**.
 
-    ![Nomear o grupo de recursos](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
+    ![Screenshot da caixa de diálogo do grupo de recursos.](./media/cdn-app-dev-prep/cdn-new-rg-2-include.png)
 4. Após a criação do grupo de recursos, se não o fixar no painel de **instrumentos,** poderá encontrá-lo clicando em Procurar, em seguida, **Grupos de Recursos**.  Para abri-la, clique no grupo de recursos.  Tome nota do seu ID de **assinatura.** Precisamos mais tarde.
 
-    ![Nomear o grupo de recursos](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
+    ![Screenshot da secção tutorial da consola C D N.](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
 ### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Criar a aplicação AZure AD e aplicar permissões
 Existem duas abordagens para a autenticação de aplicações com o Azure Ative Directory: Utilizadores individuais ou um diretor de serviço. Um diretor de serviço é semelhante a uma conta de serviço no Windows.  Em vez de conceder a um determinado utilizador permissões para interagir com os perfis da CDN, as permissões são concedidas ao principal do serviço.  Os princípios de serviço são normalmente utilizados para processos automatizados e não interativos.  Mesmo que este tutorial esteja a escrever uma aplicação de consola interativa, vamos focar-nos na abordagem principal do serviço.

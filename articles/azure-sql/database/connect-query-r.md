@@ -10,16 +10,16 @@ ms.devlang: python
 ms.topic: quickstart
 author: garyericson
 ms.author: garye
-ms.reviewer: davidph, carlrab
+ms.reviewer: davidph, sstein
 manager: cgronlun
 ms.date: 05/29/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: adc3cbd7b98d915a0b598227b459891cb0e0bfff
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 3a939c816cac44ed85802ecfa591564effc1ee73
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042514"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328839"
 ---
 # <a name="quickstart-use-r-with-azure-sql-database-machine-learning-services-preview-to-query-a-database"></a>Quickstart: Use R com Azure SQL Database Machine Learning Services (pré-visualização) para consultar uma base de dados 
 
@@ -80,7 +80,7 @@ Obtenha a informação de ligação necessária para ligar à base de dados na B
 
 1. Verifique se as linhas top 20 categoria/produto são devolvidas na janela **Mensagens.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Desenhe a sua primeira base de dados na Base de Dados Azure SQL](design-first-database-tutorial.md)
 - [Azure SQL Database Machine Learning Services (com R)](machine-learning-services-overview.md)

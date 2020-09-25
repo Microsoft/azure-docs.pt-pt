@@ -3,13 +3,13 @@ title: Aplicações Insights API para eventos e métricas personalizados Microso
 description: Insira algumas linhas de código no seu dispositivo ou aplicação de ambiente de trabalho, página web ou serviço, para rastrear problemas de utilização e diagnóstico.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: f60fdf9164d09b10d12ada7481edb503cd57a411
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: e9f175e2585a5254922c9e859cf5ece2afbbc3e3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936576"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264138"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -820,7 +820,7 @@ requests
 | summarize sum(itemCount), avg(todouble(customMeasurements.score)) by tostring(customDimensions.game)
 ```
 
-Note que:
+Repare que:
 
 * Quando extrai um valor das medidas personalizadas JSON, tem um tipo dinâmico, pelo que deve lanhá-lo `tostring` ou `todouble` .
 * Para ter em conta a possibilidade de [amostragem,](./sampling.md)deve `sum(itemCount)` utilizar, não `count()` .

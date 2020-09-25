@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 6aaa02c2e14cfc31a11da260da38705ba064ba79
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: db50049675766d9fd8a018c8730f48ac34e23bfc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523320"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276678"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configure o tempo de execução da integração Azure-SSIS para um alto desempenho
 
@@ -122,8 +122,7 @@ O eixo y é o número de pacotes que completaram a execução em uma hora. Por f
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Quando já está a usar um poderoso nó de trabalhador para executar pacotes, o aumento **do AzureSSISMaxParallelExecutionsPerNode** pode aumentar o rendimento geral do tempo de execução da integração. Para Standard_D1_v2 nós, 1-4 execuções paralelas por nó são suportadas. Para todos os outros tipos de nós, são suportadas execuções paralelas de 1-máx(2 x, 8) execuções paralelas por nó. Se você quiser **AzureSSISMaxParallelExecutionsPerNode** além do valor máximo que suportamos, pode abrir um bilhete de suporte e podemos aumentar o valor máximo para si e depois disso precisa de usar a Azure Powershell para atualizar **AzureSSSIsMaxParallelExecutionsPerNode**.
-Pode estimar o valor adequado com base no custo do seu pacote e nas seguintes configurações para os nós do trabalhador. Para obter mais informações, consulte [os tamanhos da máquina virtual para fins gerais.](../virtual-machines/windows/sizes-general.md)
+Quando já está a usar um poderoso nó de trabalhador para executar pacotes, o aumento **do AzureSSISMaxParallelExecutionsPerNode** pode aumentar o rendimento geral do tempo de execução da integração. Se pretender aumentar o valor máximo, precisa de utilizar o Azure PowerShell para atualizar **o AzureSSISMaxParallelExecutionsPerNode**. Pode estimar o valor adequado com base no custo do seu pacote e nas seguintes configurações para os nós do trabalhador. Para obter mais informações, consulte [os tamanhos da máquina virtual para fins gerais.](../virtual-machines/windows/sizes-general.md)
 
 | Tamanho             | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS/MBps de Leitura/MBps de Escrita | Máximo do disco de dados/débito: IOPS | NICs. Máx. / Desempenho de rede esperado (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|
@@ -167,5 +166,5 @@ Também pode ajustar o nível de preços da base de dados com base na informaç�
 ## <a name="design-for-high-performance"></a>Conceber o elevado desempenho
 Conceber um pacote SSIS para funcionar em Azure é diferente de desenhar um pacote para execução no local. Em vez de combinar várias tarefas independentes no mesmo pacote, separe-as em vários pacotes para uma execução mais eficiente no Azure-SSIS IR. Crie uma execução de pacote para cada pacote, para que não tenham que esperar um pelo outro para terminar. Esta abordagem beneficia da escalabilidade do tempo de integração Azure-SSIS e melhora a produção global.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre o tempo de execução da integração Azure-SSIS. Ver [tempo de integração Azure-SSIS](concepts-integration-runtime.md#azure-ssis-integration-runtime).

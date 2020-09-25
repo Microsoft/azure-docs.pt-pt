@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 07/28/2020
+ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 839662e496a61ff9a90a6250b417688b91ccaed1
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: e504a3ed2d9193bdc85fc08b3ea91c4f4f2c160c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87382581"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329509"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Resolução de problemas Azure RBAC
 
@@ -86,7 +86,7 @@ $ras.Count
 
 ## <a name="transferring-a-subscription-to-a-different-directory"></a>Transferir uma subscrição para um diretório diferente
 
-- Se precisar de passos para transferir uma subscrição para um diretório AD Azure diferente, consulte [a propriedade de transferência de uma subscrição do Azure para outra conta.](../cost-management-billing/manage/billing-subscription-transfer.md)
+- Se precisar de passos para transferir uma subscrição para um diretório AD Azure diferente, consulte [transferir uma subscrição Azure para um diretório AD Azure diferente (Preview)](transfer-subscription.md).
 - Se transferir uma subscrição para um diretório AD Azure diferente, todas as atribuições de funções são **permanentemente** eliminadas do diretório AD de origem E não são migradas para o diretório Azure AD alvo. Tens de recriar as tuas funções no diretório alvo. Também tem de recriar manualmente identidades geridas para os recursos da Azure. Para mais informações, consulte [as PERGUNTAS Frequentes e questões conhecidas com identidades geridas.](../active-directory/managed-identities-azure-resources/known-issues.md)
 - Se é administrador global da Azure E não tem acesso a uma subscrição depois de ter sido transferida entre diretórios, utilize a **gestão access for Azure recursos** para aumentar temporariamente [o seu acesso](elevate-access-global-admin.md) para ter acesso à subscrição.
 
@@ -99,11 +99,17 @@ $ras.Count
 - Se receber o erro de permissões “O cliente com o id de objeto não tem autorização para realizar a ação acima do âmbito (código: AuthorizationFailed)" quando tenta criar um recurso, confirme que tem sessão iniciada com um utilizador que tenha atribuída uma função com a permissão de escrita no recurso no âmbito selecionado. Por exemplo, para gerir máquinas virtuais num grupo de recursos, deve ter a função [Contribuidor de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) no grupo de recursos (ou no âmbito principal). Para obter uma lista das permissões para cada papel incorporado, consulte [as funções incorporadas do Azure.](built-in-roles.md)
 - Se obtém o erro de permissões "Não tem permissão para criar um pedido de apoio" quando tenta criar ou atualizar um bilhete de suporte, verifique se está atualmente inscrito com um utilizador que lhe é atribuída uma função que tenha a `Microsoft.Support/supportTickets/write` permissão, como [o Support Request Contributor.](built-in-roles.md#support-request-contributor)
 
+## <a name="move-resources-with-role-assignments"></a>Mover recursos com atribuições de funções
+
+Se mover um recurso que tenha uma função Azure atribuída diretamente ao recurso (ou recurso infantil), a atribuição de funções não é movida e torna-se órfã. Depois da mudança, tens de recriar a tarefa de função. Eventualmente, a atribuição de funções órfãs será automaticamente removida, mas é uma boa prática remover a atribuição de funções antes de mover o recurso.
+
+Para obter informações sobre como mover recursos, consulte [mover recursos para um novo grupo de recursos ou subscrição](../azure-resource-manager/management/move-resource-group-and-subscription.md).
+
 ## <a name="role-assignments-with-identity-not-found"></a>Atribuições de funções com identidade não encontradas
 
 Na lista de atribuições de funções para o portal Azure, pode notar-se que o principal de segurança (utilizador, grupo, principal de serviço ou identidade gerida) está listado como **Identidade não encontrada** com um tipo **desconhecido.**
 
-![Grupo de recursos de aplicativos web](./media/troubleshooting/unknown-security-principal.png)
+![Identidade não encontrada listada nas atribuições de funções da Azure](./media/troubleshooting/unknown-security-principal.png)
 
 A identidade pode não ser encontrada por duas razões:
 
@@ -239,8 +245,8 @@ Algumas [funcionalidades das Funções Azure](../azure-functions/functions-overv
 
 Um leitor pode clicar no separador **funcionalidades** da Plataforma e, em seguida, clicar **em Todas as definições** para visualizar algumas definições relacionadas com uma aplicação de função (semelhante a uma aplicação web), mas não consegue modificar nenhuma destas definições. Para aceder a estas funcionalidades, necessitará da função [Colaboradora.](built-in-roles.md#contributor)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Resolução de problemas para utilizadores convidados](role-assignments-external-users.md#troubleshoot)
-- [Adicione ou remova atribuições de funções Azure usando o portal Azure](role-assignments-portal.md)
+- [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](role-assignments-portal.md)
 - [Ver registos de atividade para alterações do RBAC do Azure](change-history-report.md)

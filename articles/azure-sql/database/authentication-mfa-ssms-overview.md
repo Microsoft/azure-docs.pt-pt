@@ -13,12 +13,12 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 07/27/2020
 tags: azure-synapse
-ms.openlocfilehash: b2d179121b05d7bf3493937a9ff72e302fd31f3d
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 15289727c3ee4d498fa50058ef98f0ae5b3d1b12
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281145"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277806"
 ---
 # <a name="using-multi-factor-azure-active-directory-authentication"></a>Utilização de autenticação de diretório ativo Azure multi-factor
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -29,7 +29,7 @@ Azure SQL Database, Azure SQL Managed Instance e Azure Synapse Analytics suporta
 
 Para todas as funcionalidades discutidas neste artigo, use pelo menos julho de 2017, versão 17.2. A mais recente caixa de diálogo de ligação deve ser semelhante à seguinte imagem:
 
-  ![1mfa-universal-connect](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png "Completa a caixa de nome do utilizador.")  
+  ![Screenshot do diálogo 'Connect to Server' no SQL Server Management Studio, mostrando as definições para o tipo de servidor, nome do servidor e autenticação.](./media/authentication-mfa-ssms-overview/1mfa-universal-connect.png)  
 
 ## <a name="authentication-options"></a>Opções de autenticação
 
@@ -57,11 +57,11 @@ Todos os utilizadores convidados que pretendam ser autenticados através da Aute
 1. Abra uma ligação em SSMS. Insira o nome do seu servidor e selecione **Azure Ative Directory - Universal com** autenticação MFA. Adicione o **nome de Utilizador** com o que pretende iniciar sins.
 1. Selecione a caixa **Opções** e vá até ao separador **Propriedades de Ligação.** Na caixa de diálogo **'Ligar à base de dados',** preencha a caixa de diálogo para a sua base de dados. Verifique o **nome de domínio da AD ou** a caixa de identificação do inquilino, e forneça autoridade autenticante, como o nome de domínio **(contosotest.onmicrosoft.com)** ou o GUIADOr do ID do inquilino. 
 
-   ![mfa-inquilino-ssms](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
+   ![Screenshot do separador Connection Properties realçando as definições de Connect para base de dados e nome de domínio AD ou ID do inquilino.](./media/authentication-mfa-ssms-overview/mfa-tenant-ssms.png)
 
 Se estiver a executar SSMS 18.x ou mais tarde, o nome de domínio AD ou iD do inquilino já não é necessário para os utilizadores convidados porque 18.x ou mais tarde o reconhece automaticamente.
 
-   ![mfa-inquilino-ssms](./media/authentication-mfa-ssms-overview/mfa-no-tenant-ssms.png)
+   ![A screenshot do separador 'Propriedades de Ligação' no diálogo 'Ligar ao Servidor' em S S M. S. "MyDatabase" é selecionada no campo 'Ligar à base de dados'.](./media/authentication-mfa-ssms-overview/mfa-no-tenant-ssms.png)
 
 ### <a name="azure-ad-business-to-business-support"></a>Negócio da AD AZure para apoio ao negócio
 

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 82c5d87be084e85b6de9f890bd042babca9df476
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: devx-track-js
+ms.openlocfilehash: 9b40dbd91357038d1e98b04628bd866ebb336381
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090504"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328892"
 ---
 # <a name="use-the-drawing-tools-module"></a>Utilizar o módulo de ferramentas de desenho
 

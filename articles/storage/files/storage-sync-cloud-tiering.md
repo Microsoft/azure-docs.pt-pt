@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6678f64802dc497de6cf0a70ba5ff0bbcaf44e1c
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 9df06a9d81ef3c9fbe3380bab88325a586981db9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88033126"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329317"
 ---
 # <a name="cloud-tiering-overview"></a>Visão geral do tiering da nuvem
 O tiering em nuvem é uma funcionalidade opcional do Azure File Sync, no qual os ficheiros frequentemente acedidos são cached localmente no servidor, enquanto todos os outros ficheiros são hierárquicos para Ficheiros Azure baseados em definições de política. Quando um ficheiro é hierarquizado, o filtro do sistema de ficheiros Azure File Sync (StorageSync.sys) substitui o ficheiro localmente por um ponteiro ou ponto de reparse. O ponto de reparse representa um URL para o ficheiro em Ficheiros Azure. Um ficheiro hierárquico tem o atributo "offline" e o atributo FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS definido no NTFS para que as aplicações de terceiros possam identificar de forma segura ficheiros hierárquicos.
@@ -40,7 +40,7 @@ O tiering em nuvem não depende da funcionalidade NTFS para rastrear a última v
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>Qual é o tamanho mínimo do ficheiro para um ficheiro de nível?
 
-Para as versões 9 e mais recentes, o tamanho mínimo do ficheiro para um ficheiro é baseado no tamanho do cluster do sistema de ficheiros. O tamanho mínimo do ficheiro elegível para o tiering da nuvem é calculado em 2x o tamanho do cluster e no mínimo 8 KB. A tabela a seguir ilustra os tamanhos mínimos de ficheiro que podem ser nivelados, com base no tamanho do cluster de volume:
+Para as versões de agente 12 e mais recentes, o tamanho mínimo do ficheiro para um ficheiro é baseado no tamanho do cluster do sistema de ficheiros. O tamanho mínimo do ficheiro elegível para o tiering da nuvem é calculado em 2x o tamanho do cluster e no mínimo 8 KB. A tabela a seguir ilustra os tamanhos mínimos de ficheiro que podem ser nivelados, com base no tamanho do cluster de volume:
 
 |Tamanho do cluster de volume (Bytes) |Arquivos deste tamanho ou maior podem ser hierarquizados  |
 |----------------------------|---------|
@@ -48,9 +48,9 @@ Para as versões 9 e mais recentes, o tamanho mínimo do ficheiro para um fichei
 |8 KB (8192)                 | 16 KB   |
 |16 KB (16384)               | 32 KB   |
 |32 KB (32768)               | 64 KB   |
-|64 KB (65536)               | 128 KB  |
+|64 KB (65536) e maior    | 128 KB  |
 
-Com o Windows Server 2019 e o agente Azure File Sync versão 12 e mais recentes, os tamanhos de cluster até 2 MB também são suportados e o tiering nesses tamanhos de cluster maiores funciona da mesma forma. As versões de sistema operativo ou agente mais antigas suportam tamanhos de cluster até 64 KB.
+Com o Windows Server 2019 e o agente Azure File Sync versão 12 e mais recentes, os tamanhos de cluster até 2 MB também são suportados e o tiering nesses tamanhos de cluster maiores funciona da mesma forma. As versões mais antigas do SISTEMA ou do agente suportam tamanhos de cluster até 64 KB, mas além disso, o nível de nuvem não funciona.
 
 Todos os sistemas de ficheiros utilizados pelo Windows, organizem o seu disco rígido com base no tamanho do cluster (também conhecido como tamanho da unidade de atribuição). O tamanho do cluster representa a menor quantidade de espaço em disco que pode ser usado para segurar um ficheiro. Quando os tamanhos dos ficheiros não saem para um múltiplo do tamanho do cluster, deve ser usado espaço adicional para segurar o ficheiro - até ao próximo múltiplo do tamanho do cluster.
 
@@ -85,11 +85,23 @@ Quando há mais de um ponto final do servidor num volume, o limiar de espaço li
 ### <a name="how-does-the-date-tiering-policy-work-in-conjunction-with-the-volume-free-space-tiering-policy"></a>Como funciona a política de camadas de dados em conjunto com a política de arrumo de espaço livre no volume? 
 Ao ativar o nível da nuvem num ponto final do servidor, define uma política de espaço livre de volume. Tem sempre precedência sobre quaisquer outras políticas, incluindo a política de datas. Opcionalmente, pode ativar uma política de data para cada ponto final do servidor nesse volume. Esta política gere que apenas os ficheiros acedidos (isto é, lidos ou escritos) dentro do intervalo de dias que esta política descreve serão mantidos locais. Os ficheiros não acedidos com o número de dias especificados serão hierárquicos. 
 
-Cloud Tiering utiliza o último tempo de acesso para determinar quais os ficheiros que devem ser nivelados. O controlador de filtro de camadas de nuvem (storagesync.sys) rastreia a última hora de acesso e regista a informação na loja de calor de nivelamento de nuvens. Pode ver a loja de calor usando um cmdlet PowerShell local.
+Cloud Tiering utiliza o último tempo de acesso para determinar quais os ficheiros que devem ser nivelados. O controlador de filtro de camadas de nuvem (storagesync.sys) rastreia a última hora de acesso e regista a informação na loja de calor de nivelamento de nuvens. Pode recuperar a loja de calor e guardá-la num ficheiro CSV utilizando um cmdlet PowerShell local do servidor.
 
 ```powershell
+# There is a single heat store for files on a volume / server endpoint / individual file.
+# The heat store can get very large. If you only need to retrieve the "coolest" number of items, use -Limit and a number
+
+# Import the PS module:
 Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'
-Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
+
+# VOLUME FREE SPACE: To get the order in which files will be tiered using the volume free space policy:
+Get-StorageSyncHeatStoreInformation -VolumePath '<DriveLetter>:\' -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrder
+
+# DATE POLICY: To get the order in which files will be tiered using the date policy:
+Get-StorageSyncHeatStoreInformation -VolumePath '<DriveLetter>:\' -ReportDirectoryPath '<FolderPathToStoreResultCSV>' -IndexName LastAccessTimeWithSyncAndTieringOrderV2
+
+# Find the heat store information for a particular file:
+Get-StorageSyncHeatStoreInformation -FilePath '<PathToSpecificFile>'
 ```
 
 > [!IMPORTANT]
@@ -158,10 +170,10 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
 Parâmetros opcionais:
-* `-Order CloudTieringPolicy`recordará primeiro os ficheiros modificados ou acedidos mais recentemente e é permitido pela atual política de tiering. 
+* `-Order CloudTieringPolicy` recordará primeiro os ficheiros modificados ou acedidos mais recentemente e é permitido pela atual política de tiering. 
     * Se a política de espaço livre de volume estiver configurada, os ficheiros serão recolhidos até que a definição da política de espaço livre de volume seja alcançada. Por exemplo, se a definição da política livre de volume for de 20%, a recuperação irá parar quando o espaço livre de volume chegar aos 20%.  
     * Se a política de espaço e data livre de volume estiver configurada, os ficheiros serão recolhidos até que a definição da política de definição de política de volume livre ou de data seja alcançada. Por exemplo, se a definição de política livre de volume for de 20% e a política de data for de 7 dias, a chamada para quando o espaço livre de volume atingir 20% ou todos os ficheiros acedidos ou modificados dentro de 7 dias são locais.
-* `-ThreadCount`determina quantos ficheiros podem ser recolhidos em paralelo.
+* `-ThreadCount` determina quantos ficheiros podem ser recolhidos em paralelo.
 * `-PerFileRetryCount`determina quantas vezes uma recuperação será tentada de um ficheiro que está atualmente bloqueado.
 * `-PerFileRetryDelaySeconds`determina o tempo em segundos entre a tentativa de recuperação e deve ser sempre utilizado em combinação com o parâmetro anterior.
 
@@ -196,7 +208,7 @@ Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 ### <a name="why-are-my-tiered-files-not-showing-thumbnails-or-previews-in-windows-explorer"></a>Porque é que os meus ficheiros hierárquicos não mostram miniaturas ou pré-visualizações no Windows Explorer?
 Para ficheiros hierárquicos, as miniaturas e as pré-visualizações não serão visíveis no ponto final do servidor. Este comportamento é esperado uma vez que a funcionalidade cache de miniatura no Windows ignora intencionalmente ficheiros de leitura com o atributo offline. Com o Cloud Tiering ativado, a leitura através de ficheiros hierárquicos faria com que fossem descarregados (recordados).
 
-Este comportamento não é específico do Azure File Sync, o Windows Explorer apresenta um "X cinzento" para quaisquer ficheiros que tenham o conjunto de atributos offline. Verá o ícone X ao aceder a ficheiros sobre SMB. Para uma explicação detalhada deste comportamento, consulte[https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+Este comportamento não é específico do Azure File Sync, o Windows Explorer apresenta um "X cinzento" para quaisquer ficheiros que tenham o conjunto de atributos offline. Verá o ícone X ao aceder a ficheiros sobre SMB. Para uma explicação detalhada deste comportamento, consulte [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
 
 <a id="afs-tiering-disabled"></a>
 ### <a name="i-have-cloud-tiering-disabled-why-are-there-tiered-files-in-the-server-endpoint-location"></a>Tenho camadas de nuvem desativadas, por que há ficheiros hierárquicos na localização do ponto final do servidor?

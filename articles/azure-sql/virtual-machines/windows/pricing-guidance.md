@@ -8,19 +8,19 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b1d07b3ff41c16ff2145311a0b42d8c57a8e7b82
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 7d18273d07cda3a6fe3517c47c9be12a2d236438
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141963"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316941"
 ---
 # <a name="pricing-guidance-for-sql-server-on-azure-vms"></a>Orientação de preços para O SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -94,7 +94,7 @@ Para criar um Azure VM em execução SQL Server 2017 com uma destas imagens pay-
 > [!NOTE]
 > Agora é possível alterar o modelo de licenciamento de pay-per-use para trazer a sua própria licença (BYOL) e de volta. Para obter mais informações, consulte [como alterar o modelo de licenciamento para um SQL Server VM](licensing-model-azure-hybrid-benefit-ahb-change.md). 
 
-## <a name="bring-your-own-license-byol"></a><a id="byol"></a>Traga a sua própria licença (BYOL)
+## <a name="bring-your-own-license-byol"></a><a id="byol"></a> Traga a sua própria licença (BYOL)
 
 **Trazer a sua própria licença SQL Server através da Mobility License**, também designada por **BYOL,** significa utilizar uma licença de volume de servidor SQL existente com garantia de software num VM Azure. Um SQL Server VM que utiliza apenas o BYOL cobra apenas pelo custo de execução do VM, e não pelo licenciamento do SQL Server, uma vez que já adquiriu licenças e Garantia de Software através de um programa de Licenciamento de Volume.
 
@@ -112,7 +112,7 @@ Para criar um Azure VM em execução SQL Server 2017 com uma destas imagens pay-
 
 Para utilizar o BYOL com um SQL Server VM, tem de ter uma licença para SQL Server Standard ou Enterprise and [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default.aspx#tab=1), que é uma opção necessária através de alguns programas de licenciamento de volume e uma compra opcional com outros. O nível de preços fornecido através dos programas de licenciamento de volume varia, com base no tipo de acordo e na quantidade e ou compromisso com o SQL Server. Mas, como regra geral, trazer a sua própria licença para cargas de trabalho contínuas de produção tem os seguintes benefícios:
 
-| Benefício BYOL | Descrição |
+| Benefício BYOL | Description |
 |-----|-----|
 | **Poupança de custos** | O [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) oferece até 55% de poupança. Para mais informações, consulte [o modelo de licenciamento da Switch](licensing-model-azure-hybrid-benefit-ahb-change.md) |
 | **Réplica secundária passiva livre** | Outro benefício de trazer a sua própria licença é o [licenciamento gratuito para uma réplica secundária passiva](https://azure.microsoft.com/pricing/licensing-faq/) por SQL Server para fins de alta disponibilidade. Isto reduz para metade o custo de licenciamento de uma implementação altamente disponível do SQL Server (por exemplo, usando sempre grupos de disponibilidade). Os direitos de execução do secundário passivo são fornecidos através do benefício de Garantia de Software de Fail-Over Servers. |
@@ -134,7 +134,7 @@ Para criar um Azure VM em execução SQL Server 2017 com uma destas imagens de t
 
 Para evitar custos desnecessários, escolha um tamanho de máquina virtual ideal e considere paragens intermitentes para cargas de trabalho não contínuas.
 
-### <a name="correctly-size-your-vm"></a><a id="machinesize"></a>Dimensione corretamente o seu VM
+### <a name="correctly-size-your-vm"></a><a id="machinesize"></a> Dimensione corretamente o seu VM
 
 O custo de licenciamento do SQL Server está diretamente relacionado com o número de vCPUs. Escolha um tamanho VM que corresponda às necessidades esperadas para CPU, memória, armazenamento e largura de banda de I/O. Para obter uma lista completa das opções de tamanho da máquina, consulte [os tamanhos do Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) e [os tamanhos Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -165,7 +165,7 @@ Para outros fluxos de trabalho, considere desligar automaticamente e reiniciar o
 > [!IMPORTANT]
 > Fechar e negociar o seu VM é a única forma de evitar acusações. Basta parar ou utilizar opções de potência para desligar o VM ainda incorre em cargas de utilização.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para orientação geral sobre preços da Azure, consulte [Prevenir custos inesperados com faturação da Azure e gestão de custos](../../../cost-management-billing/manage/getting-started.md). Para obter os preços mais recentes das Máquinas Virtuais Azure, incluindo o SQL Server, consulte a página de preços das máquinas virtuais Azure para [VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) do Windows e [VMs Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 

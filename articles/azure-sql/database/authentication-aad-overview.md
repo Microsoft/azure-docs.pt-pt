@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
-ms.openlocfilehash: 943569a16101ac170d01d08250b31ba67c0e590e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 8221c77c0e6adeabe869a088089733d289a2f6ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434287"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277951"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Utilize a autenticação do Diretório Ativo Azure
 
@@ -161,14 +161,14 @@ Os seguintes métodos de autenticação são suportados para os principais servi
 - A autenticação Azure AD é suportada para Azure SQL Database e Azure Synapse utilizando o portal Azure **Import Database** e as lâminas **de base de dados de exportação.** A importação e exportação utilizando a autenticação Azure AD também é suportada por um comando PowerShell.
 - A autenticação AZure AD é suportada para base de dados SQL, SQL Managed Instance e Azure Synapse com a utilização do CLI. Para obter mais informações, consulte [a autenticação Configure E gere a autenticação AD do Azure com base de dados SQL ou Azure Synapse](authentication-aad-configure.md) e [SQL Server - servidor az sql](https://docs.microsoft.com/cli/azure/sql/server).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para aprender a criar e povoar uma instância AD Azure e, em seguida, configugá-la com Azure SQL Database, SQL Managed Instance, ou Azure Synapse, ver [Configurar e gerir a autenticação do Azure Ative Directory com base de dados SQL, SQL Managed Instance ou Azure Synapse](authentication-aad-configure.md).
 - Para um tutorial de utilização de principais servidores AD (logins) com SQL Managed Instance, consulte [os principais dos servidores AD do Azure (logins) com sql Managed Instance](../managed-instance/aad-security-configure-tutorial.md)
 - Para uma visão geral de logins, utilizadores, funções de base de dados e permissões na Base de Dados SQL, consulte [Logins, utilizadores, funções de base de dados e permissões.](logins-create-manage.md)
 - Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](https://msdn.microsoft.com/library/ms181127.aspx).
 - Para obter mais informações sobre as funções de base de dados, veja [Database roles (Funções de base de dados)](https://msdn.microsoft.com/library/ms189121.aspx).
-- Para sintaxe sobre a criação de principais servidores AD (logins) para SQL Managed Instance, consulte  [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- Para sintaxe sobre a criação de principais servidores AD (logins) para SQL Managed Instance, consulte  [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 - Para obter mais informações sobre as regras de firewall na Base de Dados SQL, veja [Regras de firewall da Base de Dados SQL](firewall-configure.md).
 
 <!--Image references-->

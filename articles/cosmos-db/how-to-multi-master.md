@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 68f3beb0ee1c12aa06b6cce0f9ddd480b0ce5f2f
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
+ms.openlocfilehash: 40d2e5f3d79fdc7725f04fbfd2c7f29f8db265a3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015250"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328535"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configure multi-mestre nas suas aplicações que usam Azure Cosmos DB
 
@@ -121,7 +121,7 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {
                                     'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Session)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia os seguintes artigos:
 

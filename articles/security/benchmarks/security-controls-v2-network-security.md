@@ -4,17 +4,17 @@ description: Segurança V2 de referência de segurança Azure
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 184416794011d259af3568c81e4648d822a2c4a5
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 9833f63d999ab7c24174853bd37f4e7a76f6dfbf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059347"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329436"
 ---
-# <a name="security-control-network-security"></a>Controlo de Segurança: Segurança da rede
+# <a name="security-control-v2-network-security"></a>Controlo de Segurança V2: Segurança da rede
 
 A Segurança da Rede cobre controlos para proteger e proteger as redes Azure. Isto inclui a segurança de redes virtuais, o estabelecimento de ligações privadas, a prevenção e mitigação de ataques externos e a garantia de DNS.
 
@@ -30,15 +30,19 @@ Com base nas suas aplicações e estratégia de segmentação empresarial, restr
 
 Utilize o Hardening de Rede Adaptive do Centro de Segurança Azure para recomendar configurações de grupos de segurança de rede que limitem as portas e os IPs de origem com base na referência às regras externas de tráfego de rede.
 
+Utilize o Azure Sentinel para descobrir o uso de protocolos de insegurança como SSL/TLSv1, SMBv1, LM/NTLMv1, wDigest, Ligações LDAP não assinadas e cifras fracas em Kerberos.
+
 - [Como criar um grupo de segurança de rede com regras de segurança](../../virtual-network/tutorial-filter-network-traffic.md)
 
 - [Como implantar e configurar firewall Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
 - [Endurecimento de rede adaptativa no Centro de Segurança Azure](../../security-center/security-center-adaptive-network-hardening.md)
 
+- [Livro de protocolos inseguros de Azure Sentinel](../../sentinel/quickstart-get-visibility.md#use-built-in-workbooks)
+
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -54,7 +58,7 @@ Utilize o Hardening de Rede Adaptive do Centro de Segurança Azure para recomend
 
 Utilize a rede privada virtual Azure ExpressRoute ou Azure (VPN) para criar ligações privadas entre centros de dados Azure e infraestruturas no local num ambiente de cosão. As ligações ExpressRoute não passam pela internet pública , e oferecem mais fiabilidade, velocidades mais rápidas e latências mais baixas do que as ligações típicas à Internet. Para VPN ponto a local e VPN local-a-local, pode ligar dispositivos ou redes no local a uma rede virtual usando qualquer combinação destas opções VPN e Azure ExpressRoute.
 
-Para ligar duas ou mais redes virtuais em Azure, utilize o espreitamento de rede virtual. O tráfego de rede entre redes virtuais é privado e é mantido na rede de espinha dorsal Azure. 
+Para ligar duas ou mais redes virtuais em Azure, utilize o espreitamento de rede virtual ou o Private Link. O tráfego de rede entre redes virtuais é privado e é mantido na rede de espinha dorsal Azure. 
 
 - [Quais são os modelos de conectividade ExpressRoute](../../expressroute/expressroute-connectivity-models.md) 
 
@@ -62,9 +66,11 @@ Para ligar duas ou mais redes virtuais em Azure, utilize o espreitamento de rede
 
 - [Peering de rede virtual](../../virtual-network/virtual-network-peering-overview.md)
 
+- [Azure Private Link](../../private-link/private-link-service-overview.md)
+
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -88,7 +94,7 @@ O acesso privado é uma defesa adicional em profundidade, além da autenticaçã
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -108,6 +114,7 @@ Proteja os recursos do Azure contra ataques de redes externas, incluindo ataques
 -   Utilize as capacidades de Firewall de Aplicações Web (WAF) em Gateway de Aplicação Azure, Porta Frontal Azure e Rede de Entrega de Conteúdos Azure (CDN) para proteger as suas aplicações, serviços e APIs contra ataques de camadas de aplicação. 
 
 -   Proteja os seus ativos contra ataques DDoS, permitindo a proteção padrão do DDoS nas suas redes virtuais Azure. 
+-   Utilize o Centro de Segurança Azure para detetar riscos de configuração errados relacionados com o acima referido. 
 
 - [Documentação do Azure Firewall](/azure/firewall/)
 
@@ -117,7 +124,7 @@ Proteja os recursos do Azure contra ataques de redes externas, incluindo ataques
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 Nenhum
 
@@ -139,7 +146,7 @@ Nota: Se tiver um requisito regulamentar ou outro para a utilização do IDS/IPS
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -165,7 +172,7 @@ Também pode utilizar grupos de segurança de aplicações para ajudar a simplif
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 
@@ -191,7 +198,7 @@ Quando o Azure DNS for utilizado como o seu serviço de DNS autoritário, certif
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture) 
 

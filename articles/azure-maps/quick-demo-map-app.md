@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Pesquisa de mapas interativos com mapas Azure'
-description: Saiba como criar mapas interativos e pesjáveis. Veja como criar uma conta Azure Maps, obter uma chave primária e usar o Web SDK para configurar aplicações de mapas.
+description: 'Quickstart: Aprenda a criar mapas interativos e pesquisáveis. Veja como criar uma conta Azure Maps, obter uma chave primária e usar o Web SDK para configurar aplicações de mapas'
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 7/10/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: fa5cab35416f2629d39ec04803f90fae1a2e5f6d
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 99257b7bef83d0acef484118c7d53aea8eda168c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88031052"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264291"
 ---
 # <a name="quickstart-create-an-interactive-search-map-with-azure-maps"></a>Quickstart: Criar um mapa de pesquisa interativo com mapas Azure
 
@@ -81,7 +81,7 @@ Assim que a sua conta Maps for criada com sucesso, recupere a chave primária qu
     :::image type="content" source="./media/quick-demo-map-app/interactive-search.png" alt-text="Aplicação web de pesquisa de mapas interativos":::
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 >[!WARNING]
 >Os tutoriais listados na secção [Next Steps](#next-steps) detalham como usar e configurar mapas Azure com a sua conta. Não limpe os recursos criados neste quickstart se pretende continuar para os tutoriais.
@@ -92,17 +92,15 @@ Se não pretende continuar com os tutoriais, tome estes passos para limpar os re
 2. Navegue para a página do portal Azure. Selecione **Todos os recursos** da página principal do portal. Ou, clique no ícone do menu no canto superior esquerdo. Selecione **Todos os recursos**.
 3. Clique na sua conta Azure Maps. No topo da página, clique em **Apagar**.
 
+Para mais exemplos de código e uma experiência de codificação interativa, consulte estes guias:
+
+[Encontre um endereço com o serviço de pesquisa Azure Maps](how-to-search-for-address.md)
+
+[Use o controlo do mapa dos mapas Azure Maps](how-to-use-map-control.md)
+
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, criou a sua conta Azure Maps e criou uma aplicação de demonstração. Veja os seguintes tutoriais para saber mais sobre o Azure Maps:
 
 > [!div class="nextstepaction"]
 > [Procure pontos de interesse nas proximidades com a Azure Maps](tutorial-search-location.md)
-
-Para mais exemplos de código e uma experiência de codificação interativa, consulte estes guias:
-
-> [!div class="nextstepaction"]
-> [Encontre um endereço com o serviço de pesquisa Azure Maps](how-to-search-for-address.md)
-
-> [!div class="nextstepaction"]
-> [Use o controlo do mapa dos mapas Azure Maps](how-to-use-map-control.md)

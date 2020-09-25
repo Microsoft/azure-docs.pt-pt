@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 07cfb0048e6027b0bac219b3fe28018db2d10257
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: d193438a232cc6bc113efb31ce4276117a366add
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185269"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276898"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar um tempo de integração Azure-SSIS na Azure Data Factory
 
@@ -83,7 +83,7 @@ A tabela a seguir compara certas funcionalidades de um servidor de base de dados
 |---------|--------------|------------------|
 | **Agendamento** | O Agente de Servidor SQL não está disponível.<br/><br/>Consulte [a execução de um pacote num oleoduto da Fábrica de Dados.](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity)| O Agente de Instância Gerida está disponível. |
 | **Autenticação** | Pode criar um caso SSISDB com um utilizador de base de dados contido que represente qualquer grupo AD Azure com a identidade gerida da sua fábrica de dados como membro na **função db_owner.**<br/><br/>Consulte [a autenticação Azure AD para criar um SSISDB no servidor base de dados Azure SQL](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Pode criar um caso SSISDB com um utilizador de base de dados contido que represente a identidade gerida da sua fábrica de dados. <br/><br/>Consulte [a autenticação Azure AD para criar um SSISDB em Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-sql-managed-instance). |
-| **Nível de serviço** | Quando criar um Azure-SSIS IR com o seu servidor Azure SQL Database, pode selecionar o nível de serviço para SSISDB. Há vários níveis de serviço. | Quando cria um Azure-SSIS IR com a sua instância gerida, não pode selecionar o nível de serviço para SSISDB. Todas as bases de dados do seu caso gerido partilham o mesmo recurso atribuído a esse caso. |
+| **Escalão de serviço** | Quando criar um Azure-SSIS IR com o seu servidor Azure SQL Database, pode selecionar o nível de serviço para SSISDB. Há vários níveis de serviço. | Quando cria um Azure-SSIS IR com a sua instância gerida, não pode selecionar o nível de serviço para SSISDB. Todas as bases de dados do seu caso gerido partilham o mesmo recurso atribuído a esse caso. |
 | **Rede virtual** | O seu Azure-SSIS IR pode aderir a uma rede virtual Azure Resource Manager se utilizar um servidor de base de dados Azure SQL com regras de firewall IP/pontos finais de serviço de rede virtual. | O seu Azure-SSIS IR pode aderir a uma rede virtual Azure Resource Manager se utilizar uma instância gerida com um ponto final privado. A rede virtual é necessária quando não ativa um ponto final público para a sua instância gerida.<br/><br/>Se se juntar ao seu Azure-SSIS IR à mesma rede virtual que a sua instância gerida, certifique-se de que o seu Azure-SSIS IR está numa sub-rede diferente da sua instância gerida. Se se juntar ao seu Azure-SSIS IR a uma rede virtual diferente da sua instância gerida, recomendamos um espreitamento de rede virtual ou uma ligação rede-a-rede. Consulte [a sua aplicação a uma base de dados Azure SQL Gestão de Casos](../sql-database/sql-database-managed-instance-connect-app.md). |
 | **Transações distribuídas** | Esta funcionalidade é suportada através de transações elásticas. As transações do Coordenador de Transações Distribuídas da Microsoft (MSDTC) não são suportadas. Se os seus pacotes SSIS utilizarem o MSDTC para coordenar transações distribuídas, considere migrar para transações elásticas para a Base de Dados Azure SQL. Para obter mais informações, consulte [transações distribuídas através de bases de dados em nuvem.](../sql-database/sql-database-elastic-transactions-overview.md) | Não suportado. |
 | | | |
@@ -114,19 +114,21 @@ Na página geral de **configurações** do painel de configuração do tempo de 
 
    1. Em **Nome**, introduza o nome do seu runtime de integração.
 
-   1. Em **Descrição**, introduza a descrição do seu runtime de integração.
+   2. Em **Descrição**, introduza a descrição do seu runtime de integração.
 
-   1. Em **Localização**, selecione a localização do seu runtime de integração. Apenas são apresentadas as localizações suportadas. Recomendamos que selecione a mesma localização do seu servidor de base de dados para alojar a SSISDB.
+   3. Em **Localização**, selecione a localização do seu runtime de integração. Apenas são apresentadas as localizações suportadas. Recomendamos que selecione a mesma localização do seu servidor de base de dados para alojar a SSISDB.
 
-   1. Para **o tamanho do nó,** selecione o tamanho do nó no seu cluster de tempo de execução de integração. Apenas são apresentados os tamanhos de nó suportados. Selecione um grande tamanho de nó (escala para cima) se quiser executar muitos pacotes intensivos de computação ou intensivos de memória.
+   4. Para **o tamanho do nó,** selecione o tamanho do nó no seu cluster de tempo de execução de integração. Apenas são apresentados os tamanhos de nó suportados. Selecione um grande tamanho de nó (escala para cima) se quiser executar muitos pacotes intensivos de computação ou intensivos de memória.
+   > [!NOTE]
+   > Se necessitar de [isolamento computacional,](https://docs.microsoft.com/azure/azure-government/azure-secure-isolation-guidance#compute-isolation)selecione o tamanho do nó **Standard_E64i_v3.** Este tamanho do nó representa máquinas virtuais isoladas que consomem todo o seu hospedeiro físico e fornecem o nível de isolamento necessário por certas cargas de trabalho, tais como as cargas de trabalho do Nível de Impacto 5 (IL5) do Departamento de Defesa dos EUA.
+   
+   5. Em **Numero de Nós**, selecione o número de nós do cluster do runtime de integração. Apenas são apresentados os números de nó suportados. Selecione um grande cluster com muitos nós (escala para fora) se quiser executar muitos pacotes em paralelo.
 
-   1. Em **Numero de Nós**, selecione o número de nós do cluster do runtime de integração. Apenas são apresentados os números de nó suportados. Selecione um grande cluster com muitos nós (escala para fora) se quiser executar muitos pacotes em paralelo.
+   6. Para **edição/licença,** selecione a edição sql Server para o seu tempo de integração: Standard ou Enterprise. Selecione Enterprise se quiser utilizar funcionalidades avançadas no seu tempo de execução de integração.
 
-   1. Para **edição/licença,** selecione a edição sql Server para o seu tempo de integração: Standard ou Enterprise. Selecione Enterprise se quiser utilizar funcionalidades avançadas no seu tempo de execução de integração.
+   7. Para **economizar dinheiro**, selecione a opção Azure Hybrid Benefit para o seu tempo de integração: **Sim** ou **Não**. Selecione **Sim** se quiser trazer a sua própria licença SQL Server com Software Assurance para beneficiar de economias de custos com uso híbrido.
 
-   1. Para **economizar dinheiro**, selecione a opção Azure Hybrid Benefit para o seu tempo de integração: **Sim** ou **Não**. Selecione **Sim** se quiser trazer a sua própria licença SQL Server com Software Assurance para beneficiar de economias de custos com uso híbrido.
-
-   1. Selecione **Seguinte**.
+   8. Selecione **Seguinte**.
 
 #### <a name="deployment-settings-page"></a>Página de definições de implementação
 
@@ -944,7 +946,7 @@ Nesta secção, utiliza-se um modelo de Gestor de Recursos Azure para criar o te
     }
     ```
 
-2. Para implementar o modelo Azure Resource Manager, executar o `New-AzResourceGroupDeployment` comando como mostrado no exemplo seguinte. No exemplo, `ADFTutorialResourceGroup` é o nome do seu grupo de recursos. `ADFTutorialARM.json`é o ficheiro que contém a definição JSON para a sua fábrica de dados e o Azure-SSIS IR.
+2. Para implementar o modelo Azure Resource Manager, executar o `New-AzResourceGroupDeployment` comando como mostrado no exemplo seguinte. No exemplo, `ADFTutorialResourceGroup` é o nome do seu grupo de recursos. `ADFTutorialARM.json` é o ficheiro que contém a definição JSON para a sua fábrica de dados e o Azure-SSIS IR.
 
     ```powershell
     New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json

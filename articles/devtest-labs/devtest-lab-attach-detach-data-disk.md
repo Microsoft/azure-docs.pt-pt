@@ -3,12 +3,12 @@ title: Anexar ou separar um disco de dados a uma máquina virtual em Azure DevTe
 description: Saiba como anexar ou desprender um disco de dados a uma máquina virtual em Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 222bf06dc07cc2538bc0512b4a41b7bd91bc1ebf
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 8eebfbda421233bcec780d441a4020acce740618
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653924"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328518"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Anexar ou separar um disco de dados a uma máquina virtual em Azure DevTest Labs
 [A Azure Managed Disks](../virtual-machines/managed-disks-overview.md) gere as contas de armazenamento associadas a discos de dados de máquinas virtuais. Um utilizador anexa um novo disco de dados a um VM, especifica o tipo e tamanho do disco que é necessário, e o Azure cria e gere o disco automaticamente. O disco de dados pode então ser desligado do VM e recolocado mais tarde no mesmo VM, ou ligado a um VM diferente que pertence ao mesmo utilizador.
@@ -46,7 +46,7 @@ Siga estes passos para recolocar um disco de dados disponível existente num VM 
 1. A partir do menu à esquerda, **selecione Discos**.
 1. **Selecione Anexar a existência para** anexar um disco de dados disponível ao VM.
 
-    ![Anexar o disco de dados existente a uma máquina virtual](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing-button.png)
+    ![Screenshot que mostra a definição de "Discos" selecionada e "Anexar existente" selecionada.](./media/devtest-lab-attach-detach-data-disk/devtest-lab-attach-existing-button.png)
 
 1. A partir do painel de disco existente do **Attach,** selecione OK.
 
@@ -67,7 +67,7 @@ Se quiser voltar a utilizar os dados existentes no disco, pode ligá-lo novament
     ![Selecione discos de dados para uma máquina virtual](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-button.png) 
 1. Selecione **Desprender-se** da parte superior do painel de detalhes do disco.
 
-    ![Desanexar um disco de dados](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-data-disk2.png)
+    ![A screenshot mostra o painel de detalhes de um disco com a ação "Detach" realçada.](./media/devtest-lab-attach-detach-data-disk/devtest-lab-detach-data-disk2.png)
 1. Selecione **Sim** para confirmar que pretende separar o disco de dados.
 
 O disco está desligado e está disponível para ser ligado a outro VM. 

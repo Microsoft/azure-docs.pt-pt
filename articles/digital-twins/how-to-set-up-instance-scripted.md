@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 605df0f26600f962bda7a0a0def800a91d74b022
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 83741f5bc55eb222b379a274ef403f766553b21f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563000"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328649"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurar uma instância e autenticação de Gémeos Digitais Azure (scripted)
 
@@ -26,15 +26,19 @@ Esta versão deste artigo completa estes passos executando uma amostra [ **de sc
 
 [!INCLUDE [digital-twins-setup-steps-prereq.md](../../includes/digital-twins-setup-steps-prereq.md)]
 
+## <a name="prerequisites-download-the-script"></a>Pré-requisitos: Descarregue o script
+
+O guião da amostra está escrito no PowerShell. Faz parte das [**amostras Azure Digital Twins,**](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/)que pode descarregar para a sua máquina navegando para essa ligação de amostra e selecionando o botão *Download ZIP* por baixo do título.
+
+Isto irá transferir o projeto de amostra para a sua máquina à medida _** queAzure_Digital_Twins_samples.zip**_. Navegue para a pasta da sua máquina e desaperte-a para extrair os ficheiros.
+
+Na pasta desapertado, o script de implementação está localizado em _Azure_Digital_Twins_samples > scripts > **deploy.ps1** _.
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="run-the-deployment-script"></a>Executar o script de implementação
 
 Este artigo utiliza uma amostra de código Azure Digital Twins para implementar uma instância Azure Digital Twins e a autenticação necessária semi-automáticamente. Também pode ser usado como ponto de partida para escrever as suas próprias interações escritas.
-
-O guião da amostra está escrito no PowerShell. Faz parte das [amostras Azure Digital Twins,](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/)que pode descarregar para a sua máquina navegando para essa ligação de amostra e selecionando o botão *Download ZIP* por baixo do título.
-
-Na pasta de amostra descarregada, o script de implementação está localizado em _scriptsAzure_Digital_Twins_samples.zip > > **deploy.ps1** _.
 
 Aqui estão os passos para executar o script de implementação em Cloud Shell.
 1. Vá a uma janela [Azure Cloud Shell](https://shell.azure.com/) no seu navegador. Inscreva-se usando este comando:
@@ -43,13 +47,23 @@ Aqui estão os passos para executar o script de implementação em Cloud Shell.
     ```
     Se o CLI conseguir abrir o seu navegador predefinido, fá-lo-á e carregará uma página de inscrição do Azure. Caso contrário, abra uma página do navegador *https://aka.ms/devicelogin* e introduza o código de autorização exibido no seu terminal.
  
-2. Depois de iniciar sessão, olhe para a barra de ícones da janela Cloud Shell. Selecione o ícone "Carregar/Descarregar ficheiros" e escolha "Upload".
+2. Na barra de ícones Cloud Shell, certifique-se de que a cloud shell está definida para executar a versão PowerShell.
 
-    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Janela Cloud Shell mostrando a seleção da opção Upload":::
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-powershell.png" alt-text="Janela Cloud Shell mostrando a seleção da versão PowerShell":::
 
-    Navegue para o _** ficheirodeploy.ps1**_ na sua máquina e acerte em "Open". Isto irá enviar o ficheiro para cloud Shell para que possa executá-lo na janela Cloud Shell.
+1. Selecione o ícone "Carregar/Descarregar ficheiros" e escolha "Upload".
 
-3. Executar o script enviando o `./deploy.ps1` comando na janela Cloud Shell. À medida que o script passa pelos passos de configuração automatizados, ser-lhe-á pedido que passe nos seguintes valores:
+    :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Janela cloud Shell mostrando a seleção do ícone upload":::
+
+    Navegue para o ficheiro _**deploy.ps1**_ na sua máquina (em _Azure_Digital_Twins_samples > scripts > **deploy.ps1) ** _e acerte em "Open". Isto irá enviar o ficheiro para cloud Shell para que possa executá-lo na janela Cloud Shell.
+
+4. Executar o script enviando o `./deploy.ps1` comando na janela Cloud Shell. (Lembre-se que para colar em Cloud Shell, pode utilizar **Ctrl+Shift+V** no Windows e Linux, ou **Cmd+Shift+V** no macOS. Também pode usar o menu de clique à direita.)
+
+    ```azurecli
+    ./deploy.ps1
+    ```
+
+    À medida que o script passa pelos passos de configuração automatizados, ser-lhe-á pedido que passe nos seguintes valores:
     * Por exemplo: o ID de *subscrição* da sua subscrição Azure para usar
     * Por exemplo: um *local* onde gostaria de desdobrar o caso. Para ver que regiões suportam a Azure Digital Twins, visite [*os produtos Azure disponíveis por região.*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins)
     * Por exemplo: um nome *de grupo de recursos.* Pode utilizar um grupo de recursos existente ou introduzir um novo nome para criar.
@@ -107,9 +121,15 @@ Tome nota do ID de *Aplicação (cliente)* e *Diretório (inquilino)* mostrado n
 
 Se quiser verificar a criação dos seus recursos e permissões configurada pelo script, pode vê-los no [portal Azure](https://portal.azure.com).
 
+Se não conseguir verificar o sucesso de qualquer passo, reprei-o. Pode executar os passos individualmente utilizando as instruções do [portal Azure](how-to-set-up-instance-portal.md) ou [CLI.](how-to-set-up-instance-cli.md)
+
 ### <a name="verify-instance"></a>Verificar a ocorrência
 
-Para verificar se o seu caso foi criado, aceda à [página Azure Digital Twins](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) no portal Azure. Esta página lista todas as suas instâncias Azure Digital Twins. Procure o nome do seu recém-criado caso na lista.
+Para verificar se o seu caso foi criado, aceda à [página Azure Digital Twins](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) no portal Azure. Você mesmo pode chegar a esta página procurando por *Azure Digital Twins* na barra de pesquisa do portal.
+
+Esta página lista todas as suas instâncias Azure Digital Twins. Procure o nome do seu recém-criado caso na lista.
+
+Se a verificação não tiver sido bem sucedida, pode voltar a tentar criar uma instância utilizando o [portal](how-to-set-up-instance-portal.md#create-the-azure-digital-twins-instance) ou [o CLI](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance).
 
 ### <a name="verify-user-role-assignment"></a>Verificar a atribuição da função do utilizador
 
@@ -117,16 +137,18 @@ Para verificar se o seu caso foi criado, aceda à [página Azure Digital Twins](
 
 > [!NOTE]
 > Lembre-se que o script atribui atualmente esta função necessária ao mesmo utilizador que executa o script a partir de Cloud Shell. Se precisar de atribuir esta função a outra pessoa que esteja a gerir o caso, pode fazê-lo agora através do portal Azure[(instruções)](how-to-set-up-instance-portal.md#set-up-user-access-permissions)ou CLI[(instruções).](how-to-set-up-instance-cli.md#set-up-user-access-permissions)
->
-> Também pode usar o portal ou o CLI para refazer a sua própria atribuição de funções se houver problemas com a configuração escrita.
+
+Se a verificação não tiver sido bem sucedida, também pode refazer a sua própria função utilizando o [portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) ou [o CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 
 ### <a name="verify-app-registration"></a>Verificar registo de aplicativos
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
 
-Em primeiro lugar, verifique se as permissões das permissões Azure Digital Twins foram corretamente definidas no registo. Para isso, selecione *Manifesto* da barra de menu para ver o código manifesto do registo da aplicação. Percorra a parte inferior da janela de código e procure estes campos sob `requiredResourceAccess` . Os valores devem corresponder aos da imagem abaixo:
+Em seguida, verifique se as permissões de permissão da Azure Digital Twins foram corretamente definidas no registo. Para isso, selecione *Manifesto* da barra de menu para ver o código manifesto do registo da aplicação. Percorra a parte inferior da janela de código e procure estes campos sob `requiredResourceAccess` . Os valores devem corresponder aos da imagem abaixo:
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
+
+Se uma ou ambas as etapas de verificação não forem bem sucedidas, rejulem a criação do registo da aplicação utilizando as instruções do [portal](how-to-set-up-instance-portal.md#set-up-access-permissions-for-client-applications) ou [do CLI.](how-to-set-up-instance-cli.md#set-up-access-permissions-for-client-applications)
 
 ## <a name="other-possible-steps-for-your-organization"></a>Outros passos possíveis para a sua organização
 
@@ -135,7 +157,7 @@ Em primeiro lugar, verifique se as permissões das permissões Azure Digital Twi
 ## <a name="next-steps"></a>Passos seguintes
 
 Teste as chamadas individuais da API REST no seu caso utilizando os comandos CLI dos Gémeos Digitais Azure: 
-* [az dt referência](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [az dt referência](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true)
 * [*Como fazer: Use o CLI das Gémeas Digitais Azure*](how-to-use-cli.md)
 
 Ou, veja como ligar a aplicação do seu cliente ao seu caso escrevendo o código de autenticação da aplicação do cliente:

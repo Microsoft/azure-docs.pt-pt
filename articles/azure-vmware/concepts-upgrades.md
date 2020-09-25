@@ -1,28 +1,61 @@
 ---
-title: Conceitos - Atualizações de nuvem privada
-description: Conheça os principais processos e funcionalidades de upgrade na Azure VMware Solution
+title: Conceitos - Atualizações e atualizações em nuvem privadas
+description: Conheça os principais processos e funcionalidades de upgrade na Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: f541aa4e4963cf40fad71201180ea118a1513fca
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/22/2020
+ms.openlocfilehash: 380e97eae559145a9ef5ed7b6e7bf14f18039eed
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752196"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316805"
 ---
-# <a name="azure-vmware-solution-upgrade-concepts"></a>Conceitos de upgrade de Solução VMware Azure
+# <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Atualizações e atualizações privadas de nuvem Azure VMware
 
-Um dos principais benefícios das nuvens privadas Azure VMware Solution é que a plataforma é mantida para si. A manutenção da plataforma inclui upgrades automatizados para um pacote de software validado VMware. As atualizações são feitas regularmente, garantindo que tem sempre as versões mais recentes validadas do software.
+## <a name="overview"></a>Descrição geral
 
-## <a name="azure-vmware-solution-private-cloud-software-upgrades"></a>Atualizações de software de nuvem privada Azure VMware Solution
+Um dos principais benefícios das nuvens privadas Azure VMware Solution é que a plataforma é mantida para si. A manutenção da plataforma inclui atualizações automatizadas para um pacote de software validado VMware, ajudando a garantir que está a utilizar a versão mais recente do software de nuvem privada Azure VMware Solution validado.
 
-A plataforma de nuvem privada Azure VMware Solution inclui versões específicas do software VMware vSphere, ESXi, vSAN e NSX-T. O pacote de software de nuvem privada é validado para uso em novas instalações em nuvem privada, e para upgrades de nuvens privadas existentes.
+Especificamente, uma nuvem privada Azure VMware Solution inclui:
 
-O processo de atualização da gestão do ciclo de vida não requer tempo de inatividade para as suas nuvens privadas. O processo de atualização garante que utiliza automaticamente a versão mais recente do software de nuvem privada Azure VMware Solution validado. As atualizações são aplicadas na cadência regular para que as nuvens privadas nunca sejam mais do que uma versão por trás da mais recente versão do pacote de software validado. Será notificado das atualizações planeadas para a sua nuvem privada. Pode adiar a atualização se a sua nuvem privada estiver dentro de uma versão da versão mais recente.
+- Nódoas de servidor de metal nu dedicada aprovisionadas com hipervisor VMware ESXi 
+- vCenter servidor para gerir ESXi e vSAN 
+- Software VMware NSX-T definido em rede para vSphere carga de trabalho VMs  
+- Loja de dados VMware vSAN para vSphere carga de trabalho VMs  
+- VMware HCX para mobilidade de carga de trabalho  
 
-Patches e atualizações críticas são aplicados quando são validados. Será notificado antes das atualizações críticas necessárias. Esta política garante que a sua nuvem privada tem patches críticos e atualizações aplicadas imediatamente.
+Além destes componentes, uma nuvem privada Azure VMware Solution inclui recursos na base Azure necessária para a conectividade e para operar a nuvem privada. A Azure VMware Solution monitoriza continuamente a saúde tanto da base como dos componentes VMware. Quando a Azure VMware Solution deteta uma falha, toma medidas para reparar os componentes falhados. 
 
-As versões de software VMware são fornecidas no [artigo de conceito de nuvens e clusters privados](concepts-private-clouds-clusters.md) e nas [FAQ](faq.md).
+## <a name="what-components-get-updated"></a>Que componentes são atualizados?   
+
+A Azure VMware Solution atualiza os seguintes componentes VMware: 
+
+- vCenter Server e ESXi em execução nos nos acenos do servidor de metal nu 
+- vSAN 
+- NSX-T 
+
+A Azure VMware Solution também atualiza o software na base, como controladores, software nos interruptores de rede e firmware nos nós de metal nu. 
+
+## <a name="types-of-updates"></a>Tipos de atualizações
+
+A Azure VMware Solution aplica os seguintes tipos de atualizações aos componentes VMware:
+
+- Patches: Patches de segurança e correções de erros lançados pela VMware. 
+- Atualizações: Atualizações de versão menores de um ou mais componentes VMware. 
+- Upgrades: Principais atualizações de versão de um ou mais componentes VMware.
+
+Será notificado antes e depois de os patches serem aplicados às suas nuvens privadas. Também trabalharemos consigo para agendar uma janela de manutenção antes de aplicar atualizações ou atualizações na sua nuvem privada. 
+
+## <a name="vmware-appliance-backup"></a>Backup do aparelho VMware 
+
+Além de fazer atualizações, a Azure VMware Solution requer uma cópia de segurança de configuração destes componentes VMware:
+
+- vCenter Server 
+- Gerente da NSX-T 
+
+Em momentos de falha, a Azure VMware Solution pode restaurá-las a partir da cópia de segurança de configuração. 
+
+Para obter mais informações sobre as versões de software VMware, consulte o [artigo de conceito de nuvens e clusters privados](concepts-private-clouds-clusters.md) e o [FAQ](faq.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

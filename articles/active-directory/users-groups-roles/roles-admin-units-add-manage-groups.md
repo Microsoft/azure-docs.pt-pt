@@ -1,5 +1,5 @@
 ---
-title: Adicione, remova e liste grupos numa unidade administrativa (pré-visualização) - Azure Ative Directy / Microsoft Docs
+title: Adicione, remova e liste grupos numa unidade administrativa - Azure Ative Directory / Microsoft Docs
 description: Gerir grupos e as suas permissões de funções numa unidade administrativa no Azure Ative Directory
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 06/23/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76026313eea8c8fbb2f3e55321e2e4ebbe5dcfc7
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 324d0ff0659270c6f2e90c0456ded83344f73936
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850923"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265039"
 ---
 # <a name="add-and-manage-groups-in-administrative-units-in-azure-active-directory"></a>Adicionar e gerir grupos em unidades administrativas no Azure Ative Directory
 
@@ -31,7 +31,7 @@ Para obter os passos que se preparem para utilizar o PowerShell e o Microsoft Gr
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Na pré-visualização, pode atribuir grupos apenas individualmente a uma unidade administrativa. Não há opção de atribuição a granel de grupos a uma unidade administrativa. Pode atribuir um grupo a uma unidade administrativa de uma das duas formas no portal:
+Pode atribuir grupos individualmente a uma unidade administrativa. Não há opção de atribuir grupos a granel a uma unidade administrativa. Pode atribuir um grupo a uma unidade administrativa de uma das duas formas no portal:
 
 1. Da página **Azure AD > Grupos**
 
@@ -156,7 +156,7 @@ Remove-AzureADAdministrativeUnitMember -ObjectId $auId -MemberId $memberGroupObj
 https://graph.microsoft.com/beta/administrativeUnits/<adminunit-id>/members/<group-id>/$ref
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atribuir um papel a uma unidade administrativa](roles-admin-units-assign-roles.md)
 - [Gerir utilizadores numa unidade administrativa](roles-admin-units-add-manage-users.md)

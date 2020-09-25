@@ -3,13 +3,13 @@ title: Azure Application Insights para aplicações web JavaScript
 description: Obtenha a visualização da página e as contagens de sessão, dados do cliente web, aplicações de página única (SPA) e rastreiem padrões de utilização. Detete exceções e problemas de desempenho em páginas Web de JavaScript.
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 9f335ca6912545b39fb8276f5895f98e653735d0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.custom: devx-track-js
+ms.openlocfilehash: ddbdeaed1cf3f69c20c272ea3e9dde405119bc24
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89656950"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328909"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas Web
 
@@ -104,7 +104,7 @@ Cada opção de configuração é mostrada acima numa nova linha, se não preten
 
 As opções de configuração disponíveis são 
 
-| Nome | Tipo | Descrição
+| Nome | Tipo | Description
 |------|------|----------------
 | src | corda **[necessária]** | O URL completo para onde carregar o SDK. Este valor é usado para o atributo "src" de um script/tag dinamicamente &lt; &gt; adicionado. Você pode usar a localização pública da CDN ou a sua própria hospedada privada.
 | name | corda *[opcional]* | O nome global para o SDK inicializado, predefine para `appInsights` . Assim ```window.appInsights``` será uma referência à instância inicializada. Nota: se fornecer um valor de nome ou uma instância anterior parece ser atribuído (através da app de nome globalInsightsSDK) então este valor de nome também será definido no espaço de nome global, pois ```window.appInsightsSDK=<name value>``` , isto é exigido pelo código de inicialização SDK para garantir que está a inicializar e atualizar os métodos corretos de esqueleto e procuração.
@@ -115,7 +115,7 @@ As opções de configuração disponíveis são
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Envio de telemetria para o portal Azure
 
-Por predefinição, a Aplicação Insights JavaScript SDK recolhe automaticamente uma série de itens de telemetria que são úteis para determinar a saúde da sua aplicação e a experiência subjacente ao utilizador. Incluem-se:
+Por predefinição, a Aplicação Insights JavaScript SDK recolhe automaticamente uma série de itens de telemetria que são úteis para determinar a saúde da sua aplicação e a experiência subjacente ao utilizador. Estes incluem:
 
 - **Exceções não conseguiu** na sua aplicação, incluindo informações sobre
     - Traço de pilha
@@ -153,7 +153,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Configuração
 A maioria dos campos de configuração são nomeados de modo a que possam ser infringidos a falsos. Todos os campos são opcionais, `instrumentationKey` exceto.
 
-| Name | Predefinição | Descrição |
+| Name | Predefinição | Description |
 |------|---------|-------------|
 | instrumentaçãoKey | nulo | **Necessário**<br>Chave de instrumentação que obteve do portal Azure. |
 | accountId | nulo | Um ID de conta opcional, se a sua aplicação agru tiver em conta os utilizadores. Sem espaços, vírgulas, semi-acolchoados, iguais ou barras verticais |

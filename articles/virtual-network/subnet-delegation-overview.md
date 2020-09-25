@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/20/2019
 ms.author: kumud
-ms.openlocfilehash: b33ff808b802b6848e2d5debaf515a73bf21a1bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fbb683754aed5b2a2e6e9c022713b7e87ad9ba9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74281340"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329212"
 ---
 # <a name="what-is-subnet-delegation"></a>O que é a delegação da sub-rede?
 
@@ -51,6 +51,7 @@ Cada serviço Azure define o seu próprio modelo de implantação, onde podem de
 - dita o número mínimo de endereços IP na sub-rede delegada.
 - dita que o espaço ip address na sub-rede delegada seja do espaço private IP Address (10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12).
 - dita que a configuração dNS personalizada tem uma entrada Azure DNS.
+- exige que a delegação seja removida antes de a sub-rede ou a rede virtual poderem ser eliminadas.
 
 Os serviços injetados também podem adicionar as suas próprias políticas da seguinte forma:
 - **Políticas de segurança**: Recolha de regras de segurança necessárias para que um determinado serviço funcione.
@@ -62,6 +63,6 @@ Os serviços Azure que estão a ser injetados numa sub-rede delegada ainda possu
 -  Os serviços Azure podem injetar casos em sub-redes de clientes, mas não podem afetar as cargas de trabalho existentes.
 -  As políticas ou rotas que estes serviços aplicam são flexíveis e podem ser ultrapassadas pelo cliente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Delegar uma sub-rede](manage-subnet-delegation.md)

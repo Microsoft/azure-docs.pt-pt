@@ -3,14 +3,14 @@ title: Registos de gestão de atualização de automação de consulta Azure
 description: Este artigo diz como consultar os registos de Gestão de Atualização no seu espaço de trabalho Log Analytics.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 290fb0165038eea8740361a12a6d4bfe2c1bf138
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 777d794716c7c17caf8d4c73007b91a625f40043
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450415"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264308"
 ---
 # <a name="query-update-management-logs"></a>Consultar os registos da Gestão de Atualizações
 
@@ -40,7 +40,7 @@ A Atualização Management recolhe registos de VMs Windows e Linux e os tipos de
 | TimeGenerated | Data e hora que o disco foi criado. |
 | Tipo | *Atualizar* |
 | ActualizaçãoClassificação | Indica o tipo de atualizações que podem ser aplicadas. Para Windows:<br> *Atualizações críticas*<br> *Atualizações de segurança*<br> *Update rollups*<br> *Pacotes de funcionalidades*<br> *Service packs*<br> *Atualizações de definições*<br> *Ferramentas*<br> *Atualizações*. Para Linux:<br> *Atualizações críticas e de segurança*<br> *Outro* |
-| AtualizaçõesEverity | Classificação de severidade para a vulnerabilidade. Os valores são:<br> *Crítico*<br> *Importante*<br> *Moderado*<br> *Baixa* |
+| AtualizaçõesEverity | Classificação de severidade para a vulnerabilidade. Os valores são:<br> *Crítico*<br> *Importante*<br> *Moderado*<br> *Baixo* |
 | UpdateTle | O título da atualização.|
 
 ### <a name="query-update-record"></a>Registo de atualização de consultas
@@ -55,7 +55,7 @@ A Atualização Management recolhe registos de VMs Windows e Linux e os tipos de
 | Computador | Nome de domínio totalmente qualificado da máquina de reporte. |
 | Ambiente informático | O ambiente. Os valores possíveis são Azure ou Non-Azure. |
 | MSRCBulletinID | Número de identificação do boletim de segurança. |
-| MSRCSeverity | Classificação de severidade para a vulnerabilidade. Os valores são:<br> Crítico<br> Importante<br> Moderado<br> Baixa |  
+| MSRCSeverity | Classificação de severidade para a vulnerabilidade. Os valores são:<br> Crítico<br> Importante<br> Moderado<br> Baixo |  
 | KBID | ID de base de conhecimento para a atualização do Windows. |
 | ManagementGroupName | Nome do grupo de gestão de Gestores de Operações ou do espaço de trabalho Log Analytics. |
 | UpdateID | Identificador único da atualização de software. |
@@ -110,9 +110,9 @@ A Atualização Management recolhe registos de VMs Windows e Linux e os tipos de
 | Computador | Nome de domínio totalmente qualificado da máquina de reporte. |
 | Ambiente informático | O ambiente. Os valores são Azure ou Non-Azure. |
 | CorrelationId | Identificador único do runbook job runbook run run run for the update. |
-| EndTime | O tempo em que o processo de sincronização terminou. |
+| EndTime | O tempo em que o processo de sincronização terminou. *Esta propriedade não é atualmente usada. Ver TempoGerertado.* |
 | Resultado do erro | Código de erro do Windows Update gerado se uma atualização não for instalada. |
-| InstalaçãoStatus | Os possíveis estados de instalação de uma atualização no computador cliente,<br> `NotStarted`- trabalho ainda não desencadeado.<br> `FailedToStart`- incapaz de iniciar o trabalho na máquina.<br> `Failed`- o trabalho começou, mas falhou com uma exceção.<br> `InProgress`- trabalho em curso.<br> `MaintenanceWindowExceeded`- se a execução se restava, mas o intervalo da janela de manutenção chegou.<br> `Succeeded`- trabalho bem sucedido.<br> `InstallFailed`- a atualização não foi instalada com sucesso.<br> `NotIncluded`<br> `Excluded` |
+| InstalaçãoStatus | Os possíveis estados de instalação de uma atualização no computador cliente,<br> `NotStarted` - trabalho ainda não desencadeado.<br> `FailedToStart` - incapaz de iniciar o trabalho na máquina.<br> `Failed` - o trabalho começou, mas falhou com uma exceção.<br> `InProgress` - trabalho em curso.<br> `MaintenanceWindowExceeded` - se a execução se restava, mas o intervalo da janela de manutenção chegou.<br> `Succeeded` - trabalho bem sucedido.<br> `InstallFailed` - a atualização não foi instalada com sucesso.<br> `NotIncluded`<br> `Excluded` |
 | KBID | ID de base de conhecimento para a atualização do Windows. |
 | ManagementGroupName | Nome do grupo de gestão de gestores de operações ou espaço de trabalho Log Analytics. |
 | OSType | Tipo de sistema operativo. Os valores são Windows ou Linux. |
@@ -123,8 +123,8 @@ A Atualização Management recolhe registos de VMs Windows e Linux e os tipos de
 | ResourceType | Tipo de recurso. |
 | SourceComputerId | Identificador único representando o computador de origem. |
 | SourceSystem | Sistema de origem para o registo. O valor é `OperationsManager`. |
-| StartTime | Hora de instalar a atualização. |
-| SubscriptionId | Identificador exclusivo da subscrição do Azure. | 
+| StartTime | Hora de instalar a atualização. *Esta propriedade não é atualmente usada. Ver TempoGerertado.* |
+| SubscriptionId | Identificador exclusivo da subscrição do Azure. |
 | Sucedeu ARetry | Valor indicando se a execução da atualização falhou na primeira tentativa e a operação atual é uma tentativa de repetição. |
 | TimeGenerated | Data e hora da criação de discos. |
 | Título | O título da atualização. |
@@ -209,7 +209,7 @@ Para confirmar que um grupo de gestão de Gestores de Operações está a comuni
 
 ### <a name="single-azure-vm-assessment-queries-windows"></a>Consultas únicas de avaliação de VM Azure (Windows)
 
-Substitua o valor VMUUID pelo VM GUID da máquina virtual que está a consultar. Pode encontrar o VMUUID que deve ser utilizado executando a seguinte consulta nos registos do Monitor Azure:`Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
+Substitua o valor VMUUID pelo VM GUID da máquina virtual que está a consultar. Pode encontrar o VMUUID que deve ser utilizado executando a seguinte consulta nos registos do Monitor Azure: `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
 
 #### <a name="missing-updates-summary"></a>Resumo das atualizações em falta
 
@@ -238,7 +238,7 @@ Update
 
 ### <a name="single-azure-vm-assessment-queries-linux"></a>Consultas únicas de avaliação de Azure VM (Linux)
 
-Para alguns destros do Linux, existe um desfasamento [de endianness](https://en.wikipedia.org/wiki/Endianness) com o valor VMUUID que vem do Azure Resource Manager e o que é armazenado nos registos do Azure Monitor. A seguinte consulta verifica se há uma correspondência em qualquer endianness. Substitua os valores VMUUID pelo formato de grande ponta e pouco endian do GUID para devolver corretamente os resultados. Pode encontrar o VMUUID que deve ser utilizado executando a seguinte consulta nos registos do Monitor Azure:`Update | where Computer == "<machine name>"
+Para alguns destros do Linux, existe um desfasamento [de endianness](https://en.wikipedia.org/wiki/Endianness) com o valor VMUUID que vem do Azure Resource Manager e o que é armazenado nos registos do Azure Monitor. A seguinte consulta verifica se há uma correspondência em qualquer endianness. Substitua os valores VMUUID pelo formato de grande ponta e pouco endian do GUID para devolver corretamente os resultados. Pode encontrar o VMUUID que deve ser utilizado executando a seguinte consulta nos registos do Monitor Azure: `Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 #### <a name="missing-updates-summary"></a>Resumo das atualizações em falta

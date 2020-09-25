@@ -3,18 +3,18 @@ title: Conceitos - Nuvens privadas e aglomerados
 description: Conheça as principais capacidades dos centros de dados definidos por software Azure VMware e dos clusters vSphere em VMware Solution on Azure by VMware.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 06161d2ce95415ae3309d58ad18ad0d40b3782fb
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 715293d9951876ff0f794f8f6b580093f89571b3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752286"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316873"
 ---
-# <a name="azure-vmware-solution-preview-private-cloud-and-cluster-concepts"></a>Azure VMware Solution Preview conceitos de nuvem privada e cluster
+#  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware Solution conceitos de nuvem privada e cluster
 
 A Azure VMware Solution oferece nuvens privadas baseadas em VMware em Azure. As nuvens privadas são construídas a partir de aglomerados de hospedeiros dedicados de metal nu e são implantadas e geridas através do portal Azure. Os clusters em nuvens privadas são a provisionados com software VMware vSphere, vCenter, vSAN e NSX. Azure VMware Solution hardware e software privados em nuvem são totalmente integrados e automatizados em Azure.
 
-Há uma relação lógica entre subscrições Azure, nuvens privadas Azure VMware Solution, clusters vSAN e anfitriões. No diagrama, são mostradas duas nuvens privadas numa única subscrição do Azure. Nuvens privadas representam um desenvolvimento e um ambiente de produção, cada um com a sua própria nuvem privada. Em cada uma dessas nuvens privadas há dois aglomerados. Para mostrar as necessidades potenciais mais baixas de um ambiente de desenvolvimento, são utilizados aglomerados menores com hospedeiros de menor capacidade. Todos estes conceitos são descritos nas secções abaixo.
+Há uma relação lógica entre subscrições Azure, nuvens privadas Azure VMware Solution, clusters vSAN e anfitriões. No diagrama, são mostradas duas nuvens privadas numa única subscrição do Azure. Nuvens privadas representam um desenvolvimento e um ambiente de produção, cada um com a sua própria nuvem privada. Em cada uma dessas nuvens privadas, há dois aglomerados. Para mostrar as necessidades potenciais mais baixas de um ambiente de desenvolvimento, são utilizados aglomerados menores com hospedeiros de menor capacidade. Todos estes conceitos são descritos nas secções abaixo.
 
 ![Imagem de duas nuvens privadas em uma subscrição de cliente](./media/hosts-clusters-private-clouds-final.png)
 
@@ -61,7 +61,7 @@ As políticas e processos gerais de upgrade para o software da plataforma Azure 
 
 A manutenção do hospedeiro e a gestão do ciclo de vida são feitas sem impacto na capacidade ou desempenho de aglomerados de nuvens privadas. Exemplos de manutenção automatizada do hospedeiro incluem upgrades de firmware e reparação de hardware ou substituição.
 
-A Microsoft é responsável pela gestão do ciclo de vida de aparelhos NSX-T, tais como NSX-T Manager e NSX-T Edge. A Microsoft também é responsável pela config da rede bootstrapping, como a criação do gateway Tier-0 e a viabilizar o Encaminhamento Norte-Sul. Como administrador da sua nuvem privada Azure VMware Solution, é responsável pela configuração NSX-T SDN como segmentos de rede, regras de firewall distribuídas, gateways de nível 1 e equilibradores de carga.
+A Microsoft é responsável pela gestão do ciclo de vida de aparelhos NSX-T, tais como NSX-T Manager e NSX-T Edge. A Microsoft também é responsável pela config da rede bootstrapping, como a criação do gateway Tier-0 e a viabilizar o Encaminhamento Norte-Sul. Como administrador da sua nuvem privada Azure VMware Solution, é responsável pela configuração NSX-T SDN. Por exemplo, segmentos de rede, regras de firewall distribuídas, gateways de nível 1 e equilibres de carga.
 
 > [!IMPORTANT]
 > Um administrador de Solução VMware Azure não deve modificar a configuração de NSX-T Edge ou Gateway Tier-0. Isto pode resultar numa perda de serviço.

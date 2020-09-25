@@ -3,12 +3,12 @@ title: Fazer o back bases de dados do SQL Server para o Azure
 description: Este artigo explica como fazer o back up SQL Server para Azure. O artigo também explica a recuperação do SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 3627162ef2f4330a4b6a78625b5e07bdcf56419b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 510d9637031928e31abaa5f82a5bf58c6ef44719
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376541"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316851"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre a Cópia de Segurança do SQL Server em VMs do Azure
 
@@ -27,13 +27,13 @@ Esta solução aproveita as APIs nativas do SQL para obter cópias de segurança
 
 * Assim que especificar o SQL Server VM que pretende proteger e consultar as bases de dados, o serviço Azure Backup instalará uma extensão de backup de carga de trabalho na extensão do VM pela extensão do `AzureBackupWindowsWorkload` nome.
 * Esta extensão é constituída por um coordenador e um plugin SQL. Enquanto o coordenador é responsável por desencadear fluxos de trabalho para várias operações como configurar backup, backup e restauro, o plugin é responsável pelo fluxo real de dados.
-* Para ser capaz de descobrir bases de dados neste VM, o Azure Backup cria a conta `NT SERVICE\AzureWLBackupPluginSvc` . Esta conta é usada para cópia de segurança e restauro e requer permissões de sysadmin SQL. A `NT SERVICE\AzureWLBackupPluginSvc` conta é uma Conta de Serviço [Virtual,](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)pelo que não requer qualquer gestão de senha. O Azure Backup utiliza a `NT AUTHORITY\SYSTEM` conta para a descoberta/inquérito da base de dados, pelo que esta conta tem de ser um login público no SQL. Se não criou o SQL Server VM a partir do Azure Marketplace, poderá receber um erro **UserErrorSQLNoSysadminMembership**. Se isto [ocorrer, siga estas instruções](#set-vm-permissions).
+* Para ser capaz de descobrir bases de dados neste VM, o Azure Backup cria a conta `NT SERVICE\AzureWLBackupPluginSvc` . Esta conta é usada para cópia de segurança e restauro e requer permissões de sysadmin SQL. A `NT SERVICE\AzureWLBackupPluginSvc` conta é uma Conta de Serviço [Virtual,](/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)pelo que não requer qualquer gestão de senha. O Azure Backup utiliza a `NT AUTHORITY\SYSTEM` conta para a descoberta/inquérito da base de dados, pelo que esta conta tem de ser um login público no SQL. Se não criou a VM do SQL Server a partir do Azure Marketplace, pode receber um erro **UserErrorSQLNoSysadminMembership**. Se ocorrer essa situação, [siga estas instruções](#set-vm-permissions).
 * Assim que acionar a proteção de configuração nas bases de dados selecionadas, o serviço de cópia de segurança configura o coordenador com os horários de backup e outros detalhes da política, que a extensão cache localmente no VM.
 * Na hora programada, o coordenador comunica com o plugin e começa a transmitir os dados de backup do servidor SQL utilizando O VDI.  
 * O plugin envia os dados diretamente para o cofre dos Serviços de Recuperação, eliminando assim a necessidade de um local de paragem. Os dados são encriptados e armazenados pelo serviço Azure Backup em contas de armazenamento.
 * Quando a transferência de dados estiver concluída, o coordenador confirma o compromisso com o serviço de cópia de segurança.
 
-  ![Arquitetura de backup SQL](./media/backup-azure-sql-database/backup-sql-overview.png)
+  ![Arquitetura de backup SQL](./media/backup-azure-sql-database/azure-backup-sql-overview.png)
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -43,11 +43,11 @@ Antes de começar, verifique os seguintes requisitos:
 2. Reveja as [considerações](sql-support-matrix.md#feature-considerations-and-limitations) de recurso e [o suporte ao cenário](sql-support-matrix.md#scenario-support).
 3. [Reveja questões comuns](faq-backup-sql-server.md) sobre este cenário.
 
-## <a name="set-vm-permissions"></a>Definir permissões VM
+## <a name="set-vm-permissions"></a>Definir permissões da VM
 
   Quando executa a descoberta num servidor SQL, o Azure Backup faz o seguinte:
 
-* Adiciona a extensão AzureBackUpWindowsWorkload.
+* Adiciona a extensão AzureBackupWindowsWorkload.
 * Cria uma conta NT SERVICE\AzureWLBackupPluginSvc para descobrir bases de dados na máquina virtual. Esta conta é usada para uma cópia de segurança e restauro e requer permissões de sysadmin SQL.
 * Descobre bases de dados que estão a funcionar num VM, a Azure Backup utiliza a conta NT AUTHORITY\SYSTEM. Esta conta deve ser uma súmia pública no SQL.
 
@@ -80,7 +80,7 @@ Para todas as outras versões, corrija permissões com os seguintes passos:
 
   7. Verifique os progressos na área de **Notificações.** Quando as bases de dados selecionadas são encontradas, aparece uma mensagem de sucesso.
 
-      ![Mensagem de sucesso de implantação](./media/backup-azure-sql-database/notifications-db-discovered.png)
+      ![Mensagem de implementação com êxito](./media/backup-azure-sql-database/notifications-db-discovered.png)
 
 > [!NOTE]
 > Se o seu SQL Server tiver várias instâncias de SQL Server instaladas, então deve adicionar permissão sysadmin para **conta NT Service\AzureWLBackupPluginSvc** a todas as instâncias SQL.
@@ -148,7 +148,7 @@ catch
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como](backup-sql-server-database-azure-vms.md) fazer o backup das bases de dados do SQL Server.
 * [Saiba como](restore-sql-database-azure-vm.md) restaurar as bases de dados do SQL Server.

@@ -1,5 +1,5 @@
 ---
-title: Configurar identidades geridas em Azure VMSS - Azure AD
+title: Configurar identidades geridas em VMSS - Azure AD
 description: Instruções passo a passo para configurar identidades geridas para recursos Azure numa escala de máquina virtual definida usando o portal Azure.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9ab1adeac5f8c67e06682f49fdded88e6a350e7
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 43b986b6bb25dff1227247b1d249ce565553877a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262678"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329138"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Configure identidades geridas para recursos Azure em uma escala de máquina virtual definida usando o portal Azure
 
@@ -59,7 +59,7 @@ Para permitir a identidade gerida atribuída pelo sistema num conjunto de escala
 
 3. Em **Sistema atribuído**, **Estado**, selecione **On** e, em seguida, clique em **Guardar**:
 
-   ![Screenshot da página de configuração](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png) 
+   ![A screenshot mostra a página "Identidade (pré-visualização)" com "Sistema atribuído" selecionado, o Estado "Ligado" e o botão "Guardar" realçado.](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png) 
 
 ### <a name="remove-system-assigned-managed-identity-from-a-virtual-machine-scale-set"></a>Remover identidade gerida atribuída pelo sistema a partir de um conjunto de escala de máquina virtual
 
@@ -88,7 +88,7 @@ Atualmente, o portal Azure não suporta a atribuição de uma identidade gerida 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta associada à subscrição Azure que contém o conjunto de escalas de máquina virtual.
 2. Navegue para o conjunto de escala de máquina virtual desejado e clique em **Identidade,** **Utilizador designado** e, em seguida, ** \+ Adicionar**.
 
-   ![Adicionar identidade atribuída ao utilizador ao VMSS](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
+   ![Screenshot que mostra a página "Identidade" com "User assigned" selecionado e o botão "Adicionar" realçado.](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
 
 3. Clique na identidade atribuída ao utilizador que pretende adicionar ao conjunto de escala de máquina virtual e, em seguida, clique em **Adicionar**.
    
