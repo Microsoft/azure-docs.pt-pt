@@ -3,14 +3,14 @@ title: Carta morta e políticas de repetição - Azure Event Grid
 description: Descreve como personalizar opções de entrega de eventos para a Grade de Eventos. Desabrar um destino de letra morta e especificar quanto tempo para voltar a tentar a entrega.
 ms.topic: conceptual
 ms.date: 07/20/2020
-ms.openlocfilehash: 2ff1d05899fb74583489649154ffa062e857cb95
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e780ddd5c49b1a2cced10a1907d25784b0285f01
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074878"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261809"
 ---
-# <a name="dead-letter-and-retry-policies"></a>Carta morta e políticas de relícula
+# <a name="set-dead-letter-location-and-retry-policy"></a>Definir localização de letra morta e política de relagem
 
 Ao criar uma subscrição de eventos, pode personalizar as definições para entrega de eventos. Este artigo mostra-lhe como configurar um local de letra morta e personalizar as definições de repetição. Para obter informações sobre estas funcionalidades, consulte [a entrega de mensagens de Grade de Eventos e redaça.](delivery-and-retry.md)
 

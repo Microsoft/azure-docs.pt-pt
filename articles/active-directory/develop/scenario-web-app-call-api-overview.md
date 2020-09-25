@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0c4bef25a0be12c0335a82345ec998274f1faa67
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 174db339079de91a87cef9551bc79e6f03701605
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87058405"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257134"
 ---
 # <a name="scenario-a-web-app-that-calls-web-apis"></a>Cenário: Uma aplicação web que chama APIs web
 
@@ -24,12 +24,7 @@ Saiba como construir uma aplicação web que inscreve os utilizadores na platafo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
-Este cenário pressupõe que já passou pelo seguinte cenário:
-
-> [!div class="nextstepaction"]
-> [Aplicação web que inicia a sessão de utilizadores](scenario-web-app-sign-user-overview.md)
+Este cenário pressupõe que já tenha concluído [Cenário: aplicação web que assina nos utilizadores.](scenario-web-app-sign-user-overview.md)
 
 ## <a name="overview"></a>Descrição geral
 
@@ -51,6 +46,10 @@ O desenvolvimento deste cenário envolve estas tarefas específicas:
 
 - Durante [o registo de pedidos,](scenario-web-app-call-api-app-registration.md)deve fornecer uma resposta URI, segredo ou certificado a ser partilhado com a Azure AD. Se implementar a sua aplicação em vários locais, irá fornecer um URI de resposta para cada local.
 - A configuração da [aplicação](scenario-web-app-call-api-app-configuration.md) deve fornecer as credenciais do cliente que foram partilhadas com a Azure AD durante o registo da candidatura.
+
+## <a name="recommended-reading"></a>Leitura recomendada
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

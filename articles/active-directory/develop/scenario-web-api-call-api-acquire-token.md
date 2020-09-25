@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7e0701cc5a9bb14800a48e2281dba1eb6ea0cf72
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab0b74ffbcd8167613c6a8470e2f9102566edc60
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026463"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257236"
 ---
 # <a name="a-web-api-that-calls-web-apis-acquire-a-token-for-the-app"></a>Uma API web que chama APIs web: Adquira um símbolo para a app
 
@@ -27,7 +27,10 @@ Depois de ter construído um objeto de aplicação do cliente, use-o para adquir
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Aqui está um exemplo de código usando Microsoft.Identity.Web que é chamado nas ações dos controladores API. Chama a abaixo a API chamada *lista de todos os.* Para obter um token para ligar para a API a jusante, injeta o `ITokenAcquisition` serviço por injeção de dependência no construtor do seu controlador (ou no construtor de página se utilizar o Blazor), e utiliza-o nas ações do seu controlador, obtendo um sinal para o utilizador ( `GetAccessTokenForUserAsync` ) ou para a própria aplicação ( `GetAccessTokenForAppAsync` ) em caso de cenário de daemon.
+*Microsoft.Identity.Web* adiciona métodos de extensão que fornecem serviços de conveniência para ligar para o Microsoft Graph ou uma API web a jusante. Estes métodos são explicados em detalhe numa [API web que chama APIs web: Chame uma API](scenario-web-api-call-api-call-api.md). Com estes métodos de ajuda, não precisa de adquirir manualmente um símbolo.
+
+Se, no entanto, pretender adquirir manualmente um token, o seguinte código mostra um exemplo de utilização do *Microsoft.Identity.Web* para o fazer num controlador API. Chama a abaixo a API chamada *lista de todos os.*
+Para obter um token para ligar para a API a jusante, injeta o `ITokenAcquisition` serviço por injeção de dependência no construtor do seu controlador (ou no construtor de página se utilizar o Blazor), e utiliza-o nas ações do seu controlador, obtendo um sinal para o utilizador ( `GetAccessTokenForUserAsync` ) ou para a própria aplicação ( `GetAccessTokenForAppAsync` ) em caso de cenário de daemon.
 
 ```csharp
 [Authorize]
@@ -58,7 +61,7 @@ public class MyApiController : Controller
 }
 ```
 
-Para obter mais informações sobre o `callTodoListService` método, consulte [uma API web que chama APIs web: Ligue para uma API](scenario-web-api-call-api-call-api.md).
+Para obter mais informações sobre o `callTodoListService` método, consulte  [uma API web que chama APIs web: Ligue para uma API](scenario-web-api-call-api-call-api.md).
 
 # <a name="java"></a>[Java](#tab/java)
 Aqui está um exemplo de código que é chamado nas ações dos controladores da API. Chama a API a jusante - Microsoft Graph.
@@ -83,7 +86,7 @@ public class ApiController {
 
 # <a name="python"></a>[Python](#tab/python)
 
-Uma API web Python terá de usar algum middleware para validar o sinal do portador recebido do cliente. A API web pode então obter o token de acesso para a API a jusante usando a biblioteca MSAL Python, chamando o [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) método. Uma amostra que demonstra este fluxo com o MSAL Python ainda não está disponível.
+Uma API web Python requer o uso de middleware para validar o sinal do portador recebido do cliente. A API web pode então obter o token de acesso para uma API a jusante usando a biblioteca MSAL Python, chamando o [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) método. Uma amostra que demonstra este fluxo com o MSAL Python ainda não está disponível.
 
 ---
 

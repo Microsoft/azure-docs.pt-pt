@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 9be2a6c4497806370c4c53cbd41d9f48779f8472
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: c17fcbb7f6cd2d7f4948defad49e8319a013eb86
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419755"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262064"
 ---
 # <a name="user-defined-functions-udfs-in-azure-cosmos-db"></a>Funções definidas pelo utilizador (UDFs) em Azure Cosmos DB
 
@@ -138,7 +138,7 @@ Se as propriedades referidas pelos parâmetros UDF não estiverem disponíveis n
 
 Como os exemplos anteriores mostram, os UDFs integram o poder da linguagem JavaScript com a API SQL. Os UDFs fornecem uma interface programável rica para fazer uma lógica processual complexa e condicional com a ajuda de capacidades de tempo de execução javaScript incorporadas. A API SQL fornece os argumentos aos UDFs para cada item de origem na fase atual da cláusula WHERE ou SELECT de processamento. O resultado está perfeitamente incorporado no gasoduto de execução global. Em resumo, as UDFs são ótimas ferramentas para fazer lógicas de negócio complexas como parte de consultas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução ao Azure Cosmos DB](introduction.md)
 - [Funções de sistema](sql-query-system-functions.md)

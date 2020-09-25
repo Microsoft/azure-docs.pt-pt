@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB Tabela API .NET SDK & Recursos
-description: Saiba tudo sobre a AZure Cosmos DB Table API, incluindo datas de lançamento, datas de aposentadoria e alterações feitas entre cada versão.
+description: Saiba tudo sobre a AZure Cosmos DB Table API para .NET, incluindo datas de lançamento, datas de aposentadoria e alterações feitas entre cada versão.
 author: sakash279
 ms.author: akshanka
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 8c594ba01ea6fe9fb1c3cee2ed415496132d1abc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bc984e330085430db10298380dfdc9767f1aa770
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018438"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261945"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET API: Baixar e lançar notas
 

@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-ms.date: 08/25/2020
+ms.date: 09/24/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 0572613fe33d525ed1a5a42c627de3ce1049a290
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 24b30842bea51394a375cf48e09b7547e057405c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434049"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261741"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -55,7 +55,8 @@ As regras de filtragem de rede para protocolos não TCP/UDP (por exemplo, ICMP) 
 |As regras da NAT com portas entre 64000 e 65535 não são apoiadas|O Azure Firewall permite que qualquer porta na gama 1-65535 nas regras de rede e aplicação, no entanto as regras DA APENAS suportam portas na gama 1-63999.|Esta é uma limitação atual.
 |As atualizações de configuração podem demorar cinco minutos, em média,|Uma atualização de configuração do Azure Firewall pode demorar entre 3 a 5 minutos, em média, e as atualizações paralelas não são suportadas.|Uma correção está a ser investigada.|
 |Azure Firewall usa cabeçalhos SNI TLS para filtrar tráfego HTTPS e MSSQL|Se o software do navegador ou do servidor não suportar a extensão do Indicador de Nome do Servidor (SNI), não será capaz de se ligar através do Azure Firewall.|Se o software do navegador ou do servidor não suportar SNI, então poderá ser capaz de controlar a ligação usando uma regra de rede em vez de uma regra de aplicação. Consulte [a indicação do nome do servidor](https://wikipedia.org/wiki/Server_Name_Indication) para software que suporta sNI.|
-|DNS personalizado (pré-visualização) não funciona com túneis forçados|Se o túnel de força estiver ativado, o DNS personalizado (pré-visualização) não funciona.|Uma correção está a ser investigada.
+|DNS personalizado (pré-visualização) não funciona com túneis forçados|Se o túnel de força estiver ativado, o DNS personalizado (pré-visualização) não funciona.|Uma correção está a ser investigada.|
+|Novo suporte público de endereço IP para múltiplas Zonas de Disponibilidade|Não é possível adicionar um novo endereço IP público quando implanta uma firewall com duas zonas de disponibilidade (1 e 2, 2 e 3, ou 1 e 3)|Trata-se de uma limitação de recursos de endereço IP público.
 
 ## <a name="next-steps"></a>Passos seguintes
 

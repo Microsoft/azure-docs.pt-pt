@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB Table API para Java
-description: Saiba tudo sobre a AZure Cosmos DB Table API, incluindo datas de lançamento, datas de aposentadoria e alterações feitas entre cada versão.
+description: Saiba tudo sobre a AZure Cosmos DB Table API para Java, incluindo datas de lançamento, datas de aposentadoria e alterações feitas entre cada versão.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: java
@@ -9,12 +9,12 @@ ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-java
-ms.openlocfilehash: fc78688a413bf182d2a0489189a3ad9348ac4d21
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 40722053d28a0479e3f9ebaadd0fd04478a4f1aa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87308122"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261894"
 ---
 # <a name="azure-cosmos-db-table-api-for-java-release-notes-and-resources"></a>Azure Cosmos DB Table API para Java: Lançar notas e recursos
 > [!div class="op_single_selector"]
@@ -52,6 +52,6 @@ Novas funcionalidades e funcionalidades e otimizações são adicionadas apenas 
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 Para saber mais sobre cosmos DB, consulte a página de serviço [do Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/) 
 

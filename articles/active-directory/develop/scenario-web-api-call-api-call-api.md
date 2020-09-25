@@ -11,37 +11,127 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b756d7df03bd3c06b703617dbf84a194d716f1e3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b1582af2bbd97579852ead0d4462f80f3a50fe6a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87026378"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257151"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Uma API web que chama APIs web: Chame uma API
 
-Depois de ter um token, pode chamar uma API web protegida. Faça isso a partir do controlador da sua API web.
+Depois de ter um token, pode chamar uma API web protegida. Normalmente, liga para as APIs a jusante do controlador ou páginas da sua API web.
 
 ## <a name="controller-code"></a>Código do controlador
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-O seguinte código continua o código de exemplo que é mostrado numa [API web que chama APIs web: Adquira um símbolo para a aplicação](scenario-web-api-call-api-acquire-token.md). O código é chamado nas ações dos controladores da API. Chama a abaixo a API chamada *lista de todos os.*
+Quando utilizar *o Microsoft.Identity.Web,* tem três cenários de utilização:
 
-Depois de ter adquirido o símbolo, use-o como símbolo portador para chamar a API a jusante.
+- [Ligue para o Microsoft Graph](#call-microsoft-graph)
+- [Ligue para uma API web que não seja o Microsoft Graph](#call-web-api-other-than-microsoft-graph)
+- [Adquirir um símbolo manualmente](#acquire-a-token-manually)
+
+#### <a name="call-microsoft-graph"></a>Ligue para o Microsoft Graph
+
+Neste cenário, adicionou `.AddMicrosoftGraph()` em *Startup.cs* conforme especificado na [configuração do Código](scenario-web-api-call-api-app-configuration.md#option-1-call-microsoft-graph), e pode injetar diretamente o seu controlador ou construtor de página para `GraphServiceClient` utilização nas ações. O exemplo seguinte A página Razor exibe a foto do utilizador inscrito.
+
+```CSharp
+ [Authorize]
+ [AuthorizeForScopes(Scopes = new[] { "user.read" })]
+ public class IndexModel : PageModel
+ {
+     private readonly GraphServiceClient _graphServiceClient;
+
+     public IndexModel(GraphServiceClient graphServiceClient)
+     {
+         _graphServiceClient = graphServiceClient;
+     }
+
+     public async Task OnGet()
+     {
+         var user = await _graphServiceClient.Me.Request().GetAsync();
+         try
+         {
+             using (var photoStream = await _graphServiceClient.Me.Photo.Content.Request().GetAsync())
+             {
+                 byte[] photoByte = ((MemoryStream)photoStream).ToArray();
+                 ViewData["photo"] = Convert.ToBase64String(photoByte);
+             }
+             ViewData["name"] = user.DisplayName;
+         }
+         catch (Exception)
+         {
+             ViewData["photo"] = null;
+         }
+     }
+ }
+```
+
+#### <a name="call-web-api-other-than-microsoft-graph"></a>Ligue para a API web que não seja o Microsoft Graph
+
+Neste cenário, adicionou `.AddDownstreamWebApi()` em *Startup.cs* conforme especificado na [configuração do Código](scenario-web-api-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph), e pode injetar diretamente um serviço no seu controlador ou construtor de página e `IDownstreamWebApi` usá-lo nas ações:
+
+```CSharp
+ [Authorize]
+ [AuthorizeForScopes(ScopeKeySection = "TodoList:Scopes")]
+ public class TodoListController : Controller
+ {
+     private IDownstreamWebApi _downstreamWebApi;
+     private const string ServiceName = "TodoList";
+
+     public TodoListController(IDownstreamWebApi downstreamWebApi)
+     {
+         _downstreamWebApi = downstreamWebApi;
+     }
+
+     public async Task<ActionResult> Details(int id)
+     {
+         var value = await _downstreamWebApi.CallWebApiForUserAsync(
+             ServiceName,
+             options =>
+             {
+                 options.RelativePath = $"me";
+             });
+         return View(value);
+     }
+```
+
+O `CallWebApiForUserAsync` método também tem sobreposições genéricas fortemente dactilografadas que lhe permitem receber diretamente um objeto. Por exemplo, o seguinte método recebeu um `Todo` exemplo, que é uma representação fortemente dactilografada do JSON devolvido pela API web.
+
+```CSharp
+ // GET: TodoList/Details/5
+ public async Task<ActionResult> Details(int id)
+ {
+     var value = await _downstreamWebApi.CallWebApiForUserAsync<object, Todo>(
+         ServiceName,
+         null,
+         options =>
+         {
+             options.HttpMethod = HttpMethod.Get;
+             options.RelativePath = $"api/todolist/{id}";
+         });
+     return View(value);
+ }
+```
+
+#### <a name="acquire-a-token-manually"></a>Adquirir um símbolo manualmente
+
+Se decidiu adquirir um símbolo manualmente usando o `ITokenAcquisition` serviço, agora precisa usar o token. Nesse caso, o seguinte código continua o código de exemplo mostrado numa [API web que chama APIs web: Adquira um símbolo para a aplicação](scenario-web-api-call-api-acquire-token.md). O código é chamado nas ações dos controladores da API. Chama a abaixo a API chamada *lista de todos os.*
+
+ Depois de ter adquirido o símbolo, use-o como símbolo portador para chamar a API a jusante.
 
 ```csharp
-private async Task CallTodoListService(string accessToken)
-{
+ private async Task CallTodoListService(string accessToken)
+ {
+  // After the token has been returned by Microsoft.Identity.Web, add it to the HTTP authorization header before making the call to access the todolist service.
+ _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
 
-// After the token has been returned by Microsoft Identity Web, add it to the HTTP authorization header before making the call to access the To Do list service.
-_httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-
-// Call the To Do list service.
-HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + "/api/todolist");
-...
-}
-```
+ // Call the todolist service.
+ HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + "/api/todolist");
+ // ...
+ }
+ ```
 
 # <a name="java"></a>[Java](#tab/java)
 

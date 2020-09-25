@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 88a0177755fbd913bdaaf0ecf3e12c62dee294c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4dcf377797709b56b4db735dabf4d48cfae4fc06
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885077"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257168"
 ---
 # <a name="scenario-a-web-api-that-calls-web-apis"></a>Cenário: Uma API web que chama APIs web
 
@@ -24,13 +24,13 @@ Saiba o que precisa de saber para construir uma API web que chama APIs web.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este cenário, no qual uma API web protegida chama APIs web, baseia-se no cenário "Proteger uma API web". Para saber mais sobre este cenário fundamental, consulte [Cenário: API web protegida.](scenario-protected-web-api-overview.md)
+Este cenário, no qual uma API web protegida chama a outras APIs web, baseia-se no [Cenário: API web protegida](scenario-protected-web-api-overview.md).
 
 ## <a name="overview"></a>Descrição geral
 
 - Um cliente de aplicação web, desktop, móvel ou de uma página (não representado no diagrama que o acompanha) chama uma API web protegida e fornece um símbolo portador da Web Token (JWT) JSON no seu cabeçalho HTTP "Autorização".
 - A API web protegida valida o token e utiliza o método da Microsoft Authentication Library (MSAL) `AcquireTokenOnBehalfOf` para solicitar outro token do Azure Ative Directory (AZure AD) para que a API web protegida possa ligar para uma segunda API web, ou API web a jusante, em nome do utilizador.
-- A API web protegida também pode ligar `AcquireTokenSilent` mais tarde para solicitar fichas para outras APIs a jusante em nome do mesmo utilizador. `AcquireTokenSilent`refresca o símbolo quando necessário.
+- A API web protegida também pode ligar `AcquireTokenSilent` mais tarde para solicitar fichas para outras APIs a jusante em nome do mesmo utilizador. `AcquireTokenSilent` refresca o símbolo quando necessário.
 
 ![Diagrama de uma API web chamando uma API web](media/scenarios/web-api.svg)
 
@@ -38,7 +38,7 @@ Este cenário, no qual uma API web protegida chama APIs web, baseia-se no cenár
 
 A parte de registo de aplicações relacionada com permissões de API é clássica. A configuração da aplicação envolve a utilização do fluxo OAuth 2.0 On-Behalf-Of para trocar o token do portador JWT contra um símbolo para uma API a jusante. Este token é adicionado à cache simbólica, onde está disponível nos controladores da API web, e pode então adquirir um símbolo silenciosamente para chamar APIs a jusante.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Registo de aplicações](scenario-web-api-call-api-app-registration.md)
+> [Registo da aplicação](scenario-web-api-call-api-app-registration.md)

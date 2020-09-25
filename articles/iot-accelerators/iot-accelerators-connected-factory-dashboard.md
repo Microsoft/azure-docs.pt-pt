@@ -8,14 +8,17 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
-ms.openlocfilehash: b53177d578768428665891704269e63bd8edb09e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 797bd97940aa49db87b4ca4dd96f140208cd69b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73820181"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261877"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>Utilize funcionalidades no painel de aceleração de solução de fábrica conectada
+
+> [!IMPORTANT]
+> Enquanto atualizamos este artigo, consulte [a Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
 A [Implementação de uma solução baseada em nuvem para gerir os meus dispositivos IoT industriais](quickstart-connected-factory-deploy.md) de arranque rápido mostrou-lhe como navegar no painel de instrumentos e responder a alarmes. Este guia de como fazer mostra-lhe algumas funcionalidades adicionais do dashboard que pode usar para monitorizar e gerir os seus dispositivos IoT industriais.
 
@@ -107,7 +110,7 @@ Quando terminar, pode eliminar o acelerador de solução da sua subscrição Azu
 > [!NOTE]
 > Para garantir que elimina tudo o que está relacionado com o acelerador de solução, elimine-o no [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators#dashboard) site. Não elimine o grupo de recursos no portal.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que implementou um acelerador da solução funcional, pode ler os artigos seguintes para continuar a introdução aos aceleradores de soluções de IoT:
 

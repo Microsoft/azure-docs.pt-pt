@@ -11,20 +11,16 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 52e33177b5fc6c68f615b8eb7738e66b18a1763a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 7cadb4784cbf90d283f64e12edc155d4430fab06
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118711"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257078"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Cenário: aplicação web que assina nos utilizadores
 
 Saiba tudo o que precisa para construir uma aplicação web que utilize a plataforma de identidade da Microsoft para iniciar sismo nos utilizadores.
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="getting-started"></a>Introdução
 
@@ -60,7 +56,7 @@ Se desenvolver com Python, experimente o seguinte quickstart:
 
 ## <a name="overview"></a>Descrição geral
 
-Adiciona autenticação à sua aplicação web para que possa iniciar sação nos utilizadores. A adição de autenticação permite à sua aplicação web aceder a informações de perfil limitadas de forma a personalizar a experiência para os utilizadores. 
+Adiciona autenticação à sua aplicação web para que possa iniciar sação nos utilizadores. A adição de autenticação permite à sua aplicação web aceder a informações de perfil limitadas de forma a personalizar a experiência para os utilizadores.
 
 As aplicações web autenticam um utilizador num navegador web. Neste cenário, a aplicação web direciona o navegador do utilizador para os inscrever no Azure Ative Directory (Azure AD). O Azure AD devolve uma resposta de súmis através do browser do utilizador, que contém reclamações sobre o utilizador num sinal de segurança. A assinatura nos utilizadores tira partido do protocolo [padrão Open ID Connect,](./v2-protocols-oidc.md) simplificado pela utilização de [bibliotecas](scenario-web-app-sign-user-app-configuration.md#libraries-for-protecting-web-apps)de middleware .
 
@@ -69,13 +65,17 @@ As aplicações web autenticam um utilizador num navegador web. Neste cenário, 
 Como segunda fase, pode ativar a sua aplicação para ligar para APIs web em nome do utilizador inscrito. Esta próxima fase é um cenário diferente, que encontrará na [aplicação Web que chama APIs web](scenario-web-app-call-api-overview.md).
 
 > [!NOTE]
-> Adicionar o s-in a uma aplicação web é proteger a aplicação web e validar um token do utilizador, que é o que as bibliotecas **de middleware** fazem. No caso de .NET, este cenário ainda não requer a Microsoft Authentication Library (MSAL), que se trata de adquirir um token para chamar APIs protegidas. As bibliotecas de autenticação serão introduzidas no cenário de seguimento, quando a aplicação web necessitar de chamar APIs web.
+> Adicionar o s-in a uma aplicação web é proteger a aplicação web e validar um token do utilizador, que é o que as bibliotecas  **de middleware** fazem. No caso de .NET, este cenário ainda não requer a Microsoft Authentication Library (MSAL), que se trata de adquirir um token para chamar APIs protegidas. As bibliotecas de autenticação serão introduzidas no cenário de seguimento, quando a aplicação web necessitar de chamar APIs web.
 
 ## <a name="specifics"></a>Especificidades
 
 - Durante o registo da aplicação, terá de fornecer um ou vários (se implementar a sua aplicação em vários locais) responder a URIs. Em alguns casos (ASP.NET e ASP.NET Core), terá de ativar o token de ID. Por fim, irá querer configurar um URI de inscrição para que a sua aplicação reaja à assinatura dos utilizadores.
 - No código da sua aplicação, terá de fornecer a autoridade à qual os delegados da sua aplicação web se inscrevem. É possível que queira personalizar a validação de símbolos (em particular, em cenários de parceiros).
 - As aplicações web suportam quaisquer tipos de conta. Para obter mais informações, consulte [os tipos de conta suportados.](v2-supported-account-types.md)
+
+## <a name="recommended-reading"></a>Leitura recomendada
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

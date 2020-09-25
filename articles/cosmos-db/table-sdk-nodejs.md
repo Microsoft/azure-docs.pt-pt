@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB Table API para Node.js
-description: Saiba tudo sobre a AZure Cosmos DB Table API, incluindo datas de lançamento, datas de aposentadoria e alterações feitas entre cada versão.
+description: Saiba tudo sobre a API da Tabela DB Azure Cosmos para Node.js incluindo datas de lançamento, datas de aposentadoria e alterações feitas entre cada versão.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 11/20/2018
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 52aebf5a4f2e5ea7b3b09ae105c9ea632416c27e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bcc0559e5b4d3fafe1f83a1850cdda2d9d1fdfd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84167983"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261792"
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Azure Cosmos DB Table API para Node.js: Lançar notas e recursos
 > [!div class="op_single_selector"]
@@ -51,6 +51,6 @@ Novas funcionalidades e funcionalidades e otimizações são adicionadas apenas 
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 Para saber mais sobre cosmos DB, consulte a página de serviço [do Microsoft Azure Cosmos DB.](https://azure.microsoft.com/services/cosmos-db/) 
 
