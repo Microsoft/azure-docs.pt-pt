@@ -7,12 +7,12 @@ ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
-ms.openlocfilehash: 8cce90a8a65a7f070459e220e6d92ef0be57e909
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: de85a61cbd699ec9ac2669f8abb6217254038de9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284120"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334587"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Criar e gerir registos no Serviço Comum de Dados utilizando aplicações lógicas Azure
 
@@ -49,11 +49,11 @@ Para este exemplo, adicione o gatilho do Serviço Comum de Dados que dispara qua
 
    ![Detonar informações para o ambiente monitorizar](./media/connect-common-data-service/when-record-created-trigger-details.png)
 
-   | Propriedade | Obrigatório | Descrição |
+   | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Ambiente** | Sim | O ambiente para monitorizar, por exemplo, "Fabrikam Sales Production". Para mais informações, consulte [a Plataforma de Energia - Visão geral dos Ambientes.](/power-platform/admin/environments-overview) |
-   | **Nome da entidade** | Sim | A entidade para monitorizar, por exemplo, "Leads" |
-   | **Âmbito** | Sim | A fonte que criou o novo registo, por exemplo, um utilizador na sua unidade de negócio ou qualquer utilizador da sua organização. Este exemplo utiliza "Unidade de Negócio". |
+   | **Ambiente** | Yes | O ambiente para monitorizar, por exemplo, "Fabrikam Sales Production". Para mais informações, consulte [a Plataforma de Energia - Visão geral dos Ambientes.](/power-platform/admin/environments-overview) |
+   | **Nome da entidade** | Yes | A entidade para monitorizar, por exemplo, "Leads" |
+   | **Âmbito** | Yes | A fonte que criou o novo registo, por exemplo, um utilizador na sua unidade de negócio ou qualquer utilizador da sua organização. Este exemplo utiliza "Unidade de Negócio". |
    ||||
 
 ## <a name="add-common-data-service-action"></a>Adicionar ação comum de serviço de dados
@@ -70,10 +70,10 @@ Adicione agora uma ação do Serviço de Dados Comum que cria um registo de tare
 
    ![Informação de ação para o ambiente onde criar o registo](./media/connect-common-data-service/create-new-record-action-details.png)
 
-   | Propriedade | Obrigatório | Descrição |
+   | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome da Organização** | Sim | O ambiente onde se quer criar o disco, que não tem de ser o mesmo ambiente no seu gatilho, mas é a "Fabrikam Sales Production" neste exemplo. |
-   | **Nome da entidade** | Sim | A entidade onde pretende criar o registo, por exemplo, "Tarefas" |
+   | **Nome da Organização** | Yes | O ambiente onde se quer criar o disco, que não tem de ser o mesmo ambiente no seu gatilho, mas é a "Fabrikam Sales Production" neste exemplo. |
+   | **Nome da entidade** | Yes | A entidade onde pretende criar o registo, por exemplo, "Tarefas" |
    | **Assunto** | Sim, com base na entidade selecionada neste exemplo | Uma breve descrição sobre o objetivo para esta tarefa |
    ||||
 
@@ -87,7 +87,7 @@ Adicione agora uma ação do Serviço de Dados Comum que cria um registo de tare
 
       ![Selecione saídas de gatilho para usar no registo de tarefas](./media/connect-common-data-service/create-new-record-action-select-trigger-outputs.png)
 
-      | Saída do gatilho | Descrição |
+      | Saída do gatilho | Description |
       |----------------|-------------|
       | **Primeiro nome** | O primeiro nome do registo de chumbo a ser usado como o contacto principal no registo de tarefas |
       | **Último Nome** | O último nome do registo principal a ser usado como o contacto principal no registo de tarefas |
@@ -108,7 +108,7 @@ Para os gatilhos que são executados quando os registos são atualizados, como o
 
 1. No gatilho, a partir da nova lista **de parâmetros** adicionar, selecione **Filters de Atributos**.
 
-   ![Adicionar propriedade "Atributo Filtros"](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
+   ![Screenshot que mostra a ação "Quando um registo é atualizado" e a lista "Adicionar novo parâmetro" com a propriedade "Atributo Filtros" selecionada.](./media/connect-common-data-service/when-record-updated-trigger-add-attribute-filters.png)
 
 1. Para cada **Item de Filtros de Atributos**, selecione o atributo que pretende monitorizar para atualizações, por exemplo:
 
@@ -122,7 +122,7 @@ Para ações que devolvam registos, como a ação **de registos da Lista,** pode
 
    ![Adicionar propriedade "Consulta de Filtro"](./media/connect-common-data-service/list-records-action-filter-query.png)
 
-1. Na propriedade **'Saber filtro'** que agora aparece na ação, insira esta consulta de filtro ODATA:`statuscode eq 1`
+1. Na propriedade **'Saber filtro'** que agora aparece na ação, insira esta consulta de filtro ODATA: `statuscode eq 1`
 
    ![Introduza a consulta do filtro ODATA para registos de filtragem](./media/connect-common-data-service/list-records-action-filter-query-value.png)
 
@@ -136,7 +136,7 @@ Para ações que devolvam registos, como a ação **de registos da Lista,** pode
 
    ![Adicionar propriedade "Encomendar por"](./media/connect-common-data-service/list-records-action-order-by.png)
 
-1. Na **Ordem Por** propriedade que agora aparece na ação, insira esta consulta de filtro ODATA:`name`
+1. Na **Ordem Por** propriedade que agora aparece na ação, insira esta consulta de filtro ODATA: `name`
 
    ![Introduza a consulta do filtro ODATA para encomendar registos](./media/connect-common-data-service/list-records-action-order-by-value.png)
 
@@ -151,7 +151,7 @@ Esta tabela descreve alguns tipos de campo e os tipos de dados que esses campos 
 | Campo | Tipo de dados | Descrição |
 |-------|-----------|-------------|
 | Campo de texto | Uma linha de texto | Requer uma única linha de texto ou conteúdo dinâmico que tenha o tipo de dados de texto, por exemplo, estas propriedades: <p><p>- **Descrição** <br>- **Categoria** |
-| Campo inteiro | Número inteiro | Requer um conteúdo inteiro ou dinâmico que tenha o tipo de dados inteiro, por exemplo, estas propriedades: <p><p>- **Por cento Completo** <br>- **Duração** |
+| Campo inteiro | Número Inteiro | Requer um conteúdo inteiro ou dinâmico que tenha o tipo de dados inteiro, por exemplo, estas propriedades: <p><p>- **Por cento Completo** <br>- **Duração** |
 | Campo de data | Data e Hora | Requer uma data no formato MM/DD/YYY ou conteúdo dinâmico que tenha o tipo de dados de data, por exemplo, estas propriedades: <p><p>- **Criado em** <br>- **Data de Início** <br>- **Início Real** <br>- **Fim Real** <br>- **Data de Vencimento** |
 | Campo que faz referência a outro registo de entidade | Chave primária | Requer tanto um ID de registo, como um GUID, e um tipo de procura, o que significa que os valores da lista de conteúdos dinâmicos não funcionam, por exemplo, estas propriedades: <p><p>- **Proprietário**: Deve ser um ID de utilizador válido ou um ID de registo de equipa. <br>- **Tipo proprietário**: Deve ser um tipo de procura como `systemusers` `teams` ou, respectivamente. <p><p>- **No que diz respeito a**: Deve ser um ID de registo válido, como um ID de conta ou um ID de registo de contacto. <br>- **No que diz respeito ao tipo**: Deve ser um tipo de procura, como `accounts` `contacts` ou, respectivamente. <p><p>- **Cliente**: Deve ser um ID de registo válido, como um ID de conta ou iD de registo de contacto. <br>- **Tipo de Cliente**: Deve ser o tipo de procura, como `accounts` `contacts` ou, respectivamente. |
 ||||

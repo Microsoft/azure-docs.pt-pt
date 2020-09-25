@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: ae139dd65242be9456f3498c494e1a7c5a29402f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 48dfc456616fa4876b7053483f7377eda21aabde
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695713"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283824"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Criar alertas para Azure SQL Managed Instance usando o portal Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Este artigo mostra como configurar alertas para bases de dados na Base de Dados de Casos Geridos Azure SQL utilizando o portal Azure. Os alertas podem enviar-lhe um e-mail, chamar um web hook, executar Azure Function, runbook, chamar um sistema de bilhética compatível com ITSM externo, ligar-lhe para o telefone ou enviar uma mensagem de texto quando alguma métrica, tal é, por exemplo, o tamanho de armazenamento, ou utilização do CPU, atinge um limiar predefinido. Este artigo também fornece as melhores práticas para a definição de períodos de alerta.
+Este artigo mostra como configurar alertas para bases de dados na Base de Dados de Casos Geridos Azure SQL utilizando o portal Azure. Os alertas podem enviar-lhe um e-mail, chamar um webhook, executar uma Função do Azure, runbook, chamar um sistema de pedidos de suporte compatível com ITSM externo, ligar-lhe para o telefone ou enviar uma mensagem de texto quando alguma métrica como, por exemplo, o tamanho de armazenamento ou a utilização da CPU, atingir um limiar predefinido. Este artigo também fornece as melhores práticas para a definição de períodos de alerta.
 
 
 ## <a name="overview"></a>Descrição geral
@@ -50,13 +50,13 @@ Pode configurar e obter informações sobre as regras de alerta utilizando [o po
 
 Estão disponíveis as seguintes métricas de instância geridas para a configuração de alerta:
 
-| Metric | Descrição | Unidade de medida \ valores possíveis |
+| Métrica | Descrição | Unidade de medida \ valores possíveis |
 | :--------- | --------------------- | ----------- |
 | Percentagem média de CPU | Percentagem média de utilização do CPU no período de tempo selecionado. | 0-100 (por cento) |
 | IO bytes ler | IO bytes lidos no período de tempo selecionado. | Bytes |
 | IO bytes escritos | IO bytes escritos no período de tempo selecionado. | Bytes |
 | Contagem de pedidos de IO | Contagem de pedidos de IO no período de tempo selecionado. | Numérico |
-| Espaço de armazenamento reservado | Max atual. espaço de armazenamento reservado para a instância gerida. Alterações com a operação de dimensionamento de recursos. | MB (Megabytes) |
+| Espaço de armazenamento reservado | Atual max. espaço de armazenamento reservado para a instância gerida. Alterações com a operação de dimensionamento de recursos. | MB (Megabytes) |
 | Espaço de armazenamento utilizado | Espaço de armazenamento utilizado no período selecionado. Alterações com o consumo de armazenamento por bases de dados e o caso. | MB (Megabytes) |
 | Contagem de núcleos virtuais | vCores previstos para a instância gerida. Alterações com a operação de dimensionamento de recursos. | 4-80 (vCores) |
 
@@ -140,7 +140,7 @@ Para ver, suspender, ativar, modificar e eliminar os alertas existentes:
 
    A lista de alertas existentes vai aparecer. Selecione uma regra de alerta existente para geri-la. As regras ativas existentes podem ser modificadas e sintonizadas à sua preferência. As regras ativas também podem ser suspensas sem serem suprimidas. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre o sistema de alerta Azure Monitor, consulte [a visão geral dos alertas no Microsoft Azure](../../azure-monitor/platform/alerts-overview.md)
 * Saiba mais sobre alertas métricos, veja [como os alertas métricos funcionam no Azure Monitor](../../azure-monitor/platform/alerts-metric-overview.md)

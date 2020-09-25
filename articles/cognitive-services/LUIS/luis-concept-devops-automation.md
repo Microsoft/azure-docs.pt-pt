@@ -1,14 +1,16 @@
 ---
 title: Fluxos de trabalho contínuos para apps LUIS
 description: Como implementar fluxos de trabalho ci/CD para DevOps for Language Understanding (LUIS).
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/5/2020
-ms.openlocfilehash: 4cedf0cbe3f9ab675c191f8e4639688bb7916ee0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a74ad7b995f0112346e2212866655107f72c03e7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072997"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324812"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Integração Contínua e Fluxos de Trabalho de Entrega Contínua para DEVOps LUIS
 

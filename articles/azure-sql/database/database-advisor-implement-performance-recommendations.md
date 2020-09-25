@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: 5a81ceea151b937b63544cbe51cc22de11d25230
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b5170f1c2e6c72c684cb1afcf1bf9bf8d3ef6fff
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254944"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284368"
 ---
 # <a name="database-advisor-performance-recommendations-for-azure-sql-database"></a>Recomendações de desempenho do Advisor da Base de Dados para a Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,10 +40,10 @@ As opções de recomendação de desempenho disponíveis na Base de Dados Azure 
 
 | Recomendação de desempenho | Base de dados única e suporte de base de dados em conjunto | Suporte de base de dados de casos |
 | :----------------------------- | ----- | ----- |
-| **Crie recomendações de índice -** Recomenda a criação de índices que possam melhorar o desempenho da sua carga de trabalho. | Sim | Não |
-| **Recomendações de índice de queda** - Recomenda a remoção de índices redundantes e duplicados diariamente, com exceção de índices únicos, e índices que não foram utilizados durante muito tempo (>90 dias). Por favor, note que esta opção não é compatível com aplicações usando comutação de partição e dicas de índice. A queda de índices não suportados não é suportada para os níveis de serviço Premium e Business Critical. | Sim | Não |
-| **Parametrizar recomendações de consultas (pré-visualização)** - Recomenda a parametrização forçada em casos em que tenha uma ou mais consultas que estão constantemente a ser recompiliadas, mas que acabam com o mesmo plano de execução de consultas. | Sim | Não |
-| **Corrigir recomendações de problemas de esquema (pré-visualização)** - As recomendações para a correção do esquema aparecem quando a Base de Dados Azure SQL nota uma anomalia no número de erros SQL relacionados com esquemas que estão a acontecer na sua base de dados. A Microsoft está atualmente a deprepar as recomendações de "Fix Schema issue". | Sim | Não |
+| **Crie recomendações de índice -** Recomenda a criação de índices que possam melhorar o desempenho da sua carga de trabalho. | Yes | No |
+| **Recomendações de índice de queda** - Recomenda a remoção de índices redundantes e duplicados diariamente, com exceção de índices únicos, e índices que não foram utilizados durante muito tempo (>90 dias). Por favor, note que esta opção não é compatível com aplicações usando comutação de partição e dicas de índice. A queda de índices não suportados não é suportada para os níveis de serviço Premium e Business Critical. | Yes | No |
+| **Parametrizar recomendações de consultas (pré-visualização)** - Recomenda a parametrização forçada em casos em que tenha uma ou mais consultas que estão constantemente a ser recompiliadas, mas que acabam com o mesmo plano de execução de consultas. | Yes | No |
+| **Corrigir recomendações de problemas de esquema (pré-visualização)** - As recomendações para a correção do esquema aparecem quando a Base de Dados Azure SQL nota uma anomalia no número de erros SQL relacionados com esquemas que estão a acontecer na sua base de dados. A Microsoft está atualmente a deprepar as recomendações de "Fix Schema issue". | Yes | No |
 
 ![Recomendações de desempenho para Azure SQL Database](./media/database-advisor-implement-performance-recommendations/performance-recommendations-annotated.png)
 
@@ -84,9 +84,9 @@ As recomendações do índice drop também passam pela verificação após a imp
 
 Todas as consultas precisam de ser compiladas para gerar um plano de execução. Cada plano gerado é adicionado à cache do plano. Execuções subsequentes da mesma consulta podem reutilizar este plano a partir da cache, o que elimina a necessidade de compilação adicional.
 
-Consultas com valores não parâmetros podem levar a sobrecarga de desempenho porque o plano de execução é recompilado cada vez que os valores não-parâmetros são diferentes. Em muitos casos, as mesmas consultas com diferentes valores de parâmetros geram os mesmos planos de execução. Estes planos, no entanto, ainda são adicionados separadamente à cache do plano.
+As consultas com valores não parametrizados podem levar a custos de desempenho, pois o plano de execução é recompilado sempre que os valores não parametrizados são diferentes. Em muitos casos, as mesmas consultas com valores de parâmetros diferentes geram os mesmos planos de execução. No entanto, estes planos são adicionados em separado à cache de planos.
 
-O processo de recompilar os planos de execução utiliza recursos de base de dados, aumenta o tempo de duração da consulta e transborda a cache do plano. Estes eventos, por sua vez, fazem com que os planos sejam despejados da cache. Este comportamento pode ser alterado definindo a opção de parametrização forçada na base de dados.
+O processo de recompilação de planos de execução utiliza recursos da base de dados, aumenta o tempo de duração da consulta e excede a capacidade da cache de planos. Por sua vez, estes eventos fazem com que os planos sejam removidos da cache. Este comportamento pode ser alterado definindo a opção de parametrização forçada na base de dados.
 
 Para ajudá-lo a estimar o impacto desta recomendação, é-lhe fornecida uma comparação entre a utilização real do CPU e a utilização projetada do CPU (como se a recomendação fosse aplicada). Esta recomendação pode ajudá-lo a obter poupanças de CPU. Também pode ajudá-lo a diminuir a duração da consulta e a sobrecarga para a cache do plano, o que significa que mais dos planos podem permanecer na cache e ser reutilizados. Pode aplicar esta recomendação rapidamente selecionando o comando **Aplicar.**
 
@@ -116,7 +116,7 @@ A recomendação "Fix schema issue" aparece quando a Base de Dados Azure SQL not
 
 Os desenvolvedores podem considerar desenvolver aplicações personalizadas usando recomendações de desempenho para Azure SQL Database. Todas as recomendações listadas no portal para uma base de dados podem ser acedidas através da [API get-AzSqlDataBaseRecommendedAction.](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserecommendedaction)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre a sintonização automática dos índices de base de dados e planos de execução de consultas, consulte [a afinação automática da Base de Dados Azure SQL](automatic-tuning-overview.md).
 - Para obter mais informações sobre a monitorização automática do desempenho da base de dados com diagnósticos automatizados e análise de causa de raiz de problemas de desempenho, consulte [Azure SQL Intelligent Insights](intelligent-insights-overview.md).

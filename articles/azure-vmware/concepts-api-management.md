@@ -1,22 +1,22 @@
 ---
 title: Conceitos - Gestão da API
-description: Saiba como a API Management protege as APIs em funcionamento em máquinas virtuais Azure VMware Solution (AVS)
+description: Saiba como a API Management protege as APIs em funcionamento em máquinas virtuais Azure VMware Solution (VMs)
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 62112bf3c0bf551232e09e5910e3eaae228dc202
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 346d0f795c3d19b115ced771991263cce2104217
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85306948"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262982"
 ---
-# <a name="api-management-to-publish-and-protect-apis-running-on-avs-based-vms"></a>API Management para publicar e proteger APIs em execução em VMs baseados em AVS
+# <a name="api-management-to-publish-and-protect-apis-running-on-azure-vmware-solution-based-vms"></a>API Management para publicar e proteger APIs em execução em VMs baseados em soluções VMware Azure
 
 A Microsoft Azure [API Management](https://azure.microsoft.com/services/api-management/) permite que os desenvolvedores e equipas de DevOps publiquem de forma segura, quer para consumidores internos ou externos.
 
-Apesar de oferecidos em vários SKUs, apenas os SKUs de Desenvolvimento e Premium permitem a integração da Rede Virtual Azure para publicar APIs em execução nas cargas de trabalho da Azure VMware Solution (AVS). Estes dois SKUs permitem de forma segura a conectividade entre o serviço de Gestão API e o backend. O Developer SKU destina-se ao desenvolvimento e teste, enquanto o SKU Premium se destina a implantações de produção.
+Apesar de oferecidos em vários SKUs, apenas os SKUs de Desenvolvimento e Premium permitem a integração da Rede Virtual Azure para publicar APIs em execução nas cargas de trabalho da Azure VMware Solution. Estes dois SKUs permitem de forma segura a conectividade entre o serviço de Gestão API e o backend. O Developer SKU destina-se ao desenvolvimento e teste, enquanto o SKU Premium se destina a implantações de produção.
 
-Para serviços de backend que funcionam em cima de máquinas virtuais AVS (VMs), a configuração na Gestão API, por padrão, é a mesma que os serviços de backend no local. Para implementações internas e externas, a API Management configura o IP virtual (VIP) do equilibrador de carga como ponto final de backend quando o servidor de backend é colocado atrás de um Balancer de Carga NSX no lado AVS.
+Para serviços de backend que funcionam em cima de máquinas virtuais Azure VMware Solution (VMs), a configuração na Gestão API, por padrão, é a mesma que os serviços de backend no local. Para implementações internas e externas, a API Management configura o IP virtual (VIP) do equilibrador de carga como ponto final de backend quando o servidor backend é colocado atrás de um Balancer de Carga NSX no lado da Solução VMware Azure.
 
 ## <a name="external-deployment"></a>Implantação externa
 
@@ -24,7 +24,7 @@ Uma implementação externa publica APIs consumidas por utilizadores externos us
 
 O diagrama de implantação externa mostra todo o processo e os intervenientes envolvidos (mostrados no topo). Os atores são:
 
-- **Administrador(s):** Representa a equipa de administração ou DevOps, que gere o AVS através do portal Azure e mecanismos de automação como o PowerShell ou o Azure DevOps.
+- **Administrador(s):** Representa a equipa de administração ou DevOps, que gere a Azure VMware Solution através do portal Azure e mecanismos de automação como o PowerShell ou o Azure DevOps.
 
 - **Utilizadores:**  Representa os consumidores das APIs expostas e representa tanto os utilizadores como os serviços que consomem as APIs.
 
@@ -32,7 +32,7 @@ O fluxo de tráfego passa por exemplo de API Management, que abstrata os serviç
 
 A API Management tem uma API Pública Azure e recomenda-se a ativação do Serviço de Proteção DDOS do Azure. 
 
-:::image type="content" source="media/api-management/external-deployment.png" alt-text="Implantação externa - Gestão da API para AVS":::
+:::image type="content" source="media/api-management/external-deployment.png" alt-text="Implementação externa - API Management for Azure VMware Solution":::
 
 
 ## <a name="internal-deployment"></a>Implantação interna
@@ -49,11 +49,11 @@ As implementações internas podem ser [com o Azure Application Gateway](../api-
 
 O diagrama de implementação abaixo mostra os consumidores que podem ser internos ou externos, com cada tipo a aceder às mesmas APIs ou diferentes.
 
-Numa implementação interna, as APIs são expostas à mesma instância de Gestão da API. Em frente à API Management, o Application Gateway é implementado com a capacidade Azure Web Application Firewall (WAF) ativada e um conjunto de ouvintes HTTP e regras para filtrar o tráfego, expondo apenas um subconjunto dos serviços de backend em execução em AVS.
+Numa implementação interna, as APIs são expostas à mesma instância de Gestão da API. Em frente à API Management, o Application Gateway é implementado com a capacidade de Firewall de Aplicação Web (WAF) ativada e um conjunto de ouvintes HTTP e regras para filtrar o tráfego, expondo apenas um subconjunto dos serviços de backend em execução na Solução VMware Azure.
 
 * O tráfego interno é encaminhado através do ExpressRoute Gateway para Azure Firewall e depois para a API Management se as regras de tráfego forem estabelecidas ou diretamente para a API Management.  
 
 * O tráfego externo entra em Azure através do Application Gateway, que utiliza a camada de proteção externa para a Gestão da API.
 
 
-:::image type="content" source="media/api-management/internal-deployment.png" alt-text="Implantação interna - Gestão da API para AVS":::
+:::image type="content" source="media/api-management/internal-deployment.png" alt-text="Implementação interna - API Management for Azure VMware Solution":::

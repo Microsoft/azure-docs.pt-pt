@@ -5,39 +5,32 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 05/06/2019
+ms.date: 09/24/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ea8ed75bf91850abb95ebe983923989375c0fcf5
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 9eff9b5356f3201f151cc959a96b070d2afaa267
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "76759858"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283462"
 ---
 Para criar uma conta de armazenamento para fins gerais v2 no portal do Azure, siga estes passos:
 
 1. No menu do portal do Azure, selecione **Todos os serviços**. Na lista de recursos, escreva **Contas de Armazenamento**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas de Armazenamento**.
-2. Na janela **Contas de Armazenamento** que é apresentada, escolha **Adicionar**.
-3. Selecione a subscrição na qua pretende criar a conta de armazenamento.
-4. No campo **Grupo de recursos**, selecione **Criar novo**. Introduza um nome para o novo grupo de recursos, conforme exemplificado na imagem seguinte.
+1. Na janela **Contas de Armazenamento** que é apresentada, escolha **Adicionar**.
+1. No **separador Básicos,** selecione a subscrição na qual criar a conta de armazenamento.
+1. No campo **do grupo Recursos,** selecione o grupo de recursos pretendido ou crie um novo grupo de recursos.  Para obter mais informações sobre os grupos de recursos Azure, consulte [a visão geral do Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
+1. A seguir, introduza um nome para a sua conta de armazenamento. O nome que escolher tem de ser exclusivo em todo o Azure. O nome também deve ter entre 3 e 24 caracteres de comprimento, podendo incluir apenas números e letras minúsculas.
+1. Selecione uma localização para a sua conta de armazenamento ou utilize a localização predefinida.
+1. Selecione um nível de desempenho. O nível predefinido é *Standard*.
+1. Desagravar o campo **de tipo conta** para o armazenamento *V2 (v2 de uso geral)*.
+1. Especifique como a conta de armazenamento será replicada. A opção de replicação predefinida é *o armazenamento geo-redundante de acesso à leitura (RA-GRS)*. Para obter mais informações sobre as opções de replicação disponíveis, consulte [a redundância do Azure Storage](../articles/storage/common/storage-redundancy.md).
+1. Especifique o nível de acesso para bolhas na conta de armazenamento. O nível predefinido é *quente*. Para obter mais informações sobre os níveis de acesso blob, consulte [os níveis de acesso quentes, frescos e arquivados para bolhas.](../articles/storage/blobs/storage-blob-storage-tiers.md)
+1. Para utilizar [o Azure Data Lake Storage,](/services/storage/data-lake-storage/)escolha o separador **Avançado** e, em seguida, desempate o **espaço de nome hierárquico** para **Ativado**.
+1. Selecione **Rever + Criar** para rever as definições de conta de armazenamento e criar a conta.
+1. Selecione **Criar**.
 
-    ![Captura de ecrã que mostra como criar um grupo de recursos no portal](./media/storage-create-account-portal-include/create-resource-group-for-storage.png)
+A imagem a seguir mostra as definições no **separador Básicos** para uma nova conta de armazenamento:
 
-5. A seguir, introduza um nome para a sua conta de armazenamento. O nome que escolher tem de ser exclusivo em todo o Azure. O nome também tem de ter entre 3 e 24 carateres de comprimento e apenas pode incluir números e letras minúsculas.
-6. Selecione uma localização para a sua conta de armazenamento ou utilize a localização predefinida.
-7. Deixe os outros campos definidos para os respetivos valores predefinidos:
-
-   |Campo  |Valor  |
-   |---------|---------|
-   |Modelo de implementação     |Resource Manager         |
-   |Desempenho     |Standard         |
-   |Tipo de conta     |StorageV2 (fins gerais v2)         |
-   |Replicação     |Armazenamento georredundante com acesso de leitura (RA-GRS)         |
-   |Camada de acesso     |Frequente         |
-
-8. Se planeia utilizar [o Azure Data Lake Storage,](https://azure.microsoft.com/services/storage/data-lake-storage/)escolha o separador **Avançado** e, em seguida, desempate o espaço de **nome hierárquico** para **Ativado**.
-9. Selecione **Rever + Criar** para rever as definições de conta de armazenamento e criar a conta.
-10. Selecione **Criar**.
-
-Para obter mais informações sobre tipos de contas de armazenamento e outras definições de conta de armazenamento, consulte [Descrição geral da conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview). Para obter mais informações sobre grupos de recursos, consulte [a visão geral do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). 
+:::image type="content" source="media/storage-create-account-portal-include/account-create-portal.png" alt-text="Captura de ecrã a mostrar como criar uma conta de armazenamento no portal do Azure":::

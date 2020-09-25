@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 9e909db0041979eb7bc4fc30bd9551382e83c488
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c053a7830e02eb7c460bd030ca3c6a10c00ea78a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90892498"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323642"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Compreenda a aplicação e a implementação em Azure Spring Cloud
 
@@ -29,11 +29,11 @@ O nível padrão da Cloud Azure Spring permite que uma Aplicação tenha uma imp
 ## <a name="app"></a>Aplicação
 As seguintes funcionalidades/propriedades são definidas ao nível da App.
 
-| Enumeração | Definição |
+| Funcionalidades | Description |
 |:--|:----------------|
 | Público</br>Ponto final | O URL para aceder à app |
 | Personalizado</br>Domínio | REGISTO CNAME que assegura o domínio personalizado |
-| Serviço</br>Enlace | Propriedades de configuração de ligação definidas no function.jsno ficheiro e no atributo *ServiceBusTrigger* |
+| Serviço</br>Enlace | Ligação fora da caixa com outros serviços da Azure |
 | Gerido</br>Identidade | Identidade gerida pelo Azure Ative Directory permite que a sua app aceda facilmente a outros recursos protegidos pela Azure, como o Azure Key Vault |
 | Persistente</br>Armazenamento | Definição que permite que os dados persistam para além do reinício da aplicação |
 
@@ -41,14 +41,14 @@ As seguintes funcionalidades/propriedades são definidas ao nível da App.
 
 As seguintes funcionalidades/propriedades são definidas ao nível de Implantação e serão trocadas ao trocar a produção/paragem de produção/paragem.
 
-| Enumeração | Definição |
+| Funcionalidades | Descrição |
 |:--|:----------------|
 | CPU | Número de vcores por instância de App |
-| Memória | Definição que atribui memória para escalar ou escalar implementações |
+| Memória | Gb de memória por instância de App|
 | Instância</br>de palavras | O número de instâncias de aplicações, definidas manualmente ou automaticamente |
 | Escala automática | Contagem de instâncias de escala automaticamente com base em regras e horários predefinidos |
-| JVM</br>Opções | definição: JAVA_OPTS |
-| Ambiente</br>Variáveis | Configurações que se aplicam a todo o ambiente Azure Spring Cloud |
+| JVM</br>Opções | Definição de opções JVM  |
+| Ambiente</br>Variáveis | Definição de variáveis ambientais |
 | Runtime</br>Versão | Java 8/Java 11|
 
 ## <a name="restrictions"></a>Restrições

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: b33d8db9d43b151cb0405ea24e0bea87e21cbdc9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a7cd807de7e723d48faaa0944ea55b1887c9721
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345347"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284116"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Tipos detetáveis de estrangulamentos de desempenho de consulta na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -58,7 +58,7 @@ Um plano sub-otimizador de consultas pode ser a causa de um desempenho de consul
 
 As secções seguintes discutem como resolver consultas com plano de execução de consultas sub-ideais.
 
-### <a name="queries-that-have-parameter-sensitive-plan-psp-problems"></a><a name="ParamSniffing"></a>Consultas que têm problemas de plano sensível a parâmetros (PSP)
+### <a name="queries-that-have-parameter-sensitive-plan-psp-problems"></a><a name="ParamSniffing"></a> Consultas que têm problemas de plano sensível a parâmetros (PSP)
 
 Um problema de plano sensível a parâmetros (PSP) acontece quando o otimizador de consulta gera um plano de execução de consulta que é ideal apenas para um valor específico de parâmetro (ou conjunto de valores) e o plano em cache não é então ideal para valores de parâmetros que são usados em execuções consecutivas. Os planos que não são os melhores podem então causar problemas de desempenho de consulta e degradar a carga de trabalho global.
 
@@ -153,8 +153,8 @@ O desempenho lento da consulta não relacionado com planos de consulta sub-ideai
 - Deteção de limites de recursos utilizando [insights inteligentes](database/intelligent-insights-troubleshoot-performance.md#reaching-resource-limits)
 - Deteção de problemas de recursos [utilizando DMVs:](database/monitoring-with-dmvs.md)
 
-  - O [Sys.dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV devolve CPU, I/O e consumo de memória para a base de dados. Existe uma linha para cada intervalo de 15 segundos, mesmo que não haja atividade na base de dados. Os dados históricos são mantidos por uma hora.
-  - O [Sys.resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) DMV devolve os dados de utilização e armazenamento da CPU para a Base de Dados Azure SQL. Os dados são recolhidos e agregados em intervalos de cinco minutos.
+  - O [DMV sys.dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) devolve CPU, I/O e consumo de memória para a base de dados. Existe uma linha para cada intervalo de 15 segundos, mesmo que não haja atividade na base de dados. Os dados históricos são mantidos por uma hora.
+  - O [DMV sys.resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) devolve os dados de utilização e armazenamento do CPU para a Base de Dados Azure SQL. Os dados são recolhidos e agregados em intervalos de cinco minutos.
   - [Muitas consultas individuais que consomem cumulativamente alta CPU](database/monitoring-with-dmvs.md#many-individual-queries-that-cumulatively-consume-high-cpu)
 
 Se identificar o problema como recurso insuficiente, pode atualizar recursos para aumentar a capacidade da sua base de dados para absorver os requisitos do CPU. Para obter mais informações, consulte [os recursos de base de dados únicos em Azure SQL Database](database/single-database-scale.md) e [dimensionar recursos de piscina elástica na Base de Dados Azure SQL](database/elastic-pool-scale.md). Para obter informações sobre a escala de um caso gerido, consulte [os limites de recursos de nível de serviço](managed-instance/resource-limits.md#service-tier-characteristics)
@@ -205,14 +205,14 @@ Estes métodos são comumente utilizados para mostrar as principais categorias d
 - Use Insights Inteligentes para identificar consultas com degradação do desempenho devido ao [aumento das esperas](database/intelligent-insights-troubleshoot-performance.md#increased-wait-statistic)
 - Utilize [a Loja de Consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) para encontrar estatísticas de espera para cada consulta ao longo do tempo. Na Loja de Consultas, os tipos de espera são combinados em categorias de espera. Pode encontrar o mapeamento das categorias de espera para os tipos de espera em [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
 - Utilize [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) para devolver informações sobre todas as esperas encontradas por fios executados durante uma operação de consulta. Pode utilizar esta vista agregada para diagnosticar problemas de desempenho com a Base de Dados Azure SQL e também com consultas e lotes específicos. As consultas podem estar à espera de recursos, esperas de filas ou esperas externas.
-- Use [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) para devolver informações sobre a fila de tarefas que aguardam algum recurso.
+- Utilize [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) para devolver informações sobre a fila de tarefas que aguardam algum recurso.
 
 Em cenários de alto CPU, as estatísticas de Loja de Consultas e de espera podem não refletir a utilização do CPU se:
 
 - Consultas de alto consumo de CPU ainda estão a ser executadas.
 - As consultas de alta mente que consomem CPU estavam a decorrer quando aconteceu uma falha.
 
-Os DMVs que acompanham a Query Store e as estatísticas de espera mostram resultados para consultas concluídas e cronometradas com sucesso. Não mostram dados para a execução de declarações até que as declarações terminem. Utilize a visão dinâmica de gestão [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para acompanhar as consultas atualmente executadas e o tempo de trabalho associado.
+Os DMVs que acompanham a Query Store e as estatísticas de espera mostram resultados para consultas concluídas e cronometradas com sucesso. Não mostram dados para a execução de declarações até que as declarações terminem. Utilize a visão dinâmica da gestão [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) para acompanhar as consultas atualmente executadas e o tempo de trabalho associado.
 
 > [!TIP]
 > Ferramentas adicionais:
@@ -220,6 +220,6 @@ Os DMVs que acompanham a Query Store e as estatísticas de espera mostram result
 > - [TigerToolbox espera e trava](https://github.com/Microsoft/tigertoolbox/tree/master/Waits-and-Latches)
 > - [Usp_whatsup TigerToolbox](https://github.com/Microsoft/tigertoolbox/tree/master/usp_WhatsUp)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Monitorização e afinação da base de dados SQL](database/monitor-tune-overview.md)

@@ -1,15 +1,17 @@
 ---
 title: Perguntas frequentes (FAQ) - LUIS
 description: Este artigo contém respostas a perguntas frequentes sobre compreensão de linguagem (LUIS).
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
 ms.author: diberry
-ms.openlocfilehash: b45f3c43e70502b2734696a66d2a497c2213d1b9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: ff7beff6682d594f9b9fc1901d396d29028ec989
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054853"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334706"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas Frequentes (FAQ) do Language Understanding 
 
@@ -78,11 +80,11 @@ Leia mais sobre [erros de importação de versão.](luis-how-to-manage-versions.
 
 ### <a name="how-do-i-give-collaborators-access-to-luis-with-azure-active-directory-azure-ad-or-role-based-access-control-rbac"></a>Como posso dar aos colaboradores acesso ao LUIS com Azure Ative Directory (Azure AD) ou controlo de acesso baseado em funções (RBAC)?
 
-Consulte [os recursos do Azure Ative Directory](luis-how-to-collaborate.md#azure-active-directory-resources) e o utilizador inquilino do [Azure Ative Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user) para aprender a dar acesso aos colaboradores.
+Consulte [os recursos do Azure Ative Directory](luis-how-to-collaborate.md#azure-active-directory-resources)  e o utilizador inquilino do [Azure Ative Directory](luis-how-to-collaborate.md#azure-active-directory-tenant-user) para aprender a dar acesso aos colaboradores.
 
 <a name="luis-endpoint"></a>
 
-## <a name="endpoint"></a>Ponto Final
+## <a name="endpoint"></a>Ponto final
 
 ### <a name="i-received-an-http-403-error-status-code-how-do-i-fix-it"></a>Recebi um código de estado de erro HTTP 403. Como posso corrigi-lo?
 
@@ -267,7 +269,7 @@ A primeira questão é isolar se a questão está relacionada com o LUIS ou acon
 #### <a name="resolve-issue-in-luis"></a>Resolver problema no LUIS
 Passe a mesma expressão para LUIS a partir do [ponto final do LUIS.](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) Se receber um erro, resolva o problema no LUIS até que o erro não seja mais devolvido. Os erros comuns incluem:
 
-* `Out of call volume quota. Quota will be replenished in <time>.`- Esta questão indica que tem de mudar de uma chave de autoria para uma [chave de ponto final](luis-how-to-azure-subscription.md) ou precisa de alterar os [níveis](luis-how-to-azure-subscription.md#change-pricing-tier)de serviço .
+* `Out of call volume quota. Quota will be replenished in <time>.` - Esta questão indica que tem de mudar de uma chave de autoria para uma [chave de ponto final](luis-how-to-azure-subscription.md) ou precisa de alterar os [níveis](luis-how-to-azure-subscription.md#change-pricing-tier)de serviço .
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Resolver problema no Azure Bot Service
 
@@ -329,7 +331,7 @@ Vídeos:
 
 * [Como usar a Azure Conversational IA para escalar o seu negócio para a próxima geração](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o LUIS, consulte os seguintes recursos:
 * [Perguntas de Stack Overflow marcadas com LUIS](https://stackoverflow.com/questions/tagged/luis)

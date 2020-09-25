@@ -3,14 +3,14 @@ title: 'Quickstart: QnA Maker com APIs REST para Node.js'
 description: Este quickstart mostra como começar com as APIs DE REST do Criador QnA para Node.js. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas.  O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27, devx-track-javascript
+ms.custom: RESTCURL2020FEB27, devx-track-js
 ms.topic: how-to
-ms.openlocfilehash: a891e806c54d8d88eea1021c95923ffdc90c36f9
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 67c4711d74bdeb970a706eabf795e8f9bdcbbded
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266430"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324608"
 ---
 # <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Quickstart: QnA Maker REST APIs para Node.js
 
@@ -67,7 +67,7 @@ npm install requestretry request --save
 
 Estes snippets de código mostram-lhe como fazer o seguinte com as APIs DO QNA Maker REST para Node.js:
 
-* [Criar uma base de dados de conhecimento](#create-a-knowledge-base)
+* [Criar uma base de conhecimento](#create-a-knowledge-base)
 * [Substitua uma base de conhecimento](#replace-a-knowledge-base)
 * [Publicar uma base de dados de conhecimento](#publish-a-knowledge-base)
 * [Eliminar uma base de dados de conhecimento](#delete-a-knowledge-base)

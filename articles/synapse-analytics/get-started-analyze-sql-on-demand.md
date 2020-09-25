@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Começar a analisar dados com SQL on demand'
+title: 'Tutorial: Começar a analisar dados com servidores SQL'
 description: Neste tutorial, você vai aprender a analisar dados com SQL on demand usando dados localizados em bases de dados Spark.
 services: synapse-analytics
 author: saveenr
@@ -9,18 +9,18 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 93ebc1c5e89e54f4813f270b9f8b7b13f672fbe3
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 8d26a03a8b61850dc17bc4efff5f8ca12dfca191
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016117"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300229"
 ---
 # <a name="analyze-data-with-sql-on-demand"></a>Analisar dados com SQL a pedido
 
-Neste tutorial, você vai aprender a analisar dados com SQL on demand usando dados localizados em bases de dados Spark. 
+Neste tutorial, você vai aprender a analisar dados com SQL sem servidor usando um pool SQL on-demand usando dados localizados em bases de dados Spark. 
 
-## <a name="analyze-nyc-taxi-data-in-blob-storage--using-sql-on-demand"></a>Analise os dados do táxi da NYC no armazenamento de bolhas usando SQL on demand
+## <a name="analyze-nyc-taxi-data-in-blob-storage-using-sql-on-demand-pool"></a>Analise os dados do táxi nyc no armazenamento de blob usando o pool a pedido do SQL
 
 1. No centro de **dados** em **Linked**, clique à direita no **Azure Blob Storage > Sample Datasets > nyc_tlc_yellow** e selecione **SELECT TOP 100 linhas**
 1. Isto criará um novo script SQL com o seguinte código:

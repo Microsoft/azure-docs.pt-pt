@@ -3,13 +3,13 @@ title: Tutorial - Preparar imagem de recipiente para implantação
 description: Azure Container Instances tutorial parte 1 de 3 - Prepare uma aplicação em imagem de recipiente para implantação em Instâncias de Contentores Azure
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.custom: seodec18, mvc, devx-track-javascript
-ms.openlocfilehash: 3a73d68f99c7e2ec4c71e408abbdbc7eec7ee95d
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: seodec18, mvc, devx-track-js
+ms.openlocfilehash: 1eca34fb5da50b15f15322a3b534556bcd3bda09
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407171"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303119"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>Tutorial: Criar uma imagem de recipiente para implantação em Instâncias de Contentores Azure
 
@@ -116,7 +116,7 @@ Agora, navegue até `http://localhost:8080` no browser para confirmar que o cont
 
 ![Executar a aplicação localmente no browser][aci-tutorial-app-local]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma imagem de contentor que pode ser implementada no Azure Container Instances e verificou que é executada localmente. Até agora, fez o seguinte:
 

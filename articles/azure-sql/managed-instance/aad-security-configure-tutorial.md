@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 05103052308b6dbf1314348f7d45abc9cba79827
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 552b3f55632e817cc4669ce5da41b1e127c7d808
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84706448"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283875"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança em Azure SQL Caso gerido usando os principais servidores AD do Azure (logins)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -104,7 +104,7 @@ Consulte os seguintes artigos para exemplos de ligação à SQL Managed Instance
     GO
     ```
 
-    ![native-login.png](./media/aad-security-configure-tutorial/native-login.png)
+    ![Screenshot do separador Resultados no S M S Object Explorer mostrando o nome, principal_id, sid, tipo e type_desc do login recém-adicionado.](./media/aad-security-configure-tutorial/native-login.png)
 
 Para mais informações, consulte [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
@@ -153,13 +153,13 @@ Uma vez criado o principal do servidor AD (login) Azure, e fornecido com `sysadm
    - Diretório Ativo - Senha
    - Diretório Ativo - Integrado </br>
 
-     ![ssms-login-prompt.png](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
+     ![Screenshot do diálogo 'Connect to Server' em S S M S com Ative Directory - Universal com suporte MFA selecionado no dropdown de autenticação.](./media/aad-security-configure-tutorial/ssms-login-prompt.png)
 
      Para obter mais informações, consulte [a Autenticação Universal (suporte SSMS para autenticação multi-factor)](../database/authentication-mfa-ssms-overview.md).
 
 1. Selecione **Ative Directory - Universal com suporte MFA**. Isto traz uma janela de login de autenticação multi-factor. Inscreva-se com a sua senha AD Azure.
 
-    ![mfa-login-prompt.png](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
+    ![Screenshot da janela de login de autenticação multi-factor com o cursor no campo de senha de entrada.](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
 
 1. No SSMS **Object Explorer,** clique com o botão direito no servidor e escolha **Nova Consulta**.
 1. Na janela de consulta, utilize a seguinte sintaxe para criar um login para outra conta AD Azure:
@@ -222,7 +222,7 @@ A autorização para bases de dados individuais funciona da mesma forma em SQL M
 
 Agora que criámos uma base de dados chamada **MyMITestDB**, e um login que só tem permissões padrão, o próximo passo é criar um utilizador a partir desse login. De momento, o login pode ligar-se à instância gerida, e ver todas as bases de dados, mas não pode interagir com as bases de dados. Se iniciar sedições com a conta AD Azure que tem as permissões por defeito e tentar expandir a base de dados recém-criada, verá o seguinte erro:
 
-![ssms-db-not-accessible.png](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
+![Screenshot de uma mensagem de erro do S S M S Object Explorer que diz "A base de dados MyMITestDB não está acessível. (ObjectExplorer)".](./media/aad-security-configure-tutorial/ssms-db-not-accessible.png)
 
 Para obter mais informações sobre a concessão de permissões de base de dados, consulte ["Começar com permissões do motor de base de dados".](/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions)
 
@@ -326,7 +326,7 @@ Para que o utilizador veja os dados na base de dados, podemos fornecer [funçõe
 1. Crie uma nova ligação à instância gerida com o utilizador que foi adicionado à `db_datareader` função.
 1. Expanda a base de dados no **Object Explorer** para ver a tabela.
 
-    ![ssms-test-table.png](./media/aad-security-configure-tutorial/ssms-test-table.png)
+    ![Screenshot do Object Explorer em S M S mostrando a estrutura da pasta para tabelas no MyMITestDB. O dbo. A pasta TestTable é realçada.](./media/aad-security-configure-tutorial/ssms-test-table.png)
 
 1. Abra uma nova janela de consulta e execute a seguinte declaração SELECT:
 
@@ -337,7 +337,7 @@ Para que o utilizador veja os dados na base de dados, podemos fornecer [funçõe
 
     Consegue ver os dados da mesa? Devia ver as colunas a serem devolvidas.
 
-    ![ssms-test-table-query.png](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
+    ![Screenshot do separador Resultados no S M S Object Explorer mostrando os cabeçalhos da coluna de tabela AccountNum, City, Name e State.](./media/aad-security-configure-tutorial/ssms-test-table-query.png)
 
 ## <a name="impersonate-azure-ad-server-level-principals-logins"></a>Personificar os principais do nível do servidor AD do Azure (logins)
 
@@ -446,7 +446,7 @@ Consulte o artigo [de segurança SQL Managed Instance](sql-managed-instance-paas
 - [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
 - [Deteção de ameaças](threat-detection-configure.md)
 - [Máscara de dados dinâmica](/sql/relational-databases/security/dynamic-data-masking)
-- [Segurança ao Nível da Linha](/sql/relational-databases/security/row-level-security)
+- [Row-level security](/sql/relational-databases/security/row-level-security)
 - [Encriptação transparente de dados (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="sql-managed-instance-capabilities"></a>Capacidades de instância gerida sql

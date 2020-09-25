@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Começar a analisar dados com piscina SQL'
+title: 'Tutorial: Começar a analisar dados com piscinas SQL dedicadas'
 description: Neste tutorial, você usará os dados da amostra de táxi nyc para explorar as capacidades analíticas da piscina SQL.
 services: synapse-analytics
 author: saveenr
@@ -9,16 +9,16 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: b1060bcc8603cb7f7395a50056424b3d6c0ebe5a
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 3df0959003923a9a4ff2347330fd5a4f22e52245
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015505"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300127"
 ---
-# <a name="analyze-data-with-sql-pools"></a>Analisar dados com piscinas SQL
+# <a name="analyze-data-with-sql-dedicated-pools"></a>Analisar dados com piscinas dedicadas SQL
 
-O Azure Synapse Analytics fornece-lhe a capacidade de analisar dados com piscina SQL. Neste tutorial, você usará os dados da amostra de táxi nyc para explorar as capacidades analíticas da piscina SQL.
+O Azure Synapse Analytics fornece-lhe a capacidade de analisar dados com uma piscina DE SQL dedicada. Neste tutorial, você usará os dados do Táxi nyc para explorar as capacidades de uma piscina SQL desatada.
 
 ## <a name="load-the-nyc-taxi-data-into-sqldb1"></a>Carregue os dados do táxi de NYC em SQLDB1
 
@@ -71,7 +71,7 @@ O Azure Synapse Analytics fornece-lhe a capacidade de analisar dados com piscina
     ```
 1. Este guião levará cerca de 1 minuto para ser executado. Carrega 2 milhões de linhas de dados de táxi de NYC numa mesa chamada **DBO. Viagem**
 
-## <a name="explore-the-nyc-taxi-data-in-the-sql-pool"></a>Explore os dados do Táxi nyc na piscina SQL
+## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Explore os dados do Táxi nyc na piscina dedicada SQL
 
 1. No Estúdio Synapse, vá ao centro **de dados.**
 1. Vá às **tabelas SQLDB1**  >  **Tables**. Verá várias mesas carregadas.

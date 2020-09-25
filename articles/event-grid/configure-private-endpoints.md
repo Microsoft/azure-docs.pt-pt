@@ -4,12 +4,12 @@ description: Este artigo descreve como configurar pontos finais privados para t�
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fa67ba8dbe8106c0311bafec07a1510ca0c25c3f
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: e2e164d55f61f7a08e689aea106eac678b553c82
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88508843"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324149"
 ---
 # <a name="configure-private-endpoints-for-azure-event-grid-topics-or-domains"></a>Configurar pontos finais privados para tópicos ou domínios da Grelha de Eventos Azure
 Você pode usar [pontos finais privados](../private-link/private-endpoint-overview.md) para permitir ingresss de eventos diretamente da sua rede virtual para seus tópicos e domínios de forma segura através de um [link privado](../private-link/private-link-overview.md) sem passar pela internet pública. O ponto final privado utiliza um endereço IP a partir do espaço de endereço VNet para o seu tópico ou domínio. Para obter mais informações conceptuais, consulte [a segurança da rede.](network-security.md)
@@ -42,7 +42,7 @@ Esta secção mostra-lhe como usar o portal Azure para criar um ponto final priv
         3. Confirme que o **subresource do Target** está definido para **tópico** ou **domínio** (com base no tipo de recurso selecionado).    
         4. Selecione **Seguinte: Configuração >** botão na parte inferior da página. 
 
-            ![Ponto final privado - página de recursos](./media/configure-private-endpoints/resource-page.png)
+            ![Screenshot que mostra a página "Criar um ponto final privado - Recurso".](./media/configure-private-endpoints/resource-page.png)
     2. Se selecionar **Ligar a um recurso utilizando um ID de recurso ou um pseudónimo,** siga estes passos:
         1. Introduza a identificação do recurso. Por exemplo: `/subscriptions/<AZURE SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventGrid/topics/<EVENT GRID TOPIC NAME>`.  
         2. Para **recurso,** introduza **tópico** ou **domínio**. 
@@ -68,7 +68,7 @@ Quando criar um ponto final privado, a ligação tem de ser aprovada. Se o recur
 
 Existem quatro estados de provisionamento:
 
-| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Descrição |
+| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Description |
 |--|--|--|
 | Nenhum | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário de recursos link privado. |
 | Aprovar | Aprovado | A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada. |
@@ -108,7 +108,7 @@ Pode rejeitar um ponto final privado que esteja no estado pendente ou aprovado. 
 
 1. Selecione o **ponto final privado** que pretende rejeitar e selecione **Rejeitar** na barra de ferramentas.
 
-    ![Ponto final privado - rejeitar](./media/configure-private-endpoints/reject-button.png)
+    ![Screenshot que mostra as ligações "Networking - Private endpoint "(pré-visualização)" com "Rejeitar" selecionadas.](./media/configure-private-endpoints/reject-button.png)
 1. Na caixa de diálogo de **ligação Rejeitar,** introduza um comentário (opcional) e selecione **Sim**. 
 
     ![Ponto final privado - rejeitar](./media/configure-private-endpoints/reject.png)

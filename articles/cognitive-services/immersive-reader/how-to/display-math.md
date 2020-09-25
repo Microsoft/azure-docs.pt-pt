@@ -9,13 +9,13 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: nitinme
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 2bc178dcd473154f65d0b74d20e9f608c4061f9f
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.custom: devx-track-js
+ms.openlocfilehash: 75b748604e8faa502970ac71e3fec4fae2774c19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505323"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334519"
 ---
 # <a name="how-to-display-math-in-the-immersive-reader"></a>Como exibir matemática no Leitor Imersivo
 
@@ -72,6 +72,6 @@ Quando lançar o Leitor Imersivo, deve ver:
 
 ![Matemática em Leitor Imersivo](../media/how-tos/1-math.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Explore o [SDK do leitor imersivo](https://github.com/microsoft/immersive-reader-sdk) e a [referência SDK do leitor imersivo](../reference.md)

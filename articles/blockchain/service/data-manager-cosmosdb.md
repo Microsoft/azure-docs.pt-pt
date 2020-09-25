@@ -4,18 +4,18 @@ description: Use o Gestor de Dados blockchain para o Serviço Azure Blockchain p
 ms.date: 03/08/2020
 ms.topic: tutorial
 ms.reviewer: chroyal
-ms.openlocfilehash: 483a5246274f63549dfb2914361ede6aa001e02e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 69790787bc888448f2f40178bd12ee7058cc5892
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "79533186"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283463"
 ---
 # <a name="tutorial-use-blockchain-data-manager-to-send-data-to-azure-cosmos-db"></a>Tutorial: Use o Gestor de Dados blockchain para enviar dados para a Azure Cosmos DB
 
 Neste tutorial, você usa Blockchain Data Manager para O Serviço Azure Blockchain para gravar dados de transações blockchain em Azure Cosmos DB. O Blockchain Data Manager captura, transforma e entrega dados de contabilidade blockchain aos tópicos da grelha de eventos do Azure. A partir da Azure Event Grid, você usa um conector Azure Logic App para criar documentos numa base de dados DB Azure Cosmos. Quando terminar com tutorial, pode explorar dados de transações blockchain no Azure Cosmos DB Data Explorer.
 
-[![Detalhe de transação blockchain](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
+[![A screenshot mostra detalhes da transação blockchain.](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
 Neste tutorial:
 
@@ -271,7 +271,7 @@ Agora que ligou o seu Gestor de Dados blockchain ao Azure Cosmos DB, pode ver as
 
 1. Navegue pelas mensagens selecionando o ID do item e encontre a mensagem com o haxixe de transação correspondente.
 
-    [![Detalhe de transação blockchain](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
+    [![A screenshot mostra os detalhes da transação blockchain de um item selecionado.](./media/data-manager-cosmosdb/raw-msg.png)](./media/data-manager-cosmosdb/raw-msg.png#lightbox)
 
     A mensagem de transação bruta contém detalhes sobre a transação. No entanto, a informação da propriedade está encriptada.
 

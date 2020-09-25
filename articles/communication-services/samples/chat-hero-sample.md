@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 295c4bde64ad21a19d21fd48f2556114b26b202d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fe5fe29a66483934ae47f70512a310a4ae6bb1b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947395"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303250"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Começa com a amostra de herói de chat de grupo
 
@@ -30,7 +30,7 @@ A amostra de **chat hero do grupo** de serviços de comunicação Azure mostra c
 Neste quickstart da amostra, vamos aprender como a amostra funciona antes de passarmos a amostra na sua máquina local. Em seguida, enviaremos a amostra para Azure usando os seus próprios recursos dos Serviços de Comunicação Azure.
 
 > [!IMPORTANT]
-> [Faça o download da amostra do GitHub](https://github.com/Azure/Communication/tree/master/samples)
+> [Faça o download da amostra do GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
 
 ## <a name="overview"></a>Descrição geral
 
@@ -72,29 +72,24 @@ Abra o Visual Studio no chat.csproj e corra no modo Debug, isto iniciará o serv
 
 Pode testar a amostra localmente abrindo várias sessões de navegador com o URL do seu chat para simular um chat multiutilizador.
 
-### <a name="before-running-the-sample-for-the-first-time"></a>Antes de executar a amostra pela primeira vez
+## <a name="before-running-the-sample-for-the-first-time"></a>Antes de executar a amostra pela primeira vez
 
 1. Abra uma instância de PowerShell, Windows Terminal, Command Prompt ou equivalente e navegue para o diretório ao qual pretende clonar a amostra.
-2. `git clone`
-3. Vá à pasta **Chat/ClientApp** e corra `npm run setup`
-   1. Se vir um erro 1, olhe acima na saída para um URL onde terá de ir para autorizar o seu cliente. (URL será assim: `app.vssps.visualstudio.com/oauth2/authorize?clientid=...` ) Uma vez que visite o URL num browser, copie o comando da janela do navegador e execute-o.
-   2. Volte a executar o comando `npm run setup` assim que completar o passo anterior.
-4. Pegue o `Connection String` do portal Azure. Para obter mais informações sobre as cadeias de ligação, consulte [Criar um Azure Communication Resources](../quickstarts/create-communication-resource.md)
-5. Assim que tiver `Connection String` a , Adicione o fio de ligação ao **Chat/appsettings.jsno** ficheiro encontrado por baixo da pasta Chat. Insira a sua cadeia de ligação na variável: `ResourceConnectionString` .
+2. `git clone https://github.com/Azure/Communication.git`
+3. Pegue o `Connection String` do portal Azure. Para obter mais informações sobre as cadeias de ligação, consulte [Criar um Azure Communication Resources](../quickstarts/create-communication-resource.md)
+4. Assim que tiver `Connection String` a , Adicione o fio de ligação ao **Chat/appsettings.jsno** ficheiro encontrado por baixo da pasta Chat. Insira a sua cadeia de ligação na variável: `ResourceConnectionString` .
+5. Atualize a ENVIRONMENT_URL `./Chat/ClientApp/src/constants.tsx` com a localização do seu recurso. (por exemplo https://<RESOURCE_NAME>.communication.azure.com)
 
 ### <a name="local-run"></a>Execução local
 
-1. Vá à pasta Chat
-2. Abra a `Chat.csproj` solução no Estúdio Visual
-3. Executar o `Chat` projeto.*
-
-*O navegador será aberto na localidade:5000 (onde o nó está implantando a aplicação do cliente). A aplicação não é suportada no Internet Explorer.
+1. Vá à pasta Chat e abra a `Chat.csproj` solução no Visual Studio
+2. Executar o projeto. O navegador será aberto na localidade:5000.
 
 #### <a name="troubleshooting"></a>Resolução de problemas
 
 - A solução não constrói, lança erros durante a instalação/construção do NPM
 
-Limpar/reconstruir a solução C#
+   Limpar/reconstruir a solução C#
 
 ## <a name="publish-the-sample-to-azure"></a>Publique a amostra para Azure
 
@@ -106,7 +101,10 @@ Limpar/reconstruir a solução C#
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../quickstarts/create-communication-resource.md#clean-up-resources)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
+
+>[!div class="nextstepaction"] 
+>[Faça o download da amostra do GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)
 
 Para obter mais informações, veja os seguintes artigos:
 
@@ -115,7 +113,7 @@ Para obter mais informações, veja os seguintes artigos:
 
 ## <a name="additional-reading"></a>Leitura adicional
 
-- [Pré-visualização da comunicação Azure](https://github.com/Azure/communication-preview) - Para saber mais sobre o chat web sdk
+- [Azure Communication GitHub](https://github.com/Azure/communication) - Encontre mais exemplos e informações na página oficial do GitHub
 - [Redux](https://redux.js.org/) - Gestão do Estado do lado do cliente
 - [FluentUI](https://developer.microsoft.com/fluentui#/) - Biblioteca de UI alimentada pela Microsoft
 - [Reagir](https://reactjs.org/) - Biblioteca para construção de interfaces de utilizador

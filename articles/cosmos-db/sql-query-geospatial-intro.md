@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 25150722e2d42625731cb741be80b86645c857e0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: ee88b980c448bfbf581537aef4653fde5354623a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420095"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302936"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Dados de localização Geospatial e GeoJSON em Azure Cosmos DB
 
@@ -164,7 +164,7 @@ Um **MultiPolygon** é uma matriz de zero ou mais Polígonos. **Os MultiPolygons
 
 Uma vez que a forma da terra é irregular, as coordenadas de dados geoespaciais de geografia estão representadas em muitos sistemas de referência de coordenadas (SIR), cada um com os seus próprios quadros de referência e unidades de medição. Por exemplo, a "Rede Nacional da Grã-Bretanha" é um sistema de referência que é preciso para o Reino Unido, mas não fora dele.
 
-O CRS mais popular em uso hoje é o World Geodetic System [WGS-84](https://earth-info.nga.mil/GandG/update/index.php). Dispositivos GPS, e muitos serviços de mapeamento, incluindo Google Maps e Bing Maps APIs usam WGS-84. O Azure Cosmos DB suporta a indexação e consulta de dados geoespaciais de geografia utilizando apenas o CRS WGS-84.
+O CRS mais popular em uso hoje é o World Geodetic System  [WGS-84](https://earth-info.nga.mil/GandG/update/index.php). Dispositivos GPS, e muitos serviços de mapeamento, incluindo Google Maps e Bing Maps APIs usam WGS-84. O Azure Cosmos DB suporta a indexação e consulta de dados geoespaciais de geografia utilizando apenas o CRS WGS-84.
 
 ## <a name="creating-documents-with-spatial-data"></a>Criação de documentos com dados espaciais
 Quando cria documentos que contenham valores GeoJSON, são automaticamente indexados a um índice espacial de acordo com a política de indexação do recipiente. Se estiver a trabalhar com um Azure Cosmos DB SDK numa linguagem dinâmica como Python ou Node.js, deve criar um GeoJSON válido.
@@ -212,7 +212,7 @@ await container.CreateItemAsync( new UserProfile
 
 Se você não tem a informação de latitude e longitude, mas tem os endereços físicos ou nome de localização como cidade ou país/região, você pode procurar as coordenadas reais usando um serviço de geocoding como Bing Maps REST Services. Saiba mais sobre a geocodagem Bing Maps [aqui.](https://msdn.microsoft.com/library/ff701713.aspx)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a começar com o suporte geoespacial em Azure Cosmos DB, a seguir pode:
 

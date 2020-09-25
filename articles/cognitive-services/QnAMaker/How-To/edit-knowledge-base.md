@@ -3,12 +3,12 @@ title: Editar uma base de conhecimento - QnA Maker
 description: O QnA Maker permite-lhe gerir o conteúdo da sua base de conhecimentos proporcionando uma experiência de edição fácil de usar.
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: 52aaaf630806ed6c71101860a1286f88a23ec3fa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 34eec343defa4614881e23543f2099040b866997
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87054015"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324625"
 ---
 # <a name="edit-qna-pairs-in-your-knowledge-base"></a>Edite os pares QnA na sua base de conhecimentos
 
@@ -72,7 +72,7 @@ A edição de texto rico do seu texto de resposta dá-lhe um estilo de marcaçã
 
 
     > [!div class="mx-imgBorder"]
-    > ![Utilize o editor de texto rico adicionar uma imagem acessível ao público e o seu texto ALT.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
+    > ![A screenshot mostra o editor no local com o URL de imagem acessível ao público e texto alternativo para a imagem inserida.](../media/qnamaker-how-to-edit-kb/add-image-url-alternate-text.png)
 
 1. Adicione um link a um URL selecionando o texto na resposta, selecionando o ícone Link na barra de ferramentas ou selecionando o ícone Link na barra de ferramentas, introduzindo depois um novo texto e o URL.
 

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 1346fed738bb9afa595b63c91064a481e2ee2b51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8645e8c1f1f371f1416a998af41104ebb6867eea
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84045628"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334889"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gerir atualizações rolantes de aplicações em nuvem utilizando a geo-replicação ativa da SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -86,7 +86,7 @@ Para atingir estes objetivos, além de utilizar os ambientes de Aplicações Web
 * A base de dados primária na região primária (2)
 * Uma instância de espera da aplicação web na região de backup (3)
 * A base de dados secundária geo-replicada na região de backup (4)
-* Um perfil de desempenho do Traffic Manager com um ponto final on-line chamado `contoso-1.azurewebsites.net` e um ponto final offline chamado`contoso-dr.azurewebsites.net`
+* Um perfil de desempenho do Traffic Manager com um ponto final on-line chamado `contoso-1.azurewebsites.net` e um ponto final offline chamado `contoso-dr.azurewebsites.net`
 
 Para permitir a reversão da atualização, tem de criar um ambiente de preparação com uma cópia totalmente sincronizada da aplicação. Uma vez que é necessário garantir que a aplicação pode recuperar rapidamente no caso de ocorrer uma falha catastrófica durante o processo de atualização, o ambiente de preparação também deve ser geo-redundante. São necessários os seguintes passos para criar um ambiente de preparação para a atualização:
 
@@ -149,7 +149,7 @@ A principal compensação é que requer o dobro do despedimento de cada componen
 
 Os dois métodos de atualização descritos no artigo diferem em complexidade e custo do dólar, mas ambos se concentram em minimizar o tempo que o utilizador está limitado a operações apenas de leitura. Esse tempo é definido diretamente pela duração do script de atualização. Não depende do tamanho da base de dados, do nível de serviço que escolheu, da configuração do site ou de outros fatores que não pode controlar facilmente. Todos os passos de preparação são dissociados das etapas de upgrade e não impactam a aplicação de produção. A eficiência do script de upgrade é um fator chave que determina a experiência do utilizador durante as atualizações. Assim, a melhor maneira de melhorar essa experiência é concentrar os seus esforços em tornar o script de upgrade o mais eficiente possível.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma visão geral de continuidade do negócio e cenários, consulte [a visão geral da continuidade do Negócio.](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 * Para obter uma geo-replicação ativa da Base de Dados Azure SQL, consulte [criar bases de dados secundárias legíveis utilizando a geo-replicação ativa.](active-geo-replication-overview.md)

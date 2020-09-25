@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 06/22/2020
-ms.openlocfilehash: d405cfda3c72ce9c724a7d96925d3346428a3089
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: badeb850e8d0346347a994f053fb0f64fd01240a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660619"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283348"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance-using-an-arm-template"></a>Quickstart: Criar uma instância gerida Azure SQL usando um modelo ARM
 
@@ -91,7 +91,7 @@ Visite o [portal Azure](https://portal.azure.com/#blade/HubsExtension/BrowseReso
 - Para um arranque rápido que mostre como ligar-se a SQL Managed Instance a partir de uma máquina virtual Azure, consulte [configurar uma ligação virtual Azure](connect-vm-instance-configure.md).
 - Para obter um arranque rápido que mostre como ligar-se à SQL Managed Instance a partir de um computador cliente no local utilizando uma ligação ponto-a-local, consulte [configurar uma ligação ponto-a-local](point-to-site-p2s-configure.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Mantenha a instância gerida se quiser ir aos [próximos passos,](#next-steps)mas elimine a instância gerida e os recursos relacionados após completar quaisquer tutoriais adicionais. Depois de eliminar uma instância gerida, consulte [Eliminar uma sub-rede depois de eliminar uma instância gerida](virtual-cluster-delete.md).
 

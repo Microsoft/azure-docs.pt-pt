@@ -1,14 +1,16 @@
 ---
 title: Expressão de exemplo de entidade de etiqueta
 description: Aprenda a rotular uma entidade de aprendizagem automática com subentências numa expressão de exemplo numa página detalhada do portal LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: f576f42f46930d81212ff754a14ee30c75b79624
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: ffbaa2e40d5924ba61e548398e63295cf7dba2b0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610494"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303731"
 ---
 # <a name="label-machine-learning-entity-in-an-example-utterance"></a>Entidade de aprendizagem automática de etiquetas numa expressão de exemplo
 
@@ -53,7 +55,7 @@ A paleta de entidades oferece uma alternativa à experiência de rotulagem anter
 3. No exemplo, _pinte_ a entidade com o cursor.
 
     > [!div class="mx-imgBorder"]
-    > ![Paleta de entidade para entidade de aprendizagem automática](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
+    > ![A screenshot mostra a entidade pintada com o cursor.](media/label-utterances/example-1-label-machine-learned-entity-palette-label-action.png)
 
 ## <a name="adding-entity-as-a-feature-from-the-entity-palette"></a>Adicionar a entidade como recurso da Paleta de Entidade
 

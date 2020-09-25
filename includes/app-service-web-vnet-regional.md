@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: 926a1867a77b543057fa1de170cdb64ccfefe7cb
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 9259e3d3e41a5ba4986fbef48e745210f80e6093
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86218209"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255261"
 ---
 A utilização da Integração VNet regional permite que a sua aplicação aceda:
 
@@ -56,7 +56,7 @@ Um endereço é usado para cada instância de plano. Se escalar a sua aplicaçã
 
 Se quiser que as suas apps num outro plano cheguem a um VNet que já esteja ligado a apps noutro plano, selecione uma sub-rede diferente da que está a ser usada pela integração VNet pré-existente.
 
-A funcionalidade é totalmente suportada tanto para aplicações web Windows como Linux. Todos os comportamentos agem da mesma forma entre aplicações Windows e aplicações Linux.
+A funcionalidade é totalmente suportada tanto para aplicações Windows como Linux, incluindo [recipientes personalizados.](../articles/app-service/quickstart-custom-container.md) Todos os comportamentos agem da mesma forma entre aplicações Windows e aplicações Linux.
 
 ### <a name="service-endpoints"></a>Pontos finais de serviço
 

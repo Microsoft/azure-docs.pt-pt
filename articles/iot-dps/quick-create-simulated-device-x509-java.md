@@ -1,5 +1,5 @@
 ---
-title: Provisão simulada dispositivo X.509 para Azure IoT Hub usando Java
+title: Quickstart - Provisão simulada dispositivo X.509 para Azure IoT Hub usando Java
 description: Azure Quickstart - Criar e providenciar um dispositivo X.509 simulado utilizando o dispositivo Java SDK para o Serviço de Provisionamento de Dispositivos IoT Hub (DPS). Este quickstart utiliza inscrições individuais.
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: e36f026257563555013fa432a897f8458de22ab0
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 0198a32800f364f921a2b9f64048166c48a14f7e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532482"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323894"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-java-device-sdk-for-iot-hub-device-provisioning-service"></a>Quickstart: Criar e providenciar um dispositivo X.509 simulado utilizando o dispositivo Java SDK para serviço de provisionamento de dispositivos IoT Hub
 

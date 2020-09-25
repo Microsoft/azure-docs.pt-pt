@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 1d974badd715d7966f552603a77d77aab95d70f7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 68869d464df01d3cc89493c64d66511b4a6f369d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88549974"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300059"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-kemp-loadmaster-azure-ad-integration"></a>Tutorial: Integração SSO do Azure Ative Directory com integração de AD Kemp LoadMaster Azure
 
@@ -113,7 +113,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+   1. Clique em **Create** (Criar).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -139,7 +139,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ### <a name="create-a-virtual-service"></a>Criar um serviço virtual 
 
-1. Vá a Kemp LoadMaster Azure AD integração Load Master Web UI > Serviços Virtuais > Add New.
+1. Vá a Kemp LoadMaster Ad integração AD LoadMaster Web UI > Serviços Virtuais > Add New.
 
 1. Clique em Adicionar Novo.
 
@@ -197,11 +197,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ### <a name="ssl-acceleration"></a>Aceleração SSL
  
-1. Vá a Kemp Load Master Web UI > Serviços Virtuais > Serviços Virtuais.
+1. Vá a Kemp LoadMaster Web UI > Serviços Virtuais > Ver/Modificar Serviços.
 
 1. Clique em Modificar em Funcionamento.
 
-1. Em Propriedades para tcp/x.x.x.x.:443 (ID:6) - Operando na Camada 7, clique em SSL Properties.
+1. Clique em SSL Properties (que opera na Camada 7).
     
     ![Kemp LoadMaster Azure AD integração webserver](./media/kemp-tutorial/kemp-3.png)
     

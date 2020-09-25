@@ -9,14 +9,18 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.date: 08/27/2020
-ms.openlocfilehash: 78ec233e618511c748ed9f51b97161eddc5e8308
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: f5851174ba223bd0ab48512b9e75449dcc927a04
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707531"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300110"
 ---
-# <a name="create-a-synapse-workspace"></a>Criar uma área de trabalho do Synapse
+# <a name="prerequisites"></a>Pré-requisitos
+
+Para completar tudo isto, é necessário ter acesso a um grupo de recursos para o qual lhe é atribuída a função **De proprietário.** Crie o espaço de trabalho synapse neste grupo de recursos.
+
+## <a name="create-a-synapse-workspace"></a>Criar uma área de trabalho do Synapse
 
 Neste tutorial, você aprenderá a criar um espaço de trabalho Synapse, uma piscina SQL e uma piscina Apache Spark. 
 
@@ -66,7 +70,7 @@ Uma piscina SQL consome recursos faturados desde que esteja ativo. Pode fazer um
     |Definição | Valor sugerido | 
     |---|---|---|
     |**Nome da piscina Apache Spark**|**Faísca1**
-    |**Tamanho do nó**| **Small**|
+    |**Tamanho do nó**| **Pequeno**|
     |**Número de nós**| Definir o mínimo para 3 e o máximo para 3|
 
 1. Selecione **Rever + criar** > **Criar**. A tua piscina Apache Spark estará pronta em alguns segundos.

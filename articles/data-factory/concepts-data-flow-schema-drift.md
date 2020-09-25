@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 5b7fe9cf6c751bfb96dff8aa911172ae91a17653
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5edea4b3d3834d8f99159546c0279394ec3986f8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886633"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324353"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Deriva de Schema no fluxo de dados de mapeamento
 
@@ -60,7 +60,7 @@ Se a deriva de esquema estiver ativada, **certifique-se de** que o slider de map
 Quando o seu fluxo de dados tiver colunas à deriva, pode acessá-las nas suas transformações com os seguintes métodos:
 
 * Utilize as `byPosition` e `byName` expressões para fazer referência explícita a uma coluna pelo nome ou número de posição.
-* Adicione um padrão de coluna numa coluna derivada ou transformação agregada para corresponder a qualquer combinação de nome, fluxo, posição ou tipo
+* Adicione um padrão de coluna numa coluna derivada ou transformação agregada para corresponder a qualquer combinação de nome, fluxo, posição, origem ou tipo
 * Adicione mapeamento baseado em regras numa transformação select ou sink para combinar colunas derivadas com pseudónimos de colunas através de um padrão
 
 Para obter mais informações sobre como implementar padrões de colunas, consulte [os padrões da Coluna no fluxo de dados de mapeamento](concepts-data-flow-column-pattern.md).
@@ -75,5 +75,5 @@ Na transformação gerada da Coluna Derivada, cada coluna derivada é mapeada pa
 
 ![Mapa à deriva](media/data-flow/mapdrifted2.png "Mapa à deriva")
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Na Linguagem de Expressão de [Fluxo de Dados,](data-flow-expression-functions.md)encontrará instalações adicionais para padrões de colunas e deriva de esquema, incluindo "byName" e "byPosition".

@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Obtenha insights de imagem usando a REST API e Ruby - Bing Visual Search'
+title: 'Quickstart: Obtenha insights de imagem usando a API REST e Ruby - Pesquisa Visual Bing'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a enviar uma imagem para a API de Pesquisa Visual bing e obtenha informações sobre isso.
+description: Aprenda a fazer upload de uma imagem utilizando a API e a Ruby de Pesquisa Visual Bing e, em seguida, obtenha informações sobre a imagem.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,27 +10,27 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 20c5ef930af8cc279f63432e9e3a14a0767ca592
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: ba5d07017c0244c370a8dc6945a7958beb0f224f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83870370"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324574"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Quickstart: Obtenha insights de imagem usando a API de Pesquisa Visual Bing e Ruby
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Quickstart: Obtenha insights de imagem usando a API e a Ruby de Pesquisa Visual Bing
 
-Use este quickstart para fazer a sua primeira chamada para a API de pesquisa visual bing usando a linguagem de programação Ruby. Um pedido post envia uma imagem para o ponto final da API. Os resultados incluem URLs e informações descritivas sobre imagens semelhantes à imagem carregada.
+Utilize este quickstart para fazer a sua primeira chamada para a API de Pesquisa Visual Bing utilizando a linguagem de programação Ruby. Um pedido de CORREIO envia uma imagem para o ponto final da API. Os resultados incluem URLs e informações descritivas sobre imagens semelhantes à imagem carregada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Instale [ruby 2.4 ou mais tarde.](https://www.ruby-lang.org/en/downloads/)
-* Obtenha uma chave de assinatura.
+* Instale [o Rubi 2.4 ou posteriormente](https://www.ruby-lang.org/en/downloads/).
+* Pegue uma chave de assinatura.
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="project-and-required-modules"></a>Projeto e módulos necessários
 
-Crie um novo projeto Ruby no seu IDE ou editor. Importar, `net/http` e tratar do texto de `uri` `json` resultados da JSON. Importar a `base64` biblioteca, que codifica a cadeia de nomes de ficheiros. 
+Crie um novo projeto Ruby no seu IDE ou editor. Importar `net/http` , e lidar com o texto `uri` `json` JSON dos resultados. Importe a `base64` biblioteca, que codifica a cadeia de nomes de ficheiros. 
 
 ```ruby
 require 'net/https'
@@ -41,12 +41,12 @@ require 'base64'
 
 ## <a name="define-variables"></a>Definir variáveis
 
-O seguinte código declara a função principal e atribui as variáveis requeridas: 
+O seguinte código declara a função principal e atribui as variáveis necessárias: 
 
 1. Confirme que o ponto final está correto e substitua o valor `accessKey` por uma chave de subscrição válida da sua conta do Azure. 
-2. Para `batchNumber` , atribuir um GUID, que é necessário para os limites principais e de rasto dos dados DO POST. 
-3. Para `fileName` , atribuir o ficheiro de imagem para utilizar para o POST. 
-4. Utilize um bloco para testar uma chave de `if` subscrição válida.
+2. Para `batchNumber` , atribuir um GUID, que é necessário para os limites de liderança e fuga dos dados POST. 
+3. Para `fileName` , atribuir o ficheiro de imagem para usar para o POST. 
+4. Utilize um `if` bloco para testar uma chave de subscrição válida.
 
 ```ruby
 accessKey = "ACCESS-KEY"
@@ -65,7 +65,7 @@ end
 
 ## <a name="form-data-for-post-request"></a>Formulário dados para pedido de POST
 
-1. Encerre os dados de imagem ao POST, liderando e percorrendo os limites. As seguintes funções estabelecem os limites:
+1. Incluir os dados de imagem ao POST, conduzindo e percorrendo limites. As seguintes funções definem os limites:
 
    ```ruby
    def BuildFormDataStart(batNum, fileName)
@@ -78,7 +78,7 @@ end
    end
    ```
 
-2. Construa o ponto final URI e uma matriz para conter o corpo do POST. Utilize a função anterior para carregar o limite de arranque na matriz. Leia o ficheiro de imagem na matriz e, em seguida, leia o limite final na matriz.
+2. Construa o ponto final URI e uma matriz para conter o corpo POST. Utilize a função anterior para carregar o limite de arranque na matriz. Leia o ficheiro de imagem na matriz e, em seguida, leia o limite final na matriz.
 
    ```ruby
    uri = URI(uri + path)
@@ -96,7 +96,7 @@ end
 
 ## <a name="create-the-http-request"></a>Criar o pedido HTTP
 
-Desloque o `Ocp-Apim-Subscription-Key` cabeceamento. Crie o pedido e, em seguida, atribua o cabeçalho e o tipo de conteúdo. Junte-se ao corpo POST que criou anteriormente ao pedido.
+Coloque o `Ocp-Apim-Subscription-Key` cabeçalho. Crie o pedido e, em seguida, atribua o cabeçalho e o tipo de conteúdo. Junte-se ao órgão POST que criou anteriormente ao pedido.
 
 ```ruby
 header = {'Ocp-Apim-Subscription-Key': accessKey}
@@ -121,7 +121,7 @@ end
 
 ## <a name="print-the-results"></a>Imprimir os resultados
 
-Imprima os cabeçalhos da resposta e utilize a biblioteca JSON para formatar a saída:
+Imprima os cabeçalhos da resposta e use a biblioteca JSON para formatar a saída:
 
 ```ruby
 puts "\nRelevant Headers:\n\n"

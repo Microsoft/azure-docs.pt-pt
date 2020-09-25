@@ -1,14 +1,16 @@
 ---
 title: App de teste no portal LUIS
 description: Use a Compreensão linguística (LUIS) para trabalhar continuamente na sua aplicação para refiná-la e melhorar a sua compreensão linguística.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/02/2020
-ms.openlocfilehash: 574bacdb5e1f167c9c9174d4a119552391059004
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: b6fcc294c2b8c131d9a4a058c653ae1f64652ccf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84677746"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324863"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Teste a sua app LUIS no portal LUIS
 
@@ -119,7 +121,7 @@ Se tiver vários pontos finais LUIS, utilize o link **Definições Adicionais** 
 ## <a name="batch-testing"></a>Testes em lote
 Consulte [conceitos de](luis-concept-batch-test.md) teste de lote e [aprenda a](luis-how-to-batch-test.md) testar um lote de expressões.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se os testes indicarem que a sua aplicação LUIS não reconhece as intenções e entidades corretas, pode trabalhar para melhorar a precisão da sua app LUIS, rotulando mais expressões ou adicionando funcionalidades.
 

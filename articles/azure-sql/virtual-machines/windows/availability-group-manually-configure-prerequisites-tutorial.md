@@ -8,18 +8,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8e62d2d1955b5b323ad31cc5d45106210e3e22c6
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 278e5feb327c1376b7644050f414f680334d5c50
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651187"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263237"
 ---
 # <a name="prerequisites-for-creating-always-on-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Pré-requisitos para criar grupos de disponibilidade sempre em sql server em máquinas virtuais Azure
 
@@ -89,8 +89,8 @@ Para criar a rede virtual no portal Azure:
    | --- | --- |
    | **Nome** |autoHAVNET |
    | **Espaço de endereços** |10.33.0.0/24 |
-   | **Nome da sub-rede** |Admin |
-   | **Gama de endereços de sub-rede** |10.33.0.0/29 |
+   | **Nome da sub-rede** |Administrador |
+   | **Intervalo de endereços da sub-rede** |10.33.0.0/29 |
    | **Subscrição** |Especifique a subscrição que pretende utilizar. **A subscrição** está em branco se tiver apenas uma subscrição. |
    | **Grupo de recursos** |Escolha **Utilizar o nome existente** e escolher o nome do grupo de recursos. |
    | **Localização** |Especifique a localização do Azure. |
@@ -133,9 +133,9 @@ A tabela a seguir resume as definições de configuração da rede:
 | **Nome** |**autoHAVNET** |
 | **Espaço de endereços** |Este valor depende dos espaços de endereço disponíveis na sua subscrição. Um valor típico é 10.0.0.0/16. |
 | **Nome da sub-rede** |**admin** |
-| **Gama de endereços de sub-rede** |Este valor depende dos intervalos de endereços disponíveis na sua subscrição. Um valor típico é 10.0.0.0/24. |
+| **Intervalo de endereços da sub-rede** |Este valor depende dos intervalos de endereços disponíveis na sua subscrição. Um valor típico é 10.0.0.0/24. |
 | **Nome da sub-rede** |**sqlsubnet** |
-| **Gama de endereços de sub-rede** |Este valor depende dos intervalos de endereços disponíveis na sua subscrição. Um valor típico é 10.0.1.0/24. |
+| **Intervalo de endereços da sub-rede** |Este valor depende dos intervalos de endereços disponíveis na sua subscrição. Um valor típico é 10.0.1.0/24. |
 | **Subscrição** |Especifique a subscrição que pretende utilizar. |
 | **Grupo de Recursos** |**SQL-HA-RG** |
 | **Localização** |Especifique o mesmo local que escolheu para o grupo de recursos. |

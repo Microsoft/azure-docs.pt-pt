@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab
+ms.reviewer: sstein, bonova
 ms.date: 03/17/2020
-ms.openlocfilehash: 059828336288eeadc0567fed060db07e323f885c
-ms.sourcegitcommit: f1b18ade73082f12fa8f62f913255a7d3a7e42d6
+ms.openlocfilehash: 81d0731f6ea77325b3f33f91bf8d5d1386dab2fb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88761870"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283382"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitetura de conectividade do Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -43,7 +43,7 @@ Algumas operações iniciadas por utilizadores finais ou aplicações podem exig
 
 A SQL Managed Instance depende de serviços Azure como Azure Storage para backups, Azure Event Hubs para telemetria, Azure Ative Directory (Azure AD) para autenticação, Cofre de Chaves Azure para Encriptação de Dados Transparentes (TDE), e alguns serviços da plataforma Azure que fornecem funcionalidades de segurança e suporte. A SQL Managed Instance faz ligações a estes serviços.
 
-Todas as comunicações são encriptadas e assinadas através de certificados. Para verificar a fiabilidade das partes comunicantes, a SQL Managed Instance verifica constantemente estes certificados através de listas de revogação de certificados. Se os certificados forem revogados, a SQL Managed Instance fecha as ligações para proteger os dados.
+Todas as comunicações são encriptadas e assinadas com certificados. Para verificar a fiabilidade das partes comunicantes, a SQL Managed Instance verifica constantemente estes certificados através de listas de revogação de certificados. Se os certificados forem revogados, a SQL Managed Instance fecha as ligações para proteger os dados.
 
 ## <a name="high-level-connectivity-architecture"></a>Arquitetura de conectividade de alto nível
 
@@ -96,7 +96,7 @@ Os pontos finais de serviço poderiam ser usados para configurar regras de firew
 > [!IMPORTANT]
 > Devido às especificidades da configuração do plano de controlo, a configuração da sub-rede ajudada pelo serviço não permitiria pontos finais de serviço em nuvens nacionais. 
 
-### <a name="network-requirements"></a>Requisitos da rede
+### <a name="network-requirements"></a>Requisitos de rede
 
 Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual. A sub-rede deve ter estas características:
 
@@ -111,7 +111,7 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>Regras de segurança obrigatórias de entrada com configuração de sub-rede ajudada pelo serviço
 
-| Nome       |Porta                        |Protocolo|Origem           |Destino|Ação|
+| Name       |Porta                        |Protocolo|Origem           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |gestão  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |SUB-REDE MI  |Permitir |
 |            |9000, 9003                  |TCP     |Serra Corpnet       |SUB-REDE MI  |Permitir |
@@ -121,14 +121,14 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>Regras de segurança obrigatórias de saída com configuração de sub-rede ajudada pelo serviço
 
-| Nome       |Porta          |Protocolo|Origem           |Destino|Ação|
+| Name       |Porta          |Protocolo|Origem           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
 |gestão  |443, 12000    |TCP     |SUB-REDE MI        |AzureCloud |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |SUB-REDE MI        |SUB-REDE MI  |Permitir |
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>Rotas definidas pelo utilizador com configuração de sub-rede ajudada pelo serviço
 
-|Nome|Prefixo de endereço|Próximo salto|
+|Name|Prefixo de endereço|Próximo salto|
 |----|--------------|-------|
 |sub-rede-para-vnetlocal|SUB-REDE MI|Rede virtual|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
@@ -331,7 +331,7 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 ### <a name="mandatory-inbound-security-rules"></a>Regras de segurança obrigatórias de entrada
 
-| Nome       |Porta                        |Protocolo|Origem           |Destino|Ação|
+| Name       |Porta                        |Protocolo|Origem           |Destino|Ação|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |gestão  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |SUB-REDE MI  |Permitir |
 |mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE MI        |SUB-REDE MI  |Permitir |
@@ -339,7 +339,7 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 ### <a name="mandatory-outbound-security-rules"></a>Regras de segurança obrigatórias de saída
 
-| Nome       |Porta          |Protocolo|Origem           |Destino|Ação|
+| Name       |Porta          |Protocolo|Origem           |Destino|Ação|
 |------------|--------------|--------|-----------------|-----------|------|
 |gestão  |443, 12000    |TCP     |SUB-REDE MI        |AzureCloud |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |SUB-REDE MI        |SUB-REDE MI  |Permitir |
@@ -357,7 +357,7 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 ### <a name="user-defined-routes"></a>Rotas definidas pelo utilizador
 
-|Nome|Prefixo de endereço|Próximo salto|
+|Name|Prefixo de endereço|Próximo salto|
 |----|--------------|-------|
 |subnet_to_vnetlocal|SUB-REDE MI|Rede virtual|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|
