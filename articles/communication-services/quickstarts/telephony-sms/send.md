@@ -9,14 +9,14 @@ ms.author: mikben
 ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.custom: tracking-python, devx-track-javascript
+ms.custom: tracking-python, devx-track-js
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 53c00500c6dfe909c26c168bb20ca886a6f793c5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2c5d11a0c7f9963b3020cb45460ea8f74885565a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948353"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303332"
 ---
 # <a name="quickstart-send-an-sms-message"></a>Quickstart: Enviar uma mensagem SMS
 

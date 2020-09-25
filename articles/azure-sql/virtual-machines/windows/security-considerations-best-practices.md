@@ -8,18 +8,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: d710c296-e490-43e7-8ca9-8932586b71da
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 4421b30d672cc026a033febb34b8b31afa0ef3c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04634a6efb6c17a823532a29ec273b088a4ad843
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668813"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272400"
 ---
 # <a name="security-considerations-for-sql-server-on-azure-virtual-machines"></a>Considerações de segurança para o SQL Server em Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -106,7 +106,7 @@ Para obter mais informações sobre práticas de segurança no local, consulte [
 Para obter mais informações sobre a segurança da máquina virtual, consulte a visão geral de segurança das [máquinas virtuais.](/azure/security/fundamentals/virtual-machines-overview)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se também estiver interessado nas melhores práticas em torno do desempenho, consulte as [Melhores Práticas de Desempenho para SQL Server em Azure Virtual Machines](performance-guidelines-best-practices.md).
 

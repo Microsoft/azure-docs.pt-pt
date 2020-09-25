@@ -3,12 +3,12 @@ title: Configure firewall IP para tópicos ou domínios da Grelha de Eventos Azu
 description: Este artigo descreve como configurar as definições de firewall para tópicos ou domínios da Grade de Eventos.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: df6098df4817ee6c47378704c25d07433d6b9480
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: fd190a13a177b6b6d0f6b0dbcaa35d63dccd93c9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509423"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324166"
 ---
 # <a name="configure-ip-firewall-for-azure-event-grid-topics-or-domains"></a>Configure firewall IP para tópicos ou domínios da Grelha de Eventos Azure 
 Por predefinição, o tópico e o domínio estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Roteamento Inter-Domain Sem Classe).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) Os editores originários de qualquer outro endereço IP serão rejeitados e receberão uma resposta 403 (Proibida). Para obter mais informações sobre funcionalidades de segurança de rede suportadas pela Grade de Eventos, consulte [a segurança da rede de eventos](network-security.md).
@@ -23,7 +23,7 @@ Esta secção mostra-lhe como usar o portal Azure para criar regras de firewall 
 
     Pode restringir o tráfego utilizando regras de firewall baseadas em IP. Especifique um único endereço IPv4 ou uma gama de endereços IP na notação de encaminhamento inter-domínio (CIDR) sem classe. 
 
-    ![Página de redes públicas](./media/configure-firewall/public-networks-page.png)
+    ![Screenshot que mostra a página "Acesso à rede pública" com "redes públicas" selecionadas.](./media/configure-firewall/public-networks-page.png)
 3. Selecione **pontos finais privados apenas** para permitir que apenas ligações privadas de ponto final acedam a este recurso. Utilize o **separador de ligações de ponto final privado** nesta página para gerir as ligações. 
 
     ![Página de redes públicas](./media/configure-firewall/private-endpoints-page.png)

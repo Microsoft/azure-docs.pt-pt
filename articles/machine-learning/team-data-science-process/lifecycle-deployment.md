@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1138c95274c769186a9a29aa4d35517e378baeae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe5eba72b507ebea6bc1012c567de70bc3deb5ab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76720491"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261350"
 ---
 # <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Fase de implantação do ciclo de vida do processo de ciência de dados da equipa
 
@@ -50,7 +50,7 @@ Depois de ter um conjunto de modelos que funcionam bem, pode operacionalizá-los
    * Aplicações de linha de negócio 
    * Aplicações de back-end 
 
-Para exemplos de operacionalização de modelos com um serviço web Azure Machine Learning, consulte [implementar um serviço web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md). É uma boa prática construir telemetria e monitorização no modelo de produção e no pipeline de dados que implementa. Esta prática ajuda na subsequente comunicação do estado do sistema e na resolução de problemas.  
+Para exemplos de operacionalização de modelos com um serviço web Azure Machine Learning, consulte [implementar um serviço web Azure Machine Learning](../classic/deploy-a-machine-learning-web-service.md). É uma boa prática construir telemetria e monitorização no modelo de produção e no pipeline de dados que implementa. Esta prática ajuda na subsequente comunicação do estado do sistema e na resolução de problemas.  
 
 ## <a name="artifacts"></a>Artefactos
 
@@ -59,7 +59,7 @@ Para exemplos de operacionalização de modelos com um serviço web Azure Machin
 * Um documento de arquitetura de solução final
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aqui estão as ligações a cada passo no ciclo de vida do TDSP:
 

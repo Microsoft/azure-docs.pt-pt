@@ -1,6 +1,6 @@
 ---
-title: Dimensione e proteja rapidamente uma aplicação web usando Azure Front Door e Azure Web Application Firewall (WAF) Microsoft Docs
-description: Este tutorial irá guiá-lo como usar firewall de aplicação web com o seu serviço de porta frontal Azure
+title: Dimensione e proteja uma aplicação web usando Azure Front Door e WAF
+description: Este tutorial irá mostrar-lhe como utilizar o Azure Web Application Firewall com o serviço Azure Front Door.
 services: frontdoor
 documentationcenter: ''
 author: duongau
@@ -11,58 +11,60 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 1958481193b66c8cec2cb6a1ac6648a6900d70ac
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 2d531289a1d6e8c484b0334e570d943acdb82268
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531207"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276277"
 ---
-# <a name="tutorial-quickly-scale-and-protect-a-web-application-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Tutorial: Dimensione rapidamente e proteja uma aplicação web usando a Porta Frontal Azure e a Firewall de Aplicação Web Azure (WAF)
+# <a name="tutorial-quickly-scale-and-protect-a-web-application-by-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Tutorial: Dimensione rapidamente e proteja uma aplicação web utilizando a Porta Frontal Azure e a Firewall de Aplicação Web Azure (WAF)
 
-Muitas aplicações web têm experimentado um rápido aumento de tráfego nas últimas semanas relacionado com COVID-19. Além disso, estas aplicações web também estão a observar um aumento no tráfego malicioso, incluindo a negação de ataques de serviço. Uma forma eficaz de lidar com ambas as necessidades, reduzir para os picos de tráfego e proteger de ataques, é configurar a Porta Frontal Azure com a Azure WAF como uma camada de aceleração, caching e segurança em frente à sua aplicação web. Este artigo fornece orientações sobre como obter rapidamente esta Azure Front Door com configuração Azure WAF para quaisquer aplicações web em execução dentro ou fora de Azure. 
+Muitas aplicações web têm sofrido um rápido aumento de tráfego nas últimas semanas por causa do COVID-19. Estas aplicações web também estão a sofrer um aumento no tráfego malicioso, incluindo ataques de negação de serviço. Há uma maneira eficaz de escalar tanto para os picos de tráfego como para se proteger de ataques: configurar a Porta frontal Azure com a Azure WAF como uma camada de aceleração, caching e segurança em frente à sua aplicação web. Este artigo fornece orientações sobre como obter rapidamente Azure Front Door com Azure WAF configurado para qualquer aplicação web que seja executada dentro ou fora de Azure. 
 
-Vamos usar o Azure CLI para configurar o WAF neste tutorial, mas todos estes passos também são totalmente suportados no portal Azure PowerShell, Azure ARM e Azure REST APIs. 
+Vamos usar o CLI do Azure para montar o WAF neste tutorial. Pode realizar a mesma coisa utilizando o portal Azure PowerShell, Azure Resource Manager ou as APIs Azure REST. 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, irá aprender a:
 > [!div class="checklist"]
 > - Criar uma porta da frente.
 > - Crie uma política Azure WAF.
-> - Configure regras para a política da WAF.
-> - Associar a política da WAF com a Porta da Frente
-> - Configurar domínio personalizado
+> - Configurar as regras para uma política da WAF.
+> - Associe uma política da WAF à Porta da Frente.
+> - Configure um domínio personalizado.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As instruções neste blog utilizam a Interface da Linha de Comando Azure (CLI). Consulte este guia para [começar com o Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+- As instruções deste tutorial utilizam o Azure CLI. [Veja este guia](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) para começar com o Azure CLI.
 
-*Dica: uma maneira fácil & rápida de começar no Azure CLI é com [Bash in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart)*
+  > [!TIP] 
+  > Uma maneira fácil e rápida de começar no Azure CLI é com [Bash in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
 
-Certifique-se de que a extensão da porta da frente é adicionada ao seu Azure CLI
+- Certifique-se de que a `front-door` extensão é adicionada ao Azure CLI:
 
-```azurecli-interactive 
-az extension add --name front-door
-```
+   ```azurecli-interactive 
+   az extension add --name front-door
+   ```
 
-Nota: Para mais detalhes sobre os comandos listados abaixo, consulte a [referência Azure CLI para porta frontal](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest).
+> [!NOTE] 
+> Para obter mais informações sobre os comandos utilizados neste tutorial, consulte [a referência Azure CLI para porta frontal.](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest)
 
-## <a name="create-an-azure-front-door-afd-resource"></a>Criar um recurso Azure Front Door (AFD)
+## <a name="create-an-azure-front-door-resource"></a>Criar um recurso Azure Front Door
 
 ```azurecli-interactive 
 az network front-door create --backend-address <>  --accepted-protocols <> --name <> --resource-group <>
 ```
 
-**--backend-address**: O endereço de backend é o nome de domínio totalmente qualificado (FQDN) da aplicação que pretende proteger. Por exemplo, myapplication.contoso.com
+`--backend-address`: O nome de domínio totalmente qualificado (FQDN) da aplicação que pretende proteger. Por exemplo, `myapplication.contoso.com`.
 
-**--protocolos aceites**: Os protocolos aceites especificam todos os protocolos que pretende que a AFD suporte para a sua aplicação web. Um exemplo seria -protocolos aceites Http Https.
+`--accepted-protocols`: Especifica os protocolos que pretende que a Porta Frontal Azure suporte para a sua aplicação web. Por exemplo, `--accepted-protocols Http Https`.
 
-**--nome**: Especificar um nome para o seu recurso AFD
+`--name`: O nome do seu recurso Azure Front Door.
 
-**--grupo de recursos**: O grupo de recursos em que pretende colocar este recurso AFD.  Para saber mais sobre grupos de recursos, visite gerir grupos de recursos em Azure
+`--resource-group`: O grupo de recursos em que pretende colocar este recurso Azure Front Door. Para saber mais sobre grupos de recursos, consulte [Gerir grupos de recursos em Azure.](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal)
 
-Na resposta que obtém da execução com sucesso deste comando, procure a chave "HostName" e note o seu valor a ser usado num passo posterior. O nome anfitrião é o nome DNS do recurso AFD que criou
+Na resposta que obtém quando dirige este comando, procure a `hostName` chave. Vai precisar deste valor num passo posterior. É `hostName` o nome DNS do recurso Azure Front Door que criou.
 
 ## <a name="create-an-azure-waf-profile-to-use-with-azure-front-door-resources"></a>Crie um perfil Azure WAF para usar com recursos da Porta Frontal Azure
 
@@ -70,85 +72,92 @@ Na resposta que obtém da execução com sucesso deste comando, procure a chave 
 az network front-door waf-policy create --name <>  --resource-group <>  --disabled false --mode Prevention
 ```
 
---nome Especifique um nome para a sua política Azure WAF
+`--name`: O nome da nova política da Azure WAF.
 
--- grupo de recursos O grupo de recursos em que pretende colocar este recurso WAF. 
+`--resource-group`: O grupo de recursos em que pretende colocar este recurso WAF. 
 
-O código CLI acima irá criar uma política waf que está ativada e está no modo prevenção. 
+O código CLI anterior criará uma política waf que está ativada e que está em modo de prevenção. 
 
-Nota: pode também querer criar o MODO DE DETEÇÃO e observar como está a detetar & registar pedidos maliciosos (e não bloquear) antes de decidir mudar para o modo De Proteção.
+> [!NOTE] 
+> É melhor criar a política DAA no modo de deteção e observar como deteta e regista pedidos maliciosos (sem os bloquear) antes de decidir utilizar o modo de proteção.
 
-Na resposta que obtém da execução com sucesso deste comando, procure a chave "ID" e note o seu valor a ser usado num passo posterior. O campo de ID deve estar no formato
+Na resposta que obtém quando dirige este comando, procure a `ID` chave. Vai precisar deste valor num passo posterior. 
+
+O `ID` campo deve estar neste formato:
 
 /subscrições/**subscrição id**/grupos de recursos/**nome do grupo de recursos**/fornecedores/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/ WAF policy**name**
 
-## <a name="add-managed-rulesets-to-this-waf-policy"></a>Adicione regras geridas a esta política da WAF
+## <a name="add-managed-rule-sets-to-the-waf-policy"></a>Adicione conjuntos de regras geridos à política da WAF
 
-Numa política da WAF, pode adicionar regras geridas que são um conjunto de regras construídas e geridas pela Microsoft e que cedem da proteção da caixa contra classes inteiras de ameaças. Neste exemplo, estamos a adicionar duas regras (1) Regras padrão que protegem contra ameaças comuns da web e (2) regras de proteção bot, que protege contra bots maliciosos
+Pode adicionar conjuntos de regras geridos a uma política da WAF. Um conjunto de regras geridas é um conjunto de regras construídas e geridas pela Microsoft que ajudam a protegê-lo contra uma classe de ameaças. Neste exemplo, estamos a adicionar dois conjuntos de regras:
+- O conjunto de regras padrão, que ajuda a protegê-lo contra ameaças comuns da web. 
+- O conjunto de regras de proteção de bots, que ajuda a protegê-lo contra bots maliciosos.
 
-(1) Adicionar o pressuposto predefinido
+Adicione o conjunto de regras predefinidos:
 
-```azurecli-interactive 
-az network front-door waf-policy managed-rules add --policy-name <> --resource-group <> --type DefaultRuleSet --version 1.0
-```
+   ```azurecli-interactive 
+   az network front-door waf-policy managed-rules add --policy-name <> --resource-group <> --type DefaultRuleSet --version 1.0
+   ```
 
-(2) Adicione o bot manager ruleset
+Adicione o conjunto de regras de proteção do bot:
 
-```azurecli-interactive 
-az network front-door waf-policy managed-rules add --policy-name <> --resource-group <> --type Microsoft_BotManagerRuleSet --version 1.0
-```
+   ```azurecli-interactive 
+   az network front-door waf-policy managed-rules add --policy-name <> --resource-group <> --type Microsoft_BotManagerRuleSet --version 1.0
+   ```
 
---nome de política O nome que deu para o seu recurso Azure WAF
+`--policy-name`: O nome especificado para o seu recurso Azure WAF.
 
--- grupo de recursos O grupo de recursos em que colocou este recurso WAF.
+`--resource-group`: O grupo de recursos em que colocou o recurso WAF.
 
-## <a name="associate-the-waf-policy-with-the-afd-resource"></a>Associar a política da WAF com o recurso AFD
+## <a name="associate-the-waf-policy-with-the-azure-front-door-resource"></a>Associe a política da WAF ao recurso Azure Front Door
 
-Neste passo, vamos associar a política da WAF que construímos com o recurso AFD que está em frente à sua aplicação web.
+Neste passo, associaremos a política da WAF que criámos com o recurso Azure Front Door que está em frente à sua aplicação web:
 
 ```azurecli-interactive 
 az network front-door update --name <> --resource-group <> --set frontendEndpoints[0].webApplicationFirewallPolicyLink='{"id":"<>"}'
 ```
 
---nome O nome que especificou para o seu recurso AFD
+`--name`: O nome especificado para o seu recurso Azure Front Door.
 
--- grupo de recursos O grupo de recursos em que colocou o recurso Azure Front Door.
+`--resource-group`: O grupo de recursos em que colocou o recurso Azure Front Door.
 
---definir Este é o ponto em que atualiza o atributo WebApplicationFirewallPolicyLink para o frontendEndpoint associado ao seu recurso AFD com a nova política WAF. A ID da política da WAF pode ser encontrada a partir da resposta que obteve desde o passo #2 acima
+`--set`: É aqui que atualiza o atributo para o recurso `WebApplicationFirewallPolicyLink` `frontendEndpoint` Azure Front Door com a nova política WAF. Você deve ter o ID da política da WAF a partir da resposta que obteve quando criou o perfil WAF mais cedo neste tutorial.
 
-Nota: o exemplo acima é para o caso em que não está a usar um domínio personalizado, se estiver
+ > [!NOTE] 
+> O exemplo anterior é aplicável quando não está a utilizar um domínio personalizado. Se não estiver a utilizar quaisquer domínios personalizados para aceder às suas aplicações web, pode saltar a secção seguinte. Nesse caso, dará aos seus clientes o `hostName` que obteve quando criou o recurso Azure Front Door. Vão usar isto `hostName` para ir à tua aplicação web.
 
-Se não estiver a utilizar quaisquer domínios personalizados para aceder às suas aplicações web, pode saltar #5 passo. Nesse caso, irá fornecer aos seus utilizadores finais o nome de anfitrião que obteve em #1 para navegar para a sua aplicação web
+## <a name="configure-the-custom-domain-for-your-web-application"></a>Configure o domínio personalizado para a sua aplicação web
 
-## <a name="configure-custom-domain-for-your-web-application"></a>Configure o domínio personalizado para a sua aplicação web
+O nome de domínio personalizado da sua aplicação web é aquele que os clientes usam para se referir à sua aplicação. Por exemplo, www.contoso.com. Inicialmente, este nome de domínio personalizado apontava para o local onde estava a funcionar antes de introduzir a Porta frontal Azure. Depois de adicionar Azure Front Door e WAF para fazer frente à aplicação, a entrada DNS que corresponde a esse domínio personalizado deve apontar para o recurso Azure Front Door. Pode efeitá-la remapping a entrada no seu servidor DNS para a Porta frontal Azure `hostName` que notou quando criou o recurso Azure Front Door.
 
-Inicialmente, o nome de domínio personalizado da sua aplicação web (a que os clientes usam para se referir à sua aplicação, por exemplo, www.contoso.com) estava a apontar para o local onde o tinha a funcionar antes da introdução da AFD. Após esta mudança de arquitetura adicionando AFD+WAF para fazer frente à aplicação, a entrada DNS correspondente a esse domínio personalizado deve agora apontar para este recurso AFD. Isto pode ser feito remapping esta entrada no seu servidor DNS para o nome de anfitrião AFD que você tinha notado em passo #1.
+Os passos específicos para atualizar os seus registos DNS dependerão do seu prestador de serviços DNS. Se utilizar o Azure DNS para hospedar o seu nome DNS, pode consultar a documentação para [os passos para atualizar um registo DNS](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) e apontar para a Porta frontal do Azure `hostName` . 
 
-As etapas específicas para atualizar os seus registos DNS dependerão do seu prestador de serviços DNS, mas se estiver a utilizar o Azure DNS para hospedar o seu nome DNS, pode consultar a documentação para [os passos atualizar um registo DNS](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) e apontar para o nome anfitrião do AFD. 
+Há uma coisa importante a notar se precisa que os seus clientes entrem no seu website usando o ápice da zona (por exemplo, contoso.com). Neste caso, tem de utilizar o Azure DNS e o [seu tipo de gravação de pseudónimo para](https://docs.microsoft.com/azure/dns/dns-alias) hospedar o seu nome DNS. 
 
-Uma coisa importante a notar aqui é que, se você precisa que os seus utilizadores naveguem para o seu website usando o ápice da zona, por exemplo, contoso.com, você tem que usar Azure DNS e é [tipo de gravação ALIAS](https://docs.microsoft.com/azure/dns/dns-alias) para hospedar o seu nome DNS. 
+Também precisa de atualizar a configuração da porta frontal Azure para [adicionar o domínio personalizado](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) ao mesmo para que esteja ciente deste mapeamento.
 
-Além disso, também precisa atualizar a sua configuração AFD para [adicionar este domínio personalizado](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) ao mesmo para que a AFD compreenda este mapeamento.
-
-Finalmente, se estiver a utilizar um domínio personalizado para chegar à sua aplicação web e pretender ativar o protocolo HTTPS, precisa de ter os certificados para a [configuração de domínio personalizado em AFD](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https). 
+Finalmente, se estiver a utilizar um domínio personalizado para chegar à sua aplicação web e pretender ativar o protocolo HTTPS, tem de [configurar os certificados para o seu domínio personalizado na Porta frontal Azure.](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https) 
 
 ## <a name="lock-down-your-web-application"></a>Bloqueie a sua aplicação web
 
-Uma das melhores práticas opcionais a seguir é garantir que apenas as bordas afD podem comunicar com a sua aplicação web. Esta ação garantirá que ninguém pode contornar as proteções AFD e aceder diretamente às suas aplicações. Você pode realizar este bloqueio visitando a [secção de FAQ da AFD](https://docs.microsoft.com/azure/frontdoor/front-door-faq) e referindo-se à questão sobre bloquear backends para acesso apenas por AFD.
+Recomendamos que garanta que apenas as bordas da Porta Frontal Azure podem comunicar com a sua aplicação web. Ao fazê-lo, ninguém poderá contornar a proteção da Porta Frontal Azure e aceder diretamente à sua aplicação. Para conseguir este bloqueio, como [posso bloquear o acesso ao meu backend para apenas Azure Front Door?](https://docs.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando já não precisar dos recursos neste tutorial, utilize o comando de eliminação do [grupo az](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) para remover a política do grupo de recursos, Porta frontal e WAF.
+Quando já não necessitar dos recursos utilizados neste tutorial, utilize o comando de eliminação do [grupo az](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) para remover o grupo de recursos, porta frontal e política da WAF:
 
 ```azurecli-interactive
   az group delete \
     --name <>
 ```
---nome O nome do grupo de recursos para todos os recursos implantados neste tutorial.
+`--name`: O nome do grupo de recursos para todos os recursos utilizados neste tutorial.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para aprender a resolver problemas na porta da frente, continue para os guias de como fazer.
+Para aprender a resolver problemas na porta da frente, consulte os guias de resolução de problemas:
 
 > [!div class="nextstepaction"]
 > [Resolução de problemas problemas comuns de encaminhamento](front-door-troubleshoot-routing.md)
+
+> [!div class="nextstepaction"]
+> [Autoridades de certificação permitidas](https://docs.microsoft.com/azure/frontdoor/front-door-troubleshoot-allowed-ca)

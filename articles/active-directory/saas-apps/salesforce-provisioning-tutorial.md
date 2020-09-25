@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configurar a Salesforce para o fornecimento automático de utilizadores com o Azure Ative Directory Microsoft Docs'
-description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Salesforce.
+description: Aprenda os passos necessários para realizar na Salesforce e Azure AD para obter e desa provisionar automaticamente as contas de utilizadores da Azure AD à Salesforce.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: db94c868daecdd82bcf7749f17fc6fde86fac963
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: a77fa5702b8ab5728f387eae02cc97f997a406a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979778"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273301"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configure Salesforce para o fornecimento automático de utilizadores
 

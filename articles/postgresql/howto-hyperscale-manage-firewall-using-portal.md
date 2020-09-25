@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 9/11/2020
-ms.openlocfilehash: d369614357bd62dc13073f650fbe5ce358d6dc6e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dadd04497eae0e91bdf5ea3caad38beda35f7fa3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90884319"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275426"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Gerir regras de firewall para Azure Database for PostgreSQL - Hyperscale (Citus)
 As regras de firewall ao nível do servidor podem ser usadas para gerir o acesso a um nó coordenador de Hiperescala (Citus) a partir de um endereço IP especificado ou intervalo de endereços IP especificados.
@@ -49,7 +49,7 @@ Em alternativa, clicar **em +Adicionar 0.0.0.0 - 255.255.255.255** (à direita d
 
 ## <a name="connecting-from-azure"></a>Ligar a partir do Azure
 
-Existe uma maneira fácil de conceder acesso à base de dados Hyperscale a aplicações hospedadas no Azure (como uma aplicação Azure Web Apps, ou aquelas que estão a funcionar num VM Azure). Basta definir os **serviços e recursos do Allow Azure para aceder a esta** opção de grupo de servidor para **Sim** no portal a partir do painel de **networking** e bater **Save**.
+Existe uma maneira fácil de conceder acesso à base de dados Hyperscale (Citus) a aplicações hospedadas no Azure (como uma aplicação Azure Web Apps, ou aquelas que estão a funcionar num VM Azure). Basta definir os **serviços e recursos do Allow Azure para aceder a esta** opção de grupo de servidor para **Sim** no portal a partir do painel de **networking** e bater **Save**.
 
 > [!IMPORTANT]
 > Esta opção configura a firewall para permitir todas as ligações a partir do Azure, incluindo ligações de subscrições de outros clientes. Quando selecionar esta opção, certifique-se de que as suas permissões de início de sessão e de utilizador limitam o acesso apenas a utilizadores autorizados.

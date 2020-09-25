@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c100c1b65b2af1201dfc3b52a6d90b2ed26d454
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 2ecbebfc75cb8c77ebb99ad04b1f9e33b3c4ef64
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460819"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306468"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>O que é o Azure AD Identity Governance?
 
@@ -46,7 +46,7 @@ A Governação da Identidade ajuda as organizações a alcançar um equilíbrio 
 
 ![Ciclo de vida identitário](./media/identity-governance-overview/identity-lifecycle.png)
 
-Para muitas organizações, o ciclo de vida identitário dos colaboradores está ligado à representação desse utilizador num sistema HCM (gestão de capital humano).  O Azure AD Premium mantém automaticamente as identidades dos utilizadores para as pessoas representadas no Workday tanto no Ative Directory como no Azure Ative Directory, conforme descrito no [tutorial de fornecimento de entrada de trabalho.](../saas-apps/workday-inbound-tutorial.md)  O Azure AD Premium também inclui [o Microsoft Identity Manager,](/microsoft-identity-manager/)que pode importar registos de sistemas HCM no local, tais como SAP, Oracle eBusiness e Oracle PeopleSoft.
+Para muitas organizações, o ciclo de vida identitário dos colaboradores está ligado à representação desse utilizador num sistema HCM (gestão de capital humano).  O Azure AD Premium mantém automaticamente as identidades dos utilizadores para pessoas representadas no Workday e no SuccessFactors tanto no Ative Directory como no Azure Ative Directory, conforme descrito na aplicação de HR em [nuvem ao guia de planeamento de provisionamento de utilizadores do Azure Ative Directory.](../app-provisioning/plan-cloud-hr-provision.md)  O Azure AD Premium também inclui [o Microsoft Identity Manager,](/microsoft-identity-manager/)que pode importar registos de sistemas HCM no local, tais como SAP HCM, Oracle eBusiness e Oracle PeopleSoft.
 
 Cada vez mais, os cenários requerem colaboração com pessoas fora da sua organização. A colaboração [Azure AD B2B](/azure/active-directory/b2b/) permite-lhe partilhar de forma segura as aplicações e serviços da sua organização com utilizadores convidados e parceiros externos de qualquer organização, mantendo o controlo sobre os seus próprios dados corporativos.  [A gestão de direitos AD AD](entitlement-management-overview.md) permite-lhe selecionar quais os utilizadores da organização que podem solicitar acesso e ser adicionados como hóspedes B2B ao diretório da sua organização, e garante que estes hóspedes são removidos quando já não precisam de acesso.
 
@@ -69,6 +69,24 @@ Historicamente, o acesso privilegiado tem sido descrito por outros fornecedores 
 ![Ciclo de vida de acesso privilegiado](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
 [A Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) fornece controlos adicionais adaptados para garantir direitos de acesso a recursos, através de Azure AD, Azure e outros Serviços Online da Microsoft.  O acesso just-in-time e as capacidades de alerta de mudança de função fornecidas pela Azure AD PIM, além da autenticação multi-factor e do Acesso Condicional, fornecem um conjunto abrangente de controlos de governação para ajudar a garantir os recursos da sua empresa (diretório, Microsoft 365 e funções de recursos Azure). Tal como acontece com outras formas de acesso, as organizações podem utilizar revisões de acesso para configurar a recertificação de acesso recorrente para todos os utilizadores em funções de administrador.
+
+## <a name="governance-capabilities-in-other-azure-ad-features"></a>Capacidades de governação em outras funcionalidades da AD Azure
+
+Além das funcionalidades acima enumeradas, as funcionalidades adicionais da AZURE AD frequentemente utilizadas para fornecer cenários de governação de identidade incluem:
+
+| Funcionalidade | Cenário |Funcionalidade
+| ------- | --------------------- |-----|
+|Ciclo de vida identitário (empregados)|Os administradores podem permitir o fornecimento de conta de utilizador a partir de Workday ou SuccessFactors cloud HR, ou no local HR.|[fornecimento de utilizadores de RH em nuvem para Azure AD](../app-provisioning/plan-cloud-hr-provision.md)|
+|Ciclo de vida identitário (convidados)|Os administradores podem permitir o acesso de um cliente de autosserviço a bordo de outro inquilino AD AZure, federação direta, Código de Uma Hora (OTP) ou contas do Google.  Os utilizadores convidados são automaticamente aprovisionados e desprovisionados sujeitos às políticas de ciclo de vida.|[Gestão de direitos](entitlement-management-overview.md) utilizando [B2B](../external-identities/what-is-b2b.md)|
+|Gestão de direitos|Os proprietários de recursos podem criar pacotes de acesso contendo apps, equipas, Ad AD e Microsoft 365 e sites SharePoint Online.|[Gestão de direitos](entitlement-management-overview.md)|
+|Pedidos de acesso|Os utilizadores finais podem solicitar a adesão ao grupo ou o acesso à aplicação. Os utilizadores finais, incluindo hóspedes de outras organizações, podem solicitar acesso a pacotes de acesso.|[Gestão de direitos](entitlement-management-overview.md)|
+|Fluxo de trabalho|Os proprietários de recursos podem definir os aprovadores e aprovadores de escalada para pedidos de acesso e aprovadores para pedidos de ativação de funções.  |[Gestão de direitos](entitlement-management-overview.md) e [PIM](../privileged-identity-management/pim-configure.md)|
+|Política e gestão de funções|A administração pode definir políticas de acesso condicional para acesso a prazo às aplicações.  Os proprietários de recursos podem definir políticas de acesso do utilizador através de pacotes de acesso.|[Políticas de acesso condicional](../conditional-access/overview.md) e [gestão de direitos](entitlement-management-overview.md)|
+|Certificação de acesso|Os administradores podem permitir a recertificação de acesso recorrente para: aplicações SaaS ou membros do grupo cloud, atribuições de funções AZure AD ou Azure Resource. Remova automaticamente o acesso a recursos, bloqueie o acesso ao hóspede e elimine as contas dos hóspedes.|[Comentários de acesso](access-reviews-overview.md), também surgiram em [PIM](../privileged-identity-management/pim-how-to-start-security-review.md)|
+|Cumprimento e provisionamento|Provisão automática e desprovisionamento em aplicações conectadas a Azure AD, incluindo via SCIM e em sites SharePoint Online. |[fornecimento de utilizadores](../app-provisioning/user-provisioning.md)|
+|Reportagem e análise|Os administradores podem recuperar registos de auditoria de fornecimentos recentes de utilizadores e assinar em atividade. Integração com o Azure Monitor e "quem tem acesso" através de pacotes de acesso.|Relatórios e [monitorização](../reports-monitoring/overview-monitoring.md) [da AD Azure](../reports-monitoring/overview-reports.md)|
+|Acesso privilegiado|Acesso just-in-time e programado, alerta, fluxos de trabalho de aprovação para funções AD Azure (incluindo funções personalizadas) e funções de Recursos Azure.|[Azure AD PIM](../privileged-identity-management/pim-configure.md)|
+|Auditing (Auditoria)|Os administradores podem ser alertados para a criação de contas de administração.|[Alertas Azure AD PIM](../privileged-identity-management/pim-how-to-configure-security-alerts.md)|
 
 ## <a name="getting-started"></a>Introdução
 

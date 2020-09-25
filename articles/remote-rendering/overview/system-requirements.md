@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
-ms.openlocfilehash: 81480bea735017d3fc59e9c6cf126c2146a0c968
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 31fde0c7af652bc50eb5f06743c5dd5807a1762e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798470"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323730"
 ---
 # <a name="system-requirements"></a>Requisitos de sistema
 
@@ -63,6 +63,17 @@ Uma ligação de rede estável e de baixa latência é fundamental para uma boa 
 Consulte o capítulo dedicado para [os requisitos da rede.](../reference/network-requirements.md)
 
 Para resolver problemas de rede, consulte o [Guia de Resolução de Problemas](../resources/troubleshoot.md#unstable-holograms).
+
+### <a name="network-ports"></a>Portas de rede
+
+Certifique-se de que as suas firewalls (no dispositivo, no interior dos routers, etc.) não bloqueiem as seguintes portas:
+
+| Porta              | Protocolo | Permitir    | Description |
+|-------------------|----------|----------|-------------|
+| 50051             | TCP      | Saída | Ligação inicial (aperto de mão HTTP) |
+| 8266              | UDP      | Saída | Transferência de dados |
+| 5000, 5433, 8443  | TCP      | Saída | Requerido para [a ferramenta ArrInspector](../resources/tools/arr-inspector.md)|
+
 
 ## <a name="software"></a>Software
 

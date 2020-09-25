@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 09/01/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 50e9eb6d5024d83e841532ed64e84b477a261c9a
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 72d8cb0ef80210cca1dbf1d2726590c0cb8540e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320975"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261401"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Parceiro de mercado comercial e atribuição de uso do cliente
 
@@ -268,39 +268,7 @@ Quando implementa \<PARTNER> software, a Microsoft é capaz de identificar a ins
 
 ## <a name="get-support"></a>Obter suporte
 
-Existem dois canais de suporte dependendo das questões que está a enfrentar.
-
-Se encontrar algum problema no Centro de Parceiros, como ver o relatório de atribuição de uso do cliente ou iniciar sessão, crie um pedido de apoio com a equipa de apoio do Centro de Parceiros aqui: [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
-
-![Screenshot da página de suporte get](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
-
-Se necessitar de assistência para o Marketplace Onboarding e/ou atribuição de utilização do cliente em geral, como como configurar a atribuição de utilização do cliente, siga os passos abaixo:
-
-1. Vá à [página de suporte.](https://go.microsoft.com/fwlink/?linkid=844975)
-
-1. No **tipo Problema**, selecione Marketplace **Onboarding**.
-
-1. Escolha a **categoria** para o seu problema:
-
-   - Para questões de associação de utilização, selecione **Outros**.
-   - Para problemas de acesso com o Azure Marketplace, selecione **Access Problem**.
-
-     ![Escolha a categoria de emissão](media/marketplace-publishers-guide/lu-article-incident.png)
-
-1. Selecione **Pedido de Início**.
-
-1. Na página seguinte, insira os valores necessários. **Selecione Continuar**.
-
-1. Na página seguinte, insira os valores necessários.
-
-   > [!IMPORTANT]
-   > Na caixa **de título incidente,** insira o **rastreio de utilização ISV.** Descreva o seu problema em detalhe.
-
-   ![Insira o rastreio de utilização ISV para o título do incidente](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
-
-1. Preencha o formulário e, em seguida, **selecione Enviar por isso**.
-
-Também pode receber orientação técnica de um Consultor Técnico de Parceiros da Microsoft para cenários técnicos de pré-venda, implementação e desenvolvimento de aplicações para compreender e incorporar a atribuição de uso do cliente.
+Conheça as opções de suporte no mercado comercial [no Support for the commercial marketplace program in Partner Center.](./partner-center-portal/support.md)
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>Como apresentar um pedido de consulta técnica
 

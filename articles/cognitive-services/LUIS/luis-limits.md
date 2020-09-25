@@ -1,14 +1,16 @@
 ---
 title: Limites - LUIS
 description: Este artigo contém os limites conhecidos da Azure Cognitive Services Language Understanding (LUIS). A LUIS tem várias áreas de limites. O limite de modelo controla as intenções, entidades e características no LUIS. Limites de quota baseados no tipo-chave. A combinação de teclado controla o website da LUIS.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 06/04/2020
-ms.openlocfilehash: 79a59408ec7d0cdfa4ded07e196a75a28143c20c
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 5ef681e335cf49a1759a096766b5ccd70545e60a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055346"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324710"
 ---
 # <a name="limits-for-your-luis-model-and-keys"></a>Limites para o seu modelo e chaves LUIS
 O LUIS tem várias áreas limite. O primeiro é o limite do [modelo](#model-limits), que controla intenções, entidades e características no LUIS. A segunda área são [os limites de quota baseados](#key-limits) no tipo-chave. Uma terceira área de limites é a [combinação](#keyboard-controls) de teclado para controlar o website da LUIS. Uma quarta área é a [região mundial de mapeamento](luis-reference-regions.md) entre o site de autoria LUIS e as APIs [do ponto final](luis-glossary.md#endpoint) luis.
@@ -39,7 +41,7 @@ Se a sua aplicação exceder os limites do modelo LUIS, considere utilizar uma a
 | [Funções](luis-concept-roles.md)|300 papéis por aplicação. 10 funções por entidade|
 | [Expressão][utterances] | 500 caracteres<br><br>Se tiver texto mais longo do que este limite de caracteres, precisa segmentar a expressão antes da entrada para o LUIS e receberá respostas individuais de intenção por segmento. Há pausas óbvias com as qual se pode trabalhar, como marcas de pontuação e longas pausas no discurso.|
 | [Exemplos de expressão][utterances] | 15.000 por pedido - não há limite para o número de declarações por intenção<br><br>Se precisar de treinar a aplicação com mais exemplos, utilize uma abordagem de modelo [de despacho.](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) Treina aplicações INDIVIDUAIS LUIS (conhecidas como aplicações infantis para a aplicação de despacho dos pais) com uma ou mais intenções e, em seguida, treina uma aplicação de despacho que amostra as expressões de cada app LUIS para direcionar o pedido de previsão para a aplicação correta para crianças. |
-| [Versões](luis-concept-version.md)| 100 versões por aplicação |
+| [Versions](luis-concept-version.md) (Versões)| 100 versões por aplicação |
 | [Nome da versão][luis-how-to-manage-versions] | 128 caracteres |
 
 *O caracteres padrão max é de 50 caracteres.
@@ -106,7 +108,7 @@ Utilize o _tipo_, `LUIS` quando filtrar recursos no portal Azure. O recurso de p
 
 ## <a name="keyboard-controls"></a>Controlos de teclado
 
-|Entrada de teclado | Descrição |
+|Entrada de teclado | Description |
 |--|--|
 |Controlo+E|muda entre tokens e entidades na lista de expressões|
 

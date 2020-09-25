@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 04/19/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb82eb2d8e23daec0ddb8856b713c1aa051f25c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e6460015430850c11fbf70a005d7440ce1b92fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355952"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306009"
 ---
 # <a name="troubleshooting-source-anchor-issues-during-installation"></a>Resolução de problemas Problemas de âncora de origem durante a instalação
 Este artigo explica as diferentes questões relacionadas com âncora de origem que podem ocorrer durante a instalação e oferece formas de resolver estes problemas.
@@ -27,16 +27,16 @@ Este artigo explica as diferentes questões relacionadas com âncora de origem q
 Durante a instalação personalizada, o Azure AD Connect lê a política de âncora de origem do Azure Ative Directory. Se a apólice existir no Azure Ative Directory, o Azure AD Connect aplica a mesma política a menos que seja ultrapassada pelo cliente. O assistente informa-o sobre qual atributo foi lido. Além disso, o assistente avisa se tentar anular a política de ancoragem de origem.
 
 Durante esta operação de leitura, é possível que a política de âncora de origem no Diretório Ativo Azure seja inesperada. Neste caso, o Azure AD Connect não sabe qual a âncora de origem a utilizar e precisa de sobreposição manual.</br>
-![inesperado](media/tshoot-connect-source-anchor/source1.png)
+![Screenshot que mostra onde anular manualmente a âncora de origem.](media/tshoot-connect-source-anchor/source1.png)
 
 Para resolver este problema, pode substituir manualmente a âncora de origem selecionando um atributo específico. Proceda com esta opção se e somente se tiver a certeza de qual atributo a selecionar. Se não tiver a certeza, contacte o [suporte da Microsoft](https://support.microsoft.com/contactus/) para obter orientação. Se alterar a política de âncora de origem, pode quebrar a associação entre os seus utilizadores no local e os seus recursos Azure associados.</br>
-![inesperado](media/tshoot-connect-source-anchor/source2.png)
+![Screenshot que mostra o atributo especificado que substitui a âncora de origem.](media/tshoot-connect-source-anchor/source2.png)
 
 ### <a name="express-installation"></a>Instalação Express
 Durante a instalação expressa, o Azure AD Connect lê a política de âncora de origem do Azure Ative Directory. Se a política existir no Azure Ative Directory, o Azure AD Connect aplica a mesma política. Não há opção para fazer sobreposição manual.
 
 Durante esta operação de leitura, é possível que a política de âncora de origem no Diretório Ativo Azure seja inesperada. Neste caso, o Azure AD Connect não sabe qual deve ser a âncora de origem.</br>
-![inesperado](media/tshoot-connect-source-anchor/source3.png)
+![Screenshot que mostra o que acontece quando a âncora de origem no Azure Ative Directory é inesperada.](media/tshoot-connect-source-anchor/source3.png)
 
 Para resolver este problema, é necessário reinstalar utilizando o modo personalizado e substituir manualmente a âncora de origem selecionando um atributo específico. Proceda com esta opção se e somente se tiver a certeza de qual atributo a selecionar. Se não tiver a certeza, contacte o [suporte da Microsoft](https://support.microsoft.com/contactus/) para obter orientação. Se alterar a política de âncora de origem, pode quebrar a associação entre os seus utilizadores no local e os seus recursos Azure associados.
 
@@ -45,5 +45,5 @@ Durante a instalação, é possível que o Azure AD Connect tente configurar o m
 ![inesperado](media/tshoot-connect-source-anchor/source4.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

@@ -8,13 +8,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.custom: mqtt, devx-track-javascript
-ms.openlocfilehash: c0aac897d85cd96d537238bc81cbc89d3626a07c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mqtt, devx-track-js
+ms.openlocfilehash: 21d0587b951d909f0091eccf9a7f86a484bc5051
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422764"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324047"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>Criar e testar um novo dispositivo simulado
 
@@ -31,9 +31,9 @@ No segundo cenário, a Contoso quer testar um novo dispositivo de lâmpada intel
 
 *Propriedades*
 
-| Nome                     | Valores                      |
+| Name                     | Valores                      |
 | ------------------------ | --------------------------- |
-| Cor                    | Branco, Vermelho, Azul            |
+| Color                    | Branco, Vermelho, Azul            |
 | Luminosidade               | 0 a 100                    |
 | Vida estimada | Contagem regressiva de 10.000 horas |
 
@@ -41,7 +41,7 @@ No segundo cenário, a Contoso quer testar um novo dispositivo de lâmpada intel
 
 A tabela seguinte mostra os dados que a lâmpada reporta à nuvem como um fluxo de dados:
 
-| Nome   | Valores      |
+| Name   | Valores      |
 | ------ | ----------- |
 | Estado | "on", "off" |
 | Temperatura | Graus F |
@@ -54,7 +54,7 @@ A tabela seguinte mostra os dados que a lâmpada reporta à nuvem como um fluxo 
 
 A tabela a seguir mostra as ações que o novo dispositivo suporta:
 
-| Nome        |
+| Name        |
 | ----------- |
 | Ligar   |
 | Desligar  |
@@ -63,9 +63,9 @@ A tabela a seguir mostra as ações que o novo dispositivo suporta:
 
 A tabela a seguir mostra o estado inicial do dispositivo:
 
-| Nome                     | Valores |
+| Name                     | Valores |
 | ------------------------ | -------|
-| Cor inicial            | Branca  |
+| Cor inicial            | Branco  |
 | Brilho inicial       | 75     |
 | Vida remanescente inicial   | 10,000 |
 | Estado inicial da telemetria | "on"   |
@@ -465,7 +465,7 @@ Para configurar o Carteiro:
 
 1. Clique **em "File > Import**". Em seguida, clique em **Escolher Ficheiros**.
 
-1. Navegue para a pasta **device-simulation-dotnet-master/docs/postman.** Selecione O acelerador de **solução de simulação de dispositivo Azure IoT.postman_collection** e o acelerador de **simulação de dispositivo Azure IoT.postman_environment** e clique **em Abrir**.
+1. Navegue para a pasta **device-simulation-dotnet-master/docs/postman.** Selecione **a solução de simulação de dispositivoS Azure IoT accelerator.postman_collection** e **solução de simulação de dispositivo Azure IoT accelerator.postman_environment** e clique em **Abrir**.
 
 1. Expanda o acelerador de **simulação de dispositivoS Azure IoT** para os pedidos que pode enviar.
 
@@ -499,7 +499,7 @@ Pode parar os dois microserviços de funcionamento local nas suas instâncias do
 
 Se já não necessitar das instâncias IoT Hub e Cosmos DB, elimine-as da sua assinatura Azure para evitar eventuais encargos desnecessários.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este guia mostrou-lhe como criar um tipo de dispositivo simulado personalizado e testá-los executando o microserviço de simulação do dispositivo localmente.
 

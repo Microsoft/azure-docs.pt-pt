@@ -1,17 +1,17 @@
 ---
 title: Nova autenticação para Arrays Virtuais StorSimple
-description: Explica como utilizar a autenticação baseada em AAD para o seu serviço, gerar nova chave de registo e realizar o registo manual dos dispositivos.
+description: Saiba mais sobre a autenticação AAD, a nova chave de registo de serviços associada e alterações às regras de firewall aplicáveis aos dispositivos StorSimple.
 author: alkohli
 ms.service: storsimple
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 89f367e866c1a794f4359c76b8b8a8a9cfefd50d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d750b3a85741bb4761b640848f01e5917760b5aa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76273812"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261095"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Utilize a nova autenticação para o seu StorSimple
 
@@ -84,6 +84,6 @@ Execute os seguintes passos para gerar uma chave de registo de serviço AAD.
 
     ![Confirmar regenerar](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key2.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre como implementar [o StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)

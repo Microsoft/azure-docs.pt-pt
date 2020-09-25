@@ -3,17 +3,17 @@ title: 'Inquilino Azure AD para ligações VPN utilizador: Autenticação AZURE 
 description: Pode utilizar a VPN do utilizador Azure Virtual WAN (ponto a local) para ligar ao seu VNet utilizando a autenticação AZure AD
 titleSuffix: Azure Virtual WAN
 services: virtual-wan
-author: kumudD
+author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: e88437dc03772348ebbe0d179afc7fd4ddd24bd9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f77d17881054440b01e30e738a8c38407c38b4a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507561"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306553"
 ---
 # <a name="prepare-azure-active-directory-tenant-for-user-vpn-openvpn-protocol-connections"></a>Prepare o inquilino do Diretório Ativo Azure para as ligações de protocolo openVPN do utilizador VPN
 
@@ -46,7 +46,7 @@ Use os passos [deste artigo](../active-directory/fundamentals/add-users-azure-ac
 
 2. Em seguida, conceder o consentimento administrativo para a sua organização, isto permite que a aplicação Azure VPN inscreva-se e leia os perfis do utilizador. Copie e cole o URL que diz respeito à sua localização de implantação na barra de endereço do seu navegador:
 
-    Públicos
+    Público
 
     ```
     https://login.microsoftonline.com/common/oauth2/authorize?client_id=41b23e61-6c1e-4545-b367-cd054e0ed4b4&response_type=code&redirect_uri=https://portal.azure.com&nonce=1234&prompt=admin_consent
@@ -82,6 +82,6 @@ Use os passos [deste artigo](../active-directory/fundamentals/add-users-azure-ac
 
     ![Azure VPN](./media/openvpn-create-azure-ad-tenant/azurevpn.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para se ligar às suas redes virtuais utilizando a autenticação Azure AD, tem de criar uma configuração VPN do Utilizador e associá-la a um Hub Virtual. Consulte [a autenticação AD configurada para a ligação ponto-a-local ao Azure](virtual-wan-point-to-site-azure-ad.md).

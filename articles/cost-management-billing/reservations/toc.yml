@@ -54,6 +54,7 @@
     - name: Dados de utilização de clientes Enterprise
       href: understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: Guias de procedimentos
+  expanded: true
   items:
     - name: Determinar o que comprar
       items:

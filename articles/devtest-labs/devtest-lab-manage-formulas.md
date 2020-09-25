@@ -3,12 +3,12 @@ title: Gerir fórmulas em Azure DevTest Labs para criar VMs Microsoft Docs
 description: Este artigo ilustra como criar uma fórmula a partir de uma base (imagem personalizada, imagem de marketplace ou outra fórmula) ou um VM existente.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0a254d306ad2417c500571df4b8f2d852d21e7ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f012a8c59a8e938334c3e1abc4c7b3ccd0e48d3e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480410"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308899"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gerir fórmulas Azure DevTest Labs
 
@@ -60,7 +60,7 @@ Os seguintes passos guiam-no através do processo de criação de uma fórmula a
     - **Data e hora de validade** - Não pode editar este campo. 
     - **Tornar esta máquina reclamada** - Fazer uma máquina "reivindicada" significa que não será atribuída a propriedade no momento da criação. Em vez disso, os utilizadores de laboratório poderão apropriar-se ("reivindicação") da máquina na página do laboratório.  
 
-        ![Página definições avançadas](./media/devtest-lab-create-formulas/advanced-settings.png)
+        ![Screenshot que mostra as Definições Avançadas para a página "Criar fórmula (base reutilizável)".](./media/devtest-lab-create-formulas/advanced-settings.png)
     - Se selecionou uma imagem da Galeria de Imagens Partilhada como base, também vê o campo da **versão de imagem** que lhe permite selecionar a versão da imagem a partir da galeria que pretende utilizar como base. 
 
         ![Página definições avançadas](./media/devtest-lab-create-formulas/advanced-settings-shared-image-gallery.png)
@@ -98,7 +98,7 @@ Para modificar uma fórmula, siga estes passos:
 3. Da lista de laboratórios, selecione o laboratório desejado.  
 4. Na página do laboratório, selecione **Fórmulas (bases reutilizáveis)**.
    
-    ![Menu de fórmula](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
+    ![Screenshot que mostra a página do laboratório com "Fórmulas (bases reutilizáveis)" selecionada.](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 5. Na página de **fórmulas lab,** selecione a fórmula que deseja modificar.
 6. Na página de **fórmula 'Actualizar',** faça as edições desejadas e selecione **Update**.
 
@@ -113,7 +113,7 @@ Para eliminar uma fórmula, siga estes passos:
     ![Menu de fórmula](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
 5. Na página de **fórmulas Lab,** selecione a elipse à direita da fórmula que pretende eliminar.
    
-    ![Menu de fórmula](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
+    ![Screenshot que mostra a página "Fórmulas de Laboratório" com a elipse para as opções de fórmula realçadas.](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
 6. No menu de contexto da fórmula, selecione **Delete**.
    
     ![Menu de contexto de fórmula](./media/devtest-lab-manage-formulas/formula-delete-context-menu.png)
@@ -124,6 +124,6 @@ Para eliminar uma fórmula, siga estes passos:
 ## <a name="related-blog-posts"></a>Publicações de blogs relacionadas
 * [Imagens ou fórmulas personalizadas?](devtest-lab-faq.md#what-is-the-difference-between-a-custom-image-and-a-formula)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Depois de ter criado uma fórmula para usar ao criar um VM, o próximo passo é [adicionar um VM ao seu laboratório.](devtest-lab-add-vm.md)
 

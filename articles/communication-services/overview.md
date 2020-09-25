@@ -1,5 +1,5 @@
 ---
-title: O que é a Azure Communication Services?
+title: O que é o Azure Communication Services?
 description: Saiba como a Azure Communication Services o ajuda a desenvolver experiências ricas de utilizadores com comunicações em tempo real.
 author: mikben
 manager: jken
@@ -8,18 +8,25 @@ ms.author: mikben
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a006ece278e4ec750040bde5bd4b7a6144c9e720
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1c79ffb02df4a64b2c506ef0863d9bb2da06db53
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948568"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303374"
 ---
-# <a name="what-is-azure-communication-services"></a>O que é a Azure Communication Services?
+# <a name="what-is-azure-communication-services"></a>O que é o Azure Communication Services?
 
 [!INCLUDE [Public Preview Notice](./includes/public-preview-include.md)]
 
 Os Serviços de Comunicação Azure permitem-lhe adicionar facilmente funcionalidades de voz multimédia, vídeo e telefonia nas suas aplicações. As bibliotecas de clientes dos Serviços de Comunicação também permitem adicionar funcionalidade de chat e SMS às suas soluções de comunicações.
+
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/49oshhgY6UQ]
+
+<br>
+<br>
 
 Pode utilizar os Serviços de Comunicação para comunicação de voz, vídeo, texto e dados em vários cenários:
 
@@ -36,7 +43,7 @@ Os seguintes recursos são um ótimo lugar para começar se você é novo nos Se
 
 | Recurso                               |Descrição                           |
 |---                                    |---                                   |
-|**[Criar um recurso de Serviços de Comunicação](./quickstarts/create-communication-resource.md)**|Pode começar a utilizar os Serviços de Comunicação Azure utilizando o portal Azure ou a biblioteca de clientes da Administração de Serviços de Comunicação para forragem do seu primeiro recurso de Serviços de Comunicação. Assim que tiver a sua cadeia de ligação de recursos de serviços de comunicação, pode providenciar os seus primeiros tokens de acesso ao utilizador.|
+|**[Criar um recurso do Communication Services](./quickstarts/create-communication-resource.md)**|Pode começar a utilizar os Serviços de Comunicação Azure utilizando o portal Azure ou a biblioteca de clientes da Administração de Serviços de Comunicação para forragem do seu primeiro recurso de Serviços de Comunicação. Assim que tiver a sua cadeia de ligação de recursos de serviços de comunicação, pode providenciar os seus primeiros tokens de acesso ao utilizador.|
 |**[Crie o seu primeiro token de acesso ao utilizador](./quickstarts/access-tokens.md)**|Os tokens de acesso ao utilizador são utilizados para autenticar os seus serviços contra o seu recurso Azure Communication Services. Estes tokens são a provisionados e reemitidos utilizando a biblioteca de clientes da Administração de Serviços de Comunicação.|
 |**[Obtenha um número de telefone](./quickstarts/telephony-sms/get-phone-number.md)**|Pode utilizar os Serviços de Comunicação Azure para providenciar e libertar números de telefone. Estes números de telefone podem ser usados para iniciar chamadas de saída e construir soluções de comunicações SMS.|
 |**[Envie um SMS da sua aplicação](./quickstarts/telephony-sms/send.md)**|A biblioteca de clientes Azure Communication Services permite-lhe enviar e receber mensagens SMS das suas aplicações .NET e JavaScript.|
@@ -49,7 +56,7 @@ Os seguintes recursos são um ótimo lugar para começar se você é novo nos Se
 As seguintes amostras demonstram a utilização de ponta a ponta das bibliotecas dos serviços de comunicação Azure. Sinta-se à vontade para usar estas amostras para arrancar as suas próprias soluções de Serviços de Comunicação.
 <br>
 
-| Nome da amostra                               | Descrição                           |
+| Nome da amostra                               | Description                           |
 |---                                    |---                                   |
 |**[O Grupo Chamando a Amostra de Herói](./samples/calling-hero-sample.md)**|Veja como as bibliotecas de clientes dos Serviços de Comunicação podem ser usadas para construir uma experiência de chamada em grupo.|
 |**[A amostra de herói de chat do grupo](./samples/chat-hero-sample.md)**|Veja como as bibliotecas de clientes dos Serviços de Comunicação podem ser usadas para construir uma experiência de chat em grupo.|
@@ -61,10 +68,10 @@ Os seguintes recursos irão ajudá-lo a conhecer as bibliotecas de clientes dos 
 
 | Recurso                               | Descrição                           |
 |---                                    |---                                   |
-|**[Bibliotecas de clientes e APIs REST](./concepts/sdk-options.md)**|As capacidades dos Serviços de Comunicação Azure estão conceptualmente organizadas em seis áreas, cada uma representada por uma biblioteca de clientes. Pode decidir quais as bibliotecas de clientes a utilizar com base nas suas necessidades de comunicação em tempo real.|
-|**[Chamando a biblioteca de clientes visão geral](./concepts/voice-video-calling/calling-sdk-features.md)**|Reveja os serviços de comunicação Ligando a biblioteca de clientes.|
-|**[Visão geral da biblioteca do cliente do chat](./concepts/chat/sdk-features.md)**|Reveja a visão geral da biblioteca de clientes de Comunicação Chat.|
-|**[Visão geral da biblioteca do cliente POR SMS](./concepts/telephony-sms/sdk-features.md)**|Reveja a visão geral da biblioteca de clientes de serviços de comunicação.|
+|**[Bibliotecas de cliente e APIs REST](./concepts/sdk-options.md)**|As capacidades dos Serviços de Comunicação Azure estão conceptualmente organizadas em seis áreas, cada uma representada por uma biblioteca de clientes. Pode decidir quais as bibliotecas de clientes a utilizar com base nas suas necessidades de comunicação em tempo real.|
+|**[Descrição geral da biblioteca de cliente de chamadas](./concepts/voice-video-calling/calling-sdk-features.md)**|Reveja os serviços de comunicação Ligando a biblioteca de clientes.|
+|**[Descrição geral da biblioteca de cliente de chat](./concepts/chat/sdk-features.md)**|Reveja a visão geral da biblioteca de clientes de Comunicação Chat.|
+|**[Descrição geral da biblioteca de cliente de SMS](./concepts/telephony-sms/sdk-features.md)**|Reveja a visão geral da biblioteca de clientes de serviços de comunicação.|
 
 ## <a name="compare-azure-communication-services"></a>Comparar serviços de comunicação da Azure
 
@@ -77,4 +84,4 @@ Existem outros dois produtos de comunicação da Microsoft que pode considerar a
 
 ## <a name="next-steps"></a>Passos Seguintes
 
- - [Criar um recurso de Serviços de Comunicação](./quickstarts/create-communication-resource.md)
+ - [Criar um recurso do Communication Services](./quickstarts/create-communication-resource.md)

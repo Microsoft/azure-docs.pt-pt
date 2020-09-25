@@ -7,18 +7,18 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 5d1d74f1240f919bb20d8893755a86abc19fa828
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: cf1fdd3feff76454f0e801d7bd53c63702000014
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533806"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271992"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registar várias máquinas virtuais SQL em Azure com o fornecedor de recursos SQL VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -215,7 +215,7 @@ O relatório é gerado como um `.txt` ficheiro chamado onde a hora da hora é a 
 | Número de VMs ignorados por não estarem a executar o SQL Server no Windows | Contagem de máquinas virtuais que foram ignoradas por não estarem a executar o SQL Server ou não serem uma máquina virtual do Windows. As máquinas virtuais estão listadas no `SubscriptionID, Resource Group, Virtual Machine` formato. | 
 | &nbsp; | &nbsp; |
 
-### <a name="log"></a>Registo 
+### <a name="log"></a>Registar 
 
 Os erros são registados no ficheiro de registo denominado `VMsNotRegisteredDueToError<Timestamp>.log` , onde a hora de tempo é a hora em que o script começou. Se o erro estiver no nível de subscrição, o registo contém o ID de subscrição separado em vírgula e a mensagem de erro. Se o erro estiver com o registo da máquina virtual, o registo contém o ID de subscrição, nome do grupo de recursos, nome da máquina virtual, código de erro e mensagem separada por vírgulas. 
 

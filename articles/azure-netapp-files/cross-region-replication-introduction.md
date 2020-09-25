@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/16/2020
+ms.date: 09/23/2020
 ms.author: b-juche
-ms.openlocfilehash: e7d424435c29eb3e7a6779a7036816a7bedd2085
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 4df96f1c508df22e98a9c611ed04fecf6734970a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708803"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278299"
 ---
 # <a name="cross-region-replication-of-azure-netapp-files-volumes"></a>Replicação transversal dos volumes dos Ficheiros Azure NetApp
 
@@ -45,6 +45,7 @@ A replicação do volume Azure NetApp Files está atualmente disponível nos seg
 * Japão Leste e Japão Oeste
 * Reino Unido Sul e Alemanha West Central
 * Sudeste Asiático e Austrália Oriental
+* Índia Central e Sul da Índia
 
 ## <a name="service-level-objectives"></a>Objetivos ao nível do serviço
 
@@ -110,10 +111,10 @@ A taxa regular de capacidade de armazenamento dos Ficheiros Azure NetApp para o 
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Requisitos e considerações para a utilização da replicação entre regiões](cross-region-replication-requirements-considerations.md)
-* [Criar olhando de replicação](cross-region-replication-create-peering.md)
-* [Mostrar estado de saúde da relação de replicação](cross-region-replication-display-health-status.md)
+* [Criar o peering de replicação](cross-region-replication-create-peering.md)
+* [Apresentar o estado de funcionamento da relação de replicação](cross-region-replication-display-health-status.md)
 * [Gerir a recuperação após desastre](cross-region-replication-manage-disaster-recovery.md)
 * [Métricas de replicação de volume](azure-netapp-files-metrics.md#replication)
-* [Resolução de problemas replicação transversal](troubleshoot-cross-region-replication.md)
+* [Resolver problemas da replicação entre regiões](troubleshoot-cross-region-replication.md)
 
 

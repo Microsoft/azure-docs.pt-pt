@@ -6,13 +6,13 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 56fd644e43b704eced4f5a97b82e4b07ab1b4db9
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: b9772f89f78f21cfb0f2f9baa7c6b9915fbacf37
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424090"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275698"
 ---
 # <a name="playback-technology-tech"></a>Tecnologia de reprodução ("tech") #
 
@@ -69,6 +69,6 @@ Dada a ordem tecnológica recomendada com conteúdo de streaming da Azure Media 
 > [!NOTE]
 > Se a tecnologia escolhida exigir a instalação de um plugin, como o Flash, e que não esteja instalada na máquina do utilizador, a AMP continuará a verificar as capacidades da próxima tecnologia, em conjunto com os tipos de origem e informações de proteção, na lista de tecnologia. Por exemplo, se tentar visualizar um fluxo on demand desprotegido no Safari 8 no OS X Yosemite, e tanto flash como Silverlight não estiverem instalados, a AMP irá selecionar a tecnologia nativa Html5 para reprodução.<br/><br/>As novas tecnologias de navegador estão a surgir diariamente e, como tal, podem afetar esta matriz.
 
-## <a name="next-steps"></a>Próximos passos ##
+## <a name="next-steps"></a>Passos seguintes ##
 
 - [Azure Media Player Quickstart](azure-media-player-quickstart.md)

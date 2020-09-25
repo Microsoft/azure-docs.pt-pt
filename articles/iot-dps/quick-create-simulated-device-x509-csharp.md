@@ -1,5 +1,5 @@
 ---
-title: 'Provisão simulada dispositivo X.509 para Azure IoT Hub usando C #'
+title: 'Quickstart - Provisão simulada dispositivo X.509 para Azure IoT Hub usando C #'
 description: Quickstart - Criar e providenciar um dispositivo X.509 simulado utilizando o dispositivo C# SDK para o Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS). Este início rápido utiliza inscrições individuais.
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: b0832ece807c42d270f18d4ab293c449b2068948
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 27bb1c97fa082f15642ab9eff6b0bdba357068a2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532516"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323979"
 ---
 # <a name="quickstart-create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Quickstart: Criar e providenciar um dispositivo X.509 simulado utilizando o dispositivo C# SDK para serviço de provisionamento de dispositivos IoT Hub
 

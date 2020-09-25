@@ -12,13 +12,13 @@ ms.custom:
 - mvc
 - amqp
 - mqtt
-- devx-track-javascript
-ms.openlocfilehash: b424ea01d8283963c49d899a97120c9132d862f8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+- devx-track-js
+ms.openlocfilehash: 101bd9ce351ea830688fc18affdf21ce527ba43a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422543"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91261435"
 ---
 # <a name="create-an-advanced-device-model"></a>Create an advanced device model (Criar um modelo de dispositivo avançado)
 
@@ -518,6 +518,6 @@ Se os seus ficheiros passarem na validação, clique em **Guardar** e o modelo d
 
 ![Guardar](media/iot-accelerators-device-simulation-advanced-device/validated.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de como fazer, aprendeu sobre os ficheiros de modelos do dispositivo utilizados na Simulação do Dispositivo e como criar um modelo avançado de dispositivo. Em seguida, poderá querer explorar como [utilizar insights de séries de tempo para visualizar a telemetria enviada do acelerador de solução de simulação do dispositivo](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights).

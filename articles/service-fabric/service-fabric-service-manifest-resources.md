@@ -2,22 +2,24 @@
 title: Especificar pontos finais de serviço de tecido de serviço
 description: Como descrever os recursos de ponto final num manifesto de serviço, incluindo como configurar pontos finais HTTPS
 ms.topic: conceptual
-ms.date: 2/23/2018
-ms.openlocfilehash: 458a10ca118bbb14f22ad9b1ae127c2036573db9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/16/2020
+ms.openlocfilehash: 8fdd95a7c0390c987b7c59663e0ee12e4a4a968e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610749"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267810"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos num manifesto de serviço
 ## <a name="overview"></a>Descrição geral
-O manifesto de serviço permite que os recursos utilizados pelo serviço sejam declarados, ou alterados, sem alterar o código compilado. O Service Fabric suporta a configuração dos recursos do ponto final para o serviço. O acesso aos recursos especificados no manifesto de serviço pode ser controlado através do SecurityGroup no manifesto de aplicação. A declaração de recursos permite que estes recursos sejam alterados no tempo de implementação, o que significa que o serviço não precisa de introduzir um novo mecanismo de configuração. A definição de esquema para o ficheiro ServiceManifest.xml é instalada com o Service Fabric SDK e ferramentas para *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
+As aplicações e serviços do Tecido de Serviço são definidos e versados utilizando ficheiros manifestos. Para uma visão mais alta dos ServiceManifest.xml e ApplicationManifest.xml, consulte [a aplicação e manifestos](service-fabric-application-and-service-manifests.md)de serviço do Service Fabric .
+
+O manifesto de serviço permite que os recursos utilizados pelo serviço sejam declarados, ou alterados, sem alterar o código compilado. O Service Fabric suporta a configuração dos recursos do ponto final para o serviço. O acesso aos recursos especificados no manifesto de serviço pode ser controlado através do SecurityGroup no manifesto de aplicação. A declaração de recursos permite que estes recursos sejam alterados no tempo de implementação, o que significa que o serviço não precisa de introduzir um novo mecanismo de configuração. A definição de esquema para o ficheiro ServiceManifest.xml é instalada com o Service Fabric SDK e ferramentas para *C:\Program Files\Microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*, e está documentado na [documentação do esquema do ServiceFabricServiceModel.xsd](service-fabric-service-model-schema.md).
 
 ## <a name="endpoints"></a>Pontos Finais
 Quando um recurso de ponto final é definido no manifesto de serviço, o Service Fabric atribui portas da gama portuária de aplicações reservadas quando uma porta não é especificada explicitamente. Por exemplo, veja o ponto final *do ServiceEndpoint1* especificado no manifesto snippet fornecido após este parágrafo. Além disso, os serviços também podem solicitar uma porta específica num recurso. As réplicas de serviço em execução em diferentes nós de cluster podem ser atribuídas diferentes números de porta, enquanto réplicas de um serviço que funciona no mesmo nó partilham a porta. As réplicas de serviço podem então usar estas portas conforme necessário para replicação e audição de pedidos do cliente.
 
-Ao ativar um serviço que especifica um ponto final https, o Service Fabric definirá a entrada de controlo de acesso para a porta, ligará o certificado de servidor especificado à porta, e também concederá a identidade de que o serviço está a funcionar como permissões à chave privada do certificado. O fluxo de ativação é invocado sempre que o Tecido de Serviço começa, ou quando a declaração de certificado do pedido é alterada através de uma atualização. O certificado de ponto final também será monitorizado para alterações/renovações, e as permissões serão periodicamente reaplicadas se necessário.
+Ao ativar um serviço que especifica um ponto final https, o Service Fabric definirá a entrada de controlo de acesso para a porta, ligará o certificado de servidor especificado à porta, e também concederá a identidade de que o serviço está a funcionar como permissões à chave privada do certificado. O fluxo de ativação é invocado sempre que o Tecido de Serviço começa, ou quando a declaração de certificado do pedido é alterada através de uma atualização. O certificado de ponto final também será monitorizado para alterações/renovações, e as permissões serão recandidaturas periodicamente, se necessário.
 
 Após o encerramento do serviço, a Service Fabric limpará a entrada do controlo de acesso ao ponto final e removerá a encadernação do certificado. No entanto, quaisquer permissões aplicadas à chave privada do certificado não serão limpas.
 
@@ -155,14 +157,16 @@ Aqui está um exemplo ApplicationManifest demonstrando a configuração necessá
 
 Para os agrupamentos Linux, a loja **MY** por defeito na pasta **/var/lib/sfcerts**.
 
+Para um exemplo de uma aplicação completa que utiliza um ponto final HTTPS, consulte [adicionar um ponto final HTTPS a um serviço frontal da API core ASP.NET utilizando o Kestrel](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-dotnet-app-enable-https-endpoint#define-an-https-endpoint-in-the-service-manifest).
+
 ## <a name="port-acling-for-http-endpoints"></a>ACLing de porta para pontos finais HTTP
-O Tecido de Serviço automaticamente ACL HTTP(S) pontos finais especificados por padrão. **Não** realizará acling automático se um ponto final não tiver uma [SegurançaAccessPolicy](service-fabric-assign-policy-to-endpoint.md) associada a ele e o Service Fabric estiver configurado para executar usando uma conta com privilégios de Administrador.
+O Tecido de Serviço automaticamente ACL HTTP(S) pontos finais especificados por padrão. **Não** realizará ACLing automático se um ponto final não tiver uma [SegurançaAccessPolicy](service-fabric-assign-policy-to-endpoint.md) associada a ele e o Service Fabric estiver configurado para executar usando uma conta com privilégios de Administrador.
 
 ## <a name="overriding-endpoints-in-servicemanifestxml"></a>Pontos finais dominantes em ServiceManifest.xml
 
-Na secção ApplicationManifest adicione uma secção ResourceOverrides, que será um irmão para a secção ConfigOverrides. Nesta secção, pode especificar a substituição da secção Endpoints na secção de recursos especificada no manifesto de Serviço. Os pontos finais dominantes são suportados em tempo de execução 5.7.217/SDK 2.7.217 e superior.
+Na ApplicationManifest, adicione uma secção ResourceOverrides, que será um irmão para a secção ConfigOverrides. Nesta secção, pode especificar a substituição da secção Endpoints na secção de recursos especificada no manifesto de Serviço. Os pontos finais dominantes são suportados em tempo de execução 5.7.217/SDK 2.7.217 e superior.
 
-Para anular o EndPoint no ServiceManifest utilizando os ApplicationParameters, altere o ApplicationManifest como seguinte:
+Para substituir o EndPoint no ServiceManifest utilizando os ApplicationParameters, altere a ApplicationManifest como tal:
 
 Na secção ServiceManifestImport, adicione uma nova secção "ResourceOverrides".
 
@@ -194,13 +198,13 @@ Nos Parâmetros a seguir:
   </Parameters>
 ```
 
-Ao implementar a aplicação pode passar nestes valores como ApplicationParameters.  Por exemplo:
+Ao implementar a aplicação, pode passar nestes valores como ApplicationParameters.  Por exemplo:
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Nota: Se os valores previstos para os Separadores de Aplicação estiverem vazios, voltamos ao valor predefinido fornecido no ServiceManifest para o nome EndPointName correspondente.
+Nota: Se o valor previsto para um determinado ApplicationParameter estiver vazio, voltamos ao valor predefinido fornecido no ServiceManifest para o nome EndPointName correspondente.
 
 Por exemplo:
 
@@ -214,6 +218,18 @@ Se no ServiceManifest especificado
   </Resources>
 ```
 
-E o valor port1 e protocol1 para parâmetros de aplicação é nulo ou vazio. O porto ainda é decidido pelo ServiceFabric. E o Protocolo vai tCP.
+Assuma que o valor port1 e protocol1 para parâmetros de aplicação é nulo ou vazio. O porto será decidido pelo ServiceFabric e o Protocolo será tcp.
 
-Suponha que especifique um valor errado. Tal como para o Porto, especificou um valor de corda "Foo" em vez de um int.  O comando New-ServiceFabricApplication falhará com um erro : O parâmetro de substituição com o nome 'ServiceEndpoint1' atribui 'Port1' na secção 'ResourceOverrides' é inválido. O valor especificado é 'Foo' e é necessário 'int'.
+Suponha que especifique um valor errado. Diga para o Porto que especificou um valor de corda "Foo" em vez de um int.  O comando New-ServiceFabricApplication falhará com um erro: `The override parameter with name 'ServiceEndpoint1' attribute 'Port1' in section 'ResourceOverrides' is invalid. The value specified is 'Foo' and required is 'int'.`
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Este artigo explicou como definir pontos finais no manifesto de serviço da Service Fabric. Para exemplos mais detalhados, consulte:
+
+> [!div class="nextstepaction"]
+> [Exemplos de manifesto de aplicação e do serviço](https://docs.microsoft.com/azure/service-fabric/service-fabric-manifest-examples.md)
+
+Para uma passagem de embalagens e implantação de uma aplicação existente num cluster de Tecido de Serviço, consulte:
+
+> [!div class="nextstepaction"]
+> [Pacote e implemente um executável existente para o tecido de serviço](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-existing-app.md)

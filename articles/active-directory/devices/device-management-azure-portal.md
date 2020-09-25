@@ -5,27 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: how-to
-ms.date: 08/03/2020
+ms.date: 09/16/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9efb3b451f6fc6c70c5d9ec346132bfc763ca28
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: e76c5f51486f7c1673fb5359eabc99ee41130472
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705780"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278861"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gerir identidades de dispositivos com o portal do Azure
 
 A Azure AD fornece-lhe um lugar central para gerir identidades do dispositivo.
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Navegue por dispositivos **de diretório ativo Azure**  >  **Devices**.
-
-[![Todos os dispositivos visualizam no portal Azure](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
 
 A página **Todos os dispositivos** permite:00:
 
@@ -38,6 +33,13 @@ A página **Todos os dispositivos** permite:00:
 - Configure as definições de identidade do seu dispositivo.
 - Ativar ou desativar o Roaming do Estado da Empresa.
 - Rever registos de auditoria relacionados com dispositivos
+
+[![Todos os dispositivos visualizam no portal Azure](./media/device-management-azure-portal/all-devices-azure-portal.png)](./media/device-management-azure-portal/all-devices-azure-portal.png#lightbox)
+
+Pode aceder ao portal dos dispositivos utilizando os seguintes passos:
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Navegue por dispositivos **de diretório ativo Azure**  >  **Devices**.
 
 ## <a name="manage-devices"></a>Gerir dispositivos
 
@@ -146,6 +148,13 @@ Terá agora a capacidade de **adicionar filtros** à sua vista **de todos os dis
 ## <a name="configure-device-settings"></a>Configurar definições de dispositivos
 
 Para gerir as identidades dos dispositivos utilizando o portal AD Azure, estes dispositivos precisam de ser [registados ou unidos](overview.md) ao Azure AD. Como administrador, pode controlar o processo de registo e junção de dispositivos configurando as seguintes definições do dispositivo.
+
+Deve ser-lhe atribuída uma das seguintes funções para visualizar ou gerir as definições do dispositivo no portal Azure:
+
+- Administrador global
+- Administrador de dispositivos em nuvem
+- Leitor global
+- Leitor de diretório
 
 ![Definições do dispositivo relacionadas com Azure AD](./media/device-management-azure-portal/device-settings-azure-portal.png)
 

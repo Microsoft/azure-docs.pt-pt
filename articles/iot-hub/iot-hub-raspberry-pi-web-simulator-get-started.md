@@ -12,13 +12,13 @@ ms.date: 04/11/2018
 ms.author: wesmc
 ms.custom:
 - 'Role: Cloud Development'
-- devx-track-javascript
-ms.openlocfilehash: d1b3858e62902a5c1c841de7618966e695b66425
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+- devx-track-js
+ms.openlocfilehash: 702dee108577665eded6dd1a92203236d74e866e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423070"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308353"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Ligue o simulador on-line Raspberry Pi ao Azure IoT Hub (Node.js)
 
@@ -87,7 +87,7 @@ Há três áreas no simulador da web.
 
 ![Visão geral do simulador online Pi](media/iot-hub-raspberry-pi-web-simulator/0-overview.png)
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -111,7 +111,7 @@ Uma forma de monitorizar as mensagens recebidas pelo seu hub IoT a partir do dis
 
 Para mais formas de processar os dados enviados pelo seu dispositivo, continue para a secção seguinte.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Executou uma aplicação de amostra para recolher dados de sensores e enviá-lo para o seu hub IoT.
 

@@ -10,12 +10,12 @@ ms.date: 05/06/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: cdcd11b6bd9c773e8018ee303564fff6abd098a6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c056db21eea2d87471c80ea7c4811eed418fcbd0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494909"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323469"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Crie e utilize imagens partilhadas para conjuntos de escala de máquina virtual com o Azure CLI 2.0
 
@@ -27,8 +27,8 @@ A Galeria de Imagens Partilhada permite-lhe partilhar as suas imagens com outras
 [!INCLUDE [virtual-machines-common-shared-images-cli](../../includes/virtual-machines-common-shared-images-cli.md)]
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Crie uma versão de imagem a partir de um [VM,](../virtual-machines/image-version-vm-cli.md)ou de uma [imagem gerida](../virtual-machines/image-version-managed-image-cli.md).
 
-Para mais informações sobre galerias de imagem partilhadas, consulte a [Visão Geral.](shared-image-galleries.md) Se tiver problemas, consulte [as galerias de imagem partilhadas .](troubleshooting-shared-images.md)
+Para mais informações sobre galerias de imagem partilhadas, consulte a [Visão Geral.](shared-image-galleries.md) Se tiver problemas, consulte [as galerias de imagem partilhadas .](../virtual-machines/troubleshooting-shared-images.md)

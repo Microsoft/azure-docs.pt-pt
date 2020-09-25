@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: b-juche
-ms.openlocfilehash: 405d872c178a3172454943b7d40ea276ea5c017e
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e1be0879af02fac0f7ae926a02ea23fd6be84de4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459104"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325694"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerir instantâneos com o Azure NetApp Files
 
@@ -65,7 +65,7 @@ A funcionalidade **de política instantânea** está atualmente em pré-visualiz
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
     ```
-Também pode utilizar comandos Azure CLI [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) e registar a funcionalidade e exibir o estado de [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) registo. 
+Também pode utilizar [comandos Azure CLI](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true) `az feature register` e registar a funcionalidade e exibir o estado de `az feature show` registo. 
 
 ### <a name="create-a-snapshot-policy"></a>Criar uma política instantânea 
 
@@ -97,7 +97,7 @@ Uma política instantânea permite especificar a frequência de criação instan
 
     ![Política de instantâneo mensal](../media/azure-netapp-files/snapshot-policy-monthly.png) 
 
-4.  Clique em **Guardar**.  
+4.  Clique em **Save** (Guardar).  
 
 Se precisar de criar políticas de instantâneo adicionais, repita o Passo 3.
 As políticas que criou aparecem na página de política do Snapshot.
@@ -161,7 +161,7 @@ Atualmente, pode restaurar uma imagem apenas para um novo volume.
 
     ![Restaurar para novo volume](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
 
-4. Clique **em Review+criar**.  Clique em **Criar**.   
+4. Clique **em Review+criar**.  Clique em **Create** (Criar).   
     O novo volume utiliza o mesmo protocolo que o instantâneo utiliza.   
     O novo volume ao qual o instantâneo é restaurado aparece na lâmina Volumes.
 
@@ -219,8 +219,8 @@ Se selecionou a caixa de verificação Hide Snapshot Path quando criou o volume,
 
     ![Propriedades Versões anteriores](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Compreender a hierarquia de armazenamento do Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Políticas de instantâneo de resolução de problemas](troubleshoot-snapshot-policies.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)
 * [Azure NetApp Files Snapshots 101 vídeo](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)

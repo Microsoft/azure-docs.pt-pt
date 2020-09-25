@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 963f89c99d71afbebbe122e3c7d8b3227dc4a8be
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 98f92a6b0169c573b97788c7ffaf76255796cfa6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518414"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278945"
 ---
 # <a name="tutorial-configure-rfpio-for-automatic-user-provisioning"></a>Tutorial: Configurar RFPIO para o provisionamento automático do utilizador
 
 O objetivo deste tutorial é demonstrar os passos a serem realizados no RFPIO e no Azure Ative Directory (Azure AD) para configurar a Azure AD para fornecimento e desavisagem automática de utilizadores e/ou grupos ao RFPIO.
 
 > [!NOTE]
-> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte [automatizar o fornecimento e desprovisionamento de aplicações saaS com diretório Azure Ative.](../app-provisioning/user-provisioning.md)
+> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona e perguntas frequentes, veja [Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS no Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Este conector encontra-se atualmente em Visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -66,11 +66,11 @@ Antes de configurar o RFPIO para o fornecimento automático do utilizador com a 
 
 4.  Certifique-se de que **o Provisionamento do Utilizador Automático** está ativado. Clique em **GENERATE SCIM API TOKEN**.
 
-    ![RFPIO Criar Ficha](media/rfpio-provisioning-tutorial/generate.png)
+    ![Screenshot da secção S C I M com a opção GENERATE S C I M A P I TOKEN chamada.](media/rfpio-provisioning-tutorial/generate.png)
 
 5.  Guarde o **Token API da SCIM,** uma vez que este token não será novamente exibido por razões de segurança. Este valor será introduzido no campo **Secret Token** no separador Provisioning da sua aplicação RFPIO no portal Azure.
 
-    ![RFPIO Criar Ficha](media/rfpio-provisioning-tutorial/auth.png)
+    ![Screenshot da secção S C I M com a caixa de diálogo de aviso que aparece depois de selecionar SUBMIT.](media/rfpio-provisioning-tutorial/auth.png)
 
 ## <a name="add-rfpio-from-the-gallery"></a>Adicione RFPIO da galeria
 
@@ -103,21 +103,21 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 ### <a name="to-configure-automatic-user-provisioning-for-rfpio-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para o RFPIO em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais** e, em seguida, **Todas as aplicações**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **RFPIO**.
 
     ![O link RFPIO na lista de Aplicações](common/all-applications.png)
 
-3. Selecione o **separador Provisioning.**
+3. Selecione o separador **Aprovisionamento**.
 
-    ![Separador de provisionamento](common/provisioning.png)
+    ![Screenshot das opções De gestão com a opção Provisioning chamada.](common/provisioning.png)
 
-4. Desa ajuste o **modo de provisionamento** para **automático**.
+4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
-    ![Separador de provisionamento](common/provisioning-automatic.png)
+    ![Screenshot da lista de retirada do modo de provisionamento com a opção Automática chamada.](common/provisioning-automatic.png)
 
 5. Sob a secção **de Credenciais de Administração,** entrada `https://<RFPIO tenant instance>.rfpio.com/rfpserver/scim/v2 ` na URL do **inquilino.** Um valor de exemplo `https://Azure-test1.rfpio.com/rfpserver/scim/v2` é. Insira o valor **token da API SCIM** recuperado anteriormente em **Secret Token**. Clique em **Testar A Ligação** para garantir que o Azure AD pode ligar-se ao RFPIO. Se a ligação falhar, certifique-se de que a sua conta RFPIO tem permissões de Administração e tente novamente.
 
@@ -125,9 +125,9 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 6. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e verifique a caixa de verificação - **Envie uma notificação de e-mail quando ocorrer uma falha**.
 
-    ![E-mail de notificação](common/provisioning-notification-email.png)
+    ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Guardar**.
+7. Clique em **Save** (Guardar).
 
 8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users para RFPIO**.
 
@@ -137,19 +137,19 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Atributos do utilizador RFPIO](media/rfpio-provisioning-tutorial/userattributes.png)
 
-10. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 11. Para ativar o serviço de prestação de Ad Azure para o RFPIO, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
-    ![Estatuto de Provisionamento Toggled On](common/provisioning-toggle-on.png)
+    ![Estado do Aprovisionamento Ativado](common/provisioning-toggle-on.png)
 
 12. Defina os utilizadores e/ou grupos que deseja prestar ao RFPIO, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
-    ![Âmbito de provisionamento](common/provisioning-scope.png)
+    ![Âmbito de Aprovisionamento](common/provisioning-scope.png)
 
-13. Quando estiver pronto para a provisão, clique em **Guardar**.
+13. Quando estiver pronto para aprovisionar, clique em **Guardar**.
 
-    ![Configuração de provisionamento de poupança](common/provisioning-configuration-save.png)
+    ![Guardar Configuração de Aprovisionamento](common/provisioning-configuration-save.png)
 
 Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de fornecimento AZure AD esteja em execução. Pode utilizar a secção Detalhes da **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de fornecimento de Ad AZure no RFPIO.
 
@@ -161,9 +161,9 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)

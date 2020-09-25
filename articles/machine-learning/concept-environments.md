@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
 ms.date: 07/08/2020
-ms.openlocfilehash: a37a09d971ee80d05f9e028ece1adc7962c0c1a0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e1b92563acd6983b1680cacc06a8f2d0789dddf1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905708"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302507"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>O que são ambientes de aprendizagem automática Azure?
 
@@ -85,7 +85,7 @@ O segundo passo é omitido se especificar [as dependências geridas pelo utiliza
 
 Se utilizar a mesma definição de ambiente para outra execução, o serviço Azure Machine Learning reutiliza a imagem em cache a partir do Workspace ACR. 
 
-Para ver os detalhes de uma imagem em cache, utilize [Environment.get_image_details](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#&preserve-view=trueget-image-details-workspace-) método.
+Para ver os detalhes de uma imagem em cache, utilize [Environment.get_image_details](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-image-details-workspace-) método.
 
 Para determinar se reutilizar uma imagem em cache ou construir uma nova, o serviço calcula [um valor de haxixe](https://en.wikipedia.org/wiki/Hash_table) da definição de ambiente e compara-a com as hashes dos ambientes existentes. O haxixe baseia-se em:
  
@@ -108,10 +108,10 @@ O diagrama a seguir mostra três definições ambientais. Dois deles têm nomes 
 Para atualizar o pacote, especifique um número de versão para forçar a reconstrução da imagem, por exemplo ```numpy==1.18.1``` . Serão instaladas novas dependências, incluindo as aninhadas, que poderão quebrar um cenário de trabalho anterior. 
 
 > [!WARNING]
->  O método [Ambiente.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#&preserve-view=truebuild-workspace--image-build-compute-none-) irá reconstruir a imagem em cache, com possível efeito colateral de atualizar pacotes não pinned e quebrar a reprodutibilidade para todas as definições ambientais correspondentes a essa imagem em cache.
+>  O método [Ambiente.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=truebuild-workspace--image-build-compute-none-) irá reconstruir a imagem em cache, com possível efeito colateral de atualizar pacotes não pinned e quebrar a reprodutibilidade para todas as definições ambientais correspondentes a essa imagem em cache.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda a [criar e a utilizar ambientes](how-to-use-environments.md) em Azure Machine Learning.
-* Consulte a documentação de referência python SDK para a [classe ambiente.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py&preserve-view=true)
+* Consulte a documentação de referência python SDK para a [classe ambiente.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true)
 * Consulte a documentação de referência R SDK para [ambientes.](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-environments)

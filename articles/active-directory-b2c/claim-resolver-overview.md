@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 04/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8e575cf9bba02a59179cc70870fb680a27648963
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 466e590ba22efe1c2fbb457c15bc7f979f8a172e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201180"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259641"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre as reclamações em Azure Ative Directory B2C políticas personalizadas
 
@@ -67,16 +67,16 @@ A lista de secções seguintes disponível.
 | Afirmação | Descrição | Exemplo |
 | ----- | ----------- | --------|
 | {OIDC:AutenticaçãoContextoreferências} |O `acr_values` parâmetro da corda de consulta. | N/D |
-| {OIDC:ClientId} |O `client_id` parâmetro da corda de consulta. | 00000000-0000-0000-0000-000000000000 |
-| {OIDC:DomainHint} |O `domain_hint` parâmetro da corda de consulta. | facebook.com |
+| {OIDC:ClientId} |O `client_id`  parâmetro da corda de consulta. | 00000000-0000-0000-0000-000000000000 |
+| {OIDC:DomainHint} |O `domain_hint`  parâmetro da corda de consulta. | facebook.com |
 | {OIDC:LoginHint} |  O `login_hint` parâmetro da corda de consulta. | someone@contoso.com |
 | {OIDC:MaxAge} | O `max_age` . | N/D |
-| {OIDC:Nonce} |O `Nonce` parâmetro da corda de consulta. | padrãoNonce |
+| {OIDC:Nonce} |O `Nonce`  parâmetro da corda de consulta. | padrãoNonce |
 | {OIDC:Password}| As [credenciais de senha do proprietário do recurso fluem](ropc-custom.md) a palavra-passe do utilizador.| senha1| 
 | {OIDC:Prompt} | O `prompt` parâmetro da corda de consulta. | início de sessão |
-| {OIDC:RedirectUri} |O `redirect_uri` parâmetro da corda de consulta. | https://jwt.ms |
-| {OIDC:Recurso} |O `resource` parâmetro da corda de consulta. | N/D |
-| {OIDC:Scope} |O `scope` parâmetro da corda de consulta. | openid |
+| {OIDC:RedirectUri} |O `redirect_uri`  parâmetro da corda de consulta. | https://jwt.ms |
+| {OIDC:Recurso} |O `resource`  parâmetro da corda de consulta. | N/D |
+| {OIDC:Scope} |O `scope`  parâmetro da corda de consulta. | openid |
 | {OIDC:Username}| As [credenciais de senha do proprietário](ropc-custom.md) do recurso fluem o nome de utilizador do utilizador.| emily@contoso.com| 
 
 ### <a name="context"></a>Contexto
@@ -113,6 +113,7 @@ Qualquer nome de parâmetro incluído como parte de um pedido OIDC ou OAuth2 pod
 | Afirmação | Descrição | Exemplo |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | O símbolo de acesso. | N/D |
+| {oauth2:refresh_token} | O token refresh. | N/D |
 
 
 ### <a name="saml"></a>SAML

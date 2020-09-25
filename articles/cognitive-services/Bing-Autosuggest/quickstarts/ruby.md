@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Sugestione consultas de pesquisa com o Bing Autosuggest REST API e Ruby'
+title: 'Quickstart: Sugerir consultas de pesquisa com a Bing Autosuggest REST API e Ruby'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a começar rapidamente a sugerir termos de pesquisa em tempo real com a API Bing Autosuggest.
+description: Aprenda a começar rapidamente a sugerir termos de pesquisa em tempo real com a Bing Autosuggest API e Ruby.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: e9b990f7e79fe0d70a213db5739153fe1e558f3c
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: dc7b929aa139e6d51af25d4689166d2596dda70b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930204"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262897"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>Quickstart: Sugestione consultas de pesquisa com o Bing Autosuggest REST API e Ruby
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>Quickstart: Sugerir consultas de pesquisa com a Bing Autosuggest REST API e Ruby
 
-Acompanhe este quickstart para aprender a fazer chamadas para a API Bing Autosuggest e leia a resposta jSON. Esta simples aplicação Ruby envia uma consulta de pesquisa parcial para a API, e devolve sugestões para pesquisas. Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
+Siga este quickstart para aprender a fazer chamadas para a Bing Autosuggest API e leia a resposta JSON. Esta simples aplicação Ruby envia uma consulta parcial de pesquisa para a API, e devolve sugestões de pesquisas. Embora esta aplicação seja escrita em Ruby, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -38,7 +38,7 @@ Acompanhe este quickstart para aprender a fazer chamadas para a API Bing Autosug
     require 'json'
     ```
 
-2. Crie variáveis para o seu anfitrião e caminho da API, código de [mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e consulta de pesquisa parcial. Utilize o ponto final global no seguinte código ou utilize o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
+2. Crie variáveis para o seu anfitrião e caminho da API, [código de mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e consulta parcial de pesquisa. Utilize o ponto final global no seguinte código ou utilize o ponto final [de subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
 
     ```ruby
     subscriptionKey = 'enter your key here'
@@ -48,7 +48,7 @@ Acompanhe este quickstart para aprender a fazer chamadas para a API Bing Autosug
     query = 'sail'
     ```
 
-3. Crie uma cadeia de parâmetros, alinhando o seu código de mercado no `mkt=` parâmetro e acedendo a sua consulta ao `q=` parâmetro. Em seguida, construa o seu pedido URI combinando o hospedeiro, caminho e a cadeia de parâmetros.
+3. Crie uma cadeia de parâmetros, anexando o seu código de mercado ao `mkt=` parâmetro, e anexando a sua consulta ao `q=` parâmetro. Em seguida, construa o seu pedido URI combinando o hospedeiro API, o caminho e a cadeia de parâmetros.
 
     ```ruby
     params = '?mkt=' + mkt + '&q=' + query
@@ -57,7 +57,7 @@ Acompanhe este quickstart para aprender a fazer chamadas para a API Bing Autosug
 
 ## <a name="create-and-send-an-api-request"></a>Criar e enviar um pedido de API
 
-1. Crie um pedido com o seu URI e adicione a sua chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
+1. Crie um pedido com o seu URI e adicione a chave de subscrição ao `Ocp-Apim-Subscription-Key` cabeçalho.
     
     ```ruby
     request = Net::HTTP::Get.new(uri)
@@ -72,13 +72,13 @@ Acompanhe este quickstart para aprender a fazer chamadas para a API Bing Autosug
     end
     ```
 
-3. Imprima a resposta jSON.
+3. Imprima a resposta JSON.
     
     ```ruby
     puts JSON::pretty_generate (JSON (response.body))
     ```
 
-## <a name="example-json-response"></a>Exemplo resposta JSON
+## <a name="example-json-response"></a>Exemplo JSON resposta
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte:
 

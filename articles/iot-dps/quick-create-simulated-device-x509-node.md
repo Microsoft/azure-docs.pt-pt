@@ -1,5 +1,5 @@
 ---
-title: Provisão simulado dispositivo X.509 para Azure IoT Hub usando Node.js
+title: Quickstart - Provisão dispositivo X.509 simulado para Azure IoT Hub usando Node.js
 description: Criar e providenciar um dispositivo X.509 simulado utilizando Node.js dispositivo SDK para o Serviço de Provisionamento de Dispositivos IoT IoT (DPS). Este quickstart utiliza inscrições individuais.
 author: wesmc7777
 ms.author: wesmc
@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 54baa0d1a969e922bee237d08eb3dfe97cbc7c4d
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: f4d2a5e10db77e9ec9d06e3bcc73552bda280152
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532465"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323945"
 ---
 # <a name="quickstart-create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>Quickstart: Criar e providenciar um dispositivo simulado X.509 utilizando Node.js dispositivo SDK para serviço de provisionamento de dispositivos IoT Hub
 

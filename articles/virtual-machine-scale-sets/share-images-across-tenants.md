@@ -1,6 +1,6 @@
 ---
-title: Partilhe imagens de galeria entre inquilinos em Azure
-description: Saiba como partilhar imagens VM através de inquilinos da Azure usando Galerias de Imagem Partilhada.
+title: Partilhe imagens da galeria através dos inquilinos
+description: Aprenda a criar conjuntos de escala usando imagens que são partilhadas através de inquilinos do Azure usando Galerias de Imagem Partilhada.
 author: cynthn
 ms.author: cynthn
 ms.topic: how-to
@@ -9,14 +9,14 @@ ms.subservice: imaging
 ms.date: 04/05/2019
 ms.reviewer: akjosh
 ms.custom: akjosh, devx-track-azurecli
-ms.openlocfilehash: 542dfbc28621e02cd2842fb174e986bfeb91e6ec
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: ea61b3bd76fc4ada48a8a2fb734a841b8a969272
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501683"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323486"
 ---
-# <a name="share-gallery-vm-images-across-tenants-in-azure"></a>Partilhar imagens da galeria VM através de inquilinos em Azure
+# <a name="share-images-across-tenants-with-shared-image-gallery"></a>Partilhar imagens entre inquilinos com Galeria de Imagens Partilhadas
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../includes/virtual-machines-share-images-across-tenants.md)]
 
@@ -51,4 +51,4 @@ az vmss create \
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se encontrar algum problema, pode [resolver as galerias de imagens partilhadas.](troubleshooting-shared-images.md)
+Se encontrar algum problema, pode [resolver as galerias de imagens partilhadas.](../virtual-machines/troubleshooting-shared-images.md)

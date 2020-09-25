@@ -3,12 +3,12 @@ title: Entrega e reagem à grelha de eventos Azure
 description: Descreve como a Azure Event Grid fornece eventos e como lida com mensagens não entregues.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: fe7574d7e17b1763afb2292c15007dd87b056ef1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 924abaa1e5c12c4477bddf888541e7414b7bdbec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087616"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324098"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e redação de mensagem da Grelha de Eventos
 
@@ -89,11 +89,151 @@ A Grade de Eventos envia um evento para o local da carta morta quando tentou tod
 
 Há um atraso de cinco minutos entre a última tentativa de entrega de um evento e quando é entregue no local da carta morta. Este atraso destina-se a reduzir o número de operações de armazenamento blob. Se o local da carta morta não estiver disponível durante quatro horas, o evento será retirado.
 
-Antes de definir o local da letra morta, deve ter uma conta de armazenamento com um recipiente. Você fornece o ponto final para este recipiente ao criar a subscrição do evento. O ponto final está no formato de:`/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
+Antes de definir o local da letra morta, deve ter uma conta de armazenamento com um recipiente. Você fornece o ponto final para este recipiente ao criar a subscrição do evento. O ponto final está no formato de: `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
 
-Talvez queira ser notificado quando um evento for enviado para o local da carta morta. Para utilizar a Grade de Eventos para responder a eventos não entregues, [crie uma subscrição](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) de evento para o armazenamento de bolhas de letra morta. Sempre que o seu armazenamento de bolhas de letra morta recebe um evento não entregue, a Grade de Eventos notifica o seu manipulador. O manipulador responde com ações que deseja tomar para conciliar eventos não entregues.
+Talvez queira ser notificado quando um evento for enviado para o local da carta morta. Para utilizar a Grade de Eventos para responder a eventos não entregues, [crie uma subscrição](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) de evento para o armazenamento de bolhas de letra morta. Sempre que o seu armazenamento de bolhas de letra morta recebe um evento não entregue, a Grade de Eventos notifica o seu manipulador. O manipulador responde com ações que deseja tomar para conciliar eventos não entregues. Para um exemplo de criação de uma localização de carta morta e políticas de relícuro, consulte [as políticas de carta morta e relagem](manage-event-delivery.md).
 
-Para um exemplo de criação de um local de letra morta, consulte [as políticas de carta morta e relagem](manage-event-delivery.md).
+## <a name="delivery-event-formats"></a>Formatos de eventos de entrega
+Esta secção dá-lhe exemplos de eventos e eventos com letras mortas em diferentes formatos de esquema de entrega (esquema de Grelha de Eventos, esquema cloudEvents 1.0 e esquema personalizado). Para obter mais informações sobre estes formatos, consulte [esquemas de Grelha de Eventos](event-schema.md) e artigos [de esquemas cloud 1.0.](cloud-event-schema.md) 
+
+### <a name="event-grid-schema"></a>Esquema do Event Grid
+
+#### <a name="event"></a>Evento 
+```json
+{
+    "id": "93902694-901e-008f-6f95-7153a806873c",
+    "eventTime": "2020-08-13T17:18:13.1647262Z",
+    "eventType": "Microsoft.Storage.BlobCreated",
+    "dataVersion": "",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/000000000-0000-0000-0000-00000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.Storage/storageAccounts/myegteststgfoo",
+    "subject": "/blobServices/default/containers/deadletter/blobs/myBlobFile.txt",    
+    "data": {
+        "api": "PutBlob",
+        "clientRequestId": "c0d879ad-88c8-4bbe-8774-d65888dc2038",
+        "requestId": "93902694-901e-008f-6f95-7153a8000000",
+        "eTag": "0x8D83FACDC0C3402",
+        "contentType": "text/plain",
+        "contentLength": 0,
+        "blobType": "BlockBlob",
+        "url": "https://myegteststgfoo.blob.core.windows.net/deadletter/myBlobFile.txt",
+        "sequencer": "00000000000000000000000000015508000000000005101c",
+        "storageDiagnostics": { "batchId": "cfb32f79-3006-0010-0095-711faa000000" }
+    }
+}
+```
+
+#### <a name="dead-letter-event"></a>Evento de carta morta
+
+```json
+{
+    "id": "93902694-901e-008f-6f95-7153a806873c",
+    "eventTime": "2020-08-13T17:18:13.1647262Z",
+    "eventType": "Microsoft.Storage.BlobCreated",
+    "dataVersion": "",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.Storage/storageAccounts/myegteststgfoo",
+    "subject": "/blobServices/default/containers/deadletter/blobs/myBlobFile.txt",    
+    "data": {
+        "api": "PutBlob",
+        "clientRequestId": "c0d879ad-88c8-4bbe-8774-d65888dc2038",
+        "requestId": "93902694-901e-008f-6f95-7153a8000000",
+        "eTag": "0x8D83FACDC0C3402",
+        "contentType": "text/plain",
+        "contentLength": 0,
+        "blobType": "BlockBlob",
+        "url": "https://myegteststgfoo.blob.core.windows.net/deadletter/myBlobFile.txt",
+        "sequencer": "00000000000000000000000000015508000000000005101c",
+        "storageDiagnostics": { "batchId": "cfb32f79-3006-0010-0095-711faa000000" }
+    },
+
+    "deadLetterReason": "MaxDeliveryAttemptsExceeded",
+    "deliveryAttempts": 1,
+    "lastDeliveryOutcome": "NotFound",
+    "publishTime": "2020-08-13T17:18:14.0265758Z",
+    "lastDeliveryAttemptTime": "2020-08-13T17:18:14.0465788Z" 
+}
+```
+
+### <a name="cloudevents-10-schema"></a>CloudEvents 1.0 schema
+
+#### <a name="event"></a>Evento
+
+```json
+{
+    "id": "caee971c-3ca0-4254-8f99-1395b394588e",
+    "source": "mysource",
+    "dataversion": "1.0",
+    "subject": "mySubject",
+    "type": "fooEventType",
+    "datacontenttype": "application/json",
+    "data": {
+        "prop1": "value1",
+        "prop2": 5
+    }
+}
+```
+
+#### <a name="dead-letter-event"></a>Evento de carta morta
+
+```json
+{
+    "id": "caee971c-3ca0-4254-8f99-1395b394588e",
+    "source": "mysource",
+    "dataversion": "1.0",
+    "subject": "mySubject",
+    "type": "fooEventType",
+    "datacontenttype": "application/json",
+    "data": {
+        "prop1": "value1",
+        "prop2": 5
+    },
+
+    "deadletterreason": "MaxDeliveryAttemptsExceeded",
+    "deliveryattempts": 1,
+    "lastdeliveryoutcome": "NotFound",
+    "publishtime": "2020-08-13T21:21:36.4018726Z",
+}
+```
+
+### <a name="custom-schema"></a>Esquema personalizado
+
+#### <a name="event"></a>Evento
+
+```json
+{
+    "prop1": "my property",
+    "prop2": 5,
+    "myEventType": "fooEventType"
+}
+
+```
+
+#### <a name="dead-letter-event"></a>Evento de carta morta
+```json
+{
+    "id": "8bc07e6f-0885-4729-90e4-7c3f052bd754",
+    "eventTime": "2020-08-13T18:11:29.4121391Z",
+    "eventType": "myEventType",
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "topic": "/subscriptions/00000000000-0000-0000-0000-000000000000000/resourceGroups/rgwithoutpolicy/providers/Microsoft.EventGrid/topics/myCustomSchemaTopic",
+    "subject": "subjectDefault",
+  
+    "deadLetterReason": "MaxDeliveryAttemptsExceeded",
+    "deliveryAttempts": 1,
+    "lastDeliveryOutcome": "NotFound",
+    "publishTime": "2020-08-13T18:11:29.4121391Z",
+    "lastDeliveryAttemptTime": "2020-08-13T18:11:29.4277644Z",
+  
+    "data": {
+        "prop1": "my property",
+        "prop2": 5,
+        "myEventType": "fooEventType"
+    }
+}
+```
+
 
 ## <a name="message-delivery-status"></a>Estado de entrega de mensagens
 

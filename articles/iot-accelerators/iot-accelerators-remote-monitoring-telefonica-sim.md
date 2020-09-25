@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: b07e21131d9560a49d99644525835ac5ee3bac9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21d84bea808ba5832b81d415001a3fc25a7e1630
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61442244"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323962"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integrar dados SIM na solução de Monitorização Remota
 
@@ -61,7 +61,7 @@ São publicados os seguintes parâmetros de conectividade:
 * Localização baseada em rede
 * Tráfego de dados consumido
 
-![Dashboard](./media/iot-accelerators-remote-monitoring-telefonica-sim/dashboard.png)
+![Screenshot da janela device Explorer no painel de monitorização remota Azure IoT. Uma linha que mostra detalhes do dispositivo WeatherStation está em destaque.](./media/iot-accelerators-remote-monitoring-telefonica-sim/dashboard.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -70,5 +70,5 @@ Agora que tem uma visão geral de como integrar os Dados SIM na Monitorização 
 * [Operar a solução de monitorização remota Azure IoT](quickstart-remote-monitoring-deploy.md)
 * [Realizar a monitorização avançada](iot-accelerators-remote-monitoring-monitor.md)
 * [Faça a gestão dos seus dispositivos](iot-accelerators-remote-monitoring-manage.md)
-* [Resolver problemas do dispositivo](iot-accelerators-remote-monitoring-maintain.md)
+* [Problemas com dispositivos de resolução de problemas](iot-accelerators-remote-monitoring-maintain.md)
 

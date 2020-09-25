@@ -3,7 +3,7 @@ title: Soluções Oracle no Microsoft Azure Microsoft Docs
 description: Saiba mais sobre opções para implementar aplicações e soluções oracle no Microsoft Azure, incluindo executar inteiramente na infraestrutura Azure ou usar conectividade cross-cloud com Oracle Cloud Infrastructure (OCI).
 services: virtual-machines-linux
 documentationcenter: ''
-author: rgardler
+author: dbakevlar
 tags: azure-resource-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/05/2020
-ms.author: rogardle
-ms.openlocfilehash: 6a516fc75880e3b6a5bc5b5907e8d968dce2ae31
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: kegorman
+ms.openlocfilehash: 8f20ad13953e3767e7693733d8c68f3d0aa2057c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507867"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274482"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Visão geral das aplicações e soluções da Oracle no Azure
 
@@ -89,11 +89,11 @@ Também implemente aplicações personalizadas no Azure que se conectam com o OC
 Utilize os Serviços de Nuvem oracle Database (Base de Dados Autónoma, RAC, Exadata, DBaaS, Nó Único) em conjunto com o software Oracle em execução em Azure. Saiba mais sobre [as opções de base de dados de OCI.](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm) 
  
 
-## <a name="licensing"></a>Licenciamento
+## <a name="licensing"></a>Licensing
 
 A implementação de aplicações oracle em Azure baseia-se num modelo de "traga a sua própria licença". Presume-se que está devidamente licenciado para usar o software Oracle e que tem um acordo de apoio atual em vigor com a Oracle. A Oracle garantiu a mobilidade de licenças de instalações para Azure. Consulte a [FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)Oracle-Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [aplicações Azure do WebLogic Server](oracle-weblogic.md) e as integrações de serviços Azure que suportam.
 

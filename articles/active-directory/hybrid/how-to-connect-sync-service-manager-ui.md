@@ -17,23 +17,23 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2975bb95511ba0a0d9f61886109c12715105fd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01d3b8a0ffaef1b1f03f6f9f8dab6af04a965ba9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357125"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306026"
 ---
 # <a name="introduction-to-the-azure-ad-connect-synchronization-service-manager-ui"></a>Introdução ao Azure AD Connect Synchronization Service Manager UI
 
-![Gestor de Serviço sincronizado](./media/how-to-connect-sync-service-manager-ui/ssmui.png)
+![Screenshot que mostra o Gestor de Serviço de Sincronização U I.](./media/how-to-connect-sync-service-manager-ui/ssmui.png)
 
 O **Serviço de Sincronização** UI é utilizado para configurar aspetos mais avançados do motor de sincronização e ver os aspetos operacionais do serviço.
 
 Inicia-se o UI do **Serviço de Sincronização** UI a partir do menu inicial. Chama-se **Synchronization Service** e pode ser encontrado no grupo **Azure AD Connect.**  
 ![Gestor de Serviço sincronizado](./media/how-to-connect-sync-service-manager-ui/startmenu.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o UI do Serviço de Sincronização, incluindo [Operações,](how-to-connect-sync-service-manager-ui-operations.md) [Conectores,](how-to-connect-sync-service-manager-ui-connectors.md) [Metaverse Designer](how-to-connect-sync-service-manager-ui-mvdesigner.md)e separadores [metaverses.](how-to-connect-sync-service-manager-ui-mvsearch.md)
 

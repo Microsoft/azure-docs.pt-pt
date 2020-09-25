@@ -7,12 +7,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: daperlov
-ms.openlocfilehash: e9df7b00a384859fb29577be0ad05da233683f46
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3e1c5f3b360960779dd58c8c05b25885df81d2e9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87044536"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276519"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Formato Delta na Azure Data Factory
 
@@ -35,12 +35,13 @@ A tabela abaixo lista as propriedades suportadas por uma fonte delta. Pode edita
 
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formato | Formato deve ser`delta` | sim | `delta` | formato |
+| Formato | Formato deve ser `delta` | sim | `delta` | formato |
 | Sistema de ficheiros | O sistema de contentores/arquivos do lago delta | sim | Cadeia | sistema de ficheiros |
 | Folder path | O direto do lago delta | sim | Cadeia | folderPath |
 | Tipo de compressão | O tipo de compressão da tabela delta | não | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressãoType |
 | Nível de compressão | Escolha se a compressão se completa o mais rapidamente possível ou se o ficheiro resultante deve ser comprimido da melhor forma. | necessário se `compressedType` for especificado. | `Optimal` ou `Fastest` | compressãoLevel |
 | Viagem no tempo | Escolha se deve consultar um instantâneo mais antigo de uma tabela delta | não | Consulta por timetamp: Timetamp <br> Consulta por versão: Inteiro | timetampAsOf <br> versõesAsOf |
+| Não permita que não encontrem ficheiros | Se for verdade, um erro não é jogado se nenhum ficheiro for encontrado | não | `true` ou `false` | ignoreNoFilesFound |
 
 #### <a name="import-schema"></a>Esquema de importação
 
@@ -71,7 +72,7 @@ A tabela abaixo lista as propriedades suportadas por um lavatório delta. Pode e
 
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formato | Formato deve ser`delta` | sim | `delta` | formato |
+| Formato | Formato deve ser `delta` | sim | `delta` | formato |
 | Sistema de ficheiros | O sistema de contentores/arquivos do lago delta | sim | Cadeia | sistema de ficheiros |
 | Folder path | O direto do lago delta | sim | Cadeia | folderPath |
 | Tipo de compressão | O tipo de compressão da tabela delta | não | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressãoType |

@@ -2,66 +2,63 @@
 title: Implementar pacotes de aplicações para calcular os nosdes
 description: Utilize a funcionalidade de pacotes de aplicação do Azure Batch para gerir facilmente várias aplicações e versões para instalação em nós computacional Batch.
 ms.topic: how-to
-ms.date: 09/16/2020
-ms.custom: H1Hack27Feb2017, devx-track-csharp
-ms.openlocfilehash: 0d705ca731c40563deaeb02c29da120211db7ff4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.date: 09/24/2020
+ms.custom:
+- H1Hack27Feb2017
+- devx-track-csharp
+- contperfq1
+ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985034"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277704"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementar aplicações para calcular os nóns com pacotes de aplicações batch
 
-A funcionalidade de pacotes de aplicações do Azure Batch ajuda-o a gerir aplicações de tarefas e a sua implementação para calcular nós nas suas piscinas. Os pacotes de aplicação podem simplificar o código na sua solução Batch e baixar as despesas necessárias para gerir as aplicações que as suas tarefas executam. Com pacotes de aplicações, pode carregar e gerir várias versões das aplicações que as suas tarefas executam, incluindo os seus ficheiros de suporte. Em seguida, pode implantar automaticamente uma ou mais destas aplicações nos nós de computação na sua piscina.
-
-Os pacotes de aplicações podem ajudar os seus clientes a selecionar aplicações para os seus trabalhos, especificando a versão exata a utilizar ao processar trabalhos com o seu serviço habilitado para o Lote. Também pode fornecer a capacidade para os seus clientes carregarem e rastrearem as suas próprias aplicações no seu serviço.
+Os pacotes de aplicação podem simplificar o código na sua solução Azure Batch e facilitar a gestão das aplicações que as suas tarefas executam. Com pacotes de aplicações, pode carregar e gerir várias versões de aplicações que as suas tarefas executam, incluindo os seus ficheiros de suporte. Em seguida, pode implantar automaticamente uma ou mais destas aplicações nos nós de computação na sua piscina.
 
 As APIs para a criação e gestão de pacotes de aplicações fazem parte da biblioteca [Batch Management .NET.](/dotnet/api/overview/azure/batch/management) As APIs para instalar pacotes de aplicações num nó de computação fazem parte da biblioteca [Batch .NET.](/dotnet/api/overview/azure/batch/client) Características comparáveis estão nas APIs do lote disponível para outras línguas.
 
-Este artigo explica como carregar e gerir pacotes de aplicações no portal Azure e como instalá-los nos nós de cálculo de uma piscina com a biblioteca [Batch .NET.](/dotnet/api/overview/azure/batch/client)
+Este artigo explica como carregar e gerir pacotes de aplicações no portal Azure. Também mostra como instalá-los nos nós computacionais de uma piscina com a biblioteca [Batch .NET.](/dotnet/api/overview/azure/batch/client)
 
 ## <a name="application-package-requirements"></a>Requisitos de pacote de aplicação
 
 Para utilizar pacotes de aplicações, precisa [de ligar uma conta de Armazenamento Azure](#link-a-storage-account) à sua conta Batch.
 
-Existem restrições ao número de pedidos e pacotes de aplicações dentro de uma conta Batch e no tamanho máximo do pacote de aplicação. Consulte [quotas e limites para o serviço Azure Batch](batch-quota-limit.md) para obter mais informações sobre estes limites.
+Existem restrições ao número de pedidos e pacotes de aplicações dentro de uma conta Batch e no tamanho máximo do pacote de aplicação. Para mais informações, consulte [quotas e limites para o serviço Azure Batch](batch-quota-limit.md).
 
 > [!NOTE]
-> Os lotes criados antes de 5 de julho de 2017 não suportam pacotes de aplicações (a menos que tenham sido criados após 10 de março de 2016 usando a Configuração de Serviços cloud).
->
-> A funcionalidade de pacotes de aplicações aqui descrita substitui a funcionalidade De Aplicações de Lote disponível em versões anteriores do serviço.
+> Os lotes criados antes de 5 de julho de 2017 não suportam pacotes de aplicações (a menos que tenham sido criados após 10 de março de 2016 usando a Configuração de Serviços cloud). A funcionalidade de pacotes de aplicações aqui descrita substitui a funcionalidade De Aplicações de Lote disponível em versões anteriores do serviço.
 
-## <a name="about-applications-and-application-packages"></a>Sobre aplicações e pacotes de aplicações
+## <a name="understand-applications-and-application-packages"></a>Compreender aplicações e pacotes de aplicações
 
-Dentro do Azure Batch, uma *aplicação* refere-se a um conjunto de binários versados que podem ser automaticamente descarregados para os nós computacional na sua piscina. Um pacote de *aplicações* refere-se a um conjunto específico desses binários, representando uma determinada versão da aplicação.
+Dentro do Azure Batch, uma *aplicação* refere-se a um conjunto de binários versados que podem ser automaticamente descarregados para os nós computacional na sua piscina. Uma aplicação contém um ou mais pacotes de *aplicações*, que representam diferentes versões da aplicação.
+
+Cada *pacote de aplicações* é um ficheiro .zip que contém os binários de aplicação e quaisquer ficheiros de suporte. Apenas o formato .zip é suportado.
 
 :::image type="content" source="media/batch-application-packages/app_pkg_01.png" alt-text="Diagrama que mostra uma visão de alto nível das aplicações e pacotes de aplicações.":::
 
-Uma *aplicação* em Batch contém um ou mais pacotes de aplicação e especifica opções de configuração para a aplicação. Por exemplo, uma aplicação pode especificar a versão de pacote de aplicação padrão para instalar nos nós computacionais e se os seus pacotes podem ser atualizados ou eliminados.
-
-Um *pacote de aplicações* é um ficheiro .zip que contém os binários de aplicação e ficheiros de suporte necessários para que as suas tarefas executem a aplicação. Cada pacote de aplicações representa uma versão específica da aplicação. Apenas o formato .zip é suportado.
-
-Pode especificar pacotes de aplicações nos níveis de piscina ou tarefa. Pode especificar uma ou mais destas embalagens e (opcionalmente) uma versão quando criar uma piscina ou tarefa.
+Pode especificar pacotes de aplicações no pool ou nível de tarefa.
 
 - **Os pacotes de aplicação da** piscina são implantados em todos os nós da piscina. As aplicações são implementadas quando um nó une uma piscina, e quando é reiniciado ou reesimagem.
   
-    Os pacotes de aplicação da piscina são apropriados quando todos os nós de uma piscina executam as tarefas de um trabalho. Pode especificar um ou mais pacotes de aplicações quando criar uma piscina, e pode adicionar ou atualizar os pacotes de uma piscina existente. Se atualizar os pacotes de aplicação de uma piscina existentes, tem de reiniciar os seus nós para instalar o novo pacote.
+    Os pacotes de aplicação de piscina são apropriados quando todos os nós de uma piscina executarão as tarefas de um trabalho. Pode especificar um ou mais pacotes de aplicação para implementar quando criar uma piscina. Também pode adicionar ou atualizar os pacotes de uma piscina existente. Para instalar um novo pacote numa piscina existente, tem de reiniciar os seus nós.
 
 - **Os pacotes de aplicação de tarefas são implantados apenas** num nó de computação programado para executar uma tarefa, pouco antes de executar a linha de comando da tarefa. Se o pacote e versão de aplicação especificados já estiver no nó, este não é reenviado e o pacote existente é utilizado.
   
-    Os pacotes de aplicação de tarefas são úteis em ambientes de piscina partilhada, onde diferentes empregos são executados em uma piscina, e a piscina não é eliminada quando um trabalho é concluído. Se o trabalho tiver menos tarefas do que nós no conjunto, os pacotes de aplicações de tarefas podem minimizar a transferência de dados, uma vez que a aplicação é implementada apenas nos nós que executam tarefas.
+    Os pacotes de aplicação de tarefas são úteis em ambientes de piscina partilhada, onde diferentes empregos funcionam numa piscina, e a piscina não é apagada quando um trabalho termina. Se o seu trabalho tiver menos tarefas do que nós no pool, os pacotes de aplicação de tarefas podem minimizar a transferência de dados, uma vez que a sua aplicação é implementada apenas para os nós que executam tarefas.
   
-    Outros cenários que podem beneficiar de pacotes de aplicação de tarefas são empregos que executam uma grande aplicação, mas apenas para algumas tarefas. Por exemplo, uma fase de pré-processamento ou uma tarefa de fusão, em que a aplicação de pré-processamento ou fusão é pesada, pode beneficiar da utilização de pacotes de aplicação de tarefa.
+    Outros cenários que podem beneficiar de pacotes de aplicação de tarefas são empregos que executam uma grande aplicação, mas apenas para algumas tarefas. Por exemplo, as aplicações de tarefa podem ser úteis para uma fase de pré-processamento de pesos pesados ou uma tarefa de fusão.
 
 Com pacotes de aplicações, a tarefa inicial da sua piscina não tem de especificar uma longa lista de ficheiros de recursos individuais para instalar nos nós. Não tem de gerir manualmente várias versões dos ficheiros da sua aplicação no Azure Storage ou nos seus nós. E não precisa de se preocupar em gerar [URLs SAS](../storage/common/storage-sas-overview.md) para fornecer acesso aos ficheiros da sua conta de Armazenamento. O lote trabalha em segundo plano com o Azure Storage para armazenar pacotes de aplicações e implantá-los para calcular nós.
 
 > [!NOTE]
-> O tamanho total de uma tarefa de início tem de ser inferior ou igual a 32 768 carateres, incluindo ficheiros de recursos e variáveis de ambiente. Se a sua tarefa inicial exceder este limite, então a utilização de pacotes de aplicações é outra opção. Também pode criar um ficheiro .zip contendo os seus ficheiros de recursos, carregá-lo como uma bolha para o Azure Storage e, em seguida, desapertá-lo da linha de comando da sua tarefa inicial.
+> O tamanho total de uma tarefa de início tem de ser inferior ou igual a 32 768 carateres, incluindo ficheiros de recursos e variáveis de ambiente. Se a sua tarefa inicial exceder este limite, a utilização de pacotes de aplicações é outra opção. Também pode criar um ficheiro .zip contendo os seus ficheiros de recursos, carregá-lo como uma bolha para o Azure Storage e, em seguida, desapertá-lo da linha de comando da sua tarefa inicial.
 
 ## <a name="upload-and-manage-applications"></a>Carregar e gerir aplicações
 
-Pode utilizar o [portal Azure](https://portal.azure.com) ou as APIs de Gestão de Lotes para gerir os pacotes de aplicações na sua conta Batch. Nas próximas secções, primeiro mostramos como ligar uma conta de Armazenamento, depois discutimos adicionar aplicações e pacotes e geri-los com o portal.
+Pode utilizar o [portal Azure](https://portal.azure.com) ou as APIs de Gestão de Lotes para gerir os pacotes de aplicações na sua conta Batch. As secções seguintes explicam como ligar uma conta de armazenamento e como adicionar e gerir aplicações e pacotes de aplicações no portal Azure.
 
 ### <a name="link-a-storage-account"></a>Ligue uma conta de armazenamento
 
@@ -74,7 +71,7 @@ Depois de ter ligado as duas contas, o Batch pode implantar automaticamente os p
 > [!IMPORTANT]
 > Não é possível utilizar pacotes de aplicações com contas de Armazenamento Azure configuradas com [regras de firewall](../storage/common/storage-network-security.md), ou com **espaço de nome hierárquico** definido para **Ativado**.
 
-O serviço Batch utiliza o Azure Storage para armazenar os seus pacotes de aplicações como bolhas de bloqueio. Você é [cobrado normalmente](https://azure.microsoft.com/pricing/details/storage/) para os dados do bloco blob, e o tamanho de cada embalagem não pode exceder o tamanho máximo de blob de bloco. Para obter mais informações, consulte [a escalabilidade do armazenamento Azure e os objetivos de desempenho para contas de armazenamento.](../storage/blobs/scalability-targets.md) Para minimizar os custos, a bee certamente considerará o tamanho e o número dos seus pacotes de aplicação, e remover periodicamente pacotes prectados.
+O serviço Batch utiliza o Azure Storage para armazenar os seus pacotes de aplicações como bolhas de bloqueio. Você é [cobrado normalmente](https://azure.microsoft.com/pricing/details/storage/) para os dados do bloco blob, e o tamanho de cada embalagem não pode exceder o tamanho máximo de blob de bloco. Para obter mais informações, consulte [a escalabilidade do armazenamento Azure e os objetivos de desempenho para contas de armazenamento.](../storage/blobs/scalability-targets.md) Para minimizar os custos, certifique-se de considerar o tamanho e o número dos seus pacotes de aplicação e remover periodicamente pacotes prectados.
 
 ### <a name="view-current-applications"></a>Ver aplicações atuais
 
@@ -88,19 +85,19 @@ A seleção desta opção de menu abre a janela **Aplicações.** Esta janela ap
 - **Versão predefinida**: Se aplicável, a versão de aplicação que será instalada se nenhuma versão for especificada ao implementar a aplicação.
 - **Permitir atualizações**: Especifica se são permitidas atualizações e supressões de pacotes.
 
-Para ver a estrutura de [ficheiros](files-and-directories.md) do pacote de aplicações no seu nó de computação, navegue para a sua conta Batch no portal Azure. Selecione **Pools** e, em seguida, selecione a piscina que contém o nó de cálculo em que está interessado. Em seguida, selecione o nó de cálculo no qual o pacote de aplicações está instalado e abra a pasta **de aplicações.**
+Para ver a estrutura de [ficheiros](files-and-directories.md) do pacote de aplicações num nó de computação, navegue para a sua conta Batch no portal Azure. Selecione **Piscinas**. em seguida, selecione a piscina que contém o nó de computação. Selecione o nó de cálculo no qual o pacote de aplicações está instalado e abra a pasta **de aplicações.**
 
 ### <a name="view-application-details"></a>Ver detalhes da aplicação
 
 Para ver os detalhes de uma aplicação, selecione-o na janela **Aplicações.** Pode configurar as seguintes definições para a sua aplicação.
 
-- **Permitir atualizações**: Indica se os pacotes de aplicações podem ser [atualizados ou eliminados](#update-or-delete-an-application-package). A predefinição é **Sim**. Se definido para **Nº**, não serão permitidas atualizações e eliminações de pacotes para a aplicação, embora possam ser adicionadas novas versões de pacotes de aplicações.
+- **Permitir atualizações**: Indica se os pacotes de aplicações podem ser [atualizados ou eliminados](#update-or-delete-an-application-package). A predefinição é **Sim**. Se definidos para **Nº**, os pacotes de aplicações existentes não podem ser atualizados ou eliminados, mas ainda podem ser adicionadas novas versões de pacotes de aplicações.
 - **Versão predefinida**: O pacote de aplicação predefinido a utilizar quando a aplicação for implementada, se nenhuma versão for especificada.
 - **Nome do visor**: Um nome amigável que a sua solução Batch pode usar quando apresenta informações sobre a aplicação. Por exemplo, este nome pode ser usado na UI de um serviço que fornece aos seus clientes através do Batch.
 
 ### <a name="add-a-new-application"></a>Adicionar uma nova aplicação
 
-Para criar uma nova aplicação, adicione um pacote de aplicações e especifique um novo ID de aplicação único.
+Para criar uma nova aplicação, adicione um pacote de aplicações e especifique um ID de aplicação único.
 
 Na sua conta Batch, selecione **Aplicações** e, em seguida, **selecione Adicionar**.
 
@@ -143,7 +140,7 @@ Agora que aprendeu a gerir pacotes de aplicações no portal Azure, podemos disc
 
 ### <a name="install-pool-application-packages"></a>Instalar pacotes de aplicação de piscina
 
-Para instalar um pacote de aplicações em todos os nós computacionais numa piscina, especifique uma ou mais referências de pacotes de aplicação para o pool. Os pacotes de aplicação que especifica para uma piscina são instalados em cada nó de computação quando esse nó se junta à piscina, e quando o nó é reiniciado ou remeximedido.
+Para instalar um pacote de aplicações em todos os nós computacionais numa piscina, especifique uma ou mais referências de pacotes de aplicação para o pool. Os pacotes de aplicação que especifica para uma piscina são instalados em cada nó de cálculo que une a piscina, e em qualquer nó que seja reiniciado ou reescamado.
 
 No Lote .NET, especifique uma ou mais [CloudPool.ApplicationPackageReferences](/dotnet/api/microsoft.azure.batch.cloudpool.applicationpackagereferences) quando criar uma nova piscina, ou para uma piscina existente. A classe [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference) especifica um ID de aplicação e versão para instalar nos nós de cálculo de uma piscina.
 
@@ -170,7 +167,7 @@ await myCloudPool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Se uma implementação de pacote de aplicação falhar por qualquer motivo, o serviço Batch marca o nó [inutilizável](/dotnet/api/microsoft.azure.batch.computenode.state), e não estão agendadas tarefas para a execução nesse nó. Neste caso, deve reiniciar o nó para reiniciar a colocação do pacote. Reiniciar o nó também permite agendar a tarefa novamente no nó.
+> Se uma implementação de pacote de aplicação falhar, o serviço Batch marca o nó [inutilizável](/dotnet/api/microsoft.azure.batch.computenode.state), e não estão agendadas tarefas para a execução nesse nó. Se isto acontecer, reinicie o nó para reiniciar a colocação do pacote. Reiniciar o nó também permite agendar a tarefa novamente no nó.
 
 ### <a name="install-task-application-packages"></a>Instalar pacotes de aplicação de tarefas
 
@@ -246,7 +243,7 @@ CloudTask blenderTask = new CloudTask(taskId, commandLine);
 
 ## <a name="update-a-pools-application-packages"></a>Atualizar os pacotes de aplicações de um conjunto
 
-Se uma piscina já existente já tiver sido configurada com um pacote de aplicações, pode especificar um novo pacote para a piscina. Se especificar uma nova referência de pacote para uma piscina, aplica-se:
+Se uma piscina já existente já tiver sido configurada com um pacote de aplicações, pode especificar um novo pacote para a piscina. Isto significa:
 
 - O serviço Batch instala o pacote recentemente especificado em todos os novos nós que se juntam à piscina e em qualquer nó existente que seja reiniciado ou reesimagem.
 - Os nós computacionais que já se encontram na piscina quando atualiza as referências do pacote não instalam automaticamente o novo pacote de aplicações. Estes nós computatórios devem ser reiniciados ou remimagemed para receber o novo pacote.

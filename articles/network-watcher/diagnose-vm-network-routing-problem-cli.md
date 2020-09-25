@@ -1,7 +1,7 @@
 ---
 title: Diagnosticar um problema de encaminhamento de rede VM - Azure CLI
 titleSuffix: Azure Network Watcher
-description: Neste artigo, aprende-se a diagnosticar um problema de encaminhamento de rede de máquinas virtuais utilizando a próxima capacidade de lúpulo do Azure Network Watcher.
+description: Neste artigo, aprende-se a usar o Azure CLI para diagnosticar um problema de encaminhamento de rede de máquinas virtuais utilizando a próxima capacidade de lúpulo do Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
 author: damendo
@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 889db5cdcb1807b859339eaf326e3cec7ea64b84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fa083626135170a05844a5e4434b608a1fabe60
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738809"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302277"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticar um problema de encaminhamento de rede de máquinas virtuais - Azure CLI
 
@@ -32,7 +32,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o Azure CLI localmente, este artigo requer que esteja a executar a versão Azure CLI 2.0.28 ou posterior. Para localizar a versão instalada, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Depois de verificar a versão Azure CLI, corra `az login` para criar uma ligação com a Azure. Os comandos Azure CLI neste artigo são formatados para correr numa concha bash.
+Se optar por instalar e utilizar o Azure CLI localmente, este artigo requer que esteja a executar a versão Azure CLI 2.0.28 ou posterior. Para localizar a versão instalada, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Depois de verificar a versão Azure CLI, corra `az login`  para criar uma ligação com a Azure. Os comandos Azure CLI neste artigo são formatados para correr numa concha bash.
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
@@ -151,7 +151,7 @@ Quando usou o `az network watcher show-next-hop` comando para testar a comunica�
 
 Como pode ver na saída a partir do `az network watcher nic show-effective-route-table` comando, embora exista uma rota padrão para o prefixo 172.16.0.0/12, que inclui o endereço 172.31.0.100, o **próximoHopType** é **Nenhum**. O Azure cria uma rota predefinida para 172.16.0.0/12, mas não especifica um tipo de próximo salto até que haja um motivo para isso. Se, por exemplo, adicionou a gama de endereços 172.16.0.0/12 ao espaço de endereço da rede virtual, o Azure altera o **próximo Dispositivo de Segurança** para a rede **Virtual** para a rota. Uma verificação mostraria então a **rede Virtual** como o **próximo Ópsia.**
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, pode utilizar [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos e todos os recursos que contém:
 
@@ -159,7 +159,7 @@ Quando já não for necessário, pode utilizar [az group delete](/cli/azure/grou
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criou um VM e diagnosticou o encaminhamento de rede a partir do VM. Aprendeu que o Azure cria várias rotas predefinidas e testa o encaminhamento para dois destinos diferentes. Saiba mais sobre o [encaminhamento no Azure](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) e como [criar rotas personalizadas](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route).
 

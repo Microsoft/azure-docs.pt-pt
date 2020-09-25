@@ -15,12 +15,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b52830e7cddb01c129df2344e26ac1684a88872
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 959837ff540fd95d186497858d7b9de1f8b1124d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89292729"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274015"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Reveja o acesso a grupos ou aplicações em avaliações de acesso a Azure AD
 
@@ -65,13 +65,13 @@ Uma vez aberta a revisão de acesso, pode ver o seu acesso.
 
     Se o pedido for para rever o acesso a outros, a página será diferente. Para obter mais informações, consulte [o acesso ao Rever a grupos ou aplicações.](perform-access-review.md)
 
-    ![Revisão de acesso aberto perguntando se ainda precisa de acesso a um grupo](./media/review-your-access/perform-access-review.png)
+    ![Screenshot que mostra uma revisão de acesso aberto perguntando se você ainda precisa de acesso a um grupo.](./media/review-your-access/perform-access-review.png)
 
 1. Clique **em Sim** para manter o seu acesso ou clique em **Não** para remover o seu acesso.
 
 1. Se clicar em **Sim,** poderá ter de especificar uma justificação na caixa **Reason.**
 
-    ![Análise de acesso concluída perguntando se ainda precisa de acesso a um grupo](./media/review-your-access/perform-access-review-submit.png)
+    ![Screenshot que mostra uma revisão de acesso completa que pergunta se ainda precisa de acesso a um grupo, com "Sim" selecionado.](./media/review-your-access/perform-access-review-submit.png)
 
 1. Clique **em Submeter.**
 
@@ -163,6 +163,6 @@ Também pode ver os comentários de acesso pendentes utilizando o seu navegador 
     > [!NOTE]
     > Se indicou que já não precisa de acesso, não será removido imediatamente. É removido quando a revisão tiver terminado ou quando um administrador para a revisão.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Complete uma revisão de acesso de grupos ou aplicações](complete-access-review.md)

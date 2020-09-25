@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab, mathoma
+ms.reviewer: sstein, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 407d56c209f64d350906a17c0746b1c43f969d43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c4a538a0dc5447f95152de87f9a19ed57f08359
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708679"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325118"
 ---
 # <a name="restore-a-database-in-azure-sql-managed-instance-to-a-previous-point-in-time"></a>Restaurar uma base de dados em Azure SQL Gestd Instance para um ponto anterior no tempo
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -46,9 +46,9 @@ A tabela a seguir mostra cenários de restauro pontual para a ocorrência gerida
 
 |           |Restaurar a DB existente no mesmo caso de SQL Managed Instance| Restaurar o DB existente para outra sql gestditua instância|Restauro caiu DB para a mesma SQL Managed Instance|Restauro deixou cair DB para outra SqL Managed Instance|
 |:----------|:----------|:----------|:----------|:----------|
-|**Portal do Azure**| Sim|Não |Sim|Não|
-|**CLI do Azure**|Sim |Sim |Não|Não|
-|**PowerShell**| Sim|Sim |Sim|Sim|
+|**Portal do Azure**| Yes|No |Yes|No|
+|**CLI do Azure**|Yes |Yes |No|No|
+|**PowerShell**| Yes|Yes |Yes|Yes|
 
 ## <a name="restore-an-existing-database"></a>Restaurar uma base de dados existente
 
@@ -251,6 +251,6 @@ Utilize um dos seguintes métodos para ligar à sua base de dados em SQL Managed
 - [Ponto a site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
 - [Ponto final público](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais [sobre cópias de segurança automatizadas.](../database/automated-backups-overview.md)

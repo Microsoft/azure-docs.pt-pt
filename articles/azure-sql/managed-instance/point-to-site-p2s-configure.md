@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, carlrab, bonova, jovanpop
+ms.reviewer: sstein, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: 7b9c9fc6259656af77bf1ba1b95ccf190cbd85da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a629d230d63506a163cac0c530a1a8fbfed9627f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708658"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325084"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-azure-sql-managed-instance-from-on-premises"></a>Quickstart: Configurar uma ligação ponto-a-local com Azure SQL Gestão Instância a partir de instalações
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -28,7 +28,7 @@ Este quickstart demonstra como ligar-se a Azure SQL Managed Instance usando [SQL
 
 Este guia de início rápido:
 
-- Utiliza os recursos criados na [Criação de um caso gerido](instance-create-quickstart.md) como ponto de partida.
+- Utiliza os recursos criados na  [Criação de um caso gerido](instance-create-quickstart.md) como ponto de partida.
 - Requer PowerShell 5.1 e Azure PowerShell 1.4.0 ou mais tarde no seu computador cliente no local. Se necessário, consulte as instruções para [a instalação do módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module).
 - Requer a mais recente versão do [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) no seu computador cliente no local.
 
@@ -104,7 +104,7 @@ Este guia de início rápido:
 
 Depois de se ligar, pode visualizar o seu sistema e bases de dados de utilizadores no nó de Bases de Dados. Também pode ver vários objetos nos nós de Segurança, Objetos de Servidor, Replicação, Gestão, Agente do Servidor SQL e nós do Perfil XEvent.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter um arranque rápido que mostre como ligar a partir de uma máquina virtual Azure, consulte [configurar uma ligação ponto-a-local](point-to-site-p2s-configure.md).
 - Para obter uma visão geral das opções de ligação para aplicações, consulte [Conecte as suas aplicações à SQL Managed Instance](connect-application-instance.md).

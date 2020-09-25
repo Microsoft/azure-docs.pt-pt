@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: c1168602ccb527d8ffb3b64d5437a26490b44a21
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 770ded494f050631cd1c373f4b3fa5846c65e01a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971515"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275137"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Criar uma ligação a uma conta de Armazenamento Azure usando uma identidade gerida
 
@@ -143,6 +143,10 @@ Este indexante será executado de duas em duas horas (o intervalo de horário es
 Para obter mais detalhes sobre a API do Indexante Create, consulte [Create Indexer](/rest/api/searchservice/create-indexer).
 
 Para obter mais informações sobre a definição de horários de indexantes, consulte [Como agendar indexadores para a Pesquisa Cognitiva do Azure](search-howto-schedule-indexers.md).
+
+## <a name="accessing-secure-data-in-storage-accounts"></a>Aceder a dados seguros em contas de armazenamento
+
+As contas de armazenamento Azure podem ser mais protegidas usando firewalls e redes virtuais. Se pretender indexar o conteúdo a partir de uma conta de armazenamento de bolhas ou de uma conta de armazenamento do Data Lake Gen2 que esteja protegida através de uma firewall ou rede virtual, siga as instruções para [aceder aos dados nas contas de armazenamento de forma segura através de uma exceção de serviço fidedigna](search-indexer-howto-access-trusted-service-exception.md).
 
 ## <a name="see-also"></a>Ver também
 

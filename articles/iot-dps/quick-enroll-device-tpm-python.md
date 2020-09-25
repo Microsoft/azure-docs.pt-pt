@@ -1,5 +1,5 @@
 ---
-title: Inscreva o dispositivo TPM para o Serviço de Provisionamento de Dispositivos Azure utilizando python
+title: Quickstart - Inscreva o dispositivo TPM no Serviço de Provisionamento de Dispositivos Azure utilizando Python
 description: Quickstart - Inscreva o dispositivo TPM para o Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS) utilizando o serviço de fornecimento python SDK. Este início rápido utiliza inscrições individuais.
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: python
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: dd34806cbfeeccadbaac247a9ea4d019cc22fc57
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 96bd1e85de45ac36515580025dfc392e931643f3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876415"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323768"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>Quickstart: Inscreva o dispositivo TPM no Serviço de Provisionamento de Dispositivos IoT Hub utilizando o serviço de fornecimento python SDK
 
@@ -117,7 +117,7 @@ Se planeia explorar a amostra de serviço java, não limpe os recursos criados n
 
 1. Feche a janela da saída do exemplo de Python no seu computador.
 1. Se criou um dispositivo TPM simulado, feche a janela do simulador TPM.
-1. Navegue para o seu serviço de Provisionamento de Dispositivos no portal Azure, **selecione Gerir as inscrições**e, em seguida, selecione o separador **Inscrições Individuais.** Selecione a caixa de verificação ao lado do *ID de inscrição* para a entrada de inscrição criada através deste arranque rápido e prima o botão **Eliminar** na parte superior do painel.
+1. Navegue para o seu serviço de Provisionamento de Dispositivos no portal Azure, **selecione Gerir as inscrições**e, em seguida, selecione o separador **Inscrições Individuais.** Selecione a caixa de verificação ao lado do *ID de registo* para a entrada de inscrição que criou usando este arranque rápido e prima o botão **Eliminar** na parte superior do painel.
 
 
 ## <a name="next-steps"></a>Passos seguintes

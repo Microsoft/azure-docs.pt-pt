@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 5cb504e10c9a1b10c5bad201f4f599a3c00992fe
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: efd35cfe2660f4597ec0c95dc29bcb4b839da680
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530765"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306944"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Atualizações de controlo com Controlo de Manutenção e Azure PowerShell
 
@@ -66,6 +66,33 @@ Pode consultar as configurações de manutenção disponíveis utilizando [a Con
 ```azurepowershell-interactive
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 ```
+
+### <a name="create-a-maintenance-configuration-with-scheduled-window-in-preview"></a>Criar uma configuração de manutenção com janela programada (em pré-visualização)
+
+
+> [!IMPORTANT]
+> A funcionalidade de janela agendada encontra-se atualmente em Visualização Pública.
+> Esta versão de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Utilize a Configuração new-AzMaintenance para criar uma configuração de manutenção com uma janela programada quando o Azure aplicar as atualizações dos seus recursos. Este exemplo cria uma configuração de manutenção chamada myConfig com uma janela programada de 5 horas na quarta segunda-feira de cada mês. Uma vez que crie uma janela programada, já não terá de aplicar as atualizações manualmente.
+
+```azurepowershell-interactive
+$config = New-AzMaintenanceConfiguration `
+   -ResourceGroup $RGName `
+   -Name $MaintenanceConfig `
+   -MaintenanceScope Host `
+   -Location $location `
+   -StartDateTime "2020-10-01 00:00" `
+   -TimeZone "Pacific Standard Time" `
+   -Duration "05:00" `
+   -RecurEvery "Month Fourth Monday"
+```
+> [!IMPORTANT]
+> A **duração da** manutenção deve ser *de 2 horas* ou mais. A **recorrência** da manutenção deve ser definida pelo menos uma vez em 35 dias.
+
+A **recorrência da** manutenção pode ser expressa como horários diários, semanais ou mensais. Os exemplos de horário diário são recurevery: Day, recurevery: 3Days. Os exemplos de horário semanal são recurEvery: 3Weeks, recurevery: Week Saturday,Sunday. Os exemplos mensais de horários repetem-se Todos os dias: Mês dia23,dia24, recurento: Mês Passado domingo, recurcurTodos: Mês Quarta-feira.
+
 
 ## <a name="assign-the-configuration"></a>Atribuir a configuração
 

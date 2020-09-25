@@ -1,14 +1,14 @@
 ---
 title: CloudEvents v1.0 schema com Azure Event Grid
-description: Descreve como usar o esquema do CloudEvents para eventos em Azure Event Grid. O serviço suporta eventos na implementação json de Eventos cloud.
+description: Descreve como usar o esquema CloudEvents v1.0 para eventos em Azure Event Grid. O serviço suporta eventos na implementação json de Eventos cloud.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 1c6085c0397f23d44cf11d43a3e1da71f0e728bb
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d17e92c28784ca31f3c9809c93e885b22c6a38d0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103080"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324183"
 ---
 # <a name="cloudevents-v10-schema-with-azure-event-grid"></a>CloudEvents v1.0 schema com Azure Event Grid
 
@@ -67,5 +67,5 @@ Você pode usar a Grade de Eventos tanto para a entrada como para a saída de ev
 
 Para todos os esquemas de eventos, o Event Grid requer validação ao publicar um tópico de grelha de eventos e ao criar uma subscrição de eventos. Para mais informações, consulte [a segurança e a autenticação da Grade de Eventos.](security-authentication.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Ver [como utilizar o esquema cloudEvents v1.0 com grade de eventos](cloudevents-schema.md).  

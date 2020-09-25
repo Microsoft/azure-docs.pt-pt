@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2019
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 53fdea6a52cc02ddc9aaf22574a6bac5f5b7bca6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2eee46f99af247ffd0e11b262ace0a96453270d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947507"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323679"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 

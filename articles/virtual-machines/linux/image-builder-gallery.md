@@ -1,6 +1,6 @@
 ---
 title: Use Azure Image Builder & Galeria de Imagens Partilhadas para Linux VMs (pré-visualização)
-description: Crie imagens Linux VM com Azure Image Builder e Image Gallery Partilhada.
+description: Aprenda a usar o Azure Image Builder, e o Azure CLI, para criar uma versão de imagem numa Galeria de Imagem Partilhada e, em seguida, distribua a imagem globalmente.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2019
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.reviewer: danis
-ms.openlocfilehash: 1eeb8df2605bbe63fe72c5bd451b43111322a7f6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bab5a86cdf8e3fa6b17866fe4088b28ed3ece6f6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500917"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307301"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>Pré-visualização: Criar uma imagem Linux e distribuí-la para uma Galeria de Imagens Partilhadas 
 
@@ -227,7 +227,7 @@ Deve ver que a imagem foi personalizada com uma *Mensagem do Dia* assim que a su
 *******************************************************
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender agora tentar re-personalizar a versão de imagem para criar uma nova versão da mesma imagem, salte os próximos passos e continue a utilizar o [Azure Image Builder para criar outra versão de imagem](image-builder-gallery-update-image-version.md).
 

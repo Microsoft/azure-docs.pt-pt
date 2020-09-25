@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 09/23/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3c9023e23795fd51e5519727a0ab174dc6f75830
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2f2184507e17e3ecae40bb33be4202c183d32b77
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939000"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274238"
 ---
 # <a name="point-to-site-vpn-session-management"></a>Gestão de sessão VPN ponto-a-local
 

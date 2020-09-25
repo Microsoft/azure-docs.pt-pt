@@ -1,19 +1,19 @@
 ---
 title: 'Gerar e exportar certificados para P2S: PowerShell'
 titleSuffix: Azure VPN Gateway
-description: Crie um certificado de raiz auto-assinado, exporte a chave pública e gere certificados de cliente usando PowerShell no Windows 10 ou Windows Server 2016.
+description: Crie um certificado de raiz auto-assinado, exporte a chave pública e gere certificados de cliente para P2S usando o PowerShell no Windows 10 ou Windows Server 2016.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: dc9f9ca72247ac54286037475912cf6051d8d2af
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: c1c69b301199b054fe6b1ef42cfcf7878a7a161c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394191"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306690"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>Generate and export certificates for Point-to-Site using PowerShell (Gerar e exportar certificados para Ponto a Site através da PowerShell)
 
@@ -31,7 +31,7 @@ Cada cliente que se conecta ao VNet sobre uma ligação P2S requer que um certif
 
 Para instalar um certificado de cliente, consulte [instalar um certificado de cliente para ligações ponto-a-local](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Continue com a sua configuração Ponto-a-Local.
 

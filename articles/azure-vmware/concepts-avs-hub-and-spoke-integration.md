@@ -3,12 +3,12 @@ title: Conceito - Integre uma implementação de Solução VMware Azure num hub 
 description: Conheça as recomendações para a integração de uma implementação de Azure VMware Solution num centro existente ou novo e falou arquitetura sobre a Azure.
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 1862b98b40788b6b71d05eb4be43bdacd39e927f
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a2007e159d23a02ca573fd833590651061c59973
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659208"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271737"
 ---
 # <a name="integrate-azure-vmware-solution-in-a-hub-and-spoke-architecture"></a>Integre a Solução Azure VMware num hub e falou arquitetura
 
@@ -100,7 +100,7 @@ Um segundo nível de segmentação de tráfego utilizando os grupos de seguranç
 
 A azure Application Gateway V1 e V2 foram testados com aplicações web que funcionam em VMs de Solução VMware Azure como pool de backend. O Application Gateway é atualmente o único método suportado para expor aplicações web em execução em VMs de Solução VMware Azure para a internet. Também pode expor as aplicações a utilizadores internos de forma segura.
 
-Reveja o artigo específico da Azure VMware Solution no [Application Gateway](./protect-avs-web-apps-with-app-gateway.md) para obter os detalhes e requisitos.
+Reveja o artigo específico da Azure VMware Solution no [Gateway de aplicações](./protect-avs-web-apps-with-app-gateway.md) para obter os detalhes e requisitos.
 
 :::image type="content" source="media/hub-spoke/avs-second-level-traffic-segmentation.png" alt-text="Segundo nível de segmentação de tráfego utilizando os Grupos de Segurança da Rede" border="false":::
 
@@ -109,7 +109,7 @@ Reveja o artigo específico da Azure VMware Solution no [Application Gateway](./
 
 Acesso VMware Solution ambiente com Jumpbox, que é um VM windows 10 ou Windows Server implantado na sub-rede de serviço partilhado dentro da rede virtual Hub.
 
-Como uma boa prática de segurança, implemente o serviço [Microsoft Azure Bastion](../bastion/index.yml) dentro da rede virtual Hub. O Azure Bastion fornece acesso sem costura de PDR e SSH aos VM implantados em Azure sem a necessidade de fornecer endereços IP públicos a esses recursos. Uma vez prestado o serviço Azure Bastion, pode aceder ao VM selecionado a partir do portal Azure. Depois de estabelecer a ligação, abre-se um novo separador, mostrando o ambiente de trabalho Jumpbox, e a partir desse ambiente de trabalho, pode aceder ao plano de gestão de nuvem privada Azure VMware Solution.
+Como uma boa prática de segurança, implemente o serviço [Microsoft Azure Bastion](../bastion/index.yml) dentro da rede virtual Hub. O Azure Bastion fornece acesso sem costura de PDR e SSH aos VM implantados em Azure sem a necessidade de fornecer endereços IP públicos a esses recursos. Uma vez prestado o serviço Azure Bastion, pode aceder ao VM selecionado a partir do portal Azure. Depois de estabelecer a ligação, abre-se um novo separador, mostrando o ambiente de trabalho Jumpbox onde pode aceder ao plano de gestão de nuvem privada Azure VMware Solution.
 
 > [!IMPORTANT]
 > Não forneça o endereço IP público para a VM da Jumpbox nem exponha a porta 3389/TCP à internet pública. 
@@ -142,7 +142,7 @@ As instalações e os servidores Azure VMware Solution podem ser configurados co
 
 ## <a name="identity-considerations"></a>Considerações de identidade
 
-Para fins de identidade, a melhor abordagem é implantar pelo menos um controlador de domínio AD no Hub, utilizando a sub-rede de serviço partilhada, idealmente duas delas em forma distribuída por zona ou um conjunto de disponibilidade de VM. Consulte [o Centro de Arquitetura Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain) para estender o seu domínio de AD no local até Azure.
+Para fins de identidade, a melhor abordagem é implantar pelo menos um controlador de domínio AD no Hub, utilizando a sub-rede de serviço partilhada. Idealmente dois deles em forma distribuída por zona ou um conjunto de disponibilidade de VM. Consulte [o Centro de Arquitetura Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain) para estender o seu domínio de AD no local até Azure.
 
 Adicionalmente, implemente outro controlador de domínio no lado Azure VMware Solution para agir como identidade e fonte de DNS dentro do ambiente vSphere.
 

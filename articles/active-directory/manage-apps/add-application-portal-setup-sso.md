@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Configurar um único sign-on (SSO) para uma aplicação no seu inquilino Azure Ative Directory (Azure AD)'
-description: Este quickstart percorre o processo de configuração de uma única inscrição (SSO) para uma aplicação no seu inquilino Azure Ative Directory (Azure AD).
+title: 'Quickstart: Configurar um único sign-on (SSO) baseado em SAML para uma aplicação no seu inquilino Azure Ative Directory (Azure AD)'
+description: Este quickstart percorre o processo de criação de um único sign-on (SSO) baseado em SAML para uma aplicação no seu inquilino Azure Ative Directory (Azure AD).
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -10,15 +10,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 040cc2dfa48f24fff4c7dda2cb6010efb01e9b86
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: d9ef069291f010db510d626ceda959a0342c39e2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89300141"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91305788"
 ---
-# <a name="quickstart-set-up-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Quickstart: Configurar um único sign-on (SSO) para uma aplicação no seu inquilino Azure Ative Directory (Azure AD)
+# <a name="quickstart-set-up-saml-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Quickstart: Configurar um único sign-on (SSO) baseado em SAML para uma aplicação no seu inquilino Azure Ative Directory (Azure AD)
 
 Inicie com logins de utilizador simplificados, configurando um único login (SSO) para uma aplicação que adicionou ao seu inquilino Azure Ative Directory (Azure AD). Depois de configurar o SSO, os seus utilizadores podem iniciar sação numa aplicação utilizando as suas credenciais AZure AD. SSO está incluído na edição gratuita do Azure AD.
 
@@ -38,7 +37,6 @@ Para configurar o SSO para uma aplicação que adicionou ao seu inquilino AZure 
 >[!IMPORTANT]
 >Utilize um ambiente de não produção para testar os passos neste arranque rápido.
 
-
 ## <a name="enable-single-sign-on-for-an-app"></a>Ativar um único sinal de sômes para uma aplicação
 
 Depois de terminar de adicionar uma aplicação ao seu inquilino Azure AD, a página geral aparece. Se está a configurar uma aplicação que já foi adicionada, olhe para o primeiro quickstart. Acompanha-o a ver as candidaturas adicionadas ao seu inquilino. 
@@ -47,6 +45,9 @@ Para configurar um único sinal de inscrição para uma aplicação:
 
 1. No portal AD Azure, selecione **aplicações Enterprise**. Em seguida, encontre e selecione a aplicação que pretende configurar para um único sôm- insi.
 1. Na secção **'Gerir',** selecione **'Único's sign-on'** para abrir o painel **de inscrição único** para edição.
+
+    > [!IMPORTANT]
+    > Se a aplicação utilizar a norma OpenID Connect (OIDC) para SSO, então não verá uma única opção de acesso na navegação. Consulte o quickstart no SSO baseado em OIDC para aprender a configurar.
 
     :::image type="content" source="media/add-application-portal-setup-sso/configure-sso.png" alt-text="A screenshot mostra a página configurar de assinatura única no portal AD Azure.":::
 
@@ -60,7 +61,6 @@ Para configurar um único sinal de inscrição para uma aplicação:
     > Para saber mais sobre as opções de configuração SAML, consulte o [sign-on único baseado em Configure SAML](configure-saml-single-sign-on.md).
 
     :::image type="content" source="media/add-application-portal-setup-sso/github-pricing.png" alt-text="O Screenshot mostra a opção de inscrição única na subscrição enterprise da página de preços do GitHub.":::
-
 
 > [!TIP]
 > Pode automatizar a gestão de aplicações utilizando a API do Gráfico, ver [Gestão de aplicações do Automamate com a Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).

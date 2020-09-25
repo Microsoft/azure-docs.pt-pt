@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre o Microso
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.openlocfilehash: 00eb064aaf549ee0d83d0cf7d9c9b47c2dc5ef78
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: d0a5c1b5800bbc626453ba8896dc706a0cd5bfd4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827210"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324948"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Azure Backup Server e DPM - FAQ
 
@@ -19,7 +19,7 @@ Este artigo responde frequentemente a perguntas sobre o Azure Backup Server e DP
 
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server"></a>Posso utilizar o Servidor do Backup do Azure para criar uma cópia de segurança de Recuperação Bare-metal (BMR) para um servidor físico?
 
-Yes.
+Sim.
 
 ### <a name="can-i-register-the-server-to-multiple-vaults"></a>Posso registar o servidor em vários cofres?
 
@@ -31,7 +31,7 @@ Não. Pode utilizar o Azure Backup para proteger o Azure Stack, o Azure Backup n
 
 ### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>Se instalei o agente Azure Backup para proteger os meus ficheiros e pastas, posso instalar o System Center DPM para fazer cópias de segurança no local para o Azure?
 
-Yes. Mas primeiro deve configurar o DPM e depois instalar o agente Azure Backup.  A instalação de componentes por esta ordem garante que o agente de backup Azure funciona com o DPM. A instalação do agente antes de instalar o DPM não é aconselhável ou suportado.
+Sim. Mas primeiro deve configurar o DPM e depois instalar o agente Azure Backup.  A instalação de componentes por esta ordem garante que o agente de backup Azure funciona com o DPM. A instalação do agente antes de instalar o DPM não é aconselhável ou suportado.
 
 ### <a name="why-cant-i-add-an-external-dpm-server-after-installing-ur7-and-latest-azure-backup-agent"></a>Por que não posso adicionar um servidor DPM externo depois de instalar UR7 e o mais recente agente de backup Azure?
 
@@ -39,13 +39,13 @@ Para os servidores DPM com fontes de dados protegidas à nuvem (utilizando um ro
 
 ### <a name="are-there-recommendations-for-configuring-exclusions-for-antivirus-software"></a>Existem recomendações para configurar exclusões para software antivírus?
 
-Sim, é recomendado para configurar a exclusão antivírus. Para obter exclusões para DPM, consulte [executar o software antivírus no servidor DPM](https://docs.microsoft.com/system-center/dpm/run-antivirus-server?view=sc-dpm-2019). Para exclusões para MABS, consulte [o antivírus configurado para o servidor MABS](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
+Sim, é recomendado para configurar a exclusão antivírus. Para obter exclusões para DPM, consulte [executar o software antivírus no servidor DPM](https://docs.microsoft.com/system-center/dpm/run-antivirus-server). Para exclusões para MABS, consulte [o antivírus configurado para o servidor MABS](backup-azure-mabs-troubleshoot.md#configure-antivirus-for-mabs-server).
 
 ## <a name="vmware-and-hyper-v-backup"></a>Backup VMware e Hyper-V
 
 ### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>Posso criar cópias de segurança dos servidores VMware vCenter para o Azure?
 
-Yes. Pode utilizar o Azure Backup Server para fazer backup com os anfitriões VMware vCenter Server e ESXi para o Azure.
+Sim. Pode utilizar o Azure Backup Server para fazer backup com os anfitriões VMware vCenter Server e ESXi para o Azure.
 
 - [Saiba mais](backup-mabs-protection-matrix.md) sobre versões suportadas.
 - [Siga estes passos](backup-azure-backup-server-vmware.md) para fazer uma errósia de apoio a um servidor VMware.

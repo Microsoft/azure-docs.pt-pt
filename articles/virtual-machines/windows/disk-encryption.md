@@ -2,18 +2,18 @@
 title: Encriptação do lado do servidor dos discos geridos Azure - PowerShell
 description: O Azure Storage protege os seus dados encriptando-os em repouso antes de os persistir nos clusters de armazenamento. Pode confiar nas teclas geridas pela Microsoft para a encriptação dos seus discos geridos, ou pode utilizar chaves geridas pelo cliente para gerir a encriptação com as suas próprias chaves.
 author: roygara
-ms.date: 07/10/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 6174fbeb45c23c0ff04597305c6f65aef05bd26e
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 49898f2215139c4460c639dc8caa3d2764082e34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815594"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274780"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage-for-powershell"></a>Encriptação do lado do servidor do armazenamento do disco Azure para powerShell
 
@@ -47,6 +47,10 @@ Por enquanto, as chaves geridas pelo cliente têm as seguintes restrições:
 - Se esta função estiver ativada para o seu disco, não poderá desativá-la.
     Se precisar de contornar isto, tem de [copiar todos os dados](disks-upload-vhd-to-managed-disk-powershell.md#copy-a-managed-disk) para um disco gerido totalmente diferente que não esteja a utilizar chaves geridas pelo cliente.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
+
+#### <a name="supported-regions"></a>Regiões suportadas
+
+As chaves geridas pelo cliente estão disponíveis em todas as regiões que os discos geridos estão disponíveis.
 
 ## <a name="encryption-at-host---end-to-end-encryption-for-your-vm-data"></a>Encriptação no anfitrião - Encriptação de ponta a ponta para os seus dados VM
 

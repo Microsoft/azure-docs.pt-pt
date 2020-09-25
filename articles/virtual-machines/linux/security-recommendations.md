@@ -1,6 +1,6 @@
 ---
 title: Recomendações de segurança para máquinas virtuais Linux em Azure
-description: Aplique estas recomendações para ajudar a cumprir as obrigações de segurança descritas no modelo de responsabilidade partilhada e melhorar a segurança geral das suas implementações.
+description: Aplique estas recomendações para os VMs Linux em Azure para ajudar a cumprir as obrigações de segurança descritas no modelo de responsabilidade partilhada e melhorar a segurança geral das suas implementações.
 author: msmbaldwin
 manager: RKarlin
 ms.service: virtual-machines
@@ -10,12 +10,12 @@ ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.reviewer: cynthn
-ms.openlocfilehash: 8a0d43c4401fa3fd2bb8ba504e42edc6324675e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8215c7a2e9e63b49110fcbc2a891b403bb631eb3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758529"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307199"
 ---
 # <a name="security-recommendations-for-linux-virtual-machines-in-azure"></a>Recomendações de segurança para máquinas virtuais Linux em Azure
 

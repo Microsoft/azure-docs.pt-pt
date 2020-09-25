@@ -9,36 +9,35 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: pafarley
-ms.openlocfilehash: da9445b12ce6f35d249fc3af1a4a0ef560ba35de
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 073f1361771ded96b33158d040efd77306acd846
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905096"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276951"
 ---
 # <a name="build-a-training-data-set-for-a-custom-model"></a>Construa um conjunto de dados de formação para um modelo personalizado
 
-Quando utiliza o modelo personalizado Form Recogniser, fornece os seus próprios dados de treino para que o modelo possa treinar para os seus formulários específicos da indústria. 
+Ao utilizar o modelo personalizado Form Recogniser, fornece os seus próprios dados de formação para a operação [Do Modelo Personalizado de Comboio,](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) para que o modelo possa treinar para os seus formulários específicos da indústria. Siga este guia para aprender a recolher e preparar dados para treinar o modelo de forma eficaz.
 
 Se estiver a treinar sem etiquetas manuais, pode utilizar cinco formulários preenchidos ou um formulário vazio (deve incluir a palavra "vazio" no nome do ficheiro) mais dois formulários preenchidos. Mesmo que tenha formulários preenchidos suficientes, adicionar um formulário vazio ao seu conjunto de dados de treino pode melhorar a precisão do modelo.
 
 Se quiser utilizar dados de treino etiquetados manualmente, deve começar com pelo menos cinco formas preenchidas do mesmo tipo. Ainda pode utilizar formulários não rotulados e um formulário vazio para além do conjunto de dados necessário.
 
+## <a name="custom-model-input-requirements"></a>Requisitos de entrada de modelo personalizado
+
+Em primeiro lugar, certifique-se de que o seu conjunto de dados de treino segue os requisitos de entrada para o Reconhecimento de Formulários.
+
+[!INCLUDE [input requirements](./includes/input-requirements.md)]
+
 ## <a name="training-data-tips"></a>Dicas de dados de formação
 
-É importante usar um conjunto de dados otimizado para o treino. Use as seguintes dicas para garantir que obtém os melhores resultados da operação [Train Custom Model:](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync)
+Siga estas dicas adicionais para otimizar ainda mais o seu conjunto de dados para o treino.
 
 * Se possível, utilize documentos PDF baseados em texto em vez de documentos baseados em imagem. Os PDFs digitalizados são tratados como imagens.
 * Para formulários preenchidos, use exemplos que tenham todos os seus campos preenchidos.
 * Utilize formulários com diferentes valores em cada campo.
 * Se as imagens do seu formulário forem de menor qualidade, utilize um conjunto de dados maior (10-15 imagens, por exemplo).
-* O tamanho total do conjunto de dados de treino pode ser de até 500 páginas.
-
-## <a name="general-input-requirements"></a>Requisitos gerais de entrada
-
-Certifique-se de que o seu conjunto de dados de treino também segue os requisitos de entrada para todo o conteúdo do Form Recogniser. 
-
-[!INCLUDE [input requirements](./includes/input-requirements.md)]
 
 ## <a name="upload-your-training-data"></a>Faça upload dos seus dados de formação
 
@@ -73,7 +72,12 @@ Se adicionar o seguinte conteúdo ao organismo de pedido, a API irá treinar com
 
 Agora que aprendeu a construir um conjunto de dados de treino, siga um quickstart para treinar um modelo personalizado de Reconhecimento de Formulários e comece a usá-lo nos seus formulários.
 
+* [Treine um modelo e extraia dados de formulário usando a biblioteca do cliente](./quickstarts/client-library.md)
 * [Treine um modelo e extraia dados de formulários usando o cURL](./quickstarts/curl-train-extract.md)
 * [Treine um modelo e extraia dados de formulário usando a API REST e a Python](./quickstarts/python-train-extract.md)
 * [Treine com etiquetas usando a ferramenta de rotulagem da amostra](./quickstarts/label-tool.md)
 * [Preparar com etiquetas através da API REST e do Python](./quickstarts/python-labeled-data.md)
+
+## <a name="see-also"></a>Ver também
+
+* [O que é o Reconhecedor de Formato?](./overview.md)

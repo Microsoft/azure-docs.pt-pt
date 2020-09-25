@@ -1,18 +1,18 @@
 ---
-title: Instalar extensão de nuvem híbrida (HCX)
-description: Confiem a solução VMware Hybrid Cloud Extension (HCX) para a sua nuvem privada Azure VMware Solution
+title: Instalar VMware HCX
+description: Confiem a solução VMware HCX para a sua nuvem privada Azure VMware Solution
 ms.topic: how-to
-ms.date: 07/15/2020
-ms.openlocfilehash: fb8497af33b364c1d2ab475233bd2a83ef1befad
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/24/2020
+ms.openlocfilehash: 76a7432b78ec2141039dcdc5dd1d7572335b18e1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752311"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263206"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Instale hCX para solução VMware Azure
 
-Neste artigo, percorremos procedimentos para configurar a solução VMWare Hybrid Cloud Extension (HCX) para a sua nuvem privada Azure VMWare Solution. O HCX permite a migração das suas cargas de trabalho VMware para a nuvem, e outros sites conectados através de vários tipos de migração suportados por HCX incorporados.
+Neste artigo, percorremos procedimentos para configurar a solução VMWare HCX para a sua nuvem privada Azure VMWare Solution. O HCX permite a migração das suas cargas de trabalho VMware para a nuvem, e outros sites conectados através de vários tipos de migração suportados por HCX incorporados.
 
 O HCX Advanced, a instalação predefinida, suporta até três ligações do local (no local ou nuvem para nuvem). Se forem necessárias mais de três ligações de site, os clientes têm a opção de ativar o addon da Empresa HCX através do Suporte, que está atualmente em pré-visualização. A HCX Enterprise tem custos adicionais para os clientes após a disponibilidade geral (GA), mas fornece [funcionalidades adicionais.](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/)
 
@@ -40,7 +40,7 @@ Após completar a configuração, pode seguir os próximos passos recomendados n
 
 Dimensionar cargas de trabalho contra recursos de computação e armazenamento é um passo de planeamento essencial quando se prepara para usar a solução Azure VMware Solution Private Cloud HCX. Aborde o passo de dimensionamento como parte do planeamento inicial do ambiente em nuvem privada. 
 
-Também pode dimensionar cargas de trabalho completando uma Avaliação de Solução VMware Azure no portal Azure Migrate ( https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) .
+Também pode dimensionar cargas de trabalho completando uma Avaliação de [Solução VMware Azure](https://docs.microsoft.com/azure/migrate/how-to-create-azure-vmware-solution-assessment) no portal Azure Migrate.
 
 ## <a name="software-version-requirements"></a>Requisitos de versão de software
 
@@ -67,15 +67,13 @@ Os componentes da infraestrutura devem estar a executar a versão mínima necess
 
 ## <a name="deploy-the-vmware-hcx-ova-on-premises"></a>Implementar o VMware HCX OVA no local
 
+1. Inscreva-se no Azure VMware Solution HCX Manager na `https://x.x.x.9` porta 443 com as credenciais de utilizador **cloudadmin** e, em seguida, vá para **Suporte**.
+
+1. Selecione o link de descarregamento para o ficheiro VMware HCX OVA. 
+
 1. Inscreva-se no Azure VMware Solution SDDC vCenter e selecione **HCX**.
-
-   :::image type="content" source="media/hybrid-cloud-extension-installation/avs-vsphere-client.png" alt-text="Inscreva-se no Azure VMware Solution SDDC vCenter e selecione HCX.":::
-
-1. Em **Administração**, selecione **'Actualizar' do Sistema** e, em seguida, selecione **Solicite o link de descarregamento** para descarregar o ficheiro VMware HCX OVA.
-
-   :::image type="content" source="media/hybrid-cloud-extension-installation/administration-updates.png" alt-text="Em Administração, selecione 'Actualizar' do Sistema e, em seguida, selecione Solicite o link de descarregamento para descarregar o ficheiro VMware HCX OVA.":::
-
-1. Em seguida, vá ao vCenter no local e selecione um modelo OVF para implementar no seu vCenter no local.  
+   
+1. Vá ao vCenter no local e selecione um modelo OVF para implementar no seu vCenter no local.  
 
    :::image type="content" source="media/hybrid-cloud-extension-installation/select-template.png" alt-text="Em seguida, vá ao vCenter no local e selecione um modelo OVF para implementar no seu vCenter no local.":::
 
@@ -83,7 +81,7 @@ Os componentes da infraestrutura devem estar a executar a versão mínima necess
 
    :::image type="content" source="media/hybrid-cloud-extension-installation/configure-template.png" alt-text=" Selecione um nome e localização e, em seguida, selecione um recurso/cluster onde o HCX precisa de ser implantado. Em seguida, rever detalhes e recursos necessários.":::
 
-1. Reveja os termos da licença e, se concordar, selecione o armazenamento e a rede necessários. Em seguida, selecione **Seguinte**.
+1. Reveja os termos da licença e, se concordar, selecione o armazenamento e a rede necessários. e selecione **Seguinte**.
 
 1. No **modelo Personalizar,** insira todas as informações necessárias. 
 
@@ -95,7 +93,7 @@ Os componentes da infraestrutura devem estar a executar a versão mínima necess
 
 Após a instalação, execute os seguintes passos.
 
-1. Inicie sessão no gestor HCX no local `https://HCXManagerIP:9443` e inicie sessão com o seu nome de utilizador e a sua palavra-passe. 
+1. Inicie sessão no gestor de HCX no local `https://HCXManagerIP:9443` e inicie sessão com as credenciais de nome de utilizador de **administração.** 
 
    > [!IMPORTANT]
    > Certifique-se de incluir o número de `9443` porta com o endereço IP do HCX Manager.

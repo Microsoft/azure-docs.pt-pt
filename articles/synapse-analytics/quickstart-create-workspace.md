@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.subservice: ''
 ms.date: 09/03/2020
 ms.author: pimorano
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 99f4471a3b64990fb71341dc8210bf7f8e5b0d5a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.reviewer: jrasnick
+ms.openlocfilehash: cbf7fb8deba86dd966ccb8087823c76b20413db8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661952"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260364"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Quickstart: Criar um espaço de trabalho synapse
 Este quickstart descreve os passos para criar um espaço de trabalho Azure Synapse utilizando o portal Azure.
@@ -30,7 +30,7 @@ Este quickstart descreve os passos para criar um espaço de trabalho Azure Synap
     |Noções básicas|**Nome da área de trabalho**|Pode dar-lhe o nome de qualquer coisa.| Neste documento, usaremos **o meu espaço de trabalho.**|
     |Noções básicas|**Região**|Combine com a região da conta de armazenamento.|
 
-1. Precisa de uma conta ADLSGEN2 para criar um espaço de trabalho. A escolha mais simples para criar uma nova. Se quiser reutilizar uma existente, terá de realizar alguma configuração adicional. 
+1. Precisa de uma conta ADLSGEN2 para criar um espaço de trabalho. A escolha mais simples é criar uma nova. Se quiser reutilizar uma existente, terá de realizar alguma configuração adicional. 
 1. OPÇÃO 1 Criação de uma nova conta ADLSGEN2 
     1. Em **Select Data Lake Storage Gen 2,** clique em Criar **Novo** e nomeie-o **contosolake**.
     1. Em **Select Data Lake Storage Gen 2**, clique no Sistema de **Ficheiros** e nomeie os **utilizadores**.
@@ -68,7 +68,7 @@ As identidades geridas para o seu espaço de trabalho Azure Synapse podem já te
 
 1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma piscina SQL](quickstart-create-sql-pool-studio.md) 
 * [Criar uma piscina Apache Spark](quickstart-create-apache-spark-pool-portal.md)

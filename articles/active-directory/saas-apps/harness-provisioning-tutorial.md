@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 56a865de8cb1be079f4935ef2a8f840f10589b26
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b78de4769f49954c4d4e860e75818f6485247a17
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88550015"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91305660"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Tutorial: Configure arnês para o fornecimento automático de utilizadores
 
@@ -108,7 +108,7 @@ Para configurar o fornecimento automático do utilizador para o Arnês em Azure 
 
 1. No [portal Azure](https://portal.azure.com), selecione **Aplicações empresariais**  >  **Todas as aplicações**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 1. Na lista de candidaturas, selecione **Harness**.
 
@@ -126,7 +126,7 @@ Para configurar o fornecimento automático do utilizador para o Arnês em Azure 
 
     ![INQUILINO URL + Token](common/provisioning-testconnection-tenanturltoken.png)
  
-   a. Na caixa URL do **inquilino,** insira **`https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw`** .  
+   a. Na caixa URL do **inquilino,** insira **`https://app.harness.io/gateway/api/scim/account/<your_harness_account_ID>`** . Pode obter o ID da sua conta harness a partir do URL no seu browser quando estiver iniciado no Harness.
    b. Na caixa **Secret Token,** insira o valor de Token de autenticação SCIM que guardou no passo 6 da secção "Configurar o arnês para provisões".  
    c. Selecione **a Ligação de Teste** para garantir que o Azure AD pode ligar-se ao Arnês. Se a ligação falhar, certifique-se de que a sua conta de Arnês tem permissões *de administração* e, em seguida, tente novamente.
 
@@ -160,7 +160,7 @@ Para configurar o fornecimento automático do utilizador para o Arnês em Azure 
 
 1. Em **Definições**, na lista de **drop-down** scope, selecione como pretende sincronizar os utilizadores ou grupos que está a forragem para o Harness.
 
-    ![Âmbito de provisionamento](common/provisioning-scope.png)
+    ![Âmbito de Aprovisionamento](common/provisioning-scope.png)
 
 1. Quando estiver pronto para a provisão, **selecione Save**.
 
@@ -177,4 +177,4 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)

@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/05/2020
-ms.openlocfilehash: d93ff81bacbb537cc5891e0b869f164e0d6824c6
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/24/2020
+ms.openlocfilehash: 8e46e9b323657b747fd73bad3b25ed66390f3aa9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440546"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324336"
 ---
 # <a name="copy-activity-performance-optimization-features"></a>Copiar funcionalidades de otimização do desempenho da atividade
 
@@ -124,31 +124,35 @@ Quando especificar um valor para a `parallelCopies` propriedade, tenha em conta 
 
 ## <a name="staged-copy"></a>Cópia encenada
 
-Ao copiar dados de uma loja de dados de origem para uma loja de dados de lavatórios, poderá optar por utilizar o armazenamento Blob como uma loja de preparação provisória. A encenação é especialmente útil nos seguintes casos:
+Ao copiar dados de uma loja de dados de origem para uma loja de dados de lavatórios, poderá optar por utilizar o armazenamento Azure Blob ou o Azure Data Lake Storage Gen2 como uma loja de paragem provisória. A encenação é especialmente útil nos seguintes casos:
 
-- **Pretende ingerir dados de várias lojas de dados no Azure Synapse Analytics (anteriormente SQL Data Warehouse) via PolyBase.** A Azure Synapse Analytics usa a PolyBase como um mecanismo de alta produção para carregar uma grande quantidade de dados em Azure Synapse Analytics. Os dados de origem devem estar no armazenamento da Blob ou na Azure Data Lake Store, e devem cumprir critérios adicionais. Quando carrega dados de uma loja de dados que não seja o armazenamento blob ou a Azure Data Lake Store, pode ativar a cópia de dados através de uma encenação provisória do armazenamento blob. Nesse caso, a Azure Data Factory realiza as transformações de dados necessárias para garantir que satisfaz os requisitos da PolyBase. Em seguida, utiliza o PolyBase para carregar os dados no Azure Synapse Analytics de forma eficiente. Para obter mais informações, consulte [a PolyBase para carregar dados no Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics).
+- **Pretende ingerir dados de várias lojas de dados no Azure Synapse Analytics (anteriormente SQL Data Warehouse) via PolyBase, copiar dados de/para Snowflake, ou ingerir dados da Amazon Redshift/HDFS com desempenho.** Saiba mais detalhes a partir de:
+  - [Utilize a PolyBase para carregar dados no Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics).
+  - [Conector de flocos de neve](connector-snowflake.md)
+  - [Conector Amazon Redshift](connector-amazon-redshift.md)
+  - [Conector HDFS](connector-hdfs.md)
+- **Você não quer abrir portas além do porto 80 e do porto 443 na sua firewall por causa de políticas corporativas de TI.** Por exemplo, ao copiar dados de uma loja de dados no local para uma Base de Dados Azure SQL ou um Azure Synapse Analytics, precisa de ativar a comunicação TCP de saída na porta 1433 para a firewall do Windows e para a sua firewall corporativa. Neste cenário, a cópia encenada pode aproveitar o tempo de integração auto-hospedado para primeiro copiar dados para um armazenamento de encenação sobre HTTP ou HTTPS na porta 443, em seguida, carregar os dados da encenação na Base de Dados SQL ou Azure Synapse Analytics. Neste fluxo, não precisa de ativar a porta 1433.
 - **Por vezes, demora algum tempo a realizar um movimento de dados híbrido (isto é, a copiar de uma loja de dados no local para uma loja de dados em nuvem) sobre uma ligação de rede lenta.** Para melhorar o desempenho, pode utilizar uma cópia encenada para comprimir os dados no local, de modo a que leve menos tempo a mover dados para a loja de dados de encenação na nuvem. Em seguida, pode descomprimir os dados na loja de preparação antes de carregar na loja de dados de destino.
-- **Você não quer abrir portas além do porto 80 e do porto 443 na sua firewall por causa de políticas corporativas de TI.** Por exemplo, quando copia dados de uma loja de dados no local para um lavatório Azure SQL Database ou um lavatório Azure Synapse Analytics, precisa de ativar a comunicação TCP de saída na porta 1433 para a firewall do Windows e para a sua firewall corporativa. Neste cenário, a cópia encenada pode aproveitar o tempo de integração auto-hospedado para copiar primeiro dados para uma instância de armazenamento Blob sobre HTTP ou HTTPS na porta 443. Em seguida, pode carregar os dados na BASE de Dados SQL ou na Azure Synapse Analytics a partir da paragem de armazenamento blob. Neste fluxo, não precisa de ativar a porta 1433.
 
 ### <a name="how-staged-copy-works"></a>Como funciona a cópia encenada
 
-Quando ativa a função de encenação, primeiro os dados são copiados da loja de dados de origem para o armazenamento blob de encenação (traga o seu próprio). Em seguida, os dados são copiados da loja de dados de encenação para a loja de dados da pia. A Azure Data Factory gere automaticamente o fluxo de dois estágios para si. A Azure Data Factory também limpa dados temporários do armazenamento de encenação após o movimento de dados estar completo.
+Quando ativa a função de encenação, primeiro os dados são copiados da loja de dados de origem para o armazenamento de encenação (traga o seu próprio Azure Blob ou Azure Data Lake Storage Gen2). Em seguida, os dados são copiados da encenação para a loja de dados da pia. A atividade de cópia da Azure Data Factory gere automaticamente o fluxo de duas fases para si, e também limpa dados temporários do armazenamento de encenação após a conclusão do movimento de dados.
 
 ![Cópia encenada](media/copy-activity-performance/staged-copy.png)
 
-Quando ativa o movimento de dados utilizando uma loja de encenação, pode especificar se pretende que os dados sejam comprimidos antes de transferir os dados da loja de dados de origem para uma loja de dados provisória ou de paragem e, em seguida, descomprimidos antes de mover os dados de uma loja de dados provisória ou de paragem para a loja de dados do lavatório.
+Quando ativa o movimento de dados utilizando uma loja de preparação, pode especificar se pretende que os dados sejam comprimidos antes de transferir os dados da loja de dados de origem para a loja de estágios e, em seguida, descomprimidos antes de mover os dados de uma loja de dados provisória ou de paragem para a loja de dados do lavatório.
 
 Atualmente, não é possível copiar dados entre duas lojas de dados que estão ligadas através de diferentes IRs auto-hospedados, nem com ou sem cópia encenada. Para tal cenário, pode configurar duas atividades de cópia explicitamente acorrentadas para copiar de fonte para encenação e depois de encenação a pia.
 
 ### <a name="configuration"></a>Configuração
 
-Configure a **definição de definição de ativação** na atividade de cópia para especificar se deseja que os dados sejam encenados no armazenamento blob antes de os colocar numa loja de dados de destino. Quando definir **ativar ativar,** `TRUE` especifique as propriedades adicionais listadas na tabela seguinte. Também precisa de criar um serviço de acesso partilhado a azure para a encenação se não tiver um.
+Configure a **definição de definição de ativação** na atividade de cópia para especificar se deseja que os dados sejam encenados no armazenamento antes de os colocar numa loja de dados de destino. Quando definir **ativar ativar,** `TRUE` especifique as propriedades adicionais listadas na tabela seguinte. 
 
 | Propriedade | Descrição | Valor predefinido | Necessário |
 | --- | --- | --- | --- |
 | permitir A marcação |Especifique se pretende copiar dados através de uma loja de encenação provisória. |Falso |No |
-| linkedServiceName |Especifique o nome de um serviço ligado a [AzureStorage,](connector-azure-blob-storage.md#linked-service-properties) que se refere à instância de Armazenamento que utiliza como loja de encenação provisória. <br/><br/> Não é possível utilizar o Armazenamento com uma assinatura de acesso partilhado para carregar dados no Azure Synapse Analytics via PolyBase. Podes usá-lo em todos os outros cenários. |N/D |Sim, quando **ativar A definição de marcação** está definida para TRUE |
-| caminho |Especifique a trajetória de armazenamento Blob que pretende conter os dados encenados. Se não fornecer um caminho, o serviço cria um recipiente para armazenar dados temporários. <br/><br/> Especifique um caminho apenas se utilizar o Armazenamento com uma assinatura de acesso partilhado, ou se necessitar de dados temporários para estar num local específico. |N/D |No |
+| linkedServiceName |Especifique o nome de um [armazenamento Azure Blob](connector-azure-blob-storage.md#linked-service-properties) ou serviço ligado ao [Azure Data Lake Storage Gen2,](connector-azure-data-lake-storage.md#linked-service-properties) que se refere à instância de Armazenamento que utiliza como uma loja de paragem provisória. |N/D |Sim, quando **ativar A definição de marcação** está definida para TRUE |
+| caminho |Especifique o caminho que pretende conter os dados encenados. Se não fornecer um caminho, o serviço cria um recipiente para armazenar dados temporários. |N/D |No |
 | permitir a compressão |Especifica se os dados devem ser comprimidos antes de serem copiados para o destino. Esta definição reduz o volume de dados que são transferidos. |Falso |No |
 
 >[!NOTE]
@@ -159,25 +163,24 @@ Aqui está uma definição de amostra de uma atividade de cópia com as propried
 ```json
 "activities":[
     {
-        "name": "Sample copy activity",
+        "name": "CopyActivityWithStaging",
         "type": "Copy",
         "inputs": [...],
         "outputs": [...],
         "typeProperties": {
             "source": {
-                "type": "SqlSource",
+                "type": "OracleSource",
             },
             "sink": {
-                "type": "SqlSink"
+                "type": "SqlDWSink"
             },
             "enableStaging": true,
             "stagingSettings": {
                 "linkedServiceName": {
-                    "referenceName": "MyStagingBlob",
+                    "referenceName": "MyStagingStorage",
                     "type": "LinkedServiceReference"
                 },
-                "path": "stagingcontainer/path",
-                "enableCompression": true
+                "path": "stagingcontainer/path"
             }
         }
     }
@@ -191,7 +194,7 @@ Aqui está uma definição de amostra de uma atividade de cópia com as propried
 * Quando utiliza a encenação durante uma cópia em nuvem, que está a copiar dados de uma loja de dados em nuvem para outra loja de dados em nuvem, ambas as fases empoderadas pelo tempo de funcionamento da integração do Azure, é-lhe cobrada a [soma da duração da cópia para o passo 1 e passo 2] x [preço unitário de cópia em nuvem].
 * Quando utiliza a encenação durante uma cópia híbrida, que está a copiar dados de uma loja de dados no local para uma loja de dados em nuvem, uma fase potenciada por um tempo de integração auto-hospedado, é cobrado por [duração da cópia híbrida] x [preço unitário de cópia híbrida] + [duração da cópia da nuvem] x [preço unitário de cópia de nuvem].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os outros artigos de atividade de cópia:
 
 - [Descrição geral da atividade de cópia](copy-activity-overview.md)

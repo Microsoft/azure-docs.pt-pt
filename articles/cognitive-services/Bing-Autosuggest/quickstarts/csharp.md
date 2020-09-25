@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Sugerir consultas de pesquisa com a Bing Autosuggest REST API e C #'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a começar rapidamente a sugerir termos de pesquisa em tempo real com a Bing Autosuggest API.
+description: Aprenda a começar rapidamente a sugerir termos de pesquisa em tempo real com a Bing Autosuggest API e C#.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: af64e80137b375e6e7b7037f72240e814b4b1e15
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1157d322d6329774b638a0692bc7ef68d7ecc189
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919425"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277534"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-c"></a>Quickstart: Sugerir consultas de pesquisa com a Bing Autosuggest REST API e C #
 

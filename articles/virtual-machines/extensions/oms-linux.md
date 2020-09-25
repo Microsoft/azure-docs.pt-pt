@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: d24463834a49cdfbdb4599770caf579ae94582d8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 38bbe52e45c348977cdda02a5399f6c89fb91bcc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999823"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307454"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Log Analytics virtual machine extension for Linux (Extensão de máquina virtual do Log Analytics para Linux)
 
@@ -43,7 +43,7 @@ A tabela seguinte fornece um mapeamento da versão da extensão VM do Log Analyt
 
 | Versão de extensão do Log Analytics Linux VM | Versão do pacote do Agente De analítico log | 
 |--------------------------------|--------------------------|
-| 1.13.13 | [1.13.7-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.7-0) |
+| 1.13.15 | [1.13.9-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.13.9-0) |
 | 1.12.25 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
 | 1.11.15 | [1.11.0-9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
 | 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
@@ -104,7 +104,7 @@ O JSON seguinte mostra o esquema para a extensão do Agente Desanal. A extensão
 
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Nome | Valor / Exemplo |
+| Name | Valor / Exemplo |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
 | publicador | Microsoft.EnterpriseCloud.Monitoring |
@@ -186,7 +186,7 @@ az vm extension set \
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolução de problemas
+### <a name="troubleshoot"></a>Resolver Problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure e utilizando o CLI Azure. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando utilizando o Azure CLI.
 
@@ -211,6 +211,8 @@ A saída de execução de extensão é registada no seguinte ficheiro:
 | 19 | Falha na instalação do pacote OMI | 
 | 20 | Falha na instalação do pacote SCX |
 | 51 | Esta extensão não é suportada no sistema de funcionamento do VM | |
+| 52 | Esta extensão falhou devido a uma dependência em falta | Verifique a saída e os registos para obter mais informações sobre a dependência que falta. |
+| 53 | Esta extensão falhou devido a parâmetros de configuração em falta ou errados | Verifique a saída e os registos para obter mais informações sobre o que correu mal. Além disso, verifique a correção do ID do espaço de trabalho e verifique se a máquina está ligada à internet. |
 | 55 | Não é possível ligar-se ao serviço Azure Monitor ou pacotes necessários em falta ou o gestor de pacotes DPKG está bloqueado| Verifique se o sistema tem acesso à Internet ou se foi fornecido um proxy HTTP válido. Além disso, verifique a correção do ID do espaço de trabalho e verifique se os utilitários de caracóis e alcatrão estão instalados. |
 
 Informações adicionais sobre a resolução de problemas podem ser encontradas no [Guia de Resolução de Problemas log Analytics-Agent-for-Linux](../../azure-monitor/platform/vmext-troubleshoot.md).

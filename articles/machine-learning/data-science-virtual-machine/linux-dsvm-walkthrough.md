@@ -5,16 +5,16 @@ description: Aprenda a completar várias tarefas comuns de ciência de dados uti
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: lobrien
+ms.author: laobri
 ms.topic: conceptual
-ms.date: 07/17/2020
-ms.openlocfilehash: ca3cfa44bd4f757c6fbb0dd2c84d7a843f9bff36
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/17/2020
+ms.openlocfilehash: 65a627cc009699660de0897ce853acaa78381f6a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816223"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275987"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Ciência de dados com uma máquina virtual de ciência de dados Ubuntu em Azure
 
@@ -374,7 +374,7 @@ O chocalho também pode executar a análise do cluster. Vamos excluir algumas fu
 * word_freq_business
 * spam
 
-Voltar ao **separador Cluster.** Selecione **KMeans**e, em seguida, coloque **o número de aglomerados** em **4**. Selecione **Execute** (Executar). Os resultados são apresentados na janela de saída. Um cluster tem alta frequência _de george_ e _hp_, e é provavelmente um e-mail de negócios legítimo.
+Volte ao **separador Cluster.** Selecione **KMeans**e, em seguida, coloque **o número de aglomerados** em **4**. Selecione **Execute** (Executar). Os resultados são apresentados na janela de saída. Um cluster tem alta frequência _de george_ e _hp_, e é provavelmente um e-mail de negócios legítimo.
 
 Para construir um modelo básico de aprendizagem de máquinas de decisão:
 

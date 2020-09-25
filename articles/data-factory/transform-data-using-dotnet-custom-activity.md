@@ -1,6 +1,6 @@
 ---
 title: Use atividades personalizadas em um oleoduto
-description: Aprenda a criar atividades personalizadas e use-as num oleoduto Azure Data Factory.
+description: Aprenda a criar atividades personalizadas utilizando .NET e, em seguida, use as atividades num oleoduto Azure Data Factory.
 services: data-factory
 ms.service: data-factory
 author: nabhishek
@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 74e381a9ad32acdaa8cbb719824d74ca6d339f30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b8114a6abf5579ed0750862d59a5d13178339f6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84019967"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276505"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 
@@ -100,18 +100,18 @@ Nesta amostra, o helloworld.exe é uma aplicação personalizada armazenada na p
 
 A tabela seguinte descreve nomes e descrições de propriedades específicas a esta atividade.
 
-| Propriedade              | Descrição                              | Necessário |
+| Propriedade              | Descrição                              | Obrigatório |
 | :-------------------- | :--------------------------------------- | :------- |
-| name                  | Nome da atividade no oleoduto     | Sim      |
-| descrição           | Texto descrevendo o que a atividade faz.  | Não       |
-| tipo                  | Para atividades personalizadas, o tipo de atividade é **Personalizado.** | Sim      |
-| linkedServiceName     | Serviço ligado ao Azure Batch. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md)  | Sim      |
-| command               | Comando da aplicação personalizada a executar. Se a aplicação já estiver disponível no Nó de Piscina de Lote Azure, o recursoLinkedService e a pastaPath podem ser ignorados. Por exemplo, pode especificar o comando a ser `cmd /c dir` , que é suportado de forma nativa pelo nó do Pool do Lote do Windows. | Sim      |
+| name                  | Nome da atividade no oleoduto     | Yes      |
+| descrição           | Texto descrevendo o que a atividade faz.  | No       |
+| tipo                  | Para atividades personalizadas, o tipo de atividade é **Personalizado.** | Yes      |
+| linkedServiceName     | Serviço ligado ao Azure Batch. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md)  | Yes      |
+| command               | Comando da aplicação personalizada a executar. Se a aplicação já estiver disponível no Nó de Piscina de Lote Azure, o recursoLinkedService e a pastaPath podem ser ignorados. Por exemplo, pode especificar o comando a ser `cmd /c dir` , que é suportado de forma nativa pelo nó do Pool do Lote do Windows. | Yes      |
 | recursoLinkedService | Serviço ligado ao armazenamento Azure à conta de Armazenamento onde a aplicação personalizada é armazenada | Sem &#42;       |
 | folderPath            | Caminho para a pasta da aplicação personalizada e todas as suas dependências<br/><br/>Se tiver dependências armazenadas em subpastas - isto é, numa estrutura hierárquica de pastas em *modo de pasta* - a estrutura da pasta é atualmente achatada quando os ficheiros são copiados para O Lote de Azure. Ou seja, todos os ficheiros são copiados numa única pasta sem sub-dobras. Para contornar este comportamento, considere comprimir os ficheiros, copiar o ficheiro comprimido e, em seguida, desapertá-lo com código personalizado no local pretendido. | Sem &#42;       |
-| referênciaObjects      | Uma série de serviços e conjuntos de dados existentes. Os serviços e conjuntos de dados ligados referenciados são transmitidos à aplicação personalizada no formato JSON para que o seu código personalizado possa referenciar recursos da Data Factory | Não       |
-| extensões    | Propriedades definidas pelo utilizador que podem ser passadas para a aplicação personalizada no formato JSON para que o seu código personalizado possa referenciar propriedades adicionais | Não       |
-| retençãoTimeInDays | O tempo de retenção para os ficheiros submetidos para atividade personalizada. O valor predefinido é de 30 dias. | Não |
+| referênciaObjects      | Uma série de serviços e conjuntos de dados existentes. Os serviços e conjuntos de dados ligados referenciados são transmitidos à aplicação personalizada no formato JSON para que o seu código personalizado possa referenciar recursos da Data Factory | No       |
+| extensões    | Propriedades definidas pelo utilizador que podem ser passadas para a aplicação personalizada no formato JSON para que o seu código personalizado possa referenciar propriedades adicionais | No       |
+| retençãoTimeInDays | O tempo de retenção para os ficheiros submetidos para atividade personalizada. O valor predefinido é de 30 dias. | No |
 
 &#42; As propriedades `resourceLinkedService` e devem ser `folderPath` especificadas ou ambas omitidas.
 
@@ -325,7 +325,7 @@ Esta serialização não é verdadeiramente segura, e não se destina a ser segu
 
 Para aceder a propriedades do tipo *SecureString a* partir de uma atividade personalizada, leia o `activity.json` ficheiro, que é colocado na mesma pasta que o seu . EXE, deserialize o JSON e, em seguida, aceda à propriedade JSON (extensõesproperias => [propertyName] = valor>).
 
-## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a><a name="compare-v2-v1"></a>Compare a atividade personalizada v2 e a versão 1 (personalizada) Atividade do DotNet
+## <a name="compare-v2-custom-activity-and-version-1-custom-dotnet-activity"></a><a name="compare-v2-v1"></a> Compare a atividade personalizada v2 e a versão 1 (personalizada) Atividade do DotNet
 
 Na versão 1 da Azure Data Factory, implementa uma Atividade DotNet (Personalizada) criando um projeto da Biblioteca classe .NET com uma classe que implementa o `Execute` método da `IDotNetActivity` interface. Os Serviços Ligados, Conjuntos de Dados e Propriedades Estendidas na carga útil JSON de uma Atividade DotNet (Personalizada) são passados para o método de execução como objetos fortemente digitados. Para mais detalhes sobre o comportamento da versão 1, consulte [(Personalizado) DotNet na versão 1](v1/data-factory-use-custom-activities.md). Devido a esta implementação, o seu código de atividade do dotnet versão 1 tem de visar o Quadro 4.NET 4.5.2. A versão 1 DotNet Activity também tem de ser executada nos nós do Azure Batch Pool baseados no Windows.
 
@@ -378,7 +378,7 @@ Consulte [os nós computacional de escala automática numa piscina do Azure Batc
 
 Se a piscina estiver a utilizar o [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx)predefinido, o serviço Batch pode demorar 15 a 30 minutos a preparar o VM antes de executar a atividade personalizada. Se a piscina estiver a utilizar um autoScaleEvaluationInterval diferente, o serviço Batch pode demorar automaticamente a Reavaliação + 10 minutos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Veja os seguintes artigos que explicam como transformar dados de outras formas:
 
 * [Atividade u-SQL](transform-data-using-data-lake-analytics.md)

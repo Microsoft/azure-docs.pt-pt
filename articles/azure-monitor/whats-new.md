@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: 0809894964ff99c468f8bf3876bfdb44995656f7
-ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
+ms.openlocfilehash: d82e9244152f1ecb78b062b4b1dbf02c45c505a1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89667467"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325662"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>O que há de novo na documentação do Monitor Azure?
 
@@ -48,7 +48,7 @@ Este artigo fornece listas de artigos do Azure Monitor que são novos ou foram s
 - [Análise de utilização com Azure Application Insights](app/usage-overview.md) - Vídeo adicionado.
 
 ### <a name="autoscale"></a>Dimensionamento Automático
-- [Começar com autoescalação em Azure](platform/autoscale-get-started.md) - Secção adicionada no encaminhamento para instâncias de cura para App Service.
+- [Começar com autoescala em Azure](platform/autoscale-get-started.md) - Secção adicionada no encaminhamento para instâncias saudáveis para o Serviço de Aplicações.
 
 ### <a name="data-collection"></a>Recolha de dados
 - [Configure a recolha de dados para o agente Azure Monitor (pré-visualização)](platform/data-collection-rule-azure-monitor-agent.md) - Novo artigo.
@@ -192,12 +192,12 @@ Artigos novos e atualizados da reestruturação e consolidação de conteúdos d
 
 - [Registos de recursos do Archive Azure para a conta de armazenamento](./platform/resource-logs.md#send-to-azure-storage)
 - [Esquema de evento de registo de atividade azure](platform/activity-log-schema.md)
-- [Log de atividades Azure](platform/activity-log.md)
+- [Registo de atividades do Azure](platform/activity-log.md)
 - [Amostras de CLI monitor Azure](samples/cli-samples.md)
 - [Amostras de PowerShell monitor Azure Monitor](samples/powershell-samples.md)
 - [Azure Monitoring REST API walkthrough](platform/rest-api-walkthrough.md)
 - [Azure Resource Logs suportados serviços e esquemas](./platform/resource-logs-schema.md)
-- [Registos de recursos Azure](platform/resource-logs.md)
+- [Registos de recursos do Azure](platform/resource-logs.md)
 - [Recolher e analisar o registo de atividades do Azure no Azure Monitor](./platform/activity-log.md)
 - [Recolher registos de recursos Azure no espaço de trabalho Log Analytics](./platform/resource-logs.md#send-to-log-analytics-workspace)
 - [Criar definições de diagnóstico para enviar registos e métricas de plataforma para diferentes destinos](platform/diagnostic-settings.md)
@@ -558,7 +558,6 @@ Vários novos artigos para visualizar designer para guia de conversão de livros
 - [Application Insights for Worker Service apps (non-HTTP apps)](app/worker-service.md) - Nível de registo predefinido ao código C#. Versão de referência de pacote atualizada.
 - [ApplicationInsights.config referência - Azure](app/configuration-with-applicationinsights-config.md) - Código de amostra atualizado.
 - [Automatizar insights de aplicação Azure com PowerShell](app/powershell.md) - Atualização para o modelo de Gestor de Recursos.
-- [Pacotes Azure Monitor Application Insights NuGet](app/nuget.md) - Versões de pacote atualizadas.
 - [Crie um novo recurso Azure Application Insights](app/create-new-resource.md) - Nota adicionada ao nome globalmente único.
 - [Diagnosticar com Live Metrics Stream - Azure Application Insights](app/live-stream.md) - Atualizado ASP.NET requisito da versão Core SDK.
 - [Contadores de eventos em Application Insights](app/eventcounters.md) - Categoria atualizada e tabela para personalizadosMetrics.

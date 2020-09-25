@@ -1,23 +1,25 @@
 ---
 title: Extração de dados - LUIS
-description: Extrair dados de texto de expressão com intenções e entidades. Saiba que tipo de dados podem ser extraídos da Compreensão da Linguagem (LUIS).
+description: Extrair dados do texto de expressão com intenções e entidades. Saiba que tipo de dados podem ser extraídos da Compreensão da Língua (LUIS).
+ms.service: cognitive-services
+ms.subservice: language-understanding
 author: diberry
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 35f015691b15c6451a66509671c7dc2fc72f38e4
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: c69971b36bf945086d1a8f398043444071acea5c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682185"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324829"
 ---
-# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados de texto de expressão com intenções e entidades
-O LUIS dá-lhe a capacidade de obter informações a partir das expressões de linguagem natural de um utilizador. A informação é extraída de uma forma que pode ser usada por um programa, aplicação ou chat bot para tomar medidas. Nas seguintes secções, saiba quais os dados devolvidos de intenções e entidades com exemplos de JSON.
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados do texto de expressão com intenções e entidades
+O LUIS dá-lhe a capacidade de obter informações a partir das expressões de linguagem natural de um utilizador. A informação é extraída de forma a que possa ser usada por um programa, aplicação ou chat bot para tomar medidas. Nas secções seguintes, saiba quais os dados devolvidos de intenções e entidades com exemplos de JSON.
 
-Os dados mais difíceis de extrair são os dados de aprendizagem automática porque não é uma correspondência exata de texto. A extração de dados das [entidades](luis-concept-entity-types.md) de aprendizagem automática tem de fazer parte do ciclo de [autor até](luis-concept-app-iteration.md) estar confiante de que recebe os dados que espera.
+Os dados mais difíceis de extrair são os dados de aprendizagem automática porque não é uma correspondência de texto exata. A extração de [dados](luis-concept-entity-types.md) das entidades de aprendizagem automática tem de fazer parte do ciclo de [autoria](luis-concept-app-iteration.md) até estar confiante de que recebe os dados que espera.
 
-## <a name="data-location-and-key-usage"></a>Localização de dados e utilização da chave
-Luis extrai dados da expressão do utilizador no [ponto final](luis-glossary.md#endpoint)publicado . O **pedido HTTPS** (POST ou GET) contém a expressão, bem como algumas configurações opcionais, tais como ambientes de encenação ou produção.
+## <a name="data-location-and-key-usage"></a>Localização de dados e utilização de chaves
+A LUIS extrai dados da expressão do utilizador no [ponto final](luis-glossary.md#endpoint)publicado. O **pedido HTTPS** (POST ou GET) contém a expressão, bem como algumas configurações opcionais, tais como ambientes de encenação ou produção.
 
 **Pedido de ponto final de previsão V2**
 
@@ -27,14 +29,14 @@ Luis extrai dados da expressão do utilizador no [ponto final](luis-glossary.md#
 
 `https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/<appID>/slots/<slot-type>/predict?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&query=book 2 tickets to paris`
 
-A página de `appID` **Definições** da sua aplicação LUIS, bem como parte do URL `/apps/` (depois) quando estiver a editar aquela aplicação LUIS. A `subscription-key` chave final é usada para consultar a sua aplicação. Embora possa utilizar a sua chave de autor/arranque gratuita enquanto está a aprender LUIS, é importante alterar a chave de ponto final para uma chave que suporta o uso esperado do [LUIS.](luis-limits.md#key-limits) A `timezoneOffset` unidade tem minutos.
+A `appID` página de **Definições** da sua app LUIS, bem como parte do URL (depois `/apps/` ) quando está a editar a aplicação LUIS. Esta `subscription-key` é a chave de ponto final utilizada para consultar a sua aplicação. Embora possa utilizar a sua tecla de autoria/arranque gratuita enquanto está a aprender LUIS, é importante alterar a chave de ponta para uma chave que suporte a sua [utilização luis esperada](luis-limits.md#key-limits). A `timezoneOffset` unidade é de minutos.
 
-A **resposta HTTPS** contém todas as informações de intenção e entidade que a LUIS pode determinar com base no modelo publicado atual, quer na encenação quer no ponto final de produção. O URL de ponto final encontra-se no site da [LUIS,](luis-reference-regions.md) na secção **Gerir,** na página **Keys e endpoints.**
+A **resposta HTTPS** contém todas as informações de intenção e entidade que a LUIS pode determinar com base no modelo atual publicado, quer da encenação quer do ponto final de produção. O URL de ponto final encontra-se no site da [LUIS,](luis-reference-regions.md) na secção **Manage,** na página **Chaves e pontos finais.**
 
 ## <a name="data-from-intents"></a>Dados de intenções
-Os dados primários são o nome de **intenção**de pontuação superior. A resposta final é:
+Os dados primários são o **nome de intenção**de pontuação superior. A resposta do ponto final é:
 
-#### <a name="v2-prediction-endpoint-response"></a>[Resposta final de previsão V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Resposta do ponto final da previsão V2](#tab/V2)
 
 ```JSON
 {
@@ -47,7 +49,7 @@ Os dados primários são o nome de **intenção**de pontuação superior. A resp
 }
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[Resposta final de previsão V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Resposta do ponto final de previsão V3](#tab/V3)
 
 ```JSON
 {
@@ -65,20 +67,20 @@ Os dados primários são o nome de **intenção**de pontuação superior. A resp
 }
 ```
 
-Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final de [previsão V3](luis-migration-api-v3.md).
 
 * * *
 
 |Objeto de dados|Tipo de Dados|Localização de Dados|Valor|
 |--|--|--|--|
-|Intenção|String|topScoringIntent.intent|"GetStoreInfo"|
+|Intenção|Cadeia|topScoringIntent.intent|"GetStoreInfo"|
 
-Se o seu chatbot ou app de chamada LUIS tomar uma decisão com base em mais de uma pontuação de intenção, devolva todas as pontuações das intenções.
+Se o seu chatbot ou app LUIS-call tomar uma decisão com base em mais de uma pontuação de intenção, devolva todas as pontuações das intenções.
 
 
-#### <a name="v2-prediction-endpoint-response"></a>[Resposta final de previsão V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Resposta do ponto final da previsão V2](#tab/V2)
 
-Defina o parâmetro de corda de consulta, `verbose=true` . A resposta final é:
+Desa estaladem o parâmetro de `verbose=true` consulta, . A resposta do ponto final é:
 
 ```JSON
 {
@@ -101,9 +103,9 @@ Defina o parâmetro de corda de consulta, `verbose=true` . A resposta final é:
 }
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[Resposta final de previsão V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Resposta do ponto final de previsão V3](#tab/V3)
 
-Defina o parâmetro de corda de consulta, `show-all-intents=true` . A resposta final é:
+Desa estaladem o parâmetro de `show-all-intents=true` consulta, . A resposta do ponto final é:
 
 ```JSON
 {
@@ -125,20 +127,20 @@ Defina o parâmetro de corda de consulta, `show-all-intents=true` . A resposta f
 }
 ```
 
-Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final de [previsão V3](luis-migration-api-v3.md).
 
 * * *
 
-As intenções são ordenadas da pontuação mais alta para a mais baixa.
+As intenções são ordenadas da pontuação mais alta para a menor.
 
-|Objeto de dados|Tipo de Dados|Localização de Dados|Valor|Classificação|
+|Objeto de dados|Tipo de Dados|Localização de Dados|Valor|Resultado|
 |--|--|--|--|:--|
-|Intenção|String|intenções[0].intenção|"GetStoreInfo"|0.984749258|
-|Intenção|String|intenções[1].intenção|"Nenhum"|0.0168218873|
+|Intenção|Cadeia|intenções[0].intenção|"GetStoreInfo"|0.984749258|
+|Intenção|Cadeia|intenções[1].intenção|"Nenhum"|0.0168218873|
 
-Se adicionar domínios pré-construídos, o nome de intenção indica o domínio, tal como `Utilties` ou `Communication` a intenção:
+Se adicionar domínios pré-construídos, o nome de intenção indica o domínio, tais como `Utilties` ou bem como a `Communication` intenção:
 
-#### <a name="v2-prediction-endpoint-response"></a>[Resposta final de previsão V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Resposta do ponto final da previsão V2](#tab/V2)
 
 ```JSON
 {
@@ -164,7 +166,7 @@ Se adicionar domínios pré-construídos, o nome de intenção indica o domínio
 }
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[Resposta final de previsão V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Resposta do ponto final de previsão V3](#tab/V3)
 
 ```JSON
 {
@@ -188,52 +190,52 @@ Se adicionar domínios pré-construídos, o nome de intenção indica o domínio
 }
 ```
 
-Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final de [previsão V3](luis-migration-api-v3.md).
 
 * * *
 
-|Domain|Objeto de dados|Tipo de Dados|Localização de Dados|Valor|
+|Domínio|Objeto de dados|Tipo de Dados|Localização de Dados|Valor|
 |--|--|--|--|--|
-|Utilitários|Intenção|String|intenções[0].intenção|"<b>Serviços públicos</b>. ShowNext"|
-|Comunicação|Intenção|String|intenções[1].intenção|<b>Comunicação.</b> Início"|
-||Intenção|String|intenção[2].intenção|"Nenhum"|
+|Utilitários|Intenção|Cadeia|intenções[0].intenção|"<b>Utilities</b>. ShowNext"|
+|Comunicação|Intenção|Cadeia|intenções[1].intenção|<b>Comunicação</b>. StartOver"|
+||Intenção|Cadeia|intenções[2].intenção|"Nenhum"|
 
 
 ## <a name="data-from-entities"></a>Dados de entidades
-A maioria dos bots de chat e aplicações precisam de mais do que o nome da intenção. Estes dados adicionais e opcionais provêm de entidades descobertas na expressão. Cada tipo de entidade devolve informações diferentes sobre a partida.
+A maioria dos bots de chat e aplicações precisam mais do que o nome de intenção. Estes dados adicionais e opcionais provêm de entidades descobertas na expressão. Cada tipo de entidade devolve informações diferentes sobre a partida.
 
 Uma única palavra ou frase numa expressão pode corresponder a mais do que uma entidade. Nesse caso, cada entidade correspondente é devolvida com a sua pontuação.
 
-Todas as entidades são devolvidas na matriz de **entidades** da resposta a partir do ponto final
+Todas as entidades são devolvidas no conjunto de **entidades** da resposta a partir do ponto final
 
-## <a name="tokenized-entity-returned"></a>Entidade tokenizada devolvida
+## <a name="tokenized-entity-returned"></a>Entidade tokenized devolvida
 
 Reveja o [suporte simbólico](luis-language-support.md#tokenization) no LUIS.
 
 
 ## <a name="prebuilt-entity-data"></a>Dados de entidades pré-construídas
-[Entidades pré-construídas](luis-concept-entity-types.md) são descobertas com base numa correspondência de expressão regular usando o projeto [Recognisers-Text](https://github.com/Microsoft/Recognizers-Text) de código aberto. As entidades pré-construídas são devolvidas na matriz de entidades e usam o nome tipo pré-fixado com `builtin::` .
+As entidades [pré-construídas](luis-concept-entity-types.md) são descobertas com base numa correspondência de expressão regular utilizando o projeto [Reconhecedores-Texto de](https://github.com/Microsoft/Recognizers-Text) código aberto. As entidades pré-construídas são devolvidas no conjunto de entidades e utilizam o nome-tipo pré-fixado com `builtin::` .
 
-## <a name="list-entity-data"></a>Dados da entidade da lista
+## <a name="list-entity-data"></a>Listar dados de entidades
 
-[As entidades da lista](reference-entity-list.md) representam um conjunto fixo e fechado de palavras relacionadas juntamente com os seus sinónimos. A LUIS não descobre valores adicionais para entidades de lista. Utilize a função **Recomendar** para ver sugestões de novas palavras com base na lista atual. Se houver mais de uma entidade de lista com o mesmo valor, cada entidade é devolvida na consulta final.
+[As entidades da lista](reference-entity-list.md) representam um conjunto fixo e fechado de palavras relacionadas juntamente com os seus sinónimos. A LUIS não descobre valores adicionais para as entidades de lista. Utilize a função **Recomendação** para ver sugestões de novas palavras com base na lista atual. Se houver mais de uma entidade de lista com o mesmo valor, cada entidade é devolvida na consulta de ponto final.
 
-## <a name="regular-expression-entity-data"></a>Dados da entidade de expressão regular
+## <a name="regular-expression-entity-data"></a>Dados regulares da entidade de expressão
 
 Uma [entidade de expressão regular](reference-entity-regular-expression.md) extrai uma entidade com base numa expressão regular que fornece.
 
 ## <a name="extracting-names"></a>Extrair nomes
 Obter nomes de uma expressão é difícil porque um nome pode ser quase qualquer combinação de letras e palavras. Dependendo do tipo de nome que está a extrair, tem várias opções. As seguintes sugestões não são regras, mas mais orientações.
 
-### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>Adicionar personname pré-construído e geografiaV2 entidades
+### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>Adicionar entidades pré-construídas personName e GeografiaV2
 
-As entidades [PersonName](luis-reference-prebuilt-person.md) e [GeographyV2](luis-reference-prebuilt-geographyV2.md) estão disponíveis em [algumas culturas linguísticas.](luis-reference-prebuilt-entities.md)
+[As entidades PersonName](luis-reference-prebuilt-person.md) e [GeografiaV2](luis-reference-prebuilt-geographyV2.md) estão disponíveis em [algumas culturas linguísticas.](luis-reference-prebuilt-entities.md)
 
 ### <a name="names-of-people"></a>Nomes de pessoas
 
-O nome das pessoas pode ter algum formato leve dependendo da linguagem e da cultura. Utilize uma entidade pré-construída **[nome ou](luis-reference-prebuilt-person.md)** uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** com [papéis](luis-concept-roles.md) de primeiro e último nome.
+O nome das pessoas pode ter um pequeno formato dependendo da linguagem e da cultura. Utilize uma pessoa pré-construída **[Entidade nome](luis-reference-prebuilt-person.md)** ou uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** com [funções](luis-concept-roles.md) de primeiro e último nome.
 
-Se utilizar a entidade simples, certifique-se de dar exemplos que usam o primeiro e o último nome em diferentes partes da expressão, em expressões de diferentes comprimentos, e expressões em todas as intenções, incluindo a intenção De None. [Rever](luis-how-to-review-endoint-utt.md) as declarações finais regularmente para rotular quaisquer nomes que não tenham sido corretamente previstos.
+Se utilizar a entidade simples, certifique-se de dar exemplos que usam o primeiro e o último nome em diferentes partes da expressão, em expressões de diferentes comprimentos, e expressões em todas as intenções, incluindo a intenção de Zero. [Reveja](luis-how-to-review-endoint-utt.md) as declarações de ponto final regularmente para rotular quaisquer nomes que não foram previstos corretamente.
 
 ### <a name="names-of-places"></a>Nomes de lugares
 
@@ -241,28 +243,28 @@ Os nomes de localização são definidos e conhecidos como cidades, condados, es
 
 ### <a name="new-and-emerging-names"></a>Nomes novos e emergentes
 
-Algumas aplicações precisam de ser capazes de encontrar novos e emergentes nomes como produtos ou empresas. Estes tipos de nomes são o tipo mais difícil de extração de dados. Comece com uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** e adicione uma lista de [frases.](luis-concept-feature.md) [Rever](luis-how-to-review-endoint-utt.md) as declarações finais regularmente para rotular quaisquer nomes que não tenham sido corretamente previstos.
+Algumas aplicações precisam de ser capazes de encontrar nomes novos e emergentes, como produtos ou empresas. Este tipo de nomes são o tipo mais difícil de extração de dados. Comece com uma **[entidade simples](luis-concept-entity-types.md#simple-entity)** e adicione uma lista [de frases](luis-concept-feature.md). [Reveja](luis-how-to-review-endoint-utt.md) as declarações de ponto final regularmente para rotular quaisquer nomes que não foram previstos corretamente.
 
-## <a name="patternany-entity-data"></a>Padrão.qualquer dados de entidade
+## <a name="patternany-entity-data"></a>Padrão.quaisquer dados de entidade
 
-[Pattern.any](reference-entity-pattern-any.md) é um espaço reservado de comprimento variável usado apenas na expressão do modelo de um padrão para marcar onde a entidade começa e termina. A entidade utilizada no padrão deve ser encontrada para que o padrão seja aplicado.
+[Padrão.qualquer](reference-entity-pattern-any.md) um é um espaço reservado de comprimento variável usado apenas na expressão do modelo de um padrão para marcar onde a entidade começa e termina. A entidade utilizada no padrão deve ser encontrada para que o padrão seja aplicado.
 
 ## <a name="sentiment-analysis"></a>Análise de sentimentos
-Se a análise do Sentimento for configurada durante [a publicação,](luis-how-to-publish-app.md#sentiment-analysis)a resposta do JSON inclui análise de sentimento. Saiba mais sobre a análise de sentimentos na documentação do [Text Analytics.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)
+Se a análise do sentimento estiver configurada durante [a publicação, a](luis-how-to-publish-app.md#sentiment-analysis)resposta do JSON LUIS inclui a análise do sentimento. Saiba mais sobre a análise de sentimento na documentação [text Analytics.](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)
 
 ## <a name="key-phrase-extraction-entity-data"></a>Dados da entidade de extração de frases-chave
-A entidade de extração de [frases-chave](luis-reference-prebuilt-keyphrase.md) devolve frases-chave na expressão, fornecida por [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
+A [entidade de extração de frases-chave](luis-reference-prebuilt-keyphrase.md) devolve frases-chave na expressão, fornecidas pela [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
 
-## <a name="data-matching-multiple-entities"></a>Dados que correspondem a várias entidades
+## <a name="data-matching-multiple-entities"></a>Dados que combinam com várias entidades
 
-Luis devolve todas as entidades descobertas na expressão. Como resultado, o seu chat bot pode ter de tomar uma decisão com base nos resultados.
+LUIS devolve todas as entidades descobertas na expressão. Como resultado, o seu chat bot pode precisar de tomar uma decisão com base nos resultados.
 
-## <a name="data-matching-multiple-list-entities"></a>Dados que correspondem a várias entidades da lista
+## <a name="data-matching-multiple-list-entities"></a>Dados que combinam várias entidades de lista
 
-Se uma palavra ou frase corresponder a mais do que uma entidade da lista, a consulta de ponto final devolve cada entidade da Lista.
+Se uma palavra ou frase corresponder a mais de uma entidade de lista, a consulta de ponto final devolve cada entidade lista.
 
 Para a consulta `when is the best time to go to red rock?` , e a app tem a palavra em mais de uma `red` lista, a LUIS reconhece todas as entidades e devolve um conjunto de entidades como parte da resposta do ponto final da JSON.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte [adicionar entidades](luis-how-to-add-entities.md) para saber mais sobre como adicionar entidades à sua app LUIS.
+Consulte [entidades Add](luis-how-to-add-entities.md) para saber mais sobre como adicionar entidades à sua app LUIS.

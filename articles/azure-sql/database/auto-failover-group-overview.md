@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 3b81ce6e1b77db7b89f293850e2d00fde5d40cfa
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7b4a85077c8e0147f926f9a86fc8a003591ec8ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076519"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277738"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilize grupos de falha automática para permitir a falha transparente e coordenada de várias bases de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -213,11 +213,11 @@ Para ilustrar a sequência de alterações, assumiremos que o servidor A é o se
 
 ## <a name="best-practices-for-sql-managed-instance"></a>Melhores práticas para sql Gestão de Instâncias
 
-O grupo de auto-falência deve ser configurado na instância primária e ligá-lo à instância secundária numa região de Azure diferente.  Todas as bases de dados do caso serão replicadas para a instância secundária.
+O grupo de ativação pós-falha automática tem de ser configurado na instância primária e será ligado à instância secundária numa região do Azure diferente.  Todas as bases de dados na instância serão replicadas para a instância secundária.
 
 O diagrama seguinte ilustra uma configuração típica de uma aplicação de nuvem geo-redundante utilizando instâncias geridas e grupo de falha automática.
 
-![falha automática](./media/auto-failover-group-overview/auto-failover-group-mi.png)
+![diagrama de falha automática](./media/auto-failover-group-overview/auto-failover-group-mi.png)
 
 > [!NOTE]
 > Consulte [a instância gerida add a um grupo de failover](../managed-instance/failover-group-add-instance-tutorial.md) para um tutorial detalhado passo a passo adicionando um SQL Managed Instance para usar o grupo failover.
@@ -237,16 +237,16 @@ Para obter mais informações sobre a criação da instância gerida secundária
 
 Como cada instância está isolada no seu próprio VNet, deve ser permitido tráfego de duas direções entre estes VNets. Ver [gateway Azure VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
 
-### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a>Criar um grupo de failover entre instâncias geridas em diferentes subscrições
+### <a name="creating-a-failover-group-between-managed-instances-in-different-subscriptions"></a>Criar um grupo de ativação pós-falha entre instâncias geridas em subscrições diferentes
 
 Pode criar um grupo de failover entre as Instâncias Geridas SQL em duas subscrições diferentes, desde que as subscrições estejam associadas ao mesmo [Azure Ative Directory Tenant](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Ao utilizar a PowerShell API, pode fazê-lo especificando o `PartnerSubscriptionId` parâmetro para a instância gerida do SQL secundário. Ao utilizar a API REST, cada ID de instância incluído no parâmetro pode ter a `properties.managedInstancePairs` sua própria subscriçãoID.
   
 > [!IMPORTANT]
-> O portal Azure não suporta a criação de grupos de failover em diferentes subscrições. Além disso, para os grupos de failover existentes em diferentes subscrições e/ou grupos de recursos, a falha não pode ser iniciada manualmente através do portal a partir da primeira sql Managed Instance. Inicie-o a partir da instância geo-secundária.
+> O portal Azure não suporta a criação de grupos de failover em diferentes subscrições. Além disso, para os grupos de failover existentes em diferentes subscrições e/ou grupos de recursos, a falha não pode ser iniciada manualmente através do portal a partir da primeira sql Managed Instance. Em vez disso, inicie-o na instância de georreplicação secundária.
 
-### <a name="managing-failover-to-secondary-instance"></a>Gestão da falta de gestão para a instância secundária
+### <a name="managing-failover-to-secondary-instance"></a>Gerir a ativação pós-falha para a instância secundária
 
-O grupo de failover gerirá o failover de todas as bases de dados na SQL Managed Instance. Quando um grupo é criado, cada base de dados no caso será automaticamente geo-replicada para a segunda SQL Managed Instance. Não é possível utilizar grupos de failover para iniciar uma falha parcial de um subconjunto das bases de dados.
+O grupo de ativação pós-falha vai gerir a ativação pós-falha de todas as bases de dados no SQL Managed Instance. Quando um grupo é criado, cada base de dados na instância será replicado geograficamente de forma automática para o SQL Managed Instance secundário. Não pode utilizar grupos de ativação pós-falha para iniciar uma ativação pós-falha parcial de um subconjunto de bases de dados.
 
 > [!IMPORTANT]
 > Se uma base de dados for removida da primeira sql Gestd Instance, também será eliminada automaticamente na instância gerida geo-secundária do SQL.
@@ -260,7 +260,7 @@ Ao executar operações OLTP, utilize `<fog-name>.zone_id.database.windows.net` 
 Se tiver uma carga de trabalho apenas de leitura logicamente isolada que seja tolerante a determinadas condições de dados, pode utilizar a base de dados secundária na aplicação. Para ligar diretamente ao secundário geo-replicado, utilize `<fog-name>.secondary.<zone_id>.database.windows.net` como URL do servidor e a ligação é feita diretamente ao secundário geo-replicado.
 
 > [!NOTE]
-> Em certos níveis de serviço, a BASE de Dados SQL suporta a utilização de [réplicas apenas de leitura](read-scale-out.md) para carregar cargas de trabalho de consulta apenas de leitura de equilíbrio utilizando a capacidade de uma réplica apenas de leitura e utilizando o `ApplicationIntent=ReadOnly` parâmetro na cadeia de ligação. Quando tiver configurado um secundário geo-replicado, pode utilizar esta capacidade para ligar a uma réplica apenas de leitura no local primário ou na localização geo-replicada.
+> Em certos níveis de serviço, a BASE de Dados SQL suporta a utilização de [réplicas apenas de leitura](read-scale-out.md) para carregar cargas de trabalho de consulta apenas de leitura de equilíbrio utilizando a capacidade de uma réplica apenas de leitura e utilizando o `ApplicationIntent=ReadOnly` parâmetro na cadeia de ligação. Quando tiver configurado uma base de dados secundária georreplicada, poderá utilizar esta capacidade para se ligar a uma réplica só de leitura na localização primária ou na localização georreplicada.
 >
 > - Para ligar a uma réplica apenas de leitura no local primário, utilize `<fog-name>.<zone_id>.database.windows.net` .
 > - Para ligar a uma réplica apenas de leitura no local secundário, utilize `<fog-name>.secondary.<zone_id>.database.windows.net` .
@@ -348,16 +348,16 @@ A configuração acima irá garantir que a falha automática não bloqueie as li
 > [!IMPORTANT]
 > Para garantir a continuidade do negócio para interrupções regionais, deve garantir redundância geográfica tanto para os componentes frontais como para as bases de dados.
 
-## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Permitir a geo-replicação entre instâncias geridas e os seus VNets
+## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Ativar a replicação geográfica entre instâncias geridas e as VNets
 
 Quando se cria um grupo de failover entre as instâncias geridas primárias e secundárias do SQL em duas regiões diferentes, cada instância é isolada usando uma rede virtual independente. Para permitir o tráfego de replicação entre estes VNets, garantir que estes pré-requisitos são cumpridos:
 
 - Os dois casos de SQL Managed Instance têm de ser em diferentes regiões do Azure.
 - As duas instâncias da SQL Managed Instance têm de ser o mesmo nível de serviço e ter o mesmo tamanho de armazenamento.
 - A sua instância secundária de SQL Managed Instance deve estar vazia (sem bases de dados de utilizadores).
-- As redes virtuais utilizadas pelos casos de SQL Managed Instance precisam de ser conectadas através de uma [Gateway VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [Via Expresso.](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) Quando duas redes virtuais se ligarem através de uma rede no local, certifique-se de que não existe uma regra de firewall que bloqueie as portas 5022 e 11000-11999. O VNet Peering global não é suportado.
+- As redes virtuais utilizadas pelos casos de SQL Managed Instance precisam de ser conectadas através de uma [Gateway VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [Via Expresso.](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) Quando duas redes virtuais se ligam através de uma rede no local, verifique se não há nenhuma regra de firewall a bloquear as portas 5022 e 11000-11999. O VNet Peering Global não é suportado.
 - Os dois VNets de Instância Gerida SQL não podem ter endereços IP sobrepostos.
-- É necessário configurar os seus Grupos de Segurança de Rede (NSG) de modo a que as portas 5022 e a gama 11000~12000 estejam abertas para as ligações a partir da sub-rede da outra instância gerida. Isto é para permitir o tráfego de replicação entre as instâncias.
+- Precisa de configurar os Grupos de Segurança de Rede (NSG) para que as portas 5022 e o intervalo 11000~12000 tenham a entrada e a saída abertas para as ligações da sub-rede da outra instância gerida. Deste modo, permite o tráfego de replicação entre as instâncias.
 
    > [!IMPORTANT]
    > Regras de segurança NSG mal configuradas levam a operações de cópia de base de dados.
@@ -369,9 +369,9 @@ Quando se cria um grupo de failover entre as instâncias geridas primárias e se
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Atualizar ou degradar uma base de dados primária
 
-Pode atualizar ou desclassificar uma base de dados primária para um tamanho de computação diferente (dentro do mesmo nível de serviço, não entre o Final Geral e a Critical De Negócios) sem desligar quaisquer bases de dados secundárias. Ao atualizar, recomendamos que atualize todas as bases de dados secundárias primeiro e, em seguida, atualize as primárias. Ao reduzir, inverta a ordem: desclasse primeiro as primárias e, em seguida, desclasse todas as bases de dados secundárias. Ao atualizar ou desclassificar a base de dados para um nível de serviço diferente, esta recomendação é executada.
+Pode atualizar ou desclassificar uma base de dados primária para um tamanho de computação diferente (dentro do mesmo nível de serviço, não entre o Final Geral e a Critical De Negócios) sem desligar quaisquer bases de dados secundárias. Ao atualizar, recomendamos que atualize todas as bases de dados secundárias primeiro e, em seguida, atualize as primárias. Ao reduzir, inverta a ordem: desclasse primeiro as primárias e, em seguida, desclasse todas as bases de dados secundárias. Quando atualizar a base de dados ou mudar para um escalão de serviço superior ou inferior, será aplicada esta recomendação.
 
-Esta sequência é recomendada especificamente para evitar o problema em que o secundário de um SKU inferior fica sobrecarregado e deve ser re-semeado durante um processo de upgrade ou downgrade. Também poderia evitar o problema fazendo a leitura primária apenas, à custa de impactar todas as cargas de trabalho de leitura-escrita contra as primárias.
+Esta sequência é recomendada especificamente para evitar o problema em que a instância secundária num SKU inferior fica sobrecarregada e tem de ser novamente propagada durante um processo de atualização ou de mudança para uma versão anterior. Também pode evitar o problema ao tornar a instância primária só de leitura, em detrimento de afetar todas as cargas de trabalho de leitura/gravação na instância primária.
 
 > [!NOTE]
 > Se criou uma base de dados secundária como parte da configuração do grupo de failover, não é aconselhável desclassificar a base de dados secundária. Isto é para garantir que o seu nível de dados tem capacidade suficiente para processar a sua carga de trabalho regular após a ativação da falha.

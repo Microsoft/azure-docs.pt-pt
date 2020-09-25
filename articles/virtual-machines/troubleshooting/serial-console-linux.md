@@ -1,6 +1,6 @@
 ---
 title: Consola em série Azure para Linux Microsoft Docs
-description: Consola em série bidis para máquinas virtuais Azure e conjuntos de balança de máquinas virtuais.
+description: Consola em série bidis para máquinas virtuais Azure e conjuntos de balança de máquinas virtuais usando um exemplo Linux.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: cacb517c783416994fa95bd0f6a6d15a95a52ab4
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9a31a22a5b037162198f594d9bcf35c91a0a4654
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423461"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306876"
 ---
 # <a name="azure-serial-console-for-linux"></a>Consola de Série do Azure para Linux
 
@@ -109,9 +109,9 @@ Todo o acesso à consola em série está atualmente registado nos [registos](./b
 Se um utilizador estiver ligado à consola em série e outro utilizador solicitar com sucesso o acesso à mesma máquina virtual, o primeiro utilizador será desligado e o segundo utilizador ligado à mesma sessão.
 
 > [!CAUTION]
-> Isto significa que um utilizador desligado não será desligado. A capacidade de impor um logout após a desconexão (utilizando SIGHUP ou mecanismo semelhante) ainda está no roteiro. Para o Windows existe um tempo limite automático ativado na Consola Administrativa Especial (SAC); no entanto, para o Linux pode configurar a definição de tempo limite de terminal. Para tal, adicione `export TMOUT=600` o seu ficheiro *.bash_profile* ou *.profile* para o utilizador que utiliza para iniciar sessão na consola. Esta definição irá esgotar a sessão após 10 minutos.
+> Isto significa que um utilizador desligado não será desligado. A capacidade de impor um logout após a desconexão (utilizando SIGHUP ou mecanismo semelhante) ainda está no roteiro. Para o Windows existe um tempo limite automático ativado na Consola Administrativa Especial (SAC); no entanto, para o Linux pode configurar a definição de tempo limite de terminal. Para tal, adicione `export TMOUT=600` o seu *.bash_profile* ou ficheiro *.perfil* para o utilizador que utiliza para iniciar sessão na consola. Esta definição irá esgotar a sessão após 10 minutos.
 
-## <a name="accessibility"></a>Accessibility (Acessibilidade)
+## <a name="accessibility"></a>Acessibilidade
 A acessibilidade é um foco chave para a Consola em Série Azure. Para tal, garantimos que a consola em série está totalmente acessível.
 
 ### <a name="keyboard-navigation"></a>Navegação do teclado
@@ -135,11 +135,11 @@ Entrada de teclado errático em imagens SLES BYOS. A entrada do teclado só é e
 
 **Q. Como posso enviar feedback?**
 
-A. Fornecer feedback criando um problema gitHub em https://aka.ms/serialconsolefeedback . Alternativamente (menos preferencial), pode enviar feedback através azserialhelp@microsoft.com ou na categoria de máquina virtual de https://feedback.azure.com .
+A. Fornecer feedback criando um problema gitHub em  https://aka.ms/serialconsolefeedback . Alternativamente (menos preferencial), pode enviar feedback através azserialhelp@microsoft.com ou na categoria de máquina virtual de https://feedback.azure.com .
 
 **Q. A consola em série suporta a cópia/pasta?**
 
-A. Yes. Utilize **ctrl** + **Shift** + **C** e **Ctrl** + **Shift** + **V** para copiar e colar no terminal.
+A. Sim. Utilize **ctrl** + **Shift** + **C** e **Ctrl** + **Shift** + **V** para copiar e colar no terminal.
 
 **Q. Posso usar a consola em série em vez de uma ligação SSH?**
 
@@ -164,11 +164,11 @@ A. A sua imagem está provavelmente mal configurada para o acesso à consola em 
 
 A. Sim, é! Ver [consola em série para conjuntos de escala de máquinas virtuais](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
-**P. Se eu configurar a minha balança de VM ou máquina virtual definida usando apenas a autenticação da chave SSH, ainda posso usar a consola em série para ligar à minha instância de definição de escala de VM/máquina virtual?**
+**Q. Se eu configurar o meu VM ou a escala de máquina virtual definida usando apenas a autenticação da chave SSH, ainda posso usar a consola em série para ligar à minha instância de conjunto de escala de vm/máquina virtual?**
 
-A. Yes. Como a consola em série não necessita de chaves SSH, basta configurar uma combinação username/password. Pode fazê-lo selecionando a **palavra-passe Reset** no portal Azure e utilizando essas credenciais para iniciar súbs na consola em série.
+A. Sim. Como a consola em série não necessita de chaves SSH, basta configurar uma combinação username/password. Pode fazê-lo selecionando a **palavra-passe Reset** no portal Azure e utilizando essas credenciais para iniciar súbs na consola em série.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Utilize a consola em série para aceder ao [GRUB e ao modo de utilizador único](serial-console-grub-single-user-mode.md).
 * Utilize a consola em série para [chamadas NMI e SysRq](serial-console-nmi-sysrq.md).
 * Saiba como usar a consola em série para permitir grub [em vários distros](serial-console-grub-proactive-configuration.md)

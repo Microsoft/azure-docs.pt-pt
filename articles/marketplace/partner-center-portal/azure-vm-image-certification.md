@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: 2d19098ec82fe9361154d798b981341a86decf97
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 751fbbb83f1ccb75cb84453f8c03296f6d1a786c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647823"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275784"
 ---
 # <a name="azure-virtual-machine-image-validation"></a>Validação de imagem de máquina virtual Azure
 
@@ -20,7 +20,7 @@ Este artigo descreve como testar e enviar uma imagem de máquina virtual (VM) no
 
 Complete estes passos antes de submeter a sua oferta de VM:
 
-- Implemente um VM Azure utilizando a sua imagem generalizada.
+- Implemente um VM Azure utilizando a sua imagem generalizada. Consulte aqui mais informações sobre [imagens generalizadas.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset#generalize-the-image)
 - Executar validações.
 
 ## <a name="deploy-an-azure-vm-using-your-generalized-image"></a>Implemente um VM Azure usando a sua imagem generalizada
@@ -599,7 +599,9 @@ Após o teste automatizado concluído, forneça informações adicionais sobre a
 
 O último ecrã permite-lhe fornecer mais informações, como informações de acesso SSH para uma imagem Linux VM, e uma explicação para eventuais avaliações falhadas se estiver à procura de exceções.
 
-Por fim, selecione 'Relatório de Geração' para descarregar os resultados dos testes e registar ficheiros para os casos de teste executados, juntamente com as suas respostas ao questionário. Guarde os resultados no mesmo recipiente que os seus VHDs.
+Por fim, selecione 'Relatório de Geração' para descarregar os resultados dos testes e registar ficheiros para os casos de teste executados, juntamente com as suas respostas ao questionário. 
+> [!Note]
+> Poucas editoras têm cenários em que os VM precisam de ser bloqueados, uma vez que têm software como firewalls instalados no VM. Neste caso, os editores podem descarregar a [Ferramenta de Teste Certificada](https://aka.ms/AzureCertificationTestTool) aqui, e fornecer o relatório no [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport)
 
 ## <a name="how-to-use-powershell-to-consume-the-self-test-api"></a>Como usar o PowerShell para consumir a API de auto-teste
 
