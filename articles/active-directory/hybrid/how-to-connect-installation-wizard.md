@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 900471675c0e77cc5d82641fead3f019a0fa90c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d81836b47acb19f624075480aafef74c9c0934c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358689"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306128"
 ---
 # <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect sync: Executar o assistente de instalação uma segunda vez
 A primeira vez que executar o assistente de instalação Azure AD Connect, ele acompanha-o como configurar a sua instalação. Se voltar a executar o assistente de instalação, oferece opções de manutenção.
@@ -79,7 +79,7 @@ Quando selecionar esta opção, todos os diretórios da sua configuração estã
 Esta opção permite-lhe ativar e desativar o modo de paragem no servidor. Mais informações sobre o modo de preparação e como é utilizado podem ser encontradas em [Operações.](how-to-connect-sync-staging-server.md)
 
 A opção mostra se a encenação está ativada ou desativada:  
-![Opção que também mostra o estado atual do modo de encenação](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
+![Screenshot que mostra modo de encenação desativado.](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
 
 Para alterar o estado, selecione esta opção e selecione ou desescole a caixa de verificação.  
 ![Opção que também mostra o estado atual do modo de encenação](./media/how-to-connect-installation-wizard/stagingmodeenable.png)
@@ -89,7 +89,7 @@ Esta opção permite alterar o método de entrada do utilizador de e para a sinc
 
 Para obter mais informações sobre esta opção, consulte [o início de sôm.](plan-connect-user-signin.md#changing-the-user-sign-in-method)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre o modelo de configuração utilizado pela sincronização Azure AD Connect in [Understanding Declarative Provisioning](concept-azure-ad-connect-sync-declarative-provisioning.md).
 
 **Tópicos de visão geral**

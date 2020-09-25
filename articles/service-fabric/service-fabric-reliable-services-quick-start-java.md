@@ -1,17 +1,17 @@
 ---
 title: Crie o seu primeiro serviço de confiança em Java
-description: Introdução à criação de uma aplicação Microsoft Azure Service Fabric com serviços apátridas e imponentes.
+description: Introdução à criação de uma aplicação Microsoft Azure Service Fabric com serviços apátridas e imponentes em Java.
 author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-java
 ms.author: suhuruli
-ms.openlocfilehash: 30797e68081e346ee0f31f77da15f820776337a0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f74265c7b774e4b471c8621e99377a009f939ee1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324510"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250101"
 ---
 # <a name="get-started-with-reliable-services-in-java"></a>Começar com serviços fiáveis em Java
 > [!div class="op_single_selector"]
@@ -118,7 +118,7 @@ A plataforma chama este método quando uma instância de um serviço é colocada
 
 Esta orquestração é gerida pela Service Fabric para manter o seu serviço altamente disponível e devidamente equilibrado.
 
-`runAsync()`não deve bloquear sincronizadamente. A sua implementação de runAsync deve devolver um CompletableFuture para permitir que o tempo de execução continue. Se a sua carga de trabalho precisar de implementar uma tarefa de longa duração que deve ser feita dentro do CompletableFuture.
+`runAsync()` não deve bloquear sincronizadamente. A sua implementação de runAsync deve devolver um CompletableFuture para permitir que o tempo de execução continue. Se a sua carga de trabalho precisar de implementar uma tarefa de longa duração que deve ser feita dentro do CompletableFuture.
 
 #### <a name="cancellation"></a>Cancelamento
 O cancelamento da sua carga de trabalho é um esforço de cooperação orquestrado pelo token de cancelamento fornecido. O sistema aguarda que a sua tarefa termine (com sucesso de conclusão, cancelamento ou falha) antes de seguir em frente. É importante honrar o token de cancelamento, terminar qualquer trabalho e sair `runAsync()` o mais rápido possível quando o sistema solicita cancelamento. O exemplo a seguir demonstra como lidar com um evento de cancelamento:
@@ -184,7 +184,7 @@ protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 ```
 
 ### <a name="runasync"></a>RunAsync
-`RunAsync()`opera da mesma forma em serviços apátridas e apátridas. No entanto, num serviço imponente, a plataforma realiza trabalhos adicionais em seu nome antes de executar `RunAsync()` . Este trabalho pode incluir garantir que o Gestor de Estado Fiável e as Coleções Fiáveis estão prontas a usar.
+`RunAsync()` opera da mesma forma em serviços apátridas e apátridas. No entanto, num serviço imponente, a plataforma realiza trabalhos adicionais em seu nome antes de executar `RunAsync()` . Este trabalho pode incluir garantir que o Gestor de Estado Fiável e as Coleções Fiáveis estão prontas a usar.
 
 ### <a name="reliable-collections-and-the-reliable-state-manager"></a>Coleções fiáveis e o Gestor de Estado Fiável
 ```java

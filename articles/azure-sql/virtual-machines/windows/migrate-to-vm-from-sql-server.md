@@ -10,16 +10,16 @@ ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
 ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7da9b83001d50c8e9a03188ed8dbf1245189bc30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83b29252038f88bf8b81299303442abd0cc36814
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668870"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298665"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-on-an-azure-virtual-machine"></a>Migrar uma base de dados do SQL Server para o SQL Server numa máquina virtual Azure
 
@@ -107,7 +107,7 @@ Utilize este método para migrar todas as bases de dados do sistema e dos utiliz
 
 Utilize o [método do Windows Import/Export Service](../../../storage/common/storage-import-export-service.md) para transferir grandes quantidades de dados de ficheiros para o armazenamento do Azure Blob em situações em que o upload da rede é proibitivamente caro ou não é viável. Com este serviço, envia um ou mais discos rígidos contendo esses dados para um centro de dados Azure onde os seus dados serão enviados para a sua conta de armazenamento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte [o SQL Server na visão geral das máquinas virtuais Azure](sql-server-on-azure-vm-iaas-what-is-overview.md).
 

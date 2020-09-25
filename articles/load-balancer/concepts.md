@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2020
 ms.author: allensu
-ms.openlocfilehash: 96b91c08e0bf9a176af2ed844cd63a2cfa1e233d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 9765f685f2fccc9332a2f07d907aac415aa2c57f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589644"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333924"
 ---
 # <a name="azure-load-balancer-concepts"></a>Conceitos de balançador de carga de Azure
 
@@ -85,7 +85,7 @@ Sem IP flutuante, o Azure expõe um sistema tradicional de mapeamento de endere�
 
 ## <a name="limitations"></a><a name = "limitations"></a>Limitações
 
-- O IP flutuante não é atualmente suportado em configurações ip secundárias para cenários internos de equilíbrio de carga.
+- O IP flutuante não é atualmente suportado em configurações ip secundárias para cenários internos de equilíbrio de carga ou cenários de equilíbrio de carga pública.
 
 - Uma regra do balançador de carga não pode abranger duas redes virtuais.  Os frontends e as suas instâncias de backend devem estar localizadas na mesma rede virtual.  
 

@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: lcozzens
-ms.openlocfilehash: b1483230313b9e1b8e59cafea478b14ba0dfcc70
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 10510774409a6b75687086290b32885b30d9131a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587349"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335386"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure App Configuration FAQ
 
@@ -41,7 +41,11 @@ Pode criar valores de Configuração de Aplicações que mencionem segredos arma
 
 ## <a name="does-app-configuration-encrypt-my-data"></a>A Configuração da Aplicação encripta os meus dados?
 
-Yes. A Configuração de Aplicativos encripta todos os valores-chave que detém e encripta a comunicação da rede. Os nomes-chave e as etiquetas são usados como índices para recuperar dados de configuração e não são encriptados.
+Sim. A Configuração de Aplicativos encripta todos os valores-chave que detém e encripta a comunicação da rede. Os nomes-chave e as etiquetas são usados como índices para recuperar dados de configuração e não são encriptados.
+
+## <a name="where-does-data-stored-in-app-configuration-reside"></a>Onde residem os dados armazenados na Configuração de Aplicações? 
+
+Os dados do cliente armazenados na Configuração de Aplicações residem na região onde foi criada a loja de Configuração de Aplicações do cliente. A Configuração de Aplicativos pode replicar dados para [regiões emparelhadas](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) para resiliência de dados, mas não vai replicar ou mover os dados dos clientes para fora do seu Geo, conforme definido pela [residência de dados em Azure](https://azure.microsoft.com/global-infrastructure/data-residency/). Os clientes e os utilizadores finais podem mover-se, copiar ou aceder aos dados dos seus clientes a partir de qualquer local a nível global.
 
 ## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>Como é que a Configuração da Aplicação é diferente das definições do Serviço de Aplicações Azure?
 

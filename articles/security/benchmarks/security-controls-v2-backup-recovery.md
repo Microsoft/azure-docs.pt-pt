@@ -4,17 +4,17 @@ description: Backup e recuperação V2 de referência de segurança Azure
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fe6861a3319b9d9c0e6535ee3303c90f0a0f26c8
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: b2e54545fb79120a3f9d66067da267df3b151b3f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059266"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322126"
 ---
-# <a name="security-control-backup-and-recovery"></a>Controlo de Segurança: Backup e Recuperação
+# <a name="security-control-v2-backup-and-recovery"></a>Controlo de Segurança V2: Backup e Recuperação
 
 A Cópia de Segurança e Recuperação abrange os controlos para garantir que as cópias de segurança de dados e de configuração nos diferentes níveis de serviço sejam executadas, validadas e protegidas.
 
@@ -24,11 +24,13 @@ A Cópia de Segurança e Recuperação abrange os controlos para garantir que as
 |--|--|--|--|
 | BR-1 | 10.1 | CP-2, CP4, CP-6, CP-9 |
 
-Certifique-se de que está a fazer backup de sistemas e dados para manter a continuidade do negócio após um evento inesperado. Esta orientação deve ser orientado por quaisquer objetivos para o Objetivo do Ponto de Recuperação (RPO) e para o Objetivo do Tempo de Recuperação (RTO).
+Certifique-se de que está a fazer backup de sistemas e dados para manter a continuidade do negócio após um evento inesperado. Isto deve ser definido por quaisquer objetivos para o Objetivo do Ponto de Recuperação (RPO) e para o Objetivo do Tempo de Recuperação (RTO).
 
 Ativar a Azure Backup e configurar a fonte de backup (por exemplo, VMs Azure, SQL Server, bases de dados HANA ou Partilhas de Ficheiros), bem como o período de frequência e retenção pretendido.  
 
-Para um nível mais elevado de redundância, pode permitir a opção de armazenamento geo-redundante replicar dados de backup para uma região secundária e recuperar usando a restauração da região transversal.
+Para um nível de proteção mais elevado, pode permitir a opção de armazenamento geo-redundante replicar dados de backup para uma região secundária e recuperar usando a restauração da região transversal.
+
+- [Continuidade de negócios à escala empresarial e recuperação de desastres](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 
 - [Como ativar o backup do Azure](/azure/backup/)
 
@@ -36,7 +38,7 @@ Para um nível mais elevado de redundância, pode permitir a opção de armazena
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Política e normas](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 
@@ -54,7 +56,7 @@ Para um nível mais elevado de redundância, pode permitir a opção de armazena
 
 Certifique-se de que os seus backups estão protegidos contra ataques. Isto deve incluir encriptação das cópias de segurança para proteger contra a perda de confidencialidade.   
 
-Para a cópia de segurança no local utilizando o Azure Backup, a encriptação em repouso é fornecida utilizando a palavra-passe que fornece. Para a cópia de segurança regular do serviço Azure, os dados de backup são automaticamente encriptados utilizando as teclas geridas pela plataforma Azure. Pode optar por encriptar a cópia de segurança utilizando a chave gerida pelo cliente. Neste caso, certifique-se de que esta chave gerida pelo cliente no cofre chave também está no âmbito de backup. 
+Para cópias de segurança no local que utilizem O Backup Azure, a encriptação em repouso é fornecida utilizando a palavra-passe que fornece. Para cópias de segurança regulares do serviço Azure, os dados de backup são automaticamente encriptados utilizando as teclas geridas pela plataforma Azure. Pode optar por encriptar as cópias de segurança utilizando a chave gerida pelo cliente. Neste caso, certifique-se de que esta chave gerida pelo cliente no cofre chave também está no âmbito de backup. 
 
 Utilize o controlo de acesso baseado em funções em Azure Backup, Azure Key Vault ou outros recursos para proteger cópias de segurança e chaves geridas pelo cliente. Além disso, pode ativar funcionalidades de segurança avançadas para exigir MFA antes que as cópias de segurança possam ser alteradas ou eliminadas.
 
@@ -62,17 +64,19 @@ Utilize o controlo de acesso baseado em funções em Azure Backup, Azure Key Vau
 
 - [Encriptação de dados de backup usando chaves geridas pelo cliente](/azure/backup/encryption-at-rest-with-cmk) 
 
-- [Como apoiar chaves do Cofre chave em Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como apoiar chaves do Cofre chave em Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+
+- [Funcionalidades de segurança para ajudar a proteger os backups híbridos de ataques](/azure/backup/backup-azure-security-feature#prevent-attacks)
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
 - [Segurança de infraestrutura e pontos finais](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Preparação de incidentes](/) azure/cloud-adopt-framework/organize/cloud-security-incident-preparation
+- [Preparação de incidentes](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
 ## <a name="br-3-validate-all-backups-including-customer-managed-keys"></a>BR-3: Validar todas as cópias de segurança, incluindo chaves geridas pelo cliente
 
@@ -84,11 +88,11 @@ Efetue periodicamente a restauração de dados da sua cópia de segurança. Cert
 
 - [Como recuperar ficheiros da cópia de segurança da Azure Virtual Machine](/azure/backup/backup-azure-restore-files-from-vm)
 
-- [Como restaurar chaves do Cofre chave em Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como restaurar chaves do Cofre chave em Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Preparação de incidentes](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
@@ -102,11 +106,11 @@ Efetue periodicamente a restauração de dados da sua cópia de segurança. Cert
 
 Certifique-se de que tem medidas para prevenir e recuperar da perda de chaves. Ativar a proteção de eliminação e purga suave no Cofre da Chave Azure para proteger as chaves contra a eliminação acidental ou maliciosa.  
 
-- [Como permitir a eliminação suave e a proteção de purga no Cofre de Chaves](/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Como permitir a eliminação suave e a proteção de purga no Cofre de Chaves](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 

@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f137b61f36ee425bdfecf3135370fded04242335
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: fde2052078e0131e720411f91aa8ae7484338252
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658743"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295028"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Ative Directory Sem Emenda Single Sign-On: Quickstart
 
@@ -125,7 +125,7 @@ Existem duas formas de modificar as definições da zona intranet dos utilizador
 1. Abra a ferramenta Editor de Gestão de Políticas de Grupo.
 2. Edite a política de grupo que é aplicada a alguns ou a todos os seus utilizadores. Este exemplo utiliza **a Política de Domínio Padrão.**
 3. Navegue para a política **de configuração do utilizador**  >  **Policy**  >  **Modelos administrativos**Windows  >  **Componentes**Internet  >  **Explorer Internet**Control  >  **Panel**  >  **Security Page**. Em seguida, selecione **Site para a Lista de Atribuição de Zonas**.
-    ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso6.png)
+    ![Screenshot que mostra a "Página de Segurança" com "Lista de Atribuição de Zonas" selecionada.](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Ativar a política e, em seguida, introduzir os seguintes valores na caixa de diálogo:
    - **Nome de valor**: A URL AD Azure onde os bilhetes Kerberos são reencaminhados.
    - **Valor** (Dados): **1** indica a zona Intranet.
@@ -142,15 +142,15 @@ Existem duas formas de modificar as definições da zona intranet dos utilizador
 
 5. Selecione **OK** e, em seguida, selecione **OK** novamente.
 
-    ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso7.png)
+    ![Screenshot que mostra a janela "Mostrar Conteúdo" com uma atribuição de zona selecionada.](./media/how-to-connect-sso-quick-start/sso7.png)
 
 6. Navegue para a **configuração do utilizador**  >  **Policy**  >  **Modelos administrativos**  >  **windows Componentes**Internet Explorer  >  **Internet**Control  >  **Panel**  >  **Security Zone**  >  **Intranet Zone**. Em seguida, **selecione Permitir atualizações para a barra de estado através do script**.
 
-    ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso11.png)
+    ![Screenshot que mostra a página "Intranet Zone" com "Permitir atualizações para a barra de estado via script" selecionada.](./media/how-to-connect-sso-quick-start/sso11.png)
 
 7. Ativar a definição de política e, em seguida, selecionar **OK**.
 
-    ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso12.png)
+    ![Screenshot que mostra a janela "Permitir atualizações para barra de estado via script" com a definição de política ativada.](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="group-policy-preference-option---detailed-steps"></a>Opção "preferência de política de grupo" - Passos detalhados
 
@@ -158,7 +158,7 @@ Existem duas formas de modificar as definições da zona intranet dos utilizador
 2. Edite a política de grupo que é aplicada a alguns ou a todos os seus utilizadores. Este exemplo utiliza **a Política de Domínio Padrão.**
 3. Navegue para as preferências **de configuração do**  >  **Preferences**  >  **utilizador, as definições**  >  **do Windows registam**  >  **novo**item  >  **de registo**.
 
-    ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso15.png)
+    ![Screenshot que mostra "Registry" selecionado e "Registry Item" selecionado.](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Introduza os seguintes valores nos campos apropriados e clique **em OK**.
    - **Caminho chave**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
@@ -166,7 +166,7 @@ Existem duas formas de modificar as definições da zona intranet dos utilizador
    - **Tipo de valor**: ***REG_DWORD***
    - **Dados de valor:** ***0000001***
  
-     ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Screenshot que mostra a janela "Novas Propriedades de Registo".](./media/how-to-connect-sso-quick-start/sso16.png)
  
      ![Início de sessão único](./media/how-to-connect-sso-quick-start/sso17.png)
 
@@ -234,7 +234,7 @@ Para obter instruções sobre como rolar as teclas, consulte [O Diretório Azure
 >[!IMPORTANT]
 >Não precisa de fazer este passo _imediatamente_ depois de ter ativado a funcionalidade. Revir as chaves de desencriptação Kerberos pelo menos uma vez a cada 30 dias.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Mergulho profundo técnico](how-to-connect-sso-how-it-works.md): Compreenda como funciona a função 'Sign-On' sem emenda.
 - [Perguntas frequentes](how-to-connect-sso-faq.md): Obtenha respostas a perguntas frequentes sobre o Sign-On Único Sem Emenda.

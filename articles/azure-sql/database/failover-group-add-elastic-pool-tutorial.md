@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: 80fa5b7264d675317fba3cc12fa5049bdea76906
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 0c4a3c97649f168d339f5209cc10a46f56e97381
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042582"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335182"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Tutorial: Adicione uma piscina elástica Azure SQL Database a um grupo de failover
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -147,7 +147,7 @@ Crie o seu grupo de failover utilizando o portal Azure.
     - **Nome do grupo failover**: Digite um nome único de grupo de failover, tais como `failovergrouptutorial` .
     - **Servidor secundário**: Selecione a opção para *configurar as definições necessárias* e, em seguida, escolha **criar um novo servidor**. Em alternativa, pode escolher um servidor já existente como servidor secundário. Depois de introduzir os seguintes valores para o seu novo servidor secundário, **selecione**.
         - **Nome do servidor**: Digite um nome único para o servidor secundário, tal como `mysqlsecondary` .
-        - **Início de administração do servidor**: Tipo`azureuser`
+        - **Início de administração do servidor**: Tipo `azureuser`
         - **Palavra-passe**: Digite uma palavra-passe complexa que satisfaça os requisitos de senha.
         - **Localização**: Escolha uma localização a partir da entrega, tal como `East US` . Esta localização não pode ser a mesma localização do seu servidor primário.
 
@@ -348,7 +348,7 @@ Esta parte do tutorial utiliza os seguintes cmdlets PowerShell:
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Limpe os recursos eliminando o grupo de recursos.
 
@@ -412,7 +412,7 @@ Não existem scripts disponíveis para o portal Azure.
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, adicionou uma piscina elástica Azure SQL Database a um grupo de failover, e testou failover. Aprendeu a:
 

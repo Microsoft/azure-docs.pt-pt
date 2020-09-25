@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1163531fb5a6aa7158bd81ff9095ed1ee29e73c1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f8f173291448d9da4d8967ff56b0fa027ca73409
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004906"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334553"
 ---
 # <a name="business-card-concepts"></a>Conceitos de cartões de visita
 
@@ -88,8 +88,8 @@ Veja o seguinte exemplo de uma resposta JSON bem sucedida: O nó "readResults" c
                 "width": 4032,
                 "height": 3024,
                 "unit": "pixel",
-                "lines": 
-                          {
+                   "lines": 
+                             {
                         "text": "Dr. Avery Smith",
                         "boundingBox": [
                             419.3,
@@ -389,7 +389,9 @@ A API do Cartão De Visita também alimenta a [funcionalidade de Processamento d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Siga o quickstart para começar [os cartões de negócios API Python quickstart](./quickstarts/python-business-cards.md)
-- Conheça o [Formulário Reconhecendo REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
-- Saiba mais sobre [o Reconhecimento de Formulários](overview.md)
+- Siga o [quickstart dos Cartões de Visita API Python](./quickstarts/python-business-cards.md) para começar a reconhecer cartões de visita.
 
+## <a name="see-also"></a>Ver também
+
+* [O que é o Reconhecedor de Formato?](./overview.md)
+* [REST API referenciar docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)

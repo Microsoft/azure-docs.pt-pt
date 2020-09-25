@@ -4,14 +4,14 @@ description: Saiba como a Azure Cosmos DB fornece proteção de base de dados co
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: 6edf5de852ea836de8be02636dd8a971ccebb86d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: e65c17be47cdc59f929aa539071cf1c758e271f7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87530576"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320885"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Controlo de acesso baseado em funções no Azure Cosmos DB
 
@@ -25,8 +25,8 @@ Seguem-se os papéis integrados apoiados pela Azure Cosmos DB:
 |---------|---------|
 |[Colaborador de Conta DocumentDB](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Pode gerir as contas de DB da Azure Cosmos.|
 |[Cosmos DB Leitor de Conta](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Pode ler os dados da conta DB da Azure Cosmos.|
-|[Operador de backup cosmos](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|Pode submeter um pedido de restauro para uma base de dados Azure Cosmos ou um recipiente.|
-|[Operador de DB cosmos](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Pode providenciar contas, bases de dados e contentores da Azure Cosmos, mas não pode aceder às chaves que são necessárias para aceder aos dados.|
+|[Operador de backup cosmos](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|Pode submeter um pedido de restauro para uma base de dados Azure Cosmos ou um recipiente. Não é possível aceder a nenhum dado ou utilizar o Data Explorer.|
+|[Operador de DB cosmos](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Pode providenciar contas, bases de dados e contentores da Azure Cosmos. Não é possível aceder a nenhum dado ou utilizar o Data Explorer.|
 
 > [!IMPORTANT]
 > O suporte da RBAC em Azure Cosmos DB aplica-se apenas às operações de controlo do avião. As operações de plano de dados são protegidas usando chaves principais ou fichas de recursos. Para saber mais, consulte [acesso seguro aos dados em Azure Cosmos DB](secure-access-to-data.md)
@@ -40,6 +40,9 @@ O painel **de controlo de acesso (IAM)** no portal Azure é utilizado para confi
 ## <a name="custom-roles"></a>Funções personalizadas
 
 Além das funções incorporadas, os utilizadores podem também criar [funções personalizadas](../role-based-access-control/custom-roles.md) no Azure e aplicar estas funções aos diretores de serviços em todas as subscrições dentro do seu inquilino Ative Directory. As funções personalizadas fornecem aos utilizadores uma forma de criar definições de função Azure com um conjunto personalizado de operações de fornecedor de recursos. Para saber quais as operações disponíveis para a construção de funções personalizadas para a Azure Cosmos DB ver, [Azure Cosmos DB fornecedor de recursos](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
+
+> [!TIP]
+> As funções personalizadas que precisam de aceder aos dados armazenados dentro do Cosmos DB ou utilizar o Data Explorer no portal Azure devem ter `Microsoft.DocumentDB/databaseAccounts/listKeys/*` ação.
 
 ## <a name="preventing-changes-from-the-azure-cosmos-db-sdks"></a><a id="prevent-sdk-changes"></a>Prevenção de alterações dos DB SDKs Azure Cosmos
 

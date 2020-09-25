@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 81c4558bde3ffdbec72a756562b972c2eed4a1ee
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ba2d0acec37d0f59240381cdea04f4d53ded0b1c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939932"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273046"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Criar o controlador de dados Azure Arc
 
@@ -26,7 +26,7 @@ Os serviços de dados habilitados a Azure Arc podem ser criados em vários tipos
 
 Atualmente, a lista suportada de serviços e distribuições de Kubernetes são as seguintes:
 
-- Azure Kubernetes Service (AKS)
+- Serviço de Kubernetes do Azure (AKS)
 - Motor de serviço Azure Kubernetes (motor AKS) em Azure Stack
 - Serviço Azure Kubernetes em Azure Stack HCI
 - Azure RedHat OpenShift (ARO)
@@ -45,7 +45,7 @@ Atualmente, a lista suportada de serviços e distribuições de Kubernetes são 
 > [!NOTE]
 > Se estiver a utilizar a Plataforma de Recipientes OpenShift do Chapéu Vermelho no Azure, é aconselhável utilizar a versão mais recente disponível.
 
-Dependendo da opção escolhida, serão _necessárias_determinadas ferramentas , mas é aconselhável [instalar todas as ferramentas do cliente](install-client-tools.md) antes de começar a criar o controlador de dados Azure Arc.
+Dependendo da opção escolhida, serão _necessárias_determinadas ferramentas , mas é aconselhável [instalar todas as ferramentas do cliente](./install-client-tools.md) antes de começar a criar o controlador de dados Azure Arc.
 
 Independentemente da opção que escolha, durante o processo de criação terá de fornecer as seguintes informações:
 
@@ -53,7 +53,7 @@ Independentemente da opção que escolha, durante o processo de criação terá 
 - **Nome de utilizador do controlador de dados** - Qualquer nome de utilizador para o utilizador do administrador do controlador de dados.
 - **Password do controlador de dados** - Uma palavra-passe para o utilizador do administrador do controlador de dados.
 - **Nome do seu espaço de nomes Kubernetes** - o nome do espaço de nomes Kubernetes em que pretende criar o controlador de dados.
-- **Modo conectividade** - O [modo de conectividade](connectivity.md) do seu cluster. Atualmente apenas é apoiado "indireto".
+- **Modo conectividade** - O [modo de conectividade](./connectivity.md) do seu cluster. Atualmente apenas é apoiado "indireto".
 - **ID de assinatura Azure** - A assinatura Azure GUID para onde pretende que o recurso de controlador de dados em Azure seja criado.
 - Nome do **grupo de recursos Azure** - O nome do grupo de recursos onde pretende que o recurso de controlador de dados em Azure seja criado.
 - **Localização azul** - A localização Azure onde os metadados de recursos do controlador de dados serão armazenados em Azure. Para obter uma lista das regiões disponíveis, consulte [a infraestrutura global Azure /Produtos por região.](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)
@@ -68,5 +68,5 @@ Existem múltiplas opções para a criação do controlador de dados Azure Arc:
 - [Criar um controlador de dados com CLI de dados Azure (azdata)](create-data-controller-using-azdata.md)
 - [Criar um controlador de dados com o Azure Data Studio](create-data-controller-azure-data-studio.md)
 - [Crie um controlador de dados a partir do portal Azure através de um caderno Jupyter no Azure Data Studio](create-data-controller-resource-in-azure-portal.md)
-- [Criar um controlador de dados com ferramentas Kubernetes como kubectl ou oc](create-data-controller-using-k8s-native-tools.md)
+- [Criar um controlador de dados com ferramentas Kubernetes como kubectl ou oc](create-data-controller-using-kubernetes-native-tools.md)
 - [Crie um controlador de dados com o Azure Arc Jumpstart para uma experiência acelerada de uma implementação de teste](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services)

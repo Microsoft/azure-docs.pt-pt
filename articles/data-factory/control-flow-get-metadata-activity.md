@@ -10,14 +10,14 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/23/2020
 ms.author: jingwang
-ms.openlocfilehash: c761cf1265ad61517a9d0123b932d31b27d157dd
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: e32115c590d73f5c93f322d3bd542096f2964a4c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613506"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297611"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obtenha atividade de metadados na Azure Data Factory
 
@@ -35,7 +35,7 @@ A seguinte funcionalidade está disponível no fluxo de controlo:
 
 ## <a name="capabilities"></a>Capacidades
 
-A atividade Get Metadados requer um conjunto de dados como uma entrada e devolve informações de metadados como saída. Atualmente, os seguintes conectores e metadados recuperáveis correspondentes são suportados. O tamanho máximo dos metadados devolvidos é de 2 MB.
+A atividade Get Metadados requer um conjunto de dados como uma entrada e devolve informações de metadados como saída. Atualmente, os seguintes conectores e metadados recuperáveis correspondentes são suportados. O tamanho máximo dos metadados devolvidos é de cerca de 4 MB.
 
 >[!NOTE]
 >Se executar a atividade Get Metadata num tempo de integração auto-hospedado, as capacidades mais recentes são suportadas na versão 3.6 ou posterior.
@@ -76,7 +76,7 @@ A atividade Get Metadados requer um conjunto de dados como uma entrada e devolve
 
 Pode especificar os seguintes tipos de metadados na lista de atividades do Get Metadata para recuperar as informações correspondentes:
 
-| Tipo de metadados | Descrição |
+| Tipo de metadados | Description |
 |:--- |:--- |
 | itemName | Nome do ficheiro ou pasta. |
 | itemType | Tipo de ficheiro ou pasta. O valor devolvido é `File` `Folder` ou. |
@@ -87,7 +87,7 @@ Pode especificar os seguintes tipos de metadados na lista de atividades do Get M
 | conteúdoMD5 | MD5 do ficheiro. Aplicável apenas aos ficheiros. |
 | estrutura | Estrutura de dados do ficheiro ou tabela de bases de dados relacional. Valor devolvido é uma lista de nomes de colunas e tipos de colunas. |
 | colunaCount | Número de colunas no ficheiro ou tabela relacional. |
-| existe| Se existe um ficheiro, pasta ou tabela. Note que se `exists` for especificado na lista de campos De Metadados, a atividade não falhará mesmo que o ficheiro, pasta ou tabela não exista. Em vez disso, `exists: false` é devolvido na saída. |
+| existe| Se existe um ficheiro, pasta ou tabela. Se `exists` for especificado na lista de campos De Metadados, a atividade não falhará mesmo que o ficheiro, a pasta ou a tabela não existam. Em vez disso, `exists: false` é devolvido na saída. |
 
 >[!TIP]
 >Quando pretende validar a existência de um ficheiro, pasta ou tabela, especifique `exists` na lista de casos de atividade de Metadados. Em seguida, pode verificar o `exists: true/false` resultado na saída da atividade. Se `exists` não for especificado na lista de campo, a atividade Get Metadadata falhará se o objeto não for encontrado.
@@ -224,7 +224,7 @@ Os resultados do Get Metadados são apresentados na saída da atividade. Seguem-
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Conheça outras atividades de fluxo de controlo apoiadas pela Data Factory:
 
 - [Executar atividade de Pipeline](control-flow-execute-pipeline-activity.md)

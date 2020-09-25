@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 05/11/2020
+ms.date: 09/22/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 8ec5562af254aa1bcdb030057f61db496a17826b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 25e5d583b2ae94277b155e8e03d61a308a88ec8d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423393"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322755"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Quickstart: Utilize Node.js para ligar e consultar dados da conta API API da Azure Cosmos DB SQL
 
@@ -22,6 +22,7 @@ ms.locfileid: "87423393"
 > - [.NET V3](create-sql-api-dotnet.md)
 > - [.NET V4](create-sql-api-dotnet-V4.md)
 > - [SDK v4 de Java](create-sql-api-java.md)
+> * [Dados da primavera v3](create-sql-api-spring-data.md)
 > - [Node.js](create-sql-api-nodejs.md)
 > - [Python](create-sql-api-python.md)
 > - [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -184,7 +185,7 @@ Agora volte ao portal Azure para obter os detalhes da cadeia de ligação da sua
 
    `endpoint: "<Your Azure Cosmos account URI>"`
 
-4. Em seguida, copie o seu valor PRINCIPAL do portal e faça dele o valor do `config.key` _inconfig.js_. Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB.
+4. Em seguida, copie o seu valor PRINCIPAL do portal e faça dele o valor do `config.key` _ inconfig.js_. Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB.
 
    `key: "<Your Azure Cosmos account key>"`
 
@@ -202,7 +203,7 @@ Pode continuar a experimentar esta aplicação de amostra ou voltar ao Data Expl
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, aprendeu a criar uma conta DB Azure Cosmos, criar um recipiente usando o Data Explorer e executar uma aplicação Node.js. Agora, pode importar dados adicionais para a sua conta do Azure Cosmos DB.
 

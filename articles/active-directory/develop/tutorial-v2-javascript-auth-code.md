@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev, devx-track-javascript
-ms.openlocfilehash: 4613e22193de8dc374d1a9e1a293c317fb9c1b9b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: aaddev, devx-track-js
+ms.openlocfilehash: 7a136c03db6e27763a22d92d2c335f23c616856e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87311552"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256811"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-app-spa-using-auth-code-flow"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA) usando fluxo de código auth
 
@@ -60,7 +60,7 @@ Para continuar com o tutorial e construir a aplicação por si mesmo, passe para
 
 ## <a name="create-your-project"></a>Criar o seu projeto
 
-Uma vez instalada [Node.js,](https://nodejs.org/en/download/) crie uma pasta para hospedar a sua aplicação, por *exemplo, msal-spa-tutorial*.
+Uma vez instalada [Node.js, ](https://nodejs.org/en/download/) crie uma pasta para hospedar a sua aplicação, por *exemplo, msal-spa-tutorial*.
 
 Em seguida, implemente um pequeno servidor web [Express](https://expressjs.com/) para servir o seu *ficheiroindex.html.*
 
@@ -134,7 +134,7 @@ msal-spa-tutorial/
 
 1. Crie uma pasta de *aplicativos* no seu diretório de projetos e nele crie um ficheiro *index.html* para o seu JavaScript SPA. Este ficheiro implementa um UI construído com o **Quadro Bootstrap 4** e importa ficheiros de script para configuração, autenticação e chamadas API.
 
-    No *ficheiroindex.html,* adicione o seguinte código:
+    No * ficheiroindex.html,* adicione o seguinte código:
 
     ```html
     <!DOCTYPE html>
@@ -325,7 +325,7 @@ Modifique os valores na `msalConfig` secção descrita aqui:
 - `Enter_the_Cloud_Instance_Id_Here`: A caixa de nuvem Azure em que a sua aplicação está registada.
   - Para a nuvem azure principal (ou *global),* insira `https://login.microsoftonline.com` .
   - Para nuvens **nacionais** (por exemplo, China), você pode encontrar valores apropriados nas [nuvens nacionais.](authentication-national-cloud.md)
-- `Enter_the_Tenant_info_here`deve ser um dos seguintes:
+- `Enter_the_Tenant_info_here` deve ser um dos seguintes:
   - Se a sua candidatura suporta *contas neste diretório organizacional,* substitua este valor pelo **ID** do Inquilino ou **nome de Inquilino.** Por exemplo, `contoso.microsoft.com`.
   - Se a sua candidatura suportar *contas em qualquer diretório organizacional,* substitua este valor por `organizations` .
   - Se a sua aplicação suportar *contas em qualquer diretório organizacional e contas pessoais da Microsoft,* substitua este valor por `common` .
@@ -350,7 +350,7 @@ const graphConfig = {
 
 Modifique os valores na `graphConfig` secção descrita aqui:
 
-- `Enter_the_Graph_Endpoint_Here`é o caso da API do Gráfico microsoft com que a aplicação deve comunicar.
+- `Enter_the_Graph_Endpoint_Here` é o caso da API do Gráfico microsoft com que a aplicação deve comunicar.
   - Para o ponto final **global** da Microsoft Graph API, substitua ambas as instâncias desta cadeia por `https://graph.microsoft.com` .
   - Para pontos finais em implementações **nacionais** em nuvem, consulte [as implementações](https://docs.microsoft.com/graph/deployments) nacionais em nuvem na documentação do Microsoft Graph.
 
@@ -567,7 +567,7 @@ A chamada `acquireTokenPopup` abre uma janela pop-up (ou `acquireTokenRedirect` 
 
 #### <a name="get-a-user-token-silently"></a>Obter um token de utilizador automaticamente
 
-O `acquireTokenSilent` método lida com a aquisição e renovação de símbolos sem qualquer interação do utilizador. Depois `loginPopup` de (ou `loginRedirect` ) ser executado pela primeira vez, é `acquireTokenSilent` o método comumente usado para obter fichas usadas para aceder a recursos protegidos para chamadas subsequentes. (As chamadas para solicitar ou renovar fichas são feitas silenciosamente.) `acquireTokenSilent`pode falhar em alguns casos. Por exemplo, a palavra-passe do utilizador pode ter expirado. A sua aplicação pode lidar com esta exceção de duas formas:
+O `acquireTokenSilent` método lida com a aquisição e renovação de símbolos sem qualquer interação do utilizador. Depois `loginPopup` de (ou `loginRedirect` ) ser executado pela primeira vez, é `acquireTokenSilent` o método comumente usado para obter fichas usadas para aceder a recursos protegidos para chamadas subsequentes. (As chamadas para solicitar ou renovar fichas são feitas silenciosamente.) `acquireTokenSilent` pode falhar em alguns casos. Por exemplo, a palavra-passe do utilizador pode ter expirado. A sua aplicação pode lidar com esta exceção de duas formas:
 
 1. Faça uma chamada imediatamente `acquireTokenPopup` para acionar um pedido de inscrição do utilizador. Este padrão é comumente utilizado em aplicações online onde não existe conteúdo não autenticado na aplicação disponível para o utilizador. A amostra gerada por esta configuração guiada utiliza este padrão.
 1. Indicar visualmente ao utilizador que é necessário um início de sção interativo para que o utilizador possa selecionar o momento certo para iniciar sedutar, ou a aplicação pode voltar a tentar `acquireTokenSilent` mais tarde. Esta técnica é comumente utilizada quando o utilizador pode utilizar outra funcionalidade da aplicação sem ser interrompida. Por exemplo, pode haver conteúdo não autenticado disponível na aplicação. Nesta situação, o utilizador pode decidir quando pretender iniciar seducação para aceder ao recurso protegido ou para atualizar as informações desatualizadas.

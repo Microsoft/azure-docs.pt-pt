@@ -9,14 +9,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/20/2020
-ms.openlocfilehash: 31b49cdd9e0e5569981b2a0b0c6efcab7239e019
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dc9123735ef65bec89e99a14d25cba881be306fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77648517"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297475"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Monitorizar a atividade de migração utilizando o Serviço de Migração da Base de Dados de Azure
 Neste artigo, aprende-se a monitorizar o progresso de uma migração tanto a nível de base de dados como a nível de tabela.
@@ -42,11 +42,11 @@ A tabela que se segue lista os campos na lâmina de nível de base de dados e de
   <tbody>
     <tr>
       <td rowspan="3" class="ActivityStatus"><strong>Estado da atividade</strong></td>
-      <td>A executar</td>
+      <td>Em Execução</td>
       <td>A atividade de migração está a decorrer.</td>
     </tr>
     <tr>
-      <td>Bem-sucedido</td>
+      <td>Com êxito</td>
       <td>A atividade migratória foi bem sucedida sem problemas.</td>
     </tr>
     <tr>
@@ -59,7 +59,7 @@ A tabela que se segue lista os campos na lâmina de nível de base de dados e de
       <td>O DMS está a montar o oleoduto de migração.</td>
     </tr>
     <tr>
-      <td>A executar</td>
+      <td>Em Execução</td>
       <td>O oleoduto DMS está a funcionar e a realizar migração.</td>
     </tr>
     <tr>
@@ -67,7 +67,7 @@ A tabela que se segue lista os campos na lâmina de nível de base de dados e de
       <td>Migração concluída.</td>
     </tr>
     <tr>
-      <td>Falhou</td>
+      <td>Com falhas</td>
       <td>A migração falhou. Clique em detalhes de migração para ver erros de migração.</td>
     </tr>
     <tr>
@@ -108,7 +108,7 @@ A parte inferior da lâmina lista as tabelas e mostra um resumo rápido do progr
 
 A tabela seguinte descreve os campos indicados nos detalhes do nível de tabela.
 
-| Nome do campo        | Descrição       |
+| Nome do campo        | Description       |
 | ------------- | ------------- |
 | **Carga completa concluída**      | Número de tabelas preenchidas com carga completa de dados. |
 | **Carga completa em fila**      | Número de mesas em fila para a carga completa.      |
@@ -129,7 +129,7 @@ Existem dois separadores que mostram o progresso da migração na sincronizaçã
 
 O quadro que se segue descreve os campos indicados no progresso migratório ao nível da tabela.
 
-| Nome do campo        | Descrição       |
+| Nome do campo        | Description       |
 | ------------- | ------------- |
 | **Estado - Sincronização**      | A sincronização contínua está a funcionar. |
 | **Inserir**      | Número de inserções de CDC em linhas aplicadas ao alvo.      |
@@ -141,5 +141,5 @@ O quadro que se segue descreve os campos indicados no progresso migratório ao n
 > [!NOTE]
 > Os valores do CDC de Inserir, Atualizar e Eliminar e Total Aplicados podem diminuir quando a base de dados é cortada ou a migração é reiniciada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Reveja a orientação de migração no [Guia de Migração da Base de Dados da](https://datamigration.microsoft.com/)Microsoft.

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: f646af4cad6101e019e58f4f50a40b07aff19461
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a36b9d20fa20df56ec53e090976ea86e689ac74b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660478"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322517"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados no local para o Azure Logic Apps
 
@@ -114,7 +114,7 @@ Este artigo mostra como descarregar, instalar e configurar o seu portal de dados
 
    Note a opção de **Adicionar a um cluster de gateway existente,** que seleciona quando instala portais adicionais para [cenários de alta disponibilidade](#high-availability).
 
-1. Consulte a região para ver o serviço de cloud gateway e [o Azure Service Bus](https://azure.microsoft.com/services/service-bus/) que é usado pela sua instalação gateway. Por padrão, esta região é a mesma localização que o inquilino AD AZure para a sua conta Azure.
+1. Consulte a região para ver o serviço de cloud gateway e a instância de mensagens de autocarro do [Serviço Azure](../service-bus-messaging/service-bus-messaging-overview.md) que é usada pela sua instalação gateway. Por padrão, esta região é a mesma localização que o inquilino AD AZure para a sua conta Azure.
 
    ![Confirme a região para o serviço de gateway e ônibus de serviço](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
@@ -140,7 +140,7 @@ Este artigo mostra como descarregar, instalar e configurar o seu portal de dados
 
 ## <a name="check-or-adjust-communication-settings"></a>Verifique ou ajuste as definições de comunicação
 
-O gateway de dados no local depende do [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) para a conectividade na nuvem e estabelece as conexões de saída correspondentes à região de Azure associada do gateway. Se o seu ambiente de trabalho exigir que o tráfego passe por um proxy ou firewall para aceder à internet, esta restrição pode impedir que o portal de dados no local se conecte ao serviço de cloud gateway e ao Azure Service Bus. O gateway tem várias definições de comunicação, que pode ajustar. Para obter mais informações, veja estes tópicos:
+O gateway de dados no local depende da [Azure Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md) para a conectividade na nuvem e estabelece as conexões de saída correspondentes à região de Azure associada do gateway. Se o seu ambiente de trabalho exigir que o tráfego passe por um proxy ou firewall para aceder à internet, esta restrição pode impedir que o portal de dados no local se conecte ao serviço de cloud gateway e a Azure Service Bus Messaging. O gateway tem várias definições de comunicação, que pode ajustar. Para obter mais informações, veja estes tópicos:
 
 * [Ajustar as definições de comunicação do gateway de dados no local](/data-integration/gateway/service-gateway-communication)
 * [Configurar as definições de proxy do gateway de dados no local](/data-integration/gateway/service-gateway-proxy)
@@ -206,7 +206,7 @@ Os utilizadores da sua organização podem aceder aos dados no local para os qua
 
 O portal ajuda a facilitar uma comunicação mais rápida e segura nos bastidores. Esta comunicação flui entre um utilizador na nuvem, o serviço de nuvem gateway e a sua fonte de dados no local. O serviço de nuvem gateway encripta e armazena as suas credenciais de origem de dados e detalhes do gateway. O serviço também encaminha consultas e os seus resultados entre o utilizador, o gateway e a sua fonte de dados no local.
 
-O gateway funciona com firewalls e utiliza apenas ligações de saída. Todo o tráfego tem origem como tráfego de saída seguro do agente de gateway. O gateway transmite dados de fontes no local em canais encriptados através do [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). Este autocarro de serviço cria um canal entre o gateway e o serviço de chamadas, mas não armazena quaisquer dados. Todos os dados que viajam através do portal estão encriptados.
+O gateway funciona com firewalls e utiliza apenas ligações de saída. Todo o tráfego tem origem como tráfego de saída seguro do agente de gateway. O gateway envia os dados de fontes no local em canais encriptados através de [mensagens de autocarro do serviço Azure.](../service-bus-messaging/service-bus-messaging-overview.md) Este autocarro de serviço cria um canal entre o gateway e o serviço de chamadas, mas não armazena quaisquer dados. Todos os dados que viajam através do portal estão encriptados.
 
 ![Arquitetura para porta de dados no local](./media/logic-apps-gateway-install/how-on-premises-data-gateway-works-flow-diagram.png)
 
@@ -217,9 +217,9 @@ Estes passos descrevem o que acontece quando interage com um elemento ligado a u
 
 1. O serviço na nuvem cria uma consulta, juntamente com as credenciais encriptadas para a fonte de dados. Em seguida, o serviço envia a consulta e as credenciais para a fila do gateway para processamento.
 
-1. O serviço cloud do gateway analisa a consulta e envia o pedido para o Azure Service Bus.
+1. O serviço de nuvem gateway analisa a consulta e empurra o pedido para a Azure Service Bus Messaging.
 
-1. O Azure Service Bus envia os pedidos pendentes para o gateway.
+1. A Azure Service Bus Messaging envia os pedidos pendentes para o portal.
 
 1. O gateway obtém a consulta, desencripta as credenciais e estabelece ligação a uma ou mais origens de dados com essas credenciais.
 
@@ -264,7 +264,7 @@ Aqui estão as formas de combinar as suas contas de Ative Directory no local com
 * [Resolução de problemas do gateway de dados no local](/data-integration/gateway/service-gateway-tshoot)
 * [Monitorizar e otimizar o desempenho de gateways](/data-integration/gateway/service-gateway-performance)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Conecte-se aos dados no local a partir de aplicações lógicas](../logic-apps/logic-apps-gateway-connection.md)
 * [Funcionalidades de integração empresarial](../logic-apps/logic-apps-enterprise-integration-overview.md)

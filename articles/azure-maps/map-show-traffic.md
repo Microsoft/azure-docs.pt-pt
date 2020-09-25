@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: cd59bb411a598603ccef215cd9a56b7619115e72
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: codepen, devx-track-js
+ms.openlocfilehash: 584db064bf6f6a6b99e6e2d09f6046912cfcd1bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090572"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335250"
 ---
 # <a name="show-traffic-on-the-map"></a>Mostrar tráfego no mapa
 

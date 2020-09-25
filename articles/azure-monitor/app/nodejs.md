@@ -3,13 +3,13 @@ title: Monitorizar serviços Node.js com o Azure Application Insights | Microsof
 description: Monitorize o desempenho e diagnostique problemas em serviços Node.js com o Application Insights.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: c6a1a030829f128c4369e99efcd56a416390afc6
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-js
+ms.openlocfilehash: 982adf6c6d7cd825d185802321ce30a04bd2f216
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371622"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323299"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorizar os seus serviços e aplicações Node.js com o Application Insights
 
@@ -59,7 +59,7 @@ Inclua o SDK na sua aplicação, para que esta possa recolher dados.
    ```javascript
    let appInsights = require('applicationinsights');
    ```
-4.  Também pode fornecer um ikey através da variável `APPINSIGHTS_INSTRUMENTATIONKEY` ambiental, em vez de passá-lo manualmente para `setup()` ou `new appInsights.TelemetryClient()` . Esta prática permite-lhe manter as ikeys fora do código de origem consolidado e especificar outras ikeys para diferentes ambientes. Para configurar manualmente, `appInsights.setup('[your ikey]');` ligue.
+4.  Também pode fornecer um ikey através da variável `APPINSIGHTS_INSTRUMENTATIONKEY` ambiental, em vez de passá-lo manualmente para  `setup()` ou `new appInsights.TelemetryClient()` . Esta prática permite-lhe manter as ikeys fora do código de origem consolidado e especificar outras ikeys para diferentes ambientes. Para configurar manualmente, `appInsights.setup('[your ikey]');` ligue.
 
     Para opções de configuração adicionais, veja as secções seguintes.
 
@@ -67,7 +67,7 @@ Inclua o SDK na sua aplicação, para que esta possa recolher dados.
 
 5. Comece a recolher e enviar automaticamente dados `appInsights.start();` ligando.
 
-### <a name="monitor-your-app"></a><a name="monitor"></a>Monitorize a sua aplicação
+### <a name="monitor-your-app"></a><a name="monitor"></a> Monitorize a sua aplicação
 
 O SDK reúne automaticamente telemetria sobre o tempo de execução Node.js e alguns módulos de terceiros comuns. Utilize a sua aplicação para gerar alguns destes dados.
 
@@ -110,7 +110,7 @@ Há alterações entre os lançamentos antes da versão 0.22 e depois. Estas alt
 Em geral, pode migrar com o seguinte:
 
 - Substitua as referências a `appInsights.client` `appInsights.defaultClient` .
-- Substituir referências `appInsights.getClient()` a`new appInsights.TelemetryClient()`
+- Substituir referências `appInsights.getClient()` a `new appInsights.TelemetryClient()`
 - Substitua todos os argumentos para os métodos client.track* por um único objeto que contenha propriedades nomeadas como argumentos. Consulte as indicações do tipo incorporado do IDE ou os Tipos de [Telemetria](https://github.com/Microsoft/ApplicationInsights-node.js/tree/develop/Declarations/Contracts/TelemetryTypes) para o objeto com exceção para cada tipo de telemetria.
 
 Se aceder às funções de configuração SDK sem acorrentá-las, `appInsights.setup()` pode agora encontrar estas funções em `appInsights.Configurations` (por exemplo, `appInsights.Configuration.setAutoCollectDependencies(true)` ). Reveja as alterações à configuração predefinida na secção seguinte.

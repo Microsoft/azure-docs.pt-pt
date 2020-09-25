@@ -3,12 +3,12 @@ title: Tutorial - Apoiar bases de dados SAP HANA em VMs Azure
 description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA em execução na Azure VM até um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: b43fd5c432b06902de0a898fc4bb0f114143b3ba
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 0e0f6ff89f59b862ea15148124f44abc3ed196bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375283"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254352"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Apoiar as bases de dados SAP HANA num Azure VM
 
@@ -55,7 +55,7 @@ A tabela a seguir enumera as várias alternativas que pode utilizar para estabel
 | Etiquetas de serviço NSG                  | Mais fácil de gerir à medida que as mudanças de alcance são automaticamente fundidas   <br><br>   Sem custos adicionais | Pode ser usado apenas com NSGs  <br><br>    Fornece acesso a todo o serviço |
 | Tags FQDN de Firewall Azure Firewall          | Mais fácil de gerir uma vez que os FQDNs necessários são geridos automaticamente | Pode ser usado apenas com Azure Firewall                         |
 | Permitir o acesso ao serviço FQDNs/IPs | Sem custos adicionais   <br><br>  Funciona com todos os aparelhos de segurança da rede e firewalls | Um conjunto alargado de IPs ou FQDNs pode ser obrigado a ser acedido   |
-| Use um representante HTTP                 | Ponto único de acesso à Internet aos VMs                       | Custos adicionais para executar um VM com o software proxy         |
+| Utilizar um proxy HTTP                 | Ponto único de acesso à Internet aos VMs                       | Custos adicionais para executar um VM com o software proxy         |
 
 Mais detalhes sobre a utilização destas opções são partilhados abaixo:
 
@@ -65,17 +65,17 @@ Os pontos finais privados permitem-lhe ligar-se de forma segura a partir de serv
 
 ### <a name="nsg-tags"></a>Etiquetas NSG
 
-Se utilizar grupos de segurança de rede (NSG), utilize a etiqueta de serviço *AzureBackup* para permitir o acesso de saída ao Azure Backup. Além da etiqueta Azure Backup, também precisa de permitir a conectividade para a autenticação e transferência de dados, criando [regras NSG semelhantes](../virtual-network/security-overview.md#service-tags) para *Azure AD* e *Azure Storage*.  Os seguintes passos descrevem o processo para criar uma regra para a etiqueta de backup Azure:
+Se utilizar grupos de segurança de rede (NSG), utilize a etiqueta de serviço *AzureBackup* para permitir o acesso de saída ao Azure Backup. Além da etiqueta Azure Backup, também precisa de permitir a conectividade para a autenticação e transferência de dados, criando [regras de NSG semelhantes](../virtual-network/security-overview.md#service-tags) para Azure*AD (AzureActiveDirectory)* e Azure Storage *(Armazenamento).* Os seguintes passos descrevem o processo para criar uma regra para a etiqueta de backup Azure:
 
 1. Em **Todos os Serviços,** vá aos **grupos de segurança da Rede** e selecione o grupo de segurança da rede.
 
 1. Selecione **regras de segurança de saída** em **Definições**.
 
-1. Selecione **Add** (Adicionar). Introduza todos os detalhes necessários para a criação de uma nova regra, conforme descrito nas [definições de regras de segurança](../virtual-network/manage-network-security-group.md#security-rule-settings). Certifique-se de que a opção **Destino** está definida para tag de serviço *de serviço* e de **destino** está definida para *AzureBackup*.
+1. Selecione **Adicionar**. Introduza todos os detalhes necessários para a criação de uma nova regra, conforme descrito nas [definições de regras de segurança](../virtual-network/manage-network-security-group.md#security-rule-settings). Certifique-se de que a opção **Destino** está definida para tag de serviço *de serviço* e de **destino** está definida para *AzureBackup*.
 
 1. **Selecione Adicionar** para salvar a regra de segurança de saída recém-criada.
 
-Pode igualmente criar regras de segurança de saída NSG para Azure Storage e Azure AD. Para obter mais informações sobre etiquetas de serviço, consulte [este artigo.](../virtual-network/service-tags-overview.md)
+Pode igualmente criar [regras de segurança de saída NSG](https://docs.microsoft.com/azure/virtual-network/network-security-groups-overview#service-tags) para Azure Storage e Azure AD. Para obter mais informações sobre etiquetas de serviço, consulte [este artigo.](../virtual-network/service-tags-overview.md)
 
 ### <a name="azure-firewall-tags"></a>Tags Azure Firewall
 
@@ -97,7 +97,7 @@ Também pode utilizar os seguintes FQDNs para permitir o acesso aos serviços ne
 
 ### <a name="use-an-http-proxy-server-to-route-traffic"></a>Use um servidor de procuração HTTP para encaminhar o tráfego
 
-Quando faz backup de uma base de dados SAP HANA em execução num Azure VM, a extensão de backup no VM utiliza as APIs HTTPS para enviar comandos de gestão para Azure Backup e dados para Azure Storage. A extensão de backup também utiliza Azure AD para autenticação. Encaminhe o tráfego de extensão de backup para estes três serviços através do representante HTTP. Utilize a lista de IPs e FQDNs acima mencionadas para permitir o acesso aos serviços necessários. Os servidores de procuração autenticados não são suportados.
+Quando faz backup de uma base de dados SAP HANA em execução num Azure VM, a extensão de backup no VM utiliza as APIs HTTPS para enviar comandos de gestão para Azure Backup e dados para Azure Storage. A extensão de backup também utiliza Azure AD para autenticação. Encaminhe o tráfego da extensão da cópia de segurança destes três serviços através do proxy HTTP. Utilize a lista de IPs e FQDNs acima mencionadas para permitir o acesso aos serviços necessários. Os servidores de procuração autenticados não são suportados.
 
 ## <a name="what-the-pre-registration-script-does"></a>O que o script pré-registo faz
 
@@ -133,13 +133,13 @@ Um cofre dos Serviços de Recuperação é uma entidade que armazena os backups 
 
 Para criar um cofre dos Serviços de Recuperação:
 
-1. Inscreva-se na sua subscrição no [portal Azure.](https://portal.azure.com/)
+1. Inicie sessão na sua subscrição no [portal do Azure](https://portal.azure.com/).
 
 2. No menu à esquerda, selecione **Todos os serviços**
 
-   ![Selecione Todos os serviços](./media/tutorial-backup-sap-hana-db/all-services.png)
+   ![Selecionar Todos os serviços](./media/tutorial-backup-sap-hana-db/all-services.png)
 
-3. Na caixa de diálogo **de todos os serviços,** insira **os Serviços de Recuperação.** A lista de filtros de recursos de acordo com a sua entrada. Na lista de recursos, selecione **Cofres dos Serviços de Recuperação.**
+3. Na caixa de diálogo **Todos os serviços**, introduza **Serviços de Recuperação**. A lista de recursos é filtrada de acordo com a sua entrada. Na lista de recursos, selecione **Cofres dos Serviços de Recuperação**.
 
    ![Selecione cofres dos Serviços de Recuperação](./media/tutorial-backup-sap-hana-db/recovery-services-vaults.png)
 
@@ -147,15 +147,15 @@ Para criar um cofre dos Serviços de Recuperação:
 
    ![Adicionar cofre de serviços de recuperação](./media/tutorial-backup-sap-hana-db/add-vault.png)
 
-   A caixa de diálogo do **cofre dos Serviços de Recuperação** abre. Fornecer valores para o **Nome, Subscrição, Grupo de Recursos** e **Localização**
+   A caixa de diálogo **Cofre dos Serviços de Recuperação** abre-se. Fornecer valores para o **Nome, Subscrição, Grupo de Recursos** e **Localização**
 
    ![Criar cofre dos Serviços de Recuperação](./media/tutorial-backup-sap-hana-db/create-vault.png)
 
-   * **Nome**: O nome é usado para identificar o cofre dos Serviços de Recuperação e deve ser exclusivo da assinatura Azure. Especifique um nome que tenha pelo menos dois, mas não mais de 50 caracteres. O nome deve começar com uma letra e consistir apenas em letras, números e hífenes. Para este tutorial, usamos o nome **SAPHanaVault.**
-   * **Assinatura**: Escolha a subscrição para utilizar. Se for membro de apenas uma subscrição, verá esse nome. Se não tiver a certeza de qual subscrição utilizar, utilize a subscrição padrão (sugerida). Só existem múltiplas escolhas se o seu trabalho ou conta escolar estiver associado a mais de uma subscrição do Azure. Aqui, usamos a assinatura de assinatura de laboratório de **solução SAP HANA.**
+   * **Nome**: O nome é usado para identificar o cofre dos Serviços de Recuperação e deve ser exclusivo da assinatura Azure. Especifique um nome que tenha pelo menos dois, mas não mais de 50 caracteres. O nome tem de começar com uma letra e ser composto apenas por letras, números e hífenes. Para este tutorial, usamos o nome **SAPHanaVault.**
+   * **Subscrição**: Escolha a subscrição a utilizar. Se for membro de apenas uma subscrição, vai ver esse nome. Se não tiver a certeza de que subscrição utilizar, utilize a subscrição predefinida (sugerida). Terá várias escolhas apenas se a sua conta escolar ou profissional estiver associada a mais do que uma subscrição do Azure. Aqui, usamos a assinatura de assinatura de laboratório de **solução SAP HANA.**
    * **Grupo de recursos**: Utilize um grupo de recursos existente ou crie um novo. Aqui, usamos **SAPHANADemo.**<br>
-   Para ver a lista de grupos de recursos disponíveis na sua subscrição, selecione **Use existente**e, em seguida, selecione um recurso da caixa de listas drop-down. Para criar um novo grupo de recursos, selecione **Criar novo** e insira o nome. Para obter informações completas sobre grupos de recursos, consulte [a visão geral do Azure Resource Manager](../azure-resource-manager/management/overview.md).
-   * **Localização**: Selecione a região geográfica para o cofre. O cofre deve estar na mesma região que a Máquina Virtual que funciona SAP HANA. Usamos o **East US 2.**
+   Para ver a lista de grupos de recursos disponíveis na sua subscrição, selecione **Use existente**e, em seguida, selecione um recurso da caixa de listas drop-down. Para criar um novo grupo de recursos, selecione **Criar novo** e introduza o nome. Para obter informações completas sobre grupos de recursos, consulte [a visão geral do Azure Resource Manager](../azure-resource-manager/management/overview.md).
+   * **Localização**: Selecione a região geográfica do cofre. O cofre deve estar na mesma região que a Máquina Virtual que funciona SAP HANA. Usamos o **East US 2.**
 
 5. Selecione **Review + Criar**.
 
@@ -201,11 +201,11 @@ Agora que as bases de dados que queremos fazer são descobertas, vamos ativar a 
 Uma política de backup define quando os backups são levados, e quanto tempo são retidos.
 
 * Uma política é criada ao nível do cofre.
-* Vários cofres podem usar a mesma política de reserva, mas tens de aplicar a política de reserva em cada cofre.
+* Vários cofres podem utilizar a mesma política de cópias de segurança, mas deve aplicar a política a cada cofre.
 
 Especificar as definições de política da seguinte forma:
 
-1. Em **nome da Política,** insira um nome para a nova política. Neste caso, insira **SAPHANA**.
+1. Em **Nome da política**, introduza um nome para a nova política. Neste caso, insira **SAPHANA**.
 
    ![Insira o nome para nova política](./media/tutorial-backup-sap-hana-db/new-policy.png)
 
@@ -216,12 +216,12 @@ Especificar as definições de política da seguinte forma:
 3. No **Alcance de Retenção,** configurar as definições de retenção para a cópia de segurança completa.
    * Por predefinição, todas as opções são selecionadas. Limpe os limites de alcance de retenção que não quer usar e desemote os que faz.
    * O período mínimo de retenção para qualquer tipo de backup (completo/diferencial/log) é de sete dias.
-   * Os pontos de recuperação são marcados para retenção com base no seu alcance de retenção. Por exemplo, se selecionar uma cópia de segurança diária completa, apenas uma cópia de segurança completa é ativada todos os dias.
+   * Os pontos de recuperação são marcados para retenção com base no respetivo período de retenção. Por exemplo, se selecionar uma cópia de segurança completa diária, vai ser acionada apenas uma cópia de segurança completa por dia.
    * A cópia de segurança para um dia específico é marcada e mantida com base na gama e configuração semanais de retenção.
-   * As gamas de retenção mensais e anual comportam-se de forma semelhante.
-4. No menu **de política de cópia de segurança completa,** selecione **OK** para aceitar as definições.
+   * Os períodos de retenção mensais e anuais comportam-se de forma semelhante.
+4. No menu **Política de Cópia de segurança completa**, selecione **OK** para aceitar as definições.
 5. Em seguida, selecione **Backup diferencial** para adicionar uma política diferencial.
-6. Na **política de backup diferencial,** selecione **Ativar** para abrir os controlos de frequência e retenção. Permitimos um backup diferencial todos os **domingos** às **2:00**da manhã, que é mantido por **30 dias.**
+6. Em **Política de Cópia de segurança diferencial**, selecione **Ativar** para abrir os controlos de frequência e retenção. Permitimos um backup diferencial todos os **domingos** às **2:00**da manhã, que é mantido por **30 dias.**
 
    ![Política de backup diferencial](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
@@ -229,7 +229,7 @@ Especificar as definições de política da seguinte forma:
    >Os backups incrementais não são suportados atualmente.
    >
 
-7. Selecione **OK** para guardar a política e volte ao menu de política de **backup** principal.
+7. Selecione **OK** para guardar a política e voltar ao menu principal **Política de cópia de segurança**.
 8. Selecione **'Registar'** para adicionar uma política de backup de registo de transações,
    * **A Cópia de Segurança do Registo** é por definição padrão para **Ativar**. Isto não pode ser desativado, uma vez que a SAP HANA gere todos os backups de registo.
    * Definimos **2 horas** como horário de reserva e **15 dias** de retenção.
@@ -240,7 +240,7 @@ Especificar as definições de política da seguinte forma:
    > As cópias de segurança de registo só começam a fluir depois de concluída uma cópia de segurança completa bem sucedida.
    >
 
-9. Selecione **OK** para guardar a política e volte ao menu de política de **backup** principal.
+9. Selecione **OK** para guardar a política e voltar ao menu principal **Política de cópia de segurança**.
 10. Depois de terminar de definir a política de backup, selecione **OK**.
 
 Agora, configura com sucesso, backup(s) para a sua base de dados SAP HANA.

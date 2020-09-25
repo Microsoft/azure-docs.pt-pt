@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 02/27/2019
 ms.author: billmath
 author: billmath
-ms.openlocfilehash: 72ec59d0082071746cb8db2b06412d90b4958914
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce438ad0725aff677f897a635a0cd32d92bbbdbe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359964"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265474"
 ---
 # <a name="configure-group-claims-for-applications-with-azure-active-directory"></a>Configure pedidos de pedidos de candidaturas com a Azure Ative Directory
 
@@ -78,11 +78,11 @@ Para configurar reclamações de grupo para uma aplicação SAML de galeria ou n
 
 Clique em **Adicionar uma reivindicação de grupo**  
 
-![reclama uI](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
+![Screenshot que mostra a página "User Atributos & Claims" com "Adicionar uma reivindicação de grupo" selecionada.](media/how-to-connect-fed-group-claims/group-claims-ui-1.png)
 
 Utilize os botões de rádio para selecionar quais os grupos que devem ser incluídos no token
 
-![reclama uI](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
+![Screenshot que mostra a janela "Group Claims" com "Grupos de segurança" selecionados.](media/how-to-connect-fed-group-claims/group-claims-ui-2.png)
 
 | Seleção | Descrição |
 |----------|-------------|
@@ -93,15 +93,15 @@ Utilize os botões de rádio para selecionar quais os grupos que devem ser inclu
 
 Por exemplo, para emitir todos os Grupos de Segurança o utilizador é membro de, selecione Grupos de Segurança
 
-![reclama uI](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
+![Screenshot que mostra a janela "Group Claims" com "Grupos de segurança" selecionados e o menu suspenso "Source attribute" aberto.](media/how-to-connect-fed-group-claims/group-claims-ui-3.png)
 
 Para emitir grupos que utilizem atributos ative directory sincronizados a partir do Ative Directory em vez de Azure AD objectIDs selecione o formato necessário a partir do drop-down. Apenas grupos sincronizados do Ative Directory serão incluídos nas reclamações.
 
-![reclama uI](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
+![Screenshot que mostra o menu suspenso "Source attribute" aberto.](media/how-to-connect-fed-group-claims/group-claims-ui-4.png)
 
 Para emitir apenas grupos atribuídos à aplicação, selecione **Grupos Atribuídos à aplicação**
 
-![reclama uI](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
+![Screenshot que mostra a janela "Group Claims" com "Grupos atribuídos à aplicação" selecionados.](media/how-to-connect-fed-group-claims/group-claims-ui-4-1.png)
 
 Os grupos designados para a aplicação serão incluídos no token.  Outros grupos de que o utilizador é membro serão omitidos.  Com esta opção não estão incluídos grupos aninhados e o utilizador deve ser um membro direto do grupo designado para a aplicação.
 
@@ -115,11 +115,11 @@ A forma como as alegações de grupo são emitidas pode ser modificada pelas def
 
 Personalize o nome da reclamação do grupo: Se selecionado, um tipo de reclamação diferente pode ser especificado para reclamações de grupo.   Introduza o tipo de reclamação no campo Nome e o espaço de nome opcional para a reclamação no campo do espaço de nome.
 
-![reclama uI](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
+![Screenshot que mostra a secção "Opções Avançadas" com "Personalizar o nome da reivindicação do grupo" selecionado e "Nome" e "Namespace" introduzidos.](media/how-to-connect-fed-group-claims/group-claims-ui-5.png)
 
 Algumas aplicações exigem que as informações de adesão ao grupo apareçam na alegação de "papel". Pode, opcionalmente, emitir os grupos do utilizador como funções, verificando a caixa 'Emit groups a role claims'.
 
-![reclama uI](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
+![Screenshot que mostra a secção "Opções Avançadas" com "Personalizar o nome da reivindicação do grupo" e "Emit groups as role claims" selecionadas.](media/how-to-connect-fed-group-claims/group-claims-ui-6.png)
 
 > [!NOTE]
 > Se a opção de emitir dados de grupo como funções for utilizada, apenas grupos aparecerão na reivindicação de funções.  Quaisquer Funções de Aplicação que o utilizador seja atribuído não aparecerão na reivindicação de funções.
@@ -220,7 +220,7 @@ Para emitir nomes de grupo a serem devolvidos no formato netbiosDomain\samAccoun
  }
  ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Adicionar autorização usando grupos & grupos reclamam a uma aplicação web core ASP.NET (amostra de código)](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/5-WebApp-AuthZ/5-2-Groups/README.md)
 - [Atribuir um utilizador ou grupo a uma aplicação empresarial](../../active-directory/manage-apps/assign-user-or-group-access-portal.md)

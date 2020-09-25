@@ -6,14 +6,14 @@ services: virtual-wan
 author: skishen525
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 09/22/2020
 ms.author: sukishen
-ms.openlocfilehash: 7b134e8ef4e09f1506f1d548ffb7579dcf65fbdd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87e9549419bccc36d743871755e782a71e93e5e0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753332"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267470"
 ---
 # <a name="sd-wan-connectivity-architecture-with-azure-virtual-wan"></a>Arquitetura de conectividade SD-WAN com Azure Virtual WAN
 

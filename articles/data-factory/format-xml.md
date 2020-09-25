@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/23/2020
 ms.author: jingwang
-ms.openlocfilehash: 12e6ae9dd14ebafb1da6bfbcfef64e2d65e876d8
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: e0fadf4ac8cea1c8804b17f5549a99bc360e2950
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531717"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334298"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Formato XML na Azure Data Factory
 
@@ -85,7 +85,9 @@ Definições de **leitura de XML** suportadas em `formatSettings` :
 | ------------- | ------------------------------------------------------------ | -------- |
 | tipo          | O tipo de formatoStais devem ser definidos para **XmlReadSettings**. | Yes      |
 | validaçãoMode | Especifica se valida o esquema XML.<br>Os valores permitidos não são **nenhum** (predefinição, sem validação), **xsd** (validar usando XSD), **dtd** (validar usando DTD). | No |
+| espaços de nome | Se ativar o espaço de nome ao analisar os ficheiros XML. Os valores permitidos são: **verdadeiros** (padrão), **falsos.** | No |
 | namespacePrefixes | Namespace URI para pré-fixar o mapeamento, que é usado para nomear campos ao analisar o ficheiro xml.<br/>Se um ficheiro XML tiver espaço de nome e o espaço de nome estiver ativado, por padrão, o nome de campo é o mesmo que está no documento XML.<br>Se houver um item definido para o namespace URI neste mapa, o nome de campo é `prefix:fieldName` . | No |
+| detectarDataType | Se detetar números inteiros, duplos e booleanos. Os valores permitidos são: **verdadeiros** (padrão), **falsos.**| No |
 | compressãoProperties | Um grupo de propriedades sobre como descomprimir dados para um determinado codec de compressão. | No       |
 | preservarZipFileNameAsFolder<br>*(em `compressionProperties` -> `type` `ZipDeflateReadSettings` conforme) *  | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **ZipDeflate.** Indica se deve preservar o nome do ficheiro zip de origem como estrutura de pasta durante a cópia.<br>- Quando definido como **verdadeiro (predefinido)**, a Data Factory escreve ficheiros desapertados para `<path specified in dataset>/<folder named as source zip file>/` .<br>- Quando definidos como **falsos,** a Data Factory escreve ficheiros desapertados diretamente para `<path specified in dataset>` . Certifique-se de que não tem nomes de ficheiros duplicados em diferentes ficheiros zip de origem para evitar corridas ou comportamentos inesperados.  | No |
 | preservar CompressãoFileNameAsFolder<br>*(em `compressionProperties` -> `type` `TarGZipReadSettings` conforme) * | Aplica-se quando o conjunto de dados de entrada é configurado com compressão **TarGzip.** Indica se deve preservar o nome do ficheiro comprimido de origem como estrutura de pasta durante a cópia.<br>- Quando definido como **verdadeiro (predefinido)**, a Data Factory escreve ficheiros descomprimidos para `<path specified in dataset>/<folder named as source compressed file>/` . <br>- Quando definido como **falso,** a Data Factory escreve ficheiros descomprimidos diretamente para `<path specified in dataset>` . Certifique-se de que não tem nomes de ficheiros duplicados em diferentes ficheiros de origem para evitar corridas ou comportamentos inesperados. | No |
@@ -109,6 +111,7 @@ A tabela abaixo lista as propriedades suportadas por uma fonte XML. Pode editar 
 | Modo de validação | Especifica se valida o esquema XML. | No | `None` (predefinição, sem validação)<br>`xsd` (validar a utilização do XSD)<br>`dtd` (validar usando DTD). | validaçãoMode |
 | Espaços de nomes | Se ativar o espaço de nome ao analisar os ficheiros XML. | No | `true` (predefinido) ou `false` | espaços de nome |
 | Pares de prefixos do espaço de nome | Namespace URI para pré-fixar o mapeamento, que é usado para nomear campos ao analisar o ficheiro xml.<br/>Se um ficheiro XML tiver espaço de nome e o espaço de nome estiver ativado, por padrão, o nome de campo é o mesmo que está no documento XML.<br>Se houver um item definido para o namespace URI neste mapa, o nome de campo é `prefix:fieldName` . | No | Matriz com padrão`['URI1'->'prefix1','URI2'->'prefix2']` | namespacePrefixes |
+| Não permita que não encontrem ficheiros | Se for verdade, um erro não é jogado se nenhum ficheiro for encontrado | não | `true` ou `false` | ignoreNoFilesFound |
 
 ### <a name="xml-source-script-example"></a>Exemplo de script de origem XML
 

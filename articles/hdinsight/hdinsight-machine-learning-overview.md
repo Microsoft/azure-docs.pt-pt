@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: 6c7f50e4ba3803b5cb929b75f5ad1127f7f063d9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3c050b414e322f08fd45a569a22cea2db591b99
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75931670"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302694"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Aprendizagem automática em HDInsight
 
@@ -41,7 +41,7 @@ O Azure Machine Learning fornece ferramentas para modelar análises preditivas e
 
 ![Visão geral da aprendizagem da máquina do Microsoft Azure](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
-Crie funcionalidades para dados num cluster hdInsight Hadoop utilizando [consultas de Hive](../machine-learning/team-data-science-process/create-features-hive.md). *A engenharia de recursos* tenta aumentar o poder preditivo dos algoritmos de aprendizagem criando funcionalidades a partir de dados brutos que facilitam o processo de aprendizagem. Você pode executar consultas de HiveQL a partir do Azure Machine Learning Studio (clássico), e aceder a dados processados na Colmeia e armazenados em armazenamento de bolhas, utilizando o [módulo de Dados de Importação.](../machine-learning/studio/import-data.md)
+Crie funcionalidades para dados num cluster hdInsight Hadoop utilizando [consultas de Hive](../machine-learning/team-data-science-process/create-features-hive.md). *A engenharia de recursos* tenta aumentar o poder preditivo dos algoritmos de aprendizagem criando funcionalidades a partir de dados brutos que facilitam o processo de aprendizagem. Você pode executar consultas de HiveQL a partir do Azure Machine Learning Studio (clássico), e aceder a dados processados na Colmeia e armazenados em armazenamento de bolhas, utilizando o [módulo de Dados de Importação.](../machine-learning/classic/import-data.md)
 
 ## <a name="microsoft-cognitive-toolkit"></a>Microsoft Cognitive Toolkit
 
@@ -49,7 +49,7 @@ Crie funcionalidades para dados num cluster hdInsight Hadoop utilizando [consult
 
 Para ajudar a progredir no seu próprio trabalho em deep learning, a Microsoft desenvolveu o kit de [ferramentas cognitivas](https://www.microsoft.com/en-us/cognitive-toolkit/)de código aberto gratuito e fácil de usar. Este conjunto de ferramentas está a ser utilizado por uma grande variedade de produtos da Microsoft, por empresas de todo o mundo com a necessidade de implementar aprendizagem profunda em escala, e por estudantes interessados nos mais recentes algoritmos e técnicas.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 ### <a name="scenarios"></a>Cenários
 

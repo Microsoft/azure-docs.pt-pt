@@ -3,12 +3,12 @@ title: Centro de eventos como manipulador de eventos para eventos Azure Event Gr
 description: Descreve como pode usar os centros de eventos como manipuladores de eventos para eventos Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: fa8fdd66eb153f6a972753eb359261100f19cd15
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5e6a84c1737c6b8a575f47576aeb1d3d9efae6eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105834"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322568"
 ---
 # <a name="event-hub-as-an-event-handler-for-azure-event-grid-events"></a>Centro de eventos como manipulador de eventos para eventos Azure Event Grid
 Um manipulador de eventos é o local onde o evento é enviado. O manipulador toma uma ação para processar o evento. Vários serviços Azure são automaticamente configurados para lidar com eventos e **a Azure Event Hubs** é um deles. 
@@ -24,9 +24,9 @@ Veja os exemplos seguintes:
 | [Modelo de Gestor de Recursos: Crie um tópico personalizado da Grade de Eventos e envie eventos para um centro de eventos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| Um modelo de Gestor de Recursos que cria uma subscrição para um tópico personalizado. Envia eventos para um Azure Event Hubs. |
 
 ## <a name="message-properties"></a>Propriedades de mensagens
-Se utilizar um centro de **eventos** como manipulador de eventos para eventos a partir da Grade de Eventos, desa um dos cabeçalhos de mensagens seguintes: 
+Se utilizar um centro de **eventos** como manipulador de eventos para eventos a partir da Grade de Eventos, estas são as propriedades que recebe nos cabeçalhos de mensagens: 
 
-| Nome da propriedade | Descrição |
+| Nome da propriedade | Description |
 | ------------- | ----------- | 
 | nome de subscrição aeg | Nome da subscrição do evento. |
 | aeg-entrega-contagem | <p>Número de tentativas feitas para o evento.</p> <p>Exemplo: "1"</p> |
@@ -82,5 +82,8 @@ Se utilizar um centro de **eventos** como manipulador de eventos para eventos a 
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+> [!NOTE]
+> Entregar eventos a um centro de eventos Azure em **outro inquilino** não é apoiado. 
+
+## <a name="next-steps"></a>Passos seguintes
 Consulte o artigo [dos manipuladores do Evento](event-handlers.md) para obter uma lista de manipuladores de eventos suportados. 

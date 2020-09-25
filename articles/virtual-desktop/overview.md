@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 08455d3033040d14c85e4c4170ae34a6d05cfac1
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 03566dccbb453aa06a2b5f86bd02b86d85d61b28
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527178"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322058"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop?
 
@@ -100,6 +100,8 @@ Para um melhor desempenho, certifique-se de que a sua rede cumpre os seguintes r
 * A latência de ida e volta (RTT) da rede do cliente para a região de Azure, onde foram implantadas piscinas de acolhimento, deve ser inferior a 150 ms. Utilize o [Estimador de Experiências](https://azure.microsoft.com/services/virtual-desktop/assessment) para ver a sua saúde de ligação e recomenda a região de Azure.
 * O tráfego de rede pode fluir fora das fronteiras país/região quando os VMs que acolhem desktops e aplicações se ligam ao serviço de gestão.
 * Para otimizar o desempenho da rede, recomendamos que os VM do anfitrião da sessão sejam collocados na mesma região de Azure que o serviço de gestão.
+
+Você pode ver uma configuração arquitetônica típica do Windows Virtual Desktop para a empresa na nossa [documenation de arquitetura.](https://docs.microsoft.com/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 
 ## <a name="supported-remote-desktop-clients"></a>Clientes de desktop remoto suportados
 

@@ -1,14 +1,14 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
-ms.date: 09/10/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1ec2beeef86478e36fe3809e8dabcd40333c098a
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 70356fd3856e517ca8fb3414a4ae2a8ccf28326e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602392"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336637"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -48,7 +48,7 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
 
 [Arco azul:](../../azure-arc/index.yml)
 
-- Gerir servidores híbridos à escala - [Azure Arc ativou servidores (pré-visualização)](../../azure-arc/servers/overview.md):
+- Gerir servidores híbridos em escala - [Azure Arc ativado servidores](../../azure-arc/servers/overview.md):
   - [Gerir máquinas Windows Server ou Linux fora do Azure que estão ligadas](../../azure-arc/servers/onboard-portal.md) a subscrições delegadas e/ou grupos de recursos em Azure
   - Gerir máquinas conectadas utilizando construções Azure, tais como Azure Policy e marcação
   - Garantir que o mesmo conjunto de políticas são aplicadas em todos os ambientes híbridos dos clientes

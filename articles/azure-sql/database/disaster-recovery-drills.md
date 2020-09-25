@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: e32f2bf6f353e32fe96cd3c8b109d698cd3d40ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f53a08a12c5afda8dbc3f25d9102f52b870ceea4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344582"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321667"
 ---
 # <a name="performing-disaster-recovery-drills"></a>Realização de exercícios de recuperação de desastres
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -66,7 +66,7 @@ Para simular a falha, pode desativar a aplicação web ou a máquina virtual lig
 
 Complete a broca verificando a recuperação pós-recuperação da integridade da aplicação (incluindo conectividade, testes básicos de funcionalidade ou outras validações necessárias para as sinalizações de broca).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para conhecer os cenários de continuidade do negócio, consulte [cenários de continuidade.](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 * Para saber mais sobre backups automatizados da Base de Dados Azure SQL, consulte [backups automatizados da BASE de Dados SQL](automated-backups-overview.md)

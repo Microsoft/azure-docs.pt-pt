@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 0818ab782710e6a102d2034790ff8d997cd54f8e
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 2946590cbb4c5e8f495a1f6ee4aac65929cd4d0e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808444"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91305759"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Quickstart: Adicione uma aplicação ao seu inquilino Azure Ative (Azure AD)
 
@@ -47,13 +47,24 @@ Para adicionar uma aplicação ao seu inquilino AZure AD:
 3. No painel de **aplicações** da Enterprise, selecione **Nova aplicação**. 
     ![Selecione nova aplicação para adicionar uma app de galeria ao seu inquilino](media/add-application-portal/new-application.png)
 4. Mude para a nova experiência de pré-visualização da galeria: No banner no topo da página de **aplicação Add**, selecione o link que diz **Click aqui para experimentar a nova e melhorada galeria de aplicações**.
-5. O painel **Browse AD Gallery (Preview)** abre e exibe azulejos para plataformas em nuvem, aplicações no local e aplicações em destaque. As aplicações listadas na secção **de aplicações em destaque** têm ícones que indicam se suportam um único sign-on federado (SSO) e provisionamento.
+5. O painel **Browse AD Gallery (Preview)** abre e exibe azulejos para plataformas em nuvem, aplicações no local e aplicações em destaque. As aplicações listadas na secção **de aplicações em destaque** têm ícones que indicam se suportam um único sign-on federado (SSO) e provisionamento. 
     ![Procure uma aplicação por nome ou categoria](media/add-application-portal/browse-gallery.png)
-6. Pode navegar na galeria para a aplicação que pretende adicionar, ou procurar a aplicação introduzindo o seu nome na caixa de pesquisa. Em seguida, selecione a aplicação a partir dos resultados. No formulário, pode editar o nome da aplicação para corresponder às necessidades da sua organização. Neste exemplo, selecionamos GitHub e mudamos o nome para **teste GitHub.**
-    ![Mostra como adicionar uma aplicação da galeria](media/add-application-portal/create-application.png)
-    >[!TIP]
-    >Se a aplicação que procura não estiver na galeria, então pode clicar no link Criar a **sua própria aplicação** e, em seguida, em **O que pretende fazer com a sua aplicação?** Escolha **Integrar qualquer outra aplicação que não encontre na galeria.** A Microsoft já trabalhou com muitos desenvolvedores de aplicações para pré-configurar os mesmos para trabalhar com a Azure AD. Estas são as aplicações que aparecem na galeria. Mas se a app que pretende adicionar não estiver listada, então pode criar uma nova aplicação genérica e, em seguida, configurá-la por si mesmo ou com a orientação do desenvolvedor que a criou.
-7. Selecione **Criar**. É apresentada uma página de introdução com as opções para configurar a aplicação para a sua organização.
+6. Pode navegar na galeria para a aplicação que pretende adicionar, ou procurar a aplicação introduzindo o seu nome na caixa de pesquisa. Em seguida, selecione a aplicação a partir dos resultados. 
+7. O passo seguinte depende da forma como o desenvolvedor da aplicação implementou um único sign-on (SSO). Um único s-on pode ser implementado pelos desenvolvedores de aplicações de quatro maneiras. As quatro formas são SAML, OpenID Connect, Password e Linked. Quando adiciona uma aplicação, pode optar por filtrar e ver apenas aplicações usando uma determinada implementação SSO, como mostrado na imagem. Por exemplo, um padrão popular para implementar SSO é chamado de Linguagem de Marcação de Afirmação de Segurança (SAML). Outro padrão que é popular é chamado OpenId Connect (OIDC). A forma como configura o SSO com estes padrões é diferente, por isso tome nota do tipo de SSO que é implementado pela app que está a adicionar.
+
+    :::image type="content" source="media/add-application-portal/sso-types.png" alt-text="A screenshot mostra o seletor de tipos SSO." lightbox="media/add-application-portal/sso-types.png":::
+
+    - Se o desenvolvedor da aplicação usou a **norma OIDC** para SSO, então selecione **'Iniciar S-Up'.** Aparece uma página de configuração. Em seguida, vá ao quickstart na configuração de um único sign-on baseado no OIDC.
+    :::image type="content" source="media/add-application-portal/sign-up-oidc-sso.png" alt-text="O Screenshot mostra a adição de uma aplicação SSO baseada em OIDC.":::
+
+    - Se o desenvolvedor da aplicação usou a **norma SAML** para SSO, então selecione **Create**. É apresentada uma página de introdução com as opções para configurar a aplicação para a sua organização. No formulário, pode editar o nome da aplicação para corresponder às necessidades da sua organização. Em seguida, vá ao quickstart na configuração de um único sinal baseado em SAML.
+    :::image type="content" source="media/add-application-portal/create-application.png" alt-text="A Screenshot mostra a adição de uma aplicação SSO baseada em SAML.":::
+
+
+> [!IMPORTANT]
+> Existem algumas diferenças fundamentais entre as implementações SSO baseadas em SAML e OIDC. Com aplicações baseadas em SAML pode adicionar várias instâncias da mesma aplicação. Por exemplo, GitHub1, GitHub2, etc.. Para aplicações baseadas em OIDC, só é possível adicionar uma instância de uma aplicação. Se já adicionou uma aplicação baseada no OIDC e tentar adicionar novamente a mesma app e fornecer o consentimento duas vezes, não será adicionada novamente no arrendatário.
+
+Se a aplicação que procura não estiver na galeria, então pode selecionar o link Criar a **sua própria aplicação** e, em seguida, em **O que pretende fazer com a sua aplicação?** Escolha **Integrar qualquer outra aplicação que não encontre na galeria.** A Microsoft já trabalhou com muitos desenvolvedores de aplicações para pré-configurar os mesmos para trabalhar com a Azure AD. As aplicações pré-configuradas aparecem na galeria. Mas se a app que pretende adicionar não estiver listada, então pode criar uma nova aplicação genérica e, em seguida, configurá-la por si mesmo ou com a orientação do desenvolvedor que a criou.
 
 Terminou de adicionar uma candidatura. O próximo quickstart mostra-lhe como alterar o logótipo e editar outras propriedades para a sua aplicação.
 

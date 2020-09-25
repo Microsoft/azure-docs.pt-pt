@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: eb2ce196687b2ca6a762a879570e4f8ebac788df
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 778c65b9ec42c27ea0ae1530c1ba7fa9739fbc3c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87025120"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321888"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrar a Gestão da API num VNET interno com Gateway de Aplicação
 
@@ -91,12 +91,12 @@ Neste guia também exporemos o **portal do desenvolvedor** a públicos externos 
 > 
 > As regras do Gateway WAF, que podem quebrar a funcionalidade do portal, incluem:
 > 
-> - `920330``931130`, `942100` , , , , `942110` , , , , , para o modo `942180` `942200` `942260` `942370` `949110` `980130` administrativo
+> - `920300``920330`, `931130` , , , , `942100` , , , , , para o modo `942110` `942180` `942200` `942260` `942340` `942370` administrativo
 > - `942200`, `942260` `942370` , , para o `942430` portal `942440` publicado
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Criar um grupo de recursos para o Resource Manager
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 Iniciar sessão no Azure
 
@@ -131,7 +131,7 @@ O Azure Resource Manager requer que todos os grupos de recursos especifiquem uma
 
 O exemplo a seguir mostra como criar uma Rede Virtual utilizando o Gestor de Recursos.
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 Atribua o intervalo de endereços 10.0.0.0/24 à variável sub-rede a utilizar para o Gateway de Aplicações enquanto cria uma Rede Virtual.
 
@@ -168,7 +168,7 @@ $apimsubnetdata = $vnet.Subnets[1]
 
 O exemplo a seguir mostra como criar um serviço de Gestão API num VNET configurado apenas para acesso interno.
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 Crie um objeto de Rede Virtual de Gestão API utilizando a sub-rede $apimsubnetdata criada acima.
 
@@ -194,7 +194,7 @@ Após o comando acima, consulte a [Configuração DNS necessária para aceder ao
 > [!IMPORTANT]
 > O [novo portal de desenvolvimento](api-management-howto-developer-portal.md) também requer a conectividade com o ponto final de gestão da API Management, além dos passos abaixo.
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 Inicialize as seguintes variáveis com os detalhes dos certificados com chaves privadas para os domínios. Neste exemplo, vamos usar `api.contoso.net` e `portal.contoso.net` .  
 
@@ -241,7 +241,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName $resGroupName -name "public
 
 Tem de configurar todos os itens de configuração antes de criar o gateway de aplicação. Com os seguintes passos, irá criar os itens de configuração necessários para um recurso do gateway de aplicação.
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 Crie uma configuração IP de gateway de aplicação chamada **gatewayIP01**. Ao iniciar, o Application Gateway escolhe um endereço IP na subrede configurada e encaminha o tráfego da rede para os endereços IP no conjunto de IPs de back-end. Note que cada instância terá um endereço IP.
 
@@ -315,7 +315,7 @@ $apimPoolPortalSetting = New-AzApplicationGatewayBackendHttpSettings -Name "apim
 
 ### <a name="step-9"></a>Passo 9
 
-Configure um conjunto de endereços IP back-end chamado **apimbackend** com o endereço IP virtual interno do serviço de Gestão API criado acima.
+Configure um conjunto de endereços IP back-end chamado **apimbackend**  com o endereço IP virtual interno do serviço de Gestão API criado acima.
 
 ```powershell
 $apimProxyBackendPool = New-AzApplicationGatewayBackendAddressPool -Name "apimbackend" -BackendIPAddresses $apimService.PrivateIPAddresses[0]

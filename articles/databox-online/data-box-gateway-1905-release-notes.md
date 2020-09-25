@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box Gateway 1905 notas de lançamento/ Microsoft Docs
-description: Descreve questões e resoluções abertas críticas para o Gateway Azure Data Box com lançamento geral de disponibilidade.
+description: Descreve questões e resoluções abertas críticas para o Azure Data Box Gateway 1905 que executa a versão geral da disponibilidade.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: f2843623061e39e8c9c0ebc35b4916bf9bd3b186
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b97165f19ac07e5a783203ece1a28420f731b649
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82561857"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320681"
 ---
 # <a name="azure-data-box-edge-and-azure-data-box-gateway-1905-release-notes"></a>Azure Data Box Edge e Azure Data Box Gateway 1905 notas de lançamento
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 As seguintes notas de lançamento identificam as questões abertas críticas e os problemas resolvidos para a versão de 1905 para Azure Data Box Edge e Azure Data Box Gateway.
 

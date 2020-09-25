@@ -3,12 +3,12 @@ title: Conversas multi-voltas - QnA Maker
 description: Use solicitações e contexto para gerir as múltiplas voltas, conhecidas como multi-voltas, para o seu bot de uma pergunta para outra. Multi-volta é a capacidade de ter uma conversa de trás para a frente onde o contexto da pergunta anterior influencia a próxima pergunta e resposta.
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 93bc6201cb627dc27071caf7beded5778b06ccb6
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: eff2eccac55bc05784636ecd9d2dfb784f86c4ef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86229351"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322840"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Utilizar pedidos de seguimento para criar vários turnos numa conversa
 
@@ -52,7 +52,7 @@ Ao selecionar esta opção, o QnA Maker extrai a hierarquia presente na estrutur
 
 A estrutura multi-turn só pode ser deduzida a partir de URLs, ficheiros PDF ou ficheiros DOCX. Para um exemplo de estrutura, veja uma imagem de um [ficheiro PDF manual do utilizador do Microsoft Surface](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf).
 
-![! [Exemplo de estrutura num manual do utilizador] (.. /media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
+:::image type="content" source="../media/conversational-context/import-file-with-conversational-structure.png" alt-text="A screenshot mostra um exemplo da estrutura num manual do utilizador." lightbox="../media/conversational-context/import-file-with-conversational-structure.png":::
 
 ### <a name="building-your-own-multi-turn-document"></a>Construindo o seu próprio documento multi-volta
 
@@ -92,7 +92,7 @@ Selecione **Ver as opções**e, em seguida, selecione **Mostrar o contexto**. A 
 
 O contexto multi-volta é apresentado na primeira coluna.
 
-![! [A coluna "Context (PREVIEW)" ] (.. /media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="A screenshot mostra a secção de Contexto realçada." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 Na imagem anterior, **#1** indica texto arrojado na coluna, o que significa a questão atual. A questão dos pais é o item mais alto da fila. Quaisquer perguntas abaixo estão os pares de perguntas e respostas ligados. Estes itens são selecionáveis, para que possa ir imediatamente para os outros itens de contexto.
 
@@ -167,7 +167,7 @@ Quando se adiciona um novo par de perguntas e respostas à base de conhecimento,
 
     A questão dos pais mostra uma nova questão como uma das suas escolhas.
 
-    ![! [A coluna Contexto, para ambas as perguntas, indica uma relação rápida de acompanhamento] (.. /media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
+    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="A screenshot mostra a coluna Contexto, para ambas as perguntas, indica uma relação rápida de seguimento." lightbox="../media/conversational-context/child-prompt-created.png":::
 
 1. Depois de adicionar o pedido de seguimento, **selecione Save e treine** na barra de navegação superior.
 

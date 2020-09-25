@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: cf32938b534272a13af5891d6a31e64b8136a528
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 7717c02fb460c41543ae810820ba01efb13a1ca7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281468"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271193"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Ligue para os pontos finais do REST utilizando apps Azure Logic
 
@@ -54,17 +54,17 @@ Este gatilho incorporado envia um pedido HTTP a um URL para um ficheiro Swagger 
 
    `https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/export?DocumentFormat=Swagger&ApiName=Face%20API%20-%20V1.0`
 
-   ![Insira URL para o ponto final de Swagger](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
+   ![Screenshot que mostra o Logic App Designer com o gatilho "H T T P + Swagger" e a propriedade "Swagger Endpoint U R L" definida para um valor U R L.](./media/connectors-native-http-swagger/http-swagger-trigger-parameters.png)
 
 1. Quando o designer mostrar as operações descritas pelo ficheiro Swagger, selecione a operação que pretende utilizar.
 
-   ![Operações em ficheiro Swagger](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
+   ![Screenshot que mostra o Logic App Designer com o gatilho "H T T + Swagger" e uma lista que exibe operações de Swagger.](./media/connectors-native-http-swagger/http-swagger-trigger-operations.png)
 
 1. Forneça os valores para os parâmetros do gatilho, que variam em função da operação selecionada, que pretende incluir na chamada de ponto final. Encete a recorrência para a frequência com que pretende que o gatilho chame o ponto final.
 
    Este exemplo renomea o gatilho para "HTTP + Swagger trigger: Face - Detect" para que o passo tenha um nome mais descritivo.
 
-   ![Detalhes da operação](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
+   ![Screenshot que mostra o Designer de Aplicações Lógica com o gatilho "H T T + Swagger" que exibe a operação "Face - Detect".](./media/connectors-native-http-swagger/http-swagger-trigger-operation-details.png)
 
 1. Para adicionar outros parâmetros disponíveis, abra a nova lista **de parâmetros add** e selecione os parâmetros que deseja.
 
@@ -145,7 +145,7 @@ Pode fazer referência a um ficheiro Swagger que não esteja hospedado ou que n�
 
 Aqui está mais informações sobre as saídas de um disparador http + swagger ou ação. A chamada HTTP + Swagger devolve esta informação:
 
-| Nome da propriedade | Tipo | Descrição |
+| Nome da propriedade | Tipo | Description |
 |---------------|------|-------------|
 | cabeçalhos | objeto | Os cabeçalhos do pedido |
 | body | objeto | Objeto JSON | O objeto com o conteúdo do corpo do pedido |

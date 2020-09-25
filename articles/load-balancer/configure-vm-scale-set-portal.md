@@ -1,17 +1,17 @@
 ---
 title: Configurar a balança virtual da máquina definida com um equilibrador de carga Azure existente - portal Azure
-description: Aprenda a configurar uma balança de máquina virtual definida com um Balançador de Carga Azure existente.
+description: Aprenda a configurar uma balança de máquina virtual definida com um Equilibr de Carga Azure existente utilizando o portal Azure.
 author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: 8e55b2a87813da802ec1b00c610b33da4461c008
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e12532107ed554385ccf38531bb95b7b70298934
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809446"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333890"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Configure uma balança de máquina virtual definida com um Equilibrador de Carga Azure existente usando o portal Azure
 
@@ -49,11 +49,11 @@ Nesta secção, irá criar uma balança de máquina virtual definida no portal A
     | Grupo de Recursos                 | Selecione Criar novo, insira **o myResourceGroup,** em seguida, selecione OK ou selecione um grupo de recursos existente. |
     | **Detalhes definidos de escala**          |                                                                                                       |
     | Nome do conjunto de dimensionamento de máquinas virtuais | Insira **o myVMSS**                                                                                      |
-    | Região                         | Selecione **East US 2**                                                                                    |
+    | Region                         | Selecione **East US 2**                                                                                    |
     | Zona de disponibilidade              | Selecione **Nenhum**                                                                                       |
     | **Detalhes da instância**           |                                                                                                       |
     | Imagem                          | Selecione **Ubuntu Server 18.04 LTS**                                                                    |
-    | Exemplo de Azure Spot            | Selecione **Não**                                                                                         |
+    | Instância do Azure Spot            | Selecione **Não**                                                                                         |
     | Tamanho                           | Sair à revelia                                                                                      |
     | **Conta de administrador**      |                                                                                                       |
     | Tipo de autenticação            | Selecione **palavra-passe**                                                                                   |
@@ -89,9 +89,9 @@ Nesta secção, irá criar uma balança de máquina virtual definida no portal A
 
 9. Reveja as definições e selecione o botão **Criar.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, implementou uma balança de máquina virtual definida com um Balançador de Carga Azure existente.  Para saber mais sobre conjuntos de balanças de máquinas virtuais e balanceador de carga, consulte:
 
-- [What is Azure Load Balancer?](load-balancer-overview.md) (O que é o Balanceador de Carga do Azure?)
+- [O que é o Balanceador de Carga do Azure?](load-balancer-overview.md)
 - [O que são os conjuntos de dimensionamento de máquinas virtuais?](../virtual-machine-scale-sets/overview.md)

@@ -3,12 +3,12 @@ title: Descrição Geral do Azure Blueprints
 description: Compreenda como o serviço Azure Blueprints lhe permite criar, definir e implantar artefactos no seu ambiente Azure.
 ms.date: 08/27/2020
 ms.topic: overview
-ms.openlocfilehash: e5c08f4211f03ddc6d2f48eee4fc84a824732e43
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a687bcbaff56fa1229794b6977e3565070c56e2a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050782"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91302677"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -78,7 +78,9 @@ Cada **versão** **publicada** de uma planta pode ser atribuída (com um comprim
 
 ## <a name="permissions-in-azure-blueprints"></a>Permissões no Azure Blueprints
 
-Para utilizar esquemas, tem de ter permissões concedidas através do [Controlo de acesso baseado em funções](../../role-based-access-control/overview.md) (RBAC). Para criar esquemas, a sua conta necessita das seguintes permissões:
+Para utilizar esquemas, tem de ter permissões concedidas através do [Controlo de acesso baseado em funções](../../role-based-access-control/overview.md) (RBAC). Para ler ou ver uma planta no portal Azure, a sua conta deve ter lido o acesso ao âmbito onde está localizada a definição de planta.
+
+Para criar esquemas, a sua conta necessita das seguintes permissões:
 
 - `Microsoft.Blueprint/blueprints/write` - Criar uma definição de esquema
 - `Microsoft.Blueprint/blueprints/artifacts/write` - Criar artefactos numa definição de esquema

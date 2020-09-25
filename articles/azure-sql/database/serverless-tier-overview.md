@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: sstein, carlrab
-ms.date: 9/8/2020
-ms.openlocfilehash: 979976ba88c2acca282a7f8bef4784b9d91ce0aa
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.reviewer: sstein
+ms.date: 9/17/2020
+ms.openlocfilehash: 2d317ac2543289aca3a0741b424f71a2e903c74d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565094"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321412"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,7 +97,7 @@ Ao contrário das bases de dados de computação a provisionadas, a memória da 
 
 Tanto nas bases de dados de computação sem servidor como nas bases de dados de computação a provisionadas, as entradas em cache podem ser despejadas se for utilizada toda a memória disponível.
 
-Note que quando a utilização do CPU é baixa, a utilização ativa da cache pode permanecer alta dependendo do padrão de utilização e impedir a recuperação da memória.  Além disso, pode haver um atraso adicional após a paragem da atividade do utilizador antes que a recuperação da memória ocorra devido a processos periódicos de fundo que respondem à atividade prévia do utilizador.  Por exemplo, eliminar operações geram registos fantasma que estão marcados para eliminação, mas não são fisicamente eliminados até que o processo de limpeza de fantasmas seja executado, o que pode envolver a leitura de páginas de dados em cache.
+Note que quando a utilização do CPU é baixa, a utilização ativa da cache pode permanecer alta dependendo do padrão de utilização e impedir a recuperação da memória.  Além disso, pode haver um atraso adicional após a paragem da atividade do utilizador antes que a recuperação da memória ocorra devido a processos periódicos de fundo que respondem à atividade prévia do utilizador.  Por exemplo, eliminar operações e tarefas de limpeza QDS geram registos fantasma que são marcados para eliminação, mas não são fisicamente eliminados até que o processo de limpeza de fantasmas seja executado que pode envolver a leitura de páginas de dados em cache.
 
 #### <a name="cache-hydration"></a>Hidratação em cache
 
@@ -133,7 +133,7 @@ A autoresuming é desencadeada se alguma das seguintes condições for verdadeir
 |Autenticação e autorização|Iniciar sessão|
 |Deteção de ameaças|Ativar/desativar definições de deteção de ameaças no nível da base de dados ou do servidor.<br>Modificar as definições de deteção de ameaças na base de dados ou no nível do servidor.|
 |Deteção e classificação de dados|Adicionar, modificar, eliminar ou visualizar rótulos de sensibilidade|
-|Auditoria|A ver registos de auditoria.<br>Atualizar ou visualizar a política de auditoria.|
+|Auditing (Auditoria)|A ver registos de auditoria.<br>Atualizar ou visualizar a política de auditoria.|
 |Máscara de dados|Adicionar, modificar, eliminar ou ver regras de mascaramento de dados|
 |Encriptação de dados transparente|Ver estado ou estado de encriptação de dados transparentes|
 |Avaliação de vulnerabilidades|Exames ad hoc e exames periódicos se ativados|
@@ -365,7 +365,7 @@ O Azure Hybrid Benefit (AHB) e os descontos de capacidade reservados não se apl
 
 O nível de computação sem servidores está disponível em todo o mundo, exceto as seguintes regiões: China East, China North, Germany Central, Germany Northeast, e US Gov Central (Iowa).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar, consulte [Quickstart: Crie uma única base de dados na Base de Dados Azure SQL utilizando o portal Azure](single-database-create-quickstart.md).
 - Para obter limites de recursos, consulte [os limites de recursos de nível de cálculo serverless](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5).

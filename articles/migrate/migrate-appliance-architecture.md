@@ -3,12 +3,12 @@ title: Arquitetura de aplicação do Azure Migrate
 description: Fornece uma visão geral do aparelho Azure Migrate utilizado na avaliação e migração do servidor.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 623790568fb8d86d8065711439f148211fc7fd6b
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: 028e0e5b0bbf83c08b5f9cd6d24d7914513ae89a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514577"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322262"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Arquitetura de aplicação do Azure Migrate
 
@@ -21,7 +21,7 @@ O aparelho Azure Migrate é utilizado nos seguintes cenários.
 **Cenário** | **Ferramenta** | **Utilizado para** 
 --- | --- | ---
 **Avaliação VMware VM** | Azure Migrate:Avaliação do servidor | Descubra VMware VMs.<br/><br/> Descubra aplicativos e dependências de máquinas.<br/><br/> Recolha metadados de máquina e metadados de desempenho e envie para a Azure.
-**VMware VM migração (sem agente)** | Azure Migrate:Migração de servidores | Descubra VMware VMs<br/><br/>  Replicar VMware VMs com [migração sem agentes](server-migrate-overview.md).
+**VMware VM migração (sem agente)** | Azure Migrate:Migração de servidores | Detetar VMs VMware<br/><br/>  Replicar VMware VMs com [migração sem agentes](server-migrate-overview.md).
 **Avaliação de VM hiper-V** | Azure Migrate:Avaliação do servidor | Descubra os VMs Hiper-V.<br/><br/> Recolha metadados de máquina e metadados de desempenho e envie para a Azure.
 **Máquina física** |  Azure Migrate:Avaliação do servidor |  Descubra servidores físicos.<br/><br/> Recolha metadados de máquina e metadados de desempenho e envie para a Azure.
 
@@ -72,7 +72,7 @@ O aparelho comunica com servidores/agrupamentos vCenter e hiper-V utilizando o s
 2. **Recolha metadados e dados de desempenho:**
     - O aparelho utiliza uma sessão de Modelo de Informação Comum (CIM) para recolher dados de VM hiper-V do hospedeiro Hyper-V na porta 5985.
     - O aparelho comunica com a porta 443 por predefinição, para recolher dados VMware VM do servidor vCenter.
-3. **Enviar dados**: O aparelho envia os dados recolhidos para a Avaliação do Servidor Azure Migrate e para a Migração do Servidor Azure Migrar sobre a porta SSL 443. O aparelho pode ligar-se ao Azure através da internet, ou pode utilizar o ExpressRoute com o olhar público/Microsoft.
+3. **Enviar dados**: O aparelho envia os dados recolhidos para a Avaliação do Servidor Azure Migrate e para a Migração do Servidor Azure Migrar sobre a porta SSL 443. O aparelho pode ligar-se ao Azure através da internet ou via ExpressRoute (requer o olhar da Microsoft).
     - Para os dados de desempenho, o aparelho recolhe dados de utilização em tempo real.
         - Os dados de desempenho são recolhidos a cada 20 segundos para VMware, e a cada 30 segundos para o Hyper-V, para cada métrica de desempenho.
         - Os dados recolhidos são recolhidos para criar um único ponto de dados durante 10 minutos.
@@ -88,7 +88,7 @@ O aparelho é atualizado à medida que os agentes Azure Migrate que estão a tra
 Desativar a atualização automática no registo definindo a tecla HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance "AutoUpdate" para 0 (DWORD).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Reveja](migrate-appliance.md) a matriz de suporte do aparelho.
 

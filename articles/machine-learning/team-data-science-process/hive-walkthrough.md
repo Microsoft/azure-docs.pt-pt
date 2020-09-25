@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: cb144aa7b6c717ada3a51fe3286f349bc3d8b325
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 991e81c46a0cd6c587ac3366b63ba4da6a07f7e7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86273919"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336518"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O processo de ciência de dados da equipa em ação: Use clusters Azure HDInsight Hadoop
 Neste walkthrough, usamos o [Processo de Ciência de Dados de Equipa (TDSP)](overview.md) num cenário de ponta a ponta. Utilizamos um [cluster Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e criar dados de engenheiros de recursos a partir do conjunto de dados de [viagens de táxi](https://www.andresmh.com/nyctaxitrips/) de NYC publicamente disponíveis, e para desconstrução dos dados. Para lidar com a classificação binária e multiclasse e tarefas preditivas de regressão, construímos modelos dos dados com Azure Machine Learning. 
@@ -89,7 +89,7 @@ Você pode configurar um ambiente Azure para análises avançadas que empregam u
    
    * Lembre-se de ligar a conta de armazenamento criada no passo 1 com o seu cluster HDInsight quando estiver a criá-la. Esta conta de armazenamento acede a dados que são processados dentro do cluster.
    * Depois de criar o cluster, ative o acesso remoto ao nó de cabeça do cluster. Navegue no **separador Configuração** e selecione **Ative Remote**. Este passo especifica as credenciais de utilizador utilizadas para o login remoto.
-3. [Crie um espaço de trabalho para aprendizagem automática Azure](../studio/create-workspace.md): Utilize este espaço de trabalho para construir modelos de aprendizagem automática. Esta tarefa é abordada após completar uma exploração inicial de dados e amostragem, utilizando o cluster HDInsight.
+3. [Crie um espaço de trabalho para aprendizagem automática Azure](../classic/create-workspace.md): Utilize este espaço de trabalho para construir modelos de aprendizagem automática. Esta tarefa é abordada após completar uma exploração inicial de dados e amostragem, utilizando o cluster HDInsight.
 
 ## <a name="get-the-data-from-a-public-source"></a><a name="getdata"></a>Obtenha os dados de uma fonte pública
 > [!NOTE]
@@ -639,7 +639,7 @@ hdfs dfs -mkdir wasb:///queryoutputdir
 hive -f "C:\temp\sample_hive_trip_direct_distance.hql"
 ```
 
-Os resultados da consulta são escritos a nove bolhas Azure **(consultaoutputdir/000000 \_ 0** a **consultaoutputdir/000008 \_ 0**), sob o recipiente padrão do cluster Hadoop.
+Os resultados da consulta são escritos a nove bolhas Azure **(consultaoutputdir/000000 \_ 0** a  **consultaoutputdir/000008 \_ 0**), sob o recipiente padrão do cluster Hadoop.
 
 Para ver o tamanho das bolhas individuais, executar o seguinte comando a partir do diretório hive:
 
@@ -654,7 +654,7 @@ hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
 ```
 
 > [!WARNING]
-> `copyToLocal`pode ser muito lento para ficheiros grandes, e não é recomendado para ser usado com eles.  
+> `copyToLocal` pode ser muito lento para ficheiros grandes, e não é recomendado para ser usado com eles.  
 > 
 > 
 
@@ -813,7 +813,7 @@ Para executar esta consulta a partir do diretório da Colmeia:
 hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 ```
 
-Dispomos agora de uma tabela interna, **nyctaxidb.nyctaxi_downsampled_dataset,** que pode ser acedida utilizando o módulo [de Dados][import-data] de Importação da Machine Learning. Além disso, podemos usar este conjunto de dados para construir modelos de Machine Learning.  
+Dispomos agora de uma tabela interna, **nyctaxidb.nyctaxi_downsampled_dataset,** que pode ser acedida através do módulo [de Dados de Importação][import-data] da Machine Learning. Além disso, podemos usar este conjunto de dados para construir modelos de Machine Learning.  
 
 ### <a name="use-the-import-data-module-in-machine-learning-to-access-the-down-sampled-data"></a>Utilize o módulo de dados de importação em Machine Learning para aceder aos dados de amostragem
 Para emitir consultas de Hive no módulo de [Dados][import-data] de Importação de Machine Learning, você precisa de acesso a um espaço de trabalho de Machine Learning. Também precisa de acesso às credenciais do cluster e à sua conta de armazenamento associada.
@@ -894,7 +894,7 @@ Pode agora avançar para a construção de modelos e implantação de modelos em
 
   b. Para esta experiência, usamos uma matriz de confusão para olhar para as precisões de previsão como mostrado aqui:
 
-  ![Matriz de confusão](./media/hive-walkthrough/cxFmErM.png)
+  ![A matriz de confusão](./media/hive-walkthrough/cxFmErM.png)
 
   Embora as precisões de classe nas classes prevalentes sejam boas, o modelo não faz um bom trabalho de "aprendizagem" nas classes mais raras.
 
@@ -915,7 +915,7 @@ Pode agora avançar para a construção de modelos e implantação de modelos em
   Aqui, o coeficiente de determinação é de 0,709, o que implica que cerca de 71% da variação é explicada pelos coeficientes do modelo.
 
 > [!IMPORTANT]
-> Para saber mais sobre machine learning e como aceder e usá-lo, veja [What's Machine Learning.](../studio/what-is-machine-learning.md) Além disso, a [Galeria Azure AI](https://gallery.cortanaintelligence.com/) cobre uma gama de experiências e proporciona uma introdução completa na gama de capacidades de Machine Learning.
+> Para saber mais sobre machine learning e como aceder e usá-lo, veja [What's Machine Learning.](../classic/index.yml) Além disso, a [Galeria Azure AI](https://gallery.cortanaintelligence.com/) cobre uma gama de experiências e proporciona uma introdução completa na gama de capacidades de Machine Learning.
 > 
 > 
 
@@ -923,8 +923,8 @@ Pode agora avançar para a construção de modelos e implantação de modelos em
 Esta amostra de passagem e os seus scripts que o acompanham são partilhados pela Microsoft sob a licença do MIT. Para mais informações, consulte o ficheiro **LICENSE.txt** no diretório do código de amostra no GitHub.
 
 ## <a name="references"></a>Referências
-• [Página de descarregamento de viagens de táxi de Andrés Monroy NYC](https://www.andresmh.com/nyctaxitrips/)  
-• [FOILing NYC's Taxi Trip Data by Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
+•    [Página de descarregamento de viagens de táxi de Andrés Monroy NYC](https://www.andresmh.com/nyctaxitrips/)  
+•    [FOILing NYC's Taxi Trip Data by Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
 • Investigação e Estatística da [Comissão de Táxis e Limusines](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) de NYC
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png
@@ -937,6 +937,3 @@ Esta amostra de passagem e os seus scripts que o acompanham são partilhados pel
 <!-- Module References -->
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-

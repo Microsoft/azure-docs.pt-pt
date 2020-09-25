@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/29/2020
+ms.date: 09/22/2020
 ms.author: alkohli
-ms.openlocfilehash: 1a4f22e7ae3cc60d0a16b24a1f0e5f93d3a86d8c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 137cff47d49be1405f60bc47cd16f7f027ab63a9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899194"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320834"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Utilize o painel Kubernetes para monitorizar o seu dispositivo GPU Azure Stack Edge Pro
 
@@ -114,9 +114,9 @@ Também pode ser filtrado por um espaço de nome específico. No exemplo seguint
 
 ![Ver CPU e utilização da memória para implementações do Arco Azure](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/view-cpu-memory-azure-arc-1.png)
 
-O servidor de métricas Kubernetes fornece gasodutos de autoescalagem semelhantes aos do [Autoscaler do Pod Horizontal](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
+O servidor de métricas Kubernetes fornece gasodutos de autoescalagem, tais como [O Autoscaler horizontal do pod](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/).
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como resolver problemas com kubernetes <!--insert link-->.
+Saiba como [resolver problemas com o dispositivo](azure-stack-edge-gpu-troubleshoot.md).

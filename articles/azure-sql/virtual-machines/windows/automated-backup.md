@@ -7,18 +7,18 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: ebd23868-821c-475b-b867-06d4a2e310c7
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 08ede149c24d8ba4921c0e0b75f5e6eff3f2250f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0aa6a9114635ddc7935f7923a1552ad1583625ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669414"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299112"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Cópia de segurança automática v2 para máquinas virtuais Azure (Gestor de Recursos)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -59,7 +59,7 @@ A tabela a seguir descreve as opções que podem ser configuradas para cópia de
 
 ### <a name="basic-settings"></a>Definições Básicas
 
-| Definição | Alcance (Padrão) | Descrição |
+| Definição | Alcance (Padrão) | Description |
 | --- | --- | --- |
 | **Cópia de Segurança Automatizada** | Ativar/Desativar (Desativado) | Permite ou desativa backup automatizado para um Azure VM que executa o SQL Server 2016/2017 Developer, Standard ou Enterprise. |
 | **Período de Retenção** | 1-30 dias (30 dias) | O número de dias para reter reforços. |
@@ -69,7 +69,7 @@ A tabela a seguir descreve as opções que podem ser configuradas para cópia de
 
 ### <a name="advanced-settings"></a>Definições Avançadas
 
-| Definição | Alcance (Padrão) | Descrição |
+| Definição | Alcance (Padrão) | Description |
 | --- | --- | --- |
 | **Backups de bases de dados do sistema** | Ativar/Desativar (Desativado) | Quando ativado, esta funcionalidade também confirma as bases de dados do sistema: Master, MSDB e Model. Para as bases de dados MSDB e Model, verifique se estão em modo de recuperação total se pretender que sejam tomadas cópias de segurança de registo. Os backups de registo nunca são levados para o Mestre. E não há reforços para o TempDB. |
 | **Horário de backup** | Manual/Automatizado (Automatizado) | Por predefinição, o calendário de backup é automaticamente determinado com base no crescimento do registo. A agenda manual de cópias de segurança permite ao utilizador especificar a janela de tempo para cópias de segurança. Neste caso, as cópias de segurança só ocorrem na frequência especificada e durante a janela de tempo especificada de um determinado dia. |
@@ -170,7 +170,7 @@ Set-AzVMSqlServerExtension -VMName $vmname `
     -Version "2.0" -Location $region 
 ```
 
-### <a name="verify-current-settings"></a><a id="verifysettings"></a>Verificar as definições atuais
+### <a name="verify-current-settings"></a><a id="verifysettings"></a> Verificar as definições atuais
 Se ativar a Cópia de Segurança Automatizada durante o fornecimento, pode utilizar o PowerShell para verificar a sua configuração atual. Executar o comando **Get-AzVMSqlServerExtension** e examinar a propriedade **AutoBackupSettings:**
 
 ```powershell
@@ -313,17 +313,17 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 
 Para monitorizar a Cópia de Segurança Automatizada no SQL Server 2016/2017, tem duas opções principais. Como a Cópia de Segurança Automatizada utiliza a funcionalidade de Backup Gerida pelo Servidor SQL, as mesmas técnicas de monitorização aplicam-se a ambas.
 
-Em primeiro lugar, pode sondar o estado chamando [msdb.managed_backup.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Ou consultar a função [msdb.managed_backup.fn_get_health_status](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) valor da tabela.
+Em primeiro lugar, pode sondar o estado chamando [msdb.managed_backup.sp_get_backup_diagnostics](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Ou consultar a função [msdb.managed_backup.fn_get_health_status-valued.](https://docs.microsoft.com/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql)
 
 Outra opção é aproveitar a funcionalidade de Correio da Base de Dados incorporada para notificações.
 
-1. Ligue para o procedimento [msdb.managed_backup.sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) armazenado para atribuir um endereço de e-mail ao parâmetro **SSMBackup2WANotificationEmailIds.** 
+1. Ligue para o procedimento armazenado [msdb.managed_backup.sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) para atribuir um endereço de e-mail ao parâmetro **SSMBackup2WANotificationEmailIds.** 
 1. Ativar [a SendGrid](../../../sendgrid-dotnet-how-to-send-email.md) para enviar os e-mails do Azure VM.
 1. Utilize o servidor SMTP e o nome de utilizador para configurar o Correio da Base de Dados. Pode configurar o Correio da Base de Dados no SQL Server Management Studio ou com comandos Transact-SQL. Para mais informações, consulte [o Correio da Base de Dados.](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail)
 1. [Configure o agente do servidor SQL para utilizar o Correio da Base de Dados](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail).
 1. Verifique se a porta SMTP é permitida tanto através da firewall VM local como do grupo de segurança da rede para o VM.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Cópia de segurança automatizada v2 configuras Cópias de Segurança Geridas em VMs Azure. Por isso, é importante [rever a documentação para o Managed Backup](https://msdn.microsoft.com/library/dn449496.aspx) para entender o comportamento e as implicações.
 
 Pode encontrar cópias de segurança adicionais e restaurar a orientação para o SQL Server em VMs Azure no seguinte artigo: [Cópia de segurança e restauro para o SQL Server em máquinas virtuais Azure](backup-restore.md).

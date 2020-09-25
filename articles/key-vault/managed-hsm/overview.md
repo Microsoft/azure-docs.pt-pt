@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 09/15/2020
 ms.author: mbaldwin
 author: msmbaldwin
-ms.openlocfilehash: 9eee3d5bc53ebe40ba4462f394ffe30cea6b70fa
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e98b21d5afebdbd2654d032493b92eb5e6e7fdc6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91000989"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320562"
 ---
 # <a name="what-is-azure-key-vault-managed-hsm-preview"></a>O que é Azure Key Vault Gerido HSM (pré-visualização)?
 
@@ -33,7 +33,7 @@ Azure Key Vault Managed HSM é um serviço de nuvem totalmente gerido, altamente
 
 - **Gestão centralizada de chaves**: Gerencie chaves críticas e de alto valor em toda a sua organização num só local. Com permissões granulares por chave, controle o acesso a cada chave no princípio do "acesso menos privilegiado".
 - **Controlo de acesso isolado**: O modelo de controlo de acesso "local RBAC" gerido do HSM permite que os administradores de cluster hsm designados tenham controlo total sobre os HSMs que mesmo os administradores do grupo de gestão, subscrição ou grupo de recursos não podem sobrepor-se.
-- **HSMs validados de nível 3 FIPS 140-2**: Proteja os seus dados e cumpra os requisitos de conformidade com o FIPS ((Federal Information Protection Standard)) 140-2 Nível 3 HSMs validados. Os HSMs geridos usam a família Marvell LiquidSecurity de HSMs.
+- **HSMs validados de nível 3 FIPS 140-2**: Proteja os seus dados e cumpra os requisitos de conformidade com o FIPS ((Federal Information Protection Standard)) 140-2 Nível 3 HSMs validados. Os HSMs geridos utilizam adaptadores HSM da Marvell LiquidSecurity.
 - **Monitor e auditoria:** totalmente integrado com monitor Azure. Obtenha registos completos de toda a atividade através do Azure Monitor. Utilize a Azure Log Analytics para análise e alertas.
 
 ### <a name="integrated-with-azure-and-microsoft-paassaas-services"></a>Integrado com serviços Azure e Microsoft PaaS/SaaS 

@@ -5,18 +5,18 @@ ms.topic: conceptual
 author: markwolff
 ms.author: marwolff
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: de475cbd7cbb0d8dbcda026109b0387da14bedff
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-js
+ms.openlocfilehash: 5b15492a36032a53ac81929eb55bce0bc70e040c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386797"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335136"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Suporte de mapa de origem para aplicações JavaScript
 
 O Application Insights suporta o upload de mapas de origem para o seu próprio recipiente blob de conta de armazenamento.
-Os mapas de origem podem ser usados para desminaminar as pilhas de chamadas encontradas na página de detalhes de transação final. Qualquer exceção enviada pelo [JavaScript SDK][ApplicationInsights-JS] ou [peloNode.js SDK][ApplicationInsights-Node.js] pode ser inindificado com mapas de origem.
+Os mapas de origem podem ser usados para desminaminar as pilhas de chamadas encontradas na página de detalhes de transação final. Qualquer exceção enviada pelo [JavaScript SDK][ApplicationInsights-JS] ou [ peloNode.js SDK][ApplicationInsights-Node.js] pode ser inindificado com mapas de origem.
 
 ![Desindifique uma Pilha de Chamadas ligando-a com uma conta de armazenamento](./media/source-map-support/details-unminify.gif)
 
@@ -78,7 +78,7 @@ Qualquer utilizador no Portal que utilize esta função deve ser, pelo menos, de
 
 1. Verifique se o mapa de origem correspondente é enviado para o recipiente blob correto
 2. Verifique se o ficheiro do mapa de origem tem o nome do ficheiro JavaScript para o qual mapeia, sufixado com `.map` .
-    - Por exemplo, `/static/js/main.4e2ca5fa.chunk.js` procurará a bolha chamada`main.4e2ca5fa.chunk.js.map`
+    - Por exemplo, `/static/js/main.4e2ca5fa.chunk.js` procurará a bolha chamada `main.4e2ca5fa.chunk.js.map`
 3. Verifique a consola do seu navegador para ver se estão a ser registados erros. Inclua isto em qualquer bilhete de apoio.
 
 ## <a name="next-steps"></a>Passos Seguintes

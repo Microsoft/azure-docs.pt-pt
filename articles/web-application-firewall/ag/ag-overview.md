@@ -5,15 +5,15 @@ description: Este artigo fornece uma visão geral da Firewall de Aplicação Web
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/31/2020
+ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: e3b7e3ae10afd45105358743ef1fc0f4c6d14e78
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 659e7fcdbd2284110282d14fc89bd4d8d5ac2472
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227003"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267028"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>O que é Azure Web Application Firewall no Gateway de aplicações Azure?
 
@@ -75,9 +75,21 @@ Esta secção descreve os principais benefícios que a WAF no Gateway de aplica�
 - Tráfego de geo-filtro para permitir ou bloquear certos países/regiões de ter acesso às suas aplicações. (pré-visualização)
 - Proteja as suas aplicações de bots com as regras de mitigação do bot. (pré-visualização)
 
-## <a name="waf-policy"></a>Política da WAF
+## <a name="waf-policy-and-rules"></a>Política e regras da WAF
 
-Para ativar uma Firewall de Aplicação Web num Gateway de aplicações, tem de criar uma Política WAF. Esta Política é onde todas as regras geridas, regras personalizadas, exclusões e outras personalizações, tais como limite de upload de ficheiros, existem. 
+Para ativar uma Firewall de Aplicação Web no Gateway de aplicações, tem de criar uma política WAF. Esta política é onde todas as regras geridas, regras personalizadas, exclusões e outras personalizações, tais como limite de upload de ficheiros, existem.
+
+Pode configurar uma política da WAF e associar essa política a uma ou mais portas de aplicação para proteção. Uma política da WAF consiste em dois tipos de regras de segurança:
+
+- Regras personalizadas que cria
+
+- Conjuntos de regras geridos que são uma coleção de regras pré-configuradas geridas pelo Azure
+
+Quando ambas estão presentes, as regras personalizadas são processadas antes de processar as regras num conjunto de regras gerido. Uma regra é feita de uma condição de jogo, uma prioridade, e uma ação. Os tipos de ação suportados são: ALLOW, BLOCK e LOG. Pode criar uma política totalmente personalizada que satisfaça os seus requisitos específicos de proteção de aplicações, combinando regras geridas e personalizadas.
+
+As regras dentro de uma política são processadas por ordem prioritária. Prioridade é um número inteiro único que define a ordem das regras para processar. O menor valor inteiro denota uma prioridade maior e essas regras são avaliadas antes de regras com um valor inteiro mais elevado. Uma vez que uma regra é correspondida, a ação correspondente que foi definida na regra é aplicada ao pedido. Uma vez que tal jogo é processado, regras com prioridades mais baixas não são processadas mais longe.
+
+Uma aplicação web entregue pela Application Gateway pode ter uma política de WAF associada a ela a nível global, a nível por site ou a um nível por URI.
 
 ### <a name="core-rule-sets"></a>Conjuntos de regras principais
 
@@ -159,6 +171,11 @@ Com o livro de eventos de firewall Azure WAF incorporado, você pode obter uma v
 
 
 ![Livro de eventos de firewall da Azure WAF](../media/ag-overview/sentinel.png)
+
+
+#### <a name="azure-monitor-workbook-for-waf"></a>Livro de trabalho do Monitor Azure para WAF
+
+Este livro permite visualizar personalizados eventos WAF relevantes para a segurança em vários painéis filtrantes. Funciona com todos os tipos de WAF, incluindo Porta de Aplicação, Porta Frontal e CDN, e pode ser filtrado com base no tipo WAF ou numa instância waf específica. Importar através do modelo ARM ou modelo de galeria. Para implementar este livro, consulte [o Livro de Trabalho da WAF](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Azure%20Monitor%20Workbook).
 
 #### <a name="logging"></a>Registo
 

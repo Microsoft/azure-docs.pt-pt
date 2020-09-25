@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 890bf60ac794740716817094a60f2b4cb4ba5835
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-js
+ms.openlocfilehash: ab6eb4851b9f2574fc235056f8f512edcb2054bd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282794"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321786"
 ---
 # <a name="connect-to-a-wfs-service"></a>Ligar a um serviço WFS
 
@@ -22,12 +22,12 @@ Um Serviço de Recursos Web (WFS) é um serviço web para consulta de dados espa
 
 As seguintes funcionalidades são suportadas pela `WfsClient` classe:
 
-- Versões apoiadas: `1.0.0` `1.1.0` , e`2.0.0`
+- Versões apoiadas: `1.0.0` `1.1.0` , e `2.0.0`
 - Operadores de filtros suportados: comparações binárias, lógica, matemática, valor e `bbox` .
 - Os pedidos são feitos apenas com `HTTP GET` recurso.
 - Operações apoiadas:
 
-    | Operação | Descrição |
+    | Operação | Description |
     | :-- | :-- |
     | ObterCapabilidades | Gera um documento de metadados com operações e parâmetros válidos do WFS |
     | GetFeature | Devolve uma seleção de funcionalidades de uma fonte de dados |

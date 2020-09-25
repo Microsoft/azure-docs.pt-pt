@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: a5b625ea2b5b76d0938ac62be2202127ff0af66e
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f82ea8361cef76b2030e5b257b3d3351968d8050
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90982979"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322194"
 ---
 # <a name="troubleshoot"></a>Resolver Problemas
 
@@ -23,11 +23,7 @@ Por vezes, durante [a ligação de uma conta de armazenamento,](../how-tos/creat
 
 ## <a name="client-cant-connect-to-server"></a>O cliente não consegue ligar-se ao servidor
 
-Certifique-se de que as suas firewalls (no dispositivo, no interior dos routers, etc.) não bloqueiem as seguintes portas:
-
-* **50051 (TCP)** - necessário para a ligação inicial (aperto de mão HTTP)
-* **8266 (TCP+UDP)** - necessário para transferência de dados
-* **5000 (TCP)**, **5433 (TCP)**, **8443 (TCP)** - necessário para [o ArrInspector](tools/arr-inspector.md)
+Certifique-se de que as suas firewalls (no dispositivo, no interior dos routers, etc.) não bloqueiem as portas mencionadas nos [requisitos](../overview/system-requirements.md#network-ports)do Sistema .
 
 ## <a name="error-disconnected-videoformatnotavailable"></a>Erro `Disconnected: VideoFormatNotAvailable` ' '
 
@@ -152,7 +148,7 @@ Pode haver dois problemas com esta caixa de delimitação que levam à geometria
 
 Azure Remote Rendering ganchos no pipeline De unidade para fazer a composição da moldura com o vídeo, e para fazer a reprojecção. Para verificar se existem estes ganchos, abra o menu *:::no-loc text="Window > Analysis > Frame debugger":::* . Assegure-o e certifique-se de que existem duas entradas para `HolographicRemotingCallbackPass` o pipeline:
 
-![Depurador de quadro de unidade](./media/troubleshoot-unity-pipeline.png)
+![Gasoduto de renderização de unidade](./media/troubleshoot-unity-pipeline.png)
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>O padrão de tabuleiro de xadrez é renderizado após o carregamento do modelo
 
@@ -184,6 +180,12 @@ Temos visto falhas espúrias ao tentar compilar amostras de Unidade (quickstart,
 ### <a name="arm64-builds-for-unity-projects-fail-because-audiopluginmshrtfdll-is-missing"></a>Arm64 constrói projetos de unidade falham porque falta AudioPluginMsHRTF.dll
 
 O `AudioPluginMsHRTF.dll` para Arm64 foi adicionado ao pacote *de Realidade Mista* do Windows *(com.unity.xr.windowsmr.metro)* na versão 3.0.1. Certifique-se de que tem a versão 3.0.1 ou posteriormente instalada através do Gestor de Pacotes de Unidade. A partir da barra de menus Unidade, navegue até *window > Package Manager* e procure o pacote de realidade mista do *Windows.*
+
+## <a name="native-c-based-application-does-not-compile"></a>Aplicação baseada em C++ nativa não compila
+
+### <a name="library-not-found-error-for-uwp-application-or-dll"></a>Erro de 'Biblioteca não encontrada' para aplicação UWP ou Dll
+
+Dentro do pacote C++ Nuget, existe `microsoft.azure.remoterendering.Cpp.targets` um ficheiro que define qual do sabor binário deve ser utilizado. Para `UWP` identificar, as condições no ficheiro de verificação `ApplicationType == 'Windows Store'` . Por conseguinte, é necessário assegurar que este tipo se insegure no projeto. Este deve ser o caso ao criar uma aplicação UWP ou Dll através do assistente de projeto do Visual Studio.
 
 ## <a name="unstable-holograms"></a>Hologramas instáveis
 

@@ -1,23 +1,23 @@
 ---
 title: Compreenda os métodos diretos do Azure IoT Hub ! Microsoft Docs
 description: Developer guide - use métodos diretos para invocar código nos seus dispositivos a partir de uma aplicação de serviço.
-author: nberdy
+author: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
-ms.author: rezas
+ms.author: philmea
 ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 516b3bac5da2e078217d5c12f1efdf527b7c83a1
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: f68705309d15548dc9728686e2e0ecd6aaad3fba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029074"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334111"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Compreender e invocar métodos diretos a partir do Hub IoT
 
@@ -55,7 +55,7 @@ Agora, invoque um método direto a partir de uma aplicação de back-end.
 
 Invocações de métodos diretos num dispositivo são chamadas HTTPS que são compostas pelos seguintes itens:
 
-* O *pedido URI* específico para o dispositivo juntamente com a [versão API:](https://docs.aws.amazon.com/cli/latest/reference/iot1click-devices/invoke-device-method.html)
+* O *pedido URI* específico para o dispositivo juntamente com a [versão API:](https://docs.microsoft.com/rest/api/iothub/service/devices/invokemethod)
 
     ```http
     https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30
@@ -220,7 +220,7 @@ Outros tópicos de referência no guia de desenvolvimento do IoT Hub incluem:
 
 * [O suporte do IoT Hub MQTT](iot-hub-mqtt-support.md) fornece mais informações sobre o suporte do IoT Hub para o protocolo MQTT.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a usar métodos diretos, poderá estar interessado no seguinte artigo de guia de desenvolvimento do IoT Hub:
 

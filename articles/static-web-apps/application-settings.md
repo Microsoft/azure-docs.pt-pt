@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 33a40e7a0e7e3be4433b3cbd4ba7a8e09a84e689
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: c89ccee430d374d9aee58326627ff800f737324b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428057"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250033"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Configurar configurar configurações de aplicações para visualização de aplicações web estáticas Azure
 
@@ -63,7 +63,7 @@ Para obter informações sobre como utilizar variáveis ambientais com a sua est
 
 As APIs em Azure Static Web Apps são alimentadas por Azure Functions, que lhe permite definir definições de aplicações no _local.settings.jsno_ ficheiro. Este ficheiro define as definições de aplicação na `Values` propriedade da configuração.
 
-A amostra que se _seguelocal.settings.jsmostra_ como adicionar um valor para o `DATABASE_CONNECTION_STRING` .
+A amostra que se _ seguelocal.settings.jsmostra_ como adicionar um valor para o `DATABASE_CONNECTION_STRING` .
 
 ```json
 {
@@ -165,7 +165,7 @@ As definições de aplicação estão disponíveis para visualização através 
    az rest --method post --uri "/subscriptions/<YOUR_SUBSCRIPTION_ID>/resourceGroups/<YOUR_RESOURCE_GROUP_NAME>/providers/Microsoft.Web/staticSites/<YOUR_STATIC_SITE_NAME>/listFunctionAppSettings?api-version=2019-12-01-preview"
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Configurar desenvolvimento local](local-development.md)

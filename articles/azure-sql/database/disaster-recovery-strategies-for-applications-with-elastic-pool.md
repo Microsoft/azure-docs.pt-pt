@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 8ba9edc129cc169ccc146c7bc314d8f5ffe573b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6887371e50f5b7e8706cac0a0700873c42bdac06
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84050409"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321650"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-azure-sql-database-elastic-pools"></a>Estratégias de recuperação de desastres para aplicações que utilizam piscinas elásticas Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -183,7 +183,7 @@ As principais compensações são:
 
 Este artigo centra-se nas estratégias de recuperação de desastres para o nível de base de dados utilizado por uma aplicação de multi-inquilino saas ISV. A estratégia que escolhe baseia-se nas necessidades da aplicação, como o modelo de negócio, o SLA que pretende oferecer aos seus clientes, constrangimento orçamental, etc. Cada estratégia descrita descreve os benefícios e a troca para que possa tomar uma decisão informada. Além disso, a sua aplicação específica provavelmente inclui outros componentes Azure. Por isso, revê-se a orientação de continuidade do negócio e orquestra a recuperação do nível da base de dados com eles. Para saber mais sobre a gestão da recuperação de aplicações de base de dados em Azure, consulte [soluções de nuvem de design para recuperação de desastres.](designing-cloud-solutions-for-disaster-recovery.md)  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais sobre cópias de segurança automatizadas da Base de Dados Azure SQL, consulte [as cópias de segurança automatizadas da Base de Dados Azure SQL](automated-backups-overview.md).
 * Para uma visão geral de continuidade do negócio e cenários, consulte [a visão geral da continuidade do Negócio.](business-continuity-high-availability-disaster-recover-hadr-overview.md)

@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e79135ccf672fa057d9e88fc91fa72b7826ba71e
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: devx-track-js
+ms.openlocfilehash: 75b193017bbfccbae0f299c0a1db2fe0e34f1810
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085200"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321803"
 ---
 # <a name="add-a-simple-data-layer"></a>Adicionar uma camada de dados simples
 
@@ -114,7 +114,7 @@ Se uma funcionalidade for um `Point` ou um , e a funcionalidade não tiver uma p
 
 Os aglomerados também são renderizados usando a camada de bolha. Por predefinição, o raio de um cluster é definido para `16` . A cor do cluster varia consoante o número de pontos no cluster, conforme definido abaixo:
 
-| # de pontos | Cor    |
+| # de pontos | Color    |
 |-------------|----------|
 | &gt;= 100   | `red`    |
 | &gt;= 10    | `yellow` |

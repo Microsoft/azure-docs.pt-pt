@@ -8,14 +8,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: douglas, carlrab, sstein
+ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: 0d5390beff6c3e0045c6b887f0262a54a737a851
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: e805de26b7d2e5ec8d29801a05291acfe086bb1a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181770"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323163"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Falha manual iniciada pelo utilizador em SqL Managed Instance
 
@@ -94,7 +94,7 @@ Utilize o seguinte comando CLI para deixar de ler o nó secundário, aplicável 
 az sql mi failover -g myresourcegroup -n myinstancename --replica-type ReadableSecondary
 ```
 
-### <a name="using-rest-api"></a>Utilização de API de Repouso
+### <a name="using-rest-api"></a>Com a API Rest
 
 Para utilizadores avançados que talvez precisem de automatizar as falhas das suas Instâncias Geridas SQL para efeitos de implementação de gasodutos de teste contínuos ou mitigadores de desempenho automatizados, esta função pode ser realizada através do início do failover através de uma chamada API. ver [Casos Geridos - Failover REST API](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover) para mais detalhes.
 

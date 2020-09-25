@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: zhchia
-ms.openlocfilehash: 6fe256660dc73aa411cf06e2b56ce9ef26934e2f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9be2205ad0664d58c7a2ef0c07481b1c7aa02402
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548007"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273352"
 ---
 # <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>Tutorial: Configure MerchLogix para o fornecimento automático de utilizadores
 
 O objetivo deste tutorial é demonstrar os passos a serem realizados na MerchLogix e no Azure Ative Directory (Azure AD) para configurar a Azure AD para fornecimento e desavisagem automática de utilizadores e/ou grupos à MerchLogix.
 
 > [!NOTE]
-> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte [automatizar o fornecimento e desprovisionamento de aplicações saaS com diretório Azure Ative.](../app-provisioning/user-provisioning.md)
+> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona e perguntas frequentes, veja [Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS no Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -55,7 +55,7 @@ Antes de configurar a MerchLogix para o fornecimento automático de utilizadores
 
 5. No painel de resultados, selecione **MerchLogix**e, em seguida, clique no botão **Adicionar** para adicionar MerchLogix à sua lista de aplicações SaaS.
 
-    ![Provisão merchLogix][4]
+    ![Screenshot da secção Adicionar da secção de galé com a caixa de texto de nome Inserida chamada.][4]
 
 ## <a name="assigning-users-to-merchlogix"></a>Atribuir utilizadores à MerchLogix
 
@@ -84,11 +84,11 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 2. Selecione MerchLogix da sua lista de aplicações SaaS.
 
-3. Selecione o **separador Provisioning.**
+3. Selecione o separador **Aprovisionamento**.
 
-4. Desa ajuste o **modo de provisionamento** para **automático**.
+4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
-    ![Provisão merchLogix](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
+    ![Screenshot da secção MerchLogix - Prisioning com a opção provisionamento chamada, o modo de provisionamento definido para Automático, e a opção de Ligação de Teste chamada.](./media/merchlogix-provisioning-tutorial/Merchlogix1.png)
 
 5. Sob a secção **de Credenciais de Administração:**
 
@@ -100,7 +100,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 7. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e verifique a caixa de verificação - **Envie uma notificação de e-mail quando ocorrer uma falha**.
 
-8. Clique em **Guardar**.
+8. Clique em **Save** (Guardar).
 
 9. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users para MerchLogix**.
 
@@ -112,7 +112,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 13. Para ativar o serviço de fornecimento de Ad Azure para a MerchLogix, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
-14. Quando estiver pronto para a provisão, clique em **Guardar**.
+14. Quando estiver pronto para aprovisionar, clique em **Guardar**.
 
 Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de fornecimento AZure AD esteja em execução. Pode utilizar a secção Detalhes da **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de fornecimento de AD Azure na MerchLogix.
 
@@ -120,12 +120,12 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: common/select-azuread.png

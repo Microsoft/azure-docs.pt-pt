@@ -1,5 +1,5 @@
 ---
-title: Grupo chamando amostra de herói
+title: Exemplo de destaque das chamadas em grupo
 titleSuffix: An Azure Communication Services sample overview
 description: Visão geral da amostra de herói chamando a amostra de herói usando os Serviços de Comunicação Azure para permitir que os desenvolvedores aprendam mais sobre o funcionamento interno da amostra.
 author: ddematheu
@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: caee5686695594604f49dcbade54342a9134abc0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 9bd203586d6a9da974604099d361d2908a39e1d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947484"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297997"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Começa com o grupo a chamar amostra de herói
 
@@ -30,7 +30,7 @@ O Grupo de Serviços de Comunicação Azure **Call Hero Sample** demonstra como 
 Neste quickstart da amostra, vamos aprender como a amostra funciona antes de passarmos a amostra na sua máquina local. Em seguida, enviaremos a amostra para Azure usando os seus próprios recursos dos Serviços de Comunicação Azure.
 
 > [!IMPORTANT]
-> [Faça o download da amostra do GitHub](https://github.com/Azure/Communication/tree/master/samples)
+> [Faça o download da amostra do GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
 
 ## <a name="overview"></a>Descrição geral
 
@@ -54,7 +54,7 @@ Componentes do ecrã principal de chamada:
 - **Cabeçalho**: É aqui que se encontram os controlos de chamada primário para alternar as definições e a barra lateral do participante, ligar o vídeo e misturar,partilhar o ecrã e deixar a chamada.
 - **Barra lateral**: É aqui que são mostradas informações sobre os participantes e as definições quando alternadas utilizando os controlos do cabeçalho. O componente pode ser descartado utilizando o 'X' no canto superior direito. A barra lateral dos participantes mostrará uma lista de participantes e um link para convidar mais utilizadores a conversar. A barra lateral permite configurar as definições do microfone e da câmara.
 
-Abaixo você encontrará mais informações sobre pré-requisitos, passos para configurar a amostra, e tutoriais passo a passo para ajudar a familiarizar-se com os seus vários componentes.
+Abaixo encontrará mais informações sobre pré-requisitos e passos para configurar a amostra.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -72,23 +72,17 @@ Quando queremos implantar localmente, precisamos de iniciar ambas as aplicaçõe
 
 Pode testar a amostra localmente abrindo várias sessões de navegador com o URL da sua chamada para simular uma chamada multiutilizador.
 
-### <a name="before-running-the-sample-for-the-first-time"></a>Antes de executar a amostra pela primeira vez
+## <a name="before-running-the-sample-for-the-first-time"></a>Antes de executar a amostra pela primeira vez
 
 1. Abra uma instância de PowerShell, Windows Terminal, Command Prompt ou equivalente e navegue para o diretório ao qual pretende clonar a amostra.
-2. `git clone`
-3. Vá para **a pasta Call/ClientApp** e corra `npm run setup`
-   1. Se vir um erro 1, olhe acima na saída para um URL onde terá de ir para autorizar o seu cliente. (URL será assim: `app.vssps.visualstudio.com/oauth2/authorize?clientid=...` ) Uma vez que visite o URL num browser, copie o comando da janela do navegador e execute-o.
-   2. Volte a executar o comando `npm run setup-vsts-auth` assim que completar o passo anterior.
-4. Pegue o `Connection String` do portal Azure. Para obter mais informações sobre as cadeias de ligação, consulte [Criar um Azure Communication Resources](../quickstarts/create-communication-resource.md)
-5. Assim que obter a Cadeia de Ligação, Adicione o fio de ligação à **chamada/appsetting.jsno** ficheiro encontrado na pasta Serviço .NET. Insira a sua cadeia de ligação na variável: `ResourceConnectionString` .
+2. `git clone https://github.com/Azure/Communication.git`
+3. Pegue o `Connection String` do portal Azure. Para obter mais informações sobre as cadeias de ligação, consulte [Criar um Azure Communication Resources](../quickstarts/create-communication-resource.md)
+4. Assim que tiver a `Connection String` ficha , adicione o fio de ligação à **chamada/appsetting.jsno** ficheiro encontrado na pasta Serviço .NET. Insira a sua cadeia de ligação na variável: `ResourceConnectionString` .
 
 ### <a name="local-run"></a>Corrida Local
 
-1. Ir para a pasta Chamando
-2. Abra a `Calling.csproj` solução no Estúdio Visual
-2. Executar o `Calling` projeto*
-
-*O navegador abrirá `localhost:5000` em (onde o nó está implantando a aplicação do cliente). A aplicação não é suportada no Internet Explorer.
+1. Vá à pasta Call e abra `Calling.csproj` solução no Visual Studio
+2. Executar `Calling` projeto. O navegador será aberto na localidade:5001
 
 #### <a name="troubleshooting"></a>Resolução de problemas
 
@@ -106,7 +100,10 @@ Pode testar a amostra localmente abrindo várias sessões de navegador com o URL
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../quickstarts/create-communication-resource.md#clean-up-resources)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
+
+>[!div class="nextstepaction"] 
+>[Faça o download da amostra do GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
 
 Para obter mais informações, veja os seguintes artigos:
 
@@ -116,7 +113,7 @@ Para obter mais informações, veja os seguintes artigos:
 
 ## <a name="additional-reading"></a>Leitura adicional
 
-- [Pré-visualização da comunicação Azure](https://github.com/Azure/communication-preview) - Para saber mais sobre o sdk da web chamando
+- [Azure Communication GitHub](https://github.com/Azure/communication) - Encontre mais exemplos e informações na página oficial do GitHub
 - [Redux](https://redux.js.org/) - Gestão do Estado do lado do cliente
 - [FluentUI](https://developer.microsoft.com/fluentui#/) - Biblioteca de UI alimentada pela Microsoft
 - [Reagir](https://reactjs.org/) - Biblioteca para construção de interfaces de utilizador

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 394752792d143a3712d0bb9c50189936f23062f1
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 96da89fa8d7e4783afa11807534bbaeba52b79fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800471"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334264"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Rotas eventos dentro e fora de Azure Digital Twins
 
@@ -69,15 +69,22 @@ As APIs de ponta que estão disponíveis no plano de controlo são:
 
 ## <a name="create-an-event-route"></a>Criar uma rota de eventos
  
-As rotas do evento são criadas numa aplicação de cliente com a seguinte chamada [.NET (C#) SDK:](how-to-use-apis-sdks.md) 
+As rotas do evento são criadas numa aplicação ao cliente. Uma maneira de fazer isto é com a chamada `CreateEventRoute` [.NET (C#) SDK:](how-to-use-apis-sdks.md) 
 
 ```csharp
-await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<endpoint-name>"));
+EventRoute er = new EventRoute("endpointName");
+er.Filter("true"); //Filter allows all messages
+await client.CreateEventRoute("routeName", er);
 ```
 
-* O `endpoint-name` ponto final identifica um ponto final, como um Event Hub, Event Grid ou Service Bus. Estes pontos finais devem ser criados na sua subscrição e anexados à Azure Digital Twins utilizando APIs do plano de controlo antes de escrutinar esta chamada de registo.
+1. Primeiro, um `EventRoute` objeto é criado, e o construtor toma o nome de um ponto final. Este `endpointName` campo identifica um ponto final como um Event Hub, Event Grid ou Service Bus. Estes pontos finais devem ser criados na sua subscrição e anexados à Azure Digital Twins utilizando APIs do plano de controlo antes de escrutinar esta chamada de registo.
 
-O objeto de rota do evento passou também para `EventRoutes.Add` um parâmetro de [ **filtro** ](./how-to-manage-routes-apis-cli.md#filter-events), que pode ser usado para restringir os tipos de eventos que seguem esta rota.
+2. O objeto de rota do evento também tem um campo [**filtro,**](./how-to-manage-routes-apis-cli.md#filter-events) que pode ser usado para restringir os tipos de eventos que seguem esta rota. Um filtro `true` permite a rota sem filtragem adicional (um filtro de `false` desativa a rota). 
+
+3. Este objeto de rota do evento é então passado para `CreateEventRoute` , juntamente com um nome para a rota.
+
+> [!TIP]
+> Todas as funções SDK vêm em versões sincronizadas e assíncronos.
 
 As rotas também podem ser criadas usando o [CLI das Gémeas Digitais Azure.](how-to-use-cli.md)
 

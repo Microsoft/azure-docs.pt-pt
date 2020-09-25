@@ -10,18 +10,18 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8a6fc1291615760320deb488511fdd9d964d25d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ceffc928a0cf8313723ff6193d9a6a63f8465f90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227870"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266314"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>Tutorial: Ambiente básico de diretório ativo
 
 Este tutorial acompanha-o através da criação de um ambiente básico de Diretório Ativo. 
 
-![Criar](media/tutorial-single-forest/diagram1.png)
+![Diagrama que mostra um ambiente Azure A D básico.](media/tutorial-single-forest/diagram1.png)
 
 Você pode usar o ambiente que você cria no tutorial para testar vários aspetos de cenários de identidade híbrida e será um pré-requisito para alguns dos tutoriais.  Se já tiver um ambiente de Diretório Ativo existente, pode usá-lo como substituto.  Esta informação é fornecida para indivíduos que o meu começo do nada.
 
@@ -200,7 +200,7 @@ Agora você precisa criar um inquilino AZure AD para que você possa sincronizar
 2. Selecione o **ícone de adição (+)** e pesquise **Azure Active Directory**.
 3. Selecione **Azure Active Directory** nos resultados de pesquisa.
 4. Selecione **Criar**.</br>
-![Criar](media/tutorial-single-forest/create1.png)</br>
+![Screenshot que mostra a página do Diretório Ativo Azure no portal Azure.](media/tutorial-single-forest/create1.png)</br>
 5. Forneça um **nome de organização**, juntamente com o **nome de domínio inicial**. Em seguida, selecione **Criar**. Esta ação irá criar o seu diretório.
 6. Uma vez concluído, clique no link **aqui,** para gerir o diretório.
 
@@ -208,7 +208,7 @@ Agora você precisa criar um inquilino AZure AD para que você possa sincronizar
 Agora que tem um inquilino da AD Azure, vai criar uma conta de administrador global.  Para criar a conta de administrador global faça o seguinte.
 
 1.  Em **Gerir**, selecione **Utilizadores**.</br>
-![Criar](media/tutorial-single-forest/administrator1.png)</br>
+![Screenshot que mostra o menu "Visão Geral" com "Utilizadores" selecionados.](media/tutorial-single-forest/administrator1.png)</br>
 2.  Selecione **Todos os utilizadores** e, em seguida, selecione **+ Novo utilizador**.
 3.  Indique um nome e nome de utilizador para o mesmo. Este será o Administrador Global do inquilino. Também vai querer alterar o **papel de Diretório** para **administrador global.** Pode também mostrar a palavra-passe temporária. Quando concluir, selecione **Criar**.</br>
 ![Criar](media/tutorial-single-forest/administrator2.png)</br>

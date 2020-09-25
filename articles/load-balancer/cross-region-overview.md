@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/01/2020
+ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 11184b2e9770ba6fd7c4ec9d04862c0890ac94c6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d55f52b5e99a7a617e2bec8bea4d6e6ef687730a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937758"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336535"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Balanceador de carga transversal (Pré-visualização)
 
@@ -45,7 +45,7 @@ A configuração IP frontal do seu balanceador de carga cross-region é estátic
 :::image type="content" source="./media/cross-region-overview/cross-region-load-balancer.png" alt-text="Diagrama do equilibrador de carga entre regiões." border="true":::
 
 > [!NOTE]
-> O porta de reto final da carga a sua regra de equilíbrio na carga transversal Balancer deve corresponder ao porto frontal da regra de equilíbrio de carga/regra nat de entrada no equilibrador de carga padrão regional. 
+> O porto de backend de carga a sua regra de equilíbrio no balançador de carga transversal deve coincidir com o porta frontal da regra de equilíbrio de carga/regra nat de entrada no balanceador de carga padrão regional. 
 
 ### <a name="regional-redundancy"></a>Redundância regional
 

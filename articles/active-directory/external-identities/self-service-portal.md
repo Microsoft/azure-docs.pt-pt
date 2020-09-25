@@ -1,6 +1,6 @@
 ---
 title: Portal de inscrição de self-service para colaboração B2B - Azure AD
-description: A colaboração do B2B Azure Active Directory suporta as relações entre empresas, permitindo a parceiros de negócios acederem, seletivamente, às suas aplicações empresariais
+description: Saiba como personalizar o fluxo de trabalho de bordo para utilizadores do Azure Ative Directory B2B para se adaptar às necessidades da sua organização.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff18d3d9cae6e887abbd9fb1845de62386062b2b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 62805564f716d255f38c9312da5c5c986fba944c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909115"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265549"
 ---
 # <a name="self-service-for-azure-ad-b2b-collaboration-sign-up"></a>Self-service para inscrição de colaboração Azure AD B2B
 

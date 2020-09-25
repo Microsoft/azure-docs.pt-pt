@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 06/21/2019
-ms.openlocfilehash: c6f766dcf69b398aea0978f42f5094809a3e2f6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e88c1b976ce1de0ce0be4b6a5f85af6790802323
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84050416"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321633"
 ---
 # <a name="restore-your-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar a sua Base de Dados Azure SQL ou falhar para um secundário
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ A Azure SQL Database oferece as seguintes capacidades para recuperar de uma para
 
 - [Georreplicação ativa](active-geo-replication-overview.md)
 - [Grupos de ativação pós-falha automática](auto-failover-group-overview.md)
-- [Geo-restauro](recovery-using-backups.md#point-in-time-restore)
+- [Georrestauro](recovery-using-backups.md#point-in-time-restore)
 - [Bases de dados redundantes em zonas](high-availability-sla.md)
 
 Para conhecer os cenários de continuidade do negócio e as funcionalidades que suportam estes cenários, consulte [a continuidade do Negócio.](business-continuity-high-availability-disaster-recover-hadr-overview.md)
@@ -115,7 +115,7 @@ Para obter mais informações sobre as regras de alerta de base de dados, consul
 
 Se for necessária uma auditoria para aceder à sua base de dados, tem de ativar a Auditoria após a recuperação da base de dados. Para obter mais informações, consulte [a auditoria da Base de Dados.](../../azure-sql/database/auditing-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre backups automatizados da Base de Dados Azure SQL, consulte [backups automatizados da BASE de Dados SQL](automated-backups-overview.md)
 - Para conhecer os cenários de design e recuperação de continuidade de negócios, consulte [cenários de continuidade](business-continuity-high-availability-disaster-recover-hadr-overview.md)

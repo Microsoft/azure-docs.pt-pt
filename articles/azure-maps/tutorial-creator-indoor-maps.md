@@ -1,21 +1,21 @@
 ---
-title: Use o Criador para criar mapas interiores
-description: Use o Criador de Mapas Azure para criar mapas interiores.
+title: 'Tutorial: Use Creator para criar mapas interiores'
+description: Tutorial sobre como usar o Criador de Mapas Azure para criar mapas interiores
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 08/29/2020
-ms.topic: conceptual
+ms.date: 09/22/2020
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9ed6690348816229d369bcff5d92c9703a4b3702
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 01182343fb0c96040ec8e86ddf915050ba68cf9f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469920"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335216"
 ---
-# <a name="use-creator-to-create-indoor-maps"></a>Use o Criador para criar mapas interiores
+# <a name="tutorial-use-creator-to-create-indoor-maps"></a>Tutorial: Use Creator para criar mapas interiores
 
 Este tutorial mostra-lhe como criar mapas interiores. Neste tutorial, você aprenderá a usar a API para:
 
@@ -102,7 +102,7 @@ A API de Data Upload é uma transação de longa duração que implementa o padr
 
  Agora que o pacote de desenho está carregado, usaremos `udid` para o pacote carregado para converter o pacote em dados de mapa. A API de Conversão utiliza uma transação de longa duração que implementa o padrão definido [aqui.](creator-long-running-operation.md) Assim que a operação estiver concluída, usaremos o `conversionId` para aceder aos dados convertidos. Siga os passos abaixo para obter o `conversionId` .
 
-1. Selecione **New** (Novo). Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Guardar**.
+1. Selecione **New** (Novo). Na janela **Criar Novo,** selecione **Request**. Insira um **nome De pedido** e selecione uma coleção. Clique em **Save** (Guardar).
 
 2. Selecione o método **POST** HTTP no separador construtor e introduza o seguinte URL para converter o seu pacote de desenho carregado em dados de mapa. Use o `udid` para o pacote carregado.
 
@@ -404,43 +404,11 @@ Um azulejo é um conjunto de azulejos vetoriais que prestam no mapa. Os tilesets
 
 A [API de Estados-Recursos](https://docs.microsoft.com/rest/api/maps/featurestate/getstatespreview) permite-lhe recuperar o estado de uma funcionalidade utilizando a sua `ID` funcionalidade. Também pode eliminar o estado e os seus recursos utilizando a [API de eliminação do Estado de funcionalidade.](https://docs.microsoft.com/rest/api/maps/featurestate/deletestatesetpreview)
 
+Para saber mais sobre os diferentes serviços do Azure Maps Creator discutidos neste artigo ver, [Creator Indoor Maps.](creator-indoor-maps.md)
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, ficou a saber como:
-
-> [!div class="checklist"]
-> * Faça upload do seu pacote de desenho de mapa interior
-> * Converta o seu pacote de desenho em dados de mapas
-> * Crie um conjunto de dados a partir dos dados do seu mapa
-> * Crie um teesto a partir dos dados do seu conjunto de dados
-> * Consultar o serviço Azure Maps WFS para conhecer as funcionalidades do seu mapa
-> * Crie um estado de funcionalidade utilizando as funcionalidades do seu mapa e os dados no seu conjunto de dados
-> * Atualize o seu estado de funcionalidade
-
-Está agora equipado com as habilidades necessárias para passar aos próximos guias:
+Para aprender a usar o módulo de mapas interiores, veja
 
 > [!div class="nextstepaction"]
 > [Utilize o módulo Mapas Interiores](how-to-use-indoor-module.md)
-
-> [!div class="nextstepaction"]
-> [Implementar estilo dinâmico para mapas interiores](indoor-map-dynamic-styling.md)
-
-Saiba mais sobre os diferentes serviços Azure Maps discutidos neste artigo:
-
-> [!div class="nextstepaction"]
-> [Upload de dados](creator-indoor-maps.md#upload-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [Conversão de dados](creator-indoor-maps.md#convert-a-drawing-package)
-
-> [!div class="nextstepaction"]
-> [Conjunto de dados](creator-indoor-maps.md#datasets)
-
-> [!div class="nextstepaction"]
-> [Teeste](creator-indoor-maps.md#tilesets)
-
-> [!div class="nextstepaction"]
-> [Conjunto de estado de recurso](creator-indoor-maps.md#feature-statesets)
-
-> [!div class="nextstepaction"]
-> [Serviço WFS](creator-indoor-maps.md#web-feature-service-api)
