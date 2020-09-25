@@ -1,14 +1,16 @@
 ---
 title: Modo aprendiz - Personalizer
 description: ''
+ms.service: cognitive-services
+ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 5ee8242fbc9ab5bed4e3eed8997feb122b131062
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f793535f04b36d231cec384b7acd66e38a7eb039
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087202"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253535"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>Utilize o modo Aprendiz para treinar o Personalizar sem afetar a sua aplicação existente
 
@@ -88,8 +90,8 @@ Só é útil fazer testes A/B de tratamentos Personalizer uma vez validado e est
 
 Mesmo que personalizante seja apenas o _tratamento,_ o mesmo desafio está presente na validação dos dados é bom para a formação do Personalizar. Em vez disso, o modo aprendiz poderia ser utilizado, com 100% do tráfego, e com todos os utilizadores a obterem a experiência de controlo (não afetado).
 
-Uma vez que você tem um caso de uso usando Personalizer e aprender on-line, as experiências A/B permitem-lhe fazer coortes controladas e comparação científica de resultados que podem ser mais complexos do que os sinais usados para recompensas. Uma pergunta exemplo que um teste A/B poderia responder é:`In a retail website, Personalizer optimizes a layout and gets more users to _check out_ earlier, but does this reduce total revenue per transaction?`
+Uma vez que você tem um caso de uso usando Personalizer e aprender on-line, as experiências A/B permitem-lhe fazer coortes controladas e comparação científica de resultados que podem ser mais complexos do que os sinais usados para recompensas. Uma pergunta exemplo que um teste A/B poderia responder é: `In a retail website, Personalizer optimizes a layout and gets more users to _check out_ earlier, but does this reduce total revenue per transaction?`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Conheça [os eventos ativos e inativos](concept-active-inactive-events.md)

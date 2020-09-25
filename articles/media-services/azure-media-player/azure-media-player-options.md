@@ -6,13 +6,13 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 2b7acb1ad6fbe0beb4d79ee2a833561f0829664c
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 392ecff2ab120e713a07d130493a4a8339dae5ab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423036"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296200"
 ---
 # <a name="options"></a>Opções #
 
@@ -51,7 +51,7 @@ Se a reprodução automática for verdadeira, o vídeo começará a ser reproduz
 > [!NOTE]
 > Esta opção não é suportada por dispositivos móveis como Windows Phone, Apple iOS e Android. Os dispositivos móveis bloqueiam a funcionalidade de reprodução automática para evitar o uso excessivo dos planos de dados mensais dos consumidores (muitas vezes caros). É necessário um toque/clique do utilizador para iniciar o vídeo neste caso.
 
-`<video autoplay ...>`ou`{ "autoplay": true }`
+`<video autoplay ...>`ou `{ "autoplay": true }`
 
 ### <a name="poster"></a>cartaz ###
 O atributo do cartaz define a imagem que exibe antes do vídeo começar a ser reproduzível. Esta é frequentemente uma moldura do vídeo ou um ecrã de título personalizado. Assim que o utilizador clicar em reproduzir a imagem desaparecerá.
@@ -93,11 +93,11 @@ Ao definir esta opção para um verdadeiro elemento de vídeo, a largura total d
 
 `<video ... data-setup='{"fluid": true}'>`
 
-`fluid`opção sobrepõe-se explícita `width` e `height` configurações. Esta opção só está disponível na versão Azure Media Player `2.0.0` e posteriormente.
+`fluid` opção sobrepõe-se explícita `width` e `height` configurações. Esta opção só está disponível na versão Azure Media Player `2.0.0` e posteriormente.
 
 ### <a name="playbackspeed"></a>reproduçãoSpeed ###
 
-`playbackSpeed`opção controla reprodução Controlo de velocidade e conjunto de definições de velocidade de reprodução disponíveis para o utilizador. `playbackSpeed`leva um objeto. Para permitir o controlo de velocidade de reprodução na barra de controlo, a propriedade `enabled` do objeto tem de ser definida como verdadeira. Um exemplo de permitir a velocidade de reprodução na marcação:
+`playbackSpeed` opção controla reprodução Controlo de velocidade e conjunto de definições de velocidade de reprodução disponíveis para o utilizador. `playbackSpeed` leva um objeto. Para permitir o controlo de velocidade de reprodução na barra de controlo, a propriedade `enabled` do objeto tem de ser definida como verdadeira. Um exemplo de permitir a velocidade de reprodução na marcação:
 
 `<video ... data-setup='{"playbackSpeed": {"enabled": true}}'>`
 
@@ -147,6 +147,6 @@ A definição ativa para ser verdadeira permite-lhe exibir legendas CEA ao vivo 
 
 Esta opção só está disponível na versão 2.1.1 do Azure Media Player e posteriormente.
 
-## <a name="next-steps"></a>Próximos passos ##
+## <a name="next-steps"></a>Passos seguintes ##
 
 - [Azure Media Player Quickstart](azure-media-player-quickstart.md)

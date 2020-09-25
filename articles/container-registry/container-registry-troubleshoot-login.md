@@ -3,12 +3,12 @@ title: Início de sessão de resolução de problemas para o registo
 description: Sintomas, causas e resolução de problemas comuns ao iniciar sessão num registo de contentores Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 8fbb96be8223001ac52db47788c31609e9b86e35
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: d5071a1e759d26ce43d2eb5d9b8215781d813d33
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227482"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253359"
 ---
 # <a name="troubleshoot-registry-login"></a>Login de registo de resolução de problemas
 
@@ -105,9 +105,9 @@ Links relacionados:
 
 * [Funções e permissões do RBAC - Registo de Contentores Azure](container-registry-roles.md)
 * [Iniciar sessão com token de âmbito repositório](container-registry-repository-scoped-permissions.md)
-* [Adicione ou remova atribuições de funções Azure usando o portal Azure](../role-based-access-control/role-assignments-portal.md)
+* [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](../role-based-access-control/role-assignments-portal.md)
 * [Utilizar o portal para criar uma aplicação e um principal de serviço do Azure AD que possam aceder aos recursos](../active-directory/develop/howto-create-service-principal-portal.md)
-* [Criar um novo segredo de aplicação](../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)
+* [Criar um novo segredo da aplicação](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)
 * [Códigos de autenticação e autorização Azure AD](../active-directory/develop/reference-aadsts-error-codes.md)
 
 ### <a name="check-that-credentials-arent-expired"></a>Verifique se as credenciais não estão caducadas.
@@ -134,13 +134,13 @@ Links relacionados:
 * [FaQ do registo de contentores](container-registry-faq.md)
 * [Melhores práticas do Azure Container Registry](container-registry-best-practices.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não resolver o seu problema aqui, consulte as seguintes opções.
 
 * Outros tópicos de resolução de problemas do registo incluem:
   * [Problemas de rede de resolução de problemas com registo](container-registry-troubleshoot-access.md)
-  * [Desempenho do registo de resolução de problemas](container-registry-troubleshoot-performance.md)
+  * [Resolver problemas de desempenho de registo](container-registry-troubleshoot-performance.md)
 * [Opções de apoio comunitário](https://azure.microsoft.com/support/community/)
 * [Perguntas e Respostas da Microsoft](https://docs.microsoft.com/answers/products/)
 * [Abra um bilhete de apoio](https://azure.microsoft.com/support/create-ticket/) - com base nas informações que fornece, pode ser executado um diagnóstico rápido para falhas de autenticação no seu registo

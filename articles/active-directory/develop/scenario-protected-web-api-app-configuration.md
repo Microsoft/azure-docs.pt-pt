@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5953e5d5f6bc50c913c3e92aa92775c34c0fd170
-ms.sourcegitcommit: 8791f69d44150767807d215cafc4076f3ed43f9f
+ms.openlocfilehash: 613ba527c8f86257dd271d3cc9e43c97fc475068
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89512339"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91257457"
 ---
 # <a name="protected-web-api-code-configuration"></a>API web protegida: configuração de código
 
@@ -111,6 +111,12 @@ Se aceitou a Aplicação ID URI proposta pelo portal de registo da aplicação, 
 
 Quando uma aplicação é chamada a uma ação do controlador que detém um atributo **[Authorize],** ASP.NET e ASP.NET Core extrai o token de acesso do símbolo do porta-voz da Autorização. O token de acesso é então reencaminhado para o middleware JwtBearer, que chama extensões de Modelo de Identidade da Microsoft para .NET.
 
+#### <a name="microsoftidentityweb"></a>Microsoft.Identity.Web
+
+A Microsoft recomenda que utilize o pacote [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) NuGet ao desenvolver uma API web com ASP.NET Core.
+
+_Microsoft.Identity.Web_ fornece a cola entre ASP.NET Core, o middleware de autenticação e a Biblioteca de Autenticação do [Microsoft (MSAL)](msal-overview.md) para .NET. Permite uma experiência de desenvolvimento mais clara e robusta e aproveita o poder da plataforma de identidade da Microsoft e do Azure AD B2C.
+
 #### <a name="using-microsoftidentityweb-templates"></a>Utilizando modelos Microsoft.Identity.Web
 
 Pode criar uma API web de raiz utilizando modelos de projeto Microsoft.Identity.Web. Para mais detalhes consulte [Microsoft.Identity.Web - Modelo de projeto da API web](https://aka.ms/ms-id-web/webapi-project-templates)
@@ -134,7 +140,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
- Atualmente, os modelos core ASP.NET criam APIs web Azure Ative (Azure AD) que assinam em utilizadores dentro da sua organização ou em qualquer organização. Não assinam utilizadores com contas pessoais. No entanto, pode alterar os modelos para utilizar o ponto final da plataforma de identidade da Microsoft utilizando [o Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web), disponível como pacote NuGet, substituindo o código em *Startup.cs*:
+ Atualmente, os modelos core ASP.NET criam APIs web Azure Ative (Azure AD) que assinam em utilizadores dentro da sua organização ou em qualquer organização. Não assinam utilizadores com contas pessoais. No entanto, pode alterar os modelos para utilizar o ponto final da plataforma de identidade da Microsoft utilizando o [Microsoft.Identity.Web](https://www.nuget.org/packages/Microsoft.Identity.Web) substituindo o código em *Startup.cs*:
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -189,7 +195,7 @@ Os passos de validação são capturados em validadores, que são fornecidos pel
 
 Esta tabela descreve os validadores:
 
-| Validador | Descrição |
+| Validador | Description |
 |---------|---------|
 | **ValidarAudiência** | Garante que o token é para a aplicação que valida o token para si. |
 | **ValidarIssuer** | Garante que o símbolo foi emitido por uma STS de confiança, o que significa que é de alguém em quem confias. |
@@ -234,7 +240,7 @@ Também pode validar fichas de acesso recebidas em Funções Azure. Pode encontr
 - Node.js: [Azure-Samples/ms-identidade-nodejs-webapi-azurefunctions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)
 - Python: [Azure-Samples/ms-identity-python-webapi-azurefunctions)](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Verifique os âmbitos e as funções de aplicação no seu código](scenario-protected-web-api-verification-scope-app-roles.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: d08984165f59f15e9feb739a719d80e7dc3902a4
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 97d3b5030ed0ddb29fc439f4a0f6bcc7ff98b6ce
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905449"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268031"
 ---
 # <a name="azure-security-center-data-security"></a>Segurança de Dados do Centro de Segurança do Azure
 Para ajudar os clientes a prevenir, detetar e responder a ameaças, o Azure Security Center recolhe e processa dados relacionados com a segurança, incluindo informações de configuração, metadados, registos de eventos e muito mais. A Microsoft respeita diretrizes rigorosas de conformidade e segurança, desde a codificação à operação de um serviço.
@@ -76,7 +76,7 @@ Se não estiver a utilizar o Azure Defender, também pode desativar a recolha de
 
 Os clientes podem consumir dados relacionados com o Centro de Segurança a partir de fluxos de dados diferentes, conforme mostrado abaixo:
 
-* **Atividade Azul**: todos os alertas de segurança, pedidos aprovados do Centro de Segurança [just-in-time,](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) e todos os alertas gerados por [controlos de aplicação adaptativos](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
+* **Atividade Azul**: todos os alertas de segurança, pedidos aprovados do Centro de Segurança [just-in-time,](security-center-just-in-time.md) e todos os alertas gerados por [controlos de aplicação adaptativos](security-center-adaptive-application.md).
 * **Registos do Monitor Azure:** todos os alertas de segurança.
 
 

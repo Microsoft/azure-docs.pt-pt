@@ -1,14 +1,14 @@
 ---
 title: Segurança da rede para relé Azure
-description: Este artigo descreve como configurar o acesso a partir de pontos finais privados
+description: Este artigo descreve como usar as regras de firewall IP e pontos finais privados com o Azure Relay.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: bf49eff29385b5b72639420416df87b9187845e8
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3aa3ffd119f65ec5181b0c382472cc4ef3c8bac4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87532990"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263730"
 ---
 # <a name="network-security-for-azure-relay"></a>Segurança da rede para relé Azure 
 Este artigo descreve como utilizar as seguintes funcionalidades de segurança com a Azure Relay: 

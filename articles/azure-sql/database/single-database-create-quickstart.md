@@ -4,19 +4,19 @@ description: Crie uma única base de dados na Base de Dados Azure SQL utilizando
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: sqldbrb=1
+ms.custom: contperfq1
 ms.devlang: ''
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/03/2020
-ms.openlocfilehash: 8747e2f898b9810f50a08830728f1fab9a7f0548
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 6a0d81cc9954f934395bc275785bda34c55c35bd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488922"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263407"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Quickstart: Criar uma base de dados única Azure SQL Database
 
@@ -53,7 +53,7 @@ Para criar uma única base de dados no portal Azure este quickstart começa na p
    Selecione **OK**.
 
 1. Sair **Quero utilizar a piscina elástica SQL** definida para o **nº**.
-1. Em **Compute + armazenamento**, selecione **Configure database**.
+1. Em **Computação + armazenamento**, selecione a opção para **configurar o servidor**.
 1. Este arranque rápido utiliza uma base de dados sem servidor, por isso selecione **Serverless**e, em seguida, **selecione Apply**. 
 
       ![configure base de dados sem servidor](./media/single-database-create-quickstart/configure-database.png)

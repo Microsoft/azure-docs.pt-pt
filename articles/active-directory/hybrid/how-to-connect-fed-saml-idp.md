@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c341235a646fff28a16d30d1bf010932b02cf19
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 2cd95d01c9b49bb6002c00c805dc82dcf30941e3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660958"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295043"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Utilizar um Fornecedor de Identidade (IdP) SAML 2.0 para Início de Sessão Único
 
@@ -306,7 +306,7 @@ A Microsoft forneceu uma ferramenta que pode usar para testar o seu fornecedor d
 2.  Clique em Instalar Agora para começar a descarregar e instalar a ferramenta.
 3.  Selecione "Não posso criar uma federação com o Office 365, Azure, ou outros serviços que utilizem o Azure Ative Directory".
 4.  Assim que a ferramenta for descarregada e em funcionamento, verá a janela de Diagnóstico de Conectividade. A ferramenta irá adiá-lo através do teste da sua ligação à federação.
-5.  O Analisador de Conectividade abrirá o seu IDP SAML 2.0 para iniciar sinduções, insira as credenciais para o principal utilizador que está a testar: ![ SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
+5.  O Analisador de Conectividade abrirá o seu IDP SAML 2.0 para iniciar scriminação, insira as credenciais para o principal utilizador que está a testar: ![ Screenshot que mostra a janela de entrada para o seu IDP SAML 2.0.](./media/how-to-connect-fed-saml-idp/saml1.png)
 6.  Na janela de teste da Federação, deve introduzir um nome de conta e senha para o inquilino AZURE AD que está configurado para ser federado com o seu fornecedor de identidade SAML 2.0. A ferramenta tentará iniciar s presenciação utilizando essas credenciais e os resultados detalhados dos testes realizados durante a tentativa de entrada serão fornecidos como saída.
 ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
 7. Esta janela mostra um resultado falhado dos testes. Clicar em Rever os resultados detalhados mostrará informações sobre os resultados de cada teste que foi realizado. Também pode guardar os resultados para o disco para partilhá-los.

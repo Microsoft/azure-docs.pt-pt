@@ -1,8 +1,8 @@
 ---
 title: Python ADAL para guia de migração MSAL / Rio Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como migrar a sua app Azure Ative Directory Authentication Library (ADAL) Python para a Microsoft Authentication Library (MSAL) para Python.
 services: active-directory
-titleSuffix: Microsoft identity platform
 author: rayluo
 manager: CelesteDG
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: Python
 ms.workload: identity
 ms.date: 11/11/2019
 ms.author: rayluo
-ms.reviewer: rayluo, nacanuma, twhitney
+ms.reviewer: rayluo, nacanuma
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 8dcd2b55d177c533336842293b2aedaef6b4222c
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 574615a6b6e4b399605ca1863c0f764f814b2bd9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119917"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258307"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Guia de migração ADAL para MSAL para Python
 
@@ -50,7 +50,7 @@ Para obter mais detalhes sobre os diferentes tipos de âmbitos, consulte [permis
 
 ### <a name="error-handling"></a>Processamento de erros
 
-AZure Ative Directory Authentication Library (ADAL) para Python usa a exceção `AdalError` para indicar que houve um problema. MSAL para Python normalmente usa códigos de erro, em vez disso. Para obter mais informações, consulte [o MSAL para o tratamento de erros python](./msal-handling-exceptions.md?tabs=python).
+AZure Ative Directory Authentication Library (ADAL) para Python usa a exceção `AdalError` para indicar que houve um problema. MSAL para Python normalmente usa códigos de erro, em vez disso. Para obter mais informações, consulte  [o MSAL para o tratamento de erros python](./msal-handling-exceptions.md?tabs=python).
 
 ### <a name="api-changes"></a>Alterações na API
 
@@ -73,7 +73,7 @@ A tabela a seguir lista uma API em ADAL para Python, e a que deve ser utilizada 
 
 ## <a name="migrate-existing-refresh-tokens-for-msal-python"></a>Migrar fichas de atualização existentes para MSAL Python
 
-A biblioteca de autenticação microsoft (MSAL) abstrata o conceito de tokens de atualização. O MSAL Python fornece uma cache simbólica na memória por padrão para que não precise de armazenar, procurar ou atualizar fichas de atualização. Os utilizadores também verão menos pedidos de inscrição porque os tokens de atualização podem normalmente ser atualizados sem a intervenção do utilizador. Para obter mais informações sobre a cache simbólica, consulte [a serialização de cache de ficha personalizada em MSAL para Python](msal-python-token-cache-serialization.md).
+A Microsoft Authentication Library (MSAL) abstra o conceito de tokens de atualização. O MSAL Python fornece uma cache simbólica na memória por padrão para que não precise de armazenar, procurar ou atualizar fichas de atualização. Os utilizadores também verão menos pedidos de inscrição porque os tokens de atualização podem normalmente ser atualizados sem a intervenção do utilizador. Para obter mais informações sobre a cache simbólica, consulte [a serialização de cache de ficha personalizada em MSAL para Python](msal-python-token-cache-serialization.md).
 
 O seguinte código irá ajudá-lo a migrar os seus tokens de atualização geridos por outra biblioteca OAuth2 (incluindo, mas não se limitando a ADAL Python) para ser gerido pela MSAL para Python. Uma das razões para migrar esses tokens de atualização é evitar que os utilizadores existentes precisem de se inscrever novamente quando migrar a sua app para a MSAL para Python.
 

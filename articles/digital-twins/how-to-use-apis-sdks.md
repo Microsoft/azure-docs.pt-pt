@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: aac5c937ab2f80dcbe1567a3817b056a6285cf17
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 9812724b62717440160b9db8604a65ab787f3a9d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086679"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252668"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Utilizar as APIs e SDKs do Azure Digital Twins
 
@@ -61,6 +61,8 @@ Para utilizar as APIs do plano de dados:
 * Pode utilizar o **JavaScript** SDK. Para utilizar o JavaScript SDK...
    - pode ver e instalar o pacote a partir de npm: [Biblioteca de clientes Azure Azure Digital Twins para JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1).
    - pode ver a [documentação de referência do SDK.](https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true)
+* Pode utilizar o **JavaScript** SDK. Para utilizar o JavaScript SDK...
+   - pode ver e instalar a embalagem a partir de Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar)
 * Pode gerar um SDK para outro idioma utilizando o AutoRest. Siga as instruções em [*Como-a-: Crie SDKs personalizados para Gémeos Digitais Azure com AutoRest*](how-to-create-custom-sdks.md).
 
 Também pode exercitar APIs de plano de data interagindo com a Azure Digital Twins através do [CLI](how-to-use-cli.md).
@@ -298,7 +300,7 @@ A partir daqui, você pode ver as métricas para o seu exemplo e criar vistas pe
 ## <a name="next-steps"></a>Passos seguintes
 
 Veja como usar as APIs para configurar uma instância e autenticação de Gémeos Digitais Azure:
-* [*Como fazer: Configurar um caso e autenticação*](how-to-set-up-instance-scripted.md)
+* [*Como fazer: Configurar um caso e autenticação*](how-to-set-up-instance-portal.md)
 
 Ou, caminhe pelos degraus para criar uma aplicação de cliente como a usada neste como:
 * [*Tutorial: Código de uma aplicação de cliente*](tutorial-code.md)

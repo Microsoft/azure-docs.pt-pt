@@ -1,6 +1,6 @@
 ---
-title: Copiar dados no Armazenamento blob usando a Fábrica de Dados Azure
-description: Crie uma fábrica de dados do Azure para copiar dados de uma localização no armazenamento de Blobs do Azure para outra localização.
+title: Copiar dados no Blob Storage utilizando a Azure Data Factory
+description: Crie uma fábrica de dados Azure utilizando o PowerShell para copiar dados de um local no armazenamento de Azure Blob para outro local.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,14 +13,14 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 04/10/2020
 ms.author: jingwang
-ms.openlocfilehash: ad757e3d65d3094ca6883d747404906a871ed850
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ebcab92c40705bf108d5839a7e67aee345c1bbc7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81419345"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292392"
 ---
-# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Quickstart: Criar uma fábrica de dados Azure utilizando a PowerShell
+# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Quickstart: Create an Azure data factory using PowerShell (Guia de Início Rápido: Criar uma fábrica de dados do Azure com o PowerShell)
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -57,7 +57,7 @@ Instale os módulos do Azure PowerShell mais recentes ao seguir as instruções 
     Get-AzSubscription
     ```
 
-4. Se vir várias subscrições associadas à sua conta, execute o comando seguinte selecionar aquela com que pretende trabalhar. Substitua o **SubscriptionId** pelo ID da sua subscrição Azure:
+4. Se vir várias subscrições associadas à sua conta, execute o comando seguinte selecionar aquela com que pretende trabalhar. Substitua **a SubscriptionId** pelo ID da sua subscrição Azure:
 
     ```powershell
     Select-AzSubscription -SubscriptionId "<SubscriptionId>"
@@ -90,7 +90,7 @@ Instale os módulos do Azure PowerShell mais recentes ao seguir as instruções 
     $dataFactoryName = "ADFQuickStartFactory";
     ```
 
-4. Para criar a fábrica de dados, executar o seguinte **Set-AzDataFactoryV2** cmdlet, utilizando a propriedade Localização e ResourceGroupName a partir da variável $ResGrp:
+4. Para criar a fábrica de dados, executar o seguinte **Set-AzDataFactoryV2** cmdlet, utilizando a propriedade Localização e Grupo de RecursosName a partir da variável $ResGrp:
 
     ```powershell
     $DataFactory = Set-AzDataFactoryV2 -ResourceGroupName $ResGrp.ResourceGroupName `
@@ -115,8 +115,8 @@ Tenha em atenção os seguintes pontos:
 Crie os serviços ligados numa fábrica de dados para ligar os seus arquivos de dados e serviços de computação a essa fábrica de dados. Neste início rápido, vai criar um serviço ligado do Armazenamento do Azure que será utilizado não só como arquivo de origem como arquivo sink. O serviço ligado tem as informações de ligação utilizadas pelo serviço Data Factory em runtime para se ligar ao mesmo.
 
 >[!TIP]
->Neste arranque rápido, utiliza a *chave conta* como tipo de autenticação para a sua loja de dados, mas pode escolher outros métodos de autenticação suportados: *SAS URI,**Diretor de Serviço* e Identidade *Gerida,* se necessário. Consulte as secções correspondentes [neste artigo](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#linked-service-properties) para obter mais detalhes.
->Para armazenar segredos para lojas de dados de forma segura, também é recomendado usar um Cofre chave Azure. Consulte [este artigo](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) para ilustrações detalhadas.
+>Neste arranque rápido, utiliza *a tecla Conta* como tipo de autenticação para a sua loja de dados, mas pode escolher outros métodos de autenticação suportados: *SAS URI,**Service Principal* e Identidade *Gerida,* se necessário. Consulte as secções correspondentes [neste artigo](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#linked-service-properties) para obter mais detalhes.
+>Para armazenar segredos para lojas de dados de forma segura, também é recomendado usar um Cofre de Chaves Azure. Consulte [este artigo](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) para obter ilustrações detalhadas.
 
 1. Crie um ficheiro JSON com o nome **AzureStorageLinkedService.json** na pasta **C:\ADFv2QuickStartPSH** com o seguinte conteúdo: (crie a pasta ADFv2QuickStartPSH, caso ainda não exista.).
 
@@ -144,7 +144,7 @@ Crie os serviços ligados numa fábrica de dados para ligar os seus arquivos de 
     Set-Location 'C:\ADFv2QuickStartPSH'
     ```
 
-3. Executar o **set-AzDataFactoryV2LinkedService** cmdlet para criar o serviço ligado: **AzureStorageLinkedService**.
+3. Executar o **set-AzDataFactoryV2LinkedService** para criar o serviço ligado: **AzureStorageLinkedService**.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName `
@@ -163,10 +163,10 @@ Crie os serviços ligados numa fábrica de dados para ligar os seus arquivos de 
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 
-Neste procedimento, vai criar dois conjuntos de dados, **InputDataset** e **OutputDataset**. Estes conjuntos de dados são do tipo **Binary**. Dizem respeito ao serviço ligado do Armazenamento do Azure que criou na secção anterior.
+Neste procedimento, vai criar dois conjuntos de dados, **InputDataset** e **OutputDataset**. Estes conjuntos de dados são do tipo **Binário.** Dizem respeito ao serviço ligado do Armazenamento do Azure que criou na secção anterior.
 O conjunto de dados de entrada representa a origem de dados na pasta de entrada. Na definição do conjunto de dados de entrada, vai especificar o contentor de blobs (**adftutorial**), a pasta (**input**) e o ficheiro (**emp.txt**) que contêm os dados de origem.
 O conjunto de dados de saída representa os dados que são copiados para o destino. Na definição do conjunto de dados de saída, vai especificar o contentor de blobs (**adftutorial**), a pasta (**output**) e o ficheiro para o qual os dados vão ser copiados. 
-1. Crie um ficheiro JSON denominado **InputDataset.json** na pasta **C:\ADFv2QuickStartPSH,** com o seguinte conteúdo:
+1. Crie um ficheiro JSON nomeado **InputDataset.jsna** pasta **C:\ADFv2QuickStartPSH,** com o seguinte conteúdo:
 
     ```json
     {
@@ -190,7 +190,7 @@ O conjunto de dados de saída representa os dados que são copiados para o desti
     }
     ```
 
-2. Para criar o conjunto de dados: **InputDataset,** executar o **set-AzDataFactoryV2Dataset** cmdlet.
+2. Para criar o conjunto de dados: **InputDataset**, executar o **cmdlet Set-AzDataFactoryV2Dataset.**
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
@@ -208,7 +208,7 @@ O conjunto de dados de saída representa os dados que são copiados para o desti
     Properties        : Microsoft.Azure.Management.DataFactory.Models.BinaryDataset
     ```
 
-3. Repita os passos para criar o conjunto de dados de saída. Crie um ficheiro JSON chamado **OutputDataset.json** na pasta **C:\ADFv2QuickStartPSH,** com o seguinte conteúdo:
+3. Repita os passos para criar o conjunto de dados de saída. Crie um ficheiro JSON nomeado **OutputDataset.jsna** pasta **C:\ADFv2QuickStartPSH,** com o seguinte conteúdo:
 
     ```json
     {
@@ -231,7 +231,7 @@ O conjunto de dados de saída representa os dados que são copiados para o desti
     }
     ```
 
-4. Executar o **set-AzDataFactoryV2Dataset** cmdlet para criar o **OutDataset**.
+4. Executar o **cmdlet Set-AzDataFactoryV2Dataset** para criar o **OutDataset**.
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
@@ -306,7 +306,7 @@ Neste procedimento, cria-se um pipeline com uma atividade de cópia que utiliza 
     }
     ```
 
-2. Para criar o gasoduto: **Adfv2QuickStartPipeline**, Executar o **set-AzDataFactoryV2Pipeline** cmdlet.
+2. Para criar o oleoduto: **Adfv2QuickStartPipeline**, executar o **cmdlet Set-AzDataFactoryV2Pipeline.**
 
     ```powershell
     $DFPipeLine = Set-AzDataFactoryV2Pipeline `
@@ -318,9 +318,9 @@ Neste procedimento, cria-se um pipeline com uma atividade de cópia que utiliza 
 
 ## <a name="create-a-pipeline-run"></a>Criar uma execução de pipeline
 
-Neste passo, cria-se uma corrida de gasodutos.
+Neste passo, cria-se uma corrida ao oleoduto.
 
-Executar o **cmdlet Invoke-AzDataFactoryV2Pipeline** para criar uma execução de gasoduto. O cmdlet devolve o ID de execução do pipeline para monitorização futura.
+Executar o **cmdlet Invoke-AzDataFactoryV2Pipeline** para criar uma corrida ao gasoduto. O cmdlet devolve o ID de execução do pipeline para monitorização futura.
 
   ```powershell
 $RunId = Invoke-AzDataFactoryV2Pipeline `

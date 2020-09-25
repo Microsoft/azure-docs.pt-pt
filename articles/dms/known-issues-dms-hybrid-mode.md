@@ -9,14 +9,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 5347cda14773583bcfe92a702e59d4967ce2ea09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 819fe5ced6c91819c817065305a31fca456ea5c0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196282"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291848"
 ---
 # <a name="known-issuesmigration-limitations-with-using-hybrid-mode"></a>Questões conhecidas/limitações de migração com a utilização do modo híbrido
 

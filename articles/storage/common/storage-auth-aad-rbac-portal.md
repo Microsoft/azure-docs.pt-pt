@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 09/23/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 21120239c44dbdd812dfb3d3208990db4372ec29
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 7c463beb7874e0b66e2a45a1675484f19c4fab34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828018"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249671"
 ---
 # <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Utilize o portal Azure para atribuir uma função Azure para acesso a dados de bolhas e filas
 
@@ -59,16 +59,16 @@ O procedimento aqui indicado atribui uma função a um contentor, mas pode segui
 1. Localize o recipiente para o qual pretende atribuir uma função e apresente as definições do recipiente.
 1. Selecione **o controlo de acesso (IAM)** para exibir as definições de controlo de acesso para o recipiente. Selecione o **separador funções** para ver a lista de atribuições de funções.
 
-    ![Screenshot mostrando definições de controlo de acesso ao contentor](media/storage-auth-aad-rbac-portal/portal-access-control-for-storage.png)
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/portal-access-control-container.png" alt-text="Screenshot mostrando definições de controlo de acesso ao contentor":::
 
 1. Clique no botão **de atribuição de funções Adicionar** para adicionar um novo papel.
 1. Na janela **de atribuição de funções Adicionar,** selecione a função de Armazenamento Azure que pretende atribuir. Em seguida, procure para localizar o principal de segurança ao qual quer atribuir esse papel.
 
-    ![Screenshot mostrando como atribuir um papel de Azure](media/storage-auth-aad-rbac-portal/add-rbac-role.png)
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/add-rbac-role.png" alt-text="Screenshot mostrando como atribuir um papel de Azure":::
 
-1. Clique em **Guardar**. A identidade a quem atribuiu o papel aparece listada nessa função. Por exemplo, a seguinte imagem mostra que o utilizador adicionado agora leu permissões aos dados no contentor denominado *amostra-contentor*.
+1. Clique em **Save** (Guardar). A identidade a quem atribuiu o papel aparece listada nessa função. Por exemplo, a seguinte imagem mostra que o utilizador adicionado agora leu permissões aos dados no contentor denominado *amostra-contentor*.
 
-    ![Screenshot mostrando lista de utilizadores atribuídos a uma função](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
+    :::image type="content" source="media/storage-auth-aad-rbac-portal/container-scoped-role.png" alt-text="Screenshot mostrando lista de utilizadores atribuídos a uma função":::
 
 Pode seguir passos semelhantes para atribuir uma função a uma conta de armazenamento, grupo de recursos ou subscrição.
 

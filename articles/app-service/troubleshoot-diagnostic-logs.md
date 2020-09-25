@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 5eaf107861d20cea395209418c343d25461b3836
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: 6dffe2c6145e1596d92335defdc764c3c7bc3fa0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469937"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264376"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Permitir o início de sessão de diagnóstico de apps no Azure App Service
 ## <a name="overview"></a>Descrição geral
@@ -23,7 +23,7 @@ Este artigo utiliza o [portal Azure](https://portal.azure.com) e o Azure CLI par
 >
 >
 
-|Tipo|Plataforma|Localização|Descrição|
+|Tipo|Plataforma|Localização|Description|
 |-|-|-|-|
 | Registo de aplicação | Windows, Linux | Sistema de ficheiros do Serviço de Aplicações e/ou bolhas de armazenamento Azure | Regista mensagens geradas pelo seu código de aplicação. As mensagens podem ser geradas pela estrutura web que escolher, ou pelo seu código de aplicação diretamente utilizando o padrão de registo padrão do seu idioma. A cada mensagem é atribuída uma das seguintes categorias: **Critical,** **Error**, **Warning**, **Info**, **Debug**e **Trace**. Pode selecionar o quão verbose pretende que a sessão seja, definindo o nível de gravidade quando ativa a sessão de registo de aplicações.|
 | Início de sessão do servidor web| Windows | Sistema de ficheiros do Serviço de Aplicações ou bolhas de armazenamento Azure| Dados de pedidos de HTTP brutos no [formato de ficheiro de registo estendido W3C](/windows/desktop/Http/w3c-logging). Cada mensagem de registo inclui dados como o método HTTP, recurso URI, COMPUTADOR DO Cliente, porta do cliente, agente do utilizador, código de resposta, e assim por diante. |
@@ -166,7 +166,7 @@ Para aplicações Linux/contentor, o ficheiro ZIP contém registos de saída da 
 
 Para aplicações windows, o ficheiro ZIP contém o conteúdo do diretório *D:\Home\LogFiles* no sistema de ficheiros Do Serviço de Aplicações. Tem a seguinte estrutura:
 
-| Tipo de registo | Diretório | Descrição |
+| Tipo de registo | Diretório | Description |
 |-|-|-|
 | **Registos de aplicações** |*/Registos/Aplicação/* | Contém um ou mais ficheiros de texto. O formato das mensagens de registo depende do fornecedor de registo que utiliza. |
 | **Rastreios de pedidos falhados** | */LogFiles/W3SVC########## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ## ##* | Contém ficheiros XML e um ficheiro XSL. Pode ver os ficheiros XML formatados no navegador. |
@@ -185,16 +185,16 @@ Com a nova integração do [Azure Monitor,](https://aka.ms/appsvcblog-azmon)pode
 
 A tabela a seguir mostra os tipos e descrições de registos suportados: 
 
-| Tipo de registo | Suporte ao Windows | Suporte Linux (Docker) | Descrição |
-|-|-|-|
-| AppServiceConsoleLogs | TBA | Yes | Saída padrão e erro padrão |
-| AppServiceHTTPLogs | Yes | Yes | Registos de servidores web |
-| AppServiceEnvironmentPlatformLogs | Yes | Yes | Ambiente de Serviço de Aplicações: escala, alterações de configuração e registos de estado|
-| AppServiceAuditLogs | Yes | Yes | Atividade de login via FTP e Kudu |
-| AppServiceFileAuditLogs | Yes | TBD | Alterações de ficheiros es feitas no conteúdo do site; apenas disponível para nível Premium e acima |
-| AppServiceAppLogs | TBA | Java SE & Tomcat | Registos de aplicações |
-| AppServiceIPSecAuditLogs  | Yes | Yes | Pedidos de Regras de IP |
-| AppServicePlatformLogs  | TBA | Yes | Troncos de contentores |
+| Tipo de registo | Windows | Recipiente windows | Linux | Recipiente Linux | Description |
+|-|-|-|-|-|-|
+| AppServiceConsoleLogs | TBA | TBA | Yes | Yes | Saída padrão e erro padrão |
+| AppServiceHTTPLogs | Yes | TBA | Yes | Yes | Registos de servidores web |
+| AppServiceEnvironmentPlatformLogs | Yes | N/D | Yes | Yes | Ambiente de Serviço de Aplicações: escala, alterações de configuração e registos de estado|
+| AppServiceAuditLogs | Yes | TBA | Yes | Yes | Atividade de login via FTP e Kudu |
+| AppServiceFileAuditLogs | Yes | TBA | TBA | TBA | Alterações de ficheiros es feitas no conteúdo do site; apenas disponível para nível Premium e acima |
+| AppServiceAppLogs | ASP .NET | TBA | Java SE & Tomcat | Java SE & Tomcat | Registos de aplicações |
+| AppServiceIPSecAuditLogs  | Yes | TBA | Yes | Yes | Pedidos de Regras de IP |
+| AppServicePlatformLogs  | TBA | TBA | Yes | Yes | Troncos de operação de contentores |
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Próximos passos
 * [Registos de consulta com monitor Azure](../azure-monitor/log-query/log-query-overview.md)

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/08/2019
+ms.date: 09/22/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2f1099a3564a5891a69429d78bda8177094538e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10c460775bcb63028f03d0e8d0b1f7ed1507cdb4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388022"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259463"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configurar inscrição e inscrição com uma conta LinkedIn utilizando o Azure Ative Directory B2C
 
@@ -25,11 +25,14 @@ ms.locfileid: "85388022"
 Para utilizar uma conta LinkedIn como fornecedor de [identidade](authorization-code-flow.md) no Azure Ative Directory B2C (Azure AD B2C), precisa de criar uma aplicação no seu inquilino que a represente. Se ainda não tiver uma conta LinkedIn, pode inscrever-se em [https://www.linkedin.com/](https://www.linkedin.com/) .
 
 1. Inscreva-se no site do [LinkedIn Developers](https://www.developer.linkedin.com/) com as suas credenciais de conta LinkedIn.
-1. Selecione **as minhas aplicações**e, em seguida, clique em **Criar Aplicação**.
-1. Insira **o nome da empresa**, Nome da **Aplicação, Descrição da Aplicação,** Logotipo **da Aplicação, Utilização de Aplicações,** **URL do site,** **e-mail de negócios**e **telefone comercial.** **Application Name** **Application Logo**
-1. Concorde com os **Termos de Utilização da API do LinkedIn** e clique em **Enviar.**
-1. Copiar os valores do **ID do Cliente** e **do Cliente Secreto.** Pode encontrá-los em **Chaves de Autenticação.** Você precisará de ambos para configurar o LinkedIn como um fornecedor de identidade no seu inquilino. **A Client Secret** é uma importante credencial de segurança.
-1. Introduza `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` em **URLs de redirecionamento autorizados**. `your-tenant-name`Substitua-o pelo nome do seu inquilino. Você precisa usar todas as letras minúsculas ao introduzir o seu nome de inquilino, mesmo que o inquilino seja definido com letras maiúsculas em Azure AD B2C. **Selecione Adicionar**e, em seguida, clique em **Update**.
+1. Selecione **as minhas apps**e, em seguida, clique em **Criar app**.
+1. Insira **o nome da App**, **LinkedIn Page,** **URL de política de privacidade**e logotipo da **App.**
+1. Concorde com os **Termos de Utilização da API do** LinkedIn e clique em Criar **app.**
+1. Selecione o separador **Auth.** Em **Teclas de Autenticação,** copie os valores para **Identificação do Cliente** e Segredo do **Cliente.** Vai precisar de ambos para configurar o LinkedIn como fornecedor de identidade no seu inquilino. **A Client Secret** é uma importante credencial de segurança.
+1. Selecione o lápis de edição ao lado **de URLs de redirecionamento autorizados para a sua aplicação**e, em seguida, selecione **Adicionar URL de redirecionamento**. `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`Insira, substituindo `your-tenant-name` pelo nome do seu inquilino. Você precisa usar todas as letras minúsculas ao introduzir o seu nome de inquilino, mesmo que o inquilino seja definido com letras maiúsculas em Azure AD B2C. Selecione **Atualizar**.
+2. Por padrão, a sua aplicação LinkedIn não está aprovada para os âmbitos relacionados com a inscrição. Para solicitar uma revisão, selecione o separador **Produtos** e, em seguida, selecione **Iniciar sôs com o LinkedIn**. Quando a revisão estiver concluída, os âmbitos necessários serão adicionados à sua aplicação.
+   > [!NOTE]
+   > Pode ver os âmbitos que são atualmente permitidos para a sua aplicação no separador **Auth** na secção **de âmbitos OAuth 2.0.**
 
 ## <a name="configure-a-linkedin-account-as-an-identity-provider"></a>Configurar uma conta LinkedIn como fornecedor de identidade
 

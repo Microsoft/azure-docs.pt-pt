@@ -7,19 +7,22 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 03/04/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: bac476cfbe78ad6fcf73b6a2319581cc60524a57
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: 052a28dc69bf5c758133ca98366efc63105f4a56
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432561"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289876"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Hospedar um site estático no Azure Storage
 
 Pode servir conteúdo estático (HTML, CSS, JavaScript e ficheiros de imagem) diretamente a partir de um recipiente numa conta GPv2 de armazenamento Azure. Para saber mais, consulte [o site Static hospedado no Azure Storage.](storage-blob-static-website.md)
 
 Este artigo mostra-lhe como permitir hospedagem de websites estáticos utilizando o portal Azure, o Azure CLI ou PowerShell.
+
+> [!NOTE]
+> Certifique-se de criar uma conta de armazenamento v2 Standard para fins gerais . Os sites estáticos não estão disponíveis em qualquer outro tipo de conta de armazenamento.
 
 ## <a name="enable-static-website-hosting"></a>Ativar hospedagem estática no site
 
@@ -35,7 +38,7 @@ O alojamento estático do site é uma funcionalidade que tem de ativar na conta 
 
 4. Selecione **Ativado** para permitir hospedagem estática do site para a conta de armazenamento.
 
-5. No campo **de nome do documento Index,** especifique uma página de índice predefinido (por exemplo:index.htm*l*). 
+5. No campo **de nome do documento Index,** especifique uma página de índice predefinido (por exemplo:index.htm* l*). 
 
    A página de índice predefinido é apresentada quando um utilizador navega para a raiz do seu website estático.  
 
@@ -273,7 +276,7 @@ Uma vez ativadas as métricas, as estatísticas de tráfego sobre ficheiros no *
    >[!NOTE]
    > A caixa de verificação **GetWebContent** só aparece se o membro da API for utilizado dentro de um determinado prazo. O portal apenas apresenta membros da API utilizados dentro de um determinado prazo para se concentrar apenas nos membros que devolvem dados. Se não encontrar um membro específico da API nesta lista, expanda o prazo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda a configurar um domínio personalizado com o seu website estático. Consulte [um domínio personalizado para um ponto final de armazenamento Azure Blob](storage-custom-domain-name.md).
 

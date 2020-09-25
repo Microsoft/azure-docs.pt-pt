@@ -1,6 +1,6 @@
 ---
 title: Tutorial para configurar um tempo de integração Azure-SSIS para aderir a uma rede virtual
-description: Aprenda a juntar-se a um tempo de integração Azure-SSIS a uma rede virtual Azure.
+description: Aprenda a aderir a um tempo de integração Azure-SSIS para se juntar a uma rede virtual Azure.
 services: data-factory
 documentationcenter: ''
 author: chugugrace
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 0b83049e154afc48334cc6deb576c700ed71d844
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef2bd2fa9badc7c299099b647e1f67c50e997024
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84118148"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292308"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Configure um tempo de integração de servidores Azure-SQL (SSIS) para aderir a uma rede virtual
 
@@ -38,7 +38,7 @@ Os passos incluem:
     - Utilize a função de contribuinte de rede incorporada. Esta função vem com a permissão _Microsoft.Network/ \* _ que tem um âmbito muito maior do que o necessário.
     - Crie uma função personalizada que inclua apenas a necessária _microsoft.network/virtualNetworks/ \* /join/action_ permission. Se também pretender trazer os seus próprios endereços IP públicos para Azure-SSIS IR ao juntar-se a uma rede virtual Azure Resource Manager, por favor inclua também _a Microsoft.Network/publicIPAddresses/*/join/action_ permission in the role.
 
-- **Rede virtual.**
+- **Rede virtual**.
 
     - Se não tiver uma rede virtual, [crie uma rede virtual utilizando o portal Azure](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
 

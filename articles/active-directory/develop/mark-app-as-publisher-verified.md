@@ -12,16 +12,16 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: acb4b601118b341d14bc5e7c549d22eef23b2cc2
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 80731421b6a0d3f5bdabf117a7239bafa056e652
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085710"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258341"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>Marcar a sua aplicação como verificada pelo publicador
 
-Quando uma aplicação é marcada como editora verificada, significa que o editor verificou a sua identidade utilizando a sua conta Microsoft Partner Network (MPN) e associou esta conta MPN ao seu registo de candidatura. Este artigo descreve como completar o processo de verificação do [editor.](publisher-verification-overview.md)
+Quando um registo de aplicações tem um editor verificado, significa que o editor da aplicação [verificou](/partner-center/verification-responses) a sua identidade utilizando a sua conta Microsoft Partner Network (MPN) e associou esta conta MPN ao seu registo de aplicações. Este artigo descreve como completar o processo de verificação do [editor.](publisher-verification-overview.md)
 
 ## <a name="quickstart"></a>Início Rápido
 Se já está inscrito na Microsoft Partner Network (MPN) e cumpriu os [requisitos prévios,](publisher-verification-overview.md#requirements)pode começar imediatamente: 
@@ -42,9 +42,9 @@ Certifique-se de que cumpriu os [requisitos prévios,](publisher-verification-ov
 
 1. Certifique-se de que está assinado na [utilização de autenticação multi-factor](../fundamentals/concept-fundamentals-mfa-get-started.md) para uma conta organizacional (Azure AD) que está autorizada a escrumar alterações nas aplicações que pretende marcar como Editora Verificada e na Conta MPN no Partner Center.
 
-    - Em Azure AD este utilizador deve ser membro de uma das seguintes funções: Application Admin, Cloud Application Admin, Global Admin. 
+    - Em Azure AD este utilizador deve ser membro de uma das [seguintes funções](../users-groups-roles/directory-assign-admin-roles.md): Administrador de Aplicação, Cloud Application Admin, Global Admin. 
 
-    - No Partner Center este utilizador deve ter as seguintes funções: MPN Admin, Accounts Admin ou um Administrador Global (este é um papel partilhado dominado no Azure AD). 
+    - No Partner Center este utilizador deve ter as seguintes [funções](/partner-center/permissions-overview): MPN Admin, Accounts Admin ou um Administrador Global (este é um papel partilhado dominado em Azure AD). 
 
 1. Navegue para o portal de Registo de Aplicações:  
 

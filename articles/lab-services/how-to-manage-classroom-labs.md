@@ -3,12 +3,12 @@ title: Gerir laboratórios de salas de aula nos Serviços Azure Lab Microsoft Do
 description: Aprenda a criar e configurar um laboratório de sala de aula, ver todos os laboratórios de sala de aula, partilhar o link de registo com um utilizador de laboratório ou apagar um laboratório.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: ed5eb05fa586e19fdf684a4f88b56e7b0185baf4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a251f668508ee0b727c5e2ace65d1ea4eb5123e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445394"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251682"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerir laboratórios de salas de aula em Azure Lab Services 
 Este artigo descreve como criar e apagar um laboratório de sala de aula. Também mostra como ver todos os laboratórios de sala de aula numa conta de laboratório. 
@@ -32,7 +32,7 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
     1. Reveja o **preço total por hora** exibido na página. 
     1. Selecione **Guardar**.
 
-        ![Nova janela do laboratório](./media/tutorial-setup-classroom-lab/new-lab-window.png)
+        ![Screenshot que mostra a janela do "Novo Laboratório".](./media/tutorial-setup-classroom-lab/new-lab-window.png)
 
         > [!NOTE]
         > Você vê uma opção para selecionar um local para o seu laboratório se a conta do laboratório foi configurada para permitir que o criador do laboratório escolha a opção [de localização](allow-lab-creator-pick-lab-location.md) do laboratório. 
@@ -89,7 +89,7 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 
 ### <a name="vm-sizes"></a>Tamanhos de VM  
 
-| Tamanho | Núcleos | RAM | Descrição | 
+| Tamanho | Núcleos | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
 | Pequeno | 2 | 3,5 GB | Este tamanho é mais adequado para linha de comando, abertura de navegador, servidores web de baixo tráfego, bases de dados pequenas a médias. |
 | Médio | 4 | 7 GB | Este tamanho é mais adequado para bases de dados relacionais, caching na memória e análise | 
@@ -130,7 +130,7 @@ Também pode criar um novo laboratório usando o **novo laboratório** nesta lis
 
 Para mudar para outra conta de laboratório, selecione a entrega ao lado da conta do laboratório e selecione a outra conta de laboratório. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 - [Como dono de laboratório, crie e publique modelos](how-to-create-manage-template.md)

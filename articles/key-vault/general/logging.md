@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0ed50b8d128386008a73eb4d1a8b412a42fdb945
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 0364495d751465f644686824758992d47f0b8bdf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89485460"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290658"
 ---
 # <a name="azure-key-vault-logging"></a>Registo do Azure Key Vault
 
@@ -133,6 +133,7 @@ O que é registado:
   * Criar, modificar ou apagar estas chaves ou segredos.
   * Assinar, verificar, encriptar, desencriptar, embrulhar e desembrulhar chaves, obter segredos e listar chaves e segredos (e as suas versões).
 * Pedidos não autenticados que resultam numa resposta 401. Exemplos são pedidos que não têm um símbolo ao portador, que são mal formados ou expirados, ou que têm um token inválido.  
+* Eventos de notificação para quase expiração, política de acesso expirado e de acesso ao cofre alterado (o novo evento de versão não está registado). Os eventos são registados independentemente de existir uma subscrição de eventos criada no cofre de chaves. Para mais informações ver, [esquema de eventos da Grade de Eventos para Key Vault](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)
 
 ## <a name="enable-logging-using-azure-cli"></a>Ativar o registo através do Azure CLI
 
@@ -265,9 +266,9 @@ Os blobs individuais são armazenadas como texto, formatados como um blob JSON. 
 
 A tabela que se segue lista os nomes e descrições do campo:
 
-| Nome do campo | Descrição |
+| Nome do campo | Description |
 | --- | --- |
-| **Hora** |Data e hora na UTC. |
+| **hora** |Data e hora na UTC. |
 | **recursosId** |Identificação de recursos do Azure Resource Manager. Para os registos do Cofre de Chaves, este é sempre o ID de recurso key Vault. |
 | **operaçãoName** |Nome da operação, conforme documentada na tabela seguinte. |
 | **operaçãoVer** |Versão REST API solicitada pelo cliente. |
@@ -288,6 +289,8 @@ Os valores de campo **operationName** estão no formato *ObjectVerb.* Por exempl
 * Todas as operações secretas têm o `Secret<action>` formato, tais como `SecretGet` e `SecretListVersions` .
 
 A tabela a seguir lista os valores do nome de **operação** e os comandos correspondentes da API REST:
+
+### <a name="operation-names-table"></a>Tabela de nomes de operação
 
 | operationName | Comando API REST |
 | --- | --- |
@@ -318,6 +321,13 @@ A tabela a seguir lista os valores do nome de **operação** e os comandos corre
 | **SecretDelete** |[Eliminar um segredo](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
 | **SecretList** |[Lista os segredos num cofre](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
 | **SecretListVersions** |[Lista as versões de um segredo](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **VaultAccessPolicyChangedEventGridNotification** | A política de acesso ao cofre mudou o evento publicado |
+| **SecretNearExpiryEventGridNotification** |Evento secreto perto da expiração publicado |
+| **SecretExpiredEventGridNotification** |Evento secreto expirado publicado |
+| **KeyNearExpiryEventGridNotification** |Chave perto do evento de expiração publicado |
+| **KeyExpiredEventGridNotification** |Evento expirado chave publicado |
+| **CertificadoNearExpiryEventGridNotification** |Certificado perto do evento de validade publicado |
+| **CertificadoExpiredEventGridNotification** |Certificado vencida evento publicado |
 
 ## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Utilize registos do Monitor Azure
 

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: dc467eebbd7346777765af7143d13c76627ab648
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 166d598528d8fe38e2bc22b76c659326c5e0ba45
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077712"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288788"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Conecte-se ao SQL Synapse com o SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Antes de começar, certifique-se de ter os seguintes pré-requisitos:
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
 * Para piscina SQL, você precisa de um armazém de dados existente. Para criar um, consulte [Criar uma piscina SQL.](../quickstart-create-sql-pool-portal.md) Para o SQL a pedido, um já está a provisionado no seu espaço de trabalho no momento da criação. 
-* O nome do Servidor SQL totalmente qualificado. Para encontrar isto, consulte [Connect to Synapse SQL](connect-overview.md).
+* O nome do Servidor SQL totalmente qualificado. Para encontrar este nome, consulte [Connect to Synapse SQL](connect-overview.md).
 
 ## <a name="connect"></a>Ligar
 
@@ -52,7 +52,7 @@ Para ligar ao Sinaapse SQL utilizando a piscina SQL, siga estes passos:
 1. Open SQL Server Management Studio (SSMS). 
 1. Na caixa de diálogo **'Ligar ao Servidor',** preencha os campos e, em seguida, selecione **Connect**: 
   
-    ![Ligar ao Servidor](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
+    ![Ligue-se ao Servidor 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
    * **Nome do servidor**: Introduza o nome do **servidor** previamente identificado.
    * **Autenticação**: Escolha um tipo de autenticação, como autenticação do **servidor SQL** ou **autenticação integrada do Diretório Ativo.**
@@ -60,7 +60,7 @@ Para ligar ao Sinaapse SQL utilizando a piscina SQL, siga estes passos:
 
 1. Expanda o seu Servidor Azure SQL no **Explorador de Objetos**. Pode ver as bases de dados associadas ao servidor, como a base de dados AdventureWorksDW da amostra. Pode expandir a base de dados para ver as tabelas:
    
-    ![Explorar AdventureWorksDW](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
+    ![Explore AdventureWorksDW 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
 ### <a name="sql-on-demand-preview"></a>SQL on demand (pré-visualização)
@@ -70,16 +70,16 @@ Para ligar ao SQL synapse utilizando SQL a pedido, siga estes passos:
 1. Open SQL Server Management Studio (SSMS).
 1. Na caixa de diálogo **'Ligar ao Servidor',** preencha os campos e, em seguida, selecione **Connect**: 
    
-    ![Ligar ao Servidor](./media/get-started-ssms/connect-object-explorer1.png)
+    ![Ligar ao Servidor 2](./media/get-started-ssms/connect-object-explorer1.png)
    
    * **Nome do servidor**: Introduza o nome do **servidor** previamente identificado.
    * **Autenticação**: Escolha um tipo de autenticação, como autenticação do **servidor SQL** ou **autenticação integrada do Diretório Ativo:**
    * **Nome do utilizador** e **palavra-passe**: Introduza o nome de utilizador e a palavra-passe se a autenticação do servidor SQL tiver sido selecionada acima.
-   * Clique em **Ligar**.
+   * Selecione **Ligar**.
 
 4. Para explorar, expanda o servidor SQL do Azure. Pode ver as bases de dados associadas ao servidor. Expanda a *demonstração* para ver o conteúdo na sua base de dados de amostras.
    
-    ![Explorar AdventureWorksDW](./media/get-started-ssms/explore-tables.png)
+    ![Explore AdventureWorksDW 2](./media/get-started-ssms/explore-tables.png)
 
 
 ## <a name="run-a-sample-query"></a>Executar uma consulta de exemplo
@@ -91,18 +91,18 @@ Agora que foi estabelecida uma ligação de base de dados, pode consultar os dad
 1. Clique com o botão direito do rato na base de dados no SQL Server Object Explorer.
 2. Selecione **Nova Consulta**. É aberta uma nova janela de consulta.
    
-    ![Nova consulta](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/new-query.png)
-3. Copie esta consulta T-SQL na janela de consulta:
+    ![Nova consulta 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/new-query.png)
+3. Copie a seguinte consulta T-SQL na janela de consulta:
    
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Execute a consulta. Para isso, clique `Execute` ou utilize o seguinte atalho: `F5` .
+4. Executar a consulta selecionando `Execute` ou utilizar o seguinte atalho: `F5` .
    
-    ![Executar consulta](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png)
-5. Veja os resultados da consulta. Neste exemplo, a tabela FactInternetSales tem 60398 linhas.
+    ![Consulta de execução 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png)
+5. Veja os resultados da consulta. No exemplo seguinte, a tabela FactInternetSales conta com 60398 linhas.
    
-    ![Resultados da consulta](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
+    ![Resultados de consulta 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
 
 ### <a name="sql-on-demand"></a>SQL a pedido
 
@@ -111,18 +111,18 @@ Agora que estabeleceu uma ligação de base de dados, pode consultar os dados.
 1. Clique com o botão direito do rato na base de dados no SQL Server Object Explorer.
 2. Selecione **Nova Consulta**. É aberta uma nova janela de consulta.
    
-    ![Nova consulta](./media/get-started-ssms/new-query.png)
+    ![Nova consulta 2](./media/get-started-ssms/new-query.png)
 3. Copie a seguinte consulta T-SQL na janela de consulta:
    
     ```sql
     SELECT COUNT(*) FROM demo.dbo.usPopulationView
     ```
-4. Execute a consulta. Para isso, clique `Execute` ou utilize o seguinte atalho: `F5` .
+4. Executar a consulta selecionando `Execute` ou utilizar o seguinte atalho: `F5` .
    
-    ![Executar consulta](./media/get-started-ssms/execute-query.png)
+    ![Consulta de execução 2](./media/get-started-ssms/execute-query.png)
 5. Veja os resultados da consulta. Neste exemplo, a vista usPopulationView tem 3664512 linhas.
    
-    ![Resultados da consulta](./media/get-started-ssms/results.png)
+    ![Resultados de consulta 2](./media/get-started-ssms/results.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 Agora que pode ligar e consultar, tente [visualizar os dados com o Power BI](get-started-power-bi-professional.md).

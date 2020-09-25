@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82ab9bc0159528446a9de95769f1e433f03acb56
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 03069bc37333cbd26dfe4f40ce4496f3afe768ed
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601950"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266047"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Como: Requer a política de proteção de aplicações e uma aplicação de cliente aprovada para acesso a aplicações na nuvem com Acesso Condicional
 
@@ -51,7 +51,7 @@ As organizações devem completar os seguintes passos para exigir a utilização
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir**, selecione **Todos os utilizadores** ou os **Utilizadores e grupos específicos** a que pretende aplicar esta política. 
    1. Selecione **Concluído**.
-1. Em **aplicativos ou ações cloud**  >  **Inclua**, selecione **Office 365 (pré-visualização)**.
+1. No **âmbito de aplicações ou ações cloud**  >  **Inclua**, selecione Office **365**.
 1. Em **Condições**, selecione **plataformas do Dispositivo**.
    1. **Desconfigure** para **Sim**.
    1. Incluir **Android** e **iOS.**
@@ -102,7 +102,7 @@ As organizações devem completar os seguintes passos para exigir a utilização
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir**, selecione **Todos os utilizadores** ou os **Utilizadores e grupos específicos** a que pretende aplicar esta política. 
    1. Selecione **Concluído**.
-1. Em **aplicativos ou ações cloud**  >  **Inclua**, selecione **Office 365 (pré-visualização)**.
+1. No **âmbito de aplicações ou ações cloud**  >  **Inclua**, selecione Office **365**.
 1. Em **Condições**, selecione **plataformas do Dispositivo**.
    1. **Desconfigure** para **Sim**.
    1. Incluir **Android** e **iOS.**

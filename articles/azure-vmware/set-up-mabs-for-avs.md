@@ -3,16 +3,16 @@ title: Configurar o Servidor de Backup Azure para a Solução VMware Azure
 description: Confende o ambiente Azure VMware Solution para fazer backup de máquinas virtuais utilizando o Azure Backup Server.
 ms.topic: how-to
 ms.date: 06/09/2020
-ms.openlocfilehash: 0dd2b16254e697a08d0ff542a5ddcb3fc7e4103d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 516f4a2fa92740897e186a782e276fc6d40fc925
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750613"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91255014"
 ---
 # <a name="set-up-azure-backup-server-for-azure-vmware-solution"></a>Configurar o Servidor de Backup Azure para a Solução VMware Azure
 
-O Azure Backup Server é um sistema robusto de backup e recuperação da empresa que contribui para a estratégia de continuidade e recuperação de desastres (BCDR). Durante a pré-visualização da Solução VMware Azure, só pode configurar a cópia de segurança de nível de máquina virtual (VM) utilizando o Azure Backup Server. 
+O Azure Backup Server é um sistema robusto de backup e recuperação da empresa que contribui para a estratégia de continuidade e recuperação de desastres (BCDR). Durante a Solução Azure VMware, só pode configurar a cópia de segurança de nível de máquina virtual (VM) utilizando o Azure Backup Server. 
 
 O Azure Backup Server pode armazenar dados de backup para:
 
@@ -34,7 +34,7 @@ Neste artigo, ajudamo-lo a preparar o seu ambiente de Solução VMware Azure par
 - **Cópia de segurança sem agente:** O Azure Backup Server não necessita de um agente para ser instalado no servidor vCenter ou ESXi para fazer a cópia de segurança da máquina virtual. Em vez disso, basta fornecer o endereço IP ou o nome de domínio totalmente qualificado (FQDN) e as credenciais de inscrição utilizadas para autenticar o servidor VMware com O Servidor de Backup Azure.
 - **Cópia de segurança integrada na nuvem:** O Azure Backup Server protege as cargas de trabalho do disco e da nuvem. O fluxo de trabalho de backup e recuperação do Azure Backup Server ajuda-o a gerir a retenção a longo prazo e a cópia de segurança fora do local.
 - **Detetar e proteger VMs geridos por vCenter:** O Azure Backup Server deteta e protege os VM implantados num servidor vCenter ou ESXi. O Azure Backup Server também deteta VMs geridos pelo vCenter para que possa proteger grandes implementações.
-- **Autoproteção ao nível da pasta:** vCenter permite organizar os seus VMs em pastas VM. O Azure Backup Server deteta estas pastas e pode usá-las para proteger VMs ao nível da pasta, que inclui todas as subpastas. Ao proteger as pastas, o Azure Backup Server não só protege os VMs nessa pasta como também protege os VMs adicionados mais tarde. O Azure Backup Server deteta diariamente novos VMs e protege-os automaticamente. Ao organizar os seus VMs em pastas recursivas, o Azure Backup Server deteta e protege automaticamente os novos VMs implantados nas pastas recursivas.
+- **Autoproteção ao nível da pasta:** vCenter permite organizar os seus VMs em pastas VM. O Azure Backup Server deteta estas pastas. Pode usá-lo para proteger os VMs ao nível da pasta, que inclui todas as subpastas. Ao proteger as pastas, o Azure Backup Server não só protege os VMs nessa pasta como também protege os VMs adicionados mais tarde. O Azure Backup Server deteta diariamente novos VMs e protege-os automaticamente. Ao organizar os seus VMs em pastas recursivas, o Azure Backup Server deteta e protege automaticamente os novos VMs implantados nas pastas recursivas.
 - **O Azure Backup Server continua a proteger vMotioned VMs dentro do cluster:** Uma vez que os VMs são vMotioned para o equilíbrio de carga dentro do cluster, o Azure Backup Server deteta e continua a proteção VM.
 - **Recuperar os ficheiros necessários mais rapidamente:** O Azure Backup Server pode recuperar ficheiros ou pastas de um VM do Windows sem recuperar todo o VM.
 
@@ -68,7 +68,7 @@ Certifique-se de que [configura a rede para a sua nuvem privada VMware em Azure]
 
 ### <a name="determine-the-size-of-the-virtual-machine"></a>Determinar o tamanho da máquina virtual
 
-Tem de criar uma máquina virtual Windows na rede virtual que criou no passo anterior. Quando escolher um servidor para executar o Azure Backup Server, comece com uma imagem de galeria do Centro de Dados do Windows Server 2019. O tutorial [Criar a sua primeira máquina virtual Windows no portal Azure](../virtual-machines/windows/quick-create-portal.md) começa com o VM recomendado em Azure, mesmo que nunca tenha usado o Azure.
+Crie uma máquina virtual Windows na rede virtual que criou no passo anterior. Quando escolher um servidor para executar o Azure Backup Server, comece com uma imagem de galeria do Centro de Dados do Windows Server 2019. O tutorial [Criar a sua primeira máquina virtual Windows no portal Azure](../virtual-machines/windows/quick-create-portal.md) começa com o VM recomendado em Azure, mesmo que nunca tenha usado o Azure.
 
 A tabela seguinte resume o número máximo de cargas de trabalho protegidas para cada tamanho da máquina virtual do Azure Backup Server. A informação é baseada no desempenho interno e nos testes de escala com valores canónicos para o tamanho e volume da carga de trabalho. O tamanho real da carga de trabalho pode ser maior, mas deve ser acomodado pelos discos ligados à máquina virtual do Azure Backup Server.
 
@@ -136,38 +136,38 @@ Embora não suportado no momento da pré-visualização, o Azure Backup Server i
 
 Um cofre dos Serviços de Recuperação é uma entidade de armazenamento que armazena os pontos de recuperação criados ao longo do tempo. Também contém políticas de backup que estão associadas a itens protegidos.
 
-1. Inscreva-se na sua subscrição no [portal Azure.](https://portal.azure.com/)
+1. Inicie sessão na sua subscrição no [portal do Azure](https://portal.azure.com/).
 
-1. No menu à esquerda, selecione **Todos os serviços**.
+1. No menu esquerdo, selecione **Todos os serviços**.
 
-   ![No menu à esquerda, selecione Todos os serviços.](../backup/media/backup-create-rs-vault/click-all-services.png)
+   ![No menu esquerdo, selecione Todos os serviços.](../backup/media/backup-create-rs-vault/click-all-services.png)
 
 1. Na caixa de diálogo **de todos os serviços,** **insira os Serviços de Recuperação** e selecione **os cofres** dos Serviços de Recuperação da lista.
 
    ![Entre e escolha cofres dos Serviços de Recuperação.](../backup/media/backup-create-rs-vault/all-services.png)
 
-   A lista de cofres dos Serviços de Recuperação na subscrição aparece.
+   É apresentada a lista dos cofres dos Serviços de Recuperação na subscrição.
 
-1. No painel de **cofres dos Serviços de Recuperação,** selecione **Add**.
+1. No dashboard **Cofres dos Serviços de Recuperação**, selecione **Adicionar**.
 
    ![Adicione um cofre dos Serviços de Recuperação.](../backup/media/backup-create-rs-vault/add-button-create-vault.png)
 
-   A caixa de diálogo do **cofre dos Serviços de Recuperação** abre.
+   A caixa de diálogo **Cofre dos Serviços de Recuperação** abre-se.
 
 1. Introduza valores para o **Nome,** **Subscrição,** **Grupo de Recursos**e **Localização.**
 
    ![Configure o cofre dos Serviços de Recuperação.](../backup/media/backup-create-rs-vault/create-new-vault-dialog.png)
 
-   - **Nome**: Introduza um nome amigável para identificar o cofre. O nome deve ser exclusivo da assinatura Azure. Especifique um nome que tenha pelo menos dois, mas não mais de 50 caracteres. O nome deve começar com uma letra e consistir apenas em letras, números e hífenes.
-   - **Assinatura**: Escolha a subscrição para utilizar. Se for membro de apenas uma subscrição, verá esse nome. Se não tiver a certeza de qual subscrição utilizar, utilize a subscrição padrão (sugerida). Só existem múltiplas escolhas se o seu trabalho ou conta escolar estiver associado a mais de uma subscrição do Azure.
-   - **Grupo de recursos**: Utilize um grupo de recursos existente ou crie um novo. Para ver a lista de grupos de recursos disponíveis na sua subscrição, selecione **Utilizar os existentes**e, em seguida, selecione um recurso da lista de drop-down. Para criar um novo grupo de recursos, selecione **Criar novo** e insira o nome.
-   - **Localização**: Selecione a região geográfica para o cofre. Para criar um cofre para proteger as máquinas virtuais Azure VMware Solution, o cofre *deve* estar na mesma região que a nuvem privada Azure VMware Solution.
+   - **Name** (Nome): Introduza um nome amigável para identificar o cofre. O nome tem de ser exclusivo para a subscrição do Azure. Especifique um nome que tenha pelo menos dois, mas não mais de 50 caracteres. O nome tem de começar com uma letra e ser composto apenas por letras, números e hífenes.
+   - **Subscrição**: Escolha a subscrição a utilizar. Se for membro de apenas uma subscrição, vai ver esse nome. Se não tiver a certeza de que subscrição utilizar, utilize a subscrição predefinida (sugerida). Terá várias escolhas apenas se a sua conta escolar ou profissional estiver associada a mais do que uma subscrição do Azure.
+   - **Grupo de recursos**: Utilize um grupo de recursos existente ou crie um novo. Para ver a lista de grupos de recursos disponíveis na sua subscrição, selecione **Utilizar existente** e, em seguida, selecione um recurso da lista pendente. Para criar um novo grupo de recursos, selecione **Criar novo** e introduza o nome.
+   - **Localização**: Selecione a região geográfica do cofre. Para criar um cofre para proteger as máquinas virtuais Azure VMware Solution, o cofre *deve* estar na mesma região que a nuvem privada Azure VMware Solution.
 
 1. Quando estiver pronto para criar o cofre dos Serviços de Recuperação, selecione **Criar**.
 
    ![Crie o cofre dos Serviços de Recuperação.](../backup/media/backup-create-rs-vault/click-create-button.png)
 
-   Pode levar algum tempo a criar o cofre dos Serviços de Recuperação. Monitorize as notificações de estado na área **de Notificações** no canto superior direito do portal. Depois do seu cofre ser criado, está visível na lista de cofres dos Serviços de Recuperação. Se não vir o seu cofre, selecione **Refresh**.
+   Pode demorar algum tempo a criar o cofre dos Serviços de Recuperação. Monitorize as notificações de estado na área **de Notificações** no canto superior direito do portal. Depois de o cofre ser criado, é visível na lista de cofres dos Serviços de Recuperação. Se não vir o seu cofre, selecione **Atualizar**.
 
    ![Refresque a lista de cofres de reserva.](../backup/media/backup-create-rs-vault/refresh-button.png)
 
@@ -183,8 +183,6 @@ A opção de replicação de armazenamento permite-lhe escolher entre armazename
 1. Em **Definições**, selecione **Propriedades**. Na **configuração de cópia de segurança**, selecione **Update**.
 
 1. Selecione o tipo de replicação de armazenamento e **selecione Guardar**.
-
-   ![Definir configuração de armazenamento para novo cofre.](../backup/media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
 ## <a name="download-and-install-the-software-package"></a>Descarregue e instale o pacote de software
 
@@ -309,7 +307,7 @@ Se descarregou o pacote de software para um servidor diferente, copie os ficheir
    * **Base de dados**: **O nome de base de dados** deve ser **ReportServer$ \<SQLInstanceName> **.
    * **URL do Portal Web**: **O Diretório Virtual** deve ser ** \<SQLInstanceName> Reports_**.
 
-   [Saiba mais](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sobre a configuração SSRS.
+   Saiba mais sobre [a configuração SSRS](/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode).
 
    > [!NOTE]
    > [Os Termos de Serviços Online](https://www.microsoft.com/licensing/product-licensing/products) da Microsoft (OST) regem o licenciamento para o SQL Server usado como base de dados para Ozure Backup Server. De acordo com o OST, o SQL Server agregado com o Azure Backup Server só pode ser utilizado como base de dados para Ozure Backup Server.

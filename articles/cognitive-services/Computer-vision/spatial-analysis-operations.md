@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: aahi
-ms.openlocfilehash: 5955bc35acfaf8f877e68db083871c353a3ce326
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f9df17afe8b6d25df3d9dcc5f4eec0b9a028404f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984928"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254011"
 ---
 # <a name="spatial-analysis-operations"></a>Operações de análise espacial
 
@@ -23,7 +23,7 @@ A análise espacial permite a análise do streaming de vídeo em tempo real a pa
 
 O recipiente de análise espacial implementa as seguintes operações:
 
-| Identificador de Operação| Descrição|
+| Identificador de Operação| Description|
 |---------|---------|
 | serviços cognitivos.vision.spatialanalysis-personcount | Conta pessoas numa zona designada no campo de visão da câmara. <br> Emite um evento _personevent_ inicial e, em seguida, _eventos do Número Devent_ quando a contagem muda.  |
 | cognitiveservices.vision.spatialanalysis-personcrossingline | Rastreia quando uma pessoa cruza uma linha designada no campo de visão da câmara. <br>Emite um evento _personLineEvent_ quando a pessoa cruza a linha e fornece informações direcionais. 
@@ -32,7 +32,7 @@ O recipiente de análise espacial implementa as seguintes operações:
 
 Acima das operações estão também disponíveis na `.debug` versão, que têm a capacidade de visualizar os quadros de vídeo à medida que estão a ser processados. Terá de ser executado `xhost +` no computador anfitrião para permitir a visualização de quadros de vídeo e eventos.
 
-| Identificador de Operação| Descrição|
+| Identificador de Operação| Description|
 |---------|---------|
 | cognitiveservices.vision.spatialanalysis-personcount.debug | Conta pessoas numa zona designada no campo de visão da câmara. <br> Emite um evento _personevent_ inicial e, em seguida, _eventos do Número Devent_ quando a contagem muda.  |
 | cognitiveservices.vision.spatialanalysis-personcrossingline.debug | Rastreia quando uma pessoa cruza uma linha designada no campo de visão da câmara. <br>Emite um evento _personLineEvent_ quando a pessoa cruza a linha e fornece informações direcionais. 
@@ -43,7 +43,7 @@ A análise espacial também pode ser executada com [o Live Video Analytics](http
 
 <!--more details on the setup can be found in the [LVA Setup page](LVA-Setup.md). Below is the list of the operations supported with Live Video Analytics. -->
 
-| Identificador de Operação| Descrição|
+| Identificador de Operação| Description|
 |---------|---------|
 | cognitiveservices.vision.spatialanalysis-personcount.livevideoanalytics | Conta pessoas numa zona designada no campo de visão da câmara. <br> Emite um evento _personevent_ inicial e, em seguida, _eventos do Número Devent_ quando a contagem muda.  |
 | cognitiveservices.vision.spatialanalysis-personcrossingline.livevideoanalytics | Rastreia quando uma pessoa cruza uma linha designada no campo de visão da câmara. <br>Emite um evento _personLineEvent_ quando a pessoa cruza a linha e fornece informações direcionais. 
@@ -57,7 +57,7 @@ As operações live video analytics também estão disponíveis na `.debug` vers
 
 Estes são os parâmetros exigidos por cada uma destas operações de análise espacial.
 
-| Parâmetros de operação| Descrição|
+| Parâmetros de operação| Description|
 |---------|---------|
 | ID da Operação | O Identificador da Operação da tabela acima.|
 | ativado | Boolean: verdadeiro ou falso|
@@ -88,7 +88,7 @@ Estes são os parâmetros exigidos por cada uma destas operações de análise e
 }
 ```
 
-| Nome | Tipo| Descrição|
+| Nome | Tipo| Description|
 |---------|---------|---------|
 | `zones` | lista| Lista de zonas. |
 | `name` | string| Nome amigável para esta zona.|
@@ -121,7 +121,7 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
 }
 ```
 
-| Nome | Tipo| Descrição|
+| Nome | Tipo| Description|
 |---------|---------|---------|
 | `lines` | lista| Lista de linhas.|
 | `name` | string| Nome amigável para esta linha.|
@@ -152,7 +152,7 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
 }
 ```
 
-| Nome | Tipo| Descrição|
+| Nome | Tipo| Description|
 |---------|---------|---------|
 | `zones` | lista| Lista de zonas. |
 | `name` | string| Nome amigável para esta zona.|
@@ -184,7 +184,7 @@ Este é um exemplo de uma entrada JSON para o parâmetro SPACEANALYTICS_CONFIG q
 }
 ```
 
-| Nome | Tipo| Descrição|
+| Nome | Tipo| Description|
 |---------|---------|---------|
 | `zones` | lista| Lista de zonas. |
 | `name` | string| Nome amigável para esta zona.|
@@ -644,7 +644,7 @@ Pode querer integrar a deteção de análises espaciais ou eventos na sua aplica
 
 ## <a name="deploying-spatial-analysis-operations-at-scale-multiple-cameras"></a>Implantação de operações de análise espacial à escala (múltiplas câmaras)
 
-Para obter o melhor desempenho e utilização das GPUs, pode implementar quaisquer operações de análise espacial em várias câmaras usando instâncias de gráfico. Abaixo está uma amostra para executar os serviços cognitivos.vision.spatialanalysis-personcount opera em cinco(5) câmaras.
+Para obter o melhor desempenho e utilização das GPUs, pode implementar quaisquer operações de análise espacial em várias câmaras usando instâncias de gráfico. Abaixo está uma amostra para executar a `cognitiveservices.vision.spatialanalysis-personcount` operação em cinco câmaras.
 
 ```json
  "properties.desired": {
@@ -725,9 +725,9 @@ Para obter o melhor desempenho e utilização das GPUs, pode implementar quaisqu
       }
   }
   ```
-| Nome | Tipo| Descrição|
+| Nome | Tipo| Description|
 |---------|---------|---------|
-| `batch_size` | int | Indica que o número de câmaras será utilizado nessa operação .|
+| `batch_size` | int | Indica o número de câmaras que serão usadas na operação. |
 
 ## <a name="next-steps"></a>Passos seguintes
 

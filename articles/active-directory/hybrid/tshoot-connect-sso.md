@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdaa84d54bbd5558c995014aa4621b0051a36e97
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 60f23efa4f46849e1fe8b0ebe05cdd83ec16f49e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90016270"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294823"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Resolução de problemas Azure Ative Directory Sem Emenda Único Sinal-On
 
@@ -37,6 +37,7 @@ Este artigo ajuda-o a encontrar informações sobre problemas comuns no que diz 
 - Se estiver a sincronizar 30 ou mais florestas de Ative Directory, não pode ativar o SSO sem emenda através do Azure AD Connect. Como solução alternativa, pode [ativar manualmente](#manual-reset-of-the-feature) a funcionalidade no seu inquilino.
 - A adição do URL de serviço AD Azure ( `https://autologon.microsoftazuread-sso.com` ) à zona de sites Fidedignos em vez da zona intranet local bloqueia os *utilizadores de iniciarem a sua inscrição .*
 - O Seamless SSO suporta os tipos de encriptação AES256_HMAC_SHA1, AES128_HMAC_SHA1 e RC4_HMAC_MD5 para Kerberos. Recomenda-se que o tipo de encriptação da conta AzureADSSSOAcc$ esteja definido para AES256_HMAC_SHA1, ou um dos tipos AES vs. RC4 para uma maior segurança. O tipo de encriptação é armazenado nos MsDS-SuportadosEncryptionTypes atribuem da conta no seu Diretório Ativo.  Se o tipo de encriptação da conta AzureADSSOAcc$ estiver definido para RC4_HMAC_MD5, e pretender alterá-lo para um dos tipos de encriptação AES, certifique-se de que primeiro rolar sobre a chave de desencriptação Kerberos da conta AzureADSSOAcc$, conforme explicado no [documento faq](how-to-connect-sso-faq.md) sob a questão relevante, caso contrário, o SSO sem emenda não acontecerá.
+-  Se tiver mais de uma floresta com confiança florestal, permitindo sSO em uma das florestas, permitirá SSO em todas as florestas de confiança. Se ativar o SSO numa floresta onde o SSO já está ativado, terá um erro ao dizer que o SSO já está ativado na floresta.
 
 ## <a name="check-status-of-feature"></a>Verificar o estado da funcionalidade
 

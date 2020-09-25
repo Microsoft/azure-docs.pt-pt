@@ -4,12 +4,12 @@ description: Saiba como fazer backup de um servidor de Troca para Azure Backup u
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: eff702cb50317e6b685e19e7df1ffc99b5fc1736
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 86389ef89ced74905db0fc8bfeaabcea6140762a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377630"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262999"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Faça backup de um servidor de troca para Azure com O Azure Backup Server
 
@@ -23,8 +23,8 @@ Antes de continuar, certifique-se de que o Azure Backup Server está [instalado 
 
 Para instalar o agente de proteção MABS no servidor Exchange, siga estes passos:
 
-1. Certifique-se de que as firewalls estão corretamente configuradas. Consulte [as exceções de firewall configure para o agente](/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
-2. Instale o agente no servidor Exchange selecionando **Agentes de gestão > > instalar** na Consola de Administrador MABS. Consulte [a instalação do agente de proteção MABS](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) para obter etapas detalhadas.
+1. Certifique-se de que as firewalls estão corretamente configuradas. Consulte [as exceções de firewall configure para o agente](/system-center/dpm/configure-firewall-settings-for-dpm).
+2. Instale o agente no servidor Exchange selecionando **Agentes de gestão > > instalar** na Consola de Administrador MABS. Consulte [a instalação do agente de proteção MABS](/system-center/dpm/deploy-dpm-protection-agent) para obter etapas detalhadas.
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Criar um grupo de proteção para o servidor Exchange
 
@@ -105,6 +105,6 @@ Para os pontos de recuperação online, existem cinco tipos de recuperação:
 
     ![Escolha a replicação online](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Azure Backup FAQ](backup-azure-backup-faq.md)

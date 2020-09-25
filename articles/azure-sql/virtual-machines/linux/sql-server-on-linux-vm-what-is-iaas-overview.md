@@ -6,17 +6,17 @@ documentationcenter: ''
 author: MashaMSFT
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.topic: conceptual
+ms.topic: overview
 ms.workload: iaas-sql-server
 ms.date: 04/10/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6e6038e2c0aa4f6b41c4a4da9bde6e98555ceb31
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: f7b1255553334bfaa75c5c0c96ecd36afa2c27f4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613566"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293769"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Descrição Geral do SQL Server em Máquinas Virtuais do Azure (Linux)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -71,7 +71,7 @@ Ao configurar o SQL Server no Linux, instale o pacote do Motor database e, em se
 
 * [Introdução ao Storage do Microsoft Azure](../../../storage/common/storage-introduction.md)
 
-### <a name="networking"></a>Rede
+### <a name="networking"></a>Redes
 
 * [Visão geral da rede virtual](../../../virtual-network/virtual-networks-overview.md)
 * [Endereços IP no Azure](../../../virtual-network/public-ip-addresses.md)
@@ -82,7 +82,7 @@ Ao configurar o SQL Server no Linux, instale o pacote do Motor database e, em se
 * [SqL Server na documentação do Linux](https://docs.microsoft.com/sql/linux)
 * [Comparação da Base de Dados SQL do Azure](../../azure-sql-iaas-vs-paas-what-is-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Começa com o SQL Server em máquinas virtuais Linux:
 

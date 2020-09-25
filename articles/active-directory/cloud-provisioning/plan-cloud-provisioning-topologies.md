@@ -11,12 +11,12 @@ ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d442c980ad5bbe3b56eae127b6e9eaeddf380a4e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 172e836a212f9ce097c2c4e392a7386a510c2c6b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526855"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266297"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-supported-topologies-and-scenarios"></a>Azure AD Connect cloud provisioning toplogis e cenários suportados
 Este artigo descreve várias topologias no local e Azure Ative Directory (Azure AD) que utilizam o fornecimento de nuvem Azure AD Connect. Este artigo inclui apenas configurações e cenários suportados.
@@ -34,7 +34,7 @@ Segue-se uma lista de informações a ter em conta ao selecionar uma solução.
 - Não é possível alterar o atributo que é utilizado para a âncora de origem.
 
 ## <a name="single-forest-single-azure-ad-tenant"></a>Floresta única, único inquilino AZure AD
-![Topologia para uma única floresta e um único inquilino](media/plan-cloud-provisioning-topologies/single-forest.png)
+![Diagrama que mostra a topologia para uma única floresta e um único inquilino.](media/plan-cloud-provisioning-topologies/single-forest.png)
 
 A topologia mais simples é uma única floresta no local, com um ou vários domínios, e um único inquilino AD AZure.  Para um exemplo deste cenário ver [Tutorial: Uma única floresta com um único inquilino AD AZure](tutorial-single-forest.md)
 
@@ -45,7 +45,7 @@ A topologia mais simples é uma única floresta no local, com um ou vários dom�
 Uma topologia comum é uma floresta múltipla de AD, com um ou vários domínios, e um único inquilino AD AZure.  
 
 ## <a name="existing-forest-with-azure-ad-connect-new-forest-with-cloud-provisioning"></a>Floresta existente com Azure AD Connect, nova floresta com provisão de nuvens
-![Topologia para uma única floresta e um único inquilino](media/plan-cloud-provisioning-topologies/existing-forest-new-forest.png)
+![Diagrama que mostra a topologia para uma floresta existente e uma nova floresta.](media/plan-cloud-provisioning-topologies/existing-forest-new-forest.png)
 
 Este cenário é semelhante ao cenário multi-florestal, no entanto este envolve um ambiente Azure AD Connect existente e, em seguida, trazendo uma nova floresta usando o fornecimento de nuvem AZure AD Connect.  Para um exemplo deste cenário ver [Tutorial: Uma floresta existente com um único inquilino AD AZure](tutorial-existing-forest.md)
 

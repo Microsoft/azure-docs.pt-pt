@@ -8,18 +8,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e33a5e32848dfd0a6cf252d6876616fc89edd1d7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f312b690ac7743b1574dbbec9d408b3fafbb0194
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87284273"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263186"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Configure um SQL Server Always On availability group em diferentes regiões do Azure
 
@@ -107,7 +107,7 @@ Para criar uma réplica num centro de dados remoto, faça os seguintes passos:
 
 1. Adicione o endereço IP como uma dependência para o nome do cluster principal.
 
-   Abra mais uma vez as propriedades do cluster e selecione o separador **Dependências.** 
+   Abra mais uma vez as propriedades do cluster e selecione o **separador Dependências.** Configure uma dependência de OR para os dois endereços IP: 
 
    ![Propriedades de cluster](./media/availability-group-manually-configure-multiple-regions/cluster-ip-dependencies.png)
 

@@ -12,14 +12,14 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 0c30b5305fb5496db86a20be7a37f36b894ecc8b
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 53861bbff9ba328ca97063df59cfedc6e886212d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089756"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258154"
 ---
-# <a name="publisher-verification"></a>Verificação de editores
+# <a name="publisher-verification"></a>Verificação do editor
 
 A verificação do editor ajuda os administradores e os utilizadores finais a compreender a autenticidade dos desenvolvedores de aplicações que se integram na plataforma de identidade da Microsoft. Quando uma aplicação é marcada como editora verificada, significa que a editora verificou a sua identidade utilizando uma conta [da Microsoft Partner Network](https://partner.microsoft.com/membership) que concluiu o processo de [verificação](/partner-center/verification-responses) e associou esta conta MPN ao seu registo de candidatura. 
 
@@ -33,9 +33,10 @@ A verificação do editor proporciona os seguintes benefícios:
 
 - **Melhor marca**- um crachá "verificado" aparece no [pedido](application-consent-experience.md)de consentimento Azure AD, página de Aplicações empresariais e superfícies UX adicionais usadas pelos utilizadores finais e administradores. 
 
-- **Adoção mais suave da empresa**- os administradores podem configurar políticas de consentimento do [utilizador,](../manage-apps/configure-user-consent.md)com o estado de verificação do editor como um dos principais critérios de política. 
+- **Adoção mais suave da empresa**- os administradores podem configurar políticas de consentimento do [utilizador,](../manage-apps/configure-user-consent.md)com o estado de verificação do editor como um dos principais critérios de política.
 
-- **Melhor avaliação de risco**- As deteções da Microsoft para pedidos de consentimento "arriscados" incluirão a verificação do editor como um sinal. 
+> [!NOTE]
+> A partir de novembro de 2020, os utilizadores finais deixarão de poder conceder o consentimento à maioria das aplicações multi-inquilinos recentemente registadas sem editores verificados. Isto aplica-se a aplicações registadas a partir de 8 de novembro de 2020, utilizará o OAuth2.0 para solicitar permissões para além do perfil básico do utilizador e lerá o consentimento dos utilizadores em diferentes inquilinos do que aquele em que a app está registada. Será exibido um aviso no ecrã de consentimento informando os utilizadores de que estas aplicações são arriscadas e são de editoras não verificadas.    
 
 ## <a name="requirements"></a>Requisitos
 Existem alguns pré-requisitos para a verificação de editores, alguns dos quais já terão sido concluídos por muitos parceiros da Microsoft. A saber: 
@@ -69,7 +70,7 @@ Abaixo estão algumas perguntas frequentes sobre o programa de verificação de 
 
   Os desenvolvedores que também estão a integrar-se com o Microsoft 365 podem receber benefícios adicionais destes programas. Para mais informações, consulte a [Microsoft 365 Publisher Attestation](/microsoft-365-app-certification/docs/attestation) e [a Microsoft 365 App Certification](/microsoft-365-app-certification/docs/certification). 
 
-- **É a mesma coisa que a Galeria de Aplicações AD AZure?** A verificação de não editores é um programa complementar, mas separado, para a galeria de candidaturas do [Azure Ative Directory.](../azuread-dev/howto-app-gallery-listing.md) Os desenvolvedores que se enquadrarem nos critérios acima devem completar o processo de verificação do editor independentemente da participação nesse programa. 
+- **É a mesma coisa que a Galeria de Aplicações AD AZure?** A verificação de não editores é um programa complementar, mas separado, para a galeria de candidaturas do [Azure Ative Directory.](v2-howto-app-gallery-listing.md) Os desenvolvedores que se enquadrarem nos critérios acima devem completar o processo de verificação do editor independentemente da participação nesse programa. 
 
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba como [marcar uma aplicação como editor verificado.](mark-app-as-publisher-verified.md)

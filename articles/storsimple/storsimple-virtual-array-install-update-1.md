@@ -1,6 +1,6 @@
 ---
 title: Instalar atualização 1.0 em StorSimple Virtual Array / Microsoft Docs
-description: Descreve como usar o StorSimple Virtual Array web UI para aplicar atualizações usando o portal Azure e o método hotfix
+description: Descreve como utilizar o UI web StorSimple Virtual Array para aplicar o Update 1.0 utilizando o portal Azure e o método de correção em calor.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 41546a449165951cd7b462d1db2b1b58ae74e407
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5bb6b61bb7d9392984bf5c308ce7ee039234461e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508100"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295571"
 ---
 # <a name="install-update-10-on-your-storsimple-virtual-array"></a>Instale atualização 1.0 no seu StorSimple Virtual Array
 
@@ -33,7 +33,7 @@ Aplica as atualizações de software ou hotfixes para manter o seu StorSimple Vi
 >
 > - A atualização 1.0 corresponde à versão de software **10.0.10296.0** no seu dispositivo. Para obter informações sobre as novidades desta atualização, aceda às [notas de lançamento para atualização 1.0](storsimple-virtual-array-update-1-release-notes.md).
 >
-> - Tenha em mente que instalar uma atualização ou um hotfix reinicia o seu dispositivo. Dado que o StorSimple Virtual Array é um único dispositivo de nó, qualquer I/S em andamento é interrompido e o seu dispositivo experimenta tempo de inatividade.
+> - Tenha em atenção que a instalação de uma atualização ou correção reinicia o dispositivo. Dado que o StorSimple Virtual Array é um único dispositivo de nó, qualquer I/S em andamento é interrompido e o seu dispositivo experimenta tempo de inatividade.
 >
 > - A atualização 1 só está disponível no portal Azure se a matriz virtual estiver a executar Update 0.6. Para as matrizes virtuais que executam as versões pré-Actualização 0.6, tem de instalar o Update 0.6 primeiro e depois instalar o Update 1.
 
@@ -128,6 +128,6 @@ Este procedimento leva cerca de 4 minutos para ser concluído. Execute os seguin
 > [!NOTE]
 > Se aplicou diretamente o Update 1 a um dispositivo que executa uma versão antes do Update 0.6, está a perder algumas atualizações. Entre em contato com o Microsoft Support para os próximos passos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a administração do seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).

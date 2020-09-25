@@ -3,13 +3,13 @@ title: 'Quickstart: A sua primeira consulta JavaScript'
 description: Neste arranque rápido, segue os passos para ativar a biblioteca de Gráficos de Recursos para JavaScript e executar a sua primeira consulta.
 ms.date: 06/23/2020
 ms.topic: quickstart
-ms.custom: devx-track-javascript
-ms.openlocfilehash: fc9809dbe615950b4f5c9e4dc66cefcd054f5ebf
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: cdc0589829f250851212ad990dde99eb6dcc958f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87415929"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251971"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-javascript"></a>Quickstart: Executar a sua primeira consulta de Gráfico de Recursos usando JavaScript
 
@@ -126,7 +126,7 @@ Se desejar remover as bibliotecas instaladas da sua aplicação, execute o segui
 npm uninstall @azure/arm-resourcegraph @azure/ms-rest-nodeauth yargs
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, adicionou as bibliotecas de Gráficos de Recursos ao seu ambiente JavaScript e executou a sua primeira consulta. Para saber mais sobre a linguagem Resource Graph, continue na página de detalhes da linguagem de consulta.
 

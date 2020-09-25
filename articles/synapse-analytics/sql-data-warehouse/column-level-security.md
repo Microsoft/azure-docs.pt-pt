@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 04/19/2020
 ms.author: jrasnick
-ms.reviewer: igorstan, carlrab
+ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 1364da4849a07100ac28644a51409837012f93cc
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f8bb40f9c80a0785c81c7aeacf783553bf73aa90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90986221"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259888"
 ---
 # <a name="column-level-security"></a>Segurança ao nível da coluna
 
@@ -32,7 +32,7 @@ Pode implementar a segurança ao nível da coluna com a declaração [GRANT](/sq
 
 ![O diagrama mostra uma tabela esquemática com a primeira coluna chefiada por um cadeado fechado e as suas células de cor laranja enquanto as outras colunas são células brancas.](./media/column-level-security/cls.png)
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 ```syntaxsql
 GRANT <permission> [ ,...n ] ON

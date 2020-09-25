@@ -2,19 +2,19 @@
 title: Implementar múltiplas instâncias de recursos
 description: Utilize a operação de cópia e as matrizes num modelo do Gestor de Recursos Azure para implementar o tipo de recursos muitas vezes.
 ms.topic: conceptual
-ms.date: 04/29/2020
-ms.openlocfilehash: d4f40b606ffd56019b44cc8b67e5629b935bf50c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/21/2020
+ms.openlocfilehash: 411c92061826a6e8bc59380d0440fb69816557a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583398"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293973"
 ---
 # <a name="resource-iteration-in-arm-templates"></a>Iteração de recursos em modelos ARM
 
 Este artigo mostra-lhe como criar mais de um exemplo de um recurso no seu modelo Azure Resource Manager (ARM). Ao adicionar o elemento **de cópia** à secção de recursos do seu modelo, pode definir dinamicamente o número de recursos a utilizar. Evite também ter de repetir a sintaxe do modelo.
 
-Também pode utilizar cópia com [propriedades,](copy-properties.md) [variáveis](copy-variables.md) e [saídas.](copy-outputs.md)
+Também pode utilizar cópia com [propriedades,](copy-properties.md) [variáveis](copy-variables.md)e [saídas.](copy-outputs.md)
 
 Se precisar de especificar se um recurso é implantado, consulte o [elemento da condição](conditional-resource-deployment.md).
 
@@ -155,6 +155,8 @@ Se pretender devolver os valores dos recursos implantados, pode utilizar [cópia
 Por predefinição, o Gestor de Recursos cria os recursos em paralelo. Não se aplica qualquer limite ao número de recursos mobilizados em paralelo, para além do limite total de 800 recursos no modelo. A ordem pela qual são criadas não é garantida.
 
 No entanto, é possível que queira especificar que os recursos são implantados em sequência. Por exemplo, ao atualizar um ambiente de produção, é melhor escalonar as atualizações para que apenas um determinado número seja atualizado a qualquer momento. Para implementar em série mais de uma instância de um recurso, definido `mode` para **série** e para o número `batchSize` de casos a implementar de cada vez. Com o modo de série, o Resource Manager cria uma dependência de instâncias anteriores no loop, pelo que não inicia um lote até que o lote anterior esteja concluído.
+
+O valor para `batchSize` não pode exceder o valor para `count` o elemento de cópia.
 
 Por exemplo, para implementar em série contas de armazenamento duas de cada vez, utilize:
 

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 4f6b24b17ac0e12c286a11abe8732bb86e2deb5c
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.custom: devx-track-js
+ms.openlocfilehash: d32f39daeb66990d99915e8bbcca5dd637d4f914
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297353"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296268"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Ligue-se aos Serviços de Mídia v3 API - Node.js
 
@@ -57,7 +57,7 @@ Este artigo mostra-lhe como ligar-se ao Azure Media Services v3 node.js SDK util
 
 Devem ser especificadas as seguintes embalagens:
 
-|Pacote|Descrição|
+|Pacote|Description|
 |---|---|
 |`azure-arm-mediaservices`|Azure Media Services SDK. <br/>Para se certificar de que está a utilizar o mais recente pacote Azure Media Services, consulte a [NPM para instalar serviços de media-media-media-arm- azul](https://www.npmjs.com/package/azure-arm-mediaservices/).|
 |`azure-storage`|SDK de armazenamento. Usado ao enviar ficheiros para ativos.|
@@ -126,11 +126,11 @@ npm install
 node index.js
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Conceitos de Serviços de Mídia](concepts-overview.md)
 - [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/) (Instalação de azure-arm-mediaservices do NPM)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Explore a documentação [Node.js ref](/javascript/api/overview/azure/mediaservices/management) dos Serviços de Comunicação Social e confira [amostras](https://github.com/Azure-Samples/media-services-v3-node-tutorials) que mostram como utilizar a API dos Serviços de Comunicação social com node.js.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 10ae1c76d48c1cedbb915fec66177ac3612feea0
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d1b79d60bba89ef01b261c403fe3b25939669d0b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115225"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258103"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Quickstart: Adicione o início de sôs com a Microsoft a uma aplicação web java
 
@@ -70,7 +70,7 @@ Para executar esta amostra, você precisará:
 >
 > Para que a amostra de código para este arranque rápido funcione, você precisa:
 >
-> 1. Adicione URLs de resposta como `https://localhost:8443/msal4jsample/secure/aad` e`https://localhost:8443/msal4jsample/graph/me`
+> 1. Adicione URLs de resposta como `https://localhost:8443/msal4jsample/secure/aad` e `https://localhost:8443/msal4jsample/graph/me`
 > 1. Criar um Segredo de Cliente.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Faça estas alterações para mim]()
@@ -122,8 +122,8 @@ Para executar esta amostra, você precisará:
 > Em que:
 >
 > - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
-> - `Enter_the_Client_Secret_Here`- é o Segredo de **Cliente** que criou em **Certificados & Segredos** para a aplicação que registou.
-> - `Enter_the_Tenant_Info_Here`- é o valor de identificação do **Diretório (inquilino)** do pedido que registou.
+> - `Enter_the_Client_Secret_Here` - é o Segredo de **Cliente** que criou em **Certificados & Segredos** para a aplicação que registou.
+> - `Enter_the_Tenant_Info_Here` - é o valor de identificação do **Diretório (inquilino)** do pedido que registou.
 > 1. Para utilizar https com a loja local, preencha as propriedades do servidor.ssl.key. Para gerar um certificado auto-assinado, utilize o utilitário keytool (incluído no JRE).
 >
 >  ```
@@ -149,7 +149,7 @@ Execute-o diretamente a partir do seu IDE utilizando o servidor de arranque de m
 
 ##### <a name="running-from-ide"></a>Correndo do IDE
 
-Se estiver a executar a aplicação web a partir de um IDE, clique em execução e, em seguida, navegue para a página inicial do projeto. Para esta amostra, o URL de página inicial padrão éhttps://localhost:8443
+Se estiver a executar a aplicação web a partir de um IDE, clique em execução e, em seguida, navegue para a página inicial do projeto. Para esta amostra, o URL de página inicial padrão é https://localhost:8443
 
 1. Na primeira página, selecione o botão **De início de Sessão** para redirecionar para o Azure Ative Directory e instrua o utilizador para as suas credenciais.
 
@@ -162,7 +162,7 @@ Se estiver a executar a aplicação web a partir de um IDE, clique em execução
 Se quiser colocar a amostra web no Tomcat, terá de efetuar algumas alterações ao código fonte.
 
 1. Abra ms-identity-java-webapp/pom.xml
-    - Sob `<name>msal-web-sample</name>` adição`<packaging>war</packaging>`
+    - Sob `<name>msal-web-sample</name>` adição `<packaging>war</packaging>`
 
 2. Open ms-identity-java-webapp/src/main/java/com.microsoft.azure.msalwebsample/MsalWebSampleApplication
 
@@ -193,18 +193,19 @@ Se quiser colocar a amostra web no Tomcat, terá de efetuar algumas alterações
 3.   A porta HTTP padrão da Tomcat é 8080, embora seja necessária uma ligação HTTPS sobre a porta 8443. Para configurar isto:
         - Ir a tomcat/conf/server.xml
         - Procure a `<connector>` etiqueta e substitua o conector existente com:
-        ```
+
+        ```xml
         <Connector
                    protocol="org.apache.coyote.http11.Http11NioProtocol"
                    port="8443" maxThreads="200"
                    scheme="https" secure="true" SSLEnabled="true"
                    keystoreFile="C:/Path/To/Keystore/File/keystore.p12" keystorePass="KeystorePassword"
                    clientAuth="false" sslProtocol="TLS"/>
-        ``` 
-       
+        ```
+
 4. Abra um pedido de comando, vá à pasta raiz desta amostra (onde está localizado o ficheiro pom.xml) e corra `mvn package` para construir o projeto
     - Isto irá gerar um `msal-web-sample-0.1.0.war` ficheiro no seu diretório de alvos.
-    - Mude o nome deste ficheiro para`msal4jsample.war`
+    - Mude o nome deste ficheiro para `msal4jsample.war`
     - Implemente este ficheiro de guerra utilizando o Tomcat ou qualquer outra solução de recipiente J2EE.
         - Para implementar, copie o ficheiro msal4jsample.war para o `/webapps/` diretório na sua instalação Tomcat e, em seguida, inicie o servidor Tomcat.
 
@@ -249,16 +250,11 @@ Adicione uma referência ao MSAL para a Java adicionando o seguinte código à p
 import com.microsoft.aad.msal4j.*;
 ```
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre permissões e consentimento:
+Para uma discussão mais aprofundada sobre a construção de aplicações web que assinam nos utilizadores na plataforma de identidade da Microsoft, passe para a nossa série de cenários multi-partes:
 
 > [!div class="nextstepaction"]
-> [Permissões e Consentimento](./v2-permissions-and-consent.md)
-
-Para saber mais sobre o fluxo de auth para este cenário, consulte o fluxo de código de autorização Oauth 2.0:
-
-> [!div class="nextstepaction"]
-> [Fluxo de Oauth código de autorização](./v2-oauth2-auth-code-flow.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+[Cenário: aplicação web que assina nos utilizadores](scenario-web-app-sign-user-overview.md?tabs=java)

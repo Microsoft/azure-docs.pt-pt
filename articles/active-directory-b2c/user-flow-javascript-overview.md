@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.custom: project-no-code, devx-track-javascript
+ms.custom: project-no-code, devx-track-js
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 58ddca6bb7844288aae0370f035bc4dfa2dc942f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 50644ad3be226648accba6a2f43d4ea068ff977c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87481694"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258851"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>Versões javaScript e layout de página em Azure Ative Directory B2C
 

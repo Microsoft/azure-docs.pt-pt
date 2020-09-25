@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 2a0751f12f33a36d9e0003977bcf40b66d715615
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.reviewer: jrasnick
+ms.openlocfilehash: 8884f62ba015cc4b33b75a133f21264dac6430e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986955"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288992"
 ---
 # <a name="access-external-storage-in-synapse-sql-on-demand"></a>Acesso ao armazenamento externo em Synapse SQL (a pedido)
 
@@ -52,12 +52,12 @@ CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]
 GRANT REFERENCES CREDENTIAL::[https://<storage_account>.dfs.core.windows.net/<container>] TO sqluser
 ```
 
-Se não houver credencial ao nível do servidor que corresponda a URL ou SQL o utilizador não tem permissão de referências para esta credencial, o erro será devolvido. Os principais da SQL não podem fazer-se passar por alguma identidade AD Azure.
+Se não houver credencial de nível de servidor que corresponda ao URL, ou se o utilizador SQL não tiver permissão de referências para esta credencial, o erro será devolvido. Os diretores da SQL não podem fazer-se passar por uma identidade AD da Azure.
 
 ### <a name="direct-access"></a>[Acesso direto](#tab/direct-access)
 
 Não é necessária nenhuma configuração adicional para permitir que os utilizadores de Azure AD acedam aos ficheiros usando as suas identidades.
-Qualquer utilizador pode aceder ao armazenamento Azure que permita o acesso anónimo (não é necessária uma configuração adicional).
+Qualquer utilizador pode aceder ao armazenamento Azure que permite o acesso anónimo (não é necessária uma configuração adicional).
 
 ---
 
@@ -75,11 +75,11 @@ SELECT * FROM
  FORMAT= 'parquet') as rows
 ```
 
-O utilizador que executa esta consulta deve poder aceder aos ficheiros. Os utilizadores devem ser personificados utilizando [o token SAS](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) ou [identidade gerida do espaço de trabalho](develop-storage-files-storage-access-control.md?tabs=managed-identity) se não puderem aceder diretamente aos ficheiros utilizando a sua identidade [AD Azure](develop-storage-files-storage-access-control.md?tabs=user-identity) ou [acesso anónimo.](develop-storage-files-storage-access-control.md?tabs=public-access)
+O utilizador que executa esta consulta deve poder aceder aos ficheiros. Os utilizadores devem ser personificados usando [o token SAS](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) ou [identidade gerida do espaço de trabalho](develop-storage-files-storage-access-control.md?tabs=managed-identity) se não puderem aceder diretamente aos ficheiros usando a sua identidade [AD Azure](develop-storage-files-storage-access-control.md?tabs=user-identity) ou [acesso anónimo](develop-storage-files-storage-access-control.md?tabs=public-access).
 
 ### <a name="impersonation"></a>[Personificação](#tab/impersonation)
 
-`DATABASE SCOPED CREDENTIAL`especifica como aceder a ficheiros na fonte de dados referenciada (atualmente SAS e Identidade Gerida). O utilizador de energia com `CONTROL DATABASE` permissão teria de criar `DATABASE SCOPED CREDENTIAL` que fosse usado para aceder ao armazenamento e que especifica o URL da fonte de `EXTERNAL DATA SOURCE` dados e da credencial que deve ser usado:
+`DATABASE SCOPED CREDENTIAL` especifica como aceder a ficheiros na fonte de dados referenciada (atualmente SAS e Identidade Gerida). O utilizador de energia com `CONTROL DATABASE` permissão teria de criar `DATABASE SCOPED CREDENTIAL` que fosse usado para aceder ao armazenamento e que especifica o URL da fonte de `EXTERNAL DATA SOURCE` dados e da credencial que deve ser usado:
 
 ```sql
 EXECUTE AS somepoweruser;
@@ -99,9 +99,9 @@ CREATE EXTERNAL DATA SOURCE MyAzureInvoices
 O chamador deve ter uma das seguintes permissões para executar a função OPENROWSET:
 
 - Uma das permissões para executar OPENROWSET:
-  - `ADMINISTER BULK OPERATIONS`permite o login executar a função OPENROWSET.
-  - `ADMINISTER DATABASE BULK OPERATIONS`permite que o utilizador de base de dados executa a função OPENROWSET.
-- `REFERENCES DATABASE SCOPED CREDENTIAL`à credencial referida em `EXTERNAL DATA SOURCE` .
+  - `ADMINISTER BULK OPERATIONS` permite o login executar a função OPENROWSET.
+  - `ADMINISTER DATABASE BULK OPERATIONS` permite que o utilizador de base de dados executa a função OPENROWSET.
+- `REFERENCES DATABASE SCOPED CREDENTIAL` à credencial referida em `EXTERNAL DATA SOURCE` .
 
 ### <a name="direct-access"></a>[Acesso direto](#tab/direct-access)
 
@@ -116,7 +116,7 @@ CREATE EXTERNAL DATA SOURCE MyAzureInvoices
 
 O utilizador com as permissões para ler a tabela pode aceder a ficheiros externos utilizando uma TABELA EXTERNA criada em cima do conjunto de pastas e ficheiros de armazenamento Azure.
 
-O utilizador que tem [permissões para criar tabela externa](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions) (por exemplo, CRIAR TABELA e ALTERAR QUALQUER CREDENCIAL ou REFERÊNCIAS BASE DE DADOS SCOPED CREDENCIAL) pode utilizar o seguinte script para criar uma tabela em cima da fonte de dados de armazenamento Azure:
+O utilizador que tem [permissões para criar tabela externa](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql?view=sql-server-ver15#permissions&preserve-view=true) (por exemplo, CRIAR TABELA e ALTERAR QUALQUER CREDENCIAL ou REFERÊNCIAS BASE DE DADOS SCOPED CREDENCIAL) pode utilizar o seguinte script para criar uma tabela em cima da fonte de dados de armazenamento Azure:
 
 ```sql
 CREATE EXTERNAL TABLE [dbo].[DimProductexternal]
@@ -171,8 +171,8 @@ FROM dbo.DimProductsExternal
 ```
 
 O chamador deve ter as seguintes permissões para ler dados:
-- `SELECT`permissão ON tabela externa
-- `REFERENCES DATABASE SCOPED CREDENTIAL`permissão se `DATA SOURCE` tiver`CREDENTIAL`
+- `SELECT` permissão ON tabela externa
+- `REFERENCES DATABASE SCOPED CREDENTIAL` permissão se `DATA SOURCE` tiver `CREDENTIAL`
 
 ## <a name="permissions"></a>Permissões
 
@@ -182,9 +182,9 @@ As seguintes listas de tabelas requeriam permissões para as operações acima e
 | --- | --- |
 | OPENROWSET (BULK) sem fonte de dados | `ADMINISTER BULK OPERATIONS`, `ADMINISTER DATABASE BULK OPERATIONS` ou o login SQL deve ter REFERÊNCIAS CREDENTIAL:: para armazenamento protegido por \<URL> SAS |
 | OPENROWSET (GRANEL) com fonte de dados sem credencial | `ADMINISTER BULK OPERATIONS``ADMINISTER DATABASE BULK OPERATIONS`ou, |
-| OPENROWSET (GRANEL) com fonte de dados com credencial | `REFERENCES DATABASE SCOPED CREDENTIAL`e um dos `ADMINISTER BULK OPERATIONS` ou`ADMINISTER DATABASE BULK OPERATIONS` |
+| OPENROWSET (GRANEL) com fonte de dados com credencial | `REFERENCES DATABASE SCOPED CREDENTIAL` e um dos `ADMINISTER BULK OPERATIONS` ou `ADMINISTER DATABASE BULK OPERATIONS` |
 | CRIAR FONTE DE DADOS EXTERNA | `ALTER ANY EXTERNAL DATA SOURCE` e `REFERENCES DATABASE SCOPED CREDENTIAL` |
-| CRIAR TABELA EXTERNA | `CREATE TABLE`, `ALTER ANY SCHEMA` `ALTER ANY EXTERNAL FILE FORMAT` e`ALTER ANY EXTERNAL DATA SOURCE` |
+| CRIAR TABELA EXTERNA | `CREATE TABLE`, `ALTER ANY SCHEMA` `ALTER ANY EXTERNAL FILE FORMAT` e `ALTER ANY EXTERNAL DATA SOURCE` |
 | SELECIONE A PARTIR DA TABELA EXTERNA | `SELECT TABLE` e `REFERENCES DATABASE SCOPED CREDENTIAL` |
 | CETAS | Para criar mesa - `CREATE TABLE` , , , e `ALTER ANY SCHEMA` `ALTER ANY DATA SOURCE` `ALTER ANY EXTERNAL FILE FORMAT` . Para ler dados: `ADMINISTER BULK OPERATIONS` ou `REFERENCES CREDENTIAL` por cada `SELECT TABLE` tabela/visualização/função em consulta + permissão R/W no armazenamento |
 
@@ -204,6 +204,6 @@ Está agora pronto para continuar com os seguintes artigos:
 
 - [Utilizar funções de partição e metadados](query-specific-files.md)
 
-- [Tipos aninhados de consulta](query-parquet-nested-types.md)
+- [Consultar tipos aninhados](query-parquet-nested-types.md)
 
 - [Criar e usar vistas](create-use-views.md)

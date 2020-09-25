@@ -1,55 +1,59 @@
 ---
-title: 'Tutorial: Lista de verificação de rede'
-description: Requisitos de rede pré-requisitos e detalhes sobre conectividade de rede e portas de rede
+title: Tutorial - Lista de verificação de planeamento de rede
+description: Saiba mais sobre os pré-requisitos de prescrição de rede e detalhes sobre conectividade de rede e portas de rede para Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 08/21/2020
-ms.openlocfilehash: aba5d7767e420b3ade6238621487884e44fbb6e2
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/21/2020
+ms.openlocfilehash: c9a3c18d69cb81ed2810c0516820a9ef348402f1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750421"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254402"
 ---
-# <a name="networking-checklist-for-azure-vmware-solution"></a>Lista de verificação de rede para Solução VMware Azure 
+# <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Lista de verificação de planeamento de rede para Solução VMware Azure 
 
-A Azure VMware Solution oferece um ambiente de nuvem privada VMware, que é acessível para utilizadores e aplicações a partir de ambientes ou recursos baseados em Azure. A conectividade é prestada através de serviços de networking, tais como ligações Azure ExpressRoute e VPN e exigirá algumas gamas específicas de endereços de rede e portas de firewall para permitir os serviços. Este artigo fornece-lhe as informações que precisa de saber para configurar corretamente a sua rede para trabalhar com a Azure VMware Solution.
+A Azure VMware Solution oferece um ambiente de nuvem privada VMware, que é acessível para utilizadores e aplicações a partir de ambientes ou recursos baseados em Azure. A conectividade é prestada através de serviços de networking, tais como ligações Azure ExpressRoute e VPN e requer algumas gamas específicas de endereços de rede e portas de firewall para permitir os serviços. Este artigo fornece-lhe as informações necessárias para configurar corretamente a sua rede para trabalhar com a Azure VMware Solution.
 
-Neste tutorial, aprende-se a:
+Neste tutorial, ficará a conhecer:
 
 > [!div class="checklist"]
-> * Requisitos de conectividade da rede
-> * DHCP em Solução VMware Azure
+> * Considerações de rede virtual e circuito ExpressRoute
+> * Requisitos de encaminhamento e sub-rede
+> * Portas de rede necessárias para comunicar com os serviços
+> * DhCP e DNS considerações na Azure VMware Solution
 
-## <a name="virtual--network-and-expressroute-circuit--considerations"></a>Considerações de rede virtual e circuito ExpressRoute
-Quando cria uma ligação a partir de uma rede virtual na sua subscrição, o circuito ExpressRoute é estabelecido através do estorte, utiliza uma chave de autorização e um ID de esprevamento que solicita no portal Azure. O espreitamento é uma ligação privada, um a um entre a sua nuvem privada e a rede virtual.
+
+
+## <a name="virtual-network-and-expressroute-circuit-considerations"></a>Considerações de rede virtual e circuito ExpressRoute
+Quando cria uma ligação de rede virtual na sua subscrição, o circuito ExpressRoute é estabelecido através do estorte, utiliza uma chave de autorização e um ID de esprevamento que solicita no portal Azure. O espreitamento é uma ligação privada, um a um entre a sua nuvem privada e a rede virtual.
 
 > [!NOTE] 
 > O circuito ExpressRoute não faz parte de uma nuvem privada. O circuito ExpressRoute está fora do âmbito deste documento. Se necessitar de conectividade no local para a sua nuvem privada, pode utilizar um dos circuitos ExpressRoute existentes ou comprar um no portal Azure.
 
-Ao implementar uma nuvem privada, recebe endereços IP para vCenter e NSX-T Manager. Para aceder a essas interfaces de gestão, terá de criar recursos adicionais numa rede virtual na sua subscrição. Você pode encontrar os procedimentos para criar esses recursos e estabelecer o expressRoute private peering nos tutoriais.
+Ao implementar uma nuvem privada, recebe endereços IP para vCenter e NSX-T Manager. Para aceder a essas interfaces de gestão, terá de criar recursos adicionais na rede virtual da sua subscrição. Você pode encontrar os procedimentos para criar esses recursos e estabelecer [o expressRoute private peering](tutorial-expressroute-global-reach-private-cloud.md) nos tutoriais.
 
 A rede lógica de nuvem privada vem com NSX-T pré-a provisionado. Um portal tier-0 e porta de entrada tier-1 é pré-a provisionado para si. Pode criar um segmento e anexá-lo ao portal de nível 1 existente ou anexá-lo a um novo portal Tier-1 que definir. Os componentes de rede lógico NSX-T proporcionam conectividade Leste-Oeste entre cargas de trabalho e fornecem conectividade Norte-Sul aos serviços de internet e Azure.
 
 ## <a name="routing-and-subnet-considerations"></a>Considerações de encaminhamento e sub-rede
 A nuvem privada AVS está ligada à sua rede virtual Azure utilizando uma ligação Azure ExpressRoute. Esta alta largura de banda, ligação de baixa latência permite-lhe aceder a serviços em execução na sua subscrição Azure a partir do seu ambiente de nuvem privada. O encaminhamento é baseado em Protocolo de Gateway fronteiriço (BGP), automaticamente a provisionado e habilitado por padrão para cada implantação em nuvem privada. 
 
-As nuvens privadas AVS requerem um mínimo de um bloco de `/22` endereços de rede CIDR para sub-redes, mostrado abaixo. Esta rede complementa as suas redes no local. O bloco de endereços não deve sobrepor-se aos blocos de endereços utilizados noutras redes virtuais que se encontram nas suas redes de subscrição e no local. Dentro deste bloco de endereços, as redes de gestão, provisionamento e vMotion são aprovisionadas automaticamente.
+As nuvens privadas AVS requerem um mínimo de um bloco de `/22` endereços de rede CIDR para sub-redes, mostrado abaixo. Esta rede complementa as suas redes no local. O bloco de endereços não deve sobrepor-se aos blocos de endereços utilizados noutras redes virtuais nas suas redes de subscrição e no local. Dentro deste bloco de endereços, as redes de gestão, provisionamento e vMotion são aprovisionadas automaticamente.
 
 Exemplo `/22` do bloco de endereços de rede CIDR:  `10.10.0.0/22`
 
 As sub-redes:
 
-| Utilização de rede             | Sub-rede | Exemplo        |
-| ------------------------- | ------ | -------------- |
-| Gestão de clouds privadas  | `/24`  | `10.10.0.0/24` |
-| vMotion network           | `/24`  | `10.10.1.0/24` |
-| Cargas de trabalho de VM              | `/24`  | `10.10.2.0/24` |
-| ExpressRoute olhando      | `/24`  | `10.10.3.8/30` |
+| Utilização de rede             | Sub-rede | Exemplo          |
+| ------------------------- | ------ | ---------------- |
+| Gestão de clouds privadas  | `/26`  | `10.10.0.0/26`   |
+| vMotion network           | `/25`  | `10.10.1.128/25` |
+| Cargas de trabalho de VM              | `/24`  | `10.10.2.0/24`   |
+| ExpressRoute olhando      | `/29`  | `10.10.3.8/29`   |
 
 
-### <a name="network-ports-required-to-communicate-with-the-service"></a>Portas de rede necessárias para comunicar com o serviço
+## <a name="required-network-ports"></a>Portas de rede necessárias
 
-| Origem | Destino | Protocolo | Porta | Descrição  | 
+| Origem | Destino | Protocolo | Porta | Description  | 
 | ------ | ----------- | :------: | :---:| ------------ | 
 | Servidor privado de DNS em nuvem | Servidor DNS nas instalações | UDP | 53 | CLIENTE DNS - Pedidos a prazo do PC vCenter para quaisquer consultas DNS no local (ver secção DNS abaixo) |  
 | Servidor DNS no local   | Servidor privado de DNS em nuvem | UDP | 53 | CLIENTE DNS - Encaminhar pedidos de serviços no local para servidores DNS private Cloud (ver secção DNS abaixo) |  
@@ -67,20 +71,17 @@ As sub-redes:
 | Rede vCenter no local | Rede privada de gestão de nuvem | TCP | 8000 |  vMotion de VMs de vCenter para Private Cloud vCenter   |     
 
 ## <a name="dhcp-and-dns-resolution-considerations"></a>Considerações de resolução de DHCP e DNS
-Aplicações e cargas de trabalho em execução em um ambiente de nuvem privada requerem resolução de nomes e serviços DHCP para procura e atribuição de endereços IP. É necessária uma infraestrutura DHCP e DNS adequada para a prestação destes serviços. Pode configurar uma máquina virtual para fornecer estes serviços no seu ambiente de nuvem privada.  
+Aplicações e cargas de trabalho em execução em um ambiente de nuvem privada requerem resolução de nomes e serviços DHCP para atribuição de endereços de procura e IP. Uma infraestrutura DHCP e DNS adequada é necessária para fornecer estes serviços. Pode configurar uma máquina virtual para fornecer estes serviços no seu ambiente de nuvem privada.  
 
-Recomenda-se a utilização do serviço DHCP que é incorporado no NSX ou utilizando um servidor DHCP local na nuvem privada em vez de encaminhar o tráfego DHCP sobre o WAN de volta para o local.
+Utilize o serviço DHCP incorporado para NSX ou use um servidor DHCP local na nuvem privada em vez de encaminhar o tráfego DHCP transmitido sobre o WAN de volta para o local.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu sobre:
+Neste tutorial, aprendeu sobre as considerações e requisitos para a implementação de uma nuvem privada Azure VMware Solution. 
 
-> [!div class="checklist"]
-> * Requisitos de conectividade da rede
-> * DHCP em Solução VMware Azure
 
 Assim que tiver a rede adequada no lugar, continue até ao próximo tutorial para criar a sua nuvem privada Azure VMware Solution.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Criar uma nuvem privada Azure VMware Solution](tutorial-create-private-cloud.md)
+> [Criar uma nuvem privada Azure VMware Solution](tutorial-create-private-cloud.md)

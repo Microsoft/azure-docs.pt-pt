@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.custom: mqtt, devx-track-javascript
-ms.openlocfilehash: 16e6c72f9fbb710524752c2d220d442735d809b7
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mqtt, devx-track-js
+ms.openlocfilehash: 2c5ce219e40117a2b656b7acab6dd68a1d20dffb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420775"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91251937"
 ---
 # <a name="schedule-and-broadcast-jobs-nodejs"></a>Horários e trabalhos de transmissão (Node.js)
 
@@ -57,7 +57,7 @@ No final deste tutorial, você tem duas Node.js apps:
 
 * Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste artigo utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -294,7 +294,7 @@ Pode agora executar as aplicações.
 
    ![Executar a aplicação de dispositivo simulado](./media/iot-hub-node-node-schedule-jobs/schedule-job-service.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, utilizou um trabalho para agendar um método direto para um dispositivo e a atualização das propriedades do dispositivo Twin.
 

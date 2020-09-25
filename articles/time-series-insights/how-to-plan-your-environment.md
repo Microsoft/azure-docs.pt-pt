@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 76e49393b1d26e6db85146a204911ba164d3ffc0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1788eba0ef9be781fb7cf23f1eb86b48c9c360e1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289904"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287424"
 ---
 # <a name="plan-your-azure-time-series-insights-gen2-environment"></a>Planeie o seu ambiente Azure Time Series Insights Gen2
 
@@ -69,10 +69,7 @@ Pode selecionar até três chaves para diferenciar exclusivamente os seus recurs
 
 A propriedade **Timestamp** também é importante. Você pode designar esta propriedade quando adicionar fontes de evento. Cada fonte de evento tem uma propriedade opcional do Timestamp que é usada para rastrear fontes de eventos ao longo do tempo. Os valores do tempotamp são sensíveis à caixa e devem ser formatados à especificação individual de cada fonte de evento.
 
-> [!TIP]
-> Verifique os requisitos de formatação e análise das suas fontes de evento.
-
-Quando deixada em branco, o Tempo de Enqueue do Evento de uma fonte de evento é usado como o timetamp do evento. Se enviar dados históricos ou eventos em lote, personalizar a propriedade Timestamp é mais útil do que o tempo de enquese do evento padrão. Para mais informações, leia sobre como [adicionar fontes de eventos no Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
+Quando deixado em branco, o momento em que o evento foi encostado no IoT Hub ou No Event Hub é usado como o timetamp do evento. Em geral, os utilizadores devem optar por personalizar a propriedade Timestamp e utilizar o tempo em que o sensor ou tag gerou a leitura, em vez do tempo do hub. Para mais informações e para ler sobre as compensações do fuso horário leia [o tempo de tempo da fonte do evento](./concepts-streaming-ingestion-event-sources.md#event-source-timestamp).
 
 ## <a name="understand-the-time-series-model"></a>Compreender o Modelo de Séries Tempores
 
@@ -91,7 +88,7 @@ Uma boa regra do polegar:
 * Guarde metadados no seu modelo série de tempo.
 * Certifique-se de que o Modo série de tempo, os campos de instância e os eventos incluem apenas informações necessárias, como uma propriedade time series iD ou timestamp.
 
-Para mais informações, leia [eventos de forma](./time-series-insights-send-events.md#supported-json-shapes).
+Para obter mais informações e para compreender como os eventos serão achatados e armazenados, leia as regras de [achatamento e fuga do JSON.](./concepts-json-flattening-escaping-rules.md)
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

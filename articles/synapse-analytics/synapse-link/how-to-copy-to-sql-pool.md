@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 08/10/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 88962d63519cfeb78be694c4f702b05ed4e7d3df
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 409f1ecee5ccf42a0168d500b40337366e07bfc0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658517"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287855"
 ---
 # <a name="copy-data-from-azure-cosmos-db-into-a-sql-pool-using-apache-spark"></a>Copiar dados da Azure Cosmos DB em uma piscina SQL usando Apache Spark
 
@@ -29,12 +29,12 @@ A azure Synapse Link for Azure Cosmos DB permite que os utilizadores corram pert
 * [Tenha a configuração certa para importar dados em uma piscina SQL da Spark](../spark/synapse-spark-sql-pool-import-export.md)
 
 ## <a name="steps"></a>Passos
-Neste tutorial, irá ligar-se à loja analítica para que não haja impacto na loja transacional (não consumirá nenhuma Unidade de Pedido). Iremos seguir os seguintes passos:
+Neste tutorial, irá ligar-se à loja analítica para que não haja impacto na loja transacional (não consumirá nenhuma Unidade de Pedido). Vamos percorrer os seguintes passos:
 1. Leia o recipiente Cosmos DB HTAP num dataframe spark
 2. Agregar os resultados num novo dataframe
 3. Ingerir os dados numa piscina SQL
 
-[![Faísca para passos SQL](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png)](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png#lightbox)
+[![Faísca para SQL Passos 1](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png)](../media/synapse-link-spark-to-sql/synapse-spark-to-sql.png#lightbox)
 
 ## <a name="data"></a>Dados
 Neste exemplo, utilizamos um contentor HTAP chamado **RetailSales.** Faz parte de um serviço ligado chamado **ConnectedData,** e tem o seguinte esquema:
@@ -97,7 +97,7 @@ SELECT  [productCode]
  FROM [dbo].[productsales]
 ```
 
-A sua consulta apresentará os seguintes resultados num modo gráfico: [ ![ Spark to SQL Steps](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png)](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png#lightbox)
+A sua consulta apresentará os seguintes resultados num modo gráfico: [ ![ Faísca para SQL Passos 2](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png)](../media/synapse-link-spark-to-sql/sql-script-spark-sql.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Consulta Azure Cosmos DB Loja Analítica com Faísca Apache](./how-to-query-analytical-store-spark.md)

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 52cf3af4b4ab84c12b2e1b5d7f076c43e652157d
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: a2e6111f2df5a8d7334a85ec5b6a9e514368ad6c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031318"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289485"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gerir o acesso a espaços de trabalho, dados e oleodutos
 
@@ -50,7 +50,7 @@ Quando a provisionou o seu espaço de trabalho, teve de escolher uma conta [Azur
 1. Abra o [portal do Azure](https://portal.azure.com)
 2. Navegue para a conta Azure Data Lake Storage Gen2
 3. Navegue para o contentor (sistema de ficheiros) que escolheu para o espaço de trabalho Azure Synapse
-4. Clique no **Controlo de Acesso (IAM)**
+4. Selecione **Controlo de Acesso (IAM)**
 5. Atribuir as seguintes funções:
    1. **Papel** do leitor para:  `Synapse_WORKSPACENAME_Users`
    2. **Papel do Proprietário de Dados blob de armazenamento** para:  `Synapse_WORKSPACENAME_Admins`
@@ -64,17 +64,17 @@ Quando a provisionou o seu espaço de trabalho, teve de escolher uma conta [Azur
 
 1. Vá ao [ **Azure Synapse Web UI**](https://web.azuresynapse.net)
 2. Ir para **gerir o**controlo de acesso   >  **Security**  >  **à** segurança
-3. Clique **em Adicionar Administrador**e selecione `Synapse_WORKSPACENAME_Admins`
+3. Selecione **Add Admin**e selecione `Synapse_WORKSPACENAME_Admins`
 
 ### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>Passo 4: Configurar o acesso a administradores sql para o espaço de trabalho
 
 1. Vá ao [portal Azure](https://portal.azure.com)
 2. Navegue para o seu espaço de trabalho
 3. Ir para **Definições**  >  **Administrador Ativo Diretório**
-4. Clique **em Admin conjunto**
+4. Selecione **Definir Administrador**
 5. Selecione `Synapse_WORKSPACENAME_Admins`
-6. clique **Selecionar**
-7. clique **Em Guardar**
+6. Escolha **Selecionar**
+7. Selecione **Guardar**
 
 > [!NOTE]
 > WORKSPACENAME - deve substituir esta peça pelo nome real do espaço de trabalho.
@@ -198,6 +198,6 @@ REVOKE CONTROL ON DATABASE::<SQLpoolname> TO <workspacename>;
 DROP USER [<workspacename>];
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma visão geral da identidade gerida pelo espaço de trabalho da Synapse, consulte a identidade gerida pelo espaço de [trabalho Azure Synapse.](../security/synapse-workspace-managed-identity.md) Para saber mais sobre os principais da base de dados, consulte [os principais.](https://msdn.microsoft.com/library/ms181127.aspx) Informações adicionais sobre funções de base de dados podem ser encontradas no artigo [de funções de Base de Dados.](https://msdn.microsoft.com/library/ms189121.aspx)

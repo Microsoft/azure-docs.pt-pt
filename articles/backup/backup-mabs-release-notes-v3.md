@@ -4,12 +4,12 @@ description: Este artigo fornece as informações sobre os problemas e soluçõe
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 884e850255856b39ccbe52544a47a7453e975960
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 87bc415c125a387d98ac88255d77fb1867564acf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017945"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254266"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Notas de lançamento para Microsoft Azure Backup Server
 
@@ -60,7 +60,7 @@ Este artigo fornece os problemas e soluções alternativas conhecidas para o Mic
 4. [Instalar](/sql/ssms/download-sql-server-management-studio-ssms) SQL Server Management Studio (SSMS).
 5. Configure Reporte utilizando os parâmetros documentados na [configuração SSRS com SQL 2017](./backup-azure-microsoft-azure-backup.md#upgrade-mabs).
 6. [Instalar](backup-azure-microsoft-azure-backup.md) MABS V3.
-7. [Restaurar](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms) SQL utilizando sSMS e executar a ferramenta DPM-Sync como descrito [aqui.](/system-center/dpm/back-up-the-dpm-server?view=sc-dpm-2019#using-dpmsync)
+7. [Restaurar](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms) SQL utilizando sSMS e executar a ferramenta DPM-Sync como descrito [aqui.](/system-center/dpm/back-up-the-dpm-server#using-dpmsync)
 8. Atualize a propriedade 'DataBaseVersion' na tabela dbo.tbl_DLS_GlobalSetting utilizando o seguinte comando:
 
     ```sql

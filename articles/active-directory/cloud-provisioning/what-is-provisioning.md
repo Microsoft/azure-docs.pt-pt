@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f85430aea183cca977e3cb648cb43779f25c61a0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a5d5528865fc910751b8052dcc78a82131e17290
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657838"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266246"
 ---
 # <a name="what-is-identity-provisioning"></a>O que é o aprovisionamento de identidades?
 
@@ -24,7 +24,7 @@ Hoje em dia, as empresas e as empresas estão a tornar-se cada vez mais uma mist
 
 O provisionamento é o processo de criação de um objeto baseado em determinadas condições, mantendo o objeto atualizado e eliminando o objeto quando as condições já não estão reunidas. Por exemplo, quando um novo utilizador se junta à sua organização, esse utilizador é introduzido no sistema de RH.  Nessa altura, o provisionamento pode criar uma conta de utilizador correspondente na nuvem, no Ative Directory, e diferentes aplicações às que o utilizador necessita de acesso.  Isto permite ao utilizador começar a trabalhar e ter acesso às aplicações e sistemas de que necessita no primeiro dia. 
 
-![fornecimento de nuvens](media/what-is-provisioning/cloud1.png)
+![Diagrama que mostra provisão de nuvem com diretório ativo Azure.](media/what-is-provisioning/cloud1.png)
 
 No que diz respeito ao Azure Ative Directory, o provisionamento pode ser discriminado nos seguintes cenários-chave.  
 
@@ -34,7 +34,7 @@ No que diz respeito ao Azure Ative Directory, o provisionamento pode ser discrim
 
 ## <a name="hr-driven-provisioning"></a>Provisão orientada para os recursos humanos
 
-![fornecimento de nuvens](media/what-is-provisioning/cloud2.png)
+![Diagrama que mostra provisão orientada para o RH com Cloud HR, On-ins HR e Azure Ative Directory.](media/what-is-provisioning/cloud2.png)
 
 O fornecimento de RH para a nuvem envolve a criação de objetos (utilizadores, papéis, grupos, etc.) com base na informação que está no seu sistema de RH.  
 
@@ -48,7 +48,7 @@ O cenário mais comum seria, quando um novo empregado entra na sua empresa, eles
 
 ## <a name="app-provisioning"></a>Fornecimento de aplicativos
 
-![fornecimento de nuvens](media/what-is-provisioning/cloud3.png)
+![Diagrama que mostra o fornecimento de aplicativos com aplicações on-in, aplicações de nuvem não Microsoft e Azure Ative Directory.](media/what-is-provisioning/cloud3.png)
 
 No Azure Ative Directory (Azure AD), o termo **[provisionamento de aplicações](../app-provisioning/user-provisioning.md)** refere-se à criação automática de identidades e funções dos utilizadores nas aplicações em nuvem a que os utilizadores precisam de acesso. Além da criação de identidades de utilizador, o fornecimento automático inclui a manutenção e remoção das identidades dos utilizadores como alteração de estado ou de funções. Os cenários comuns incluem a disponibilização de um utilizador AZure AD em aplicações como [Dropbox,](../saas-apps/dropboxforbusiness-provisioning-tutorial.md) [Salesforce,](../saas-apps/salesforce-provisioning-tutorial.md) [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)e muito mais.
 
@@ -62,7 +62,7 @@ O cenário mais comum seria, quando um utilizador em Ative Directory (AD) é a p
 
 Isto foi realizado por Azure AD Connect sync, Azure AD Connect cloud provisioning e Microsoft Identity Manager. 
  
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
 - [O que é o aprovisionamento na cloud do Azure AD Connect?](what-is-cloud-provisioning.md)
 - [Instalar provisão de nuvens](how-to-install.md)

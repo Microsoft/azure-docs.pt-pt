@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 0930b7cb7b98874e20f070763a7ec50a6b4f3ef0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: jrasnick
+ms.openlocfilehash: ea32126e19c4520a6d5a40f38f60ec44e9a119cd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006080"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260874"
 ---
 # <a name="quickstart-create-a-new-apache-spark-pool-using-the-azure-portal"></a>Quickstart: Criar uma nova piscina Apache Spark utilizando o portal Azure
 
@@ -80,7 +80,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/)
 
 9. Neste momento, não há recursos em execução, nem encargos para a Spark, criaste metadados sobre as instâncias Spark que queres criar.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Siga os passos abaixo para eliminar a piscina Apache Spark do espaço de trabalho.
 > [!WARNING]

@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b7b8a0d98db1411a08afdb33fa272bb7e6d6313e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: e541a5620d4f263e5e1379b364d7c7dd9a97a331
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87280482"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289026"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Como utilizar o OPENROWSET com SQL on demand (pré-visualização)
 
-A `OPENROWSET(BULK...)` função permite-lhe aceder a ficheiros no Azure Storage. `OPENROWSET`função lê o conteúdo de uma fonte de dados remoto (por exemplo, ficheiro) e devolve o conteúdo como um conjunto de linhas. Dentro do recurso SQL on demand (pré-visualização), o fornecedor de conjunto de linha a granel OPENROWSET é acedido através da chamada da função OPENROWSET e especificando a opção BULK.  
+A `OPENROWSET(BULK...)` função permite-lhe aceder a ficheiros no Azure Storage. `OPENROWSET` função lê o conteúdo de uma fonte de dados remoto (por exemplo, ficheiro) e devolve o conteúdo como um conjunto de linhas. Dentro do recurso SQL on demand (pré-visualização), o fornecedor de conjunto de linha a granel OPENROWSET é acedido através da chamada da função OPENROWSET e especificando a opção BULK.  
 
 A `OPENROWSET` função pode ser referenciada na `FROM` cláusula de uma consulta como se fosse uma nome de mesa `OPENROWSET` . Suporta operações a granel através de um fornecedor BULK incorporado que permite que os dados de um ficheiro sejam lidos e devolvidos como um conjunto de linhas.
 
@@ -26,7 +26,7 @@ A `OPENROWSET` função pode ser referenciada na `FROM` cláusula de uma consult
 
 A função OPENROWSET na Synapse SQL lê o conteúdo dos ficheiros a partir de uma fonte de dados. A fonte de dados é uma conta de armazenamento Azure e pode ser explicitamente referenciada na `OPENROWSET` função ou pode ser deduzida dinamicamente a partir de URL dos ficheiros que pretende ler.
 A `OPENROWSET` função pode, opcionalmente, conter um `DATA_SOURCE` parâmetro para especificar a fonte de dados que contém ficheiros.
-- `OPENROWSET`sem `DATA_SOURCE` pode ser utilizado para ler diretamente o conteúdo dos ficheiros a partir da localização URL especificada como `BULK` opção:
+- `OPENROWSET` sem `DATA_SOURCE` pode ser utilizado para ler diretamente o conteúdo dos ficheiros a partir da localização URL especificada como `BULK` opção:
 
     ```sql
     SELECT *
@@ -36,7 +36,7 @@ A `OPENROWSET` função pode, opcionalmente, conter um `DATA_SOURCE` parâmetro 
 
 Esta é uma forma rápida e fácil de ler o conteúdo dos ficheiros sem pré-configuração. Esta opção permite-lhe utilizar a opção de autenticação básica para aceder ao armazenamento (passe AD AD Azure para logins AD Azure e ficha SAS para logins SQL). 
 
-- `OPENROWSET`com `DATA_SOURCE` pode ser usado para aceder a ficheiros na conta de armazenamento especificada:
+- `OPENROWSET` com `DATA_SOURCE` pode ser usado para aceder a ficheiros na conta de armazenamento especificada:
 
     ```sql
     SELECT *
@@ -49,7 +49,7 @@ Esta é uma forma rápida e fácil de ler o conteúdo dos ficheiros sem pré-con
     Esta opção permite configurar a localização da conta de armazenamento na fonte de dados e especificar o método de autenticação que deve ser utilizado para aceder ao armazenamento. 
     
     > [!IMPORTANT]
-    > `OPENROWSET`sem `DATA_SOURCE` uma forma rápida e fácil de aceder aos ficheiros de armazenamento, mas oferece opções de autenticação limitadas. Como exemplo, os principais da AD Azure podem aceder a ficheiros apenas utilizando a sua [identidade AZure AD](develop-storage-files-storage-access-control.md?tabs=user-identity) ou ficheiros disponíveis publicamente. Se precisar de opções de autenticação mais poderosas, use `DATA_SOURCE` a opção e defina a credencial que pretende utilizar para aceder ao armazenamento.
+    > `OPENROWSET` sem `DATA_SOURCE` uma forma rápida e fácil de aceder aos ficheiros de armazenamento, mas oferece opções de autenticação limitadas. Como exemplo, os principais da AD Azure podem aceder a ficheiros apenas utilizando a sua [identidade AZure AD](develop-storage-files-storage-access-control.md?tabs=user-identity) ou ficheiros disponíveis publicamente. Se precisar de opções de autenticação mais poderosas, use `DATA_SOURCE` a opção e defina a credencial que pretende utilizar para aceder ao armazenamento.
 
 
 ## <a name="security"></a>Segurança
@@ -58,7 +58,7 @@ Um utilizador da base de dados deve ter `ADMINISTER BULK OPERATIONS` permissão 
 
 O administrador de armazenamento também deve permitir que um utilizador aceda aos ficheiros fornecendo um token SAS válido ou permitindo que o Azure AD principal aceda a ficheiros de armazenamento. Saiba mais sobre o controlo de acesso ao armazenamento [neste artigo.](develop-storage-files-storage-access-control.md)
 
-`OPENROWSET`utilizar as seguintes regras para determinar como autenticar para o armazenamento:
+`OPENROWSET` utilizar as seguintes regras para determinar como autenticar para o armazenamento:
 - Entrar `OPENROWSET` sem mecanismo de `DATA_SOURCE` autenticação depende do tipo de chamada.
   - Qualquer utilizador pode usar `OPENROWSET` sem `DATA_SOURCE` ler ficheiros disponíveis publicamente no armazenamento Azure.
   - Os logins AD do Azure podem aceder a ficheiros protegidos utilizando a sua própria [identidade AD Azure](develop-storage-files-storage-access-control.md?tabs=user-identity#supported-storage-authorization-types) se o armazenamento Azure permitir que o utilizador Azure AD aceda a ficheiros subjacentes (por exemplo, se o autor da chamada tiver `Storage Reader` permissão para o armazenamento do Azure).
@@ -119,7 +119,7 @@ O unstructured_data_path que estabelece um caminho para os dados pode ser um cam
 | Armazenamento de Blobs do Azure         | wasb[s]  | \<container>@\<storage_account>.blob.core.windows.net/path/file |
 | Azure Data Lake Store Gen1 | http[s]  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Store Gen2 | http[s]  | \<storage_account>.dfs.core.windows.net /caminho/arquivo   |
-| Azure Data Lake Store Gen2 | abfs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
+| Azure Data Lake Store Gen2 | aufs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
 ||||
 
 '\<storage_path>'
@@ -135,7 +135,7 @@ Se especificar a unstructured_data_path ser uma pasta, uma consulta a pedido do 
 > [!NOTE]
 > Ao contrário de Hadoop e PolyBase, a SQL on-demand não devolve subpaminações. Além disso, ao contrário de Hadoop e PolyBase, o SQL on demand devolve ficheiros para os quais o nome do ficheiro começa com um sublinhado (_) ou um período (.).
 
-No exemplo abaixo, se o unstructured_data_path= `https://mystorageaccount.dfs.core.windows.net/webdata/` , uma consulta a pedido do SQL regressará às linhas de mydata.txt e _hidden.txt. Não devolverá mydata2.txt e mydata3.txt porque estão localizados numa sub-página.
+No exemplo abaixo, se o unstructured_data_path= `https://mystorageaccount.dfs.core.windows.net/webdata/` , uma consulta a pedido do SQL regressará às linhas de mydata.txt e _hidden.txt. Não vai voltar mydata2.txt e mydata3.txt porque estão localizados numa sub-página.
 
 ![Dados recursivos para tabelas externas](./media/develop-openrowset/folder-traversal.png)
 
@@ -184,7 +184,7 @@ O parâmetro ESCAPE_CHAR será aplicado independentemente de o FIELDQUOTE estar 
 
 PRIMEIRA SOBRANCELHA = 'first_row' 
 
-Especifica o número da primeira linha para carregar. A predefinição é 1. Isto indica a primeira linha no ficheiro de dados especificado. Os números da linha são determinados contando os exterminadores da linha. FirstROW é baseado em 1.
+Especifica o número da primeira linha para carregar. O predefinido é 1 e indica a primeira linha no ficheiro de dados especificado. Os números da linha são determinados contando os exterminadores da linha. FirstROW é baseado em 1.
 
 FIELDQUOTE = 'field_quote' 
 
@@ -203,7 +203,7 @@ Especifica a versão parser a ser utilizada ao ler ficheiros. As versões de par
 - PARSER_VERSION = '1.0'
 - PARSER_VERSION = '2.0'
 
-A versão 1.0 do parser CSV é padrão e apresenta-se rica, enquanto o 2.0 é construído para desempenho e não suporta todas as opções e codificações. 
+A versão 1.0 do parser CSV é padrão e possui-se rica. A versão 2.0 foi construída para desempenho e não suporta todas as opções e codificações. 
 
 Detalhes da versão 2.0 do parser CSV:
 
@@ -229,7 +229,7 @@ WITH (
 ) AS [r]
 ```
 
-O exemplo a seguir devolve todas as colunas da primeira linha a partir do conjunto de dados de recenseamento no formato Parquet sem especificar nomes de colunas e tipos de dados: 
+O exemplo a seguir devolve todas as colunas da primeira linha a partir do conjunto de dados de recenseamento, no formato Parquet, e sem especificar os nomes das colunas e os tipos de dados: 
 
 ```sql
 SELECT 

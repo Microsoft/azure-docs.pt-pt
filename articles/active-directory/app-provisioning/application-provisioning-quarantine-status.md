@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 04/28/2020
+ms.date: 09/24/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 54d02b3189825d08716b73b7250efd4e3f334aa0
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 6a716aef65cc81c5558a214c1ee5f93180810977
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88234747"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266688"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisionamento de pedidos em estado de quarentena
 
@@ -45,10 +45,11 @@ Há três formas de verificar se um pedido está em quarentena:
   - Certifique-se de que especificou um **Email de Notificação** válido na configuração de provisionamento para a aplicação.
   - Certifique-se de que não existe filtragem de spam na caixa de entrada de e-mail de notificação.
   - Certifique-se de que não foi subscrita de e-mails.
+  - Verifique se há e-mails azure-noreply@microsoft.com
 
 ## <a name="why-is-my-application-in-quarantine"></a>Porque é que o meu pedido está em quarentena?
 
-|Descrição|Ação Recomendada|
+|Description|Ação Recomendada|
 |---|---|
 |**Problema de conformidade SCIM:** Foi devolvida uma resposta HTTP/404 Não Encontrada em vez da resposta HTTP/200 OK esperada. Neste caso, o serviço de fornecimento de Ad Azure fez um pedido ao pedido-alvo e recebeu uma resposta inesperada.|Consulte a secção de credenciais de administração para ver se o pedido requer especificar o URL do inquilino e certifique-se de que o URL está correto. Se não vir um problema, contacte o desenvolvedor da aplicação para garantir que o seu serviço está em conformidade com o SCIM. https://tools.ietf.org/html/rfc7644#section-3.4.2 |
 |**Credenciais inválidas:** Ao tentar autorizar o acesso ao pedido de destino, recebemos uma resposta da aplicação-alvo que indica que as credenciais fornecidas são inválidas.|Navegue para a secção de credenciais de administração da configuração de provisionamento UI e autorize o acesso novamente com credenciais válidas. Se a aplicação estiver na galeria, reveja o tutorial de configuração da aplicação para quaisquer etapas adicionais necessárias.|

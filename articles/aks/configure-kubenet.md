@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 6f773f57bea40ba87f35ca2bbefe424d084afb2e
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: c30b82e44833e413c1576bf64e8fef263c58b246
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462144"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264614"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utilize a rede kubenet com as suas próprias gamas de endereços IP no Serviço Azure Kubernetes (AKS)
 
@@ -162,7 +162,7 @@ Criou agora uma rede virtual e uma sub-rede, e criou e atribuiu permissões para
 
 Os seguintes intervalos de endereços IP são também definidos como parte do processo de criação de cluster:
 
-* O *cidr de serviço-serviço* é utilizado para atribuir serviços internos no cluster AKS um endereço IP. Este intervalo de endereços IP deve ser um espaço de endereço que não está em uso em outro lugar no seu ambiente de rede. Esta gama inclui quaisquer gamas de rede no local se ligar, ou planeia ligar, as suas redes virtuais Azure utilizando a Rota Expresso ou uma ligação VPN site-to-site.
+* O *cidr de serviço-serviço* é utilizado para atribuir serviços internos no cluster AKS um endereço IP. Este intervalo de endereços IP deve ser um espaço de endereço que não está a ser utilizado em outros locais do seu ambiente de rede, incluindo quaisquer gamas de rede no local se ligar, ou planeia ligar, as suas redes virtuais Azure utilizando a Rota Expresso ou uma ligação VPN site-to-site.
 
 * O endereço *--dns-serviço-ip* deve ser o endereço *.10* do seu intervalo de endereços IP de serviço.
 
@@ -244,7 +244,7 @@ az network vnet subnet list --resource-group
 az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id MySubnetID
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Com um cluster AKS implantado na sua sub-rede de rede virtual existente, pode agora utilizar o cluster normalmente. Começa com [a construção de apps que utilizam o Azure Dev Spaces,][dev-spaces] [implemente aplicações existentes usando o Helm,][use-helm]ou [crie novas aplicações usando o Helm.][develop-helm]
 

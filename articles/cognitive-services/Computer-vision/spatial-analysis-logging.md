@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: 2d19c061ad1e5cf033d2801df64a0ae37736c418
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f85a7e2acf911772ecc6562217918352e909fcbb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983016"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91254079"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e resolução de problemas
 
@@ -103,7 +103,7 @@ Uma vez implantado o módulo telegraf, as métricas reportadas podem ser acedida
 
 ### <a name="system-health-events"></a>Eventos de saúde do sistema
 
-| Nome do Evento | Descrição|
+| Nome do Evento | Description|
 |------|---------|
 |archon_exit    |Enviado quando um utilizador altera o estado do módulo de análise espacial de *correr* para *parar*.  |
 |archon_error   |Enviado quando qualquer um dos processos dentro do contentor se despenhou. Isto é um erro crítico.  |
@@ -237,7 +237,7 @@ Os registos são carregados a pedido com o `getRTCVLogs` método IoT Edge, no `d
 
 A tabela abaixo lista os parâmetros que pode utilizar ao consultar os registos.
 
-| Palavra-chave | Descrição | Valor Predefinido |
+| Palavra-chave | Description | Valor Predefinido |
 |--|--|--|
 | StartTime | Troncos desejados começam na hora de início, em milissegundos UTC. | `-1`, o início do tempo de funcionação do contentor. Quando `[-1.-1]` é usado como um intervalo de tempo, a API retorna os registos da última hora.|
 | EndTime | Os troncos desejados terminam o tempo, em milissegundos UTC. | `-1`, a hora atual. Quando `[-1.-1]` o intervalo de tempo é utilizado, a API retorna os registos da última hora. |
@@ -248,7 +248,7 @@ A tabela abaixo lista os parâmetros que pode utilizar ao consultar os registos.
 
 A tabela seguinte lista os atributos na resposta de consulta.
 
-| Palavra-chave | Descrição|
+| Palavra-chave | Description|
 |--|--|
 |DoPost| Verdadeiro *true* ou *falso.* Indica se os registos foram carregados ou não. Quando opta por não fazer o upload de registos, a API retorna a informação ***de forma sincronizada***. Quando opta por fazer o upload de registos, a API devolve 200, se o pedido for válido, e começa a carregar registos ***assíncronamente***.|
 |Filtro de tempo| Filtro de tempo aplicado aos troncos.|
@@ -313,8 +313,7 @@ Se vir a seguinte mensagem nos registos do módulo, pode significar que a sua su
 
 "O contentor não está num estado válido. A validação da subscrição falhou com o estado de 'Desajuste'. A Api Key não se destina ao tipo de recipiente dado."
 
-Para obter mais informações, consulte [Pedir a aprovação para executar o recipiente.](spatial-analysis-container.md#request-approval-to-run-the-container) 
-
+Para obter mais informações, consulte [Pedir a aprovação para executar o recipiente.](spatial-analysis-container.md#request-approval-to-run-the-container)
 
 ## <a name="troubleshooting-the-azure-stack-edge-device"></a>Resolução de problemas do dispositivo Azure Stack Edge
 

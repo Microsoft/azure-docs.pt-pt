@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8b19b8e928a220efa8a445ff033582e0f13c6de
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 4a6911f736e466277ba023f97189e1bb6619b8da
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707735"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265279"
 ---
 # <a name="what-is-identity-protection"></a>O que é o Identity Protection?
 
@@ -53,8 +53,8 @@ A Proteção de Identidade identifica os riscos nas seguintes classificações:
 | Endereço IP anónimo | Inscreva-se a partir de um endereço IP anónimo (por exemplo: navegador Tor, VPNs anonimizadores). |
 | Propriedades de inícios de sessão desconhecidos | Inscreva-se com propriedades que não vimos recentemente para o utilizador dado. |
 | Endereço IP ligado a malware | Inscreva-se a partir de um endereço IP ligado a malware. |
-| Credenciais vazadas | Esta deteção de risco indica que as credenciais válidas do utilizador foram vazadas. |
-| Spray de senha | Indica que vários nomes de utilizadores estão a ser atacados usando senhas comuns de forma bruta unificada. |
+| Credenciais vazadas | Indica que as credenciais válidas do utilizador foram vazadas. |
+| Spray de senha | Indica que vários nomes de utilizadores estão a ser atacados usando senhas comuns de forma unificada e bruta. |
 | Inteligência de ameaça Azure AD | Fontes internas e externas da Microsoft identificaram um padrão de ataque conhecido. |
 
 Mais detalhes sobre estes riscos e como/quando são calculados podem ser encontrados no artigo, [O que é o risco](concept-identity-protection-risks.md).
@@ -96,7 +96,7 @@ A Proteção de Identidade requer que os utilizadores sejam um Leitor de Seguran
 
 Atualmente, a função do operador de segurança não pode aceder ao relatório de inscrições de Risco.
 
-Os administradores de acesso condicional também podem criar políticas que fator no risco de inscrição como condição, encontrar mais informações no artigo [Acesso Condicional: Condições](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk).
+Os administradores de acesso condicional também podem criar políticas que fator no risco de inscrição como condição. Mais informações no artigo [Acesso Condicionado: Condições.](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk)
 
 ## <a name="license-requirements"></a>Requisitos de licença
 

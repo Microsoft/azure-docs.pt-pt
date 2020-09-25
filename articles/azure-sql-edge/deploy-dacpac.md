@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 6c8be6e67b1d7b919d6ea221c473c8975e559658
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e9c8c58c6be8d2c2a85e56690903e6b54f0e4a0d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90887489"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293905"
 ---
 # <a name="sql-database-dacpac-and-bacpac-packages-in-sql-edge"></a>Pacotes SQL Database DACPAC e BACPAC em SQL Edge
 
 O SQL do Azure no Edge é um motor de base de dados relacional otimizado para implementações de IoT e no edge. É construído nas versões mais recentes do Microsoft SQL Database Engine, que fornece capacidades de processamento de desempenho, segurança e consulta líderes do setor. Juntamente com as capacidades de gestão de bases de dados relacionais líderes no setor do SQL Server, o Azure SQL Edge fornece capacidade de streaming incorporada para análise em tempo real e processamento complexo de eventos.
 
-O Azure SQL Edge também fornece uma implementação nativa de SqlPackage.exe que permite implementar um pacote [DE BASE DE DADOS SQL DACPAC e BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) durante a implementação do SQL Edge. 
+O Azure SQL Edge fornece mecanismos nativos que lhe permitem implantar um pacote [DE BASE DE DADOS SQL DACPAC e BACPAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) durante, ou após a implantação do SQL Edge.
 
 Os pacotes daCpac e bacpac da SQL Database podem ser implantados na SQL Edge utilizando a `MSSQL_PACKAGE` variável ambiental. A variável ambiente pode ser configurada com qualquer uma das seguintes.  
 - Uma localização de pasta local dentro do recipiente SQL contendo os ficheiros dacpac e bacpac. Esta pasta pode ser mapeada para um volume de hospedeiro utilizando pontos de montagem ou recipientes de volume de dados. 
@@ -64,6 +64,10 @@ Para implantar (ou importar) um pacote DAC de base de dados SQL `(*.dacpac)` ou 
 5. Após a atualização do módulo, os ficheiros do pacote são descarregados, desapertados e implantados contra a instância SQL Edge.
 
 Em cada reinicio do recipiente Azure SQL Edge, o SQL Edge tenta descarregar o pacote de ficheiros com fecho e avaliar as alterações. Se for encontrada uma nova versão do ficheiro dacpac, as alterações são implementadas na base de dados em SQL Edge.
+
+## <a name="known-issue"></a>Questão conhecida
+
+Durante algumas implementações DACPAC ou BACPAC, os utilizadores podem encontrar um tempo limite de comando, resultando na falha da operação de implantação da dacpac. Se encontrar este problema, utilize a SQLPackage.exe (ou SQL Client Tools) para aplicar o DACPAC ou BACPAC. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -3,12 +3,12 @@ title: Configurar configurações de diagnóstico de abóbada em escala
 description: Configurar definições de diagnóstico de log analytics para todos os cofres num determinado âmbito utilizando a Política Azure
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 25946bb742c7666e7d394477318f647009b2f50e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 33956fe7ce2e162d58ef3aa09feaea2882dccb36
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378054"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293089"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configurar configurações de diagnóstico de abóbada em escala
 
@@ -34,7 +34,7 @@ Para atribuir a política para cofres no âmbito exigido, siga os passos abaixo:
 
 1. Inscreva-se no portal Azure e navegue para o **Painel de Política.**
 2. Selecione **Definições** no menu esquerdo para obter uma lista de todas as políticas incorporadas em todos os Recursos Azure.
-3. Filtrar a lista para **categoria=Monitorização.** Localizar a política denominada **[Pré-visualização]: Implementar definições de diagnóstico para cofre de serviços de recuperação para registar espaço de trabalho para categorias específicas de recursos**.
+3. Filtrar a lista para **categoria=backup**. Localizar a política denominada **[Pré-visualização]: Implementar definições de diagnóstico para cofre de serviços de recuperação para registar espaço de trabalho para categorias específicas de recursos**.
 
     ![Painel de definição de política](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
 

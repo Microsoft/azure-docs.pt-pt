@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: c64a42c66a3b1c1810c17347e18979d599b36b6f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8dd6ab5bcb42765c995e8cd767358be5e62aa0b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938460"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288398"
 ---
 # <a name="query-azure-cosmos-db-data-using-sql-on-demand-in-azure-synapse-link-preview"></a>Consulta dados DB da Azure Cosmos utilizando SQL on demand in Azure Synapse Link (pré-visualização)
 
@@ -71,7 +71,7 @@ FROM OPENROWSET(
        'account=MyCosmosDbAccount;database=covid;region=westus2;key=C0Sm0sDbKey==',
        EcdcCases) as documents
 ```
-No exemplo acima, estamos a instruir a SQL a pedido de ligação à base de `covid` dados na conta DB Azure Cosmos `MyCosmosDbAccount` autenticada utilizando a tecla DB Azure Cosmos (manequim no exemplo acima). Estamos então a aceder à `EcdcCases` loja analítica do contentor na `West US 2` região. Uma vez que não existe projeção de propriedades específicas, `OPENROWSET` a função devolverá todas as propriedades dos itens DB do Azure Cosmos.
+No exemplo acima, estamos a instruir a SQL on-demand para ligar à base de `covid` dados na conta DB Azure Cosmos `MyCosmosDbAccount` autenticada usando a tecla DB Azure Cosmos (manequim no exemplo acima). Então estamos a aceder à `EcdcCases` loja analítica do contentor na `West US 2` região. Uma vez que não há projeção de propriedades específicas, `OPENROWSET` a função devolverá todas as propriedades dos itens DB do Azure Cosmos.
 
 Se precisar de explorar dados do outro recipiente na mesma base de dados Azure Cosmos DB, pode utilizar o mesmo recipiente de ligação e referência exigido como terceiro parâmetro:
 
@@ -85,7 +85,7 @@ FROM OPENROWSET(
 
 ## <a name="explicitly-specify-schema"></a>Especificar explicitamente o esquema
 
-Embora a capacidade de inferência automática de `OPENROWSET` esquemas em fornecer uma consulta simples e fácil de usar, os seus cenários de negócio podem exigir que você especifique explicitamente o esquema para ler apenas propriedades relevantes a partir dos dados DB do Azure Cosmos.
+Embora a capacidade de inferência automática de `OPENROWSET` esquemas em fornecer uma consulta simples e fácil de usar, os seus cenários de negócio podem exigir que você especifique explicitamente o esquema para ler propriedades relevantes apenas a partir dos dados DB do Azure Cosmos.
 
 `OPENROWSET` permite especificar explicitamente quais as propriedades que pretende ler a partir dos dados do recipiente e especificar os seus tipos de dados. Imaginemos que importámos alguns dados do conjunto de [dados do ECDC COVID](https://azure.microsoft.com/services/open-datasets/catalog/ecdc-covid-19-cases/) com a seguinte estrutura para a Azure Cosmos DB:
 
@@ -118,7 +118,7 @@ Reveja as [regras para mapeamentos do tipo SQL](#azure-cosmos-db-to-sql-type-map
 
 ## <a name="querying-nested-objects-and-arrays"></a>Consulta de objetos e matrizes aninhados
 
-O Azure Cosmos DB permite-lhe representar modelos de dados mais complexos, compondo-os como objetos aninhados ou matrizes. A capacidade de sincronização automática da Synapse Link para Azure Cosmos DB gere a representação de esquemas na loja analítica fora da caixa, o que inclui o manuseamento de tipos de dados aninhados permitindo uma consulta rica a partir do SQL on-demand.
+O Azure Cosmos DB permite-lhe representar modelos de dados mais complexos, compondo-os como objetos aninhados ou matrizes. A capacidade de autossícoma da Synapse Link para Azure Cosmos DB gere a representação de esquemas na loja analítica fora da caixa, o que inclui o manuseamento de tipos de dados aninhados permitindo uma consulta rica a partir do SQL on-demand.
 
 Por exemplo, o conjunto de dados [CORD-19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) tem documentos JSON seguindo a seguinte estrutura:
 
@@ -179,7 +179,7 @@ Saiba mais sobre a análise de [tipos de dados complexos em Synapse Link](../how
 
 ## <a name="flattening-nested-arrays"></a>Achatamento de matrizes aninhadas
 
-Os dados DB da Azure Cosmos podem ter sub-arrays aninhados como o conjunto de autores do conjunto de dados [Cord19:](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/)
+Os dados do Azure Cosmos DB podem ter sub-arrays aninhados como a matriz do autor do conjunto de dados [Cord19:](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/)
 
 ```json
 {
@@ -236,7 +236,7 @@ Informação Complementar Um eco-epidemi... | `[{"first":"Nicolas","last":"4#","
 
 ## <a name="azure-cosmos-db-to-sql-type-mappings"></a>Mapeamentos do tipo Azure Cosmos DB para SQL
 
-É importante notar em primeiro lugar que enquanto a loja de transações Azure Cosmos DB é schema-agnóstica, a loja analítica é schematizada para otimizar para o desempenho de consulta analítica. Com a capacidade de sincronização automática da Synapse Link, a Azure Cosmos DB gere a representação de esquemas na loja analítica fora da caixa, o que inclui o manuseamento de tipos de dados aninhados. Uma vez que a SQL questiona a loja analítica, é importante entender como mapear os tipos de dados de entrada Azure Cosmos DB para tipos de dados SQL.
+É importante notar em primeiro lugar que enquanto a loja de transações Azure Cosmos DB é schema-agnóstica, a loja analítica é schematizada para otimizar para o desempenho de consulta analítica. Com a capacidade de autossínco da Synapse Link, a Azure Cosmos DB gere a representação de esquemas na loja analítica fora da caixa, o que inclui o manuseamento de tipos de dados aninhados. Uma vez que a SQL questiona a loja analítica, é importante entender como mapear os tipos de dados de entrada Azure Cosmos DB para tipos de dados SQL.
 
 As contas DB da Azure Cosmos de SQL (Core) suportam tipos de propriedade JSON de número, corda, boolean, nulo, objeto aninhado ou matriz. Você precisaria escolher tipos SQL que correspondam a estes tipos de JSON se estiver a usar `WITH` a cláusula em `OPENROWSET` . Veja abaixo os tipos de coluna SQL que devem ser usados para diferentes tipos de propriedade em Azure Cosmos DB.
 

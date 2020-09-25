@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f233aedf8b51967264994f5a4081f8f4cd99df01
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e1cf9faeab60264d491539256828151e496ade8f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400012"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267504"
 ---
 # <a name="scenario-route-traffic-through-nvas---custom-preview"></a>Cenário: Tráfego de rotas através de NVAs - personalizado (Pré-visualização)
 
@@ -65,14 +65,14 @@ Assim, a nossa matriz de conectividade dá-nos três padrões distintos de conec
 
 Precisamos destas rotas estáticas para garantir que o tráfego VNet-to-branch e branch-to-VNet passe pela NVA no VNet de serviço (VNet 4):
 
-| Descrição | Tabela de rota | Rota estática              |
+| Description | Tabela de rota | Rota estática              |
 | ----------- | ----------- | ------------------------- |
 | Ramos    | RT_V2B      | 10.2.0.0/16 -> vnet4conn  |
 | Porta-vozes da NVA  | Predefinição     | 10.1.0.0/16 -> vnet4conn  |
 
 Agora o VIRTUAL WAN sabe para que ligação enviar os pacotes, mas a ligação precisa de saber o que fazer ao receber esses pacotes: É aqui que são utilizadas as tabelas de rota de ligação.
 
-| Descrição | Ligação | Rota estática            |
+| Description | Ligação | Rota estática            |
 | ----------- | ---------- | ----------------------- |
 | VNet2Branch | vnet4conn  | 10.2.0.0/16 -> 10.4.0.5 |
 | Branch2VNet | vnet4conn  | 10.1.0.0/16 -> 10.4.0.5 |
@@ -131,7 +131,7 @@ Para configurar o encaminhamento via NVA, aqui estão os passos a considerar:
 
 :::image type="content" source="./media/routing-scenarios/nva-custom/figure-2.png" alt-text="Figura 2" lightbox="./media/routing-scenarios/nva-custom/figure-2.png":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre o VIRTUAL WAN, consulte as [FAQ.](virtual-wan-faq.md)
 * Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).

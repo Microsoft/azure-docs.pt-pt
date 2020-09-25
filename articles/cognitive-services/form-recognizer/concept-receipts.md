@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: fd0a782fc0c54cf14db9cac07712dea6d8f2e523
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 00709ca5e842e51edbf5b26c53fe0a18e80bb896
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751954"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91262353"
 ---
 # <a name="receipt-concepts"></a>Conceitos de recibo
 
@@ -74,14 +74,11 @@ A API recibo também devolve as seguintes informações:
   > Entrada linguística 
   >
   > O Recibo Pré-construído v2.1-preview.1 tem um parâmetro de pedido opcional para especificar um local de recibo de mercados ingleses adicionais. Para receitas de vendas em inglês da Austrália (EN-AU), Canadá (EN-CA), Grã-Bretanha (EN-GB) e Índia (EN-IN), pode especificar o local para obter melhores resultados. Se não for especificado qualquer local em v2.1-pré-visualização.1, o modelo irá desagravar-se com o modelo EN-US.
-  
- ### <a name="input-requirements"></a>Requisitos de entrada 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
 
 ## <a name="the-analyze-receipt-operation"></a>A operação De Receção de Análise
 
-O [Recibo de Análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) retira uma imagem ou PDF de um recibo à medida que a entrada e extrai os valores de intrest e texto. A chamada devolve um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é um URL que contém o Resultado ID para ser usado no passo seguinte.
+O [Recibo de Análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeReceiptAsync) retira uma imagem ou PDF de um recibo como entrada e extrai os valores de interesse e texto. A chamada devolve um campo de cabeçalho de resposta chamado `Operation-Location` . O `Operation-Location` valor é um URL que contém o Resultado ID para ser usado no passo seguinte.
 
 |Cabeçalho de resposta| URL de resultados |
 |:-----|:----|
@@ -456,7 +453,10 @@ A API de Receção também alimenta a [funcionalidade de Processamento de Recibo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Siga o quickstart para começar [o arranque rápido da API Python](./quickstarts/python-receipts.md)de receção .
-- Saiba mais sobre o [Formulário Reconhecedor REST API.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api)
-- Saiba mais sobre [o Reconhecimento de Formulários.](overview.md)
+- Preencha um [início rápido da biblioteca do cliente Do Reconhecimento de Formulários](quickstarts/client-library.md) para começar a escrever uma aplicação de processamento de recibos com o Form Recogniser no idioma à sua escolha.
+- Ou, siga o [quickstart da API Python de receção](./quickstarts/python-receipts.md) para reconhecer os recibos usando a API REST.
 
+## <a name="see-also"></a>Ver também
+
+* [O que é o Reconhecedor de Formato?](./overview.md)
+* [REST API referenciar docs](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer/api)

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: af07894fcbfae386849d32492be9d2718a3adcc3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1dd3781b18f82a96f388b0e619ce62b45752a870
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947496"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292477"
 ---
 # <a name="chat-concepts"></a>Conceitos de chat
 
@@ -28,7 +28,7 @@ Consulte a biblioteca de [clientes de Comunicação Chat](./sdk-features.md) par
 
 Conversas de chat acontecem dentro de linhas de chat. Um fio de chat pode conter muitas mensagens e muitos utilizadores. Cada mensagem pertence a um único fio, e um utilizador pode fazer parte de um ou muitos fios. 
 
-Cada utilizador no fio de chat é chamado de membro. Você pode ter até 250 membros em um fio de chat. Apenas os membros do thread podem enviar e receber mensagens ou adicionar/remover membros num fio de chat. O tamanho máximo de mensagem permitido é de aproximadamente 28KB. Os Serviços de Comunicação armazenam o histórico de conversas até executar uma operação de eliminação no fio de chat. Pode recuperar todas as mensagens num fio de chat utilizando a `List/Get Messages` operação.
+Cada utilizador no fio de chat é chamado de membro. Você pode ter até 250 membros em um fio de chat. Apenas os membros do thread podem enviar e receber mensagens ou adicionar/remover membros num fio de chat. O tamanho máximo de mensagem permitido é de aproximadamente 28KB. Pode recuperar todas as mensagens num fio de chat utilizando a `List/Get Messages` operação. Os Serviços de Comunicação armazenam o histórico de conversas até executar uma operação de eliminação no fio de chat ou mensagem, ou até que nenhum membro permaneça no fio do chat, altura em que é órfão e processado para eliminação.   
 
 Para linhas de chat com mais de 20 membros, os recibos de leitura e as características do indicador de dactilografia estão desativadas. 
 

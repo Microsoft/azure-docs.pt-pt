@@ -1,14 +1,14 @@
 ---
 title: Entenda como os efeitos funcionam
 description: As definições de Política Azure têm vários efeitos que determinam como a conformidade é gerida e reportada.
-ms.date: 08/27/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: d2ea27ceda36d2feebcf12cc47ac741093b0729c
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: b6622796ab0554f692a3b64e0b41d60f49c561b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89425539"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252009"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos da Política Azure
 
@@ -24,7 +24,7 @@ Estes efeitos são atualmente apoiados numa definição de política:
 - [Desativado](#disabled)
 - [Modificar](#modify)
 
-Os seguintes efeitos estão a ser _depreciados:_
+Os seguintes efeitos são _depreciados:_
 
 - [Normação DoPaConstrado](#enforceopaconstraint)
 - [Aplicação Da Política](#enforceregopolicy)
@@ -374,8 +374,8 @@ Quando **a aplicação da medida de medida** é _desativada,_ os recursos ainda 
 
 Este efeito é utilizado com um _modo_ de definição de política de `Microsoft.Kubernetes.Data` . É usado para passar regras de controlo de admissão gatekeeper v3 definidas com [OPA Constraint Framework](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) para [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) para clusters Kubernetes em Azure.
 
-> [!NOTE]
-> [A Azure Policy for Kubernetes](./policy-for-kubernetes.md) está em Pré-visualização e apenas suporta piscinas de nól de Linux e definições políticas incorporadas. As definições políticas incorporadas estão na categoria **Kubernetes.** As definições limitadas de política de pré-visualização com o efeito **EnforceOPAConstraint** e a categoria **de Serviço Kubernetes conexas** estão a ser _depreciadas._ Em vez disso, utilize a _auditoria_ de efeitos e _negue_ com o modo Fornecedor de Recursos `Microsoft.Kubernetes.Data` .
+> [!IMPORTANT]
+> As definições limitadas de política de pré-visualização com efeito **EnforceOPAConstraint** e a categoria **de Serviço Kubernetes conexa** são _depreciadas_. Em vez disso, utilize a _auditoria_ de efeitos e _negue_ com o modo Fornecedor de Recursos `Microsoft.Kubernetes.Data` .
 
 ### <a name="enforceopaconstraint-evaluation"></a>Avaliação da Regra de Aplicação da OPA
 
@@ -430,8 +430,8 @@ Exemplo: Regra de controlo de admissão de gatekeeper v3 para definir cpu de con
 
 Este efeito é utilizado com um _modo_ de definição de política de `Microsoft.ContainerService.Data` . É usado para passar regras de controlo de admissão Gatekeeper v2 definidas com [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) para [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) no Serviço [Azure Kubernetes](../../../aks/intro-kubernetes.md).
 
-> [!NOTE]
-> [A Azure Policy for Kubernetes](./policy-for-kubernetes.md) está em Pré-visualização e apenas suporta piscinas de nól de Linux e definições políticas incorporadas. As definições políticas incorporadas estão na categoria **Kubernetes.** As definições limitadas de política de pré-visualização com efeito **EnforceRegoPolicy** e a categoria **de Serviço Kubernetes** relacionada estão a ser _depreciadas._ Em vez disso, utilize a _auditoria_ de efeitos e _negue_ com o modo Fornecedor de Recursos `Microsoft.Kubernetes.Data` .
+> [!IMPORTANT]
+> As definições de política de pré-visualização limitadas com o efeito **EnforceRegoPolicy** e a categoria **de Serviço Kubernetes conexas** são _depreciadas_. Em vez disso, utilize a _auditoria_ de efeitos e _negue_ com o modo Fornecedor de Recursos `Microsoft.Kubernetes.Data` .
 
 ### <a name="enforceregopolicy-evaluation"></a>Avaliação de Política De Aplicação
 
@@ -569,7 +569,7 @@ O conjunto de propriedades **de operações** permite alterar várias tags de di
 
 A **propriedade de operação** tem as seguintes opções:
 
-|Operação |Descrição |
+|Operação |Description |
 |-|-|
 |addOrReplace |Adiciona a propriedade definida ou etiqueta e valor ao recurso, mesmo que o imóvel ou etiqueta já exista com um valor diferente. |
 |Adicionar |Adiciona a propriedade definida ou etiqueta e valor ao recurso. |
@@ -673,7 +673,7 @@ Se tanto a política 1 como a política 2 tiveram efeito de negação, a situaç
 
 Cada atribuição é avaliada individualmente. Como tal, não há uma oportunidade para um recurso escapar através de uma lacuna de diferenças de âmbito. Considera-se **cumulativo o**resultado líquido das definições de política de camadas. A título de exemplo, se ambas as políticas 1 e 2 tivessem um efeito de negação, um recurso seria bloqueado pelas definições políticas sobrepostas e contraditórias. Se ainda precisar do recurso para ser criado no âmbito alvo, reveja as exclusões de cada atribuição para validar as atribuições políticas certas estão a afetar os âmbitos certos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).
 - Reveja a [estrutura de definição do Azure Policy](definition-structure.md).

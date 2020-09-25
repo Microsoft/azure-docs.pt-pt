@@ -1,6 +1,6 @@
 ---
 title: Transformar dados usando a Atividade da Colmeia - Azure
-description: Saiba como pode usar a Atividade da Colmeia numa fábrica de dados Azure para executar consultas de Hive num cluster HDInsight a pedido/seu próprio hdinsight.
+description: Saiba como pode usar a Atividade da Colmeia numa fábrica de dados Azure v1 para executar consultas de Hive num cluster hdinsight a pedido/seu próprio hdinsight.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: d153f8c316cbb76e063f07f7f823c8d9c4a21f87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 41f570f93e95e9801b08c06cacc0423b1bf3b8e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74703360"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252788"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformar dados usando a atividade da Colmeia na Fábrica de Dados Azure 
 > [!div class="op_single_selector" title1="Atividades de Transformação"]
@@ -72,17 +72,17 @@ A atividade de Hive HDInsight num [oleoduto](data-factory-create-pipelines.md) d
 }
 ```
 ## <a name="syntax-details"></a>Detalhes da sintaxe
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| name |Nome da atividade |Sim |
-| descrição |Texto que descreve para que a atividade é usada |Não |
-| tipo |HDinsightHive |Sim |
-| entradas |Entradas consumidas pela atividade da Colmeia |Não |
-| saídas |Saídas produzidas pela atividade da Colmeia |Sim |
-| linkedServiceName |Referência ao cluster HDInsight registado como um serviço ligado na Data Factory |Sim |
-| script |Especificar o script da Colmeia inline |Não |
-| scriptPath |Guarde o script hive num armazenamento de bolhas Azure e forneça o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. Ambos não podem ser usados juntos. O nome do ficheiro é sensível a casos. |Não |
-| define |Especifique os parâmetros como pares chave/valor para referência dentro do script da Colmeia usando 'hiveconf' |Não |
+| name |Nome da atividade |Yes |
+| descrição |Texto que descreve para que a atividade é usada |No |
+| tipo |HDinsightHive |Yes |
+| entradas |Entradas consumidas pela atividade da Colmeia |No |
+| saídas |Saídas produzidas pela atividade da Colmeia |Yes |
+| linkedServiceName |Referência ao cluster HDInsight registado como um serviço ligado na Data Factory |Yes |
+| script |Especificar o script da Colmeia inline |No |
+| scriptPath |Guarde o script hive num armazenamento de bolhas Azure e forneça o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. Ambos não podem ser usados juntos. O nome do ficheiro é sensível a casos. |No |
+| define |Especifique os parâmetros como pares chave/valor para referência dentro do script da Colmeia usando 'hiveconf' |No |
 
 ## <a name="example"></a>Exemplo
 Vamos considerar um exemplo de análise de registos de jogos onde pretendes identificar o tempo gasto pelos utilizadores a jogar jogos lançados pela tua empresa. 

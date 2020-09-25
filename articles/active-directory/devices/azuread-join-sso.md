@@ -1,6 +1,6 @@
 ---
 title: Como funciona o SSO para os recursos no local em dispositivos aderidos à Azure AD Microsoft Docs
-description: Saiba como configurar dispositivos associados ao Azure Active Directory híbrido.
+description: Saiba como alargar a experiência SSO configurando dispositivos híbridos Azure Ative Directory.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 149b01401cd6feb7610510efeb1ad9a3c69f3ecf
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: ba802cb86d68298cd4dfff94162069590744833c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024048"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256467"
 ---
-# <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Como a SSO para os recursos no local funciona em dispositivos aderidos a Azure AD
+# <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Como o SSO para recursos no local funciona em dispositivos associados ao Azure AD
 
 Provavelmente não é surpresa que um dispositivo aderido ao Azure Ative Directory (Azure AD) lhe dê uma única experiência de sign-on (SSO) às aplicações em nuvem do seu inquilino. Se o seu ambiente tiver um Ative Directory (AD) no local, pode alargar a experiência SSO nestes dispositivos a recursos e aplicações que também dependem de AD no local. 
 
@@ -70,6 +70,6 @@ As aplicações e recursos que dependem da autenticação da máquina ative dire
 
 Não é possível partilhar ficheiros com outros utilizadores num dispositivo ad azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações, veja [o que é a gestão do dispositivo no Diretório Ativo Azure?](overview.md) 

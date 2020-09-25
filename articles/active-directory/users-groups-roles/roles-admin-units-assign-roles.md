@@ -1,5 +1,5 @@
 ---
-title: Atribuir e listar funções com âmbito de unidade administrativa (pré-visualização) - Diretório Ativo Azure Microsoft Docs
+title: Atribuir e listar funções com âmbito de unidade administrativa - Azure Ative Directory / Microsoft Docs
 description: Utilização de unidades administrativas para restringir o âmbito das atribuições de funções no Diretório Ativo do Azure
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 07/10/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 918675b111b7b1b85669692b63fed683ea2831f8
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 00b5f39363e4c8b2fd3a0d74a8c013d315bff1fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475639"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264945"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Atribuir funções âmbito a uma unidade administrativa
 
@@ -29,7 +29,7 @@ Para obter os passos que se preparem para utilizar o PowerShell e o Microsoft Gr
 
 ## <a name="roles-available"></a>Funções disponíveis
 
-Função  |  Descrição
+Função  |  Description
 ----- |  -----------
 Administrador de Autenticação  |  Tem acesso a visualização, definição e reposição de informações do método de autenticação para qualquer utilizador não administrativo apenas na unidade administrativa atribuída.
 Administrador de Grupos  |  Pode gerir todos os aspetos de grupos e grupos configurações como a definição e expiração apenas na unidade administrativa atribuída.
@@ -105,4 +105,4 @@ Request body
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Use grupos de nuvem para gerir atribuições de funções](roles-groups-concept.md)
-- [Funções de resolução de problemas atribuídas a grupos de nuvem](roles-groups-faq-troubleshooting.md)
+- [Resolver problemas de funções atribuídas a grupos de cloud](roles-groups-faq-troubleshooting.md)

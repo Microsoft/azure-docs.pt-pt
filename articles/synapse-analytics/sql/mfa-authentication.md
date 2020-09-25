@@ -9,12 +9,12 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: c578958616e4b4d2d7d3aef1de1650566e0bd40e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bc503213169f909850460edf5e50ed3f1b34fbe2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496411"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288601"
 ---
 # <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Utilize a autenticação AAD multi-factor com sinaapse SQL (suporte SSMS para MFA)
 
@@ -22,9 +22,7 @@ Ligações de suporte Sinaapse SQL do SQL Server Management Studio (SSMS) utiliz
 
 Este artigo discute as diferenças entre as várias opções de autenticação, bem como as limitações associadas à utilização da Autenticação Universal. 
 
-**Descarregue o mais recente SSMS** - No computador cliente, descarregue a versão mais recente do SSMS, do [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). 
-
-**Descarregue o mais recente SSMS** - No computador cliente, descarregue a versão mais recente do SSMS, do [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+**Descarregue o mais recente SSMS** - No computador cliente, descarregue a versão mais recente do SSMS, do [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 Para todas as funcionalidades discutidas neste artigo, use pelo menos julho de 2017, versão 17.2.  A mais recente caixa de diálogo de ligação deve ser semelhante à seguinte imagem:
 
@@ -33,8 +31,8 @@ Para todas as funcionalidades discutidas neste artigo, use pelo menos julho de 2
 ## <a name="the-five-authentication-options"></a>As cinco opções de autenticação  
 
 O Diretório Ativo Universal Authentication suporta os dois métodos de autenticação não interativo:
-    - `Active Directory - Password`autenticação
-    - `Active Directory - Integrated`autenticação
+    - `Active Directory - Password` autenticação
+    - `Active Directory - Integrated` autenticação
 
 Existem também dois modelos de autenticação não interativa, que podem ser utilizados em muitas aplicações diferentes (ADO.NET, JDCB, ODC, etc.). Estes dois métodos nunca resultam em caixas de diálogo pop-up:
 
@@ -51,7 +49,7 @@ Para obter uma descrição da autenticação multi-factor, consulte [a autentica
 
 ### <a name="azure-ad-domain-name-or-tenant-id-parameter"></a>Nome de domínio AD azul ou parâmetro de identificação do inquilino
 
-Começando pela [versão SSMS 17,](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)os utilizadores que são importados para o atual Diretório Ativo de outros Diretórios Azure Ative como utilizadores convidados, podem fornecer o nome de domínio AD Azure ou ID do inquilino quando se conectam. 
+Começando pela [versão SSMS 17,](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)os utilizadores que são importados para o atual Diretório Ativo de outros Diretórios Azure Ative como utilizadores convidados, podem fornecer o nome de domínio AD Azure ou ID do inquilino quando se conectam. 
 
 Os utilizadores convidados incluem utilizadores convidados de outros ADs Azure, contas da Microsoft como outlook.com, hotmail.com, live.com ou outras contas como gmail.com. Esta informação permite ao **Ative Directory Universal com Autenticação MFA** identificar a autoridade de autenticação correta. Esta opção também é necessária para suportar contas microsoft (MSA), tais como contas outlook.com, hotmail.com, live.com ou não MSA. 
 
@@ -61,13 +59,13 @@ Por exemplo, se o Azure Server estiver associado ao domínio Azure AD `contosote
 
 Quando o utilizador é um utilizador nativo do AD Azure ligado ao Azure Server, e não é uma conta MSA, não é necessário nenhum nome de domínio ou ID do inquilino. 
 
-Para introduzir o parâmetro (começando com a versão SSMS 17.2), na caixa de diálogo **'Ligar à Base de Dados',** completar a caixa de diálogo, selecionar o Ative Directory - Universal com autenticação **MFA,** clicar **em Opções,** completar a caixa **de nome de Utilizador** e, em seguida, clicar no separador **'Propriedades de Ligação'.** 
+Para introduzir o parâmetro (começando com a versão SSMS 17.2), na caixa de diálogo **'Ligar à Base de Dados',** completar a caixa de diálogo, selecionar o Ative Directory - Universal com autenticação **MFA,** selecionar **Opções,** completar a caixa **de nome de Utilizador** e, em seguida, selecionar o separador **'Propriedades de Ligação'.** 
 
 Verifique o **nome de domínio da AD ou** a caixa de identificação do inquilino, e forneça autoridade autenticante, como o nome de domínio **(contosotest.onmicrosoft.com)** ou o GUIADOr do ID do inquilino.  
 
    ![mfa-inquilino-ssms](./media/mfa-authentication/mfa-tenant-ssms.png)
 
-Se estiver a executar SSMS 18.x ou mais tarde, o nome de domínio AD ou iD do inquilino já não é necessário para os utilizadores convidados porque 18.x ou mais tarde o reconhece automaticamente.
+Se estiver a executar SSMS 18.x ou mais tarde, então o nome de domínio AD ou iD do inquilino já não é necessário para os utilizadores convidados porque 18.x ou mais tarde automaticamente o reconhece.
 
    ![mfa-inquilino-ssms](./media/mfa-authentication/mfa-no-tenant-ssms.png)
 
@@ -80,7 +78,7 @@ Após a criação do utilizador da base de dados, o utilizador `steve@gmail.com`
 
 O grupo de utilizador, por padrão, tem apenas a permissão de ligação e qualquer acesso adicional de dados que terá de ser concedido da forma normal. 
 
-Note que o utilizador `steve@gmail.com` como utilizador convidado deve verificar a caixa e adicionar o nome de domínio AD `contosotest.onmicrosoft.com` na caixa de diálogo SSMS **Connection Property.** O **nome de domínio AD ou** a opção de ID do inquilino só é suportado para o Universal com opções de conexão MFA, caso contrário, está acinzentado.
+Como utilizador convidado, `steve@gmail.com` deve verificar a caixa e adicionar o nome de domínio AD `contosotest.onmicrosoft.com` na caixa de diálogo SSMS **Connection Property.** O **nome de domínio AD ou** a opção de ID do inquilino só é suportado para o Universal com opções de conexão MFA, caso contrário, está acinzentado.
 
 ## <a name="universal-authentication-limitations-for-synapse-sql"></a>Limitações de autenticação universal para sinapse SQL
 

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 1beb2065f1823135981545e42d499c5429b87c0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf7e4da2051ab84cebff5aae857c02907f7b58e0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84045397"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263628"
 ---
 # <a name="tutorial-configure-active-geo-replication-and-failover-in-the-azure-portal-azure-sql-database"></a>Tutorial: Configurar a geo-replicação ativa e o failover no portal Azure (Base de Dados Azure SQL)
 
@@ -55,17 +55,17 @@ Após a criação e semeada do secundário, os dados começam a replicar-se da b
     ![Configurar georreplicação](./media/active-geo-replication-configure-portal/configure-geo-replication.png)
 3. Selecione ou configuure o servidor e o nível de preços para a base de dados secundária.
 
-    ![Configurar secundário](./media/active-geo-replication-configure-portal/create-secondary.png)
+    ![criar forma secundária](./media/active-geo-replication-configure-portal/create-secondary.png)
 4. Opcionalmente, pode adicionar uma base de dados secundária a uma piscina elástica. Para criar a base de dados secundária numa piscina, clique em **piscina elástica** e selecione uma piscina no servidor alvo. Uma piscina já deve existir no servidor alvo. Este fluxo de trabalho não cria uma piscina.
 5. Clique em **Criar** para adicionar o secundário.
 6. A base de dados secundária é criada e o processo de sementeira começa.
 
-    ![Configurar secundário](./media/active-geo-replication-configure-portal/seeding0.png)
+    ![mapa secundário](./media/active-geo-replication-configure-portal/seeding0.png)
 7. Quando o processo de sementeira estiver concluído, a base de dados secundária apresenta o seu estado.
 
     ![Sementeira completa](./media/active-geo-replication-configure-portal/seeding-complete.png)
 
-## <a name="initiate-a-failover"></a>Iniciar uma falha
+## <a name="initiate-a-failover"></a>Iniciar uma ativação pós-falha
 
 A base de dados secundária pode ser mudada para se tornar a principal.  
 
@@ -73,7 +73,7 @@ A base de dados secundária pode ser mudada para se tornar a principal.
 2. Na lâmina SQL Database, selecione **Todas as definições**  >  **de geo-replicação**.
 3. Na lista **DE SECUNDÁRIOS,** selecione a base de dados que pretende tornar-se a nova primária e clique em **"Falha Forçada".**
 
-    ![failover](./media/active-geo-replication-configure-portal/secondaries.png)
+    ![ativação pós-falha](./media/active-geo-replication-configure-portal/secondaries.png)
 4. Clique **em Sim** para iniciar a falha.
 
 O comando muda imediatamente a base de dados secundária para o papel primário. Este processo deve normalmente estar concluído dentro de 30 segundos ou menos.
@@ -95,7 +95,7 @@ Esta operação termina permanentemente a replicação para a base de dados secu
     ![Remover secundário](./media/active-geo-replication-configure-portal/remove-secondary.png)
 5. Abre-se uma janela de confirmação. Clique **em Sim** para remover a base de dados da parceria de geo-replicação. (Coloque-o numa base de dados de leitura-escrita que não faça parte de qualquer replicação.)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre a geo-replicação ativa, consulte [a geo-replicação ativa.](active-geo-replication-overview.md)
 * Para conhecer os grupos de falha automática, consulte [os grupos auto-failover](auto-failover-group-overview.md)

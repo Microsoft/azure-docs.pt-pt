@@ -11,13 +11,13 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: duau
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 2d31f51c7af37ed6729900c5851113d8d1e9b587
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.custom: devx-track-js
+ms.openlocfilehash: c49672ad38ac8cf80214d03870b5876d741e76ec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401338"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259871"
 ---
 # <a name="how-to-send-real-user-measurements-to-traffic-manager-with-visual-studio-mobile-center"></a>Como enviar medições reais do utilizador para gerente de tráfego com o Visual Studio Mobile Center
 
@@ -95,7 +95,7 @@ Para utilizar as Medições Reais do Utilizador, complete o seguinte procediment
     MobileCenter.start(getApplication(), "<Your Mobile Center AppSecret>", RealUserMeasurements.class);
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [as Medições Reais do Utilizador](traffic-manager-rum-overview.md)
 - Saiba [como funciona o Gestor de Tráfego](traffic-manager-overview.md)
 - Saiba mais sobre [o Mobile Center](https://docs.microsoft.com/mobile-center/)

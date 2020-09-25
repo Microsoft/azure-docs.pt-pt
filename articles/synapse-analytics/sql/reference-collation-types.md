@@ -8,12 +8,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ef9d0eb3dd97795f3b6757759679351f857891ab
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 5e46cd744be609adff764edfe5a506b710e9d788
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032865"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288074"
 ---
 # <a name="database-collation-support-for-synapse-sql"></a>Suporte de colagem de base de dados para Sinaapse SQL
 
@@ -24,7 +24,7 @@ Pode alterar a colagem da base de dados predefinida a partir do portal Azure qua
 Pode especificar a colisão padrão da base de dados synapse SQL a pedido no momento da criação utilizando a declaração CREATE DATABASE.
 
 ## <a name="change-collation"></a>Alterar colagem
-Para alterar a colagem padrão para base de dados de piscinas SQL, você simples atualização para o campo Collation na experiência de provisionamento. Por exemplo, se quisesse alterar a colagem por defeito para sensível a casos, simplesmente mudaria o nome da Collation de SQL_Latin1_General_CP1_CI_AS para SQL_Latin1_General_CP1_CS_AS. 
+Para alterar a colagem predefinida para base de dados de piscinas SQL, atualize o campo Collation na experiência de provisionamento. Por exemplo, se quisesse alterar a colagem por defeito para sensível a casos, mudaria o nome da Collation de SQL_Latin1_General_CP1_CI_AS para SQL_Latin1_General_CP1_CS_AS. 
 
 Para alterar a colagem predefinida para base de dados a pedido do SQL, pode utilizar a declaração ALTER DATABASE.
 
@@ -111,7 +111,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
 ```
 Quando passou 'Collation' como parâmetro de propriedade, a função DatabasePropertyEx devolve a atual colagem para a base de dados especificada. Pode saber mais sobre a função DatabasePropertyEx na MSDN.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Informações adicionais sobre as melhores práticas para piscina SQL e SQL on-demand podem ser encontradas nos seguintes artigos:
 

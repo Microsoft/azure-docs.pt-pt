@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d5809d7475759450a513153abf641f7943163d98
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: be8e43585fca77fc891a9142066d406444b674d8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422220"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253239"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Como modelar e criar partições de dados no Azure Cosmos DB com um exemplo do mundo real
 
@@ -323,7 +323,7 @@ function createComment(postId, comment) {
 Este procedimento armazenado toma a ID do post e o corpo do novo comentário como parâmetros, em seguida:
 
 - recupera o poste
-- incrementa o`commentCount`
+- incrementa o `commentCount`
 - substitui o poste
 - adiciona o novo comentário
 
@@ -365,7 +365,7 @@ Este procedimento armazenado toma o ID do utilizador e o novo nome de utilizador
 
 - adquire todos os itens correspondentes ao `userId` (que podem ser posts, comentários ou gostos)
 - para cada um desses itens
-  - substitui o`userUsername`
+  - substitui o `userUsername`
   - substitui o item
 
 > [!IMPORTANT]
@@ -418,8 +418,8 @@ Mas a restante consulta ainda não está a filtrar a chave de partição do `pos
 A forma de pensar sobre esta situação é, na verdade, simples:
 
 1. Este pedido *tem que* filtrar no `userId` porque queremos buscar todos os posts para um determinado utilizador
-1. Não tem um bom desempenho porque é executado contra o `posts` recipiente, que não é dividido por`userId`
-1. Afirmando o óbvio, resolveríamos o nosso problema de desempenho executando este pedido contra um contentor que *é* dividido por`userId`
+1. Não tem um bom desempenho porque é executado contra o `posts` recipiente, que não é dividido por `userId`
+1. Afirmando o óbvio, resolveríamos o nosso problema de desempenho executando este pedido contra um contentor que *é* dividido por `userId`
 1. Acontece que já temos tal contentor: o `users` contentor!
 
 Assim, introduzimos um segundo nível de desnormalização duplicando postos inteiros no `users` contentor. Ao fazê-lo, efetivamente obtemos uma cópia dos nossos posts, apenas divididos ao longo de diferentes dimensões, tornando-os muito mais eficientes para recuperar pelos seus `userId` .
@@ -582,7 +582,7 @@ As melhorias de escalabilidade que exploramos neste artigo envolvem desnormaliza
 
 O feed de alteração que usamos para distribuir atualizações para outros contentores armazena todas essas atualizações de forma persistente. Isto permite solicitar todas as atualizações desde a criação do contentor e vistas desnormalizadas como uma operação única de recuperação, mesmo que o seu sistema já tenha muitos dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Após esta introdução à modelação prática de dados e partição, pode querer consultar os seguintes artigos para rever os conceitos que cobrimos:
 

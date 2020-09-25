@@ -1,5 +1,5 @@
 ---
-title: Adicionar e remover unidades administrativas (pré-visualização) - Diretório Ativo Azure Microsoft Docs
+title: Adicionar e remover unidades administrativas - Azure Ative Directory / Microsoft Docs
 description: Utilize unidades administrativas para restringir o âmbito das permissões de funções no Diretório Ativo Azure.
 services: active-directory
 documentationcenter: ''
@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 04/16/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 977a90419c142e576fcf484562875d12c8dad451
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 30b673994e20f01dde504adb438aa1b199c96d88
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851761"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91264735"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Gerir unidades administrativas em Azure Ative Directory
 
@@ -45,7 +45,7 @@ Para um controlo administrativo mais granular em Azure Ative Directory (Azure AD
 
 1. No portal Azure, vá ao Azure AD e, em seguida, no painel esquerdo, selecione **Unidades Administrativas**.
 
-    ![Screenshot do link das unidades administrativas (Pré-visualização) em Azure AD](./media/roles-admin-units-manage/nav-to-admin-units.png)
+    ![Screenshot da ligação administrativa em Azure AD](./media/roles-admin-units-manage/nav-to-admin-units.png)
 
 1. **Selecione Adicionar** e, em seguida, insira o nome da unidade administrativa. Opcionalmente, adicione uma descrição da unidade administrativa.
 
@@ -106,7 +106,7 @@ Request body
 {}
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir utilizadores numa unidade administrativa](roles-admin-units-add-manage-users.md)
 * [Gerir grupos numa unidade administrativa](roles-admin-units-add-manage-groups.md)

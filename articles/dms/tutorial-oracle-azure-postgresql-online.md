@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/24/2020
-ms.openlocfilehash: 37bf610d1ecc6a05e8dd142ff3d72dd9ed72e51f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a5047e4e63f71c482cd1bcc98152ae35e10e94b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087769"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291644"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Tutorial: Migrar o Oráculo para Azure Database para postgreSQL on-line usando DMS (Preview)
 
@@ -243,7 +243,7 @@ Para começar:
 
     | Fonte esquema Oráculo | Base de Dados PostgresQL alvo.Schema | DMS criou schema.table.column |
     | ------------- | ------------- | ------------- |
-    | HR | targetHR.public | público.países.country_id |
+    | HR | targetHR.public | public.countries.country_id |
     | HR | targetHR.trgthr | trgthr.countries.country_id |
     | HR | targetHR.TARGETHR | "TARGETHR". PAÍSES". COUNTRY_ID" |
     | HR | targetHR.HR | "RH". PAÍSES". COUNTRY_ID" |

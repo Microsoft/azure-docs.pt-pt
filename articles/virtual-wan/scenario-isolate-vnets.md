@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b8a0a8093ab5f4d6c5e528bce592d5c029de30a7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: f725932b30fad062123d6c752f2d563b84f98b2f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400046"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267640"
 ---
 # <a name="scenario-isolating-vnets"></a>Cenário: Isolar as Redes
 
@@ -58,7 +58,7 @@ A fim de configurar este cenário, tome em consideração os seguintes passos:
 
 :::image type="content" source="./media/routing-scenarios/isolated/isolated-vnets.png" alt-text="VNets isolados":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre o VIRTUAL WAN, consulte as [FAQ.](virtual-wan-faq.md)
 * Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).

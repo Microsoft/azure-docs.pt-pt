@@ -3,12 +3,12 @@ title: Ligação remota a um nó de cluster de tecido de serviço Azure
 description: Aprenda a ligar-se remotamente a uma instância definida em escala (um nó de cluster de tecido de serviço).
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.openlocfilehash: c7ca4f0d5dce1b19837a44d5c9749f3e1293c6b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98d573af4fc2026134e75d4caf24a09e57e52c87
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75458326"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268099"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Ligação remota a uma placa de conjunto de escala de máquina virtual ou um nó de cluster
 Num cluster de tecido de serviço em execução em Azure, cada tipo de nó de cluster que define [configura uma escala separada de máquina virtual](service-fabric-cluster-nodetypes.md).  Pode ligar-se remotamente a instâncias específicas definidas (nosdes de cluster).  Ao contrário dos VMs de instância única, as instâncias definidas em escala não têm os seus próprios endereços IP virtuais. Isto pode ser um desafio quando procura um endereço IP e uma porta que pode usar para ligar remotamente a uma instância específica.
@@ -21,11 +21,11 @@ Para encontrar um endereço IP e uma porta que possa utilizar para ligar remotam
     
     Na página para o seu equilibrador de **Settings**carga no portal Azure, selecione  >  **Definições Inbound NAT regras**: 
 
-    ![Regras NAT de entrada de balançador de carga](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
+    ![Screenshot de uma página de balanço de carga no portal Azure. No menu à esquerda, em DEFINIÇÕES, são selecionadas as regras INBOUND NAT.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/lb-window.png)
 
     A imagem que se segue mostra as regras NAT de entrada para um tipo de nó chamado FrontEnd: 
 
-    ![Regras NAT de entrada de balançador de carga](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
+    ![Screenshot mostrando as regras NAT de entrada para um equilibrador de carga. O Nome, Versão IP, Destino, Destino e Serviço estão listados para cada regra.](./media/service-fabric-cluster-remote-connect-to-azure-cluster-node/nat-rules.png)
 
     Para cada nó, o endereço IP aparece na coluna **DESTINO,** a coluna **TARGET** dá a instância definida na escala e a coluna **SERVICE** fornece o número de porta. Para ligação remota, as portas são atribuídas a cada nó por ordem ascendente a partir da porta 3389.
 

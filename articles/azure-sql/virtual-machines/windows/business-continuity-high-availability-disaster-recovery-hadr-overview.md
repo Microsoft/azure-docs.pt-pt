@@ -8,17 +8,17 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2020
 ms.author: mathoma
-ms.openlocfilehash: 3b18582cdb34708c379725d361d1fcc5e608ae38
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 8459ab364fc0af15dd1a1b0035e4ce27d192f7a9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462773"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91293463"
 ---
 # <a name="business-continuity-and-hadr-for-sql-server-on-azure-virtual-machines"></a>Continuidade de negócios e HADR para SQL Server em Máquinas Virtuais Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -160,7 +160,7 @@ A geo-replicação nos discos Azure não suporta o ficheiro de dados e o ficheir
 
 Se não tiver a opção de desativar a geo-replicação na conta de armazenamento, guarde todos os dados e registos de uma base de dados no mesmo disco. Se tiver de utilizar mais do que um disco devido ao tamanho da base de dados, utilize uma das soluções de recuperação de desastres listadas anteriormente para garantir a redundância de dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Decida se um [grupo de disponibilidade](availability-group-overview.md) ou uma instância de cluster de [failover](failover-cluster-instance-overview.md) é a melhor solução de continuidade de negócio para o seu negócio. Em seguida, reveja as [melhores práticas](hadr-cluster-best-practices.md) para configurar o seu ambiente para uma elevada disponibilidade e recuperação de desastres. 
 

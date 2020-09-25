@@ -3,12 +3,12 @@ title: Grelha de Eventos Azure - Ativar registos de diagnóstico para tópicos o
 description: Este artigo fornece instruções passo a passo sobre como ativar registos de diagnóstico para um tópico de grelha de eventos Azure.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: 7811c2eef4379b7e3d5ed07dbd0df8e2a52dba85
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2d76d3ededd6d241197b26ac357c3b5406f43f02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114708"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297526"
 ---
 #  <a name="enable-diagnostic-logs-for-azure-event-grid-topics-or-domains"></a>Ativar registos de diagnóstico para tópicos ou domínios da grelha de eventos Azure
 As definições de diagnóstico permitem aos utilizadores da Grade de Eventos capturar e visualizar **registos de falha de publicação e entrega** numa conta de Armazenamento, num centro de eventos ou num espaço de trabalho do Log Analytics. Este artigo fornece instruções passo a passo para ativar estas definições num tópico de grelha de evento.
@@ -37,19 +37,19 @@ As definições de diagnóstico permitem aos utilizadores da Grade de Eventos ca
     
     ![Adicionar botão de definição de diagnóstico](./media/enable-diagnostic-logs-topic/diagnostic-settings-add.png)
 5. Especifique um **nome** para a definição de diagnóstico. 
-7. Selecione as opções **DeliveryFailures** e **PublishFailures** na secção **Registar.** 
+6. Selecione as opções **DeliveryFailures** e **PublishFailures** na secção **Registar.** 
     ![Selecione as falhas](./media/enable-diagnostic-logs-topic/log-failures.png)
-6. Ative um ou mais destinos de captura para os registos e, em seguida, configurá-los selecionando um recurso de captura criado anteriormente. 
+7. Ative um ou mais destinos de captura para os registos e, em seguida, configurá-los selecionando um recurso de captura criado anteriormente. 
     - Se selecionar **o Arquivo para uma conta de armazenamento**, selecione a conta de Armazenamento - **Configurar**- e, em seguida, selecione a conta de armazenamento na sua subscrição Azure. 
 
-        ![Arquivar para uma conta de armazenamento Azure](./media/enable-diagnostic-logs-topic/archive-storage.png)
+        ![Screenshot que mostra a página "Definições de diagnóstico" com "Arquivo para uma conta de armazenamento Azure" verificada e uma conta de armazenamento selecionada.](./media/enable-diagnostic-logs-topic/archive-storage.png)
     - Se selecionar **o Stream para um centro de eventos**, selecione Event hub - **Configure**, e, em seguida, selecione o espaço de nomes dos Centros de Eventos, o centro de eventos e a política de acesso. 
-        ![Transmita para um centro de eventos](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
+        ![Screenshot que mostra a página "Definições de diagnóstico" com "Stream to a event hub" verificado.](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
     - Se selecionar **Enviar para registar análises,** selecione o espaço de trabalho 'Log Analytics'.
-        ![Enviar para o Log Analytics](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
+        ![Screenshot que mostra a página "Definições de diagnóstico" com "Enviar para registar analytics" verificado.](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
 8. Selecione **Guardar**. Em seguida, selecione **X** no canto direito para fechar a página. 
 9. Agora, de volta à página de **definições de Diagnóstico,** confirme que vê uma nova entrada na tabela **Definições de Diagnóstico.** 
-    ![Definição de diagnóstico na lista](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
+    ![Screenshot que mostra a página "Definições de diagnóstico" com uma nova entrada realçada na tabela "Definições de Diagnóstico".](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
 
      Também pode ativar a recolha de todas as métricas para o tópico. 
 
@@ -106,5 +106,5 @@ As definições de diagnóstico permitem aos utilizadores da Grade de Eventos ca
     }
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para o esquema de registo e outras informações conceptuais sobre registos de diagnóstico para tópicos ou domínios, consulte [registos de diagnóstico](diagnostic-logs.md).

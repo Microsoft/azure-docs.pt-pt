@@ -6,13 +6,13 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d7e6d3c1554f70ea14e097ff2fe6df47987b5927
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 15f5918748df80cec01ccf89835a0ef51da64529
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423053"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296251"
 ---
 # <a name="azure-media-player-full-setup"></a>Configuração completa do Leitor de Multimédia do Azure #
 
@@ -56,11 +56,11 @@ Com o Azure Media Player, pode utilizar uma video tag HTML5 para incorporar um v
 1. O `<data-setup>` atributo no `<video>` Azure Media Player diz ao Azure Media Player para configurar automaticamente o vídeo quando a página estiver pronta, e ler qualquer (em formato JSON) a partir do atributo.
 1. O `id` atributo: Deve ser usado e único para cada vídeo na mesma página.
 1. O `class` atributo contém duas classes:
-    - `azuremediaplayer`aplica estilos que são necessários para a funcionalidade UI do Azure Media Player
-    - `amp-default-skin`aplica a pele padrão aos controlos HTML5
+    - `azuremediaplayer` aplica estilos que são necessários para a funcionalidade UI do Azure Media Player
+    - `amp-default-skin` aplica a pele padrão aos controlos HTML5
 1. O `<source>` inclui dois atributos necessários
-    - `src`o atributo pode incluir um ficheiro **.ism/manifesto* da Azure Media Services, a Azure Media Player adiciona automaticamente os URLs para DASH, SMOOTH e HLS ao jogador
-    - `type`atributo é o tipo MIME necessário do fluxo. O tipo MIME associado a *".ism/manifest"* é *"application/vnd.ms-sstr+xml"*
+    - `src` o atributo pode incluir um ficheiro **.ism/manifesto* da Azure Media Services, a Azure Media Player adiciona automaticamente os URLs para DASH, SMOOTH e HLS ao jogador
+    - `type` atributo é o tipo MIME necessário do fluxo. O tipo MIME associado a *".ism/manifest"* é *"application/vnd.ms-sstr+xml"*
 1. O atributo *opcional* `<data-setup>` no tells `<source>` Azure Media Player se houver alguma política de entrega única para o stream da Azure Media Services, incluindo, mas não limitado a, tipo de encriptação (AES ou PlayReady, Widevine ou FairPlay) e token.
 
 Inclua/exclua atributos, configurações, fontes e faixas exatamente como faria para o vídeo HTML5.
@@ -119,6 +119,6 @@ Em vez de usar um ID de elemento, também pode passar uma referência ao própri
     myPlayer.src([{ src: "//example/path/to/myVideo.ism/manifest", type: "application/vnd.ms-sstr+xml"]);
 ```
 
-## <a name="next-steps"></a>Próximos passos ##
+## <a name="next-steps"></a>Passos seguintes ##
 
 - [Azure Media Player Quickstart](azure-media-player-quickstart.md)
