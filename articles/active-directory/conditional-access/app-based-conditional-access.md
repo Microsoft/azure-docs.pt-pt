@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a3cdb851ca00300d995bcf2075252a360242197
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 122cc6a2be17cb35e77b638a60fc5fa4f035c0d4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601967"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266144"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Como: Exigir aplicativos de cliente aprovados para acesso a aplicativos na nuvem com Acesso Condicional
 
@@ -47,7 +47,7 @@ As organizações devem completar os três passos seguintes para exigir a utiliz
 1. Em **Atribuições**, selecione **Utilizadores e grupos**
    1. Em **Incluir**, selecione **Todos os utilizadores** ou os **Utilizadores e grupos específicos** a que pretende aplicar esta política. 
    1. Selecione **Concluído**.
-1. Em **aplicativos ou ações cloud**  >  **Inclua**, selecione **Office 365 (pré-visualização)**.
+1. No **âmbito de aplicações ou ações cloud**  >  **Inclua**, selecione Office **365**.
 1. Em **Condições**, selecione **plataformas do Dispositivo**.
    1. **Desconfigure** para **Sim**.
    1. Incluir **Android** e **iOS.**

@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 56198392f3c769837d8d672b861baa9b341d284e
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 760a3a194e181576acb3601aabc07c6900cb664e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419355"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276769"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introdução ao armazenamento de API de Tabela do Azure Cosmos DB e Tabelas do Azure com o SDK .NET
 
@@ -120,7 +120,7 @@ Este código define uma classe de entidade que usa o primeiro nome do cliente co
 
 ## <a name="insert-or-merge-an-entity"></a>Inserir ou fundir uma entidade
 
-O exemplo de código a seguir cria um objeto de entidade e adiciona-o à tabela. O método InsertOrMerge dentro da classe [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) é utilizado para inserir ou fundir uma entidade. O [ métodoCloudTable.Exebonito Async](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet) é chamado para executar a operação. 
+O exemplo de código a seguir cria um objeto de entidade e adiciona-o à tabela. O método InsertOrMerge dentro da classe [TableOperation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.tableoperation) é utilizado para inserir ou fundir uma entidade. O [ métodoCloudTable.Exebonito Async](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudtable.executeasync?view=azure-dotnet&preserve-view=true) é chamado para executar a operação. 
 
 Clique à direita no seu projeto **CosmosTableSamples**. Selecione **Adicionar**, **Novo Item** e adicione uma classe chamada **SamplesUtils.cs**. Esta classe armazena todo o código necessário para a realização de operações CRUD nas entidades. 
 
@@ -173,9 +173,9 @@ Agora pode inscrever-se no portal Azure e verificar se os dados existem na tabel
 
 :::image type="content" source="./media/tutorial-develop-table-standard/results-in-portal.png" alt-text="Resultados no portal":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora pode proceder ao próximo tutorial e aprender a migrar dados para a conta AZure Cosmos DB Table API. 
 
 > [!div class="nextstepaction"]
->[Como consultar dados](../cosmos-db/table-import.md)
+>[Migrar dados para Azure Comsos DB Table API](../cosmos-db/table-import.md)

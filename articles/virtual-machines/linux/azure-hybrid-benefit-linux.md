@@ -3,34 +3,35 @@ title: Azure Hybrid Benefit e Linux VMs
 description: O Azure Hybrid Benefit permite-lhe economizar dinheiro nas suas máquinas virtuais Linux que estão a funcionar no Azure.
 services: virtual-machines
 documentationcenter: ''
-author: asinn826
+author: mathapli
 manager: westonh
-editor: ''
 ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: alsin
-ms.openlocfilehash: a9ea3b21908d1f461745ffe2689b36f8efcb6f89
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: d62eaf96354627e0c1e4e0a31bb16fb3265f66ac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90996979"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279778"
 ---
-# <a name="azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Azure Hybrid Benefit – como se aplica às máquinas virtuais Linux
+# <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Pré-visualização: Azure Hybrid Benefit – como se aplica às máquinas virtuais Linux
 
 ## <a name="overview"></a>Descrição geral
 
-O Azure Hybrid Benefit permite-lhe migrar mais facilmente o seu servidor Red Hat Enterprise Linux (RHEL) e SUSE Linux Enterprise (SLES) para a Azure utilizando a sua própria subscrição de software Red Hat ou SUSE pré-existente. Com este benefício, você só paga pelos custos de infraestrutura do seu VM porque a taxa de software é coberta pela sua subscrição RHEL ou SLES. O benefício é aplicável a todas as imagens pay-as-you-go (PAYG) da RHEL e do SLES Marketplace.
+O Azure Hybrid Benefit permite-lhe migrar mais facilmente as suas máquinas virtuais Red Hat Enterprise Linux (RHEL) e SUSE Linux Enterprise Server (SLES) para Azure utilizando a sua própria subscrição de software Red Hat ou SUSE pré-existente. Com este benefício, você só paga pelos custos de infraestrutura do seu VM porque a taxa de software é coberta pela sua subscrição RHEL ou SLES. O benefício é aplicável a todas as imagens pay-as-you-go (PAYG) da RHEL e do SLES Marketplace.
+
+> [!IMPORTANT]
+> A Azure Hybrid Benefit for Linux VMs está atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="benefit-description"></a>Descrição de benefícios
 
 Através do Azure Hybrid Benefit, pode migrar mais facilmente os seus servidores RHEL e SLES no local para Azure, convertendo os VMs RHEL e SLES PAYG existentes no Azure para trazer a sua própria subscrição (BYOS). Normalmente, os VM implantados a partir de imagens PAYG no Azure cobrarão uma taxa de infraestrutura, bem como uma taxa de software. Com o Azure Hybrid Benefit, os VMs PAYG podem ser convertidos para um modelo de faturação BYOS sem uma redistribuição, evitando qualquer risco de inatividade.
 
-![Azure Hybrid Benefit custou visualização em VMs Linux](./media/ahb-linux/azure-hybrid-benefit-cost.png)
+:::image type="content" source="./media/ahb-linux/azure-hybrid-benefit-cost.png" alt-text="Azure Hybrid Benefit custou visualização em VMs Linux.":::
 
 Ao permitir o benefício num RHEL ou SLES VM, deixará de ser cobrado pela taxa adicional de software normalmente incorrida num VM PAYG. Em vez disso, o seu VM começará a emitir uma taxa BYOS, que inclui apenas a taxa de hardware computacional e nenhuma taxa de software.
 

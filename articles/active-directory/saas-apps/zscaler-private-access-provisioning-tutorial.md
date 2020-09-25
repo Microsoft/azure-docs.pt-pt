@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: c605efe60e279ca3f5f14055e39bf95dc677542b
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 19767503769fe1a1e64d6ab137b811899adb29c3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545845"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312342"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Tutorial: Configurar zscaler acesso privado (ZPA) para fornecimento automático de utilizadores
 
 O objetivo deste tutorial é demonstrar os passos a serem realizados no Zscaler Private Access (ZPA) e no Azure Ative Directory (Azure AD) para configurar a Azure AD para fornecimento e desavisagem automática de utilizadores e/ou grupos ao Zscaler Private Access (ZPA).
 
 > [!NOTE]
-> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte [automatizar o fornecimento e desprovisionamento de aplicações saaS com diretório Azure Ative.](../app-provisioning/user-provisioning.md)
+> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona e perguntas frequentes, veja [Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS no Azure Active Directory](../app-provisioning/user-provisioning.md).
 >
 > Este conector encontra-se atualmente em Visualização Pública. Para obter mais informações sobre os termos gerais de utilização do Microsoft Azure para funcionalidades de pré-visualização, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -121,21 +121,21 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-private-access-zpa-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para o Zscaler Private Access (ZPA) em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais** e, em seguida, **Todas as aplicações**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **Zscaler Private Access (ZPA)**.
 
     ![O link Zscaler Private Access (ZPA) na lista de Aplicações](common/all-applications.png)
 
-3. Selecione o **separador Provisioning.**
+3. Selecione o separador **Aprovisionamento**.
 
-    ![Separador de provisionamento](common/provisioning.png)
+    ![Screenshot das opções De gestão com a opção Provisioning chamada.](common/provisioning.png)
 
-4. Desa ajuste o **modo de provisionamento** para **automático**.
+4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
-    ![Separador de provisionamento](common/provisioning-automatic.png)
+    ![Screenshot da lista de retirada do modo de provisionamento com a opção Automática chamada.](common/provisioning-automatic.png)
 
 5. Sob a secção **credenciais de administração,** insira o valor **endpoint do fornecedor de serviço SCIM** recuperado anteriormente no **URL do inquilino.** Insira o valor **do Token do Portador** recuperado anteriormente em Secret **Token**. Clique em **'Testar' Ligação** para garantir que o Azure AD pode ligar-se ao Zscaler Private Access (ZPA). Se a ligação falhar, certifique-se de que a sua conta Zscaler Private Access (ZPA) tem permissões de administração e tente novamente.
 
@@ -143,9 +143,9 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 6. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e verifique a caixa de verificação - **Envie uma notificação de e-mail quando ocorrer uma falha**.
 
-    ![E-mail de notificação](common/provisioning-notification-email.png)
+    ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-7. Clique em **Guardar**.
+7. Clique em **Save** (Guardar).
 
 8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Zscaler Private Access (ZPA)**.
 
@@ -163,19 +163,19 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Atributos do grupo Zscaler Private Access (ZPA)](media/zscaler-private-access-provisioning-tutorial/groupattributes.png)
 
-12. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+12. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 13. Para ativar o serviço de prestação de Ad Azure para o Acesso Privado Zscaler (ZPA), altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
-    ![Estatuto de Provisionamento Toggled On](common/provisioning-toggle-on.png)
+    ![Estado do Aprovisionamento Ativado](common/provisioning-toggle-on.png)
 
 14. Defina os utilizadores e/ou grupos que deseja prestar ao Zscaler Private Access (ZPA) escolhendo os valores pretendidos no **Âmbito** na secção **Definições.**
 
-    ![Âmbito de provisionamento](common/provisioning-scope.png)
+    ![Âmbito de Aprovisionamento](common/provisioning-scope.png)
 
-15. Quando estiver pronto para a provisão, clique em **Guardar**.
+15. Quando estiver pronto para aprovisionar, clique em **Guardar**.
 
-    ![Configuração de provisionamento de poupança](common/provisioning-configuration-save.png)
+    ![Guardar Configuração de Aprovisionamento](common/provisioning-configuration-save.png)
 
 Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de fornecimento AZure AD esteja em execução. Pode utilizar a secção Detalhes da **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de fornecimento de Azure AD no Zscaler Private Access (ZPA).
 
@@ -183,10 +183,10 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 

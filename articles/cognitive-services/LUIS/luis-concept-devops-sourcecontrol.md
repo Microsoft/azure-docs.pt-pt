@@ -1,14 +1,16 @@
 ---
 title: Ramos de controlo e desenvolvimento de fontes - LUIS
 description: Como manter a sua aplicação de Compreensão linguística (LUIS) sob controlo de origem. Como aplicar atualizações a uma aplicação LUIS enquanto trabalha num ramo de desenvolvimento.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 2d060fefbd32ecea1f91e6b062da7606699a63c4
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 25f2c4f4698785326f80c24d3749e7585e85d5bb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783675"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309511"
 ---
 # <a name="devops-practices-for-luis"></a>Práticas de DevOps para LUIS
 
@@ -40,7 +42,7 @@ Ao utilizar os conceitos e orientações descritos neste documento, pode desenvo
 
 ## <a name="source-control"></a>Controlo de código fonte
 
-Para manter a [definição](https://docs.microsoft.com/azure/cognitive-services/luis/app-schema-definition) de esquema de aplicação de uma aplicação LUIS num sistema de gestão de código fonte, utilize o [formato LUDown ( `.lu` )](https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0) representação da aplicação. `.lu`o formato é preferido para `.json` o formato porque é legível pelo homem, o que facilita a revisão e a revisão de alterações nos PRs.
+Para manter a [definição](https://docs.microsoft.com/azure/cognitive-services/luis/app-schema-definition) de esquema de aplicação de uma aplicação LUIS num sistema de gestão de código fonte, utilize o [formato LUDown ( `.lu` )](https://docs.microsoft.com/azure/bot-service/file-format/bot-builder-lu-file-format?view=azure-bot-service-4.0)  representação da aplicação. `.lu` o formato é preferido para `.json` o formato porque é legível pelo homem, o que facilita a revisão e a revisão de alterações nos PRs.
 
 ### <a name="save-a-luis-app-using-the-ludown-format"></a>Guarde uma aplicação LUIS utilizando o formato LUDown
 
@@ -66,7 +68,7 @@ Para uma aplicação LUIS, construir a partir de meios *de origem* para [criar u
 
 Os seguintes tipos de ficheiros para a sua aplicação LUIS devem ser mantidos sob controlo de origem:
 
-- `.lu`arquivo para o pedido LUIS
+- `.lu` arquivo para o pedido LUIS
 
 - [Ficheiros de definição de teste de unidade](luis-concept-devops-testing.md#writing-tests) (expressões e resultados esperados)
 

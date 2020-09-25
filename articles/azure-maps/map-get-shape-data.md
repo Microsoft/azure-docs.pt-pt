@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 6d647b81147f56d6eb81fd04cb562e34ac1497dd
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: devx-track-js
+ms.openlocfilehash: ecefac68a4348eeae23860d542f949b1c7ff23a1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090708"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310209"
 ---
 # <a name="get-shape-data"></a>Obter dados da forma
 

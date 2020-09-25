@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdac9562ed9a83f49e074e7abd790e8e2819d6aa
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 9b225ccb0e607b073fd28f79d0151da0b77f5cdf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527025"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266620"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação sem palavras-passe para Azure Ative Directory
 
@@ -82,7 +82,7 @@ Para começar com o início do sing-in sem palavra-passe, complete o seguinte co
 
 ## <a name="fido2-security-keys"></a>Chaves de segurança FIDO2
 
-A Fido (Fast IDentity Online) Alliance ajuda a promover padrões de autenticação aberta e a reduzir o utilizador de palavras-passe como forma de autenticação. FIDO2 é o mais recente padrão que incorpora o padrão de autenticação web (WebAuthn).
+A Fido (Fast IDentity Online) Alliance ajuda a promover normas de autenticação aberta e a reduzir o uso de palavras-passe como forma de autenticação. FIDO2 é o mais recente padrão que incorpora o padrão de autenticação web (WebAuthn).
 
 As chaves de segurança FIDO2 são um método de autenticação sem palavras-passe sem padrões que pode vir em qualquer fator de forma. Fast Identity Online (FIDO) é um padrão aberto para a autenticação sem palavras-passe. O FIDO permite que os utilizadores e organizações aproveitem a norma para iniciar sedus nos seus recursos sem um nome de utilizador ou palavra-passe utilizando uma chave de segurança externa ou uma chave de plataforma incorporada num dispositivo.
 

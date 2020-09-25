@@ -1,7 +1,7 @@
 ---
 title: Upgrade Bing Autosuggest API v5 para v7
 titleSuffix: Azure Cognitive Services
-description: Identifica as partes da sua aplicação que precisa de atualizar para utilizar a versão 7.
+description: Identifica as partes da sua aplicação Bing Autosuggest que precisa de atualizar para utilizar a versão 7.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -10,14 +10,14 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 5249a3a1f51eea2ecd0999d71c6b08fdacf37a34
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 65498e25108a28183ae6596a8a7288c071ef1147
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68405410"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277517"
 ---
-# <a name="autosuggest-api-upgrade-guide"></a>Guia de upgrade api autosuggest API
+# <a name="autosuggest-api-upgrade-guide"></a>Guia de upgrade da API autosuggest
 
 Este guia de atualização identifica as alterações entre a versão 5 e a versão 7 da API Bing Autosuggest. Utilize este guia para ajudar a atualizar a sua aplicação para utilizar a versão 7.
 
@@ -25,48 +25,48 @@ Este guia de atualização identifica as alterações entre a versão 5 e a vers
 
 ### <a name="endpoints"></a>Pontos Finais
 
-- O número da versão do ponto final mudou de v5 para v7. Por exemplo,\/https:\*\*/api.cognitive.microsoft.com/bing/ v7.0**/Sugestões.
+- O número de versão do ponto final mudou de v5 para v7. Por exemplo, https: \/ /api.cognitive.microsoft.com/bing/ \* \* v7.0**/Sugestões.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de resposta a erros e códigos de erro
 
-- Todos os pedidos falhados `ErrorResponse` devem agora incluir um objeto no corpo de resposta.
+- Todos os pedidos falhados devem agora incluir um `ErrorResponse` objeto no corpo de resposta.
 
-- Adicione os seguintes `Error` campos ao objeto.  
+- Adicionei os seguintes campos ao `Error` objeto.  
   - `subCode`&mdash;Divisórias o código de erro em baldes discretos, se possível
-  - `moreDetails`&mdash;Informações adicionais sobre `message` o erro descrito no campo
+  - `moreDetails`&mdash;Informações adicionais sobre o erro descrito no `message` campo
 
-- Substituiu os códigos de erro `code` `subCode` v5 com os seguintes valores possíveis e valores.
+- Substituiu os códigos de erro v5 pelos seguintes `code` valores e `subCode` valores possíveis.
 
-|Código|Subcódigo|Descrição
+|Código|SubCódes|Description
 |-|-|-
-|Error do servidor|Erro Inesperado<br/>Erro de Recursos<br/>Não Implementado|Bing devolve ServerError sempre que ocorrer em qualquer uma das condições do subcódigo. A resposta inclui estes erros se o código de estado HTTP for de 500.
-|Pedido inválido|Parâmetros desaparecidos<br/>ParâmetroSInvalidValue<br/>Httpnotado<br/>Bloqueado|Devoluções Bing InvalidRequest sempre que qualquer parte do pedido não for válida. Por exemplo, falta um parâmetro necessário ou não é válido um valor de parâmetro.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de estado HTTP é de 400.<br/><br/>Se o erro for HttpNotAllowed, o código de estado HTTP é 410.
-|RateLimitExceeded||Bing devolve RateLimitExceeded sempre que excede as suas consultas por segundo (QPS) ou consultas por mês (QPM) quota.<br/><br/>Bing devolve o código de estado HTTP 429 se exceder qPS e 403 se exceder o QPM.
-|Autorização Inválida|Autorização Faltando<br/>AutorizaçãoRedundy|Bing devolve InvalidAuthorization quando Bing não pode autenticar o chamador. Por exemplo, `Ocp-Apim-Subscription-Key` falta o cabeçalho ou a chave de subscrição não é válida.<br/><br/>O despedimento ocorre se especificar mais do que um método de autenticação.<br/><br/>Se o erro for InvalidAuthorization, o código de estado HTTP é 401.
-|Autorização Insuficiente|AutorizaçãoDeficiente<br/>Autorizações Caducadas|Bing devolve InsuficienteAutorização quando o chamador não tem permissões para aceder ao recurso. Isto pode ocorrer se a chave de subscrição tiver sido desativada ou tiver expirado. <br/><br/>Se o erro for insuficiente, o código de estado HTTP é 403.
+|ServerError|InesperadoError<br/>Recurso<br/>Não ÉDopliizado|Bing devolve ServerError sempre que ocorrer qualquer uma das condições do sub-código. A resposta inclui estes erros se o código de estado HTTP for 500.
+|InáduloRequest|ParâmetroSMissing<br/>ParâmetroInvalvalue<br/>HttpNotAllowed<br/>Bloqueado|Bing devolve InvalidRequest sempre que qualquer parte do pedido não seja válida. Por exemplo, falta um parâmetro necessário ou um valor de parâmetro não é válido.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de estado HTTP é 400.<br/><br/>Se o erro for httpNotAllowed, o código de estado HTTP é 410.
+|TaxaLimitExceed||Bing devoluções TaxaLimitExceed sempre que exceder as suas consultas por segundo (QPS) ou consultas por mês (QPM).<br/><br/>Bing devolve http código de estado 429 se exceder QPS e 403 se excedeu QPM.
+|InvalidAuthorization|AutorizaçãoSDissing<br/>AutorizaçãoSAundação|Bing devolve invalidAuthorization quando Bing não pode autenticar o chamador. Por exemplo, falta o `Ocp-Apim-Subscription-Key` cabeçalho ou a chave de subscrição não é válida.<br/><br/>A redundância ocorre se especificar mais de um método de autenticação.<br/><br/>Se o erro for invalidauthorization, o código de estado HTTP é 401.
+|Authorização insuficiente|AutorizaçãoDisabled<br/>AutorizaçãoSDusa|Bing devolve aautorização insuficiente quando o chamador não tem permissões para aceder ao recurso. Isto pode ocorrer se a chave de subscrição tiver sido desativada ou tiver expirado. <br/><br/>Se o erro for insuficiente, o código de estado HTTP é 403.
 
-- Os seguintes mapas dos códigos de erro anteriores para os novos códigos. Se tiver tomado uma dependência dos códigos de erro V5, atualize o seu código em conformidade.
+- Os seguintes mapas dos códigos de erro anteriores para os novos códigos. Se tiver assumido uma dependência dos códigos de erro v5, atualize o seu código em conformidade.
 
-|Código versão 5|Versão 7 código.subCode
+|Código da versão 5|Versão 7 código.subCode
 |-|-
-|RequestParameter Missing|Pedido inválido.Parâmetro desaparecido
-RequestParameterInvalidValue|Pedido inválido.parameterInvalidValue
-Acesso de RecursosNegado|Autorização Insuficiente
-Volume Excedido|RateLimitExceeded
-UltrapassadoQpsLimit|RateLimitExceeded
-Desativado|Autorização Insuficiente.AutorizaçãoDeficiente
-Erro Inesperado|Error server.UnexpectedError
-Erros dataSource|Error de servidor.Error de recursos
-Autorização Faltando|Autorização Inválida.Autorização Em Falta
-Httpnotado|Pedido Inválido.httpNotAllowed
-Agente de utilizador Desaparecido|Pedido inválido.Parâmetro desaparecido
-Não Implementado|Error server.NotImplemented
-Autorização Inválida|Autorização Inválida
-Método de Autorização Inválida|Autorização Inválida
-Método de Autorização Múltipla|Autorização Inválida.AutorizaçãoDesem Despedimento
-Caducada caducidade|Autorização Insuficiente.Autorizações Caducadas
-InsuficienteScope|Autorização Insuficiente
-Bloqueado|Pedido inválido.Bloqueado
+|PedidoParameterMissing|InvalidRequest.ParameterMissing
+PedidoParameterInvalidValue|InvalidRequest.ParameterInvalidValue
+ResourceAccessDenied|Authorização insuficiente
+ExcedidoVolume|TaxaLimitExceed
+UltrapassadoQpsLimit|TaxaLimitExceed
+Desativado|Authorização insuficiente.AutorizaçãoDisabled
+InesperadoError|ServerError.UnexpectedError
+DataSourceErrors|ServerError.ResourceError
+AutorizaçãoSDissing|InvalidAuthorization.AuthorizationMissing
+HttpNotAllowed|InvalidRequest.httpNotAllowed
+UserAgentMissing|InvalidRequest.ParameterMissing
+Não ÉDopliizado|ServerError.NotImplemented
+InvalidAuthorization|InvalidAuthorization
+InvalidAuthorizationMethod|InvalidAuthorization
+MultipleAuthorizationMethod|InvalidAuthorization.AuthorizationRedundancy
+ValidadeAuthorizationToken|Authorization insuficiente.AutorizaçãoExpired
+Ómuiso insuficiente|Authorização insuficiente
+Bloqueado|InvalidRequest.Bloqueado
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,14 +1,14 @@
 ---
 title: Gerir infraestrutura híbrida em escala com Azure Arc
 description: Aprenda a gerir eficazmente as máquinas dos seus clientes e os clusters Kubernetes fora de Azure.
-ms.date: 09/15/2020
+ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 2ffbe9019398896c594b7cb0e0424d2b5f4dc37a
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 66a798265683045d7ff9f3d8d811141800d08f9b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605334"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336620"
 ---
 # <a name="manage-hybrid-infrastructure-at-scale-with-azure-arc"></a>Gerir infraestrutura híbrida em escala com Azure Arc
 
@@ -16,19 +16,16 @@ Como prestador de serviços, pode ter a bordo vários inquilinos de clientes par
 
 [O Azure Arc](../../azure-arc/overview.md) ajuda a simplificar ambientes complexos e distribuídos em todos os locais, bordas e multicloud, permitindo a implantação de serviços Azure em qualquer lugar e estendendo a gestão do Azure a qualquer infraestrutura.
 
-Com [os servidores Azure Arc ativados (pré-visualização),](../../azure-arc/servers/overview.md)os clientes podem gerir quaisquer máquinas Windows e Linux hospedadas fora do Azure na sua rede corporativa, da mesma forma que gerem máquinas virtuais nativas do Azure. Ao associar uma máquina virtual híbrida ao Azure, esta torna-se ligada e será processada como um recurso no Azure. Os prestadores de serviços podem então gerir estas máquinas não-Azure, juntamente com os recursos Azure dos seus clientes.
+Com [os servidores Azure Arc ativados,](../../azure-arc/servers/overview.md)os clientes podem gerir quaisquer máquinas Windows e Linux hospedadas fora do Azure na sua rede corporativa, da mesma forma que gerem máquinas virtuais nativas do Azure. Ao associar uma máquina virtual híbrida ao Azure, esta torna-se ligada e será processada como um recurso no Azure. Os prestadores de serviços podem então gerir estas máquinas não-Azure, juntamente com os recursos Azure dos seus clientes.
 
 [Azure Arc habilitado Kubernetes (pré-visualização)](../../azure-arc/kubernetes/overview.md) permite que os clientes anexem e configurem aglomerados Kubernetes dentro ou fora de Azure. Quando um cluster Kubernetes estiver ligado ao Arco de Azure, aparecerá no portal Azure, com um ID do Gestor de Recursos Azure e uma identidade gerida. Os clusters estão ligados às subscrições padrão do Azure, estão localizados num grupo de recursos, e podem receber tags como qualquer outro recurso Azure.
 
-Este tópico fornece uma visão geral de como os prestadores de serviços podem usar servidores ativados Azure Arc (pré-visualização) e Azure Arc habilitado Kubernetes (pré-visualização) de uma forma escalável para gerir o ambiente híbrido dos seus clientes, com visibilidade em todos os inquilinos geridos do cliente.
+Este tópico fornece uma visão geral de como os prestadores de serviços podem usar servidores azure Arc habilitados e Azure Arc habilitado Kubernetes (pré-visualização) de uma forma escalável para gerir o ambiente híbrido dos seus clientes, com visibilidade em todos os inquilinos geridos do cliente.
 
 > [!TIP]
 > Embora nos refiramos a prestadores de serviços e clientes neste tópico, esta orientação também se aplica às [empresas que utilizam o Farol Azure para gerir vários inquilinos.](../concepts/enterprise.md)
 
-## <a name="manage-hybrid-servers-at-scale-with-azure-arc-enabled-servers-preview"></a>Gerir servidores híbridos em escala com servidores ativados a Azure Arc (pré-visualização)
-
-> [!NOTE]
-> Os servidores ativados Azure Arc estão atualmente em pré-visualização. Não recomendamos para cargas de trabalho de produção neste momento.
+## <a name="manage-hybrid-servers-at-scale-with-azure-arc-enabled-servers"></a>Gerir servidores híbridos em escala com servidores ativados a Azure Arc
 
 Como prestador de serviços, pode gerir no local máquinas Windows Server ou Linux fora do Azure que os seus clientes ligaram à sua subscrição utilizando o [agente Azure Connected Machine](../../azure-arc/servers/agent-overview.md).
 

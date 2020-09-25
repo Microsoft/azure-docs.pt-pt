@@ -8,13 +8,13 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: elioda
-ms.custom: mqtt, devx-track-javascript
-ms.openlocfilehash: 874e9dd0454fa4f0a0877d949a34058baa711b83
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mqtt, devx-track-js
+ms.openlocfilehash: 65ced3812072bd2650fc36bbb7a7b0f3f75e0def
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420724"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336790"
 ---
 # <a name="get-started-with-device-twins-nodejs"></a>Começar com os gémeos do dispositivo (Node.js)
 
@@ -40,7 +40,7 @@ Para concluir este tutorial, precisa de:
 
 * Certifique-se de que a porta 8883 está aberta na sua firewall. A amostra do dispositivo neste artigo utiliza o protocolo MQTT, que comunica sobre a porta 8883. Este porto pode ser bloqueado em alguns ambientes de rede corporativa e educacional. Para obter mais informações e formas de contornar esta questão, consulte [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -227,7 +227,7 @@ Nesta secção, cria-se uma aplicação de consola Node.js que se conecta ao seu
 
     ![Mostrar myDeviceId em ambos os resultados de consulta](media/iot-hub-node-node-twin-getstarted/service2.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, configurou um novo Hub IoT no portal do Azure e, em seguida, criou uma identidade de dispositivo no registo de identidades do Hub IoT. Adicionou metadados de dispositivo como tags de uma aplicação de back-end, e escreveu uma aplicação de dispositivo simulado para reportar informações de conectividade do dispositivo no twin do dispositivo. Você também aprendeu a consultar esta informação usando a linguagem de consulta IoT Hub semelhante ao SQL.
 

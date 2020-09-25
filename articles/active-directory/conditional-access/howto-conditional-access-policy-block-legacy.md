@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 08/07/2020
+ms.date: 09/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b4a0a411f51eed3a262ee59eb8e93b983755af3
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 2499a89907eb63f01adbc80a6d206911c09c1259
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601559"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265957"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Acesso Condicional: Autenticação do legado do bloco
 
@@ -26,7 +26,7 @@ Devido ao risco acrescido associado aos protocolos de autenticação, a Microsof
 
 As seguintes etapas ajudarão a criar uma política de acesso condicional para bloquear pedidos de autenticação legado. Esta política é colocada no [modo report-only](howto-conditional-access-insights-reporting.md) para iniciar para que os administradores possam determinar o impacto que terão nos utilizadores existentes. Quando os administradores estão confortáveis que a política se aplica como pretendem, podem mudar para **Ligar** ou encenar a implementação adicionando grupos específicos e excluindo outros.
 
-1. Inicie sessão no **Portal do Azure** como administrador global.
+1. Inscreva-se no **portal Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
 1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
 1. Selecione **Nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes das suas políticas.

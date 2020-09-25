@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4b7c82e4650c7680709e809d9f563d79f068601f
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 7227813f607ca18ee50f503a30b290414f333e21
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87127932"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310174"
 ---
 # <a name="supported-data-format-details"></a>Detalhes do formato de dados suportado
 
@@ -52,7 +52,7 @@ O módulo IO espacial suporta os seguintes elementos KML.
 | `atom:author`        | sim     | sim     |                                                                                                                            |
 | `atom:link`          | sim     | sim     |                                                                                                                            |
 | `atom:name`          | sim     | sim     |                                                                                                                            |
-| `BalloonStyle`       | parcial | parcial | `displayMode`não é apoiado. Convertido para `PopupTemplate` um . Para escrever, adicione um `popupTemplate` imóvel como propriedade da funcionalidade para a qual pretende escrevê-lo. |
+| `BalloonStyle`       | parcial | parcial | `displayMode` não é apoiado. Convertido para `PopupTemplate` um . Para escrever, adicione um `popupTemplate` imóvel como propriedade da funcionalidade para a qual pretende escrevê-lo. |
 | `begin`              | sim     | sim     |                                                                                                                            |
 | `color`              | sim     | sim     | Inclui `#AABBGGRR` e `#BBGGRR` . Analisado numa cadeia de cores CSS                                                           |
 | `colorMode`          | sim     | não      |                                                                                                                            |
@@ -68,12 +68,12 @@ O módulo IO espacial suporta os seguintes elementos KML.
 | `extrude`            | parcial | parcial | Só suportado para polígonos. MultiGeometry que têm polígonos de diferentes alturas será dividida em características individuais. Os estilos de linha não são suportados. Polígonos com uma altitude de 0 serão renderizados como um polígono plano. Ao ler, a altitude da primeira coordenada no anel exterior será adicionada como uma propriedade de altura do polígono. Em seguida, a altitude da primeira coordenada será usada para tornar o polígono no mapa. |
 | `fill`               | sim     | sim     |                                                                                                                            |
 | `Folder`             | sim     | sim     |                                                                                                                            |
-| `GroundOverlay`      | sim     | sim     | `color`não é apoiado                                                                                                   |
+| `GroundOverlay`      | sim     | sim     | `color` não é apoiado                                                                                                   |
 | `heading`            | parcial | não      | Analisado, mas não prestado por `SimpleDataLayer` . Só escreve se os dados forem armazenados na propriedade da forma.                 |
 | `hotSpot`            | sim     | parcial | Só escreve se os dados forem armazenados na propriedade da forma. As unidades são outputadas apenas como "pixels".                         |
 | `href`               | sim     | sim     |                                                                                                                            |
 | `Icon`               | parcial | parcial | Analisado, mas não prestado por `SimpleDataLayer` . Só escreve a propriedade do ícone da forma se contiver um dado URI. Só `href` é apoiado. |
-| `IconStyle`          | parcial | parcial | `icon`, `heading` `colorMode` e `hotspots` os valores são analisados, mas não são renderizados por`SimpleDataLayer`         |
+| `IconStyle`          | parcial | parcial | `icon`, `heading` `colorMode` e `hotspots` os valores são analisados, mas não são renderizados por `SimpleDataLayer`         |
 | `innerBoundaryIs`    | sim     | sim     |                                                                                                                            |
 | `kml`                | sim     | sim     |                                                                                                                            |
 | `LabelStyle`         | não      | não      |                                                                                                                            |
@@ -81,7 +81,7 @@ O módulo IO espacial suporta os seguintes elementos KML.
 | `gx:LatLonQuad`      | sim     | sim     |                                                                                                                            |
 | `LinearRing`         | sim     | sim     |                                                                                                                            |
 | `LineString`         | sim     | sim     |                                                                                                                            |
-| `LineStyle`          | sim     | sim     | `colorMode`não é apoiado.                                                                                         |
+| `LineStyle`          | sim     | sim     | `colorMode` não é apoiado.                                                                                         |
 | `Link`               | sim     | não      | Apenas a `href` propriedade é suportada para links de rede.                                                                   |
 | `MultiGeometry`      | parcial | parcial | Pode ser dividido em características individuais quando lido.                                                                     |
 | `name`               | sim     | sim     |                                                                                                                            |
@@ -92,14 +92,14 @@ O módulo IO espacial suporta os seguintes elementos KML.
 | `outerBoundaryIs`    | sim     | sim     |                                                                                                                            |
 | `outline`            | sim     | sim     |                                                                                                                            |
 | `overlayXY`          | não      | não      |                                                                                                                            |
-| `Pair`               | parcial | não      | Só o `normal` estilo num `StyleMap` é suportado. `highlight`não é apoiado.                                   |
+| `Pair`               | parcial | não      | Só o `normal` estilo num `StyleMap` é suportado. `highlight` não é apoiado.                                   |
 | `phoneNumber`        | sim     | sim     |                                                                                                                            |
 | `PhotoOverlay`       | não      | não      |                                                                                                                            |
 | `Placemark`          | sim     | sim     |                                                                                                                            |
 | `Point`              | sim     | sim     |                                                                                                                            |
 | `Polygon`            | sim     | sim     |                                                                                                                            |
 | `PolyStyle`          | sim     | sim     |                                                                                                                            |
-| `Region`             | parcial | parcial | `LatLongBox`é apoiado ao nível do documento.                                                                      |
+| `Region`             | parcial | parcial | `LatLongBox` é apoiado ao nível do documento.                                                                      |
 | `rotation`           | não      | não      |                                                                                                                            |
 | `rotationXY`         | não      | não      |                                                                                                                            |
 | `scale`              | não      | não      |                                                                                                                            |
@@ -111,7 +111,7 @@ O módulo IO espacial suporta os seguintes elementos KML.
 | `SimpleData`         | sim     | sim     |                                                                                                                            |
 | `SimpleField`        | sim     | sim     |                                                                                                                            |
 | `size`               | não      | não      |                                                                                                                            |
-| `Snippet`            | parcial | parcial | `maxLines`atributo é ignorado.                                                                                  |
+| `Snippet`            | parcial | parcial | `maxLines` atributo é ignorado.                                                                                  |
 | `south`              | sim     | sim     |                                                                                                                            |
 | `Style`              | sim     | sim     |                                                                                                                            |
 | `StyleMap`           | parcial | não      | Apenas o estilo normal num `StyleMap` é suportado.                                                                        |
@@ -225,12 +225,12 @@ O módulo IO espacial suporta os seguintes elementos GML.
 | `gml:LineString`        | sim  | sim   |                                                                                        |
 | `gml:lineStringMember`  | sim  | sim   |                                                                                        |
 | `gml:lineStringMembers` | sim  | não    |                                                                                        |
-| `gml:MultiCurve`        | sim  | não    | Só lê `gml:LineString` membros. Escrito como`gml.MultiLineString`                  |
+| `gml:MultiCurve`        | sim  | não    | Só lê `gml:LineString` membros. Escrito como `gml.MultiLineString`                  |
 | `gml:MultiGeometry`     | parcial  | parcial   | Só é lido como uma FuncionalidadeCollection.                                              |
 | `gml:MultiLineString`   | sim  | sim   |                                                                                        |
 | `gml:MultiPoint`        | sim  | sim   |                                                                                        |
 | `gml:MultiPolygon`      | sim  | sim   |                                                                                        |
-| `gml:MultiSurface`      | sim  | não    | Só lê `gml:Polygon` membros. Escrito como`gml.MultiPolygon`                        |
+| `gml:MultiSurface`      | sim  | não    | Só lê `gml:Polygon` membros. Escrito como `gml.MultiPolygon`                        |
 | `gml:name`              | sim  | sim   |                                                                                        |
 | `gml:outerBoundaryIs`   | sim  | não    | Utilização escrita `gml.exterior` .                                                          |
 | `gml:Point`             | sim  | sim   |                                                                                        |
@@ -246,7 +246,7 @@ O módulo IO espacial suporta os seguintes elementos GML.
 #### <a name="additional-notes"></a>notas adicionais
 
 - Os elementos dos membros serão procurados por uma geometria que possa ser enterrada dentro de elementos infantis. Esta operação de pesquisa é necessária, uma vez que muitos formatos XML que se estendem a partir de GML podem não colocar uma geometria como uma criança direta de um elemento membro.
-- `srsName`é parcialmente suportado para coordenadas WGS84 e os seguintes códigos:[EPSG:4326](https://epsg.io/4326)), e web Mercator[(EPSG:3857](https://epsg.io/3857) ou um dos seus códigos alternativos. Qualquer outro sistema de coordenadas será analisado como WGS84 como está.
+- `srsName` é parcialmente suportado para coordenadas WGS84 e os seguintes códigos:[EPSG:4326](https://epsg.io/4326)), e web Mercator[(EPSG:3857](https://epsg.io/3857) ou um dos seus códigos alternativos. Qualquer outro sistema de coordenadas será analisado como WGS84 como está.
 - A menos que seja especificado ao ler um feed XML, a ordem do eixo é determinada com base em sugestões na alimentação XML. É dada preferência pela ordem do eixo "latitude, longitude".
 - A menos que um espaço de nome GML personalizado seja especificado para as propriedades ao escrever para um ficheiro GML, não serão adicionadas informações adicionais sobre a propriedade.
 
@@ -431,5 +431,4 @@ Se nenhuma informação do tipo puder ser extraída do cabeçalho, e a opção d
 
 Consulte os seguintes artigos para obter mais amostras de código para adicionar aos seus mapas:
 
-> [!div class="nextstepaction"]
-> [Ler e escrever dados espaciais](spatial-io-read-write-spatial-data.md)
+[Ler e escrever dados espaciais](spatial-io-read-write-spatial-data.md)

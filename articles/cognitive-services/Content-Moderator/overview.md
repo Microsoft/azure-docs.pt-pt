@@ -8,24 +8,28 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-ms.date: 08/05/2020
+ms.date: 09/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 82dc81c540115f08e57f87e63184e1e895c5e4fe
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: cog-serv-seo-aug-2020
+keywords: moderador de conteúdo, moderador de conteúdo azul, moderador on-line, software de filtragem de conteúdos, serviço de moderação de conteúdos
+ms.openlocfilehash: d502f41a79500b80e1891219b54bde30eb3cd8ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87834546"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309659"
 ---
 # <a name="what-is-azure-content-moderator"></a>O que é o Content Moderator do Azure?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Content Moderador é um serviço cognitivo que verifica texto, imagem e conteúdo de vídeo para material potencialmente ofensivo, arriscado ou indesejável. Quando este material for encontrado, o serviço aplica etiquetas (bandeiras) apropriadas ao conteúdo. Em seguida, a aplicação pode processar o conteúdo sinalizado para cumprir os regulamentos ou manter o ambiente desejado para os utilizadores. Consulte a secção [APIs de Moderação](#moderation-apis) para saber mais sobre o que as diferentes bandeiras de conteúdo indicam.
+O Azure Content Moderador é um serviço de IA que permite lidar com conteúdos potencialmente ofensivos, arriscados ou indesejáveis. Inclui o serviço de moderação de conteúdo movido a IA que digitaliza texto, imagem e vídeos e aplica automaticamente bandeiras de conteúdo, bem como a ferramenta Review, um ambiente moderador online para uma equipa de revisores humanos.
+
+Pode querer criar software de filtragem de conteúdos na sua app para cumprir os regulamentos ou manter o ambiente pretendido para os seus utilizadores.
 
 ## <a name="where-its-used"></a>Onde é usado
 
-Seguem-se alguns cenários onde um programador ou uma equipa de software pode utilizar o Content Moderator:
+Seguem-se alguns cenários em que um desenvolvedor de software ou equipa exigiria um serviço de moderação de conteúdo:
 
 - Mercados online que moderam catálogos de produtos e outros conteúdos gerados pelo utilizador.
 - Empresas de jogos que moderam artefactos de jogos gerados pelo utilizador e salas de chat.
@@ -33,7 +37,7 @@ Seguem-se alguns cenários onde um programador ou uma equipa de software pode ut
 - Empresas de media empresariais que implementam moderação centralizada para o seu conteúdo.
 - Os fornecedores de soluções de educação K-12 filtram conteúdos inadequados para estudantes e educadores.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Não é possível utilizar o Moderador de Conteúdo para detetar imagens ilegais de exploração infantil. No entanto, as organizações qualificadas podem usar o [Serviço de Nuvem PhotoDNA](https://www.microsoft.com/photodna "Microsoft PhotoDNA Cloud Service") para rastrear este tipo de conteúdo.
 
 ## <a name="what-it-includes"></a>O que inclui
@@ -48,7 +52,7 @@ O serviço Content Moderator inclui APIs de Moderação, que verificam o conteú
 
 A tabela a seguir descreve os diferentes tipos de APIs de moderação.
 
-| Grupo API | Descrição |
+| Grupo API | Description |
 | ------ | ----------- |
 |[**Moderação de texto**](text-moderation-api.md)| Verifica texto para conteúdo ofensivo, conteúdo sexualmente explícito ou sugestivo, profanação e dados pessoais.|
 |[**Listas personalizadas de termos**](try-terms-list-api.md)| Digitaliza o texto contra uma lista personalizada de termos, juntamente com os termos incorporados. Utilize listas personalizadas para bloquear ou permitir conteúdo de acordo com as suas próprias políticas de conteúdo.|  
@@ -77,4 +81,4 @@ Tal como acontece com todos os Serviços Cognitivos, os desenvolvedores que usam
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Começa a utilizar o serviço de Moderador de Conteúdo seguindo as instruções no ['Try Content Moderator' na web](quick-start.md).
+Para começar a utilizar o Moderador de Conteúdo no portal da web, siga [o Moderador de Conteúdo na web](quick-start.md). Ou, completar uma [biblioteca de clientes rápido](client-libraries.md) para implementar os cenários básicos em código.

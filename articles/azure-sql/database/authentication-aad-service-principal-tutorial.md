@@ -9,12 +9,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/17/2020
-ms.openlocfilehash: 61cb5384fd4d935ef4038c18b391b5da5fbc96b1
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e03850dcc75e639c0436ceea339da5f2da5df4b3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516695"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277874"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Tutorial: Criar utilizadores de AD Azure usando aplicações AD Azure
 
@@ -167,11 +167,11 @@ Para obter uma abordagem semelhante sobre como definir a permissão dos Leitores
 
     Certifique-se de adicionar as **permissões de Aplicação,** bem como as **permissões delegadas.**
 
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="aad-apps":::
+    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="Screenshot mostrando a página de registos da App para O Diretório Ativo Azure. É destacada uma aplicação com o nome display AppSP.":::
 
     :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="api-permissões":::
 
-2. Também terá de criar um segredo de cliente para iniciar sessão. Siga o guia aqui para [enviar um certificado ou criar um segredo para iniciar sessão.](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in)
+2. Também terá de criar um segredo de cliente para iniciar sessão. Siga o guia aqui para [fazer o upload de um certificado ou criar um segredo para iniciar sessão.](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)
 
 3. Grave o seguinte a partir do seu registo de inscrição. Deve estar disponível no painel de **visão** geral:
     - **ID da Aplicação**

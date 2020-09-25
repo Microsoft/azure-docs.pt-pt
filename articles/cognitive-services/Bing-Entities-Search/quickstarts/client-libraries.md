@@ -11,13 +11,13 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/06/2020
 ms.author: aahi
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 0486d906d5146874ef4665b410e6f4731afbc43d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp
+ms.openlocfilehash: 2659720cbe54156d1d94f8bc0e2ca9bdde186323
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931896"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277563"
 ---
 # <a name="quickstart-use-the-bing-entity-search-client-library"></a>Quickstart: Use a biblioteca de clientes de pesquisa de entidade bing
 

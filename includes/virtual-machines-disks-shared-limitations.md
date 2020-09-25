@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/26/2020
+ms.date: 09/22/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: edb5836ace6f7a1a0cff703b9921f6e6999de578
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 11901e0b68fed9a6a83287d50896bf2afc51fa37
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88944365"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279570"
 ---
 Permitir discos partilhados só está disponível para um subconjunto de tipos de discos. Atualmente apenas discos ultra e SSDs premium podem ativar discos partilhados. Cada disco gerido que tenha discos partilhados ativados estão sujeitos às seguintes limitações, organizadas por tipo de disco:
 
@@ -59,7 +59,7 @@ Os SSDs premium partilhados só são suportados nas seguintes regiões:
 - Leste do Canadá
 - Leste do Japão
 - Oeste do Japão
+- Ásia Sudeste
+- Ásia Leste
 - US Gov - Virginia
 - US Gov - Arizona
-
-Se estiver interessado em experimentar SSDs premium partilhados, [inscreva-se para acesso.](https://aka.ms/AzureSharedDiskGASignUp)

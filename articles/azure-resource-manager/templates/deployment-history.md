@@ -3,13 +3,13 @@ title: Histórico de implantação
 description: Descreve como visualizar as operações de implementação do Azure Resource Manager com o portal, PowerShell, Azure CLI e REST API.
 tags: top-support-issue
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.openlocfilehash: b7439a70a3bd802a5f8a7c371fc04ab3eed31a5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/23/2020
+ms.openlocfilehash: 00e0c51244d5c191d4c9f05f689b90ece81ec5a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84117838"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91284623"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Ver histórico de implementação com O Gestor de Recursos Azure
 
@@ -21,7 +21,7 @@ Para obter ajuda na resolução de erros de implementação específicos, consul
 
 ## <a name="get-deployments-and-correlation-id"></a>Obtenha implementações e iD de correlação
 
-Pode ver detalhes sobre uma implementação através do portal Azure, PowerShell, Azure CLI ou REST API. Cada implantação tem um ID de correlação, que é usado para rastrear eventos relacionados. Pode ser útil quando se trabalha com suporte técnico para resolver problemas de uma implantação.
+Pode ver detalhes sobre uma implementação através do portal Azure, PowerShell, Azure CLI ou REST API. Cada implantação tem um ID de correlação, que é usado para rastrear eventos relacionados. Se [criar um pedido de apoio Azure,](../../azure-portal/supportability/how-to-create-azure-support-request.md)o suporte poderá solicitar-lhe o ID de correlação. O suporte utiliza o ID de correlação para identificar as operações para a implantação falhada.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -61,13 +61,13 @@ Para obter o ID de correlação, use:
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para listar a implantação de um grupo de recursos, utilize [a lista de grupos de implantação az](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-list).
+Para listar a implantação de um grupo de recursos, utilize [a lista de grupos de implantação az](/cli/azure/group/deployment#az-deployment-group-list).
 
 ```azurecli-interactive
 az deployment group list --resource-group ExampleGroup
 ```
 
-Para obter uma implantação específica, utilize o [show do grupo de implantação az](/cli/azure/group/deployment?view=azure-cli-latest#az-deployment-group-show).
+Para obter uma implantação específica, utilize o [show do grupo de implantação az](/cli/azure/group/deployment#az-deployment-group-show).
 
 ```azurecli-interactive
 az deployment group show --resource-group ExampleGroup --name ExampleDeployment
@@ -81,7 +81,7 @@ az deployment group show --resource-group ExampleGroup --name ExampleDeployment 
 
 # <a name="http"></a>[HTTP](#tab/http)
 
-Para listar as implementações de um grupo de recursos, utilize a seguinte operação. Para que o número de versão API mais recente seja utilizado no pedido, consulte [Implementações - List By Resource Group](/rest/api/resources/deployments/listbyresourcegroup).
+Para listar as implementações de um grupo de recursos, utilize a seguinte operação. Para que o número de versão API mais recente seja utilizado no pedido, consulte  [Implementações - List By Resource Group](/rest/api/resources/deployments/listbyresourcegroup).
 
 ```
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deployments/?api-version={api-version}
@@ -209,7 +209,7 @@ A resposta inclui uma mensagem de erro.
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter ajuda na resolução de erros de implementação específicos, consulte [Resolver erros comuns ao utilizar recursos para a Azure com o Azure Resource Manager](common-deployment-errors.md).
 * Para saber como as implementações são geridas na história, consulte [as supressões automáticas do histórico de implantação](deployment-history-deletions.md).

@@ -12,17 +12,17 @@ ms.date: 08/31/2020
 ms.author: pafarley
 ms.custom:
 - devx-track-python
-- devx-track-javascript
+- devx-track-js
 - devx-track-csharp
 - cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-one
 keywords: visão computacional, serviço de visão computacional
-ms.openlocfilehash: 87ff6a03f45fe61b44712166966a1fe3851ffb41
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: c0ed1d534ce76f870b34c626b1b21f7745aa3247
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321879"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309830"
 ---
 # <a name="quickstart-use-the-computer-vision-client-library"></a>Quickstart: Use a biblioteca de clientes Da Visão de Computador
 

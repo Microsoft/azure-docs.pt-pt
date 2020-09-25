@@ -1,14 +1,14 @@
 ---
 title: Descrição geral do Azure Arc
 description: Saiba o que é o Azure Arc e como ajuda os clientes a permitir a gestão e governação dos seus recursos híbridos com outros serviços e funcionalidades da Azure.
-ms.date: 08/25/2020
+ms.date: 09/23/2020
 ms.topic: overview
-ms.openlocfilehash: 46bd2089dbc2794d0fb98ceb9a5e97011e36d6ea
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: e6dc052655bffae949399f77a26d7b76c5b0d13c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89052313"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335403"
 ---
 # <a name="azure-arc-overview"></a>Descrição geral do Azure Arc
 
@@ -34,7 +34,7 @@ As principais características do Arco Azure incluem:
 
 * Configure [extensões VM Azure](./servers/manage-vm-extensions.md) para utilizar os serviços de gestão Azure para monitorizar, proteger e atualizar os seus servidores.
 
-* Gerir e governar os aglomerados de Kubernetes em escala. 
+* Gerir e governar os aglomerados de Kubernetes em escala.
 
 * Utilize a configuração baseada em GitOps como gestão de códigos para implementar aplicações e configuração em um ou mais clusters diretamente do controlo de origem, como o GitHub.
 
@@ -50,7 +50,17 @@ Seguem-se os detalhes dos preços das funcionalidades disponíveis hoje com o Az
 
 ### <a name="arc-enabled-servers"></a>Servidores preparados para o Arc
 
-Na atual fase de pré-visualização, os servidores ativados Azure Arc são oferecidos sem custos adicionais.
+A funcionalidade do plano de controlo Azure Arc é oferecida sem custos adicionais.O que está incluído:
+
+* Organização de recursos através de grupos de gestão Azure e tags.
+
+* Pesquisa e indexação através do Gráfico de Recursos Azure.
+
+* Acesso e segurança através do RBAC e subscrições.
+
+* Ambientes e automação através de modelos e extensões.
+
+* Gestão de atualização
 
 Qualquer serviço Azure que seja utilizado em servidores ativados pelo Arc, por exemplo, O Centro de Segurança Azure ou o Azure Monitor, será cobrado de acordo com os preços desse serviço. Para mais informações, consulte [a página de preços do Azure](https://azure.microsoft.com/pricing/).
 
@@ -58,7 +68,7 @@ Qualquer serviço Azure que seja utilizado em servidores ativados pelo Arc, por 
 
 Na atual fase de pré-visualização, a Azure Arc permitiu que kubernetes são oferecidos sem custos adicionais.
 
-### <a name="azure-arc-enabled-data-services"></a>Azure Arc permitiu serviços de dados
+### <a name="azure-arc-enabled-data-services"></a>Serviços de dados preparados para Azure Arc
 
 Na atual fase de pré-visualização, os serviços de dados habilitados a Azure Arc são oferecidos sem custos adicionais.
 

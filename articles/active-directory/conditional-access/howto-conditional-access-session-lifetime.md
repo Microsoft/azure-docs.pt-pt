@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 09/22/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 034d2410b97562946216815e5bdafd35fe1bc40b
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 672918280a988771431dccc81f042226addf029d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601678"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265940"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configurar a gestão de sessões de autenticação com o Acesso Condicional
 
@@ -89,6 +89,8 @@ O Acesso Condicional é uma capacidade AZure AD Premium e requer uma licença pr
 
 > [!WARNING]
 > Se estiver a utilizar a funcionalidade [de vida útil de token configurável](../develop/active-directory-configurable-token-lifetimes.md) atualmente em visualização pública, por favor, note que não suportamos a criação de duas políticas diferentes para a mesma combinação de utilizador ou app: uma com esta funcionalidade e outra com uma funcionalidade de vida simbólica. A Microsoft planeia retirar a funcionalidade de vida útil de token configurável no dia 1 de maio de 2020 e substituí-la pela funcionalidade de gestão da sessão de autenticação de acesso condicional.  
+>
+> Antes de ativar a frequência de inscrição, certifique-se de que outras definições de reauthenciacation estão desativadas no seu inquilino. Se estiver ativado "Remember MFA em dispositivos fidedignos", certifique-se de desativá-lo antes de utilizar a frequência de início de sposição, uma vez que utilizar estas duas definições em conjunto pode levar a que os utilizadores sejam inesperadamente informados. Para saber mais sobre as solicitações de reauestatura e a vida útil da sessão, consulte o artigo, [otimize as solicitações de reauestação e compreenda a vida útil da sessão para autenticação multi-factor Azure](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
 
 ### <a name="policy-1-sign-in-frequency-control"></a>Política 1: Controlo de frequência de inscrição
 
