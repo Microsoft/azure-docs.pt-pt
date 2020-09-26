@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: a45c98192eccdb320814f88f7f4823603357f528
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.reviewer: jrasnick
+ms.openlocfilehash: a80a87cf595ff8f47d1f14d50cd3af0a1519b694
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031760"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260398"
 ---
 # <a name="quickstart-use-synapse-studio-preview"></a>Quickstart: Use Synapse Studio (pré-visualização)
 
@@ -62,7 +62,7 @@ Pode criar novas pastas e carregar ficheiros utilizando os links na barra de fer
 
 4. Pode alterar a consulta para filtrar e classificar resultados. Encontre funcionalidades linguísticas disponíveis em SQL on demand em [SQL features overview](sql/overview-features.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Permitir que os utilizadores de Azure AD questionem ficheiros [atribuindo permissões de **Armazenamento Blob Data Reader** ou De Armazenamento **Blob Data Contributor** RBAC no Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-an-azure-built-in-role)
 - [Ficheiros de consulta sobre o armazenamento do Azure utilizando o SQL On-Demand](sql/on-demand-workspace-overview.md)

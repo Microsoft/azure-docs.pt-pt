@@ -1,316 +1,218 @@
 ---
 title: Criar, ver e gerir alertas de registo Usando o Azure Monitor Microsoft Docs
-description: Utilize o Monitor Azure para autor, ver e gerir as regras de alerta de registo em Azure.
+description: Use o Azure Monitor para criar, visualizar e gerir as regras de alerta de registo
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.subservice: alerts
-ms.openlocfilehash: 25604bde3afbbef0d541bc21996b59e98b3090f4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 40cf46746587cbd221bd958ccb528c9e40cf18bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327502"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299425"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, visualizar e gerir alertas de registo usando o Azure Monitor
 
 ## <a name="overview"></a>Descrição geral
-Este artigo mostra-lhe como criar e gerir alertas de registo usando a interface de alertas dentro do portal Azure. As regras de alerta são definidas por três componentes:
-- Alvo: Um recurso Azure específico para monitorizar
-- Critérios: Condição ou lógica para avaliar a verdade. Se for verdade, o alerta dispara.  
-- Ação: Chamada específica enviada a um recetor de uma notificação - e-mail, SMS, webhook etc.
 
-O termo **Alerta de Registo** descreve alertas onde é avaliada uma consulta de registo no espaço de trabalho do Log [Analytics](../log-query/get-started-portal.md) ou no [Application Insights](../log-query/log-query-overview.md) e um alerta disparado se o resultado for verdadeiro. Saiba mais sobre funcionalidades, terminologia e tipos de alertas de [Log - Visão geral](alerts-unified-log.md).
+Os alertas de registo permitem que os utilizadores utilizem uma consulta [log Analytics](../log-query/get-started-portal.md) para avaliar os registos de recursos em cada frequência definida e disparem um alerta com base nos resultados. As regras podem desencadear uma ou mais ações utilizando [grupos de ação.](./action-groups.md) [Saiba mais sobre funcionalidade e terminologia de alertas de registo.](alerts-unified-log.md)
+
+Este artigo mostra-lhe como criar e gerir alertas de registo usando o Azure Monitor. As regras de alerta são definidas por três componentes:
+- Alvo: Um recurso Azure específico para monitorizar.
+- Critérios: Lógica para avaliar. Se formos atingidos, o alerta dispara.  
+- Ação: Notificações ou automação - e-mail, SMS, webhook, e assim por diante.
+
+Também pode criar regras de alerta de registo utilizando modelos do Gestor de Recursos Azure, que são descritos [num artigo separado](alerts-log-create-templates.md).
 
 > [!NOTE]
-> Os dados de registo de um espaço de [trabalho log Analytics](../log-query/get-started-portal.md) também podem ser encaminhados para a base de dados de métricas do Azure Monitor. Os alertas de métricas têm [um comportamento diferente,](alerts-metric-overview.md)o que pode ser mais desejável dependendo dos dados com que está a trabalhar.   Para obter informações sobre o que e como pode encaminhar os registos para métricas, consulte [o Alerta Métrico de Registos](alerts-metric-logs.md).
+> Os dados de registo de um espaço de [trabalho log Analytics](../log-query/get-started-portal.md) podem ser enviados para a loja de métricas do Azure Monitor. Os alertas de métricas têm [um comportamento diferente,](alerts-metric-overview.md)o que pode ser mais desejável dependendo dos dados com que está a trabalhar. Para obter informações sobre o que e como pode encaminhar os registos para métricas, consulte [o Alerta Métrico de Registos](alerts-metric-logs.md).
 
 ## <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Criar uma regra de alerta de registo com o portal Azure
 
-1. No [portal,](https://portal.azure.com/)selecione **Monitor**. Nessa secção, escolha **Alertas.**
+Aqui os passos para começar a escrever consultas para alertas:
 
-    ![Monitorização](media/alerts-log/AlertsPreviewMenu.png)
+1. Vá ao recurso que gostaria de alertar.
+1. Em **Monitor**, selecione **Logs**.
+1. Consulte os dados de registo que podem indicar o problema. Pode utilizar o tópico de [exemplos de consulta de alerta](../log-query/saved-queries.md) para entender o que pode descobrir ou começar a escrever a sua própria [consulta.](../log-query/get-started-portal.md) Além disso, [saiba como criar consultas de alertas otimizadas](alerts-log-query.md).
+1. Prima o botão '+ Nova Regra de Alerta' para iniciar o fluxo de criação de alerta.
 
-1. Clique em **Nova Regra de Alerta**. 
+    ![Log Analytics - Alerta de conjunto](media/alerts-log/AlertsAnalyticsCreate.png)
 
-    ![Adicionar Alerta](media/alerts-log/AlertsPreviewOption.png)
+> [!NOTE]
+> Recomenda-se que crie alertas à escala, quando utilizar o modo de acesso a recursos para registos, que funciona em vários recursos utilizando um grupo de recursos ou âmbito de subscrição. Alertar em escala reduz a gestão de regras. Para poder direcionar os recursos, por favor inclua a coluna de identificação de recursos nos resultados. [Saiba mais sobre a divisão de alertas por dimensões.](alerts-unified-log.md#split-by-alert-dimensions)
 
-1. Aparece o painel **de alerta** de criação. Tem quatro partes: 
-    - O recurso a que o alerta se aplica
-    - A condição para verificar
-    - A ação a tomar se a condição for verdadeira
-    - Os detalhes para nomear e descrever o alerta. 
+### <a name="log-alert-for-log-analytics-and-application-insights"></a>Alerta de registo para Log Analytics e Insights de Aplicações
 
-    ![Criar regra](media/alerts-log/AlertsPreviewAdd.png)
-
-1. Defina a condição de alerta utilizando o link **'Selecionar Recursos'** e especificando o alvo selecionando um recurso. Filtrar escolhendo a *Subscrição,* *Tipo de Recurso*e *Recurso*necessário. 
-
-   ![Selecione recurso](media/alerts-log/Alert-SelectResourceLog.png)
-
-1. Certifique-se de que **o Tipo de Recurso** é uma fonte analítica como Log *Analytics* ou *Application Insights* e tipo de sinal como *Log*. Clique em **Concluído**. Em seguida, utilize o botão **de critérios Adicionar** para visualizar a lista de opções de sinal disponíveis para o recurso. Encontre e escolha a opção **de pesquisa de registo personalizado** para log *Analytics* ou *Application Insights,* dependendo de onde residem os dados dos seus alertas de registo.
-
-   ![Selecione um recurso - pesquisa de registo personalizado](media/alerts-log/AlertsPreviewResourceSelectionLog.png)
-
-   > [!NOTE]
-   > 
-   > As listas de alertas podem importar consulta de análise como tipo de sinal - **Log (Consulta Guardada)**, como visto na ilustração acima. Para que os utilizadores possam aperfeiçoar a sua consulta em Analytics e, em seguida, guardá-los para uso futuro em alertas. Para obter mais detalhes sobre a utilização de consultas guardadas, consulte [a consulta de registo no Azure Monitor](../log-query/log-query-overview.md) e consulta partilhada na análise de Insights de [Aplicação](../app/app-insights-overview.md).
-
-1. Uma vez selecionado, crie a consulta de alerta no campo **'Consulta de Pesquisa'.** Se a sintaxe de consulta estiver incorreta, o campo aparece e erro a vermelho. 
-
-1. Se a sintaxe de consulta estiver correta, os dados históricos para a consulta aparecem como um gráfico com a opção de ajustar o tempo das últimas seis horas até à semana passada.
+1. Se a sintaxe de consulta estiver correta, então os dados históricos para a consulta aparecem como um gráfico com a opção de ajustar o período de gráfico das últimas seis horas até à semana passada.
+ 
+    Se os resultados da sua consulta contiverem dados resumidos ou colunas específicas do [projeto](/azure/kusto/query/projectoperator) sem coluna de tempo, o gráfico mostra um único valor.
 
     ![Regra de alerta de configuração](media/alerts-log/AlertsPreviewAlertLog.png)
 
-   A visualização de dados históricos só é mostrada se os resultados da consulta tiverem detalhes de tempo. Se a sua consulta resultar em dados resumidos ou valores específicos da coluna, o visor mostra um único enredo.
-  
-   Para medições métricas utilizando Insights de Aplicação ou [a API do Log Analytics,](/rest/api/monitor/scheduledqueryrules)pode especificar qual a variável específica para agrupar os dados utilizando o **Agregado na** opção; como mostrado aqui: 
-  
-   ![agregado na opção](media/alerts-log/aggregate-on.png)
+1. Escolha o intervalo de tempo sobre o qual para avaliar a condição especificada, utilizando a opção [**Period.**](alerts-unified-log.md#query-time-range)
 
+1. Os alertas de registo podem basear-se em dois tipos de [**medidas:**](alerts-unified-log.md#measure)
+    1. **Número de resultados** - Contagem de registos devolvidos pela consulta.
+    1. **Medição**  -  métrica *Valor agregado* calculado com base em resumo agrupados por expressões escolhidas e seleção [de contentores.](/azure/kusto/query/binfunction) Por exemplo:
 
+    ```Kusto
+    // Reported errors
+    union Event, Syslog // Event table stores Windows event records, Syslog stores Linux records
+    | where EventLevelName == "Error" // EventLevelName is used in the Event (Windows) records
+    or SeverityLevel== "err" // SeverityLevel is used in Syslog (Linux) records
+    | summarize AggregatedValue = count() by Computer, bin(TimeGenerated, 15m)
+    ```
 
-1. Em seguida, escolha a condição **de Lógica de Alerta,** agregação e limiar. 
+1. Para a lógica de alerta de medições métricas, pode especificar opcionalmente como [dividir os alertas por dimensões](alerts-unified-log.md#split-by-alert-dimensions) utilizando a opção **Agregada.** A expressão de agrupamento de linha deve ser única e ordenada.
 
-1. Escolha o período de tempo para avaliar a condição especificada, utilizando a opção **Period.** 
+    > [!NOTE]
+    > Como [o caixote pode](/azure/kusto/query/binfunction) resultar em intervalos de tempo desiguais, o serviço de alerta converterá automaticamente a função do caixote do [lixo](/azure/kusto/query/binfunction) para [bin_at()](/azure/kusto/query/binatfunction) função com o tempo de execução adequado, para garantir resultados com um ponto fixo.
 
-1. Escolha a frequência com que o alerta é executado na **Frequência.** 
+    > [!NOTE]
+    > Dividido por dimensões de alerta só está disponível para a atual API de Regras Desíparos. Se utilizar o legado [Log Analytics Alert API,](api-alerts.md)terá de mudar. [Saiba mais sobre a troca.](./alerts-log-api-switch.md) O alerta centrado em recursos em escala só é suportado na versão API `2020-05-01-preview` e acima.
 
-    **Os alertas de** registo podem basear-se em:
-    - [Número de Registos](./alerts-unified-log.md#number-of-results-alert-rules): É criado um alerta se a contagem de registos devolvidos pela consulta for superior ou inferior ao valor fornecido.
-    - [Medição métrica](./alerts-unified-log.md#metric-measurement-alert-rules): É criado um alerta se cada *valor agregado* dos resultados exceder o valor limiar fornecido e for *agrupado pelo* valor escolhido. O número de infrações a um alerta é o número de vezes que o limiar é ultrapassado no período de tempo escolhido. Pode especificar as infrações totais para qualquer combinação de infrações através dos resultados definidos ou violações consecutivas para exigir que as infrações ocorram em amostras consecutivas.
+    ![agregado na opção](media/alerts-log/aggregate-on.png)
 
+1. Em seguida, com base nos dados de pré-visualização definidos [ **o Operador,** **Valor Limiar**](alerts-unified-log.md#threshold-and-operator)e [**Frequência**](alerts-unified-log.md#frequency).
 
-1. Clique em **Concluído**. 
+1. Também pode configurar opcionalmente o [número de violações para desencadear um alerta](alerts-unified-log.md#number-of-violations-to-trigger-alert) utilizando **Violações Totais ou Consecutivas.**
 
-1. Defina um nome para o seu alerta no campo de **nome da regra de alerta,** juntamente com uma **Descrição** detalhando as especificidades para o valor de alerta e **gravidade** das opções fornecidas. Estes detalhes são reutilizados em todos os e-mails de alerta, notificações ou pushs feitos pelo Azure Monitor. Além disso, pode optar por ativar imediatamente a regra de alerta sobre a criação clicando em Ativar a **regra após a criação**.
+1. Selecione **Concluído**. 
 
-1. Escolha se deseja **suprimir alertas** por um período de tempo.  Quando liga a supressão para a regra de alerta, as ações para a regra são desativadas por um período de tempo definido após a criação de um novo alerta. A regra ainda corre e cria registos de alerta desde que os critérios sejam cumpridos. Esta definição permite-lhe tempo para corrigir o problema sem executar ações duplicadas.
+1. Defina o **nome da regra de alerta**, **Descrição,** e selecione o alerta **Severidade**. Estes detalhes são usados em todas as ações de alerta. Além disso, pode optar por não ativar a regra de alerta sobre a criação selecionando **Enable rule após a criação**.
 
-   ![Alertas de supressão para alertas de registo](media/alerts-log/AlertsPreviewSuppress.png)
+1. Escolha se pretende suprimir as ações de regras durante um tempo após o disparo de um alerta, utilize a opção [**Alertas de Supressão.**](alerts-unified-log.md#state-and-resolving-alerts) A regra ainda vai funcionar e criar alertas, mas as ações não serão desencadeadas para evitar o ruído. O valor das ações de silenciamento deve ser maior do que a frequência de alerta para ser eficaz.
 
-    > [!TIP]
-    > Especifique um valor de alerta de supressão superior à frequência de alerta para garantir que as notificações são paradas sem sobreposição
+    ![Alertas de supressão para alertas de registo](media/alerts-log/AlertsPreviewSuppress.png)
 
-1. Como terceiro e último passo, especifique se a regra de alerta deve desencadear um ou mais **Grupo de Ação** quando a condição de alerta for cumprida. Pode escolher qualquer Grupo de Ação existente ou criar um novo. Com grupos de ação, pode enviar uma série de ações como enviar e-mails(s), enviar SMS(s), ligar para Webhook(s), remediar usando Azure Runbooks, empurrar para a sua ferramenta ITSM, e muito mais. Saiba mais sobre [grupos de ação.](action-groups.md)
+1. Especifique se a regra de alerta deve desencadear um ou mais [**grupos de ação**](action-groups.md#webhook) quando a condição de alerta for cumprida.
 
     > [!NOTE]
     > Consulte os limites do [serviço de subscrição Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md) para limites às ações que podem ser executadas.  
 
-    Algumas funcionalidades adicionais estão disponíveis para anular as ações predefinidos:
+1. Pode personalizar opcionalmente as ações nas regras de alerta de registo:
 
-    - **Notificação por e-mail**: Substitui o *e-mail no* e-mail enviado através do Grupo de Ação. Não é possível modificar o corpo do correio e este campo **não** é para endereço de e-mail.
-    - **Inclua a carga útil personalizada Json**: Substitui o webhook JSON utilizado pelos Grupos de Ação assumindo que o grupo de ação contém um tipo webhook. Para obter mais informações sobre formatos webhook, consulte [a ação webhook para Alertas de Registo](./alerts-log-webhook.md). A opção Ver Webhook é fornecida para verificar o formato utilizando dados JSON da amostra.
+    - **Assunto de e-mail personalizado**: Substitui o tema do *e-mail* de ações de e-mail. Não é possível modificar o corpo do correio e este campo **não é para endereços de e-mail.**
+    - **Inclua a carga útil personalizada Json**: Substitui o webhook JSON usado pelos Grupos de Ação assumindo que o grupo de ação contém uma ação webhook. Saiba mais sobre [a ação webhook para Alertas de Registos](./alerts-log-webhook.md).
 
-        ![Ação sobrepõe-se a alertas de registo](media/alerts-log/AlertsPreviewOverrideLog.png)
+    ![Ação sobrepõe-se a alertas de registo](media/alerts-log/AlertsPreviewOverrideLog.png)
 
+1. Se todos os campos estiverem corretamente definidos, o botão **de regra de alerta Criar** pode ser clicado e é criado um alerta.
 
-1. Se todos os campos forem válidos e com o sinal verde o botão de regra de alerta de **criação** pode ser clicado e um alerta é criado no Azure Monitor - Alertas. Todos os alertas podem ser vistos a partir do painel de alertas.
+    Em poucos minutos, o alerta está ativo e dispara como descrito anteriormente.
 
-     ![Criação de Regras](media/alerts-log/AlertsPreviewCreate.png)
+    ![Criação de Regras](media/alerts-log/AlertsPreviewCreate.png)
 
-     Em poucos minutos, o alerta está ativo e dispara como descrito anteriormente.
-
-Os utilizadores também podem finalizar a sua consulta de análise em [análise de registo](../log-query/log-query-overview.md) e, em seguida, pressioná-lo para criar um alerta através do botão 'set Alert' - seguindo depois as instruções do Passo 6 no tutorial acima.
-
- ![Log Analytics - Alerta de conjunto](media/alerts-log/AlertsAnalyticsCreate.png)
-
-### <a name="view--manage-log-alerts-in-azure-portal"></a>Ver & gerir alertas de registo no portal Azure
-
-1. No [portal](https://portal.azure.com/), selecione **Monitor** e na secção MONITOR - escolha **Alertas**.
-
-1. O **Painel de Alertas** é apresentado - em que todos os alertas de Azure (incluindo alertas de registo) são apresentados numa placa singular; incluindo todos os casos de quando a sua regra de alerta de registo disparou. Para saber mais, consulte [Gestão de Alerta.](https://aka.ms/managealertinstances)
-    > [!NOTE]
-    > As regras de alerta de registo compreendem a lógica personalizada fornecida pelos utilizadores e, portanto, sem um estado resolvido. Devido ao qual sempre que as condições especificadas na regra de alerta de registo são cumpridas, é disparado.
-
-1. Selecione o botão **'Gerir regras'** na barra superior, para navegar para a secção de gestão de regras - onde estão listadas todas as regras de alerta criadas; incluindo alertas que foram desativadas.
-    ![gerir regras de alerta](media/alerts-log/manage-alert-rules.png)
-
-## <a name="managing-log-alerts-using-azure-resource-template"></a>Gestão de alertas de registo usando o modelo de recursos Azure
-
-Os alertas de registo no Azure Monitor estão associados ao tipo de recurso `Microsoft.Insights/scheduledQueryRules/` . Para obter mais informações sobre este tipo de recurso, consulte [o Azure Monitor - Referência API das Regras de Consulta Agendadas](/rest/api/monitor/scheduledqueryrules/). Os alertas de registo para Insights de Aplicações ou Análise de Registo, podem ser criados usando [API de Regras de Consulta Agendadas.](/rest/api/monitor/scheduledqueryrules/)
+#### <a name="creating-log-alert-for-log-analytics-and-application-insights-from-the-alerts-management"></a>Criação de alerta de registo para Log Analytics e Application Insights da gestão de alertas
 
 > [!NOTE]
-> Os alertas de registo para o Log Analytics também podem ser geridos usando o legado [Log Analytics Alert API](api-alerts.md) e modelos legados de [Log Analytics também guardados pesquisas e alertas.](../insights/solutions.md) Para obter mais informações sobre a utilização da nova API de Placas Agendadas detalhadas aqui por padrão, consulte [a Switch para a nova API para Alertas de Análise de Registos](alerts-log-api-switch.md).
+> Criação a partir de alertas a gestão não é atualmente suportada para registos centrados em recursos
 
+1. No [portal,](https://portal.azure.com/)selecione **Monitor** e escolha **Alertas**.
 
-### <a name="sample-log-alert-creation-using-azure-resource-template"></a>Criação de alerta de registo de amostra usando modelo de recurso Azure
+    ![Monitorização](media/alerts-log/AlertsPreviewMenu.png)
 
-Segue-se a estrutura do modelo [de criação de regras de consulta programadas](/rest/api/monitor/scheduledqueryrules/createorupdate) utilizando a consulta padrão de pesquisa de registo de [registo do número de resultados,](alerts-unified-log.md#number-of-results-alert-rules)com o conjunto de dados da amostra como variáveis.
+1. Selecione **Nova Regra de Alerta**. 
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-    },
-    "variables": {
-        "alertLocation": "southcentralus",
-        "alertName": "samplelogalert",
-        "alertDescription": "Sample log search alert",
-        "alertStatus": "true",
-        "alertSource":{
-            "Query":"requests",
-            "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
-            "Type":"ResultCount"
-        },
-        "alertSchedule":{
-            "Frequency": 15,
-            "Time": 60
-        },
-        "alertActions":{
-            "SeverityLevel": "4"
-        },
-        "alertTrigger":{
-            "Operator":"GreaterThan",
-            "Threshold":"1"
-        },
-        "actionGrp":{
-            "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/actiongroups/sampleAG",
-            "Subject": "Customized Email Header",
-            "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
-        }
-    },
-    "resources":[ {
-        "name":"[variables('alertName')]",
-        "type":"Microsoft.Insights/scheduledQueryRules",
-        "apiVersion": "2018-04-16",
-        "location": "[variables('alertLocation')]",
-        "properties":{
-            "description": "[variables('alertDescription')]",
-            "enabled": "[variables('alertStatus')]",
-            "source": {
-                "query": "[variables('alertSource').Query]",
-                "dataSourceId": "[variables('alertSource').SourceId]",
-                "queryType":"[variables('alertSource').Type]"
-            },
-            "schedule":{
-                "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
-                "timeWindowInMinutes": "[variables('alertSchedule').Time]"
-            },
-            "action":{
-                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
-                "severity":"[variables('alertActions').SeverityLevel]",
-                "aznsAction":{
-                    "actionGroup":"[array(variables('actionGrp').ActionGroup)]",
-                    "emailSubject":"[variables('actionGrp').Subject]",
-                    "customWebhookPayload":"[variables('actionGrp').Webhook]"
-                },
-                "trigger":{
-                    "thresholdOperator":"[variables('alertTrigger').Operator]",
-                    "threshold":"[variables('alertTrigger').Threshold]"
-                }
-            }
-        }
-    } ]
-}
+    ![Adicionar Alerta](media/alerts-log/AlertsPreviewOption.png)
 
-```
+1. Aparece o painel **de alerta** de criação. Tem quatro partes: 
+    - O recurso a que o alerta se aplica.
+    - A condição para verificar.
+    - As ações a tomar se a condição for verdadeira.
+    - Os detalhes para nomear e descrever o alerta. 
 
-A amostra json acima pode ser guardada como (digamos) sampleScheduledQueryRule.jspara o propósito desta caminhada e pode ser implantada usando [O Gestor de Recursos Azure no portal Azure](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
+    ![Criar regra](media/alerts-log/AlertsPreviewAdd.png)
 
+1. Prima no **botão 'Selecionar Recursos'.** Filtre por escolher a *Subscrição*, *Tipo de Recurso*e selecione um recurso. Certifique-se de que o recurso tem registos disponíveis.
 
-### <a name="log-alert-with-cross-resource-query-using-azure-resource-template"></a>Alerta de registo com consulta de recursos cruzados usando modelo de recursos Azure
+   ![Selecione recurso](media/alerts-log/Alert-SelectResourceLog.png)
 
-Segue-se a estrutura do modelo [de criação de regras](/rest/api/monitor/scheduledqueryrules/createorupdate) de consulta programadas utilizando [consulta de pesquisa de registo de registo de recursos cruzados](../log-query/cross-workspace-query.md) do alerta de [registo do tipo de medição métrica,](./alerts-unified-log.md#metric-measurement-alert-rules)com o conjunto de dados da amostra como variáveis.
+1. Em seguida, utilize o botão **'Adicionar Condição'** para visualizar a lista de opções de sinal disponíveis para o recurso. Selecione a opção **de pesquisa de registo personalizado.**
 
-```json
+   ![Selecione um recurso - pesquisa de registo personalizado](media/alerts-log/AlertsPreviewResourceSelectionLog.png)
 
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-    },
-    "variables": {
-        "alertLocation": "Region Name for your Application Insights App or Log Analytics Workspace",
-        "alertName": "sample log alert",
-        "alertDescr": "Sample log search alert",
-        "alertStatus": "true",
-        "alertSource":{
-            "Query":"union workspace(\"servicews\").Update, app('serviceapp').requests | summarize AggregatedValue = count() by bin(TimeGenerated,1h), Classification",
-            "Resource1": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
-            "Resource2": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/components/serviceapp",
-            "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
-            "Type":"ResultCount"
-        },
-        "alertSchedule":{
-            "Frequency": 15,
-            "Time": 60
-        },
-        "alertActions":{
-            "SeverityLevel": "4",
-            "SuppressTimeinMin": 20
-        },
-        "alertTrigger":{
-            "Operator":"GreaterThan",
-            "Threshold":"1"
-        },
-        "metricMeasurement": {
-            "thresholdOperator": "Equal",
-            "threshold": "1",
-            "metricTriggerType": "Consecutive",
-            "metricColumn": "Classification"
-        },
-        "actionGrp":{
-            "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/actiongroups/sampleAG",
-            "Subject": "Customized Email Header",
-            "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
-        }
-    },
-    "resources":[ {
-        "name":"[variables('alertName')]",
-        "type":"Microsoft.Insights/scheduledQueryRules",
-        "apiVersion": "2018-04-16",
-        "location": "[variables('alertLocation')]",
-        "properties":{
-            "description": "[variables('alertDescr')]",
-            "enabled": "[variables('alertStatus')]",
-            "source": {
-                "query": "[variables('alertSource').Query]",
-                "authorizedResources": "[concat(array(variables('alertSource').Resource1), array(variables('alertSource').Resource2))]",
-                "dataSourceId": "[variables('alertSource').SourceId]",
-                "queryType":"[variables('alertSource').Type]"
-            },
-            "schedule":{
-                "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
-                "timeWindowInMinutes": "[variables('alertSchedule').Time]"
-            },
-            "action":{
-                "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
-                "severity":"[variables('alertActions').SeverityLevel]",
-                "throttlingInMin": "[variables('alertActions').SuppressTimeinMin]",
-                "aznsAction":{
-                    "actionGroup": "[array(variables('actionGrp').ActionGroup)]",
-                    "emailSubject":"[variables('actionGrp').Subject]",
-                    "customWebhookPayload":"[variables('actionGrp').Webhook]"
-                },
-                "trigger":{
-                    "thresholdOperator":"[variables('alertTrigger').Operator]",
-                    "threshold":"[variables('alertTrigger').Threshold]",
-                    "metricTrigger":{
-                        "thresholdOperator": "[variables('metricMeasurement').thresholdOperator]",
-                        "threshold": "[variables('metricMeasurement').threshold]",
-                        "metricColumn": "[variables('metricMeasurement').metricColumn]",
-                        "metricTriggerType": "[variables('metricMeasurement').metricTriggerType]"
-                    }
-                }
-            }
-        }
-    } ]
-}
+   > [!NOTE]
+   > O portal de alertas lista consultas guardadas de Log Analytics e Application Insights e podem ser usados como consultas de alerta de modelo.
 
-```
+1. Uma vez selecionado, escreva, cole ou edite a consulta de alerta no campo **'Consulta de Procura'.**
 
-> [!IMPORTANT]
-> Ao utilizar consulta de recursos cruzados em alerta de registo, o uso de [recursos autorizados](/rest/api/monitor/scheduledqueryrules/createorupdate#source) é obrigatório e o utilizador deve ter acesso à lista de recursos indicados
+1. Continue até os próximos passos descritos na [última secção](#log-alert-for-log-analytics-and-application-insights).
 
-A amostra json acima pode ser guardada como (digamos) sampleScheduledQueryRule.jspara o propósito desta caminhada e pode ser implantada usando [O Gestor de Recursos Azure no portal Azure](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
+### <a name="log-alert-for-all-other-resource-types"></a>Alerta de registo para todos os outros tipos de recursos
+
+> [!NOTE]
+> Atualmente, não existem taxas adicionais para a versão API `2020-05-01-preview` e alertas de registo centrados em recursos.  Os preços das funcionalidades que estão em pré-visualização serão anunciados no futuro e um aviso fornecido antes do início da faturação. Caso opte por continuar a utilizar novas versões API e alertas de registo centrados em recursos após o período de pré-aviso, será faturado à taxa aplicável.
+
+1. Comece pelo **separador Condição:**
+
+    1. Verifique se a [**medida**](alerts-unified-log.md#measure), [**tipo de agregação**](alerts-unified-log.md#aggregation-type)e [**granularidade de agregação e granularidade**](alerts-unified-log.md#aggregation-granularity) estão corretas. 
+        1. Por predefinição, a regra conta o número de resultados nos últimos 5 minutos.
+        1. Se detetarmos resultados de consulta sumário, a regra será atualizada automaticamente dentro de alguns segundos para capturar isso.
+
+    1. Escolha [a divisão de alerta por dimensões,](alerts-unified-log.md#split-by-alert-dimensions)se necessário: 
+       - **A coluna de ID de recursos** é selecionada automaticamente, se detetada, e altera o contexto do alerta disparado para o recurso do registo. 
+       - **A coluna de ID de recursos** pode ser desessionada para alertas de incêndio em grupos de subscrição ou recursos. A desescodagem é útil quando os resultados da consulta são baseados em recursos cruzados. Por exemplo, uma consulta que verifica se 80% das máquinas virtuais do grupo de recursos estão a ter uma elevada utilização de CPU.
+       - Podem também ser selecionadas até seis divisões adicionais para qualquer número ou tipos de colunas de texto utilizando a tabela de dimensões.
+       - Os alertas são disparados separadamente de acordo com a divisão com base em combinações únicas e a carga útil de alerta inclui esta informação.
+    
+        ![Selecione parâmetros de agregação e divisão](media/alerts-log/select-aggregation-parameters-and-splitting.png)
+
+    1. O **gráfico de pré-visualização** mostra os resultados das avaliações de consulta ao longo do tempo. Pode alterar o período de gráfico ou selecionar séries de tempo diferentes que resultaram da divisão de alertas únicas por dimensões.
+
+        ![Gráfico de pré-visualização](media/alerts-log/preview-chart.png)
+
+    1. Em seguida, com base nos dados de pré-visualização, desateie a **lógica de Alerta;** [ **Operador,** **Valor Limiar**](alerts-unified-log.md#threshold-and-operator)e [**Frequência.**](alerts-unified-log.md#frequency)
+
+        ![Gráfico de pré-visualização com lógica de limiar e alerta](media/alerts-log/chart-and-alert-logic.png)
+
+    1. Pode configurar opcionalmente [**número de violações para desencadear o alerta**](alerts-unified-log.md#number-of-violations-to-trigger-alert) na secção de **opções Avançadas.**
+    
+        ![Opções avançadas](media/alerts-log/advanced-options.png)
+
+1. No separador **Ações,** selecione ou crie os [grupos de ação necessários.](action-groups.md)
+
+    ![Separador de ações](media/alerts-log/actions-tab.png)
+
+1. No separador **Detalhes,** defina os detalhes da **regra alerta**e detalhes **do Projeto**. Pode configurar opcionalmente se não **deve começar**a funcionar agora , ou [**ações de silenciamento**](alerts-unified-log.md#state-and-resolving-alerts) por um período após o incêndio da regra de alerta.
+
+    > [!NOTE]
+    > As regras de alerta de registo são atualmente apátridas e disparam uma ação sempre que um alerta é criado, a menos que o silenciamento seja definido.
+
+    ![Separador de detalhes](media/alerts-log/details-tab.png)
+
+1. No **separador Tags,** desaprote as etiquetas necessárias no recurso de regra de alerta.
+
+    ![Separador tags](media/alerts-log/tags-tab.png)
+
+1. No **separador 'Rever +' criar,** uma validação será executada e informará de quaisquer problemas. Reveja e aprove a definição de regra.
+1. Se todos os campos estiverem corretos, selecione o botão **Criar** e complete a criação da regra de alerta. Todos os alertas podem ser vistos a partir da gestão de alertas.
+ 
+    ![Rever e criar separador](media/alerts-log/review-and-create-tab.png)
+
+## <a name="view--manage-log-alerts-in-azure-portal"></a>Ver & gerir alertas de registo no portal Azure
+
+1. No [portal,](https://portal.azure.com/)selecione o recurso relevante ou o serviço **Monitor.** Em seguida, **selecione Alertas** na secção Monitor.
+
+1. A gestão de alertas mostra todos os alertas que dispararam. [Saiba mais sobre a gestão de alertas.](alerts-managing-alert-instances.md)
+
+    > [!NOTE]
+    > As regras de alerta de registo são atualmente [apátridas e não resolvem](alerts-unified-log.md#state-and-resolving-alerts).
+
+1. Selecione Gerir o botão **de regras** na barra superior para editar as regras:
+
+    ![ gerir regras de alerta](media/alerts-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-powershell"></a>Gerir alertas de registo usando o PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor - [Regras de Consulta ProgramadaS A API](/rest/api/monitor/scheduledqueryrules/) é uma API REST e totalmente compatível com AZure Resource Manager REST API. E os cmdlets PowerShell listados abaixo estão disponíveis para alavancar as [Regras de Consulta Agendadas API](/rest/api/monitor/scheduledqueryrules/).
+> [!NOTE]
+> PowerShell não é atualmente suportado na versão API `2020-05-01-preview`
+
+Os cmdlets PowerShell listados abaixo estão disponíveis para gerir regras com as [Regras de Consulta Agendadas API](/rest/api/monitor/scheduledqueryrules/).
 
 - [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) : PowerShell cmdlet para criar uma nova regra de alerta de registo.
 - [Set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) : PowerShell cmdlet para atualizar uma regra de alerta de registo existente.
@@ -319,15 +221,15 @@ Azure Monitor - [Regras de Consulta ProgramadaS A API](/rest/api/monitor/schedul
 - [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) : PowerShell cmdlet para criar ou atualizar o objeto especificando parâmetros de ação para um alerta de registo. Usado como entrada por [New-AzScheduledQueryRule](/powershell/module/az.monitor/new-azscheduledqueryrule) e [Set-AzScheduledQueryRule](/powershell/module/az.monitor/set-azscheduledqueryrule) cmdlet.
 - [New-AzScheduledQueryRuleAznsActionGroup](/powershell/module/az.monitor/new-azscheduledqueryruleaznsactiongroup) : PowerShell cmdlet para criar ou atualizar objetos especificando parâmetros de grupos de ação para um alerta de registo. Usado como entrada por [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) cmdlet.
 - [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) : PowerShell cmdlet para criar ou atualizar o objeto especificando os parâmetros da condição do gatilho para o alerta de registo. Usado como entrada por [New-AzScheduledQueryRuleAlertingAction](/powershell/module/az.monitor/new-azscheduledqueryrulealertingaction) cmdlet.
-- [Novo-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : PowerShell cmdlet para criar ou atualizar o objeto especificando parâmetros de condição de gatilho métrico para [o alerta de registo do tipo de medição métrica](./alerts-unified-log.md#metric-measurement-alert-rules). Usado como entrada por [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdlet.
+- [Novo-AzScheduledQueryRuleLogMetricTrigger](/powershell/module/az.monitor/new-azscheduledqueryrulelogmetrictrigger) : PowerShell cmdlet para criar ou atualizar o objeto especificando parâmetros de condição de gatilho métrico para [o alerta de registo do tipo de medição métrica](./alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value). Usado como entrada por [New-AzScheduledQueryRuleTriggerCondition](/powershell/module/az.monitor/new-azscheduledqueryruletriggercondition) cmdlet.
 - [Get-AzScheduledQueryRule](/powershell/module/az.monitor/get-azscheduledqueryrule) : PowerShell cmdlet para listar as regras de alerta de registo existentes ou uma regra específica de alerta de registo
 - [Update-AzScheduledQueryRule](/powershell/module/az.monitor/update-azscheduledqueryrule) : PowerShell cmdlet para ativar ou desativar a regra de alerta de registo
 - [Remove-AzScheduledQueryRule](/powershell/module/az.monitor/remove-azscheduledqueryrule): PowerShell cmdlet para eliminar uma regra de alerta de registo existente
 
 > [!NOTE]
-> Os cmdlets De Configurações De Configurações Agendadas só podem gerir as regras criadas pelo próprio CMDLET ou utilizando o Azure Monitor - [Regras de Consulta Programadas API](/rest/api/monitor/scheduledqueryrules/). As regras de alerta de registo criadas utilizando o legado [Log Analytics Alert API](api-alerts.md) e modelos legados de [Registo Analytics guardam pesquisas e alertas](../insights/solutions.md) podem ser geridos usando os cmdlets PowerShell agendados do Dinheiro Só depois de o utilizador [mudar a preferência da API para alertas de analítica de registos.](alerts-log-api-switch.md)
+> Os cmdlets Desagravamentos Descaídos Agendados só podem gerir as regras criadas na atual [API das Regras de Consulta Agendadas](/rest/api/monitor/scheduledqueryrules/). As regras de alerta de registo criadas utilizando o legado [Log Analytics Alert API](api-alerts.md) só podem ser geridas utilizando o PowerShell depois de [mudar para API regras de consulta programadas](alerts-log-api-switch.md).
 
-Ilustrados em seguida estão os passos para a criação de uma regra de alerta de registo de amostra usando os cmdlets PowerShell programados.
+Aqui estão os passos de exemplo para criar uma regra de alerta de registo utilizando o PowerShell:
 
 ```powershell
 $source = New-AzScheduledQueryRuleSource -Query 'Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m), _ResourceId' -DataSourceId "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews"
@@ -345,26 +247,84 @@ $alertingAction = New-AzScheduledQueryRuleAlertingAction -AznsAction $aznsAction
 New-AzScheduledQueryRule -ResourceGroupName "contosoRG" -Location "Region Name for your Application Insights App or Log Analytics Workspace" -Action $alertingAction -Enabled $true -Description "Alert description" -Schedule $schedule -Source $source -Name "Alert Name"
 ```
 
-## <a name="managing-log-alerts-using-cli-or-api"></a>Gerir alertas de registos utilizando CLI ou API
+Também pode criar o alerta de registo utilizando um [modelo e ficheiros de parâmetros](./alerts-log-create-templates.md) utilizando o PowerShell:
 
-Azure Monitor - [Regras de Consulta ProgramadaS A API](/rest/api/monitor/scheduledqueryrules/) é uma API REST e totalmente compatível com AZure Resource Manager REST API. Assim, pode ser usado através de Powershell usando comandos de Gestor de Recursos para Azure CLI.
+```powershell
+Connect-AzAccount
 
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
 
-> [!NOTE]
-> Os alertas de registo para o Log Analytics também podem ser geridos usando o legado [Log Analytics Alert API](api-alerts.md) e modelos legados de [Log Analytics também guardados pesquisas e alertas.](../insights/solutions.md) Para obter mais informações sobre a utilização da nova API de Placas Agendadas detalhadas aqui por padrão, consulte [a Switch para a nova API para Alertas de Análise de Registos](alerts-log-api-switch.md).
-
-Os alertas de registo atualmente não têm comandos CLI dedicados atualmente; mas como ilustrado abaixo pode ser usado através do comando CLI do Gestor de Recursos Azure para o modelo de recursos da amostra mostrado anteriormente (sampleScheduledQueryRule.js) na secção modelo de recursos:
-
-```azurecli
-az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+  -TemplateFile mylogalerttemplate.json -TemplateParameterFile mylogalerttemplate.parameters.json
 ```
 
-Em funcionamento bem sucedido, 201 será devolvido ao estado de nova criação de regras de alerta ou 200 serão devolvidos se uma regra de alerta existente for alterada.
+## <a name="managing-log-alerts-using-cli"></a>Gestão de alertas de registo usando CLI
+
+> [!NOTE]
+> O suporte Azure CLI só está disponível para a versão API agendada de Regras `2020-05-01-preview` API e acima. A versão API perviosa pode usar o CLI do Gestor de Recursos Azure com modelos como descrito abaixo. Se utilizar o legado [Log Analytics Alert API,](api-alerts.md)terá de mudar para utilizar o CLI. [Saiba mais sobre a troca.](./alerts-log-api-switch.md)
+
+As secções anteriores descreveram como criar, visualizar e gerir as regras de alerta de registo utilizando o portal Azure. Esta secção descreverá como fazer o mesmo utilizando o [Azure CLI](/cli/azure/get-started-with-azure-cli)da plataforma transversal . A forma mais rápida de começar a usar o Azure CLI é através da [Azure Cloud Shell](../../cloud-shell/overview.md). Para este artigo, usaremos a Cloud Shell.
+
+1. Vá ao portal Azure, selecione **Cloud Shell**.
+
+1. No momento, pode utilizar comandos com ``--help`` opção de saber mais sobre o comando e como usá-lo. Por exemplo, o seguinte comando mostra-lhe a lista de comandos disponíveis para criar, visualizar e gerir alertas de registo:
+
+    ```azurecli
+    az monitor scheduled-query --help
+    ```
+
+1. Pode criar uma regra de alerta de registo que monitorize a contagem de erros de evento do sistema:
+
+    ```azurecli
+    az monitor scheduled-query create -g {ResourceGroup} -n {nameofthealert} --scopes {vm_id} --condition "count \'union Event, Syslog | where TimeGenerated > ago(1h) | where EventLevelName == \"Error\" or SeverityLevel== \"err\"\' > 2" --description {descriptionofthealert}
+    ```
+
+1. Pode ver todos os alertas de registo num grupo de recursos utilizando o seguinte comando:
+
+    ```azurecli
+    az monitor scheduled-query list -g {ResourceGroup}
+    ```
+
+1. Pode ver os detalhes de uma determinada regra de alerta de registo utilizando o nome ou o ID de recurso da regra:
+
+    ```azurecli
+    az monitor scheduled-query show -g {ResourceGroup} -n {AlertRuleName}
+    ```
+
+    ```azurecli
+    az monitor scheduled-query show --ids {RuleResourceId}
+    ```
+
+1. Pode desativar uma regra de alerta de registo utilizando o seguinte comando:
+
+    ```azurecli
+    az monitor scheduled-query update -g {ResourceGroup} -n {AlertRuleName} --enabled false
+    ```
+
+1. Pode eliminar uma regra de alerta de registo utilizando o seguinte comando:
+
+    ```azurecli
+    az monitor scheduled-query delete -g {ResourceGroup} -n {AlertRuleName}
+    ```
+
+Também pode utilizar o CLI do Gestor de Recursos Azure com [ficheiros de modelos:](./alerts-log-create-templates.md)
+
+```azurecli
+az login
+
+az group deployment create \
+    --name AlertDeployment \
+    --resource-group ResourceGroupofTargetResource \
+    --template-file mylogalerttemplate.json \
+    --parameters @mylogalerttemplate.parameters.json
+```
+
+Sobre o sucesso da criação, 201 é devolvido. No sucesso para a atualização, 200 são devolvidos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais [sobre alertas de registo em alertas de Azure](./alerts-unified-log.md)
-* Compreenda [as ações do Webhook para alertas de registo](./alerts-log-webhook.md)
-* Saiba mais sobre [a Aplicação Insights](../log-query/log-query-overview.md)
+* Saiba mais sobre [os alertas de registo.](./alerts-unified-log.md)
+* Crie alertas de registo utilizando [modelos de gestor de recursos Azure](./alerts-log-create-templates.md).
+* Compreenda [as ações do webhook para alertas de registo.](./alerts-log-webhook.md)
 * Saiba mais sobre [consultas de registo.](../log-query/log-query-overview.md)
 

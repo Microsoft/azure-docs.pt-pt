@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 80d444e9887a3aaa48262ccf59350b0108d7d709
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: f71a9fa1151a1df2ae04fe47afd6bf36861aa2e5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543640"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273777"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Tutorial: Integração do Azure Ative Directory com o RStudio Connect
 
@@ -126,7 +126,7 @@ Para configurar o Azure AD com rStudio Connect, execute os seguintes passos:
 
 ### <a name="configure-rstudio-connect-single-sign-on"></a>Configure RStudio Ligar único sinal
 
-Para configurar um único sinal de insuflação para **o RStudio Connect,** é necessário utilizar o url de **metadados da Federação de Aplicações** e o **Endereço do Servidor** utilizado acima. Isto é feito no ficheiro de configuração RStudio Connect em `/etc/rstudio-connect.rstudio-connect.gcfg` .
+Para configurar um único sinal de insuflação para **o RStudio Connect,** é necessário utilizar o url de **metadados da Federação de Aplicações** e o **Endereço do Servidor** utilizado acima. Isto é feito no ficheiro de configuração RStudio Connect em `/etc/rstudio-connect/rstudio-connect.gcfg` .
 
 Este é um ficheiro de configuração de exemplo:
 
@@ -179,7 +179,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar**.
+    d. Clique em **Create** (Criar).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -187,7 +187,7 @@ Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, p
 
 1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **RStudio Connect**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **RStudio Connect**.
 

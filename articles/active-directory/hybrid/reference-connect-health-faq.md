@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d15b12b758adbf99ddabc88eb06be9daba1ece3e
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 6140f5fd431a0b089b45892130e075bde02a2eb2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276206"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299770"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health frequentemente fez perguntas
 Este artigo inclui respostas a perguntas frequentes (FAQs) sobre O Diretório Ativo Azure (Azure AD) Connect Health. Estas FAQs cobrem questões sobre como usar o serviço, que inclui o modelo de faturação, capacidades, limitações e suporte.
@@ -104,7 +104,7 @@ Por exemplo, no Windows Server 2008 R2, a instalação do Quadro .NET 4.5 requer
 
 **P: A Azure AD Connect Health funciona através de um representante http-through?**
 
-Yes. Para as operações em curso, pode configurar o Agente de Saúde para utilizar um representante HTTP para encaminhar pedidos HTTP de saída.
+Sim. Para as operações em curso, pode configurar o Agente de Saúde para utilizar um representante HTTP para encaminhar pedidos HTTP de saída.
 Leia mais sobre [a configuração http Proxy para agentes de saúde](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy).
 
 Se precisar de configurar um representante durante o registo do agente, poderá ter de modificar previamente as definições do seu Proxy do Internet Explorer.
@@ -128,6 +128,10 @@ Quando remove um agente de um servidor, o servidor não é removido automaticame
 Pode voltar a imagemr um servidor ou criar um novo servidor com os mesmos detalhes (como o nome da máquina). Se não removeu o servidor já registado do portal Azure AD Connect Health e instalou o agente no novo servidor, poderá ver duas entradas com o mesmo nome.
 
 Neste caso, elimine manualmente a entrada que pertence ao servidor mais antigo. Os dados deste servidor devem estar desatualizados.
+
+**P: Posso instalar o agente de saúde Azure AD Connect no Windows Server Core?**
+
+Não.  A instalação no Núcleo do Servidor não é suportada.
 
 ## <a name="health-agent-registration-and-data-freshness"></a>Registo de agentes de saúde e frescura de dados
 
@@ -198,6 +202,7 @@ Utilize o PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i> para garantir 
 
 **P: Quando é que o certificado de agente será renovado automaticamente antes do termo?**
 A certificação do agente será renovada automaticamente **6 meses** antes da data de validade. Se não for renovado, certifique-se de que a ligação de rede do agente está estável. Reiniciar os serviços do agente ou atualizar para a versão mais recente também pode resolver o problema.
+
 
 
 ## <a name="related-links"></a>Ligações relacionadas

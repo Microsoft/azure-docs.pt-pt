@@ -3,22 +3,23 @@ title: Cápsulas seguras com política Azure no Serviço Azure Kubernetes (AKS)
 description: Saiba como proteger os casulos com a política Azure no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/06/2020
+ms.date: 09/22/2020
 author: jluk
-ms.openlocfilehash: e1c5f32e8e5df69a9c4b1eeeda46caf9d8b51f6e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 9ebd12777c32a9415eeb1b77d9cd487b0f23eb29
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440881"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299158"
 ---
-# <a name="secure-pods-with-azure-policy-preview"></a>Cápsulas seguras com política Azure (pré-visualização)
+# <a name="secure-pods-with-azure-policy"></a>Cápsulas seguras com política Azure
 
 Para melhorar a segurança do seu cluster AKS, pode controlar as funções que as cápsulas são concedidas e se alguma coisa está a correr contra a política da empresa. Este acesso é definido através de políticas incorporadas fornecidas pelo [Azure Policy Add-on for AKS][kubernetes-policy-reference]. Ao fornecer um controlo adicional sobre os aspetos de segurança da especificação da sua cápsula, como privilégios de raiz, permite uma maior adesão e visibilidade à segurança do que é implantado no seu cluster. Se uma cápsula não cumprir as condições especificadas na apólice, a Azure Policy pode não permitir que a cápsula inicie ou sinalize uma violação. Este artigo mostra-lhe como usar a Política Azure para limitar a implantação de cápsulas em AKS.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
 ## <a name="before-you-begin"></a>Before you begin
+
+> [!IMPORTANT]
+> A disponibilidade geral (GA) da Política Azure sobre a AKS está a libertar ativamente todas as regiões. A conclusão global prevista do lançamento da AG é 29/9/2020. A utilização em regiões sem a libertação de GA requer medidas de pré-visualização. No entanto, esta será automaticamente atualizada para o lançamento de GA quando disponível na região.
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
@@ -26,14 +27,13 @@ Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um
 
 Para proteger as cápsulas AKS através da Azure Policy, é necessário instalar o Add-on Azure Policy para AKS num cluster AKS. Siga estes [passos para instalar o Add-on de Política Azure](../governance/policy/concepts/policy-for-kubernetes.md#install-azure-policy-add-on-for-aks).
 
-Este documento pressupõe que tem o seguinte que é implantado no walk-through ligado acima.
+Este documento pressupõe que tem o seguinte, que são implantados no walk-through ligado acima.
 
 * Registrou os `Microsoft.ContainerService` fornecedores e `Microsoft.PolicyInsights` recursos usando `az provider register`
-* Registrou a bandeira de `AKS-AzurePolicyAutoApprove` pré-visualização usando `az feature register`
-* Azure CLI instalado com a `aks-preview` versão de extensão 0.4.53 ou maior
-* Um cluster AKS numa versão suportada de 1.15 ou maior instalada com o Azure Policy Add-on
+* Azure CLI 2.12 ou maior
+* Um cluster AKS numa versão de 1.15 ou superior instalada com o Azure Policy Add-on
 
-## <a name="overview-of-securing-pods-with-azure-policy-for-aks-preview"></a>Visão geral da fixação de cápsulas com política Azure para AKS (Pré-visualização)
+## <a name="overview-of-securing-pods-with-azure-policy-for-aks"></a>Visão geral da fixação de cápsulas com política Azure para a AKS
 
 >[!NOTE]
 > Este documento detalha como utilizar a Azure Policy para proteger as cápsulas, que é o sucessor da [funcionalidade de política de segurança do casulo Kubernetes na pré-visualização](use-pod-security-policies.md).
@@ -45,33 +45,61 @@ Num cluster AKS, um controlador de admissão é utilizado para intercetar pedido
 
 Anteriormente, a política de segurança do pod de recurso [(pré-visualização)](use-pod-security-policies.md) foi ativada através do projeto Kubernetes para limitar quais as cápsulas que podem ser implementadas.
 
-Ao utilizar o Azure Policy Add-on, um cluster AKS pode usar políticas Azure incorporadas que protegem cápsulas e outros recursos Kubernetes semelhantes à política de segurança do pod anteriormente. O Azure Policy Add-on for AKS instala uma instância gerida de [Gatekeeper](https://github.com/open-policy-agent/gatekeeper), um controlador de admissão validador. A política de Azure para Kubernetes baseia-se no agente de política aberta open policy que se baseia na [linguagem política do Rego.](../governance/policy/concepts/policy-for-kubernetes.md#policy-language)
+Ao utilizar o Azure Policy Add-on, um cluster AKS pode usar políticas Azure incorporadas, que protegem cápsulas e outros recursos Kubernetes semelhantes à política de segurança do pod anteriormente. O Azure Policy Add-on for AKS instala uma instância gerida de [Gatekeeper](https://github.com/open-policy-agent/gatekeeper), um controlador de admissão validador. A política de Azure para Kubernetes baseia-se no agente de política aberta Open Policy, que se baseia na [linguagem política do Rego.](../governance/policy/concepts/policy-for-kubernetes.md#policy-language)
 
 Este documento detalha como utilizar a Política Azure para proteger as cápsulas num cluster AKS e instruir como migrar das políticas de segurança do pod (pré-visualização).
 
 ## <a name="limitations"></a>Limitações
 
-* Durante a pré-visualização, um limite de 200 cápsulas com 20 políticas Azure Para as políticas de Kubernetes pode funcionar num único cluster.
-* [Alguns espaços de nome do sistema](#namespace-exclusion) que contêm cápsulas geridas AKS estão excluídos da avaliação de políticas.
-* Os pods windows [não suportam contextos de segurança](https://kubernetes.io/docs/concepts/security/pod-security-standards/#what-profiles-should-i-apply-to-my-windows-pods), pelo que muitas políticas do Azure aplicam-se apenas a cápsulas Linux, como a desadição de privilégios de raiz, que não podem ser escalados em pods Windows.
-* A política de segurança do Pod e o Add-on de Política Azure para a AKS não podem ser ativados. Se instalar o Add-on de Política Azure num cluster com a política de segurança do pod ativada, desative a política de segurança do pod com as [seguintes instruções](use-pod-security-policies.md#enable-pod-security-policy-on-an-aks-cluster).
+As seguintes limitações gerais aplicam-se ao Add-on de Política Azure para os clusters Kubernetes:
+
+- O Azure Policy Add-on for Kubernetes é suportado na versão **1.14** ou superior de Kubernetes.
+- Azure Policy Add-on para Kubernetes só pode ser implantado em piscinas de nól de linux
+- Apenas as definições políticas incorporadas são apoiadas
+- Número máximo de registos não conformes por política por agrupamento: **500**
+- Número máximo de registos não conformes por subscrição: **1 milhão**
+- As instalações do Gatekeeper fora do Azure Policy Add-on não são suportadas. Desinstale quaisquer componentes instalados por uma instalação anterior do Gatekeeper antes de ativar o Add-on de Política Azure.
+- [As razões para o incumprimento](../governance/policy/how-to/determine-non-compliance.md#compliance-reasons) não estão disponíveis para este [modo fornecedor de recursos](../governance/policy/concepts/definition-structure.md#resource-provider-modes)
+
+As seguintes limitações aplicam-se apenas ao Add-on da Política Azure para a AKS:
+
+- [A política de segurança AKS Pod (pré-visualização)](use-pod-security-policies.md) e o Add-on de Política Azure para a AKS não podem ser ambos ativados. 
+- Espaços de nome automaticamente excluídos pelo Azure Policy Add-on para avaliação: _kube-system,_ _gatekeeper-system_e _aks-periscope_.
+
+### <a name="recommendations"></a>Recomendações
+
+Seguem-se recomendações gerais relativas à utilização do Complemento político Azure:
+
+- O Add-on de Política Azure requer 3 componentes gatekeeper para executar: 1 cápsula de auditoria e 2 réplicas de pod webhook. Estes componentes consomem mais recursos à medida que a contagem de recursos da Kubernetes e atribuições de políticas aumenta no cluster, o que requer operações de auditoria e execução.
+
+  - Por menos de 500 cápsulas num único cluster com um máximo de 20 restrições: 2 vCPUs e 350 MB de memória por componente.
+  - Para mais de 500 cápsulas num único cluster com um máximo de 40 restrições: 3 vCPUs e 600 MB de memória por componente.
+
+A seguinte recomendação aplica-se apenas à AKS e ao Addon da Política Azure:
+
+- Utilize a piscina de nó do sistema com `CriticalAddonsOnly` mancha para agendar cápsulas gatekeeper. Para obter mais informações, consulte [Usando as piscinas de nó do sistema.](use-system-pools.md#system-and-user-node-pools)
+- Proteja o tráfego de saída dos seus clusters AKS. Para obter mais informações, consulte [o controle do tráfego para os nós de cluster](limit-egress-traffic.md).
+- Se o cluster `aad-pod-identity` tiver ativado, as cápsulas de identidade gerida do nó (NMI) modificam os iptables dos nós para intercetar chamadas para o ponto final dos metadados de instância Azure. Esta configuração significa que qualquer pedido feito ao ponto final dos metadados é intercetado pelo NMI mesmo que a cápsula não utilize `aad-pod-identity` . AzurePodIdentityException CRD pode ser configurado para informar `aad-pod-identity` que quaisquer pedidos para o ponto final de metadados originários de um pod que corresponda às etiquetas definidas em CRD devem ser proxiited sem qualquer processamento em NMI. As cápsulas do sistema com `kubernetes.azure.com/managedby: aks` etiqueta no espaço de _nomes do sistema kube_ devem ser excluídas `aad-pod-identity` configurando o CRD AzurePodIdentityException. Para obter mais informações, consulte [Desativar a identidade do aad-pod para uma cápsula ou aplicação específica.](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md)
+  Para configurar uma exceção, instale a [yaML de exceção ao microfone.](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml)
+
+O complemento da Política Azure requer que os recursos de CPU e memória funcionem. Estes requisitos aumentam à medida que o tamanho de um cluster aumenta. Consulte [as recomendações da Política Azure][policy-recommendations] para orientação geral para a utilização do complemento da Política Azure.
 
 ## <a name="azure-policies-to-secure-kubernetes-pods"></a>Políticas azure para garantir cápsulas Kubernetes
 
 Após a instalação do Add-on de Política Azure, nenhuma política é aplicada por defeito.
 
-Existem onze (11) políticas individuais de Azure incorporadas e duas (2) iniciativas incorporadas que especificamente protegem os casulos num cluster AKS.
+Existem 11 políticas individuais de Azure incorporadas e duas iniciativas incorporadas que especificamente protegem os casulos num cluster AKS.
 Cada política pode ser personalizada com um efeito. Uma lista completa das [políticas da AKS e os seus efeitos apoiados está listada aqui.][policy-samples] Leia mais sobre [os efeitos da Política Azure](../governance/policy/concepts/effects.md).
 
 As políticas de Azure podem ser aplicadas ao nível do grupo de gestão, subscrição ou grupo de recursos. Ao atribuir uma política ao nível do grupo de recursos, certifique-se de que o grupo de recursos target AKS é selecionado no âmbito da política. Todos os clusters no âmbito atribuído com o Add-on de Política Azure instalado estão em alcance para a política.
 
-Se utilizar [a política de segurança do pod (pré-visualização)](use-pod-security-policies.md), aprenda a [migrar para a Política Azure e sobre outras diferenças comportamentais](#migrate-from-kubernetes-pod-security-policy-to-azure-policy).
+Se utilizar [a política de segurança do pod (pré-visualização) ](use-pod-security-policies.md), aprenda a [migrar para a Política Azure e sobre outras diferenças comportamentais](#migrate-from-kubernetes-pod-security-policy-to-azure-policy).
 
 ### <a name="built-in-policy-initiatives"></a>Iniciativas políticas integradas
 
 Uma iniciativa na Política Azure é uma coleção de definições políticas adaptadas para alcançar um objetivo singular abrangente. A utilização de iniciativas pode simplificar a gestão e atribuição de políticas em todos os clusters AKS. Uma iniciativa existe como um único objeto, saiba mais sobre [as iniciativas da Política Azure.](../governance/policy/overview.md#initiative-definition)
 
-A Azure Policy for Kubernetes oferece duas iniciativas incorporadas que garantem cápsulas, [linha de base](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) e [restritas.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00)
+A Azure Policy for Kubernetes oferece duas iniciativas incorporadas, que garantem cápsulas, [linha de base](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) e [restritas.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00)
 
 Ambas as iniciativas incorporadas são construídas a partir de definições utilizadas na [política de segurança de pods da Kubernetes.](https://github.com/kubernetes/website/blob/master/content/en/examples/policy/baseline-psp.yaml)
 
@@ -92,13 +120,13 @@ Ambas as iniciativas incorporadas são construídas a partir de definições uti
 
 ### <a name="additional-optional-policies"></a>Políticas opcionais adicionais
 
-Existem políticas adicionais de Azure que podem ser aplicadas sem rodeios fora da aplicação de uma iniciativa. Considere a possibilidade de anexar estas políticas para além de iniciativas se os seus requisitos não forem cumpridos pelas iniciativas incorporadas.
+Existem políticas adicionais de Azure, que podem ser aplicadas sem rodeios fora da aplicação de uma iniciativa. Considere a possibilidade de anexar estas políticas para além de iniciativas se os seus requisitos não forem cumpridos pelas iniciativas incorporadas.
 
 |[Controlo da política de segurança da Pod](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#what-is-a-pod-security-policy)| Ligação de definição de política Azure| Aplicar para além da iniciativa Baseline | Candidatar-se para além da iniciativa restrita |
 |---|---|---|---|
 |Defina o perfil AppArmor utilizado por contentores|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F511f5417-5d12-434d-ab2e-816901e72a5e) | Opcional | Opcional |
 |Permitir suportes que não são lidos apenas|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fdf49d893-a74c-421d-bc95-c663042e5b80) | Opcional | Opcional |
-|Restringir a controladores flexvolume específicos|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4a8fce0-2dd5-4c21-9a36-8f0ec809d663) | Opcional - use se quiser apenas restringir os controladores FlexVolume, mas não outros definidos por "Restringir a utilização de tipos de volume definidos" | Não aplicável - A iniciativa restrita inclui "Restringir a utilização de tipos de volume definido" que não permite a todos os condutores da FlexVolume |
+|Restringir a controladores flexvolume específicos|[Nuvem Pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff4a8fce0-2dd5-4c21-9a36-8f0ec809d663) | Opcional - use se quiser apenas restringir os controladores FlexVolume, mas não outros definidos por "Restringir a utilização de tipos de volume definidos" | Não aplicável - A iniciativa restrita inclui "Restringir a utilização de tipos de volume definido", que não permite a todos os condutores da FlexVolume |
 
 ### <a name="unsupported-built-in-policies-for-managed-aks-clusters"></a>Políticas não apoiadas para clusters AKS geridos
 
@@ -132,7 +160,7 @@ A AKS requer que as cápsulas do sistema corram num cluster para fornecer servi�
 1. azul-arco
 1. aks-periscópio
 
-Espaços de nome personalizados adicionais podem ser excluídos da avaliação durante a criação, atualização e auditoria. Isto deve ser usado se tiver cápsulas especializadas que funcionam num espaço de nome sancionado e que querem evitar desencadear violações de auditoria.
+Espaços de nome personalizados adicionais podem ser excluídos da avaliação durante a criação, atualização e auditoria. Estas exclusões devem ser utilizadas se tiver cápsulas especializadas que funcionam num espaço de nome sancionado e que queiram evitar desencadear violações de auditoria.
 
 ## <a name="apply-the-baseline-initiative"></a>Aplicar a iniciativa de base
 
@@ -266,7 +294,7 @@ Saiba como remover o [Azure Policy Add-on do portal Azure](../governance/policy/
 
 ## <a name="migrate-from-kubernetes-pod-security-policy-to-azure-policy"></a>Migrar da política de segurança da cápsula Kubernetes para a Política de Azure
 
-Para migrar da política de segurança da pod, você precisa tomar as seguintes ações em um cluster.
+Para migrar da política de segurança da cápsula, você precisa tomar as seguintes ações em um cluster.
 
 1. [Desativar a política de segurança](use-pod-security-policies.md#clean-up-resources) do casulo no cluster
 1. Ativar o [Add-on da Política Azure][kubernetes-policy-reference]
@@ -290,9 +318,9 @@ Abaixo está um resumo das mudanças de comportamento entre a política de segur
 | [Norma de política de segurança do pod - Linha de Base/Padrão](https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline-default) | O utilizador instala um recurso de base de política de segurança do pod. | A Azure Policy fornece uma [iniciativa de base incorporada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) que mapeia a política de segurança da cápsula de base.
 | [Padrão de política de segurança pod - Restrito](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted) | O utilizador instala um recurso restrito de política de segurança do pod. | A Azure Policy oferece uma [iniciativa restrita incorporada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00) que mapeia a política restrita de segurança das cápsulas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Este artigo mostrou-lhe como aplicar uma política Azure que restringe a implementação de cápsulas privilegiadas para impedir o uso de acesso privilegiado. Há muitas políticas que podem ser aplicadas, como as que restringem a utilização de volumes. Para obter mais informações sobre as opções disponíveis, consulte a [Política Azure para os docs de referência de Kubernetes][kubernetes-policy-reference].
+Este artigo mostrou-lhe como aplicar uma política Azure que restringe a implementação de cápsulas privilegiadas para impedir o uso de acesso privilegiado. Há muitas políticas que podem ser aplicadas, como políticas que restringem a utilização de volumes. Para obter mais informações sobre as opções disponíveis, consulte a [Política Azure para os docs de referência de Kubernetes][kubernetes-policy-reference].
 
 Para obter mais informações sobre a limitação do tráfego da rede de [cápsulas, consulte o tráfego seguro entre as cápsulas utilizando as políticas de rede em AKS][network-policies].
 
@@ -304,8 +332,12 @@ Para obter mais informações sobre a limitação do tráfego da rede de [cápsu
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[aad-pod-identity]: https://github.com/Azure/aad-pod-identity
+[aad-pod-identity-exception]: https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md
 
 <!-- LINKS - internal -->
+[policy-recommendations]: ../governance/policy/concepts/policy-for-kubernetes.md
+[policy-limitations]: ../governance/policy/concepts/policy-for-kubernetes.md?#limitations
 [kubernetes-policy-reference]: ../governance/policy/concepts/policy-for-kubernetes.md
 [policy-samples]: policy-samples.md#microsoftcontainerservice
 [aks-quickstart-cli]: kubernetes-walkthrough.md
