@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 782884f53f0ec17c47b79cf66504d0e3ad3fc29d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5695f9fa090419d803f4f3603b45b771321e5ce9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783219"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91301453"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>FAQ - Perguntas gerais sobre o Azure Security Center
 
@@ -59,7 +59,7 @@ Para aprender a configurar uma política de segurança, consulte [definição de
 
 
 ## <a name="what-is-a-security-recommendation"></a>O que é uma recomendação de segurança?
-O Centro de Segurança do Azure analisa o estado de segurança dos recursos do Azure. Quando potenciais vulnerabilidades de segurança são identificadas, são criadas recomendações. As recomendações guiam-no através do processo de configuração do controlo necessário. Os exemplos são:
+O Centro de Segurança do Azure analisa o estado de segurança dos recursos do Azure. Quando potenciais vulnerabilidades de segurança são identificadas, são criadas recomendações. As recomendações guiam-no através do processo de configuração do controlo necessário. Eis alguns exemplos:
 
 * Fornecimento de anti-malware para ajudar a identificar e remover software malicioso
 * [Grupos](../virtual-network/security-overview.md) de segurança de rede e regras para controlar o tráfego em máquinas virtuais
@@ -70,7 +70,6 @@ O Centro de Segurança do Azure analisa o estado de segurança dos recursos do A
 Apenas as recomendações que estão habilitados nas Políticas de Segurança são apresentadas aqui.
 
 
-
 ## <a name="what-triggers-a-security-alert"></a>O que desencadeia um alerta de segurança?
 O Azure Security Center recolhe, analisa e funde automaticamente dados de registo dos seus recursos Azure, da rede e de soluções parceiras como antimalware e firewalls. Quando são detetadas ameaças, é criado um alerta de segurança. Os exemplos incluem a deteção de:
 
@@ -78,10 +77,6 @@ O Azure Security Center recolhe, analisa e funde automaticamente dados de regist
 * Malware avançado detetado usando relatórios de erro do Windows
 * Ataques de força bruta contra máquinas virtuais
 * Alertas de segurança de soluções integradas de segurança de parceiros, tais como Anti-Malware ou Firewalls de Aplicações Web
-
-
-## <a name="why-did-secure-score-values-change"></a>Porque é que os valores da Pontuação Segura mudaram? <a name="secure-score-faq"></a>
-A partir de fevereiro de 2019, o Centro de Segurança ajustou a pontuação de algumas recomendações, de forma a adequar-se melhor à sua gravidade. Como resultado deste ajuste, pode haver alterações nos valores globais de Pontuação Segura.  Para obter mais informações sobre a pontuação segura, consulte [a pontuação de segurança melhorada no Azure Security Center](secure-score-security-controls.md).
 
 
 ## <a name="whats-the-difference-between-threats-detected-and-alerted-on-by-microsoft-security-response-center-versus-azure-security-center"></a>Qual é a diferença entre ameaças detetadas e alertadas pelo Microsoft Security Response Center contra o Azure Security Center?

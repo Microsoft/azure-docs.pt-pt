@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 03e6f51d2ab7138675f7d79c04faa2e4dffec60c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 98514bad6a04e0c3058faf3133fc44333039ce53
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825689"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361471"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Resolução de problemas de um Linux VM quando não há acesso à consola em série Azure e o layout do disco está a utilizar o LVM (Gestor de Volume Lógico)
 
@@ -88,7 +88,7 @@ lsblk
 
 Localize o caminho para montar o Volume Lógico que contém a partição /(raiz). Tem os ficheiros de configuração tais como /etc/default/grub
 
-Neste exemplo, tirar a saída do anterior bloco de comando **de Lsblk** **rootvg-rootlv** é o LV **raiz** correto para montar e pode ser usado no comando seguinte.
+Neste exemplo, tirar a saída do anterior bloco de comando **de Lsblk**  **rootvg-rootlv** é o LV **raiz** correto para montar e pode ser usado no comando seguinte.
 
 A saída do próximo comando mostrará o caminho a seguir para o LV **raiz**
 
@@ -143,7 +143,7 @@ mount  /dev/mapper/rootvg-usrlv /rescue/usr
 Os comandos podem ser utilizados para instalar, remover e atualizar software. VMs de resolução de problemas para corrigir erros.
 
 
-Execute o comando lsblk e o /resgate é agora / e /rescue/boot is /boot ![ Chrooted](./media/chroot-logical-volume-manager/chrooted.png)
+Execute o comando lsblk e o /rescue is now / and /rescue/boot is /boot ![ Screenshot shows a console window with the l blk command and his output tree.](./media/chroot-logical-volume-manager/chrooted.png)
 
 ## <a name="perform-fixes"></a>Executar Correções
 
@@ -169,7 +169,7 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 *walkthrough*
 
 O comando **grep** lista os núcleos que **a comida.cfg** está ciente.
-![Kernels](./media/chroot-logical-volume-manager/kernels.png)
+![A screenshot mostra uma janela da consola que mostra o resultado de uma busca de grãos.](./media/chroot-logical-volume-manager/kernels.png)
 
 **lista grub2-editenv** mostra quais o núcleo será carregado na próxima bota ![ Kernel padrão](./media/chroot-logical-volume-manager/kernel-default.png)
 
@@ -190,7 +190,7 @@ Executar o comando **lvs** para verificar quais **os LVs** disponíveis para mon
 
 Saia do ambiente **cromoso** monte o **LV** necessário
 
-![Avançado](./media/chroot-logical-volume-manager/advanced.png)
+![A screenshot mostra uma janela da consola com um comando l vs e, em seguida, montando um L V.](./media/chroot-logical-volume-manager/advanced.png)
 
 Agora aceda ao ambiente **cromos novamente** correndo
 

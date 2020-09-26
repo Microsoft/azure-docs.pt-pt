@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 3699191229a53735a62235cf8688cdfab9335339
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e9724462dc5f94908a1071f7039b20cca1c97e69
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963653"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330788"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configure e gere a segurança da Base de Dados Azure SQL para a geo-restauração ou falha
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,7 +25,7 @@ Este artigo descreve os requisitos de autenticação para configurar e controlar
 
 ## <a name="disaster-recovery-with-contained-users"></a>Recuperação de desastres com utilizadores contidos
 
-Ao contrário dos utilizadores tradicionais, que devem ser mapeados para logins na base de dados principal, um utilizador contido é gerido completamente pela própria base de dados. Isto tem dois benefícios. No cenário de recuperação de desastres, os utilizadores podem continuar a ligar-se à nova base de dados primária ou à base de dados recuperada utilizando o geo-restauro sem qualquer configuração adicional, porque a base de dados gere os utilizadores. Existem também potenciais benefícios de escalabilidade e desempenho a partir desta configuração a partir de uma perspetiva de login. Para obter mais informações, veja [Contained Database Users - Making Your Database Portable (Utilizadores de Base de Dados Contidos - Tornar a Sua Base de Dados Portátil)](https://msdn.microsoft.com/library/ff929188.aspx).
+Ao contrário dos utilizadores tradicionais, que devem ser mapeados para logins na base de dados principal, um utilizador contido é gerido completamente pela própria base de dados. Isto tem dois benefícios. No cenário de recuperação de desastres, os utilizadores podem continuar a ligar-se à nova base de dados primária ou à base de dados recuperada utilizando o geo-restauro sem qualquer configuração adicional, porque a base de dados gere os utilizadores. Existem também potenciais benefícios de escalabilidade e desempenho a partir desta configuração a partir de uma perspetiva de login. Para obter mais informações, veja [Contained Database Users - Making Your Database Portable (Utilizadores de Base de Dados Contidos – Tornar a Sua Base de Dados Portátil)](https://msdn.microsoft.com/library/ff929188.aspx).
 
 A principal compensação é que gerir o processo de recuperação de desastres em escala é mais desafiante. Quando tiver várias bases de dados que utilizam o mesmo login, manter as credenciais que utilizam utilizadores contidos em várias bases de dados pode anular os benefícios dos utilizadores contidos. Por exemplo, a política de rotação de palavras-passe requer que as alterações sejam feitas de forma consistente em várias bases de dados em vez de alterar a palavra-passe para o login uma vez na base de dados principal. Por esta razão, se tiver várias bases de dados que utilizem o mesmo nome de utilizador e palavra-passe, não é recomendável utilizar utilizadores contidos.
 
@@ -103,7 +103,7 @@ SID = <desired login SID>
 >
 > Desativar não altera a palavra-passe, pelo que pode sempre ative-la se necessário.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre a gestão do acesso à base de dados e dos logins, consulte [a segurança da Base de Dados SQL: Gerir o acesso à base de dados e a segurança de login.](logins-create-manage.md)
 * Para obter mais informações sobre utilizadores de bases de dados contidos, consulte [Utilizadores de bases de dados contidos - Tornando a sua base de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).

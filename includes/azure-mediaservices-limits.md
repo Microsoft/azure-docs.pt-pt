@@ -2,14 +2,14 @@
 author: rothja
 ms.service: media-services
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 09/16/2020
 ms.author: jroth
-ms.openlocfilehash: e24c345bfee216dd240f0c283402ad43c8f45c29
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c315c071aeb36eea0bd1af84b1344cf2fef5f703
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85838974"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329669"
 ---
 >[!NOTE]
 >Para recursos que não são fixados, abra um bilhete de apoio para pedir um aumento das quotas. Não crie contas adicionais da Azure Media Services numa tentativa de obter limites mais elevados.
@@ -29,7 +29,7 @@ ms.locfileid: "85838974"
 | Programas no estado parado por canal |3|
 | Pontos finais de streaming que são parados ou em execução por conta de Serviços de Media|2|
 | Unidades de transmissão em fluxo por ponto final de transmissão em fluxo |10 |
-| Contas de armazenamento | 1.000<sup>5</sup> (fixo) |
+| Contas de armazenamento | 100<sup>5</sup> (fixo) |
 | Políticas | 1.000.000<sup>6</sup> |
 | Tamanho dos ficheiros| Em alguns cenários, há um limite no tamanho máximo do ficheiro suportado para o processamento em Media Services. <sup>7</sup> |
 

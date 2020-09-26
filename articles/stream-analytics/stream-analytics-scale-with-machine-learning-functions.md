@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2020
-ms.openlocfilehash: 1493a15a97ca88d0ed914f78b1906088c03dff10
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a0cc70f5bf994e03088511a0d10796746a434bd7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037414"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91300314"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Escalar o seu trabalho stream analytics com funções Azure Machine Learning Studio (clássico)
 
@@ -25,7 +25,7 @@ Este artigo discute como escalar eficientemente os trabalhos do Azure Stream Ana
 
 Uma função de Machine Learning em Stream Analytics pode ser usada como uma chamada de função regular na linguagem de consulta Stream Analytics. Nos bastidores, no entanto, estas chamadas de função são na verdade pedidos de Serviço Web de Aprendizagem automática Azure Machine Learning.
 
-Pode melhorar a produção de pedidos de serviço web Machine Learning "lotando" várias linhas juntas na mesma chamada de API do serviço web. Este agrupamento é chamado de mini-lote. Para mais informações, consulte [o Azure Machine Learning Studio (clássico) Web Services](../machine-learning/studio/consume-web-services.md). O suporte para O Azure Machine Learning Studio (clássico) em Stream Analytics está em pré-visualização.
+Pode melhorar a produção de pedidos de serviço web Machine Learning "lotando" várias linhas juntas na mesma chamada de API do serviço web. Este agrupamento é chamado de mini-lote. Para mais informações, consulte [o Azure Machine Learning Studio (clássico) Web Services](../machine-learning/classic/consume-web-services.md). O suporte para O Azure Machine Learning Studio (clássico) em Stream Analytics está em pré-visualização.
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configure um trabalho de Stream Analytics com funções de Machine Learning
 
@@ -58,7 +58,7 @@ Em geral, ***B*** para o tamanho do lote, ***L*** para a latência do serviço w
 
 Também pode configurar as chamadas 'max simultâneos' no serviço web Machine Learning. Recomenda-se definir este parâmetro para o valor máximo (200 atualmente).
 
-Para obter mais informações sobre esta definição, reveja o [artigo de Escala para Serviços Web de Aprendizagem automática](../machine-learning/studio/create-endpoint.md).
+Para obter mais informações sobre esta definição, reveja o [artigo de Escala para Serviços Web de Aprendizagem automática](../machine-learning/classic/create-endpoint.md).
 
 ## <a name="example--sentiment-analysis"></a>Exemplo – Análise de Sentimentos
 O exemplo a seguir inclui um trabalho stream Analytics com a função de aprendizagem automática de análise de sentimento, conforme descrito no tutorial de [integração](stream-analytics-machine-learning-integration-tutorial.md)de machine learning stream analytics .
@@ -106,14 +106,14 @@ Abaixo está uma tabela para a produção do trabalho stream Analytics para dife
 
 | tamanho do lote (latência ML) | 500 (200 ms) | 1.000 (200 ms) | 5.000 (250 ms) | 10.000 (300 ms) | 25.000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
-| **1 SU** |2.500 |5000 |20 000 |30,000 |50.000 |
-| **3 SUs** |2.500 |5000 |20 000 |30,000 |50.000 |
-| **6 SUs** |2.500 |5000 |20 000 |30,000 |50.000 |
+| **1 SU** |2.500 |5000 |20 000 |30,000 |50 000 |
+| **3 SUs** |2.500 |5000 |20 000 |30,000 |50 000 |
+| **6 SUs** |2.500 |5000 |20 000 |30,000 |50 000 |
 | **12 SUs** |5000 |10,000 |40.000 |60 000 |100.000 |
 | **18 SUs** |7.500 |15 000 |60 000 |90.000 |150.000 |
 | **24 SUs** |10,000 |20 000 |80.000 |120,000 |200,000 |
 | **…** |… |… |… |… |… |
-| **60 SUs** |25.000 |50.000 |200,000 |300,000 |500 000 |
+| **60 SUs** |25.000 |50 000 |200,000 |300,000 |500 000 |
 
 Por esta altura, já deves ter uma boa compreensão de como funcionam as aprendizagens automáticas no Stream Analytics. Você provavelmente também entende que os trabalhos stream Analytics "retiram" dados de fontes de dados e cada "pull" devolve um lote de eventos para o trabalho stream Analytics para processar. Como é que este modelo de puxar impacta os pedidos de serviço web Machine Learning?
 
@@ -142,7 +142,7 @@ Para escalar um trabalho de Stream Analytics com funções de Machine Learning, 
 
 Uma consulta stream analytics totalmente dividida foi usada como um exemplo. Se for necessária uma consulta mais complexa, o [Microsoft Q&Página de perguntas para o Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html) é um ótimo recurso para obter ajuda adicional da equipa do Stream Analytics.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre stream analytics, consulte:
 
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

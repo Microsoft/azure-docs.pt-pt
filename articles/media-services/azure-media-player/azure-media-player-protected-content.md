@@ -6,21 +6,21 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: da79556b466e3511845724e969c76477ad2ba0a8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 83f144c06c23f3ab5507e3561be4a12350e20a42
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423019"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329691"
 ---
 # <a name="protected-content"></a>Conteúdo protegido #
 
 A Azure Media Player suporta atualmente conteúdo encriptado de envelope AES-128 e conteúdo encriptado comum (através do PlayReady e Widevine) ou conteúdo encriptado via FairPlay. Para reproduzir corretamente os conteúdos protegidos, tem de dizer ao Azure Media Player o `protectionInfo` . Esta informação existe por fonte e pode ser adicionada diretamente na `<source>` etiqueta através do `data-setup` .  Também pode adicionar o `protectionInfo` diretamente como parâmetro se definir a fonte de forma dinâmica.
 
-`protectionInfo`aceita um objeto JSON e inclui:
+`protectionInfo` aceita um objeto JSON e inclui:
 
-- `type`: `AES` ou `PlayReady` ou `Widevine` ou`FairPlay`
+- `type`: `AES` ou `PlayReady` ou `Widevine` ou `FairPlay`
 - `certificateUrl`: este deve ser um link direto para o seu certificado FairPlay hospedado
 
 - `authenticationToken`: este é um campo de opção para adicionar um token de autenticação não codificado
@@ -84,6 +84,6 @@ ou, com vários DRM
 > [!IMPORTANT]
 > O token passado para o leitor destina-se a conteúdos seguros e apenas utilizado para utilizadores autenticados. Presume-se que o pedido está a utilizar sSL ou qualquer outra forma de medida de segurança. Além disso, o utilizador final é assummed para ser confiável para não usar indevidamente o token; Se não for esse o caso, por favor envolva os seus peritos em segurança.
 
-## <a name="next-steps"></a>Próximos passos ##
+## <a name="next-steps"></a>Passos seguintes ##
 
 - [Azure Media Player Quickstart](azure-media-player-quickstart.md)

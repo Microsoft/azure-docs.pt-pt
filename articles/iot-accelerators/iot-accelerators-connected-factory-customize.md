@@ -9,14 +9,17 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
-ms.openlocfilehash: 6062f8b3992732e0e0f9bbdae9549e69c393f4ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a092859517ee6ac41e62e55fe95f72b8bfdf87d5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67080489"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290727"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalize como a solução De Fábrica Conectada exibe dados dos seus servidores OPC UA
+
+> [!IMPORTANT]
+> Enquanto atualizamos este artigo, consulte [a Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
 A solução Connected Factory agrega e exibe dados dos servidores OPC UA ligados à solução. Pode navegar e enviar comandos para os servidores UA OPC na sua solução. Para obter mais informações sobre a OPC UA, consulte as [FAQ de fábrica conectadas.](iot-accelerators-faq-cf.md)
 
@@ -71,9 +74,9 @@ Para obter mais informações sobre o mapeamento e agregação dos dados para sa
 
 ## <a name="deploy-the-changes"></a>Implementar as alterações
 
-Quando terminar de efetuar alterações **naContosoTopologyDescription.jsno** ficheiro, tem de recolocar a solução De Fábrica Conectada na sua conta Azure.
+Quando terminar de efetuar alterações ** naContosoTopologyDescription.jsno** ficheiro, tem de recolocar a solução De Fábrica Conectada na sua conta Azure.
 
-O repositório **de fábrica ligado a azul-iot** inclui um script **powerShellbuild.ps1** que pode usar para reconstruir e implementar a solução.
+O repositório **de fábrica ligado a azul-iot** inclui um script ** powerShellbuild.ps1** que pode usar para reconstruir e implementar a solução.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

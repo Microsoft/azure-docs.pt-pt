@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 80658839e804112ae9c8a049943bca54441b015b
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: cd80f0b2a5e2ad1fd4c2cff73728d57a2beafc7e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437399"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361522"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análise de inquilinos cruzados usando dados extraídos - app de inquilino único
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,7 +36,7 @@ Neste tutorial, ficará a saber como:
 > - Consulta a base de dados de análise.
 > - Use o Power BI para visualização de dados para destacar as tendências dos dados dos inquilinos e fazer recomendações para melhorias.
 
-![arquiteturaOverView](./media/saas-tenancy-tenant-analytics/architectureOverview.png)
+![O diagrama mostra uma visão geral da arquitetura usada para este artigo.](./media/saas-tenancy-tenant-analytics/architectureOverview.png)
 
 ## <a name="offline-tenant-analytics-pattern"></a>Padrão de análise de inquilino offline
 
@@ -138,7 +138,7 @@ Cada trabalho extrai os seus dados e coloca-os na loja de análise. Há um traba
 4. Prima f5 para executar o script que cria e executa o trabalho que extrai bilhetes e dados de clientes de cada base de dados de inquilinos. O trabalho guarda os dados na loja de análise.
 5. Consultar a tabela TicketsRawData na base de dados de inquilinos, para garantir que a mesa é preenchida com informações de bilhetes de todos os inquilinos.
 
-![ticketExtracts](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
+![A screenshot mostra a base de dados ExtractTickets com os TicketsRawData d b o selecionados no Object Explorer.](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
 
 Repita os passos anteriores, exceto que desta vez **substitua \ExtractTickets.sql** por **\ExtractVenuesEvents.sql** no passo 2.
 
@@ -177,7 +177,7 @@ Use os seguintes passos para ligar ao Power BI e importar as vistas que criou an
 
 5. Selecione **a Base de Dados** no painel esquerdo e, em seguida, introduza o nome do utilizador = *desenvolvedor*, e introduza a palavra-passe = *P \@ ssword1*. Clique em **Ligar**.  
 
-    ![bases de dados](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
+    ![A screenshot mostra o diálogo de base de dados SQL Server onde pode introduzir um nome de utilizador e palavra-passe.](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. No painel **Do Navegador,** sob a base de dados de análise, selecione as tabelas star-schema: fact_Tickets, dim_Events, dim_Venues, dim_Customers e dim_Dates. Em seguida, **selecione Carregar**. 
 
@@ -185,13 +185,13 @@ Parabéns! Você carregou os dados com sucesso no Power BI. Agora você pode com
 
 Começa por analisar os dados de venda de bilhetes para ver a variação do uso nos locais. Selecione as seguintes opções no Power BI para traçar um gráfico de barras do número total de bilhetes vendidos por cada local. Devido à variação aleatória no gerador de bilhetes, os seus resultados podem ser diferentes.
  
-![TotalTicketsByVenues](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
+![A screenshot mostra uma visualização e controlos de Power B I para a visualização de dados no lado direito.](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
 
 O lote anterior confirma que o número de bilhetes vendidos por cada local varia. Os locais que vendem mais bilhetes estão a usar o seu serviço mais fortemente do que os locais que vendem menos bilhetes. Pode haver aqui uma oportunidade de adaptar a alocação de recursos de acordo com as diferentes necessidades do inquilino.
 
 Pode analisar ainda mais os dados para ver como as vendas de bilhetes variam ao longo do tempo. Selecione as seguintes opções no Power BI para traçar o número total de bilhetes vendidos por dia por um período de 60 dias.
  
-![SaleVersusDate](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
+![A screenshot mostra power B I visualização intitulada Distribuição de Venda de Bilhetes versus Dia de Venda.](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
 
 O gráfico anterior mostra o pico de venda de bilhetes para alguns locais. Estes picos reforçam a ideia de que alguns locais podem estar a consumir desproporcionalmente os recursos do sistema. Até agora não há nenhum padrão óbvio quando os picos ocorrem.
 
@@ -217,7 +217,7 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 
 Selecione as seguintes opções de visualização para traçar a percentagem de bilhetes vendidos por cada local para determinar o seu sucesso relativo.
 
-![AvgTicketsByVenues](./media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
+![A screenshot mostra a visualização power B I intitulada Average Tickets Sold By Each Venue.](./media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
 
 O lote anterior mostra que, embora a maioria dos locais venda mais de 80% dos seus bilhetes, alguns estão a ter dificuldades em preencher mais de metade dos lugares. Brinque com o Values Well para selecionar a percentagem máxima ou mínima de bilhetes vendidos para cada local.
 

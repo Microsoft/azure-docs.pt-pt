@@ -1,5 +1,5 @@
 ---
-title: Configurar o serviço de provisionamento de dispositivos Azure IoT Hub utilizando o Azure CLI
+title: Quickstart - Criar o Serviço de Provisionamento de Dispositivos Azure IoT Hub utilizando o Azure CLI
 description: Quickstart - Configurar o Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS) utilizando o Azure CLI
 author: wesmc7777
 ms.author: wesmc
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 64250863e5bab4776c129935e56db190e5bd36ee
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 157bd0a0a40ce6a935d13bb10a84c814ba1018bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602681"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330252"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Quickstart: Crie o serviço de provisionamento de dispositivos IoT Hub com Azure CLI
 
@@ -43,7 +43,7 @@ az group create --name my-sample-resource-group --location westus
 >
 >
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 Crie um hub IoT com o comando [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create).
 

@@ -6,14 +6,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 83535fde7f577c4cd5d0b3866afcc0a916c16337
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 5748ff87e94daef80b140e015371eb7a334fffac
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134821"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361488"
 ---
-# <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gerir o servidor de configuração para vMware VM/recuperação de desastres de servidor físico
+# <a name="manage-the-configuration-server-for-vmware-vmphysical-server-disaster-recovery"></a>Gerir o servidor de configuração para recuperação após desastre dos servidores físicos/VM VMware
 
 Configura um servidor de configuração no local quando utiliza [a Recuperação do Site Azure](site-recovery-overview.md) para a recuperação de desastres de VMware VMs e servidores físicos para o Azure. O servidor de configuração coordena as comunicações entre o VMware e o Azure e gere a replicação de dados. Este artigo resume tarefas comuns para gerir o servidor de configuração após a sua implementação.
 
@@ -71,7 +71,7 @@ Se não tiver adição de credenciais durante a implementação do servidor de c
 
 1. Após [o iniciar s-in](#access-configuration-server), selecione **Gerir as credenciais de máquina virtual**.
 2. Clique em **Adicionar credenciais de máquina virtual**.
-    ![acrescentar mobilidade-credenciais](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+    ![Screenshot mostra Gerir o painel de credenciais de máquina virtual com o link de credenciais de máquina virtual Add.](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. Introduza as novas credenciais e clique em **Adicionar**.
 
 Também pode adicionar credenciais através de CSPSConfigtool.exe.
@@ -212,7 +212,7 @@ Executar o ficheiro de instalação da seguinte forma:
 
 ### <a name="parameters"></a>Parâmetros
 
-|Nome do Parâmetro| Tipo | Descrição| Valores|
+|Nome do Parâmetro| Tipo | Description| Valores|
 |-|-|-|-|
 | /ServerMode|Necessário|Especifica se a configuração e os servidores de processos devem ser instalados, ou apenas o servidor de processos|CS<br>PS|
 |/InstallLocation|Necessário|A pasta na qual os componentes são instalados| Qualquer pasta no computador|
@@ -309,6 +309,6 @@ Durante a reproteção e o failback, o servidor de configuração no local deve 
 
 Certifique-se de que faz cópias de segurança regulares do seu servidor de configuração. Se ocorrer um desastre e o servidor de configuração for perdido, deve primeiro restaurar o servidor de configuração a partir de uma cópia de backup e certificar-se de que o servidor de configuração restaurado tem o mesmo endereço IP com o qual foi registado no cofre. O Failback não funcionará se for utilizado um endereço IP diferente para o servidor de configuração restaurado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Reveja os tutoriais para a criação de [VMware VMs](vmware-azure-tutorial.md) para Azure.

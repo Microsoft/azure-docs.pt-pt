@@ -1,5 +1,5 @@
 ---
-title: Sintaxe de consulta de pesquisa de gráficos
+title: Sintaxe de consulta de pesquisa do Graph
 titleSuffix: Azure Machine Learning
 description: Aprenda a usar a sintaxe de consulta de pesquisa para procurar nós em gráfico de pipeline.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 8/24/2020
-ms.openlocfilehash: 122da78206ef2055b4867727b174293e74133c05
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 166b87159b5ac2434c3ce7a7c66529a4b61ee565
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817810"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290505"
 ---
-# <a name="graph-search-query-syntax"></a>Sintaxe de consulta de pesquisa de gráficos
+# <a name="graph-search-query-syntax"></a>Sintaxe de consulta de pesquisa do Graph
 
 Neste artigo, você aprende sobre a sintaxe de pesquisa de gráficos em Azure Machine Learning. O recurso de pesquisa de gráficos permite-lhe procurar um nó pelo seu nome e propriedades. 
 
@@ -49,7 +49,7 @@ A pesquisa de gráficos utiliza a consulta simples de Lucene como sintaxe de pes
  
 - Correspondência wildcard: 
     - `machi?e learning`
-    -   `mach*ing`
+    - `mach*ing`
  
 >[!NOTE]
 > Não se pode começar uma consulta de Lucene com um caráter "*".
@@ -59,7 +59,7 @@ A pesquisa de gráficos utiliza a consulta simples de Lucene como sintaxe de pes
  
 As consultas de filtro utilizam o seguinte padrão:
  
-    **[key1] [operator1] [value1]; [key2] [operator1] [value2];**
+`**[key1] [operator1] [value1]; [key2] [operator1] [value2];**`
 
  
 Pode utilizar as seguintes propriedades de nó como chaves:

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d6be74e5748d364fd9f56f4af96bb3229ddb61c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50d077c1d7c9e4e421a43a4e0379b57608d1192c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85113694"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361771"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>Compreender as diferenças entre as bases de dados NoSQL e as bases de dados relacionais
 
@@ -29,7 +29,7 @@ Nestes cenários, [as bases de dados distribuídas](https://en.wikipedia.org/wik
 
 Se os seus volumes transacionais estiverem a atingir níveis extremos, como muitos milhares de transações por segundo, deve considerar uma base de dados NoSQL distribuída. Considere a Azure Cosmos DB para a máxima eficiência, facilidade de manutenção e redução do custo total de propriedade.
 
-:::image type="content" source="./media/relational-or-nosql/backend-scaled.png" alt-text="Back-end" border="false":::
+:::image type="content" source="./media/relational-or-nosql/backend-scaled.png" alt-text="Backend" border="false":::
 
 ## <a name="hierarchical-data"></a>Dados hierárquicos
 
@@ -49,7 +49,7 @@ Várias formas de bases de dados "Rede" surgiram durante o tempo em que as bases
 
 Se estiver a manter uma rede complexa de relações na sua base de dados, talvez queira considerar uma base de dados de gráficos como a [API API AZure Cosmos DB Gremlin](https://docs.microsoft.com/azure/cosmos-db/graph-introduction) para a gestão destes dados.
 
-:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Gráfico":::
+:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="O diagrama da base de dados mostra vários funcionários e departamentos ligados entre si.":::
 
 Azure Cosmos DB é um serviço de base de dados multi-modelo, que oferece uma projeção de API para todos os principais tipos de modelos NoSQL; Coluna-família, Documento, Gráfico e Valor-Chave. As camadas de API do documento [Gremlin (gráfico)](https://docs.microsoft.com/azure/cosmos-db/gremlin-support) e SQL (Core) são totalmente interoperáveis. Isto tem benefícios para alternar entre diferentes modelos ao nível da programabilidade. As lojas de gráficos podem ser consultadas tanto em termos de transações complexas de rede como de transações modeladas como registos documentais na mesma loja.
 
@@ -88,7 +88,7 @@ No que diz respeito à forte consistência, é raro que isso seja necessário em
 
 Mais uma vez, a Azure Cosmos DB oferece mais flexibilidade do que bases de dados relacionais para as várias trocas que são relevantes aqui, mas para implementações em pequena escala, esta abordagem pode adicionar mais considerações de design. Consulte o nosso artigo sobre [Consistência, disponibilidade e tradeoffs de desempenho](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-tradeoffs) para obter mais detalhes sobre este tema.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como gerir a sua conta Azure Cosmos e outros conceitos:
 

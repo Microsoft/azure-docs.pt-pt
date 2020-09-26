@@ -9,14 +9,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/20/2020
-ms.openlocfilehash: 3383a16624ecf045753609865931f9d0c44b6b3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad49db3eb61b77805b0c7a3e1e9583fb22bd4373
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196575"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91291975"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>FAQ sobre a utilização do Serviço de Migração da Base de Dados de Azure
 
@@ -31,7 +31,7 @@ O Azure Database Migration Service é um serviço totalmente gerido projetado pa
 * Adição iterativa de pares de alvos de origem.
 * Continuação do investimento em migrações isentas de atritos.
 
-**Q. Que pares de origem/alvo suporta atualmente o Serviço de Migração da Base de Dados Azure?**
+**Q. Que pares de origem/alvo suportam atualmente o Serviço de Migração da Base de Dados Azure?**
 O serviço suporta atualmente uma variedade de pares de origem/alvo, ou cenários de migração. Para obter uma listagem completa do estado de cada cenário de migração disponível, consulte o artigo [Estado dos cenários de migração suportados pelo Serviço de Migração da Base de Dados Azure](https://docs.microsoft.com/azure/dms/resource-scenario-status).
 
 Outros cenários de migração estão em pré-visualização e exigem a submissão de uma nomeação através do site de pré-visualização DMS. Para obter uma listagem completa dos cenários em pré-visualização e para se inscrever para participar numa destas ofertas, consulte o [site de pré-visualização do DMS](https://aka.ms/dms-preview/).
@@ -48,7 +48,7 @@ Pode utilizar o Azure Database Migration Service para realizar migrações offli
 **Q. Como é que o Azure Database Migration Service se compara a outras ferramentas de migração da base de dados da Microsoft, como o Assistente de Migração de Bases de Dados (DMA) ou o SQL Server Migration Assistant (SSMA)?**
 O Azure Database Migration Service é o método preferido para a migração de bases de dados para o Microsoft Azure em escala. Para obter mais detalhes sobre como o Azure Database Migration Service compara com outras ferramentas de migração da base de dados da Microsoft e para recomendações sobre a utilização do serviço para vários cenários, consulte o blog que publica [a Diferenciação das Ferramentas e Serviços de Migração da Base de Dados da Microsoft.](https://techcommunity.microsoft.com/t5/microsoft-data-migration/differentiating-microsoft-s-database-migration-tools-and/ba-p/368529)
 
-**Q. Como é que o Serviço de Migração da Base de Dados Azure se compara à oferta da Azure Migrate?**
+**Q. Como é que o Azure Database Migration Service se compara à oferta da Azure Migrate?**
 A Azure Migrate ajuda na migração de máquinas virtuais no local para Azure IaaS. O serviço avalia a adequação da migração e o dimensionamento baseado no desempenho, e fornece estimativas de custos para executar as suas máquinas virtuais no local em Azure. A Azure Migrate é útil para migrações de elevação e mudança de cargas de trabalho baseadas em VM para Azure IaaS VMs. No entanto, ao contrário do Azure Database Migration Service, a Azure Migrate não é uma oferta especializada de serviços de migração de bases de dados para plataformas de base de dados relacionais Azure PaaS, como a Base de Dados Azure SQL ou a Azure SQL Managed Instance.
 
 ## <a name="setup"></a>Configuração
@@ -64,7 +64,7 @@ Os pré-requisitos do Serviço de Migração da Base de Dados Azure que são com
 
 Para obter uma lista de todos os pré-requisitos necessários para competir cenários específicos de migração utilizando o Serviço de Migração da Base de Dados Azure, consulte os tutoriais relacionados na [documentação](https://docs.microsoft.com/azure/dms/dms-overview) do Serviço de Migração da Base de Dados Azure sobre docs.microsoft.com.
 
-**P. Como encontrar o endereço IP do Azure Database Migration Service para que eu possa criar uma lista de autorizações para as regras de firewall usadas para aceder à minha base de dados de origem para migração?**
+**Q. Como encontro o endereço IP do Serviço de Migração da Base de Dados Azure para que possa criar uma lista de indicações para as regras de firewall utilizadas para aceder à minha base de dados de origem para migração?**
 Poderá ter de adicionar regras de firewall que permitam ao Serviço de Migração da Base de Dados Azure aceder à sua base de dados de origem para migração. O endereço IP para o serviço é dinâmico, mas se estiver a utilizar o ExpressRoute, este endereço é atribuído em privado pela sua rede corporativa. A forma mais fácil de identificar o endereço IP apropriado é olhar para o mesmo grupo de recursos que o seu recurso do Serviço de Migração da Base de Dados Azure para encontrar a interface de rede associada. Normalmente, o nome do recurso Interface de Rede começa com o prefixo NIC e seguido por uma sequência de caracteres e números únicos, por exemplo, NIC-jj6tnztnmarpsskr82rbndyp. Ao selecionar este recurso de interface de rede, pode ver o endereço IP que precisa de ser incluído na lista de autorizações na página do portal Azure.
 
 Também pode ter de incluir a fonte de porta que o SQL Server está a ouvir na lista de autorizações. Por padrão, é a porta 1433, mas o sql Server de origem pode estar configurado para ouvir em outras portas também. Neste caso, também é necessário incluir as portas na lista de autorizações. Pode determinar a porta que o SQL Server está a ouvir utilizando uma consulta Dynamic Management View:
@@ -85,12 +85,12 @@ Também pode determinar a porta que o SQL Server está a ouvir consultando o reg
     GO
 ```
 
-**Q. Como posso configurar uma Rede Virtual Microsoft Azure?**
+**Q. Como posso criar uma Rede Virtual Microsoft Azure?**
 Enquanto vários tutoriais da Microsoft que podem acompanhá-lo através do processo de criação de uma rede virtual, a documentação oficial aparece no artigo [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 ## <a name="usage"></a>Utilização
 
-**P. O que é um resumo dos passos necessários para utilizar o Azure Database Migration Service para realizar uma migração de bases de dados?**
+**Q. O que é um resumo das etapas necessárias para utilizar o Serviço de Migração da Base de Dados Azure para realizar uma migração de bases de dados?**
 Durante uma migração típica e simples de bases de dados, você:
 
 1. Criar uma base de dados alvo.
@@ -108,15 +108,15 @@ Durante uma migração típica e simples de bases de dados, você:
 **Q. Estou a criar um projeto de migração em DMS, e estou a ter dificuldades em ligar-me à minha base de dados de origem. O que devo fazer?**
 Se tiver problemas em ligar-se ao seu sistema de base de dados de origem enquanto trabalha na migração, crie uma máquina virtual na rede virtual com a qual configura a sua instância DMS. Na máquina virtual, deverá ser capaz de realizar um teste de ligação, como utilizar um ficheiro UDL para testar uma ligação ao SQL Server ou descarregar robo 3T para testar as ligações mongoDB. Se o teste de ligação for bem sucedido, não deverá ter qualquer problema em ligar-se à sua base de dados de origem. Se o teste de ligação não for bem sucedido, contacte o administrador da rede.
 
-**P. Porque é que o meu Serviço de Migração da Base de Dados Azure está indisponível ou parado?**
+**Q. Porque é que o meu Serviço de Migração da Base de Dados Azure está indisponível ou parado?**
 Se o utilizador parar explicitamente o Serviço de Migração da Base de Dados de Azure (DMS) ou se o serviço estiver inativo por um período de 24 horas, o serviço estará num estado parado ou automático. Em cada caso, o serviço estará indisponível e em estado de paragem.  Para retomar as migrações ativas, reinicie o serviço.
 
-**P. Existem recomendações para otimizar o desempenho do Serviço de Migração da Base de Dados Azure?**
+**Q. Existem recomendações para otimizar o desempenho do Serviço de Migração da Base de Dados Azure?**
 Pode fazer algumas coisas para acelerar a migração da sua base de dados utilizando o serviço:
 
 * Utilize o nível de preços para fins gerais multi CPU quando criar a sua instância de serviço para permitir que o serviço aproveite vários vCPUs para para paralelização e transferência de dados mais rápida.
 * Dimensione temporariamente a sua instância-alvo da Base de Dados Azure SQL para o SKU de nível Premium durante a operação de migração de dados para minimizar o estrangulamento da Base de Dados Azure SQL que pode afetar as atividades de transferência de dados quando utilizar SKUs de nível inferior.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma visão geral do Serviço de Migração da Base de Dados Azure e disponibilidade regional, consulte o artigo [O que é o Serviço de Migração de Bases de Dados Azure.](dms-overview.md)

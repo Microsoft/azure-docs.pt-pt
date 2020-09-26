@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d38029284a05ce3b8f9e9af96d3f632e874f874c
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: fe00d7f107911e2245041419c20f86e2e32a0480
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032276"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289264"
 ---
 # <a name="development-best-practices-for-synapse-sql"></a>Melhores práticas de desenvolvimento para Sinapse SQL
 Este artigo descreve orientação e boas práticas à medida que desenvolve a sua solução de armazém de dados. 
@@ -28,22 +28,22 @@ Para obter mais informações sobre a redução de custos através da colocaçã
 
 ### <a name="maintain-statistics"></a>Manter as estatísticas
 
-Certifique-se de atualizar as suas estatísticas diariamente ou depois de cada carga.  Há sempre uma relação entre o desempenho e o custo para criar e atualizar as estatísticas. Se achar que está a demorar muito tempo a manter todas as suas estatísticas, seja mais seletivo sobre quais colunas têm estatísticas ou quais colunas precisam de atualização frequente.  
+Certifique-se de que atualiza as suas estatísticas diariamente ou depois de cada carga.  Há sempre uma relação entre o desempenho e o custo para criar e atualizar as estatísticas. Se achar que está a demorar muito tempo a manter todas as suas estatísticas, seja mais seletivo sobre quais colunas têm estatísticas ou quais colunas precisam de atualização frequente.  
 
 Por exemplo, é possível que pretenda atualizar colunas de datas, onde novos valores podem ser adicionados diariamente. 
 
 > [!NOTE]
 > Você ganhará o maior benefício com estatísticas sobre colunas envolvidas em junções, colunas usadas na cláusula WHERE, e colunas encontradas no GROUP BY.
 
-Consulte também [As estatísticas dos quadros,](develop-tables-statistics.md) [CRIAR ESTATÍSTICAS,](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) [ESTATÍSTICAS DE ATUALIZAÇÃO](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Consulte também [As estatísticas dos quadros,](develop-tables-statistics.md) [CRIAR ESTATÍSTICAS,](/sql/t-sql/statements/create-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) [ESTATÍSTICAS DE ATUALIZAÇÃO](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="hash-distribute-large-tables"></a>Distribuir tabelas grandes por hash
 
-Por predefinição, as tabelas são distribuídas por Round Robin.  Isto facilita a criação de tabelas por parte dos utilizadores sem terem de decidir como devem ser distribuídas as suas tabelas.  As mesas robin redondas podem funcionar o suficiente para algumas cargas de trabalho. Mas, na maioria dos casos, selecionar uma coluna de distribuição terá um desempenho muito melhor.  
+Por predefinição, as tabelas são distribuídas por Round Robin. Esta capacidade facilita a criação de tabelas por parte dos utilizadores sem terem de decidir como devem ser distribuídas as suas tabelas.  As mesas robin redondas podem funcionar o suficiente para algumas cargas de trabalho. Mas, na maioria dos casos, selecionar uma coluna de distribuição terá um desempenho muito melhor.  
 
 O exemplo mais comum de quando uma tabela distribuída por uma coluna supera de longe uma tabela Round Robin é quando duas tabelas de factos grandes são associadas.  
 
-Por exemplo, se tiver uma tabela de encomendas, que é distribuída por order_id, e uma tabela de transações, que também é distribuída por order_id, quando se junta à sua tabela de encomendas à sua tabela de transações em order_id, esta consulta torna-se uma consulta pass-through. 
+Por exemplo, se tiver uma tabela de encomendas distribuída por order_id, e uma tabela de transações, também distribuída por order_id, quando se junta à sua tabela de encomendas à sua tabela de transações em order_id, esta consulta torna-se uma consulta de passagem. 
 
 Isto significa que eliminamos as operações de movimento de dados.  Menos passos significam uma consulta mais rápida.  Menos movimento de dados também torna as consultas mais rápidas.
 
@@ -52,7 +52,7 @@ Isto significa que eliminamos as operações de movimento de dados.  Menos passo
 
 Consulte os seguintes links para obter mais detalhes sobre como selecionar uma coluna de distribuição pode melhorar o desempenho, bem como como definir uma tabela distribuída na cláusula WITH da sua declaração CREATE TABLES.
 
-Consulte também [a visão geral da tabela,](develop-tables-overview.md) [distribuição de tabelas,](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) [selecionando a distribuição da tabela,](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/) [CRIE TABELA](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)e CRIE TABELA [COMO SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Consulte também [a visão geral da tabela,](develop-tables-overview.md) [distribuição de tabelas,](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) [selecionando a distribuição da tabela,](https://blogs.msdn.microsoft.com/sqlcat/20../../choosing-hash-distributed-table-vs-round-robin-distributed-table-in-azure-sql-dw-service/) [CRIE TABELA](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)e CRIE TABELA [COMO SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="do-not-over-partition"></a>Não crie partições em demasia
 Embora os dados de partição possam ser eficazes para manter os seus dados através da comutação de partição ou otimização de digitalizações com eliminação de divisórias, ter demasiadas divisórias pode abrandar as suas consultas.  Muitas vezes, uma estratégia de partição de alta granularidade que pode funcionar bem no SQL Server pode não funcionar bem na piscina SQL.  
@@ -81,17 +81,17 @@ Outra forma de eliminar reversões consiste em utilizar Operações Apenas de Me
 
 Por exemplo, em vez de executar uma instrução DELETE para eliminar todas as linhas numa tabela onde a order_date estava em outubro de 2001, pode dividir os dados mensalmente e, em seguida, mudar a partição com dados para uma partição vazia de outra tabela (veja os exemplos de ALTER TABLE).  
 
-Para tabelas sem partição considere utilizar um CTAS para escrever os dados que pretende manter numa tabela, em vez de utilizar DELETE.  Se um CTAS demorar o mesmo tempo, é uma operação mais segura uma vez que tem um registo de transações mínimo e pode ser cancelada rapidamente se for necessário.
+Para tabelas não participantes, considere utilizar um CTAS para escrever os dados que pretende manter numa tabela em vez de utilizar DELETE.  Se um CTAS demorar o mesmo tempo, é uma operação muito mais segura, uma vez que tem registo de transações mínimos e pode ser cancelada rapidamente, se necessário.
 
-Consulte também [as transações de compreensão](develop-transactions.md), [Otimização de transações,](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) [divisão de tabelas,](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) [TABELA TRUNCATE,](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) [TABELA ALTER,](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)e [Criar tabela como selecionado (CTAS)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Consulte também [as transações de compreensão](develop-transactions.md), [Otimização de transações,](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) [divisão de tabelas,](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) [TABELA TRUNCATE,](/sql/t-sql/statements/truncate-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) [TABELA ALTER,](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)e [Criar tabela como selecionado (CTAS)](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### <a name="use-the-smallest-possible-column-size"></a>Utilizar o tamanho mais pequeno possível da coluna
 
-Quando definir a DDL, utilize o tipo de dados mais pequeno que suporte os dados, de forma a melhorar o desempenho das consultas.  Isto é especialmente importante para colunas CHAR e VARCHAR.  
+Ao definir o seu DDL, a utilização do menor tipo de dados que irá suportar os seus dados melhorará o desempenho da consulta. Esta ação é especialmente importante para as colunas CHAR e VARCHAR.  
 
-Se o maior valor numa coluna for de 25 carateres, defina a coluna como VARCHAR(25).  Evite definir todas as colunas de carateres com um comprimento predefinido grande.  Além disso, defina colunas como VARCHAR quando é tudo o que é necessário, em vez de utilizar NVARCHAR.
+Se o maior valor numa coluna for de 25 carateres, defina a coluna como VARCHAR(25).  Evite definir todas as colunas de carateres com um comprimento predefinido grande.  Além disso, defina colunas como VARCHAR quando é tudo o que é necessário em vez de usar NVARCHAR.
 
-Consulte também [a visão geral da tabela,](develop-tables-overview.md) [os tipos de dados de tabela](develop-tables-data-types.md)e a [CRIAÇÃO DE TABELA](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Consulte também [a visão geral da tabela,](develop-tables-overview.md) [os tipos de dados de tabela](develop-tables-data-types.md)e a [CRIAÇÃO DE TABELA](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ### <a name="optimize-clustered-columnstore-tables"></a>Otimizar tabelas columnstore em cluster
 
@@ -99,7 +99,7 @@ Os índices de loja de colunas agrupados são uma das formas mais eficientes de 
 
 Para obter o melhor desempenho das consultas em tabelas columnstore, ter uma boa qualidade de segmento é importante.  Quando as linhas são escritas em tabelas columnstore sob pressão de memória, a qualidade de segmento de columnstore poderá sofrer consequências.  
 
-A qualidade de segmento pode ser medida pelo número de linhas num Grupo de Linhas comprimido.  Consulte as [causas da má qualidade do índice de colunas](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#causes-of-poor-columnstore-index-quality) e artigo de [índices de tabela](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para instruções passo a passo sobre a deteção e melhoria da qualidade do segmento para tabelas de lojas de colunas agrupadas.  
+A qualidade de segmento pode ser medida pelo número de linhas num Grupo de Linhas comprimido.  Consulte as [causas da má qualidade do índice de colunas](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#causes-of-poor-columnstore-index-quality) e artigo de [índices](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) de tabela para instruções passo a passo sobre a deteção e melhoria da qualidade do segmento para tabelas de colunas agrupadas.  
 
 Como os segmentos de lojas de colunas de alta qualidade são importantes, é uma boa ideia usar iDs de utilizadores que estão na classe de recursos médios ou grandes para carregar dados. A utilização de unidades de [armazém de dados](resource-consumption-models.md) mais baixas significa que pretende atribuir uma classe de recursos maior ao utilizador de carregamento.
 
@@ -108,19 +108,19 @@ Uma vez que as tabelas de lojas de colunas geralmente não empurram os dados par
 > [!TIP]
 > Para tabelas com menos de 60 milhões de linhas, ter um índice de loja de colunas pode não ser a solução ideal.  
 
-Além disso, se dividir os dados, deverá ter em consideração que cada partição tem de ter 1 milhão de linhas para beneficiar de um índice columnstore em cluster.  Se uma mesa tiver 100 divisórias, terá de ter pelo menos 6 mil milhões de linhas para beneficiar de uma loja de colunas agrupadas (60 distribuições *100 divisórias* 1 milhão de linhas).  
+Além disso, se dividir os seus dados, então você vai considerar que cada partição precisa ter 1 milhão de linhas para beneficiar de um índice de colunas agrupados.  Se uma mesa tiver 100 divisórias, terá de ter pelo menos 6 mil milhões de linhas para beneficiar de uma loja de colunas agrupadas (60 distribuições *100 divisórias* 1 milhão de linhas).  
 
 Se a sua mesa não tiver 6 mil milhões de linhas, reduza o número de divisórias ou considere usar uma mesa de amontoados.  Também pode valer a pena experimentar para ver se um melhor desempenho pode ser obtido usando uma tabela de amontoados com índices secundários em vez de uma tabela de lojas de colunas.
 
 Ao consultar uma tabela columnstore, as consultas serão executadas mais rapidamente se selecionar apenas as colunas de que precisa.  
 
-Consulte também [índices de tabela](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [guia de índices de colunas,](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) [índices de loja de colunas de reconstrução](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#rebuilding-indexes-to-improve-segment-quality).
+Consulte também [índices de tabela](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json), [guia de índices de colunas,](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) [índices de loja de colunas de reconstrução](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#rebuilding-indexes-to-improve-segment-quality).
 
 ## <a name="sql-on-demand-development-best-practices"></a>ASL a pedido de desenvolvimento das melhores práticas
 
 ### <a name="general-considerations"></a>Considerações gerais
 
-O SQL on demand permite-lhe consultar ficheiros nas suas contas de armazenamento Azure. Não tem capacidades de armazenamento ou ingestão locais, o que significa que todos os ficheiros que os alvos de consulta são externos ao SQL on-demand. Portanto, tudo o que está relacionado com a leitura de ficheiros de armazenamento pode ter um impacto no desempenho da consulta.
+O SQL on demand permite-lhe consultar ficheiros nas suas contas de armazenamento Azure. Não tem capacidades de armazenamento ou ingestão locais, o que significa que todos os ficheiros que os alvos de consulta são externos ao SQL on-demand. Então, tudo relacionado com a leitura de ficheiros de armazenamento pode ter um impacto no desempenho da consulta.
 
 ### <a name="colocate-azure-storage-account-and-sql-on-demand"></a>Conta de Armazenamento ColocaTe Azure e SQL a pedido
 
@@ -148,7 +148,7 @@ Se possível, pode preparar ficheiros para um melhor desempenho:
 
 ### <a name="use-fileinfo-and-filepath-functions-to-target-specific-partitions"></a>Use funções de fileinfo e filepath para direcionar divisórias específicas
 
-Os dados são muitas vezes organizados em divisórias. Pode instruir o SQL a pedido para consultar determinadas pastas e ficheiros. Isto reduzirá o número de ficheiros e a quantidade de dados que a consulta precisa para ler e processar. 
+Os dados são muitas vezes organizados em divisórias. Pode instruir o SQL a pedido para consultar determinadas pastas e ficheiros. Ao fazê-lo, reduzirá o número de ficheiros e a quantidade de dados que a consulta necessita para ler e processar. 
 
 Consequentemente, conseguirá um melhor desempenho. Para obter mais informações, verifique funções de [nome de ficheiros](query-data-storage.md#filename-function) e [ficheiros](query-data-storage.md#filepath-function) e exemplos sobre como [consultar ficheiros específicos](query-specific-files.md).
 
@@ -162,11 +162,11 @@ Ao [consultar as tabelas externas do Azure Synapse](develop-storage-files-spark-
 
 Pode utilizar o CETAS para armazenar frequentemente parte das consultas usadas, como tabelas de referência juntas, a um novo conjunto de ficheiros. Mais tarde, pode juntar-se a esta única tabela externa em vez de repetir junções comuns em múltiplas consultas. 
 
-À medida que o CETAS gera ficheiros Parquet, as estatísticas serão criadas automaticamente quando a primeira consulta atingir esta tabela externa e ganhará um melhor desempenho.
+À medida que o CETAS gera ficheiros Parquet, as estatísticas serão criadas automaticamente quando a primeira consulta atingir esta tabela externa e ganhará um desempenho melhorado.
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Passos seguintes
 
-Se precisar de informações não fornecidas neste artigo, utilize a "Procura de docs" no lado esquerdo desta página para pesquisar todos os documentos da piscina SQL.  O [Microsoft Q&Uma página de perguntas para piscina SQL](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) é um local para colocar questões a outros utilizadores e ao Grupo de Produtos de piscina SQL.  
+Se precisar de informações não fornecidas neste artigo, utilize a função **De procurar por doc** no lado esquerdo desta página para pesquisar todos os documentos da piscina SQL.  O [Microsoft Q&Uma página de perguntas para piscina SQL](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html) é um local para colocar questões a outros utilizadores e ao Grupo de Produtos de piscina SQL.  
 
 Monitorizamos ativamente este fórum para nos certificarmos de que as suas perguntas são respondidas por outro utilizador ou um de nós.  Se preferir fazer as suas perguntas sobre Stack Overflow, também temos um [Azure SQL pool Stack Overflow Forum.](https://stackoverflow.com/questions/tagged/azure-sqldw)
  

@@ -8,13 +8,13 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.custom: seo-javascript-september2019, devx-track-javascript
-ms.openlocfilehash: 18e184ed126aab8d03867db7b6b7d28c88644366
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.custom: seo-javascript-september2019, devx-track-js
+ms.openlocfilehash: 77c35ae4b9e845cd3c0f638407c0d71c36fcf9f7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89288819"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289689"
 ---
 # <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Como utilizar o armazenamento da Azure Queue a partir de Node.js
 
@@ -343,7 +343,7 @@ Para limpar todas as mensagens de uma fila sem a apagar, chame **as mensagens cl
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu o básico do armazenamento de filas, siga estes links para aprender sobre tarefas de armazenamento mais complexas.
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dcbaaeb2868a421a41227e1b5d9fdd84a96248eb
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6c8e6fee2b9f01b8d7ab48990760aa4c4d6e11b2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852366"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361505"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Utilizar a biblioteca de clientes de Python do Azure Machine Learning para aceder a conjuntos de dados com Python
 A pré-visualização da biblioteca de clientes Microsoft Azure Machine Learning Python pode permitir o acesso seguro aos seus conjuntos de dados de Aprendizagem de Máquinas Azure a partir de um ambiente python local e permite a criação e gestão de conjuntos de dados num espaço de trabalho.
@@ -71,7 +71,7 @@ Os snippets de código fornecidos pelo Azure Machine Learning Studio (clássico)
 
 Por razões de segurança, a funcionalidade de corte de código apenas está disponível para utilizadores que tenham a sua função definida como **Proprietário** para o espaço de trabalho. O seu papel é apresentado no Azure Machine Learning Studio (clássico) na página **USERS** em **Definições**.
 
-![Segurança][security]
+![O Screenshot mostra as definições na página utilizadores do Azure Machine Learning Studio.][security]
 
 Se a sua função não estiver definida como **Proprietário,** pode solicitar para ser reenvidada como proprietária ou pedir ao proprietário do espaço de trabalho para lhe fornecer o corte de código.
 
@@ -92,7 +92,7 @@ As fichas de autorização são geridas na página **TOKENS DE AUTORIZAÇÃO** e
 2. Selecione o conjunto de dados a que pretende aceder. Pode selecionar qualquer um dos conjuntos de dados da lista **MY DATASETS** ou da lista **SAMPLES.**
 3. A partir da barra de ferramentas inferior, clique em **Gerar Código de Acesso a Dados.** Se os dados estiverem num formato incompatível com a biblioteca do cliente Python, este botão é desativado.
    
-    ![Conjuntos de dados][datasets]
+    ![A screenshot mostra conjuntos de dados com o CÓDIGO DE ACESSO A DADOS GERAR.][datasets]
 4. Selecione o corte de código da janela que aparece e copie-o para a sua área de transferência.
    
     ![Gerar botão de código de acesso a dados][dataset-access-code]
@@ -348,7 +348,7 @@ print(ws.datasets['existing dataset'].name)    # IndexError
 
 Os `data_type_id` `name` parâmetros e `description` parâmetros são opcionais e padrão ao seu valor anterior. O `dataframe` parâmetro é sempre necessário.
 
-Se os seus dados já estiverem serializados, utilize `update_from_raw_data` em vez de `update_from_dataframe` . Se `raw_data` passares em vez `dataframe` de, funciona da mesma forma.
+Se os seus dados já estiverem serializados, utilize `update_from_raw_data` em vez de `update_from_dataframe` . Se `raw_data` passares em vez  `dataframe` de, funciona da mesma forma.
 
 <!-- Images -->
 [security]:./media/python-data-access/security.png

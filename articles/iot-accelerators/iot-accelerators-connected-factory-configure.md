@@ -8,14 +8,17 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e015c6761b920ef37af2bbfd67ced5fc3218d532
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73820122"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290692"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configure o acelerador de solução de fábrica conectado
+
+> [!IMPORTANT]
+> Enquanto atualizamos este artigo, consulte [a Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
 O acelerador de soluções Connected Factory mostra um dashboard simulado para uma empresa fictícia Contoso. Esta empresa tem fábricas em inúmeras localizações globais a nível global.
 
@@ -109,13 +112,13 @@ Os `<factory_configuration>` `<production_line_configuration>` itens e itens tê
 
   Identifica exclusivamente o nó de topologia.
 
-`<factory_configuration>`tem uma propriedade:
+`<factory_configuration>` tem uma propriedade:
 
 * **Localização** `<location_definition>` (tipo)
 
   Especifica onde se encontra a fábrica.
 
-`<station_configuration>`possui propriedades:
+`<station_configuration>` possui propriedades:
 
 * **OpcUri** (tipo de cadeia)
 
@@ -124,7 +127,7 @@ Os `<factory_configuration>` `<production_line_configuration>` itens e itens tê
 
 * **OpcNodes,** que são uma matriz de nós OPC UA `<opc_node_description>` (tipo)
 
-`<location_definition>`possui propriedades:
+`<location_definition>` possui propriedades:
 
 * **Cidade** (tipo de cadeia)
 
@@ -142,7 +145,7 @@ Os `<factory_configuration>` `<production_line_configuration>` itens e itens tê
 
   Longitude da localização
 
-`<performance_definition>`possui propriedades:
+`<performance_definition>` possui propriedades:
 
 * **Mínimo** (tipo duplo)
 
@@ -188,7 +191,7 @@ Os `<factory_configuration>` `<production_line_configuration>` itens e itens tê
   * **CallOpcMethod**: as informações e parâmetros do nó do método OPC UA para ligar no formato "NodeId of parent node, NodeId of method to call, URI of the OPC UA server."
   * **OpenWebPage**: o URL para mostrar na janela do navegador.
 
-`<opc_node_description>`contém informações sobre os nóndes UA OPC numa estação (servidor OPC UA). Os nós que não representam os nós UA OPC existentes, mas que são usados como armazenamento na lógica de computação da Connected Factory também são válidos. Possui as seguintes propriedades:
+`<opc_node_description>` contém informações sobre os nóndes UA OPC numa estação (servidor OPC UA). Os nós que não representam os nós UA OPC existentes, mas que são usados como armazenamento na lógica de computação da Connected Factory também são válidos. Possui as seguintes propriedades:
 
 * **NodeId** (tipo de cadeia)
 
@@ -262,9 +265,9 @@ Todas as propriedades utilizadas no ficheiro de configuração podem ser agrupad
 
 ### <a name="visual-appearance"></a>Aparência visual
 
-As propriedades desta categoria definem a aparência visual do painel de instrumentos de fábrica conectada. Os exemplos incluem:
+As propriedades desta categoria definem a aparência visual do painel de instrumentos de fábrica conectada. Alguns exemplos:
 
-* Name
+* Nome
 * Descrição
 * Imagem
 * Localização
@@ -338,6 +341,6 @@ Uma característica do valor do nó de números **DefactufactureredProducts** é
 
 O **OpCode** na configuração configura a lógica de cálculo para calcular o resultado da diferença de valor máximo e mínimo. Estes resultados são então acumulados de baixo até ao nível raiz (global) e mostrados no painel de instrumentos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Um próximo passo sugerido é aprender a personalizar a [solução de Fábrica Conectada.](iot-accelerators-connected-factory-customize.md)

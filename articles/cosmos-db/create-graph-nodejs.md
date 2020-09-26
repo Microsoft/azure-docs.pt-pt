@@ -8,13 +8,13 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/05/2019
 ms.author: lbosq
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f1e619468ecbcd533c8cda725cb316d1e2a0e256
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 5ad102bd241e9abd85d40e736d131875b0743f63
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420435"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328705"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Quickstart: Construir uma aplicação Node.js utilizando a conta API API da Azure Cosmos DB Gremlin
 
@@ -72,7 +72,7 @@ Este passo é opcional. Se estiver interessado em aprender de que forma os recur
 
 Os seguintes cortes são todos retirados do ficheiro *app.js.*
 
-Esta aplicação de consola utiliza o controlador [gremlin Node.jsde](https://www.npmjs.com/package/gremlin) código aberto.
+Esta aplicação de consola utiliza o controlador [gremlin Node.jsde ](https://www.npmjs.com/package/gremlin) código aberto.
 
 * O cliente Gremlin é criado.
 
@@ -165,7 +165,7 @@ Esta aplicação de consola utiliza o controlador [gremlin Node.jsde](https://ww
 
 4. Insira o nome da base de dados e o nome de gráfico (contentor) para o valor de config.database e config.collection. 
 
-Aqui está um exemplo de como deve ser o seu ficheiro *deconfig.js* concluído:
+Aqui está um exemplo de como deve ser o seu ficheiro * deconfig.js* concluído:
 
 ```javascript
 var config = {}
