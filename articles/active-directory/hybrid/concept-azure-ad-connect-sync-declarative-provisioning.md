@@ -16,24 +16,24 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 543c1a6706f794b81c4f93fc6fff3a61ed3fb9e3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59dc94e37dfa1ef8b0b079bf5d78d0504e0cb8c7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60246362"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313625"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect sync: Understanding Declarative Provisioning
 Este tópico explica o modelo de configuração no Azure AD Connect. O modelo chama-se Provisionamento Declarativo e permite-lhe fazer uma alteração de configuração com facilidade. Muitas coisas descritas neste tópico são avançadas e não são necessárias para a maioria dos cenários do cliente.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 O provisionamento declarativo é processar objetos vindos de um diretório ligado à fonte e determina como o objeto e os atributos devem ser transformados de uma fonte para um alvo. Um objeto é processado num gasoduto de sincronização e o gasoduto é o mesmo para regras de entrada e saída. Uma regra de entrada é de um espaço de conector para o metaverso e uma regra de saída é do metaverso para um espaço de conector.
 
-![Pipeline de sincronização](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
+![Diagrama que mostra um exemplo de pipeline de sincronização.](./media/concept-azure-ad-connect-sync-declarative-provisioning/sync1.png)  
 
 O oleoduto tem vários módulos diferentes. Cada um é responsável por um conceito de sincronização de objetos.
 
-![Pipeline de sincronização](./media/concept-azure-ad-connect-sync-declarative-provisioning/pipeline.png)  
+![Diagrama que mostra os módulos na conduta.](./media/concept-azure-ad-connect-sync-declarative-provisioning/pipeline.png)  
 
 * Fonte, O objeto de origem
 * [Âmbito](#scope), Encontra todas as regras de sincronização que estão no âmbito
@@ -44,7 +44,7 @@ O oleoduto tem vários módulos diferentes. Cada um é responsável por um conce
 
 ## <a name="scope"></a>Âmbito
 O módulo de âmbito está a avaliar um objeto e determina as regras que estão no âmbito e devem ser incluídas no processamento. Dependendo dos valores de atributos no objeto, diferentes regras de sincronização são avaliadas para estarem no âmbito. Por exemplo, um utilizador desativado sem caixa de correio Exchange tem regras diferentes das de um utilizador ativado com uma caixa de correio.  
-![Âmbito](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
+![Diagrama que mostra o módulo de âmbito para um objeto.](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
 
 O âmbito é definido como grupos e cláusulas. As cláusulas estão dentro de um grupo. Um E lógico é usado entre todas as cláusulas de um grupo. Por exemplo, (departamento =IT AND country = Dinamarca). Um OR lógico é usado entre grupos.
 
@@ -78,7 +78,7 @@ As junções são definidas como um ou mais grupos. Dentro de um grupo, tens cl�
 As juntas nesta imagem são processadas de cima para baixo. Primeiro, o pipeline de sincronização vê se há uma correspondência no STAFF dos empregados. Caso contrário, a segunda regra verifica se o nome da conta pode ser usado para juntar os objetos. Se isso também não for compatível, a terceira e última regra é uma correspondência mais confusa usando o nome do utilizador.
 
 Se todas as regras de junção tiverem sido avaliadas e não houver exatamente uma correspondência, o **Tipo de Link** na página **Descrição** é utilizado. Se esta opção for definida como **Provisão,** então é criado um novo objeto no alvo.  
-![Provisão ou aderião](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
+![Screenshot que mostra o menu suspenso "Link Type" aberto.](./media/concept-azure-ad-connect-sync-declarative-provisioning/join3.png)  
 
 Um objeto deve ter apenas uma regra de sincronização única com regras de junção no âmbito. Se houver várias regras de sincronização onde a junção é definida, ocorre um erro. A precedência não é usada para resolver conflitos. Um objeto deve ter uma regra de união no âmbito para que os atributos fluam com a mesma direção de entrada/saída. Se precisar de fluir atributos tanto de entrada como de saída para o mesmo objeto, deve ter uma regra de entrada e sincronização de saída com união.
 
@@ -101,7 +101,7 @@ A Caixa de verificação **Aplicar uma vez** que o atributo só deve ser definid
 ### <a name="merging-attribute-values"></a>Valores de atributos de fusão
 Nos fluxos de atributos existe uma definição para determinar se os atributos multi-valor devem ser fundidos de vários Conectores diferentes. O valor predefinido é **Update**, o que indica que a regra de sincronização com maior precedência deve ganhar.
 
-![Tipos de fusão](./media/concept-azure-ad-connect-sync-declarative-provisioning/mergetype.png)  
+![Screenshot que mostra a secção "Adicionar transformações" com o menu "Merge Types" aberto.](./media/concept-azure-ad-connect-sync-declarative-provisioning/mergetype.png)  
 
 Há também **Merge** **e MergeCaseInsensitive**. Estas opções permitem fundir valores de diferentes fontes. Por exemplo, pode ser usado para fundir o membro ou proxyAddresses atributo de várias florestas diferentes. Quando utilizar esta opção, todas as regras de sincronização no âmbito de um objeto devem utilizar o mesmo tipo de fusão. Não é possível definir **Atualização** a partir de um Conector e **fundir-se** a partir de outro. Se tentar, receberá um erro.
 
@@ -146,7 +146,7 @@ A precedência pode ser definida entre conectores. Isto permite que os Conectore
 
 ### <a name="multiple-objects-from-the-same-connector-space"></a>Vários objetos do mesmo espaço de conector
 Se tiver vários objetos no mesmo espaço de conector ligados ao mesmo objeto metaverso, a precedência deve ser ajustada. Se vários objetos estiverem no âmbito da mesma regra de sincronização, então o motor de sincronização não é capaz de determinar a precedência. É ambíguo qual objeto de origem deve contribuir com o valor para o metaverso. Esta configuração é reportada como ambígua mesmo que os atributos na fonte tenham o mesmo valor.  
-![Vários objetos unidos ao mesmo objeto mv](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png)  
+![Diagrama que mostra múltiplos objetos unidos ao mesmo objeto mv com uma sobreposição transparente de X vermelho. ](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple1.png)  
 
 Para este cenário, é necessário alterar o âmbito das regras de sincronização para que os objetos de origem tenham diferentes regras de sincronização no âmbito. Isso permite-lhe definir diferentes precedências.  
 ![Vários objetos unidos ao mesmo objeto mv](./media/concept-azure-ad-connect-sync-declarative-provisioning/multiple2.png)  

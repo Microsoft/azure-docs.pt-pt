@@ -11,12 +11,12 @@ ms.date: 09/04/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43b69deb242fd1ad80d9cdc4667070d2dbfefcd5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: da4e1cfc68dff4ad2bc0552c6d35fe1230779306
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255613"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312963"
 ---
 # <a name="what-is-the-azure-ad-connect-admin-agent"></a>O que é o Agente de Administração do Azure AD Connect? 
 O Azure AD Connect Administration Agent é um novo componente do Azure Ative Directory Connect que pode ser instalado num servidor Azure Ative Directory Connect. É utilizado para recolher dados específicos do seu ambiente ative directory que ajudam um engenheiro de suporte da Microsoft a resolver problemas quando abre um caso de suporte. 
@@ -46,7 +46,7 @@ Quando solicitado, introduza as suas credenciais de administração global Azure
 
 Depois de instalado o agente, verá os seguintes dois novos programas na lista "Adicionar/Remover Programas" no Painel de Controlo do seu servidor: 
 
-![agente administrador](media/whatis-aadc-admin-agent/adminagent1.png)
+![Screenshot que mostra a lista de Programas Add/Remove que inclui os novos programas adicionados.](media/whatis-aadc-admin-agent/adminagent1.png)
 
 ## <a name="what-data-in-my-sync-service-is-shown-to-the-microsoft-service-engineer"></a>Que dados no meu serviço Sync são mostrados ao engenheiro de serviços da Microsoft? 
 Quando abre um caso de suporte, o Microsoft Support Engineer pode ver, para um determinado utilizador, os dados relevantes no Ative Directory, o espaço de conector ative Directory no servidor Azure Ative Directory Connect, o espaço de conector Azure Ative Directory no servidor Azure Ative Directory Connect e o Metaverse no servidor Azure Ative Directory Connect. 
@@ -69,7 +69,7 @@ Uma vez instalado o agente, se não pretender que o engenheiro de serviço da Mi
 3. Guarde o ficheiro config.
 4. Reinicie o serviço de agente de administração Ad Connect Azure, como mostrado abaixo
 
-![agente administrador](media/whatis-aadc-admin-agent/adminagent2.png)
+![Screenshot que mostra onde reiniciar o serviço de agente de administrador ad Ad Azure.](media/whatis-aadc-admin-agent/adminagent2.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

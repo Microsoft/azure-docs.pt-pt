@@ -3,13 +3,13 @@ title: Ative Learning sugeriu perguntas - QnA Maker
 description: Melhore a qualidade da sua base de conhecimento com aprendizagem ativa. Reveja, aceite ou rejeite, adicione sem remover ou alterar as questões existentes.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 9bed80ac8c80fb4cecf06b979e0403e34645db01
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: bd90ea3cd73fcd6a545d925e3897c6053184d98c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919136"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321021"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar aprendizagem ativa sugerida questões na base de conhecimento
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: ebea5797c378197862628b46ed17ea077e3e5fa8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e75369a82ccedb50e542dd43db9639ea4cba5c6d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554059"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304696"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Tutorial: Integração do Diretório Ativo Azure com redes Palo Alto - Abertura
 
@@ -26,9 +26,6 @@ Integrar as Redes Palo Alto - Abertura com Azure AD proporciona-lhe os seguintes
 * Você pode controlar em Azure AD que tem acesso a Palo Alto Networks - Abertura.
 * Pode permitir que os seus utilizadores sejam automaticamente inscritos nas Redes Palo Alto - Abertura (Sign-on Único) com as suas contas AD Azure.
 * Pode gerir as suas contas numa localização central - o portal Azure.
-
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -47,59 +44,40 @@ Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um
 
 Para configurar a integração das Redes Palo Alto - Abertura em AD Azure, é necessário adicionar a Palo Alto Networks - Abertura da galeria à sua lista de aplicações geridas pelo SaaS.
 
-**Para adicionar Palo Alto Networks - Abertura da galeria, execute os seguintes passos:**
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. Na secção Adicionar a partir da secção **de galeria,** **digite Palo Alto Networks - Abertura** na caixa de pesquisa.
+1. Selecione **Palo Alto Networks - Abertura** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar Azure AD SSO
 
-    ![O botão Azure Ative Directory](common/select-azuread.png)
-
-2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
-
-    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
-
-3. Para adicionar nova aplicação, clique em Novo botão de **aplicação** no topo do diálogo.
-
-    ![O novo botão de aplicação](common/add-new-app.png)
-
-4. Na caixa de pesquisa, **digite Palo Alto Networks - Abertura**, selecione Palo Alto Networks - **Abertura** do painel de resultados e clique em **Adicionar** botão para adicionar a aplicação.
-
-     ![Palo Alto Networks - Abertura na lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
-
-Nesta secção, configura e testa o Azure AD com a Palo Alto Networks - Abertura com base num utilizador de teste chamado **Britta Simon**.
+Nesta secção, configura e testa o Azure AD com a Palo Alto Networks - Abertura com base num utilizador de teste chamado **B.Simon**.
 Para um único sinal de saúde a funcionar, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Palo Alto Networks - A abertura.
 
-Para configurar e testar o Azure AD com a Palo Alto Networks - Abertura, é necessário completar os seguintes blocos de construção:
+Para configurar e testar a Azure AD com a Palo Alto Networks - Abertura, execute os seguintes passos:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure as redes Palo Alto - Abertura Única Sign-On](#configure-palo-alto-networks---aperture-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
-3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
-4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-5. **[Criar Redes Palo Alto - Utilizador de teste de abertura](#create-palo-alto-networks---aperture-test-user)** - para ter uma contrapartida de Britta Simon em Palo Alto Networks - Abertura que está ligada à representação AD AZure do utilizador.
-6. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    * Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
+    * **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
+2. **[Configure as Redes Palo Alto - Abertura SSO](#configure-palo-alto-networks---aperture-sso)** - para configurar as definições de Sign-On únicas no lado da aplicação.
+    * **[Criar Redes Palo Alto - Utilizador de teste de abertura](#create-palo-alto-networks---aperture-test-user)** - para ter uma contrapartida de Britta Simon em Palo Alto Networks - Abertura que está ligada à representação AD AZure do utilizador.
+3. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
+Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-Para configurar o Azure AD single sign-on com Palo Alto Networks - Abertura, execute os seguintes passos:
+1. No portal Azure, na página de integração da aplicação **Salesforce,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
+1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
-1. No [portal Azure](https://portal.azure.com/), na página **palo Alto Networks - Aperture** application integration, selecione Single **sign-on**.
-
-    ![Configurar link único de inscrição](common/select-sso.png)
-
-2. No diálogo do **método de inscrição única,** selecione o modo **SAML/WS-Fed** para ativar um único sinal de súplica.
-
-    ![Único modo de seleção de s-on](common/select-saml-option.png)
-
-3. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
-
-    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
+   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 4. Na secção **De Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** execute os seguintes passos:
 
-    ![Palo Alto Networks - Domínio de Abertura e URLs informações únicas de súmis](common/idp-intiated.png)
+    ![Palo Alto Networks - Domínio de Abertura e URLs informação única de súps](common/idp-intiated.png)
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/metadata`
 
@@ -107,7 +85,7 @@ Para configurar o Azure AD single sign-on com Palo Alto Networks - Abertura, exe
 
 5. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    ![Palo Alto Networks - Domínio de Abertura e URLs informações únicas de súmis](common/metadata-upload-additional-signon.png)
+    ![Palo Alto Networks - Domínio de Abertura e URLs informações únicas de súmis SP](common/metadata-upload-additional-signon.png)
 
     Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/sign_in`
 
@@ -122,13 +100,31 @@ Para configurar o Azure AD single sign-on com Palo Alto Networks - Abertura, exe
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de Inicio de Sessão
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
-    b. Identificador de Azure Ad
+Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-    c. Logout URL
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
+   1. Clique em **Create** (Criar).
 
-### <a name="configure-palo-alto-networks---aperture-single-sign-on"></a>Configure redes Palo Alto - Abertura única sign-on
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
+
+Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permitindo o acesso à Palo Alto Networks - Abertura.
+
+1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de candidaturas, selecione **Palo Alto Networks - Abertura**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
+1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
+1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
+
+## <a name="configure-palo-alto-networks---aperture-sso"></a>Configure redes Palo Alto - Abertura SSO
 
 1. Numa janela diferente do navegador web, faça login na Palo Alto Networks - Abertura como Administrador.
 
@@ -154,74 +150,30 @@ Para configurar o Azure AD single sign-on com Palo Alto Networks - Abertura, exe
 
     e. Reveja as informações do IdP na secção **Aperture Info** e descarregue o certificado do campo **Aperture Key.**
 
-    f. Clique em **Guardar**.
+    f. Clique em **Save** (Guardar).
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
-
-O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
-
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
-
-    ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
-
-2. Selecione **Novo utilizador** na parte superior do ecrã.
-
-    ![Novo botão de utilizador](common/new-user.png)
-
-3. Nas propriedades do Utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo do utilizador](common/user-properties.png)
-
-    a. No campo **Nome** entra **BrittaSimon**.
-  
-    b. No tipo de campo **nome de utilizador****brittasimon@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
-
-Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, concedendo acesso à Palo Alto Networks - Abertura.
-
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações,** em seguida, selecione **Palo Alto Networks - Abertura**.
-
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
-
-2. Na lista de candidaturas, selecione **Palo Alto Networks - Abertura**.
-
-    ![As Redes Palo Alto - Ligação de abertura na lista de Aplicações](common/all-applications.png)
-
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
-
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
-4. Clique no botão **Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O painel de atribuição de adição](common/add-assign-user.png)
-
-5. No diálogo **de Utilizadores e grupos** selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-
-6. Se estiver à espera de qualquer valor de função na afirmação SAML, então no diálogo **'Fun's Select** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
-
-7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
 
 ### <a name="create-palo-alto-networks---aperture-test-user"></a>Criar Redes Palo Alto - Utilizador de teste de abertura
 
 Nesta secção, cria-se um utilizador chamado Britta Simon em Palo Alto Networks - Abertura. Trabalhar com [a Palo Alto Networks - Equipa](https://live.paloaltonetworks.com/t5/custom/page/page-id/Support) de suporte ao Cliente de Abertura para adicionar os utilizadores na plataforma Palo Alto Networks - Aperture. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Quando clicar nas Redes Palo Alto - Azulejo de abertura no Painel de Acesso, deverá ser automaticamente inscrito nas Redes Palo Alto - Abertura para a qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+#### <a name="sp-initiated"></a>SP iniciado:
 
-## <a name="additional-resources"></a>Recursos Adicionais
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para Palo Alto Networks - Aperture Sign on URL onde pode iniciar o fluxo de login.  
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* Vá diretamente à Palo Alto Networks - URL de inscrição de abertura e inicie o fluxo de login a partir daí.
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+#### <a name="idp-initiated"></a>IDP iniciado:
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito nas Redes Palo Alto - Abertura para a qual configura o SSO 
 
+Também pode utilizar o Microsoft Access Panel para testar a aplicação em qualquer modo. Quando clicar nas Redes Palo Alto - Azulejo de abertura no Painel de Acesso, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito nas Redes Palo Alto - Abertura para a qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Uma vez configurar a Palo Alto Networks - Abertura, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

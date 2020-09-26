@@ -5,16 +5,17 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/03/2020
 ms.custom: devx-track-java
 ms.author: diberry
-ms.openlocfilehash: a18cee5d6bfa13d377aa6900b0ea4a35c9edf4e8
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7734a24904a2fa33aaf6eacaf631c4b7830f9abf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87375327"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303936"
 ---
 [Documentação de referência](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c45)  |  [Amostra](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/LUIS/java-model-with-rest/Model.java)
 
@@ -53,13 +54,13 @@ ms.locfileid: "87375327"
 
 1. Com um pedido de comando no mesmo diretório que criou o `Model.java` ficheiro, insira o seguinte comando para compilar o ficheiro Java:
 
-    * Se estiver a utilizar o Windows, utilize este comando:`javac -cp ";lib/*" Model.java`
-    * Se estiver a utilizar o macOS ou o Linux, utilize este comando:`javac -cp ":lib/*" Model.java`
+    * Se estiver a utilizar o Windows, utilize este comando: `javac -cp ";lib/*" Model.java`
+    * Se estiver a utilizar o macOS ou o Linux, utilize este comando: `javac -cp ":lib/*" Model.java`
 
 1. Executar a aplicação Java a partir da linha de comando introduzindo o seguinte texto na solicitação de comando:
 
-    * Se estiver a utilizar o Windows, utilize este comando:`java -cp ";lib/*" Model`
-    * Se estiver a utilizar o macOS ou o Linux, utilize este comando:`java -cp ":lib/*" Model`
+    * Se estiver a utilizar o Windows, utilize este comando: `java -cp ";lib/*" Model`
+    * Se estiver a utilizar o macOS ou o Linux, utilize este comando: `java -cp ":lib/*" Model`
 
 1. Reveja a resposta de autoria:
 

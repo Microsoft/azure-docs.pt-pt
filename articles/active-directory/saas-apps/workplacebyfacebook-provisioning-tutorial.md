@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configurar o Workplace pelo Facebook para o fornecimento automático de utilizadores com o Azure Ative Directory Microsoft Docs'
-description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Workplace by Facebook.
+description: Conheça os passos necessários para realizar tanto no Workplace by Facebook como no Azure Ative Directory (Azure AD) para configurar o fornecimento automático de utilizadores.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ae13e062f50e1e8eefeaa886c67c636cf6230c18
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c72ca7cb521c5c7e7ed33e9a0539de0df252ac92
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973871"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321905"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Tutorial: Configurar o Local de Trabalho pelo Facebook para o fornecimento automático de utilizadores
 
@@ -81,11 +81,11 @@ O serviço de aprovisionamento do Azure AD permite-lhe determinar quem vai ser a
 
 3. Selecione o separador **Aprovisionamento**.
 
-    ![Separador Aprovisionamento](common/provisioning.png)
+    ![Screenshot das opções De gestão com a opção Provisioning chamada.](common/provisioning.png)
 
 4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
-    ![Separador Aprovisionamento](common/provisioning-automatic.png)
+    ![Screenshot da lista de retirada do modo de provisionamento com a opção Automática chamada.](common/provisioning-automatic.png)
 
 5. Na secção **Credenciais de Administração,** clique em **Authorize**. Será redirecionado para o Local de Trabalho pela página de autorização do Facebook. Insira o seu Local de Trabalho pelo nome de utilizador do Facebook e clique no botão **Continuar.** Clique em **Testar A Ligação** para garantir que a Azure AD pode ligar-se ao Workplace pelo Facebook. Se a ligação falhar, certifique-se de que o seu Workplace by Facebook conta com permissões de Administração e tente novamente.
 
