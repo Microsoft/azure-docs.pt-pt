@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: bd1362db2e70d4f9f46d80b00805856e08aedac4
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 36c2a6700c1657d1fa3cef4ede64e6076bc93eab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987346"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332955"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-databases-in-azure-sql-database-and-sql-server"></a>Tutorial: Configurar o SQL Data Sync entre bases de dados na Base de Dados Azure SQL e no SQL Server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

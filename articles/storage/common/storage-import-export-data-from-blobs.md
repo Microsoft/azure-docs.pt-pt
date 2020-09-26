@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/12/2020
+ms.date: 09/17/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: c9ce265707743d98f6c93d3facca33e16d1b75ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 75d8b63328f71df2f8de22a95c106c5cc18dc28f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513504"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275218"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilizar o serviço Importar/Exportar do Microsoft Azure para exportar dados do Armazenamento de blobs do Azure
 
@@ -32,7 +32,7 @@ Tens de o fazer:
   - Gere um número de rastreio para o trabalho de exportação.
   - Cada tarefa deve ter um número de controlo separado. Não são apoiados várias tarefas com o mesmo número de controlo.
   - Se não tiver uma conta transportadora, vá a:
-    - [Criar uma conta FedEX,](https://www.fedex.com/en-us/create-account.html)ou
+    - [Criar uma conta FedEx,](https://www.fedex.com/en-us/create-account.html)ou
     - [Criar uma conta DHL](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## <a name="step-1-create-an-export-job"></a>Passo 1: Criar um emprego de exportação
@@ -83,7 +83,7 @@ Execute os seguintes passos para criar uma função de exportação no portal Az
 
 6. Informações **de envio em troca:**
 
-    - Selecione o transportador da lista de retirada. Se quiser utilizar uma transportadora diferente da FedEx/DHL, escolha uma opção existente a partir do dropdown. Contacte a equipa de Operações da Caixa de Dados da Azure `adbops@microsoft.com` com as informações relativas à transportadora que pretende utilizar.
+    - Selecione o transportador da lista de retirada. Se quiser utilizar uma transportadora diferente da FedEx/DHL, escolha uma opção existente a partir do dropdown. Contacte a equipa de Operações da Caixa de Dados da Azure `adbops@microsoft.com`  com as informações relativas à transportadora que pretende utilizar.
     - Introduza um número de conta transportadora válido que criou com essa transportadora. A Microsoft utiliza esta conta para enviar as unidades de volta para si assim que o seu trabalho de exportação estiver concluído.
     - Forneça um nome de contacto completo e válido, telefone, e-mail, endereço de rua, cidade, zip, estado/província e país/região.
 
@@ -119,7 +119,7 @@ Quando o painel de instrumentos informa que o trabalho está concluído, os disc
 1. Depois de receber as unidades com dados exportados, precisa de obter as teclas BitLocker para desbloquear as unidades. Vá para o trabalho de exportação no portal Azure. Clique no **separador Importação/Exportação.**
 2. Selecione e clique no seu trabalho de exportação da lista. Vá à **Encriptação** e copie as chaves.
 
-   ![Ver chaves BitLocker para trabalho de exportação](./media/storage-import-export-service/export-job-bitlocker-keys-02.png)
+   ![Ver chaves BitLocker para trabalho de exportação](./media/storage-import-export-data-from-blobs/export-from-blob7.png)
 
 3. Utilize as teclas BitLocker para desbloquear os discos.
 
@@ -127,15 +127,13 @@ A exportação está completa.
 
 ## <a name="step-5-unlock-the-disks"></a>Passo 5: Desbloquear os discos
 
-Se utilizar a versão 1.4.0.300 da ferramenta WAImportExport, utilize o seguinte comando para desbloquear a unidade:
+Utilize o seguinte comando para desbloquear a unidade:
 
-   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from journal (*.jrn*) file> /driveLetter:<Drive letter>`  
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from Encryption blade in Azure portal> /driveLetter:<Drive letter>`  
 
 Aqui está um exemplo da entrada da amostra.
 
    `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
-
-Se utilizar versões anteriores da ferramenta, utilize o diálogo BitLocker para desbloquear a unidade.
 
 Neste momento, pode apagar o trabalho ou deixá-lo. Os empregos são automaticamente apagados após 90 dias.
 
@@ -155,7 +153,7 @@ Este passo *opcional* ajuda-o a determinar o número de unidades necessárias pa
 
     Os parâmetros são descritos no quadro seguinte:
 
-    |Parâmetro de linha de comando|Descrição|  
+    |Parâmetro de linha de comando|Description|  
     |--------------------------|-----------------|  
     |**/logdir:**|Opcional. O diretório de registos. Os ficheiros de registo verboso são escritos neste diretório. Se não for especificado, o diretório atual é utilizado como diretório de registo.|  
     |**/sn:**|Necessário. O nome do armazém é responsável pelo trabalho de exportação.|  
@@ -209,7 +207,7 @@ Number of drives needed:        3
 
 A tabela a seguir mostra exemplos de caminhos de bolhas válidos:
 
-   | Seletor | Caminho da Bolha | Descrição |
+   | Seletor | Caminho da Bolha | Description |
    | --- | --- | --- |
    | Começa com |/ |Exporta todas as bolhas na conta de armazenamento |
    | Começa com |/$root/ |Exporta todas as bolhas no recipiente raiz |
@@ -219,7 +217,7 @@ A tabela a seguir mostra exemplos de caminhos de bolhas válidos:
    | Igual a |$root/logo.bmp |Exportações blob **logo.bmp** no recipiente raiz |
    | Igual a |vídeos/story.mp4 |Exportações blob **story.mp4** em **vídeos** de contentores |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ver o estado do trabalho e da unidade](storage-import-export-view-drive-status.md)
 - [Rever os requisitos de importação/exportação](storage-import-export-requirements.md)

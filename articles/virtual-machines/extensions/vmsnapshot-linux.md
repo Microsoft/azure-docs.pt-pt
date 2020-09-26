@@ -1,6 +1,6 @@
 ---
 title: Extensão VM Snapshot Linux para backup Azure
-description: Pegue a cópia de segurança consistente da aplicação da máquina virtual a partir do Azure Backup usando a extensão de instantâneo VM
+description: Pegue a cópia de segurança consistente da aplicação da máquina virtual a partir de Azure Backup utilizando a extensão linux de instantâneo VM.
 services: backup, virtual-machines-linux
 documentationcenter: ''
 author: trinadhkotturu
@@ -10,12 +10,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: d0ad54c19749d670f9ab753e1e6d8eb130475ffc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fe50388e2fc21c28ca1f04035cc7c725e4f87ec
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79415120"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275052"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Extensão VM Snapshot Linux para backup Azure
 
@@ -64,7 +64,7 @@ O JSON seguinte mostra o esquema para a extensão do instantâneo VM. A extensã
 
 | Name | Valor / Exemplo | Tipo de Dados |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | data |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | string |
 | commandStartTimeUTCTicks | 6.36458E+17 | string |
 | região | pt-pt | string |
@@ -93,7 +93,7 @@ az backup protection enable-for-vm \
 
 ## <a name="troubleshoot-and-support"></a>Resolução de problemas e apoio
 
-### <a name="troubleshoot"></a>Resolução de problemas
+### <a name="troubleshoot"></a>Resolver Problemas
 
 Os dados sobre o estado das extensões podem ser recuperados a partir do portal Azure e utilizando o CLI Azure. Para ver o estado de implantação das extensões para um determinado VM, executar o seguinte comando utilizando o Azure CLI.
 

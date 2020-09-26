@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Encontrar e exibir rotas para modos de viagem específicos com o Microsoft Azure Maps'
-description: Saiba como usar o Azure Maps para encontrar e exibir rotas para modos de viagem específicos.
+title: 'Tutorial: Encontre várias rotas por modo de viagem Microsoft Azure Maps'
+description: Tutorial sobre como usar o Azure Maps para encontrar rotas para modos de viagem específicos para pontos de interesse. Veja como exibir várias rotas nos mapas.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/10/2020
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: a5b8dba920db0227c400e62ef7ddaf718d27c78a
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 0d57e86088ee472c63b433bde14a0e4316cc20a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085064"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321752"
 ---
 # <a name="tutorial-find-and-display-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutorial: Encontrar e exibir rotas para diferentes modos de viagem usando mapas Azure
 
@@ -160,11 +160,13 @@ Neste tutorial, dois trajetos serão calculados e processados no mapa. A primeir
 
     ```
 
+
     No manipulador de eventos do Controlo do `ready` Mapa, é criada uma fonte de dados para armazenar a rota do início ao fim. [As expressões](data-driven-style-expressions-web-sdk.md) são usadas para recuperar a largura e cor da linha de linha a partir de propriedades na linha de rota. Para garantir que a linha de rota não cubra as etiquetas da estrada, passamos um segundo parâmetro com o valor de `'labels'` .
 
     Em seguida, uma camada de símbolo é criada e anexada à fonte de dados. Esta camada especifica como os pontos de partida e final são renderizados. Foram adicionadas expressões para recuperar a imagem do ícone e a informação do rótulo de texto a partir de propriedades em cada objeto de ponto. Para saber mais sobre expressões, consulte [expressões de estilo orientadas por Dados.](data-driven-style-expressions-web-sdk.md)
 
 2. Definir o ponto de partida como uma empresa fictícia em Seattle chamada Fabrikam, e o ponto final como um escritório da Microsoft.  No manipulador de eventos do controlo do `ready` mapa, apeia o seguinte código.
+
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end point of the route.
@@ -279,7 +281,11 @@ Esta secção mostra-lhe como utilizar o serviço Azure Maps Route para obter di
 
     A rota do caminhão é exibida com uma linha azul grossa. A rota do carro é exibida utilizando uma linha roxa fina. A rota do carro atravessa o Lago Washington através da I-90, passando por túneis sob áreas residenciais. Como os túneis estão perto de áreas residenciais, a carga de resíduos perigosos é restrita. A rota do caminhão, que especifica um tipo de `USHazmatClass2` carga, é direcionada para usar uma estrada diferente.
 
-    Pode obter o código fonte completo para a amostra [aqui.](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html) Uma amostra viva pode ser encontrada [aqui.](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
+Pode obter o código fonte completo para a amostra [aqui.](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html) Uma amostra viva pode ser encontrada [aqui.](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
+
+Também pode [utilizar expressões de estilo orientadas por dados](data-driven-style-expressions-web-sdk.md)
+
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

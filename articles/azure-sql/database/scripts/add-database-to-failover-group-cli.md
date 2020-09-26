@@ -9,14 +9,14 @@ ms.devlang: azurecli
 ms.topic: sample
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 07/16/2019
-ms.openlocfilehash: 8a8aac276617e97c26d7b05e6fe2518e5d575fab
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 48f82dcc1fa9e1f6843df4e89daca6a01c57ed63
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514786"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321455"
 ---
 # <a name="use-the-azure-cli-to-add-a-database-to-a-failover-group"></a>Utilize o CLI Azure para adicionar uma base de dados a um grupo de failover
 
@@ -59,7 +59,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 | [az sql db](/cli/azure/sql/db) | Comandos de base de dados. |
 | [az sql failover grupo](/cli/azure/sql/failover-group) | Comandos de grupo de failover. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 

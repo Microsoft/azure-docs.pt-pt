@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Sugerir consultas de pesquisa com a API E Node.js'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a começar rapidamente a sugerir termos de pesquisa em tempo real com a Bing Autosuggest API.
+description: Aprenda a começar rapidamente a sugerir termos de pesquisa em tempo real com a Bing Autosuggest API e Node.js.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,13 +10,13 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 6a78c2ae4145a65739d5db56a70dca498d7d6a82
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: b61427f39f508413e33ce67f90bfecb8ac202e1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406491"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332649"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Quickstart: Sugerir consultas de pesquisa com a API E Node.js
 
@@ -75,7 +75,7 @@ Siga este quickstart para aprender a fazer chamadas para a Bing Autosuggest API 
     }
     ```
 
- 1. Na mesma função, utilize a biblioteca de pedidos para enviar a sua consulta para a API. `response_handler`é definido na secção seguinte.
+ 1. Na mesma função, utilize a biblioteca de pedidos para enviar a sua consulta para a API. `response_handler` é definido na secção seguinte.
     
     ```javascript
         //...
@@ -187,7 +187,7 @@ A successful response is returned in JSON, as shown in the following example:
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../tutorials/autosuggest.md)

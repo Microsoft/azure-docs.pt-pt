@@ -1,34 +1,34 @@
 ---
-title: Pesquisa rumo ao conteúdo de armazenamento da Azure Blob
+title: Configurar um indexador Blob
 titleSuffix: Azure Cognitive Search
-description: Saiba como indexar documentos no Azure Blob Storage e extrair texto de documentos com Azure Cognitive Search.
+description: Crie um indexador Azure Blob para automatizar a indexação do conteúdo blob para operações completas de pesquisa de texto na Pesquisa Cognitiva Azure.
 manager: nitinme
 author: mgottein
 ms.author: magottei
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/11/2020
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 2ba511d3747ba308ae04ab1bbe3dcb89bca6a8a8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/23/2020
+ms.openlocfilehash: 9fccd731cee5044b36de9a0dba4a408a9a5b9a49
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328297"
+ms.locfileid: "91355283"
 ---
-# <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Como indexar documentos no Azure Blob Storage com Azure Cognitive Search
+# <a name="how-to-configure-a-blob-indexer-in-azure-cognitive-search"></a>Como configurar um indexante blob na Pesquisa Cognitiva Azure
 
-Este artigo mostra como usar a Azure Cognitive Search para indexar documentos (tais como PDFs, documentos do Microsoft Office e vários outros formatos comuns) armazenados no armazenamento de Azure Blob. Primeiro, explica o básico da configuração e configuração de um indexante blob. Depois, oferece uma exploração mais profunda de comportamentos e cenários que é provável que encontre.
+Este artigo mostra-lhe como usar a Azure Cognitive Search para indexar documentos baseados em texto (tais como PDFs, documentos do Microsoft Office e vários outros formatos comuns) armazenados no armazenamento de Azure Blob. Primeiro, explica o básico da configuração e configuração de um indexante blob. Depois, oferece uma exploração mais profunda de comportamentos e cenários que é provável que encontre.
 
 <a name="SupportedFormats"></a>
 
-## <a name="supported-document-formats"></a>Formatos de documento suportados
+## <a name="supported-formats"></a>Formatos suportados
+
 O indexante blob pode extrair texto dos seguintes formatos de documento:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-## <a name="setting-up-blob-indexing"></a>Criação de indexação de bolhas
+## <a name="set-up-blob-indexing"></a>Configurar indexação de bolhas
 Pode configurar um indexador de armazenamento Azure Blob utilizando:
 
 * [Portal do Azure](https://ms.portal.azure.com)
@@ -130,7 +130,7 @@ Para obter mais informações sobre a definição de horários de indexantes, co
 
 <a name="how-azure-search-indexes-blobs"></a>
 
-## <a name="how-azure-cognitive-search-indexes-blobs"></a>Como a Azure Cognitive Search indexa blobs
+## <a name="how-blobs-are-indexed"></a>Como as bolhas são indexadas
 
 Dependendo da configuração do [indexante,](#PartsOfBlobToIndex)o indexante blob só pode indexar metadados de armazenamento (úteis quando se preocupa apenas com os metadados e não precisa de indexar o conteúdo das bolhas), armazenamento e metadados de conteúdo, ou tanto metadados como conteúdo textual. Por padrão, o indexante extrai tanto metadados como conteúdo.
 
@@ -170,7 +170,7 @@ Na Pesquisa Cognitiva Azure, a chave do documento identifica um documento de for
 
 Deve considerar cuidadosamente qual o campo extraído que deve mapear para o campo chave para o seu índice. Os candidatos são:
 
-* **Nome \_ \_ de armazenamento de metadados** - este pode ser um candidato conveniente, mas note que 1) os nomes podem não ser únicos, pois você pode ter bolhas com o mesmo nome em diferentes pastas, e 2) o nome pode conter caracteres que são inválidos em chaves de documento, como traços. Pode lidar com caracteres inválidos utilizando a `base64Encode` [função de mapeamento](search-indexer-field-mappings.md#base64EncodeFunction) de campo - se o fizer, lembre-se de codificar as chaves do documento ao passá-las em chamadas API como o Lookup. (Por exemplo, em .NET pode utilizar o [método UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode?view=netframework-4.8) para o efeito).
+* **Nome \_ \_ de armazenamento de metadados** - este pode ser um candidato conveniente, mas note que 1) os nomes podem não ser únicos, pois você pode ter bolhas com o mesmo nome em diferentes pastas, e 2) o nome pode conter caracteres que são inválidos em chaves de documento, como traços. Pode lidar com caracteres inválidos utilizando a `base64Encode` [função de mapeamento](search-indexer-field-mappings.md#base64EncodeFunction) de campo - se o fizer, lembre-se de codificar as chaves do documento ao passá-las em chamadas API como o Lookup. (Por exemplo, em .NET pode utilizar o [método UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode) para o efeito).
 * **caminho \_ \_ de armazenamento de metadados** - usando o caminho completo garante a singularidade, mas o caminho definitivamente contém caracteres que são `/` [inválidos numa chave de documento](/rest/api/searchservice/naming-rules).  Como acima, tem a opção de codificar as teclas utilizando a `base64Encode` [função](search-indexer-field-mappings.md#base64EncodeFunction).
 * Se nenhuma das opções acima funcionar para si, pode adicionar uma propriedade de metadados personalizado às bolhas. Esta opção requer, no entanto, que o seu processo de upload blob adicione essa propriedade de metadados a todas as bolhas. Uma vez que a chave é uma propriedade necessária, todas as bolhas que não têm essa propriedade deixarão de ser indexadas.
 
@@ -231,10 +231,12 @@ Há momentos em que é necessário utilizar uma versão codificada de um campo c
     }
 ```
 <a name="WhichBlobsAreIndexed"></a>
-## <a name="controlling-which-blobs-are-indexed"></a>Controlando quais as bolhas indexadas
+## <a name="index-by-file-type"></a>Índice por tipo de ficheiro
+
 Pode controlar quais as bolhas indexadas e que são ignoradas.
 
-### <a name="index-only-the-blobs-with-specific-file-extensions"></a>Indexar apenas as bolhas com extensões de ficheiros específicas
+### <a name="include-blobs-having-specific-file-extensions"></a>Incluir blobs com extensões de ficheiros específicas
+
 Só pode indexar as bolhas com as extensões de nome de ficheiro que especifica utilizando o parâmetro de configuração do `indexedFileNameExtensions` indexante. O valor é uma cadeia que contém uma lista separada por vírgula de extensões de ficheiros (com um ponto principal). Por exemplo, para indexar apenas o . PDF e . Bolhas DOCX, faça isto:
 
 ```http
@@ -248,7 +250,8 @@ Só pode indexar as bolhas com as extensões de nome de ficheiro que especifica 
     }
 ```
 
-### <a name="exclude-blobs-with-specific-file-extensions"></a>Excluir bolhas com extensões de ficheiros específicas
+### <a name="exclude-blobs-having-specific-file-extensions"></a>Excluir bolhas com extensões de ficheiros específicas
+
 Pode excluir blobs com extensões específicas de nome de ficheiros de indexação utilizando o `excludedFileNameExtensions` parâmetro de configuração. O valor é uma cadeia que contém uma lista separada por vírgula de extensões de ficheiros (com um ponto principal). Por exemplo, para indexar todas as bolhas exceto aquelas com o . PNG e . Extensões JPEG, faça isto:
 
 ```http
@@ -265,7 +268,7 @@ Pode excluir blobs com extensões específicas de nome de ficheiros de indexaç�
 Se ambos `indexedFileNameExtensions` e `excludedFileNameExtensions` parâmetros estiverem presentes, a Azure Cognitive Search primeiro olha `indexedFileNameExtensions` para , em seguida, em `excludedFileNameExtensions` . Isto significa que, se a mesma extensão de ficheiro estiver presente em ambas as listas, será excluída da indexação.
 
 <a name="PartsOfBlobToIndex"></a>
-## <a name="controlling-which-parts-of-the-blob-are-indexed"></a>Controlando quais as partes da bolha indexadas
+## <a name="index-parts-of-a-blob"></a>Partes de índice de uma bolha
 
 Pode controlar quais as partes das bolhas indexadas utilizando o `dataToExtract` parâmetro de configuração. Pode assumir os seguintes valores:
 
@@ -296,7 +299,8 @@ Os parâmetros de configuração acima descritos aplicam-se a todas as bolhas. �
 | AzureSearch_SkipContent |"verdade" |Isto equivale à `"dataToExtract" : "allMetadata"` definição [acima](#PartsOfBlobToIndex) descrita a uma determinada bolha. |
 
 <a name="DealingWithErrors"></a>
-## <a name="dealing-with-errors"></a>Lidar com erros
+
+## <a name="handle-errors"></a>Processar erros
 
 Por predefinição, o indexante blob para assim que encontra uma bolha com um tipo de conteúdo não suportado (por exemplo, uma imagem). É claro que pode utilizar o `excludedFileNameExtensions` parâmetro para saltar certos tipos de conteúdo. No entanto, poderá ser necessário indexar as bolhas sem conhecer antecipadamente todos os tipos de conteúdo possíveis. Para continuar a indexar quando for encontrado um tipo de conteúdo não suportado, defina o `failOnUnsupportedContentType` parâmetro de configuração `false` para:
 
@@ -466,7 +470,7 @@ Por predefinição, a `UTF-8` codificação é assumida. Para especificar uma co
 ## <a name="content-type-specific-metadata-properties"></a>Propriedades de metadados específicos do tipo de conteúdo
 A tabela seguinte resume o processamento feito para cada formato de documento, e descreve as propriedades de metadados extraídas pela Azure Cognitive Search.
 
-| Formato documental / tipo de conteúdo | Propriedades de metadados específicos do tipo de conteúdo | Detalhes do processamento |
+| Formato documental / tipo de conteúdo | Metadados extraídos | Detalhes do processamento |
 | --- | --- | --- |
 | HTML (texto/html) |`metadata_content_encoding`<br/>`metadata_content_type`<br/>`metadata_language`<br/>`metadata_description`<br/>`metadata_keywords`<br/>`metadata_title` |Strip HTML marcação e texto de extrato |
 | PDF (aplicação/pdf) |`metadata_content_type`<br/>`metadata_language`<br/>`metadata_author`<br/>`metadata_title` |Texto de extração, incluindo documentos incorporados (excluindo imagens) |

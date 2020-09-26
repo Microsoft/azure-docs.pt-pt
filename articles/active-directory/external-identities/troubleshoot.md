@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb81e5a72ff1f5a8d4442e6e1f211ad2368f6277
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 10c396c4e4b4eac83f08ae0cbbe565f8621688a4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206290"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354977"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Resolução de problemas Azure Ative Directy B2B colaboração
 
@@ -106,6 +106,20 @@ A partir de 18 de novembro de 2019, os utilizadores convidados do seu diretório
 ## <a name="in-an-azure-us-government-tenant-i-cant-invite-a-b2b-collaboration-guest-user"></a>Num inquilino do Governo dos EUA, não posso convidar um utilizador convidado de colaboração B2B
 
 Dentro da nuvem do Governo dos EUA, a colaboração B2B é atualmente apenas apoiada entre inquilinos que estão dentro da nuvem do Governo dos EUA e que ambos apoiam a colaboração B2B. Se convidar um utilizador para um inquilino que não faça parte da nuvem do Governo dos EUA ou que ainda não apoie a colaboração B2B, terá um erro. Para mais detalhes e limitações, consulte [Azure Ative Directory Premium P1 e P2 Variações.](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2)
+
+## <a name="i-receive-the-error-that-azure-ad-cannot-find-the-aad-extensions-app-in-my-tenant"></a>Eu recebo o erro que a AZure AD não pode encontrar a aad-extensions-app no meu inquilino
+
+Ao utilizar funcionalidades de inscrição de autosserviço, como atributos personalizados do utilizador ou fluxos de utilizador, uma aplicação chamada `aad-extensions-app. Do not modify. Used by AAD for storing user data.` é criada automaticamente. É usado pela Azure AD Identidades Externas para armazenar informações sobre utilizadores que se inscrevam e atributos personalizados recolhidos.
+
+Se acidentalmente apagar o `aad-extensions-app` , tem 30 dias para recuperá-lo. Pode restaurar a aplicação utilizando o módulo Azure AD PowerShell.
+
+1. Lançar o módulo Azure AD PowerShell e executar `Connect-AzureAD` .
+1. Inscreva-se como administrador global para o inquilino da Azure AD para o que pretende recuperar a aplicação eliminada.
+1. Executar o comando PowerShell `Get-AzureADDeletedApplication` .
+1. Encontre a aplicação na lista onde o nome do visor começa `aad-extensions-app` e copie o seu `ObjectId` valor patrimonial.
+1. Executar o comando PowerShell `Restore-AzureADDeletedApplication -ObjectId {id}` . Substitua a `{id}` parte do comando pela do passo `ObjectId` anterior.
+
+Deverá agora ver a aplicação restaurada no portal Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 

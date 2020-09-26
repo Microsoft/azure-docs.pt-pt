@@ -10,27 +10,28 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
-ms.openlocfilehash: 982c7a41f1e05c34ddf0fbae9f944df4a4d08fa5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: ce8ff8bedc6f6e4f99a940bbdb26bd3fafc930d8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893368"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296778"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treina automaticamente um modelo de previsão da série de tempo
 
 
 Neste artigo, aprende-se a configurar e treinar um modelo de regressão de previsão de séries temporizadas utilizando machine learning automatizado, AutoML, no [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true). 
 
+Para tal, terá de: 
+
+> [!div class="checklist"]
+> * Prepare dados para modelação de séries de tempo.
+> * Configure parâmetros específicos da série de tempo num [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) objeto.
+> * Executar previsões com dados da série de tempo.
+
 Para uma experiência de baixo código, consulte o [Tutorial: Previsão de procura com machine learning automatizado](tutorial-automated-ml-forecast.md) para um exemplo de previsão de séries temporizadas usando machine learning automatizado no estúdio [Azure Machine Learning](https://ml.azure.com/).
 
 Ao contrário dos métodos clássicos das séries de tempo, em ML automatizado, os valores das séries de tempo anteriores são "apostados" para se tornarem dimensões adicionais para o regressor juntamente com outros preditores. Esta abordagem incorpora múltiplas variáveis contextuais e a sua relação entre si durante o treino. Uma vez que vários fatores podem influenciar uma previsão, este método alinha-se bem com cenários de previsão do mundo real. Por exemplo, ao prever vendas, interações de tendências históricas, taxa de câmbio e preço impulsionam conjuntamente o resultado das vendas. 
-
-Os seguintes exemplos mostram-lhe como:
-
-* Preparar dados para modelação de séries de tempo
-* Configure parâmetros específicos da série de tempo num [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) objeto
-* Executar previsões com dados da série de tempo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -118,52 +119,20 @@ automl_config = AutoMLConfig(task='forecasting',
 Saiba mais sobre como a AutoML aplica validação cruzada para [evitar modelos de sobreajustamento](concept-manage-ml-pitfalls.md#prevent-over-fitting).
 
 ## <a name="configure-experiment"></a>Experiência de configuração
-O [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) objeto define as configurações e dados necessários para uma tarefa automatizada de aprendizagem automática de máquinas. A configuração para um modelo de previsão é semelhante à configuração de um modelo de regressão padrão, mas existem certos passos de apadragem e opções de configuração especificamente para dados da série de tempo. 
 
-### <a name="featurization-steps"></a>Etapas de exibição
+O [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) objeto define as configurações e dados necessários para uma tarefa automatizada de aprendizagem automática de máquinas. A configuração para um modelo de previsão é semelhante à configuração de um modelo de regressão padrão, mas certos modelos, opções de configuração e passos de exibição existem especificamente para dados da série de tempo. 
 
-Em todas as experiências automatizadas de aprendizagem automática de máquinas, as técnicas automáticas de escala e normalização são aplicadas aos seus dados por padrão. Estas técnicas são tipos de **caracterização** que ajudam *certos* algoritmos que são sensíveis a características em escalas diferentes. Saiba mais sobre os passos de exibição padrão na [Exibição em AutoML](how-to-configure-auto-features.md#automatic-featurization)
+### <a name="supported-models"></a>Modelos suportados
+A aprendizagem automática de máquinas tenta automaticamente diferentes modelos e algoritmos como parte do processo de criação e afinação do modelo. Como utilizador, não há necessidade de especificar o algoritmo. Para a previsão de experiências, tanto as séries de tempo nativas como os modelos de aprendizagem profunda fazem parte do sistema de recomendação. A tabela seguinte resume este subconjunto de modelos. 
 
-No entanto, os seguintes passos são executados apenas para `forecasting` tipos de tarefas:
+>[!Tip]
+> Os modelos tradicionais de regressão também são testados como parte do sistema de recomendação para as experiências de previsão. Consulte a [tabela de modelos suportada](how-to-configure-auto-train.md#supported-models) para a lista completa dos modelos. 
 
-* Detetar a frequência da amostra de séries temporárias (por exemplo, hora, dia, semanalmente) e criar novos registos para pontos de tempo ausentes para tornar a série contínua.
-* Imputar valores em falta no alvo (via preenchimento de reencaminhamento) e colunas de características (utilizando valores medianos de coluna)
-* Criar funcionalidades baseadas em identificadores de séries de tempo para permitir efeitos fixos em diferentes séries
-* Criar funcionalidades baseadas no tempo para ajudar na aprendizagem de padrões sazonais
-* Codificar variáveis categóricas para quantidades numéricas
-
-Para obter um resumo das características que são criadas como resultado destes passos, consulte [a transparência da Participação](how-to-configure-auto-features.md#featurization-transparency)
-
-> [!NOTE]
-> As etapas automatizadas de aprendizagem automática (normalização de recurso, manuseamento de dados em falta, conversão de texto em numérico, etc.) tornam-se parte do modelo subjacente. Ao utilizar o modelo para previsões, aplicam-se automaticamente os mesmos passos de apresentação aplicados durante o treino.
-
-#### <a name="customize-featurization"></a>Personalizar a exibição
-
-Também tem a opção de personalizar as definições de exibição para garantir que os dados e funcionalidades que são utilizados para treinar o seu modelo ML resultam em previsões relevantes. 
-
-As personalizações suportadas para `forecasting` tarefas incluem:
-
-|Personalização|Definição|
-|--|--|
-|**Atualização do propósito da coluna**|Substitua o tipo de função detetada automaticamente para a coluna especificada.|
-|**Atualização do parâmetro do transformador** |Atualize os parâmetros para o transformador especificado. Atualmente suporta *o Imputer* (fill_value e mediano).|
-|**Colunas de queda** |Especifica as colunas a deixar de serem apresentando.|
-
-Para personalizar as ações com o SDK, especifique `"featurization": FeaturizationConfig` no seu `AutoMLConfig` objeto. Saiba mais sobre [as apresentações personalizadas.](how-to-configure-auto-features.md#customize-featurization)
-
-```python
-featurization_config = FeaturizationConfig()
-# `logQuantity` is a leaky feature, so we remove it.
-featurization_config.drop_columns = ['logQuantitity']
-# Force the CPWVOL5 feature to be of numeric type.
-featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
-# Fill missing values in the target column, Quantity, with zeroes.
-featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
-# Fill mising values in the `INCOME` column with median value.
-featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
-```
-
-Se estiver a usar o estúdio Azure Machine Learning para a sua experiência, veja [como personalizar a caracterização no estúdio.](how-to-use-automated-ml-for-ml-models.md#customize-featurization)
+Modelos| Description | Benefícios
+----|----|---
+Profeta (Pré-visualização)|O profeta trabalha melhor com séries temporéticas que têm fortes efeitos sazonais e várias estações de dados históricos. Para alavancar este modelo, instale-o localmente `pip install fbprophet` utilizando. | A precisão & rápida, robusta para fora, dados em falta e mudanças dramáticas nas suas séries de tempo.
+Auto-ARIMA (Pré-visualização)|A média móvel integrada autorregressiva (ARIMA) tem um melhor desempenho, quando os dados estão estacionários. Isto significa que as suas propriedades estatísticas como a média e a variação são constantes em todo o conjunto. Por exemplo, se atirares uma moeda, então a probabilidade de receberes cabeças é de 50%, independentemente de virares hoje, amanhã ou no próximo ano.| Ótimo para séries univariadas, uma vez que os valores passados são usados para prever os valores futuros.
+PrevisãoTCN (pré-visualização)| A ForecastTCN é um modelo de rede neural projetado para enfrentar as tarefas de previsão mais exigentes, capturando tendências locais e globais não lineares nos seus dados, bem como relações entre séries de tempo.|Capaz de alavancar tendências complexas nos seus dados e facilmente escalar para o maior dos conjuntos de dados.
 
 ### <a name="configuration-settings"></a>Definições de configuração
 
@@ -221,6 +190,51 @@ automl_config = AutoMLConfig(task='forecasting',
                              **time_series_settings)
 ```
 
+### <a name="featurization-steps"></a>Etapas de exibição
+
+Em todas as experiências automatizadas de aprendizagem automática de máquinas, as técnicas automáticas de escala e normalização são aplicadas aos seus dados por padrão. Estas técnicas são tipos de **caracterização** que ajudam *certos* algoritmos que são sensíveis a características em escalas diferentes. Saiba mais sobre os passos de exibição padrão na [Exibição em AutoML](how-to-configure-auto-features.md#automatic-featurization)
+
+No entanto, os seguintes passos são executados apenas para `forecasting` tipos de tarefas:
+
+* Detetar a frequência da amostra de séries temporárias (por exemplo, hora, dia, semanalmente) e criar novos registos para pontos de tempo ausentes para tornar a série contínua.
+* Imputar valores em falta no alvo (via preenchimento de reencaminhamento) e colunas de características (utilizando valores medianos de coluna)
+* Criar funcionalidades baseadas em identificadores de séries de tempo para permitir efeitos fixos em diferentes séries
+* Criar funcionalidades baseadas no tempo para ajudar na aprendizagem de padrões sazonais
+* Codificar variáveis categóricas para quantidades numéricas
+
+Para obter um resumo das características que são criadas como resultado destes passos, consulte [a transparência da Participação](how-to-configure-auto-features.md#featurization-transparency)
+
+> [!NOTE]
+> As etapas automatizadas de aprendizagem automática (normalização de recurso, manuseamento de dados em falta, conversão de texto em numérico, etc.) tornam-se parte do modelo subjacente. Ao utilizar o modelo para previsões, aplicam-se automaticamente os mesmos passos de apresentação aplicados durante o treino.
+
+#### <a name="customize-featurization"></a>Personalizar a exibição
+
+Também tem a opção de personalizar as definições de exibição para garantir que os dados e funcionalidades que são utilizados para treinar o seu modelo ML resultam em previsões relevantes. 
+
+As personalizações suportadas para `forecasting` tarefas incluem:
+
+|Personalização|Definição|
+|--|--|
+|**Atualização do propósito da coluna**|Substitua o tipo de função detetada automaticamente para a coluna especificada.|
+|**Atualização do parâmetro do transformador** |Atualize os parâmetros para o transformador especificado. Atualmente suporta *o Imputer* (fill_value e mediano).|
+|**Colunas de queda** |Especifica as colunas a deixar de serem apresentando.|
+
+Para personalizar as ações com o SDK, especifique `"featurization": FeaturizationConfig` no seu `AutoMLConfig` objeto. Saiba mais sobre [as apresentações personalizadas.](how-to-configure-auto-features.md#customize-featurization)
+
+```python
+featurization_config = FeaturizationConfig()
+# `logQuantity` is a leaky feature, so we remove it.
+featurization_config.drop_columns = ['logQuantitity']
+# Force the CPWVOL5 feature to be of numeric type.
+featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
+# Fill missing values in the target column, Quantity, with zeroes.
+featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
+# Fill mising values in the `INCOME` column with median value.
+featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
+```
+
+Se estiver a usar o estúdio Azure Machine Learning para a sua experiência, veja [como personalizar a caracterização no estúdio.](how-to-use-automated-ml-for-ml-models.md#customize-featurization)
+
 ## <a name="optional-configurations"></a>Configurações opcionais
 
 Estão disponíveis configurações opcionais adicionais para tarefas de previsão, tais como permitir a aprendizagem profunda e especificar uma agregação de janelas de rolamento de alvo. 
@@ -250,17 +264,7 @@ automl_config = AutoMLConfig(task='forecasting',
 
 Para ativar a DNN para uma experiência AutoML criada no estúdio Azure Machine Learning, consulte as definições do [tipo de tarefa no estúdio como fazê-lo](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
-
-A ML automatizada fornece aos utilizadores séries temporais nativas e modelos de aprendizagem profunda como parte do sistema de recomendação. 
-
-Modelos| Descrição | Benefícios
-----|----|---
-Profeta (Pré-visualização)|O profeta trabalha melhor com séries temporéticas que têm fortes efeitos sazonais e várias estações de dados históricos. Para alavancar este modelo, instale-o localmente `pip install fbprophet` utilizando. | A precisão & rápida, robusta para fora, dados em falta e mudanças dramáticas nas suas séries de tempo.
-Auto-ARIMA (Pré-visualização)|A média móvel integrada autorregressiva (ARIMA) tem um melhor desempenho, quando os dados estão estacionários. Isto significa que as suas propriedades estatísticas como a média e a variação são constantes em todo o conjunto. Por exemplo, se atirares uma moeda, então a probabilidade de receberes cabeças é de 50%, independentemente de virares hoje, amanhã ou no próximo ano.| Ótimo para séries univariadas, uma vez que os valores passados são usados para prever os valores futuros.
-PrevisãoTCN (pré-visualização)| A ForecastTCN é um modelo de rede neural projetado para enfrentar as tarefas de previsão mais exigentes, capturando tendências locais e globais não lineares nos seus dados, bem como relações entre séries de tempo.|Capaz de alavancar tendências complexas nos seus dados e facilmente escalar para o maior dos conjuntos de dados.
-
 Consulte o [caderno de previsão de produção de bebidas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) para obter um código detalhado que utiliza dnns.
-
 
 ### <a name="target-rolling-window-aggregation"></a>Agregação da janela de rolamento do alvo
 Muitas vezes, a melhor informação que um meteorologista pode ter é o valor recente do alvo.  As agregações de janelas de rolamento de alvo permitem adicionar uma agregação rolante dos valores de dados como funcionalidades. Gerar e utilizar estas funcionalidades adicionais como dados contextuais extra ajuda na precisão do modelo do comboio.
@@ -283,7 +287,7 @@ experiment = Experiment(ws, "forecasting_example")
 local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```
-
+ 
 ## <a name="forecasting-with-best-model"></a>Previsão com melhor modelo
 
 Utilize a melhor iteração do modelo para prever valores para o conjunto de dados de teste.

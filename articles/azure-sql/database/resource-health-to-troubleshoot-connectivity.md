@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 02/26/2019
-ms.openlocfilehash: 27865afd356be9eac64083c1ebdeb6ced43dbd18
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 8be537fd28adce45b7fc106cc3798688ee4c54ae
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986957"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321582"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Utilize a Saúde dos Recursos para resolver problemas de conectividade para a Base de Dados Azure SQL e para a Azure SQL Gestão de Instâncias
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -71,7 +71,7 @@ A infraestrutura Azure realiza periodicamente a manutenção planeada – a atua
 
 As reconfigurações são consideradas condições transitórias e são esperadas de tempos a tempos. Estes eventos podem ser desencadeados por falhas de equilíbrio de carga ou software/hardware. Qualquer aplicação de produção de clientes que se conecte a uma base de dados em nuvem deve implementar uma lógica robusta de [relembramento](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors)de conexão , uma vez que ajudaria a mitigar estas situações e deve geralmente tornar os erros transparentes para o utilizador final.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a lógica de reorientação para erros transitórios](troubleshoot-common-connectivity-issues.md#retry-logic-for-transient-errors).
 - [Resolução de problemas, diagnóstico e prevenção de erros de ligação SQL](troubleshoot-common-connectivity-issues.md).

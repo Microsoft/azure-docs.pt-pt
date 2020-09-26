@@ -3,16 +3,16 @@ title: Como criar e gerir o DHCP
 description: Este artigo explica como gerir o DHCP na Azure VMware Solution.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: ba7c3983f55ed729c77d2f24d3ef311a00522148
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 2c059918f57b7f01058a031f1bf281b243855661
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069565"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332836"
 ---
 # <a name="how-to-create-and-manage-dhcp-in-azure-vmware-solution"></a>Como criar e gerir o DHCP em Azure VMWare Solution
 
-O NSX-T fornece a capacidade de configurar o DHCP para a sua nuvem privada. Se planeia utilizar o NSX-T para hospedar o seu servidor DHCP, consulte [o servidor Criar DHCP](#create-dhcp-server). Caso contrário, se tiver um servidor DHCP externo de 3ª parte na sua rede e pretender transmitir pedidos para esse servidor DHCP, consulte [o serviço de retransmissão Criar DHCP](#create-dhcp-relay-service).
+O NSX-T fornece a capacidade de configurar o DHCP para a sua nuvem privada. Se planeia utilizar o NSX-T para hospedar o seu servidor DHCP, consulte [o servidor Criar DHCP](#create-dhcp-server). Caso contrário, se tiver um servidor DHCP externo de terceiros na sua rede e pretender transmitir pedidos para esse servidor DHCP, consulte [o serviço de retransmissão DHCP](#create-dhcp-relay-service).
 
 ## <a name="create-dhcp-server"></a>Criar servidor DHCP
 
@@ -24,7 +24,7 @@ A partir do gestor NSX, navegue para o **separador de Networking** e selecione *
 
 ### <a name="connect-dhcp-server-to-the-tier-1-gateway"></a>Ligue o servidor DHCP ao portal Tier-1.
 
-1. Selecione **Gateways Tier 1**, selecione o gateway e selecione **Editar**
+1. Selecione **Gateways tier 1,** o gateway e, em seguida, selecione **Editar**
 
    :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="selecione o portal para usar" border="true":::
 
@@ -56,7 +56,7 @@ Uma vez criado o seu Servidor DHCP, terá de adicionar segmentos de rede ao mesm
 
 ## <a name="create-dhcp-relay-service"></a>Criar serviço de retransmissão DHCP
 
-1. Na janela NSX-T, selecione o **separador de Rede** e, em **Gestão IP,** selecione **DHCP**. Selecione **ADD SERVER**. Escolha o Relé DHCP para o **Tipo de Servidor** e introduza o nome do servidor e o endereço IP para o servidor de retransmissão. Selecione **Guardar** para guardar as alterações.
+1. Na janela NXT-T, selecione o **separador de Rede** e, em **Gestão IP,** selecione **DHCP**. Selecione **ADD SERVER**. Escolha o Relé DHCP para o **Tipo de Servidor** e introduza o nome do servidor e o endereço IP para o servidor de retransmissão. Selecione **Guardar** para guardar as alterações.
 
    :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="criar servidor de retransmissão dhcp" border="true":::
 

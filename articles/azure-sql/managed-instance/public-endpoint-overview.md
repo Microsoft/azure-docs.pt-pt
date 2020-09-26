@@ -8,14 +8,14 @@ ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 05/08/2019
-ms.openlocfilehash: a3339d03607c2286dabbac73fd0b683c61552dc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9c1828732b9a4e0e85c3af2263f097edd54437d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708608"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332853"
 ---
 # <a name="use-azure-sql-managed-instance-securely-with-public-endpoints"></a>Use Azure SQL Gestd Instance de forma segura com pontos finais públicos
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -52,6 +52,6 @@ Quando os clientes precisarem de iniciar uma ligação a partir de uma rede no l
 
 Se as ligações forem iniciadas a partir do Azure, recomendamos que o tráfego provém de um [conhecido endereço IP virtual](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) atribuído (por exemplo, uma máquina virtual). Para facilitar a gestão dos endereços IP virtuais (VIP), poderá querer utilizar [prefixos de endereço IP públicos](../../virtual-network/public-ip-address-prefix.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como configurar o ponto final público para gerir casos: [Configurar o ponto final público](public-endpoint-configure.md)

@@ -9,16 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: 6e17e2a6e5c9151080facc3a2dd8c1a18c0580fe
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 36a1be4f802292e62c98098508927b06a5851afa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982173"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333091"
 ---
-# <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Monitorização e afinação de desempenho na Base de Dados Azure SQL e na Azure SQL Gestão de Instâncias
+# <a name="monitoring-and-performance-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Otimização da monitorização e do desempenho na Base de Dados SQL do Azure e no Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Para monitorizar o desempenho de uma base de dados na Base de Dados Azure SQL e na Azure SQL Managed Instance, comece por monitorizar os recursos de CPU e IO utilizados pela sua carga de trabalho em relação ao nível de desempenho da base de dados que escolheu na seleção de um determinado nível de serviço e nível de desempenho. Para isso, a Azure SQL Database e a Azure SQL Managed Instance emitem métricas de recursos que podem ser vistas no portal Azure ou utilizando uma destas ferramentas de gestão do SQL Server: [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is) ou [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS).
@@ -93,7 +93,7 @@ Transmita métricas e registos de recursos para [o Azure Storage](../../azure-mo
 
 Além disso, pode utilizar [eventos estendidos](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) no SQL Server para monitorização e resolução de problemas avançados. A arquitetura de eventos alargados permite que os utilizadores recolham tanto ou tão poucos dados quanto necessários para resolver problemas ou identificar um problema de desempenho. Para obter informações sobre a utilização de eventos alargados na Base de Dados Azure SQL, consulte [eventos estendidos na Base de Dados Azure SQL](xevent-db-diff-from-svr.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre recomendações inteligentes de desempenho para bases de dados individuais e agramadas, consulte [recomendações de desempenho do conselheiro de base de dados](database-advisor-implement-performance-recommendations.md).
 - Para obter mais informações sobre a monitorização automática do desempenho da base de dados com diagnósticos automatizados e análise de causa de raiz de problemas de desempenho, consulte [Azure SQL Intelligent Insights](intelligent-insights-overview.md).

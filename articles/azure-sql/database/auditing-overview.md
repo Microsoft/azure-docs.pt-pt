@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 24c3ec1ee16123cef0c4e2bd230bfdb66915fc9f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: de41d9c1dc69726f5f7f031616462b2d1d330476
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040594"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333193"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria para Azure SQL Database e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -119,7 +119,7 @@ Para configurar os registos de auditoria de escrita para um espaço de trabalho 
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
-Para obter mais detalhes sobre os espaços de trabalho dos registos do monitor Azure, consulte [a conceção da sua implementação de Registos monitores Azure](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment)
+Para obter mais detalhes sobre o espaço de trabalho do Azure Monitor Log Analytics, consulte [a implementação de Registos do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment)
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Auditoria ao destino Event Hub
 
@@ -150,7 +150,7 @@ Se optar por escrever registos de auditoria para os registos do Azure Monitor:
     ![Insights de Segurança de Log Analytics](media/auditing-overview/auditing-log-analytics-dashboard-data.png)
 
 - Em alternativa, também pode aceder aos registos de auditoria da lâmina Log Analytics. Abra o seu espaço de trabalho Log Analytics e na secção **Geral,** clique em **Registars**. Pode começar com uma consulta simples, como: *pesquisar "SQLSecurityAuditEvents"* para ver os registos de auditoria.
-    A partir daqui, também pode utilizar [registos do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) para executar pesquisas avançadas nos dados do seu registo de auditoria. Os registos do Azure Monitor dão-lhe informações operacionais em tempo real utilizando painéis de pesquisa integrados e dashboards personalizados para analisar facilmente milhões de registos em todas as suas cargas de trabalho e servidores. Para obter informações úteis adicionais sobre o Azure Monitor regista linguagem e comandos de pesquisa, consulte a referência de pesquisa de registos do [Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+    A partir daqui, também pode utilizar [registos do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md)  para executar pesquisas avançadas nos dados do seu registo de auditoria. Os registos do Azure Monitor dão-lhe informações operacionais em tempo real utilizando painéis de pesquisa integrados e dashboards personalizados para analisar facilmente milhões de registos em todas as suas cargas de trabalho e servidores. Para obter informações úteis adicionais sobre o Azure Monitor regista linguagem e comandos de pesquisa, consulte a referência de pesquisa de registos do [Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
 Se optar por escrever registos de auditoria ao Event Hub:
 

@@ -10,14 +10,14 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: a0d2353364767dfb1fd73d517926d0fa63c11a1d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1027b4f37160281bcf298e57e890b73b472526a4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087718"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308763"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Tutorial: Migrar o SQL Server para a Base de Dados SQL do Azure offline com o DMS
 
@@ -149,7 +149,7 @@ Para migrar o esquema **AdventureWorks2012** para uma única base de dados ou ba
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registar o fornecedor de recursos Microsoft.DataMigration
 
-1. Inicie sessão no portal do Azure. Procure e **selecione Subscrições.**
+1. Inicie sessão no Portal do Azure. Procure e **selecione Subscrições.**
 
    ![Mostrar subscrições no portal](media/tutorial-sql-server-to-azure-sql/portal-select-subscription1.png)
 

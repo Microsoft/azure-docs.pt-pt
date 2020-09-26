@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 17c0b7bd802d4a50343f88b9517313489943e10c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 146b867f1075a7eac1b6817f5fc8dbcd7ba04b02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799490"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333414"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Junte-se ao seu dispositivo de trabalho na rede da sua organização
 Junte-se ao seu dispositivo windows 10 de propriedade laboral na rede da sua organização para que possa aceder a recursos potencialmente restritos.
@@ -54,7 +54,7 @@ Se o seu dispositivo for novo e ainda não tiver sido configurado, pode passar p
 
     O seu dispositivo está agora unido à rede da sua organização.
 
-## <a name="to-make-sure-youre-joined"></a>Para ter certeza de que está associado
+## <a name="to-make-sure-youre-joined-new-device"></a>Para ter a certeza de que está associado (novo dispositivo)
 Pode certificar-se de que está unido olhando para as suas definições.
 
 1. Abrir **Definições**e, em seguida, selecionar **Contas**.

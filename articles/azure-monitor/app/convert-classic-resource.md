@@ -4,19 +4,19 @@ description: Conheça os passos necessários para atualizar o seu recurso cláss
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 09/09/2020
-ms.openlocfilehash: caaf5469eace891f2996a565af183b411ad1d740
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: aab2d1ec5a6c3e046840e736ced0993e560c4661
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938274"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333346"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migrar para recursos de Insights de Aplicação baseados no espaço de trabalho
 
 Este guia irá acompanhá-lo através do processo de migração de um recurso clássico application Insights para um recurso baseado no espaço de trabalho. Os recursos baseados no espaço de trabalho suportam a integração total entre o Application Insights e o Log Analytics. Os recursos baseados no espaço de trabalho enviam telemetria Application Insights para um espaço de trabalho comum do Log Analytics, que lhe permite aceder às [mais recentes funcionalidades do Azure Monitor,](#new-capabilities) mantendo os registos de aplicações, infraestruturas e plataformas num único local consolidado.
 
-Os recursos baseados no espaço de trabalho permitem um controlo comum de acesso baseado em funções (RBAC) através dos seus recursos, e elimina a necessidade de consultas cruzadas/espaço de trabalho.
+Os recursos baseados no espaço de trabalho permitem o controlo comum de acesso baseado em funções (RBAC) através dos seus recursos, e elimina a necessidade de consultas cruzadas/espaço de trabalho.
 
 **Os recursos baseados no espaço de trabalho estão atualmente disponíveis em todas as regiões comerciais e no Governo dos EUA**
 
@@ -34,12 +34,11 @@ O Workspace Application Insights permite-lhe tirar partido de todas as mais rece
 
 Quando migra para um recurso baseado no espaço de trabalho, nenhum dado é transferido do armazenamento do seu recurso clássico para o novo armazenamento baseado no espaço de trabalho. A escolha de migrar irá, em vez disso, alterar a localização onde novos dados são escritos num espaço de trabalho do Log Analytics, preservando o acesso aos seus dados clássicos de recursos. 
 
-Os seus dados clássicos de recursos persistirão e estarão sujeitos às definições de retenção no momento em que foram ingeridos. Todos os novos dados ingeridos após a migração estarão sujeitos às definições de retenção do espaço de trabalho associado do Log Analytics. 
-
+Os seus dados clássicos de recursos persistirão e estarão sujeitos às definições de retenção no seu recurso clássico Application Insights. Todos os novos dados ingeridos após a migração estarão sujeitos às definições de [retenção](../platform/manage-cost-storage.md#change-the-data-retention-period) do espaço de trabalho associado do Log Analytics, que também suporta [diferentes definições de retenção por tipo de dados.](../platform/manage-cost-storage.md#retention-by-data-type)
 O processo de migração é **permanente e não pode ser invertido.** Uma vez migrar um recurso para o Workspace Application Insights baseado no espaço de trabalho, será sempre um recurso baseado no espaço de trabalho. No entanto, uma vez migrado, é capaz de alterar o espaço de trabalho alvo sempre que necessário. 
 
 > [!NOTE]
-> A ingestão de dados e a retenção de recursos de Insights de Aplicação baseados no espaço de trabalho são faturados através do espaço de trabalho Log Analytics onde os dados estão localizados. [Saiba mais]( ./pricing.md#workspace-based-application-insights) sobre a faturação dos recursos de Aplicações Insights baseados no espaço de trabalho. (Os dados de recursos de informação de aplicação clássica ingeridos antes da migração continuarão a ser submetidos à retenção/preços de Insights de Aplicação durante a duração em que os dados são mantidos.) 
+> A ingestão de dados e a retenção de recursos de Insights de Aplicação baseados no espaço de trabalho são [faturados através do espaço de trabalho Log Analytics](../platform/manage-cost-storage.md) onde os dados estão localizados. Se selecionou uma retenção de dados superior a 90 dias sobre os dados ingeridos no recurso Classic Application Insights antes da migração, a retenção de dados continuará a ser faturada através desse recurso Application Insights. [Saiba mais]( ./pricing.md#workspace-based-application-insights) sobre a faturação dos recursos de Aplicações Insights baseados no espaço de trabalho.
 
 Se não precisar de migrar um recurso existente e, em vez disso, pretender criar um novo recurso de Aplicações Insights baseado no espaço de trabalho, utilize o [guia de criação de recursos baseado no espaço de trabalho.](create-workspace-resource.md)
 

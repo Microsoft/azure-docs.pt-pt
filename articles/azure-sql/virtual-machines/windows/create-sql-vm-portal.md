@@ -7,19 +7,19 @@ author: MashaMSFT
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 11/07/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e315f49cb0b78e13c4b6132f844397d1261ff0f9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: a7cd15bab0b26a13f9ffb818aa29e8e262c0bd06
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88652021"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332921"
 ---
 # <a name="how-to-use-the-azure-portal-to-provision-a-windows-virtual-machine-with-sql-server"></a>Como utilizar o portal Azure para a provisionar uma máquina virtual Windows com o SQL Server
 
@@ -85,7 +85,7 @@ No **separador Básicos,** forneça as seguintes informações:
 > [!IMPORTANT]
 > O custo mensal estimado apresentado na janela **Escolher um tamanho** não inclui os custos de licenciamento do SQL Server. Esta estimativa é apenas o custo do VM. Para as edições Express e Developer do SQL Server, esta estimativa é o custo total estimado. Quanto a outras edições, veja a [página de preços das Máquinas Virtuais do Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) e selecione a edição de destino do SQL Server. Consulte também [a orientação de preços para SQL Server Azure VMs](pricing-guidance.md) e [Tamanhos para máquinas virtuais](../../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-* Na **conta do Administrador,** forneça um nome de utilizador e uma palavra-passe. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+* Na **conta do Administrador,** forneça um nome de utilizador e uma palavra-passe. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](../../../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
    ![Conta de administrador](./media/create-sql-vm-portal/basics-administrator-account.png)
 
@@ -115,7 +115,7 @@ No **separador Networking,** configuure as suas opções de networking.
 
 * Crie uma nova **rede virtual** ou utilize uma rede virtual existente para o seu SQL Server VM. Designe um **Subnet** também. 
 
-* No âmbito **do grupo de segurança da rede NIC,** selecione um grupo de segurança básico ou o grupo de segurança avançado. A escolha da opção básica permite-lhe selecionar portas de entrada para o SQL Server VM que são os mesmos valores configurados no separador **Básico.** 
+* No âmbito **do grupo de segurança da rede NIC,** selecione um grupo de segurança básico ou o grupo de segurança avançado. A escolha da opção básica permite-lhe selecionar portas de entrada para o SQL Server VM que são os mesmos valores configurados no separador **Basic.** Selecionar a opção avançada permite-lhe escolher um grupo de segurança de rede existente ou criar um novo. 
 
 * Pode es fazer outras alterações nas definições de rede ou manter os valores predefinidos.
 
@@ -138,7 +138,7 @@ No separador de definições do **SQL Server,** configurar definições específ
 - [Conetividade](#connectivity)
 - [Autenticação](#authentication)
 - [Integração do Cofre chave Azure](#azure-key-vault-integration)
-- [Configuração de armazenamento](#storage-configuration)
+- [Configuração do armazenamento](#storage-configuration)
 - [Remendação automatizada](#automated-patching)
 - [Backup automatizado](#automated-backup)
 - [Machine Learning Services](#machine-learning-services)

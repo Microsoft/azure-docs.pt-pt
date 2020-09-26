@@ -12,19 +12,19 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 09/21/2020
-ms.openlocfilehash: f3ae5e1ef4dc2968724daeafb32f26cf445b0d2f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f0ebd511d0b706d1d2066ea87f45c89ae536da69
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885293"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321429"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Uma visão geral da Base de Dados Azure SQL e capacidades de segurança de instância gerida sql
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Este artigo descreve os fundamentos da garantia do nível de dados de uma aplicação utilizando a Base de [Dados Azure SQL](sql-database-paas-overview.md) e [a Azure SQL Managed Instance](../managed-instance/sql-managed-instance-paas-overview.md). A estratégia de segurança descrita segue a abordagem em camadas de defesa em profundidade, como mostrado na imagem abaixo, e move-se de fora para:
 
-![layer.png de segurança sql](./media/security-overview/sql-security-layer.png)
+![Diagrama de defesa em camadas em profundidade. Os dados dos clientes estão envoltos em camadas de segurança da rede, gestão de acessos e proteções contra ameaças e informações.](./media/security-overview/sql-security-layer.png)
 
 ## <a name="network-security"></a>Segurança da rede
 
@@ -73,11 +73,11 @@ A autorização refere-se às permissões atribuídas a um utilizador dentro de 
 
 Como uma boa prática, crie papéis personalizados quando necessário. Adicione os utilizadores ao papel com os privilégios menos necessários para fazer a sua função de trabalho. Não adtribua permissões diretamente aos utilizadores. A conta de administração do servidor é um membro da função de db_owner incorporada, que tem permissões extensivas e só deve ser concedida a poucos utilizadores com funções administrativas. Para aplicações, utilize o [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) para especificar o contexto de execução do módulo ou utilizar [funções de aplicação](/sql/relational-databases/security/authentication-access/application-roles) com permissões limitadas. Esta prática garante que a aplicação que se liga à base de dados tem os privilégios menos necessários pela aplicação. Seguir estas boas práticas também fomenta a separação de deveres.
 
-### <a name="row-level-security"></a>Segurança ao nível da linha
+### <a name="row-level-security"></a>Row-level security
 
 A Segurança de Nível de Linha permite que os clientes controlem o acesso a linhas numa tabela de bases de dados com base nas características do utilizador executar uma consulta (por exemplo, membro do grupo ou contexto de execução). A Segurança de Nível de Linha também pode ser usada para implementar conceitos de segurança personalizados baseados em etiquetas. Para obter mais informações, consulte [a segurança de nível de linha.](/sql/relational-databases/security/row-level-security)
 
-![rls.png de base de dados azul](./media/security-overview/azure-database-rls.png)
+![Diagrama que mostra que a Segurança de Nível de Linha protege as linhas individuais de uma base de dados SQL a partir do acesso dos utilizadores através de uma aplicação do cliente.](./media/security-overview/azure-database-rls.png)
 
 ## <a name="threat-protection"></a>Proteção contra ameaças
 
@@ -91,7 +91,7 @@ A SQL Database e a SQL Managed Instance auditing rastreia as atividades da base 
 
 A Advanced Threat Protection está a analisar os seus registos para detetar comportamentos incomuns e tentativas potencialmente nocivas de aceder ou explorar bases de dados. São criados alertas para atividades suspeitas como injeção de SQL, potencial infiltração de dados e ataques de força bruta ou para anomalias nos padrões de acesso para capturar escaladas de privilégios e utilização de credenciais violadas. Os alertas são vistos a partir do Centro de  [Segurança do Azure,](https://azure.microsoft.com/services/security-center/)onde são fornecidos os detalhes das atividades suspeitas e recomendações para uma investigação mais aprofundada dada juntamente com ações para mitigar a ameaça. A Proteção Avançada de Ameaças pode ser ativada por servidor por uma taxa adicional. Para obter mais informações, consulte [Começar com a SqL Database Advanced Threat Protection](threat-detection-configure.md).
 
-![td.jpg de base de dados azul](./media/security-overview/azure-database-td.jpg)
+![Diagrama mostrando o acesso à base de dados SQL para uma aplicação web de um intruso externo e infiltrado malicioso.](./media/security-overview/azure-database-td.jpg)
 
 ## <a name="information-protection-and-encryption"></a>Proteção de informação e encriptação
 
@@ -122,13 +122,13 @@ No Azure, todas as bases de dados recentemente criadas são encriptadas por padr
 
 ### <a name="always-encrypted-encryption-in-use"></a>Sempre encriptado (encriptação em uso)
 
-![ae.png de base de dados azul](./media/security-overview/azure-database-ae.png)
+![Diagrama mostrando o básico da funcionalidade Always Encrypted. Uma base de dados SQL com fechadura só é acedida por uma aplicação que contenha uma chave.](./media/security-overview/azure-database-ae.png)
 
 [Sempre Encriptado](/sql/relational-databases/security/encryption/always-encrypted-database-engine) é uma funcionalidade concebida para proteger dados sensíveis armazenados em colunas de bases de dados específicas do acesso (por exemplo, números de cartões de crédito, números de identificação nacionais ou dados numa base _de necessidade de saber)._ Isto inclui administradores de bases de dados ou outros utilizadores privilegiados que estão autorizados a aceder à base de dados para executar tarefas de gestão, mas não têm necessidade de aceder aos dados específicos nas colunas encriptadas. Os dados são sempre encriptados, o que significa que os dados encriptados são desencriptados apenas para processamento por aplicações do cliente com acesso à chave de encriptação. A chave de encriptação nunca é exposta à Base de Dados SQL ou à SQL Managed Instance e pode ser armazenada na Loja de [Certificados](always-encrypted-certificate-store-configure.md) do Windows ou no [Cofre da Chave Azure](always-encrypted-azure-key-vault-configure.md).
 
 ### <a name="dynamic-data-masking"></a>Máscara de dados dinâmica
 
-![ddm.png de base de dados azul](./media/security-overview/azure-database-ddm.png)
+![Diagrama mostrando máscara de dados dinâmica. Uma aplicação de negócios envia dados para uma base de dados SQL que mascara os dados antes de enviá-los de volta para a aplicação empresarial.](./media/security-overview/azure-database-ddm.png)
 
 A mascaração dinâmica de dados limita a exposição sensível aos dados, mascarando-os a utilizadores não privilegiados. A máscara dinâmica de dados descobre automaticamente dados potencialmente sensíveis na Base de Dados Azure SQL e na SQL Managed Instance e fornece recomendações acccáveis para mascarar estes campos, com o mínimo impacto na camada de aplicação. Funciona ao ofuscar os dados confidenciais no conjunto de resultados de uma consulta em campos de base de dados designados, enquanto os dados na base de dados não são alterados. Para obter mais informações, consulte [Começar com a Base de Dados SQL e a máscara dinâmica de dados da SQL Managed Instance](dynamic-data-masking-overview.md).
 

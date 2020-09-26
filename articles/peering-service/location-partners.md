@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 05/29/2020
+ms.date: 09/24/2020
 ms.author: derekol
-ms.openlocfilehash: 012468ea16a9d1125bbcc93333eb8dad586aa502
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b034c2657cd1bddd696b40738d51c8a3e6c9798
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84872105"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355257"
 ---
 # <a name="peering-service-partners"></a>Parceiros de serviço de observação
 
@@ -33,8 +33,8 @@ A tabela deste artigo fornece informações sobre os parceiros de conectividade 
 | [CenturyLink](https://www.ctl.io/microsoft-azure-peering-services/) |Estados Unidos da América|
 | [BBIX](https://www.bbix.net/en/service/) |Japão |
 | [CCL](https://concepts.co.nz/news/general-news/) |Oceânia |
-| [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|Europa|
-| [DE-CIX](https://www.de-cix.net/microsoft)|Europa, América do Norte |
+| [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|Europa, Ásia|
+| [DE-CIX](https://www.de-cix.net/microsoft)|Europa |
 | [IIJ](https://www.iij.ad.jp/en/) | Japão |
 | [Intercloud](https://intercloud.com/microsoft-saas-applications/)|Europa  |
 | [Rio Kordia](https://www.kordia.co.nz/cloudconnect) |Oceânia  |
@@ -47,7 +47,7 @@ A tabela deste artigo fornece informações sobre os parceiros de conectividade 
 >Para obter mais informações sobre o alistamento com o programa Peering Service Partner, contacte peeringservice@microsoft.com até .
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre o Serviço de Peering, consulte [a visão geral do Serviço de Peering](about.md).
 - Para saber mais sobre as FAQs do Serviço de Peering, consulte [o Serviço de Observação de Observação FAQ](faq.md).

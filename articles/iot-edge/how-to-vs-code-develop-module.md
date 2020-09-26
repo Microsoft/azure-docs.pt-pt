@@ -3,18 +3,18 @@ title: Desenvolver e depurar módulos para Azure IoT Edge Microsoft Docs
 description: Use o Código do Estúdio Visual para desenvolver, construir e depurar um módulo para Azure IoT Edge usando C#, Python, Node.js, Java ou C
 services: iot-edge
 keywords: ''
-author: shizn
-ms.author: xshi
+author: kgremban
+ms.author: kgremban
 ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 848f617aaf74960aeecd856016321ac7607eca00
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 2fcb389736df8bedb2602919e986f7d65e8f3024
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422900"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296914"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Use o Código do Estúdio Visual para desenvolver e depurar módulos para Azure IoT Edge
 
@@ -364,7 +364,7 @@ Com as recentes alterações nos motores Docker e Moby para suportar ligações 
 
 Consulte esta [entrada no blog IoT Developer](https://devblogs.microsoft.com/iotdev/easily-build-and-debug-iot-edge-modules-on-your-remote-device-with-azure-iot-edge-for-vs-code-1-9-0/) para obter mais informações e instruções passo a passo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de ter construído o seu módulo, aprenda a [implantar módulos Azure IoT Edge a partir do Código do Estúdio Visual](how-to-deploy-modules-vscode.md).
 

@@ -3,12 +3,12 @@ title: Backup da base de dados do SQL Server de resolução de problemas
 description: Informações de resolução de problemas para fazer backup das bases de dados do SQL Server em execução em VMs Azure com Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: c81230a5b32ddb1487bf59e8e43dbb96328d8620
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: f215b848bedae333979f0fed8eb7f216fb6e25f4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89513971"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332785"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Resolução de problemas ML Server base de dados backup usando Azure Backup
 
@@ -130,7 +130,7 @@ Por vezes, ou falhas aleatórias podem ocorrer em operações de backup e restau
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-| A cópia de segurança do registo utilizada para recuperação contém alterações registadas em massa. Não pode ser utilizado para parar num ponto arbitrário no tempo, de acordo com as diretrizes do SQL. | Quando uma base de dados está em modo de recuperação registado a granel, os dados entre uma transação registada em massa e a próxima transação de registo não podem ser recuperados. | Escolha um ponto diferente no tempo para a recuperação. [Saiba mais](/sql/relational-databases/backup-restore/recovery-models-sql-server?view=sql-server-ver15).
+| A cópia de segurança do registo utilizada para recuperação contém alterações registadas em massa. Não pode ser utilizado para parar num ponto arbitrário no tempo, de acordo com as diretrizes do SQL. | Quando uma base de dados está em modo de recuperação registado a granel, os dados entre uma transação registada em massa e a próxima transação de registo não podem ser recuperados. | Escolha um ponto diferente no tempo para a recuperação. [Saiba mais](/sql/relational-databases/backup-restore/recovery-models-sql-server).
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -172,7 +172,7 @@ A operação está bloqueada, uma vez que o cofre atingiu o seu limite máximo p
 
 | Mensagem de erro | Possíveis causas | Ação recomendada |
 |---|---|---|
-O VM não é capaz de contactar o serviço de Backup Azure devido a problemas de conectividade com a Internet. | O VM precisa de conectividade de saída para o Serviço de Backup Azure, Armazenamento Azure ou Serviços de Diretório Ativo Azure.| - Se utilizar o NSG para restringir a conectividade, então deve utilizar a etiqueta de serviço AzureBackup para permitir o acesso de saída ao Serviço de Backup Azure, ao Armazenamento Azure ou aos serviços do Azure Ative Directory. Siga estes [passos](./backup-sql-server-database-azure-vms.md#nsg-tags) para conceder acesso.<br>- Certifique-se de que o DNS está a resolver os pontos finais do Azure.<br>- Verifique se o VM está por detrás de um equilibrador de carga que bloqueia o acesso à Internet. Ao atribuir IP público aos VMs, a descoberta funcionará.<br>- Verifique se não há firewall/antivírus/procuração que bloqueie chamadas para os três serviços-alvo acima.
+O VM não é capaz de contactar o serviço de Backup Azure devido a problemas de conectividade com a Internet. | O VM precisa de conectividade de saída para o Serviço de Backup Azure, Armazenamento Azure ou Serviços de Diretório Ativo Azure.| - Se utilizar o NSG para restringir a conectividade, então deve utilizar a etiqueta de serviço *AzureBackup* para permitir o acesso de saída ao Serviço de Backup Azure e, da mesma forma, para os serviços Azure*AD (AzureActiveDirectory)* e Azure Storage *(Storage).* Siga estes [passos](./backup-sql-server-database-azure-vms.md#nsg-tags) para conceder acesso.<br>- Certifique-se de que o DNS está a resolver os pontos finais do Azure.<br>- Verifique se o VM está por detrás de um equilibrador de carga que bloqueia o acesso à Internet. Ao atribuir IP público aos VMs, a descoberta funcionará.<br>- Verifique se não há firewall/antivírus/procuração que bloqueie chamadas para os três serviços-alvo acima.
 
 ## <a name="re-registration-failures"></a>Falhas de re-registo
 
@@ -272,6 +272,6 @@ SELECT mf.name AS LogicalName FROM sys.master_files mf
 
 Este ficheiro deve ser colocado antes de ativar a operação de restauro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre Azure Backup para VMs do sql server (pré-visualização pública), consulte [Azure Backup para SQL VMs](../azure-sql/virtual-machines/windows/backup-restore.md#azbackup).

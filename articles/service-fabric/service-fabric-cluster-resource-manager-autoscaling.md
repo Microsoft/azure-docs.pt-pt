@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: miradic
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f57e5079543a3112b4fa59f26ba0ae27c24b79a2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 060bb9dcdd504846c76ab4c782b2857fdddfa394
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005518"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354807"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introdução ao Auto Scaling
 A escala automática é uma capacidade adicional do Service Fabric para escalar dinamicamente os seus serviços com base na carga que os serviços estão a reportar, ou com base no seu uso de recursos. A escala automática proporciona uma grande elasticidade e permite o fornecimento de instâncias ou divisórias adicionais do seu serviço a pedido. Todo o processo de escala automática é automatizado e transparente, e uma vez configurado as suas políticas num serviço não há necessidade de operações de escala manual ao nível do serviço. O dimensionamento automático pode ser ligado na hora da criação do serviço, ou a qualquer momento, atualizando o serviço.
@@ -51,7 +51,7 @@ O único mecanismo que pode ser usado com este gatilho é o PartitionInstanceIns
 * _O Conde de Instância Máxima_ define o limite superior para a escala. Se o número de casos da partição atingir este limite, o serviço não será dimensionado, independentemente da carga. É possível omitir este limite especificando o valor de -1, e nesse caso o serviço será dimensionado o máximo possível (o limite é o número de nós que estão disponíveis no cluster).
 * _O Conde de Instância Mínima_ define o limite inferior para a escala. Se o número de casos da partição atingir este limite, o serviço não será dimensionado independentemente da carga.
 
-## <a name="setting-auto-scaling-policy"></a>Definição da política de escalagem automática
+## <a name="setting-auto-scaling-policy-for-instance-based-scaling"></a>Definição da política de escalagem automática, por exemplo, de escalamento baseado
 
 ### <a name="using-application-manifest"></a>Utilização do manifesto de aplicação
 ``` xml
@@ -133,7 +133,7 @@ Tal como acontece com o mecanismo que utiliza a escala através da adição ou r
 > [!WARNING] 
 > Quando addRemoveIncrementalNamedPartitionScalingMechanism é utilizado com serviços estatais, o Service Fabric adicionará ou removerá divisórias **sem notificação ou aviso**. A repartição dos dados não será efetuada quando o mecanismo de escalagem for acionado. Em caso de operação de escala, as novas divisórias ficarão vazias e, em caso de escala em funcionamento, **a partição será eliminada juntamente com todos os dados que contém.**
 
-## <a name="setting-auto-scaling-policy"></a>Definição da política de escalagem automática
+## <a name="setting-auto-scaling-policy-for-partition-based-scaling"></a>Definição da política de escalagem automática para a escala baseada em divisórias
 
 ### <a name="using-application-manifest"></a>Utilização do manifesto de aplicação
 ``` xml

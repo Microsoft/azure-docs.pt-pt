@@ -3,12 +3,12 @@ title: Apoiar o estado do sistema Windows para o Azure
 description: Saiba como fazer o back up do estado do sistema dos computadores windows server para o Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: ebe527ef7ddb32d46c2f39970f74b64c2594bf60
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 1b3573d757d2f7b1ffec9ae718aa791488960f3b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90975484"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332899"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Apoiar o estado do sistema Windows para o Azure
 
@@ -38,7 +38,7 @@ Ao criar um cofre dos Serviços de Recuperação, certifique-se de que a redund�
     ![Definir a configuração de armazenamento do novo cofre](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
 4. Escolha a opção de replicação de armazenamento adequada para o cofre.
 
-    ![Escolhas de configuração de armazenamento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
+    ![Escolhas de configuração de armazenamento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration-for-vault.png)
 
     Por predefinição, o seu cofre tem um armazenamento georredundante. Se utilizar o Azure como um ponto final de armazenamento de cópia de segurança primário, continue a utilizar o **Georredundante**. Se não utilizar o Azure como um ponto final do armazenamento de cópia de segurança primário, escolha **Localmente redundante**, o que reduz os custos de armazenamento do Azure. Leia mais sobre opções de armazenamento [geo-redundantes,](../storage/common/storage-redundancy.md#geo-redundant-storage) [redundantes locais](../storage/common/storage-redundancy.md#locally-redundant-storage) e [redundantes](../storage/common/storage-redundancy.md#zone-redundant-storage) nesta [visão geral de redundância de armazenamento](../storage/common/storage-redundancy.md).
 

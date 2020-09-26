@@ -2,15 +2,15 @@
 title: Modelo ARM frequentemente fez perguntas
 description: Perguntas frequentes (FAQ) sobre modelos do Gestor de Recursos Azure.
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 09/17/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: e23334daf0f4f6d5a6917af49c786d47c4557375
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 47ac8d0e3172645ec168d5cfe7a002d84765b864
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327264"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333125"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Perguntas frequentes sobre modelos ARM
 
@@ -88,7 +88,7 @@ Este artigo responde frequentemente a perguntas sobre os modelos Azure Resource 
 
 * **Ouvi dizer que estás a trabalhar numa nova linguagem de modelo. Onde posso saber mais sobre isto?**
 
-  Para saber mais sobre o novo idioma do modelo, [inscreva-se para notificações](https://aka.ms/armLangUpdates).
+  Para visualizar a nova língua, consulte o [repositório do Projeto Bicep.](https://github.com/Azure/bicep) Para se manter informado sobre o novo idioma, [inscreva-se para notificações](https://aka.ms/armLangUpdates).
 
 * **Existe um plano para apoiar a criação de modelos na YAML?**
 
@@ -100,7 +100,7 @@ Este artigo responde frequentemente a perguntas sobre os modelos Azure Resource 
 
 * **Você vai oferecer uma ferramenta para converter os meus modelos JSON para a nova linguagem de modelo?**
 
-  Yes.
+  Sim.
 
 ## <a name="template-specs"></a>Especificações de Modelo
 
@@ -118,7 +118,7 @@ Este artigo responde frequentemente a perguntas sobre os modelos Azure Resource 
 
 * **As especificações do modelo podem ser partilhadas através de subscrições?**
 
-  Sim, podem ser usados em subscrições desde que o utilizador tenha lido o acesso à especificação do modelo.
+  Sim, podem ser usados em todas as subscrições desde que o utilizador tenha lido o acesso à especificação do modelo. As especificações do modelo não podem ser usadas entre os inquilinos.
 
 ## <a name="scripts-in-templates"></a>Scripts em modelos
 
@@ -154,7 +154,7 @@ Este artigo responde frequentemente a perguntas sobre os modelos Azure Resource 
 
 * **Quando uso o "e se", vejo mudanças de propriedades que não estão no meu modelo. Espera-se este "barulho"?**
 
-  E se está na pré-estreia. Estamos a trabalhar para reduzir o barulho. Ajuda-nos a melhorar, apresentando problemas no nosso gitHub repo aqui:https://aka.ms/WhatIfIssues
+  E se está na pré-estreia. Estamos a trabalhar para reduzir o barulho. Ajuda-nos a melhorar, apresentando problemas no nosso gitHub repo aqui: https://aka.ms/WhatIfIssues
 
 ## <a name="template-visualizer"></a>Visualizador de modelo
 
@@ -182,7 +182,7 @@ Este artigo responde frequentemente a perguntas sobre os modelos Azure Resource 
 
 * **Posso integrar modelos ARM em Pipelines Azure?**
 
-  Yes. Para obter uma explicação de como utilizar modelos e oleodutos, consulte [Tutorial: Integração contínua de modelos de Gestor de Recursos Azure com Pipelines Azure](deployment-tutorial-pipeline.md) e [Integrar modelos ARM com Pipelines Azure](add-template-to-azure-pipelines.md).
+  Sim. Para obter uma explicação de como utilizar modelos e oleodutos, consulte [Tutorial: Integração contínua de modelos de Gestor de Recursos Azure com Pipelines Azure](deployment-tutorial-pipeline.md) e [Integrar modelos ARM com Pipelines Azure](add-template-to-azure-pipelines.md).
 
 * **Posso usar as ações do GitHub para implementar um modelo?**
 

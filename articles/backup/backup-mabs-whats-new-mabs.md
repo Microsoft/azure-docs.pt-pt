@@ -3,12 +3,12 @@ title: What's new in Microsoft Azure Backup Server (Novidades no Microsoft Azure
 description: O Microsoft Azure Backup Server oferece-lhe capacidades de backup melhoradas para proteger VMs, ficheiros e pastas, cargas de trabalho e muito mais.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: ca06e52c81b909bb19008fdccfe4b3fdeb7e6248
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 39050d0f658e29b82f270f1fe53026e2fb80bfa1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182144"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332768"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Novidades no Microsoft Azure Backup Server (MABS)
 
@@ -23,7 +23,7 @@ A versão 3 UR1 do Microsoft Azure Backup Server (MABS) é a mais recente atuali
 
 O MABS V2 introduziu [o Modern Backup Storage](backup-mabs-add-storage.md) (MBS), melhorando a utilização e o desempenho do armazenamento. O MBS utiliza o ReFS como sistema de ficheiros subjacente e foi concebido para utilizar o armazenamento híbrido, como o armazenamento hierárquico.
 
-Para alcançar a escala e o desempenho por MBS recomendamos a utilização de uma pequena percentagem (4% do armazenamento global) de armazenamento flash (SSD) com MABS V3 UR1 como um volume hierarquizado em combinação com o armazenamento DPM HDD. MABS V3 UR1 com armazenamento hierárquico oferece backups 50-70% mais rápidos. Consulte o artigo DPM [Configurar MBS com Armazenamento Tiered](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) para obter etapas para configurar o armazenamento hierárquico.
+Para alcançar a escala e o desempenho por MBS recomendamos a utilização de uma pequena percentagem (4% do armazenamento global) de armazenamento flash (SSD) com MABS V3 UR1 como um volume hierarquizado em combinação com o armazenamento DPM HDD. MABS V3 UR1 com armazenamento hierárquico oferece backups 50-70% mais rápidos. Consulte o artigo DPM [Configurar MBS com Armazenamento Tiered](/system-center/dpm/add-storage#set-up-mbs-with-tiered-storage) para obter etapas para configurar o armazenamento hierárquico.
 
 ### <a name="support-for-refs-volumes"></a>Suporte para volumes reFS
 

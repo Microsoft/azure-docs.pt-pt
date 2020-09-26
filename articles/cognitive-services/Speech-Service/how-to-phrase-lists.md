@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 02/04/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-speech-services-one-nomore-no-go
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: a71b0ba459d9363f6f479fd88ef10c8209eaf47c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 1e0b345eb4f1d6b3ab8ba917794b6878180ac558
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918728"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320953"
 ---
 # <a name="phrase-lists-for-speech-to-text"></a>Listas de frases para discurso-a-texto
 

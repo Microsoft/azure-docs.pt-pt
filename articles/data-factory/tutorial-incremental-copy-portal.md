@@ -1,6 +1,6 @@
 ---
 title: Copie incrementalmente uma tabela usando o portal Azure
-description: Neste tutorial, vai criar um pipeline da fábrica de dados do Azure, que copia dados de forma incremental de uma base de dados SQL do Azure para o armazenamento de Blobs do Azure.
+description: Neste tutorial, você cria uma fábrica de dados Azure com um pipeline que carrega dados delta de uma tabela na Base de Dados Azure SQL para armazenamento Azure Blob.
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: 10253b435461d62a4176164ea2a929843283f414
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6567651f76ff19a8105158b243de7582256e0375
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86082663"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320919"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Carregue gradualmente os dados da Base de Dados Azure SQL para o armazenamento de Azure Blob utilizando o portal Azure
 
@@ -171,7 +171,7 @@ END
         Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).  
 6. Selecione **V2** para a **versão**.
 7. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. As lojas de dados (Azure Storage, Azure SQL Database, Azure SQL Managed Instance, e assim por diante) e computas (HDInsight, etc.) utilizadas pela fábrica de dados podem estar noutras regiões.
-8. Clique em **Criar**.      
+8. Clique em **Create** (Criar).      
 9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
 
    ![Home page da fábrica de dados](./media/doc-common-process/data-factory-home-page.png)
@@ -349,7 +349,7 @@ PersonID | Name | LastModifytime
 
 ## <a name="trigger-another-pipeline-run"></a>Acionar outra execução de pipeline
 
-1. Mude para o separador **Editar.** Clique no gasoduto na vista da árvore se não estiver aberto no designer.
+1. Mude para o **separador Editar.** Clique no oleoduto na vista da árvore se não estiver aberto no designer.
 
 2. Clique em **Adicionar Gatilho** na barra de ferramentas e clique em **Trigger Now**.
 

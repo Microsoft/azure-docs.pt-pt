@@ -8,14 +8,14 @@ ms.custom: seo-lt-2019, sqldbrb=1, devx-track-csharp
 ms.topic: tutorial
 author: MightyPen
 ms.author: genemi
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 07/29/2019
-ms.openlocfilehash: 055dbdcf936cc55dcad288d216d765f4e1bf789d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3cf73816b89d0a89ff8066fe45ceaece60c230b8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932445"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321735"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-cx23-and-adonet"></a>Tutorial: Desenhe uma base de dados relacional na Azure SQL Database C&#x23; e ADO.NET
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -103,7 +103,7 @@ A SQL Database cria uma firewall IP ao nível do servidor. Esta firewall impede 
 
 4. Clique em **Adicionar IP** ao cliente na barra de ferramentas para adicionar o seu endereço IP atual a uma nova regra de firewall IP. Uma regra de firewall IP pode abrir a porta 1433 para um único endereço IP ou uma gama de endereços IP.
 
-5. Clique em **Guardar**. Uma regra de firewall IP de nível de servidor é criada para o seu endereço IP atual que abre a porta 1433 no servidor.
+5. Clique em **Save** (Guardar). Uma regra de firewall IP de nível de servidor é criada para o seu endereço IP atual que abre a porta 1433 no servidor.
 
 6. Clique em **OK** e, em seguida, feche a página **Definições da firewall**.
 

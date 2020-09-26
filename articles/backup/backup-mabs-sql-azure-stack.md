@@ -3,12 +3,12 @@ title: Apoie as cargas de trabalho do SQL Server na Azure Stack
 description: Neste artigo, aprenda a configurar o Microsoft Azure Backup Server (MABS) para proteger as bases de dados do SQL Server no Azure Stack.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 912e6f10b689217303786b20ec6315fca595a8c2
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 80de7913b010fca69c3703e423109f2ede653590
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89376337"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332819"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Apoiar o SQL Server na Azure Stack
 
@@ -24,10 +24,10 @@ A gestão da base de dados do SQL Server para a Azure e a recuperação do Azure
 
 * Se tiver uma base de dados com ficheiros numa partilha de ficheiros remota, a proteção vai falhar com o Erro ID 104. O MABS não suporta a proteção dos dados do SQL Server numa partilha remota de ficheiros.
 * O MABS não pode proteger bases de dados que são armazenadas em ações remotas de SMB.
-* Certifique-se de que as [réplicas do grupo de disponibilidade são configuradas apenas para leitura](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server?view=sql-server-ver15).
+* Certifique-se de que as [réplicas do grupo de disponibilidade são configuradas apenas para leitura](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server).
 * Tem de adicionar explicitamente a conta de sistema **NTAuthority\System** ao grupo Sysadmin no SQL Server.
-* Quando efetuar uma recuperação de localização alternativa para uma base de dados parcialmente contida, deve certificar-se de que a instância SQL alvo tem a funcionalidade [De Base de Dados Contida](/sql/relational-databases/databases/migrate-to-a-partially-contained-database?view=sql-server-ver15#enable) ativada.
-* Quando efetuar uma recuperação de localização alternativa para uma base de dados de fluxo de ficheiros, deve certificar-se de que a instância SQL alvo tem a [função de base de dados de fluxo de ficheiros](/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15) ativada.
+* Quando efetuar uma recuperação de localização alternativa para uma base de dados parcialmente contida, deve certificar-se de que a instância SQL alvo tem a funcionalidade [De Base de Dados Contida](/sql/relational-databases/databases/migrate-to-a-partially-contained-database#enable) ativada.
+* Quando efetuar uma recuperação de localização alternativa para uma base de dados de fluxo de ficheiros, deve certificar-se de que a instância SQL alvo tem a [função de base de dados de fluxo de ficheiros](/sql/relational-databases/blob/enable-and-configure-filestream) ativada.
 * Proteção para o SQL Server AlwaysOn:
   * O MABS deteta grupos de disponibilidade ao realizar inquéritos na criação de grupos de proteção.
   * O MABS deteta uma falha e continua a proteger a base de dados.
@@ -45,7 +45,7 @@ A gestão da base de dados do SQL Server para a Azure e a recuperação do Azure
     * Se a cópia de segurança falhar no nó selecionado, a operação de backup falha.
     * A recuperação para o local original não é suportada.
 * Problemas de backup do SQL Server 2014 ou acima:
-  * O sql server 2014 adicionou uma nova funcionalidade para criar uma [base de dados para o SQL Server no Windows Azure Blob .](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-ver15) O MABS não pode ser usado para proteger esta configuração.
+  * O sql server 2014 adicionou uma nova funcionalidade para criar uma [base de dados para o SQL Server no Windows Azure Blob .](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure) O MABS não pode ser usado para proteger esta configuração.
   * Existem alguns problemas conhecidos com a preferência de backup "Prefer secondary" para a opção SQL AlwaysOn. O MABS recebe sempre um apoio do secundário. Se não for possível encontrar secundário, o reforço falha.
 
 ## <a name="before-you-start"></a>Antes de começar
@@ -179,7 +179,7 @@ São necessários os seguintes passos para recuperar uma entidade protegida (bas
 
     Uma vez concluída a recuperação, a base de dados restaurada é consistente com a aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os ficheiros de cópia de segurança e o artigo [de aplicação.](backup-mabs-files-applications-azure-stack.md)
 Veja o Backup SharePoint no artigo [Azure Stack.](backup-mabs-sharepoint-azure-stack.md)

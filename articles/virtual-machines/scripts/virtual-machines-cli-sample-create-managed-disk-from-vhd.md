@@ -1,5 +1,5 @@
 ---
-title: Disco gerido a partir de ficheiro VHD na mesma conta - amostra CLI
+title: Criar um disco gerido a partir de um ficheiro VHD na mesma conta - amostra CLI
 description: Exemplo do Script da CLI do Azure – Criar um disco gerido a partir de um ficheiro VHD numa conta de armazenamento na mesma subscrição
 documentationcenter: storage
 author: ramankumarlive
@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 4d979830e622e68cd795f0137b96442a762daade
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: d0795f67390faec4a08882adb1f2b15efcbc6619
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89323175"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91274882"
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-the-same-subscription-with-cli-linux"></a>Criar um disco gerido a partir de um ficheiro VHD numa conta de armazenamento na mesma subscrição com o CLI (Linux)
 
@@ -41,7 +41,7 @@ Este script utiliza os seguintes comandos para criar um disco gerido a partir de
 |---|---|
 | [az disk create](/cli/azure/disk) | Cria um disco gerido com um URI de um VHD numa conta de armazenamento na mesma subscrição |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar uma máquina virtual ao anexar um disco gerido como disco do SO](./virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fcli%2fmodule%2ftoc.json)
 

@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 180fca9ae40bc07be762665a3d16270e905d2e02
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 026c2b7b57929d31fbbf776d81ee41eb73b73d44
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984163"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321522"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Recursos de base de dados de escala dinâmica com tempo mínimo de inatividade
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -71,7 +71,7 @@ A escala de recursos é a forma mais fácil e eficaz de melhorar o desempenho da
 - [A escala de leitura](read-scale-out.md) é uma funcionalidade disponível onde está a obter uma réplica apenas de leitura dos seus dados onde pode executar consultas exigentes apenas de leitura, como relatórios. Uma réplica só de leitura irá lidar com a sua carga de trabalho apenas de leitura sem afetar o uso de recursos na sua base de dados primária.
 - [O fragmento de base de dados](elastic-scale-introduction.md) é um conjunto de técnicas que lhe permite dividir os seus dados em várias bases de dados e escaloná-los de forma independente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre a melhoria do desempenho da base de dados alterando o código da base de [dados,](database-advisor-find-recommendations-portal.md)consulte Localizar e aplicar recomendações de desempenho .
 - Para obter informações sobre a informação de uma base de dados incorporada que otimize a sua base de dados, consulte [a sintonização automática](automatic-tuning-overview.md).

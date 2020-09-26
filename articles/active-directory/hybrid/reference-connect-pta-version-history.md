@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5e6afef70ee3d4f4d84cb6b867a916ae57da5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 854931273ffebd653615a44dbfa9ce1b846655c2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356309"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333431"
 ---
 # <a name="azure-ad-pass-through-authentication-agent-version-release-history"></a>Azure AD Agente de autenticação pass-through: histórico de lançamento de versão 
  
@@ -56,15 +56,10 @@ Aqui estão os tópicos relacionados:
 ### <a name="release-status"></a>Estado de lançamento 
 1/31/2018: Lançamento para download  
 ### <a name="fixed-issues"></a>Problemas corrigidos 
-
 - Consertei um erro que causou fugas de memória no agente. 
 - Atualizou a versão Azure Service Bus, que inclui uma correção de erro para problemas de tempo de conector. 
- 
-## <a name="154050"></a>1.5.405.0 
-### <a name="release-status"></a>Estado de lançamento 
-11/26/2017: Lançamento para download  
 ### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias 
-- Suporte adicional para ligações baseadas em websocket entre o agente e os serviços AD da Azure para melhorar a resiliência da ligação 
+- Suporte adicional para ligações baseadas em websocket entre o agente e os serviços AD da Azure para melhorar a resiliência da ligação
 
 ## <a name="154020"></a>1.5.402.0 
 ### <a name="release-status"></a>Estado de lançamento 
@@ -84,6 +79,6 @@ Aqui estão os tópicos relacionados:
 ### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias 
 - Versão GA do agente de autenticação Azure AD Pass-through 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Início de sessão do utilizador com a Autenticação Pass-through do Azure Active Directory](how-to-connect-pta.md)

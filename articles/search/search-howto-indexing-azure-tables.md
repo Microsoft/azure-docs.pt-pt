@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 26be48e7968345863799191539bd668ea6d9a4a2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 2c67cd4d071660da2ca5714623695ca434329263
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929572"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91275188"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Como indexar tabelas a partir do armazenamento da Tabela Azure com Azure Cognitive Search
 
@@ -69,6 +69,7 @@ Para obter mais informações sobre a API de Fonte de Dados, consulte [Criar Fon
 
 Pode fornecer as credenciais para a mesa de uma destas formas: 
 
+- **Cadeia de ligação de identidade gerida**: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;` Esta cadeia de ligação não requer uma chave de conta, mas deve seguir as instruções para [configurar uma ligação a uma conta de Armazenamento Azure utilizando uma identidade gerida](search-howto-managed-identities-storage.md).
 - **Cadeia de ligação à conta de armazenamento de acesso completo**: Pode obter a cadeia de `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` ligação do portal Azure indo para as chaves de chaves de chaves de **chaves de chaves de conta de armazenamento de armazenamento**  >  **Settings**  >  **Keys** (para contas de armazenamento clássico) ou chaves de acesso **de definições**  >  **Access keys** (para contas de armazenamento do Gestor de Recursos Azure).
 - **Cadeia de ligação de assinatura de acesso partilhado**da conta de armazenamento : A assinatura de acesso partilhado deve ter a lista e ler `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` permissões em recipientes (tabelas neste caso) e objetos (linhas de mesa).
 -  **Assinatura de acesso partilhado da tabela**: A assinatura de acesso partilhado deve ter `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` permissões de consulta (ler) na tabela.

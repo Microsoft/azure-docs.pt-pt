@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 05/13/2020
+ms.date: 09/24/2020
 ms.author: aahi
-ms.openlocfilehash: 457be5ac014fda6b4984ed7af3dcc89780b16379
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: 5f5122b5fa7c20bc0717ef1605e41bb5f2700be2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141622"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309103"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como utilizar o reconhecimento de entidade nomeada em análise de texto
 
@@ -34,7 +34,7 @@ Denominado Reconhecimento de Entidade (NER) é a capacidade de identificar difer
 
 [!INCLUDE [v3 region availability](../includes/v3-region-availability.md)]
 
-| Funcionalidade                                                         | NER v3.0 | NER v3.1-pré-visualização.1 |
+| Funcionalidade                                                         | NER v3.0 | NER v3.1-pré-visualização.2 |
 |-----------------------------------------------------------------|--------|----------|
 | Métodos para pedidos individuais e de lote                          | X      | X        |
 | Reconhecimento de entidades expandidas em várias categorias           | X      | X        |
@@ -47,7 +47,7 @@ Consulte [o suporte linguístico](../language-support.md) para obter informaçõ
 
 O Nome De Reconhecimento de Entidade v3 fornece deteção expandida em vários tipos. Atualmente, o NER v3.0 pode reconhecer entidades na [categoria de entidades gerais.](../named-entity-types.md)
 
-O Nome De Reconhecimento de Entidade v3.1-preview.1 inclui as capacidades de deteção de v3.0, e a capacidade de detetar informações pessoais ( `PII` ) usando o `v3.1-preview.1/entities/recognition/pii` ponto final. Pode utilizar o parâmetro opcional `domain=phi` para detetar informações confidenciais de saúde `PHI` (). Consulte o artigo [das categorias de entidades](../named-entity-types.md) e solicite a secção [de pontos finais](#request-endpoints) abaixo para obter mais informações.
+O Nome De Reconhecimento de Entidade v3.1-preview.2 inclui as capacidades de deteção de v3.0, e a capacidade de detetar informações pessoais ( `PII` ) usando o `v3.1-preview.2/entities/recognition/pii` ponto final. Pode utilizar o parâmetro opcional `domain=phi` para detetar informações confidenciais de saúde `PHI` (). Consulte o artigo [das categorias de entidades](../named-entity-types.md) e solicite a secção [de pontos finais](#request-endpoints) abaixo para obter mais informações.
 
 
 ## <a name="sending-a-rest-api-request"></a>Envio de um pedido de API REST
@@ -75,24 +75,36 @@ O Nome De Reconhecimento de Entidade v3 utiliza pontos finais separados para NER
 Ligação de entidades
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/linking`
 
+[Denominada versão de Reconhecimento de Entidade 3.0 para `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
+
 NER
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
 
-#### <a name="version-31-preview1"></a>[Versão 3.1-pré-visualização.1](#tab/version-3-preview)
+[Denominada versão de Reconhecimento de Entidade 3.0 para `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0/operations/EntitiesRecognitionGeneral)
 
-O Reconhecimento de Entidades `v3.1-preview.1` Nomeadas utiliza pontos finais separados para NER e entidade que ligam pedidos. Utilize um formato URL abaixo baseado no seu pedido:
+#### <a name="version-31-preview2"></a>[Versão 3.1-pré-visualização.2](#tab/version-3-preview)
+
+O Reconhecimento de Entidades `v3.1-preview.2` Nomeadas utiliza pontos finais separados para NER e entidade que ligam pedidos. Utilize um formato URL abaixo baseado no seu pedido:
 
 Ligação de entidades
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/linking`
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/linking`
+
+[Chamada Entity Recognition versão 3.1-pré-visualização referência para `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesLinking)
 
 NER
-* Entidades gerais -`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/general`
+* Entidades gerais - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/general`
 
-* Informação pessoal `PII` -`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii`
+[Chamada Entity Recognition versão 3.1-pré-visualização referência para `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
+
+* Informação pessoal `PII` - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii`
 
 Também pode utilizar o parâmetro opcional `domain=phi` para detetar informações de saúde `PHI` () em texto. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/entities/recognition/pii?domain=phi`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi`
+
+Por favor, note a adição do `redactedText` imóvel na resposta JSON que contém o texto de entrada modificado onde as entidades PII detetadas são substituídas por um * por cada personagem das entidades.
+
+[Chamada Entity Recognition versão 3.1-pré-visualização referência para `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionPii)
 
 ---
 
@@ -127,11 +139,11 @@ Todos os pedidos post devolvem uma resposta formatada JSON com os IDs e propried
 
 O resultado é devolvido imediatamente. Pode transmitir os resultados para uma aplicação que aceite JSON ou guardar o resultado num ficheiro no sistema local e, em seguida, importá-lo para uma aplicação que lhe permita ordenar, procurar e manipular os dados. Devido ao suporte multilíngue e emoji, a resposta pode conter compensações de texto. Veja [como processar as compensações de texto](../concepts/text-offsets.md) para obter mais informações.
 
-### <a name="example-v3-responses"></a>Exemplo v3 respostas
+### <a name="example-responses"></a>Respostas de exemplo
 
 A versão 3 fornece pontos finais separados para a ligação NER e entidade. As respostas para ambas as operações estão abaixo. 
 
-#### <a name="example-ner-response"></a>Exemplo resposta NER
+#### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
 ```json
 {
@@ -184,9 +196,7 @@ A versão 3 fornece pontos finais separados para a ligação NER e entidade. As 
   "modelVersion": "2020-04-01"
 }
 ```
-
-
-#### <a name="example-entity-linking-response"></a>Exemplo entidade que liga a resposta
+#### <a name="version-31-preview"></a>[Versão 3.1-pré-visualização](#tab/version-3-preview)
 
 ```json
 {
@@ -195,6 +205,7 @@ A versão 3 fornece pontos finais separados para a ligação NER e entidade. As 
       "id": "1",
       "entities": [
         {
+          "bingId": "f8dd5b08-206d-2554-6e4a-893f51f4de7e", 
           "name": "Space Needle",
           "matches": [
             {
@@ -210,6 +221,7 @@ A versão 3 fornece pontos finais separados para a ligação NER e entidade. As 
           "dataSource": "Wikipedia"
         },
         {
+          "bingId": "5fbba6b8-85e1-4d41-9444-d9055436e473",
           "name": "Seattle",
           "matches": [
             {
@@ -233,6 +245,8 @@ A versão 3 fornece pontos finais separados para a ligação NER e entidade. As 
 }
 ```
 
+---
+
 
 ## <a name="summary"></a>Resumo
 
@@ -242,8 +256,8 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para entidade que liga usan
 * Os pedidos de CORREIO são enviados para um ou mais pontos finais, utilizando uma chave de acesso personalizada [e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para a sua subscrição.
 * A saída de resposta, que consiste em entidades ligadas (incluindo pontuações de confiança, compensações e links web, para cada ID do documento) pode ser utilizada em qualquer aplicação
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Descrição Geral da Análise de Texto](../overview.md)
+* [Descrição geral da Análise de Texto](../overview.md)
 * [Utilização da biblioteca de clientes Text Analytics](../quickstarts/text-analytics-sdk.md)
 * [Novidades](../whats-new.md)
