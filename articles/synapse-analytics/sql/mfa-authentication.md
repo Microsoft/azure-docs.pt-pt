@@ -9,12 +9,12 @@ ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
 ms.custom: has-adal-ref
-ms.openlocfilehash: bc503213169f909850460edf5e50ed3f1b34fbe2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 52964c906df7a96685c8eb80c1d23ef9a9efc6e1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288601"
+ms.locfileid: "91361845"
 ---
 # <a name="use-multi-factor-aad-authentication-with-synapse-sql-ssms-support-for-mfa"></a>Utilize a autenticação AAD multi-factor com sinaapse SQL (suporte SSMS para MFA)
 
@@ -26,7 +26,7 @@ Este artigo discute as diferenças entre as várias opções de autenticação, 
 
 Para todas as funcionalidades discutidas neste artigo, use pelo menos julho de 2017, versão 17.2.  A mais recente caixa de diálogo de ligação deve ser semelhante à seguinte imagem:
 
-![1mfa-universal-connect](./media/mfa-authentication/1mfa-universal-connect.png "Completa a caixa de nome do utilizador.")  
+![A screenshot mostra a caixa de diálogo Do Servidor, onde pode selecionar um nome de servidor e uma opção de autenticação.](./media/mfa-authentication/1mfa-universal-connect.png "Completa a caixa de nome do utilizador.")  
 
 ## <a name="the-five-authentication-options"></a>As cinco opções de autenticação  
 
@@ -63,7 +63,7 @@ Para introduzir o parâmetro (começando com a versão SSMS 17.2), na caixa de d
 
 Verifique o **nome de domínio da AD ou** a caixa de identificação do inquilino, e forneça autoridade autenticante, como o nome de domínio **(contosotest.onmicrosoft.com)** ou o GUIADOr do ID do inquilino.  
 
-   ![mfa-inquilino-ssms](./media/mfa-authentication/mfa-tenant-ssms.png)
+   ![A screenshot mostra 'Ligar ao Servidor' no separador Propriedades de Ligação com valores introduzidos.](./media/mfa-authentication/mfa-tenant-ssms.png)
 
 Se estiver a executar SSMS 18.x ou mais tarde, então o nome de domínio AD ou iD do inquilino já não é necessário para os utilizadores convidados porque 18.x ou mais tarde automaticamente o reconhece.
 

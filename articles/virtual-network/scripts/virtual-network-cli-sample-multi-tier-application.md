@@ -1,6 +1,6 @@
 ---
 title: Criar um VNet para aplicações multi-camadas - amostra de script Azure CLI
-description: Exemplo de script da CLI do Azure - Criar uma rede virtual para aplicações de várias camadas.
+description: Crie uma rede virtual para aplicações multi-camadas - amostra de script Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 44b60d7b3a303e833d6915591cc1475751582e97
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 54ad2327af40041c7bde07095e7f5d8ed1375015
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87492569"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313931"
 ---
 # <a name="create-a-virtual-network-for-multi-tier-applications-using-an-azure-cli-script-sample"></a>Criar uma rede virtual para aplicações multi-camadas usando uma amostra de script Azure CLI
 

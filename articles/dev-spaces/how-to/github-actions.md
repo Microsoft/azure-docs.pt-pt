@@ -6,13 +6,13 @@ ms.topic: conceptual
 description: Rever e testar alterações a partir de um pedido de pull diretamente no Serviço Azure Kubernetes usando GitHub Actions e Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contentores, GitHub Actions, Helm, malha de serviço, encaminhamento de malha de serviço, kubectl, k8s
 manager: gwallace
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 5e3417f16791b71d53a0eec9263532219c779440
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.custom: devx-track-js
+ms.openlocfilehash: 25cb0de10e83069514c7918a5a2cdac019fe1ebb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212511"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316108"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>GitHub Actions & Serviço Azure Kubernetes (pré-visualização)
 
@@ -149,7 +149,7 @@ git push origin bike-images
 
 Depois de o empurrão estar completo, navegue até ao seu repositório de garfos no GitHub para criar um pedido de puxar com o ramo *principal* no seu repositório de garfos como ramo base em comparação com o ramo *de imagens de bicicleta.*
 
-Depois de abrir o seu pedido de puxar, navegue para o *separador Ações.* Verifique se uma nova ação foi iniciada e está a construir o serviço *Bikes.*
+Após a abertura do seu pedido de puxar, navegue para o *separador Ações.* Verifique se uma nova ação foi iniciada e está a construir o serviço *Bikes.*
 
 ## <a name="view-the-child-space-with-your-changes"></a>Veja o espaço da criança com as suas alterações
 

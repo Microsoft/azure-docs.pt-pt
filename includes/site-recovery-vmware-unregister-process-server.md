@@ -4,12 +4,12 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 04/28/2019
 ms.author: ramamill
-ms.openlocfilehash: 00b0c1b1a40ad16db177916c57dba6e9d5a187a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bff9457220efbb6a6b318550a5b2dd9af4ae230f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67184787"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361399"
 ---
 Siga os passos para as suas circunstâncias específicas.
 
@@ -35,7 +35,7 @@ Utilize apenas estes passos se não houver forma de reanimar a máquina em que o
     - S. Não: o número de série do servidor de processo.
     - IP/Nome: O endereço IP e o nome da máquina que executa o servidor de processo.
     - Batimento cardíaco: Último batimento cardíaco da máquina do servidor de processo.
-    ![Não registador-cmd](media/site-recovery-vmware-unregister-process-server/Unregister-cmd.PNG)
+    ! [A screenshot mostra uma exibição simples de texto de informações sobre os seus servidores de processo e o texto Por favor escolha um dos servidores acima para des-registar. (media/site-recovery-vmware-unregister-process-process-server/Unregister-cmd.PNG)
 
 4. Especifique o número de série do servidor de processo que pretende não registar.
 5. Desregralar um servidor de processo remove todos os seus dados do sistema e exibe a mensagem: **> com o nome do servidor não registado com sucesso (endereço IP-servidor)**

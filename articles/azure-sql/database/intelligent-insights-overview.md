@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 96557a6049b316a69c32e96012206eab128e024a
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4f6bbbdbbee6cf83a6bea463cf200be0cf671897
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986509"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317060"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Insights Inteligentes utilizando a IA para monitorizar e resolver problemas de desempenho da base de dados (pré-visualização)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -73,10 +73,10 @@ As opções de Insights Inteligentes disponíveis são:
 
 | Opção Insights Inteligentes | Suporte à base de dados Azure SQL | Suporte de Instância Gerida do SQL do Azure |
 | :----------------------------- | ----- | ----- |
-| **Configure Insights Inteligentes** - Configurar análise de Insights Inteligentes para as suas bases de dados. | Sim | Sim |
-| **Stream insights para Azure SQL Analytics** -- Stream insights para Azure SQL Analytics. | Sim | Sim |
-| **Stream insights para Azure Event Hubs** - Stream insights para Os Centros de Eventos para mais integrações personalizadas. | Sim | Sim |
-| **Stream insights para Azure Storage** - Stream insights para Azure Storage para mais análises e arquivos a longo prazo. | Sim | Sim |
+| **Configure Insights Inteligentes** - Configurar análise de Insights Inteligentes para as suas bases de dados. | Yes | Yes |
+| **Stream insights para Azure SQL Analytics** -- Stream insights para Azure SQL Analytics. | Yes | Yes |
+| **Stream insights para Azure Event Hubs** - Stream insights para Os Centros de Eventos para mais integrações personalizadas. | Yes | Yes |
+| **Stream insights para Azure Storage** - Stream insights para Azure Storage para mais análises e arquivos a longo prazo. | Yes | Yes |
 
 > [!NOTE]
 > Insights inteligentes é uma característica de pré-visualização, não disponível nas seguintes regiões: Europa Ocidental, Norte da Europa, EUA 1 e Leste dos EUA 1.
@@ -158,7 +158,7 @@ Os insights gerados contêm o número de pedidos de tempo e o número de consult
 
 ## <a name="excessive-wait-times"></a>Tempos de espera excessivos
 
-O modelo de tempo de espera excessivo monitoriza consultas individuais de base de dados. Deteta estatísticas de espera de consultas invulgarmente elevadas que cruzaram os limiares absolutos geridos pelo sistema. As seguintes métricas de tempo de espera excessivas são observadas utilizando, Estatísticas de [espera da loja de consultas (sys.query_store_wait_stats)](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql):
+O modelo de tempo de espera excessivo monitoriza consultas individuais de base de dados. Deteta estatísticas de espera de consultas invulgarmente elevadas que cruzaram os limiares absolutos geridos pelo sistema. Observam-se as seguintes métricas de tempo de espera excessivas utilizando, estatísticas de [espera da loja de consultas (sys.query_store_wait_stats)](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql):
 
 - Atingir limites de recursos
 - Atingindo limites de recursos elásticos da piscina
@@ -185,7 +185,7 @@ O Registo de Insights Inteligentes regista a contagem de pedidos erros. Indica s
 
 Se alguma das exceções críticas monitorizadas atravessar os limiares absolutos geridos pelo sistema, uma visão inteligente é gerada com detalhes críticos de exceção.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como monitorizar as [bases de dados utilizando o SQL Analytics](../../azure-monitor/insights/azure-sql.md).
 - Saiba como [resolver problemas de desempenho com Insights Inteligentes.](intelligent-insights-troubleshoot-performance.md)

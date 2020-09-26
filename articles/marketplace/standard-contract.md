@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/20/2020
-ms.openlocfilehash: f7327079e365bcd8a99a8274828f7c14e2337a34
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 3487b5a069b1862ec302a979318ea78722b1433c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121559"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361692"
 ---
 # <a name="standard-contract-for-microsoft-commercial-marketplace"></a>Contrato Padrão para o mercado comercial da Microsoft
 
@@ -21,7 +21,7 @@ A Microsoft oferece um Contrato Padrão para o mercado comercial da Microsoft. I
 Os termos e condições para uma oferta são definidos ao criar a oferta no Partner Center. Pode selecionar para utilizar o Contrato Padrão para o mercado comercial da Microsoft em vez de fornecer os seus próprios termos e condições personalizados.
 
 >[!Note]
->Uma vez que publique uma oferta usando o contrato Standard para o mercado comercial da Microsoft, não poderá utilizar os seus próprios termos e condições personalizados. É um cenário "ou". Ou oferece a sua solução nos termos *e* condições padrão. Se quiser modificar os termos do Contrato Padrão, pode fazê-lo através de Alterações Padrão contratuais.
+>Assim que publicar uma oferta utilizando o contrato Standard para o mercado comercial da Microsoft, não poderá utilizar os seus próprios termos e condições personalizados. Ou oferece a sua solução nos termos *e* condições padrão. Os termos e condições personalizados são definidos ao nível da oferta e aplicam-se a todos os planos; escreva os seus termos e condições **personalizados** na página Propriedades da sua oferta no Partner Center. Se quiser modificar os termos do Contrato Padrão, pode fazê-lo através de Alterações Padrão contratuais.
 
 ## <a name="standard-contract-amendments"></a>Alterações padrão do contrato
 

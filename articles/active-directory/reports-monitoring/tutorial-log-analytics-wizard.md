@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93caf52d8b4a11f9843ad5f18ebf968d1d0730cd
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 643010ef1f6e941a57673a711e1871aafd1e341d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226212"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361913"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Tutorial: Configurar o assistente de análise de registo
 
@@ -72,7 +72,7 @@ Configurar um espaço de trabalho de análise de log é composto por dois passos
 
 3. Na página de espaços de trabalho de analítica de registo, clique em **Adicionar**.
 
-    ![Adicionar](./media/tutorial-log-analytics-wizard/add.png)
+    ![A screenshot mostra o botão Adicionar na página de espaços de trabalho de analítica de registo.](./media/tutorial-log-analytics-wizard/add.png)
 
 4.  Na página do **espaço de trabalho Create Log Analytics,** execute os seguintes passos:
 
@@ -114,7 +114,7 @@ Configurar um espaço de trabalho de análise de log é composto por dois passos
 
     2. Em **Detalhes do Destino**, selecione Enviar para Registar **Analytics**e, em seguida, selecione o seu novo espaço de trabalho de analítica de registo. 
    
-    3. Clique em **Guardar**. 
+    3. Clique em **Save** (Guardar). 
 
 ## <a name="run-queries"></a>Executar consultas  
 
@@ -248,7 +248,7 @@ Este procedimento mostra como enviar alertas quando a conta breakglass é utiliz
 
     2. Como **Frequência (em minutos)**, selecione **5**.
 
-    3. Clique em **Concluído**. 
+    3. Clique em **Done** (Concluído). 
 
 12. No **grupo Action**, clique em Select action **group**. 
 
@@ -268,7 +268,7 @@ Este procedimento mostra como enviar alertas quando a conta breakglass é utiliz
 
     3. Clique em **Rever + criar**. 
 
-    4. Clique em **Criar**.
+    4. Clique em **Create** (Criar).
 
 
 15. Em **ação personalizada,** execute os seguintes passos:
@@ -305,7 +305,7 @@ Este procedimento mostra como criar um novo livro utilizando o modelo de arranqu
 
 3. Na secção **de Monitorização,** clique em **Livros de Trabalho.**
 
-    ![Livros](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![Screenshot mostra monitorização no menu do portal Azure com livros de trabalho selecionados.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. Na secção **Quickstart,** clique em **Empty**.
 
@@ -357,7 +357,7 @@ Este procedimento mostra como adicionar uma consulta a um modelo de livro existe
 
 3. Na secção **de Monitorização,** clique em **Livros de Trabalho.**
 
-    ![Livros](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![A screenshot mostra monitorização no menu com livros de trabalho selecionados.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. Na secção de **acesso condicional,** clique em **Insights de Acesso Condicional e Relatórios**.
 

@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2019
 ms.author: thweiss
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d692a884688d81fdf16261edff816fa8f0215877
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 81660bee32cace458424c9975c74ca7980148e29
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422322"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316193"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Encontre a taxa da unidade de pedido na Azure Cosmos DB
 
@@ -305,7 +305,7 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
 
 Para obter mais informações, consulte [Quickstart: Construa uma aplicação API de tabela utilizando o DB .NET SDK e Azure Cosmos DB](create-table-dotnet.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a otimizar o seu consumo de RU, consulte estes artigos:
 

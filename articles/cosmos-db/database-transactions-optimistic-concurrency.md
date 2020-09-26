@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d453bb4071c4a6972e01b8f7e90375181caf6d01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d8bd72b6a03164a41e0b7c0ff00ac728cecf7f5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74806529"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355391"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transações e controlo de simultaneidade otimista
 
@@ -34,10 +34,10 @@ O motor de base de dados em Azure Cosmos DB suporta transações completas acid 
 | Sistema iniciou execução de um procedimento de fusão | Escrita | Transação multi-item |
 | Sistema iniciou execução de itens de supressão com base na expiração (TTL) de um item | Escrita | Transação multi-item |
 | Leitura | Leitura | Transação de um único item |
-| Feed de Alterações | Leitura | Transação multi-item |
-| Leitura Paginada | Leitura | Transação multi-item |
-| Consulta paginada | Leitura | Transação multi-item |
-| Executar uDF como parte da consulta paginada | Leitura | Transação multi-item |
+| Feed de Alterações | Ler | Transação multi-item |
+| Leitura Paginada | Ler | Transação multi-item |
+| Consulta paginada | Ler | Transação multi-item |
+| Executar uDF como parte da consulta paginada | Ler | Transação multi-item |
 
 ## <a name="multi-item-transactions"></a>Transações multi-itens
 
@@ -53,11 +53,11 @@ O controlo de concordância otimista permite evitar atualizações perdidas e el
 
 As atualizações simultâneas de um item são submetidas ao OCC pela camada de protocolo de comunicação da Azure Cosmos DB. A base de dados Azure Cosmos garante que a versão do lado do cliente do item que está a atualizar (ou a eliminar) é a mesma que a versão do item no recipiente Azure Cosmos. Isto garante que as suas escritas estão protegidas de serem substituídas acidentalmente pelas escritas de outros e vice-versa. Num ambiente multiutilizador, o controlo otimista de concordância protege-o de eliminar ou atualizar acidentalmente uma versão errada de um item. Como tal, os itens estão protegidos contra os infames problemas de "atualização perdida" ou "eliminação perdida".
 
-Cada item armazenado num contentor Azure Cosmos tem uma propriedade definida pelo `_etag` sistema. O valor do `_etag` produto é gerado e atualizado automaticamente pelo servidor sempre que o item é atualizado. `_etag`pode ser usado com o cabeçalho de pedido fornecido pelo cliente `if-match` para permitir que o servidor decida se um item pode ser atualizado condicionalmente. O valor do `if-match` cabeçalho corresponde ao valor do `_etag` servidor, o item é então atualizado. Se o valor do cabeçalho de `if-match` pedido deixar de estar atual, o servidor rejeita a operação com uma mensagem de resposta "FALHA DE Pré-condição HTTP 412". O cliente pode então re-buscar o item para adquirir a versão atual do item no servidor ou sobrepor-se à versão do item no servidor com o seu próprio `_etag` valor para o item. Além disso, `_etag` pode ser usado com o `if-none-match` cabeçalho para determinar se é necessário um refetch de um recurso.
+Cada item armazenado num contentor Azure Cosmos tem uma propriedade definida pelo `_etag` sistema. O valor do `_etag` produto é gerado e atualizado automaticamente pelo servidor sempre que o item é atualizado. `_etag` pode ser usado com o cabeçalho de pedido fornecido pelo cliente `if-match` para permitir que o servidor decida se um item pode ser atualizado condicionalmente. O valor do `if-match` cabeçalho corresponde ao valor do `_etag` servidor, o item é então atualizado. Se o valor do cabeçalho de `if-match` pedido deixar de estar atual, o servidor rejeita a operação com uma mensagem de resposta "FALHA DE Pré-condição HTTP 412". O cliente pode então re-buscar o item para adquirir a versão atual do item no servidor ou sobrepor-se à versão do item no servidor com o seu próprio `_etag` valor para o item. Além disso, `_etag` pode ser usado com o `if-none-match` cabeçalho para determinar se é necessário um refetch de um recurso.
 
-O valor do item `_etag` muda sempre que o item é atualizado. Para substituir as operações de artigo, `if-match` deve ser expressa explicitamente como parte das opções de pedido. Por exemplo, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L578-L674). `_etag`os valores são verificados implicitamente para todos os itens escritos tocados pelo procedimento armazenado. Se for detetado algum conflito, o procedimento armazenado reverterá a transação e lançará uma exceção. Com este método, qualquer escrita ou nenhuma escrita dentro do procedimento armazenado são aplicadas atomicamente. Este é um sinal para a aplicação para reaplicar atualizações e re-tentar o pedido original do cliente.
+O valor do item `_etag` muda sempre que o item é atualizado. Para substituir as operações de artigo, `if-match` deve ser expressa explicitamente como parte das opções de pedido. Por exemplo, consulte o código de amostra no [GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement/Program.cs#L676-L772). `_etag` os valores são verificados implicitamente para todos os itens escritos tocados pelo procedimento armazenado. Se for detetado algum conflito, o procedimento armazenado reverterá a transação e lançará uma exceção. Com este método, qualquer escrita ou nenhuma escrita dentro do procedimento armazenado são aplicadas atomicamente. Este é um sinal para a aplicação para reaplicar atualizações e re-tentar o pedido original do cliente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as transações de bases de dados e o controlo otimista da conuscção nos seguintes artigos:
 

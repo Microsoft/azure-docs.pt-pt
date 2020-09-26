@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 925d1178ad630699cfd3d9e48677c0f029fc75af
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: f45c3def84c548ba12221efa59e9ebbd4699df71
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "74976728"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316074"
 ---
 # <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Tutorial: Configurar recursos em nuvem para o fornecimento de dispositivos com o Serviço de Provisionamento de Dispositivos IoT Hub
 
@@ -21,13 +21,13 @@ Este tutorial mostra como configurar a cloud para o aprovisionamento de disposit
 
 > [!div class="checklist"]
 > * Utilizar o portal do Azure para criar um Serviço Aprovisionamento de Dispositivos no Hub IoT e obter o âmbito do ID
-> * Criar um hub IoT
+> * Criar um hub IoT
 > * Ligar o hub IoT ao Serviço Aprovisionamento de Dispositivos
 > * Definir a política de alocação no Serviço Aprovisionamento de Dispositivos
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
+## <a name="prerequisites"></a>Pré-requisitos
 
 Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
@@ -52,13 +52,13 @@ Siga estes passos para criar uma nova instância do Serviço Aprovisionamento de
 
    ![Introduza as informações básicas do Serviço Aprovisionamento de Dispositivos no portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
-5. Clique em **Criar**. Após alguns instantes, a instância do Serviço de Aprovisionamento de Dispositivos é criada e é apresentada a página **Descrição Geral**.
+5. Clique em **Create** (Criar). Após alguns instantes, a instância do Serviço de Aprovisionamento de Dispositivos é criada e é apresentada a página **Descrição Geral**.
 
 6. Na página **Descrição Geral** da nova instância de serviço, copie o valor do **Âmbito do ID** para utilização posterior. O valor é utilizado para identificar os IDs de registo e oferece uma garantia de que o ID do registo é exclusivo.
 
 7. Além disso, copie o valor **Ponto final de serviço** para utilização posterior. 
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -116,7 +116,7 @@ Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
 > * Utilizar o portal do Azure para criar um Serviço Aprovisionamento de Dispositivos no Hub IoT e obter o âmbito do ID
-> * Criar um hub IoT
+> * Criar um hub IoT
 > * Ligar o hub IoT ao Serviço Aprovisionamento de Dispositivos
 > * Definir a política de alocação no Serviço Aprovisionamento de Dispositivos
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewers: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: fe4b25dfd8bf96d1ed6dab189543e0e1b810ecd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3542bb502bbb0d41ff6a35902bc38262c26876de
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84042121"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361777"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>Inter-inquilino reportando usando consultas distribuídas
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -93,7 +93,7 @@ Para examinar a definição da vista *local:*
 
 1. No **Object Explorer,** **expanda as vistas contosoconcerthall:**  >  **Views**
 
-   ![Modos de exibição](./media/saas-tenancy-cross-tenant-reporting/views.png)
+   ![A screenshot mostra o conteúdo do nó Views, incluindo quatro tipos de Venue d b o.](./media/saas-tenancy-cross-tenant-reporting/views.png)
 
 2. Dbo de clique à **direita. Locais.**
 3. Selecione **a visualização do script como**CREATE para  >  **a**nova janela do editor de  >  **consultas**
@@ -176,7 +176,7 @@ Importante notar, é que a definição **DE DISTRIBUIÇÃO = SHARDED (VenueId)**
    ![consulta](./media/saas-tenancy-cross-tenant-reporting/query3-plan.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

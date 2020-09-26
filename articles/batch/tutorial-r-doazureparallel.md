@@ -5,12 +5,12 @@ ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
 ms.custom: mvc
-ms.openlocfilehash: dc5c022b4722f844e0b3c117bb5961843865bd55
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 2c988075031be326f01e02bceff1c948295d5845
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84418182"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292868"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Tutorial: executar uma simulação paralela em R com o Azure Batch 
 
@@ -193,7 +193,7 @@ hist(closingPrices_s)
 
 O resultado é semelhante ao seguinte:
 
-![Distribuição dos preços de fecho](media/tutorial-r-doazureparallel/closing-prices-local.png)
+![Screenshot mostra uma histograma de preços de fecho](media/tutorial-r-doazureparallel/closing-prices-local.png)
   
 As simulações locais são concluídas em poucos segundos ou menos:
 
@@ -242,7 +242,7 @@ difftime(end_p, start_p, unit = "min")
 
 Deve ter em conta que a execução da simulação no conjunto do Batch lhe proporciona um aumento significativo no desempenho em relação ao tempo previsto para executar a simulação localmente. 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 O trabalho é eliminado automaticamente depois de terminar. Quando o cluster deixar de ser necessário, chame a função `stopCluster` no pacote doAzureParallel para eliminá-lo:
 

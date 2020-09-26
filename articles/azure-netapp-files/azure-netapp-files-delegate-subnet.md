@@ -14,28 +14,30 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 9bb3e93b99ce8d5a61501d417a71e5e38753f5ff
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: da7aa0889940c560df705e3c47f5ccb1960aee2c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513031"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361029"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegar uma sub-rede para os Azure NetApp Files 
 
 Tem de delegar uma sub-rede para ficheiros Azure NetApp.   Quando cria um volume, tem de especificar a sub-rede delegada.
 
 ## <a name="considerations"></a>Considerações
+
 * O assistente para criar uma nova sub-rede predefini a uma máscara de rede /24, que fornece 251 endereços IP disponíveis. A utilização de uma máscara de rede /28, que prevê 11 endereços IP utilizáveis, é suficiente para o serviço.
 * Em cada Rede Virtual Azure (VNet), apenas uma sub-rede pode ser delegada em Ficheiros Azure NetApp.   
    O Azure permite-lhe criar várias sub-redes delegadas num VNet.  No entanto, qualquer tentativa de criar um novo volume falhará se utilizar mais de uma sub-rede delegada.  
    Só pode ter uma única sub-rede delegada num VNet. Uma conta NetApp pode implantar volumes em vários VNets, cada um com a sua própria sub-rede delegada.  
 * Não é possível designar um grupo de segurança de rede ou ponto final de serviço na sub-rede delegada. Ao fazê-lo, a delegação da sub-rede falha.
 * O acesso a um volume a partir de uma rede virtual globalmente espreitada não é suportado atualmente.
-* A criação [de rotas personalizadas definidas pelo utilizador](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) nas sub-redes VM com prefixo de endereço (destino) para uma sub-rede delegada no Azure NetApp Files não é suportada. Ao fazê-lo, terá impacto na conectividade VM.
+* A criação [de rotas personalizadas definidas pelo utilizador](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) nas sub-redes VM com prefixo de endereço (destino) para uma sub-rede delegada no Azure NetApp Files não é suportada. Ao fazê-lo, terá impacto na conectividade VM. O Azure NetApp Files cria uma rota de sistema para a sub-rede delegada. A rota é mostrada em **rotas eficazes** na tabela de rotas se precisar dela para a resolução de problemas.
 
-## <a name="steps"></a>Passos 
-1.  Vá à lâmina de **redes Virtuais** a partir do portal Azure e selecione a rede virtual que pretende utilizar para ficheiros Azure NetApp.    
+## <a name="steps"></a>Passos
+
+1.  Vá à lâmina de **redes Virtuais** no portal Azure e selecione a rede virtual que pretende utilizar para ficheiros Azure NetApp.    
 
 1. Selecione **sub-redes** a partir da lâmina de rede Virtual e clique no botão **+Subnet.** 
 
@@ -48,7 +50,8 @@ Tem de delegar uma sub-rede para ficheiros Azure NetApp.   Quando cria um volume
     
 Também pode criar e delegar uma sub-rede quando [criar um volume para ficheiros Azure NetApp](azure-netapp-files-create-volumes.md). 
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Passos seguintes
+
 * [Criar um volume para o Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Conheça a integração de redes virtuais para serviços Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
 

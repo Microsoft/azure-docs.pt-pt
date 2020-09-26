@@ -10,12 +10,12 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
 ms.custom: sqldbrb=1
-ms.openlocfilehash: b56dd81cd0cdc5d9a6917b0bf43c3fceeff63c4a
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1e0ab1d6c1266b37dfcba461fbbdc373fc526783
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84216549"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362168"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-using-ssms"></a>Tutorial: Desenhe uma base de dados relacional na Base de Dados Azure SQL utilizando SSMS
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -92,14 +92,14 @@ Siga estes passos para criar uma base de dados em branco.
 
 9. Na barra de ferramentas, clique em **Notificações** para monitorizar o processo de implementação.
 
-   ![notificação](./media/design-first-database-tutorial/notification.png)
+   ![A screenshot mostra o menu de Notificações com a Implementação em curso.](./media/design-first-database-tutorial/notification.png)
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>Criar uma regra de firewall IP de nível de servidor
 
 A Azure SQL Database cria uma firewall IP ao nível do servidor. Esta firewall impede que aplicações e ferramentas externas se conectem ao servidor e a quaisquer bases de dados no servidor, a menos que uma regra de firewall permita o seu IP através da firewall. Para ativar a conectividade externa à sua base de dados, tem primeiro de adicionar uma regra de firewall IP para o seu endereço IP (ou intervalo de endereço IP). Siga estes passos para criar uma [regra de firewall IP ao nível do servidor](firewall-configure.md).
 
 > [!IMPORTANT]
-> A Azure SQL Database comunica sobre a porta 1433. Se estiver a tentar ligar-se a este serviço a partir de uma rede corporativa, o tráfego de saída sobre o porto 1433 pode não ser permitido pela firewall da sua rede. Em caso afirmativo, não pode ligar-se à sua base de dados a menos que o seu administrador abra a porta 1433.
+> A Base de Dados SQL do Azure comunica através da porta 1433. Se estiver a tentar ligar-se a este serviço a partir de uma rede corporativa, o tráfego de saída sobre o porto 1433 pode não ser permitido pela firewall da sua rede. Em caso afirmativo, não pode ligar-se à sua base de dados a menos que o seu administrador abra a porta 1433.
 
 1. Após a implementação concluída, selecione bases de **dados SQL** a partir do menu do portal Azure ou procure e selecione bases de *dados SQL* de qualquer página.  
 
@@ -115,7 +115,7 @@ A Azure SQL Database cria uma firewall IP ao nível do servidor. Esta firewall i
 
 1. Clique em **Adicionar IP** ao cliente na barra de ferramentas para adicionar o seu endereço IP atual a uma nova regra de firewall IP. Uma regra de firewall IP pode abrir a porta 1433 para um único endereço IP ou uma gama de endereços IP.
 
-1. Clique em **Guardar**. Uma regra de firewall IP de nível de servidor é criada para o seu endereço IP atual que abre a porta 1433 no servidor.
+1. Clique em **Save** (Guardar). Uma regra de firewall IP de nível de servidor é criada para o seu endereço IP atual que abre a porta 1433 no servidor.
 
 1. Clique em **OK** e, em seguida, feche a página **Definições da firewall**.
 

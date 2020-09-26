@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: kumud
-ms.openlocfilehash: c3223bed6c8335a31b1bfb918e6d44e3b54a7787
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5bd88493324867dc957922a732506f5cfb8bbc20
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047262"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361239"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Personalize um modelo de Marcas com o site do Video Indexer
 
@@ -42,7 +42,7 @@ Tem a opção de definir se quer ou não que as marcas da base de dados das marc
 
 3. Para editar marcas, selecione o **separador Marcas.**
 
-    ![Personalizar modelo de marcas no Video Indexer](./media/customize-brand-model/customize-brand-model.png)
+    ![O screenshot mostra o separador Marcas da caixa de diálogo de personalização do modelo de conteúdo.](./media/customize-brand-model/customize-brand-model.png)
 
 4. Verifique as **marcas Show sugeridas pela** opção Bing se quiser que o Video Indexer detete marcas sugeridas por Bing — deixe a opção desmarcada se não o fizer.
 
@@ -54,7 +54,7 @@ A secção **de marcas Incluir** representa marcas personalizadas que você quer
 
 1. Selecione **+ Adicionar marca**.
 
-    ![Personalizar modelo de marcas no Video Indexer](./media/customize-brand-model/add-brand.png)
+    ![O Screenshot mostra a caixa de diálogo das marcas Include, onde pode adicionar marcas.](./media/customize-brand-model/add-brand.png)
 
     Fornecer um nome (obrigatório), categoria (opcional), descrição (opcional) e URL de referência (opcional).
     O campo de categorias destina-se a ajudá-lo a marcar as suas marcas. Este campo aparece como as *tags* da marca ao utilizar as APIs do Indexante de Vídeo. Por exemplo, a marca "Azure" pode ser marcada ou categorizada como "Cloud".

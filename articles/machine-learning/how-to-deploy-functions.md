@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: vaidyas
-author: vaidyas
+author: vaidya-s
 ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python
-ms.openlocfilehash: b386c058a2795402cc60fddf6c187b57aec2185e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 133c885f29ceff0b8c4764507a80df5ee24cf4a1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328399"
+ms.locfileid: "91361732"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implementar um modelo de aprendizagem automática para funções Azure (pré-visualização)
 
@@ -120,7 +120,7 @@ Quando `show_output=True` , a saída do processo de construção do Docker é mo
 
 ## <a name="deploy-image-as-a-web-app"></a>Implementar a imagem como uma aplicação web
 
-1. Utilize o seguinte comando para obter as credenciais de login do Registo do Contentor Azure que contém a imagem. `<myacr>`Substitua-o pelo valor devolvido anteriormente a partir `package.location` de: 
+1. Utilize o seguinte comando para obter as credenciais de login do Registo do Contentor Azure que contém a imagem. `<myacr>`Substitua-o pelo valor devolvido anteriormente a partir `blob.location` de: 
 
     ```azurecli-interactive
     az acr credential show --name <myacr>

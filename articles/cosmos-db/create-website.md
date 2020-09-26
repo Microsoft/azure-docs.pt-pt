@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 5038d9968e37b956774d1c5f8abdb14865422e8b
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8e6a6d1c557a765e55152685f08e80ad54bbd903
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027745"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362015"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Implementar O Serviço de Aplicações Azure Cosmos DB e Azure app com uma aplicação web do GitHub usando um modelo de gestor de recursos Azure
 
@@ -98,7 +98,7 @@ Há três elementos necessários para que isto funcione.
 
 Em primeiro lugar, a aplicação precisa de solicitar o ponto final do Cosmos DB e a chave `Startup` na classe na aplicação web ASP.NET MVC. A [amostra cosmos DB To Do sample](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app) pode ser executada localmente onde pode introduzir a informação de ligação em appsettings.js. No entanto, quando implementado, este ficheiro implementa-se com a app. Se estas linhas a vermelho não puderem aceder às definições a partir de appsettings.js, tentará a partir de Configurações de Aplicações no Serviço de Aplicações Azure.
 
-:::image type="content" source="./media/create-website/startup.png" alt-text="Arranque":::
+:::image type="content" source="./media/create-website/startup.png" alt-text="A screenshot mostra um método com várias variáveis de corda marcadas a vermelho, incluindo data de dadosName, nome de contentor, conta e chave.":::
 
 ### <a name="using-special-azure-resource-management-functions"></a>Utilizando funções especiais de Gestão de Recursos Azure
 
@@ -112,7 +112,7 @@ Por último, precisamos de implementar a aplicação web do GitHub para o Servi�
 
 :::image type="content" source="./media/create-website/deploy-from-github.png" alt-text="Implementar a partir do GitHub":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Parabéns! Você implementou Azure Cosmos DB, Azure App Service, e uma aplicação web de amostra que tem automaticamente a informação de conexão necessária para ligar à Cosmos DB, tudo numa única operação e sem ter que cortar e colar informações sensíveis. Usando este modelo como ponto de partida, pode modificá-lo para implementar as suas próprias aplicações web da mesma forma.
 

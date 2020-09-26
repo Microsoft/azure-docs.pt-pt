@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 41ffd7606cb4c01cd8c2da56898b67cf177c358e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 850db53cbf88968a413d72527d76463e17aa8f5d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329181"
+ms.locfileid: "91361709"
 ---
 # <a name="tutorial-configure-8x8-for-automatic-user-provisioning"></a>Tutorial: Configurar 8x8 para o provisionamento automático do utilizador
 
@@ -104,7 +104,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 5. Na secção **Credenciais de Administração,** copie o **URL 8x8** do Gestor de Configuração para **o URL do inquilino**. Copie o **Token API 8x8** do Gestor de Configuração para **o Token Secreto**. Clique em **Testar Ligação** para garantir que a Azure AD pode ligar-se ao 8x8. Se a ligação falhar, certifique-se de que a sua conta 8x8 tem permissões de Administração e tente novamente.
 
-    ![Aprovisionamento](./media/8x8-provisioning-tutorial/provisioning.png)
+    ![A screenshot mostra a caixa de diálogo de Admin Credentials, onde pode inserir o seu Inquilino U R L e Secret Token.](./media/8x8-provisioning-tutorial/provisioning.png)
 
 6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 

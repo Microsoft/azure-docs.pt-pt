@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/05/2019
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 42b2ff0b7c2d43beb1d5f0b2136a97e67c0143a5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a38d65e66debd8e718964efdce27fe42772d8e0a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905073"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315546"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Compreender os resultados de machine learning automatizado
 
@@ -226,8 +226,8 @@ As seguintes métricas são guardadas em cada iteração de execução para uma 
 
 |Métrica|Descrição|Cálculo|Parâmetros extra
 --|--|--|--|
-explained_variance|A variação explicada é a proporção a que um modelo matemático explica a variação de um determinado conjunto de dados. É a diminuição percentual da variação dos dados originais para a variação dos erros. Quando a média dos erros é 0, é igual a uma variação explicada.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Nenhum|
-r2_score|R2 é o coeficiente de determinação ou a redução por cento dos erros quadrados em comparação com um modelo de base que produz a média. |[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Nenhum|
+explained_variance|A variação explicada é a proporção a que um modelo matemático explica a variação de um determinado conjunto de dados. É a diminuição percentual da variação dos dados originais para a variação dos erros. Quando a média dos erros é 0, é igual ao coeficiente de determinação (ver r2_score abaixo).|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Nenhum|
+r2_score|R^2 é o coeficiente de determinação ou a redução por cento em erros quadrados em comparação com um modelo de base que produz a média. |[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Nenhum|
 spearman_correlation|A correlação de Spearman é uma medida nãoparamétrica da monótona relação entre dois conjuntos de dados. Ao contrário da correlação pearson, a correlação de Spearman não assume que ambos os conjuntos de dados são normalmente distribuídos. Como outros coeficientes de correlação, este varia entre -1 e +1 com 0 implicando nenhuma correlação. As correlações de -1 ou +1 implicam uma relação monótona exata. Correlações positivas implicam que à medida que x aumenta, y também. As correlações negativas implicam que à medida que x aumenta, y diminui.|[Cálculo](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|Nenhum|
 mean_absolute_error|Erro absoluto médio é o valor esperado do valor absoluto da diferença entre o alvo e a previsão|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Nenhum|
 normalized_mean_absolute_error|Erro absoluto médio normalizado é erro absoluto dividido pela gama de dados|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Divida por intervalo de dados|

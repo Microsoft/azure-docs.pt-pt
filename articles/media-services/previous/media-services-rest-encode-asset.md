@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d2e7be89b3319445a69d5b91990e9888cccd484a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b0bff0c6b3ef7934188b548bd06c35d83b323fde
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268626"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359602"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Como codificar um ativo utilizando o Media Encoder Standard
 
@@ -101,7 +101,7 @@ O exemplo a seguir mostra como definir o atributo nome de ativo:
 { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}`
 ```
 
-## <a name="considerations"></a>Considerações
+### <a name="considerations"></a>Considerações
 * As propriedades taskBody devem usar XML literal para definir o número de entradas ou ativos de saída que são utilizados pela tarefa. O artigo de tarefa contém a Definição de Esquema XML para o XML.
 * Na definição TaskBody, cada valor interior `<inputAsset>` para e deve ser definido como `<outputAsset>` JobInputAsset (valor) ou JobOutputAsset (valor).
 * Uma tarefa pode ter múltiplos ativos de saída. Um JobOutputAsset(x) só pode ser utilizado uma vez como saída de uma tarefa num trabalho.

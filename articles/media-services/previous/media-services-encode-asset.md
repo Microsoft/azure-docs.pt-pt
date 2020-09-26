@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: c98d265f2d21c1e16ca787d4055eb4c2b1a89133
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5d5a00488321c9c67dd1469b1d8476636675aa8f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269090"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281019"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Visão geral dos codificadores de meios de comunicação a pedido da Azure on-demand
 
@@ -36,12 +36,11 @@ Os Media Services fornecem embalagens dinâmicas que lhe permitem fornecer o seu
 
 Quando a sua conta De Serviços de Media é criada, um ponto final de streaming **padrão** é adicionado à sua conta no estado **Stop.** Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**. A faturação para os pontos finais de streaming ocorre sempre que o ponto final está em um estado **de Funcionamento.**
 
-Os Serviços de Comunicação Social apoiam os seguintes codificadores a pedido descritos neste artigo:
+Os Serviços de Comunicação Social apoiam o seguinte codificadores a pedido:
 
 * [Media Encoder Standard](media-services-encode-asset.md#media-encoder-standard)
-* [Fluxo de Trabalho Premium de Codificador de Multimédia](media-services-encode-asset.md#media-encoder-premium-workflow)
 
-Este artigo apresenta uma breve visão geral dos codificadores de meios de comunicação a pedido e fornece links para artigos que fornecem informações mais detalhadas. O tópico também fornece a comparação dos codificadores.
+Este artigo apresenta uma breve visão geral dos codificadores de meios de comunicação a pedido e ligações a artigos com informações mais detalhadas.
 
 Por predefinição, cada conta de Serviços de Mídia pode ter uma tarefa de codificação ativa de cada vez. Pode reservar unidades de codificação que lhe permitam ter múltiplas tarefas de codificação em execução em simultâneo, uma para cada unidade reservada de codificação que adquiriu. Para obter informações, consulte [as unidades de codificação de escala.](media-services-scale-media-processing-overview.md)
 
@@ -72,15 +71,6 @@ Para obter informações, consulte [Como criar sobreposições utilizando o Medi
 
 ### <a name="see-also"></a>Ver também
 [O blog Media Services](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
-
-## <a name="media-encoder-premium-workflow"></a>Fluxo de Trabalho Premium de Codificador de Multimédia
-### <a name="overview"></a>Descrição geral
-[Introdução da Codificação Premium nos Serviços Azure Media](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
-
-### <a name="how-to-use"></a>Como utilizar
-O fluxo de trabalho premium media Encoder é configurado utilizando fluxos de trabalho complexos. Os ficheiros de fluxo de trabalho podem ser criados e atualizados utilizando a ferramenta [Workflow Designer.](media-services-workflow-designer.md)
-
-[Como utilizar a codificação premium nos serviços de mídia Azure](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
 
 ### <a name="known-issues"></a>Problemas conhecidos
 Se o seu vídeo de entrada não contiver legendas fechadas, o Ativo de saída ainda conterá um ficheiro TTML vazio.

@@ -2,13 +2,13 @@
 title: Restrições de nomeação de recursos
 description: Mostra as regras e restrições para nomear recursos Azure.
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.openlocfilehash: 56c50354a6ecbd6ba1d9a806f986cea1c4f3215f
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.date: 09/23/2020
+ms.openlocfilehash: 0ee19140d3105e101c44ce70d77ccc9427600aa0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235983"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317094"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -42,7 +42,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | serviço / apis / problemas / anexos | questão | 1-256 | Não posso usar:<br> `*#&+:<>?` |
 > | serviço / apis / problemas / comentários | questão | 1-256 | Não posso usar:<br> `*#&+:<>?` |
 > | serviço / apis / operações | api | 1-256 | Não posso usar:<br> `*#&+:<>?` |
-> | serviço / apis / operações / tags | operação | 1-256 | Não posso usar:<br> `*#&+:<>?` |
+> | serviço / apis / operações / tags | operation | 1-256 | Não posso usar:<br> `*#&+:<>?` |
 > | serviço / apis / lançamentos | api | 1-80 | Alfanuméricos, sublinhados e hífens.<br><br>Comece e termine com alfanumérico ou sublinhado. |
 > | serviço / apis / esquemas | api | 1-256 | Não posso usar:<br> `*#&+:<>?` |
 > | serviço / apis / tagDescrições | api | 1-256 | Não posso usar:<br> `*#&+:<>?` |
@@ -53,7 +53,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | serviço / certificados | serviço | 1-256 | Não posso usar:<br> `*#&+:<>?` |
 > | serviço / diagnósticos | serviço | 1-256 | Não posso usar:<br> `*#&+:<>?` |
 > | serviço / grupos | serviço | 1-256 | Não posso usar:<br> `*#&+:<>?` |
-> | serviço / grupos / utilizadores | grupo | 1-256 | Não posso usar:<br> `*#&+:<>?` |
+> | serviço / grupos / utilizadores | group | 1-256 | Não posso usar:<br> `*#&+:<>?` |
 > | serviço / identidadeProviders | serviço | 1-256 | Não posso usar:<br> `*#&+:<>?` |
 > | serviço / madeireiros | serviço | 1-256 | Não posso usar:<br> `*#&+:<>?` |
 > | serviço / notificações | serviço | 1-256 | Não posso usar:<br> `*#&+:<>?` |
@@ -107,7 +107,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > [!div class="mx-tableFixed"]
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
-> | lotAcons | Região | 3-24 | Letras minúsculas e números. |
+> | lotAcons | Region | 3-24 | Letras minúsculas e números. |
 > | lotacos / aplicações | conta de lote | 1-64 | Alfanuméricos, sublinhados e hífens. |
 > | lotacos /certificados | conta de lote | 5-45 | Alfanuméricos, sublinhados e hífens. |
 > | lotacos / piscinas | conta de lote | 1-64 | Alfanuméricos, sublinhados e hífens. |
@@ -174,8 +174,8 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | galerias / imagens / versões | image | Inteiro de 32 bits | Números e períodos. |
 > | imagens | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, períodos e hífenes.<br><br>Comece com alfanumérico. Termine com alfanumérico ou sublinhado. |
 > | instantâneos | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, períodos e hífenes.<br><br>Comece com alfanumérico. Termine com alfanumérico ou sublinhado. |
-> | virtualMachines | grupo de recursos | 1-15 (Windows)<br>1-64 (Linux)<br><br>Veja a nota abaixo. | Não posso usar:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Não posso começar com sublinhado. Não pode terminar com período ou hífen. |
-> | virtualMachineScaleSets | grupo de recursos | 1-15 (Windows)<br>1-64 (Linux)<br><br>Veja a nota abaixo. | Não posso usar:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Não posso começar com sublinhado. Não pode terminar com período ou hífen. |
+> | virtualMachines | grupo de recursos | 1-15 (Windows)<br>1-64 (Linux)<br><br>Veja a nota abaixo. | Não se pode usar o espaço ou estes caracteres:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Não posso começar com sublinhado. Não pode terminar com período ou hífen. |
+> | virtualMachineScaleSets | grupo de recursos | 1-15 (Windows)<br>1-64 (Linux)<br><br>Veja a nota abaixo. | Não se pode usar o espaço ou estes caracteres:<br> `\/"'[]:|<>+=;,?*@&`<br><br>Não posso começar com sublinhado. Não pode terminar com período ou hífen. |
 
 > [!NOTE]
 > As máquinas virtuais Azure têm dois nomes distintos: nome de recurso e nome de hospedeiro. Quando se cria uma máquina virtual no portal, o mesmo valor é utilizado para ambos os nomes. As restrições na tabela anterior são para o nome de anfitrião. O nome do recurso real pode ter até 64 carateres.
@@ -557,14 +557,14 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > [!div class="mx-tableFixed"]
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
-> | workspaceCollections | . | 3-63 | Alfanuméricos e hífens.<br><br>Não se pode começar com hífen. Não se pode usar hífenes consecutivos. |
+> | workspaceCollections | region | 3-63 | Alfanuméricos e hífens.<br><br>Não se pode começar com hífen. Não se pode usar hífenes consecutivos. |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
 > [!div class="mx-tableFixed"]
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
-> | capacidades | . | 3-63 | Letras ou números minúsculos<br><br>Comece com carta minúscula. |
+> | capacidades | region | 3-63 | Letras ou números minúsculos<br><br>Comece com carta minúscula. |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
@@ -617,7 +617,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > [!div class="mx-tableFixed"]
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
-> | aglomerados | . | 4-23 | Letras minúsculas, números e hífenes.<br><br>Comece com carta minúscula. Termine com letra ou número minúsculo. |
+> | aglomerados | region | 4-23 | Letras minúsculas, números e hífenes.<br><br>Comece com carta minúscula. Termine com letra ou número minúsculo. |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
@@ -653,7 +653,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | armazenamentoCotas / gestãoPolícias | conta de armazenamento |  | Deve `default` ser. |
 > | blob | contentor | 1-1024 | Quaisquer caracteres URL, sensíveis a casos |
 > | fila | conta de armazenamento | 3-63 | Letras minúsculas, números e hífenes.<br><br>Não se pode começar ou acabar com hífen. Não se pode usar hífenes consecutivos. |
-> | tabela | conta de armazenamento | 3-63 | Alfanuméricos.<br><br>Comece com a carta. |
+> | mesa | conta de armazenamento | 3-63 | Alfanuméricos.<br><br>Comece com a carta. |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 

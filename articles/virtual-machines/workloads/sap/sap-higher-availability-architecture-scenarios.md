@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f43ba78bc9c48b003d4718945dc47b0a076a048f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 82b0b53b1933a7ca08163a12b2b7649b7b9538f4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134537"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361641"
 ---
 # <a name="utilize-azure-infrastructure-vm-restart-to-achieve-higher-availability-of-an-sap-system"></a>Utilizar a infraestrutura Azure VM reiniciar para alcançar "maior disponibilidade" de um sistema SAP
 
@@ -210,7 +210,7 @@ ms.locfileid: "86134537"
 
 > Esta secção aplica-se a:
 >
-> ![Windows][Logo_Windows] Janelas e ![Linux][Logo_Linux] Linux
+> ![Logotipo do Windows.][Logo_Windows] Janelas e ![Logotipo linux.][Logo_Linux] Linux
 >
 
 Se decidir não utilizar funcionalidades como o Windows Server Failover Clustering (WSFC) ou o Pacemaker no Linux (atualmente suportado apenas para o SUSE Linux Enterprise Server [SLES] 12 e posteriormente), o reinício do Azure VM é utilizado. Protege os sistemas SAP contra o tempo de inatividade planeado e não planeado da infraestrutura de servidores físicos Azure e da plataforma Azure subjacente.
@@ -280,6 +280,6 @@ Assumindo um cenário típico de Azure de uma instância de servidor de aplicaç
   * [Iniciar ou parar o SAP juntamente com o seu Início/Paragem do Servidor Unix](https://scn.sap.com/community/unix/blog/2012/08/07/startstop-sap-along-with-your-unix-server-startstop)
   * [Iniciar e parar os agentes de gestão da SAP NetWeaver](https://help.sap.com/saphelp_nwpi711/helpdata/en/49/9a15525b20423ee10000000a421938/content.htm)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre a alta disponibilidade da aplicação SAP NetWeaver, consulte [a alta disponibilidade da aplicação SAP em Azure IaaS][sap-high-availability-architecture-scenarios-sap-app-ha].
