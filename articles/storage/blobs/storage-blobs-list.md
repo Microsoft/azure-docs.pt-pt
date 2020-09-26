@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/05/2020
+ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9295b1d8a54d9c3c1a138a54f4b3706bd39227fd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e8a35902c198412f6e41c0cf39162836deb5e443
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009547"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280101"
 ---
 # <a name="list-blobs-with-net"></a>Lista de bolhas com .NET
 
@@ -59,7 +59,7 @@ No seu código, verifique o valor da ficha de continuação para determinar se �
 
 ### <a name="filter-results-with-a-prefix"></a>Filtrar os resultados com um prefixo
 
-Para filtrar a lista de recipientes, especifique uma corda para o `prefix` parâmetro. A cadeia de prefixo pode incluir um ou mais caracteres. A Azure Storage devolve então apenas as bolhas cujos nomes começam com o prefixo.
+Para filtrar a lista de bolhas, especifique uma corda para o `prefix` parâmetro. A cadeia de prefixo pode incluir um ou mais caracteres. A Azure Storage devolve então apenas as bolhas cujos nomes começam com o prefixo.
 
 ### <a name="return-metadata"></a>Metadados de devolução
 

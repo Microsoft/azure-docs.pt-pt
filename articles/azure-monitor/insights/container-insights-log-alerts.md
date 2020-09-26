@@ -3,12 +3,12 @@ title: Alertas de registo do Azure Monitor para contentores Microsoft Docs
 description: Este artigo descreve como criar alertas de registo personalizados para memória e utilização de CPU do Azure Monitor para recipientes.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 2d86edc5994070ba909c6e3a0da2cf76e8359773
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8c02442fef9b174075065e7852b7a25233899c48
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90973728"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294551"
 ---
 # <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Como criar alertas de registo do Azure Monitor para contentores
 
@@ -275,7 +275,7 @@ InsightsMetrics
 
 ## <a name="create-an-alert-rule"></a>Criar uma regra de alerta
 
-Esta secção percorre a criação de uma regra de alerta de medição métrica utilizando dados de desempenho do Azure Monitor para contentores. Você pode usar este processo básico com uma variedade de consultas de log para alertar em diferentes contadores de desempenho. Utilize uma das consultas de pesquisa de registo fornecidas anteriormente para começar. Para criar usando um modelo ARM, consulte a [criação do alerta de registo de amostra usando o modelo de recurso Azure.](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template)
+Esta secção percorre a criação de uma regra de alerta de medição métrica utilizando dados de desempenho do Azure Monitor para contentores. Você pode usar este processo básico com uma variedade de consultas de log para alertar em diferentes contadores de desempenho. Utilize uma das consultas de pesquisa de registo fornecidas anteriormente para começar. Para criar usando um modelo ARM, consulte [amostras de criação de alerta de registo usando o modelo de recurso Azure.](../platform/alerts-log-create-templates.md)
 
 >[!NOTE]
 >O procedimento a seguir para criar uma regra de alerta para a utilização de recursos de contentores requer que você mude para um novo registo alerta API como descrito na [preferência da API da Switch para alertas de registo](../platform/alerts-log-api-switch.md).

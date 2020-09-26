@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Azure Ative Directy integração única com F5 / Microsoft Docs'
-description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o F5.
+description: Neste artigo, aprenda os passos necessários para integrar o F5 com o Azure Ative Directory (Azure AD).
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e0e727e73fa1eff21a4b2e481738be49306676a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: cbcbcb6a649969c5348c3ad445ff43f10372faeb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542987"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91306196"
 ---
 # <a name="tutorial-azure-active-directory-ad-single-sign-on-sso-integration-with-f5"></a>Tutorial: Azure Ative Directory (AD) integração única (SSO) com F5
 
@@ -39,8 +39,9 @@ Para começar, precisa dos seguintes itens:
 
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
-* F5 apoia **SP e IDP** iniciado SSO
-* F5 SSO pode ser configurado de três maneiras diferentes.
+F5 suporta **SP e IDP** iniciado SSO.
+
+F5 SSO pode ser configurado de três maneiras diferentes:
 
 - [Configurar f5 único sinal para aplicação Kerberos Avançada](#configure-f5-single-sign-on-for-advanced-kerberos-application)
 
@@ -113,7 +114,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+   1. Clique em **Create** (Criar).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -302,7 +303,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 | eb46b6b6.session.saml.last.responseIssueInstant | `<ID>` |
 | eb46b6b6.session.saml.last.responseIssuer | `https://sts.windows.net/<TENANT ID>/` |
 | eb46b6b6.session.saml.last.result | 1 |
-| eb46b6b6.session.saml.last.samlVersion | 2,0 |
+| eb46b6b6.session.saml.last.samlVersion | 2.0 |
 | eb46b6b6.session.saml.last.sessionIndex | `<TENANT ID>` |
 | eb46b6b6.session.saml.last.statusValue | urn:oasis:nomes:tc:SAML:2.0:status:Sucesso |
 | eb46b6b6.session.saml.last.subjectConfirmDataNotOnOrAfter | `<ID>` |

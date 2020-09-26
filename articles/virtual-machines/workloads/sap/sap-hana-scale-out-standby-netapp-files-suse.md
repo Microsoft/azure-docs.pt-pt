@@ -1,6 +1,6 @@
 ---
 title: Escala SAP HANA com standby com Azure NetApp Files em SLES / Microsoft Docs
-description: Guia de alta disponibilidade para SAP NetWeaver no SUSE Linux Enterprise Server com Ficheiros Azure NetApp para aplicações SAP
+description: Aprenda a implementar um sistema de escala SAP HANA com nó de espera em VMs Azure utilizando ficheiros Azure NetApp no SUSE Linux Enterprise Server.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2020
 ms.author: radeltch
-ms.openlocfilehash: adc57b213a177e227fe446a4dd24e53dea1cd2fc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 21d4af6985dbe246e60fe95f8f03de7f8aa0501b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068634"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314067"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Implementar um sistema de escala SAP HANA com nó de espera em VMs Azure utilizando ficheiros Azure NetApp no SUSE Linux Enterprise Server 
 
@@ -106,10 +106,10 @@ Os volumes Azure NetApp estão em sub-rede separada, [delegada em Ficheiros Azur
 
 Para esta configuração de exemplo, as sub-redes são:  
 
-  - `client`10.23.0.0/24  
-  - `storage`10.23.2.0/24  
-  - `hana`10.23.3.0/24  
-  - `anf`10.23.1.0/26  
+  - `client` 10.23.0.0/24  
+  - `storage` 10.23.2.0/24  
+  - `hana` 10.23.3.0/24  
+  - `anf` 10.23.1.0/26  
 
 ## <a name="set-up-the-azure-netapp-files-infrastructure"></a>Configurar a infraestrutura de Ficheiros Azure NetApp 
 
@@ -561,7 +561,7 @@ Neste exemplo para implantar o SAP HANA em configuração de escala com nó de e
      * Para **nomes de anfitriões separados em vírgula para adicionar:** insira **hanadb2, hanadb3**
      * Para **o nome do utilizador raiz** [raiz]: prima Introduzir para aceitar o padrão
      * Para **a palavra-passe do utilizador raiz**: introduza a palavra-passe do utilizador raiz
-     * Para funções para anfitrião hanadb2: insira **1** (para trabalhador)
+     * Para funções para anfitrião hanadb2: insira **1**  (para trabalhador)
      * Para **o Grupo de Failover do anfitrião** para o anfitrião hanadb2 [predefinição]: prima Insira para aceitar o padrão
      * Para **o número de partição de armazenamento** para anfitrião hanadb2 [<<assign automatically>>]: prima Enter para aceitar o padrão
      * Para **o Grupo de Trabalhadores** para o anfitrião hanadb2 [padrão]: prima Enter para aceitar o padrão

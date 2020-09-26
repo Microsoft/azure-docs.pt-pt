@@ -1,6 +1,6 @@
 ---
 title: Envie notificações push para aplicações específicas do Android usando hubs de notificação do Azure
-description: Saiba como enviar notificações push para utilizadores específicos com os Hubs de Notificação do Azure.
+description: Saiba como enviar notificações push para aplicações específicas do Android utilizando os Hubs de Notificação Azure.
 documentationcenter: android
 services: notification-hubs
 author: sethmanheim
@@ -17,12 +17,12 @@ ms.date: 09/11/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/11/2019
-ms.openlocfilehash: fae8e4d57f8b0fc1b89309d68bf7e21dce86f3fa
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 870842074bb4a0012a48115586a8ad571275d470
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87317523"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281036"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-android-apps-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push para aplicações específicas do Android usando hubs de notificação do Azure
 

@@ -1,6 +1,6 @@
 ---
-title: O que é OPC Publisher - Azure Microsoft Docs
-description: Este artigo fornece uma visão geral das características da OPC Publisher. Permite-lhe publicar dados codificados de telemetria JSON utilizando uma carga útil JSON, para o Hub Azure IoT.
+title: O que é APC Publisher - Azure / Microsoft Docs
+description: Este artigo fornece uma visão geral das características da OPC Publisher. Permite-lhe publicar dados de telemetria JSON codificados utilizando uma carga útil JSON, para o Azure IoT Hub.
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/10/2019
@@ -11,39 +11,44 @@ manager: philmea
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: c77dff4a4f89a78dc0a0d723fbb45fe691246112
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 49ca12ed4f408e2a3fce1c8e59f541778f35311e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81681924"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281784"
 ---
-# <a name="what-is-opc-publisher"></a>O que é editora oPC?
+# <a name="what-is-opc-publisher"></a>O que é a Editora OPC?
 
-OPc Publisher é uma implementação de referência que demonstra como:
+> [!IMPORTANT]
+> Enquanto atualizamos este artigo, consulte [a Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
-- Ligue-se aos servidores OPC UA existentes.
-- Publique dados codificados de telemetria da JSON dos servidores OPC UA em formato OPC UA Pub/Sub, utilizando uma carga útil JSON, para o Hub Azure IoT.
+O OPC Publisher é uma implementação de referência que demonstra como:
+
+- Ligue-se aos servidores UA OPC existentes.
+- Publique dados de telemetria codificados JSON a partir de servidores OPC UA em OPC UA Pub/Sub formato, utilizando uma carga útil JSON, para Azure IoT Hub.
 
 Pode utilizar qualquer um dos protocolos de transporte que o cliente SDK do Azure IoT Hub suporta: HTTPS, AMQP e MQTT.
 
 A implementação de referência inclui:
 
-- Um *cliente* da OPC UA para ligar aos servidores UA opc existentes que tem na sua rede.
-- Um *servidor* OPC UA na porta 62222 que pode usar para gerir o que é publicado e oferece métodos diretos IoT Hub para fazer o mesmo.
+- Um *cliente* UA OPC para ligar aos servidores OPC UA existentes que tem na sua rede.
+- Um *servidor* OPC UA na porta 6222 que pode usar para gerir o que é publicado e oferece métodos diretos IoT Hub para fazer o mesmo.
 
-Pode baixar a implementação de referência da [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) a partir do GitHub.
+Você pode baixar a implementação de referência da [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) a partir do GitHub.
 
 A aplicação é implementada utilizando a tecnologia .NET Core e pode funcionar em qualquer plataforma suportada por .NET Core.
 
-A OPC Publisher implementa uma lógica de nova tentativa para estabelecer ligações a pontos finais que não respondem a um certo número de pedidos de manutenção vivo. Por exemplo, se um servidor OPC UA parar de responder devido a uma falha de energia.
+A OPC Publisher implementa a lógica de reação para estabelecer ligações a pontos finais que não respondam a um certo número de pedidos de manter vivo. Por exemplo, se um servidor UA OPC deixar de responder devido a uma falha de energia.
 
 Para cada intervalo de publicação distinto para um servidor OPC UA, a aplicação cria uma subscrição separada sobre a qual todos os nós com este intervalo de publicação são atualizados.
 
-A OPC Publisher suporta o lote dos dados enviados ao IoT Hub para reduzir a carga de rede. Este lote envia um pacote para o IoT Hub apenas se o tamanho do pacote configurado for atingido.
+A OPC Publisher suporta o lote dos dados enviados para o IoT Hub para reduzir a carga da rede. Este lote envia um pacote para IoT Hub apenas se o tamanho do pacote configurado for atingido.
 
-Esta aplicação utiliza a pilha de referência oPC Foundation OPC UA como pacotes NuGet. Consulte [https://opcfoundation.org/license/redistributables/1.3/](https://opcfoundation.org/license/redistributables/1.3/) os termos de licenciamento.
+Esta aplicação utiliza a stack de referência OPC Foundation OPC UA como pacotes NuGet. Consulte [https://opcfoundation.org/license/redistributables/1.3/](https://opcfoundation.org/license/redistributables/1.3/) os termos de licenciamento.
 
-### <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que já aprendeu o que é a OPC Publisher, o próximo passo sugerido é aprender a configurar a [Editora OPC.](howto-opc-publisher-configure.md)
+Agora que aprendeu o que é a Editora OPC, o próximo passo sugerido é aprender a:
+
+[Configurar o Publicador OPC](howto-opc-publisher-configure.md)

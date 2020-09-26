@@ -1,17 +1,17 @@
 ---
 title: Configurar registos de consulta lenta - Portal Azure - Base de Dados Azure para MySQL - Servidor Flexível
-description: Este artigo descreve como configurar e aceder aos registos lentos na Base de Dados Azure para o MySQL Flexible Server a partir do portal Azure.
+description: Este artigo descreve como configurar e aceder aos registos de consulta lenta na Base de Dados Azure para o MySQL Flexible Server a partir do portal Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 1416efaa325ced623b5c7514f2f9953dc0bd2781
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1a829f4e5f45394d9c5bbed0db9289727b816917
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940496"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315036"
 ---
 # <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Configurar e aceder a registos de consulta lenta para Azure Database for MySQL - Servidor Flexível utilizando o portal Azure
 
@@ -45,6 +45,9 @@ A partir da página **'Parâmetros do Servidor',** pode voltar à lista de regis
 
 ## <a name="set-up-diagnostics"></a>Configurar diagnósticos
 
+> [!NOTE]
+> A integração com as definições de diagnóstico do Azure Monitor para aceder a registos está em processo de implantação e a funcionalidade completa estará disponível em breve.
+
 Os registos de consulta lenta são integrados com as definições de diagnóstico do Azure Monitor para permitir que encanize os seus registos em registos do Monitor Azure, nos Centros de Eventos ou no Armazenamento Azure.
 
 1. Sob a secção **de monitorização** na barra lateral, selecione **definições de diagnóstico**Adicione as  >  **definições de diagnóstico**.
@@ -63,7 +66,7 @@ Os registos de consulta lenta são integrados com as definições de diagnóstic
 
 1. Aceda aos registos de consulta lenta explorando-os nos sumidouros de dados configurados. Pode levar até 10 minutos para os registos aparecerem.
 
-Se canalizar os seus registos de auditoria para registos do Monitor Azure (Log Analytics), consulte algumas [consultas de amostra que](concepts-audit-logs.md#analyze-logs-in-azure-monitor-logs) pode utilizar para análise. 
+Se canalizar os seus registos para registos do Monitor Azure (Log Analytics), consulte algumas [consultas de amostra que](concepts-audit-logs.md#analyze-logs-in-azure-monitor-logs) pode utilizar para análise. 
 
 ## <a name="next-steps"></a>Passos seguintes
 <!-- - See [Access slow query Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download slow query logs programmatically.-->
