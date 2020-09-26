@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.custom: devx-track-javascript
-ms.openlocfilehash: d9988adea8e4d2dab39de64f9fd155a9d0b02cae
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: 4d6dae8a4f4ed83af3103e95e711bacdb62cf522
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432964"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326172"
 ---
 # <a name="set-up-local-development-for-azure-static-web-apps-preview"></a>Configurar o desenvolvimento local para pré-visualização de aplicações web estáticas Azure
 
@@ -202,7 +202,7 @@ Para obter mais informações sobre a configuração de ficheiros ambientais par
 
     :::image type="content" source="media/local-development/hello-from-api.png" alt-text="Olá da API exibido no navegador":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Configurar as definições da aplicação](application-settings.md)

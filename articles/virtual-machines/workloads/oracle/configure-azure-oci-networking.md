@@ -2,7 +2,7 @@
 title: Conecte a Azure ExpressRoute com a Oracle Cloud Infrastructure Microsoft Docs
 description: Conecte o Azure ExpressRoute com a Oracle Cloud Infrastructure (OCI) FastConnect para permitir soluções de aplicação oracle em nuvem cruzada
 documentationcenter: virtual-machines
-author: rgardler
+author: dbakevlar
 manager: ''
 editor: ''
 tags: azure-resource-manager
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/16/2020
 ms.author: rogardle
-ms.openlocfilehash: 95f1f7b42b88baaab6d89192f226ca67962544fb
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 7f5f3f4edccc6d23b8041051028273559bcffecd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220478"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325934"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Criar uma interligação direta entre a Infraestrutura Azure e a Oracle Cloud  
 
@@ -66,7 +66,7 @@ A imagem a seguir mostra uma visão geral de alto nível da interconexão:
     * Na **Chave de Serviço do Fornecedor,** cole a chave de serviço ExpressRoute.
     * Utilize o primeiro espaço de endereço IP privado /30 esculpido num passo anterior para o **Endereço IP BGP primário** e o segundo espaço de endereço IP privado /30 para o Endereço IP secundário do **BGP.**
         * Atribua o primeiro endereço utilizável das duas gamas para o Endereço IP do Oracle BGP (Primário e Secundário) e o segundo endereço para o endereço IP do cliente BGP (numa perspetiva FastConnect). O primeiro endereço IP utilizável é o segundo endereço IP no espaço de endereço /30 (o primeiro endereço IP é reservado pela Microsoft).
-    * Clique em **Criar**.
+    * Clique em **Create** (Criar).
 1. Complete a ligação do FastConnect à rede de nuvem virtual sob o seu inquilino Oracle via Dynamic Routing Gateway, utilizando a Tabela de Rotas.
 1. Navegue para Azure e certifique-se de que o **Estado do Fornecedor** do seu circuito ExpressRoute foi alterado para **Provisioned** e que foi abastado um espreitamento do tipo **Azure privado.** Este é um pré-requisito para os seguintes passos.
 

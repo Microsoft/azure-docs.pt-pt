@@ -8,12 +8,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: 787e9efa8ef11a83b63719cad51f9b26e055620d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 143713649afd7f9e42f517713b6b2365ee1605a3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90562170"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260279"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Tutorial: Criar definição de emprego apache spark no Estúdio Synapse
 
@@ -47,11 +47,11 @@ Nesta secção, você cria uma definição de trabalho Apache Spark para PySpark
 
      ![ficheiros de amostra](./media/apache-spark-job-definitions/sample-files.png)
 
-3. Clique em **Dados**   ->  **Linked**   ->  **Ligados Azure Data Lake Storage Gen2**, e faça o upload **wordcount.py**   e **shakespeare.txt** no seu sistema de ficheiros ADLS Gen2. 
+3. Selecione **Dados**   ->  **Linked**   ->  **Ligados Azure Data Lake Storage Gen2**, e faça o upload **wordcount.py**   e **shakespeare.txt** no seu sistema de ficheiros ADLS Gen2. 
 
      ![carregar arquivo python](./media/apache-spark-job-definitions/upload-python-file.png)
 
-4. Clique em **Desenvolver** o hub, clique no ícone '+' e selecione **a definição de trabalho spark** para criar uma nova definição de trabalho spark. 
+4. Selecione **Develop** hub, selecione o ícone '+' e selecione **a definição de trabalho spark** para criar uma nova definição de trabalho spark. 
 
      ![criar nova definição para pitão](./media/apache-spark-job-definitions/create-new-definition.png)
 
@@ -75,7 +75,7 @@ Nesta secção, você cria uma definição de trabalho Apache Spark para PySpark
 
      ![Definir o valor da definição de trabalho spark para Python](./media/apache-spark-job-definitions/create-py-definition.png)
 
-7. Clique **em Publicar** para salvar a definição de emprego apache spark.
+7. **Selecione Publicar** para salvar a definição de emprego apache spark.
 
      ![publicar py definição](./media/apache-spark-job-definitions/publish-py-definition.png)
 
@@ -89,11 +89,11 @@ Nesta secção, você cria uma definição de trabalho Apache Spark para Apache 
  
      ![amostra ficheiros scala](./media/apache-spark-job-definitions/sample-files-scala.png)
 
- 3. Clique em **Dados**   ->  **Linked**   ->  **Ligados Azure Data Lake Storage Gen2**, e carreque **wordcount.jar**   e **shakespeare.txt** no seu sistema de ficheiros ADLS Gen2.
+ 3. Selecione **Dados**   ->  **Linked**   ->  **Ligados Azure Data Lake Storage Gen2**, e carreque **wordcount.jar**   e **shakespeare.txt** no seu sistema de ficheiros ADLS Gen2.
  
      ![preparar estrutura scala](./media/apache-spark-job-definitions/prepare-scala-structure.png)
 
- 4. Clique em **Desenvolver** o hub, clique no ícone '+' e selecione **a definição de trabalho spark** para criar uma nova definição de trabalho spark. (A imagem da amostra é a mesma do passo 4 de Criar uma definição de **trabalho apache spark (Python) para PySpark**.)
+ 4. Selecione **Develop** hub, selecione o ícone '+' e selecione **a definição de trabalho spark** para criar uma nova definição de trabalho spark. (A imagem da amostra é a mesma do passo 4 de Criar uma definição de **trabalho apache spark (Python) para PySpark**.)
 
  5. Selecione **Spark (Scala)** da lista de drop down da linguagem na janela principal de definição de emprego Apache Spark.
 
@@ -116,7 +116,7 @@ Nesta secção, você cria uma definição de trabalho Apache Spark para Apache 
 
      ![Definir o valor da definição de trabalho spark para escala](./media/apache-spark-job-definitions/create-scala-definition.png)
 
- 7. Clique **em Publicar** para salvar a definição de emprego apache spark.
+ 7. **Selecione Publicar** para salvar a definição de emprego apache spark.
 
       ![publicar a definição de scala](./media/apache-spark-job-definitions/publish-scala-definition.png)
 
@@ -129,11 +129,11 @@ Nesta secção, você cria uma definição de trabalho Apache Spark para .NET Sp
 
      ![amostra dotnet](./media/apache-spark-job-definitions/sample-dotnet.png)
 
- 3. Clique em **Dados**   ->  **Linked**   ->  **Ligados Azure Data Lake Storage Gen2**, e faça o upload **wordcount.zip**   e **shakespeare.txt** no seu sistema de ficheiros ADLS Gen2.
+ 3. Selecione **Dados**   ->  **Linked**   ->  **Ligados Azure Data Lake Storage Gen2**, e faça o upload **wordcount.zip**   e **shakespeare.txt** no seu sistema de ficheiros ADLS Gen2.
  
      ![preparar estrutura de dotnet](./media/apache-spark-job-definitions/prepare-dotnet-structure.png)
 
- 4. Clique em **Desenvolver** o hub, clique no ícone '+' e selecione **a definição de trabalho spark** para criar uma nova definição de trabalho spark. (A imagem da amostra é a mesma do passo 4 de Criar uma definição de **trabalho apache spark (Python) para PySpark**.)
+ 4. Selecione **Develop** hub, selecione o ícone '+' e selecione **a definição de trabalho spark** para criar uma nova definição de trabalho spark. (A imagem da amostra é a mesma do passo 4 de Criar uma definição de **trabalho apache spark (Python) para PySpark**.)
 
  5. Selecione **.NET Spark(C#/F#)** da lista de drop down da linguagem na janela principal da Definição de Emprego de Faísca Apache.
 
@@ -156,7 +156,7 @@ Nesta secção, você cria uma definição de trabalho Apache Spark para .NET Sp
 
      ![Definir o valor da definição de trabalho spark para dotnet](./media/apache-spark-job-definitions/create-dotnet-definition.png)
 
- 7. Clique **em Publicar** para salvar a definição de emprego apache spark.
+ 7. **Selecione Publicar** para salvar a definição de emprego apache spark.
 
       ![publicar definição de dotnet](./media/apache-spark-job-definitions/publish-dotnet-definition.png)
 
@@ -165,29 +165,29 @@ Nesta secção, você cria uma definição de trabalho Apache Spark para .NET Sp
 Depois de criar uma definição de emprego Apache Spark, você pode submetê-lo a uma piscina Apache Spark. Certifique-se de que é o Proprietário de **Dados blob** de armazenamento do sistema de ficheiros ADLS Gen2 com o qual pretende trabalhar. Se não estiver, tem de adicionar a permissão manualmente.
 
 ### <a name="scenario-1-submit-apache-spark-job-definition"></a>Cenário 1: Submeter a definição de emprego da Apache Spark
- 1. Abra uma janela de definição de trabalho de faísca Apache clicando nela.
+ 1. Abra uma janela de definição de trabalho de faísca Apache selecionando-a.
 
       ![Abrir definição de trabalho de faísca para submeter ](./media/apache-spark-job-definitions/open-spark-definition.png)
 
- 2. Clique **em Enviar** o botão submeter o seu projeto ao Conjunto de Faíscas Apache Selecionados. Pode clicar no **separador URL de monitorização do Spark** para ver o LogQuery da aplicação Apache Spark.
+ 2. **Selecione Enviar** o botão para submeter o seu projeto ao Conjunto de Faíscas Apache Selecionados. Pode selecionar **o separador URL de monitorização do Spark** para ver o LogQuery da aplicação Apache Spark.
 
-    ![Clique em enviar botão para submeter definição de trabalho de faísca](./media/apache-spark-job-definitions/submit-spark-definition.png)
+    ![Selecione botão de submissão para submeter definição de trabalho de faísca](./media/apache-spark-job-definitions/submit-spark-definition.png)
 
     ![A caixa de diálogo de submissão de faíscas](./media/apache-spark-job-definitions/submit-definition-result.png)
 
 ### <a name="scenario-2-view-apache-spark-job-running-progress"></a>Cenário 2: Veja o trabalho de Apache Spark a correr o progresso
 
- 1. Clique **em Monitor**e, em seguida, selecione a opção de **aplicações Apache Spark.** Pode encontrar o pedido de Apache Spark submetido.
+ 1. Selecione **Monitor**e, em seguida, selecione a opção **de aplicações Apache Spark.** Pode encontrar o pedido de Apache Spark submetido.
 
      ![Ver aplicação Spark](./media/apache-spark-job-definitions/view-spark-application.png)
 
- 2. Em seguida, clique numa aplicação Apache Spark, a janela de trabalho **SparkJobDefinition** exibe. Pode ver o progresso da execução do trabalho a partir daqui.
+ 2. Em seguida, selecione uma aplicação Apache Spark, a janela de trabalho **SparkJobDefinition** exibe. Pode ver o progresso da execução do trabalho a partir daqui.
      
      ![Ver aplicação de faísca LogQuery](./media/apache-spark-job-definitions/view-job-log-query.png)
 
 ### <a name="scenario-3-check-output-file"></a>Cenário 3: Verifique o ficheiro de saída
 
- 1. Clique em **Dados**  ->  **Ligados**  ->  **Azure Data Lake Storage Gen2** (hozhaobdbj), abra a pasta **de resultados** criada anteriormente, pode ir à pasta de resultados e verificar se a saída é gerada.
+ 1. Selecione **Dados**  ->  **Linked**  ->  **Ligados Azure Data Lake Storage Gen2** (hozhaobdbj), abra a pasta **de resultados** criada anteriormente, pode ir à pasta de resultados e verificar se a saída é gerada.
 
      ![Ver ficheiro de saída](./media/apache-spark-job-definitions/view-output-file.png)
 
@@ -197,7 +197,7 @@ Nesta secção, adicione uma definição de trabalho apache spark em pipeline.
 
  1. Abra uma definição de emprego apache spark existente.
 
- 2. Clique no ícone no canto superior direito da definição de trabalho apache spark, escolha **O Pipeline Existente**ou Novo **pipeline**. Pode consultar a página pipeline para mais informações.
+ 2. Selecione o ícone no canto superior direito da definição de trabalho Apache Spark, escolha **O Pipeline Existente**ou Novo **pipeline**. Pode consultar a página pipeline para mais informações.
 
      ![adicionar ao pipeline1](./media/apache-spark-job-definitions/add-to-pipeline01.png)
 
@@ -205,5 +205,5 @@ Nesta secção, adicione uma definição de trabalho apache spark em pipeline.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Este tutorial demonstra como usar o Azure Synapse Studio para criar definições de emprego apache spark, e depois submetê-los a uma piscina Apache Spark. Em seguida, pode utilizar o Azure Synapse Studio para criar conjuntos de dados Power BI e gerir dados do Power BI.
+Em seguida, pode utilizar o Azure Synapse Studio para criar conjuntos de dados Power BI e gerir dados do Power BI. Avance para o [espaço de trabalho De Ligação a Um espaço de trabalho Power BI para um artigo do espaço de trabalho da Sinapse](../quickstart-power-bi.md) para saber mais. 
 

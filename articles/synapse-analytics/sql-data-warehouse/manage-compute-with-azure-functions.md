@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 11cb0c30a1a6ed70cca82e494fcec73936975f39
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 0e14bba7b2982dd12fcca0d7aedc864b2a65288f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442227"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259956"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Utilize funções Azure para gerir recursos computativos na piscina SQL Azure Synapse Analytics
 
@@ -124,10 +124,10 @@ Atualmente, o modelo inclui apenas duas funções de dimensionamento. Com estas 
        "operationType": "PauseDw"
    }
 
-   // Scale the SQL pool instance to DW600
+   // Scale the SQL pool instance to DW600c
    var operation = {
        "operationType": "ScaleDw",
-       "ServiceLevelObjective": "DW600"
+       "ServiceLevelObjective": "DW600c"
    }
    ```
 
@@ -137,35 +137,35 @@ Esta secção demonstra brevemente o que é necessário para obter um agendament
 
 ### <a name="example-1"></a>Exemplo 1
 
-Todos os dias, aumente verticalmente às 8:00 para DW600 e reduza verticalmente às 20:00 para DW200.
+Escala diária às 8:00 para DW600c e escala para baixo às 20:00 para DW200c.
 
 | Função  | Agenda     | Operação                                |
 | :-------- | :----------- | :--------------------------------------- |
-| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600"}` |
-| Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
+| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW600c"}` |
+| Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200c"}` |
 
 ### <a name="example-2"></a>Exemplo 2
 
-Escala diária das 8:00 para DW1000, escala uma vez para DW600 às 16:00, e escala para baixo às 22:00 para DW200.
+Escala diária às 8:00 para DW1000c, escala uma vez para DW600 às 16:00, e escala para baixo às 22:00 para DW200c.
 
 | Função  | Agenda     | Operação                                |
 | :-------- | :----------- | :--------------------------------------- |
-| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
-| Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
-| Function3 | 0 0 22 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
+| Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
+| Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |
+| Function3 | 0 0 22 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200c"}` |
 
 ### <a name="example-3"></a>Exemplo 3
 
-Aumentar verticalmente às 8:00 para DW1000 e reduzir verticalmente uma vez para DW600 às 16:00 aos dias de semana. É colocado em pausa à sexta-feira às 23:00 e retomado às 7:00 de segunda-feira.
+Escala às 8:00 para DW1000c, escala uma vez para DW600c às 16:00 nos dias úteis. É colocado em pausa à sexta-feira às 23:00 e retomado às 7:00 de segunda-feira.
 
 | Função  | Agenda       | Operação                                |
 | :-------- | :------------- | :--------------------------------------- |
-| Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
-| Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
+| Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000c"}` |
+| Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |
 | Function3 | 0 0 23 * * 5   | `var operation = {"operationType": "PauseDw"}` |
-| Function4 | 0 0 7 * * 0    | `var operation = {"operationType": "ResumeDw"}` |
+| Function4 | 0 0 7 * * 1    | `var operation = {"operationType": "ResumeDw"}` |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as funções do Azure de [acionador de temporização](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 

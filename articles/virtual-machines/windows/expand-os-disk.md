@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: 3f1c7fb08c3dcaa078de8f1ee0b90409289cfb43
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.openlocfilehash: b739bb94911e24002b359aabfa23583ecfc9de85
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89469260"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336008"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Como expandir a unidade do SO das máquinas virtuais
 
@@ -30,7 +30,7 @@ Quando cria uma nova máquina virtual (VM) num grupo de recursos, implantando um
 - Para migrar um PC físico ou VM a partir do local com uma unidade de SO maior.
 
 > [!IMPORTANT]
-> A redimensionamento do disco OS de uma Máquina Virtual Azure requer que a máquina virtual seja negociada.
+> Redimensionar um DISCO de DADOS ou Um Disco de Dados de uma Máquina Virtual Azure requer que a máquina virtual seja negociada.
 >
 > Depois de expandir os discos, é necessário [expandir o volume dentro do SISTEMA](#expand-the-volume-within-the-os) para tirar partido do disco maior.
 > 
@@ -243,6 +243,6 @@ Quando expandiu o disco para o VM, é preciso entrar no SO e expandir o volume p
 5. Na solicitação **DISKPART,** escreva `extend [size=<size>]` . Isto estende o volume selecionado por *tamanho* em megabytes (MB).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Também pode anexar discos utilizando o [portal Azure](attach-managed-disk-portal.md).

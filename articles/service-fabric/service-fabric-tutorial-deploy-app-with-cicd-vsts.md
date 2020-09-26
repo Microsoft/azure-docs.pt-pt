@@ -4,12 +4,12 @@ description: Neste tutorial, aprende-se a configurar uma integração contínua 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 302ad1dcfaa93564d70fab739726787ef09c79df
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: a26cfaca466e01b154c65b27895f3004f6320e5d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563935"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326342"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Tutorial: Implementar uma aplicação com CI/CD num cluster do Service Fabric
 
@@ -65,11 +65,11 @@ Crie um novo repo Git local para o seu projeto selecionando **Add to Source Cont
 
 Na vista **Push** no **Team Explorer**, selecione o botão **Publicar Repositório Git** em **Push para o Azure DevOps**.
 
-![Repositório Git de push][push-git-repo]
+![Screenshot da janela team explorer - sincronização em Estúdio Visual. O botão Publish to Git Repo é destacado em Push to Azure DevOps.][push-git-repo]
 
 Verifique o seu e-mail e selecione a sua conta na lista pendente **Domínio do Azure DevOps**. Introduza o nome do seu repositório e selecione **Publicar repositório**.
 
-![Repositório Git de push][publish-code]
+![Screenshot das definições push to Azure DevOps com o e-mail, conta, nome do repositório e botão de Repositório de Publicação realçados.][publish-code]
 
 A publicação do repositório cria um novo projeto na sua conta com o mesmo nome que o repositório local. Para criar o repositório num projeto existente, clique em **Avançadas** junto ao nome do **Repositório** e selecione um projeto. Pode ver o código na Web, selecionando **Ver na Web**.
 
@@ -155,7 +155,7 @@ Para verificar o progresso da compilação, mude para o separador **Compilaçõe
 
 Verifique se a implementação foi concluída com êxito e se a aplicação está em execução no cluster.  Abra um browser e navegue até `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`.  Tome nota da versão da aplicação, que neste exemplo é "1.0.0.20170815.3".
 
-![Service Fabric Explorer][sfx1]
+![Screenshot da aplicação Voting no Service Fabric Explorer que funciona numa janela do navegador. Destaca-se a versão da aplicação "1.0.0.20170815.3".][sfx1]
 
 ## <a name="update-the-application"></a>Atualizar a aplicação
 
@@ -163,11 +163,11 @@ Efetue alterações de código na aplicação.  Guarde e consolide as alteraçõ
 
 Depois de iniciada a atualização de versão da aplicação, pode ver o progresso da atualização de versão no Service Fabric Explorer:
 
-![Service Fabric Explorer][sfx2]
+![Screenshot da aplicação de voto no Service Fabric Explorer. A mensagem de estado "Upgrade", e uma mensagem "Upgrade in Progress" são realçadas.][sfx2]
 
 A atualização de versão da aplicação pode demorar vários minutos. Quando a atualização de versão estiver concluída, a aplicação irá executar a versão seguinte.  Neste exemplo, "1.0.0.20170815.4".
 
-![Service Fabric Explorer][sfx3]
+![Screenshot da aplicação Voting no Service Fabric Explorer que funciona numa janela do navegador. Destaca-se a versão atualizada da aplicação "1.0.0.20170815.4".][sfx3]
 
 ## <a name="next-steps"></a>Passos seguintes
 

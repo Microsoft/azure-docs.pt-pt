@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1d3cd61ea3da88c4c5231f22c0e127508591fb8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3406b28c44644053fa984f2cf7739bb53ccf6c8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76720474"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336450"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Fase de modelação do ciclo de vida do processo de ciência de dados da equipa
 
@@ -45,7 +45,7 @@ Há três tarefas principais abordadas nesta fase:
   * **Formação de modelos**: Encontre o modelo que responda a pergunta com mais precisão, comparando as suas métricas de sucesso.
   * Determine se o seu modelo é **adequado para a produção.**
 
-### <a name="feature-engineering"></a>Com engenharia
+### <a name="feature-engineering"></a>Desenvolvimento de funcionalidades
 A engenharia de recursos envolve a inclusão, agregação e transformação de variáveis brutas para criar as características utilizadas na análise. Se quer saber o que está a conduzir um modelo, então precisa entender como as características se relacionam entre si e como os algoritmos de aprendizagem automática são para usar essas funcionalidades. 
 
 Este passo requer uma combinação criativa de conhecimentos de domínio e os insights obtidos a partir da etapa de exploração de dados. A engenharia de recursos é um ato de equilíbrio de encontrar e incluir variáveis informativas, mas ao mesmo tempo tentar evitar demasiadas variáveis não relacionadas. As variáveis informativas melhoram o seu resultado; variáveis não relacionadas introduzem ruído desnecessário no modelo. Também é necessário gerar estas funcionalidades para quaisquer novos dados obtidos durante a pontuação. Como resultado, a geração destas funcionalidades só pode depender de dados disponíveis no momento da pontuação. 
@@ -53,7 +53,7 @@ Este passo requer uma combinação criativa de conhecimentos de domínio e os in
 Para obter orientação técnica sobre engenharia de recursos quando utilizar várias tecnologias de dados Azure, consulte [a engenharia de recursos no processo de ciência de dados.](create-features.md) 
 
 ### <a name="model-training"></a>Preparação de modelos
-Dependendo do tipo de pergunta que está a tentar responder, existem muitos algoritmos de modelação disponíveis. Para obter orientações sobre a escolha dos algoritmos, consulte [Como escolher algoritmos para o Microsoft Azure Machine Learning](../studio/algorithm-choice.md). Embora este artigo utilize Azure Machine Learning, a orientação que fornece é útil para quaisquer projetos de aprendizagem automática. 
+Dependendo do tipo de pergunta que está a tentar responder, existem muitos algoritmos de modelação disponíveis. Para obter orientações sobre a escolha dos algoritmos, consulte [Como escolher algoritmos para o Microsoft Azure Machine Learning](../how-to-select-algorithms.md). Embora este artigo utilize Azure Machine Learning, a orientação que fornece é útil para quaisquer projetos de aprendizagem automática. 
 
 O processo de formação de modelos inclui os seguintes passos: 
 
@@ -78,7 +78,7 @@ Os artefactos produzidos nesta fase incluem:
      * O modelo responde à pergunta com confiança suficiente dado os dados do teste? 
      * Deve tentar alguma abordagem alternativa? Deve recolher dados adicionais, fazer mais engenharia de recursos ou experimentar outros algoritmos?
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aqui estão as ligações a cada passo no ciclo de vida do TDSP:
 

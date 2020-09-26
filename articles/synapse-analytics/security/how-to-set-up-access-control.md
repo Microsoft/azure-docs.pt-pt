@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6b1fe78ac00b57d7627a64970e84ae8b717ae5c3
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 35fb8adaa5f7c0fff1c6d967f0136736b8071ce4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501921"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260160"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteja o seu espaço de trabalho Synapse (pré-visualização)
 
@@ -36,7 +36,7 @@ Para garantir um espaço de trabalho synapse (pré-visualização), seguirá um 
 
 Este documento utiliza nomes padrão para simplificar as instruções. Substitua-os por quaisquer nomes à sua escolha.
 
-|Definição | Valor de exemplo | Descrição |
+|Definição | Valor de exemplo | Description |
 | :------ | :-------------- | :---------- |
 | **Espaço de trabalho sinapse** | WS1 |  O nome que o espaço de trabalho da Sinapse terá. |
 | **Conta ADLSGEN2** | STG1 | A conta ADLS para usar com o seu espaço de trabalho. |
@@ -97,8 +97,8 @@ O espaço de trabalho synapse precisa de acesso a STG1 e CNT1 para que possa exe
 
 - Abra o portal do Azure
 - Navegue até WS1
-- Em **Definições**, clique na administração do **Diretório Ativo SQL**
-- Clique **em Definir administração** e escolha WS1 \_ SQLAdmins
+- Em **Definições**, selecione **sql ative directy administrador**
+- Selecione **Definir administração** e escolha WS1 \_ SQLAdmins
 
 ## <a name="step-6-maintain-access-control"></a>PASSO 6: Manter o controlo de acesso
 
@@ -123,8 +123,9 @@ Os utilizadores de cada função precisam de completar os seguintes passos:
 
 > [!NOTE]
 > [1] Para criar piscinas SQL ou Spark, o utilizador deve ter pelo menos uma função contributiva no espaço de trabalho da Synapse.
-> [!TIP]
 >
+ 
+>[!TIP]
 > - Alguns passos deliberadamente não serão permitidos dependendo do papel.
 > - Tenha em mente que algumas tarefas podem falhar se a segurança não estiver totalmente configurada. Estas tarefas são anotados na tabela.
 

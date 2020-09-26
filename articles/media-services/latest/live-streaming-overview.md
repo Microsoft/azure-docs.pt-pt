@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 23898969f254063ee9e5385fee577661871ccf45
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 0eb814ea0d941ca01d3a21db1cb507ef273a1a18
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298985"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328348"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming em direto com a Azure Media Services v3
 
@@ -60,7 +60,7 @@ A filtragem dinâmica é usada para controlar o número de faixas, formatos, bit
 
 ### <a name="pass-through"></a>Pass-through
 
-![pass-through](./media/live-streaming/pass-through.svg)
+![Diagrama mostrando como o vídeo e o áudio se alimentam de um Evento Ao Vivo que passa são ingeridos e processados.](./media/live-streaming/pass-through.svg)
 
 Ao utilizar o **Live Event**de passagem, confia no codificadora ao vivo no local para gerar um fluxo de vídeo bitrate múltiplo e enviar-o como feed de contribuição para o Live Event (utilizando o protocolo de entrada RTMP ou MP4 fragmentado). O Live Event transporta então os streams de vídeo de entrada para o pacote dinâmico (Streaming Endpoint) sem qualquer transcoding adicional. Este evento live pass-through é otimizado para eventos ao vivo de longa duração ou 24x365 streaming linear ao vivo. 
 
@@ -131,7 +131,7 @@ Consulte o artigo [perguntas frequentes.](frequently-asked-questions.md#live-str
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Arranque rápido de streaming ao vivo](live-events-wirecast-quickstart.md)
 * [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)

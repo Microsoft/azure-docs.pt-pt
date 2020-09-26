@@ -4,13 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/06/2020
 ms.author: trbye
-ms.openlocfilehash: ff171dfce0bcbb04ec017a8d5e3310cf3162e8e2
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: a44be1fd9d9dc5fdebd36f9044ae948b918c07c0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565002"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327117"
 ---
+Uma das características centrais do serviço de fala é a capacidade de reconhecer e transcrever a fala humana (muitas vezes referida como discurso-a-texto). Neste arranque rápido, aprende-se a usar o Speech SDK nas suas apps e produtos para realizar conversão de fala a texto de alta qualidade.
+
+## <a name="skip-to-samples-on-github"></a>Salte para as amostras no GitHub
+
+Se quiser saltar diretamente para o código de amostra, consulte as [amostras de arranque rápido C++](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp/windows) no GitHub.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe que tem uma conta Azure e subscrição do serviço de fala. Se não tiver uma conta e subscrição, [experimente gratuitamente o serviço Desemação](../../../get-started.md).

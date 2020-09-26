@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: bd32bbb5957832629fa19eb756b95356c0292ef1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b8ce5b82b7d2022fd7feea1cd9efe8d524ee6a4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887699"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358292"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Improve performance by compressing files in Azure CDN (Comprimir ficheiros na CDN do Azure para melhorar o desempenho)
 A compressão de ficheiros é um método simples e eficaz para melhorar a velocidade de transferência de ficheiros e aumentar o desempenho da carga de página, reduzindo o tamanho de um ficheiro antes de ser enviado do servidor. A compressão de ficheiros pode reduzir os custos de largura de banda e proporcionar uma experiência mais responsiva para os seus utilizadores.
@@ -53,12 +53,12 @@ Os níveis padrão e premium de CDN fornecem a mesma funcionalidade de compress�
     A página de ponta cdn abre.
 2. **Selecione Compressão**.
 
-    ![Seleção de compressão CDN](./media/cdn-file-compression/cdn-compress-select-std.png)
+    ![A screenshot mostra um Ponto final com compressão selecionada no menu do portal.](./media/cdn-file-compression/cdn-compress-select-std.png)
 
     A página de compressão abre.
 3. Selecione **ligar** para ligar a compressão.
 
-    ![Opções de compressão de ficheiros CDN](./media/cdn-file-compression/cdn-compress-standard.png)
+    ![A imagem mostra a compressão.](./media/cdn-file-compression/cdn-compress-standard.png)
 4. Utilize os tipos de MIME predefinidos ou modifique a lista adicionando ou removendo os tipos de MIME.
 
    > [!TIP]
@@ -165,6 +165,6 @@ Para os pontos finais ativados para o streaming CDN dos Serviços de Mídia, a c
 - url de aplicação/vnd.apple.mpeg
 - aplicação/f4m+xml 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 * [Troubleshooting CDN file compression](cdn-troubleshoot-compression.md) (Resolver problemas de compressão de ficheiros da CDN)    
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/04/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 96a97b9b141d434f201da4c7e36f6715186a652e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: a5b4d0591f58d2ce4d3d2e9055c70fdc7118e123
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903098"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326257"
 ---
 # <a name="quickstart-monitoring-azure-spring-cloud-apps-with-logs-metrics-and-tracing"></a>Quickstart: Monitorização de aplicativos Azure Spring Cloud com registos, métricas e rastreio
 
@@ -63,7 +63,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 ### <a name="log-analytics"></a>Log Analytics
 
-1. Vá ao **serviço! Página geral** e selecione **Registos** na secção **De Monitorização.** Selecione **Executar** numa das consultas de amostra para Azure Spring Cloud.
+1. No portal Azure, vá ao **serviço! Página geral** e selecione **Registos** na secção **De Monitorização.** Selecione **Executar** numa das consultas de amostra para Azure Spring Cloud.
 
    [![Entrada de Logs Analytics ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png)](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
     
@@ -75,7 +75,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 ## <a name="metrics"></a>Métricas
 
-1. No portal Azure, vá ao **serviço! Página geral** e selecione **Métricas** na secção **de Monitorização.** Adicione a sua primeira métrica selecionando `system.cpu.usage` para **Metric** e `Avg` para **Agregação** para ver a linha do tempo para uma utilização geral do CPU.
+1. No portal Azure, vá ao **serviço! Página geral** e selecione **Métricas** na secção **de Monitorização.** Adicione a sua primeira métrica selecionando uma das métricas .NET em **Performance (.NET)** ou **Request (.NET)** na **métrica** e `Avg` para a **agregação** ver a linha do tempo para esta métrica.
 
    [![Entrada métrica - Steeltoe ](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png)](media/spring-cloud-quickstart-logs-metrics-tracing/metrics-basic-cpu-steeltoe.png#lightbox)
     

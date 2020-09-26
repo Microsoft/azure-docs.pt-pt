@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 09181a28edf21f0a4da11a244d3c094469446ab5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6726dab6f1037f01eda316968e3c5b503aa9dbfb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983522"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326586"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integre com As Aplicações Lógicas usando um conector personalizado
 
@@ -28,7 +28,7 @@ Neste artigo, você usará o [portal Azure](https://portal.azure.com) para **cri
 Se não tiver uma subscrição do Azure, **crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) ** antes de começar.
 Inscreva-se no [portal Azure](https://portal.azure.com) com esta conta. 
 
-O resto desta secção irá acompanhá-lo através destes degraus:
+Também precisa de completar os seguintes itens como parte da configuração pré-requisito. O restante desta secção irá acompanhá-lo através destes passos:
 - Configurar um exemplo de Gémeos Digitais Azure
 - Obtenha o segredo do cliente de registo de aplicativos
 - Adicione um gémeo digital
@@ -37,9 +37,9 @@ O resto desta secção irá acompanhá-lo através destes degraus:
 
 Para ligar uma instância Azure Digital Twins a Logic Apps neste artigo, terá de ter a **instância Azure Digital Twins** já configurada. 
 
-Se precisar de configurar um novo exemplo agora, a forma mais simples de o fazer é executar uma amostra de script de implementação automatizada. Siga as instruções em [*Como-a-: Configurar uma instância e autenticação (scripted)*](how-to-set-up-instance-scripted.md) para configurar uma nova instância e o registo de aplicações AZure AD requerido. As instruções também contêm passos para verificar se completou cada passo com sucesso e estão prontos para passar a usar a sua nova instância.
+Em primeiro lugar, crie uma instância Azure Digital Twins e a autenticação necessária para poder trabalhar com ela. Para isso, siga as instruções em [*Como-a-: Configurar uma instância e autenticação*](how-to-set-up-instance-portal.md). Dependendo da sua experiência preferida, o artigo de configuração é oferecido para o [portal Azure,](how-to-set-up-instance-portal.md) [CLI,](how-to-set-up-instance-cli.md)ou [amostra de script de implementação automatizada da Cloud Shell](how-to-set-up-instance-scripted.md). Todas as versões das instruções também contêm passos para verificar se completou cada passo com sucesso e estão prontos para passar a usar a sua nova instância.
 
-Neste tutorial, você precisará dos seguintes valores a partir de quando configurar o seu exemplo. Se precisar de voltar a recolher estes valores, utilize os links abaixo para as secções correspondentes no artigo de configuração para os encontrar no [portal Azure](https://portal.azure.com).
+Neste tutorial, você precisará de vários valores a partir de quando configurar o seu caso. Se precisar de voltar a recolher estes valores, utilize os links abaixo para as secções correspondentes no artigo de configuração para os encontrar no [portal Azure](https://portal.azure.com).
 * Nome **_de anfitrião_** de exemplo de Azure Digital Twins[(encontre no portal)](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
 * Aplicação de registo de aplicações AD AZure **_(cliente) ID_** [(find in portal)](how-to-set-up-instance-portal.md#collect-important-values)
 * Diretório de registo de aplicativoS Azure **_AD (inquilino) ID_** [(find in portal)](how-to-set-up-instance-portal.md#collect-important-values)
@@ -160,13 +160,13 @@ Já terminou a configuração de um conector personalizado que pode aceder às A
 
 Em seguida, irá criar uma aplicação lógica que utilizará o seu novo conector para automatizar as atualizações da Azure Digital Twins.
 
-Navegue para a página [de aplicações Lógica (consumo)](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Logic%2Fworkflows) no portal Azure (pode utilizar este link ou procurá-lo na barra de pesquisa do portal). Premir O botão *Adicionar* para criar uma aplicação lógica.
+No [portal Azure,](https://portal.azure.com)procure *aplicações Lógicas* na barra de pesquisa do portal. Selecioná-lo deve levá-lo para a página *de aplicações Lógica.* Acerte no botão *de aplicação lógica Create* para criar uma nova aplicação lógica.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="A página 'Aplicações Lógicas (consumo)' no portal Azure. Carregar no botão 'Adicionar'":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="A página 'Aplicações Lógicas' no portal Azure. Carregar no botão 'Adicionar'":::
 
-Na página *de aplicações lógicas (consumo)* que se segue, insira a sua subscrição, grupo de recursos. Além disso, escolha um nome para a sua aplicação lógica e selecione a localização.
+Na página *Da Aplicação Lógica* que se segue, insira o seu grupo de subscrição e recursos. Além disso, escolha um nome para a sua aplicação lógica e selecione a localização da implementação.
 
-Selecione _Rever + criar_ botão.
+Carregar no botão _Review + criar._
 
 Isto irá levá-lo ao separador *'Rever +' criar,* onde pode rever os seus dados e *acertar* criar na parte inferior para criar o seu recurso.
 

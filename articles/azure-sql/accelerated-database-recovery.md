@@ -9,19 +9,28 @@ ms.devlang: ''
 ms.topic: conceptual
 author: mashamsft
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: a6d95bbcb0873086a799dcf216beab4a6b0d33de
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c679b6bb0f5645ea7a972be03ba3621b824a501
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344701"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327634"
 ---
 # <a name="accelerated-database-recovery-in-azure-sql"></a>Recuperação acelerada da base de dados em Azure SQL 
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
 
-**Accelerated Database Recovery (ADR)** é uma funcionalidade de motor de base de dados SQL Server que melhora consideravelmente a disponibilidade da base de dados, especialmente na presença de transações de longa duração, redesenhando o processo de recuperação do motor de base de dados sql Server. ADR está atualmente disponível para Azure SQL Database, Azure SQL Managed Instance, SQL Server on Azure VM, e bases de dados em Azure Synapse Analytics (atualmente em pré-visualização). Os principais benefícios da ADR são:
+**Accelerated Database Recovery (ADR)** é uma funcionalidade de motor de base de dados SQL Server que melhora consideravelmente a disponibilidade da base de dados, especialmente na presença de transações de longa duração, redesenhando o processo de recuperação do motor de base de dados sql Server. 
+
+ADR está atualmente disponível para Azure SQL Database, Azure SQL Managed Instance, bases de dados em Azure Synapse Analytics (atualmente em pré-visualização) e SQL Server em VMs Azure a partir do SQL Server 2019. 
+
+> [!NOTE] 
+> O ADR é ativado por padrão na Base de Dados Azure SQL e na Azure SQL Gerenciada Instância e a desativação do ADR para qualquer um dos produtos não é suportado. 
+
+## <a name="overview"></a>Descrição geral
+
+Os principais benefícios da ADR são:
 
 - **Recuperação rápida e consistente da base de dados**
 

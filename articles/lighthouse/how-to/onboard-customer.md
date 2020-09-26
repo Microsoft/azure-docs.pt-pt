@@ -1,14 +1,14 @@
 ---
 title: Incluir um cliente no Azure Lighthouse
 description: Saiba como embarcar um cliente no Farol Azure, permitindo que os seus recursos sejam acedidos e geridos através do seu próprio inquilino utilizando a gestão de recursos delegada da Azure.
-ms.date: 08/20/2020
+ms.date: 09/24/2020
 ms.topic: how-to
-ms.openlocfilehash: 4de31a0ad2cdc3134cd61654a71ebe803982b52e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 0b941c82c2ba0e98f524587f5ef4c4ecf86249eb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483801"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336552"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Incluir um cliente no Azure Lighthouse
 
@@ -19,7 +19,7 @@ Este artigo explica como você, como prestador de serviços, pode embarcar um cl
 
 Pode repetir o processo de embarque para vários clientes. Quando um utilizador com as permissões adequadas assina no seu inquilino gerente, esse utilizador pode ser autorizado através de âmbitos de arrendamento de clientes para realizar operações de gestão, sem ter de se inscrever em cada cliente inquilino.
 
-Para acompanhar o seu impacto através dos compromissos com os clientes e receber reconhecimento, associe o seu ID da Microsoft Partner Network (MPN) a pelo menos uma conta de utilizador que tenha acesso a cada uma das suas subscrições a bordo. Você precisará realizar esta associação no seu inquilino prestador de serviços. Recomendamos a criação de uma conta principal de serviço no seu inquilino que esteja associada ao seu ID MPN, incluindo o principal de serviço sempre que estiver a bordo de um cliente. Para obter mais informações, consulte [Link o seu parceiro ID para permitir que o parceiro ganhou crédito em recursos delegados.](partner-earned-credit.md)
+Para acompanhar o seu impacto através dos compromissos com os clientes e receber reconhecimento, associe o seu ID da Microsoft Partner Network (MPN) a pelo menos uma conta de utilizador que tenha acesso a cada uma das suas subscrições a bordo. Você precisará realizar esta associação no seu inquilino prestador de serviços. Recomendamos a criação de uma conta principal de serviço no seu inquilino que esteja associada ao seu ID MPN, incluindo o principal de serviço sempre que estiver a bordo de um cliente. Para obter mais informações, consulte [Link o seu parceiro ID para permitir que o parceiro ganhou crédito em recursos delegados.
 
 > [!NOTE]
 > Os clientes também podem ser acedidos ao Farol de Azure quando adquirem uma oferta de Serviço Gerido (público ou privado) que [publica no Azure Marketplace.](publish-managed-services-offers.md) Também pode utilizar o processo de embarque descrito aqui ao lado das ofertas publicadas no Azure Marketplace.
@@ -33,9 +33,6 @@ Para embarcar no inquilino de um cliente, deve ter uma subscrição ativa do Azu
 - A ID do inquilino do inquilino do prestador de serviços (onde estará a gerir os recursos do cliente)
 - O ID do inquilino do inquilino do cliente (que terá recursos geridos pelo prestador de serviços)
 - Os IDs de subscrição de cada subscrição específica no arrendatário do cliente que serão geridos pelo prestador de serviços (ou que contém o(s) grupo de recursos que será gerido pelo prestador de serviços).
-
-> [!NOTE]
-> Mesmo que deseje apenas embarcar um ou mais grupos de recursos dentro de uma subscrição, a implementação deve ser feita ao nível da subscrição, pelo que necessitará do ID de subscrição.
 
 Se ainda não tiver estes valores de identificação, pode recuperá-los de uma das seguintes formas. Certifique-se de que utiliza estes valores exatos na sua implantação.
 
@@ -128,6 +125,11 @@ Para embarcar no seu cliente, terá de criar um modelo [de Gestor de Recursos Az
 
 O processo de embarque requer um modelo de Gestor de Recursos Azure (fornecido nas [nossas amostras repo)](https://github.com/Azure/Azure-Lighthouse-samples/)e um ficheiro de parâmetros correspondente que modifica para corresponder à sua configuração e definir as suas autorizações.
 
+> [!IMPORTANT]
+> O processo aqui descrito requer uma implementação separada para cada subscrição a bordo, mesmo que esteja a bordo de subscrições no mesmo cliente. São também necessárias implementações separadas se estiver a bordo de vários grupos de recursos dentro de diferentes subscrições no mesmo cliente. No entanto, a bordo de vários grupos de recursos dentro de uma única subscrição pode ser feita numa única implementação.
+>
+> São também necessárias implementações separadas para que várias ofertas sejam aplicadas à mesma subscrição (ou grupos de recursos dentro de uma subscrição). Cada oferta aplicada deve utilizar um **nome de MSPOffer Diferente**.
+
 O modelo que escolher dependerá se estiver a embarcar numa subscrição inteira, num grupo de recursos ou em vários grupos de recursos dentro de uma subscrição. Também fornecemos um modelo que pode ser usado para clientes que compraram uma oferta de serviço gerida que publicou no Azure Marketplace, se preferir embarcar nas suas subscrições desta forma.
 
 |Para embarcar isto  |Use este modelo de Gestor de Recursos Azure  |E modificar este arquivo de parâmetros |
@@ -137,10 +139,8 @@ O modelo que escolher dependerá se estiver a embarcar numa subscrição inteira
 |Múltiplos grupos de recursos numa subscrição   |[multipleRgDelegatedResourceManagement.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
 |Subscrição (ao utilizar uma oferta publicada no Azure Marketplace)   |[marketplaceDelegatedResourceManagement.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.js](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
-> [!IMPORTANT]
-> O processo aqui descrito requer uma implementação separada para cada subscrição a bordo, mesmo que esteja a bordo de subscrições no mesmo cliente. São também necessárias implementações separadas se estiver a bordo de vários grupos de recursos dentro de diferentes subscrições no mesmo cliente. No entanto, a bordo de vários grupos de recursos dentro de uma única subscrição pode ser feita numa única implementação.
->
-> São também necessárias implementações separadas para que várias ofertas sejam aplicadas à mesma subscrição (ou grupos de recursos dentro de uma subscrição). Cada oferta aplicada deve utilizar um **nome de MSPOffer Diferente**.
+> [!TIP]
+> Embora não possa embarcar um grupo inteiro de gestão numa só implantação, pode [implementar uma política ao nível do grupo de gestão.](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/policy-delegate-management-groups) A apólice verificará se cada subscrição dentro do grupo de gestão foi delegada ao inquilino de gestão especificado, e se não, criará a atribuição com base nos valores que fornece.
 
 O exemplo a seguir mostra umadelegatedResourceManagement.parameters.jsmodificada ** no** ficheiro que pode ser usado para embarcar numa subscrição. Os ficheiros de parâmetros do grupo de recursos (localizados na pasta [de gestão de recursos delegados rg)](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/rg-delegated-resource-management) são semelhantes, mas também incluem um parâmetro **rgName** para identificar o(s) grupo de recursos específicos a bordo.
 
@@ -296,7 +296,7 @@ Get-AzContext
 az account list
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça as [experiências de gestão de inquilinos cruzados.](../concepts/cross-tenant-management-experience.md)
 - [Ver e gerir clientes](view-manage-customers.md) indo para **os meus clientes** no portal Azure.

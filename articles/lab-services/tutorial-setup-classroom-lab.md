@@ -3,12 +3,12 @@ title: Configurar um laboratório de sala de aula com o Azure Lab Services | Mic
 description: Neste tutorial, você usa a Azure Lab Services para criar um laboratório de sala de aula com máquinas virtuais que são usadas por alunos da sua turma.
 ms.topic: tutorial
 ms.date: 06/26/2020
-ms.openlocfilehash: bc1b23b92c6af902797a9be354fe6514b4e225af
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1155646d31ddb8a0a3abce025acde5c4cb645f54
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85445139"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336739"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, vai configurar um laboratório de sala de aula com máquinas virtuais que serão utilizadas pelos alunos na sala de aula.  
@@ -37,7 +37,7 @@ Neste passo, cria-se um laboratório para a sua aula em Azure.
 2. Selecione **Iniciar sessão** e introduza as suas credenciais. O Azure Lab Services suporta contas organizacionais e contas Microsoft. 
 3. Selecione **Novo laboratório**. 
     
-    ![Criar um laboratório de sala de aula](./media/tutorial-setup-classroom-lab/new-lab-button.png)
+    ![Screenshot que mostra "Azure Lab Services" com o botão "Novo laboratório" selecionado.](./media/tutorial-setup-classroom-lab/new-lab-button.png)
 4. Na janela **Novo Laboratório**, realize as ações abaixo: 
     1. Especifique um **nome** para o seu laboratório e selecione **Next**.  
 
@@ -90,7 +90,7 @@ Crie um evento programado para o laboratório para que os VMs no laboratório se
 
 1. Mude para a página **Agendas** e **selecione Adicionar evento agendado** na barra de ferramentas. 
 
-    ![Adicione o botão de agenda na página Agendas](./media/how-to-create-schedules/add-schedule-button.png)
+    ![Screenshot que mostra o botão "Adicionar evento programado" na página "Agendas".](./media/how-to-create-schedules/add-schedule-button.png)
 2. Na página de **eventos agendada add,** faça os seguintes passos:
     1. Confirme que **a Standard** está selecionada do **tipo Evento**.  
     2. Selecione a **data de início** para a aula. 

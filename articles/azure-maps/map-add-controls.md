@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: devx-track-javascript
-ms.openlocfilehash: a1194b65f7f2cbd79ec5744d92ab65154305f7c1
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: devx-track-js
+ms.openlocfilehash: 08a3b72bb137713721345ecb52cf4e1bb7afcdc2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086220"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310769"
 ---
 # <a name="add-controls-to-a-map"></a>Adicionar controlos a um mapa
 

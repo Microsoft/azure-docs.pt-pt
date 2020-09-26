@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 53473b6be9e91adb636c3c9528e97ec644616115
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: f3b492534bedde50d2413b88fa38cd6325ed5df7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90058619"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328263"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Introdução de referência de segurança Azure
 
@@ -23,8 +23,8 @@ A Microsoft descobriu que usar *referências de segurança* pode ajudá-lo a pro
 
 O Azure Security Benchmark inclui uma coleção de recomendações de segurança de alto impacto que pode usar para ajudar a proteger os serviços que utiliza no Azure:
 
-- Controlos de segurança: Estas recomendações são geralmente aplicáveis em todos os seus serviços Azure e Azure. Cada recomendação identifica uma lista de partes interessadas que estão tipicamente envolvidas no planeamento, aprovação ou implementação do benchmark. 
-- Linhas de base de serviço: Estes aplicam os controlos a serviços individuais da Azure para fornecer recomendações sobre a configuração de segurança desse serviço.
+- **Controlos de segurança**: Estas recomendações são geralmente aplicáveis em todos os seus serviços Azure e Azure. Cada recomendação identifica uma lista de partes interessadas que estão tipicamente envolvidas no planeamento, aprovação ou implementação do benchmark. 
+- **Linhas de base de**serviço : Estes aplicam os controlos aos serviços individuais da Azure para fornecer recomendações sobre a configuração de segurança desse serviço.
 
 ## <a name="implement-the-azure-security-benchmark"></a>Implementar o Azure Security Benchmark
 - **Planeie** a sua implementação de Benchmark de Segurança Azure, revendo a [documentação](overview.md) para os controlos da empresa e linhas de base específicas do serviço para planear o seu quadro de controlo e como mapeia para orientações como o quadro cis (Controls v7.1) e NIST (SP800-53).

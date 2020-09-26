@@ -9,13 +9,13 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f3c19e77739ac8dbc503e51408b9b7830a8b5aa5
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.custom: devx-track-js
+ms.openlocfilehash: a3f661aa31511c5f1cf35d2e3c0429af6ab0c997
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142473"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327532"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Construa uma aplicação de chat Node.js com Socket.IO num Serviço Azure Cloud
 
@@ -72,7 +72,7 @@ Para este projeto, usaremos o exemplo de chat do [repositório Socket.IO GitHub.
    ![Explorador, exibindo o conteúdo dos exemplos \\ de diretório de chat extraído do arquivo][chat-contents]
 
    Os itens destacados na imagem acima são os ficheiros copiados do diretório de ** \\ chat exemplos**
-3. No **C: \\ \\ node chatapp \\ WorkerRole1,** apagar o ficheiro **server.js** e, em seguida, mudar o nome do ficheiro **app.js** para **server.js**. Isto remove o ficheiro **deserver.jspredefinido** criado anteriormente pelo **cmdlet Add-AzureNodeWorkerRole** e substitui-o pelo ficheiro de aplicação do exemplo de chat.
+3. No **C: \\ \\ node chatapp \\ WorkerRole1,** apagar o ficheiro **server.js** e, em seguida, mudar o nome do ficheiro **app.js** para **server.js**. Isto remove o ficheiro ** deserver.jspredefinido ** criado anteriormente pelo **cmdlet Add-AzureNodeWorkerRole** e substitui-o pelo ficheiro de aplicação do exemplo de chat.
 
 ### <a name="modify-serverjs-and-install-modules"></a>Modificar Server.js e instalar módulos
 Antes de testar a aplicação no emulador Azure, temos de fazer algumas pequenas modificações. Execute os seguintes passos no ficheiro server.js:
@@ -166,7 +166,7 @@ A sua aplicação está agora em execução no Azure, e pode transmitir mensagen
 >
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial aprendeu a criar uma aplicação básica de chat hospedada num Azure Cloud Service. Para aprender a hospedar esta aplicação num Website Azure, consulte [a Build a Node.js Chat Application com Socket.IO num Web Site Azure][chatwebsite].
 
 Para mais informações, consulte também o [Node.js Developer Center](https://docs.microsoft.com/azure/developer/javascript/).

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: jeedes
-ms.openlocfilehash: 29778d872541ea251a46affcccd0e2befbd9003d
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 989e3f4a285d44128bba1c9811aebcb76b8c0220
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500898"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327974"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-grammarly"></a>Tutorial: Azure Ative Directory integração única (SSO) com gramática
 
@@ -81,16 +81,13 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 1. Na secção **de Configuração Básica SAML,** a aplicação está pré-configurada e os URLs necessários já estão pré-povoados com Azure. O utilizador precisa de guardar a configuração clicando no botão **Guardar.**
 
 
-1. A aplicação grammarly espera as afirmações DE SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos.
-
-    ![image](common/default-attributes.png)
-
-1. Além de acima, a aplicação grammarly espera que alguns mais atributos sejam repercutidos na resposta SAML, que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
+1. A aplicação gramatical espera as afirmações DOL num formato específico. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Nome |  Atributo de origem|
+    | Name |  Atributo de origem|
     | -------------- | --------- |
     | FirstName | user.givenname |
     | LastName | utilizador.sobrenome |
+    | EmailAddress | user.principalname|
 
 1. Na **configuração de um único sessão de inscrição com** a página SAML, na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
@@ -110,7 +107,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+   1. Clique em **Create** (Criar).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -126,7 +123,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-grammarly-sso"></a>Configurar gramática SSO
 
-Para configurar um único sign-on no lado **gramatical,** você precisa enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a [equipe de suporte grammarly](mailto:support@grammarly.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Para configurar um único login na **Gramática,** é necessário copiar o **URL de login**, o **identificador AD AD azure**e o certificado descarregado **(Base64)** para o painel De administração gramatical. [Saiba como.](https://support.grammarly.com/hc/en-us/articles/360048683092-How-do-I-set-up-SAML-single-sign-on-for-my-Grammarly-Business-account-)
 
 ### <a name="create-grammarly-test-user"></a>Criar utilizador de teste grammarly
 

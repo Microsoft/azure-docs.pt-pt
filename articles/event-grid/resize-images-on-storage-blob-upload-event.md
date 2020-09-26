@@ -3,12 +3,12 @@ title: 'Tutorial: Use a grelha de eventos Azure para automatizar imagens carrega
 description: 'Tutorial: A grelha de eventos Azure pode acionar em uploads de bolhas no Azure Storage. Pode utilizá-lo para enviar ficheiros de imagem carregados para o Armazenamento do Azure para outros serviços, como as Funções do Azure, para redimensionar e outras melhorias.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: 19dfffdcee0fb95ae867b1b26fa51e702658445d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 47ac8cad6d7c2ead8d25aa3525aafdab735f9e71
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86105817"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326597"
 ---
 # <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>Tutorial: Automatizar redimensionar imagens carregadas usando a Grade de Eventos
 
@@ -20,11 +20,11 @@ Utilize a CLI do Azure e o portal do Azure para adicionar a funcionalidade de re
 
 # <a name="net-v12-sdk"></a>[\.NET v12 SDK](#tab/dotnet)
 
-![Aplicativo web publicado no navegador](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Screenshot que mostra uma aplicação web publicada num browser para o \. NET v12 SDK.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 
-![Aplicativo web publicado no navegador](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
+![Screenshot que mostra uma aplicação web publicada num browser para o \. NET v10 SDK.](./media/resize-images-on-storage-blob-upload-event/upload-app-nodejs-thumb.png)
 
 ---
 
@@ -301,7 +301,7 @@ Clique na região **Carregar fotografias** para selecionar e carregar um ficheir
 
 Note que após o desaparecimento da imagem carregada, uma cópia da imagem carregada é exibida no carrossel **das miniaturas geradas.** Esta imagem foi redimensionada pela função, adicionada ao contentor de *miniaturas* e transferida pelo cliente Web.
 
-![Aplicativo web publicado no navegador](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
+![Screenshot que mostra uma aplicação web publicada intitulada "ImageResizer" num browser para o \. NET v12 SDK.](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
 # <a name="nodejs-v10-sdk"></a>[Node.js V10 SDK](#tab/nodejsv10)
 

@@ -1,30 +1,21 @@
 ---
 title: Montar uma partilha de ficheiros do Azure através de SMB com macOS | Microsoft Docs
 description: Saiba como montar uma partilha de ficheiros Azure sobre sMB com o macOS usando Finder ou Terminal. Ficheiros do Azure é o sistema de ficheiros na cloud fácil de utilizar da Microsoft.
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/19/2017
-ms.author: renash
+ms.date: 09/23/2020
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 2cddf8a7d3dbc7abcc25fb76aba8a0af1790fe4d
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 119f4c0ea434bc431b40c905d9142e187b7d9474
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034452"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326070"
 ---
 # <a name="mount-azure-file-share-over-smb-with-macos"></a>Montar uma partilha de ficheiros do Azure através de SMB com macOS
-[Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser montadas com o protocolo padrão da indústria, SMB 3, pelo macOS El Capitan 10.11+. Este artigo mostra duas formas diferentes de montar uma partilha de ficheiros do Azure em macOS com a IU do Finder e o Terminal.
-
-> [!Note]  
-> Antes de montar uma partilha de ficheiros do Azure através de SMB, recomendamos desativar a assinatura de pacotes SMB. Mantê-la ativada pode originar um mau desempenho ao aceder à partilha a partir de macOS. A ligação SMB será encriptada, pelo que a segurança da sua ligação não é afetada. No terminal, os comandos seguintes desativam a assinatura de pacotes SMB, conforme descrito neste [artigo de suporte da Apple relativo à desativação da assinatura de pacotes SMB](https://support.apple.com/HT205926):  
->    ```
->    sudo -s
->    echo "[default]" >> /etc/nsmb.conf
->    echo "signing_required=no" >> /etc/nsmb.conf
->    exit
->    ```
+[Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As ações de ficheiros Azure podem ser montadas com o protocolo SMB 3 padrão da indústria pelo macOS High Sierra 10.13+. Este artigo mostra duas formas diferentes de montar uma partilha de ficheiros do Azure em macOS com a IU do Finder e o Terminal.
 
 ## <a name="prerequisites-for-mounting-an-azure-file-share-on-macos"></a>Pré-requisitos para montar uma partilha de ficheiros do Azure em macOS
 * **Nome da conta de armazenamento**: Para montar uma partilha de ficheiroS Azure, necessitará do nome da conta de armazenamento.
@@ -46,10 +37,10 @@ ms.locfileid: "88034452"
     ![Instantâneo de uma partilha de ficheiros do Azure montada](./media/storage-how-to-use-files-mac/mount-via-finder-3.png)
 
 ## <a name="mount-an-azure-file-share-via-terminal"></a>Montar uma partilha de ficheiros do Azure através do Terminal
-1.  `<storage-account-name>`   Substitua-o pelo nome da sua conta de armazenamento. Indique a Chave da Conta de Armazenamento como a palavra-passe, quando lhe for pedido. 
+1.  `<storage-account-name>` `<storage-account-key>` Substitua, e pelos `<share-name>`   valores adequados para o seu ambiente.
 
     ```
-    mount_smbfs //<storage-account-name>@<storage-account-name>.file.core.windows.net/<share-name> <desired-mount-point>
+    open smb://<storage-account-name>:<storage-account-key>@<storage-account-name>.file.core.windows.net/<share-name>
     ```
 
 2. **Utilize a partilha de ficheiros Azure conforme desejado**: A partilha de ficheiros Azure será montada no ponto de montagem especificado pelo comando anterior.  
@@ -57,9 +48,4 @@ ms.locfileid: "88034452"
     ![Instantâneo da partilha de ficheiros do Azure montada](./media/storage-how-to-use-files-mac/mount-via-terminal-1.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-Veja estas ligações para obter mais informações sobre os Ficheiros do Azure.
-
-* [Artigo de Suporte da Apple - Como efetuar a ligação à Partilha de ficheiros no Mac](https://support.apple.com/HT204445)
-* [FAQ](../storage-files-faq.md)
-* [Resolução de Problemas no Windows](storage-troubleshoot-windows-file-connection-problems.md)      
-* [Resolução de Problemas no Linux](storage-troubleshoot-linux-file-connection-problems.md)    
+* [Ligue o seu Mac a computadores e servidores partilhados - Suporte apple](https://support.apple.com/guide/mac-help/connect-mac-shared-computers-servers-mchlp1140/mac)

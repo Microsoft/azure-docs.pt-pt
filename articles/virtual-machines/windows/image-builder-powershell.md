@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.subservice: imaging
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e25b2b53acdfb05af8572a01109961bf3002e429
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a221ba8fe14db37729183774197bfc2db8bf2baa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499437"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328110"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder-using-powershell"></a>Pré-visualização: Criar um Windows VM com Azure Image Builder utilizando PowerShell
 
@@ -271,7 +271,7 @@ Em segundo plano, o construtor de imagens também cria um grupo de recursos de e
 
 Se o serviço reportar uma falha durante a submissão do modelo de configuração de imagem:
 
-- Ver [Resolução de Problemas Azure VM Image Build (AIB) Falhas](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting).
+- Ver [Resolução de Problemas Azure VM Image Build (AIB) Falhas](../linux/image-builder-troubleshoot.md).
 - Elimine o modelo utilizando o seguinte exemplo antes de voltar a tentar.
 
 ```azurepowershell-interactive
@@ -288,7 +288,7 @@ Start-AzImageBuilderTemplate -ResourceGroupName $imageResourceGroup -Name $image
 
 Aguarde que o processo de construção de imagem esteja concluído. Este passo pode levar até uma hora.
 
-Se encontrar erros, [reveja falhas na Construção de Imagem Azure VM (AIB).](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting)
+Se encontrar erros, [reveja falhas na Construção de Imagem Azure VM (AIB).](../linux/image-builder-troubleshoot.md)
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
@@ -320,7 +320,7 @@ Deve ver a saída com base no conteúdo do ficheiro criado durante o processo de
 Azure-Image-Builder-Was-Here
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se os recursos criados neste artigo não forem necessários, pode eliminá-los executando os seguintes exemplos.
 

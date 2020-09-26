@@ -1,17 +1,17 @@
 ---
 title: Visão geral dos anfitriões dedicados Azure para máquinas virtuais
-description: Saiba mais sobre como os Anfitriões Dedicados Azure podem ser usados para implementar máquinas virtuais.
+description: Saiba mais sobre como os Anfitriões Dedicados Azure podem ser usados para implementar máquinas virtuais Linux.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: cynthn
-ms.openlocfilehash: 97e65528a7f049c213ec077c83da1b7672469d90
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: acf79448c0dcb81bbe644be822414a7e51b0ee36
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87388174"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328161"
 ---
 # <a name="azure-dedicated-hosts-for-virtual-machines"></a>Azure Anfitriões Dedicados para máquinas virtuais
 
@@ -22,7 +22,7 @@ O Azure Dedicated Host é um serviço que fornece servidores físicos - capazes 
 [!INCLUDE [virtual-machines-common-dedicated-hosts](../../../includes/virtual-machines-common-dedicated-hosts.md)]
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Pode implantar um anfitrião dedicado utilizando o [Azure CLI,](dedicated-hosts-cli.md) [portal](dedicated-hosts-portal.md)e [PowerShell](../windows/dedicated-hosts-powershell.md).
 

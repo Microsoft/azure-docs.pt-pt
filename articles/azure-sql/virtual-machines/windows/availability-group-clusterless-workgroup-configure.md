@@ -8,17 +8,17 @@ editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 93819332def05022272eabc130e0f2240938f244
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 43b0f64a1d88a71b221fac240392dc71b93eef76
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955510"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298840"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Configure um grupo de trabalho disponibilidade 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -289,7 +289,7 @@ Neste passo, configuure o seu grupo de disponibilidade e adicione as suas bases 
 Neste último passo, configuure o equilibrador de carga utilizando o [portal Azure](availability-group-load-balancer-portal-configure.md) ou [o PowerShell](availability-group-listener-powershell-configure.md).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Também pode utilizar [o Az SQL VM CLI](availability-group-az-cli-configure.md) para configurar um grupo de disponibilidade. 
 

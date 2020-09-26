@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 58c52649750ae03f19188a025fa4baa16a55ae05
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 11f73d2becb40b800c49afe0cd58f56953f8d42d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590086"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259923"
 ---
 # <a name="introduction"></a>Introdução
 
@@ -30,7 +30,7 @@ O azure Synapse Apache Spark pool to Synapse SQL connector é uma implementaçã
 
 ## <a name="authentication-in-azure-synapse-analytics"></a>Autenticação em Azure Synapse Analytics
 
-A autenticação entre sistemas é feita sem emenda no Azure Synapse Analytics. Existe um Serviço Token que se conecta com o Azure Ative Directory para obter fichas de segurança para utilização ao aceder à conta de armazenamento ou ao servidor do armazém de dados.
+A autenticação entre sistemas é feita sem emenda no Azure Synapse Analytics. O Serviço Token conecta-se com o Azure Ative Directory para obter fichas de segurança para utilização ao aceder à conta de armazenamento ou ao servidor do armazém de dados.
 
 Por esta razão, não há necessidade de criar credenciais ou especificá-las na API do conector, desde que a AAD-Auth esteja configurada na conta de armazenamento e no servidor do armazém de dados. Caso contrário, o SQL Auth pode ser especificado. Veja mais detalhes na secção [Utilização.](#usage)
 
@@ -91,7 +91,7 @@ A API acima funcionará tanto para as Tabelas Internas (Geridas) como para as Ta
 df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-A API de escrita cria a tabela na piscina SQL e, em seguida, invoca a Polybase para carregar os dados.  A mesa não deve existir na piscina SQL ou e o erro será devolvido afirmando que "Já existe e objeto nomeado."
+A API de escrita cria a tabela na piscina SQL e, em seguida, invoca a Polybase para carregar os dados.  A mesa não deve existir na piscina SQL ou e o erro será devolvido afirmando que "Já existe um objeto nomeado..."
 
 Valores de TableType
 
@@ -106,7 +106,7 @@ df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 
 Mesa externa de piscina SQL
 
-Para escrever para uma mesa externa de piscina SQL, deve existir uma FONTE DE DADOS EXTERNA e um formato de ficheiro externo na piscina SQL.  Para mais informações, leia [a criação de uma fonte de dados externa](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e [formatos de ficheiros externos](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) no pool SQL.  Abaixo estão exemplos para criar uma fonte de dados externa e formatos de ficheiros externos no pool SQL.
+Para escrever para uma mesa externa de piscina SQL, deve existir uma FONTE DE DADOS EXTERNA e um formato de ficheiro externo na piscina SQL.  Para mais informações, leia [a criação de uma fonte de dados externa](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e [formatos de ficheiros externos](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) no pool SQL.  Abaixo estão exemplos para criar uma fonte de dados externa e formatos de ficheiros externos no pool SQL.
 
 ```sql
 --For an external table, you need to pre-create the data source and file format in SQL pool using SQL queries:

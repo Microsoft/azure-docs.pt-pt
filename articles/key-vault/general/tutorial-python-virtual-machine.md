@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Use Azure Key Vault com uma máquina virtual em Python Microsoft Docs
-description: Neste tutorial, você configura uma aplicação principal ASP.NET para ler um segredo do seu cofre chave.
+description: Neste tutorial, você configura uma máquina virtual uma aplicação Python para ler um segredo do seu cofre chave.
 services: key-vault
 author: msmbaldwin
 ms.service: key-vault
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: c0f98f8c77e4a9cd4271511e0169f07da1c52baa
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 8980505ac34e32a29403060a7cf3cfaec077d8af
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87875954"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336705"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-python"></a>Tutorial: Use a adóia da chave Azure com uma máquina virtual em Python
 
@@ -64,7 +64,7 @@ Criar um VM chamado **myVM** utilizando um dos seguintes métodos:
 |--|--|
 | [CLI do Azure](../../virtual-machines/linux/quick-create-cli.md) | [CLI do Azure](../../virtual-machines/windows/quick-create-cli.md) |
 | [PowerShell](../../virtual-machines/linux/quick-create-powershell.md) | [PowerShell](../../virtual-machines/windows/quick-create-powershell.md) |
-| [Portal do Azure](../../virtual-machines/linux/quick-create-portal.md) | [O portal Azure](../../virtual-machines/windows/quick-create-portal.md) |
+| [Portal do Azure](../../virtual-machines/linux/quick-create-portal.md) | [O portal do Azure](../../virtual-machines/windows/quick-create-portal.md) |
 
 Para criar um Linux VM utilizando o CLI Azure, utilize o comando [az vm create.](/cli/azure/vm)  O exemplo a seguir adiciona uma conta de utilizador *denominada azureuser*. O `--generate-ssh-keys` parâmetro é utilizado para gerar automaticamente uma chave SSH e colocá-la no local da chave predefinido *(~/.ssh).* 
 

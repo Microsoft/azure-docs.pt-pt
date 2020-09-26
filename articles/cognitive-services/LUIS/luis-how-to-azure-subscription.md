@@ -2,15 +2,17 @@
 title: Como usar teclas de autoria e tempo de execução - LUIS
 description: Quando utiliza pela primeira vez a Compreensão linguística (LUIS), não precisa de criar uma chave de autoria. Quando pretende publicar a aplicação e, em seguida, utilizar o seu ponto final de tempo de execução, tem de criar e atribuir a chave de tempo de execução à aplicação.
 services: cognitive-services
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 99f73399c410641be352111302b1d4999d1ebc1b
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 949ad4176cc7bf65e07e40323fc72a0a144b53b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565910"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327226"
 ---
 # <a name="create-luis-resources"></a>Criar recursos LUIS
 
@@ -27,9 +29,9 @@ A LUIS permite três tipos de recursos Azure e um recurso não-Azure:
 
 |Recurso|Objetivo|Serviço cognitivo `kind`|Serviço cognitivo `type`|
 |--|--|--|--|
-|Recurso de autoria|Permite-lhe criar, gerir, treinar, testar e publicar as suas aplicações. [Crie um recurso de autoria LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-azure-subscription#create-luis-resources-in-azure-portal) se pretender autoriar aplicações LUIS programáticas ou a partir do Portal LUIS. Primeiro, tem de [migrar a sua conta LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring#what-is-migration) para poder ligar os seus recursos Azure à sua aplicação. Pode controlar permissões ao recurso de autoria atribuindo as pessoas ao [papel de contribuinte](#contributions-from-other-authors). <br><br> Existe um nível de avialável para o recurso de autoria LUIS:<br> * **F0 Recurso de autoria** que lhe dá 1M Transações de autoria gratuitas e 1000 pedidos de previsão gratuitas mensalmente. |`LUIS.Authoring`|`Cognitive Services`|
-|Recurso de previsão| Depois de publicar a sua aplicação LUIS, utilize o recurso/chave de previsão para consultar pedidos de ponto final de previsão. Crie um recurso de previsão LUIS antes que a sua aplicação do cliente solicite previsões para além dos 1.000 pedidos fornecidos pela Autoria ou pelo recurso inicial. <br><br> Existem dois níveis de avialável para o recurso de previsão:<br> * **Recurso de previsão F0** que lhe dá 10.000 pedidos de previsão gratuita mensalmente<br> * **Recurso de previsão S0** que é o nível pago. [Saiba mais sobre os detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
-|Recurso inicial/experimental|Permite-lhe criar, gerir, treinar, testar e publicar as suas aplicações. Isto é criado por surdo se escolher a opção de recurso inicial enquanto se inscreve pela primeira vez no tp LUIS. No entanto, a chave de arranque acabará por ser depreciada e todos os utilizadores de LUIS terão de [migrar as suas contas](https://docs.microsoft.com/azure/cognitive-services/luis/luis-migration-authoring#what-is-migration) e ligar as suas aplicações LUIS a um recurso de autoria. Este recurso não lhe permite o controlo de acesso baseado em funções como o recurso de autoria. <br><br> Tal como o recurso de autoria, o recurso inicial dá-lhe 1M Transações de autoria gratuitas e 1000 pedidos de ponto final de previsão gratuita.|-|Não é um recurso Azure|
+|Recurso de autoria|Permite-lhe criar, gerir, treinar, testar e publicar as suas aplicações. [Crie um recurso de autoria LUIS](luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) se pretender autoriar aplicações LUIS programáticas ou a partir do Portal LUIS. Primeiro, tem de [migrar a sua conta LUIS](luis-migration-authoring.md#what-is-migration) para poder ligar os seus recursos Azure à sua aplicação. Pode controlar permissões ao recurso de autoria atribuindo as pessoas ao [papel de contribuinte](#contributions-from-other-authors). <br><br> Existe um nível de avialável para o recurso de autoria LUIS:<br> * **Recurso gratuito de autoria F0** que lhe dá 1M Transações de autoria gratuitas e 1000 pedidos de previsão de teste gratuito mensalmente. |`LUIS.Authoring`|`Cognitive Services`|
+|Recurso de previsão| Depois de publicar a sua aplicação LUIS, utilize o recurso/chave de previsão para consultar pedidos de ponto final de previsão. Crie um recurso de previsão LUIS antes que a sua aplicação do cliente solicite previsões para além dos 1.000 pedidos fornecidos pela Autoria ou pelo recurso inicial. <br><br> Existem dois níveis de avialável para o recurso de previsão:<br> * **Recurso gratuito de previsão de F0** que lhe dá 10.000 pedidos de previsão gratuita mensalmente<br> * **Recurso de previsão padrão S0** que é o nível pago. [Saiba mais sobre os detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)|`LUIS`|`Cognitive Services`|
+|Recurso inicial/experimental|Permite-lhe criar, gerir, treinar, testar e publicar as suas aplicações. Isto é criado por surdo se escolher a opção de recurso inicial enquanto se inscreve pela primeira vez no tp LUIS. No entanto, a chave de arranque acabará por ser depreciada e todos os utilizadores de LUIS terão de [migrar as suas contas](luis-migration-authoring.md#what-is-migration) e ligar as suas aplicações LUIS a um recurso de autoria. Este recurso não lhe permite o controlo de acesso baseado em funções como o recurso de autoria. <br><br> Tal como o recurso de autoria, o recurso inicial dá-lhe 1M transações de autoria gratuitas e 1000 pedidos de previsão de teste gratuitos.|-|Não é um recurso Azure|
 |[Chave de recursos multi-serviço do Serviço Cognitivo](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Pedidos de previsão de consulta partilhados com LUIS e outros Serviços Cognitivos apoiados.|`CognitiveServices`|`Cognitive Services`|
 
 
@@ -310,7 +312,7 @@ Se quiser saber quando atingiu um determinado limiar de transação, por exemplo
 
 Adicione um alerta métrico para a métrica total das **chamadas** durante um determinado período de tempo. Adicione endereços de e-mail de todas as pessoas que devem receber o alerta. Adicione webhooks para todos os sistemas que devem receber o alerta. Também pode executar uma aplicação lógica quando o alerta é desencadeado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda [a usar versões](luis-how-to-manage-versions.md) para controlar o ciclo de vida da sua aplicação.
 * Migrar para o novo [recurso de autoria](luis-migration-authoring.md)

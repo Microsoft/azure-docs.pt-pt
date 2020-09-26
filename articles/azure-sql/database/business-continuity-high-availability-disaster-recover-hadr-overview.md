@@ -11,14 +11,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 8ceef173e33c3603d9bc5d6ef217d54eef88609c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a69332f1534e32a85ce084289dd00533612cc282
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982477"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327566"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Descrição geral da continuidade empresarial com a Base de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -65,13 +65,13 @@ Se o período máximo de retenção de backup suportado para a restauração pon
 
 |                                              | Georreplicação | Grupos de ativação pós-falha  |
 |:---------------------------------------------| :-------------- | :----------------|
-| **Ativação pós-falha automática**                          |     Não          |      Sim         |
-| **Falha em várias bases de dados simultaneamente**  |     Não          |      Sim         |
-| **O utilizador deve atualizar a cadeia de ligação após o failover**      |     Sim         |      Não          |
-| **Suporte de instância gerida sql**                   |     Não          |      Sim         |
-| **Pode estar na mesma região que as primárias**             |     Sim         |      Não          |
-| **Múltiplas réplicas**                            |     Sim         |      Não          |
-| **Suporta escala de leitura**                          |     Sim         |      Sim         |
+| **Ativação pós-falha automática**                          |     No          |      Yes         |
+| **Efetuar ativação pós-falha em várias bases de dados simultaneamente**  |     No          |      Yes         |
+| **O utilizador deve atualizar a cadeia de ligação após a ativação pós-falha**      |     Yes         |      No          |
+| **Suporte ao SQL Managed Instance**                   |     No          |      Yes         |
+| **Pode estar na mesma região que a primária**             |     Yes         |      No          |
+| **Várias réplicas**                            |     Yes         |      No          |
+| **Suporta o escalamento horizontal de leituras**                          |     Yes         |      Yes         |
 
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Recuperar uma base de dados para o servidor existente
@@ -152,6 +152,6 @@ Após a recuperação a partir de qualquer mecanismo de recuperação, tem de ef
 
 Por vezes, uma aplicação deve ser retirada offline devido à manutenção planeada, como uma atualização de aplicações. [Gerir atualizações de aplicações](manage-application-rolling-upgrade.md) descreve como usar a geo-replicação ativa para permitir atualizações rolantes da sua aplicação em nuvem para minimizar o tempo de inatividade durante as atualizações e fornecer um caminho de recuperação se algo correr mal.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma discussão de considerações de design de aplicações para bases de dados únicas e para piscinas elásticas, consulte [Design uma aplicação para recuperação de desastres em nuvem](designing-cloud-solutions-for-disaster-recovery.md) e [estratégias elásticas de recuperação de desastres em piscinas.](disaster-recovery-strategies-for-applications-with-elastic-pool.md)

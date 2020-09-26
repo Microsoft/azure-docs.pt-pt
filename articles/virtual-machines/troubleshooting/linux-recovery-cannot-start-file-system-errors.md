@@ -1,6 +1,6 @@
 ---
 title: Resolução de problemas Linux VM problemas de início devido a erros no sistema de ficheiros Microsoft Docs
-description: Explica porque é que o Linux VM não pode começar e como resolver o problema.
+description: Saiba como resolver problemas de início do Linux VM devido a erros no sistema de ficheiros
 services: virtual-machines-linux
 documentationcenter: ''
 author: v-miegge
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: bae0eb91460bf7ab72abbaa7fa56b2515367d37d
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 8f12b88a0ddbc6ae31f40ab31b0126e4fd66b1a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89436192"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325951"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Resolução de problemas Linux VM problemas iniciais devido a erros no sistema de ficheiros
 
@@ -176,7 +176,7 @@ Para resolver este problema, insira o VM em modo de emergência utilizando a [co
 
 8. Verifique se o problema está resolvido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Resolução de problemas de um Linux VM, fixando o disco DE A uma VM de recuperação com o Azure CLI 2.0](./troubleshoot-recovery-disks-linux.md)
 * [Utilizar o portal para anexar um disco de dados a uma VM do Linux](../linux/attach-disk-portal.md)

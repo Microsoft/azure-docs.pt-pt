@@ -2,15 +2,15 @@
 title: Ativar a gestão de atualização de automação Azure a partir de um VM Azure
 description: Este artigo diz como ativar a Gestão de Atualização a partir de um VM Azure.
 services: automation
-ms.date: 07/28/2020
+ms.date: 09/16/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 27832190125840e367edbfb2db8e4134f98b192d
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: dead4649635bebd9f73f79937dea1d24565f273e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450560"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327811"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Ativar a Gestão de Atualizações a partir de uma VM do Azure
 
@@ -35,13 +35,15 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Selecione o VM para o qual deseja ativar a Gestão de Atualização. Os VMs podem existir em qualquer região, independentemente da localização da sua conta Automation. O utilizador
 
-3. Na página VM, em **Operações,** selecione **Gestão de Atualização**.
+3. Na página VM, em **Operações,** selecione **Guest + host updates**.
+
+    ![Selecione Guest + host updates from left-hand pane](media/update-mgmt-enable-vm/select-guest-and-os-updates.png)
 
 4. Tem de ter `Microsoft.OperationalInsights/workspaces/read` a permissão para determinar se o VM está ativado para um espaço de trabalho. Para saber mais sobre permissões adicionais necessárias, consulte [permissões necessárias para ativar as máquinas](../automation-role-based-access-control.md#feature-setup-permissions). Para aprender a ativar várias máquinas de uma só vez, consulte [Enable Update Management a partir de uma conta Demôm automação](update-mgmt-enable-automation-account.md).
 
-5. Escolha o espaço de trabalho do Log Analytics e a conta de Automação e clique em **Ativar** a Gestão de Atualização. Depois de ter ativado a Gestão de Atualização, pode demorar cerca de 15 minutos até poder ver a avaliação da atualização a partir do VM.
+5. Na página de Gestão de Atualização, escolha o espaço de trabalho do Log Analytics e a conta de Automação e clique em **Ativar** a Gestão de Atualização. Depois de ter ativado a Gestão de Atualização, pode demorar cerca de 15 minutos até poder ver a avaliação da atualização a partir do VM.
 
-    ![Ativar a Gestão de Atualizações](media/update-mgmt-enable-vm/manageupdates-update-enable.png)
+    ![Ativar a Gestão de Atualizações](media/update-mgmt-enable-vm/enable-update-management.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

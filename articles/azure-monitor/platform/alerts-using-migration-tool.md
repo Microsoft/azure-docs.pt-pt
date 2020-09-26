@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: alerts
-ms.openlocfilehash: 5e811e487856ea38f96b669ccb12cabda655a8cd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e49525018a3e23ecbbf92d7a8b3f7c50804432b8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852128"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358666"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Use a ferramenta de migração voluntária para migrar as suas regras clássicas de alerta
 
@@ -49,7 +49,7 @@ Para desencadear a migração das suas regras clássicas de alerta no portal Azu
 
 1. **Selecione Migrar para novas regras** para ir para a página de desembarque da migração. Esta página mostra uma lista de todas as suas subscrições e o seu estado de migração:
 
-    ![migração desembarque](media/alerts-migration/migration-landing.png "Regras migratórias")
+    ![A screenshot mostra a página de regras de alerta de Migração.](media/alerts-migration/migration-landing.png "Regras migratórias")
 
     Todas as subscrições que podem ser migradas utilizando a ferramenta estão marcadas como **Ready to migrar**.
 
@@ -60,7 +60,7 @@ Para desencadear a migração das suas regras clássicas de alerta no portal Azu
 
     A página resultante mostra os detalhes das regras clássicas de alerta que serão migradas para uma subscrição de cada vez. Também pode selecionar **Baixar os detalhes da migração para esta subscrição** para obter os detalhes num formato CSV.
 
-    ![pré-visualização da migração](media/alerts-migration/migration-preview.png "Pré-visualização da migração")
+    ![O Screenshot mostra a página de regras de alerta migração com um link para Baixar detalhes da migração para esta subscrição e pode especificar e-mail para notificação de migração.](media/alerts-migration/migration-preview.png "Pré-visualização da migração")
 
 1. Especifique um ou mais endereços de e-mail para ser notificado do estado de migração. Receberá e-mail quando a migração estiver completa ou se for necessária alguma ação por si.
 
@@ -69,7 +69,7 @@ Para desencadear a migração das suas regras clássicas de alerta no portal Azu
     > [!IMPORTANT]
     > Depois de iniciar a migração para uma subscrição, não poderá editar ou criar regras clássicas de alerta para essa subscrição. Esta restrição garante que não se percam alterações às suas regras clássicas de alerta durante a migração para as novas regras. Embora não consigas alterar as tuas regras clássicas de alerta, elas continuarão a correr e a fornecer alertas até serem migradas. Depois de a migração estar completa para a sua subscrição, já não pode utilizar regras clássicas de alerta.
 
-    ![migração-confirmar](media/alerts-migration/migration-confirm.png "Confirme a migração inicial")
+    ![O Screenshot mostra um pedido de confirmação para a sua migração, incluindo informações importantes com links para aprender mais antes de prosseguir.](media/alerts-migration/migration-confirm.png "Confirme a migração inicial")
 
 1. Quando a migração estiver completa, ou se for necessária uma ação de si, receberá um e-mail nos endereços que forneceu anteriormente. Também pode verificar periodicamente o estado na página de desembarque da migração no portal.
 

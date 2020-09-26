@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 16d40c334d51a66df4a4d2d56e2fa2379dda3726
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f44ebc3885fe57d68756d908c4b392cd43b0366f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905404"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326206"
 ---
 # <a name="quickstart-provision-azure-spring-cloud-service"></a>Quickstart: Serviço De Provision Azure Spring Cloud
 
@@ -158,23 +158,9 @@ O procedimento a seguir utiliza a extensão do Azure CLI para prever uma instân
 ---
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Limpar os recursos
-
-Se pretende continuar para o próximo quickstart desta série, salte este passo.
-
-Neste quickstart, criou recursos Azure que continuarão a acumular encargos se permanecerem na sua subscrição. Se não pretende continuar para o próximo quickstart, e não espera precisar destes recursos no futuro, elimine o grupo de recursos utilizando o portal ou executando o seguinte comando na Cloud Shell:
-
-```azurecli
-az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
-```
-
-Neste arranque rápido, também define o nome do grupo de recursos predefinidos. Se não pretender continuar até ao próximo arranque rápido, limpe o padrão executando o seguinte comando CLI:
-
-```azurecli
-az configure --defaults group=
-```
-
 ## <a name="next-steps"></a>Passos seguintes
+
+Neste quickstart, criou recursos Azure que continuarão a acumular encargos se permanecerem na sua subscrição. Se não pretende continuar para o próximo quickstart, consulte [clean up resources](spring-cloud-quickstart-logs-metrics-tracing.md#clean-up-resources). Caso contrário, avance para o próximo arranque rápido:
 
 > [!div class="nextstepaction"]
 > [Configurar o servidor de configuração](spring-cloud-quickstart-setup-config-server.md)

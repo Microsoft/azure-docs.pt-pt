@@ -4,16 +4,16 @@ description: Saiba mais sobre os níveis de desempenho para discos geridos, bem 
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: aa188babf56d4a825059fe6103e2e07745eb134f
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 3d6b243ab517f3663f779d01569acf3d46ad8411
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974124"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328127"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Níveis de desempenho para discos geridos (pré-visualização)
 
@@ -21,7 +21,9 @@ A Azure Disk Storage oferece atualmente capacidades de rebentamento incorporadas
 
 ## <a name="how-it-works"></a>Como funciona
 
-Quando implementa ou disponibiliza um disco pela primeira vez, o nível de desempenho de base para esse disco é definido com base no tamanho do disco provisionado. Um nível de desempenho mais elevado pode ser selecionado para satisfazer uma maior procura e, quando esse desempenho já não for necessário, pode voltar ao nível de desempenho inicial da linha de base. Por exemplo, se forre um disco P10 (128 GiB), o seu nível de desempenho de base é definido como P10 (500 IOPS e 100 MB/s). Pode atualizar o nível para corresponder ao desempenho de P50 (7500 IOPS e 250 MB/s) sem aumentar o tamanho do disco e regressar ao P10 quando o desempenho mais elevado já não for necessário.
+Quando implementa ou disponibiliza um disco pela primeira vez, o nível de desempenho de base para esse disco é definido com base no tamanho do disco provisionado. Um nível de desempenho mais elevado pode ser selecionado para satisfazer uma maior procura e, quando esse desempenho já não for necessário, pode voltar ao nível de desempenho inicial da linha de base.
+
+A sua faturação muda à medida que o seu nível muda. Por exemplo, se forre um disco P10 (128 GiB), o seu nível de desempenho de base é definido como P10 (500 IOPS e 100 MB/s) e será faturado à taxa P10. Pode atualizar o nível para corresponder ao desempenho de P50 (7500 IOPS e 250 MB/s) sem aumentar o tamanho do disco, período durante o qual será faturado à taxa P50. Quando o desempenho mais elevado já não for necessário, pode voltar ao nível P10 e o disco será novamente faturado à taxa P10.
 
 | Tamanho do disco | Nível de desempenho de base | Pode ser atualizado para |
 |----------------|-----|-------------------------------------|
@@ -40,70 +42,63 @@ Quando implementa ou disponibiliza um disco pela primeira vez, o nível de desem
 | 16 TiB | P70 | P80 |
 | 32 TiB | P80 | Nenhum |
 
+Para obter informações sobre faturação, consulte [preços de disco geridos](https://azure.microsoft.com/pricing/details/managed-disks/).
+
 ## <a name="restrictions"></a>Restrições
 
 - Atualmente apenas suportado para SSDs premium.
 - Os discos devem ser separados de um VM em funcionamento antes de alterar os níveis.
 - A utilização dos níveis de desempenho P60, P70 e P80 está restrita aos discos de 4096 GiB ou superiores.
+- Um nível de desempenho dos discos só pode ser alterado uma vez a cada 24 horas.
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
 Atualmente, o ajustamento do nível de desempenho de um disco gerido só está atualmente disponível para SSDs premium nas seguintes regiões:
 
 - E.U.A. Centro-Oeste 
-- Leste 2 EUA 
-- Europa Ocidental
-- Leste da Austrália 
-- Sudeste da Austrália 
-- Sul da Índia
 
-## <a name="createupdate-a-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Criar/atualizar um disco de dados com um nível superior ao nível de base
+## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Criar um disco de dados vazio com um nível superior ao nível de base
 
-1. Crie um disco de dados vazio com um nível superior ao nível de base ou atualize o nível de um disco superior ao nível de base utilizando o modelo de amostra [CreateUpdateDataDiskWithTier.jsem](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateDataDiskWithTier.json)
+```azurecli
+subscriptionId=<yourSubscriptionIDHere>
+resourceGroupName=<yourResourceGroupNameHere>
+diskName=<yourDiskNameHere>
+diskSize=<yourDiskSizeHere>
+performanceTier=<yourDesiredPerformanceTier>
+region=westcentralus
 
-     ```cli
-     subscriptionId=<yourSubscriptionIDHere>
-     resourceGroupName=<yourResourceGroupNameHere>
-     diskName=<yourDiskNameHere>
-     diskSize=<yourDiskSizeHere>
-     performanceTier=<yourDesiredPerformanceTier>
-     region=<yourRegionHere>
-    
-     az login
-    
-     az account set --subscription $subscriptionId
-    
-     az group deployment create -g $resourceGroupName \
-     --template-uri "https://raw.githubusercontent.com/Azure/azure-managed-disks-performance-tiers/main/CreateUpdateDataDiskWithTier.json" \
-     --parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier" "dataDiskSizeInGb=$diskSize"
-     ```
+az login
 
-1. Confirme o nível do disco
+az account set --subscription $subscriptionId
 
-    ```cli
-    az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-06-30 --query [properties.tier] -o tsv
-     ```
+az disk create -n $diskName -g $resourceGroupName -l $region --sku Premium_LRS --size-gb $diskSize --tier $performanceTier
+```
+## <a name="create-an-os-disk-with-a-tier-higher-than-the-baseline-tier-from-an-azure-marketplace-image"></a>Crie um disco DE com um nível superior ao nível de base a partir de uma imagem do Azure Marketplace
 
-## <a name="createupdate-an-os-disk-with-a-tier-higher-than-the-baseline-tier"></a>Criar/atualizar um disco DE com um nível superior ao nível de base
+```azurecli
+resourceGroupName=<yourResourceGroupNameHere>
+diskName=<yourDiskNameHere>
+performanceTier=<yourDesiredPerformanceTier>
+region=westcentralus
+image=Canonical:UbuntuServer:18.04-LTS:18.04.202002180
 
-1. Crie um disco DE a partir de uma imagem de mercado ou atualize o nível de um disco de OS superior ao nível de base utilizando o modelo de amostra [CreateUpdateOSDiskWithTier.jsem](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateOSDiskWithTier.json)
+az disk create -n $diskName -g $resourceGroupName -l $region --image-reference $image --sku Premium_LRS --tier $performanceTier
+```
+     
+## <a name="update-the-tier-of-a-disk"></a>Atualizar o nível de um disco
 
-     ```cli
-     resourceGroupName=<yourResourceGroupNameHere>
-     diskName=<yourDiskNameHere>
-     performanceTier=<yourDesiredPerformanceTier>
-     region=<yourRegionHere>
-    
-     az group deployment create -g $resourceGroupName \
-     --template-uri "https://raw.githubusercontent.com/Azure/azure-managed-disks-performance-tiers/main/CreateUpdateOSDiskWithTier.json" \
-     --parameters "region=$region" "diskName=$diskName" "performanceTier=$performanceTier"
-     ```
- 
- 1. Confirme o nível do disco
- 
-     ```cli
-     az resource show -n $diskName -g $resourceGroupName --namespace Microsoft.Compute --resource-type disks --api-version 2020-06-30 --query [properties.tier] -o tsv
-     ```
+```azurecli
+resourceGroupName=<yourResourceGroupNameHere>
+diskName=<yourDiskNameHere>
+performanceTier=<yourDesiredPerformanceTier>
+
+az disk update -n $diskName -g $resourceGroupName --set tier=$performanceTier
+```
+## <a name="show-the-tier-of-a-disk"></a>Mostrar o nível de um disco
+
+```azurecli
+az disk show -n $diskName -g $resourceGroupName --query [tier] -o tsv
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

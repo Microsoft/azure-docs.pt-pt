@@ -4,19 +4,22 @@ description: Saiba como configurar o Azure Private Link para aceder a uma conta 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 09/18/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: aa8fd911aaf5c61fc8c33ca469798291fca3d3d1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: dd1a59c2e6b0656233174c53b08ab013ce73d0f1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502125"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334434"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configure Azure Private Link para uma conta Azure Cosmos
 
 Ao utilizar o Azure Private Link, pode ligar-se a uma conta Azure Cosmos através de um ponto final privado. O ponto final privado é um conjunto de endereços IP privados numa sub-rede dentro da sua rede virtual. Em seguida, pode limitar o acesso a uma conta Azure Cosmos em endereços IP privados. Quando o Private Link é combinado com políticas restritas de NSG, ajuda a reduzir o risco de exfiltração de dados. Para saber mais sobre os pontos finais privados, consulte o artigo [Azure Private Link.](../private-link/private-link-overview.md)
+
+> [!NOTE]
+> O Private Link não impede que os seus pontos finais do Azure Cosmos sejam resolvidos pelo DNS público. A filtragem dos pedidos de entrada ocorre ao nível da aplicação, não ao nível do transporte ou da rede.
 
 O Private Link permite que os utilizadores acedam a uma conta Azure Cosmos a partir da rede virtual ou de qualquer rede virtual. Os recursos mapeados para private link também são acessíveis no local através de peering privado através de VPN ou Azure ExpressRoute. 
 
@@ -43,7 +46,7 @@ Utilize os seguintes passos para criar um ponto final privado para uma conta Azu
     | Grupo de recursos | Selecione um grupo de recursos.|
     | **Detalhes da instância** |  |
     | Name | Insira qualquer nome para o seu ponto final privado. Se este nome for tomado, crie um único. |
-    |Região| Selecione a região onde pretende implantar Private Link. Crie o ponto final privado no mesmo local onde existe a sua rede virtual.|
+    |Region| Selecione a região onde pretende implantar Private Link. Crie o ponto final privado no mesmo local onde existe a sua rede virtual.|
     |||
 1. Selecione **Seguinte: Recurso**.
 1. Em **Criar um ponto final privado - Recurso,** insira ou selecione estas informações:
@@ -54,7 +57,7 @@ Utilize os seguintes passos para criar um ponto final privado para uma conta Azu
     | Subscrição| Selecione a sua subscrição. |
     | Tipo de recurso | Selecione **Microsoft.AzureCosmosDB/databaseSa contas**. |
     | Recurso |Selecione a sua conta Azure Cosmos. |
-    |Sub-recurso-alvo |Selecione o tipo Azure Cosmos DB API que deseja mapear. Isto é uma padrão para apenas uma escolha para as APIs SQL, MongoDB e Cassandra. Para as APIs gremlin e de tabela, você também pode escolher **Sql** porque estes APIs são interoperáveis com o SQL API. |
+    |Recurso secundário de destino |Selecione o tipo Azure Cosmos DB API que deseja mapear. Isto é uma padrão para apenas uma escolha para as APIs SQL, MongoDB e Cassandra. Para as APIs gremlin e de tabela, você também pode escolher **Sql** porque estes APIs são interoperáveis com o SQL API. |
     |||
 
 1. Selecione **Seguinte: Configuração**.
@@ -62,16 +65,16 @@ Utilize os seguintes passos para criar um ponto final privado para uma conta Azu
 
     | Definição | Valor |
     | ------- | ----- |
-    |**Rede**| |
+    |**Redes**| |
     | Rede virtual| Selecione a sua rede virtual. |
-    | Subrede | Selecione a sua sub-rede. |
+    | Sub-rede | Selecione a sua sub-rede. |
     |**Integração privada de DNS**||
-    |Integrar-se com a zona privada de DNS |Selecione **Sim**. <br><br/> Para se ligar em privado com o seu ponto final privado, precisa de um registo DNS. Recomendamos que integre o seu ponto de terminação privado com uma zona privada de DNS. Também pode utilizar os seus próprios servidores DNS ou criar registos DNS utilizando os ficheiros anfitriões nas suas máquinas virtuais. |
-    |Zona privada de DNS |Selecione **privatelink.documents.azure.com**. <br><br/> A zona privada de DNS é determinada automaticamente. Não pode mudá-lo usando o portal Azure.|
+    |Integrar com zona DNS privada |Selecione **Sim**. <br><br/> Para se ligar em privado com o seu ponto final privado, precisa de um registo DNS. Recomendamos que integre o seu ponto de terminação privado com uma zona privada de DNS. Também pode utilizar os seus próprios servidores DNS ou criar registos DNS utilizando os ficheiros anfitriões nas suas máquinas virtuais. |
+    |Zona DNS Privada |Selecione **privatelink.documents.azure.com**. <br><br/> A zona privada de DNS é determinada automaticamente. Não pode mudá-lo usando o portal Azure.|
     |||
 
 1. Selecione **Rever + criar**. Na página **'Rever + criar',** o Azure valida a sua configuração.
-1. Quando vir a mensagem **de validação passada,** selecione **Criar**.
+1. Quando vir a mensagem **A validação passou**, selecione **Criar**.
 
 Quando tiver aprovado o Private Link para uma conta Azure Cosmos, no portal Azure, a opção **Todas as redes** no Painel de Firewall e redes **virtuais** não está disponível.
 
@@ -627,7 +630,18 @@ As seguintes situações e resultados são possíveis quando utiliza o Private L
 
 ## <a name="blocking-public-network-access-during-account-creation"></a>Bloquear o acesso à rede pública durante a criação de conta
 
-Como descrito na secção anterior, e a menos que tenham sido definidas regras específicas de firewall, adicionar um ponto final privado torna a sua conta Azure Cosmos acessível apenas através de pontos finais privados. Isto significa que a conta Azure Cosmos poderia ser alcançada a partir do tráfego público após a sua criação e antes que um ponto final privado seja adicionado. Para garantir que o acesso à rede pública seja desativado mesmo antes da criação de pontos finais privados, pode definir a bandeira durante a criação de `publicNetworkAccess` `Disabled` conta. Consulte [este modelo de Gestor de Recursos Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) para um exemplo que mostra como usar esta bandeira.
+Como descrito na secção anterior, e a menos que tenham sido definidas regras específicas de firewall, adicionar um ponto final privado torna a sua conta Azure Cosmos acessível apenas através de pontos finais privados. Isto significa que a conta Azure Cosmos poderia ser alcançada a partir do tráfego público após a sua criação e antes que um ponto final privado seja adicionado. Para garantir que o acesso à rede pública seja desativado mesmo antes da criação de pontos finais privados, pode definir a bandeira durante a criação de `publicNetworkAccess` `Disabled` conta. Note que esta bandeira tem precedência sobre qualquer regra de IP ou rede virtual; todo o tráfego de rede pública e virtual é bloqueado quando a bandeira está definida para `Disabled` , mesmo que a origem IP ou rede virtual seja permitida na configuração de firewall.
+
+Consulte [este modelo de Gestor de Recursos Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) para um exemplo que mostra como usar esta bandeira.
+
+## <a name="adding-private-endpoints-to-an-existing-cosmos-account-with-no-downtime"></a>Adicionar pontos finais privados a uma conta cosmos existente sem tempo de inatividade
+
+Por predefinição, a adição de um ponto final privado a uma conta existente resulta num curto período de paragem de aproximadamente 5 minutos. Siga as instruções abaixo para evitar este tempo de paragem:
+
+1. Adicione regras de IP ou rede virtual à sua configuração de firewall para permitir explicitamente as ligações do seu cliente.
+1. Aguarde 10 minutos para se certificar de que a atualização de configuração é aplicada.
+1. Configure o seu novo ponto final privado.
+1. Retire as regras de firewall definidas no passo 1.
 
 ## <a name="port-range-when-using-direct-mode"></a>Gama de portas ao utilizar o modo direto
 
@@ -635,7 +649,7 @@ Quando estiver a utilizar o Private Link com uma conta Azure Cosmos através de 
 
 ## <a name="update-a-private-endpoint-when-you-add-or-remove-a-region"></a>Atualizar um ponto final privado quando adicionar ou remover uma região
 
-Adicionar ou remover regiões a uma conta Azure Cosmos requer que adicione ou remova as entradas de DNS para essa conta. Depois de as regiões terem sido adicionadas ou removidas, pode atualizar a zona privada de DNS da sub-rede para refletir as entradas DNS adicionadas ou removidas e os respetivos endereços IP privados.
+A menos que esteja a usar um grupo privado de zona de DNS, adicionar ou remover regiões a uma conta Azure Cosmos requer que adicione ou remova as entradas de DNS para essa conta. Depois de as regiões terem sido adicionadas ou removidas, pode atualizar a zona privada de DNS da sub-rede para refletir as entradas DNS adicionadas ou removidas e os respetivos endereços IP privados.
 
 Por exemplo, imagine que implanta uma conta Azure Cosmos em três regiões: "EUA Ocidentais", "EUA Centrais" e "Europa Ocidental". Quando cria um ponto final privado para a sua conta, quatro IPs privados são reservados na sub-rede. Há um IP para cada uma das três regiões, e há um IP para o ponto final global/regional-agnóstico.
 
@@ -659,7 +673,7 @@ Aplicam-se as seguintes limitações quando utiliza o Private Link com uma conta
 
 ### <a name="limitations-to-private-dns-zone-integration"></a>Limitações à integração privada da zona de DNS
 
-Os registos DNS na zona privada do DNS não são removidos automaticamente quando elimina um ponto final privado ou remove uma região da conta Azure Cosmos. Deve remover manualmente os registos DNS antes:
+A menos que esteja a usar um grupo privado de zona de DNS, os registos DNS na zona privada do DNS não são removidos automaticamente quando elimina um ponto final privado ou remove uma região da conta Azure Cosmos. Deve remover manualmente os registos DNS antes:
 
 * Adicionar um novo ponto final privado ligado a esta zona privada de DNS.
 * Adicionar uma nova região a qualquer conta de base de dados que tenha pontos finais privados ligados a esta zona privada de DNS.

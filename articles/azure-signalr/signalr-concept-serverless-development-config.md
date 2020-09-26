@@ -6,13 +6,13 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: ce42c0ec75ebed52311fe6aa026f794d6c2f7584
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: ca7d28e3f964d486d9f860c355e88132ebb897a2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89513950"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327651"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Desenvolvimento das Funções do Azure e configuração com o Azure SignalR Service
 
@@ -325,6 +325,6 @@ public static Task SendMessage(
 
 Para obter informações sobre outros idiomas, consulte as [ligações do Serviço Azure SignalR](../azure-functions/functions-bindings-signalr-service.md) para referência às Funções Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a desenvolver e configurar aplicações de Serviço SignalR sem servidor usando Funções Azure. Tente criar uma aplicação utilizando um dos arranques rápidos ou tutoriais na [página de visão geral do Serviço SignalR](index.yml).

@@ -4,12 +4,12 @@ description: Neste tutorial, vai aprender a adicionar um ponto final de HTTPS a 
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: b309a13288c8ea95f453c1e80549a979e3f89921
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: c675f8ece8369bcfc0055343221ac82aea59dec1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441532"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326240"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: Adicionar um ponto final de HTTPS a um serviço de front-end de API Web ASP.NET Core com o Kestrel
 
@@ -354,7 +354,7 @@ No Solution Explorer, selecione a aplicação **de voto** e desatrei a proprieda
 
 Guarde todos os ficheiros e prima F5 para executar a aplicação localmente.  Após a implementação da aplicação, um navegador web abre para https: \/ /localhost:443. Se estiver a utilizar um certificado autoassinado, verá um aviso se o PC não confiar na segurança deste site.  Avance para a página Web.
 
-![Aplicação Voting][image2]
+![Screenshot da aplicação Service Fabric Voting Sample que funciona numa janela do navegador com o URL https://localhost/ .][image2]
 
 ## <a name="install-certificate-on-cluster-nodes"></a>Instalar o certificado nos nós de cluster remoto
 
@@ -371,7 +371,7 @@ Em seguida, instale o certificado no cluster remoto utilizando [estes scripts po
 > [!Warning]
 > Para as aplicações de desenvolvimento e teste, basta um certificado autoassinado. Para aplicações de produção, utilize um certificado de uma [autoridade de certificação (AC)](https://wikipedia.org/wiki/Certificate_authority) em vez de um autoassinado.
 
-## <a name="open-port-443-in-the-azure-load-balancer"></a>Abrir a porta 443 no Balanceador de Carga do Azure
+## <a name="open-port-443-in-the-azure-load-balancer-and-virtual-network"></a>Porta aberta 443 no equilibrador de carga Azure e rede virtual
 
 Abra a porta 443 no balanceador de carga, se ainda não estiver aberta.
 
@@ -396,13 +396,33 @@ $slb | Add-AzLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.Bac
 $slb | Set-AzLoadBalancer
 ```
 
+Faça o mesmo para a rede virtual associada.
+
+```powershell
+$rulename="allowAppPort$port"
+$nsgname="voting-vnet-security"
+$RGname="voting_RG"
+$port=443
+
+# Get the NSG resource
+$nsg = Get-AzNetworkSecurityGroup -Name $nsgname -ResourceGroupName $RGname
+
+# Add the inbound security rule.
+$nsg | Add-AzNetworkSecurityRuleConfig -Name $rulename -Description "Allow app port" -Access Allow `
+    -Protocol * -Direction Inbound -Priority 3891 -SourceAddressPrefix "*" -SourcePortRange * `
+    -DestinationAddressPrefix * -DestinationPortRange $port
+
+# Update the NSG.
+$nsg | Set-AzNetworkSecurityGroup
+```
+
 ## <a name="deploy-the-application-to-azure"></a>Implementar a aplicação no Azure
 
 Guarde todos os ficheiros, mude de Debug para Release e prima F6 para recompilar.  No Explorador de Soluções, clique com o botão direito do rato em **Voting** e selecione **Publish** (Publicar). Selecione o ponto final da ligação do cluster criado em [Implementar uma aplicação num cluster](service-fabric-tutorial-deploy-app-to-party-cluster.md) ou selecione outro cluster.  Clique em **Publish** para publicar a aplicação no cluster remoto.
 
 Quando a aplicação estiver implementada, abra um browser e navegue para `https://mycluster.region.cloudapp.azure.com:443` (atualize o URL com o ponto final da ligação do cluster). Se estiver a utilizar um certificado autoassinado, verá um aviso se o PC não confiar na segurança deste site.  Avance para a página Web.
 
-![Aplicação Voting][image3]
+![Screenshot da aplicação Service Fabric Voting Sample que funciona numa janela do navegador com o URL https://mycluster.region.cloudapp.azure.com:443 .][image3]
 
 ## <a name="next-steps"></a>Passos seguintes
 

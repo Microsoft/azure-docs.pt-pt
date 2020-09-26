@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9caa377ebcdff5b0ae379f1b0b8269dac5b8f499
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 2ba511d3747ba308ae04ab1bbe3dcb89bca6a8a8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924100"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328297"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Como indexar documentos no Azure Blob Storage com Azure Cognitive Search
 
@@ -73,6 +73,7 @@ Para obter mais informações sobre a API de Fonte de Dados, consulte [Criar Fon
 
 Pode fornecer as credenciais para o recipiente blob de uma destas formas:
 
+- **Cadeia de ligação de identidade gerida**: `ResourceId=/subscriptions/<your subscription ID>/resourceGroups/<your resource group name>/providers/Microsoft.Storage/storageAccounts/<your storage account name>/;` Esta cadeia de ligação não requer uma chave de conta, mas deve seguir as instruções para [configurar uma ligação a uma conta de Armazenamento Azure utilizando uma identidade gerida](search-howto-managed-identities-storage.md).
 - **Cadeia de ligação à conta de armazenamento de acesso completo**: Pode obter a cadeia de `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` ligação a partir do portal Azure navegando na lâmina da conta de armazenamento > Configurações > Chaves (para contas de armazenamento clássico) ou Definições > Teclas de acesso (para contas de armazenamento do Gestor de Recursos Azure).
 - **Cadeia de** ligação de assinatura de conta de armazenamento (SAS): O `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS deve ter a lista e ler permissões em recipientes e objetos (bolhas neste caso).
 -  **Assinatura de acesso partilhado do contentor**: O `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` SAS deve ter a lista e ler permissões no recipiente.
