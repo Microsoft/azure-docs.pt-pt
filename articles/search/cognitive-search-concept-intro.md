@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: 1c041d594b29c6e93b73eb1b0c623b3e566ceef5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 2195ac4e5753addaee9e13c368b6e6a1b94354ff
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935505"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363142"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enriquecimento de IA em Pesquisa Cognitiva Azure
 
@@ -69,7 +69,7 @@ No início do pipeline, tem texto ou conteúdo não estruturado (como imagens, d
 
 ![Fase de fissuração de documentos](./media/cognitive-search-intro/document-cracking-phase-blowup.png "rachadura documental")
 
- As fontes suportadas incluem o armazenamento de blob Azure, o armazenamento de mesaS Azure, a Base de Dados Azure SQL e a DB Azure Cosmos. O conteúdo baseado em texto pode ser extraído dos seguintes tipos de ficheiros: PDFs, Word, PowerPoint, ficheiros CSV. Para obter a lista completa, consulte [os formatos suportados.](search-howto-indexing-azure-blob-storage.md#supported-document-formats) A indexação leva tempo, por isso comece com um pequeno conjunto de dados representativo e, em seguida, acumuça-o incrementalmente à medida que a sua solução amadurece.
+ As fontes suportadas incluem o armazenamento de blob Azure, o armazenamento de mesaS Azure, a Base de Dados Azure SQL e a DB Azure Cosmos. O conteúdo baseado em texto pode ser extraído dos seguintes tipos de ficheiros: PDFs, Word, PowerPoint, ficheiros CSV. Para obter a lista completa, consulte [os formatos suportados.](search-howto-indexing-azure-blob-storage.md#SupportedFormats) A indexação leva tempo, por isso comece com um pequeno conjunto de dados representativo e, em seguida, acumuça-o incrementalmente à medida que a sua solução amadurece.
 
 ### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Passo 2: Competências cognitivas e fase de enriquecimento
 
@@ -123,4 +123,4 @@ Os índices são gerados a partir de um esquema de índice que define os campos,
 + [Tutorial: Conheça as APIs de enriquecimento de IA](cognitive-search-tutorial-blob.md)
 + [Arquivo de dados de conhecimento](knowledge-store-concept-intro.md)
 + [Criar uma loja de conhecimento em REST](knowledge-store-create-rest.md)
-+ [Sugestões de resolução de problemas](cognitive-search-concept-troubleshooting.md)
++ [Dicas de resolução de problemas](cognitive-search-concept-troubleshooting.md)

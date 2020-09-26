@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: 1bbb410b3aac7d1e30db075003eb30ec27b11a38
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 20e20968b6367e0a8c0131d6e7e8d15e56c06d63
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926591"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363227"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Como proteger zonas e registos privados de DNS
 
@@ -102,9 +102,9 @@ As permissões são aplicadas ao nível recorde.  O utilizador tem o controlo da
 
 As permissões de RBAC de nível recorde podem ser configuradas através do portal Azure, utilizando o botão **Access Control (IAM)** na página de conjunto de registos:
 
-![Nível recorde definido RBAC através do portal Azure](./media/dns-protect-private-zones-recordsets/rbac3.png)
+![A screenshot mostra o botão Access Control (I A M).](./media/dns-protect-private-zones-recordsets/rbac3.png)
 
-![Nível recorde definido RBAC através do portal Azure](./media/dns-protect-private-zones-recordsets/rbac4.png)
+![A screenshot mostra o Controlo de Acesso com a atribuição de função de adicionar selecionada.](./media/dns-protect-private-zones-recordsets/rbac4.png)
 
 As permissões DE RBAC de nível recorde também podem ser [concedidas usando a Azure PowerShell:](../role-based-access-control/role-assignments-powershell.md)
 
@@ -164,8 +164,8 @@ O exemplo a seguir mostra uma definição de função personalizada apenas para 
 
 A propriedade Actions define as seguintes permissões específicas do DNS:
 
-* `Microsoft.Network/privateDnsZones/CNAME/*`concede controlo total sobre os registos CNAME
-* `Microsoft.Network/privateDNSZones/read`concede permissão para ler zonas privadas DNS, mas não modificá-las, permitindo-lhe ver a zona em que o CNAME está sendo criado.
+* `Microsoft.Network/privateDnsZones/CNAME/*` concede controlo total sobre os registos CNAME
+* `Microsoft.Network/privateDNSZones/read` concede permissão para ler zonas privadas DNS, mas não modificá-las, permitindo-lhe ver a zona em que o CNAME está sendo criado.
 
 > [!NOTE]
 > A utilização de um papel personalizado Azure para evitar a eliminação de conjuntos de registos, permitindo ainda a sua atualização, não é um controlo eficaz. Impede que os recordes sejam eliminados, mas não impede que sejam modificados.  As modificações permitidas incluem a adição e remoção de registos do conjunto de recordes, incluindo a remoção de todos os registos para deixar um recorde vazio. Isto tem o mesmo efeito que apagar o recorde estabelecido de um ponto de vista de resolução de DNS.

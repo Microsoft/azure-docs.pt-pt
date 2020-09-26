@@ -5,15 +5,16 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/03/2020
 ms.author: diberry
-ms.openlocfilehash: de3c7b46c048ff5575f3e9890b3c736ed7c71a61
-ms.sourcegitcommit: 8e5b4e2207daee21a60e6581528401a96bfd3184
+ms.openlocfilehash: 65568132a3684112006c8267e46ce95b7c5acfcd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84418072"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316381"
 ---
 [Documentação de referência](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08)  |  [Amostra](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/LUIS/java-predict-with-rest/Predict.java)
 
@@ -52,13 +53,13 @@ Use Java para consultar o [ponto final](https://aka.ms/luis-apim-v3-prediction) 
 
 1. Compilar o programa java da linha de comando.
 
-    * Se estiver a utilizar o Windows, utilize este comando:`javac -cp ";lib/*" Predict.java`
-    * Se estiver a utilizar o macOS ou o Linux, utilize este comando:`javac -cp ":lib/*" Predict.java`
+    * Se estiver a utilizar o Windows, utilize este comando: `javac -cp ";lib/*" Predict.java`
+    * Se estiver a utilizar o macOS ou o Linux, utilize este comando: `javac -cp ":lib/*" Predict.java`
 
 1. Executar o programa java a partir da linha de comando:
 
-    * Se estiver a utilizar o Windows, utilize este comando:`java -cp ";lib/*" Predict`
-    * Se estiver a utilizar o macOS ou o Linux, utilize este comando:`java -cp ":lib/*" Predict`
+    * Se estiver a utilizar o Windows, utilize este comando: `java -cp ";lib/*" Predict`
+    * Se estiver a utilizar o macOS ou o Linux, utilize este comando: `java -cp ":lib/*" Predict`
 
 1. Reveja a resposta de previsão, que é devolvida como JSON:
 
@@ -228,7 +229,7 @@ Use Java para consultar o [ponto final](https://aka.ms/luis-apim-v3-prediction) 
     }
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando terminar este arranque rápido, elimine a pasta do projeto do sistema de ficheiros.
 

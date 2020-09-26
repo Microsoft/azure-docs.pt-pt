@@ -5,20 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 02/28/2020
+ms.date: 09/25/2020
 ms.author: victorh
-ms.openlocfilehash: 008274c86944b06b168bf52ca501c655bbe78434
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3bde4c11e9dc34be13efb25864fe75054d22bddb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610630"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363108"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrar o Azure Firewall no Balanceador de Carga Standard do Azure
 
 Pode integrar um Azure Firewall numa rede virtual com um Azure Standard Load Balancer (público ou interno). 
 
-O design preferido é integrar um equilibrador de carga interno com a sua firewall Azure, uma vez que este é um design muito mais simples. Pode utilizar um equilibrador de carga pública se já tiver um implantado e quiser mantê-lo no lugar. No entanto, é necessário estar atento a um problema de encaminhamento assimétrico que possa quebrar a funcionalidade com o cenário do balançador de carga pública.
+O design preferencial é integrar um balanceador de carga interno com o Azure Firewall, uma vez que este é um design muito mais simples. Poderá utilizar um balanceador de carga público se já tiver um implementado e quiser mantê-lo. No entanto, precisa de estar atento a um problema de encaminhamento assimétrico que pode quebrar a funcionalidade no cenário do balanceador de carga público.
 
 Para obter mais informações sobre o Azure Load Balancer, veja [o que é o Equilibr de Carga Azure?](../load-balancer/load-balancer-overview.md)
 
@@ -65,6 +65,10 @@ Não há problema de encaminhamento assimétrico com este cenário. Os pacotes d
 
 Assim, você pode implementar este cenário semelhante ao cenário do balanceador de carga pública, mas sem a necessidade da rota de anfitrião de endereço IP público firewall.
 
+>[!NOTE]
+>As máquinas virtuais no pool de backend não terão conectividade de internet de saída com esta configuração. </br> Para obter mais informações sobre o fornecimento de conectividade de saída consulte: </br> **[Ligações de saída no Azure](../load-balancer/load-balancer-outbound-connections.md)**</br> Opções para fornecer conectividade: </br> **[Configuração do balanceador de carga só de saída](../load-balancer/egress-only.md)** </br> [**O que é Virtual Network NAT?**](../virtual-network/nat-overview.md)
+
+
 ## <a name="additional-security"></a>Segurança adicional
 
 Para aumentar ainda mais a segurança do seu cenário equilibrado de carga, pode utilizar grupos de segurança de rede (NSGs).
@@ -75,6 +79,6 @@ Por exemplo, pode criar um NSG na sub-rede de backend onde estão localizadas as
 
 Para obter mais informações sobre os NSGs, consulte [os grupos de segurança.](../virtual-network/security-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [implantar e configurar um Azure Firewall](tutorial-firewall-deploy-portal.md).

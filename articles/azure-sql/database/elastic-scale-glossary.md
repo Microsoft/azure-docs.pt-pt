@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 4f594f663267de7ed746082e77ae603e5592e721
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9c229fe6c1ccc7e2ce8e4f46ece51f315c8b7a90
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84047567"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362619"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossário de ferramentas elásticas de base de dados
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -67,7 +67,7 @@ Aqui está uma representação de bases de **dados** de solteiros e multi-inquil
 
 **Gestor de mapas de**fragmentos : Um objeto de gestão e uma loja de dados que contém os mapas de fragmentos, localizações de fragmentos e mapeamentos para um ou mais conjuntos de fragmentos.
 
-![Mapeamentos][2]
+![O diagrama mostra um gestor de mapas associado a shardmaps_global, shards_global e shard_mappings_global.][2]
 
 ## <a name="verbs"></a>Verbos
 **Escala horizontal**: O ato de escalonar (ou entrar) uma coleção de fragmentos adicionando ou removendo fragmentos a um mapa de fragmentos, como mostrado abaixo.

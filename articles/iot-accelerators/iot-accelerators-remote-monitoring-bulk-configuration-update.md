@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: philmea
-ms.openlocfilehash: eaca93ac8a4e8c660be9618aefb27921a4e0a2eb
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 8309b625a590131c5f521335e180967ab2c2667c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "77565583"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363159"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Tutorial: Gerencie os seus dispositivos conectados a granel
 
@@ -147,7 +147,7 @@ Utilize a sua conta de armazenamento Azure para hospedar o seu novo ficheiro fir
 
 1. Quando o upload terminar, o dispositivo IoT DevKit reinicia. Quando o reboot estiver concluído, o ecrã do IoT DevKit mostra a **versão FW: 1.0.0**, e que está a verificar novos firmware:
 
-    ![ota-1](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
+    ![A fotografia mostra o dispositivo I o T DevKit com o seu ecrã a exibir a versão firmware e a verificar novos firmware.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
 
 ## <a name="create-a-device-configuration"></a>Criar uma configuração de dispositivo
 
@@ -248,23 +248,23 @@ Nesta secção, cria e executa uma implementação que aplica a configuração d
 
 Após alguns minutos, o IoT DevKit recupera as novas informações do firmware e começa a descarregá-las para o dispositivo:
 
-![ota-2](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-2.jpg)
+![A fotografia mostra o dispositivo I o T DevKit com o seu ecrã a exibir a nova versão do firmware a descarregar.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-2.jpg)
 
 Dependendo da velocidade da sua rede, o download pode demorar até alguns minutos. Depois de o firmware ser descarregado, o dispositivo verifica o tamanho do ficheiro e o valor crc. O ecrã nos ecrãs MXChip **passou** se a verificação for bem sucedida.
 
-![ota-3](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-3.jpg)
+![A fotografia mostra o dispositivo I o T DevKit com o seu ecrã a exibir a versão firmware e passou para o sucesso da verificação.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-3.jpg)
 
 Se a verificação for bem sucedida, o dispositivo reinicia. Vê-se uma contagem regressiva de **5** para **0** antes do reinício acontecer.
 
-![ota-4](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-4.jpg)
+![A fotografia mostra o dispositivo I o T DevKit a preparar-se para reiniciar.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-4.jpg)
 
 Após o reboot, o bootloader IoT DevKit atualiza o firmware para a nova versão. A atualização pode demorar alguns segundos. Durante esta fase, o LED RGB no dispositivo é vermelho e o ecrã está em branco.
 
-![ota-5](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-5.jpg)
+![A fotografia mostra o dispositivo I o T DevKit a realizar a atualização. Não há exibição, mas há um R G B L E D vermelho brilhante.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-5.jpg)
 
 Quando o reboot estiver concluído, o seu dispositivo IoT DevKit encontra-se agora em execução na versão 1.0.1 do firmware.
 
-![ota-6](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-6.jpg)
+![A fotografia mostra o dispositivo I o T DevKit com o seu ecrã a exibir a nova versão do firmware.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-6.jpg)
 
 Na página **Implementações,** clique numa implementação para ver o estado dos seus dispositivos à medida que atualizam. Pode ver o estado de cada dispositivo no seu grupo de dispositivos e as métricas personalizadas que definiu.
 
