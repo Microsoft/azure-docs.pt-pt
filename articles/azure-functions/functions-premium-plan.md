@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: jehollan
 ms.custom: references_regions
-ms.openlocfilehash: 4f6e2008cad66ce7cd68016d3873ecbc18b1961c
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: a650c6d5aeea28e800b1a4ce9db325a52d60d5cc
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145759"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372226"
 ---
 # <a name="azure-functions-premium-plan"></a>Plano Premium funções Azure
 
@@ -139,15 +139,17 @@ Abaixo estão os valores máximos de escala suportados atualmente para um único
 
 Consulte aqui a disponibilidade regional completa de Funções: [Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
 
-|Região| Windows | Linux |
+|Region| Windows | Linux |
 |--| -- | -- |
-|Austrália Central| 20 | Não Disponível |
-|Austrália Central 2| 20 | Não Disponível |
+|Austrália Central| 100 | Não Disponível |
+|Austrália Central 2| 100 | Não Disponível |
 |Leste da Austrália| 100 | 20 |
 |Sudeste da Austrália | 100 | 20 |
-|Sul do Brasil| 60 | 20 |
+|Sul do Brasil| 100 | 20 |
 |Canadá Central| 100 | 20 |
 |E.U.A. Central| 100 | 20 |
+|China Leste 2| 100 | 20 |
+|China Norte 2| 100 | 20 |
 |Ásia Leste| 100 | 20 |
 |E.U.A. Leste | 100 | 20 |
 |E.U.A. Leste 2| 100 | 20 |
@@ -156,17 +158,24 @@ Consulte aqui a disponibilidade regional completa de Funções: [Azure.com](http
 |Leste do Japão| 100 | 20 |
 |Oeste do Japão| 100 | 20 |
 |Coreia do Sul Central| 100 | 20 |
+|Sul da Coreia do Sul| Não Disponível | 20 |
 |E.U.A. Centro-Norte| 100 | 20 |
 |Europa do Norte| 100 | 20 |
-|Leste da Noruega| 20 | 20 |
+|Leste da Noruega| 100 | 20 |
 |E.U.A. Centro-Sul| 100 | 20 |
 |Sul da Índia | 100 | Não Disponível |
 |Sudeste Asiático| 100 | 20 |
+|Suíça Norte| 100 | Não Disponível |
+|Suíça Oeste| 100 | Não Disponível |
 |Sul do Reino Unido| 100 | 20 |
 |Oeste do Reino Unido| 100 | 20 |
+|USGov Arizona| 100 | 20 |
+|USGov Virginia| 100 | 20 |
+|USNat Leste| 100 | Não Disponível |
+|USNat Oeste| 100 | Não Disponível |
 |Europa Ocidental| 100 | 20 |
 |Oeste da Índia| 100 | 20 |
-|E.U.A. Centro-Oeste| 20 | 20 |
+|E.U.A. Centro-Oeste| 100 | 20 |
 |E.U.A. Oeste| 100 | 20 |
 |E.U.A. Oeste 2| 100 | 20 |
 

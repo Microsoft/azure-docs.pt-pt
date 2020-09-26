@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: 51d9880c654a6ecabbbab294016293113bffb655
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4a78e966d420591ebe7a9607777158cf17ddf698
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434236"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370883"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeamento de dados flui desempenho e guia de afinação
 
@@ -53,7 +53,7 @@ Depois de identificar o estrangulamento do seu fluxo de dados, utilize as estrat
 
 O **separador Otimize** contém configurações para configurar o esquema de partição do cluster Spark. Este separador existe em todas as transformações do fluxo de dados e especifica se pretende repartir os dados **após** a transformação ter terminado. A regulação da partição proporciona controlo sobre a distribuição dos seus dados através de nós de computação e otimizações de localidade de dados que podem ter efeitos positivos e negativos no desempenho global do fluxo de dados.
 
-![Otimizar](media/data-flow/optimize.png "Otimizar")
+![O screenshot mostra o separador Otimize, que inclui a opção de partição, o tipo de partição e o número de divisórias.](media/data-flow/optimize.png)
 
 Por predefinição, é selecionada *a partição atual* que instrui a Azure Data Factory a manter a divisão de saída atual da transformação. Como os dados de repartição demoram tempo, *a partilha atual* é recomendada na maioria dos cenários. Os cenários em que poderá querer repartir os seus dados incluem após agregados e junta-se que distorcem significativamente os seus dados ou quando utiliza a divisão Source num DB SQL.
 
@@ -297,7 +297,7 @@ Gerir os postos de trabalho sequencialmente levará provavelmente mais tempo a e
 
 Se colocar toda a sua lógica dentro de um único fluxo de dados, a ADF executará todo o trabalho numa única instância spark. Embora isto possa parecer uma forma de reduzir custos, mistura diferentes fluxos lógicos e pode ser difícil de monitorizar e depurar. Se um componente falhar, todas as outras partes do trabalho também falharão. A equipa da Azure Data Factory recomenda a organização de fluxos de dados por fluxos independentes de lógica empresarial. Se o fluxo de dados se tornar demasiado grande, dividi-lo em componentes separados facilitará a monitorização e a depuragem. Embora não exista um limite rígido para o número de transformações num fluxo de dados, ter demasiadas tornará o complexo de trabalho.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte outros artigos do Fluxo de Dados relacionados com o desempenho:
 

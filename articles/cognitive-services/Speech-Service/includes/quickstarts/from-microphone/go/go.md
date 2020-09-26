@@ -4,19 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
-ms.openlocfilehash: 99540e8518aa31a2221844aa954ff665609d8217
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a18ce7b7c28b99967668bc33c5a94cbb58bfbc34
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374841"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376872"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
 
 > [!div class="checklist"]
-> * [Criar um recurso de discurso azul](../../../../get-started.md)
+> * [Criar um recurso de discurso azul](../../../../overview.md#try-the-speech-service-for-free)
 > * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md)
 > * Certifique-se de que tem acesso a um microfone para captura de áudio
 

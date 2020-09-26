@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 6488871067416b2cee533561bae47874413d9012
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 4818755e48a4d497d70920a62a9505346176ed73
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892121"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371291"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Tutorial: Provision Azure Data Box Gateway em VMware
 
@@ -23,7 +23,7 @@ Este tutorial descreve como providenciar um Gateway de Caixa de Dados num sistem
 
 Necessita de privilégios de administrador para aprovisionar e ligar a um dispositivo virtual. O aprovisionamento e a configuração inicial demoram cerca de 10 minutos a concluir. 
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Certificar-se de que o anfitrião cumpre os requisitos mínimos de dispositivo
@@ -194,7 +194,7 @@ Execute os passos seguintes para iniciar o dispositivo virtual e ligar ao mesmo.
 
    ![Introduza a palavra-passe do dispositivo virtual](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
-6. Os passos de 5 a 7 aplicam-se apenas se estiver a iniciar num ambiente não DHCP. Se estiver num ambiente DHCP, ignore estes passos e avance para o passo 8. Se iniciou o seu dispositivo num ambiente não DHCP, verá a mensagem: **Use the Set-HcsIPAddress cmdlet to configure the network** (Utilize o cmdlet Set-HcsIPAddress para configurar a rede). 
+6. Os passos 6 a 8 aplicam-se apenas se estiver a iniciar num ambiente não DHCP. Se estiver num ambiente DHCP, ignore estes passos e avance para o passo 9. Se iniciou o seu dispositivo num ambiente não DHCP, verá a mensagem: **Use the Set-HcsIPAddress cmdlet to configure the network** (Utilize o cmdlet Set-HcsIPAddress para configurar a rede). 
    
 7. Para configurar a rede, na linha de comandos, utilize o comando `Get-HcsIpAddress` para listar as interfaces de rede ativadas no seu dispositivo virtual. Se o seu dispositivo tiver uma única interface de rede ativada, o nome predefinido atribuído a essa interface é `Ethernet`.
 

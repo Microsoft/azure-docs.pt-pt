@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 01182343fb0c96040ec8e86ddf915050ba68cf9f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 731ffe02b16fe832bb5feba34973ca81bf941646
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335216"
+ms.locfileid: "91371427"
 ---
 # <a name="tutorial-use-creator-to-create-indoor-maps"></a>Tutorial: Use Creator para criar mapas interiores
 
@@ -35,7 +35,7 @@ Para criar mapas interiores:
 1. [Faça uma conta Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account)
 2. [Obtenha uma chave de subscrição primária,](quick-demo-map-app.md#get-the-primary-key-for-your-account)também conhecida como a chave primária ou a chave de subscrição.
 3. [Criar um recurso Criador](how-to-manage-creator.md)
-4. Descarregue o [pacote sample drawing](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
+4. Descarregue o [pacote sample drawing](https://github.com/Azure-Samples/am-creator-indoor-data-examples/blob/master/Sample%20-%20Contoso%20Drawing%20Package.zip).
 
 Este tutorial usa a aplicação [Do Carteiro,](https://www.postman.com/) mas você pode escolher um ambiente de desenvolvimento de API diferente.
 

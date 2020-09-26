@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: 726bc34a309ac6a29c189f13037e059f200732ce
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 50b0324be8da8024dcbda140eff062f3ff712225
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335923"
+ms.locfileid: "91371189"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Visão geral do Padrão de Proteção Azure DDoS
 
@@ -61,7 +61,7 @@ As funcionalidades padrão de proteção DDoS incluem:
 
 A DDoS Protection Standard monitoriza a utilização real do tráfego e compara-a constantemente com os limiares definidos na Política DDoS. Quando o limiar de tráfego é ultrapassado, a mitigação do DDoS é iniciada automaticamente. Quando o tráfego volta abaixo do limiar, a mitigação é removida.
 
-![Mitigação](./media/ddos-protection-overview/mitigation.png)
+![O diagrama mostra um fluxo que começa com um cliente através do portal Azure através da Norma de Proteção DDoS, sobre endereços iP públicos através da geração de políticas que terminam em dois endereços públicos de I P.](./media/ddos-protection-overview/mitigation.png)
 
 Durante a mitigação, o tráfego enviado para o recurso protegido é redirecionado pelo serviço de proteção DDoS e são realizadas várias verificações, tais como as seguintes verificações:
 

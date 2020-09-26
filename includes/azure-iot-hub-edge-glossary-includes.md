@@ -4,14 +4,14 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: dobett
-ms.openlocfilehash: 30b8facfef6d90a444bd61d0ce041ed7dfef324e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0b478775aa572ce89f3dcdc6f28ee0418e818d99
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82131628"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377390"
 ---
-## <a name="automatic-device-management"></a>Gestão Automática de Dispositivos
+## <a name="automatic-device-management-in-azure-iot-hub"></a>Gestão automática de dispositivos no Azure IoT Hub
 A Gestão Automática de Dispositivos no Azure IoT Hub automatiza muitas das tarefas repetitivas e complexas de gestão de grandes frotas de dispositivos ao longo de todo o seu ciclo de vida. Com a Gestão Automática de Dispositivos, pode direcionar um conjunto de dispositivos com base nas suas propriedades, definir uma configuração desejada e deixar que os dispositivos de atualização do IoT Hub sempre que eles entram no âmbito.  Consiste em [configurações automáticas](../articles/iot-hub/iot-hub-auto-device-config.md) de dispositivos e [implementações automáticas IoT Edge](../articles/iot-edge/how-to-deploy-at-scale.md).
 
 ## <a name="iot-edge"></a>IoT Edge
@@ -20,7 +20,7 @@ O Azure IoT Edge permite a implantação em nuvem de serviços Azure e código e
 ## <a name="iot-edge-agent"></a>Agente IoT Edge
 A parte do tempo de funcionamento do IoT Edge responsável pela implantação e monitorização de módulos.
 
-## <a name="iot-edge-device"></a>Dispositivo IoT Edge
+## <a name="iot-edge-device"></a>Dispositivo do IoT Edge
 Os dispositivos IoT Edge têm o tempo de execução IoT Edge instalado e são sinalizados como **dispositivo IoT Edge** nos detalhes do dispositivo. Saiba como [implantar o Azure IoT Edge num dispositivo simulado em Linux - pré-visualização](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux).
 
 ## <a name="iot-edge-automatic-deployment"></a>Implantação automática IoT Edge

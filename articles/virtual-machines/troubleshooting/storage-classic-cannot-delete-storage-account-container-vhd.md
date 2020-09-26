@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 3e7469f0d53a154f605480b811d36937e3d4ad6c
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c74f2ef9eed25719e722970671406c850b6a59b2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88649862"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361862"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Resolução de problemas erros clássicos de eliminação de recursos de armazenamento
 Este artigo fornece orientação de resolução de problemas quando ocorre um dos seguintes erros tentando eliminar a conta de armazenamento clássico Azure, o contentor ou o ficheiro blob de página *.vhd. 
@@ -36,7 +36,7 @@ Um recurso "Disco" é utilizado para montar um ficheiro blob de página *.vhd pa
 
 1. Apague a máquina virtual clássica.
 2. Se a caixa de verificação "Discos" for selecionada, a **locação** do disco (mostrada na imagem acima) associada à bolha da página *.vhd está partida. O ficheiro blob de página real *.vhd ainda existirá na conta de armazenamento.
-![Screenshot do portal, com a máquina virtual (clássica) painel de erro "Delete" aberto](./media/storage-classic-cannot-delete-storage-account-container-vhd/steps_while_deleting_classic_vm.jpg) 
+![A screenshot mostra uma caixa de diálogo para confirmar a eliminação de uma máquina virtual.](./media/storage-classic-cannot-delete-storage-account-container-vhd/steps_while_deleting_classic_vm.jpg) 
 
 3. Uma vez que o ouso ouso arrendamento do disco é quebrado, a (s) blob(s) da página em si pode ser eliminada. Uma conta de armazenamento ou um recipiente pode ser eliminado uma vez que todos os recursos "Disco" presentes neles sejam eliminados.
 
@@ -52,7 +52,7 @@ O utilizador navega para a conta de armazenamento clássica no [portal Azure](ht
 
 Com disco(s) "anexado" a uma máquina virtual
 
-![Screenshot do portal, com a máquina virtual (clássica) painel de erro "Delete" aberto](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_storage_account_disks_attached_portal.jpg) 
+![A screenshot mostra uma mensagem explicando por que uma conta de armazenamento não pode ser eliminada.](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_storage_account_disks_attached_portal.jpg) 
 
 
 Com disco(s) "desapegado" a uma máquina virtual
@@ -93,11 +93,11 @@ Depois de eliminar a máquina virtual Azure, o utilizador tenta eliminar o fiche
 No portal, pode haver duas experiências dependendo da lista de bolhas selecionadas para eliminação.
 
 1. Se apenas forem selecionadas bolhas "Alugadas", o botão Eliminar não aparece.
-![Screenshot do portal, com o painel de bolha de contentor "lista" aberto](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_portal.jpg)
+![Screenshot do portal, com o painel de lista de bolhas do recipiente aberto e apenas bolhas alugadas selecionadas.](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_portal.jpg)
 
 
 2. Se for selecionada uma mistura de bolhas "Alugadas" e "Disponíveis", o botão "Eliminar" aparece. Mas a operação "Eliminar" deixará para trás as bolhas de página, que têm um contrato de arrendamento em disco. 
-![Screenshot do portal, com o painel de bolha de contentor "list" aberto ](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_1.jpg)
+![Screenshot do portal, com o painel de lista de bolhas do recipiente aberto e ambos os blobs alugados e disponíveis selecionados. ](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_1.jpg)
  ![ Screenshot do portal, com o painel de bolhas "delete" selecionado aberto](./media/storage-classic-cannot-delete-storage-account-container-vhd/unable_to_delete_vhd_leased_and_unleased_portal_2.jpg)
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
@@ -114,10 +114,10 @@ Se o utilizador optar por eliminar utilizando o PowerShell, resultará no seguin
 Siga estes passos no portal Azure:
 1.  Navegue até ao [portal Azure.](https://portal.azure.com)
 2.  Navegue para os Discos (clássico). 
-3.  Clique no separador Discos. ![ Screenshot do portal, com o painel de bolha de contentor "lista" aberto](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
+3.  Clique no separador Discos. ![ O Screenshot mostra o portal Azure com Discos (clássicos) selecionados e um nome clássico de disco e conta de armazenamento.](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_disks_tab.jpg)
  
 4.  Selecione o disco de dados e, em seguida, clique em Eliminar Disco.
- ![Screenshot do portal, com o painel de bolha de contentor "lista" aberto](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)
+ ![O Screenshot mostra o portal Azure com Discos (clássicos) selecionados, com um disco de dados selecionado e a opção de excluir.](./media/storage-classic-cannot-delete-storage-account-container-vhd/resolution_click_delete_disk.jpg)
  
 5.  Reda o teste da operação eliminar que falhou anteriormente.
 6.  Uma conta de armazenamento ou um recipiente não podem ser eliminados desde que tenha um único Disco.

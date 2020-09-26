@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 85a54ce7c8b3beea102fad7c3adb58f92c8574dd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5fe1c3e344705b6cde9791f889b22be53a9e8c76
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907934"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372600"
 ---
 # <a name="import-data-module"></a>Módulo de Dados de Importação
 
@@ -56,7 +56,7 @@ Se os dados de origem alterarem, pode atualizar o conjunto de dados e adicionar 
 
 1. Selecione **Data source**, e escolha o tipo de fonte de dados. Pode ser HTTP ou datastore.
 
-    Se escolher a datastore, pode selecionar as datas-lojas existentes que já se registaram no seu espaço de trabalho Azure Machine Learning ou criar uma nova loja de dados. Em seguida, defina o caminho dos dados para importar na datastore. Pode navegar facilmente no caminho clicando **em procurar** caminho ![ de importação-data-caminho](media/module/import-data-path.png)
+    Se escolher a datastore, pode selecionar as datas-lojas existentes que já se registaram no seu espaço de trabalho Azure Machine Learning ou criar uma nova loja de dados. Em seguida, defina o caminho dos dados para importar na datastore. Pode navegar facilmente no caminho clicando **No Screenshot do caminho de navegação** mostra a ![ ligação do caminho de Navegação que abre a caixa de diálogo de seleção path.](media/module/import-data-path.png)
 
 1. Selecione o esquema de pré-visualização para filtrar as colunas que pretende incluir. Também pode definir configurações avançadas como Delimiter nas opções de Parsing.
 

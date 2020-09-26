@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 069387b5c761d502d960d0284d156b4ee6431a55
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: d95bf9ed50f819c5a92c7945827ee82a2c6ecdc9
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357017"
+ms.locfileid: "91371784"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperar usando cópias de dados automatizadas - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -196,7 +196,7 @@ Para obter um script PowerShell que mostre como executar o geo-restauro para uma
 Não se pode fazer uma restauração pontual numa base de dados geoconsusídua. Só pode fazê-lo numa base de dados primária. Para obter informações detalhadas sobre a utilização de geo-restauro para recuperar de uma paragem, consulte [recuperar de uma paragem](../../key-vault/general/disaster-recovery-guidance.md).
 
 > [!IMPORTANT]
-> A geo-restauração é a solução de recuperação de desastres mais básica disponível na Base de Dados SQL e na SQL Managed Instance. Baseia-se em backups geo-replicados automaticamente com um objetivo de ponto de recuperação (RPO) igual a 1 hora e um tempo estimado de recuperação de até 12 horas. Não garante que a região alvo tenha a capacidade de restaurar as suas bases de dados após uma paragem regional, porque é provável um aumento acentuado da procura. Se a sua aplicação utilizar bases de dados relativamente pequenas e não for fundamental para o negócio, a geo-restauração é uma solução adequada de recuperação de desastres. 
+> A geo-restauração é a solução de recuperação de desastres mais básica disponível na Base de Dados SQL e na SQL Managed Instance. Baseia-se em backups geo-replicados automaticamente com um objetivo de ponto de recuperação (RPO) até 1 hora e um tempo estimado de recuperação de até 12 horas. Não garante que a região alvo tenha a capacidade de restaurar as suas bases de dados após uma paragem regional, porque é provável um aumento acentuado da procura. Se a sua aplicação utilizar bases de dados relativamente pequenas e não for fundamental para o negócio, a geo-restauração é uma solução adequada de recuperação de desastres. 
 >
 > Para aplicações críticas ao negócio que exijam grandes bases de dados e que garantam a continuidade do negócio, utilize [grupos de falha automática](auto-failover-group-overview.md). Oferece um objetivo de RPO e tempo de recuperação muito mais baixo, e a capacidade é sempre garantida. 
 >

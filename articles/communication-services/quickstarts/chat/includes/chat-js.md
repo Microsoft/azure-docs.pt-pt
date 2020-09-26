@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: a50f09dd52ccf4d35fd3803967898a4a25e3299f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d0754ea2d7e8f8f59ec475be8e27fcffd058c11f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947568"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376256"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, certifique-se de:
@@ -90,6 +90,8 @@ Crie um ficheiro no diretório de raiz do seu projeto chamado **client.js** para
 ### <a name="create-a-chat-client"></a>Criar um cliente de chat
 
 Para criar um cliente de chat na sua aplicação web, utilizará o ponto final do Serviço de Comunicações e o token de acesso que foi gerado como parte das etapas pré-necessárias. Os tokens de acesso ao utilizador permitem-lhe construir aplicações de clientes que autenticam diretamente os Serviços de Comunicação Azure. Assim que gerar estas fichas no seu servidor, passe-as de volta para um dispositivo cliente. Tens de usar a `AzureCommunicationUserCredential` aula do para passar o símbolo ao teu cliente de `Common client library` chat.
+
+Crie um ficheiro **client.js** no diretório de raiz do seu projeto. Usaremos este ficheiro para adicionar capacidade de chat utilizando a biblioteca de clientes Azure Communication Chat para o JavaScript.
 
 ```JavaScript
 

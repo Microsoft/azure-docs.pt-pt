@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 09/21/2020
 ms.author: jgao
-ms.openlocfilehash: a6925ef8f72615cc3868c8b5cd4ea030ed3c3c40
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 63879350eba897cfe5a793309e5129323fe8bbde
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278073"
+ms.locfileid: "91372379"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introduzir o lançamento da integração sanitária ao Azure Deployment Manager (visualização pública)
 
@@ -41,7 +41,7 @@ O fluxo para a instalação com verificações de saúde do Azure Deployment Man
     1. Informação de autenticação. Atualmente apenas a autenticação do estilo chave API é suportada. Para o Azure Monitor, o tipo de autenticação deve ser definido como – "RolloutIdentity", uma vez que o utilizador atribuído identidade gerida utilizada para o Azure Deployment Manager Rollout estende-se para o Azure Monitor.
     1. [Códigos de estado HTTP](https://www.wikipedia.org/wiki/List_of_HTTP_status_codes) ou expressões regulares que definem uma resposta saudável. Note que pode fornecer expressões regulares, que TODOS devem corresponder para que a resposta seja considerada saudável, ou pode fornecer expressões das quais ANY deve corresponder para que a resposta seja considerada saudável. Ambos os métodos são apoiados.
 
-    O Json seguinte é um exemplo para integrar o Azure Monitor com o Azure Deployment Manager que aproveita a RolloutIdentity e estabelece uma verificação de saúde em que um Rollout procede se não houver alertas. A única API suportada do Monitor AZure: [Alertas – Get All](/rest/api/monitor/alertsmanagement/alerts/getall.md).
+    O Json seguinte é um exemplo para integrar o Azure Monitor com o Azure Deployment Manager que aproveita a RolloutIdentity e estabelece uma verificação de saúde em que um Rollout procede se não houver alertas. A única API suportada do Monitor AZure: [Alertas – Get All](/rest/api/monitor/alertsmanagement/alerts/getall).
 
     ```json
     {

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/27/2020
-ms.openlocfilehash: 1feb4432111ce517d49396eb2cb516b0463268d8
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/21/2020
+ms.openlocfilehash: 0d8965fcbde799ff4f48c320fe796746545eeea7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883032"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315648"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Use um modelo de Gestor de Recursos Azure para criar um espaço de trabalho para a aprendizagem de máquinas Azure
 
@@ -30,7 +30,14 @@ Para obter mais informações, consulte [Implementar uma aplicação com o model
 
 * Uma **subscrição do Azure**. Se não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Para utilizar um modelo a partir de um CLI, você precisa de [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) ou do [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Para utilizar um modelo a partir de um CLI, você precisa de [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) ou do [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+
+* Alguns cenários exigem que abra um bilhete de apoio. Estes cenários são:
+
+    * __Private Link viabilização espaço de trabalho com uma chave gerida pelo cliente (CMK)__
+    * __Registo de contentores Azure para o espaço de trabalho por trás da sua rede virtual__
+
+    Para obter mais informações, consulte [Gerir e aumentar as quotas.](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)
 
 ## <a name="workspace-resource-manager-template"></a>Modelo de gestor de recursos de espaço de trabalho
 
@@ -272,7 +279,21 @@ Ao definir o valor do `vnetOption` parâmetro para qualquer um `new` `existing` 
 Se os seus recursos associados não estiverem por trás de uma rede virtual, pode definir o parâmetro **PrivateEndpointType** para `AutoAproval` ou para `ManualApproval` implantar o espaço de trabalho por trás de um ponto final privado. Isto pode ser feito tanto para espaços de trabalho novos como existentes. Ao atualizar um espaço de trabalho existente, preencha os parâmetros do modelo com as informações do espaço de trabalho existente.
 
 > [!IMPORTANT]
-> A utilização do Azure Private Link para criar um ponto final privado para o espaço de trabalho Azure Machine Learning está atualmente em pré-visualização pública. Esta funcionalidade só está disponível nas regiões **norte-americanas do Oriente,** **Centro Sul dos EUA**e EUA West **2.** Esta pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> A utilização do Azure Private Link para criar um ponto final privado para o espaço de trabalho Azure Machine Learning está atualmente em pré-visualização pública. Esta funcionalidade só está disponível nas seguintes regiões:
+>
+> * **E.U.A. Leste**
+> * **E.U.A. Centro-Sul**
+> * **E.U.A. Oeste**
+> * **E.U.A. Oeste 2**
+> * **Canadá Central**
+> * **Sudeste Asiático**
+> * **Leste do Japão**
+> * **Europa do Norte**
+> * **Leste da Austrália**
+> * **Sul do Reino Unido**
+>
+> Esta pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
+> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azcli)
 

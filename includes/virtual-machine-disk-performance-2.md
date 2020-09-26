@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/07/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 65f6c239f34775efff6a2ea2e399064a7702606a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 8882625d28871135223dd30e3fd96a385a13e8fe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664657"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376904"
 ---
 ![Documentação Dsv3](media/vm-disk-performance/dsv3-documentation.jpg)
 
@@ -81,7 +81,13 @@ Temos métricas no Azure que fornecem uma visão de como as suas máquinas virtu
 
 ## <a name="storage-io-utilization-metrics"></a>Métricas de utilização de IO de armazenamento
 Métricas que ajudam a diagnosticar a tampa do IO do disco:
-- **Percentagem consumida** pelo disco de dados - a percentagem calculada pelos IOPs do disco de dados concluída ao longo dos IOPs do disco de dados fortado. Se este valor estiver a 100%, a sua aplicação em execução será limitada a partir do limite de IOPS do seu disco de dados.
+- **Percentagem consumida** pelo disco de dados - a percentagem calculada pelo disco de dados IOPS concluída sobre o disco de dados IOPS. Se este valor estiver a 100%, a sua aplicação em execução será limitada a partir do limite de IOPS do seu disco de dados.
 - **Percentagem consumida** pela largura de banda do disco de dados - a percentagem calculada pela produção do disco de dados concluída sobre o rendimento do disco de dados fortado. Se este valor estiver a 100%, a sua aplicação em execução será limitada a partir do limite de largura de banda do seu disco de dados.
-- **Percentagem consumida** pelo disco oss - a percentagem calculada pelos IOPs do disco oss concluídos sobre os IOPs do disco OS a provisionados. Se este valor for de 100%, a sua aplicação em execução será limitada ao limite de IOPS do seu disco de SO.
+- **Percentagem consumida** pelo disco oss - a percentagem calculada pelo disco os IOPS concluída sobre o disco de oss IOPS. Se este valor for de 100%, a sua aplicação em execução será limitada ao limite de IOPS do seu disco de SO.
 - **Os Discos de Banda consumida Percentagem Consumida** - a percentagem calculada pela produção do disco os concluída sobre a produção do disco de OS fortada. Se este valor estiver a 100%, a sua aplicação em execução será limitada ao limite de largura de banda do seu disco de SO.
+
+Métricas que ajudam a diagnosticar a tampa de IO VM:
+- **VM Cached IOPS Percentagem consumida** - a percentagem calculada pelo total de IOPS concluída acima do limite máximo da máquina virtual em cache IOPS. Se este valor estiver a 100%, a sua aplicação em execução será limitada a IO do limite de IOPs em cache do seu VM.
+- **VM Cached Bandwidth Consumed Percentagem** - a percentagem calculada pela produção total do disco concluída sobre a potência da máquina virtual em cache máximo. Se este valor estiver a 100%, a sua aplicação em execução será limitada ao limite de largura de banda em cache do seu VM.
+- **VM IOPS Educar A Percentagem Consumida** - a percentagem calculada pelo total de IOPS numa máquina virtual concluída sobre o limite máximo de IOPS da máquina virtual não-acolhida. Se este valor estiver a 100%, a sua aplicação em execução será limitada a partir do limite de IOPs sem cocó do seu VM.
+- **VM Percentagem consumida** pela largura de banda não colada - a percentagem calculada pela produção total do disco numa máquina virtual concluída sobre a potência máxima da máquina virtual. Se este valor estiver a 100%, a sua aplicação em execução será limitada a partir do limite de largura de banda não coberta do seu VM.

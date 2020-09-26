@@ -3,12 +3,12 @@ title: Criar & implementar projetos de grupo de recursos do Estúdio Visual
 description: Use o Visual Studio para criar um projeto de grupo de recursos Azure e implementar os recursos para a Azure.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: eacab3e1919b68661dd24eb78e3b0eca51cf4972
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 479dbed1f288148c24fc8464f7895cd3e2b182f9
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985243"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372651"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criar e implementar grupos de recursos do Azure através do Visual Studio
 
@@ -41,7 +41,7 @@ Nesta secção, você cria um projeto do Grupo de Recursos Azure com um modelo *
 
     Uma vez que escolheu o modelo de aplicação Web, vê os seguintes ficheiros:
 
-   | Nome de ficheiro | Descrição |
+   | Nome de ficheiro | Description |
    | --- | --- |
    | Deploy-AzureResourceGroup.ps1 |Um script do PowerShell que executa comandos do PowerShell para implementar no Azure Resource Manager. O Visual Studio utiliza este script PowerShell para implementar o seu modelo. |
    | WebSite.jsem |O modelo do Resource Manager que define a infraestrutura que pretende implementar no Azure e os parâmetros que pode fornecer durante a implementação. Define as dependências entre os recursos para que o Resource Manager os implemente na ordem correta. |
@@ -370,7 +370,7 @@ Não está limitado apenas aos recursos disponíveis através da interface do Vi
 
    ![Dashboard Personalizado](./media/create-visual-studio-deployment-project/Ops-DemoSiteGroup-dashboard.png)
 
-Pode gerir o acesso ao dashboard através de grupos do RBAC. Também pode personalizar a aparência do dashboard após a sua implementação. No entanto, se voltar a implementar o grupo de recursos, o dashboard ficará no estado predefinido no seu modelo. Para obter mais informações sobre a criação de dashboards, veja [Criar Dashboards do Azure programaticamente](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
+Pode gerir o acesso ao painel utilizando o controlo de acesso baseado em funções Azure (Azure RBAC). Também pode personalizar a aparência do dashboard após a sua implementação. No entanto, se voltar a implementar o grupo de recursos, o dashboard ficará no estado predefinido no seu modelo. Para obter mais informações sobre a criação de dashboards, veja [Criar Dashboards do Azure programaticamente](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

@@ -11,12 +11,12 @@ ms.date: 05/31/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 67392f965b3fddec7fc7a03bd328a224dad42208
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: d2c2673e6863725e064f3ad8561ab77eb1b051eb
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442986"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371529"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Tutorial: Carregue o conjunto de dados do Táxi de Nova Iorque
 
@@ -91,7 +91,7 @@ Siga estes passos para criar uma base de dados em branco.
 
 11. Na barra de ferramentas, selecione **Notificações** para monitorizar o processo de implementação.
   
-     ![notificação](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
+     ![O screenshot mostra o portal Azure com o painel de Notificações aberto com a Implementação em curso.](./media/load-data-from-azure-blob-storage-using-polybase/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Criar uma regra de firewall ao nível do servidor
 
@@ -513,7 +513,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 5. Para remover o grupo de recursos, selecione **myResourceGroup**e, em seguida, **selecione Delete resource group**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a criar um armazém de dados e a criar um utilizador para carregar dados. Usou a simples [declaração COPY](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest#examples) para carregar dados no seu armazém de dados.
 

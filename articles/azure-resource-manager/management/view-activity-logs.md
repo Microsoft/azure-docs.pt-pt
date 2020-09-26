@@ -3,12 +3,12 @@ title: Ver registos de atividades do Azure para monitorizar recursos
 description: Utilize os registos de atividade para rever as ações e erros do utilizador. Mostra o portal Azure PowerShell, Azure CLI e REST.
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: b02865e4487a187d1296b2971918aa101d711b5b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 14015e9b2792515e6818af551b8bd9f54c686bee
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827066"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371597"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Ver registos de atividades para monitorizar ações em recursos
 
@@ -20,7 +20,7 @@ Através dos registos de atividades, pode determinar:
 * o estado da operação
 * os valores de outras propriedades que podem ajudá-lo a pesquisar a operação
 
-O registo de atividades contém todas as operações de escrita (PUT, POST, DELETE) dos recursos. Não inclui operações de leitura (GET). Para obter uma lista de ações de recursos, consulte [as operações do Fornecedor de Recursos do Gestor de Recursos da Azure.](../../role-based-access-control/resource-provider-operations.md) Pode utilizar os registos de atividade para encontrar um erro ao resolver um problema ou para monitorizar a forma como um utilizador na sua organização alterou um recurso.
+O registo de atividades contém todas as operações de escrita (PUT, POST, DELETE) dos recursos. Não inclui operações de leitura (GET). Para obter uma lista de ações de recursos, consulte [as operações do fornecedor de recursos Azure](../../role-based-access-control/resource-provider-operations.md). Pode utilizar os registos de atividade para encontrar um erro ao resolver um problema ou para monitorizar a forma como um utilizador na sua organização alterou um recurso.
 
 Os registos de atividades são mantidos durante 90 dias. Pode consultar qualquer intervalo de datas, desde que a data de início não seja superior a 90 dias no passado.
 
@@ -195,4 +195,4 @@ As operações REST para trabalhar com o registo de atividades fazem parte da [A
 * Para ver mais detalhes sobre as alterações às suas aplicações a partir da camada de infraestrutura até à implementação da aplicação, consulte [a Análise de Alteração de Aplicações de Utilização no Azure Monitor](../../azure-monitor/app/change-analysis.md).
 * Para saber mais sobre os comandos de visualização das operações de implantação, consulte [as operações de implantação da visualização](../templates/deployment-history.md).
 * Para aprender a prevenir supressões num recurso para todos os utilizadores, consulte [os recursos de Bloqueio com o Azure Resource Manager](lock-resources.md).
-* Para ver a lista de operações disponíveis para cada fornecedor de Gestor de Recursos da Microsoft Azure, consulte [as operações do Fornecedor de Recursos do Gestor de Recursos do Azure Resource Provider](../../role-based-access-control/resource-provider-operations.md)
+* Para ver a lista de operações disponíveis para cada fornecedor de Gestor de Recursos da Microsoft Azure, consulte [as operações do fornecedor de recursos Azure](../../role-based-access-control/resource-provider-operations.md)

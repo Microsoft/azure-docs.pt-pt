@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: jgao
-ms.openlocfilehash: 9519b9a5dec898a0905310de02ef9fad3d282a65
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 5c72dd234cf6d8558fb49882170fe33bac1900dd
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290536"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372141"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-powershell"></a>Gerir os grupos de recursos do Azure Resource Manager utilizando o Azure PowerShell
 
@@ -212,9 +212,9 @@ Para obter mais informações, consulte [exportação única e multi-recursos pa
 
 ## <a name="manage-access-to-resource-groups"></a>Gerir o acesso a grupos de recursos
 
-[O controlo de acesso baseado em funções (Azure RBAC)](../../role-based-access-control/overview.md) é a forma como gere o acesso aos recursos em Azure. Para obter mais informações, consulte [Gerir o acesso utilizando o RBAC e o Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+[O controlo de acesso baseado em funções (Azure RBAC)](../../role-based-access-control/overview.md) é a forma como gere o acesso aos recursos em Azure. Para obter mais informações, consulte [Adicionar ou remover atribuições de funções Azure utilizando a Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber o Gestor de Recursos Azure, consulte [a visão geral do Azure Resource Manager](overview.md).
 - Para aprender a sintaxe do modelo do Gestor de Recursos, consulte [compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure](../templates/template-syntax.md).

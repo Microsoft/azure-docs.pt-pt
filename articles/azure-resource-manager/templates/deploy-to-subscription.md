@@ -3,12 +3,12 @@ title: Mobilizar recursos para a subscrição
 description: Descreve como criar um grupo de recursos num modelo de Gestor de Recursos Azure. Também mostra como implantar recursos no âmbito de subscrição do Azure.
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: cd1d0a05fc1039d8e99b0af6fc8019face4516bf
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 29a35715115816d742103bd7556ded19f22b316e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284793"
+ms.locfileid: "91372413"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos de recursos e recursos ao nível de subscrição
 
@@ -37,7 +37,7 @@ Para políticas de Azure, utilize:
 * [políticasSetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [remediações](/azure/templates/microsoft.policyinsights/remediations)
 
-Para o controlo de acesso baseado em funções, utilize:
+Para o controlo de acesso baseado em funções Azure (Azure RBAC), utilize:
 
 * [papéAs de assinaturas](/azure/templates/microsoft.authorization/roleassignments)
 * [funçõesDefinitions](/azure/templates/microsoft.authorization/roledefinitions)

@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 03/19/2020
 ms.author: mimart
-ms.openlocfilehash: af11283f9e9dbd925ec994dcb1d96393332b90fc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9b660bf20c90a84780175e70573c96a0ce1b0b7d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80116933"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377414"
 ---
 ## <a name="use-custom-page-content"></a>Use conteúdo de página personalizado
 
@@ -46,7 +46,7 @@ Em vez de criar o conteúdo da sua página personalizada do zero, pode personali
 
 A tabela que se segue lista o conteúdo da página predefinida fornecido pelo Azure AD B2C. Descarregue os ficheiros e use-os como ponto de partida para criar as suas próprias páginas personalizadas.
 
-| Página padrão | Descrição | ID de definição de conteúdo<br/>(apenas política personalizada) |
+| Página padrão | Description | ID de definição de conteúdo<br/>(apenas política personalizada) |
 |:-----------------------|:--------|-------------|
 | [exception.htm](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Página de erro**. Esta página é apresentada quando se encontra uma exceção ou um erro. | *api.erro* |
 | [selfasserted.htm](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **Página auto-assertada.** Utilize este ficheiro como conteúdo de página personalizada para uma página de inscrição de conta social, uma página de inscrição de conta local, uma página de inscrição de conta local, redefinição de senha e muito mais. O formulário pode conter vários controlos de entrada, tais como: uma caixa de entrada de texto, uma caixa de entrada de senha, um botão de rádio, caixas de entrega de uma única seleção e caixas de verificação multi-selecionadas. | *api.localaccountsignin,* *api.localaccountsignup,* *api.localaccountpasswordreset,* *api.selfasserted* |
@@ -145,7 +145,7 @@ Para criar um recipiente público no armazenamento blob, execute os seguintes pa
 1. Navegue e selecione **customize-ui.html**, que criou anteriormente na secção de personalização da Página UI.
 1. Se pretender fazer o upload para uma sub-dobragem, expanda **o Advanced** e introduza um nome de pasta no Upload para **a pasta**.
 1. Selecione **Carregar**.
-1. Selecione a **bolha decustomize-ui.html** que fez o upload.
+1. Selecione a ** bolha decustomize-ui.html** que fez o upload.
 1. À direita da caixa de texto **URL,** selecione o ícone **copy to clipboard** para copiar o URL para a sua área de transferência.
 1. No navegador web, navegue para o URL que copiou para verificar se a bolha que carregou está acessível. Se for inacessível, por exemplo, se encontrar um `ResourceNotFound` erro, certifique-se de que o tipo de acesso ao recipiente está definido para **borbulhar**.
 
@@ -165,9 +165,9 @@ Configure o armazenamento blob para partilha de recursos de origem cruzada execu
 
 Valide que está pronto executando os seguintes passos:
 
-1. Repita o passo DE CONFIGURAÇÃO CORS. Para **origens permitidas,** insira`https://www.test-cors.org`
+1. Repita o passo DE CONFIGURAÇÃO CORS. Para **origens permitidas,** insira `https://www.test-cors.org`
 1. Navegue até [www.test-cors.org](https://www.test-cors.org/) 
-1. Para a caixa **de URL remota,** cole o URL do seu ficheiro HTML. Por exemplo, `https://your-account.blob.core.windows.net/azure-ad-b2c/unified.html`
+1. Para a caixa **de URL remota,** cole o URL do seu ficheiro HTML. Por exemplo, `https://your-account.blob.core.windows.net/root/azure-ad-b2c/unified.html`
 1. Selecione **Enviar Pedido**.
     O resultado deve ser `XHR status: 200` . 
     Se receber um erro, certifique-se de que as definições do CORS estão corretas. Também poderá ter de limpar a cache do seu navegador ou abrir uma sessão de navegação privada pressionando ctrl+Shift+P.

@@ -10,13 +10,13 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: dcfb5ed0b7a7fe2ec004ef5ceebf9ee51112c67c
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 43710407386995bde6d3505286e96b0737e06f08
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406457"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309787"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-nodejs"></a>Quickstart: Ligue para o seu ponto final de pesquisa personalizada Bing usando Node.js
 
@@ -75,7 +75,7 @@ Utilize este quickstart para aprender a solicitar resultados de pesquisa a parti
             }
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Construa um aplicativo web de pesquisa personalizada](./tutorials/custom-search-web-page.md)

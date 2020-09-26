@@ -8,14 +8,15 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: fa8db6150242062ce6a5f539077ac06a4ba0ec4f
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 21dce1f9596645b0e4dd541c579e3b64d726c604
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564934"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376516"
 ---
 - E.U.A. Leste
 - E.U.A. Leste 2
 - Sudeste Asiático
 - Sul do Reino Unido
+- Leste da Austrália

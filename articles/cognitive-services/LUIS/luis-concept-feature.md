@@ -1,14 +1,16 @@
 ---
 title: Características de aprendizagem automática com LUIS
 description: Adicione funcionalidades a um modelo de idioma para fornecer dicas sobre como reconhecer a entrada que deseja rotular ou classificar.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.openlocfilehash: 02a6fd27dbe22a40b29b47515edec5506d3b2075
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/22/2020
+ms.openlocfilehash: 08ab71375171d4bb4167c725bc7118bec2e1ebfa
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075161"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372029"
 ---
 # <a name="machine-learning-features"></a>Características de aprendizagem automática
 
@@ -20,12 +22,10 @@ Uma característica pode ser descrita como uma função, como f(x) = y. No exemp
 
 ## <a name="types-of-features"></a>Tipos de funcionalidades
 
-O LUIS suporta as listas de frases e os modelos como características:
+As características são uma parte necessária do seu design de esquema. O LUIS suporta as listas de frases e os modelos como características:
 
-* Característica da lista de frases 
+* Característica da lista de frases
 * Modelo (intenção ou entidade) como recurso
-
-As características devem ser consideradas uma parte necessária do seu design de esquema.
 
 ## <a name="find-features-in-your-example-utterances"></a>Encontre funcionalidades nas suas expressões de exemplo
 
@@ -43,32 +43,6 @@ Determinar se o texto, porque distingue uma característica, tem que:
 * Combine uma palavra ou frase exata: Considere adicionar uma entidade de expressão regular ou uma entidade de lista como uma característica para a entidade ou intenção.
 * Combine um conceito bem conhecido como datas, horários ou nomes de pessoas: Use uma entidade pré-construída como recurso à entidade ou intenção.
 * Aprenda novos exemplos ao longo do tempo: Use uma lista de frases de alguns exemplos do conceito como característica da entidade ou intenção.
-
-## <a name="combine-features"></a>Combine funcionalidades
-
-Você pode usar mais do que uma característica para descrever um traço ou conceito. Um emparelhamento comum é usar uma funcionalidade de lista de frases e um tipo de entidade que é frequentemente usado como uma característica:
-
- * entidade pré-construída
- * entidade de expressão regular
- * entidade lista
-
-### <a name="ticket-booking-entity-example"></a>Exemplo da entidade de reserva de bilhetes
-
-Como primeiro exemplo, considere uma aplicação para reservar um voo com uma intenção de reserva de voo e uma entidade de reserva de bilhetes.
-
-A entidade de reserva de bilhetes é uma entidade de aprendizagem automática para o destino de voo. Para ajudar a extrair a localização, use duas funcionalidades para ajudar:
-
-* Uma lista de frases de palavras relevantes, tais como, **avião,** **voo,** **reserva,** ou **bilhete**
-* Uma entidade **de geografia pré-construídaV2** como recurso à entidade
-
-### <a name="pizza-entity-example"></a>Exemplo de entidade de pizza
-
-Como outro exemplo, considere uma app para encomendar uma pizza que tenha uma intenção de criar pizza-encomenda e uma entidade de pizza.
-
-A entidade de pizza é uma entidade de aprendizagem automática para os detalhes da pizza. Para ajudar a extrair os detalhes, use duas funcionalidades para ajudar:
-
-* Uma lista de frases de palavras relevantes, tais como, **queijo,** **crosta,** **pepperoni,** ou **ananás**
-* Uma entidade **numeram pré-construída** como recurso à entidade
 
 ## <a name="create-a-phrase-list-for-a-concept"></a>Criar uma lista de frases para um conceito
 
@@ -176,12 +150,12 @@ Continuando com o exemplo do endereço de envio:
 
 Endereço de envio (entidade aprendida com máquinas)
 
- * Número de rua (sub-entidade) 
- * Endereço de rua (sub-entidade) 
- * Nome de rua (sub-entidade) 
- * Cidade (sub-entidade) 
- * Estado ou Província (subgrupo) 
- * País/Região (subgrupo) 
+ * Número de rua (sub-entidade)
+ * Endereço de rua (sub-entidade)
+ * Nome de rua (sub-entidade)
+ * Cidade (sub-entidade)
+ * Estado ou Província (subgrupo)
+ * País/Região (subgrupo)
  * Código postal (subgrupo)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>Recurso necessário usando entidades pré-construídas
@@ -217,6 +191,59 @@ Embora o uso mais comum seja aplicar uma funcionalidade a um modelo específico,
 O uso mais comum para uma funcionalidade global é adicionar um vocabulário adicional à app. Por exemplo, se os seus clientes usarem uma língua primária, mas esperam poder usar outra língua dentro da mesma expressão, pode adicionar uma funcionalidade que inclui palavras da língua secundária.
 
 Como o utilizador espera utilizar a língua secundária em qualquer intenção ou entidade, adicione palavras da língua secundária à lista de frases. Configurar a lista de frases como uma característica global.
+
+## <a name="combine-features-for-added-benefit"></a>Combine funcionalidades para benefício adicional
+
+Você pode usar mais do que uma característica para descrever um traço ou conceito. Um emparelhamento comum é usar:
+
+* Uma funcionalidade de lista de frases: Pode utilizar várias listas de frases como funcionalidades para o mesmo modelo.
+* Um modelo como recurso: [entidade pré-construída,](luis-reference-prebuilt-entities.md) [entidade de expressão regular,](reference-entity-regular-expression.md)entidade de [lista.](reference-entity-list.md) 
+
+### <a name="example-ticket-booking-entity-features-for-a-travel-app"></a>Exemplo: funcionalidades de entidade de reserva de bilhetes para uma aplicação de viagem  
+
+Como exemplo básico, considere uma aplicação para reservar um voo com uma _intenção_ de reserva de voo e uma entidade de reserva de _bilhetes._ A entidade de reserva de bilhetes capta a informação para reservar um bilhete de avião num sistema de reservas. 
+
+A entidade de aprendizagem automática para o livro de bilhetes tem duas subentidades para capturar a origem e o destino. As funcionalidades devem ser adicionadas a cada subinidade, não à entidade de nível superior.
+
+:::image type="content" source="media/luis-concept-features/ticket-booking-entity.png" alt-text="Esquema de entidade de bilhética":::
+
+A entidade de reserva de bilhetes é uma entidade de aprendizagem automática, com subinidades incluindo _Origem_ e _Destino._ Estas subentidades indicam uma localização geográfica. Para ajudar a extrair os locais, e distinguir entre _Origem_ e _Destino,_ cada entidade deve ter funcionalidades.
+
+|Tipo|Subgrupo de origem |Subgrupo de destino|
+|--|--|--|
+|Modelo como recurso|[geografiaV2](luis-reference-prebuilt-geographyv2.md?tabs=V3) entidade pré-construída|[geografiaV2](luis-reference-prebuilt-geographyv2.md?tabs=V3) entidade pré-construída|
+|Lista de frases|**Palavras de origem:** `start at` , `begin from``leave`|**Palavras de destino:** `to` , , , , , `arrive` `land at` `go` `going` `stay` , `heading`|
+|Lista de frases|Códigos aeroportuárias - mesma lista tanto para a origem como para o destino|Códigos aeroportuárias - mesma lista tanto para a origem como para o destino|
+|Lista de frases|Nomes do aeroporto - mesma lista tanto para origem como destino|Códigos aeroportuárias - mesma lista tanto para a origem como para o destino|
+
+Se você antecipar que as pessoas usam códigos de aeroporto e nomes de aeroportos, do que LUIS deve ter listas de frases que usam ambos os tipos de frases. Os códigos do aeroporto podem ser mais comuns com texto inserido num chatbot, enquanto os nomes do aeroporto podem ser mais comuns com conversas faladas, como um chatbot ativado pelo discurso.
+
+Os detalhes correspondentes das funcionalidades são devolvidos apenas para modelos, não para listas de frases porque apenas os modelos são devolvidos na previsão JSON.
+
+#### <a name="ticket-booking-labeling-in-the-intent"></a>Rotulagem de reserva de bilhetes na intenção
+
+Depois de criar a entidade de aprendizagem automática, precisa adicionar palavras de exemplo a uma intenção, e rotular a entidade-mãe e todas as subentências.
+
+Para o exemplo de reserva de bilhetes, Marque o exemplo de declarações na intenção com a `TicketBooking` entidade e quaisquer subentências no texto.
+
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Palavras de exemplo de rótulo":::
+
+### <a name="example-pizza-ordering-app"></a>Exemplo: app de encomenda de pizza
+
+Para um segundo exemplo, considere uma aplicação para um restaurante de pizza, que recebe encomendas de pizza, incluindo os detalhes do tipo de pizza que alguém está a encomendar. Cada detalhe da pizza deve ser extraído, se possível, para completar o processamento da encomenda.
+
+A entidade de aprendizagem automática neste exemplo é mais complexa com subentidades aninhadas, listas de frases, entidades pré-construídas e entidades personalizadas.
+
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Esquema de entidade de encomenda de pizza":::
+
+Este exemplo utiliza funcionalidades ao nível da subinidade e criança do nível da subinidade. Qual o nível que obtém o tipo de lista de frases ou modelo como recurso é uma parte importante do design da sua entidade.
+
+Embora as subentidades possam ter muitas listas de frases como funcionalidades que ajudam a detetar a entidade, cada subinidade tem apenas um modelo como recurso. Nesta [aplicação de pizzas,](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json)estes modelos são principalmente listas.
+
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Ordem da pizza com frases de exemplo rotuladas":::
+
+As expressões de exemplo corretamente rotuladas mostram de forma a mostrar como as entidades estão aninhadas. 
+
 
 ## <a name="best-practices"></a>Melhores práticas
 

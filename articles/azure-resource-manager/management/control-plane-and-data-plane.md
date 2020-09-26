@@ -3,12 +3,12 @@ title: Operações de avião de controlo e de planos de dados
 description: Descreve a diferença entre as operações do avião de controlo e do plano de dados. As operações do avião de controlo são tratadas pelo Gestor de Recursos Azure. As operações de avião de dados são tratadas por um serviço.
 ms.topic: conceptual
 ms.date: 09/10/2020
-ms.openlocfilehash: a0575c37c80417d9859ef36366dc9f26cdb4dbe4
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: f478037c3e83c1d28cc900d64512a41619628dd7
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90039110"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371274"
 ---
 # <a name="azure-control-plane-and-data-plane"></a>Avião de controlo Azure e plano de dados
 
@@ -41,7 +41,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 O Gestor de Recursos Azure trata de todos os pedidos do avião de controlo. Aplica automaticamente as funcionalidades Azure que implementou para gerir os seus recursos, tais como:
 
-* [Controlo de Acesso baseado em funções Azure (RBAC)](../../role-based-access-control/overview.md)
+* [Controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md)
 * [Azure Policy](../../governance/policy/overview.md)
 * [Bloqueios de Gestão](lock-resources.md)
 * [Registos de Atividade](view-activity-logs.md)
@@ -64,7 +64,7 @@ Características que impõem a gestão e a governação podem não ser aplicadas
 
 Pode usar algumas políticas para governar as operações de data plane. Para obter mais informações, consulte os [modos fornecedores de recursos (pré-visualização) na Política Azure](../../governance/policy/concepts/definition-structure.md#resource-provider-modes).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para uma visão geral do Azure Resource Manager, consulte [o que é O Gestor de Recursos Azure?](overview.md)
 

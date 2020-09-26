@@ -1,15 +1,17 @@
 ---
 title: Alterações no ponto final de previsão na API V3
 description: O ponto final de previsão de consulta V3 APIs mudou. Utilize este guia para entender como migrar para as APIs de ponto final da versão 3.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 06/30/2020
 ms.author: diberry
-ms.openlocfilehash: d3d8f4d77793390484c64b03393fb528dfa643b7
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: 3e4567eea02b3b7db9514f4e03c7f7f36496449b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85610885"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309439"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Alterações no ponto final de previsão para V3
 
@@ -46,7 +48,7 @@ A V3 e fez as seguintes alterações como parte da mudança para a AG:
     * parâmetro opcional `score` para entidades externas
 
 * Alterações do corpo de resposta JSON:
-    * `normalizedQuery`removido
+    * `normalizedQuery` removido
 
 ## <a name="suggested-adoption-strategy"></a>Estratégia de adoção sugerida
 
@@ -77,7 +79,7 @@ O formato da chamada [HTTP do ponto final V3](developer-reference-resource.md#re
 
 Se quiser consultar por versão, primeiro tem de [publicar via API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3b) com `"directVersionPublish":true` . Consultar o ponto final referente ao ID da versão em vez do nome da ranhura.
 
-|Valores válidos para`SLOT-NAME`|
+|Valores válidos para `SLOT-NAME`|
 |--|
 |`production`|
 |`staging`|
@@ -104,8 +106,8 @@ Se quiser consultar por versão, primeiro tem de [publicar via API](https://west
 
 |Propriedade|Tipo|Versão|Predefinição|Objetivo|
 |--|--|--|--|--|
-|`dynamicLists`|array|Apenas V3|Não é necessário.|[As listas dinâmicas](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) permitem-lhe alargar uma entidade de listas treinada e publicada existente, já na app LUIS.|
-|`externalEntities`|array|Apenas V3|Não é necessário.|[Entidades externas](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) dão à sua app LUIS a capacidade de identificar e rotular entidades durante o tempo de execução, que podem ser usadas como funcionalidades para as entidades existentes. |
+|`dynamicLists`|matriz|Apenas V3|Não é necessário.|[As listas dinâmicas](schema-change-prediction-runtime.md#dynamic-lists-passed-in-at-prediction-time) permitem-lhe alargar uma entidade de listas treinada e publicada existente, já na app LUIS.|
+|`externalEntities`|matriz|Apenas V3|Não é necessário.|[Entidades externas](schema-change-prediction-runtime.md#external-entities-passed-in-at-prediction-time) dão à sua app LUIS a capacidade de identificar e rotular entidades durante o tempo de execução, que podem ser usadas como funcionalidades para as entidades existentes. |
 |`options.datetimeReference`|string|Apenas V3|Sem incumprimento|Utilizado para determinar a [compensação do tempo de dataV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). O formato para a datatimeReference é [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
 |`options.preferExternalEntities`|boolean|Apenas V3|false|Especifica se a entidade externa do utilizador [(com o mesmo nome que a entidade existente)](schema-change-prediction-runtime.md#override-existing-model-predictions) é utilizada ou se a entidade existente no modelo é utilizada para previsão. |
 |`query`|string|Apenas V3|Necessário.|**Em V2,** a expressão a prever está no `q` parâmetro. <br><br>**Em V3,** a funcionalidade é passada no `query` parâmetro.|

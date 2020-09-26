@@ -4,12 +4,12 @@ description: Descreve como resolver erros comuns quando implementa recursos para
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 09/09/2020
-ms.openlocfilehash: a24a95bbf3b3a338102d42fcee06b5e4bd59dd83
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: fb7e476a5b4416282546d321a5e9a0127b7a4364
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650958"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372243"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver problemas comuns de erros de implementação do Azure com o Azure Resource Manager
 
@@ -34,6 +34,7 @@ Se procura informações sobre um código de erro e essa informação não é fo
 | ImplementaçãoNameLengthLimitExceed | Os nomes de implantação estão limitados a 64 caracteres.  | |
 | ImplantaçãoFailed | O erro de Implementação É um erro geral que não fornece os detalhes necessários para resolver o erro. Procure nos detalhes de erro um código de erro que forneça mais informações. | [Encontrar código de erro](#find-error-code) |
 | DeploymentQuotaExceeded | Se atingir o limite de 800 implementações por grupo de recursos, elimine as implementações do histórico que já não são necessárias. | [Resolver erro quando a contagem de implementação excede 800](deployment-quota-exceeded.md) |
+| ImplementaçãoSizeExceed | Simplifique o seu modelo para reduzir o tamanho. | [Resolver erros de tamanho do modelo](error-job-size-exceeded.md) |
 | DnsRecordInUse | O nome do registo do DNS deve ser único. Insira um nome diferente. | |
 | ImagemNotFound | Verifique as definições de imagem em VM. |  |
 | InUseSubnetCannotBedeleted | Pode obter este erro ao tentar atualizar um recurso, e o pedido é processado eliminando e criando o recurso. Certifique-se de especificar todos os valores inalterados. | [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -49,6 +50,7 @@ Se procura informações sobre um código de erro e essa informação não é fo
 | InválidaSsubscriçõesRegistrationState | Registe a sua subscrição junto do fornecedor de recursos. | [Resolver o registo](error-register-resource-provider.md) |
 | InvalidTemplate | Verifique se a sintaxe do seu modelo é de erros. | [Resolver modelo inválido](error-invalid-template.md) |
 | InvalideTePlateCircularDependency | Remova dependências desnecessárias. | [Resolver dependências circulares](error-invalid-template.md#circular-dependency) |
+| JobSizeExceeded | Simplifique o seu modelo para reduzir o tamanho. | [Resolver erros de tamanho do modelo](error-job-size-exceeded.md) |
 | LinkedAuthorizationFailed | Verifique se a sua conta pertence ao mesmo inquilino que o grupo de recursos para o qual está a implantar. | |
 | LinkedInvalidPropertyId | A identificação de recursos para um recurso não está a ser resolvida corretamente. Verifique se fornece todos os valores necessários para o ID de recurso, incluindo iD de subscrição, nome do grupo de recursos, tipo de recurso, nome de recurso principal (se necessário) e nome de recurso. | |
 | LocalizaçãoRequired | Fornecer uma localização para o recurso. | [Definir localização](resource-location.md) |
@@ -245,7 +247,7 @@ Em alguns casos, a maneira mais fácil de resolver problemas o seu modelo é tes
 
 Ou suponha que esteja a ter erros de implantação que acredita estarem relacionados com dependências incorretamente definidas. Teste o seu modelo quebrando-o em modelos simplificados. Em primeiro lugar, crie um modelo que implemente apenas um único recurso (como um SQL Server). Quando tiver a certeza de que tem esse recurso corretamente definido, adicione um recurso que depende dele (como uma Base de Dados SQL). Quando tiver esses dois recursos corretamente definidos, adicione outros recursos dependentes (como políticas de auditoria). Entre cada implementação de teste, elimine o grupo de recursos para se certificar de que testa adequadamente as dependências.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para passar por um tutorial de resolução de [problemas, consulte Tutorial: Implementações de modelos do Gestor de Recursos de Resolução de Problemas](template-tutorial-troubleshoot.md)
 * Para conhecer as ações de auditoria, consulte [as operações de Auditoria com o Gestor de Recursos.](../management/view-activity-logs.md)

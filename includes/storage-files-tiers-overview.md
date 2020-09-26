@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e75cb7d13fb74d32191ab7f076d73ad66976503d
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 7d0286b63703c165dda6cd12bb625fc64272aac1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90606346"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376696"
 ---
 A Azure Files oferece quatro níveis diferentes de armazenamento, premium, transação otimizado, quente e fresco para permitir-lhe adaptar as suas ações aos requisitos de desempenho e preço do seu cenário:
 
@@ -26,4 +26,5 @@ As ações de ficheiros premium só estão disponíveis num modelo de faturaçã
 
 As ações de ficheiros quentes e frescos estão disponíveis em todas as regiões do Governo Azure Public e Azure. As ações de ficheiros otimizadas de transações estão disponíveis em todas as regiões do Azure, incluindo as regiões da Azure China e Azure Germany.
 
-Para implementar uma partilha de ficheiros quente ou legal, consulte [Criar uma partilha de ficheiros quente ou legal](../articles/storage/files/storage-how-to-create-file-share.md#create-a-hot-or-cool-file-share). 
+> [!Important]  
+> Pode mover ações de ficheiros entre níveis dentro dos tipos de conta de armazenamento GPv2 (transação otimizada, quente e fria). Os movimentos de ações entre os níveis incorrem em transações: passar de um nível mais quente para um nível mais frio incorrerá na taxa de transação de escrita do nível mais frio para cada ficheiro da ação, enquanto uma mudança de um nível mais frio para um nível mais quente incorrerá na taxa de transação de leitura do nível cool para cada ficheiro da ação.

@@ -6,25 +6,23 @@ ms.author: marobert
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 658aaf018dd4c231b9bc9fc8c6dda78b2a6f05c0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 93037d1e1c56e280458a91ae5723502bff27995b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90948334"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377235"
 ---
-Neste arranque rápido, você vai aprender como iniciar uma chamada usando a biblioteca de clientes Azure Communication Services Call para Android.
+Neste arranque rápido, você vai aprender a iniciar uma chamada usando a biblioteca de clientes Azure Communication Services Call para Android.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Android Studio](https://developer.android.com/studio), para criar a sua aplicação Android.
-- Um [Token de Acesso ao Utilizador para](../../access-tokens.md) o seu Serviço de Comunicação Azure.
 - Um recurso de Serviços de Comunicação implantado. [Criar um recurso de Serviços de Comunicação.](../../create-communication-resource.md)
-
+- Um [Token de Acesso ao Utilizador para](../../access-tokens.md) o seu Serviço de Comunicação Azure.
 
 ## <a name="setting-up"></a>Configuração
-
 
 ### <a name="create-an-android-app-with-an-empty-activity"></a>Criar uma aplicação Android com atividade vazia
 
@@ -64,7 +62,7 @@ allprojects {
     }
 }
 ```
-Em seguida, no seu nível de módulo build.gradle adicione as seguintes linhas às dependências e secções android
+Em seguida, no seu nível de módulo build.gradle adicionar as seguintes linhas às dependências e secções android
 
 ```groovy
 android {
@@ -126,9 +124,9 @@ See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apac
     
 ```
 
-### <a name="setup-the-layout-for-the-app"></a>Configurar o layout para a aplicação
+### <a name="set-up-the-layout-for-the-app"></a>Configurar o layout para a aplicação
 
-São necessárias duas entradas: uma entrada de texto para o id callee e um botão para a colocação da chamada. Estes podem ser adicionados através do designer ou editando o layout xml. Crie um botão com um id de `call_button` e uma entrada de texto de `callee_id` . Navegue para ( `app/src/main/res/layout/activity_main.xml` ) e substitua o conteúdo do ficheiro pelo seguinte:
+São necessárias duas entradas: uma entrada de texto para o ID do callee e um botão para a colocação da chamada. Estes podem ser adicionados através do designer ou editando o layout xml. Crie um botão com um ID de `call_button` e uma entrada de texto de `callee_id` . Navegue para ( `app/src/main/res/layout/activity_main.xml` ) e substitua o conteúdo do ficheiro pelo seguinte:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -269,7 +267,7 @@ As seguintes classes e interfaces lidam com algumas das principais característi
 
 ## <a name="create-an-agent-from-the-user-access-token"></a>Criar um agente a partir do token de acesso ao utilizador
 
-Com o token do utilizador, um agente de chamadas autenticado pode ser instantâneo. Geralmente este token será gerado a partir de um serviço com autenticação específica para a aplicação. Para obter mais informações sobre fichas de acesso do utilizador, consulte o guia ["Tokens de acesso ao utilizador".](../../access-tokens.md) Para o arranque rápido, substitua `<User_Access_Token>` por um token de acesso ao utilizador gerado para o seu recurso Azure Communication Service.
+Com o token do utilizador, um agente de chamadas autenticado pode ser instantâneo. Geralmente este token será gerado a partir de um serviço com autenticação específica para a aplicação. Para obter mais informações sobre fichas de acesso ao utilizador, consulte o guia ["Tokens de acesso ao utilizador".](../../access-tokens.md) Para o arranque rápido, substitua `<User_Access_Token>` por um token de acesso ao utilizador gerado para o seu recurso Azure Communication Service.
 
 ```java
 
@@ -291,7 +289,7 @@ private void createAgent() {
 
 ## <a name="start-a-call-using-the-call-agent"></a>Inicie uma chamada usando o agente de chamadas
 
-A colocação da chamada pode ser feita através do agente de chamadas, e apenas requer uma lista de ids callee e as opções de chamada. Para o arranque rápido, as opções de chamada padrão sem vídeo e um único id callee da entrada de texto serão utilizadas.
+A colocação da chamada pode ser feita através do agente de chamadas, e apenas requer uma lista de IDs callee e as opções de chamada. Para o arranque rápido, serão utilizadas as opções de chamada padrão sem vídeo e um único ID de callee da entrada de texto.
 
 ```java
 /**
@@ -316,3 +314,7 @@ private void startCall() {
 A aplicação pode agora ser lançada utilizando o botão "Run App" na barra de ferramentas (Shift+F10). Verifique se consegue fazer chamadas ligando `8:echo123` . Uma mensagem pré-gravada reproduzirá a sua mensagem de volta para si.
 
 :::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Screenshot mostrando a aplicação completa.":::
+
+## <a name="sample-code"></a>Código de Exemplo
+
+Você pode baixar o aplicativo de amostra do [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/Android/Java)

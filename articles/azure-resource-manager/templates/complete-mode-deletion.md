@@ -3,12 +3,12 @@ title: Eliminação completa de modo
 description: Mostra como os tipos de recursos lidam com a eliminação completa do modo nos modelos do Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: e288d3af080a96616026e94ac7be352a7684c181
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1e27960953aeb16486f893054c7653edb98bbdbc
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91327668"
+ms.locfileid: "91372466"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Supressão dos recursos da Azure para implementações completas do modo
 
@@ -1502,11 +1502,8 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Eliminação completa de modo |
 > | ------------- | ----------- |
 > | áreas de trabalho | Yes |
-> | espaços de trabalho / códigoJobs | No |
 > | espaços de trabalho / computas | No |
 > | espaços de trabalho / eventosGridFiltros | No |
-> | espaços de trabalho / inferênciaEndpoints | Yes |
-> | espaços de trabalho / inferênciaEndpoints / implementações | Yes |
 > | espaços de trabalho / linkedServices | No |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance

@@ -3,12 +3,12 @@ title: Mobilizar recursos para o grupo de gestão
 description: Descreve como implantar recursos no âmbito do grupo de gestão num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: 0c5ed8d2427a9e0329db6ebd7f0aa48aa4912a48
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 23f86d7d0b7e1f882cf3fb74adc484e0fe47db87
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284827"
+ms.locfileid: "91372430"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Criar recursos ao nível do grupo de gestão
 
@@ -32,7 +32,7 @@ Para políticas de Azure, utilize:
 * [políticasSetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [remediações](/azure/templates/microsoft.policyinsights/remediations)
 
-Para o controlo de acesso baseado em funções, utilize:
+Para o controlo de acesso baseado em funções Azure (Azure RBAC), utilize:
 
 * [papéAs de assinaturas](/azure/templates/microsoft.authorization/roleassignments)
 * [funçõesDefinitions](/azure/templates/microsoft.authorization/roledefinitions)

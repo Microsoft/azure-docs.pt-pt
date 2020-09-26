@@ -3,12 +3,12 @@ title: Implementar recursos com CLI E modelo Azure
 description: Utilize o Azure Resource Manager e o Azure CLI para mobilizar recursos para a Azure. Os recursos são definidos num modelo do Resource Manager.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 7e8ae7e8c568f5f0ebb85f434e33f142b5fe94e8
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 8d033bb9ad1c841614ee1e48aa7edc6b8fe18550
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566165"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372175"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implementar recursos com modelos ARM e Azure CLI
 
@@ -130,7 +130,7 @@ O exemplo anterior requer um URI acessível ao público para o modelo, que funci
 
 ## <a name="deploy-template-spec"></a>Implementar especificação de modelo
 
-Em vez de implementar um modelo local ou remoto, pode criar uma [especificação de modelo](template-specs.md). A especificação do modelo é um recurso na sua subscrição Azure que contém um modelo ARM. Torna-se fácil partilhar o modelo de forma segura com os utilizadores da sua organização. Você usa o controlo de acesso baseado em funções (RBAC) para conceder acesso à especificação do modelo. Esta funcionalidade encontra-se atualmente em pré-visualização.
+Em vez de implementar um modelo local ou remoto, pode criar uma [especificação de modelo](template-specs.md). A especificação do modelo é um recurso na sua subscrição Azure que contém um modelo ARM. Torna-se fácil partilhar o modelo de forma segura com os utilizadores da sua organização. Você usa o controlo de acesso baseado em funções Azure (Azure RBAC) para conceder acesso à especificação do modelo. Esta funcionalidade encontra-se atualmente em pré-visualização.
 
 Os exemplos a seguir mostram como criar e implementar uma especificação de modelo. Estes comandos só estão disponíveis se se [ter inscrito para a pré-visualização](https://aka.ms/templateSpecOnboarding).
 
@@ -269,7 +269,7 @@ Para implementar um modelo com cordas ou comentários multi-linhas utilizando o 
   ],
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para voltar a uma implementação bem sucedida quando tiver um erro, consulte [o Reversão do erro para uma implementação bem sucedida](rollback-on-error.md).
 - Para especificar como lidar com os recursos que existem no grupo de recursos mas não estão definidos no modelo, consulte os [modos de implementação do Gestor de Recursos Azure](deployment-modes.md).

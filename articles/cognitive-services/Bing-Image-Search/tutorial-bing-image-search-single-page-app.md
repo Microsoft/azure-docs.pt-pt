@@ -10,13 +10,13 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: cc73dcf6376dc5a222b1b68d67e4f02090258807
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: fe4c40e2c5e2b8992598125c376dc0da516e9736
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407868"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316703"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutorial: Criar uma aplicação de página única com a API de Pesquisa de Imagens do Bing
 
@@ -317,7 +317,7 @@ function renderImageResults(items) {
 
 A API de Pesquisa de Imagens do Bing pode devolver quatro tipos de sugestões de pesquisa para ajudar a orientar as experiências de pesquisa dos utilizadores, cada um no seu próprio objeto de nível superior:
 
-| Sugestão         | Descrição                                                                                                                                                                                                         |
+| Sugestão         | Description                                                                                                                                                                                                         |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pivotSuggestions` | Consultas que substituem uma palavra “pivô” na pesquisa original por outra diferente. Por exemplo, se procurar "flores vermelhas", uma palavra pivô poderá ser "vermelhas" e uma sugestão pivô "flores amarelas". |
 | `queryExpansions`  | Consultas que reduzem a consulta original mediante a adição de mais termos. Por exemplo, se procurar "Microsoft Surface", uma expansão da consulta poderá ser "Microsoft Surface Pro".                                   |
@@ -406,11 +406,11 @@ cors-proxy-server
 
 Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Extrair os detalhes da Imagem com a API de Pesquisa de Imagens do Bing](tutorial-image-post.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

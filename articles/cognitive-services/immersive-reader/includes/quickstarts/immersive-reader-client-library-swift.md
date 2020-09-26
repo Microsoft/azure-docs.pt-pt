@@ -6,15 +6,16 @@ services: cognitive-services
 author: nitinme
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: immersive-reader
 ms.topic: include
 ms.date: 09/14/2020
 ms.author: nitinme
-ms.openlocfilehash: 7a298de40264a06e18aa4b7c77abfd622be4bb75
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 967a7d9a78b5edd0c4e5b60545520baef635b340
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90978280"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376701"
 ---
 [O Immersive Reader](https://www.onenote.com/learningtools) é uma ferramenta inclusivamente concebida que implementa técnicas comprovadas para melhorar a compreensão da leitura para novos leitores, aprendizes de línguas e pessoas com diferenças de aprendizagem como a dislexia. Pode utilizar o Leitor Imersivo nas suas aplicações para isolar texto para melhorar o foco, exibir imagens para palavras comumente usadas, destacar partes da fala, ler texto selecionado em voz alta, traduzir palavras e frases em tempo real, e muito mais.
 
