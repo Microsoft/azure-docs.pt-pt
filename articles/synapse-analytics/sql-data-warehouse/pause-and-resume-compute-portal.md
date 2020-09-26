@@ -11,12 +11,12 @@ ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 25f12d038b2a83688c12d95adefef3d4fb39be43
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.openlocfilehash: aa86161bce0b52eb1043d792fb2f4770df0992ee
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214473"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369421"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-via-the-azure-portal"></a>Quickstart: Pausa e retomar o cálculo na piscina Synapse SQL através do portal Azure
 
@@ -26,7 +26,7 @@ Pode utilizar o portal Azure para fazer uma pausa e retomar os recursos de cálc
 
 Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-## <a name="before-you-begin"></a>Antes de começar
+## <a name="before-you-begin"></a>Before you begin
 
 Use [Create and Connect - portal](create-data-warehouse-portal.md) para criar uma piscina SQL chamada **mySampleDataWarehouse**. 
 
@@ -46,10 +46,10 @@ Siga estes passos para fazer uma pausa numa piscina SQL:
     ![Computação online](././media/pause-and-resume-compute-portal/compute-online.png)
 
 4. Para fazer uma pausa na piscina SQL, clique no botão **Pausa.** 
-5. Uma pergunta de confirmação parece perguntar se quer continuar. Clique **em Sim**.
+5. Uma pergunta de confirmação parece perguntar se quer continuar. Clique em **Sim**.
 6. Espere alguns momentos e, em seguida, note que o **Estado** é **pausa.**
 
-    ![A Colocar em Pausa](./media/pause-and-resume-compute-portal/pausing.png)
+    ![A screenshot mostra o portal Azure para um armazém de dados de amostra com um valor de Estado de Pausa.](./media/pause-and-resume-compute-portal/pausing.png)
 
 7. Quando a operação de pausa estiver concluída, o estado é **pausado** e o botão de opção é **Retomar**.
 8. Os recursos de computação para a piscina SQL estão agora offline. Não será cobrado por computação até retomar o serviço.
@@ -68,17 +68,17 @@ Siga estes passos para retomar a piscina SQL.
     ![Compute offline](././media/pause-and-resume-compute-portal/compute-offline.png)
 
 4. Para retomar a piscina SQL, clique em **Currículo**. 
-5. Uma pergunta de confirmação parece perguntar se quer começar. Clique **em Sim**.
+5. Uma pergunta de confirmação parece perguntar se quer começar. Clique em **Sim**.
 6. Note que o **Estado** é **Retomar**.
 
-    ![A retomar](./media/pause-and-resume-compute-portal/resuming.png)
+    ![A screenshot mostra o portal Azure para um armazém de dados de amostra com o botão Iniciar selecionado e um valor de Estado de Resumo.](./media/pause-and-resume-compute-portal/resuming.png)
 
 7. Quando a piscina SQL está novamente on-line, o estado está **online** e o botão de opção é **Pausa**.
 8. Os recursos compute para piscina SQL estão agora on-line e você pode usar o serviço. Os encargos com o cálculo foram retomados.
 
     ![Computação online](././media/pause-and-resume-compute-portal/compute-online.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Está a ser cobrado pelas unidades de armazém de dados e pelos dados armazenados na sua piscina SQL. Estes recursos de computação e armazenamento são faturados em separado. 
 
@@ -89,7 +89,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com)e clique na sua piscina SQL.
 
-    ![Limpar recursos](./media/pause-and-resume-compute-portal/clean-up-resources.png)
+    ![Limpar os recursos](./media/pause-and-resume-compute-portal/clean-up-resources.png)
 
 1. Para interromper a computação, clique no botão **Pausar**. 
 

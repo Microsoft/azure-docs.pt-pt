@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0b7e277518337072659bf5ccddd3436c05ff5201
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 0db39884ef54310db849abcef1062adbaeb9f22e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563816"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91292717"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Construir uma solução de ponta a ponta
 
@@ -85,6 +85,16 @@ Pode verificar os gémeos que foram criados executando o seguinte comando, que c
 ```cmd/sh
 Query
 ```
+
+>[!TIP]
+> Este método simplificado é fornecido no âmbito do projeto _**AdtE2ESample.**_ Fora do contexto deste código de amostra, pode consultar todos os gémeos no seu caso a qualquer momento, utilizando as [APIs de Consulta](how-to-use-apis-sdks.md) ou os [comandos CLI](how-to-use-cli.md).
+>
+> Aqui está o corpo de consulta completa para obter todos os gémeos digitais no seu caso:
+> 
+> ```sql
+> SELECT *
+> FROM DIGITALTWINS
+> ``` 
 
 Depois disto, pode parar de dirigir o projeto. Mantenha a solução aberta no Visual Studio, pois continuará a usá-la durante todo o tutorial.
 
@@ -255,13 +265,13 @@ Em seguida, configuure o simulador do dispositivo para enviar dados para a sua i
 Comece por obter a *cadeia de ligação do hub IoT* com este comando:
 
 ```azurecli
-az iot hub show-connection-string -n <your-IoT-hub-name>
+az iot hub connection-string show -n <your-IoT-hub-name>
 ```
 
 Em seguida, obtenha a *cadeia de ligação* do dispositivo com este comando:
 
 ```azurecli
-az iot hub device-identity show-connection-string --device-id thermostat67 --hub-name <your-IoT-hub-name>
+az iot hub device-identity connection-string show --device-id thermostat67 --hub-name <your-IoT-hub-name>
 ```
 
 Irá ligar estes valores ao código do simulador do dispositivo no seu projeto local para ligar o simulador a este hub IoT e ao dispositivo do hub IoT.
@@ -436,7 +446,7 @@ Aqui está uma revisão do cenário que você construiu neste tutorial.
 
 Se já não necessitar dos recursos criados neste tutorial, siga estes passos para eliminá-los. 
 
-Utilizando o [Azure Cloud Shell,](https://shell.azure.com)pode eliminar todos os recursos Azure num grupo de recursos com o comando de eliminação do [grupo AZ.](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) Isto remove o grupo de recursos; o exemplo das Gémeas Digitais Azure; o hub IoT e o registo do dispositivo do hub; o tópico da grelha de eventos e as subscrições associadas; e a app Azure Functions, incluindo ambas as funções e recursos associados como o armazenamento.
+Utilizando o [Azure Cloud Shell,](https://shell.azure.com)pode eliminar todos os recursos Azure num grupo de recursos com o comando de eliminação do [grupo AZ.](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete) Isto remove o grupo de recursos; o exemplo das Gémeas Digitais Azure; o hub IoT e o registo do dispositivo do hub; o tópico da grelha de eventos e as subscrições associadas; e a app Azure Functions, incluindo ambas as funções e recursos associados como o armazenamento.
 
 > [!IMPORTANT]
 > A eliminação de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos nele contidos são eliminados permanentemente. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. 

@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/03/2019
+ms.date: 09/16/2020
 ms.author: kenwith
-ms.openlocfilehash: 5040fca85857cd131731d67c543c08fb1114ccee
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 666c4e52ed521c169ff80b33e2ab0e83b13e4d03
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235229"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266705"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar o fornecimento de produtos de fornecimento de mapeamentos de atributos para aplicações SaaS no Azure Ative Directory
 
@@ -276,8 +276,8 @@ Utilize os passos abaixo para as funções de provisão para um utilizador à su
 ## <a name="provisioning-a-multi-value-attribute"></a>Provisionamento de um atributo multi-valor
 Certos atributos, como telefoneS, números e e-mails são atributos de vário valor onde poderá ser necessário especificar diferentes tipos de números de telefone ou e-mails. Utilize a expressão abaixo para atributos de vários valores. Permite especificar o tipo de atributo e mapear que para o atributo do utilizador Azure AD correspondente para o valor. 
 
-* phoneNumbers[tipo eq "work"].value
-* números de telefone[tipo eq "mobile"].valor
+* phoneNumbers[type eq "work"].value
+* phoneNumbers[type eq "mobile"].value
 * números de telefone[tipo eq "fax"].valor
 
    ```json
@@ -316,6 +316,7 @@ A seleção desta opção forçará efetivamente a ressincronização de todos o
 - O serviço de prestação de AD Azure não suporta a prestação de valores nulos.
 - A chave primária, tipicamente "ID", não deve ser incluída como um atributo-alvo nos mapeamentos do seu atributo. 
 - O atributo de função normalmente precisa ser mapeado usando uma expressão, em vez de um mapeamento direto. Consulte a secção acima para obter mais detalhes sobre o mapeamento de funções. 
+- Embora possa desativar grupos dos seus mapeamentos, os utilizadores incapacitados não são suportados. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
