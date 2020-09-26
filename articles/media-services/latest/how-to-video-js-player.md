@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 2730c6ce523e618110cd29b13ba2f37115e2cbd0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.custom: devx-track-js
+ms.openlocfilehash: 99e17db99842546b7f595d62f82f8bacb0ee6a8a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267688"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329708"
 ---
 # <a name="how-to-use-the-videojs-player-with-azure-media-services"></a>Como utilizar o jogador Video.js com a Azure Media Services
 

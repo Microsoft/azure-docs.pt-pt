@@ -3,12 +3,12 @@ title: Configurar configurações de arranque automático para um VM em Azure De
 description: Aprenda a configurar configurações de arranque automático para VMs em laboratório. Esta definição permite que os VMs no laboratório sejam automaticamente iniciados num horário.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4ff2a156367b6a65e75b1c8b907da91dc3c88eb9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83e7b0836273a59eaaf66471bd0cb42d63ccf1c3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482790"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328486"
 ---
 # <a name="auto-startup-lab-virtual-machines"></a>Máquinas virtuais de laboratório de startups automáticas  
 A Azure DevTest Labs permite configurar máquinas virtuais no seu laboratório para serem automaticamente iniciadas e encerradas com base num horário. Para obter informações sobre configurar as definições de autoshutdown, consulte [as políticas de autoshutdown para um laboratório em Azure DevTest Labs](devtest-lab-auto-shutdown.md). 
@@ -21,7 +21,7 @@ Este artigo mostra-lhe como configurar a política de arranque automático para 
 1. Navegue para a página inicial para o seu laboratório. 
 2. Selecione **Configuração e políticas** no menu à esquerda. 
 
-    ![Menu de configuração e políticas](./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png)
+    ![Screenshot que mostra o menu "Configuração e políticas" no DevTest Lab.](./media/devtest-lab-auto-startup-vm/configuration-policies-menu.png)
 3. Na página **de Configuração e políticas,** faça os seguintes passos:
     
     1. Selecione **On** for **Allow machines virtuais a ser programado para iniciar automaticamente** para ativar a função de arranque automático para este laboratório. 
@@ -50,5 +50,5 @@ O procedimento a seguir proporciona-lhe passos para optar por um VM na política
 4. Em seguida, **selecione Guarde** na barra de ferramentas para guardar a definição. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre a política de configuração de autoshutdown para um laboratório, consulte [Gerir políticas de autoshutdown para um laboratório em Azure DevTest Labs](devtest-lab-auto-shutdown.md)

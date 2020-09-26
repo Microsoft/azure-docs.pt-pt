@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python
-ms.openlocfilehash: 239fc9de991066ec0603247abafae36a618d534f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b386c058a2795402cc60fddf6c187b57aec2185e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889860"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328399"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implementar um modelo de aprendizagem automática para funções Azure (pré-visualização)
 
@@ -31,7 +31,7 @@ Com a Azure Machine Learning, pode criar imagens Docker a partir de modelos de a
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma área de trabalho do Azure Machine Learning. Para mais informações, consulte o [Artigo Criar um espaço de trabalho.](how-to-manage-workspace.md)
-* O [Azure CLI.](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* O [Azure CLI.](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
 * Um modelo de aprendizagem automática treinado registado no seu espaço de trabalho. Se não tiver um modelo, use o tutorial de [classificação de imagem: modelo de comboio](tutorial-train-models-with-aml.md) para treinar e registar um.
 
     > [!IMPORTANT]

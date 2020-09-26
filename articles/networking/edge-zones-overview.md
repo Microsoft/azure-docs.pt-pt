@@ -7,12 +7,12 @@ ms.service: vnf-manager
 ms.topic: article
 ms.date: 07/07/2020
 ms.author: ganesr
-ms.openlocfilehash: be113fec596d4730d55403b6ce4dbd6d2709e273
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 68aa3342ab09be73a82f4f896ffdff99d15a5350
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260068"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329584"
 ---
 # <a name="about-azure-edge-zone-preview"></a>Sobre a pré-visualização da Zona de Edge Azure
 
@@ -74,7 +74,7 @@ Os casos de uso típico incluem:
 
 As Edge Zones serão oferecidas em parceria com os seguintes operadores:
 
-- AT&T (Atlanta, Dallas e Los Angeles) 
+- AT&T (Atlanta, Dallas e Los Angeles)
 
 Os ISVs que trabalham em aplicações otimizadas e escaláveis ligadas a redes 5G podem agora utilizar a nova localização de pré-visualização de Los Angeles de Azure Edge Zones com AT&T ao construir e experimentar com plataformas de latência ultra-baixas, cenários móveis e conectados. Registe-se para o programa de adoção precoce para tirar partido da conectividade segura e de alta largura de banda.
 
@@ -86,9 +86,9 @@ Os ISVs que trabalham em aplicações otimizadas e escaláveis ligadas a redes 5
 
 Azure Private Edge Zones são extensões de pequena pegada do Azure que são colocadas no local. AZure Private Edge Zone é baseada na plataforma [Azure Stack Edge.](https://azure.microsoft.com/products/azure-stack/edge/) Permite o acesso de baixa latência aos serviços de computação e armazenamento implantados no local. A Private Edge Zone também permite implementar aplicações a partir de ISVs e funções de rede virtualizadas (VNFs) como [aplicações geridas pelo Azure](https://azure.microsoft.com/services/managed-applications/) juntamente com máquinas virtuais e contentores no local. Estes VNFs podem incluir núcleos de pacotes móveis, routers, firewalls e eletrodomésticos SD-WAN. Azure Private Edge Zone vem com uma solução de orquestração nativa em nuvem que permite gerir os ciclos de vida de VNFs e aplicações a partir do portal Azure.
 
-A Azure Private Edge Zone permite-lhe desenvolver e implementar aplicações no local, utilizando as mesmas ferramentas familiares que utiliza para construir e implementar aplicações no Azure. 
+A Azure Private Edge Zone permite-lhe desenvolver e implementar aplicações no local, utilizando as mesmas ferramentas familiares que utiliza para construir e implementar aplicações no Azure.
 
-Também lhe permite: 
+Também lhe permite:
 
 - Executar redes móveis privadas (LTE privado, privado 5G).
 - Implementar funções de segurança como firewalls.
@@ -113,6 +113,7 @@ Dispomos de um rico ecossistema de fornecedores de VNF, ISVs e parceiros MSP par
 ##### <a name="virtualized-evolved-packet-core-vepc-for-mobile-networks"></a><a name="vEPC"></a>Núcleo de Pacote Evoluído Virtualizado (vEPC) para redes móveis
 
 - [Redes Afirmadas](https://www.affirmednetworks.com/)
+- [Celona](https://www.celona.io/azure-edge)
 - [Druid Software](https://www.druidsoftware.com/)
 - [Expeto](https://www.expeto.io/)
 - [Mavenir](https://mavenir.com/)
@@ -121,12 +122,15 @@ Dispomos de um rico ecossistema de fornecedores de VNF, ISVs e parceiros MSP par
 
 ##### <a name="mobile-radio-partners"></a><a name="mobile-radio"></a>Parceiros de rádio móveis
 
+- [Celona](https://www.celona.io/azure-edge)
 - [Commscope Ruckus](https://support.ruckuswireless.com/)
 
 ##### <a name="sd-wan-vendors"></a><a name="sdwan-vendors"></a>Fornecedores SD-WAN
 
+- [128 Technology](https://www.128technology.com/)
 - [NetFoundry](https://netfoundry.io/)
 - [Redes Nuage da Nokia](https://www.nuagenetworks.net/)
+- [Redes Versa](https://www.versa-networks.com/)
 - [VMware SD-WAN by Velocloud](https://www.velocloud.com/)
 
 ##### <a name="router-vendors"></a><a name="router-vendors"></a>Vendedores de routers
@@ -158,10 +162,10 @@ Dispomos de um rico ecossistema de fornecedores de VNF, ISVs e parceiros MSP par
 
 ![Rede móvel privada em Zonas de Borda Privada](./media/edge-zones-overview/mobile-networks.png "Rede móvel privada em Zonas de Borda Privada")
 
-Agora pode implantar uma rede móvel privada em Private Edge Zones. As redes móveis privadas permitem uma latência ultra-baixa, alta capacidade e a rede sem fios fiável e segura que é necessária para aplicações críticas ao negócio. 
+Agora pode implantar uma rede móvel privada em Private Edge Zones. As redes móveis privadas permitem uma latência ultra-baixa, alta capacidade e a rede sem fios fiável e segura que é necessária para aplicações críticas ao negócio.
 
-As redes móveis privadas podem permitir cenários como: 
-- Comando e controlo de veículos guiados automatizados (AGVs) em armazéns. 
+As redes móveis privadas podem permitir cenários como:
+- Comando e controlo de veículos guiados automatizados (AGVs) em armazéns.
 - Comunicação em tempo real entre robôs em fábricas inteligentes.
 - Aplicações de realidade aumentada e realidade virtual.
 
@@ -174,7 +178,7 @@ A Microsoft fornece um ecossistema parceiro que pode ajudar com todos os aspetos
 #### <a name="sd-wan-on-private-edge-zones"></a><a name="sdwan-private-edge"></a>SD-WAN em zonas de borda privada
 
 ![SD-WAN em zonas de borda privada](./media/edge-zones-overview/sd-wan.png "SD-WAN em zonas de borda privada")
- 
+
 A SD-WAN permite criar redes de área de grande qualidade empresarial (WANs) que têm estes benefícios:
 
 - Largura de banda aumentada
@@ -183,7 +187,7 @@ A SD-WAN permite criar redes de área de grande qualidade empresarial (WANs) que
 - Fiabilidade
 - Gestão de políticas
 - Visibilidade extensiva da rede
-    
+
 A SD-WAN fornece conectividade perfeita de filial que é orquestrada a partir de controladores centrais redundantes a menor custo de propriedade.
 O SD-WAN em Private Edge Zones permite-lhe passar de um modelo centrado no capex para um modelo de software-as-a-service (SaaS) para reduzir os orçamentos de TI. Pode utilizar a sua escolha de parceiros SD-WAN, orquestrador ou controlador, para ativar novos serviços e propaga-los em toda a sua rede imediatamente.
 

@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56eee39a9e99e9d6752d1b4f6eb7182043ff14d6
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 168b41534f6ea6055294cc9e9cec139853904fea
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230590"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358904"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instale e utilize as vistas de análise de registo para o Azure Ative Directory
 
@@ -56,7 +56,7 @@ Para utilizar as vistas de análise de registo, precisa de:
 
 3. Selecione qualquer uma destas vistas para saltar para os relatórios individuais. Também pode definir alertas em qualquer um dos parâmetros do relatório. Por exemplo, vamos alertar para cada vez que há um erro de inscrição. Para isso, selecione primeiro a visualização **de Eventos de Início,** selecione **erros de início de sômbro** ao longo do tempo e, em seguida, selecione **Analytics** para abrir a página de detalhes, com a consulta real por trás do relatório. 
 
-    ![Detalhes](./media/howto-install-use-log-analytics-views/details.png)
+    ![A screenshot mostra a página de detalhes do Analytics que tem a consulta para o relatório.](./media/howto-install-use-log-analytics-views/details.png)
 
 
 4. Selecione **'Alerta'** e, em seguida, selecione **Sempre que a pesquisa de registo personalizado estiver &lt; indefinida &gt; ** na secção de **critérios de alerta.** Uma vez que queremos alertar sempre que houver um erro de entrada, descreva o **Limiar** da lógica de alerta predefinido para **1** e, em seguida, selecione **'Fazer' ( 'Fazer').** 

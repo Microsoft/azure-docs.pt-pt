@@ -4,17 +4,19 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 8/27/2020
 ms.author: rgarcia
-ms.openlocfilehash: 8e3f58a5a88495263396c4e915a6363ad065c202
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: efd5ff494620d4fab3fb904d9bcf054b57a3290b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89570179"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358822"
 ---
 ## <a name="android"></a>[Android](#tab/Android)
 
 A amostra de Android Java suporta a partilha através de dispositivos.
 Abra o ficheiro `SharedActivity.java` a partir da pasta de amostras no Android Studio. Introduza o url que obteve no passo anterior (a partir da sua aplicação web ASP.NET Azure) como o valor para `SharingAnchorsServiceUrl` o `SharedActivity.java` ficheiro. Substitua `index.html` o url com `api/anchors` . Devia ser assim: `https://<app_name>.azurewebsites.net/api/anchors` .
+
+[!INCLUDE [Run shared sample](spatial-anchors-deploy-sample.md)]
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
@@ -23,12 +25,16 @@ Abra o ficheiro `SharedActivity.java` a partir da pasta de amostras no Android S
 A amostra objective-C iOS suporta a partilha entre dispositivos.
 Abra o ficheiro `SharedDemoViewController.m` na pasta das amostras. Introduza o url que obteve no passo anterior (a partir da sua aplicação web ASP.NET Azure) como o valor para `SharingAnchorsServiceUrl` o `SharedDemoViewController.m` ficheiro. Substitua `index.html` o url com `api/anchors` . Devia ser assim: `https://<app_name>.azurewebsites.net/api/anchors` .
 
+Implemente a aplicação para o seu dispositivo. Assim que a aplicação começar, escolha a ação Tap para iniciar a opção **Demo Partilhada.** Siga as instruções na aplicação. Pode **selecionar Toque para localizar Anchor pelo seu número de âncora** ou toque para criar âncora e **guardá-lo para o serviço**.
+
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ## <a name="xamarin"></a>[Xamarin](#tab/Xamarin)
 
 Tanto as amostras de Xamarin Android como iOS suportam a partilha em todos os dispositivos.
 Abra o ficheiro `AccountDetails.cs` na pasta das amostras. Introduza o url que obteve no passo anterior (a partir da sua aplicação web ASP.NET Azure) como o valor para `AnchorSharingServiceUrl` o `AccountDetails.cs` ficheiro. Substitua `index.html` o url com `api/anchors` . Devia ser assim: `https://<app_name>.azurewebsites.net/api/anchors` .
+
+[!INCLUDE [Run shared sample](spatial-anchors-deploy-sample.md)]
 
 [!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 

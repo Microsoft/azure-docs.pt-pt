@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: e2cb8ee282666d7a9a567ca04762b26de3b3b9bd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 1725c3ff162e4f6b7ac3a5ea1ede6976c827b510
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89443046"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91328501"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Mover uma instância Azure Digital Twins para uma região de Azure diferente
 
@@ -113,7 +113,7 @@ Em seguida, irá completar o "movimento" do seu caso criando um novo caso na reg
 
 ### <a name="create-a-new-instance"></a>Criar um novo exemplo
 
-Em primeiro lugar, **crie uma nova instância de Azure Digital Twins na sua região alvo.** Para isso, siga os passos em [*Como-a: Configurar um caso e autenticação,*](how-to-set-up-instance-scripted.md)tendo em conta estes ponteiros:
+Em primeiro lugar, **crie uma nova instância de Azure Digital Twins na sua região alvo.** Para isso, siga os passos em [*Como-a: Configurar um caso e autenticação,*](how-to-set-up-instance-portal.md)tendo em conta estes ponteiros:
 * Pode manter o mesmo nome para a nova instância **se** estiver num grupo de recursos diferente. Se precisar de utilizar o mesmo grupo de recursos que contém a sua instância original, então a sua nova instância precisará do seu próprio nome distinto.
 * Insira a nova região alvo quando solicitado para um local.
 * Não **é necessário** recriar o registo da aplicação. A sua nova instância pode reutilizar o mesmo registo de aplicações que já tem.
@@ -168,7 +168,7 @@ O ADT Explorer irá agora enviar os seus modelos e gráficos (incluindo os géme
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Caixa de diálogo indicando o sucesso da importação de gráficos. Diz: Importar bem sucedido. 2 modelos importados. 4 gémeos importados. 2 relações importadas.»" lightbox="media/how-to-move-regions/import-success.png":::
+        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Caixa de diálogo indicando o sucesso da importação de gráficos. Diz: "Importar bem sucedido. 2 modelos importados. 4 gémeos importados. 2 relações importadas.»" lightbox="media/how-to-move-regions/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -178,7 +178,7 @@ O ADT Explorer irá agora enviar os seus modelos e gráficos (incluindo os géme
 
 Para verificar se tudo foi carregado com sucesso, carrememe o botão *'Executar consulta'* na caixa *GRAPH EXPLORER* para executar a consulta predefinida que exibe todos os gémeos e relacionamentos no gráfico. Isto irá também refrescar a lista de modelos no *MODEL VIEW*.
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Destaque em torno do mesmo botão Run Query de antes, perto do topo da janela" lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Destaque em torno do mesmo botão 'Run Query' de antes, perto do topo da janela" lightbox="media/how-to-move-regions/run-query.png":::
 
 Deve ver o seu gráfico com todos os seus gémeos e relacionamentos exibidos na caixa *GRAPH EXPLORER.* Também deverá ver os seus modelos listados na caixa *MODEL VIEW.*
 

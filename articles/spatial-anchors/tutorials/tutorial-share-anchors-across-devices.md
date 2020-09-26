@@ -8,18 +8,18 @@ ms.author: rgarcia
 ms.date: 07/31/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 12a15a2d0cd45207b4adefc7315e48c6d642c0f7
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 8b6c3608165ed592cc2f0daf475226c9d35de012
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810186"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358824"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Tutorial: Partilhar Âncoras Espaciais Azure em sessões e dispositivos
 
 Neste tutorial, você aprenderá a usar [âncoras espaciais Azure](../overview.md) para criar âncoras durante uma sessão e depois localizá-las, no mesmo dispositivo ou em outra. Estas mesmas âncoras também podem ser localizadas por vários dispositivos no mesmo local e ao mesmo tempo.
 
-![Persistência](./media/persistence.gif)
+![A animação mostra âncoras espaciais Azure criadas com um dispositivo móvel e usadas com um dispositivo diferente ao longo dos dias.](./media/persistence.gif)
 
 Azure Spatial Anchors é um serviço de desenvolvedor de plataformas cruzadas que permite criar experiências de realidade mista usando objetos que persistem a sua localização através dos dispositivos ao longo do tempo. Quando terminar, terá uma aplicação que pode ser implantada em dois ou mais dispositivos. Âncoras Espaciais Azure criadas por um exemplo podem ser partilhadas com as outras.
 
