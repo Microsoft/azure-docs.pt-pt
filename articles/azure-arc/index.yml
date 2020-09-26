@@ -10,12 +10,12 @@ metadata:
   author: MGoedtel
   ms.author: magoedte
   ms.date: 09/23/2020
-  ms.openlocfilehash: ea57cbb94a45339c6de58ba1abdaa864ddc43186
-  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+  ms.openlocfilehash: 2ebc8329466df4fba7963a2838c19e2b7a1c539f
+  ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 09/25/2020
-  ms.locfileid: "91317247"
+  ms.locfileid: "91357833"
 highlightedContent:
   items:
   - title: Sobre o Azure Arc
@@ -32,7 +32,7 @@ highlightedContent:
     url: ./data/overview.md
   - title: SQL Server preparado para Azure Arc (pré-visualização)
     itemType: overview
-    url: https://docs.microsoft.com/sql/sql-server/azure-arc/overview
+    url: /sql/sql-server/azure-arc/overview
 productDirectory:
   title: Serviços preparados para o Azure Arc
   summary: Veja como executar serviços em qualquer local.
@@ -48,7 +48,7 @@ productDirectory:
       text: Ligar computadores ao Azure com o PowerShell DSC
     - url: ./servers/index.yml
       text: Ver mais...
-  - title: Kubernetes ativado pelo Azure Arc
+  - title: Kubernetes preparado para o Azure Arc (pré-visualização)
     imageSrc: ./media/01088-icon-arc-kubernetes-menu.svg
     links:
     - url: ./kubernetes/connect-cluster.md
@@ -71,9 +71,9 @@ productDirectory:
   - title: SQL Server preparado para Azure Arc (pré-visualização)
     imageSrc: ./media/01850-icon-arc-sql-server-menu.svg
     links:
-    - url: https://docs.microsoft.com/sql/sql-server/azure-arc/assess
+    - url: /sql/sql-server/azure-arc/assess
       text: Avaliar as suas instâncias do SQL
-    - url: https://docs.microsoft.com/sql/sql-server/azure-arc/overview
+    - url: /sql/sql-server/azure-arc/overview
       text: Ver mais...
 conceptualContent:
   title: Introdução
