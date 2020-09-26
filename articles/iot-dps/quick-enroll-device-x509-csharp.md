@@ -1,5 +1,5 @@
 ---
-title: 'Inscreva o dispositivo X.509 no Serviço de Provisionamento de Dispositivos Azure utilizando C #'
+title: 'Quickstart - Inscreva o dispositivo X.509 no Serviço de Provisionamento de Dispositivos Azure utilizando C #'
 description: Este início rápido utiliza inscrições em grupo. Neste arranque rápido, inscreva os dispositivos X.509 no Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS) utilizando C#.
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 89d98cdf6f635cab3b85462adf5c6695f7c4482e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d8d6c9e2276b2368e09cdb0697a37e34dcf487b5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020937"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330269"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos com C#
 

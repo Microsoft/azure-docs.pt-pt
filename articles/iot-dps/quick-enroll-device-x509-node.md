@@ -1,5 +1,5 @@
 ---
-title: Inscreva dispositivos X.509 no Serviço de Provisionamento de Dispositivos Azure utilizando Node.js
+title: Quickstart - Inscreva dispositivos X.509 no Serviço de Provisionamento de Dispositivos Azure utilizando Node.js
 description: Este início rápido utiliza inscrições em grupo. Neste arranque rápido, irá inscrever dispositivos X.509 no Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS) utilizando o serviço de Node.js SDK
 author: wesmc7777
 ms.author: wesmc
@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 0f6d18aa0ce4576db1618d17d8fb3866101f87b1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: e1a7bb40e952f0437f0f8c168c48dc1d48b8cf94
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424363"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330235"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos com Node.js
 
@@ -146,14 +146,14 @@ Um grupo de inscrição controla o acesso ao serviço de aprovisionamento de dis
 Se planeia explorar as amostras de serviço Node.js, não limpe os recursos criados neste arranque rápido. Se não pretender continuar, utilize os seguintes passos para eliminar todos os recursos Azure criados por este arranque rápido.
  
 1. Feche a janela da saída do exemplo de Node.js no seu computador.
-2. Navegue para o seu serviço de Provisionamento de Dispositivos no portal Azure, **selecione Gerir as inscrições**e, em seguida, selecione o separador **Grupos de Inscrição.** Selecione a caixa de verificação ao lado do *NOME DE GRUPO* para os dispositivos X.509 que inscreveu usando este arranque rápido e prima o botão **Eliminar** na parte superior do painel.    
+2. Navegue para o seu serviço de Provisionamento de Dispositivos no portal Azure, **selecione Gerir as inscrições**e, em seguida, selecione o **separador Grupos de Inscrição.** Selecione a caixa de verificação ao lado do *NOME DE GRUPO* para os dispositivos X.509 que inscreveu com este arranque rápido e pressione o botão **Eliminar** na parte superior do painel.    
 3. A partir do seu serviço de Provisionamento de Dispositivos no portal Azure, selecione **Certificados,** selecione o certificado que carregou para este arranque rápido e pressione o botão **Eliminar** na parte superior da janela Detalhes do **Certificado.**  
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, criou uma inscrição em grupo para um certificado de CA intermédio ou raiz X.509 utilizando o Serviço de Provisionamento de Dispositivos Azure IoT Hub. Para ficar a conhecer aprofundadamente o aprovisionamento de dispositivos, prossiga no tutorial para a configuração do Serviço Aprovisionamento de Dispositivos no portal do Azure. 
 
-Consulte também a [amostra de a provisionamento](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device/samples)do dispositivoNode.js .
+Consulte também a [ amostra de a provisionamento](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device/samples)do dispositivoNode.js .
  
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md) (Tutoriais do Serviço Aprovisionamento de Dispositivos no Hub IoT do Azure)

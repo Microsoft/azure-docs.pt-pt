@@ -1,24 +1,27 @@
 ---
 title: Aprendizagem profunda vs. aprendizagem automática
-titleSuffix: Azure
-description: Saiba como a aprendizagem profunda se relaciona com a aprendizagem automática e a inteligência artificial. A aprendizagem profunda é usada em cenários como deteção de fraude, & reconhecimento facial, análise de sentimentos e previsão de séries de tempo.
+titleSuffix: Azure Machine Learning
+description: Saiba como a aprendizagem profunda se relaciona com a aprendizagem automática e a IA. Em Azure Machine Learning, utilize modelos de aprendizagem profunda para deteção de fraudes, deteção de objetos e muito mais.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 03/05/2020
-ms.openlocfilehash: 177f1992eb0cd93ad871ef3a181460417b1ef523
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/22/2020
+ms.custom: contperfq1
+ms.openlocfilehash: d462ed4627254275703d88cadbaf5d55a106da55
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905141"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330133"
 ---
-# <a name="deep-learning-vs-machine-learning"></a>Aprendizagem profunda vs. aprendizagem automática
+# <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Aprendizagem profunda vs. aprendizagem automática em Azure Machine Learning
 
-Este artigo ajuda a comparar aprendizagem profunda vs. aprendizagem automática. Você vai aprender como os dois conceitos se comparam e como se encaixam na categoria mais ampla de inteligência artificial. O artigo também descreve como a aprendizagem profunda pode ser aplicada a cenários do mundo real, tais como deteção de fraudes, reconhecimento de voz e facial, análise de sentimentos e previsão de séries de tempo.
+Este artigo explica a aprendizagem profunda vs. aprendizagem automática e como se enquadram na categoria mais ampla de inteligência artificial. Saiba mais sobre soluções de aprendizagem profunda que pode construir no Azure Machine Learning, como deteção de fraudes, reconhecimento de voz e facial, análise de sentimentos e previsão de séries de tempo.
+
+Para obter orientações sobre a escolha de algoritmos para as suas soluções, consulte a [Folha de Batota do Algoritmo de Aprendizagem automática.](algorithm-cheat-sheet.md)
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>Aprendizagem profunda, aprendizagem automática e IA
 
@@ -37,7 +40,7 @@ Considere as seguintes definições para compreender a aprendizagem profunda vs.
 
 - **A inteligência artificial (IA)** é uma técnica que permite aos computadores imitar a inteligência humana. Inclui aprendizagem automática. 
  
-É importante entender a relação entre a IA, a aprendizagem automática e a aprendizagem profunda. A aprendizagem automática é uma forma de alcançar a inteligência artificial. Ao utilizar técnicas de aprendizagem automática e aprendizagem profunda, pode construir sistemas e aplicações informáticas que façam tarefas que estão normalmente associadas à inteligência humana. Estas tarefas incluem reconhecimento de imagem, reconhecimento de voz e tradução linguística.
+Ao utilizar técnicas de aprendizagem automática e aprendizagem profunda, pode construir sistemas e aplicações informáticas que façam tarefas que estão normalmente associadas à inteligência humana. Estas tarefas incluem reconhecimento de imagem, reconhecimento de voz e tradução linguística.
 
 ## <a name="techniques-of-deep-learning-vs-machine-learning"></a>Técnicas de aprendizagem profunda vs. aprendizagem automática 
 
@@ -58,7 +61,7 @@ A tabela a seguir compara mais detalhadamente as duas técnicas:
 
 Devido à estrutura artificial da rede neural, a aprendizagem profunda prima pela identificação de padrões em dados não estruturados como imagens, som, vídeo e texto. Por esta razão, a aprendizagem profunda está a transformar rapidamente muitas indústrias, incluindo os cuidados de saúde, a energia, as finanças e os transportes. Estas indústrias estão agora a repensar os processos comerciais tradicionais. 
 
-Algumas das aplicações mais comuns para a aprendizagem profunda são descritas nos parágrafos seguintes.
+Algumas das aplicações mais comuns para a aprendizagem profunda são descritas nos parágrafos seguintes. No Azure Machine Learning, pode utilizar um modelo a partir de si construir a partir de uma estrutura de código aberto ou construir o modelo utilizando as ferramentas fornecidas.
 
 ### <a name="named-entity-recognition"></a>Reconhecimento de entidades nomeadas
 
@@ -69,6 +72,8 @@ O reconhecimento de entidades nomeadas é um método de aprendizagem profunda qu
 A aprendizagem profunda tem sido aplicada em muitos casos de deteção de objetos. A deteção de objetos compreende duas partes: classificação de imagem e, em seguida, localização de imagem. A _classificação da imagem_ identifica os objetos da imagem, como carros ou pessoas. A _localização_ da imagem fornece a localização específica destes objetos. 
 
 A deteção de objetos já é usada em indústrias como jogos, retalho, turismo e carros automobilísticos.
+
+Saiba como utilizar um modelo de classificação de imagem a partir de uma estrutura de código aberto em Azure Machine Learning: [Classifique as imagens utilizando um modelo Pytorch](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>Geração de legendas de imagem
 
@@ -88,6 +93,8 @@ A análise de texto baseada em métodos de aprendizagem profunda envolve analisa
 
 As empresas usam aprendizagem profunda para realizar análises de texto para detetar o trading de insider e o cumprimento dos regulamentos governamentais. Outro exemplo comum é a fraude dos seguros: a análise de textos tem sido frequentemente utilizada para analisar grandes quantidades de documentos para reconhecer as hipóteses de um pedido de seguro ser fraude. 
 
+Saiba como utilizar um modelo TensorFlow em Azure Machine Learning: [Classifique os dígitos manuscritos utilizando um modelo TensorFlow](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+
 ## <a name="artificial-neural-networks"></a>Redes neuronais artificiais
 
 As redes neuronais artificiais são formadas por camadas de nós conectados. Os modelos de aprendizagem profunda usam redes neurais que têm um grande número de camadas. 
@@ -106,18 +113,12 @@ As redes neuronais recorrentes são uma rede neural artificial amplamente utiliz
 
 Uma rede neural convolucional é uma rede neural artificial particularmente eficaz, e apresenta uma arquitetura única. As camadas são organizadas em três dimensões: largura, altura e profundidade. Os neurónios numa camada ligam-se não a todos os neurónios da camada seguinte, mas apenas a uma pequena região dos neurónios da camada. A saída final é reduzida a um único vetor de pontuações de probabilidade, organizadas ao longo da dimensão de profundidade. 
 
-As redes neuronais convolucionais têm sido utilizadas em áreas como o reconhecimento de vídeo, reconhecimento de imagem e sistemas de recomendação.
+As redes neuronais convolucionais têm sido utilizadas em áreas como reconhecimento de vídeo, reconhecimento de imagem e sistemas de recomendação.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Os seguintes artigos mostram-lhe como usar a tecnologia de aprendizagem profunda em [Azure Machine Learning:](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri)
-
-- [Classifique os dígitos manuscritos utilizando um modelo TensorFlow](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+Os seguintes artigos mostram-lhe mais opções para a utilização de modelos de aprendizagem profunda de código aberto em [Azure Machine Learning:](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri)
 
 - [Classifique os dígitos manuscritos utilizando um estimador de TensorFlow e Keras](https://docs.microsoft.com/azure/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
 
-- [Classifique as imagens usando um modelo Pytorch](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
-
 - [Classifique os dígitos manuscritos utilizando um modelo Chainer](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
-
-Além disso, use a [Folha de Batota do Algoritmo de Aprendizagem automática](algorithm-cheat-sheet.md) para escolher algoritmos para o seu modelo.

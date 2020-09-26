@@ -1,6 +1,6 @@
 ---
 title: Use o armazenamento da mesa Azure ou a API de mesa DB da Azure Cosmos de Java
-description: Armazene dados estruturados na cloud com o armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
+description: Armazenar dados estruturados na nuvem utilizando o armazenamento da Tabela Azure ou a API de Mesa DB AZure Cosmos de Java.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: Java
@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-java
-ms.openlocfilehash: e28770bae9f845ae8f5edd3b67bc55175392052a
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: d50f3015be4ce12d5980fde7d039d87ef06da164
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056674"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330473"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Como utilizar o Armazenamento de tabelas do Azure ou a API de Tabelas do Azure Cosmos DB a partir de Java
 
@@ -286,7 +286,7 @@ Algumas coisas a salientar nas operações de lote:
 
 ## <a name="retrieve-all-entities-in-a-partition"></a>Obter todas as entidades numa partição
 
-Para consultar uma tabela para entidades numa divisória, pode utilizar um `TableQuery` . Ligue `TableQuery.from` para criar uma consulta numa tabela específica que devolva um tipo de resultado especificado. O código seguinte especifica um filtro para as entidades em que “Santos” é a chave de partição. `TableQuery.generateFilterCondition`é um método de ajuda para criar filtros para consultas. Solicite `where` a referência devolvida pelo método para aplicar o filtro à `TableQuery.from` consulta. Quando a consulta é executada com uma chamada no `execute` `CloudTable` objeto, retorna um `Iterator` com o tipo de resultado `CustomerEntity` especificado. Em seguida, pode utilizar o `Iterator` devolvido num loop "ForEach" para consumir os resultados. Este código imprime os campos de cada entidade nos resultados da consulta para a consola.
+Para consultar uma tabela para entidades numa divisória, pode utilizar um `TableQuery` . Ligue `TableQuery.from` para criar uma consulta numa tabela específica que devolva um tipo de resultado especificado. O código seguinte especifica um filtro para as entidades em que “Santos” é a chave de partição. `TableQuery.generateFilterCondition` é um método de ajuda para criar filtros para consultas. Solicite `where` a referência devolvida pelo método para aplicar o filtro à `TableQuery.from` consulta. Quando a consulta é executada com uma chamada no `execute` `CloudTable` objeto, retorna um `Iterator` com o tipo de resultado `CustomerEntity` especificado. Em seguida, pode utilizar o `Iterator` devolvido num loop "ForEach" para consumir os resultados. Este código imprime os campos de cada entidade nos resultados da consulta para a consola.
 
 ```java
 try

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 5988a3ca2d44df161a27144d7bfb47ecab1e236e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.custom: devx-track-js
+ms.openlocfilehash: e4be3d4508d342c77507cf824fb036e32084b617
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267314"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91329742"
 ---
 # <a name="how-to-use-the-shaka-player-with-azure-media-services"></a>Como usar o jogador Shaka com a Azure Media Services
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 3e1832d656ea2bad772a686e52a357c1daf0ded5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f75853a66c43c69ec191f28951f8f6ffc4353f93
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883206"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330167"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Quais são os alvos de computação em Azure Machine Learning? 
 
@@ -51,7 +51,7 @@ Um recurso de computação gerido é criado e gerido pela Azure Machine Learning
 Pode criar casos de cálculo de aprendizagem automática Azure ou clusters de cálculo a partir de:
 * [Azure Machine Learning studio](how-to-create-attach-compute-studio.md)
 * Portal do Azure
-* Aulas python SDK [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py&preserve-view=true) e [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true)
+* Aulas python SDK [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance%28class%29?view=azure-ml-py&preserve-view=true) e [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py&preserve-view=true)
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (pré-visualização)
 * Modelo de gestor de recursos. Para um modelo de exemplo, consulte o [modelo de computação de aprendizagem de máquinas Azure.](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute)
 * Extensão de aprendizagem [automática para o Azure CLI](reference-azure-machine-learning-cli.md#resource-management).  
@@ -84,7 +84,9 @@ Consulte a tabela seguinte para saber mais sobre séries e restrições apoiadas
 |------------|------------|
 | D | Nenhum |
 | Dv2 | Nenhum |  
-| DSv2 | Nenhum |  
+| Dv3 | Nenhum|
+| DSv2 | Nenhum | 
+| DSv3 | Nenhum|
 | FSv2 | Nenhum | 
 | HBv2 | Requer aprovação |  
 | HCS | Requer aprovação |  

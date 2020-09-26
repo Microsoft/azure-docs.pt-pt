@@ -3,17 +3,17 @@ title: Diagnosticar e resolver problemas da disponibilidade de Azure Cosmos SDKs
 description: Saiba tudo sobre o comportamento de disponibilidade do Azure Cosmos SDK ao operar em ambientes multi-regionais.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 09/16/2020
+ms.date: 09/24/2020
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 0c717aca88095df05fc7927f3c3d6e2d481925d2
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 8dd7ced2dfcfd3c555555d6f0a197623bd8726f2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708913"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330439"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnosticar e resolver problemas da disponibilidade de Azure Cosmos SDKs em ambientes multi-regionais
 
@@ -24,15 +24,35 @@ Todos os SDKs Azure Cosmos dão-lhe uma opção para personalizar a preferência
 * A [propriedade ConnectionPolicy.PreferredLocations](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations) em .NET V2 SDK.
 * [As Opções CosmosClient.ApplicationRegion](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion) ou [CosmosClientOptions.ApplicationPreferredRegions](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationpreferredregions) propriedades em .NET V3 SDK.
 * O [método CosmosClientBuilder.preferredRegions](/java/api/com.azure.cosmos.cosmosclientbuilder.preferredregions) em Java V4 SDK.
-* O [CosmosClient.preferred_locations](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) parâmetro em Python SDK.
+* O [parâmetro CosmosClient.preferred_locations](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) no Nó SDK.
+* O [parâmetro CosmosClientOptions.ConnectionPolicy.preferredLocations](/javascript/api/@azure/cosmos/connectionpolicy#preferredlocations) em JS SDK.
 
-Para contas de uma única região de escrita, todas as operações de escrita irão sempre para a região de escrita, pelo que a lista de regiões preferenciais é aplicável apenas às operações de leitura. Para várias contas de regiões de escrita, a lista de preferências afeta as operações de leitura e escrita.
+Quando definir a preferência regional, o cliente ligar-se-á a uma região como mencionado no quadro seguinte:
 
-Se não definir uma região preferida, a ordem de preferência regional é definida pela ordem da lista da [região de Azure Cosmos DB](distribute-data-globally.md).
+|Tipo de conta |Leituras |Escritas |
+|------------------------|--|--|
+| Região de escrita única | Região preferida | Região primária  |
+| Múltiplas regiões de escrita | Região preferida | Região preferida  |
 
-Quando ocorre qualquer um dos seguintes cenários, o cliente que utiliza o Azure Cosmos SDK expõe registos e inclui as informações de re-tentar como parte da informação de diagnóstico da **operação**.
+Se não definir uma região preferida:
 
-## <a name="removing-a-region-from-the-account"></a><a id="remove region"></a>Remoção de uma região da conta
+|Tipo de conta |Leituras |Escritas |
+|------------------------|--|--|
+| Região de escrita única | Região primária | Região primária |
+| Múltiplas regiões de escrita | Região primária  | Região primária  |
+
+> [!NOTE]
+> Região primária refere-se à primeira região da lista da região da [conta Azure Cosmos](distribute-data-globally.md)
+
+Quando ocorre qualquer um dos seguintes cenários, o cliente que utiliza o Azure Cosmos SDK expõe registos e inclui as informações de re-operação como parte da informação de diagnóstico da **operação**:
+
+* *O pedidoDiagnosticsString* propriedade sobre respostas em .NET V2 SDK.
+* A propriedade *Diagnostics* sobre respostas e exceções em .NET V3 SDK.
+* O método *getDiagnostics()* sobre respostas e exceções em Java V4 SDK.
+
+Para obter um pormenor exaustivo sobre as garantias de SLA durante estes eventos, consulte as [AEA para obter disponibilidade.](high-availability.md#slas-for-availability)
+
+## <a name="removing-a-region-from-the-account"></a><a id="remove-region"></a>Remoção de uma região da conta
 
 Quando remover uma região de uma conta Azure Cosmos, qualquer cliente SDK que utilize a conta detetará a remoção da região através de um código de resposta de backend. O cliente marca então o ponto final regional como indisponível. O cliente retrigia a operação atual e todas as operações futuras são encaminhadas permanentemente para a região seguinte por ordem de preferência.
 
@@ -40,7 +60,7 @@ Quando remover uma região de uma conta Azure Cosmos, qualquer cliente SDK que u
 
 A cada 5 minutos, o cliente Azure Cosmos SDK lê a configuração da conta e atualiza as regiões que conhece.
 
-Se remover uma região e depois adicioná-la de volta à conta, se a região adicionada tiver uma preferência mais elevada, o SDK voltará a utilizar esta região permanentemente. Após a deteção da região adicional, todos os pedidos futuros são direcionados para ela.
+Se remover uma região e posteriormente adicioná-la de volta à conta, se a região adicionada tiver uma ordem de preferência regional mais elevada na configuração SDK do que a região atual ligada, o SDK voltará a utilizar esta região permanentemente. Após a deteção da região adicional, todos os pedidos futuros são direcionados para ela.
 
 Se configurar o cliente para ligar preferencialmente a uma região que a conta Azure Cosmos não tem, a região preferida é ignorada. Se adicionar essa região mais tarde, o cliente deteta-a e mudará permanentemente para aquela região.
 
@@ -50,7 +70,7 @@ Se iniciar uma falha na atual região de escrita, o próximo pedido de escrita f
 
 ## <a name="regional-outage"></a>Paralisação regional
 
-Se a conta for uma única região de escrita e a paragem regional ocorrer durante uma operação de escrita, o comportamento é semelhante a um [failover manual](#manual-failover-single-region). Para pedidos de leitura ou várias contas de regiões de escrita, o comportamento é semelhante à [remoção de uma região.](#remove region)
+Se a conta for uma única região de escrita e a paragem regional ocorrer durante uma operação de escrita, o comportamento é semelhante a um [failover manual](#manual-failover-single-region). Para pedidos de leitura ou várias contas de regiões de escrita, o comportamento é semelhante à [remoção de uma região.](#remove-region)
 
 ## <a name="session-consistency-guarantees"></a>Garantias de consistência da sessão
 
@@ -64,6 +84,7 @@ Se o utilizador tiver configurado uma lista de regiões preferenciais com mais d
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* Reveja as [Disponibilidades SLAs](high-availability.md#slas-for-availability).
 * Utilize o mais recente [.NET SDK](sql-api-sdk-dotnet-standard.md)
 * Use o mais recente [Java SDK](sql-api-sdk-java-v4.md)
 * Use o mais recente [Python SDK](sql-api-sdk-python.md)
