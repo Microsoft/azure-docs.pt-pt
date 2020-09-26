@@ -2,15 +2,15 @@
 title: Problemas com a Azure Automation Update Management
 description: Este artigo diz como resolver problemas e resolver problemas com a Azure Automation Update Management.
 services: automation
-ms.date: 06/30/2020
+ms.date: 09/25/2020
 ms.topic: conceptual
 ms.service: automation
-ms.openlocfilehash: b0b1e31a8c10ba372473c36e35c19044ef02898a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 26ce59c1d4ec8e3e2bf2096a4688b7639148410f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003359"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359244"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Resolver problemas da Gestão de Atualizações
 
@@ -65,9 +65,9 @@ Quando uma atualização supereduada se tornar 100% não aplicável, deverá alt
 
 1. Na conta Automation, selecione **Update Management** para visualizar o estado da máquina. Consulte [avaliações de atualização de ver.](../update-management/update-mgmt-view-update-assessments.md)
 
-2. Verifique a atualização superedificada para se certificar de que não é 100% aplicável. 
+2. Verifique a atualização superedificada para se certificar de que não é 100% aplicável.
 
-3. Marque a atualização como recusada, a menos que tenha uma pergunta sobre a atualização. 
+3. Marque a atualização como recusada, a menos que tenha uma pergunta sobre a atualização.
 
 4. Selecione **Computadores** e, na coluna **Compliance,** force um rescan para o cumprimento. Ver [Gerir atualizações para VMs](../update-management/update-mgmt-manage-updates-for-vm.md).
 
@@ -112,9 +112,9 @@ Este problema pode ser causado por problemas de configuração locais ou por con
    | summarize by Computer, Solutions
    ```
 
-4. Se não vir a sua máquina nos resultados da consulta, não fez o check-in recentemente. Há provavelmente um problema de configuração local e deve [reinstalar o agente.](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows) 
+4. Se não vir a sua máquina nos resultados da consulta, não fez o check-in recentemente. Há provavelmente um problema de configuração local e deve [reinstalar o agente.](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)
 
-5. Se a sua máquina aparecer nos resultados da consulta, verifique se há problemas de configuração do âmbito. A [configuração](../update-management/update-mgmt-scope-configuration.md) de âmbito determina quais as máquinas configuradas para a Gestão de Atualização. 
+5. Se a sua máquina aparecer nos resultados da consulta, verifique se há problemas de configuração do âmbito. A [configuração](../update-management/update-mgmt-scope-configuration.md) de âmbito determina quais as máquinas configuradas para a Gestão de Atualização.
 
 6. Se a sua máquina estiver a aparecer no seu espaço de trabalho, mas não na Gestão de Atualização, tem de configurar a configuração de âmbito para direcionar a máquina. Para aprender a fazê-lo, consulte [Ativar as máquinas no espaço de trabalho.](../update-management/update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace)
 
@@ -180,7 +180,7 @@ Se a sua subscrição não estiver configurada para o fornecedor de recursos Aut
 
 1. No [portal Azure,](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)aceda à lista de serviços Azure.
 
-2. Selecione **Todos os serviços**e, em seguida, selecione **Subscrições** no grupo de serviço Geral. 
+2. Selecione **Todos os serviços**e, em seguida, selecione **Subscrições** no grupo de serviço Geral.
 
 3. Encontre a subscrição definida no âmbito da sua implementação.
 
@@ -251,7 +251,7 @@ Siga os passos abaixo para saber se as suas consultas estão a funcionar correta
     | project id, location, name, tags
     ```
 
-2. Verifique se as máquinas que procura estão listadas nos resultados da consulta. 
+2. Verifique se as máquinas que procura estão listadas nos resultados da consulta.
 
 3. Se as máquinas não estiverem listadas, há provavelmente um problema com o filtro selecionado no grupo dinâmico. Ajuste a configuração do grupo conforme necessário.
 
@@ -325,7 +325,7 @@ Se estiver a usar uma imagem clonada, diferentes nomes de computador têm a mesm
 
 3. Corra `Restart-Service HealthService` para reiniciar o serviço de saúde. Esta operação recria a chave e gera um novo UUID.
 
-4. Se esta abordagem não funcionar, faça sysprep na imagem primeiro e, em seguida, instale o MMA.
+4. Se esta abordagem não funcionar, executar sysprep na imagem primeiro e, em seguida, instalar o agente Log Analytics para windows.
 
 ## <a name="scenario-you-receive-a-linked-subscription-error-when-you-create-an-update-deployment-for-machines-in-another-azure-tenant"></a><a name="multi-tenant"></a>Cenário: Recebe um erro de subscrição ligado quando cria uma implementação de atualização para máquinas em outro inquilino do Azure
 
@@ -343,7 +343,7 @@ Este erro ocorre quando cria uma implementação de atualização que tem VMs Az
 
 ### <a name="resolution"></a>Resolução
 
-Utilize a seguinte solução para agendar estes itens. Pode utilizar o [cmdlet New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule?view=azps-3.7.0) com o `ForUpdateConfiguration` parâmetro para criar um horário. Em seguida, use o [Cmdlet New-AzAutomationSoftwareConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration?view=azps-3.7.0) e passe as máquinas do outro inquilino para o `NonAzureComputer` parâmetro. O exemplo a seguir mostra como fazê-lo:
+Utilize a seguinte solução para agendar estes itens. Pode utilizar o [cmdlet New-AzAutomationSchedule](/powershell/module/az.automation/new-azautomationschedule) com o `ForUpdateConfiguration` parâmetro para criar um horário. Em seguida, use o [Cmdlet New-AzAutomationSoftwareConfiguration](/powershell/module/Az.Automation/New-AzAutomationSoftwareUpdateConfiguration) e passe as máquinas do outro inquilino para o `NonAzureComputer` parâmetro. O exemplo a seguir mostra como fazê-lo:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -386,24 +386,15 @@ Este erro pode ocorrer por um dos seguintes motivos:
 * A máquina já não existe.
 * A máquina está desligada e inacessível.
 * A máquina tem um problema de conectividade de rede e, portanto, o trabalhador híbrido na máquina é inacessível.
-* Houve uma atualização para o MMA que mudou a identificação do computador de origem.
+* Houve uma atualização para o agente Log Analytics que alterou a identificação do computador de origem.
 * A sua atualização foi acelerada se atingir o limite de 200 postos de trabalho simultâneos numa conta de Automação. Cada implantação é considerada um trabalho, e cada máquina numa atualização conta como um trabalho. Qualquer outra tarefa de automatização ou atualização de implementação atualmente em execução na sua conta de Automação conta para o limite de trabalho simultâneo.
 
 ### <a name="resolution"></a>Resolução
 
 Quando aplicável, utilize [grupos dinâmicos](../update-management/update-mgmt-groups.md) para as suas implementações de atualização. Além disso, pode dar os seguintes passos.
 
-1. Verifique se a máquina ainda existe e está acessível. 
-2. Se a máquina não existir, edite a sua colocação e retire a máquina.
-3. Consulte a secção [de planeamento](../update-management/update-mgmt-overview.md#ports) da rede para obter uma lista de portas e endereços necessários para a Gestão de Atualização e, em seguida, verifique se a sua máquina cumpre estes requisitos.
-4. Verifique a conectividade com o Trabalhador de Runbook Híbrido utilizando o agente híbrido Runbook Worker. Para saber mais sobre o resolução de [problemas, consulte os problemas do agente de atualização troubleshoot](update-agent-issues.md).
-5. Faça a seguinte consulta no Log Analytics para encontrar máquinas no seu ambiente para as quais o ID do computador de origem mudou. Procure computadores com o mesmo `Computer` valor, mas um `SourceComputerId` valor diferente.
-
-   ```kusto
-   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
-   ```
-
-6. Depois de encontrar máquinas afetadas, edite as implementações de atualização que visam essas máquinas e, em seguida, remova-as e leia-as de modo `SourceComputerId` a refletir o valor correto.
+1. Verifique se a sua máquina ou servidor satisfaz os [requisitos.](../update-management/update-mgmt-overview.md#client-requirements)
+2. Verifique a conectividade com o Trabalhador de Runbook Híbrido utilizando o agente híbrido Runbook Worker. Para saber mais sobre o resolução de [problemas, consulte os problemas do agente de atualização troubleshoot](update-agent-issues.md).
 
 ## <a name="scenario-updates-are-installed-without-a-deployment"></a><a name="updates-nodeployment"></a>Cenário: As atualizações são instaladas sem implantação
 
@@ -466,7 +457,7 @@ Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
 
 ### <a name="cause"></a>Causa
 
-Um representante, um portal ou uma firewall podem estar a bloquear a comunicação da rede. 
+Um representante, um portal ou uma firewall podem estar a bloquear a comunicação da rede.
 
 ### <a name="resolution"></a>Resolução
 

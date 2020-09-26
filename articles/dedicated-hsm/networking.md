@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 06cd02177d7d5c478f3378eb05517f1a37297e92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3764b261b491c660da16d7989be20742fead1fbf
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300737"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359159"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Rede HSM dedicada Azure
 
@@ -54,7 +54,7 @@ Para obter mais informações sobre opções de conectividade, consulte [as opç
 > [!NOTE]
 > Neste momento, o ExpressRoute não é uma opção para a ligação aos recursos no local. Note-se também que o Portal ExpressRoute utilizado como acima descrito não se destina a ligações com infraestruturas no local.
 
-### <a name="point-to-site-vpn"></a>VPN Ponto a Site
+### <a name="point-to-site-vpn"></a>VPN ponto-a-local
 
 Uma rede privada virtual de ponto a local é a forma mais simples de ligação segura a um único ponto final no local. Isto pode ser relevante se pretender ter apenas uma estação de trabalho de administração única para HSMs dedicados baseados em Azure.
 
@@ -83,13 +83,13 @@ Para aplicações distribuídas globalmente ou para cenários de falha regional 
 > [!NOTE]
 > O perspitamento global da Vnet não está disponível em cenários de conectividade entre regiões com HSMs dedicados neste momento e o gateway VPN deve ser usado em vez disso. 
 
-![global-vnet](media/networking/global-vnet.png)
+![O diagrama mostra duas regiões ligadas por dois gateways V P N. Cada região contém redes virtuais espreitadas.](media/networking/global-vnet.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Perguntas mais frequentes](faq.md)
 - [Suportabilidade](supportability.md)
-- [Elevada disponibilidade](high-availability.md)
+- [Alta disponibilidade](high-availability.md)
 - [Segurança Física](physical-security.md)
 - [Monitorização](monitoring.md)
 - [Arquitetura de implantação](deployment-architecture.md)

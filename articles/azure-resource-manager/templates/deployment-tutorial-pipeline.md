@@ -4,12 +4,12 @@ description: Aprenda a construir, testar e implementar continuamente modelos de 
 ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c793c8bcbc01cbef99de13ef6dd2f6ce61a50773
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 433811cb632aae0d7370fc8e401c01fe36621a5b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892682"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333242"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integração contínua de modelos do Gestor de Recursos Azure com Pipelines Azure
 
@@ -180,7 +180,7 @@ Para criar um oleoduto com um passo para implementar um modelo:
     * **Modo de implantação**: Selecione **Incremental**.
     * **Nome de implementação**: Enter **DeployPipelineTemplate**. Selecione **Avançado** antes de ver **o nome de Implementação**.
 
-    ![Passo de pipelines Azure DevOps Azure](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
+    ![A screenshot mostra a página de implementação do modelo ARM com os valores necessários introduzidos.](./media/deployment-tutorial-pipeline/resource-manager-template-pipeline-configure.png)
 
 1. Selecione **Adicionar**.
 
@@ -188,7 +188,7 @@ Para criar um oleoduto com um passo para implementar um modelo:
 
     O ficheiro yml deve ser semelhante:
 
-    ![Azure Resource Manager Azure DevOps Azure Pipelines yaml](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
+    ![O Screenshot mostra a página 'Rever' com o novo pipline intitulado Rever o seu pipeline YAML.](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-yml.png)
 
 1. Selecione **Guardar e executar**.
 1. A partir do **painel Save and run,** selecione **Save and run** again. Uma cópia do ficheiro YAML é guardada no repositório ligado. Pode ver o ficheiro YAML navegando no seu repositório.

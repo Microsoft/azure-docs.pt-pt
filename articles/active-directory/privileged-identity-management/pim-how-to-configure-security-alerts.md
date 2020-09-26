@@ -14,12 +14,12 @@ ms.date: 03/05/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 258e05b135195004fec628936bb458ea8f1dc7b1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 98af7725e1929637228c6cadd7ee2dc856bd4e8b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87419993"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331313"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Configure alertas de segurança para funções de Ad Azure em Gestão de Identidade Privilegiada
 
@@ -108,8 +108,8 @@ Esta secção lista todos os alertas de segurança para as funções Azure AD, j
 | **Como consertar?** | Reveja os utilizadores da lista e remova quaisquer que não necessitem absolutamente da função de administrador global. </br>Atribuir papéis privilegiados mais baixos a estes utilizadores. |
 | **Prevenção** | Atribua aos utilizadores o papel menos privilegiado de que necessitam. |
 | **Ação de mitigação no portal** | Retira a conta do seu papel privilegiado. |
-| **Acionador** | Desencadeado se forem cumpridos dois critérios diferentes, pode configurar os dois. Primeiro, tens de atingir um certo limiar de administradores globais. Em segundo lugar, uma certa percentagem das suas atribuições totais de funções devem ser administradores globais. Se apenas encontrar uma destas medições, o alerta não aparece. |
-| **Número mínimo de administradores globais** | Esta definição especifica o número de administradores globais, de 2 a 100, que considera serem poucos para a sua organização AZure AD. |
+| **Acionador** | Desencadeado se forem cumpridos dois critérios diferentes, pode configurar os dois. Primeiro, tens de atingir um determinado limiar de atribuições de funções de administrador global. Em segundo lugar, uma certa percentagem das suas atribuições totais de funções devem ser administradores globais. Se apenas encontrar uma destas medições, o alerta não aparece. |
+| **Número mínimo de administradores globais** | Esta definição especifica o número de atribuições de funções de Administrador Global, de 2 a 100, que considera serem muito poucas para a sua organização AZure AD. |
 | **Percentagem de Administradores Globais** | Esta definição especifica a percentagem mínima de administradores que são administradores globais, de 0% a 100%, abaixo da qual não quer que a sua organização Azure AD diminua. |
 
 ### <a name="roles-are-being-activated-too-frequently"></a>As funções estão a ser ativadas com demasiada frequência.
@@ -125,21 +125,21 @@ Esta secção lista todos os alertas de segurança para as funções Azure AD, j
 | **Prazo de renovação da ativação** | Esta definição especifica em dias, horas, minutos e segundo o período de tempo que pretende utilizar para rastrear renovações suspeitas. |
 | **Número de renovações de ativação** | Esta definição especifica o número de ativações, de 2 a 100, nas quais gostaria de ser notificado, dentro do prazo escolhido. Pode alterar esta definição movendo o slider ou digitando um número na caixa de texto. |
 
-## <a name="configure-security-alert-settings"></a>Configurar configurações de alerta de segurança
+## <a name="customize-security-alert-settings"></a>Personalize as definições de alerta de segurança
 
-A partir da página Alertas, aceda a **Definições**.
+Na página **Alertas,** selecione **Definições**.
 
 ![Página de alertas com Definições em destaque](media/pim-how-to-configure-security-alerts/alert-settings.png)
 
 Personalize as definições nos diferentes alertas para trabalhar com o seu ambiente e objetivos de segurança.
 
-![Definição de página para um alerta para ativar e configurar definições](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
+![Definição de página para um alerta para ativar e configurar definições](media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 # <a name="previous-version"></a>[Versão anterior](#tab/previous)
 
-![Funções AD AD - Alerta de alerta de alerta e a gravidade](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Funções AD AD - Alerta de listagem de painéis e gravidade](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
-## <a name="security-alerts"></a>Alertas de segurança
+## <a name="security-alert-details"></a>Detalhes do alerta de segurança
 
 Esta secção lista todos os alertas de segurança para as funções Azure AD, juntamente com como corrigir e como prevenir. A severidade tem o seguinte significado:
 
@@ -242,6 +242,6 @@ Pode personalizar alguns dos alertas de segurança na Gestão de Identidade Priv
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar definições de papel de AD Azure na Gestão de Identidade Privilegiada](pim-how-to-change-default-settings.md)

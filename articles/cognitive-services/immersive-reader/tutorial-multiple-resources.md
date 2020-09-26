@@ -9,13 +9,13 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: skamal
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 1abd1052c33346d949809d7c35a99ef97bde2c03
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.custom: devx-track-js
+ms.openlocfilehash: eba2b53c20f3b0edb79cc32f3c8fb3d82d5433b8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88516287"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309290"
 ---
 # <a name="tutorial-integrate-multiple-immersive-reader-resources"></a>Tutorial: Integrar múltiplos recursos imersivos do leitor
 

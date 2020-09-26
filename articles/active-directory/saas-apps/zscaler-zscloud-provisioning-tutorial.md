@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 5e8571da46ca188e975119c387fa4ee0695c4fde
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0454ffc1ed68056b2aedc10a6e904a9a934ab223
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545715"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333505"
 ---
 # <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>Tutorial: Configurar Zscaler ZSCloud para fornecimento automático de utilizadores
 
@@ -120,7 +120,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 11. Reveja os atributos do utilizador que são sincronizados de Azure AD a Zscaler ZSCloud na secção **De Mapeamentos de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador no Zscaler ZSCloud para operações de atualização. **Selecione Guardar** para escoar quaisquer alterações.
 
-    ![Atribuir Mapeamentos](./media/zscaler-zscloud-provisioning-tutorial/userattributemappings.png)
+    ![Screenshot da secção De mapeamentos de atributos com sete mapeamentos exibidos.](./media/zscaler-zscloud-provisioning-tutorial/userattributemappings.png)
 
 12. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups para ZscalerZSCloud**:
 
@@ -128,7 +128,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 13. Reveja os atributos do grupo que são sincronizados de Azure AD a Zscaler ZSCloud na secção **De Mapeamentos de Atributos.** Os atributos selecionados como propriedades **de correspondência** são usados para combinar com os grupos no Zscaler ZSCloud para operações de atualização. **Selecione Guardar** para escoar quaisquer alterações.
 
-    ![Atribuir Mapeamentos](./media/zscaler-zscloud-provisioning-tutorial/groupattributemappings.png)
+    ![Screenshot da secção De mapeamentos de atributos com três mapeamentos exibidos.](./media/zscaler-zscloud-provisioning-tutorial/groupattributemappings.png)
 
 14. Para configurar filtros de deteção, consulte as instruções no tutorial do [filtro de escotagem](./../active-directory-saas-scoping-filters.md).
 
@@ -155,7 +155,7 @@ Para obter informações sobre como ler os registos de provisionamento da AZure 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../active-directory-saas-provisioning-reporting.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-zscloud-provisioning-tutorial/tutorial-general-01.png

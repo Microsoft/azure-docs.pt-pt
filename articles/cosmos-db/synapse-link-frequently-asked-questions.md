@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: b52c493a700cd258e1458b0127aa19cebc714822
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: b5bf29969f8b6d54215e2b2f1a2d0b1587faad6f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891609"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332190"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas mais frequentes sobre o Azure Synapse Link para o Azure Cosmos DB
 
@@ -82,7 +82,7 @@ A loja analítica é uma loja só de leitura num contentor Azure Cosmos. Assim, 
 
 ### <a name="is-the-autosync-replication-from-transactional-store-to-the-analytical-store-asynchronous-or-synchronous-and-what-are-the-latencies"></a>A replicação autossícola da loja transacional para a loja analítica assíncronus ou sincronizadas e quais são as latências?
 
-A replicação é assíncronea, e atualmente a latência esperada é de cerca de 2 min.
+A latência de sincronização automática é geralmente dentro de 2 minutos. Em caso de base de dados de produção partilhada com um grande número de contentores, a latência auto-sincronizada de contentores individuais pode ser maior e demorar até 5 minutos. Gostaríamos de saber mais como esta latência se encaixa nos seus cenários. Para isso, por favor contacte a equipa DB da [Azure Cosmos.](mailto:cosmosdbsynapselink@microsoft.com)
 
 ### <a name="are-there-any-scenarios-where-the-items-from-the-transactional-store-are-not-automatically-propagated-to-the-analytical-store"></a>Existem cenários em que os itens da loja transacional não sejam automaticamente propagados à loja analítica?
 
