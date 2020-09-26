@@ -3,12 +3,12 @@ title: Aprenda Azure Policy para Kubernetes
 description: Saiba como a Azure Policy usa o Rego e o Open Policy Agent para gerir clusters que executam Kubernetes em Azure ou no local.
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: dbe7257b577f0526e0d34c13e0102305e58cc656
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bb4345426eddb8b0b5250980eb46cf0509a22cff
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322466"
+ms.locfileid: "91369999"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Compreender o Azure Policy para clusters do Kubernetes
 
@@ -85,9 +85,6 @@ A seguinte recomendação aplica-se apenas à AKS e ao Addon da Política Azure:
 ## <a name="install-azure-policy-add-on-for-aks"></a>Instale add-on de política Azure para AKS
 
 Antes de instalar o Add-on de Política Azure ou permitir qualquer uma das funcionalidades de serviço, a sua subscrição deve ativar os fornecedores de recursos **Microsoft.ContainerService** e **Microsoft.PolicyInsights.**
-
-> [!IMPORTANT]
-> A disponibilidade geral (GA) da Política Azure sobre a AKS está a libertar ativamente todas as regiões. A conclusão global prevista do lançamento da AG é 29/9/2020. A utilização em regiões sem a libertação de GA requer medidas de pré-visualização. No entanto, esta será automaticamente atualizada para o lançamento de GA quando disponível na região.
 
 1. Precisa da versão Azure CLI 2.12.0 ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 

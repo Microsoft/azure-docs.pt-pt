@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: b6d6838779d4f219a8ce10b2cf3ae6cd620762a3
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 1d651f3136b096eae957f0271e33cd11b1fb5571
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869818"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317859"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Azure Stream Analytics divisória de saída de bolha personalizada
 
@@ -25,7 +25,7 @@ Os atributos de campo ou de entrada personalizados melhoram os fluxos de trabalh
 
 ### <a name="partition-key-options"></a>Opções-chave de partição
 
-A chave de partição, ou nome da coluna, usado para os dados de entrada de partição pode conter caracteres alfanuméricos com hífens, sublinhados e espaços. Não é possível utilizar campos aninhados como chave de partição, a menos que seja utilizado em conjunto com pseudónimos. A chave de partição deve ser NVARCHAR(MAX).
+A chave de partição, ou nome da coluna, usado para os dados de entrada de partição pode conter caracteres alfanuméricos com hífens, sublinhados e espaços. Não é possível utilizar campos aninhados como chave de partição, a menos que seja utilizado em conjunto com pseudónimos. A tecla de partição deve ser NVARCHAR(MAX), BIGINT, FLOAT ou BIT (nível de compatibilidade de 1,2 ou superior). Para obter mais informações, consulte os [tipos de dados Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
 
 ### <a name="example"></a>Exemplo
 
@@ -71,7 +71,7 @@ Os padrões de trajetória personalizados do DateTime permitem especificar um fo
 
 Os seguintes tokens especificadores de formato podem ser usados sozinhos ou em combinação para obter formatos datatime personalizados:
 
-|Especificador de formato   |Descrição   |Resultados no horário de exemplo 2018-01-02T10:06:08|
+|Especificador de formato   |Description   |Resultados no horário de exemplo 2018-01-02T10:06:08|
 |----------|-----------|------------|
 |{datatime:yyyy}|O ano como um número de quatro dígitos|2018|
 |{datatime:MM}|Mês de 01 a 12|01|

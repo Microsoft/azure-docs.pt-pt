@@ -3,12 +3,12 @@ title: Modelos de ligação para implantação
 description: Descreve como usar modelos ligados num modelo de Gestor de Recursos Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um ficheiro de parâmetros e URLs criados dinamicamente.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: f1fe07faeaddae3367fb1f8b4a37f7b0630b6e83
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: fb742ed4fabd6630d2d27f5876719e2e2b1a9a4d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89535563"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369319"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar modelos ligados e aninhados ao implementar recursos do Azure
 
@@ -369,7 +369,7 @@ Não é possível utilizar os parâmetros inline e um link para um ficheiro de p
 
 ## <a name="template-specs"></a>Especificações de modelo
 
-Em vez de manter os seus modelos ligados num ponto final acessível, pode criar uma [especificação de modelo](template-specs.md) que embala o modelo principal e os seus modelos ligados numa única entidade que pode implementar. A especificação do modelo é um recurso na sua subscrição Azure. Torna-se fácil partilhar o modelo de forma segura com os utilizadores da sua organização. Você usa o controlo de acesso baseado em funções (RBAC) para conceder acesso à especificação do modelo. Esta funcionalidade encontra-se atualmente em pré-visualização.
+Em vez de manter os seus modelos ligados num ponto final acessível, pode criar uma [especificação de modelo](template-specs.md) que embala o modelo principal e os seus modelos ligados numa única entidade que pode implementar. A especificação do modelo é um recurso na sua subscrição Azure. Torna-se fácil partilhar o modelo de forma segura com os utilizadores da sua organização. Você usa o controlo de acesso baseado em funções Azure (Azure RBAC) para conceder acesso à especificação do modelo. Esta funcionalidade encontra-se atualmente em pré-visualização.
 
 Para obter mais informações, consulte:
 
@@ -731,7 +731,7 @@ O ficheiro de parâmetros também pode ser limitado ao acesso através de um tok
 Atualmente, não é possível ligar-se a um modelo numa conta de armazenamento que está por detrás de uma [firewall de armazenamento Azure](../../storage/common/storage-network-security.md).
 
 > [!IMPORTANT]
-> Em vez de garantir o seu modelo ligado com um token SAS, considere criar uma [especificação de modelo](template-specs.md). A especificação do modelo armazena de forma segura o modelo principal e os seus modelos ligados como um recurso na sua subscrição Azure. Você usa o RBAC para conceder acesso aos utilizadores que precisam de implementar o modelo.
+> Em vez de garantir o seu modelo ligado com um token SAS, considere criar uma [especificação de modelo](template-specs.md). A especificação do modelo armazena de forma segura o modelo principal e os seus modelos ligados como um recurso na sua subscrição Azure. Você usa O RBAC Azure para conceder acesso aos utilizadores que precisam de implementar o modelo.
 
 O exemplo a seguir mostra como passar um token SAS ao ligar a um modelo:
 
@@ -799,13 +799,13 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 
 Os exemplos a seguir mostram utilizações comuns de modelos ligados.
 
-|Modelo principal  |Modelo ligado |Descrição  |
+|Modelo principal  |Modelo ligado |Description  |
 |---------|---------| ---------|
-|[Olá Mundo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Retorna a corda do modelo ligado. |
+|[Olá, mundo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Retorna a corda do modelo ligado. |
 |[Balanceador de carga com endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Devolve o endereço IP público do modelo ligado e define esse valor no equilibrador de carga. |
 |[Vários endereços IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Cria vários endereços IP públicos em modelo ligado.  |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para passar por um tutorial, consulte [Tutorial: crie modelos ligados do Gestor de Recursos Azure](./deployment-tutorial-linked-template.md).
 * Para saber mais sobre a definição da ordem de implantação dos seus recursos, consulte [definindo dependências nos modelos do Gestor de Recursos Azure](define-resource-dependency.md).

@@ -16,12 +16,12 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbc9e5a9187f9ef16ea03cfa6c97e438c2b26c99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77271679306b0fbde10c748afc7535f3ad3d0945
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807609"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317570"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>Resolver problemas da sincronização hash de palavras-passe com a sincronização do Azure AD Connect
 
@@ -120,7 +120,7 @@ Cada conector ative directory tem o seu próprio canal de sincronização de has
 
 Se a conta DS AD que é utilizada pelo conector Ative Directory para sincronizar hashes de palavra-passe não tiver as permissões adequadas, o seguinte erro é devolvido:
 
-![Credencial incorreta](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
+![Screenshot que mostra o erro que é devolvido quando a conta DS AD tem um nome de utilizador ou senha incorreto.](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
 
 #### <a name="incorrect-ad-ds-account-username-or-password"></a>Nome de utilizador ou palavra-passe de conta DS AD incorreto
 
@@ -338,11 +338,11 @@ Pode resolver facilmente problemas com problemas de sincronização de haxixe de
 
     i. Clique **em Metaverse Object Properties** para apresentar uma lista de atributos do utilizador.  
 
-    ![Informação metaversa](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
+    ![Screenshot que mostra a lista de atributos do utilizador para as Propriedades do Objeto Metaverso.](./media/tshoot-connect-password-hash-synchronization/mvpasswordsync.png)  
 
     Verifique se não existe nenhum atributo **cloudFiltered** presente. Certifique-se de que os atributos de domínio (domainFQDN e domainNetBios) têm os valores esperados.
 
-    j. Clique no **separador Conectores.** Certifique-se de que vê conectores tanto no local como no Ad AD.
+    j. Clique no **separador Conectores.** Certifique-se de que vê conectores tanto no local como no Ad AZure.
 
     ![Informação metaversa](./media/tshoot-connect-password-hash-synchronization/mvconnectors.png)  
 
@@ -356,7 +356,7 @@ A coluna de estado pode ter os seguintes valores:
 
 | Estado | Descrição |
 | --- | --- |
-| Êxito |A palavra-passe foi sincronizada com sucesso. |
+| Success |A palavra-passe foi sincronizada com sucesso. |
 | FiltradoByTarget |A palavra-passe está definida para **O Utilizador tem de alterar a palavra-passe no próximo início de sê-lo.** A palavra-passe não foi sincronizada. |
 | NoTargetConnection |Nenhum objeto no metaverso ou no espaço do conector Azure AD. |
 | SourceConnectorNotPresent |Nenhum objeto encontrado no espaço do conector Ative Directory. |
@@ -445,7 +445,7 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConnector $aadConnector -Enable $true
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Implementação de sincronização de hash de palavra-passe com sincronização Azure AD Connect](how-to-connect-password-hash-synchronization.md)
 * [Azure AD Connect Sync: Personalizar opções de sincronização](how-to-connect-sync-whatis.md)

@@ -1,17 +1,17 @@
 ---
 title: Microsoft Threat Modeling Tool release 07/29/2020 - Azure
-description: Documentando as notas de lançamento para a ferramenta de modelação de ameaças
+description: Documentando as notas de lançamento para a versão da ferramenta de modelação de ameaças 7.3.00729.1.
 author: jegeib
 ms.author: jegeib
 ms.service: security
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: 47ffe753d661bb8c9a181148ea235b2a0eb54400
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: fc343f292fa32ed2db67dd74aba7a66dbc00d6ab
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87839877"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317842"
 ---
 # <a name="threat-modeling-tool-update-release-73007291---07292020"></a>Lançamento da atualização da ferramenta de modelação de ameaças 7.3.00729.1 - 07/29/2020
 

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: cf74322725c6e86ee455f83aadc4aade07000835
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 7a4e6d80d80441a1b94c1fb2bd8f82f247235fe3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057675"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318097"
 ---
 # <a name="create-an-azure-remote-rendering-account"></a>Criar uma conta do Azure Remote Rendering
 
@@ -83,7 +83,7 @@ Agora presume-se que tem uma conta de armazenamento. Navegue para a conta de arm
 
  Clique no botão **Adicionar** no azulejo "Adicionar uma tarefa de função" para adicionar a primeira função:
 
-![Conta de armazenamento IAM](./media/azure-add-role-assignment.png)
+![IAM de conta de armazenamento adicionar atribuição de função](./media/azure-add-role-assignment.png)
 
 * A primeira função a atribuir é **o Proprietário,** como mostrado na imagem acima.
 * Selecione **Conta de Renderização Remota** a partir do acesso de Atribuição **ao** dropdown.
@@ -95,13 +95,15 @@ Agora presume-se que tem uma conta de armazenamento. Navegue para a conta de arm
 Repita a adição de novas funções mais duas vezes para as respetivas seleções da queda do **papel:**
 
 * **Contribuidor de Conta de Armazenamento**
-* **Colaborador de dados blob de armazenamento**
+* **Contribuinte de Dados do Armazenamento de Blobs**
 
 As outras descidas são selecionadas como no primeiro passo.
 
 Se adicionou as três funções, a sua conta de Renderização Remota Azure tem acesso à sua conta de armazenamento utilizando identidades de serviço gerido atribuídos pelo sistema.
+> [!IMPORTANT]
+> As atribuições de funções Azure são armazenadas pelo Azure Storage, pelo que pode haver um atraso de até 30 minutos entre quando concede acesso à sua conta de renderização remota e quando pode ser usada para aceder à sua conta de armazenamento. Consulte a documentação de [controlo de acesso à base da função](https://docs.microsoft.com/azure/role-based-access-control/troubleshooting#role-assignment-changes-are-not-being-detected) para obter mais detalhes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Autenticação](authentication.md)
 * [Utilização das APIs frontendas Azure para autenticação](frontend-apis.md)

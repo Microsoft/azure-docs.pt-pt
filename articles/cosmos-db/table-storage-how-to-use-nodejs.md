@@ -1,6 +1,6 @@
 ---
 title: Utilize o armazenamento da mesa Azure ou a API da tabela Azure Cosmos dB a partir de Node.js
-description: Armazene dados estruturados na cloud com o armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
+description: Armazenar dados estruturados na nuvem utilizando o armazenamento da Tabela Azure ou a API da Tabela DB Azure Cosmos a partir de Node.js.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: nodejs
@@ -8,13 +8,13 @@ ms.topic: sample
 ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
-ms.custom: devx-track-javascript
-ms.openlocfilehash: cfcb5645a6284214e233758705537486f32967c6
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-js
+ms.openlocfilehash: 6ce4354faec73f8fe42a936e677bee473796701d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079302"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318777"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Como utilizar o Armazenamento de tabelas do Azure ou a API de Tabelas do Azure Cosmos DB a partir de Node.js
 
@@ -192,10 +192,10 @@ Resposta de exemplo:
 
 Existem vários métodos disponíveis para atualizar uma entidade existente:
 
-* `replaceEntity`- Atualiza uma entidade existente substituindo-a.
-* `mergeEntity`- Atualiza uma entidade existente através da fusão de novos valores imobiliários na entidade existente.
-* `insertOrReplaceEntity`- Atualiza uma entidade existente substituindo-a. Se não existir nenhuma entidade, será inserida uma nova.
-* `insertOrMergeEntity`- Atualiza uma entidade existente através da fusão de novos valores imobiliários no existente. Se não existir nenhuma entidade, será inserida uma nova.
+* `replaceEntity` - Atualiza uma entidade existente substituindo-a.
+* `mergeEntity` - Atualiza uma entidade existente através da fusão de novos valores imobiliários na entidade existente.
+* `insertOrReplaceEntity` - Atualiza uma entidade existente substituindo-a. Se não existir nenhuma entidade, será inserida uma nova.
+* `insertOrMergeEntity` - Atualiza uma entidade existente através da fusão de novos valores imobiliários no existente. Se não existir nenhuma entidade, será inserida uma nova.
 
 O exemplo a seguir demonstra a atualização de uma entidade que `replaceEntity` utiliza:
 
@@ -477,7 +477,7 @@ Depois de definir a ACL, pode criar uma SAS com base no ID de uma política. O e
 tableSAS = tableSvc.generateSharedAccessSignature('hometasks', { Id: 'user2' });
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte os seguintes recursos.
 

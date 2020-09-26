@@ -3,12 +3,12 @@ title: Suporte para avaliação de Hiper-V em Azure Migrate
 description: Saiba mais sobre o suporte para avaliação de Hiper-V com avaliação do servidor Azure Migrate
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 3d55d71fc4e9551fa19afe8c3f37d31107e4d2e7
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 16eeb0822a8d598c74ab5118fbd39bda84186db0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641828"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318182"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação de Hiper-V
 
@@ -23,7 +23,7 @@ Para configurar a avaliação do Hiper-V VM, cria um projeto Azure Migrate e adi
 --- | ---
 **Limites de avaliação** | Você pode descobrir e avaliar até 35.000 VMs Hiper-V em um único [projeto Azure Migrate](migrate-support-matrix.md#azure-migrate-projects).
 **Limites do projeto** | Pode criar vários projetos numa subscrição do Azure. Além dos VMs Hiper-V, um projeto pode incluir VMware VMs e servidores físicos, até os limites de avaliação para cada um.
-**Deteção** | O aparelho Azure Migrate pode descobrir até 5000 VMs Hiper-V.<br/><br/> O aparelho pode ligar até 300 anfitriões Hiper-V.
+**Descoberta** | O aparelho Azure Migrate pode descobrir até 5000 VMs Hiper-V.<br/><br/> O aparelho pode ligar até 300 anfitriões Hiper-V.
 **Avaliação** | Pode adicionar até 35.000 máquinas num único grupo.<br/><br/> Pode avaliar até 35.000 VMs numa única avaliação para um grupo.
 
 [Saiba mais](concepts-assessment-calculation.md) sobre avaliações.
@@ -46,7 +46,7 @@ Para configurar a avaliação do Hiper-V VM, cria um projeto Azure Migrate e adi
 | :----------------------------- | :------------------- |
 | **Sistema operativo** | Todos os sistemas operativos podem ser avaliados para migração.  |
 | **Serviços de Integração**       | [Os Serviços de Integração Hiper-V](/virtualization/hyper-v-on-windows/reference/integration-services) devem estar a funcionar em VMs que você avaliar, a fim de capturar informações do sistema operativo. |
-
+| **Armazenamento** | Disco local, DAS, JBOD, Espaços de Armazenamento, CSV, SMB. Estes armazenamentos do anfitrião Hyper-V nos quais o VHD/VHDX está armazenado são suportados. <br/> Os controladores virtuais IDE e SCSI são suportados| 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos de aplicação do Azure Migrate
 

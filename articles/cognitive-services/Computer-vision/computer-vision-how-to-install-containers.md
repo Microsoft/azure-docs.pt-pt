@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 310a7578fe9d3af8c4600968178cb677658feaa6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 326d3a4783b058855d86e17198cbe8d7492feba2
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254334"
+ms.locfileid: "91370645"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Instalar e executar Recipientes de leitura (pré-visualização)
 
@@ -172,11 +172,11 @@ O contentor fornece APIs de ponto final de predição de consulta com base em RE
 
 # <a name="version-31-preview"></a>[Versão 3.1-pré-visualização](#tab/version-3-1)
 
-Utilize o anfitrião, `http://localhost:5000`, para APIs de contentor. Pode ver o caminho de Swagger em: `http://localhost:5000/swagger/vision-v3.0-preview-read/swagger.json` .
+Utilize o anfitrião, `http://localhost:5000`, para APIs de contentor. Pode ver o caminho de Swagger em: `http://localhost:5000/swagger/vision-v3.1-preview-read/swagger.json` .
 
 # <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
-Utilize o anfitrião, `http://localhost:5000`, para APIs de contentor. Pode ver o caminho de Swagger em: `http://localhost:5000/swagger/vision-v3.1-preview-read/swagger.json` .
+Utilize o anfitrião, `http://localhost:5000`, para APIs de contentor. Pode ver o caminho de Swagger em: `http://localhost:5000/swagger/vision-v3.0-preview-read/swagger.json` .
 
 ---
 

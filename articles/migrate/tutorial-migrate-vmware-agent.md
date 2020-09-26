@@ -4,12 +4,12 @@ description: Aprenda a executar uma migração baseada em agentes de VMware VMs 
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: bf33c61783b6d7399cd880f53009033a97625bca
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: f437c0f3b9f786863d3b58f10d1a7384b0f1e8ba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378853"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296149"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrar VMware VMs para Azure (baseado em agente)
 
@@ -27,7 +27,7 @@ Este artigo mostra-lhe como migrar vMware VMs para Azure, utilizando a ferrament
 > * Fazer uma migração completa para Azure.
 
 > [!NOTE]
-> Os tutoriais mostram-lhe o caminho de implantação mais simples para um cenário para que possa configurar rapidamente uma prova de conceito. Os tutoriais usam opções padrão sempre que possível e não mostram todas as definições e caminhos possíveis. 
+> Os tutoriais mostram-lhe o caminho de implantação mais simples para um cenário para que possa configurar rapidamente uma prova de conceito. Os tutoriais utilizam opções predefinidas sempre que possível e não mostram todas as definições e caminhos possíveis. 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
@@ -42,7 +42,7 @@ Complete as tarefas na tabela para preparar o Azure para a migração baseada em
 
 **Tarefa** | **Detalhes**
 --- | ---
-**Criar um projeto Azure Migrate** | A sua conta Azure necessita de permissões de Colaborador ou Proprietário para criar um projeto.
+**Criar um projeto do Azure Migrate** | A sua conta Azure necessita de permissões de Colaborador ou Proprietário para criar um projeto.
 **Verifique permissões da conta Azure** | A sua conta Azure necessita de permissões para criar um VM e escrever para um disco gerido pelo Azure.
 **Criar uma rede Azure** | Crie uma rede que os VMs da Azure se juntem após a migração.
 
@@ -50,12 +50,12 @@ Complete as tarefas na tabela para preparar o Azure para a migração baseada em
 Se não tiver um projeto Azure Migrate, verifique as permissões para criar um.
 
 
-1. No portal Azure, abra a subscrição e selecione **Access control (IAM)**.
+1. No portal do Azure, abra a subscrição e selecione **Controlo de acesso (IAM)** .
 2. No **Acesso ao Cheque,** encontre a conta relevante e clique nela para ver permissões.
 3. Verifique se tem permissões **de Colaborador** ou **Proprietário.**
 
-    - Se acabou de criar uma conta Azure gratuita, é o proprietário da sua subscrição.
-    - Se não é o proprietário da subscrição, trabalhe com o proprietário para atribuir o papel.
+    - Se acabou de criar uma conta gratuita do Azure, é o proprietário da sua subscrição.
+    - Se não for o proprietário da subscrição, trabalhe com o proprietário para atribuir a função.
     
 ### <a name="assign-azure-account-permissions"></a>Atribuir permissões de conta Azure
 
@@ -150,13 +150,13 @@ Se tiver um projeto, adicione a ferramenta da seguinte forma:
 3. Em **Descrição geral**, clique em **Avaliar e migrar servidores**.
 4. No **âmbito do Discover, avaliar e migrar servidores,** clique em **Avaliar e migrar servidores**.
 
-    ![Descubra e avalie servidores](./media/tutorial-migrate-vmware-agent/assess-migrate.png)
+    ![Detetar e avaliar servidores](./media/tutorial-migrate-vmware-agent/assess-migrate.png)
 
 1. Em **Detetar, avaliar e migrar servidores**, clique em **Adicionar ferramentas**.
 2. Em **Migrar projeto**, selecione a sua subscrição do Azure e crie um grupo de recursos, caso não tenha um.
 3. Em **Detalhes do Projeto**, especifique o nome do projeto e a geografia na qual pretende criar o projeto e clique em **Seguinte**. Reveja geografias apoiadas para nuvens [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais.](migrate-support-matrix.md#supported-geographies-azure-government)
 
-    ![Criar um projeto Azure Migrate](./media/tutorial-migrate-vmware-agent/migrate-project.png)
+    ![Criar um projeto do Azure Migrate](./media/tutorial-migrate-vmware-agent/migrate-project.png)
 
 
 4. Em **Selecionar ferramenta de avaliação**, selecione **Ignorar a adição de uma ferramenta de avaliação por enquanto** > **Seguinte**.
@@ -251,7 +251,7 @@ Selecione VMs para migração.
 
 1. No projeto Azure Migrate > **Servers**, **Azure Migrate: Server Migration**, clique em **Replicar**.
 
-    ![Replicar VMs](./media/tutorial-migrate-vmware-agent/select-replicate.png)
+    ![Screenshot do ecrã dos Servidores em Azure Migrate. O botão Replicar é selecionado em Azure Migrate: Migração de servidores sob ferramentas de migração.](./media/tutorial-migrate-vmware-agent/select-replicate.png)
 
 2. Em **Replicar**, **Definições de origem** > **Os computadores estão virtualizados?**, selecione **Sim, com o VMware vSphere**.
 3. No **aparelho no local,** selecione o nome do aparelho Azure Migrate que instalou.
@@ -259,7 +259,7 @@ Selecione VMs para migração.
 5. No **Process Server,** selecione o nome do aparelho de replicação.
 6. Nas **credenciais de Hóspedes**, especifique a conta de administração VM que será utilizada para a instalação de push do serviço Mobility. Em seguida, clique **em Seguinte: Máquinas virtuais**.
 
-    ![Replicar VMs](./media/tutorial-migrate-vmware-agent/source-settings.png)
+    ![Screenshot do separador Definições de Origem no ecrã Replica. O campo de credenciais de Hóspedes é destacado e o valor está definido para conta VM-administração.](./media/tutorial-migrate-vmware-agent/source-settings.png)
 
 7. Em **Máquinas Virtuais,** selecione as máquinas que pretende replicar.
 
@@ -400,6 +400,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 
 
 
- ## <a name="next-steps"></a>Próximos passos
+ ## <a name="next-steps"></a>Passos seguintes
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

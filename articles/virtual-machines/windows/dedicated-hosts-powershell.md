@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 599d13daac2e062c8f71f5f7d7133646a1447123
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ac915aa3baba910895e10d21148b899347e8ae4e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87266593"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370492"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Implementar VMs para anfitriões dedicados usando o Azure PowerShell
 
@@ -49,6 +49,14 @@ $hostGroup = New-AzHostGroup `
    -ResourceGroupName $rgName `
    -Zone 1
 ```
+
+
+Adicione o `-SupportAutomaticPlacement true` parâmetro para ter os seus VMs e séries de instâncias colocadas automaticamente nos anfitriões, dentro de um grupo anfitrião. Para obter mais informações, consulte [Manual vs. colocação automática ](../dedicated-hosts.md#manual-vs-automatic-placement).
+
+> [!IMPORTANT]
+> A colocação automática está atualmente em visualização pública.
+> Para participar na pré-visualização, complete o pré-visualização do inquérito de embarque em [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-a-host"></a>Criar um hospedeiro
 
@@ -164,6 +172,32 @@ Name                   : myHost
 Location               : eastus
 Tags                   : {}
 ```
+
+## <a name="create-a-scale-set-preview"></a>Criar um conjunto de escala (pré-visualização)
+
+> [!IMPORTANT]
+> Os conjuntos de escala de máquina virtual em anfitriões dedicados estão atualmente em pré-visualização pública.
+> Para participar na pré-visualização, complete o pré-visualização do inquérito de embarque em [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Quando implementar um conjunto de escala, especifique o grupo anfitrião.
+
+```azurepowershell-interactive
+New-AzVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "EastUS" `
+  -VMScaleSetName "myDHScaleSet" `
+  -VirtualNetworkName "myVnet" `
+  -SubnetName "mySubnet" `
+  -PublicIpAddressName "myPublicIPAddress" `
+  -LoadBalancerName "myLoadBalancer" `
+  -UpgradePolicyMode "Automatic"`
+  -HostGroupId $hostGroup.Id
+```
+
+Se quiser escolher manualmente qual o anfitrião para implantar a escala definida, adicione `--host` e o nome do anfitrião.
+
+
 
 ## <a name="add-an-existing-vm"></a>Adicione um VM existente 
 

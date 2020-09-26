@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2932bfc2f9606326ae38711237e5e10912d41aca
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 1c3143dac79b37ff6dac04856311394440dec9a1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90053774"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317417"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Utilize grupos de nuvem para gerir atribuições de funções no Azure Ative Directory (pré-visualização)
 
@@ -64,7 +64,7 @@ Os seguintes cenários não são apoiados neste momento:
   - O fim do tempo para a atribuição da função pode ser apresentado incorretamente.
   - No portal PIM, **my Roles** só pode mostrar uma tarefa de papel, independentemente de quantos métodos a atribuição é concedida (através de um ou mais grupos e diretamente).
 - *Clientes licenciados Azure AD P2 apenas* Mesmo depois de eliminar o grupo, é ainda mostrado um membro elegível do papel na PIM UI. Funcionalmente não há problema; é apenas um problema de cache no portal Azure.  
-- O Exchange Admin Center ainda não reconhece a adesão ao papel através do grupo, mas o Comandante PowerShell funcionará.
+- Utilize o novo [Exchange Admin Center](https://admin.exchange.microsoft.com/) para atribuições de funções através da adesão ao grupo. O antigo Exchange Admin Center ainda não suporta esta funcionalidade. Os cmdlets de Câmbio PowerShell funcionarão como esperado.
 - O Portal de Proteção de Informação Azure (o portal clássico) ainda não reconhece a adesão ao papel através do grupo. Pode [migrar para a plataforma de rotulagem unificada](/azure/information-protection/configure-policy-migrate-labels) de sensibilidade e, em seguida, utilizar o Centro de Conformidade & de Segurança do Office 365 para utilizar atribuições de grupo para gerir funções.
 
 Estamos a resolver estas questões.
@@ -73,7 +73,7 @@ Estamos a resolver estas questões.
 
 A utilização desta funcionalidade requer que tenha uma licença Azure AD Premium P1 disponível na sua organização Azure AD. Para utilizar também a Gestão de Identidade Privilegiada para ativação de funções just-in-time requer que você tenha uma licença Azure AD Premium P2 disponível. Para encontrar a licença certa para os seus requisitos, consulte [Comparar as funcionalidades geralmente disponíveis dos planos Free and Premium.](../fundamentals/active-directory-whatis.md#what-are-the-azure-ad-licenses)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar um grupo ao qual se pode atribuir funções](roles-groups-create-eligible.md)
 - [Atribuir um papel a um grupo atribuível a funções](roles-groups-assign-role.md)

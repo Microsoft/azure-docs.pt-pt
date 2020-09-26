@@ -1,43 +1,47 @@
 ---
 title: O que é o Reconhecedor de Formato?
 titleSuffix: Azure Cognitive Services
-description: O Azure Cognitive Services Form Recogniser permite identificar e extrair pares de chaves/valor e dados de tabela a partir de documentos de formulário.
+description: O serviço Azure Form Recogniser permite identificar e extrair pares de chaves/valor e dados de tabela dos seus documentos de formulário, bem como extrair informações importantes dos recibos de venda e cartões de visita.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 08/05/2020
+ms.date: 09/21/2020
 ms.author: pafarley
-ms.openlocfilehash: 070796cd260e56bb51115a7ef33ced8455bfb6a9
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.custom: cog-serv-seo-aug-2020
+keywords: processamento automatizado de dados, processamento de documentos, entrada automatizada de dados, tratamento de formulários
+ms.openlocfilehash: 5243c170e1f6b5f647057b8cfafbcac9b2fb4db3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394402"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318964"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecedor de Formato?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Azure Form Recogniser é um serviço cognitivo que utiliza tecnologia de machine learning para identificar e extrair texto, pares de chaves/valor e dados de tabela a partir de documentos de formulário. Ingere texto a partir de formulários e saídas de dados estruturados que incluem as relações no ficheiro original. Obtém-se rapidamente resultados precisos que são adaptados ao seu conteúdo específico sem uma intervenção manual pesada ou uma vasta experiência em ciências de dados. O Form Recogniser é composto por modelos personalizados, o modelo de receção pré-construído e a API de layout. Pode chamar modelos De Reconhecimento de Formulários utilizando uma API REST para reduzir a complexidade e integrá-la no seu fluxo de trabalho ou aplicação.
+Azure Form Recogniser é um serviço cognitivo que permite construir software automatizado de processamento de dados usando tecnologia de machine learning. Identificar e extrair texto, pares chave/valor e dados de tabela do seu formulário documenta &mdash; os dados estruturados de saídas de serviço que incluem as relações no ficheiro original. Obtém-se rapidamente resultados precisos que são adaptados ao seu conteúdo específico sem uma intervenção manual pesada ou uma vasta experiência em ciências de dados. Utilize o Reconhecimento de Formulários para automatizar a entrada de dados nas suas aplicações.
+
+O Form Recogniser é composto por modelos de processamento de documentos personalizados, os modelos de recibo e cartão de visita pré-construídos e a API de layout. Pode ligar para os modelos Form Recogniser utilizando um SDKs de API ou biblioteca de clientes para reduzir a complexidade e integrá-lo no seu fluxo de trabalho ou aplicação.
 
 O Form Recogniser é composto pelos seguintes serviços:
-* **Modelos personalizados** - Extrair pares de chaves/valor e dados de tabela a partir de formulários. Estes modelos são treinados com os seus próprios dados, por isso são adaptados aos seus formulários.
-* **Modelos pré-construídos** - Extrair dados de tipos de formulários únicos utilizando modelos pré-construídos. Atualmente disponíveis estão modelos pré-construídos para recibos de venda e cartões de visita em inglês.
-* **Layout API** - Extrair texto e estruturas de mesa, juntamente com as suas coordenadas de caixa de delimitação, a partir de documentos.
-
-<!-- add diagram -->
+* **[Modelos personalizados](#custom-models)** - Extrair pares de chaves/valor e dados de tabela a partir de formulários. Estes modelos são treinados com os seus próprios dados, por isso são adaptados aos seus formulários.
+* **[Modelos pré-construídos](#prebuilt-models)** - Extrair dados de tipos de formulários únicos utilizando modelos pré-construídos. Atualmente disponíveis estão modelos pré-construídos para recibos de venda e cartões de visita em inglês.
+* **[Layout API](#layout-api)** - Extrair texto e estruturas de mesa, juntamente com as suas coordenadas de caixa de delimitação, a partir de documentos.
 
 ## <a name="custom-models"></a>Modelos personalizados
 
-Os modelos personalizados Do Reconhecimento de Formulários treinam para os seus próprios dados, e só precisa de cinco formas de entrada de amostra para começar. Um modelo treinado pode dar dados estruturados que incluem as relações no documento original. Depois de treinar o modelo, pode testá-lo e reforçá-lo e eventualmente usá-lo para extrair dados de mais formas de acordo com as suas necessidades.
+Os modelos personalizados Do Reconhecimento de Formulários treinam para os seus próprios dados, e só precisa de cinco formas de entrada de amostra para começar. Um modelo de processamento de documentos treinados pode dar dados estruturados que incluem as relações no documento original. Depois de treinar o modelo, pode testá-lo e reforçá-lo e eventualmente usá-lo para extrair dados de mais formas de acordo com as suas necessidades.
 
 Tem as seguintes opções quando treina modelos personalizados: treinar com dados rotulados e sem dados rotulados.
 
 ### <a name="train-without-labels"></a>Comboio sem rótulos
 
 Por predefinição, o Form Recogniser utiliza aprendizagem não supervisionada para entender o layout e as relações entre campos e entradas nos seus formulários. Quando submete os formulários de entrada, o algoritmo agrupa os formulários por tipo, descobre quais as teclas e tabelas presentes e associa valores às teclas e entradas nas tabelas. Isto não requer rotulagem manual de dados ou codificação e manutenção intensivas, e recomendamos que experimente este método primeiro.
+
+Consulte [Construir um conjunto de dados](./build-training-data-set.md) de treino para obter dicas sobre como recolher os seus documentos de treino.
 
 ### <a name="train-with-labels"></a>Treine com etiquetas
 
@@ -47,15 +51,17 @@ O Form Recogniser utiliza a [API do Layout](#layout-api) para aprender os tamanh
 
 ## <a name="prebuilt-models"></a>Modelos pré-construídos
 
-O Form Recogniser também inclui modelos pré-construídos para tipos de formas únicos.
+O Form Recogniser também inclui modelos pré-construídos para processamento automatizado de dados de tipos de formulários únicos.
 
 ### <a name="prebuilt-receipt-model"></a>Modelo de recibo pré-construído
-O modelo de recibo pré-construído é utilizado para a leitura de recibos de venda ingleses da Austrália, Canadá, Grã-Bretanha, Índia e Estados Unidos &mdash; do tipo usado por restaurantes, postos de gasolina, varejo, e assim por diante. Este modelo extrai informações-chave como a hora e a data da transação, informação do comerciante, montantes de impostos, rubricas, totais e muito mais. Além disso, o modelo de recibo pré-construído é treinado para reconhecer e devolver todo o texto num recibo. 
+
+O modelo de recibo pré-construído é utilizado para a leitura de recibos de venda ingleses da Austrália, Canadá, Grã-Bretanha, Índia e Estados Unidos &mdash; do tipo usado por restaurantes, postos de gasolina, varejo, e assim por diante. Este modelo extrai informações-chave como a hora e a data da transação, informação do comerciante, montantes de impostos, rubricas, totais e muito mais. Além disso, o modelo de recibo pré-construído é treinado para reconhecer e devolver todo o texto num recibo. Consulte o guia conceptual [dos Recibos](./concept-receipts.md) para obter mais informações.
 
 ![recibo de amostra](./media/contoso-receipt-small.png)
 
 ### <a name="prebuilt-business-cards-model"></a>Modelo de cartões de visita pré-construídos
-O modelo cartões de visita permite-lhe extrair informações como o nome da pessoa, título de emprego, endereço, e-mail, empresa e números de telefone de cartões de visita em inglês. 
+
+O modelo cartões de visita permite-lhe extrair informações como o nome da pessoa, título de emprego, endereço, e-mail, empresa e números de telefone de cartões de visita em inglês. Consulte o guia conceptual dos [cartões](./concept-business-cards.md) de visita para obter mais informações.
 
 ![cartão de visita amostra](./media/business-card-english.jpg)
 
@@ -67,7 +73,7 @@ O Reconhecimento de Formulários também pode extrair texto e estrutura de tabel
 
 Siga um arranque rápido para começar a extrair dados dos seus formulários. Recomendamos que utilize o serviço gratuito quando estiver a aprender a tecnologia. Lembre-se que o número de páginas gratuitas está limitado a 500 por mês.
 
-* [Início rápido da biblioteca do cliente](./quickstarts/client-library.md) (todos os idiomas, múltiplos cenários)
+* [Iniciações rápidas da biblioteca do cliente](./quickstarts/client-library.md) (todos os idiomas, múltiplos cenários)
 * Inícios rápidos da Web UI
   * [Treine com rótulos - ferramenta de rotulagem de amostra](quickstarts/label-tool.md)
 * REST quickstarts
@@ -99,24 +105,13 @@ Você usará as seguintes APIs para treinar modelos e extrair dados estruturados
 Explore a [documentação de referência da API](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm) REST para saber mais. Se você está familiarizado com uma versão anterior da API, veja o novo artigo [para](./whats-new.md) saber sobre as mudanças recentes.
 
 ## <a name="input-requirements"></a>Requisitos de entrada
-### <a name="custom-model"></a>Modelo personalizado
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
-
-### <a name="prebuilt"></a>Pré-construído
-
-Os requisitos de entrada para o modelo de receção são ligeiramente diferentes.
-
-* O formato deve ser JPEG, PNG, PDF (texto ou digitalizado) ou TIFF.
-* O tamanho do ficheiro deve ser inferior a 20 MB.
-* As dimensões da imagem devem estar entre 50 x 50 pixels e 10000 x 10000 pixels.
-* As dimensões PDF devem ser no máximo 17 x 17 polegadas, correspondentes aos tamanhos legais ou a3 e menores.
-* No caso de PDF e TIFF, apenas as primeiras 200 páginas são processadas (com uma subscrição de nível livre, apenas as duas primeiras páginas são processadas).
 
 ## <a name="data-privacy-and-security"></a>Privacidade e segurança dos dados
 
 Tal como acontece com todos os serviços cognitivos, os desenvolvedores que usam o serviço Form Recogniser devem estar cientes das políticas da Microsoft sobre os dados dos clientes. Consulte a [página de Serviços Cognitivos](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) no Microsoft Trust Center para saber mais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Complete um [quickstart](quickstarts/curl-train-extract.md) para começar com as [APIs do Reconhecimento de Formulários](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm).
+Complete um [quickstart da biblioteca de clientes](quickstarts/client-library.md) para começar a escrever uma aplicação de processamento de formulários com o Form Recogniser no idioma à sua escolha.

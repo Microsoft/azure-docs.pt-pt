@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: e845136c4fed5a3d2e6863fdab0aa9f70fb30b5d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fb628df5151f9124d7b7f319ff109ffca030ee90
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939920"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317349"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Criar um grupo de servidores de hiperescala pós-escala Azure Arc
 
@@ -59,7 +59,7 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 Implemente este passo antes de passar para o próximo passo. Para implementar o grupo de servidores PostgreSQL Hyperscale no Red Hat OpenShift num projeto que não seja o padrão, é necessário executar os seguintes comandos contra o seu cluster para atualizar as restrições de segurança. Este comando concede os privilégios necessários às contas de serviço que irão executar o seu grupo de servidores De Hiperescala PostgreSQL. A restrição de contexto de segurança (SCC) **_arc-data-scc_** é a que adicionou quando implementou o controlador de dados Azure Arc.
 
 ```console
-oc adm policy add-scc-to-group arc-data-scc -z <server-group-name> -n <namespace name>
+oc adm policy add-scc-to-user arc-data-scc -z <server-group-name> -n <namespace name>
 ```
 
 _**O nome do grupo do servidor** é o nome do grupo de servidor que irá criar durante o próximo passo._
@@ -72,7 +72,7 @@ Pode agora implementar o próximo passo.
 Para criar uma base de dados Azure para o grupo de servidores de hiperescala PostgreSQL em Azure Arc, utilize o seguinte comando:
 
 ```console
-azdata arc postgres server create -n <name> --workers 2 --storage-class-data <storage class name> --storage-class-logs <storage class name> --storage-class-backups <storage class name>
+azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2> --storage-class-data <storage class name> --storage-class-logs <storage class name> --storage-class-backups <storage class name>
 
 #Example
 #azdata arc postgres server create -n postgres01 --workers 2
@@ -80,25 +80,14 @@ azdata arc postgres server create -n <name> --workers 2 --storage-class-data <st
 
 > [!NOTE]
 > - **Existem outros parâmetros de linha de comando disponíveis.  Consulte a lista completa de opções em execução `azdata arc postgres server create --help` .**
-> - Em Preview, deve indicar uma classe de armazenamento para cópias de segurança _(---backups de classe de armazenamento -scb_) no momento em que criar um grupo de servidor para poder fazer backup e restaurar.
+> - A classe de armazenamento utilizada para cópias de segurança _(--storage-class-backups -scb_) não é fornecida na classe de armazenamento de dados do controlador de dados se não for fornecida.
 > - A unidade aceite pelos parâmetros --volume-tamanho-* é uma quantidade de recurso Kubernetes (um inteiro seguido por um destes si suficientes (T, G, M, K, m) ou o seu poder de dois equivalentes (Ti, Gi, Mi, Ki)).
-> - Os nomes devem ter 10 caracteres ou menos de comprimento e estar em conformidade com as convenções de nomeação do DNS.
+> - Os nomes devem ter 12 caracteres ou menos de comprimento e estar em conformidade com as convenções de nomeação do DNS.
 > - Será solicitado que introduza a palavra-passe para o utilizador administrativo padrão _de postgres._  Pode saltar a solicitação interativa definindo a variável ambiente de `AZDATA_PASSWORD` sessão antes de executar o comando criar.
-> - Se implementou o controlador de dados utilizando AZDATA_USERNAME e AZDATA_PASSWORD na mesma sessão de terminais, então os valores para AZDATA_USERNAME e AZDATA_PASSWORD serão utilizados para implantar também o grupo de servidores de hiperescala PostgreSQL. O nome do utilizador de administrador predefinido para o motor de base de dados de hiperescala PostgreSQL é _pós-quadrado_ e não pode ser alterado neste momento.
+> - Se implementou o controlador de dados utilizando variáveis de ambiente de sessão de AZDATA_USERNAME e AZDATA_PASSWORD na mesma sessão terminal, então os valores para AZDATA_PASSWORD serão utilizados para implantar também o grupo de servidores de hiperescala PostgreSQL. Se preferir utilizar outra palavra-passe, ou (1) atualizar o valor para AZDATA_PASSWORD ou (2) eliminar a variável ambiente AZDATA_PASSWORD ou eliminar o seu valor ser solicitado a introduzir uma palavra-passe interativamente quando criar um grupo de servidor.
+> - O nome do utilizador de administrador predefinido para o motor de base de dados de hiperescala PostgreSQL é _postgres_ e não pode ser alterado neste momento.
 > - A criação de um grupo de servidores de hiperescala PostgreSQL não registará imediatamente recursos em Azure. Como parte do processo de envio de inventário de [recursos](upload-metrics-and-logs-to-azure-monitor.md)  ou dados de [utilização](view-billing-data-in-azure.md) para a Azure, os recursos serão criados em Azure e poderá ver os seus recursos no portal Azure.
-> - O parâmetro da porta não pode ser alterado neste momento.
-> - Se não tiver uma classe de armazenamento predefinido no seu cluster Kubernetes, terá de utilizar o parâmetro-- metadadataStorageClass para especificar um. Não fazê-lo resultará na falha do comando de criar. Para verificar se tem uma classe de armazenamento predefinida declarada no seu cluster Kubernetes, ressalte o seguinte comando: 
->
->   ```console
->   kubectl get sc
->   ```
->
-> - Se houver classe de armazenamento configurada como classe de armazenamento predefinida, verá **(predefinido)** anexado ao nome da classe de armazenamento. Por exemplo:
->
->   ```output
->   NAME                       PROVISIONER                        AGE
->   local-storage (default)    kubernetes.io/no-provisioner       4d18h
->   ```
+
 
 
 ## <a name="list-your-azure-database-for-postgresql-server-groups-created-in-your-arc-setup"></a>Liste a sua Base de Dados de Azure para grupos de servidores PostgreSQL criados na sua configuração Arc

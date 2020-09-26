@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/11/2019
-ms.openlocfilehash: 33d1e73523ca85a21c032729b6537ee3297ea23e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f54245013b6a57c02120c0e97ecf5f39094148b0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87020836"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317740"
 ---
 # <a name="azure-machine-learning-studio-classic-integration-in-stream-analytics-preview"></a>Azure Machine Learning Studio (clássico) integração em Stream Analytics (Preview)
 O Stream Analytics suporta funções definidas pelo utilizador que chamam ao Azure Machine Learning Studio (clássico) pontos finais. O suporte da API REST para esta funcionalidade é detalhado na [biblioteca API stream Analytics REST](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artigo fornece informações suplementares necessárias para uma implementação bem sucedida desta capacidade no Stream Analytics. Um tutorial também foi publicado e está disponível [aqui.](stream-analytics-machine-learning-integration-tutorial.md)
@@ -25,7 +25,7 @@ O Microsoft Azure Machine Learning Studio (clássico) fornece uma ferramenta col
 * **Ponto final**: *Os pontos finais* são o objeto Azure Machine Learning Studio (clássico) usado para tirar funcionalidades como entrada, aplicar um modelo de aprendizagem automática especificado e devolver a saída pontuada.
 * **Pontuação Webservice**: Um *webservice de pontuação* é uma coleção de pontos finais como mencionado acima.
 
-Cada ponto final tem apis para execução de lote e execução sincronizada. Stream Analytics usa execução sincronizada. O serviço específico é nomeado um [Serviço de Pedido/Resposta](../machine-learning/studio/consume-web-services.md) no Azure Machine Learning Studio (clássico).
+Cada ponto final tem apis para execução de lote e execução sincronizada. Stream Analytics usa execução sincronizada. O serviço específico é nomeado um [Serviço de Pedido/Resposta](../machine-learning/classic/consume-web-services.md) no Azure Machine Learning Studio (clássico).
 
 ## <a name="machine-learning-resources-needed-for-stream-analytics-jobs"></a>Recursos de aprendizagem automática necessários para trabalhos de Stream Analytics
 Para efeitos de processamento de trabalho stream Analytics, um ponto final de Pedido/Resposta, [um apikey](https://docs.microsoft.com/azure/machine-learning/studio/consume-web-services), e uma definição de swagger são todos necessários para uma execução bem sucedida. O Stream Analytics tem um ponto final adicional que constrói o url para o ponto final swagger, procura a interface e devolve uma definição UDF padrão ao utilizador.

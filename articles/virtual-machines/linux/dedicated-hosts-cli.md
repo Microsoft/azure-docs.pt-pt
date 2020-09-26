@@ -1,19 +1,19 @@
 ---
-title: Implementar VMs Linux para anfitriões dedicados usando o CLI
-description: Implementar VMs para anfitriões dedicados utilizando o CLI Azure.
+title: Implementar VMs e conjuntos de escalas para anfitriões dedicados usando o CLI
+description: Implementar VMs e conjuntos de escalas para anfitriões dedicados utilizando o CLI Azure.
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 01/09/2020
+ms.date: 09/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 9435764d99476584680734817d55086f47e8216b
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: a85f5cb9cc519b180354445ca9ca2f8dd0354c23
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373628"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370204"
 ---
-# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Implementar VMs para anfitriões dedicados usando o CLI Azure
+# <a name="deploy-to-dedicated-hosts-using-the-azure-cli"></a>Implementar para anfitriões dedicados usando o CLI Azure
  
 
 Este artigo guia-o através da forma de criar um [anfitrião dedicado](dedicated-hosts.md) a Azure para hospedar as suas máquinas virtuais (VMs). 
@@ -23,22 +23,22 @@ Certifique-se de que instalou a versão 2.0.70 ou posterior do Azure CLI e inscr
 
 ## <a name="limitations"></a>Limitações
 
-- Os conjuntos de escala de máquinas virtuais não são suportados atualmente em anfitriões dedicados.
 - Os tamanhos e tipos de hardware disponíveis para anfitriões dedicados variam por região. Consulte a [página de preços do](https://aka.ms/ADHPricing) anfitrião para saber mais.
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos 
 Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Crie o grupo de recursos com a criação do grupo AZ. O exemplo a seguir cria um grupo de recursos chamado *myDHResourceGroup* na localização *leste dos EUA.*
 
-```bash
+```azurecli-interactive
 az group create --name myDHResourceGroup --location eastus 
 ```
  
 ## <a name="list-available-host-skus-in-a-region"></a>Lista Disponíveis SKUs anfitrião em uma região
+
 Nem todos os SKUs hospedeiros estão disponíveis em todas as regiões, e zonas de disponibilidade. 
 
 Liste a disponibilidade do anfitrião e quaisquer restrições de oferta antes de começar a alistar anfitriões dedicados. 
 
-```bash
+```azurecli-interactive
 az vm list-skus -l eastus2  -r hostGroups/hosts  -o table  
 ```
  
@@ -52,9 +52,10 @@ Em qualquer dos casos, é necessário fornecer a contagem de domínio de avaria 
 
 Também pode decidir utilizar as zonas de disponibilidade e os domínios de avaria. 
 
+
 Neste exemplo, usaremos [o grupo anfitrião AZ VM](/cli/azure/vm/host/group#az-vm-host-group-create) criar para criar um grupo anfitrião usando tanto zonas de disponibilidade como domínios de falhas. 
 
-```bash
+```azurecli-interactive
 az vm host group create \
    --name myHostGroup \
    -g myDHResourceGroup \
@@ -62,11 +63,22 @@ az vm host group create \
    --platform-fault-domain-count 2 
 ``` 
 
+Adicione o `--automatic-placement true` parâmetro para ter os seus VMs e séries de instâncias colocadas automaticamente nos anfitriões, dentro de um grupo anfitrião. Para obter mais informações, consulte [Manual vs. colocação automática ](../dedicated-hosts.md#manual-vs-automatic-placement).
+
+> [!IMPORTANT]
+> A colocação automática está atualmente em visualização pública.
+>
+> Para participar na pré-visualização, complete o pré-visualização do inquérito de embarque em [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
+>
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
+>
+> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ### <a name="other-examples"></a>Outros exemplos
 
 Também pode utilizar [o grupo anfitrião AZ VM](/cli/azure/vm/host/group#az-vm-host-group-create) para criar um grupo anfitrião na zona de disponibilidade 1 (e sem domínios de avaria).
 
-```bash
+```azurecli-interactive
 az vm host group create \
    --name myAZHostGroup \
    -g myDHResourceGroup \
@@ -76,7 +88,7 @@ az vm host group create \
  
 As seguintes utilizações [do grupo anfitrião AZ VM criam](/cli/azure/vm/host/group#az-vm-host-group-create) para criar um grupo anfitrião usando apenas domínios de avaria (a ser utilizado em regiões onde as zonas de disponibilidade não são suportadas). 
 
-```bash
+```azurecli-interactive
 az vm host group create \
    --name myFDHostGroup \
    -g myDHResourceGroup \
@@ -91,7 +103,7 @@ Para obter mais informações sobre os SKUs e preços do anfitrião, consulte [o
 
 Use [o hospedeiro az vm criar](/cli/azure/vm/host#az-vm-host-create) para criar um hospedeiro. Se definir uma contagem de domínio de avaria para o seu grupo anfitrião, será solicitado que especifique o domínio de avaria para o seu anfitrião.  
 
-```bash
+```azurecli-interactive
 az vm host create \
    --host-group myHostGroup \
    --name myHost \
@@ -105,28 +117,57 @@ az vm host create \
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual 
 Crie uma máquina virtual dentro de um hospedeiro dedicado utilizando [a criação az vm](/cli/azure/vm#az-vm-create). Se especificou uma zona de disponibilidade ao criar o seu grupo anfitrião, é-lhe exigido que utilize a mesma zona ao criar a máquina virtual.
 
-```bash
+```azurecli-interactive
 az vm create \
    -n myVM \
    --image debian \
-   --generate-ssh-keys \
    --host-group myHostGroup \
-   --host myHost \
    --generate-ssh-keys \
    --size Standard_D4s_v3 \
    -g myDHResourceGroup \
    --zone 1
 ```
+
+Para colocar o VM num hospedeiro específico, utilize `--host` em vez de especificar o grupo anfitrião com `--host-group` .
  
 > [!WARNING]
 > Se criar uma máquina virtual num hospedeiro que não tenha recursos suficientes, a máquina virtual será criada num estado FALHADO. 
+
+## <a name="create-a-scale-set-preview"></a>Criar um conjunto de escala (pré-visualização)
+
+> [!IMPORTANT]
+> Os conjuntos de escala de máquina virtual em anfitriões dedicados estão atualmente em pré-visualização pública.
+>
+> Para participar na pré-visualização, complete o pré-visualização do inquérito de embarque em [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
+>
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. 
+>
+> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Quando implementar um conjunto de escala, especifique o grupo anfitrião.
+
+```azurecli-interactive
+az vmss create \
+  --resource-group myResourceGroup \
+  --name myScaleSet \
+  --image UbuntuLTS \
+  --upgrade-policy-mode automatic \
+  --admin-username azureuser \
+  --host-group myHostGroup \
+  --generate-ssh-keys \
+  --size Standard_D4s_v3 \
+  -g myDHResourceGroup \
+  --zone 1
+```
+
+Se quiser escolher manualmente qual o anfitrião para implantar a escala definida, adicione `--host` e o nome do anfitrião.
 
 
 ## <a name="check-the-status-of-the-host"></a>Verifique o estado do anfitrião
 
 Pode verificar o estado de saúde do anfitrião e quantas máquinas virtuais ainda pode implantar no hospedeiro utilizando [a visão de exemplo do anfitrião az vm](/cli/azure/vm/host#az-vm-host-get-instance-view).
 
-```bash
+```azurecli-interactive
 az vm host get-instance-view \
    -g myDHResourceGroup \
    --host-group myHostGroup \
@@ -233,7 +274,7 @@ az vm host get-instance-view \
 ## <a name="export-as-a-template"></a>Exportação como modelo 
 Você pode exportar um modelo se você agora quiser criar um ambiente de desenvolvimento adicional com os mesmos parâmetros, ou um ambiente de produção que o corresponda. O Gestor de Recursos utiliza modelos JSON que definem todos os parâmetros para o seu ambiente. Você constrói ambientes inteiros fazendo referência a este modelo JSON. Pode construir modelos JSON manualmente ou exportar um ambiente existente para criar o modelo JSON para si. Utilize [a exportação do grupo AZ](/cli/azure/group#az-group-export) para exportar o seu grupo de recursos.
 
-```bash
+```azurecli-interactive
 az group export --name myDHResourceGroup > myDHResourceGroup.json 
 ```
 
@@ -241,7 +282,7 @@ Este comando cria o `myDHResourceGroup.json` ficheiro no seu diretório de traba
  
 Para criar um ambiente a partir do seu modelo, utilize a implementação do [grupo az create](/cli/azure/group/deployment#az-group-deployment-create).
 
-```bash
+```azurecli-interactive
 az group deployment create \ 
     --resource-group myNewResourceGroup \ 
     --template-file myDHResourceGroup.json 
@@ -254,25 +295,25 @@ Está a ser cobrado pelos seus anfitriões dedicados, mesmo quando não são imp
 
 Só é possível eliminar um hospedeiro quando já não existem máquinas virtuais a usá-lo. Eliminar os VMs utilizando [az vm delete](/cli/azure/vm#az-vm-delete).
 
-```bash
+```azurecli-interactive
 az vm delete -n myVM -g myDHResourceGroup
 ```
 
 Depois de eliminar os VMs, pode eliminar o anfitrião utilizando [o anfitrião az vm delete](/cli/azure/vm/host#az-vm-host-delete).
 
-```bash
+```azurecli-interactive
 az vm host delete -g myDHResourceGroup --host-group myHostGroup --name myHost 
 ```
  
 Uma vez eliminado todos os seus anfitriões, poderá eliminar o grupo anfitrião utilizando [o grupo anfitrião AZ VM](/cli/azure/vm/host/group#az-vm-host-group-delete).  
  
-```bash
+```azurecli-interactive
 az vm host group delete -g myDHResourceGroup --host-group myHostGroup  
 ```
  
 Também pode eliminar todo o grupo de recursos num único comando. Isto eliminará todos os recursos criados no grupo, incluindo todos os VMs, anfitriões e grupos anfitriões.
  
-```bash
+```azurecli-interactive
 az group delete -n myDHResourceGroup 
 ```
 
