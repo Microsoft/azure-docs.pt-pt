@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f3a8cafa907cb66832faf033f7b62e68bf859097
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 49922599adb30e6c631f29b4831fda60cc000a40
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918830"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360128"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Integre com uma aplicação de cliente usando a Speech SDK
 
@@ -34,7 +34,7 @@ Neste artigo, aprende-se a fazer pedidos para uma aplicação de Comandos Person
 Também vai precisar de:
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) ou superior. Este guia é baseado no Visual Studio 2019.
-> * Uma chave de subscrição Azure para serviços de fala. [Obtenha um de graça](get-started.md) ou crie-o no [portal Azure](https://portal.azure.com)
+> * Uma chave de subscrição Azure para serviços de fala. [Obtenha um de graça](overview.md#try-the-speech-service-for-free) ou crie-o no [portal Azure](https://portal.azure.com)
 > * [Ativar o seu dispositivo para o desenvolvimento](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)
 
 ## <a name="step-1-publish-custom-commands-application"></a>Passo 1: Publicar aplicação de comandos personalizados

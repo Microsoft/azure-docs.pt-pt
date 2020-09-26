@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: Zhchia
-ms.openlocfilehash: 00e5f750c1acfa49aea2caadbc95fd75cef0b24b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d37034057f7d1bc39c065110b20a8a2cdce13b62
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91256051"
+ms.locfileid: "91360502"
 ---
 # <a name="tutorial-configure-mixpanel-for-automatic-user-provisioning"></a>Tutorial: Configurar mixpanel para fornecimento automático de utilizadores
 
@@ -88,7 +88,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 5. Na secção **Credenciais de Administração,** insira o **URL do Inquilino** Mixpanel e o **Token Secreto.** Clique em **Testar a Ligação** para garantir que o Azure AD pode ligar-se ao Mixpanel. Se a ligação falhar, certifique-se de que a sua conta Mixpanel tem permissões de Administração e tente novamente.
 
-    ![provisionamento](./media/mixpanel-provisioning-tutorial/provisioning.png)
+    ![A screenshot mostra a caixa de diálogo de Admin Credentials, onde pode inserir o seu Inquilino U R L e Secret Token.](./media/mixpanel-provisioning-tutorial/provisioning.png)
 
 6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 

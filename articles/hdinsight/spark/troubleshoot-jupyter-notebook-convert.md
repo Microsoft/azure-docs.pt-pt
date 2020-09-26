@@ -1,18 +1,18 @@
 ---
 title: Incapaz de criar o caderno Jupyter em Azure HDInsight
-description: Descreve etapas de resolução de problemas e possíveis resoluções para problemas ao interagir com clusters Azure HDInsight.
+description: Conheça as etapas de resolução de problemas e possíveis resoluções para problemas ao interagir com os clusters Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/11/2020
-ms.openlocfilehash: 61e7cd8d37108b8f4eea88c4f6b6b2a8cdbfd605
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e4f4fcfa52733ec8f1f0ceedc669b8307efabf3c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77186789"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91324013"
 ---
 # <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Incapaz de criar o caderno Jupyter em Azure HDInsight
 
@@ -56,7 +56,7 @@ Uma versão desajustada.
 
 1. Reinicie o serviço Jupyter.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
 

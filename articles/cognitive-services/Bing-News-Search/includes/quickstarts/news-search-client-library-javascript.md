@@ -9,23 +9,22 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: d9234d4a184a0a09ff8c4a7c08e4035668870e22
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3760213c7f469dfe89599c0f01afe98168efde2d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91304100"
+ms.locfileid: "91376930"
 ---
 Use este quickstart para começar a procurar notícias com a biblioteca de clientes Bing News Search para JavaScript. Embora a Bing News Search tenha uma API REST compatível com a maioria das linguagens de programação, a biblioteca do cliente proporciona uma forma fácil de integrar o serviço nas suas aplicações. O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/newsSearch.js).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Node.js](https://nodejs.org/en/)
-
-Para configurar uma aplicação de consola utilizando a biblioteca do cliente Bing News Search:
-1. Corra `npm install ms-rest-azure` no seu ambiente de desenvolvimento.
-2. Corra `npm install azure-cognitiveservices-newssearch` no seu ambiente de desenvolvimento.
-
+* A versão mais recente do [Node.js](https://nodejs.org/en/download/).
+* O [Bing News Search SDK para JavaScript](https://www.npmjs.com/package/@azure/cognitiveservices-newssearch)
+     *  Para instalar, executar `npm install @azure/cognitiveservices-newssearch`
+* A `CognitiveServicesCredentials` classe do pacote para `@azure/ms-rest-azure-js` autenticar o cliente.
+     * Para instalar, executar `npm install @azure/ms-rest-azure-js`
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](~/includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
@@ -34,7 +33,7 @@ Para configurar uma aplicação de consola utilizando a biblioteca do cliente Bi
 1. Crie uma instância de `CognitiveServicesCredentials`. Crie variáveis para a sua chave de subscrição e um termo de pesquisa.
 
     ```javascript
-    const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
+    const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
     let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');
     let search_term = 'Winter Olympics'
     ```
@@ -42,7 +41,7 @@ Para configurar uma aplicação de consola utilizando a biblioteca do cliente Bi
 2. instantaneamente o cliente:
     
     ```javascript
-    const NewsSearchAPIClient = require('azure-cognitiveservices-newssearch');
+    const NewsSearchAPIClient = require('@azure/cognitiveservices-newssearch');
     let client = new NewsSearchAPIClient(credentials);
     ```
 

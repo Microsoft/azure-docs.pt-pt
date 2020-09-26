@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: c7e3c9292b53aeb073e11a5293459e39a22ca81d
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: b5827d60b5968eb9f5e9e0a2ca5ec884366aea3d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89570015"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376671"
 ---
 A colocação de VMs numa única região reduz a distância física entre os casos. Colocá-los dentro de uma única zona de disponibilidade também os aproximará fisicamente. No entanto, à medida que a pegada Azure cresce, uma única zona de disponibilidade pode abranger vários centros de dados físicos, o que pode resultar numa latência de rede com impacto na sua aplicação. 
 
@@ -47,6 +47,39 @@ Os grupos de colocação de proximidade oferecem co-localização no mesmo centr
 -   No caso de cargas de trabalho elásticas, quando adiciona e remove instâncias VM, ter uma restrição de grupo de colocação de proximidade na sua implantação pode resultar numa falha na satisfação do pedido que resulta em erro **de Atribuição.** 
 - Parar (deallocate) e iniciar os seus VMs conforme necessário é outra forma de alcançar a elasticidade. Uma vez que a capacidade não é mantida uma vez que você para (deallocate) um VM, reiniciá-lo pode resultar em um erro **de Atribuição.**
 
+## <a name="planned-maintenance-and-proximity-placement-groups"></a>Grupos de manutenção e colocação de proximidade planeados
+
+Eventos de manutenção planeados, como o desmantelamento de hardware num datacenter Azure, podem potencialmente afetar o alinhamento de recursos em grupos de colocação de proximidade. Os recursos podem ser transferidos para um centro de dados diferente, perturbando as expectativas de colocação e latência associadas ao grupo de colocação de proximidade.
+
+### <a name="check-the-alignment-status"></a>Verifique o estado de alinhamento
+
+Pode fazer o seguinte para verificar o estado de alinhamento dos seus grupos de colocação de proximidade.
+
+
+- O estado de colocação do grupo de colocação de proximidade pode ser visto usando o portal, CLI e PowerShell.
+
+    -   Ao utilizar o PowerShell, o estado de cosão pode ser obtido utilizando o cmdlet Get-AzProximityPlacementGroup, incluindo o parâmetro opcional '-ColocationStatus'.
+
+    -   Ao utilizar o CLI, o estado de comarcação pode ser obtido através `az ppg show` da inclusão do parâmetro opcional "--incluir-estado de colocação".
+
+- Para cada grupo de colocação de proximidade, um **imóvel de estado de colocação** fornece o resumo do estado de alinhamento atual dos recursos agrupados. 
+
+    - **Alinhado**: O recurso está dentro da mesma envolvência de latência do grupo de colocação de proximidade.
+
+    - **Desconhecido:** pelo menos um dos recursos VM são transabilitados. Uma vez reiniciando-os com sucesso, o estado deve voltar a **alinhar-se**.
+
+    - **Não alinhado:** pelo menos um recurso VM não está alinhado com o grupo de colocação de proximidade. Os recursos específicos que não estão alinhados também serão chamados separadamente na secção de adesão
+
+- Para conjuntos de disponibilidade, pode ver informações sobre o alinhamento de VMs individuais na página 'Visão Geral' do Conjunto de Disponibilidade.
+
+- Para conjuntos de escalas, as informações sobre o alinhamento de instâncias individuais podem ser vistas no **separador Instâncias** da página **'Vista Geral'** para o conjunto de escalas. 
+
+
+### <a name="re-align-resources"></a>Realinar recursos 
+
+Se um grupo de colocação de proximidade `Not Aligned` for, pode parar o deallocate e, em seguida, reiniciar os recursos afetados. Se o VM estiver num conjunto de disponibilidade ou numa balança, todos os VMs no conjunto de disponibilidade ou escala devem ser interrompidos primeiro antes de reiniciá-los.
+
+Se houver uma falha de atribuição devido a restrições de implantação, poderá ter de parar o negócio de todos os recursos no grupo de colocação de proximidade afetado (incluindo os recursos alinhados) primeiro e, em seguida, reiniciá-los para restaurar o alinhamento.
 
 ## <a name="best-practices"></a>Melhores práticas 
 - Para a latência mais baixa, utilize grupos de colocação de proximidade juntamente com a rede acelerada. Para obter mais informações, consulte [Criar uma máquina virtual Linux com rede acelerada](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou criar uma máquina virtual Windows com Rede [Acelerada](/azure/virtual-network/create-vm-accelerated-networking-powershell?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 7/10/2019
 ms.author: genli
-ms.openlocfilehash: ce60f360a6839d43b0cbc209242a1385a0984c9d
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: d4d25d8e79c30933546af2b823e328a652f482eb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90088549"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360536"
 ---
 # <a name="how-to-use-perfinsights"></a>Como utilizar o PerfInsights
 
@@ -218,8 +218,8 @@ Dentro do ficheiro **PerformanceDiagnostics \_ yyyy-MM-dd \_ hh-mm-ss-fff.tar.gz
 
 O **separador Visão** Geral fornece detalhes básicos de execução e informações de máquina virtual. O separador **Resultados** apresenta um resumo das recomendações de todas as diferentes secções do relatório PerfInsights.
 
-![Screenshot do Relatório PerfInsights](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
-![Screenshot do Relatório PerfInsights](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
+![Screenshot do separador visão geral do Relatório PerfInsights.](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
+![Screenshot do separador Linux do Relatório PerfInsights.](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
 
 > [!NOTE]
 > As descobertas classificadas como altas são questões conhecidas que podem causar problemas de desempenho. As descobertas classificadas como médias representam configurações não ótimas que não causam necessariamente problemas de desempenho. Os resultados classificados como baixos são apenas declarações informativas.

@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: c0213b050745712a5c77d4861b9cfba4fc953dfd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aec9d2049a69aebc7102a70274e5fb2a3ef865a8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940076"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376760"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -81,8 +81,8 @@ DeviceManage deviceManager = await callClient.getDeviceManager().get();
 
 ## <a name="place-an-outgoing-call-and-join-a-group-call"></a>Faça uma chamada de saída e junte-se a uma chamada de grupo
 
-Para criar e iniciar uma chamada, precisa de ligar para o `CallClient.call()` método e fornecer `Identifier` o(s) callee(s).
-Para se juntar a uma chamada de grupo, precisa de ligar para o `CallClient.join()` método e fornecer o groupId. Os IDs do grupo devem estar no formato GUID ou UUID.
+Para criar e iniciar uma chamada, precisa de ligar para o `CallAgent.call()` método e fornecer `Identifier` o(s) callee(s).
+Para se juntar a uma chamada de grupo, precisa de ligar para o `CallAgent.join()` método e fornecer o groupId. Os IDs do grupo devem estar no formato GUID ou UUID.
 
 A criação de chamadas e o início são sincronizados. A instância de chamada permite-lhe subscrever todos os eventos da chamada.
 
@@ -106,7 +106,7 @@ PhoneNumber acsUser2 = new PhoneNumber("<PHONE_NUMBER>");
 CommunicationIdentifier participants[] = new CommunicationIdentifier[]{ acsUser1, acsUser2 };
 StartCallOptions startCallOptions = new StartCallOptions();
 Context appContext = this.getApplicationContext();
-Call groupCall = callClient.call(participants, startCallOptions);
+Call groupCall = callAgent.call(participants, startCallOptions);
 ```
 
 ### <a name="place-a-11-call-with-with-video-camera"></a>Coloque uma chamada 1:1 com câmara de vídeo
@@ -266,7 +266,7 @@ Quando o manuseamento da mensagem de notificação Push for bem sucedido e todos
 
 ### <a name="unregister-push-notification"></a>Notificação push não registro
 
-- As aplicações podem não registar a notificação de push a qualquer momento. Basta ligar para o `unregisterPushNotification()` método no callAgent.
+- As aplicações podem não registar a notificação de push a qualquer momento. Chame o `unregisterPushNotification()` método de chamada Para não registar.
 
 ```java
 try {
@@ -281,7 +281,7 @@ catch(Exception e) {
 Pode aceder às propriedades de chamadas e executar várias operações durante uma chamada para gerir as definições relacionadas com vídeo e áudio.
 
 ### <a name="call-properties"></a>Propriedades de chamada
-* Obtenha o ID único para esta chamada.
+* Obtenha a identificação única para esta chamada.
 ```java
 String callId = call.getCallId();
 ```
@@ -300,7 +300,7 @@ CommunicationIdentifier callerId = call.getCallerId();
 ```java
 CallState callState = call.getState();
 ```
-Devolve uma sequência de uma chamada:
+Devolve uma corda que representa o estado atual de uma chamada:
 * 'Nenhum' - estado de chamada inicial
 * 'Incoming' - indica que a chamada está a chegar, tem de ser aceite ou rejeitada
 * 'Connecting' - estado de transição inicial uma vez que a chamada é feita ou aceite
@@ -385,7 +385,7 @@ Qualquer participante remoto tem um conjunto de propriedades e coleções associ
 * Pegue o identificador para este participante remoto.
 Identidade é um dos tipos de 'Identificador'
 ```java
-CommunicationIdentifier participantIdentity = remoteParticipant.getId();
+CommunicationIdentifier participantIdentity = remoteParticipant.getIdentifier();
 ```
 
 * Obtenha o estado deste participante remoto.
@@ -397,7 +397,7 @@ Estado pode ser um dos
 * 'Connecting' - estado de transição enquanto o participante está ligado à chamada
 * 'Connected' - participante está ligado à chamada
 * 'Hold' - participante está em espera
-* 'EarlyMedia' - o anúncio é tocado antes do participante estar ligado à chamada
+* 'EarlyMedia' - o anúncio é jogado antes do participante estar ligado à chamada
 * 'Desligado' - estado final - participante é desligado da chamada
 
 

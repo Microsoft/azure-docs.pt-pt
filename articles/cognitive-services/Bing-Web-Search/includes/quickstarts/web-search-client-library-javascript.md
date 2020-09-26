@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 6e4db45385c95bc39cea58511115eba25461cf6f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 20eaf6e6a9f0eee15e6ad6a5bd8f23bf8531545c
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91298456"
+ms.locfileid: "91377295"
 ---
 A biblioteca de clientes Bing Web Search facilita a integração da Bing Web Search na sua aplicação Node.js. Neste início rápido, irá aprender a instanciar um cliente, a enviar um pedido e a imprimir a resposta.
 
@@ -46,11 +46,11 @@ Vamos começar por configurar o ambiente de desenvolvimento para o nosso projeto
     npm init
     ```
 
-1. Agora, vamos instalar alguns módulos do Azure e adicioná-los a `package.json`:
+1. Agora, vamos instalar alguns módulos Azure e adicioná-los `package.json` ao:
 
     ```console
-    npm install --save azure-cognitiveservices-websearch
-    npm install --save ms-rest-azure
+    npm install --save @azure/cognitiveservices-websearch
+    npm install --save @azure/ms-rest-azure-js
     ```
 
 ## <a name="create-a-project-and-declare-required-modules"></a>Criar um projeto e declarar os módulos exigidos
@@ -60,13 +60,13 @@ No mesmo diretório que o seu `package.json`, crie um novo projeto do Node.js co
 Em seguida, copie este código para o seu projeto. Ele carrega os módulos instalados na secção anterior.
 
 ```javascript
-const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
-const WebSearchAPIClient = require('azure-cognitiveservices-websearch');
+const CognitiveServicesCredentials = require('@azure/ms-rest-azure-js').CognitiveServicesCredentials;
+const WebSearchAPIClient = require('@azure/cognitiveservices-websearch');
 ```
 
 ## <a name="instantiate-the-client"></a>Instanciar o cliente
 
-Este código instancia um cliente e utiliza o módulo `azure-cognitiveservices-websearch`. Certifique-se de que introduz uma chave de subscrição válida para a sua conta do Azure antes de continuar.
+Este código instancia um cliente e utiliza o módulo `@azure/cognitiveservices-websearch`. Certifique-se de que introduz uma chave de subscrição válida para a sua conta do Azure antes de continuar.
 
 ```javascript
 let credentials = new CognitiveServicesCredentials('YOUR-ACCESS-KEY');

@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: fa7fd73a7d8019919a89dd9e9522b7389dc9c18f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 31f7e348a805c86964a8856fb81b83831c611de5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940064"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376440"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,7 +31,7 @@ No Xcode, crie um novo projeto iOS e selecione o modelo **de Aplicação Single 
 Adicione os Serviços de Comunicação Azure Chamando a biblioteca do cliente e suas dependências (AzureCore.framework e AzureCommunication.framework) ao seu projeto.
 
 > [!NOTE]
-> Com o lançamento de AzureCommunicationCalling SDK encontrará um roteiro de bash `BuildAzurePackages.sh` . O script quando é executado `sh ./BuildAzurePackages.sh` vai dar-lhe o caminho para os pacotes-quadro gerados que precisa ser importado na aplicação da amostra no passo seguinte. Note que terá de configurar ferramentas de linha de comando Xcode se não o tiver feito antes de executar o script: Iniciar o Xcode, selecione "Preferências -> Localizações". Escolha a sua versão Xcode para as Ferramentas da Linha de Comando.
+> Com o lançamento de AzureCommunicationCalling SDK encontrará um roteiro de bash `BuildAzurePackages.sh` . O script quando é executado `sh ./BuildAzurePackages.sh` vai dar-lhe o caminho para os pacotes-quadro gerados que precisa ser importado na aplicação da amostra no passo seguinte. Note que terá de configurar ferramentas de linha de comando Xcode se não o tiver feito antes de executar o script: Iniciar o Xcode, selecione "Preferências -> Localizações". Escolha a sua versão Xcode para as Ferramentas da Linha de Comando. **Note que o BuildAzurePackages.sh script funciona apenas com Xcode 11.5 ou superior.**
 
 1. Descarregue os Serviços de Comunicação Azure Chamando a biblioteca de clientes para iOS.
 2. No Xcode, clique no seu ficheiro do projeto e selecione o alvo de construção para abrir o editor de definições do projeto.

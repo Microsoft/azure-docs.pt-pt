@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 72ce95373df0a670179424d8e7ea95254941db1a
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: codepen, devx-track-js
+ms.openlocfilehash: 5b042bc12202de5fc0fe30aac62e065538abf3a0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085931"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310497"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Adicione uma camada de símbolo a um mapa
 

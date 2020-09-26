@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afef3d41212c9366aa696bfcd0abff6c8cfc4eb3
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 3e85d2ef9d75bbff6357466e76ffcf60e3716e78
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662423"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273679"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrar da federação para a sincronização de haxixe de palavra-passe para o Azure Ative Directory
 
@@ -302,7 +302,7 @@ Primeiro, altere o método de inscrição:
 
 5. Na página **de inscrição única,** introduza as credenciais da conta Do Administrador de Domínio e, em seguida, selecione **Seguinte**.
 
-   ![Screenshot da página de inscrição única do Enable](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
+   ![Screenshot da página de inscrição única ativa onde pode introduzir as credenciais de conta de Administrador de Domínio.](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image9.png)<br />
 
    > [!NOTE]
    > As credenciais de conta do Administrador de Domínio são necessárias para permitir sSO sem costura. O processo completa as seguintes ações, que requerem estas permissões elevadas. As credenciais de conta do Administrador de Domínio não são armazenadas no Azure AD Connect ou no Azure AD. As credenciais de conta do Administrador de Domínio são utilizadas apenas para ligar a funcionalidade. As credenciais são descartadas quando o processo termina com sucesso.
@@ -324,7 +324,7 @@ Primeiro, altere o método de inscrição:
    * **O sinal único sem emenda** está definido para **Ativado**.
    * **O Sync da palavra-passe** está definido para **Ativado**.<br /> 
 
-   ![Screenshot que mostra as definições na secção de insente do utilizador](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
+   ![Screenshot que mostra as definições na secção de insuição do Utilizador do portal AD AZure.](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image11.png)<br />
 
 Passar para [testar e próximos passos](#testing-and-next-steps).
 
@@ -476,7 +476,7 @@ Inicie a capotagem da chave de desencriptação SSO Kerberos sem costura no serv
 
 Para mais informações, veja [como é que revoco a chave de desencriptação kerberos da conta de computador AZUREADSSOACC?](./how-to-connect-sso-faq.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre os conceitos de [design Azure AD Connect](plan-connect-design-concepts.md).
 * Escolha a [autenticação certa.](./choose-ad-authn.md)

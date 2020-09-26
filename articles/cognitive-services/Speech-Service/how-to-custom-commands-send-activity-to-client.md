@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 520b38f4c733e7bf28a2a06429ad14d016c5bd28
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 6e8e6feb064a5d26eb6cb72b521d3f9df0380086
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027618"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360111"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>Enviar atividade de Comandos Personalizados para a aplicação do cliente
 
@@ -29,8 +29,8 @@ Completa as seguintes tarefas:
 ## <a name="prerequisites"></a>Pré-requisitos
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) ou superior. Este guia utiliza o Visual Studio 2019
-> * Uma chave de subscrição Azure para o serviço [Desematado: Obtenha uma gratuitamente](get-started.md) ou crie-a no [portal Azure](https://portal.azure.com)
-> * Uma aplicação de [Comandos Personalizados](quickstart-custom-commands-application.md) previamente criada
+> * Uma chave de subscrição do Azure para o serviço de Voz: [Obtenha uma gratuita](overview.md#try-the-speech-service-for-free) ou crie-a no [portal do Azure](https://portal.azure.com)
+> * Uma [aplicação de Comandos Personalizados criada](quickstart-custom-commands-application.md) anteriormente
 > * Uma aplicação de cliente ativada pela SDK: [Como fazê-lo: Integre-se com uma aplicação de cliente usando a Speech SDK](./how-to-custom-commands-setup-speech-sdk.md)
 
 ## <a name="setup-send-activity-to-client"></a>Configuração Enviar atividade ao cliente 
@@ -51,7 +51,7 @@ Completa as seguintes tarefas:
    > [!div class="mx-imgBorder"]
    > ![Enviar regra de conclusão da atividade](media/custom-commands/send-activity-to-client-completion-rules.png)
 
-## <a name="integrate-with-client-application"></a>Integrar-se com a aplicação do cliente
+## <a name="integrate-with-client-application"></a>Integrar com a aplicação cliente
 
 Em [Como-a: Configurar a aplicação do cliente com a Speech SDK (Preview)](./how-to-custom-commands-setup-speech-sdk.md)criou uma aplicação de cliente UWP com a Speech SDK que manuseava comandos `turn on the tv` como, `turn off the fan` . . Com alguns visuais adicionados, pode ver o resultado desses comandos.
 
@@ -149,14 +149,14 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 ## <a name="try-it-out"></a>Experimente
 
 1. Iniciar a aplicação
-1. Selecione Ative o microfone
+1. Selecione Ativar microfone
 1. Selecione o botão Falar
-1. Dizer`turn on the tv`
+1. Diga `turn on the tv`
 1. O estado visual da televisão deve mudar para "on"
    > [!div class="mx-imgBorder"]
    > ![Enviar carga útil da atividade](media/custom-commands/send-activity-to-client-turn-on-tv.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Como: configurar pontos finais web (Pré-visualização)](./how-to-custom-commands-setup-web-endpoints.md)
