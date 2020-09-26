@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 09/09/2020
 ms.author: aahi
 keywords: mineração de texto, análise de sentimento, análise de texto
-ms.custom: devx-track-python, devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-text-analytics
-ms.openlocfilehash: 104ae91b59bc04fc3227585a55a744d500d6db29
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ed87c536c53ab1c07af05a7b8223901591c16e66
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648995"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332345"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Quickstart: Use a biblioteca de clientes Text Analytics
 
@@ -84,7 +84,7 @@ Se clicou neste separador, provavelmente não viu um arranque rápido na sua lin
 | Linguagem | Versão disponível | 
 |----------|------------------------|
 | Ruby     | [Versão 2.1](ruby-sdk.md) | 
-| Ir       | [Versão 2.1](go-sdk.md) | 
+| Go       | [Versão 2.1](go-sdk.md) | 
 
 ::: zone-end
 
@@ -95,13 +95,13 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Explore uma solução](../text-analytics-user-scenarios.md#analyze-recorded-inbound-customer-calls)
 
 * [Descrição geral da Análise de Texto](../overview.md)
-* [Análise de sentimentos](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Análise de sentimento](../how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Reconhecimento de entidades](../how-tos/text-analytics-how-to-entity-linking.md)
 * [Detetar idioma](../how-tos/text-analytics-how-to-keyword-extraction.md)
 * [Reconhecimento linguístico](../how-tos/text-analytics-how-to-language-detection.md)

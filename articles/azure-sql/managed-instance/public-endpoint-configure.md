@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
 ms.date: 05/07/2019
-ms.openlocfilehash: 498d00b4f6a0ca16d07663641a46f30109b39d5f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a9bf3fbf28d8ac525f2937812742e850a5427cc9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325067"
+ms.locfileid: "91360825"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Configure o ponto final público em Azure SQL Gestd Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,7 +45,7 @@ Devido à sensibilidade dos dados que estão em caso gerido, a configuração pa
 1. Nas definições **de Segurança,** selecione o **separador rede Virtual.**
 1. Na página de configuração da rede Virtual, selecione **Ativar** e, em seguida, o ícone **Guardar** para atualizar a configuração.
 
-![mi-vnet-config.png](./media/public-endpoint-configure/mi-vnet-config.png)
+![O Screenshot mostra uma página de rede virtual de SQL gerida com o ponto final do Público ativado.](./media/public-endpoint-configure/mi-vnet-config.png)
 
 ## <a name="enabling-public-endpoint-for-a-managed-instance-using-powershell"></a>Permitir o ponto final público para um caso gerido usando o PowerShell
 
@@ -84,11 +84,11 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 1. Se tiver a página de configuração da instância gerida ainda aberta, navegue para o **separador Visão** Geral. Caso contrário, volte ao seu recurso de **instância gerido SQL.** Selecione o link **rede virtual/sub-rede,** que o levará à página de configuração da rede Virtual.
 
-    ![mi-overview.png](./media/public-endpoint-configure/mi-overview.png)
+    ![A screenshot mostra a página de configuração da rede Virtual onde pode encontrar o valor da sua rede virtual/sub-rede.](./media/public-endpoint-configure/mi-overview.png)
 
 1. Selecione o separador **Subnets** no painel de configuração esquerda da sua rede Virtual e tome nota do **GRUPO DE SEGURANÇA** para a sua instância gerida.
 
-    ![mi-vnet-subnet.png](./media/public-endpoint-configure/mi-vnet-subnet.png)
+    ![A screenshot mostra o separador Subnet, onde pode obter o GRUPO DE SEGURANÇA para a sua instância gerida.](./media/public-endpoint-configure/mi-vnet-subnet.png)
 
 1. Volte para o seu grupo de recursos que contém o seu caso gerido. Deve ver o nome do **grupo de segurança da Rede** acima indicado. Selecione o nome para entrar na página de configuração do grupo de segurança de rede.
 
@@ -104,7 +104,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |**Ação**     |Permitir         |Permitir que o tráfego de entrada seja gerido através do ponto final público |
     |**Priority**     |1300         |Certifique-se de que esta regra é maior prioridade do que a **regra deny_all_inbound** |
 
-    ![mi-nsg-rules.png](./media/public-endpoint-configure/mi-nsg-rules.png)
+    ![A screenshot mostra as regras de segurança de Entrada com a sua nova regra de public_endpoint_inbound acima da regra deny_all_inbound.](./media/public-endpoint-configure/mi-nsg-rules.png)
 
     > [!NOTE]
     > A porta 3342 é utilizada para ligações públicas de ponto final para ocorrências geridas, e não pode ser alterada neste momento.
@@ -114,7 +114,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 1. Navegue para a página de configuração de exemplo gerida que foi ativada para o ponto final público. Selecione o separador **'Ligação' de séries** na configuração **'Definições'.**
 1. Note que o nome de anfitrião do ponto final público vem no formato <mi_name>. **público**.<dns_zone>.database.windows.net e que a porta utilizada para a ligação é 3342.
 
-    ![mi-public-endpoint-conn-string.png](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
+    ![A screenshot mostra as cordas de ligação para os seus pontos finais públicos e privados.](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

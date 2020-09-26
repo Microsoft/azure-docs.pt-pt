@@ -7,13 +7,13 @@ author: amotley
 ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 142c6b4315eb1862dd116647f4396835c7286591
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.date: 09/23/2020
+ms.openlocfilehash: 8ceb6d4dddb76148be1e82ebc8c1994886a11da3
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378360"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362819"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Resolução de problemas erros e avisos comuns do indexante na Pesquisa Cognitiva do Azure
 
@@ -59,9 +59,9 @@ Indexer com uma fonte de dados Blob não foi capaz de extrair o conteúdo ou met
 
 | Razão | Detalhes/Exemplo | Resolução |
 | --- | --- | --- |
-| blob está acima do limite de tamanho | O documento é `'150441598'` bytes, que excede o tamanho máximo `'134217728'` de bytes para a extração de documentos para o seu nível de serviço atual. | [erros de indexação blob](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| blob tem tipo de conteúdo não suportado | O documento tem o tipo de conteúdo não suportado `'image/png'` | [erros de indexação blob](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| blob é encriptado | O documento não pôde ser processado - pode ser encriptado ou protegido por palavra-passe. | Pode saltar a bolha com [as definições de bolhas](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
+| blob está acima do limite de tamanho | O documento é `'150441598'` bytes, que excede o tamanho máximo `'134217728'` de bytes para a extração de documentos para o seu nível de serviço atual. | [erros de indexação blob](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
+| blob tem tipo de conteúdo não suportado | O documento tem o tipo de conteúdo não suportado `'image/png'` | [erros de indexação blob](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
+| blob é encriptado | O documento não pôde ser processado - pode ser encriptado ou protegido por palavra-passe. | Pode saltar a bolha com [as definições de bolhas](search-howto-indexing-azure-blob-storage.md#PartsOfBlobToIndex). |
 | questões transitórias | "Bolha de processamento de erro: O pedido foi abortado: O pedido foi cancelado." "Documento cronometrado durante o processamento." | Ocasionalmente, há problemas de conectividade inesperados. Tente passar o documento através do seu indexante novamente mais tarde. |
 
 <a name="could-not-parse-document"></a>
@@ -175,7 +175,7 @@ Em todos estes casos, consulte [os tipos de dados suportados](/rest/api/searchse
 
 ## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>Erro: A política integrada de rastreio de alterações não pode ser utilizada porque a tabela tem uma chave primária composta
 
-Isto aplica-se às tabelas SQL, e geralmente acontece quando a chave é definida como uma chave composta ou, quando a tabela definiu um índice agrupado único (como num índice SQL, e não num índice de Pesquisa Azure). A razão principal é que o atributo chave é modificado para ser uma chave primária composta no caso de um [índice único agrupado](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). Nesse caso, certifique-se de que a sua tabela SQL não tem um índice agrupado único, ou que mapeia o campo chave para um campo que é garantido não ter valores duplicados.
+Isto aplica-se às tabelas SQL, e geralmente acontece quando a chave é definida como uma chave composta ou, quando a tabela definiu um índice agrupado único (como num índice SQL, e não num índice de Pesquisa Azure). A razão principal é que o atributo chave é modificado para ser uma chave primária composta no caso de um [índice único agrupado](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described). Nesse caso, certifique-se de que a sua tabela SQL não tem um índice agrupado único, ou que mapeia o campo chave para um campo que é garantido não ter valores duplicados.
 
 <a name="could-not-process-document-within-indexer-max-run-time"></a>
 

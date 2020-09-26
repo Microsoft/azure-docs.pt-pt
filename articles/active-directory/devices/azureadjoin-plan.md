@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0863a782b7f4531b900bc3c005a39387c83d983
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a8a70097cbae3bc5ebf48c0358faa32aea0a6be5
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268232"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370182"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planeie a sua Azure AD aderir à implementação
 
@@ -184,7 +184,7 @@ Os dispositivos azure AD não suportam aplicações no local que dependam da aut
 
 A ligação remota de ambiente de trabalho a um dispositivo aderido a Azure AD requer que a máquina hospedeira seja aderida ao Azure AD ou a AD Híbrida Azure. O ambiente de trabalho remoto de um dispositivo não associado ou não-Windows não é suportado. Para mais informações, consulte [Connect to remote Azure AD](/windows/client-management/connect-to-remote-aadj-pc)
 
-A partir da atualização do Windows 10 2004, os utilizadores podem utilizar um ambiente de trabalho remoto de um dispositivo Azure AD registado no Windows 10 para um dispositivo AD Azure. 
+A partir da atualização do Windows 10 2004, os utilizadores também podem utilizar o ambiente de trabalho remoto a partir de um dispositivo AZure AD registado no Windows 10 para um dispositivo AD Azure. 
 
 ## <a name="understand-your-provisioning-options"></a>Compreenda as suas opções de provisionamento
 
@@ -198,11 +198,11 @@ Aqui está uma comparação destas três abordagens
  
 | Elemento | Configuração de self-service | Windows Autopilot | Inscrição em massa |
 | --- | --- | --- | --- |
-| Requerem interação do utilizador para configurar | Sim | Sim | Não |
-| Exigir esforço de TI | Não | Sim | Sim |
+| Requerem interação do utilizador para configurar | Yes | Yes | No |
+| Exigir esforço de TI | No | Yes | Sim |
 | Fluxos aplicáveis | Definições de & OOBE | Apenas OOBE | Apenas OOBE |
 | Direitos de administrador local para o utilizador primário | Sim, por defeito. | Configurável | Não |
-| Requera suporte ao OEM do dispositivo | Não | Sim | Não |
+| Requera suporte ao OEM do dispositivo | No | Yes | No |
 | Versões suportadas | 1511+ | 1709+ | 1703+ |
  
 Escolha a sua abordagem de implantação ou abordagens, revendo o quadro acima e revendo as seguintes considerações para a adoção de qualquer uma das abordagens:  

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: e1a66da52eea6d5da711fa6def58eba65d0960ed
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6cca34774038156cfb01e872e751338c1c96efaa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "74976745"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316005"
 ---
 # <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>Tutorial: Dispositivos de provisão através de hubs IoT equilibrados em carga
 
@@ -55,7 +55,7 @@ Siga estes passos para definir a política de alocação:
 
 1. Para definir a política de alocação, na página do Serviço Aprovisionamento de Dispositivos, clique em **Gerir política de alocação**.
 2. Defina a política de alocação para **Distribuição ponderada uniformemente**.
-3. Clique em **Guardar**.
+3. Clique em **Save** (Guardar).
 
 ## <a name="link-the-new-iot-hub-to-the-device-provisioning-service"></a>Ligar o novo hub IoT ao Serviço Aprovisionamento de Dispositivos
 
@@ -65,9 +65,7 @@ Ligar o Serviço Aprovisionamento de Dispositivos e o Hub IoT para que o Serviç
 2. Na página do Serviço Aprovisionamento de Dispositivos, clique em **Hubs IoT ligados**.
 3. Clique em **Adicionar**.
 4. Na página **Adicionar ligação ao hub IoT**, utilize os botões de opção para especificar se o hub IoT associado se encontra na subscrição atual ou numa subscrição diferente. Em seguida, escolha o nome do hub IoT na caixa **hub IoT**.
-5. Clique em **Guardar**.
-
-## <a name="next-steps"></a>Passos seguintes
+5. Clique em **Save** (Guardar).
 
 Neste tutorial, ficou a saber como:
 
@@ -76,6 +74,8 @@ Neste tutorial, ficou a saber como:
 > * Adicionar uma entrada da lista de inscrição ao segundo dispositivo
 > * Definir a política de alocação do Serviço Aprovisionamento de Dispositivos para **distribuição uniforme**
 > * Ligar o novo hub IoT ao Serviço Aprovisionamento de Dispositivos
+
+## <a name="next-steps"></a>Passos seguintes
 
 <!-- Advance to the next tutorial to learn how to 
  Replace this .md

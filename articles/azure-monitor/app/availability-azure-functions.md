@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
-ms.openlocfilehash: e2603d921973aefdcc1a6f4a76bdf70d69dcb68f
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7c7aba1c1f091efa0ddd4417ef0a03f3f4ca4d36
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320634"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361012"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Criar e executar testes de disponibilidade personalizados usando funções Azure
 
@@ -32,7 +32,7 @@ Este artigo cobrirá como criar uma Função Azure com TrackAvailability() que s
 
             ![Selecionando o recurso de Insights de Aplicação existente](media/availability-azure-functions/app-insights-resource.png)
 
-        - **Selecione Review + criar**
+        - Selecione **Rever + criar**
 - Se ainda não tiver um Recurso de Insights de Aplicação criado para a função de desacionado do temporizador:
     - Por predefinição, quando estiver a criar a sua aplicação Azure Functions, criará um recurso 'Insights de Aplicação' para si.
     - Siga as instruções sobre como [criar um recurso Azure Functions e função de gatilho do Temporizador](../../azure-functions/functions-create-scheduled-function.md) (parar antes da limpeza).
@@ -183,7 +183,7 @@ Pode utilizar Logs (analytics) para visualizar os resultados da disponibilidade,
 >![Resultados da disponibilidade](media/availability-azure-functions/availabilityresults.png)
 
 >[!div class="mx-imgBorder"]
->![Dependências](media/availability-azure-functions/dependencies.png)
+>![A screenshot mostra o novo separador de consulta com dependências limitadas a 50.](media/availability-azure-functions/dependencies.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

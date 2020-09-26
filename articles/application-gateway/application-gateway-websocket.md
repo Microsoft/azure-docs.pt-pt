@@ -7,12 +7,12 @@ ms.service: application-gateway
 services: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
-ms.openlocfilehash: baa02c4d946a121f26f421af99835ae2bea18847
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59ca7708b24d2e75381290b80adeb671e2b49822
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74130341"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362700"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Visão geral do suporte do WebSocket no Gateway de aplicações
 
@@ -28,7 +28,7 @@ Pode continuar a utilizar um ouvinte HTTP padrão na porta 80 ou 443 para recebe
 
 Para estabelecer uma ligação WebSocket, é trocado um aperto de mão específico baseado em HTTP entre o cliente e o servidor. Se for bem sucedido, o protocolo de camada de aplicação é "atualizado" de HTTP para WebSockets, utilizando a ligação TCP previamente estabelecida. Uma vez que isto ocorre, HTTP está completamente fora de imagem; os dados podem ser enviados ou recebidos utilizando o protocolo WebSocket por ambos os pontos finais, até que a ligação WebSocket esteja fechada. 
 
-![websocket](./media/application-gateway-websocket/websocket.png)
+![O diagrama compara um cliente a interagir com um servidor web, conectando-se duas vezes para obter duas respostas, com uma interação WebSocket, onde um cliente se conecta a um servidor uma vez para obter várias respostas.](./media/application-gateway-websocket/websocket.png)
 
 ### <a name="listener-configuration-element"></a>Elemento de configuração do serviço de escuta
 
@@ -121,6 +121,6 @@ O seu backend deve ter um servidor web HTTP/HTTPS a funcionar na porta configura
 
 Outra razão para isso é que a sonda de saúde backend gateway de aplicação suporta apenas protocolos HTTP e HTTPS. Se o servidor backend não responder às sondas HTTP ou HTTPS, é retirado do pool backend.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de aprender sobre o suporte webSocket, vá [criar uma porta de aplicação](quick-create-powershell.md) para começar com uma aplicação web ativada web ativada pela Web.

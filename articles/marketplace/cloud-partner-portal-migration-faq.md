@@ -7,12 +7,12 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 55b789363397945e01d02d76cb0e573660d18b67
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: cb24ff0f2e09d98bf4a8cc4a502399fd9b38e350
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607509"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369914"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Perguntas frequentes sobre a transição do Portal do Parceiro Cloud para o Centro de Parceiros
 
@@ -28,7 +28,7 @@ Pode continuar a fazer negócios no Partner Center:
 | Oferecer experiência de publicação e gestão de ofertas | Mudamos os dados da sua oferta do Portal do Parceiro Cloud para o Partner Center. Agora terá acesso às suas ofertas no Partner Center, que oferece uma melhor experiência de utilizador e interface intuitiva. Saiba como [atualizar uma oferta existente no mercado comercial.](partner-center-portal/update-existing-offer.md) |
 | Disponibilidade das suas ofertas no mercado comercial | Sem alterações. Se a sua oferta for ao vivo no mercado comercial, continuará a ser ao vivo. |
 | Novas compras e implementações | Sem alterações. Os seus clientes podem continuar a comprar e implementar as suas ofertas sem interrupções. |
-| Pagamentos | Quaisquer compras e implementações continuarão a ser pagos normalmente. Saiba mais sobre [ser pago no mercado comercial.](partner-center-portal/get-paid.md) |
+| Pagamentos | Quaisquer compras e implementações continuarão a ser pagos normalmente. Saiba mais sobre [ser pago no mercado comercial.](/partner-center/marketplace-get-paid?context=/azure/marketplace/context/context) |
 | Integrações da API com apIs do [Portal do Parceiro cloud existentes](cloud-partner-portal-api-overview.md) | As APIs do Portal do Parceiro Cloud existentes ainda são suportadas e as suas integrações existentes ainda funcionam. Saiba mais no [Portal do Parceiro Cloud REST APIs será suportado?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
 | Análise | Pode continuar a monitorizar as vendas, avaliar o desempenho e otimizar as suas ofertas no mercado comercial, visualizando análises no Partner Center. Existem diferenças entre a forma como os relatórios de análise são exibidos no CPP e no Partner Center. Por exemplo, **o Seller Insights** em CPP tem um **separador De utilização & encomendas** que exibe dados para ofertas baseadas em uso e ofertas não baseadas em uso, enquanto no Centro parceiro a página **Encomendas** tem um separado separado para Ofertas SaaS. Saiba mais na [Access analítica reportagens para o mercado comercial no Partner Center.](partner-center-portal/analytics.md) |
 |||
@@ -162,7 +162,9 @@ As informações que forneceu anteriormente para SKUs numa única página no Por
 - Plano configurado página
 - Página de listagem de plano
 - Página de disponibilidade do plano
-- Plan de configuração técnica, como mostrado aqui: ![ ![ A screenshot mostra a página de configuração técnica do Partner Center.] (media/cpp-pc-faq/technical-configuration.png "Mostra a página de configuração técnica do Centro parceiro")](media/cpp-pc-faq/technical-configuration.png#lightbox)
+- Plane página de configuração técnica, como mostrado aqui:
+
+![! [Screenshot mostra a página de configuração técnica do Partner Center.] (media/cpp-pc-faq/technical-configuration.png "Mostra a página de configuração técnica do Centro parceiro")](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 O seu ID de oferta é agora mostrado na barra de navegação à esquerda da oferta:
 

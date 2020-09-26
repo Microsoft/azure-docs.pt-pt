@@ -14,14 +14,14 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Operations'
-- devx-track-javascript
+- devx-track-js
 - devx-track-csharp
-ms.openlocfilehash: 5d4319ddca0f80300a00d3699da64c961badd163
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: c7ad38dc43280164fc9dbca5d5f2381e613dc1ae
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602885"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281339"
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 

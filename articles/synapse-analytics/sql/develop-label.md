@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 596b18332fc490f72ad185699fc59bf4521eca69
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: e8f78d6031e57da42e1d69587aedca0763c9fec2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032185"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289077"
 ---
 # <a name="use-query-labels-in-synapse-sql"></a>Utilize etiquetas de consulta em Synapse SQL
 Incluído neste artigo são dicas essenciais para a utilização de etiquetas de consulta no Synapse SQL.
@@ -34,9 +34,9 @@ OPTION (LABEL = 'My Query Label')
 ;
 ```
 
-A última linha marca a cadeia 'My Query Label' para a consulta. Esta etiqueta é particularmente útil, uma vez que a etiqueta é passável através dos DMVs. A consulta de etiquetas fornece um mecanismo para localizar consultas de problemas e ajuda a identificar o progresso através de uma execução ELT.
+A última linha marca a cadeia 'My Query Label' para a consulta. Esta etiqueta é útil uma vez que a etiqueta é passável através dos DMVs. A consulta de etiquetas fornece um mecanismo para localizar consultas de problemas e ajuda a identificar o progresso através de uma execução ELT.
 
-A boa convenção de nomeação é muito útil. Por exemplo, iniciar o rótulo com PROJECT, PROCEDURE, STATEMENT ou COMMENT identifica de forma única a consulta entre todo o código em controlo de origem.
+Boas convenções de nomeação são muito úteis. Por exemplo, iniciar o rótulo com PROJECT, PROCEDURE, STATEMENT ou COMMENT identifica de forma única a consulta entre todo o código em controlo de origem.
 
 A seguinte consulta utiliza uma visão de gestão dinâmica para pesquisar por etiqueta:
 
@@ -52,7 +52,7 @@ WHERE   r.[label] = 'My Query Label'
 > 
 > 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais dicas de desenvolvimento, consulte [a visão geral do desenvolvimento.](develop-overview.md)
 
 

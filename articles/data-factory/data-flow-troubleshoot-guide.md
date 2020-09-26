@@ -8,12 +8,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 09/11/2020
-ms.openlocfilehash: e52432c01e649754116fcd0420fa52ae6c4e3733
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 47d1f3c78a303f7a45457a435fa11f074c41d7aa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031862"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316159"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Fluxos de dados de mapeamento de resolução de problemas na Azure Data Factory
 
@@ -116,7 +116,7 @@ Se estiver a executar o fluxo de dados numa execução de teste de depuragem a p
 
 - **Mensagem**: Há um elevado número de valores nulos ou valores em falta que podem ser causados por terem poucas linhas amostradas. Tente atualizar o limite da linha de depuragem e refrescar os dados.
 - **Causas**: A condição de junção não correspondeu a nenhuma linha ou resultou num elevado número de NULLs durante a pré-visualização dos dados.
-- **Recomendação**: Vá às Definições de Debug e aumente o número de linhas no limite da linha de origem. Certifique-se de que tem o Azure IR selecionado e o Azure IR com um cluster de fluxo de dados suficientemente grande para lidar com mais dados.
+- **Recomendação**: Vá às Definições de Debug e aumente o número de linhas no limite da linha de origem. Certifique-se de que selecionou um Azure IR com um cluster de fluxo de dados suficientemente grande para lidar com mais dados.
 
 
 ## <a name="general-troubleshooting-guidance"></a>Orientação geral de resolução de problemas
@@ -125,12 +125,12 @@ Se estiver a executar o fluxo de dados numa execução de teste de depuragem a p
 1. Verifique o estado do seu ficheiro e as ligações de tabela do designer de fluxos de dados. Ligue o Debug e clique na visualização de dados nas suas transformações de Origem para garantir que consegue aceder aos seus dados.
 1. Se tudo estiver bem desde a pré-visualização de dados, vá ao designer pipeline e coloque o seu fluxo de dados numa atividade de pipeline. Depurar o oleoduto para um teste de ponta a ponta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais ajuda para resolver problemas, experimente estes recursos:
 *  [Blog da Fábrica de Dados](https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog)
 *  [Pedidos de recursos da Data Factory](https://feedback.azure.com/forums/270578-data-factory)
-*  [Vídeos do Azure](https://www.youtube.com/channel/UC2S0k7NeLcEm5_IhHUwpN0g/videos)
+*  [Vídeos Azure](https://www.youtube.com/channel/UC2S0k7NeLcEm5_IhHUwpN0g/videos)
 *  [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Stack Overflow Forum para a Fábrica de Dados](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informações do Twitter sobre a Data Factory](https://twitter.com/hashtag/DataFactory)

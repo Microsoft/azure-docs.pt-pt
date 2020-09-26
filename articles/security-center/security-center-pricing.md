@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2020
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6d2127af2c2c9e04141551dae72f0177f495b165
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 393e769f147629d2d40344052ba502b22a18cd2a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904769"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314543"
 ---
 # <a name="pricing-of-azure-security-center"></a>Preços do Centro de Segurança Azure
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, no local e noutras clouds. Proporciona visibilidade e controlo sobre cargas de trabalho em nuvem híbridas, defesas ativas que reduzem a sua exposição a ameaças e deteção inteligente para ajudá-lo a manter o ritmo com ataques cibernéticos em rápida evolução.

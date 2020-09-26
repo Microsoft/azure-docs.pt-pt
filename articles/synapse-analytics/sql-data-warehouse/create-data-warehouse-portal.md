@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 4972e843394cac3b4a4f7c08a27f9d1a9e19cee5
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 19de7900cf46a5c372b051fc76d594fd4b4dfb8f
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89459390"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369642"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Quickstart: Criar e consultar uma piscina Sinapse SQL utilizando o portal Azure
 
@@ -76,9 +76,9 @@ Siga estes passos para criar uma piscina SQL que contenha os dados da amostra **
 
    ![selecione criar](./media/create-data-warehouse-portal/create-sql-pool-create.png)
 
-7. Na barra de **ferramentas,** selecione Notificações para monitorizar o processo de implementação.
+7. Na barra de ferramentas, selecione **Notificações** para monitorizar o processo de implementação.
 
-   ![notificação](./media/create-data-warehouse-portal/notification.png)
+   ![A screenshot mostra notificações com implementação em curso.](./media/create-data-warehouse-portal/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Criar uma regra de firewall ao nível do servidor
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/24/2020
-ms.openlocfilehash: a5047e4e63f71c482cd1bcc98152ae35e10e94b1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 407183837f7be01f5182ff0890426170da223161
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91291644"
+ms.locfileid: "91363176"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Tutorial: Migrar o Oráculo para Azure Database para postgreSQL on-line usando DMS (Preview)
 
@@ -214,11 +214,11 @@ Se criar um esquema PostgreSQL utilizando ferramentas como o ora2pg antes de ini
 
 1. Quando cria um novo oracle para a base de dados de Azure para o projeto de migração PostgreSQL, é solicitado que selecione a base de dados-alvo e o esquema de destino na etapa selete schemas. Preencha a base de dados-alvo e o esquema do alvo.
 
-   ![Mostrar subscrições no portal](media/tutorial-oracle-azure-postgresql-online/dms-map-to-target-databases.png)
+   ![A imagem mostra o Mapa para as bases de dados do alvo.](media/tutorial-oracle-azure-postgresql-online/dms-map-to-target-databases.png)
 
 2. O ecrã **de definições de migração** apresenta uma lista de tabelas na fonte Oráculo. O Serviço de Migração da Base de Dados Azure tenta combinar tabelas na fonte e nas tabelas-alvo com base no nome da mesa. Se existirem várias tabelas-alvo correspondentes com invólucros diferentes, pode selecionar qual a tabela-alvo a mapear.
 
-    ![Mostrar subscrições no portal](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
+    ![A screenshot mostra as definições de migração.](media/tutorial-oracle-azure-postgresql-online/dms-migration-settings.png)
 
 > [!NOTE]
 > Se precisar de mapear nomes de tabelas de origem para tabelas com nomes diferentes, o email [dmsfeedback@microsoft.com](mailto:dmsfeedbac@microsoft.com) e podemos fornecer um script para automatizar o processo.

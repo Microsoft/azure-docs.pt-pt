@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: aahi
-ms.openlocfilehash: 00bca2d0c7e267bef8cd4a917463c5e7db159792
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8e951e6cb18596b19f49bf42179297f656e3fa5f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937414"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304304"
 ---
 # <a name="camera-placement-guide"></a>Guia de colocação de câmera
 
@@ -56,7 +56,7 @@ Geralmente, as câmaras devem ser montadas a 12-14 pés do chão. Ao planear a m
 
 ## <a name="camera-to-focal-point-distance"></a>Distância entre câmara e ponto focal
 
-_A distância entre a câmara e_ o ponto focal é a distância linear do ponto focal (ou ponto focal central do ponto de interesse) para a câmara.
+_A distância entre a câmara e_ o ponto focal é a distância linear do ponto focal (ou centro da imagem da câmara) para a câmara medida no chão.
 
 ![Distância entre câmara e ponto focal](./media/spatial-analysis/camera-focal-point.png)
 

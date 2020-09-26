@@ -12,12 +12,12 @@ ms.subservice: sql-dw
 ms.date: 05/11/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e18a3628a2fbb9eee248851f2295000fd1f82532
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 073efd41c754b0d28e0bdab712f692f100d3316e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027295"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289519"
 ---
 # <a name="getting-started-with-visual-studio-2019"></a>Começar com o Visual Studio 2019
 
@@ -40,12 +40,12 @@ Há alturas em que as versões de funcionalidades para Synapse SQL podem não in
 
 
 - [Gestão da carga de trabalho](sql-data-warehouse-workload-management.md) - grupos de carga de trabalho e classificadores
-- [Segurança ao Nível da Linha](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [Segurança ao nível da linha](/sql/relational-databases/security/row-level-security?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (incluindo funções avaliadas em tabelas)
   - Envie um [bilhete de apoio ou voto](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) para obter o suporte da funcionalidade.
 - [Máscara de dados dinâmica](/sql/relational-databases/security/dynamic-data-masking?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#defining-a-dynamic-data-mask)
    - Envie um [bilhete de apoio ou voto](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) para obter o suporte da funcionalidade.
 - Tabelas com uma [coluna de identidade](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql-identity-property?view=sql-server-ver15)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem a versão mais recente do SSDT, está pronto para [ligar](sql-data-warehouse-query-visual-studio.md) à sua piscina SQL.

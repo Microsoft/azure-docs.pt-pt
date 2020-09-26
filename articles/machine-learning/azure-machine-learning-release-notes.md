@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 022040f4fa7f70dd5fc7677ce969ee9acbe7bcbb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d89a5c951f2923f9e107dd2dabec7773f292fa02
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886421"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91290522"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -640,7 +640,7 @@ Agora pode criar, editar e partilhar cadernos e ficheiros de machine learning di
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
     
-| Ferramenta baseada na web  |     Descrição  |
+| Ferramenta baseada na web  |     Description  |
 |---|---|
 | Cadernos do estúdio Azure ML   |     Primeira autoria em classe para ficheiros de portátil e suporte a toda a operação disponível no Azure ML Python SDK. | 
 
@@ -1152,7 +1152,7 @@ A partir do estúdio, você pode treinar, testar, implementar e gerir ativos de 
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
-| Ferramenta baseada na web | Descrição | 
+| Ferramenta baseada na web | Description | 
 |-|-|-|
 | VM do portátil (pré-visualização) | Estação de trabalho totalmente gerida em nuvem | 
 | [Aprendizagem automática de máquinas](tutorial-first-experiment-automated-ml.md) (pré-visualização) | Nenhuma experiência de código para automatizar o desenvolvimento de modelos de aprendizagem automática | 
@@ -1259,7 +1259,7 @@ O Azure Machine Learning é agora um fornecedor de recursos para a Grade de Even
   + [**azureml-datadrift**](https://docs.microsoft.com/python/api/azureml-datadrift)
     + Mudou-se de `azureml-contrib-datadrift` para `azureml-datadrift`
     + Apoio adicional à monitorização de conjuntos de dados de séries de tempo para deriva e outras medidas estatísticas
-    + Novos métodos `create_from_model()` e `create_from_dataset()` para a [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) classe. O `create()` método será depretado.
+    + Novos métodos `create_from_model()` e `create_from_dataset()` para a [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector%28class%29) classe. O `create()` método será depretado.
     + Ajustes nas visualizações em Python e UI no estúdio Azure Machine Learning.
     + Apoiar o agendamento semanal e mensal do monitor, além de diariamente para monitores de conjuntos de dados.
     + Suporte o backfill das métricas do monitor de dados para analisar dados históricos para monitores de conjuntos de dados.
@@ -1364,7 +1364,7 @@ O Azure Machine Learning é agora um fornecedor de recursos para a Grade de Even
     + Suporte usando ambiente para implementação de modelos e atualização de serviço.
   + **[azureml-datadrift](https://docs.microsoft.com/python/api/azureml-datadrift)**
     + O atributo de show da classe [DataDriftDetector](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector) não suporta mais argumentos opcionais 'with_details'. O atributo show apresentará apenas coeficiente de deriva de dados e contribuição de deriva de dados de colunas de recursos.
-    + DataDriftDetector a função [get_output] https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#get-output-start-time-none--end-time-none--run-id-none-) alterações de comportamento:
+    + Função DataDriftDetector [get_output]python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector.datadriftdetector#get-output-start-time-none-end-time-none-run-id-none-) alterações de comportamento:
       + Parâmetro de entrada start_time, end_time são opcionais em vez de obrigatórios;
       + A start_time específica e/ou end_time com um run_id específico na mesma invocação resultará numa exceção de erro de valor por serem mutuamente exclusivas;
       + Por entrada específica start_time e/ou end_time, apenas serão devolvidos os resultados das execuções programadas;
@@ -1458,7 +1458,7 @@ O separador Experiment no novo portal do [espaço de trabalho](https://ml.azure.
     + Training_data suportado, validation_data, label_column_name, weight_column_name como formato de entrada de dados
     + Mensagem de depreciação adicionada para explain_model e retrieve_model_explanations())
   + **[azureml-pipeline-core](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
-    + Adicionei um [caderno](https://aka.ms/pl-modulestep) para descrever [o Módulo](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.module(class)), [ModVersion, e [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep).
+    + Adicionei um [caderno](https://aka.ms/pl-modulestep) para descrever [o Módulo](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.module%28class%29), [ModVersion, e [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep).
   + **[azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps)**
     + Adicionado [RScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.rscriptstep) para suportar script R executado através do pipeline AML.
     + Parâmetros de metadados fixos em [AzureBatchStep que estava a causar a mensagem de erro "a atribuição do parâmetro SubscriptionId não é especificada".
@@ -1820,7 +1820,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + A DBFS Datastore está agora suportada para entradas e saídas em DatabricksStep.
     + Documentação atualizada para o Azure Batch Step no que diz respeito a entradas/saídas.
     + Em AzureBatchStep, alterou *delete_batch_job_after_finish* valor padrão para *verdadeiro*.
-  + **azureml-telemetria**
+  + **azureml-telemetry**
     +  Mova os conjuntos de dados azureml-contrib-open para conjuntos de dados abertos azureml.
     + Permitir que as aulas de conjunto de dados abertas sejam registadas no espaço de trabalho Azure Machine Learning e aproveite perfeitamente as capacidades do Conjunto de Dados AML.
     + Melhore o desempenho noaaIsdWeather enriquece significativamente o desempenho na versão não-SPARK.

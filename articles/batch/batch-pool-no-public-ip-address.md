@@ -1,29 +1,30 @@
 ---
-title: Criar uma piscina Azure Batch sem endereços IP públicos
+title: Criar um conjunto do Azure Batch sem endereços IP públicos
 description: Saiba como criar uma piscina sem endereços IP públicos
 author: pkshultz
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 09/25/2020
 ms.author: peshultz
-ms.openlocfilehash: 30792314f5bffaf4d40fc4bf60a2706acdaad34b
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: references_regions
+ms.openlocfilehash: 9b36c769c70792e47464c2704e1912dbb2d744dd
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962446"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91367942"
 ---
-# <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Criar uma piscina Azure Batch sem endereços IP públicos
+# <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Criar um conjunto do Azure Batch sem endereços IP públicos
 
 Quando criar uma piscina Azure Batch, pode providenciar o pool de configuração de máquina virtual sem endereço IP público. Este artigo explica como configurar um pool de Lote sem endereços IP públicos.
 
 ## <a name="why-use-a-pool-without-public-ip-addresses"></a>Porquê utilizar uma piscina sem endereços IP públicos?
 
-Por predefinição, todos os nós de computação num conjunto de configuração de máquina virtual Azure Batch são atribuídos a um endereço IP público. Este endereço é utilizado pelo serviço Batch para agendar tarefas e para comunicação com nós de computação, incluindo acesso de saída à internet. 
+Por predefinição, todos os nós de computação num conjunto de configuração de máquina virtual Azure Batch são atribuídos a um endereço IP público. Este endereço é utilizado pelo serviço Batch para agendar tarefas e para comunicação com nós de computação, incluindo acesso de saída à internet.
 
 Para restringir o acesso a estes nós e reduzir a descoberta destes nós a partir da internet, pode providenciar a piscina sem endereços IP públicos.
 
 > [!IMPORTANT]
-> O apoio a piscinas sem endereços IP públicos em Azure Batch está atualmente em pré-visualização pública para as regiões do Centro-Oeste dos EUA, Leste dos EUA, Centro Sul dos EUA, West US 2, Eua Gov Virginia e eua Gov Arizona.
+> O apoio a piscinas sem endereços IP públicos em Azure Batch é atualmente uma pré-visualização pública para todas as regiões, exceto China East, China East 2, China North, e China North 2.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -33,7 +34,7 @@ Para restringir o acesso a estes nós e reduzir a descoberta destes nós a parti
 - **Um Azure VNet.** Se estiver a criar a sua piscina numa [rede virtual,](batch-virtual-network.md)siga estes requisitos e configurações. Para preparar um VNet com uma ou mais sub-redes com antecedência, pode utilizar o portal Azure PowerShell, a Interface da Linha de Comando Azure (CLI) ou outros métodos.
   - A VNet tem de estar na mesma subscrição e região da conta do Batch utilizada para criar o conjunto.
   - A sub-rede especificada para o conjunto deve ter endereços IP não atribuídos suficientes para acomodar o número de VMs direcionadas para o conjunto; ou seja, a soma de propriedades `targetDedicatedNodes` e `targetLowPriorityNodes` do conjunto. Se a sub-rede não tiver endereços IP não atribuídos suficientes, o conjunto atribui parcialmente os nós de computação e ocorre um erro de redimensionamento.
-  - Tem de desativar as políticas de serviço de ligação privada e de rede de pontos finais. Isto pode ser feito utilizando O Azure CLI:```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
+  - Tem de desativar as políticas de serviço de ligação privada e de rede de pontos finais. Isto pode ser feito utilizando O Azure CLI: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
   
 > [!IMPORTANT]
 > Para cada 100 nós dedicados ou de baixa prioridade, o Batch atribui um serviço de ligação privada e um equilibrador de carga. Estes recursos estão limitados pelas [quotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) da subscrição. Para piscinas grandes, você pode precisar [solicitar um aumento de quota](batch-quota-limit.md#increase-a-quota) para um ou mais destes recursos. Além disso, não devem ser aplicados bloqueios de recursos a qualquer recurso criado pelo Batch, uma vez que tal impede a limpeza de recursos como resultado de ações iniciadas pelo utilizador, tais como a eliminação de uma piscina ou a redimensionamento para zero.
@@ -55,7 +56,7 @@ Para restringir o acesso a estes nós e reduzir a descoberta destes nós a parti
 1. Selecione opcionalmente uma rede virtual e uma sub-rede que pretende utilizar. Esta rede virtual deve estar no mesmo grupo de recursos que a piscina que está a criar.
 1. No **tipo de provisionamento de endereço IP**, selecione **NoPublicIPAddresses**.
 
-![Adicione o ecrã da piscina com noPublicIPAddresses selecionados](./media/batch-pool-no-public-ip-address/create-pool-without-public-ip-address.png)
+![Screenshot do ecrã da piscina Add com noPublicIPAddresses selecionados.](./media/batch-pool-no-public-ip-address/create-pool-without-public-ip-address.png)
 
 ## <a name="use-the-batch-rest-api-to-create-a-pool-without-public-ip-addresses"></a>Utilize a API de Lote REST para criar uma piscina sem endereços IP públicos
 
@@ -112,7 +113,7 @@ Numa piscina sem endereços IP públicos, as suas máquinas virtuais não poder�
 
 Outra forma de fornecer conectividade de saída é usar uma rota definida pelo utilizador (UDR). Isto permite-lhe encaminhar o tráfego para uma máquina de procuração que tem acesso público à Internet.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a criação de piscinas numa rede virtual.](batch-virtual-network.md)
 - Saiba como [utilizar pontos finais privados com contas Batch](private-connectivity.md).
