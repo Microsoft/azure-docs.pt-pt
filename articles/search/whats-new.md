@@ -8,20 +8,18 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 4526e4916a89b53ae13a31bcdef6cd4715dd7e8c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8c6cb08f8236ab6164a71b710656951203be3d19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979593"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314578"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades na Pesquisa Cognitiva Azure
 
 Saiba o que há de novo no serviço. Marque esta página para manter-se atualizado com o serviço.
 
-## <a name="feature-announcements-in-2020"></a>Anúncios de recursos em 2020
-
-### <a name="september-2020"></a>Setembro de 2020
+## <a name="september-2020"></a>Setembro de 2020
 
 Crie uma identidade para um serviço de pesquisa no Azure Ative Directory e, em seguida, use permissões do RBAC para conceder as permissões de leitura de identidade apenas para fontes de dados Azure. Opcionalmente, escolha a capacidade de exceção do [serviço fidedigno](search-indexer-howto-access-trusted-service-exception.md) se as regras IP não forem uma opção.
 
@@ -34,13 +32,13 @@ Crie uma identidade para um serviço de pesquisa no Azure Ative Directory e, em 
 | [Gestão REST API (2020-08-01-Pré-visualização)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | Adiciona recurso de ligação privada compartilhado para Funções Azure e Azure SQL para MySQL Databases. | Pré-visualização pública. |
 | [Gestão .NET SDK 4.0](https://docs.microsoft.com/dotnet/api/overview/azure/search/management) | SDK .NET | A atualização Azure SDK para a gestão SDK, direcionada para a versão REST API 2020-08-01. | Geralmente disponível. |
 
-### <a name="august-2020"></a>Agosto de 2020
+## <a name="august-2020"></a>Agosto de 2020
 
 |Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrição | Disponibilidade  |
 |---------|------------------|-------------|---------------|
 | [encriptação dupla](search-security-overview.md#encryption) | Segurança | Ativar a dupla encriptação na camada de armazenamento configurando a encriptação da chave gerida pelo cliente (CMK) em novos serviços de pesquisa. Crie um novo serviço, [configuure e aplique chaves geridas pelo cliente](search-security-manage-encryption-keys.md) em índices ou mapas de sinónimos, e beneficie de uma dupla encriptação sobre esse conteúdo. | Geralmente disponível em todos os serviços de pesquisa criados após 1 de agosto de 2020 nestas regiões: West US 2, East US, South Central US, US Gov Virginia, US Gov Arizona. Utilize o portal, gestão REST APIs ou SDKs para criar o serviço. |
 
-### <a name="july-2020"></a>Julho de 2020
+## <a name="july-2020"></a>Julho de 2020
 
 |Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrição | Disponibilidade  |
 |---------|------------------|-------------|---------------|
@@ -48,7 +46,7 @@ Crie uma identidade para um serviço de pesquisa no Azure Ative Directory e, em 
 | [ biblioteca de clientesazure.search.doc](/python/api/overview/azure/search-documents-readme)  | SDK do Azure para Python| Biblioteca de clientes Python lançada pela equipa Azure SDK, projetada para a consistência com outras bibliotecas de clientes Python. <br/><br/>A versão 11 tem como alvo a versão api-versão search REST=2020-06-30. | Geralmente disponível. </br> Instale o [pacote de documentos de pesquisa de azul](https://pypi.org/project/azure-search-documents/) a partir de PyPI. |
 | [@azure/search-documents biblioteca cliente](/javascript/api/overview/azure/search-documents-readme)  | SDK do Azure para JavaScript | Biblioteca de clientes JavaScript lançada pela equipa Azure SDK, projetada para a consistência com outras bibliotecas de clientes JavaScript. <br/><br/>A versão 11 tem como alvo a versão api-versão search REST=2020-06-30. | Geralmente disponível. </br> Instale a [ @azure/search-documents embalagem](https://www.npmjs.com/package/@azure/search-documents) a partir da npm. |
 
-### <a name="june-2020"></a>Junho de 2020
+## <a name="june-2020"></a>Junho de 2020
 
 |Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrição | Disponibilidade  |
 |---------|------------------|-------------|---------------|
@@ -57,7 +55,7 @@ Crie uma identidade para um serviço de pesquisa no Azure Ative Directory e, em 
 | [**Algoritmo de relevância Okapi BM25**](https://en.wikipedia.org/wiki/Okapi_BM25) | Consulta | Novo algoritmo de classificação de relevância automaticamente usado para todos os novos serviços de pesquisa criados após 15 de julho. Para serviços criados anteriormente, pode optar pela definição da propriedade em `similarity` campos de índice. | Geralmente disponível. </br> Use [Search REST API 2020-06-30](/rest/api/searchservice/) ou mais tarde, ou REST API 2019-05-06. |
 | **execuçãoEnvironment** | Segurança (indexantes) | Desaponte explicitamente esta propriedade de configuração indexante `private` para forçar todas as ligações a fontes de dados externas sobre um ponto final privado. Aplicável apenas aos serviços de pesquisa que alavancam a Azure Private Link. | Geralmente disponível. </br> Utilize [a API DE PESQUISA REST 2020-06-30](/rest/api/searchservice/) para definir este parâmetro de configuração geral. |
 
-### <a name="may-2020-microsoft-build"></a>Maio de 2020 (Microsoft Build)
+## <a name="may-2020-microsoft-build"></a>Maio de 2020 (Microsoft Build)
 
 |Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrição | Disponibilidade  |
 |---------|------------------|-------------|---------------|
@@ -68,21 +66,21 @@ Crie uma identidade para um serviço de pesquisa no Azure Ative Directory e, em 
 | [**parâmetro de consulta sessionId**](index-similarity-and-scoring.md), [scoringStatistics=parâmetro global](index-similarity-and-scoring.md#scoring-statistics) | Consulta (relevância) | Adicione a sessãoID a uma consulta para estabelecer uma sessão para calcular pontuações de pesquisa, com pontuaçãoStatísticas=global para recolher pontuações de todos os fragmentos, para cálculos de pontuação de pesquisa mais consistentes. | Geralmente disponível. </br> Use [Search REST API 2020-06-30](/rest/api/searchservice/) ou mais tarde, ou REST API 2019-05-06. |
 | [**featuresMode (pré-visualização)**](index-similarity-and-scoring.md#featuresMode-param) | Consulta | Adicione este parâmetro de consulta para expandir uma pontuação de relevância para mostrar mais detalhes: por pontuação de semelhança de campo, por frequência de período de campo, e por número de campo de fichas únicas correspondidas. Pode consumir estes pontos de dados em algoritmos de pontuação personalizados. Para obter uma amostra que demonstre esta capacidade, consulte [Adicionar machine learning (LearnToRank) para procurar relevância](https://github.com/Azure-Samples/search-ranking-tutorial). | Pré-visualização pública. </br> Use [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) ou REST API 2019-05-06-Preview. |
 
-### <a name="march-2020"></a>Março de 2020
+## <a name="march-2020"></a>Março de 2020
 
 |Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrição | Disponibilidade  |
 |---------|------------------|-------------|---------------|
 | [**Exclusão suave de blob nativo (pré-visualização)**](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) | Indexadores | Um indexante de armazenamento Azure Blob na Azure Cognitive Search reconhecerá as bolhas que estão em estado de eliminação suave e removerá o documento de pesquisa correspondente durante a indexação. | Pré-visualização pública. </br> Utilize o [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) e REST API 2019-05-06-Preview, com Índice de Execução contra uma fonte de dados Azure Blob que tem "soft delete" ativada. |
 | [**Gestão REST API (2020-03-13)**](/rest/api/searchmanagement/management-api-versions) | REST | Nova API rest estável para criar e gerir um serviço de pesquisa. Adiciona firewall IP e suporte de ligação privada | Geralmente disponível. |
 
-### <a name="february-2020"></a>Fevereiro de 2020
+## <a name="february-2020"></a>Fevereiro de 2020
 
 |Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrição | Disponibilidade  |
 |---------|------------------|-------------|---------------|
 | [**Deteção pii (pré-visualização)**](cognitive-search-skill-pii-detection.md) | Melhoramento de IA | Uma nova habilidade cognitiva usada durante a indexação que extrai informações pessoalmente identificáveis de um texto de entrada e lhe dá a opção de mascar a partir desse texto de várias maneiras. | Pré-visualização pública. </br> Utilize o portal ou [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) ou REST API 2019-05-06-Preview. |
 | [**Procura de Entidade Personalizada (pré-visualização)**](cognitive-search-skill-custom-entity-lookup.md )| Melhoramento de IA | Uma nova habilidade cognitiva que procura texto a partir de uma lista personalizada, definida pelo utilizador de palavras e frases. Utilizando esta lista, rotula todos os documentos com quaisquer entidades correspondentes. A habilidade também suporta um grau de correspondência difusa que pode ser aplicada para encontrar fósforos que são semelhantes, mas não exatos. | Pré-visualização pública. </br> Utilize o portal ou [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) ou REST API 2019-05-06-Preview. |
 
-### <a name="january-2020"></a>Janeiro de 2020
+## <a name="january-2020"></a>Janeiro de 2020
 
 |Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrição | Disponibilidade  |
 |---------|------------------|-------------|---------------|
@@ -90,7 +88,7 @@ Crie uma identidade para um serviço de pesquisa no Azure Ative Directory e, em 
 | [**Regras de IP para suporte a firewall (pré-visualização)**](service-configure-firewall.md) | Segurança | Limite o acesso a um ponto final do serviço de pesquisa a endereços IP específicos. A API de pré-visualização tem novas propriedades **IpRule** e **NetworkRuleSet** na [CreateOrUpdate API](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). Esta funcionalidade de pré-visualização está disponível em regiões selecionadas. |  Pré-visualização pública utilizando api-versão=2019-10-01-Preview.  |
 | [**Azure Private Link para um ponto final de pesquisa privado (pré-visualização)**](service-create-private-endpoint.md) | Segurança| Proteja um serviço de pesquisa da internet pública executando-o como um recurso de ligação privada, acessível apenas a aplicações de clientes e outros serviços Azure na mesma rede virtual. | Pré-visualização pública utilizando api-versão=2019-10-01-Preview.  |
 
-## <a name="feature-announcements-in-2019"></a>Anúncios de recursos em 2019
+## <a name="features-in-2019"></a>Características em 2019
 
 ### <a name="december-2019"></a>Dezembro de 2019
 

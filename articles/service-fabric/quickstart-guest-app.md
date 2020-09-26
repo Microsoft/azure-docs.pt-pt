@@ -3,13 +3,13 @@ title: Implementar rapidamente uma app existente para um cluster
 description: Utilize um cluster do Azure Service Fabric para alojar uma aplicação Node.js já existente com o Visual Studio.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 9b39e14b18a784274f1bac12072f4fa39de2bb87
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.custom: devx-track-js
+ms.openlocfilehash: 29278faa80340d17e9ed9093dd5f432fd24a3a2d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87430719"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314288"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Alojar uma aplicação Node.js no Azure Service Fabric
 
@@ -126,7 +126,7 @@ Navegue para este endereço onde verá a `HELLO WORLD` resposta.
 
 Não se esqueça de apagar todos os recursos que criou para este arranque rápido, pois é cobrado por esses recursos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Leia mais sobre os [executáveis convidados](service-fabric-guest-executables-introduction.md).
 
 <!-- Image References -->

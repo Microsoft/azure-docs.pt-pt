@@ -12,12 +12,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9cd70d534cebf35938285208dc76bd4a6d94533
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 3d9f59906c566d80344891c0796a85b0a4972e68
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279011"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313098"
 ---
 # <a name="tutorial--setting-up-phs-as-backup-for-ad-fs-in-azure-ad-connect"></a>Tutorial: Configuração phs como backup para AD FS em Azure AD Connect
 
@@ -74,7 +74,7 @@ Agora, vamos mostrar-lhe como mudar para a sincronização de hash password. Ant
 
 1. Navegue para [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Inscreva-se com uma conta de utilizador que foi criada no nosso novo inquilino.  Terá de iniciar sção utilizando o seguinte formato: user@domain.onmicrosoft.com (). Utilize a mesma palavra-passe que o utilizador utiliza para iniciar sins insição no local.</br>
-   ![Verificação](media/tutorial-password-hash-sync/verify1.png)</br>
+   ![Screenshot que mostra uma mensagem bem sucedida ao testar a placa dentro ](media/tutorial-password-hash-sync/verify1.png)</br>
 
 ## <a name="switch-back-to-federation"></a>Voltar para a federação
 Agora, vamos mostrar-lhe como voltar para a federação.  Para isso, faça o seguinte:
@@ -91,7 +91,7 @@ Agora, vamos mostrar-lhe como voltar para a federação.  Para isso, faça o seg
 10. Uma vez concluída a configuração, clique em **Seguinte**.
 ![Configurar](media/tutorial-phs-backup/backup4.png)</br>
 11. No ecrã de conectividade da **federação,** clique em **Verificar .**  Pode ser necessário configurar registos DNS (adicionar registos A e AAAA) para que este seja concluído com sucesso.
-![Verificação](media/tutorial-phs-backup/backup5.png)</br>
+![Screenshot que mostra o ecrã de conectividade da federação verificar e o botão Verificar.](media/tutorial-phs-backup/backup5.png)</br>
 12. Clique **em Saída**.
 
 ## <a name="reset-the-ad-fs-and-azure-trust"></a>Repor a confiança AD FS e Azure
@@ -106,7 +106,7 @@ Agora precisamos repor a confiança entre a AD FS e o Azure.
 6.  No ecrã **Connect to AD FS,** insira o nome de utilizador e palavra-passe do administrador contoso\Administrador e clique em **Seguinte.**
 7.  No ecrã **certificados,** clique em **Seguinte**.
 
-## <a name="test-signing-in-with-one-of-our-users"></a>Iniciar sessão de teste com um dos nossos utilizadores
+## <a name="test-signing-in-with-a-user"></a>Iniciar sessão de teste com um utilizador
 
 1.  Navegue para [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Iniciar sôms com uma conta de utilizador que foi criada no nosso novo inquilino.  Terá de iniciar s-in utilizando o seguinte formato: user@domain.onmicrosoft.com (). Utilize a mesma palavra-passe que o utilizador utiliza para iniciar sômposições no local.

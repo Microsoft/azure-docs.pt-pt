@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: ea5f2d5838c926fa8ee7b92278b0854264346a7b
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 7d36984e7117305b22381e4266575e998c080ae5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543763"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360196"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importar ou exportar uma Base de Dados Azure SQL sem permitir que os serviços da Azure acedam ao servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Os seguintes passos mostram-lhe como ligar-se à sua máquina virtual utilizando
 
 1. Após a conclusão da implementação, vá para o recurso de máquina virtual.
 
-   ![VM](./media/database-import-export-azure-services-off/vm.png)  
+   ![A screenshot mostra uma página de visão geral da máquina virtual com um botão Connect.](./media/database-import-export-azure-services-off/vm.png)  
 
 2. Selecione **Ligar**.
 

@@ -5,12 +5,12 @@ ms.author: puagarw
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
-ms.openlocfilehash: 42bdde45b3a289a35c5bf4c4651e5a50a639f049
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 36b2e829e56cf4d3b5ace64af989fa7f71725c44
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251778"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360842"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centro de Implantação de Azure Kubernetes
 
@@ -30,7 +30,7 @@ Neste tutorial, irá:
 
 * Um cluster de serviço Azure Kubernetes (AKS).
 
-## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS
+## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
 1. Inscreva-se no seu [portal Azure](https://portal.azure.com/).
 
@@ -54,7 +54,7 @@ Neste tutorial, irá:
 
 1. Selecione o cluster AKS e, em seguida, selecione **o Centro de Implementação (pré-visualização)** na lâmina esquerda. **Selecione Começar**.
 
-   ![definições](media/deployment-center-launcher/settings.png)
+   ![A screenshot mostra o portal Azure com uma seta apontando para o centro de implantação.](media/deployment-center-launcher/settings.png)
 
 1. Escolha a localização do código e selecione **Seguinte**. Em seguida, selecione um dos repositórios atualmente **[suportados: Azure Repos](/azure/devops/repos/index?view=azure-devops)** ou **GitHub**.
 
@@ -66,7 +66,7 @@ Neste tutorial, irá:
 
     - **GitHub**: Autorize e selecione o repositório para a sua conta GitHub.
 
-        ![GitHub](media/deployment-center-launcher/github.gif)
+        ![A animação mostra um processo no GitHub de selecionar o GitHub como fonte e, em seguida, selecionar o seu repositório.](media/deployment-center-launcher/github.gif)
 
 
 1. O Centro de Implantação analisa o repositório e deteta o seu Dockerfile. Se quiser atualizar o Dockerfile, pode editar o número de porta identificado.
@@ -75,7 +75,7 @@ Neste tutorial, irá:
 
     Se o repositório não contiver o Dockerfile, o sistema apresenta uma mensagem para cometer uma.
 
-    ![Dockerfile](media/deployment-center-launcher/dockerfile.png)
+    ![A screenshot mostra o centro de implantação com uma mensagem Não foi possível encontrar Dockerfile no repositório.](media/deployment-center-launcher/dockerfile.png)
 
 1. Selecione um registo de contentores existente ou crie um e, em seguida, **selecione Terminar**. O gasoduto é criado automaticamente e faz fila para construir em [Azure Pipelines](/azure/devops/pipelines/index?view=azure-devops).
 
@@ -87,7 +87,7 @@ Neste tutorial, irá:
 
 1. Verá os registos bem sucedidos após a implementação estar concluída.
 
-    ![Registos](media/deployment-center-launcher/logs.png)
+    ![A screenshot mostra o centro de implantação com o Release-1 marcado com um ícone de marca de verificação verde.](media/deployment-center-launcher/logs.png)
 
 ## <a name="examine-the-ci-pipeline"></a>Examinar o pipeline de CI
 

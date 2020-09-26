@@ -10,12 +10,12 @@ manager: anandsub
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/04/2018
-ms.openlocfilehash: 18f72ff32b29ff5832c363601ed63280339079df
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 52fba5064d656158a53ba71fec194cfa4f360df5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86083071"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360298"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory-using-the-azure-portal"></a>Transforme dados em Rede Virtual Azure utilizando a atividade da Colmeia na Azure Data Factory utilizando o portal Azure
 
@@ -94,7 +94,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 4. Selecione **V2** para a **versão**.
 5. Selecione a **localização** da fábrica de dados. Só são mostradas na lista as localizações que são suportadas para a criação de fábricas de dados.
 6. Selecione **Afixar ao dashboard**.     
-7. Clique em **Criar**.
+7. Clique em **Create** (Criar).
 8. No painel de instrumentos, vê-se o seguinte azulejo com estado: **Implantação da fábrica de dados**. 
 
      ![Mosaico “implementar a fábrica de dados”](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
@@ -168,7 +168,7 @@ Nesta secção, vai criar e implementar dois Serviços Ligados:
     2. Selecione **MySelfHostedIR** em **Ligar através do runtime de integração**.
     3. Selecione a sua conta de Armazenamento do Azure em **Nome da conta de armazenamento**. 
     4. Para testar a ligação à conta de armazenamento, clique em **Testar ligação**.
-    5. Clique em **Guardar**.
+    5. Clique em **Save** (Guardar).
    
         ![Especificar a conta de Armazenamento de Blobs do Azure](./media/tutorial-transform-data-using-hive-in-vnet-portal/specify-azure-storage-account.png)
 
@@ -233,7 +233,7 @@ Tenha em atenção os seguintes pontos:
         ![Argumentos do script](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. Para publicar os artefactos no Data Factory, clique em **Publicar**.
 
-    ![Publicar](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
+    ![A screenshot mostra a opção de publicar numa Fábrica de Dados.](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
 
 ## <a name="trigger-a-pipeline-run"></a>Acionar uma execução de pipeline
 

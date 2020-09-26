@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/18/2020
+ms.date: 09/23/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 226e35452e4b266c3c0a698505d47ab9a53b9761
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 828b5c34aaccf2a53aa197f921a8ef02d46821ae
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984388"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280475"
 ---
 # <a name="perform-a-point-in-time-restore-on-block-blob-data"></a>Execute uma restauração pontual em dados de blob de bloco
 
@@ -54,9 +54,7 @@ A imagem a seguir mostra uma conta de armazenamento configurada para restauro po
 
 Para configurar o ponto-a-tempo restaurar com o PowerShell, instale primeiro a versão 2.6.0 ou posterior do módulo [Az.Storage.](https://www.powershellgallery.com/packages/Az.Storage) Em seguida, ligue para o comando Enable-AzStorageBlobRestorePolicy para permitir a restauração pontual para a conta de armazenamento.
 
-O exemplo a seguir permite a eliminação suave e define o período de retenção de eliminação suave, permite alterar o feed e, em seguida, permite a restauração pontual. Antes de executar o exemplo, utilize o portal Azure ou um modelo Azure Resource Manager para também permitir a versão blob.
-
-Ao executar o exemplo, lembre-se de substituir os valores em suportes angulares pelos seus próprios valores:
+O exemplo a seguir permite a eliminação suave e define o período de retenção de eliminação suave, permite alterar o feed e a versão e, em seguida, permite a restauração pontual.    Ao executar o exemplo, lembre-se de substituir os valores em suportes angulares pelos seus próprios valores:
 
 ```powershell
 # Sign in to your Azure account.
@@ -71,10 +69,11 @@ Enable-AzStorageBlobDeleteRetentionPolicy -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
     -RetentionDays 14
 
-# Enable change feed.
+# Enable change feed and versioning.
 Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
     -StorageAccountName $accountName `
-    -EnableChangeFeed $true
+    -EnableChangeFeed $true `
+    -IsVersioningEnabled $true
 
 # Enable point-in-time restore with a retention period of 7 days.
 # The retention period for point-in-time restore must be at least
@@ -249,6 +248,6 @@ Para executar a operação de restauro sincronizada e bloquear a execução até
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Restauro pontual para bolhas de bloco](point-in-time-restore-overview.md)
-- [Excluir suave](soft-delete-overview.md)
-- [Alterar alimentação](storage-blob-change-feed.md)
+- [Eliminação recuperável](soft-delete-overview.md)
+- [Feed de alterações](storage-blob-change-feed.md)
 - [Versão blob](versioning-overview.md)

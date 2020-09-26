@@ -1,18 +1,18 @@
 ---
 title: Descarregue perfis VPN globais ou baseados em hubs da Azure Virtual WAN Microsoft Docs
-description: Saiba mais sobre a conectividade de ramo-a-ramo automatizado virtual WAN, regiões disponíveis e parceiros.
+description: Saiba como o Azure Virtual WAN oferece dois tipos de conectividade para utilizadores remotos e como descarregar um perfil.
 services: virtual-wan
 author: kumudD
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 4/20/2020
+ms.date: 09/22/2020
 ms.author: alzam
-ms.openlocfilehash: d0fc2f608617ca00fea8b9ed5c4b874c65940263
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6d5c4ba0f1f55119d1ec38296e67ae3e90c52650
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064793"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313727"
 ---
 # <a name="download-a-global-or-hub-based-profile-for-user-vpn-clients"></a>Faça o download de um perfil global ou baseado em hub para clientes VPN de utilizador
 

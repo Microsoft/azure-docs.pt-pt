@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: travisw
-ms.openlocfilehash: 18a9de8a2eaa2364e89e831db8dab5cbbb061c10
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 4bdca8921a99db764cbc8ee1edfdad8cf8b8568f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85299250"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360944"
 ---
 # <a name="what-is-a-voice-assistant"></a>O que é um assistente de voz?
 
@@ -81,7 +81,7 @@ Os assistentes de voz construídos usando os serviços de Discurso Azure podem u
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](get-started.md)
+* [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](overview.md#try-the-speech-service-for-free)
 * [Saiba mais sobre Comandos Personalizados](custom-commands.md)
 * [Saiba mais sobre o Discurso da Linha Direta](direct-line-speech.md)
 * [Obtenha o Discurso SDK](speech-sdk.md)

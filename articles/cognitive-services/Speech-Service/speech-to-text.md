@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: discurso ao texto, discurso ao software de texto
-ms.openlocfilehash: 804acd17f3df91cc3df949d6d9ccac0450bb225f
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: f4392881c2f572b1e53d7c283ef5c1debc1d20ea
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569225"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359941"
 ---
 # <a name="what-is-speech-to-text"></a>O que é a conversão de voz em texto?
 
@@ -50,13 +50,13 @@ O código de amostra para o SDK de discurso está disponível no GitHub. Estas a
 
 Além do modelo padrão de serviço de fala, pode criar modelos personalizados. A personalização ajuda a superar barreiras de reconhecimento de voz, tais como estilo de fala, vocabulário e ruído de fundo, ver [Discurso Personalizado.](how-to-custom-speech.md) As opções de personalização variam de acordo com o idioma/local, consulte [idiomas suportados](supported-languages.md) para verificar o suporte.
 
-## <a name="batch-transcription"></a>Transcrição em lote
+## <a name="batch-transcription"></a>Transcrição em lotes
 
 A transcrição do lote é um conjunto de operações de API REST que permitem transcrever uma grande quantidade de áudio no armazenamento. Pode apontar para ficheiros de áudio com um URI de assinatura de acesso partilhado (SAS) e receber os resultados de transcrição de forma assíncrona. Consulte o [como fazer para](batch-transcription.md) obter mais informações sobre como usar a API de transcrição do lote.
 
 [!INCLUDE [speech-reference-doc-links](includes/speech-reference-doc-links.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](get-started.md)
+- [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](overview.md#try-the-speech-service-for-free)
 - [Obtenha o Discurso SDK](speech-sdk.md)

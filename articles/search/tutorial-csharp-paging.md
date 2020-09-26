@@ -8,19 +8,19 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 3223bf3e2b413940fd99404453b7f958655e6fff
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: edae1edc076c99c025ff70c9b2493bc15e44102b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998480"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280748"
 ---
 # <a name="tutorial-add-paging-to-search-results-using-the-net-sdk"></a>Tutorial: Adicione paging aos resultados da pesquisa usando o .NET SDK
 
 Aprenda a implementar dois sistemas de paging diferentes, o primeiro baseado em números de página e o segundo em scrolling infinito. Ambos os sistemas de paging são amplamente utilizados, e selecionar o certo depende da experiência do utilizador que você gostaria com os resultados. Este tutorial constrói os sistemas de paging no projeto criado no [Tutorial C#: Crie a sua primeira app - Tutorial de Pesquisa Cognitiva Azure.](tutorial-csharp-create-first-app.md)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Estenda a sua app com paging numerado
 > * Estenda a sua app com scrolling infinito

@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 9819615039a6dd6aceec796a3ec1c7338f6f3968
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: a6114791a1909a0cd02b96a4cdcc4c133b8e662e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998531"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280849"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Tutorial: Encomende os resultados da pesquisa utilizando o .NET SDK
 
@@ -22,7 +22,7 @@ Até este ponto na nossa série de tutoriais, os resultados são devolvidos e ap
 
 Para comparar facilmente os resultados devolvidos, este projeto baseia-se no projeto de scrolling infinito criado no [Tutorial C#: Pagination de resultados de pesquisa - Tutorial de Pesquisa Cognitiva Azure.](tutorial-csharp-paging.md)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Resultados da encomenda com base numa propriedade
 > * Resultados da encomenda com base em múltiplas propriedades

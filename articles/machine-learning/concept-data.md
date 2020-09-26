@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 85aa78223b8db76cfb430341b19878bc6bbe87d7
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ac0b3c151b379096ffb60e049d18b8f6219b1445
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651179"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359686"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acesso seguro a dados em Azure Machine Learning
 
@@ -48,7 +48,7 @@ Quando estiver pronto para utilizar os dados na sua solução de armazenamento b
 
 O diagrama seguinte proporciona uma demonstração visual deste fluxo de trabalho recomendado.
 
-![Data-concept-diagrama](./media/concept-data/data-concept-diagram.svg)
+![O diagrama mostra o Serviço de Armazenamento Azure que flui para uma datastore, que flui para um conjunto de dados. O conjunto de dados flui para a formação de modelos, que flui para a deriva de dados, que flui de volta para o conjunto de dados.](./media/concept-data/data-concept-diagram.svg)
 
 ## <a name="datastores"></a>Arquivos de dados
 
@@ -121,7 +121,7 @@ No contexto da aprendizagem automática, a deriva de dados é a mudança nos dad
 
 Consulte o artigo [do monitor do conjunto de dados,](how-to-monitor-datasets.md) para saber mais sobre como detetar e alertar para a deriva de dados em novos dados num conjunto de dados.
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 
 + Crie um conjunto de dados no estúdio Azure Machine Learning ou com o Python SDK [usando estes passos.](how-to-create-register-datasets.md)
 + Experimente exemplos de formação de dataset com os [nossos cadernos de amostras.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/)
