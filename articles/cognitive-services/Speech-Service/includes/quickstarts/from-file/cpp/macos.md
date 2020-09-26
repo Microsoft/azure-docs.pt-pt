@@ -4,19 +4,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: fb0174f831d99d3088171448c7b23163eb1d9fc8
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 1dfe1e24b61326a8b131efd81f79f3d86f10711c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226166"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377094"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Criar um recurso de discurso azul](../../../../get-started.md)
+> * [Criar um recurso de discurso azul](../../../../overview.md#try-the-speech-service-for-free)
 > * [Configurar o seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=macos&pivots=programming-language-cpp)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
@@ -68,6 +68,6 @@ Antes de começar, certifique-se de:
    We recognized: What's the weather like?
    ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

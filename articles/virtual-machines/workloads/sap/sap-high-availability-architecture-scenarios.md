@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a4ab403ebafbf078accd2ee2256c0c5bb69548e9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c837a4020ab1aaad1798d6b19e72e09edafea1f5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288258"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360357"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arquitetura e cenários de alta disponibilidade para SAP NetWeaver
 
@@ -320,7 +320,7 @@ Para obter mais informações, consulte [a replicação do Azure Storage][azure-
 ### <a name="azure-managed-disks"></a>Managed Disks do Azure
 Os Discos Geridos são um tipo de recurso no Azure Resource Manager que é recomendado para ser usado em vez de discos rígidos virtuais (VHDs) que são armazenados em contas de armazenamento Azure. Os discos geridos alinham-se automaticamente com um conjunto de disponibilidade Azure da máquina virtual a que estão ligados. Aumentam a disponibilidade da sua máquina virtual e os serviços que a estão a executar.
 
-Para mais informações, consulte [a visão geral dos Discos Geridos Azure][azure-storage-managed-disks-overview].
+Para mais informações, consulte  [a visão geral dos Discos Geridos Azure][azure-storage-managed-disks-overview].
 
 Recomendamos que utilize discos geridos porque simplificam a implementação e gestão das suas máquinas virtuais.
 
@@ -332,7 +332,7 @@ Se decidir não utilizar funcionalidades como WSFC ou Pacemaker no Linux (atualm
 
 Para obter mais informações sobre esta abordagem, consulte [o reinício da infraestrutura Utilizar Azure VM para obter uma maior disponibilidade do sistema SAP][sap-higher-availability].
 
-## <a name="high-availability-of-sap-applications-on-azure-iaas"></a><a name="baed0eb3-c662-4405-b114-24c10a62954e"></a>Alta disponibilidade de aplicações SAP no Azure IaaS
+## <a name="high-availability-of-sap-applications-on-azure-iaas"></a><a name="baed0eb3-c662-4405-b114-24c10a62954e"></a> Alta disponibilidade de aplicações SAP no Azure IaaS
 
 Para obter uma disponibilidade completa do sistema SAP, deve proteger todos os componentes críticos do sistema SAP. Por exemplo:
   * Servidores de aplicações SAP redundantes.
@@ -344,7 +344,7 @@ As próximas secções discutem como alcançar uma elevada disponibilidade para 
 
 > Esta secção aplica-se a:
 >
-> ![Windows][Logo_Windows] Janelas e ![Linux][Logo_Linux] Linux
+> ![Logotipo do Windows.][Logo_Windows] Janelas e ![Logotipo linux.][Logo_Linux] Linux
 >
 
 Normalmente não precisa de uma solução específica de alta disponibilidade para o servidor de aplicações SAP e instâncias de diálogo. Obtém-se uma elevada disponibilidade por redundância e configura várias instâncias de diálogo em vários casos de máquinas virtuais Azure. Deverá ter pelo menos duas instâncias de aplicação SAP instaladas em duas instâncias de máquinas virtuais Azure.
@@ -382,7 +382,7 @@ Para obter mais informações, consulte a secção de conjuntos de disponibilida
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-windows"></a>Arquitetura de alta disponibilidade para uma instância SAP ASCS/SCS no Windows
 
-> ![Windows][Logo_Windows] Windows
+> ![Logotipo do Windows.][Logo_Windows] Windows
 >
 
 Pode utilizar uma solução WSFC para proteger a instância SAP ASCS/SCS. A solução tem duas variantes:
@@ -395,7 +395,7 @@ Pode utilizar uma solução WSFC para proteger a instância SAP ASCS/SCS. A solu
 
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Arquitetura de alta disponibilidade para uma instância SAP ASCS/SCS em Linux
 
-> ![Linux][Logo_Linux] Linux
+> ![Logotipo linux.][Logo_Linux] Linux
 > 
 > Para obter mais informações sobre o agrupamento da instância SAP ASCS/SCS utilizando a estrutura do cluster SLES, consulte [alta disponibilidade para SAP NetWeaver em VMs Azure no SUSE Linux Enterprise Server para aplicações SAP][sap-suse-ascs-ha]. Para arquitetura HA alternativa no SLES, que não requer NFS altamente disponível consulte [guia de alta disponibilidade para SAP NetWeaver no SUSE Linux Enterprise Server com ficheiros Azure NetApp para aplicações SAP][sap-suse-ascs-ha-anf].
 
@@ -404,7 +404,7 @@ Para obter mais informações sobre o agrupamento do caso SAP ASCS/SCS utilizand
 
 ### <a name="sap-netweaver-multi-sid-configuration-for-a-clustered-sap-ascsscs-instance"></a>Configuração multi-SID SAP NetWeaver para uma instância SAP ASCS/SCS agrupada
 
-> ![Windows][Logo_Windows] Windows
+> ![Logotipo do Windows.][Logo_Windows] Windows
 > 
 > Multi-SID é suportado com WSFC, usando partilha de ficheiros e disco compartilhado.
 > 
@@ -414,7 +414,7 @@ Para obter mais informações sobre o agrupamento do caso SAP ASCS/SCS utilizand
 
 * [SAP ASCS/SCS exemplo multi-SID alta disponibilidade para Windows Server Failover Clustering e disco compartilhado][sap-ascs-ha-multi-sid-wsfc-shared-disk]
 
-> ![Linux][Logo_Linux] Linux
+> ![Logotipo linux.][Logo_Linux] Linux
 > 
 > O agrupamento multi-SID é suportado em clusters Linux Pacemaker para SAP ASCS/ERS, limitado a **cinco** SIDs SAP no mesmo cluster.
 > Para obter mais informações sobre a arquitetura multi-SID de alta disponibilidade em Linux, consulte:

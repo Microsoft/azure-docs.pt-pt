@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python
-ms.openlocfilehash: 264976fdfe514a8778c60fe9242ac555f268718d
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 54e4ce409eb9f2a6bedd7861b3e268311f886b49
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962575"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273250"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implementar para o Serviço de Aplicações usando ações do GitHub
 
@@ -24,12 +24,28 @@ ms.locfileid: "88962575"
 
 Um fluxo de trabalho é definido por um ficheiro YAML (.yml) no caminho do `/.github/workflows/` seu repositório. Esta definição contém os vários passos e parâmetros que compõem o fluxo de trabalho.
 
+## <a name="use-the-deployment-center"></a>Utilize o Centro de Implantação
+
+Pode começar rapidamente com as ações do GitHub utilizando o Centro de Implementação do Serviço de Aplicações. Isto irá gerar automaticamente um ficheiro de fluxo de trabalho baseado na sua pilha de aplicações e compromete-o com o seu repositório GitHub no diretório correto.
+
+1. Navegue para o seu webapp no Portal Azure
+1. No lado esquerdo, clique no **Centro de Implementação**
+1. Em **Implementação Contínua (CI/ CD)**, selecione **GitHub**
+1. Em seguida, selecione **GitHub Actions**
+1. Use as dropdowns para selecionar o seu repositório GitHub, ramo e pilha de aplicações
+    - Se o ramo selecionado estiver protegido, pode continuar a adicionar o ficheiro de fluxo de trabalho. Certifique-se de rever as proteções da sua filial antes de continuar.
+1. No ecrã final, pode rever as suas seleções e visualizar o ficheiro de fluxo de trabalho que será comprometido com o repositório. Se as seleções estiverem corretas, clique em **Terminar**
+
+Isto irá comprometer o ficheiro de fluxo de trabalho para o repositório. O fluxo de trabalho para construir e implementar a sua aplicação começará imediatamente.
+
+## <a name="add-the-workflow-manually"></a>Adicione o fluxo de trabalho manualmente
+
 Para um fluxo de trabalho do Azure App Service, o ficheiro tem três secções:
 
 |Section  |Tarefas  |
 |---------|---------|
 |**Autenticação** | 1. Defina um diretor de serviço. <br /> 2. Criar um segredo do GitHub. |
-|**Construir** | 1. Criar o ambiente. <br /> 2. Construa a aplicação web. |
+|**Compilar** | 1. Criar o ambiente. <br /> 2. Construa a aplicação web. |
 |**Implementar** | 1. Implementar a aplicação web. |
 
 ## <a name="generate-deployment-credentials"></a>Gerar credenciais de implantação
@@ -103,7 +119,7 @@ Quando configurar o ficheiro de fluxo de trabalho mais tarde, utiliza o segredo 
 
 A configuração do ambiente pode ser feita utilizando uma das ações de configuração.
 
-|**Idioma**  |**Ação de configuração**  |
+|**Linguagem**  |**Ação de configuração**  |
 |---------|---------|
 |**.NET**     | `actions/setup-dotnet` |
 |**Java**     | `actions/setup-java` |

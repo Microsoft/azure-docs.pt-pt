@@ -9,19 +9,19 @@ tags: azure-resource-manager
 ms.assetid: effe4e2f-35b5-490a-b5ef-b06746083da4
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 638a7fa96f4112f9805fd46618dc0acd1c2f382f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 00dfcad351348ed4ca4f08289e76e85a089c5d86
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87063240"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272281"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatizar tarefas de gestão em máquinas virtuais Azure utilizando a extensão do agente iaaS do servidor SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -37,7 +37,7 @@ Para ver a versão clássica deste artigo, consulte a extensão do [agente do SQ
 ## <a name="supported-services"></a>Serviços suportados
 A extensão do agente do servidor SQL IaaS suporta as seguintes tarefas de administração:
 
-| Recurso de administração | Descrição |
+| Recurso de administração | Description |
 | --- | --- |
 | **Backup automatizado do SQL Server** |Automatiza o agendamento de backups para todas as bases de dados para a instância predefinida ou para uma instância nomeada [corretamente instalada](frequently-asked-questions-faq.md#administration) do SQL Server no VM. Para obter mais informações, consulte [a cópia de segurança automatizada para o SQL Server em máquinas virtuais Azure (Gestor de Recursos)](automated-backup-sql-2014.md). |
 | **Patching automatizado do SQL Server** |Configura uma janela de manutenção durante a qual podem ocorrer atualizações importantes do Windows para o seu VM, para que possa evitar atualizações durante os tempos de pico da sua carga de trabalho. Para obter mais informações, consulte [patching automatizado para O Servidor SQL em máquinas virtuais Azure (Gestor de Recursos)](automated-patching.md). |

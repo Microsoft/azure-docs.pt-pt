@@ -7,18 +7,18 @@ author: MashaMSFT
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
 ms.service: virtual-machines-sql
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 541f3e5ada69568506969f6406564a8ff59c0ba6
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: ae00703805bef6f5e9758bafcb781eda91cd93f9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613223"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91272162"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>O que é o SQL Server em Azure Virtual Machines (Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -144,7 +144,7 @@ O Programa de Melhoramento da Experiência do Cliente (PMEC) está ativado por p
 ### <a name="storage"></a>Armazenamento
 * [Introdução ao Storage do Microsoft Azure](../../../storage/common/storage-introduction.md)
 
-### <a name="networking"></a>Rede
+### <a name="networking"></a>Redes
 * [Visão geral da rede virtual](../../../virtual-network/virtual-networks-overview.md)
 * [Endereços IP no Azure](../../../virtual-network/public-ip-addresses.md)
 * [Create a Fully Qualified Domain Name in the Azure portal](../../../virtual-machines/linux/portal-create-fqdn.md) (Criar um Nome de Domínio Completamente Qualificado no portal do Azure)
@@ -153,7 +153,7 @@ O Programa de Melhoramento da Experiência do Cliente (PMEC) está ativado por p
 * [Documentação do Servidor SQL](https://docs.microsoft.com/sql/index)
 * [Comparação da Base de Dados SQL do Azure](../../azure-sql-iaas-vs-paas-what-is-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Começa com o SQL Server em Azure Virtual Machines:
 

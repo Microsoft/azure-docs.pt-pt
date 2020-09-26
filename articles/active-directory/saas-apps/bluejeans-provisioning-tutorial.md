@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 0b90389f6ae88a073f3961cc2f0957d22e190fe0
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7d3aafe93c92a1c756358dfb60a2ca976036d8b8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545459"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273711"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Tutorial: Configurar BlueJeans para o fornecimento automático de utilizadores
 
 O objetivo deste tutorial é demonstrar os passos a serem realizados em BlueJeans e Azure Ative Directory (Azure AD) para configurar a Azure AD para fornecimento e desa provisionamento automaticamente de utilizadores e/ou grupos a BlueJeans.
 
 > [!NOTE]
-> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte [automatizar o fornecimento e desprovisionamento de aplicações saaS com diretório Azure Ative.](../app-provisioning/user-provisioning.md)
+> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona e perguntas frequentes, veja [Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS no Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -83,19 +83,19 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **BlueJeans**.
 
-    ![Lâmina de aplicações da empresa](common/enterprise-applications.png)
+    ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de candidaturas, selecione **BlueJeans**.
 
     ![O link BlueJeans na lista de Aplicações](common/all-applications.png)
 
-3. Selecione o **separador Provisioning.**
+3. Selecione o separador **Aprovisionamento**.
 
-    ![Provisão BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningTab.png)
+    ![Screenshot da barra lateral da Aplicação da Empresa BlueJeans com a opção de Provisionamento realçada e chamada.](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningTab.png)
 
-4. Desa ajuste o **modo de provisionamento** para **automático**.
+4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
-    ![Provisão BlueJeans](./media/bluejeans-provisioning-tutorial/Bluejeans1.png)
+    ![Screenshot da página de Provisioning com as secções de adifing Mode e Admin Credentials chamadas.](./media/bluejeans-provisioning-tutorial/Bluejeans1.png)
 
 5. Na secção **Credenciais de Administração,** insira o nome de **utilizador Admin**e **a Palavra-passe de Administrador** da sua conta BlueJeans. Exemplos destes valores são:
 
@@ -105,35 +105,35 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 6. Ao povoar os campos mostrados no Passo 5, clique em **Test Connection** para garantir que o Azure AD pode ligar-se aos BlueJeans. Se a ligação falhar, certifique-se de que a sua conta BlueJeans tem permissões de Administração e tente novamente.
 
-    ![Provisão BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
+    ![Screenshot da secção credenciais de administrador com a opção de ligação de teste chamada.](./media/bluejeans-provisioning-tutorial/BluejeansTestConnection.png)
 
 7. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e verifique a caixa de verificação - **Envie uma notificação de e-mail quando ocorrer uma falha**.
 
-    ![Provisão BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
+    ![Screenshot da caixa de texto de e-mail de notificação.](./media/bluejeans-provisioning-tutorial/BluejeansNotificationEmail.png)
 
-8. Clique em **Guardar**.
+8. Clique em **Save** (Guardar).
 
 9. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to BlueJeans**.
 
-    ![Provisão BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansMapping.png)
+    ![Screenshot da secção Mappings com a opção Synchronize Azure Ative Directory Users to BlueJeans destaque.](./media/bluejeans-provisioning-tutorial/BluejeansMapping.png)
 
 10. Reveja os atributos do utilizador que são sincronizados de Azure AD a BlueJeans na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador em BlueJeans para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    ![Provisão BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansUserMappingAtrributes.png)
+    ![Screenshot da secção De mapeamentos de atributos com sete mapeamentos exibidos.](./media/bluejeans-provisioning-tutorial/BluejeansUserMappingAtrributes.png)
 
-11. Para configurar filtros de deteção, consulte as seguintes instruções fornecidas no tutorial do [filtro de escotagem](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+11. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
 12. Para ativar o serviço de prestação de Ad Azure para BlueJeans, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
-    ![Provisão BlueJeans](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningStatus.png)
+    ![Screenshot da secção Definições com a opção Estado de Provisionamento definida para On.](./media/bluejeans-provisioning-tutorial/BluejeansProvisioningStatus.png)
 
 13. Defina os utilizadores e/ou grupos que deseja prestar aos BlueJeans, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
-    ![Provisão BlueJeans](./media/bluejeans-provisioning-tutorial/UserGroupSelection.png)
+    ![Screenshot da definição de Âmbito com a opção sync apenas atribuída a utilizadores e grupos destacados.](./media/bluejeans-provisioning-tutorial/UserGroupSelection.png)
 
-14. Quando estiver pronto para a provisão, clique em **Guardar**.
+14. Quando estiver pronto para aprovisionar, clique em **Guardar**.
 
-    ![Provisão BlueJeans](./media/bluejeans-provisioning-tutorial/SaveProvisioning.png)
+    ![Screenshot da barra lateral da Aplicação da Empresa BlueJeans com a opção Save chamada.](./media/bluejeans-provisioning-tutorial/SaveProvisioning.png)
 
 Esta operação inicia a sincronização inicial de todos os utilizadores e/ou grupos definidos no **Âmbito** na secção **Definições.** A sincronização inicial demora mais tempo a ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de fornecimento AZure AD esteja em execução. Pode utilizar a secção Detalhes da **Sincronização** para monitorizar o progresso e seguir ligações ao relatório de atividades de provisionamento, que descreve todas as ações realizadas pelo serviço de fornecimento de Ad Azure em BlueJeans.
 
@@ -145,12 +145,12 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 

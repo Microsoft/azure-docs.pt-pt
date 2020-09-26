@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 9d7444ec0acd17ae0ad08f4932c109c5cf0d3fb9
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: codepen, devx-track-js
+ms.openlocfilehash: eedbbc0126adacc2a9bdc151aa6dbc27c7ba0750
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087257"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310259"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Adicione uma camada de extrusão de polígono ao mapa
 

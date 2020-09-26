@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/20/2019
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d80f244f7b5e17d730451093070b971e9aa041b9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 188824b9c43387cf106a3cdd53a09fd6bcb198b8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919017"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360672"
 ---
 # <a name="custom-keyword-basics"></a>Informações básicas sobre a palavra-chave personalizada
 
@@ -24,7 +24,7 @@ Neste artigo, aprende-se o básico de trabalhar com palavras-chave personalizada
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os passos neste artigo requerem uma assinatura de Discurso, e o Discurso SDK. Se ainda não tiver uma subscrição, [experimente gratuitamente o serviço Desemação](get-started.md). Para obter o SDK, consulte o [guia de instalação](quickstarts/setup-platform.md) da sua plataforma.
+Os passos neste artigo requerem uma assinatura de Discurso, e o Discurso SDK. Se ainda não tiver uma subscrição, [experimente gratuitamente o serviço Desemação](overview.md#try-the-speech-service-for-free). Para obter o SDK, consulte o [guia de instalação](quickstarts/setup-platform.md) da sua plataforma.
 
 ## <a name="create-a-keyword-in-speech-studio"></a>Crie uma palavra-chave no Estúdio da Fala
 

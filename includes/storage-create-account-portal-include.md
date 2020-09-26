@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 09/24/2020
+ms.date: 09/25/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 9eff9b5356f3201f151cc959a96b070d2afaa267
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bed8475e5d6c7bf26003672b6cf9ce51a82384ad
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91283462"
+ms.locfileid: "91376463"
 ---
 Para criar uma conta de armazenamento para fins gerais v2 no portal do Azure, siga estes passos:
 
@@ -27,7 +27,7 @@ Para criar uma conta de armazenamento para fins gerais v2 no portal do Azure, si
 1. Desagravar o campo **de tipo conta** para o armazenamento *V2 (v2 de uso geral)*.
 1. Especifique como a conta de armazenamento será replicada. A opção de replicação predefinida é *o armazenamento geo-redundante de acesso à leitura (RA-GRS)*. Para obter mais informações sobre as opções de replicação disponíveis, consulte [a redundância do Azure Storage](../articles/storage/common/storage-redundancy.md).
 1. Especifique o nível de acesso para bolhas na conta de armazenamento. O nível predefinido é *quente*. Para obter mais informações sobre os níveis de acesso blob, consulte [os níveis de acesso quentes, frescos e arquivados para bolhas.](../articles/storage/blobs/storage-blob-storage-tiers.md)
-1. Para utilizar [o Azure Data Lake Storage,](/services/storage/data-lake-storage/)escolha o separador **Avançado** e, em seguida, desempate o **espaço de nome hierárquico** para **Ativado**.
+1. Para utilizar o Azure Data Lake Storage, escolha o separador **Avançado** e, em seguida, desempate o **espaço de nome hierárquico** para **Ativado**. Para mais informações, consulte [Azure Data Lake Storage Gen2 Introdução](../articles/storage/blobs/data-lake-storage-introduction.md)
 1. Selecione **Rever + Criar** para rever as definições de conta de armazenamento e criar a conta.
 1. Selecione **Criar**.
 
