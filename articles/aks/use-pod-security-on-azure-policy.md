@@ -5,21 +5,18 @@ services: container-service
 ms.topic: article
 ms.date: 09/22/2020
 author: jluk
-ms.openlocfilehash: 9ebd12777c32a9415eeb1b77d9cd487b0f23eb29
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fd4f79e0cae5028e4bbaa8a4f5115d5a767dcf54
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91299158"
+ms.locfileid: "91368860"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Cápsulas seguras com política Azure
 
 Para melhorar a segurança do seu cluster AKS, pode controlar as funções que as cápsulas são concedidas e se alguma coisa está a correr contra a política da empresa. Este acesso é definido através de políticas incorporadas fornecidas pelo [Azure Policy Add-on for AKS][kubernetes-policy-reference]. Ao fornecer um controlo adicional sobre os aspetos de segurança da especificação da sua cápsula, como privilégios de raiz, permite uma maior adesão e visibilidade à segurança do que é implantado no seu cluster. Se uma cápsula não cumprir as condições especificadas na apólice, a Azure Policy pode não permitir que a cápsula inicie ou sinalize uma violação. Este artigo mostra-lhe como usar a Política Azure para limitar a implantação de cápsulas em AKS.
 
 ## <a name="before-you-begin"></a>Before you begin
-
-> [!IMPORTANT]
-> A disponibilidade geral (GA) da Política Azure sobre a AKS está a libertar ativamente todas as regiões. A conclusão global prevista do lançamento da AG é 29/9/2020. A utilização em regiões sem a libertação de GA requer medidas de pré-visualização. No entanto, esta será automaticamente atualizada para o lançamento de GA quando disponível na região.
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 

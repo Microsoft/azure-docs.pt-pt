@@ -9,12 +9,12 @@ ms.author: umajay
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 782a046b92c9d6cf755bfea0551d7f8153faa859
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c1560325f21fd60e6bdb2a64eb987359a7246ff2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939190"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317332"
 ---
 # <a name="storage-configuration"></a>Configuração do Armazenamento
 
@@ -151,10 +151,11 @@ Fatores importantes a ter em conta na escolha de uma classe de armazenamento par
 
 - Deve **must** utilizar uma classe de armazenamento remota e partilhada para garantir a durabilidade dos dados e para que, se uma vagem ou nó morrer, quando a cápsula é trazida de volta, pode voltar a ligar-se ao volume persistente.
 - Os dados que estão a ser escritos para o controlador SQL, métricas DB e logs DB são tipicamente de volume bastante baixo e não são sensíveis à latência, pelo que o armazenamento de desempenho ultrarrápido não é crítico. Se tiver utilizadores que usam frequentemente as interfaces Grafana e Kibana e tem um grande número de casos de base de dados, então os seus utilizadores poderão beneficiar de um armazenamento mais rápido.
-- A capacidade de armazenamento necessária é variável com o número de casos de base de dados que implementou porque os registos e métricas são recolhidos para cada instância da base de dados. Os dados são retidos nos registos e métricas DB durante 2 semanas antes de serem purgados. TODO: Quanto armazenamento é necessário por instância DB?
+- A capacidade de armazenamento necessária é variável com o número de casos de base de dados que implementou porque os registos e métricas são recolhidos para cada instância da base de dados. Os dados são retidos nos registos e métricas DB durante 2 semanas antes de serem purgados. 
 - Mudar a colocação de posto de classe de armazenamento é muito difícil, não documentado e não suportado. Certifique-se de que escolhe a classe de armazenamento corretamente no momento de implantação.
 
-> **Nota:** Se não for especificada nenhuma classe de armazenamento, a classe de armazenamento predefinida será utilizada. Pode haver apenas uma classe de armazenamento padrão por cluster Kubernetes. Pode [alterar a classe de armazenamento predefinido](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).
+> [!NOTE]
+> Se não for especificada nenhuma classe de armazenamento, a classe de armazenamento predefinida será utilizada. Pode haver apenas uma classe de armazenamento padrão por cluster Kubernetes. Pode [alterar a classe de armazenamento predefinido](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).
 
 ### <a name="database-instance-storage-configuration"></a>Configuração de armazenamento de casos de dados de base de dado
 
@@ -162,7 +163,8 @@ Cada instância da base de dados tem dados, registos e volumes persistentes de b
 
 Ao criar uma instância utilizando `azdata arc sql mi create` ou `azdata arc postgres server create` comandos, existem dois parâmetros que podem ser usados para definir as classes de armazenamento:
 
-> **Nota:** Alguns destes parâmetros estão em desenvolvimento e ficarão disponíveis `azdata arc sql mi create` `azdata arc postgres server create` nos próximos lançamentos.
+> [!NOTE]
+> Alguns destes parâmetros estão em desenvolvimento e ficarão disponíveis `azdata arc sql mi create` `azdata arc postgres server create` nos próximos lançamentos.
 
 |Nome do parâmetro, nome curto|Utilizado para|
 |---|---|
@@ -173,14 +175,14 @@ Ao criar uma instância utilizando `azdata arc sql mi create` ou `azdata arc pos
 
 A tabela abaixo lista os caminhos dentro do recipiente Azure SQL Managed Instance que é mapeado para o volume persistente de dados e registos:
 
-|Nome do parâmetro, nome curto|Caminho dentro do recipiente mssql-miaa|Descrição|
+|Nome do parâmetro, nome curto|Caminho dentro do recipiente mssql-miaa|Description|
 |---|---|---|
 |`--storage-class-data`, `-scd`|/var/opt|Contém diretórios para a instalação de mssql e outros processos do sistema. O diretório mssql contém dados predefinidos (incluindo registos de transações), registo de erros & diretórios de backup|
 |`--storage-class-logs`, `-scl`|/var/log|Contém diretórios que armazenam a saída da consola (stderr, stdout), outras informações de registo de processos dentro do contentor|
 
 A tabela abaixo lista os caminhos dentro do recipiente de instância PostgreSQL que é mapeado para o volume persistente para dados e registos:
 
-|Nome do parâmetro, nome curto|Caminho dentro do recipiente postgres|Descrição|
+|Nome do parâmetro, nome curto|Caminho dentro do recipiente postgres|Description|
 |---|---|---|
 |`--storage-class-data`, `-scd`|/var/opt/postgresql|Contém dados e diretórios de registo para a instalação de postgres|
 |`--storage-class-logs`, `-scl`|/var/log|Contém diretórios que armazenam a saída da consola (stderr, stdout), outras informações de registo de processos dentro do contentor|

@@ -3,14 +3,14 @@ title: Azure Automation Start/Stop VMs durante a visão geral fora de horas
 description: Este artigo descreve os VMs iniciar/parar durante o período de folga, que inicia ou para os VMs num horário e os monitoriza proactivamente a partir de registos do Monitor Azure.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/04/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2cbed4d6dd2a9c5e63e73d89e5327fa3759777fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 236b4f47894db8aa8880b7535b6ee0921802a31c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87064450"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317366"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>VMs de início/paragem durante a visão geral fora de horas
 
@@ -37,13 +37,15 @@ Seguem-se limitações com a característica atual:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os livros para os VMs de início/paragem durante o horário de folga funcionam com uma [conta Azure Run As](./manage-runas-account.md). A conta Run As é o método de autenticação preferencial porque utiliza a autenticação do certificado em vez de uma palavra-passe que pode expirar ou alterar com frequência.
+- Os livros para os VMs de início/paragem durante o horário de folga funcionam com uma [conta Azure Run As](./manage-runas-account.md). A conta Run As é o método de autenticação preferencial porque utiliza a autenticação do certificado em vez de uma palavra-passe que pode expirar ou alterar com frequência.
 
-Recomendamos que utilize uma conta de Automatização separada para trabalhar com VMs ativados para os VMs de início/paragem durante o período de folga. As versões do módulo Azure são frequentemente atualizadas e os seus parâmetros podem mudar. A funcionalidade não é atualizada na mesma cadência e pode não funcionar com versões mais recentes dos cmdlets que utiliza. Recomenda-se testar as atualizações dos módulos numa conta de automatização de teste antes de as importar para a sua conta de automação de produção.
+- A conta de Automação ligada e o espaço de trabalho Log Analytics precisam de estar no mesmo grupo de recursos.
+
+- Recomendamos que utilize uma conta de Automatização separada para trabalhar com VMs ativados para os VMs de início/paragem durante o período de folga. As versões do módulo Azure são frequentemente atualizadas e os seus parâmetros podem mudar. A funcionalidade não é atualizada na mesma cadência e pode não funcionar com versões mais recentes dos cmdlets que utiliza. Recomenda-se testar as atualizações dos módulos numa conta de automatização de teste antes de as importar para a sua conta de automação de produção.
 
 ## <a name="permissions"></a>Permissões
 
-Tem de ter certas permissões para ativar VMs para os VMs iniciar/parar durante o período de folga. As permissões são diferentes dependendo se a funcionalidade utiliza uma conta de Automação pré-criada e espaço de trabalho Log Analytics ou cria uma nova conta e espaço de trabalho. 
+Tem de ter certas permissões para ativar VMs para os VMs iniciar/parar durante o período de folga. As permissões são diferentes dependendo se a funcionalidade utiliza uma conta de Automação pré-criada e espaço de trabalho Log Analytics ou cria uma nova conta e espaço de trabalho.
 
 Não precisa de configurar permissões se for um Contribuinte na subscrição e um Administrador Global no seu inquilino Azure Ative Directory (AD). Se não tiver esses direitos ou precisar de configurar um papel personalizado, certifique-se de que tem as permissões descritas abaixo.
 
@@ -104,10 +106,10 @@ A tabela que se segue lista os livros que a funcionalidade implementa na sua con
 
 Todos os livros de bordo dos pais incluem o `WhatIf` parâmetro. Quando definido para True, o parâmetro suporta detalhar o comportamento exato que o livro de execução leva quando executado sem o parâmetro e valida que os VMs corretos são alvo. Um livro de bordo só executa as suas ações definidas quando o `WhatIf` parâmetro é definido como Falso.
 
-|Runbook | Parâmetros | Descrição|
+|Runbook | Parâmetros | Description|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertaAção <br> WebHookURI | Liga do livro dos pais. Este runbook cria alertas por recurso para o cenário de paragem automática.|
-|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: Verdadeiro ou Falso  | Cria ou atualiza as regras de alerta Azure em VMs nos grupos de subscrição ou recursos direcionados. <br> `VMList`é uma lista separada por vm (sem espaços em branco), por exemplo, `vm1,vm2,vm3` .<br> `WhatIf`permite validação da lógica do runbook sem executar.|
+|AutoStop_CreateAlert_Parent | VMList<br> WhatIf: Verdadeiro ou Falso  | Cria ou atualiza as regras de alerta Azure em VMs nos grupos de subscrição ou recursos direcionados. <br> `VMList` é uma lista separada por vm (sem espaços em branco), por exemplo, `vm1,vm2,vm3` .<br> `WhatIf` permite validação da lógica do runbook sem executar.|
 |AutoStop_Disable | Nenhum | Desativa os alertas de paragem automática e o horário predefinido.|
 |AutoStop_VM_Child | WebHookData | Liga do livro dos pais. As regras de alerta chamam este runbook para parar um VM clássico.|
 |AutoStop_VM_Child_ARM | WebHookData |Liga do livro dos pais. As regras de alerta chamam este livro de bordo para parar um VM.  |
@@ -156,7 +158,7 @@ A tabela que se segue lista cada um dos horários predefinidos criados na sua co
 
 Não ative todos os horários, porque fazê-lo pode criar ações de horário sobrepostas. É melhor determinar quais as otimizações que pretende fazer e modificá-las em conformidade. Consulte os cenários de exemplo na secção geral para obter mais explicações.
 
-|Nome da agenda | Frequência | Descrição|
+|Nome da agenda | Frequência | Description|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | A cada 8 horas | Executa o **AutoStop_CreateAlert_Parent** livro de 8 horas, o que por sua vez para os valores baseados em VM em `External_Start_ResourceGroupNames` , e `External_Stop_ResourceGroupNames` `External_ExcludeVMNames` variáveis. Em alternativa, pode especificar uma lista de VMs separadas por vírgula utilizando o `VMList` parâmetro.|
 |Scheduled_StopVM | Definido pelo utilizador, diariamente | Executa o **ScheduledStopStart_Parent** livro de bordo com um parâmetro de `Stop` todos os dias na hora especificada.Para automaticamente todos os VMs que cumprem as regras definidas por ativos variáveis.Ativar o horário relacionado **Programado-StartVM**.|

@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 255f4e28cf4f3ed3f6e99afa0333989a2afffd95
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a630387a41b6def67141a423249c3347ff034e2e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311721"
+ms.locfileid: "91369625"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implementar uma aplicação web Django com PostgreSQL no Azure App Service
 
@@ -188,15 +188,13 @@ Este comando executa as seguintes ações, que podem demorar alguns minutos:
 - Crie a aplicação De Serviço de Aplicações se não existir.
 - Ativar o registo predefinido para a aplicação, se ainda não estiver ativado.
 - Faça o upload do repositório utilizando a implementação ZIP com automatização de construção ativada.
+- Cache parâmetros comuns, como o nome do grupo de recursos e plano de Serviço de Aplicações, no ficheiro *.azure/config*. Como resultado, não precisa de especificar todos os mesmos parâmetros com comandos posteriores. Por exemplo, para recolocar a app depois de efetuar alterações, pode simplesmente voltar a funcionar `az webapp up` sem quaisquer parâmetros. Os comandos provenientes de extensões CLI, tais `az postgres up` como, no entanto, não utilizam atualmente a cache, razão pela qual precisava de especificar o grupo de recursos e a localização aqui com a utilização inicial de `az webapp up` .
 
 Após uma implementação bem sucedida, o comando gera saída JSON como o seguinte exemplo:
 
 ![Exemplo az webapp up saída de comando](./media/tutorial-python-postgresql-app/az-webapp-up-output.png)
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/DjangoCLITutorialHelp)
-
-> [!TIP]
-> Muitos comandos Azure CLI cache parâmetros comuns, como o nome do grupo de recursos e plano de Serviço de Aplicações, no ficheiro *.azure/config*. Como resultado, não precisa de especificar todos os mesmos parâmetros com comandos posteriores. Por exemplo, para recolocar a app depois de efetuar alterações, pode simplesmente voltar a funcionar `az webapp up` sem quaisquer parâmetros. Os comandos provenientes de extensões CLI, tais `az postgres up` como, no entanto, não utilizam atualmente a cache, razão pela qual precisava de especificar o grupo de recursos e a localização aqui com `az webapp up` .
 
 > [!NOTE]
 > Se tentar visitar o URL da aplicação neste momento, encontra o erro "DisallowedHost at/". Este erro ocorre porque ainda não configuraste a app para utilizar as definições de produção discutidas anteriormente, o que faz na secção seguinte.
@@ -253,6 +251,8 @@ As migrações na base de dados de Django asseguram que o esquema no PostgreSQL 
     ```
     
 1. O `createsuperuser` comando pede-lhe credenciais de super-20. Para efeitos deste tutorial, utilize o nome de utilizador predefinido `root` , prima **Enter** para o endereço de e-mail para o deixar em branco e introduza `Pollsdb1` a palavra-passe.
+
+1. Se vir um erro de que a base de dados esteja bloqueada, certifique-se de que executou o `az webapp settings` comando na secção anterior. Sem estas definições, o comando migratório não pode comunicar com a base de dados, resultando no erro.
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/DjangoCLITutorialHelp)
     
