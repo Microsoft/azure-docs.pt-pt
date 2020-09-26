@@ -8,13 +8,13 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: dech
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e86f79a286c10c45b2586dd1aa4d3aed035fc450
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 68a2d354c45820bc9f2b291701deb9066a745235
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421863"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297883"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Criar uma aplicação de consola Node.js com o SDK de JavaScript para gerir os dados da API SQL do Azure Cosmos DB
 
@@ -95,7 +95,7 @@ Agora que a sua aplicação existe, tem de se certificar de que pode falar com a
 
 O JavaScript SDK utiliza o *recipiente* e *o item*genéricos de termos . Os contentores podem ser uma coleção, um grafo ou uma tabela. Os itens podem ser um documento, um vértice/aresta ou uma linha e são o conteúdo dentro dos contentores. No corte de código anterior, o `module.exports = config;` código é utilizado para exportar o objeto config, para que possa fazê-lo referenciar dentro do ficheiro *app.js.*
 
-## <a name="create-a-database-and-a-container"></a>Criar uma base de dados e um recipiente
+## <a name="create-a-database-and-a-container"></a>Criar uma base de dados e um contentor
 
 1. Abra o ficheiro *databaseContext.js* no seu editor de texto favorito.
 
@@ -118,7 +118,7 @@ O JavaScript SDK utiliza o *recipiente* e *o item*genéricos de termos . Os cont
 
 ## <a name="connect-to-the-azure-cosmos-account"></a>Ligue-se à conta Azure Cosmos
 
-No ficheiro *app.js,* copie e cole o seguinte código para utilizar o ponto final e a chave previamente guardados para criar um novo objeto CosmosClient.
+No ficheiro *app.js, * copie e cole o seguinte código para utilizar o ponto final e a chave previamente guardados para criar um novo objeto CosmosClient.
 
 :::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" id="CreateClientObjectDatabaseContainer":::
 
@@ -218,7 +218,7 @@ node app.js
 
 Quando estes recursos já não forem necessários, pode eliminar o grupo de recursos, a conta DB da Azure Cosmos e todos os recursos conexos. Para tal, selecione o grupo de recursos que utilizou para a conta DB Azure Cosmos, selecione **Delete**e, em seguida, confirme o nome do grupo de recursos para eliminar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Monitorize uma conta DB da Azure Cosmos](monitor-accounts.md)

@@ -4,18 +4,19 @@ description: Saiba mais sobre as novidades e novidades recentes no serviço Azur
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 019c04c5820a82b7910b6755ff69e5dfbe7eb66c
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: a46519d434061ebfdedbabe70a3e044cb69ca552
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421616"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322228"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novidades em Azure Migrate
 
 [O Azure Migrate](migrate-services-overview.md) ajuda-o a descobrir, avaliar e migrar para o local servidores, apps e dados para a nuvem do Microsoft Azure. Este artigo resume novos lançamentos e funcionalidades em Azure Migrate.
 ## <a name="update-september-2020"></a>Atualização (setembro 2020)
-- Azure Migrate agora permite migrar servidores para zonas de disponibilidade
+- O Azure Migrate permite-lhe migrar servidores para Zonas de Disponibilidade.
+- O Azure Migrate permite-lhe agora migrar VMs e servidores físicos baseados na UEFI para a geração Azure 2 VMs. 
 
 ## <a name="update-august-2020"></a>Atualização (agosto 2020)
 
@@ -93,7 +94,7 @@ Se estiver a utilizar a versão anterior do Azure Migrate (apenas foi suportada 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Saiba mais](https://azure.microsoft.com/pricing/details/azure-migrate/) sobre os preços do Azure Migrate.
 - [Veja as perguntas mais frequentes](resources-faq.md) sobre o Azure Migrate.

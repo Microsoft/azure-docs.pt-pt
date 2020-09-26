@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configurar a Salesforce Sandbox para fornecimento automático de utilizadores com diretório Azure Ative Microsoft Docs'
-description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Salesforce Sandbox.
+description: Conheça os passos necessários para realizar na Salesforce Sandbox e Azure AD para obter e desavisar automaticamente as contas de utilizadores de Azure AD para Salesforce Sandbox.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 5fa40e954c84d4d2d70974bc799a198c6bf7d3e9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: ae8bc3ce5822b8d49db0fdc6e611badd75b0d27b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979752"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273318"
 ---
 # <a name="tutorial-configure-salesforce-sandbox-for-automatic-user-provisioning"></a>Tutorial: Configurar a Caixa de Areia Salesforce para o provisionamento automático do utilizador
 

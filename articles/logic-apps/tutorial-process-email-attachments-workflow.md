@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 02/27/2020
-ms.openlocfilehash: 4adec4579cf1a413aeac54782b4f9a833d557ad9
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 38b4713383368f0c64983738f2ed65f60edb9e67
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029975"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334094"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutorial: Automatizar tarefas para processar e-mails utilizando apps Azure Logic, Funções Azure e Armazenamento Azure
 
@@ -323,7 +323,7 @@ Agora, adicione uma condição que seleciona apenas os e-mails que têm anexos.
 
    1. Na primeira linha por baixo de **E**, clique no interior da caixa à esquerda. Na lista de conteúdo dinâmico que aparece, selecione a propriedade **Tem anexo**.
 
-      ![Criar condição](./media/tutorial-process-email-attachments-workflow/build-condition.png)
+      ![Screenshot que mostra a propriedade "E" para a condição e a seleção de propriedade "Tem Anexo".](./media/tutorial-process-email-attachments-workflow/build-condition.png)
 
    1. Na caixa do meio, mantenha o operador **é igual a**.
 
@@ -389,7 +389,7 @@ Este passo adiciona a função do Azure criada anteriormente à sua aplicação 
 
    ![Dentro de "Se verdadeiro", adicionar ação](./media/tutorial-process-email-attachments-workflow/if-true-add-action.png)
 
-1. Na caixa de pesquisa, encontre "funções do azure" e selecione a ação: **Escolher uma função do Azure - Funções do Azure**
+1. Na caixa de pesquisa, encontre "Funções Azure", e selecione esta ação: **Escolha uma função Azure - Funções Azure**
 
    ![Selecionar a ação “Escolher uma função do Azure”](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
@@ -458,7 +458,7 @@ Em seguida, adicione uma ação que cria um blob no contentor de armazenamento p
 
    Quando estiver pronto, a ação terá o aspeto deste exemplo:
 
-   ![Concluiu a ação “Criar blob”](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
+   ![Screenshot que mostra um exemplo de uma ação "Create blob" acabada.](./media/tutorial-process-email-attachments-workflow/create-blob-for-email-body-done.png)
 
 1. Guarde a sua aplicação lógica.
 
@@ -603,7 +603,7 @@ Em seguida, adicione uma ação para que a sua aplicação lógica envia um e-ma
    | ------- | ----- | ----- |
    | **Para** | <*destinatário-endereço de e-mail*> | Para fins de teste, pode utilizar o seu próprio endereço de e-mail. |
    | **Assunto**  | ```ASAP - Review applicant for position:``` **Assunto** | O assunto do e-mail que pretende incluir. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione o campo **Assunto** em **Quando é recebido um novo e-mail**. |
-   | **Corpo** | ```Please review new applicant:``` <p>```Applicant name:```**De** <p>```Application file location:``` **Caminho** <p>```Application email content:``` **Corpo** | O conteúdo do corpo do e-mail. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione estes campos: <p>- **From**, em **When a new email arrives** </br>- **Path**, em **Create blob for email body** </br>- **Body**, em **Call RemoveHTMLFunction to clean email body** |
+   | **Corpo** | ```Please review new applicant:``` <p>```Applicant name:```**De** <p>```Application file location:```**Caminho** <p>```Application email content:``` **Corpo** | O conteúdo do corpo do e-mail. Clique no interior desta caixa, introduza o texto de exemplo e, na lista de conteúdo dinâmico, selecione estes campos: <p>- **From**, em **When a new email arrives** </br>- **Path**, em **Create blob for email body** </br>- **Body**, em **Call RemoveHTMLFunction to clean email body** |
    ||||
 
    > [!NOTE]
@@ -682,7 +682,7 @@ Quando já não precisar deste exemplo, elimine o grupo de recursos que contém 
 
 1. Quando o painel de confirmação aparecer, insira o nome do grupo de recursos e selecione **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, criou uma aplicação lógica que processa e armazena anexos de e-mail através da integração de serviços do Azure, como o Armazenamento do Azure e as Funções do Azure. Agora, saiba mais sobre outros conectores que pode utilizar para criar aplicações lógicas.
 

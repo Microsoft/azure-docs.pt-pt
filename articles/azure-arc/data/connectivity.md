@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 44c1c1860cbea20a7a00da5a396e4d82d79efd8b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4364ed916e2b2783ab09f9d61ae63197d001ad42
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940004"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273186"
 ---
 # <a name="connectivity-modes-and-requirements"></a>Modos e Requisitos de Conectividade
 
@@ -86,6 +86,7 @@ Atualmente, na fase de pré-visualização, apenas o modo Indiretamente Conectad
 |**APIs gestor de recursos Azure**|Um computador que executa o Azure Data Studio, Azure Data CLI ou Azure CLI que está a ligar-se ao Azure.|`login.microsoftonline.com`<br/>`management.azure.com`<br/>`san-af-eastus-prod.azurewebsites.net`<br/>`san-af-eastus2-prod.azurewebsites.net`<br/>`san-af-australiaeast-prod.azurewebsites.net`<br/>`san-af-centralus-prod.azurewebsites.net`<br/>`san-af-westus2-prod.azurewebsites.net`<br/>`san-af-westeurope-prod.azurewebsites.net`<br/>`san-af-southeastasia-prod.azurewebsites.net`<br/>`san-af-koreacentral-prod.azurewebsites.net`<br/>`san-af-northeurope-prod.azurewebsites.net`<br/>`san-af-westeurope-prod.azurewebsites.net`<br/>`san-af-uksouth-prod.azurewebsites.net`<br/>`san-af-francecentral-prod.azurewebsites.net`|HTTPS|443|Yes|Azure Active Directory|O Azure Data Studio, Azure Data CLI e Azure CLI conectam-se às APIs do Gestor de Recursos Azure para enviar e recuperar dados de e para Azure para algumas funcionalidades.|
 |**Azure Monitor APIs**|Um computador que executa o Azure Data CLI ou O Azure CLI que está a enviar métricas de monitorização ou registos para o Azure Monitor.|`login.microsoftonline.com`<br/>`management.azure.com`<br/>`*.ods.opinsights.azure.com`<br/>`*.oms.opinsights.azure.com`<br/>`*.monitoring.azure.com`|HTTPS|443|Yes|Azure Active Directory|O Azure Data Studio, Azure Data CLI e Azure CLI conectam-se às APIs do Gestor de Recursos Azure para enviar e recuperar dados de e para Azure para algumas funcionalidades.|
 
-> **Nota:** Por enquanto, todas as ligações HTTPS/443 do navegador aos dashboards Grafana e Kibana e do CLI de Dados Azure ao controlador de dados API são encriptadas com recurso a certificados auto-assinados.  No futuro, estará disponível uma funcionalidade que lhe permitirá fornecer os seus próprios certificados para encriptação destas ligações SSL.
+> [!NOTE]
+> Por enquanto, todas as ligações HTTPS/443 do navegador aos dashboards Grafana e Kibana e do CLI de Dados Azure ao controlador de dados API são encriptadas com recurso a certificados auto-assinados.  No futuro, estará disponível uma funcionalidade que lhe permitirá fornecer os seus próprios certificados para encriptação destas ligações SSL.
 
 A conectividade do Azure Data Studio e do Azure Data CLI para o servidor API de Kubernetes utiliza a autenticação e encriptação de Kubernetes que estabeleceu.  Cada utilizador que esteja a utilizar o Azure Data Studio e o Azure Data CLI deve ter uma ligação autenticada à API de Kubernetes para executar muitas das ações relacionadas com os serviços de dados habilitados a Azure Arc.

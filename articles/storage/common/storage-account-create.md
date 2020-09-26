@@ -1,27 +1,27 @@
 ---
 title: Criar uma conta de armazenamento
 titleSuffix: Azure Storage
-description: Aprenda a criar uma conta de armazenamento utilizando o portal Azure PowerShell ou o Azure CLI. Uma conta de armazenamento Azure fornece um espaço de nome único no Microsoft Azure para armazenar e aceder aos seus dados.
+description: Aprenda a criar uma conta de armazenamento para armazenar bolhas, ficheiros, filas e mesas. Uma conta de armazenamento Azure fornece um espaço de nome único no Microsoft Azure para ler e escrever os seus dados.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/07/2020
+ms.date: 09/24/2020
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 8b6f5f302465d075b7a0bcb0e6b12c75b1379bb5
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 9b993e5a7c5b3ee2327fe26437414d8ce74f7369
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069855"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333584"
 ---
-# <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
+# <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
 Uma conta de armazenamento Azure contém todos os seus objetos de dados de armazenamento Azure: bolhas, ficheiros, filas, tabelas e discos. A conta de armazenamento fornece um espaço de nome único para os seus dados de Armazenamento Azure que estão acessíveis a partir de qualquer parte do mundo em HTTP ou HTTPS. Os dados na sua conta de armazenamento Azure são duráveis e altamente disponíveis, seguros e massivamente escaláveis.
 
-Neste artigo de como fazer, aprende-se a criar uma conta de armazenamento utilizando o [portal Azure](https://portal.azure.com/) [, Azure PowerShell,](https://docs.microsoft.com/powershell/azure/) [Azure CLI,](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)ou um [modelo Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
+Neste artigo de como fazer, aprende-se a criar uma conta de armazenamento utilizando o [portal Azure](https://portal.azure.com/) [, Azure PowerShell,](https://docs.microsoft.com/powershell/azure/) [Azure CLI,](https://docs.microsoft.com/cli/azure)ou um [modelo Azure Resource Manager](../../azure-resource-manager/management/overview.md).  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -64,7 +64,7 @@ O botão lança uma concha interativa que pode usar para executar os passos desc
 
 ### <a name="install-the-cli-locally"></a>Instalar a CLI localmente
 
-Também pode instalar e utilizar a CLI do Azure localmente. Este artigo de como fazer requer que esteja a executar a versão 2.0.4 ou mais tarde do Azure CLI. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+Também pode instalar e utilizar a CLI do Azure localmente. Os exemplos deste artigo requerem a versão 2.0.4 ou posterior do Azure CLI. Corra `az --version` para encontrar a sua versão instalada. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 # <a name="template"></a>[Modelo](#tab/template)
 
@@ -76,7 +76,7 @@ Nenhum.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -104,11 +104,9 @@ N/D
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Agora está pronto para criar uma conta de armazenamento.
-
 Cada conta de armazenamento tem de pertencer a um grupo de recursos do Azure. Um grupo de recursos é um contentor lógico para agrupar os seus serviços do Azure. Quando cria uma conta de armazenamento, tem a opção de criar um novo grupo de recursos ou utilizar um grupo de recursos existente. Este artigo mostra como criar um novo grupo de recursos.
 
-Uma conta de armazenamento **v2 para fins gerais** concede acesso a todos os serviços de Armazenamento do Azure: blobs, ficheiros, filas, tabelas e discos. Os passos aqui delineados criam uma conta de armazenamento v2 para fins gerais, mas os passos para criar qualquer tipo de conta de armazenamento são semelhantes.
+Uma conta de armazenamento **v2 para fins gerais** concede acesso a todos os serviços de Armazenamento do Azure: blobs, ficheiros, filas, tabelas e discos. Os passos aqui delineados criam uma conta de armazenamento v2 para fins gerais, mas os passos para criar qualquer tipo de conta de armazenamento são semelhantes. Para obter mais informações sobre tipos de contas de armazenamento e outras definições de conta de armazenamento, consulte [Descrição geral da conta de armazenamento do Azure](storage-account-overview.md).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -186,7 +184,7 @@ az storage account create \
 ```
 
 > [!IMPORTANT]
-> Se pretender utilizar [o Azure Data Lake Storage,](https://azure.microsoft.com/services/storage/data-lake-storage/)inclua `--enable-hierarchical-namespace true` nesta lista de parâmetros. 
+> Se pretender utilizar [o Azure Data Lake Storage,](https://azure.microsoft.com/services/storage/data-lake-storage/)inclua `--enable-hierarchical-namespace true` nesta lista de parâmetros.
 
 Para criar uma conta de armazenamento v2 de uso geral com uma opção de replicação diferente, substitua o valor desejado na tabela abaixo para o parâmetro **sku.**
 
@@ -230,8 +228,6 @@ Para aprender a modificar este modelo ou criar novos, consulte:
 - [Amostras adicionais do modelo de conta de armazenamento.](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)
 
 ---
-
-Para obter mais informações sobre as opções de replicação disponíveis, veja [Opções de replicação do Azure](storage-redundancy.md).
 
 ## <a name="delete-a-storage-account"></a>Eliminar uma conta do Storage
 
@@ -287,26 +283,6 @@ Em alternativa, pode eliminar o grupo de recursos, que elimina a conta de armaze
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo de como fazer, criou uma conta de armazenamento padrão v2 para fins gerais. Para aprender a carregar e baixar bolhas de e para a sua conta de armazenamento, continue para um dos quickstarts de armazenamento blob.
-
-# <a name="portal"></a>[Portal](#tab/azure-portal)
-
-> [!div class="nextstepaction"]
-> [Trabalhar com blobs ao utilizar o portal do Azure](../blobs/storage-quickstart-blobs-portal.md)
-
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-
-> [!div class="nextstepaction"]
-> [Trabalhar com blobs ao utilizar o PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
-
-# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-
-> [!div class="nextstepaction"]
-> [Trabalhar com bolhas usando o Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
-
-# <a name="template"></a>[Modelo](#tab/template)
-
-> [!div class="nextstepaction"]
-> [Trabalhar com blobs ao utilizar o portal do Azure](../blobs/storage-quickstart-blobs-portal.md)
-
----
+- [Visão geral da conta de armazenamento](storage-account-overview.md)
+- [Upgrade para uma conta de armazenamento v2 para fins gerais](storage-account-upgrade.md)
+- [Mover uma conta de Armazenamento Azure para outra região](storage-account-move.md)

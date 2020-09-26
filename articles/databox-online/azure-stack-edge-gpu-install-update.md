@@ -6,21 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 09/24/2020
 ms.author: alkohli
-ms.openlocfilehash: 107485277e28a44841b0d71fef686f0bcbf52216
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8b733d1e5eae9cae01233fda4be078bd188e07c9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899509"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334366"
 ---
-# <a name="update-your-azure-stack-edge-pro-with-gpu"></a>Atualize o seu Azure Stack Edge Pro com GPU 
+# <a name="update-your-azure-stack-edge-pro-gpu"></a>Atualize o seu GPU Azure Stack Edge Pro 
 
-Este artigo descreve os passos necessários para instalar a atualização no Azure Stack Edge Pro com GPU através da UI web local e através do portal Azure. Aplica as atualizações de software ou hotfixes para manter o dispositivo Azure Stack Edge Pro e o cluaster Kubernetes associado no dispositivo atualizado. 
+Este artigo descreve os passos necessários para instalar a atualização no Azure Stack Edge Pro com GPU através da UI web local e através do portal Azure. Aplica as atualizações de software ou hotfixes para manter o dispositivo Azure Stack Edge Pro e o cluster Kubernetes associado no dispositivo atualizado. 
+
+O procedimento descrito neste artigo foi realizado usando uma versão diferente do software, mas o processo permanece o mesmo para a versão atual do software.
 
 > [!IMPORTANT]
-> - A atualização **de 2008** corresponde à versão de software **2.1.1328.1904** no seu dispositivo. Para obter informações sobre esta atualização, aceda às [notas de lançamento](azure-stack-edge-gpu-2008-release-notes.md).
+> - A atualização **de 2009** corresponde à versão de software **2.1.1358.2075** no seu dispositivo. Para obter informações sobre esta atualização, aceda às [notas de lançamento](azure-stack-edge-gpu-2009-release-notes.md).
 >
 > - Tenha em atenção que a instalação de uma atualização ou correção reinicia o dispositivo. Esta atualização requer que aplique duas atualizações sequencialmente. Primeiro aplica-se as atualizações de software do dispositivo e depois as atualizações de Kubernetes. Dado que o Azure Stack Edge Pro é um único dispositivo de nó, qualquer I/S em andamento é interrompido e o seu dispositivo experimenta um tempo de inatividade de até 30 minutos para a atualização do software do dispositivo.
 
@@ -82,7 +84,7 @@ Recomendamos que instale atualizações através do portal Azure. O dispositivo 
 
     ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-6.png)
 
-    Se optar por descarregar apenas atualizações, selecione a notificação para abrir a lâmina **de atualizações** do Dispositivo. Selecione **Instalar**.
+    Se optar por descarregar apenas atualizações, selecione a notificação para abrir a lâmina **de atualizações** do Dispositivo. Selecione **Install** (Instalar).
   
     ![Versão de software após atualização](./media/azure-stack-edge-gpu-install-update/portal-update-7.png)
 

@@ -6,17 +6,19 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/27/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 75299ab83543b0f28f4cf8f02e41b692c32d19ed
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 5a310dca40b8f5fea074c0cd3c75751d62ccb8f5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997273"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297900"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar tempo para viver em Azure Cosmos DB
 
 Em Azure Cosmos DB, pode optar por configurar o Tempo para Viver (TTL) ao nível do recipiente, ou pode sobrepor-se a um nível de item após a definição do recipiente. Pode configurar o TTL para um recipiente utilizando o portal Azure ou os SDKs específicos da linguagem. As sobreposições TTL de nível de item podem ser configuradas utilizando os SDKs.
+
+> Este conteúdo está relacionado com a loja de transações Azure Cosmos DB TTL. Se procura uma loja analidade TTL, que permite cenários noETL HTAP através do [Azure Synapse Link,](https://docs.microsoft.com/azure/cosmos-db/synapse-link)clique [aqui.](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl)
 
 ## <a name="enable-time-to-live-on-a-container-using-azure-portal"></a>Habilite o tempo para viver em um recipiente usando o portal Azure
 

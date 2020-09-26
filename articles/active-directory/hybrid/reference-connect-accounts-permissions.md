@@ -17,12 +17,12 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28fc05be7a5b54713aec8c4f830eeb2f7e6a251c
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: a1efafd353bea20ea1ada0b5e92a9e6df00deb78
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662337"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273605"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: contas e permissões
 
@@ -115,7 +115,7 @@ Com a instalação de definições personalizadas, o assistente oferece-lhe mais
 
 Segue-se um resumo das páginas de assistentes de instalação personalizadas, das credenciais recolhidas e para que são utilizadas.
 
-![Instalação expressa](./media/reference-connect-accounts-permissions/customize.png)
+![Screenshot que mostra as páginas de assistente de instalação personalizadas.](./media/reference-connect-accounts-permissions/customize.png)
 
 | Página do assistente | Credenciais Recolhidas | Permissões Necessárias | Usado para |
 | --- | --- | --- | --- |
@@ -175,7 +175,7 @@ Se utilizar definições personalizadas, é responsável por criar a conta antes
 ### <a name="adsync-service-account"></a>ADSync service account (conta de serviço do ADSync)
 O serviço de sincronização pode ser executado em diferentes contas. Pode ser executado numa **Conta de Serviço Virtual** (VSA), numa Conta de Serviço Gerido pelo **Grupo** (gMSA/sMSA), ou numa conta de utilizador regular. As opções suportadas foram alteradas com o lançamento de abril de 2017 do Connect quando se faz uma nova instalação. Se atualizar a partir de uma versão anterior do Azure AD Connect, estas opções adicionais não estão disponíveis.
 
-| Tipo de conta | Opção de instalação | Descrição |
+| Tipo de conta | Opção de instalação | Description |
 | --- | --- | --- |
 | [Conta de Serviço Virtual](#virtual-service-account) | Expresso e personalizado, abril de 2017 e mais tarde | Esta é a opção utilizada para todas as instalações expressas, com exceção das instalações num Controlador de Domínio. Para o costume, é a opção padrão a menos que outra opção seja usada. |
 | [Conta de Serviço Gerida de Grupo](#group-managed-service-account) | Personalizado, abril de 2017 e mais tarde | Se utilizar um servidor SQL remoto, recomendamos a utilização de uma conta de serviço gerida pelo grupo. |
@@ -208,7 +208,7 @@ Legenda:
 #### <a name="virtual-service-account"></a>Conta de serviço virtual
 Uma conta de serviço virtual é um tipo especial de conta que não tem senha e é gerida pelo Windows.
 
-![VSA](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
+![Screenshot que mostra a conta de serviço virtual (VSA).](./media/reference-connect-accounts-permissions/aadsyncvsa.png)
 
 O VSA destina-se a ser utilizado com cenários em que o motor de sincronização e o SQL se encontram no mesmo servidor. Se utilizar o SQL remoto, recomendamos a utilização de uma conta de serviço gerida pelo grupo.
 
@@ -241,7 +241,7 @@ A conta também é concedida permissões a ficheiros, chaves de registo e outros
 ### <a name="azure-ad-connector-account"></a>Conta do Conector do Azure AD
 Uma conta em Azure AD é criada para o uso do serviço de sincronização. Esta conta pode ser identificada pelo seu nome de exibição.
 
-![Conta AD](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
+![Screenshot que mostra a conta AZure AD.](./media/reference-connect-accounts-permissions/aadsyncserviceaccount2.png)
 
 O nome do servidor em que a conta é utilizada pode ser identificado na segunda parte do nome de utilizador. Na imagem, o nome do servidor é DC1. Se tiver servidores de paragem, cada servidor tem a sua própria conta.
 
@@ -267,5 +267,5 @@ Se não leu a documentação sobre [a integração das suas identidades no local
 |Atualização do DirSync | [Atualizar da ferramenta de sincronização do Azure AD (DirSync)](how-to-dirsync-upgrade-get-started.md)|
 |Após a instalação | [Verificar a instalação e atribuir licenças](how-to-connect-post-installation.md)|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

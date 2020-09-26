@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: devx-track-javascript
-ms.openlocfilehash: fe07d6d54296a3c55cb0b2cadb4d4ae0a311873b
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: devx-track-js
+ms.openlocfilehash: e993e3086ac63a6e9d5b8372327e35016b36239f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089569"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285167"
 ---
 # <a name="change-the-style-of-the-map"></a>Alterar o estilo do mapa
 

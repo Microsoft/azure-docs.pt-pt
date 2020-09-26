@@ -1,17 +1,17 @@
 ---
 title: Ligação de saída de armazenamento Azure Blob para funções Azure
-description: Saiba como fornecer dados de armazenamento Azure Blob a uma Função Azure.
+description: Saiba como fornecer dados de ligação de saída de armazenamento Azure Blob a uma Função Azure.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 9596e6a6fd32994f782125c9bd4b8ca6d5a94b03
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 56d8078347b5de775b30c8db2c9412598070046c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213067"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285371"
 ---
 # <a name="azure-blob-storage-output-binding-for-azure-functions"></a>Ligação de saída de armazenamento Azure Blob para funções Azure
 
@@ -350,7 +350,7 @@ Pode utilizar o `StorageAccount` atributo para especificar a conta de armazename
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `Blob` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para `blob` . |
 |**direção** | n/a | Deve ser definido `out` para uma ligação de saída. As exceções são anotados na secção [de utilização.](#usage) |

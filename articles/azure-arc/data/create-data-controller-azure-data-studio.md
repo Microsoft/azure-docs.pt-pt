@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 71678977f899b910a97dbb552233f36ca5a51f26
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f6fd8169c587e928da9946d74335ddc758889144
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939997"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273148"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Criar controlador de dados no Azure Data Studio
 
@@ -42,7 +42,7 @@ Siga estes passos para criar um controlador de dados Azure Arc utilizando o assi
 9. Introduza um nome para o controlador de dados e para o espaço de nome em que o controlador de dados será criado.  
 
 > [!NOTE]
-> Se o espaço de nome já existir, será usado se o espaço de nomes já não contiver outros objetos Kubernetes - pods, etc.  Se o espaço de nome não existir, será feita uma tentativa de criar o espaço de nome.  Criar um espaço de nome num cluster Kubernetes requer privilégios de administrador de cluster kubernetes.  Se não tiver privilégios de administrador de cluster kubernetes, peça ao seu administrador de cluster Kubernetes para executar os primeiros passos no Controlador de dados Create um controlador de dados utilizando o artigo [de ferramentas nativas de Kubernetes](./create-data-controller-using-k8s-native-tools.md) que são necessários para ser executados por um administrador kubernetes antes de completar este assistente.
+> Se o espaço de nome já existir, será usado se o espaço de nomes já não contiver outros objetos Kubernetes - pods, etc.  Se o espaço de nome não existir, será feita uma tentativa de criar o espaço de nome.  Criar um espaço de nome num cluster Kubernetes requer privilégios de administrador de cluster kubernetes.  Se não tiver privilégios de administrador de cluster kubernetes, peça ao seu administrador de cluster Kubernetes para executar os primeiros passos no Controlador de dados Create um controlador de dados utilizando o artigo [de ferramentas nativas de Kubernetes](./create-data-controller-using-kubernetes-native-tools.md) que são necessários para ser executados por um administrador kubernetes antes de completar este assistente.
 
 > [!NOTE]
 > Nota: o controlador de dados e o nome do espaço de nome serão utilizados para criar um recurso personalizado no cluster Kubernetes, pelo que devem estar em conformidade com [as convenções de nomeação de Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: e445f26458d13d28dd4ef50c6c17d434554d9fd5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5af7645db662a238099e013f84b0dc0fee2af62c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311075"
+ms.locfileid: "91355861"
 ---
 # <a name="secure-a-daemon-application"></a>Garantir uma aplicação daemon
 
@@ -122,7 +122,7 @@ Você concede *ao Azure um controlo de acesso baseado em funções (Azure RBAC)*
 2. No **separador role assignments,** **Adicione** uma tarefa de função. 
 
     > [!div class="mx-imgBorder"]
-    > ![Adicionar atribuição de função](./media/how-to-manage-authentication/add-role-assignment.png)
+    > ![A screenshot mostra as atribuições de rolo com Add selecionado.](./media/how-to-manage-authentication/add-role-assignment.png)
 
 3. Selecione uma definição de função Azure Maps incorporada, como O Leitor de **Dados do Azure Maps** ou **Colaborador de Dados do Azure Maps.** No **acesso de Atribuição a**, selecione **Azure AD utilizador, grupo ou principal de serviço** ou identidade gerida com o Sistema de identidade gerido atribuído pelo **Utilizador.**  /  **System assigned Managed identity** Selecione o principal. Em seguida, selecione **Guardar**.
 

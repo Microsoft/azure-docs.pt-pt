@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 8a086830398555d962bb13d1d9b0fea3554f7924
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 9f0a7b6f68c5a3adeb320fd18bec2f195a833dbf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032525"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310004"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do agente do Log Analytics
 O agente Azure Log Analytics recolhe telemetria a partir de máquinas virtuais Windows e Linux em qualquer nuvem, máquinas no local, e as monitorizadas pelo [System Center Operations Manager](/system-center/scom/) e envia-os dados recolhidos para o seu espaço de trabalho Log Analytics no Azure Monitor. O agente Log Analytics também suporta insights e outros serviços no Azure Monitor, como [o Azure Monitor para VMs,](../insights/vminsights-enable-overview.md) [Azure Security Center,](../../security-center/index.yml)e [Azure Automation.](../../automation/automation-intro.md) Este artigo fornece uma visão geral detalhada dos requisitos do agente, do sistema e da rede e dos métodos de implantação.
@@ -39,7 +39,7 @@ Não há qualquer custo para o agente Log Analytics, mas pode incorrer em encarg
 ## <a name="data-collected"></a>Dados recolhidos
 A tabela que se segue lista os tipos de dados que pode configurar um espaço de trabalho Log Analytics para recolher de todos os agentes conectados. Ver [O que é monitorizado pelo Azure Monitor?](../monitor-reference.md)
 
-| Origem de dados | Descrição |
+| Origem de dados | Description |
 | --- | --- |
 | [Registos do Evento Windows](data-sources-windows-events.md) | Informação enviada para o sistema de registo de eventos do Windows. |
 | [Syslog](data-sources-syslog.md)                     | Informação enviada para o sistema de registo de eventos Linux. |
@@ -59,7 +59,7 @@ Consulte [o agente configurar para apresentar-se a um grupo de gestão de Gestor
 
 * Os agentes do Windows podem ligar-se a até quatro espaços de trabalho, mesmo que estejam ligados a um grupo de gestão de Gestores de Operações do System Center.
 * O agente Linux não suporta multi-homing e só pode ligar-se a um único espaço de trabalho ou grupo de gestão.
-  
+
 
 ## <a name="security-limitations"></a>Limitações de segurança
 
@@ -69,6 +69,8 @@ Consulte [o agente configurar para apresentar-se a um grupo de gestão de Gestor
 ## <a name="installation-options"></a>Opções de instalação
 
 Existem vários métodos para instalar o agente Log Analytics e ligar a sua máquina ao Azure Monitor, dependendo dos seus requisitos. As secções seguintes listam os métodos possíveis para diferentes tipos de máquina virtual.
+> [!NOTE]
+> Não é suportado para clonar uma máquina com o Agente Desafiado de Log já configurado. Se o agente já foi associado a um espaço de trabalho, isto não funcionará para 'imagens douradas'.
 
 ### <a name="azure-virtual-machine"></a>Máquina virtual do Azure
 
@@ -141,7 +143,7 @@ Por exemplo: `https://user01:password@proxy01.contoso.com:30443`
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Reveja [as fontes de dados](agent-data-sources.md) para entender as fontes de dados disponíveis para recolher dados do seu sistema Windows ou Linux. 
 * Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções. 

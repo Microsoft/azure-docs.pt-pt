@@ -3,12 +3,12 @@ title: Adicione um VM a um laboratório em Azure DevTest Labs Microsoft Docs
 description: Aprenda a usar o portal Azure para adicionar uma máquina virtual a um laboratório em Azure DevTest Labs. Pode escolher uma base que seja uma imagem personalizada ou uma fórmula.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: c61e6e685a52ac3658cb9b9ca37f64fc51f3ce1e
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 07efcf93b963009494021b90e6c730c4615301ef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270721"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297628"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Adicione um VM a um laboratório em Azure DevTest Labs
 Se já [criou o seu primeiro VM,](tutorial-create-custom-lab.md#add-a-vm-to-the-lab)provavelmente fê-lo a partir de uma imagem de [mercado](devtest-lab-configure-marketplace-images.md)pré-carregada. Agora, se quiser adicionar VMs subsequentes ao seu laboratório, também pode escolher uma *base* que seja uma [imagem personalizada](devtest-lab-create-template.md) ou uma [fórmula](devtest-lab-manage-formulas.md). Este tutorial acompanha-o através do portal Azure para adicionar um VM a um laboratório em DevTest Labs.
@@ -30,7 +30,7 @@ Este artigo também mostra como gerir os artefactos para um VM no seu laboratór
     2. Introduza um **Nome de Utilizador** que seja concedido privilégios de administrador na máquina virtual. O **nome de utilizador** da máquina é pré-preenchido com um nome auto-gerado único. O nome corresponde ao nome de utilizador no seu endereço de e-mail. Esta funcionalidade poupa-lhe tempo para decidir sobre um nome de utilizador sempre que cria uma nova máquina. Mais uma vez, pode substituir este campo preenchido automaticamente com um nome de utilizador à sua escolha, se assim o desejar. Para anular o valor preenchido automaticamente para o nome de utilizador, introduza um valor na caixa de texto **do Nome do Utilizador.** Este utilizador tem privilégios **de administrador** na máquina virtual.
     3. Se estiver a criar o primeiro VM em laboratório, introduza uma **palavra-passe** para o utilizador. Para guardar esta palavra-passe como uma palavra-passe padrão no cofre da chave Azure associado ao laboratório, **selecione Guardar como senha padrão**. A palavra-passe predefinida é guardada no cofre da chave com o nome: **VmPassword**. Quando tenta criar VMs subsequentes em laboratório, o **VmPassword** é automaticamente selecionado para a **palavra-passe**. Para anular o valor, limpe a **caixa de verificação secreta guardada** e introduza uma palavra-passe.
 
-        ![Escolher uma base](./media/tutorial-create-custom-lab/new-virtual-machine.png)
+        ![Screenshot que mostra a página "Criar recurso de laboratório" com "Definições Básicas" selecionadas e os valores de "Definições do Utilizador" introduzidos.](./media/tutorial-create-custom-lab/new-virtual-machine.png)
 
         Você também pode guardar segredos no cofre da chave primeiro e depois usá-lo enquanto cria um VM no laboratório. Para mais informações, consulte [os segredos da Loja num cofre de chaves.](devtest-lab-store-secrets-in-key-vault.md) Para utilizar a palavra-passe armazenada no cofre da chave, selecione **Use um segredo guardado**e especifique um valor chave que corresponda ao seu segredo (palavra-passe).
     4. Na secção **Mais opções,** selecione **Alterar o tamanho**. Selecione um dos itens predefinidos que especificam os núcleos do processador, o tamanho do RAM e o tamanho do disco rígido do VM para criar.

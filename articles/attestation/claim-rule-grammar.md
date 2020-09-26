@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a0f3e517e60037de6456bc3a549e072e58e2fa67
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 3ed5c3f8232047787c6f05628f1eef35a7533999
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89244743"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285423"
 ---
 # <a name="claim-and-claim-rules"></a>Regras de reclamação e reivindicação
 
@@ -60,7 +60,7 @@ A condição é estruturada como:
 Identifier:[ClaimPropertyCondition, ClaimPropertyCondition,…]
 ```
 
-A condição é composta por condições individuais em várias propriedades de uma reclamação. Uma condição pode ter um identificador opcional, que pode ser usado para remeter a reclamação/s que satisfaz a circunstância. Esta referência pode ser utilizada nas outras condições ou na ação da mesma regra.
+A lista de condições é composta por condições individuais em vários imóveis de uma reclamação. Uma condição pode ter um identificador opcional, que pode ser usado para remeter a reclamação/s que satisfaz a circunstância. Esta referência pode ser utilizada nas outras condições ou na ação da mesma regra.
 
 Por exemplo
 
@@ -78,8 +78,8 @@ Seguem-se os operadores que podem ser utilizados para verificar as condições:
 
 | Tipo de valor | Operações Apoiadas |
 |--|--|
-| Número inteiro | == (iguais), \! = (não igual), <= (inferior ou igual), < (menos que), >= (maior ou igual), > (maior do que) |
-| String | == (igual), \! = (não igual) |
+| Integer (Número inteiro) | == (iguais), \! = (não igual), <= (inferior ou igual), < (menos que), >= (maior ou igual), > (maior do que) |
+| Cadeia | == (igual), \! = (não igual) |
 | Booleano | == (igual), \! = (não igual) |
 
 Lista de avaliação das condições:

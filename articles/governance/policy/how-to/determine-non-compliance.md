@@ -3,12 +3,12 @@ title: Determinar as causas da não conformidade
 description: Quando um recurso não é conforme, existem muitas razões possíveis. Aprenda a descobrir o que causou o incumprimento.
 ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: a666da4ecb97c24e7176e6c7cfbe2ee24f46f1b7
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 102a1a6a9573c73b4c1158a3c412be233e1a12b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648576"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334179"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas da não conformidade
 
@@ -106,9 +106,15 @@ A seguinte matriz mapeia cada _razão_ possível para a [condição](../concepts
 
 ## <a name="compliance-details-for-guest-configuration"></a>Detalhes de conformidade da Configuração de Convidado
 
-Para as políticas _de auditIfNotExists_ na categoria _Configuração_ de Convidados, pode haver várias configurações avaliadas dentro do VM e você precisará ver detalhes por definição. Por exemplo, se estiver a auditar uma lista de políticas de passwords e apenas uma delas tiver estatuto Não conforme, terá de saber quais as políticas específicas de _palavra-passe_que estão fora de conformidade e porquê.
+Para as políticas _de auditIfNotExists_ na categoria _Configuração_ de Convidados, pode haver várias configurações avaliadas dentro da máquina virtual e você precisará ver detalhes por definição. Por exemplo, se estiver a auditar uma lista de políticas de passwords e apenas uma delas tiver estatuto Não conforme, terá de saber quais as políticas específicas de _palavra-passe_que estão fora de conformidade e porquê.
 
-Também pode não ter acesso ao acesso diretamente ao VM, mas tem de informar por que razão o VM não _está em conformidade._
+Também pode não ter acesso a iniciar sômedíssia diretamente na máquina virtual, mas precisa de informar por que razão a máquina virtual não _está em conformidade_.
+
+## <a name="compliance-details-for-resource-provider-modes"></a>Detalhes de conformidade para os modos fornecedores de recursos
+
+Para atribuições com [um modo Fornecedor de Recursos,](../concepts/definition-structure.md#resource-manager-modes)selecione o recurso não _conforme_ para abrir uma visão mais profunda. No separador Conformidade do **Componente** _encontra-se_ informações adicionais específicas do modo Fornecedor de Recursos na política atribuída que mostra o **Componente** e **O ID do Componente**Não Conforme.
+
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Screenshot do separador de conformidade de componentes e detalhes de conformidade para uma atribuição do modo fornecedor de recursos." border="false":::
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -209,7 +215,7 @@ Os assessores _de difusão visual_ na identificação de alterações a um recur
 
 Os dados de histórico de alteração são fornecidos pelo [Azure Resource Graph](../../resource-graph/overview.md). Para consultar estas informações fora do portal Azure, consulte [Obter alterações de recursos](../../resource-graph/how-to/get-resource-changes.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).

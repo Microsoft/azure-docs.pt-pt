@@ -7,13 +7,13 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f966492dd8a231db92f607438bb9ba2d3be71389
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: devx-track-js
+ms.openlocfilehash: c185075feed71556f8a20ab0e40ffa700f3fdbac
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90906765"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333618"
 ---
 # <a name="accessing-user-information-in-azure-static-web-apps-preview"></a>Aceder a informações dos utilizadores em Azure Static Web Apps Preview
 

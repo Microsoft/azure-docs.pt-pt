@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Obtenha insights de imagem usando o REST API e Go - Bing Visual Search'
+title: 'Quickstart: Obtenha insights de imagem usando a API REST e Go - Pesquisa Visual Bing'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a enviar uma imagem para a API de Pesquisa Visual bing e obtenha informações sobre isso.
+description: Aprenda a fazer upload de uma imagem utilizando a API e Go de Pesquisa Visual Bing e, em seguida, obtenha insights sobre a imagem.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,27 +10,27 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: a0fb6bc96441fe36713d931e561c6d1e272b7819
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 923c69c12ca8cb7ceb9b570121f661e4c4e6e7f6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83872619"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298037"
 ---
-# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-go"></a>Quickstart: Obtenha insights de imagem usando o Bing Visual Search REST API e Go
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-go"></a>Quickstart: Obtenha insights de imagem usando a API de Pesquisa Visual Bing e Go
 
-Use este quickstart para fazer a sua primeira chamada para a API de pesquisa visual bing usando a linguagem de programação Go. Um pedido post envia uma imagem para o ponto final da API. Os resultados incluem URLs e informações descritivas sobre imagens semelhantes à imagem carregada.
+Utilize este quickstart para fazer a sua primeira chamada para a API de Pesquisa Visual Bing utilizando a linguagem de programação Go. Um pedido de CORREIO envia uma imagem para o ponto final da API. Os resultados incluem URLs e informações descritivas sobre imagens semelhantes à imagem carregada.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Instale os [binários Go](https://golang.org/dl/).
-* Instale a impressora bonita e profunda, que é usada para apresentar resultados. Para instalar o go-spew, utilize o `$ go get -u https://github.com/davecgh/go-spew` comando.
+* Instale a impressora de profundidade, que é usada para apresentar resultados. Para instalar go-spew, use o `$ go get -u https://github.com/davecgh/go-spew` comando.
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="project-and-libraries"></a>Projeto e bibliotecas
 
-Crie um projeto Go no seu IDE ou editor. Em seguida, importar `net/http` para pedidos, `ioutil` ler a resposta, e para lidar com `encoding/json` o texto de resultados da JSON. Use a `go-spew` biblioteca para analisar os resultados da JSON.
+Crie um projeto Go no seu IDE ou editor. Em seguida, importar `net/http` para pedidos, `ioutil` ler a resposta, e lidar com o `encoding/json` texto JSON de resultados. Utilize a `go-spew` biblioteca para analisar os resultados do JSON.
 
 ```go
 package main
@@ -50,9 +50,9 @@ import (
 
 ```
 
-## <a name="struct-to-format-results"></a>Struct para os resultados do formato
+## <a name="struct-to-format-results"></a>Estrutura para resultados de formato
 
-Os `BingAnswer` formatos estruturais são devolvidos na resposta JSON, que é multinível e complexa. A seguinte implementação abrange alguns dos elementos essenciais:
+Os `BingAnswer` dados de formatos de estrutura devolvidos na resposta JSON, que é multinível e complexo. A seguinte implementação abrange alguns dos elementos essenciais:
 
 ```go
 type BingAnswer struct {
@@ -109,12 +109,12 @@ type BingAnswer struct {
 
 ## <a name="main-function-and-variables"></a>Função principal e variáveis  
 
-O seguinte código declara a função principal e atribui as variáveis requeridas: 
+O seguinte código declara a função principal e atribui as variáveis necessárias: 
 
 1. Confirme que o ponto final está correto e substitua o valor `token` por uma chave de subscrição válida da sua conta do Azure. 
-2. Para `batchNumber` , atribuir um GUID, que é necessário para os limites principais e de rasto dos dados DO POST. 
-3. Para `fileName` , atribuir o ficheiro de imagem para utilizar para o POST. 
-4. Para `endpoint` , pode utilizar o ponto final global no seguinte código, ou utilizar o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) exibido no portal Azure para o seu recurso.
+2. Para `batchNumber` , atribuir um GUID, que é necessário para os limites de liderança e fuga dos dados POST. 
+3. Para `fileName` , atribuir o ficheiro de imagem para usar para o POST. 
+4. Para `endpoint` , pode utilizar o ponto final global no seguinte código, ou utilizar o ponto final [de subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
 
 ```go
 func main() {
@@ -162,9 +162,9 @@ func main() {
 
 ```
 
-## <a name="boundaries-of-post-body"></a>Limites do corpo post
+## <a name="boundaries-of-post-body"></a>Limites do corpo POST
 
-Um pedido de POST para o ponto final de Pesquisa Visual requer limites de liderança e de trilha para encerrar os dados do POST. Estas funções não estão incluídas no `main()` bloco.
+Um pedido de POST para o ponto final de Pesquisa Visual requer limites de liderança e fuga para a divulgação dos dados POST. Estas funções não estão incluídas no `main()` bloco.
 
 O limite principal inclui um número de lote, o identificador do tipo de `Content-Disposition: form-data; name="image"; filename=` conteúdo, e o nome de ficheiro da imagem para POST. 
 
@@ -186,7 +186,7 @@ func BuildFormDataEnd(batNum string) string{
 }
 
 ```
-## <a name="add-image-bytes-to-post-body"></a>Adicione bytes de imagem ao corpo post
+## <a name="add-image-bytes-to-post-body"></a>Adicione bytes de imagem ao corpo POST
 
 O seguinte código cria o pedido POST que contém dados de imagem:
 
@@ -236,7 +236,7 @@ resp, err := client.Do(req)
 
 ## <a name="handle-the-response"></a>Processar a resposta
 
-A `Unmarshall` função extrai informações do texto JSON devolvido pela API de Pesquisa Visual. A `go-spew` bonita impressora exibe os resultados.
+A `Unmarshall` função extrai informações do texto JSON devolvido pela API de Pesquisa Visual. A `go-spew` impressora bonita apresenta os resultados.
 
 ```go
     // Create a new answer.  
@@ -259,7 +259,7 @@ A `Unmarshall` função extrai informações do texto JSON devolvido pela API de
 
 ## <a name="results"></a>Resultados
 
-Os resultados identificam imagens semelhantes à imagem contida no corpo do POST. Os campos úteis são `WebSearchUrl` `Name` e.
+Os resultados identificam imagens semelhantes à imagem contida no corpo DOM. Os campos úteis são `WebSearchUrl` `Name` e.
 
 ```go
     Value: ([]struct { WebSearchUrl string "json:\"webSearchUrl\""; Name string "json:\"name\"" }) (len=66 cap=94) {

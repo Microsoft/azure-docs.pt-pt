@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: dc07d2826d3c27fad1eee644da36cb7b4f85ea3c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: c23522911bd0c8dc9726a62cced839a1c4be37a6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897465"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333839"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Utilize o pacote de interpretação para explicar os modelos ML & previsões em Python (pré-visualização)
 
@@ -42,10 +42,9 @@ Para obter mais informações sobre as técnicas de interpretação suportadas e
 ## <a name="generate-feature-importance-value-on-your-personal-machine"></a>Gere um valor de importância de recurso na sua máquina pessoal 
 O exemplo a seguir mostra como utilizar o pacote de interpretação na sua máquina pessoal sem contactar os serviços da Azure.
 
-1. Instalação `azureml-interpret` e `azureml-contrib-interpret` pacotes.
+1. Instale o pacote `azureml-interpret`.
     ```bash
     pip install azureml-interpret
-    pip install azureml-contrib-interpret
     ```
 
 2. Treine um modelo de amostra num caderno jupyter local.
@@ -239,15 +238,14 @@ O exemplo a seguir mostra como pode utilizar a `ExplanationClient` classe para p
 * Utilize o `ExplanationClient` na execução remota para carregar o contexto de interpretação.
 * Descarregue o contexto mais tarde num ambiente local.
 
-1. Instalação `azureml-interpret` e `azureml-contrib-interpret` pacotes.
+1. Instale o pacote `azureml-interpret`.
     ```bash
     pip install azureml-interpret
-    pip install azureml-contrib-interpret
     ```
 1. Crie um roteiro de treino num caderno jupyter local. Por exemplo, `train_explain.py`.
 
     ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+    from azureml.interpret import ExplanationClient
     from azureml.core.run import Run
     from interpret.ext.blackbox import TabularExplainer
 
@@ -280,7 +278,7 @@ O exemplo a seguir mostra como pode utilizar a `ExplanationClient` classe para p
 1. Baixe a explicação no seu caderno Jupyter local.
 
     ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
+    from azureml.interpret import ExplanationClient
     
     client = ExplanationClient.from_run(run)
     
@@ -304,7 +302,7 @@ Depois de descarregar as explicações no seu caderno Jupyter local, pode utiliz
 
 Os seguintes enredos proporcionam uma visão geral do modelo treinado juntamente com as suas previsões e explicações.
 
-|Lote|Descrição|
+|Lote|Description|
 |----|-----------|
 |Exploração de Dados| Apresenta uma visão geral do conjunto de dados juntamente com os valores de previsão.|
 |Importância Global|Os agregados apresentam valores importantes de pontos de dados individuais para mostrar as características importantes do modelo no topo do K (configurável K). Ajuda a compreender o comportamento geral do modelo subjacente.|
@@ -318,7 +316,7 @@ Os seguintes enredos proporcionam uma visão geral do modelo treinado juntamente
 
 Pode carregar o enredo de importância de recurso individual para qualquer ponto de dados clicando em qualquer um dos pontos de dados individuais em qualquer um dos enredos globais.
 
-|Lote|Descrição|
+|Lote|Description|
 |----|-----------|
 |Importância Local|Mostra as características importantes k (configurável K) para uma previsão individual. Ajuda a ilustrar o comportamento local do modelo subjacente num ponto de dados específico.|
 |Exploração de Perturbação (e se análise)|Permite alterações aos valores de característica do ponto de dados selecionados e observa alterações resultantes ao valor de previsão.|
@@ -332,29 +330,12 @@ Pode carregar o enredo de importância de recurso individual para qualquer ponto
 
 [![Parcelas de GELO do Painel de Visualização](./media/how-to-machine-learning-interpretability-aml/ice-plot.png)](./media/how-to-machine-learning-interpretability-aml/ice-plot.png#lightbox)
 
-> [!NOTE]
-> Antes do arranque do núcleo Jupyter, certifique-se de que ativa as extensões do widget para o painel de visualização.
-
-* Blocos de notas do Jupyter
-
-    ```shell
-    jupyter nbextension install --py --sys-prefix azureml.contrib.interpret.visualize
-    jupyter nbextension enable --py --sys-prefix azureml.contrib.interpret.visualize
-    ```
-
-* JupyterLab
-
-    ```shell
-    jupyter labextension install @jupyter-widgets/jupyterlab-manager
-    jupyter labextension install microsoft-mli-widget
-    ```
-
 Para carregar o painel de visualização, utilize o seguinte código.
 
 ```python
 from interpret_community.widget import ExplanationDashboard
 
-ExplanationDashboard(global_explanation, model, dataset=x_test)
+ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
 
 ### <a name="visualization-in-azure-machine-learning-studio"></a>Visualização no estúdio Azure Machine Learning
@@ -370,7 +351,7 @@ Siga um destes caminhos para aceder ao painel de visualização no estúdio Azur
   1. Selecione uma experiência particular para ver todas as corridas nessa experiência.
   1. Selecione uma execução e, em seguida, o **separador Explicações** para o painel de visualização de explicações.
 
-   [![Importância da característica local do painel de visualização](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
+   [![Visualização Dashboard Característica Local Importância no estúdio AzureML em experiências](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * **Painel de modelos**
   1. Se registou o seu modelo original seguindo os passos nos [modelos Implementar com Azure Machine Learning,](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)pode selecionar **Modelos** no painel esquerdo para o visualizar.

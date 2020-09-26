@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 51fdbda755b98b47b700f57bf990b5c5356854a9
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3b1b86e47164ce4c1a13a3dfe037c0ecc659fbee
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037614"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310038"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Cobertura de tráfego Azure Maps
 

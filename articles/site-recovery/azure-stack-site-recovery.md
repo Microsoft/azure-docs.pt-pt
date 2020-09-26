@@ -3,12 +3,12 @@ title: Replicar VMs Azure Stack para Azure usando Azure Site Recovery / Microsof
 description: Saiba como configurar a recuperação de desastres para Azure Stack VMs com o serviço de Recuperação do Local Azure.
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 61154e58582a3dcbab0f7ed9542d094be192ae74
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 5bc78dc5b01bb4790190268b303cb894de2b6f71
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564314"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333720"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar as VMs do Azure Stack para o Azure
 
@@ -164,13 +164,13 @@ Configurar a máquina do servidor de configuração, registá-la no cofre e desc
 1. Clique **em Preparar Fonte de Infraestrutura**  >  **Source**.
 2. Em **Preparar origem**, clique em **+Servidor de configuração**.
 
-    ![Configurar a origem](./media/azure-stack-site-recovery/plus-config-srv.png)
+    ![Screenshot do diálogo +Servidor de Configuração com a mensagem "Clique em +Servidor de Configuração na barra de comando acima para configurar um...".](./media/azure-stack-site-recovery/plus-config-srv.png)
 
 3. In **Add Server**, verifique se o Servidor de **Configuração** aparece no **tipo servidor**.
 5. Descarregue o ficheiro de instalação de configuração unificada de recuperação do site.
 6. Transfira a chave de registo do cofre. Precisa da chave de registo quando executar a Configuração Unificada. A chave é válida durante cinco dias depois de gerá-la.
 
-    ![Configurar a origem](./media/azure-stack-site-recovery/set-source2.png)
+    ![Screenshot do diálogo do Servidor de Adicionar com o Tipo de Servidor definido para Servidor de Configuração e o botão de registo do cofre realçado.](./media/azure-stack-site-recovery/set-source2.png)
 
 
 ### <a name="run-azure-site-recovery-unified-setup"></a>Executar Azure Site Recovery Unificado Configuração

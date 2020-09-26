@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 04942c745548903a5f8092bc5b04ea2152029726
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 44616d5d90f9c5c3a4f3abf8b8cf2128dc4f0585
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885917"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333805"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Sintonize hiperparmetros para o seu modelo com Azure Machine Learning
 
@@ -167,7 +167,7 @@ primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
 
 Otimize as corridas para maximizar a "precisão".  Certifique-se de registar este valor no seu script de treino.
 
-### <a name="specify-primary-metric"></a><a name="log-metrics-for-hyperparameter-tuning"></a> Especificar a métrica primária
+### <a name="log-metrics-for-hyperparameter-tuning"></a><a name="log-metrics-for-hyperparameter-tuning"></a>Métricas de registo para afinação de hiperparímetro
 
 O roteiro de treino para o seu modelo deve registar as métricas relevantes durante o treino do modelo. Ao configurar a sintonização do hiperparímetro, especifica a métrica primária a utilizar para avaliar o desempenho do funcionamento. (Ver [Especificar uma métrica primária para otimizar](#specify-primary-metric-to-optimize).)  No seu script de treino, deve registar esta métrica para que esteja disponível para o processo de afinação do hiperparímetro.
 
@@ -190,11 +190,11 @@ Ao utilizar uma política de rescisão antecipada, pode configurar os seguintes 
 * `evaluation_interval`: a frequência de aplicação da apólice. Cada vez que o guião de treino regista a métrica primária conta como um intervalo. Assim, um `evaluation_interval` de 1 aplicará a política cada vez que o roteiro de formação reporta a métrica primária. Um `evaluation_interval` de 2 aplicará a apólice de vez em quando o roteiro de treino reporta a métrica primária. Se não for especificado, `evaluation_interval` é definido para 1 por predefinição.
 * `delay_evaluation`: atrasa a primeira avaliação política para um número especificado de intervalos. É um parâmetro opcional que permite que todas as configurações corram para um número mínimo inicial de intervalos, evitando o fim prematuro dos treinos. Se especificado, a política aplica cada múltiplo de evaluation_interval que seja maior ou igual a delay_evaluation.
 
-A Azure Machine Learning suporta as seguintes Políticas de Rescisão Antecipada.
+A Azure Machine Learning apoia as seguintes políticas de rescisão antecipada.
 
 ### <a name="bandit-policy"></a>Política de bandidos
 
-[O bandido](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py#&preserve-view=truedefinition) é uma política de rescisão baseada no fator de folga/tempo de avaliação. A política termina cedo quaisquer execuções em que a métrica primária não esteja dentro do fator de folga especificado/quantidade de folga no que diz respeito ao melhor desempenho do treino. São necessários os seguintes parâmetros de configuração:
+[O bandido](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py&preserve-view=true#&preserve-view=truedefinition) é uma política de rescisão baseada no fator de folga/tempo de avaliação. A política termina cedo quaisquer execuções em que a métrica primária não esteja dentro do fator de folga especificado/quantidade de folga no que diz respeito ao melhor desempenho do treino. São necessários os seguintes parâmetros de configuração:
 
 * `slack_factor` ou `slack_amount` : a folga permitida no que diz respeito à melhor formação de desempenho. `slack_factor` especifica a folga admissível como uma relação. `slack_amount` especifica a folga admissível como uma quantidade absoluta, em vez de uma relação.
 
@@ -285,29 +285,29 @@ Este código configura a experiência de sintonização do hiperparímetro para 
 
 ## <a name="configure-experiment"></a>Experiência de configuração
 
-[Configure a sua experiência de afinação de hiperparímetro](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py&preserve-view=true) utilizando o espaço de pesquisa de hiperparímetro definido, a política de terminação antecipada, a métrica primária e a atribuição de recursos das secções acima. Além disso, forneça um `estimator` que será chamado com os hiperparímetros amostrados. O `estimator` descreve o roteiro de treino que executa, os recursos por trabalho (single ou multi-gpu) e o alvo de computação a utilizar. Uma vez que a concordância para a sua experiência de afinação de hiperparímetros está fechada nos recursos disponíveis, certifique-se de que o alvo de cálculo especificado no `estimator` tem recursos suficientes para a sua concordância desejada. (Para obter mais informações sobre os estimadores, consulte [como treinar modelos](how-to-train-ml-models.md).)
+[Configure a sua experiência de afinação de hiperparímetro](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverunconfig?view=azure-ml-py&preserve-view=true) utilizando o espaço de pesquisa de hiperparímetro definido, a política de terminação antecipada, a métrica primária e a atribuição de recursos das secções acima. Além disso, forneça o ScriptRunConfig `src` para a execução que será chamada com os hiperparímetros amostrados. O ScriptRunConfig define o script de formação para executar, os recursos por trabalho (single ou multi-nó) e o alvo do cálculo a utilizar. Uma vez que a concordância para a sua experiência de afinação de hiperparímetros está fechada nos recursos disponíveis, certifique-se de que o alvo de cálculo especificado `src` tem recursos suficientes para a sua concordância desejada. (Para obter mais informações sobre scriptRunConfig, consulte [as corridas de treino Configure](how-to-set-up-training-targets.md).)
 
 Configure a sua experiência de afinação de hiperparímetros:
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
-hyperdrive_run_config = HyperDriveConfig(estimator=estimator,
-                          hyperparameter_sampling=param_sampling, 
-                          policy=early_termination_policy,
-                          primary_metric_name="accuracy", 
-                          primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
-                          max_total_runs=100,
-                          max_concurrent_runs=4)
+hd_config = HyperDriveConfig(run_config=src,
+                             hyperparameter_sampling=param_sampling,
+                             policy=early_termination_policy,
+                             primary_metric_name="accuracy",
+                             primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
+                             max_total_runs=100,
+                             max_concurrent_runs=4)
 ```
 
 ## <a name="submit-experiment"></a>Submeter experiência
 
-Assim que definir a configuração de sintonização do hiperparímetro, [submeta uma experiência:](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py#&preserve-view=truesubmit-config--tags-none----kwargs-)
+Assim que definir a configuração de sintonização do hiperparímetro, [submeta uma experiência:](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truesubmit-config--tags-none----kwargs-)
 
 ```Python
 from azureml.core.experiment import Experiment
 experiment = Experiment(workspace, experiment_name)
-hyperdrive_run = experiment.submit(hyperdrive_run_config)
+hyperdrive_run = experiment.submit(hd_config)
 ```
 
 `experiment_name` é o nome que atribui à sua experiência de afinação de hiperparímetros, e `workspace` é o espaço de trabalho em que pretende criar a experiência (Para mais informações sobre experiências, veja [como funciona a Azure Machine Learning?](concept-azure-machine-learning-architecture.md))
@@ -341,15 +341,15 @@ Pode configurar a sua experiência de afinação de hiperparímetro para aquecer
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
 
-hyperdrive_run_config = HyperDriveConfig(estimator=estimator,
-                          hyperparameter_sampling=param_sampling, 
-                          policy=early_termination_policy,
-                          resume_from=warmstart_parents_to_resume_from, 
-                          resume_child_runs=child_runs_to_resume,
-                          primary_metric_name="accuracy", 
-                          primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
-                          max_total_runs=100,
-                          max_concurrent_runs=4)
+hd_config = HyperDriveConfig(run_config=src,
+                             hyperparameter_sampling=param_sampling,
+                             policy=early_termination_policy,
+                             resume_from=warmstart_parents_to_resume_from,
+                             resume_child_runs=child_runs_to_resume,
+                             primary_metric_name="accuracy",
+                             primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
+                             max_total_runs=100,
+                             max_concurrent_runs=4)
 ```
 
 ## <a name="visualize-experiment"></a>Visualizar a experiência
@@ -377,7 +377,7 @@ Também é possível visualizar todas as suas afinações de hiperparímetros no
 
 ## <a name="find-the-best-model"></a>Encontre o melhor modelo
 
-Uma vez concluídas todas as correções de afinação do hiperparímetro, [identifique a melhor configuração de desempenho](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverun?view=azure-ml-py#&preserve-view=trueget-best-run-by-primary-metric-include-failed-true--include-canceled-true--include-resume-from-runs-true-----typing-union-azureml-core-run-run--nonetype-) e os valores correspondentes do hiperparímetro:
+Uma vez concluídas todas as correções de afinação do hiperparímetro, [identifique a melhor configuração de desempenho](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverun?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-best-run-by-primary-metric-include-failed-true--include-canceled-true--include-resume-from-runs-true-----typing-union-azureml-core-run-run--nonetype-) e os valores correspondentes do hiperparímetro:
 
 ```Python
 best_run = hyperdrive_run.get_best_run_by_primary_metric()
@@ -393,7 +393,7 @@ print('\n batch size:',parameter_values[7])
 
 ## <a name="sample-notebook"></a>Caderno de amostras
 Consulte os cadernos de comboio-hiperparameter-* nesta pasta:
-* [como usar-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning)
+* [como usar-azureml/ml-frameworks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
 

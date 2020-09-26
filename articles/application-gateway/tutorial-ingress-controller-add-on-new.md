@@ -1,18 +1,18 @@
 ---
-title: Ativar o addon do Controlador ingress para um novo cluster AKS com uma nova instância Azure Application Gateway
-description: Saiba como utilizar o CLI Azure para ativar o addon do Controlador Ingress para o seu novo cluster AKS com uma nova instância De Gateway de Aplicação.
+title: 'Tutorial: Ativar o addon do Controlador de Entrada para um novo cluster AKS com uma nova instância Azure Application Gateway'
+description: Utilize este tutorial para aprender a usar o CLI Azure para ativar o addon do Controlador Ingress para o seu novo cluster AKS com uma nova instância de Gateway de aplicação.
 services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 620fe5851f9dbde01b2206595fa79b61f62deb66
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: ab917fe476a40eb8ea559bc08e52d4bbf16a8436
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595925"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285609"
 ---
 # <a name="tutorial-enable-the-ingress-controller-add-on-preview-for-a-new-aks-cluster-with-a-new-application-gateway-instance"></a>Tutorial: Ativar o addon do Controlador de Ingress (pré-visualização) para um novo cluster AKS com uma nova instância de Gateway de aplicações
 
@@ -30,11 +30,12 @@ Neste tutorial, ficará a saber como:
 > * Implementar uma aplicação de amostra utilizando a AGIC para a entrada no cluster AKS.
 > * Verifique se a aplicação está acessível através do Application Gateway.
 
+## <a name="prerequisites"></a>Pré-requisitos
+
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
 
 Se optar por instalar e utilizar o CLI localmente, este tutorial requer que execute a versão 2.0.4 do CLI do Azure ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -133,8 +134,8 @@ Quando já não precisar deles, remova o grupo de recursos, a instância De Gate
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Próximos passos
-* [Saiba como desativar o add-on da AGIC](./ingress-controller-disable-addon.md)
-* [Saiba quais anotações são apoiadas com a AGIC](./ingress-controller-annotations.md)
-* [Problemas de resolução de problemas com a AGIC](./ingress-controller-troubleshoot.md)
+## <a name="next-steps"></a>Passos seguintes
+
+> [!div class="nextstepaction"]
+> [Saiba como desativar o add-on da AGIC](./ingress-controller-disable-addon.md)
 

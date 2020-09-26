@@ -4,12 +4,12 @@ description: Este artigo descreve como acorrentar uma fila de autocarros da Azur
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: af1c8a8e043ae964c4917a58ea67275e8379817f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 34b73967813abdcb811221aa4a3a4ac96dce0664
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021719"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333686"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Entidades de autocarros de serviço de chaining com autoforwarding
 
@@ -29,11 +29,11 @@ A entidade de destino deve existir no momento da criação da entidade de origem
 
 Pode utilizar o auto-ordenamento para escalar um tópico individual. O Service Bus limita o [número de subscrições num determinado tópico](service-bus-quotas.md) para 2.000. Pode acomodar subscrições adicionais criando tópicos de segundo nível. Mesmo que não esteja vinculado à limitação do Service Bus no número de subscrições, adicionar um segundo nível de tópicos pode melhorar o rendimento geral do seu tópico.
 
-![Cenário de encaminhamento automático][0]
+![Diagrama de um cenário de auto-ordenação mostrando uma mensagem processada através de um Tópico de Encomendas que pode ramificar-se a qualquer um dos três tópicos de encomendas de segundo nível.][0]
 
 Também pode utilizar o auto-ordenamento para separar os remetentes de mensagens dos recetores. Por exemplo, considere um sistema ERP que consiste em três módulos: processamento de encomendas, gestão de inventário e gestão de relações com clientes. Cada um destes módulos gera mensagens que são encadeadas num tópico correspondente. Alice e Bob são representantes de vendas que estão interessados em todas as mensagens que se relacionam com os seus clientes. Para receber essas mensagens, Alice e Bob criam cada uma uma fila pessoal e uma subscrição em cada um dos tópicos ERP que reencaminham automaticamente todas as mensagens para a sua fila.
 
-![Cenário de encaminhamento automático][1]
+![Diagrama de um cenário de auto-previsão mostrando três módulos de processamento enviando mensagens através de três tópicos correspondentes a duas filas separadas.][1]
 
 Se alice for de férias, sua fila pessoal, em vez do tópico ERP, preenche. Neste cenário, uma vez que um representante de vendas não recebeu nenhuma mensagem, nenhum dos tópicos do ERP nunca chegou a atingir a quota.
 

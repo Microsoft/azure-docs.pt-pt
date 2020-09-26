@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, references_regions
-ms.openlocfilehash: 6422874f57b490773f70b6fb27d5b65c654ded07
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 11a0ddc5c7b297d0700e6fd07d60f8efe0e55a8f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212740"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285337"
 ---
 # <a name="what-is-azure-maps"></a>O que é o Azure Maps?
 
@@ -231,10 +231,8 @@ Verifique se a localização do seu endereço IP atual se encontra num país/reg
 
 Experimente uma aplicação de amostra que mostra o Azure Maps:
 
-> [!div class="nextstepaction"]
-> [Quickstart: Criar uma aplicação web](quick-demo-map-app.md)
+[Quickstart: Criar uma aplicação web](quick-demo-map-app.md)
 
 Mantenha-se atualizado no Azure Maps:
 
-> [!div class="nextstepaction"]
-> [Blog do Azure Maps](https://azure.microsoft.com/blog/topics/azure-maps/)
+[Blog do Azure Maps](https://azure.microsoft.com/blog/topics/azure-maps/)

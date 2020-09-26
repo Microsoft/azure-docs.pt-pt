@@ -4,15 +4,15 @@ description: Saiba como criar um ambiente de Serviço de Aplicações com um equ
 author: ccompy
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
 ms.topic: quickstart
-ms.date: 08/05/2019
+ms.date: 09/16/2020
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f2124dd77e3e5d9828ea457a6bccdf7d1bc05405
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 1bda52227737b082927dd1449fa6469cf849ff15
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961776"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91273267"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>Criar e utilizar um Ambiente de Serviço de Aplicação do Balanceador interno 
 
@@ -100,15 +100,26 @@ Tanto as Funções como os WebJobs são suportados num ASE de ILB, mas para o po
 
 ## <a name="dns-configuration"></a>Configuração do DNS 
 
-Quando utiliza um VIP Externo, o DNS é gerido pelo Azure. Qualquer aplicação criada no seu ASE é adicionada automaticamente ao DNS do Azure, que é um DNS público. Num ASE de ILB, tem de gerir o seu próprio DNS. O sufixo de domínio utilizado com um ILB ASE depende do nome do ASE. O sufixo de domínio é * &lt; o nome ASE &gt; .appserviceenvironment.net*. O endereço IP do seu ILB está no portal nos **endereços IP**. 
+Quando utiliza um ASE Externo, as aplicações feitas no seu ASE estão registadas no Azure DNS. Não existem então passos adicionais numa ASE Externa para que as suas aplicações estejam disponíveis ao público. Com um ILB ASE, você deve gerir o seu próprio DNS. Pode fazê-lo no seu próprio servidor DNS ou nas zonas privadas Azure DNS.
 
-Para configurar o seu DNS:
+Para configurar o DNS no seu próprio servidor DNS com o seu ILB ASE:
 
-- criar uma zona para * &lt; o nome ASE &gt; .appserviceenvironment.net*
-- criar um registo A naquela zona que aponta * para o endereço IP ILB
-- criar um registo A naquela zona que aponta @ para o endereço IP ILB
-- criar uma zona em * &lt; nome ASE &gt; .appserviceenvironment.net* nomeado scm
-- criar um registo A na zona scm que aponta * para o endereço IP ILB
+1. criar uma zona para <ASE name> .appserviceenvironment.net
+2. criar um registo A naquela zona que aponta * para o endereço IP ILB
+3. criar um registo A naquela zona que aponta @ para o endereço IP ILB
+4. criar uma zona em <ASE name> .appserviceenvironment.net nomeado scm
+5. criar um registo A na zona scm que aponta * para o endereço IP ILB
+
+Para configurar DNS em zonas privadas Azure DNS:
+
+1. criar uma zona privada Azure DNS chamada <ASE name> .appserviceenvironment.net
+2. criar um registo A naquela zona que aponta * para o endereço IP ILB
+3. criar um registo A naquela zona que aponta @ para o endereço IP ILB
+4. criar um registo A nessa zona que aponta *.scm para o endereço IP ILB
+
+As definições DE DNS para o seu sufixo de domínio padrão ASE não restringem as suas aplicações a serem apenas acessíveis por esses nomes. Pode definir um nome de domínio personalizado sem qualquer validação nas suas aplicações num ILB ASE. Se então quiser criar uma zona denominada contoso.net, pode fazê-lo e apontá-la para o endereço IP ILB. O nome de domínio personalizado funciona para pedidos de aplicações, mas não para o site scm. O sítio scm só está disponível em <appname> .scm. <asename> . appserviceenvironment.net.
+
+A zona <asename> chamada. . appserviceenvironment.net é globalmente único. Antes de maio de 2019, os clientes puderam especificar o sufixo de domínio do ILB ASE. Se quisesse usar .contoso.com para o sufixo de domínio, poderia fazê-lo e isso incluiria o site scm. Houve desafios com este modelo, incluindo; gerir o certificado SSL predefinido, falta de um único sinal com o site scm e a obrigação de usar um certificado wildcard. O processo de atualização do certificado por defeito ILB ASE também foi disruptivo e causou o reinício da aplicação. Para resolver estes problemas, o comportamento do ILB ASE foi alterado para usar um sufixo de domínio baseado no nome do ASE e com um sufixo propriedade da Microsoft. A alteração ao comportamento do ILB ASE só afeta as ASEs do ILB feitas após maio de 2019. AsES ILB pré-existentes devem ainda gerir o certificado predefinido do ASE e a sua configuração de DNS.
 
 ## <a name="publish-with-an-ilb-ase"></a>Publicar com um ASE de ILB
 
