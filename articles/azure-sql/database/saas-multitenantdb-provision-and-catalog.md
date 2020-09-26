@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 88f1e40101b807e82eaf69be6c167cd4aa2e2831
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4413a987af7a4802366556fb86c0c55e7b401776
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539198"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356804"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Provisão e catálogo de novos inquilinos numa aplicação SaaS utilizando uma base de dados Azure SQL de vários inquilinos
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -169,7 +169,7 @@ Para entender como a app Wingtip implementa o novo provisionamento de inquilinos
 
 4. Após a execução do guião parar no ponto de rutura, prima **F11** para entrar no código.
 
-   ![depurar](./media/saas-multitenantdb-provision-and-catalog/debug.png)
+   ![O Screenshot mostra o Windows PowerShell ISE com o menu Debug aberto e o Step Into selecionado.](./media/saas-multitenantdb-provision-and-catalog/debug.png)
 
 5. Trace a execução do script usando as opções de menu **Debug,** **F10** e **F11,** para passar por cima ou para funções chamadas.
 
@@ -237,7 +237,7 @@ A lista completa dos inquilinos e a base de dados correspondente para cada um es
 - O nome do inquilino está guardado na mesa dos Inquilinos.
 - O nome da base de dados está guardado nas tabelas Shard Management.
 
-1. No SQL Server Management Studio (SSMS), ligue-se ao servidor de inquilinos em **catalog-mt. \<USER\> .database.windows.net,** com Login = **programador**, e Password = **P \@ ssword1**
+1. No SQL Server Management Studio (SSMS), ligue-se ao servidor de inquilinos no **catalog-mt. \<USER\> database.windows.net**, com Login = **programador**, e Password = **P \@ ssword1**
 
     ![Diálogo de conexão SSMS](./media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
@@ -268,7 +268,7 @@ Este tipo de serviço automatizado pode ser simples ou complexo. Por exemplo, a 
 - [Como depurar scripts no Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

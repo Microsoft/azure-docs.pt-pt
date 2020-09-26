@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 9355482c26cabb96fc6292bab5d542f36aec6a8c
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 72f9e332a4faa98a8a86ef7b6edbefe20357e33f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509761"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356890"
 ---
 # <a name="develop-arm-templates-for-cloud-consistency"></a>Desenvolver modelos ARM para consistência na nuvem
 
@@ -655,7 +655,7 @@ Para obter uma lista de editores, use o comando [Get-AzureRmVmImagePublisher.](/
 
 A imagem a seguir mostra um exemplo típico de um processo de desenvolvimento para uma equipa que utiliza um ambiente de desenvolvimento integrado (IDE). Em diferentes fases da linha do tempo, são executados diferentes tipos de teste. Aqui, dois desenvolvedores estão a trabalhar na mesma solução, mas este cenário aplica-se igualmente a um único desenvolvedor ou a uma grande equipa. Cada desenvolvedor normalmente cria uma cópia local de um repositório central, permitindo que cada um trabalhe na cópia local sem afetar os outros que podem estar trabalhando nos mesmos ficheiros.
 
-![Fluxo de trabalho](./media/templates-cloud-consistency/workflow.png)
+![O diagrama mostra dois conjuntos de testes unitários e testes de integração em paralelo no I D E local, que se fundem no fluxo de desenvolvimento C I/C D em testes unitários, em seguida, testes de integração, em seguida, implantação de testes, em seguida, implantação.](./media/templates-cloud-consistency/workflow.png)
 
 Considere as seguintes dicas para testes e automatização:
 

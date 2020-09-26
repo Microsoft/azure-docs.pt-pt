@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab
+ms.reviewer: sstein, bonova
 ms.date: 03/17/2020
-ms.openlocfilehash: 5d91fc0d5dd51ea5ef766f23519f38202b24a337
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17838d4a652be3a1b50da56812731e0f634a0c08
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711311"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323129"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-managed-instance"></a>Configurar uma rede virtual existente para o Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -58,7 +58,7 @@ O script prepara a sub-rede em três passos:
 2. Confirme: Mostra ao utilizador um conjunto de alterações que precisam de ser feitas para preparar a sub-rede para a implementação de Exemplos Geridos SQL. Também pede consentimento.
 3. Preparar: Configura corretamente a rede virtual e a sub-rede.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral, veja [o que é a SQL Managed Instance?](sql-managed-instance-paas-overview.md). .
 - Para um tutorial que mostre como criar uma rede virtual, criar uma instância gerida e restaurar uma base de dados a partir de uma cópia de segurança da base de [dados,](instance-create-quickstart.md)consulte Criar um caso gerido .

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: a67d61c5a7c8861b1e4462586e1e4dca9149ab4f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c4c040c6d5b8eb4041db3ffaaab58657a9f9c7da
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91305465"
+ms.locfileid: "91358054"
 ---
 # <a name="tutorial-configure-hootsuite-for-automatic-user-provisioning"></a>Tutorial: Configurar Hootsuite para o fornecimento automático de utilizadores
 
@@ -88,7 +88,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 5. Sob a secção **de Credenciais de Administração,** entrada `https://platform.hootsuite.com/scim/v2` na URL do inquilino. Insira o valor simbólico secreto duradouro recuperado anteriormente no **Passo 2**. Clique em **Testar a Ligação** para garantir que o Azure AD pode ligar-se ao Hootsuite. Se a ligação falhar, certifique-se de que a sua conta Hootsuite tem permissões de administração e tente novamente.
 
-    ![provisionamento](./media/hootsuite-provisioning-tutorial/provisioning.png)
+    ![A screenshot mostra a caixa de diálogo de Admin Credentials, onde pode inserir o seu Inquilino U R L e Secret Token.](./media/hootsuite-provisioning-tutorial/provisioning.png)
 
 6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 

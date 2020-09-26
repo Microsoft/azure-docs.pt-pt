@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 583179c4678b43bef25174835ec2701d571b37b6
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 3ceaa357150fe0c4d26eeedc6821761d2eb00106
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905655"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357969"
 ---
 # <a name="import-soap-api"></a>Importar uma API SOAP
 
@@ -45,7 +45,7 @@ Complete o seguinte quickstart: [Criar uma instância de gestão API Azure](get-
 3. Na **Especificação de WSDL**, introduza o URL do local onde reside a API SOAP.
 4. O botão de opção **Pass-through SOAP** está selecionado por predefinição. Com esta seleção, a API vai ser exposta como SOAP. O consumidor tem de utilizar as regras de SOAP. Se pretender converter a API em REST, siga os passos em [Importar uma API SOAP e convertê-la em REST](restify-soap-api.md).
 
-    ![Pass-through](./media/import-soap-api/pass-through.png)
+    ![A screenshot mostra a caixa de diálogo Create from W S D L onde pode introduzir uma especificação W S D L.](./media/import-soap-api/pass-through.png)
 5. Prima o separador.
 
     Os campos seguintes são preenchidos com as informações da API SOAP: Nome a apresentar, Nome, Descrição.

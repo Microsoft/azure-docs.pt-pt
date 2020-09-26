@@ -1,14 +1,16 @@
 ---
 title: 'Tutorial: Teste de lote para encontrar problemas - LUIS'
 description: Este tutorial demonstra como usar testes de lote para validar a qualidade da sua aplicação de Compreensão linguística (LUIS).
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/07/2020
-ms.openlocfilehash: 09e5ebc9f80eb51175b13e601983690b6229b747
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 7dd181f8cd398dd683296b446028b398a9800b53
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "83681624"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298324"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Tutorial: Conjuntos de dados de teste de lote
 
@@ -138,7 +140,7 @@ Este tutorial mostrou-lhe como fazer um teste e interpretar resultados. Não cob
     * Adicione mais palavras de exemplo positivas
     * Rever o equilíbrio das expressões de exemplo através de intenções
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [LUIS How to clean up resources](./includes/cleanup-resources-preview-portal.md)]
 

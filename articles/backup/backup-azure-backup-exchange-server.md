@@ -4,12 +4,12 @@ description: Saiba como fazer backup de um servidor de Intercâmbio para Azure B
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 02d1cde7ab48aa951c47cfbfea29c90c3f53f768
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: ee89af311619922fa6ca585381d70ca66955f36a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378394"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271652"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Fazer cópia de segurança de um servidor do Exchange para o Azure Backup com o System Center 2012 R2 DPM
 
@@ -38,8 +38,8 @@ Antes de continuar, certifique-se de que todos os [pré-requisitos](backup-azure
 
 Para instalar o agente de proteção DPM no servidor Exchange, siga estes passos:
 
-1. Certifique-se de que as firewalls estão corretamente configuradas. Consulte [as exceções de firewall configure para o agente](/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019).
-2. Instale o agente no servidor Exchange selecionando **Agentes de Gestão > > instalar** na Consola de Administrador DPM. Consulte [a instalação do agente de proteção DPM](/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019) para obter etapas detalhadas.
+1. Certifique-se de que as firewalls estão corretamente configuradas. Consulte [as exceções de firewall configure para o agente](/system-center/dpm/configure-firewall-settings-for-dpm).
+2. Instale o agente no servidor Exchange selecionando **Agentes de Gestão > > instalar** na Consola de Administrador DPM. Consulte [a instalação do agente de proteção DPM](/system-center/dpm/deploy-dpm-protection-agent) para obter etapas detalhadas.
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Criar um grupo de proteção para o servidor Exchange
 
@@ -120,6 +120,6 @@ Para os pontos de recuperação online, existem cinco tipos de recuperação:
 
     ![Escolha a replicação online](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Azure Backup FAQ](backup-azure-backup-faq.md)

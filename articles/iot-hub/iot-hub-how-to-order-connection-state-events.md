@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: af8bd9a0420c90df4dea16fa8ebacbf4ea6494db
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 815dc0a90d79323fb88c98867b5540105a6fa8cc
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87488133"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356201"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenar eventos de ligação do dispositivo do Hub IoT com o Azure Cosmos DB
 
@@ -227,13 +227,13 @@ No seu fluxo de trabalho de aplicativos de lógica, as condições ajudam a exec
 
 5. **Selecione Adicionar novo parâmetro**. No dropdown que aparece, verifique as caixas ao lado da chave de **partição** e **parâmetros para o procedimento armazenado,** em seguida, clique em qualquer outro lugar no ecrã; adiciona um campo para o valor da chave de partição e um campo para parâmetros para o procedimento armazenado.
 
-   ![povoar ação de aplicativo lógica](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
+   ![A screenshot mostra um item de procedimento de execução armazenado com adicionar novo parâmetro selecionado.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
 
 6. Introduza agora o valor e parâmetros da chave de partição, como mostrado abaixo. Certifique-se de colocar os suportes e as cotações duplas, como mostrado. Pode ter de clicar **em Adicionar conteúdo dinâmico** para obter os valores válidos que pode utilizar aqui.
 
-   ![povoar ação de aplicativo lógica](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
+   ![A screenshot mostra um item de procedimento de execução armazenado com parâmetros introduzidos.](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
 
-7. Na parte superior do painel onde diz **Para Cada um**, em **Selecione uma saída dos passos anteriores**, certifique-se de que **o Corpo** está selecionado.
+7. Na parte superior do painel onde diz **Para Cada um**, em **Selecione uma saída dos passos anteriores**, certifique-se de que  **o Corpo** está selecionado.
 
    ![povoar app lógica para cada](./media/iot-hub-how-to-order-connection-state-events/logicapp-foreach-body.png)
 
@@ -337,7 +337,7 @@ Pode ver os resultados do procedimento armazenado executado no seu documento Cos
 
 Em vez de utilizar o [portal Azure,](https://portal.azure.com)pode realizar os passos do Hub IoT utilizando o Azure CLI. Para mais detalhes, consulte as páginas do Azure CLI para [criar uma subscrição de eventos](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription) e [criar um dispositivo IoT](/cli/azure/ext/azure-iot/iot/hub/device-identity#ext-azure-iot-az-iot-hub-device-identity-create).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este tutorial utilizou recursos que incorrem em custos na sua subscrição do Azure. Quando terminar de experimentar o tutorial e testar os seus resultados, desative ou elimine recursos que não quer manter.
 

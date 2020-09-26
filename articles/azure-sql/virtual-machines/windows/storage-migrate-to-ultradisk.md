@@ -8,18 +8,18 @@ editor: ''
 tags: azure-service-management
 ms.assetid: ''
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/09/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 42738ff71432284a156d0dfbb1f6cf160cbf4032
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 4ddafd9fbeda1752a782085244597aea3ccbdd2d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653257"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271907"
 ---
 # <a name="migrate-log-disk-to-ultra-disk"></a>Migrar disco de log para ultra disco
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -58,7 +58,7 @@ Para permitir a compatibilidade, siga estes passos:
 
 ### <a name="attach-disk"></a>Anexar disco
 
-Utilize o portal Azure para anexar um disco ultra à sua máquina virtual. Para mais detalhes, consulte [anexar um disco ultra](../../../virtual-machines/disks-enable-ultra-ssd.md#attach-an-ultra-disk-using-the-azure-portal)
+Utilize o portal Azure para anexar um disco ultra à sua máquina virtual. Para mais detalhes, consulte [anexar um disco ultra](../../../virtual-machines/disks-enable-ultra-ssd.md#attach-an-ultra-disk).
 
 Uma vez que o disco esteja ligado, inicie o seu VM mais uma vez utilizando o portal Azure. 
 

@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: b656774762f5930c5665166a701bda7333940307
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: af8479f6460a6cc555d7ea67dcfe65c779878624
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322436"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357867"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Localizar e diagnosticar exceções de runtime com o Azure Application Insights
 
@@ -97,7 +97,7 @@ Todos os dados recolhidos pelo Application Insights são armazenados no Azure Lo
 
     ![Código](media/tutorial-runtime-exceptions/codelens.png)
 
-1. Clique em **Analisar o impacto** para abrir o Application Insights Analytics.  Este é povoado com várias consultas que fornecem detalhes sobre os pedidos falhados, tais como os utilizadores, os browsers e as regiões afetados.<br><br>![Análise](media/tutorial-runtime-exceptions/analytics.png)<br>
+1. Clique em **Analisar o impacto** para abrir o Application Insights Analytics.  Este é povoado com várias consultas que fornecem detalhes sobre os pedidos falhados, tais como os utilizadores, os browsers e as regiões afetados.<br><br>![A screenshot mostra a janela Application Insights, que inclui várias consultas.](media/tutorial-runtime-exceptions/analytics.png)<br>
 
 ## <a name="add-work-item"></a>Adicionar item de trabalho
 Se ligar o Application Insights a um sistema de controlo, como o Azure DevOps ou o GitHub, pode criar um item de trabalho diretamente a partir do Application Insights.

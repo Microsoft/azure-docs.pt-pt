@@ -5,12 +5,12 @@ author: FlorianBorn71
 ms.author: flborn
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: 43c11575be084354e4c9287b44b5847d4d086aff
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 56aa0d91372ac2d21a20f28b1044f0811c716b0c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084401"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358037"
 ---
 # <a name="tutorial-set-up-physically-based-rendering-materials-in-maya"></a>Tutorial: Configurar materiais de renderização fisicamente em Maia
 
@@ -79,7 +79,7 @@ Em Maya, o processo de instancing é simples.
 1. Na caixa de diálogo **Duplicado Special Options,** para **o tipo geometria** selecione a opção **Instância.** 
 1. Selecione **Duplicado Especial**.
 
-   ![Instancing](media/instancing.jpg)
+   ![A screenshot mostra uma janela Maia com a caixa de diálogo duplicado das opções especiais aberta e a Duplicate Special selecionada.](media/instancing.jpg)
 
 Esta ação cria um exemplo do seu objeto. Pode mover-se, rodar ou escaloná-lo independentemente do seu progenitor e de outros casos desse progenitor. 
 

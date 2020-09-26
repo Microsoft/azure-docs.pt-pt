@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: raynew
-ms.openlocfilehash: d345d707cbf58f48466c3bd830d93250d13397c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 90e499b436a3ae44fa29cec1138d939a106a4db7
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77425867"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357170"
 ---
 # <a name="agent-based-migration-architecture"></a>Arquitetura de migração baseada em agentes
 
@@ -34,7 +34,7 @@ A migração baseada em agentes é usada para migrar vMware vMware no local e se
 
 O diagrama ilustra os componentes envolvidos na migração baseada em agentes.
 
-![Arquitetura](./media/agent-based-replication-architecture/architecture.png)
+![O diagrama mostra os componentes para a migração baseada em agentes, que são explicados numa tabela.](./media/agent-based-replication-architecture/architecture.png)
 
 A tabela resume os componentes utilizados para a migração baseada em agentes.
 
@@ -123,6 +123,6 @@ O tráfego VMware que se replica no Azure passa por um servidor de processo espe
     3. Em **Throttling**, selecione **Ativar o estrangulamento da largura de banda da Internet para operações de backup**. Definir os limites para o horário de trabalho e não-trabalho. Os intervalos válidos são de 512 Kbps a 1.023 Mbps.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Experimente [a migração baseada em agentes](tutorial-migrate-vmware-agent.md) para [VMware](tutorial-migrate-vmware-agent.md) ou [servidores físicos](tutorial-migrate-physical-virtual-machines.md).

@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 92f6f495f6aac23785dd2a21672747bffb07e2e3
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5c1a7de386baeb4b89fd12bd89236ea2e0348a57
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256259"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91357221"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizar o cluster com o Service Fabric Explorer
 
@@ -106,7 +106,7 @@ Também pode utilizar o Service Fabric Explorer para criar instâncias de aplica
 ## <a name="event-store"></a>Loja de Eventos
 O EventStore é uma funcionalidade oferecida pela plataforma que fornece eventos da plataforma Service Fabric disponíveis no Service Fabric Explorer e através da REST API. Pode ver uma visão instantânea do que se passa no seu cluster para cada entidade, por exemplo, nó, serviço, aplicação e consulta com base na hora do evento. Também pode ler mais sobre a Loja de Eventos na Visão Geral da Loja de [Eventos.](service-fabric-diagnostics-eventstore.md)   
 
-![Loja de Eventos][sfx-eventstore]
+![A screenshot mostra o painel de nós com EVENTOS selecionados.][sfx-eventstore]
 
 >[!NOTE]
 >A partir da versão 6.4 do Tecido de Serviço. EventStore não está ativado por padrão e deve ser ativado no modelo de gestor de recursos

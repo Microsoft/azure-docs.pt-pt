@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: c9abc4dc89651eec7df635fb415314b2c12da3a6
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b1de0fa2e6601e4350b52caea32f8bc379909f85
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319767"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356371"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Use o feed de alteração DB do Azure Cosmos para visualizar a análise de dados em tempo real
 
@@ -157,7 +157,7 @@ Quando um novo documento é criado, ou um documento atual é modificado num reci
    * Substitua o texto **O SEU NOME DE COLEÇÃO AQUI** pelo nome da sua coleção. Se seguiu instruções anteriores, o nome da sua coleção é changefeedlabcollection.  
    * Substitua o texto **O NOME DA COLEÇÃO DOS ARRENDAMENTOS AQUI** pelo nome da sua coleção de arrendamentos. Se seguiu instruções anteriores, o nome da sua coleção de arrendamentos é **arrendamentos.**  
    * No topo do Visual Studio, certifique-se de que a caixa do Projeto Startup à esquerda da seta verde diz **ChangeFeedFunction**.  
-   * Selecione **Iniciar** no topo da página para executar o programa  
+   * Selecione **Iniciar**  no topo da página para executar o programa  
    * Pode confirmar que a função está a decorrer quando a aplicação da consola diz "O anfitrião de trabalho começou".
 
 ## <a name="insert-data-into-azure-cosmos-db"></a>Inserir dados no Azure Cosmos DB 
@@ -166,7 +166,7 @@ Para ver como a mudança de feed processa novas ações num site de e-commerce, 
 
 1. Volte ao repositório no File Explorer e clique com o botão direito **ChangeFeedFunction.sln** para abri-lo novamente numa nova janela do Estúdio Visual.  
 
-2. Navegue para o ficheiro **App.config.** Dentro do `<appSettings>` bloco, adicione o ponto final e **chave PRIMÁRIA** única que da sua conta DB Azure Cosmos que recuperou anteriormente.  
+2. Navegue para o ficheiro **App.config. ** Dentro do `<appSettings>` bloco, adicione o ponto final e **chave PRIMÁRIA** única que da sua conta DB Azure Cosmos que recuperou anteriormente.  
 
 3. Adicione os nomes da **recolha** e **da base de dados.** (Estes nomes devem ser **changefeedlabcollection** e **changefeedlabdatabase,** a menos que escolha nomear o seu de forma diferente.)
 
@@ -315,7 +315,7 @@ O Power BI é um conjunto de ferramentas de análise de negócio para analisar o
 
    É assim que um painel de amostras parece com estes gráficos:
 
-   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="visualizações":::
+   :::image type="content" source="./media/changefeed-ecommerce-solution/visualizations.png" alt-text="O Screenshot mostra um painel de amostras com gráficos denominados Preço Médio de Itens por Ação, Visitantes Únicos, Receitas e Top 5 Itens Comprados.":::
 
 ## <a name="optional-visualize-with-an-e-commerce-site"></a>Opcional: Visualizar com um site de e-commerce
 

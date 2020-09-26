@@ -1,14 +1,14 @@
 ---
 title: Use a Aprendizagem Ativa com base de conhecimento - QnA Maker
-description: Melhore a qualidade da sua base de conhecimento com aprendizagem ativa. Reveja, aceite ou rejeite, adicione sem remover ou alterar as questões existentes.
+description: Aprenda a melhorar a qualidade da sua base de conhecimentos com aprendizagem ativa. Reveja, aceite ou rejeite, adicione sem remover ou alterar as questões existentes.
 ms.topic: conceptual
 ms.date: 03/18/2020
-ms.openlocfilehash: 004ee9d4cced0116831718b1601d5d510dea5a4d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 32dfe6a274889181410ab5f800ac595ee81c148c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090931"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298150"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Utilizar a aprendizagem ativa para melhorar a base de dados de conhecimento
 
@@ -49,4 +49,4 @@ A aprendizagem ativa está fora por defeito. Liga-o para ver as perguntas sugeri
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Criar uma base de dados de conhecimento](./manage-knowledge-bases.md)
+> [Criar uma base de conhecimento](./manage-knowledge-bases.md)

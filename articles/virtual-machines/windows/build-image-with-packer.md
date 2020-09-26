@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/05/2020
 ms.author: cynthn
-ms.openlocfilehash: 16f2bc2cc22fa38ece78b4a07298235abd7d629d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 16d0a4ea2353778b16803bd9b92a7f8af6e4ba88
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587094"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325917"
 ---
 # <a name="powershell-how-to-use-packer-to-create-virtual-machine-images-in-azure"></a>PowerShell: Como usar o Packer para criar imagens de máquinas virtuais em Azure
 Cada máquina virtual (VM) em Azure é criada a partir de uma imagem que define a distribuição do Windows e a versão OS. As imagens podem incluir aplicações e configurações pré-instaladas. O Azure Marketplace fornece muitas imagens de primeira e de terceiros para ambientes de aplicação e SISTEMA mais comuns, ou pode criar as suas próprias imagens personalizadas adaptadas às suas necessidades. Este artigo detalha como usar a ferramenta de código aberto [Packer](https://www.packer.io/) para definir e construir imagens personalizadas em Azure.
@@ -103,7 +103,7 @@ Crie um ficheiro nomeado *windows.js* e cole o seguinte conteúdo. Insira os seu
         "task": "Image deployment"
     },
 
-    "location": "East US",
+    "build_resource_group_name": "myPackerGroup",
     "vm_size": "Standard_D2_v2"
   }],
   "provisioners": [{

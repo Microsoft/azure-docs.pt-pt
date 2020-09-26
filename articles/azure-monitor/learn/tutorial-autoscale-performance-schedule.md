@@ -8,12 +8,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 8a55ab9b6b87a379fbdebcead4467ec47507d67a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 8853a153450a07105ed4bac13de0da6cea95ce2a
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327519"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356354"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Criar uma Definição de Dimensionamento Automático para recursos do Azure com base nos dados de desempenho ou numa agenda
 
@@ -46,7 +46,7 @@ Dentro de alguns minutos, os recursos deverão ser aprovisionados. Utilize a Apl
 1. No painel de navegação esquerdo, selecione a opção **Monitorizar**. Depois de a página ser carregada, selecione o separador **Dimensionamento Automático**.
 2. É apresentada uma lista dos recursos na sua subscrição que suportam o dimensionamento automático. Identifique o Plano do Serviço de Aplicações criado anteriormente no tutorial e clique no mesmo.
 
-    ![Navegar para as definições de dimensionamento automático](./media/tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
+    ![A screenshot mostra o portal Azure com monitor e, em seguida, autoescala selecionada.](./media/tutorial-autoscale-performance-schedule/monitor-blade-autoscale.png)
 
 3. Na definição de dimensionamento automático, clique no botão **Ativar Dimensionamento Automático**.
 
@@ -59,7 +59,7 @@ Os passos seguintes ajudam-no a preencher o ecrã de dimensionamento automático
 2. No perfil predefinido, certifique-se de que o **modo Escala** está definido para "Escala para uma contagem de instâncias específica".
 3. Defina a contagem de instâncias como **1**. Esta definição garante que, quando não estiver ativo ou em vigor nenhum outro perfil, o perfil predefinido devolve a contagem de instâncias como 1.
 
-   ![Navegar para as definições de dimensionamento automático](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+   ![A screenshot mostra a página de definição de autoescalada com um nome introduzido para a definição.](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
 ## <a name="create-recurrence-profile"></a>Criar perfil de recorrência
@@ -90,7 +90,7 @@ Os passos seguintes ajudam-no a preencher o ecrã de dimensionamento automático
 
 6. Selecione **Operação** como "Aumentar contagem em", **Contagem de instâncias** como "1" e **Repouso** como "5 minutos".
 
-7. Clique no botão **Adicionar**.
+7. Clique no botão **Adicionar.**
 
 Esta regra assegura que, se a Aplicação Web receber mais de dez pedidos em cinco minutos ou menos, é adiciona mais uma instância ao Plano do Serviço de Aplicações, para gerir a carga.
 
@@ -111,7 +111,7 @@ Recomendamos que tenha sempre uma regra de redução horizontal a acompanhar uma
 
 6. Selecione a **Operação** como 'Decrease count by', a **instância conta** como '1', e a **arrefecimento** como '5'.
 
-7. Clique no botão **Adicionar**.
+7. Clique no botão **Adicionar.**
 
     ![Criar uma regra de redução horizontal](./media/tutorial-autoscale-performance-schedule/Scale-In-Rule.png)
 
