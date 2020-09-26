@@ -14,12 +14,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04ea92e18fc6efb8b375a22cc34baf1d33b78802
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: b82dcc633f0f2bb13cb84f80873117f9eb94a24f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279028"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313167"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Tutorial: Integrar uma única floresta de AD usando sincronização de haxixe de palavra-passe (PHS)
 
@@ -184,7 +184,7 @@ Agora precisamos criar um inquilino AZure AD para que possamos sincronizar os no
 2. Selecione o **ícone de adição (+)** e pesquise **Azure Active Directory**.
 3. Selecione **Azure Active Directory** nos resultados de pesquisa.
 4. Selecione **Criar**.</br>
-![Criar](media/tutorial-password-hash-sync/create1.png)</br>
+![Screenshot que mostra como criar um inquilino AZure AD.](media/tutorial-password-hash-sync/create1.png)</br>
 5. Forneça um **nome de organização**, juntamente com o **nome de domínio inicial**. Em seguida, selecione **Criar**. Esta ação irá criar o seu diretório.
 6. Uma vez concluído, clique no link **aqui,** para gerir o diretório.
 
@@ -192,10 +192,10 @@ Agora precisamos criar um inquilino AZure AD para que possamos sincronizar os no
 Agora que temos um inquilino da AD Azure, vamos criar uma conta de administrador global.  Esta conta é utilizada para criar a conta Azure AD Connector durante a instalação Azure AD Connect.  A conta Azure AD Connector é usada para escrever informações para a Azure AD.   Para criar a conta de administrador global faça o seguinte.
 
 1.  Em **Gerir**, selecione **Utilizadores**.</br>
-![Criar](media/tutorial-password-hash-sync/gadmin1.png)</br>
+![Screenshot que mostra a opção Utilizador selecionada na secção Gerir onde cria um administrador global em Azure AD.](media/tutorial-password-hash-sync/gadmin1.png)</br>
 2.  Selecione **Todos os utilizadores** e, em seguida, selecione **+ Novo utilizador**.
 3.  Indique um nome e nome de utilizador para o mesmo. Este será o Administrador Global do inquilino. Também vai querer alterar o **papel de Diretório** para **administrador global.** Pode também mostrar a palavra-passe temporária. Quando concluir, selecione **Criar**.</br>
-![Criar](media/tutorial-password-hash-sync/gadmin2.png)</br>
+![Screenshot que mostra o botão Criar que seleciona quando cria um administrador global em Azure AD.](media/tutorial-password-hash-sync/gadmin2.png)</br>
 4. Uma vez concluído, abra um novo navegador web e inscreva-se para myapps.microsoft.com usando a nova conta de administrador global e a senha temporária.
 5. Altere a palavra-passe para o administrador global para algo que irá lembrar.
 
@@ -206,7 +206,7 @@ Agora é hora de descarregar e instalar o Azure AD Connect.  Uma vez instalado, 
 2. Navegue até **AzureADConnect.msi** e faça duplo clique.
 3. No ecrã de boas-vindas, selecione a caixa em que aceita os termos de licenciamento e clique em **Continuar**.  
 4. No ecrã de definições rápidas, clique em **Utilizar definições rápidas**.</br>  
-![Criar](media/tutorial-password-hash-sync/express1.png)</br>
+![Screenshot que mostra o ecrã de definições express e o botão 'Utilizar as definições expresso'.](media/tutorial-password-hash-sync/express1.png)</br>
 5. No ecrã AD Do Ligar ao Azure, insira o nome de utilizador e passe a palavra-passe do administrador global do Azure AD. Clique em **Seguinte**.  
 6. No ecrã Ligar ao AD DS, introduza o nome de utilizador e palavra-passe para uma conta de administrador da empresa. Clique em **Seguinte**.  
 7. No ecrã Preparado para configurar, clique em **Instalar**.

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: c3e4b1c97c5fcc86a863313c2d6f54d93f26390e
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 3b9edab6e908b4506a92c78aa8f3f53277b9c17b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055046"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360876"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>A operação “proteger novamente” falhou nas VMs do Azure para a região primária
 
@@ -31,7 +31,7 @@ Quando [falha sobre](site-recovery-failover.md) os VMs Azure de uma região para
 
 1. Em **Vault**  >  **Itens Replicados**de Cofre, clique à direita no falhado sobre VM e selecione **Re-Protect**. A direção de reprotecção deve mostrar do secundário ao primário.
 
-   ![Reprotetor](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
+   ![O screenshot mostra uma máquina virtual com um menu contextual com re-protect selecionado.](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
 1. Reveja os conjuntos de recursos, rede, armazenamento e disponibilidade. Em seguida, clique em **OK**. Se houver algum recursos marcados como novos, são criados como parte do processo de reprotecção.
 1. O trabalho de reproteção semeia o local alvo com os dados mais recentes. Após o fim do trabalho, a replicação delta ocorre. Depois, podes voltar ao local principal. Pode selecionar a conta de armazenamento ou a rede que pretende utilizar durante a reproteção, utilizando a opção de personalização.

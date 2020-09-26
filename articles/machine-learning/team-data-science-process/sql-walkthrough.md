@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 047915874dfd81fdf68dc97ac217274b2439d726
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: d7c02e413fdaa54db431cdac7a3cf7af0bddeb98
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027482"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331901"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O processo de ciência de dados da equipa em ação: usando o SQL Server
 Neste tutorial, você anda pelo processo de construção e implementação de um modelo de machine learning usando SQL Server e um conjunto de dados publicamente disponível -- o conjunto de dados [de Viagens de Táxi de NYC.](https://www.andresmh.com/nyctaxitrips/) O procedimento segue um fluxo de trabalho padrão da ciência dos dados: ingerir e explorar os dados, criar recursos para facilitar a aprendizagem, depois construir e implementar um modelo.
@@ -83,14 +83,14 @@ Neste tutorial, demonstraremos a importação paralela a granel dos dados para u
 Para configurar o seu ambiente Azure Data Science:
 
 1. [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md)
-2. [Criar um espaço de trabalho para aprendizagem de máquinas Azure](../studio/create-workspace.md)
+2. [Criar uma área de trabalho do Azure Machine Learning](../classic/create-workspace.md)
 3. [Fornecer uma máquina virtual de ciência de dados,](../data-science-virtual-machine/setup-sql-server-virtual-machine.md)que fornece um Servidor SQL e um servidor de caderno iPython.
    
    > [!NOTE]
    > Os scripts de amostra e os cadernos IPython serão descarregados para a sua máquina virtual Data Science durante o processo de configuração. Quando o script de pós-instalação VM estiver concluído, as amostras estarão na biblioteca de Documentos VM:  
    > 
-   > * Scripts de amostra:`C:\Users\<user_name>\Documents\Data Science Scripts`  
-   > * Cadernos IPython da amostra:`C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
+   > * Scripts de amostra: `C:\Users\<user_name>\Documents\Data Science Scripts`  
+   > * Cadernos IPython da amostra: `C:\Users\<user_name>\Documents\IPython Notebooks\DataScienceSamples`  
    >   onde `<user_name>` está o nome de login do seu VM Windows. Referimo-nos às pastas da amostra como **Scripts de Amostra** e **Cadernos IPython de amostra.**
    > 
    > 
@@ -142,7 +142,7 @@ O desempenho do carregamento/transferência de grandes quantidades de dados para
      Clique em **Executar** para executar o script e criar as tabelas divididas.
 7. Na pasta **Scripts sample scripts,** existem dois scripts PowerShell de amostra fornecidos para demonstrar importações paralelas a granel de dados para tabelas de servidorES SQL.
    
-   * ** \_generic.ps1paralelo \_ bcp** é um script genérico para dados paralelos de importação a granel em uma tabela. Modifique este script para definir as variáveis de entrada e alvo como indicado nas linhas de comentário no script.
+   * ** \_generic.ps1paralelo \_ bcp ** é um script genérico para dados paralelos de importação a granel em uma tabela. Modifique este script para definir as variáveis de entrada e alvo como indicado nas linhas de comentário no script.
    * **onyctaxi.ps1paralelo bcp \_ \_ ** é uma versão pré-configurada do script genérico e pode ser usado para carregar ambas as tabelas para os dados de Viagens de Táxi de NYC.  
 8. Clique com o lado direito do **bcp \_ paralelo \_nyctaxi.ps1** nome do guião e clique em **Editar** para o abrir no PowerShell. Reveja as variáveis predefinidas e modifique de acordo com o nome da base de dados selecionada, pasta de dados de entrada, pasta de registo de destino e caminhos para os ficheiros do formato da amostra **nyctaxi_trip.xml** e ** \_fare.xmlnyctaxi** (fornecidos na pasta **Scripts de Amostra).**
    
@@ -175,8 +175,8 @@ Nesta secção, guardaremos a consulta final para extrair e recolher os dados. O
 
 Para uma rápida verificação do número de linhas e colunas nas tabelas povoadas anteriormente, utilizando a importação paralela a granel,
 
-- Reportar o número de linhas na tabela nyctaxi_trip sem digitalização de mesa:`SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')`
-- Número de colunas na tabela nyctaxi_trip:`SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'`
+- Reportar o número de linhas na tabela nyctaxi_trip sem digitalização de mesa: `SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('nyctaxi_trip')`
+- Número de colunas na tabela nyctaxi_trip: `SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'`
 
 #### <a name="exploration-trip-distribution-by-medallion"></a>Exploração: Distribuição de viagem por medalhão
 Este exemplo identifica o medalhão (números de táxi) com mais de 100 viagens num determinado período de tempo. A consulta beneficiaria do acesso à mesa dividido, uma vez que está condicionada pelo esquema de partição da ** \_ data**de recolha . A consulta do conjunto de dados completo também utilizará a tabela dividida e/ou a varredura de índice.
@@ -626,9 +626,9 @@ Estamos agora prontos para avançar para a construção de modelos e implantaç�
 3. Tarefa de regressão: Prever o valor da gorjeta paga por uma viagem.  
 
 ## <a name="building-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Modelos de construção em aprendizagem automática Azure
-Para iniciar o exercício de modelação, inicie sessão no seu espaço de trabalho de Aprendizagem automática Azure. Se ainda não criou um espaço de trabalho de aprendizagem automática, consulte Criar um espaço de trabalho de [aprendizagem automática Azure.](../studio/create-workspace.md)
+Para iniciar o exercício de modelação, inicie sessão no seu espaço de trabalho de Aprendizagem automática Azure. Se ainda não criou um espaço de trabalho de aprendizagem automática, consulte Criar um espaço de trabalho de [aprendizagem automática Azure.](../classic/create-workspace.md)
 
-1. Para começar com a Azure Machine Learning, veja [o que é o Azure Machine Learning Studio?](../studio/what-is-ml-studio.md)
+1. Para começar com a Azure Machine Learning, veja [o que é o Azure Machine Learning Studio?](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 2. Faça login no [Azure Machine Learning Studio](https://studio.azureml.net).
 3. A página Studio Home fornece uma grande quantidade de informações, vídeos, tutoriais, links para a Referência de Módulos, e outros recursos. Para obter mais informações sobre a Azure Machine Learning, consulte o [Centro de Documentação de Aprendizagem automática Azure.](https://azure.microsoft.com/documentation/services/machine-learning/)
 
@@ -651,7 +651,7 @@ Neste exercício, já exploramos e concebemos os dados no SQL Server, e decidimo
    
     ![Dados de importação de aprendizagem de máquinas Azure][17]
 2. Selecione **Azure SQL Database** como **fonte de dados** no painel **Propriedades.**
-3. Introduza o nome DNS da base de dados no campo **de nome do servidor Database.** Formato:`tcp:<your_virtual_machine_DNS_name>,1433`
+3. Introduza o nome DNS da base de dados no campo **de nome do servidor Database.** Formato: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Introduza o **nome base de dados** no campo correspondente.
 5. Introduza o **nome de utilizador SQL** no nome da **conta de utilizador**do Servidor e na **palavra-passe** da **conta de utilizador**do Servidor .
 7. Na **área de consulta de base de dados** editar a área de texto, cole a consulta que extrai os campos de base de dados necessários (incluindo quaisquer campos calculados, como os rótulos) e diminui as amostras dos dados para o tamanho da amostra pretendido.
@@ -668,7 +668,7 @@ Um exemplo de uma experiência de classificação binária que lê dados diretam
 > 
 
 ## <a name="deploying-models-in-azure-machine-learning"></a><a name="mldeploy"></a>Implantação de modelos em aprendizagem automática Azure
-Quando o seu modelo estiver pronto, pode facilmente implantá-lo como um serviço web diretamente da experiência. Para obter mais informações sobre a implementação de serviços web Azure Machine Learning, consulte [implementar um serviço web Azure Machine Learning](../studio/deploy-a-machine-learning-web-service.md).
+Quando o seu modelo estiver pronto, pode facilmente implantá-lo como um serviço web diretamente da experiência. Para obter mais informações sobre a implementação de serviços web Azure Machine Learning, consulte [implementar um serviço web Azure Machine Learning](../classic/deploy-a-machine-learning-web-service.md).
 
 Para implementar um novo serviço web, precisa:
 
@@ -697,8 +697,8 @@ Para recapitular, neste tutorial walkthrough, criou um ambiente de ciência de d
 Esta amostra e os seus scripts que acompanham e os portátils IPython são partilhados pela Microsoft sob a licença do MIT. Verifique o ficheiro LICENSE.txt no diretório do código de amostra no GitHub para obter mais detalhes.
 
 ### <a name="references"></a>Referências
-• [Página de descarregamento de viagens de táxi de Andrés Monroy NYC](https://www.andresmh.com/nyctaxitrips/)  
-• [FOILing NYC's Taxi Trip Data by Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
+•    [Página de descarregamento de viagens de táxi de Andrés Monroy NYC](https://www.andresmh.com/nyctaxitrips/)  
+•    [FOILing NYC's Taxi Trip Data by Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
 • Investigação e Estatística da [Comissão de Táxis e Limusines](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page) de NYC
 
 [1]: ./media/sql-walkthrough/sql-walkthrough_26_1.png

@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a75cc77b45d41d7fd63eadce34265ca54b663e14
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: cf8ceb308fbcc2156a6df43e0167f4cb544b2d3d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030995"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331204"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planear um Azure Ative Directory reportando e monitorizando a implementação
 
@@ -91,7 +91,7 @@ A sua infraestrutura e políticas atuais irão impulsionar o seu design de relat
 
 ## <a name="plan-an-azure-ad-reporting-and-monitoring-deployment"></a>Planear uma implantação de relatórios e monitorização da AZure AD
 
-O reporte e monitorização são usados para satisfazer os requisitos do seu negócio, obter insights sobre padrões de uso e aumentar a postura de segurança das suas organizações.
+O reporte e monitorização são usados para satisfazer os requisitos do seu negócio, obter insights sobre padrões de uso e aumentar a postura de segurança da sua organização.
 
 ### <a name="business-use-cases"></a>Casos de uso de negócios
 
@@ -99,7 +99,7 @@ O reporte e monitorização são usados para satisfazer os requisitos do seu neg
 * É bom ter de atender às necessidades do negócio
 * Não aplicável
 
-|Área |Descrição |
+|Área |Description |
 |-|-|
 |Retenção| **Retenção de registos superiores a 30 dias**. Devido a requisitos legais ou empresariais, é necessário armazenar registos de auditoria e assinar em registos de Azure AD por mais de 30 dias. |
 |Análise| **Os registos têm de ser pesmáveis.** Os registos armazenados devem ser pescêjáveis com ferramentas analíticas. |
@@ -189,7 +189,7 @@ Dependendo das decisões que tomou anteriormente usando a orientação de design
 
  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Considere implementar a [Gestão de Identidade Privilegiada](../privileged-identity-management/pim-configure.md) 
 

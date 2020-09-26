@@ -8,18 +8,18 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 22240c61b2341999528dcb477308990133042fa0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 30c7d525f821b828dcc4c389c32a27123b79a56b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286860"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360927"
 ---
 # <a name="tutorial-configure-a-sql-server-availability-group-on-azure-virtual-machines-manually"></a>Tutorial: Configurar um grupo de disponibilidade de servidor SQL em Azure Virtual Machines manualmente
 
@@ -39,15 +39,15 @@ O tutorial pressupõe que você tem uma compreensão básica do SQL Server Alway
 
 A tabela a seguir enumera os pré-requisitos necessários para completar antes de iniciar este tutorial:
 
-| Requisito |Descrição |
+| Requisito |Description |
 |----- |----- |----- |
-|![Square ](./media/availability-group-manually-configure-tutorial/square.png) **Two SQL Server instances**    | - Em um conjunto de disponibilidade azure <br/> - Num único domínio <br/> - Com funcionalidade de Clustering Failover instalada |
-|![Servidor Square ](./media/availability-group-manually-configure-tutorial/square.png) **Windows**    | Partilha de ficheiros para testemunha de cluster |  
-|![Conta de serviço do ](./media/availability-group-manually-configure-tutorial/square.png) **Servidor SqL** Square    | Conta do domínio |
-|![](./media/availability-group-manually-configure-tutorial/square.png)**Conta de serviço do Agente do Servidor SQL Square**    | Conta do domínio |  
-|![Portas Square ](./media/availability-group-manually-configure-tutorial/square.png) **Firewall abertas**    | - SQL Server: **1433** por exemplo padrão <br/> - Ponto final espelhante da base de dados: **5022** ou qualquer porta disponível <br/> - Disponibilidade de carregamento de grupo de carregamento IP sonda de saúde endereço: **59999** ou qualquer porta disponível <br/> - Cluster core load balancer IP address health sonda: **58888** ou qualquer porta disponível |
-|![Característica de clustering de ](./media/availability-group-manually-configure-tutorial/square.png) **failover** de adicionar quadrado    | Ambas as instâncias do SQL Server requerem esta funcionalidade |
-|![](./media/availability-group-manually-configure-tutorial/square.png)**Conta de domínio de instalação quadrada**    | - Administrador local em cada Servidor SQL <br/> - Membro do sql server sysadmin papel de servidor fixo para cada instância do SQL Server  |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Duas instâncias do SQL Server** | - Em um conjunto de disponibilidade azure <br/> - Num único domínio <br/> - Com funcionalidade de Clustering Failover instalada |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Windows Server** | Partilha de ficheiros para testemunha de cluster |  
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Conta de serviço do SQL Server** | Conta do domínio |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Conta de serviço do Agente do Servidor SQL** | Conta do domínio |  
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Portas de firewall abertas** | - SQL Server: **1433** por exemplo padrão <br/> - Ponto final espelhante da base de dados: **5022** ou qualquer porta disponível <br/> - Disponibilidade de carregamento de grupo de carregamento IP sonda de saúde endereço: **59999** ou qualquer porta disponível <br/> - Cluster core load balancer IP address health sonda: **58888** ou qualquer porta disponível |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Adicionar funcionalidade de clustering failover** | Ambas as instâncias do SQL Server requerem esta funcionalidade |
+|:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Conta de domínio de instalação** | - Administrador local em cada Servidor SQL <br/> - Membro do sql server sysadmin papel de servidor fixo para cada instância do SQL Server  |
 
 
 Antes de iniciar o tutorial, tem de [completar os pré-requisitos para criar grupos sempre em disponibilidade em máquinas virtuais Azure.](availability-group-manually-configure-prerequisites-tutorial.md) Se estes pré-requisitos já estiverem concluídos, pode saltar para [criar cluster.](#CreateCluster)
@@ -234,7 +234,7 @@ Repeat these steps on the second SQL Server.
 7. No **Object Explorer,** clique à direita bases de **dados** e selecione **New Database**.
 8. No **nome da base de dados,** digite **MyDB1,** em seguida, selecione **OK**.
 
-### <a name="create-a-backup-share"></a><a name="backupshare"></a>Criar uma partilha de backup
+### <a name="create-a-backup-share"></a><a name="backupshare"></a> Criar uma partilha de backup
 
 1. No primeiro SqL Server in **Server Manager**, selecione **Tools**. **Gestão de Computadores Abertos**.
 
@@ -490,7 +490,7 @@ O endereço IP WSFC também precisa estar no equilibrador de carga.
 
 1. Selecione **OK** para definir as regras de equilíbrio de carga.
 
-## <a name="configure-the-listener"></a><a name="configure-listener"></a>Configure o ouvinte
+## <a name="configure-the-listener"></a><a name="configure-listener"></a> Configure o ouvinte
 
 A próxima coisa a fazer é configurar um ouvinte do Grupo Availability no cluster de failover.
 

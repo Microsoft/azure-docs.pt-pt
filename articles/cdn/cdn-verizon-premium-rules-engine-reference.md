@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: 75633521474ec3bcbc35cea49ea7a2da6a271e01
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 295bc0a20a547bf944f48af6711b18af34571b02
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83872515"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362585"
 ---
 # <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Azure CDN da Verizon Premium regras referência do motor
 
@@ -41,7 +41,7 @@ Consiste em:
 - Um conjunto de funcionalidades que definem como o CDN irá lidar com os pedidos acima.
 Estes elementos são identificados na seguinte ilustração.
 
-![Fluxo de trabalho de implementação de políticas](./media/cdn-verizon-premium-rules-engine-reference/verizon-rules-engine-reference.png)
+![Screenshot com etiquetas mostra a expressão condicional, o jogo e as características de uma regra.](./media/cdn-verizon-premium-rules-engine-reference/verizon-rules-engine-reference.png)
 
 ### <a name="policy"></a>Política
 Uma política, que consiste num conjunto de regras apenas de leitura, fornece os meios para:
@@ -67,7 +67,7 @@ O fluxo de trabalho através do qual uma política pode ser aplicada quer ao amb
 
 ![Fluxo de trabalho de implementação de políticas](./media/cdn-verizon-premium-rules-engine-reference/policy-deployment-workflow.png)
 
-|Passo |Descrição |
+|Passo |Description |
 |---------|---------|
 |[Criar Rascunho](https://docs.vdms.com/cdn/index.html#HRE/AdministeringDraftsandRules.htm#Create)    |    Um rascunho consiste num conjunto de regras que definem como os pedidos para o seu conteúdo devem ser tratados pela CDN.     |
 |Rascunho de bloqueio   |     Uma vez finalizado um projeto, este deve ser bloqueado e convertido numa política apenas de leitura.    |
@@ -93,9 +93,9 @@ Texto que é interpretado como um valor literal trata todos os caracteres especi
 
 Texto que é interpretado como um valor wildcard atribui significado adicional a caracteres especiais. A tabela a seguir descreve como o seguinte conjunto de caracteres é interpretado:
 
-Caráter | Descrição
+Caráter | Description
 ----------|------------
-\ | Uma pestana é usada para escapar a qualquer um dos caracteres especificados nesta tabela. Uma pestana deve ser especificada diretamente antes do carácter especial que deve ser escapado.<br/>Por exemplo, a seguinte sintaxe escapa a um asterisco:`\*`
+\ | Uma pestana é usada para escapar a qualquer um dos caracteres especificados nesta tabela. Uma pestana deve ser especificada diretamente antes do carácter especial que deve ser escapado.<br/>Por exemplo, a seguinte sintaxe escapa a um asterisco: `\*`
 % | É utilizado um símbolo percentual para indicar a codificação de URL (por exemplo, `%20` ).
 \* | Um asterisco é um wildcard que representa um ou mais caracteres.
 Espaço | Um caractere espacial indica que uma condição de correspondência pode ser satisfeita por qualquer um dos valores ou padrões especificados.
@@ -105,9 +105,9 @@ Espaço | Um caractere espacial indica que uma condição de correspondência po
 
 Expressões regulares definem um padrão que é procurado dentro de um valor de texto. A notação de expressão regular define significados específicos para uma variedade de símbolos. A tabela a seguir indica como os caracteres especiais são tratados por condições de correspondência e funcionalidades que suportam expressões regulares.
 
-Personagem Especial | Descrição
+Personagem Especial | Description
 ------------------|------------
-\ | Uma retrocesso escapa ao personagem que o segue, o que faz com que esse personagem seja tratado como um valor literal em vez de assumir o seu significado de expressão regular. Por exemplo, a seguinte sintaxe escapa a um asterisco:`\*`
+\ | Uma retrocesso escapa ao personagem que o segue, o que faz com que esse personagem seja tratado como um valor literal em vez de assumir o seu significado de expressão regular. Por exemplo, a seguinte sintaxe escapa a um asterisco: `\*`
 % | O significado de um símbolo percentual depende da sua utilização.<br/><br/> `%{HTTPVariable}`: Esta sintaxe identifica uma variável HTTP.<br/>`%{HTTPVariable%Pattern}`: Esta sintaxe utiliza um símbolo percentual para identificar uma variável HTTP e como um delimiter.<br />`\%`: Escapar de um símbolo percentual permite-lhe ser utilizado como um valor literal ou para indicar codificação de URL (por exemplo, `\%20` ).
 \* | Um asterisco permite que o personagem anterior seja igualado zero ou mais vezes.
 Espaço | Um personagem do espaço é tipicamente tratado como um personagem literal.
@@ -117,9 +117,9 @@ Condições de correspondência e funcionalidades que suportam expressões regul
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Condições de correspondência do motor de regras](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
+- [Regras condições de correspondência do motor](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [Expressões condicionais do motor de regras](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [Funcionalidades do motor de regras](cdn-verizon-premium-rules-engine-reference-features.md)
 - [Anular o comportamento http usando o motor de regras](cdn-verizon-premium-rules-engine.md)
