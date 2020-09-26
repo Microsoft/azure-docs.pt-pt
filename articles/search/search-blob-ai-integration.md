@@ -1,19 +1,19 @@
 ---
 title: Use AI para entender os dados de armazenamento blob
 titleSuffix: Azure Cognitive Search
-description: Adicione processamento semântico, processamento de linguagem natural e análise de imagem a bolhas Azure usando um oleoduto de enriquecimento de IA em Azure Cognitive Search.
+description: Conheça as capacidades naturais de análise de linguagem e imagem na Pesquisa Cognitiva do Azure, e como esses processos se aplicam aos conteúdos armazenados em blobs Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: ce5eafe0b36f07d8de366b6d4adb92e894fcb67e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/23/2020
+ms.openlocfilehash: a0d32f00bd3c7f8daa2984bdc7c9b9dfb5add218
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936746"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362802"
 ---
 # <a name="use-ai-to-understand-blob-storage-data"></a>Use AI para entender os dados de armazenamento blob
 
@@ -22,9 +22,9 @@ Os dados no armazenamento de Azure Blob são frequentemente uma variedade de con
 + Extrair texto de imagens utilizando reconhecimento de caracteres óticos (OCR)
 + Produzir uma descrição de cena ou etiquetas de uma foto
 + Detetar a linguagem e traduzir texto em diferentes línguas
-+ Processar texto com reconhecimento de entidade nomeada (NER) para encontrar referências a pessoas, datas, locais ou organizações 
++ Inferir estrutura através do reconhecimento de entidades, encontrando referências a pessoas, datas, locais ou organizações
 
-Embora possa precisar apenas de uma destas capacidades de IA, é comum combinar vários deles no mesmo oleoduto (por exemplo, extrair texto de uma imagem digitalizada e, em seguida, encontrar todas as datas e locais referenciados nele). 
+Embora possa precisar apenas de uma destas capacidades de IA, é comum combinar vários deles no mesmo oleoduto (por exemplo, extrair texto de uma imagem digitalizada e, em seguida, encontrar todas as datas e locais referenciados nele). Também é comum incluir um processamento personalizado de IA ou machine learning sob a forma de pacotes externos de ponta ou modelos internos adaptados aos seus dados e requisitos.
 
 O enriquecimento de IA cria novas informações, capturadas como texto, armazenadas em campos. Após o enriquecimento, pode aceder a estas informações a partir de um índice de pesquisa através de uma pesquisa completa de texto, ou enviar documentos enriquecidos de volta ao armazenamento Azure para alimentar novas experiências de aplicação que incluem explorar dados para cenários de descoberta ou análise. 
 
@@ -36,35 +36,41 @@ Neste artigo, vemos o enriquecimento de IA através de uma lente larga para que 
 
 As entradas são as suas bolhas, num único recipiente, no armazenamento de Azure Blob. As bolhas podem ser quase qualquer tipo de texto ou dados de imagem. 
 
-A saída é sempre um índice de pesquisa, usado para pesquisa rápida de texto, recuperação e exploração em aplicações de clientes. Além disso, a produção também pode ser uma *loja de conhecimento* que projeta documentos enriquecidos em bolhas Azure ou mesas Azure para análise a jusante em ferramentas como o Power BI ou em cargas de trabalho de ciência de dados.
+A saída é sempre um índice de pesquisa, usado para pesquisa rápida de texto, recuperação e exploração em aplicações de clientes. Além disso, a produção também pode ser uma [*loja de conhecimento*](knowledge-store-concept-intro.md) que projeta documentos enriquecidos em bolhas Azure ou mesas Azure para análise a jusante em ferramentas como o Power BI ou em cargas de trabalho de ciência de dados.
 
 Pelo meio está a arquitetura do gasoduto em si. O pipeline baseia-se na funcionalidade *indexante,* à qual pode atribuir um *skillset*, que é composto por uma ou mais *competências* que fornecem a IA. O objetivo do gasoduto é produzir *documentos enriquecidos* que insiram como conteúdo bruto, mas que recolham estrutura, contexto e informação adicionais enquanto se deslocam através do oleoduto. Os documentos enriquecidos são consumidos durante a indexação para criar índices invertidos e outras estruturas utilizadas na pesquisa ou exploração e análise de texto completos.
 
-## <a name="start-with-services"></a>Comece com serviços
+## <a name="required-resources"></a>Recursos necessários
 
-Você precisa de Azure Cognitive Search e armazenamento Azure Blob. Dentro do armazenamento Blob, você precisa de um recipiente que forneça conteúdo de origem.
+Você precisa de armazenamento Azure Blob, Azure Cognitive Search, e um terceiro serviço ou mecanismo que fornece a IA:
 
-Pode começar diretamente na página do portal da conta de Armazenamento. Na página de navegação esquerda, em **serviço Blob** clique em **Adicionar Azure Cognitive Search** para criar um novo serviço ou selecionar um existente. 
++ Para IA incorporada, a Pesquisa Cognitiva integra-se com a visão dos Serviços Cognitivos Azure e as APIs de processamento de linguagem natural. Pode [anexar um recurso de Serviços Cognitivos](cognitive-search-attach-cognitive-services.md) para adicionar Reconhecimento Ótico de Caracteres (OCR), análise de imagem ou processamento de linguagem natural (deteção de linguagem, tradução de texto, reconhecimento de entidades, extração de frases-chave). 
 
-Assim que adicionar a Azure Cognitive Search à sua conta de armazenamento, pode seguir o processo padrão para enriquecer dados em qualquer fonte de dados do Azure. Recomendamos o assistente **de dados de importação** em Azure Cognitive Search para uma introdução inicial fácil ao enriquecimento de IA. Este quickstart acompanha-o através dos degraus: [Criar um gasoduto de enriquecimento de IA no portal](cognitive-search-quickstart-blob.md). 
++ Para a IA personalizada utilizando recursos Azure, pode definir uma habilidade personalizada que envolve a função externa ou modelo que pretende utilizar. [As habilidades personalizadas](cognitive-search-custom-skill-interface.md) podem utilizar código fornecido por Azure Machine Learning, Azure Machine Learning, Azure Form Recogniser ou outro recurso que seja acessível através do HTTPS.
 
-Nas seguintes secções, exploraremos mais componentes e conceitos.
++ Para a IA não-Azure personalizada, o seu modelo ou módulo tem de estar acessível a um indexante sobre HTTP.
+
+Se não tiver todos os serviços prontamente disponíveis, comece diretamente na página do portal da conta de Armazenamento. Na página de navegação esquerda, em **serviço Blob** clique em **Adicionar Azure Cognitive Search** para criar um novo serviço ou selecionar um existente. 
+
+Assim que adicionar a Azure Cognitive Search à sua conta de armazenamento, pode seguir o processo padrão para enriquecer dados em qualquer fonte de dados do Azure. Recomendamos o assistente **de dados de importação** em Azure Cognitive Search para uma introdução inicial fácil ao enriquecimento de IA. Pode anexar um recurso de Serviços Cognitivos durante o fluxo de trabalho. Este quickstart acompanha-o através dos degraus: [Criar um gasoduto de enriquecimento de IA no portal](cognitive-search-quickstart-blob.md). 
+
+As seguintes secções analisam mais de perto os componentes e o fluxo de trabalho.
 
 ## <a name="use-a-blob-indexer"></a>Use um indexador Blob
 
 O enriquecimento de IA é um complemento a um gasoduto de indexação, e na Pesquisa Cognitiva Azure, esses oleodutos são construídos em cima de um *indexante.* Um indexante é um subserviço consciente de dados equipado com lógica interna para amostragem de dados, leitura de dados de metadados, recuperação de dados e serialização de dados de formatos nativos em documentos JSON para posterior importação. Os indexantes são frequentemente usados por si mesmos para importar, separados da IA, mas se você quiser construir um pipeline de enriquecimento de IA, você precisará de um indexante e um skillset para acompanhar. Esta secção destaca o indexante; a próxima secção centra-se em skillsets.
 
-As bolhas no Azure Storage são indexadas utilizando o [indexante de armazenamento Azure Cognitive Search Blob](search-howto-indexing-azure-blob-storage.md). Pode invocar este indexer utilizando o assistente **de dados De importação,** uma API REST ou o .NET SDK. Em código, utilize este indexante definindo o tipo e fornecendo informações de ligação que incluam uma conta de Armazenamento Azure juntamente com um recipiente blob. Pode subconscrever as suas bolhas criando um diretório virtual, que pode passar como parâmetro, ou filtrando uma extensão do tipo de ficheiro.
+As bolhas no Azure Storage são indexadas utilizando o [indexante blob](search-howto-indexing-azure-blob-storage.md). Pode invocar este indexante utilizando o assistente **de dados De importação,** uma API REST ou um SDK. Um indexante blob é invocado quando a fonte de dados utilizada pelo indexante é um recipiente Azure Blob. Pode indexar um subconjunto das suas bolhas criando um diretório virtual, que pode passar como parâmetro, ou filtrando uma extensão do tipo de ficheiro.
 
 Um indexante faz o "documento rachar", abrindo uma bolha para inspecionar o conteúdo. Depois de ligar à fonte de dados, é o primeiro passo no oleoduto. Para os dados blob, é aqui que são detetados PDF, docs de escritório, imagem e outros tipos de conteúdo. A rachadura de documento com a extração de texto não é cobrado. O documento que quebra com a extração de imagem é cobrado a preços que pode encontrar na [página de preços](https://azure.microsoft.com/pricing/details/search/).
 
 Embora todos os documentos sejam rachados, o enriquecimento só ocorre se fornecer explicitamente as habilidades para o fazer. Por exemplo, se o seu pipeline consistir exclusivamente em análise de imagem, o texto no seu recipiente ou documentos é ignorado.
 
-O indexante Blob vem com parâmetros de configuração e suporta o rastreio de alterações se os dados subjacentes fornecerem informações suficientes. Pode saber mais sobre a funcionalidade principal no [indexer de armazenamento Azure Cognitive Search Blob](search-howto-indexing-azure-blob-storage.md).
+O indexante blob vem com parâmetros de configuração e suporta o rastreio de alterações se os dados subjacentes fornecerem informações suficientes. Pode aprender mais em [Como configurar um indexante blob](search-howto-indexing-azure-blob-storage.md).
 
 ## <a name="add-ai-components"></a>Adicionar componentes de IA
 
-O enriquecimento de IA refere-se a módulos que procuram padrões ou características e, em seguida, realizam uma operação em conformidade. O reconhecimento facial em fotos, descrições de texto de fotografias, deteção de frases-chave num documento, e OCR (ou reconhecer texto impresso ou manuscrito em ficheiros binários) são exemplos ilustrativos.
+O enriquecimento de IA refere-se a módulos que procuram padrões ou características, e depois executa uma operação em conformidade. O reconhecimento facial em fotos, descrições de texto de fotografias, deteção de frases-chave num documento, e OCR (ou reconhecer texto impresso ou manuscrito em ficheiros binários) são exemplos ilustrativos.
 
 Na Azure Cognitive Search, *as habilidades* são os componentes individuais do processamento de IA que você pode usar autónomo, ou em combinação com outras habilidades. 
 
@@ -79,20 +85,6 @@ As habilidades personalizadas podem parecer complexas, mas podem ser simples e s
 As competências incorporadas apoiadas pelos Serviços Cognitivos requerem uma chave de subscrição de [Serviços Cognitivos anexada](cognitive-search-attach-cognitive-services.md) que lhe dá acesso ao recurso. Uma chave tudo-em-um dá-lhe análise de imagem, deteção de linguagem, tradução de texto e análise de texto. Outras habilidades incorporadas são características da Azure Cognitive Search e não requerem nenhum serviço ou chave adicional. O shaper de texto, o splitter e a fusão são exemplos de habilidades de ajuda que por vezes são necessárias ao conceber o pipeline.
 
 Se utilizar apenas habilidades personalizadas e competências de utilidade incorporadas, não existe dependência ou custos relacionados com os Serviços Cognitivos.
-
-<!-- ## Order of operations
-
-Now we've covered indexers, content extraction, and skills, we can take a closer look at pipeline mechanisms and order of operations.
-
-A skillset is a composition of one or more skills. When multiple skills are involved, the skillset operates as sequential pipeline, producing dependency graphs, where output from one skill becomes input to another. 
-
-For example, given a large blob of unstructured text, a sample order of operations for text analytics might be as follows:
-
-1. Use Text Splitter to break the blob into smaller parts.
-1. Use Language Detection to determine if content is English or another language.
-1. Use Text Translator to get all text into a common language.
-1. Run Entity Recognition, Key Phrase Extraction, or Sentiment Analysis on chunks of text. In this step, new fields are created and populated. Entities might be location, people, organization, dates. Key phrases are short combinations of words that appear to belong together. Sentiment score is a rating on continuum of negative (0) to positive (1) sentiment.
-1. Use Text Merger to reconstitute the document from the smaller chunks. -->
 
 ## <a name="consume-ai-enriched-output-in-downstream-solutions"></a>Consumir produção enriquecida em IA em soluções a jusante
 

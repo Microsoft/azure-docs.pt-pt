@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c4d0639831d2f6f60a719637c5158fba5caf6f43
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8391202e991c240b03bd79b947c1c3c6dcc9afd7
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83659345"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362542"
 ---
 # <a name="configure-rules"></a>Configurar regras
 
@@ -33,7 +33,7 @@ As condições são o que as regras desencadeiam. Atualmente, quando se adiciona
 
 Na imagem seguinte, as condições verificam quando a temperatura é superior a 70 &deg; F e a humidade é inferior a 10. Quando ambas as declarações são verdadeiras, a regra avalia a verdade e despoleta uma ação.
 
-![Condições](media/howto-configure-rules/conditions.png)
+![A imagem mostra um monitor de frigorífico com condições especificadas para temperatura e humidade.](media/howto-configure-rules/conditions.png)
 
 ### <a name="use-a-cloud-property-in-a-value-field"></a>Use uma propriedade em nuvem num campo de valor
 
@@ -51,6 +51,6 @@ As regras avaliam as janelas de tempo agregadas como janelas caindo. Na imagem a
 
 Uma restrição aplica-se às regras que são aplicadas aos módulos IoT Edge. As regras sobre telemetria de diferentes módulos não são avaliadas como regras válidas. Tome o seguinte como um exemplo. A primeira condição da regra é uma telemetria de temperatura do módulo A. A segunda condição da regra é sobre uma telemetria de humidade no módulo B. Uma vez que as duas condições são de diferentes módulos, este é um conjunto de condições inválidas. A regra não é válida e vai lançar um erro ao tentar salvar a regra.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a configurar uma regra na sua aplicação Azure IoT Central, pode aprender a [configurar regras avançadas usando Power](howto-configure-rules-advanced.md) Automamate ou Azure Logic Apps.

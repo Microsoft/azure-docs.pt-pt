@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: 4fed883c8fa92df77af432e1e4a4b3acca72a0d2
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f0bad935c7c3d44f57dd171f714f31856bc2089c
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265119"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361318"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Largura de banda de rede de máquinas virtuais
 
@@ -64,7 +64,7 @@ Hoje, a stack de rede Azure suporta fluxos totais de rede de 250K com bom desemp
 
 As métricas estão disponíveis no [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) para monitorizar o número de fluxos de rede e o caudal de criação nas suas instâncias VM ou VMSS.
 
-![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
+![A screenshot mostra a página métrica do Azure Monitor com um gráfico de linha e totais para fluxos de entrada e saída.](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
 
 As taxas de estabelecimento de ligação e de terminação também podem afetar o desempenho da rede como estabelecimento de ligação e a rescisão de ações CPU com rotinas de processamento de pacotes. Recomendamos que compareça cargas de trabalho em comparação com os padrões de tráfego esperados e reduza as cargas de trabalho adequadamente para corresponder às suas necessidades de desempenho. 
 

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 9f7f44e053cfb26cbf7d897b8a1df1ad2861fd07
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: aecda5ed9b87ba2345a52923a574919d6a08594f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552004"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362676"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Começando com o Azure Maps Power BI visual
 
-<Token>**APLICA-SE A:** ![ sim ](media/power-bi-visual/yes.png) Serviço power BI para ***consumidores*** ![ sim Serviço power BI para ](media/power-bi-visual/yes.png) designers & desenvolvedores ![ sim Power BI Desktop no ](media/power-bi-visual/yes.png) ![ ](media/power-bi-visual/no.png) Requires Pro ou Premium license</Token>
+<Token>**APLICA-SE A:** ![ Marca verde de verificação. ](media/power-bi-visual/yes.png) Serviço de BI de energia para ***consumidores*** ![ Marca de verificação verde. ](media/power-bi-visual/yes.png) Serviço de Power BI para designers & desenvolvedores ![ Marca de verificação verde. ](media/power-bi-visual/yes.png) Power BI Desktop ![ X indicando não. ](media/power-bi-visual/no.png) Requer licença Pro ou Premium </Token>
 
 Este artigo mostra como utilizar o visual do Microsoft Azure Maps para Power BI.
 
@@ -135,7 +135,7 @@ O visual Azure Maps está disponível nos seguintes serviços e aplicações:
 | Aplicações móveis do Power BI             | Sim          |
 | Publicar na Web do Power BI                  | Não           |
 | Power BI Embedded                        | Não           |
-| Incorporação do serviço Power BI (PowerBI.com) | Sim          |
+| Incorporação do serviço Power BI (PowerBI.com) | Yes          |
 
 O suporte para serviços/aplicações de Power BI adicionais será adicionado em futuras atualizações.
 
@@ -160,7 +160,7 @@ Este visual suporta até 30.000 pontos de dados.
 
 A pré-visualização inicial deste visual apenas suporta valores de latitude e longitude em graus decimais. Uma futura atualização irá adicionar suporte para endereços e outras cordas de localização.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o visual Azure Maps Power BI:
 
