@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: b90acafb9146ec6cd796a0916ad46bf880398b22
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: faf5b1108e28b352a0b8622feed8bdd99264ff16
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87013985"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91327583"
 ---
 # <a name="manage-databases-in-azure-sql-database-by-using-azure-automation"></a>Gerir bases de dados na Base de Dados Azure SQL utilizando a Azure Automation
 

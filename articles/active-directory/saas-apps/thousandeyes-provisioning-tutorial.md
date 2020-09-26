@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: a009361267a364f04237716f3623921c892e2708
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7958ef9195c9dcef65fab70fbf48edf2021ff94b
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546428"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355827"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Tutorial: Configurar MilEyes para o provisionamento automático do utilizador
 
@@ -23,7 +23,7 @@ O objetivo deste tutorial é mostrar-lhe os passos que precisa de executar em Th
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário delineado neste tutorial pressupõe que já tem os seguintes itens:
+O cenário descrito neste tutorial pressupõe que já tem os seguintes itens:
 
 * Um inquilino de diretório Azure Ative
 * Um inquilino milEyes com o [plano Standard](https://www.thousandeyes.com/pricing) ou melhor habilitado 
@@ -61,27 +61,27 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 3. Selecione a sua instância de ThousandEyes e, em seguida, selecione o **separador Provisioning.**
 
-4. Desa ajuste o **modo de provisionamento** para **automático**.
+4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
-    ![MilEyes Provisioning](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
+    ![O screenshot mostra o separador Provisioning for ThousandEyes com o Modo de Provisionamento selecionado para o Modo de Provisionamento.](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
 5. Na secção **Credenciais Admin,**  insira o Token do Portador da **OAuth** gerado pela conta da ThousandEyes (pode encontrar e ou gerar um símbolo na sua secção **de Perfil da** conta MilEyes).
 
-    ![MilEyes Provisioning](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
+    ![A screenshot mostra onde encontrar o link 'Definições de Conta' para o Grupo de Contas Correntes.](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 
 6. No portal Azure, clique em **Test Connection** para garantir que o Azure AD pode ligar-se à sua aplicação MilEyes. Se a ligação falhar, certifique-se de que a sua conta MilEyes tem permissões de Administração e tente novamente o passo 5.
 
 7. Insira o endereço de e-mail de uma pessoa ou grupo que deve receber notificações de erro no campo **de e-mail de notificação** e verifique a caixa de verificação "Envie uma notificação de e-mail quando ocorrer uma falha."
 
-8. Clique em **Guardar**.
+8. Clique em **Save** (Guardar).
 
 9. Na secção Mappings, selecione **Synchronize Azure Ative Directory Users to ThousandEyes**.
 
-10. Na secção **De mapeamentos de atributos,** reveja os atributos do utilizador que são sincronizados de AZure AD a ThousandEyes. Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador em ThousandEyes para operações de atualização. Selecione o botão Guardar para escoar quaisquer alterações.
+10. Na secção **De mapeamentos de atributos,** reveja os atributos do utilizador que são sincronizados de AZure AD a ThousandEyes. Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador em ThousandEyes para operações de atualização. Selecione o botão Guardar para confirmar as alterações.
 
 11. Para ativar o serviço de prestação de Ad Azure para ThousandEyes, altere o **Estado de Provisionamento** para **On** na secção **Definições**
 
-12. Clique em **Guardar**.
+12. Clique em **Save** (Guardar).
 
 Esta operação inicia a sincronização inicial de quaisquer utilizadores e/ou grupos atribuídos a MilEyes na secção Utilizadores e Grupos. A sincronização inicial demora mais tempo a ser efetuada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em funcionamento. Pode utilizar a secção Detalhes da **Sincronização** para monitorizar o progresso e seguir links para os registos de atividade de provisionamento, que descrevem todas as ações realizadas pelo serviço de fornecimento.
 
@@ -89,9 +89,9 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)

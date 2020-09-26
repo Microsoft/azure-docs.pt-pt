@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 11783ceae1b2a2f9782df74976d8ea6d66573a1c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: codepen, devx-track-js
+ms.openlocfilehash: c1968df19ebc62d47da77b0338d93ceb5f49f2c0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90086033"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310531"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Adicione uma camada de linha ao mapa
 

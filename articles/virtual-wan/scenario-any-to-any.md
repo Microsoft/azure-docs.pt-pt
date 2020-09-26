@@ -6,15 +6,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f8127b485d8fea5aedccd472e209a448e3076b5b
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 6115ca375c3e5bf2be3335fe2231628ec7bf309f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400080"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267742"
 ---
 # <a name="scenario-any-to-any"></a>Cenário: Qualquer-para-qualquer
 
@@ -60,7 +60,7 @@ Estas ligações (por padrão na criação) estão associadas à tabela de rotas
 
 Este cenário é ativado por padrão para STANDARD Virtual WAN. Se a definição de ramo-a-ramo for desativada na configuração WAN, isso irá desativar a conectividade entre os raios-ramos. VPN/ExpressRoute/User VPN são considerados porta-vozes de sucursais em VIRTUAL WAN
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre o VIRTUAL WAN, consulte as [FAQ.](virtual-wan-faq.md)
 * Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).

@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ae642df48fbd18d8ead439d89ced88aa3da327c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8320f5c034eb3a6de8c912ba23a9fb3f69a8a53c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317530"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299753"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Kerberos Restrita Delegação para um único sign-on para as suas apps com Proxy de aplicação
 
@@ -32,7 +32,7 @@ Pode ativar um único sinal de acesso às suas aplicações utilizando a Autenti
 ## <a name="how-single-sign-on-with-kcd-works"></a>Como funciona um único sinal com O KCD
 Este diagrama explica o fluxo quando um utilizador tenta aceder a uma aplicação no local que utiliza a IWA.
 
-![Diagrama de fluxo de autenticação AAD da Microsoft](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
+![Diagrama de fluxo de autenticação AAD da Microsoft](./media/application-proxy-configure-single-sign-on-with-kcd/authdiagram.png)
 
 1. O utilizador entra no URL para aceder à aplicação no local através do Application Proxy.
 2. Application Proxy redireciona o pedido para serviços de autenticação Azure AD para pré-autorenticato. Neste momento, a Azure AD aplica quaisquer políticas de autenticação e autorização aplicáveis, como a autenticação multifactor. Se o utilizador for validado, o Azure AD cria um símbolo e envia-o para o utilizador.
@@ -62,7 +62,7 @@ A configuração do Ative Directory varia, dependendo se o conector Proxy da apl
 5. Selecione **Utilizar qualquer protocolo de autenticação**.
 6. Nos **Serviços aos quais esta conta pode apresentar credenciais delegadas** acrescentam o valor para a identidade SPN do servidor de aplicações. Isto permite que o Conector Proxy de aplicação personiem os utilizadores em AD contra as aplicações definidas na lista.
 
-   ![Imagem de janela connector-SVR Properties](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
+   ![Imagem de janela connector-SVR Properties](./media/application-proxy-configure-single-sign-on-with-kcd/properties.jpg)
 
 #### <a name="connector-and-application-server-in-different-domains"></a>Conector e servidor de aplicações em diferentes domínios
 1. Para obter uma lista de pré-requisitos para trabalhar com o KCD em todos os domínios, consulte [a Delegação Restrita kerberos através de domínios.](https://technet.microsoft.com/library/hh831477.aspx)
@@ -97,7 +97,6 @@ A configuração do Ative Directory varia, dependendo se o conector Proxy da apl
 
    ![Configuração avançada da aplicação](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 
-
 ## <a name="sso-for-non-windows-apps"></a>SSO para aplicações não-Windows
 
 O fluxo da delegação Kerberos no Azure AD Application Proxy começa quando a Azure AD autentica o utilizador na nuvem. Uma vez que o pedido chega ao local, o conector de aplicação AD AD Azure emite um bilhete Kerberos em nome do utilizador interagindo com o Diretório Ativo local. Este processo é referido como Kerberos Constraind Delegação (KCD). 
@@ -106,7 +105,7 @@ Na fase seguinte, é enviado um pedido de backend com este bilhete Kerberos.
 
 Existem vários mecanismos que definem como enviar o bilhete Kerberos nesses pedidos. A maioria dos servidores não-Windows espera recebê-lo sob a forma de token SPNEGO. Este mecanismo é suportado no Azure AD Application Proxy, mas é desativado por padrão. Um conector pode ser configurado para SPNEGO ou token Kerberos padrão, mas não ambos.
 
-Se configurar uma máquina de conector para a SPNEGO, certifique-se de que todos os outros conectores desse grupo de conector também estão configurados com o SPNEGO. As aplicações que esperam o token Kerberos padrão devem ser encaminhadas através de outros conectores que não estejam configurados para o SPNEGO.
+Se configurar uma máquina de conector para a SPNEGO, certifique-se de que todos os outros conectores desse grupo de conector também estão configurados com o SPNEGO. As aplicações que esperam o token Kerberos padrão devem ser encaminhadas através de outros conectores que não estejam configurados para o SPNEGO. Algumas aplicações web aceitam ambos os formatos sem exigir qualquer alteração na configuração. 
  
 
 Para ativar o SPNEGO:
@@ -129,13 +128,15 @@ Esta capacidade permite que muitas organizações que possuam diferentes identid
 * Ter vários domínios internamente joe@us.contoso.com (, joe@eu.contoso.com , ) e um único domínio na nuvem joe@contoso.com ().
 * Ter nome de domínio não-encaminhável internamente joe@contoso.usa () e um legal na nuvem.
 * Não utilize nomes de domínio internamente (joe)
-* Use pseudónimos diferentes nas instalações e na nuvem. Por exemplo, joe-johns@contoso.com vs.joej@contoso.com  
+* Use pseudónimos diferentes nas instalações e na nuvem. Por exemplo, joe-johns@contoso.com vs. joej@contoso.com  
 
 Com o Application Proxy, pode selecionar qual a identidade a usar para obter o bilhete Kerberos. Esta definição é por aplicação. Algumas destas opções são adequadas para sistemas que não aceitam o formato de endereço de e-mail, outros são projetados para login alternativo.
 
 ![Screenshot delegado do parâmetro de identidade de login](./media/application-proxy-configure-single-sign-on-with-kcd/app_proxy_sso_diff_id_upn.png)
 
 Se for utilizada a identidade de login delegada, o valor pode não ser único em todos os domínios ou florestas da sua organização. Pode evitar este problema publicando estas aplicações duas vezes utilizando dois grupos de conector diferentes. Uma vez que cada aplicação tem um público de utilizador diferente, pode juntar os seus Conectores a um domínio diferente.
+
+Se **o nome da conta SAM no local** for utilizado para a identidade do logon, o computador que hospeda o conector deve ser adicionado ao domínio em que a conta de utilizador está localizada.
 
 ### <a name="configure-sso-for-different-identities"></a>Configurar SSO para diferentes identidades
 1. Configurar as definições de Ad Connect Azure para que a identidade principal seja o endereço de e-mail (e-mail). Isto é feito como parte do processo de personalização, alterando o campo **Nome Principal** do Utilizador nas definições de sincronização. Estas definições também determinam como os utilizadores iniciam sessão no Office365, dispositivos Windows10 e outras aplicações que utilizam o Azure AD como sua loja de identidade.  
@@ -152,7 +153,7 @@ Se for utilizada a identidade de login delegada, o valor pode não ser único em
 Se houver um erro no processo SSO, aparece no registo de eventos da máquina do conector, conforme explicado na [resolução de problemas](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
 No então, em alguns casos, o pedido é enviado com sucesso para o pedido de backend, enquanto esta aplicação responde em várias outras respostas HTTP. A resolução de problemas destes casos deve começar por examinar o número do evento 24029 na máquina de conector no registo de eventos de sessão de procuração de aplicação. A identidade do utilizador que foi utilizada para a delegação aparece no campo "utilizador" dentro dos detalhes do evento. Para ligar o registo de sessão, selecione **Mostrar registos analíticos e depurar** no menu de visualização do espectador do evento.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como configurar um pedido de procuração de aplicação para utilizar a delegação restrita kerberos](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Resolver problemas com o Proxy da Aplicação](application-proxy-troubleshoot.md)

@@ -6,14 +6,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0a3665f1719c7a5f8ed9bd6acf518b642e06320d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 12bc99d24472780f87a6b2a83befdbbf12944860
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400063"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267725"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Cenário: Isolamento personalizado para VNets
 
@@ -74,7 +74,7 @@ Isto resultará em alterações na configuração do encaminhamento, como visto 
 
 :::image type="content" source="./media/routing-scenarios/custom-isolation/custom.png" alt-text="figura 1":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre o VIRTUAL WAN, consulte as [FAQ.](virtual-wan-faq.md)
 * Para obter mais informações sobre o encaminhamento de hubs virtuais, consulte [sobre o encaminhamento do hub virtual](about-virtual-hub-routing.md).

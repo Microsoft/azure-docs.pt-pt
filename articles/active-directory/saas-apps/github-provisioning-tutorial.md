@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.openlocfilehash: 7408d7609cbceb4ac39298680b6d3854a2d71306
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b88408480bb0822a061e97336eee5c6b3ccfc8e0
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589219"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358326"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configurar GitHub para fornecimento automático de utilizadores
 
@@ -23,7 +23,7 @@ O objetivo deste tutorial é mostrar-lhe os passos que precisa de executar no Gi
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário delineado neste tutorial pressupõe que já tem os seguintes itens:
+O cenário descrito neste tutorial pressupõe que já tem os seguintes itens:
 
 * Um inquilino de diretório Azure Ative
 * Uma organização GitHub criada em [GitHub Enterprise Cloud,](https://help.github.com/articles/github-s-products/#github-enterprise)que requer o [plano de faturação](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations) da GitHub Enterprise
@@ -63,31 +63,31 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 3. Selecione a sua instância de GitHub e, em seguida, selecione o **separador Provisioning.**
 
-4. Desa ajuste o **modo de provisionamento** para **automático**.
+4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
     ![Provisão gitHub](./media/github-provisioning-tutorial/GitHub1.png)
 
-5. Na secção **Credenciais de Administração,** clique **em Autorizor**. Esta operação abre um diálogo de autorização GitHub numa nova janela do navegador. Tenha em atenção que tem de garantir que está aprovado para autorizar o acesso. Siga as instruções descritas [aqui.](https://help.github.com/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
+5. Na secção **Credenciais de Administrador**, clique em **Autorizar**. Esta operação abre um diálogo de autorização GitHub numa nova janela do navegador. Tenha em atenção que tem de garantir que está aprovado para autorizar o acesso. Siga as instruções descritas [aqui.](https://help.github.com/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
 
-6. Na nova janela, inscreva-se no GitHub usando a sua conta de administrador. No diálogo de autorização resultante, selecione a equipa do GitHub para a que pretende permitir o provisionamento e, em seguida, **selecione Authorize**. Uma vez concluído, volte ao portal Azure para completar a configuração de provisionamento.
+6. Na nova janela, inscreva-se no GitHub usando a sua conta de administrador. No diálogo de autorização resultante, selecione a equipa do GitHub para a que pretende permitir o provisionamento e, em seguida, **selecione Authorize**. Depois de concluído, regresse ao portal do Azure para concluir a configuração do aprovisionamento.
 
-    ![Diálogo de Autorização](./media/github-provisioning-tutorial/GitHub2.png)
+    ![A screenshot mostra a página de sindes de sinspe para GitHub.](./media/github-provisioning-tutorial/GitHub2.png)
 
 7. No portal Azure, **insira o URL do inquilino** e clique em Test **Connection** para garantir que o Azure AD pode ligar-se à sua aplicação GitHub. Se a ligação falhar, certifique-se de que a sua conta GitHub tem permissões de administração e **o Inquilino URl** é introduzido corretamente, então tente novamente o passo "Authorize" (pode constituir **o Inquilino URL** por regra: , pode encontrar as suas `https://api.github.com/scim/v2/organizations/<Organization_name>` organizações sob a sua conta GitHub: **Organizações de Definições).**  >  **Organizations**
 
-    ![Diálogo de Autorização](./media/github-provisioning-tutorial/GitHub3.png)
+    ![A screenshot mostra a página das Organizações no GitHub.](./media/github-provisioning-tutorial/GitHub3.png)
 
 8. Insira o endereço de e-mail de uma pessoa ou grupo que deve receber notificações de erro no campo **de e-mail de notificação** e verifique a caixa de verificação "Envie uma notificação de e-mail quando ocorrer uma falha."
 
-9. Clique em **Guardar**.
+9. Clique em **Save** (Guardar).
 
 10. Na secção Mappings, selecione **Synchronize Azure Ative Directory Users para GitHub**.
 
-11. Na secção **De mapeamentos de atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD para GitHub. Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador no GitHub para operações de atualização. Selecione o botão Guardar para escoar quaisquer alterações.
+11. Na secção **De mapeamentos de atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD para GitHub. Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador no GitHub para operações de atualização. Selecione o botão Guardar para confirmar as alterações.
 
 12. Para ativar o serviço de prestação de Ad Azure para o GitHub, altere o **Estado de Provisionamento** para **On** na secção **Definições**
 
-13. Clique em **Guardar**.
+13. Clique em **Save** (Guardar).
 
 Esta operação inicia a sincronização inicial de quaisquer utilizadores e/ou grupos atribuídos ao GitHub na secção Utilizadores e Grupos. A sincronização inicial demora mais tempo a ser efetuada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em funcionamento. Pode utilizar a secção Detalhes da **Sincronização** para monitorizar o progresso e seguir links para os registos de atividade de provisionamento, que descrevem todas as ações realizadas pelo serviço de fornecimento.
 
@@ -95,9 +95,9 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do fornecimento de conta de utilizador para apps empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
+* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como rever os registos e obter relatórios sobre a atividade de provisionamento](../app-provisioning/check-status-user-account-provisioning.md)
+* [Saiba como analisar os registos e obter relatórios sobre a atividade de aprovisionamento](../app-provisioning/check-status-user-account-provisioning.md)

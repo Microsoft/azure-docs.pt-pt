@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/01/2020
 ms.author: kenwith
-ms.openlocfilehash: 5a0a158f91695bb0aba07aa412f5ba234906d493
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 889ad3b74a2f7c0baa006a0c45e3f14664d6cd0c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707701"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325883"
 ---
 # <a name="quickstart-assign-users-to-an-app-that-is-using-azure-ad-as-an-identity-provider"></a>Quickstart: Atribua os utilizadores a uma app que está a usar o AZure AD como fornecedor de identidade
 
@@ -55,8 +55,7 @@ Para atribuir os utilizadores a uma aplicação que adicionou ao seu inquilino A
     > Se a aplicação não apoiar a seleção de funções, a função de acesso predefinida é atribuída. Neste caso, a aplicação gere o nível de acesso que os utilizadores têm.
 9. No painel **de atribuição de** adicionar, selecione o botão **Atribuir** na parte inferior do painel.
 
-> [!NOTE]
-> Pode desatribuição de utilizadores ou grupos utilizando o mesmo procedimento. Selecione o utilizador ou grupo que pretende não assinar e, em seguida, selecione **Remover**. Algumas das aplicações Microsoft 365 e Office 365 requerem a utilização do PowerShell. 
+Pode desatribuição de utilizadores ou grupos utilizando o mesmo procedimento. Selecione o utilizador ou grupo que pretende não assinar e, em seguida, selecione **Remover**. Algumas das aplicações Microsoft 365 e Office 365 requerem a utilização do PowerShell. 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -66,4 +65,9 @@ Depois de terminar com o quickstart, considere apagar a aplicação. Assim pode 
 
 Avance para o próximo artigo para aprender a configurar um único sº de sôs-on para uma aplicação.
 > [!div class="nextstepaction"]
-> [Configurar o início de sessão único](add-application-portal-setup-sso.md)
+> [Configurar um único sinal baseado em SAML](add-application-portal-setup-sso.md)
+
+OU
+
+> [!div class="nextstepaction"]
+> [Configurar um único sign-on baseado no OIDC](add-application-portal-setup-oidc-sso.md)

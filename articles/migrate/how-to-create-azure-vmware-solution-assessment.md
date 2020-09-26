@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: rajosh
-ms.openlocfilehash: b2917c10e13f110d7ac9784da16a10fc61eb9298
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 192780f1340b09cd2579e31f4023acb101d0e1f9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87288855"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358088"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Criar uma avaliação da Solução VMware Azure (AVS)
 
@@ -33,8 +33,8 @@ Existem dois tipos de avaliações que pode criar usando Azure Migrate: Avaliaç
 
 **Tipo de Avaliação** | **Detalhes**
 --- | --- 
-**VM do Azure** | Avaliações para migrar os seus servidores no local para máquinas virtuais Azure. <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md)no local, [VMs hiper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para Azure utilizando este tipo de avaliação. [Saiba mais](concepts-assessment-calculation.md)
-**Solução VMware no Azure (AVS)** | Avaliações para migrar os seus servidores no local para [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md) no local para migração para Azure VMware Solution (AVS) utilizando este tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
+**VM do Azure** | Avaliações para migrar os seus servidores no local para máquinas virtuais do Azure. <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md)no local, [VMs hiper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para Azure utilizando este tipo de avaliação. [Saiba mais](concepts-assessment-calculation.md)
+**Solução VMware no Azure (AVS)** | Avaliações para migrar os seus servidores no local para o [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Pode avaliar as [VMs VMware](how-to-set-up-appliance-vmware.md) no local para a migração para o Azure VMware Solution (AVS) com este tipo de avaliação.[Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
 > A avaliação da Solução VMware (AVS) da Azure está atualmente em pré-visualização e pode ser criada apenas para VMware VMs.
@@ -44,7 +44,7 @@ Existem dois tipos de critérios de dimensionamento que pode utilizar para criar
 
 **Avaliação** | **Detalhes** | **Dados**
 --- | --- | ---
-**Baseado no desempenho** | Avaliações baseadas em dados de desempenho recolhidos de VMs no local. | **Tamanho recomendado do nó**: Com base em dados de utilização da CPU e da memória, juntamente com o tipo de nó, o tipo de armazenamento e a definição de FTT que seleciona para a avaliação.
+**Com base no desempenho** | Avaliações baseadas em dados de desempenho recolhidos de VMs no local. | **Tamanho recomendado do nó**: Com base em dados de utilização da CPU e da memória, juntamente com o tipo de nó, o tipo de armazenamento e a definição de FTT que seleciona para a avaliação.
 **Como no local** | Avaliações baseadas no dimensionamento no local. | **Tamanho do nó recomendado**: Com base no tamanho VM no local, juntamente com o tipo de nó, tipo de armazenamento e definição FTT que seleciona para a avaliação.
 
 
@@ -56,27 +56,27 @@ Executar uma avaliação da Solução VMware Azure (AVS) da seguinte forma:
 
 2. No separador **Servidores,** em **Azure Migrate: Telha de Avaliação** do Servidor, clique em **Avaliar**.
 
-    ![Avaliar](./media/how-to-create-assessment/assess.png)
+    ![A screenshot mostra servidores Azure Migrate com Avaliação selecionados em ferramentas de avaliação.](./media/how-to-create-assessment/assess.png)
 
 3. Nos **servidores avaliação**, selecione o tipo de avaliação como "Azure VMware Solution (AVS)", selecione a fonte de descoberta e especifique o nome de avaliação.
 
-    ![Avaliação Básicos](./media/how-to-create-avs-assessment/assess-servers-avs.png)
+    ![Noções Básicas de Avaliação](./media/how-to-create-avs-assessment/assess-servers-avs.png)
 
 4. Clique em **Ver tudo** para rever as propriedades de avaliação.
 
     ![Propriedades de avaliação AVS](./media/how-to-create-avs-assessment/avs-view-all.png)
 
-5. Clique **ao lado** de **Selecionar máquinas para avaliar**. Em **Select ou criar um grupo**, selecione Create **New**, e especifique um nome de grupo. Um grupo reúne um ou mais VMs para avaliação.
+5. Clique em **seguinte** para **Selecionar as máquinas a avaliar**. Em **Selecionar ou criar um grupo**, selecione **Criar Novo** e especifique um nome do grupo. Um grupo reúne uma ou mais VMs para avaliação.
 
 6. No **Adicionar máquinas ao grupo,** selecione VMs para adicionar ao grupo.
 
-7. Clique **ao lado** do Review + crie **avaliação** para rever os detalhes da avaliação.
+7. Clique em **seguinte** para **Rever + criar avaliação** e reveja os detalhes da avaliação.
 
 8. Clique **em Criar Avaliação** para criar o grupo e executar a avaliação.
 
     ![Criar uma avaliação do AVS](./media/how-to-create-avs-assessment/avs-assessment-create.png)
 
-9. Após a avaliação ser criada, veja-a nos **Servidores**  >  **Azure Migrate: Avaliações de Avaliação do Servidor**  >  **Assessments**.
+9. Após a criação da avaliação, veja-a em **Servidor** > **Azure Migrate: Avaliação do Servidor** > **Avaliações**.
 
 10. Clique em **Exportar avaliação**, para transferi-la como um ficheiro do Excel.
 
@@ -117,7 +117,7 @@ Uma avaliação da Solução Azure VMware (AVS) descreve:
 
 
 
-### <a name="review-cost-details"></a>Rever detalhes de custos
+### <a name="review-cost-details"></a>Rever os detalhes dos custos
 
 Esta visão mostra o custo estimado de funcionamento de VMs em Azure VMware Solution (AVS).
 

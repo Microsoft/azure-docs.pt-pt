@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 7b4a85077c8e0147f926f9a86fc8a003591ec8ac
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 469620456fecb7c0cb398988c4a4fc25da97f863
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91277738"
+ms.locfileid: "91357714"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilize grupos de falha automática para permitir a falha transparente e coordenada de várias bases de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -153,7 +153,7 @@ Para falhar sobre um grupo de failover, você precisa do RBAC escrever acesso ao
 
 O grupo de falha automática deve ser configurado no servidor primário e conectá-lo ao servidor secundário numa região de Azure diferente. Os grupos podem incluir todas ou algumas bases de dados nestes servidores. O diagrama seguinte ilustra uma configuração típica de uma aplicação de nuvem geo-redundante utilizando várias bases de dados e grupo de falha automática.
 
-![falha automática](./media/auto-failover-group-overview/auto-failover-group.png)
+![O diagrama mostra uma configuração típica de uma aplicação de nuvem geo-redundante utilizando várias bases de dados e grupo de falha automática.](./media/auto-failover-group-overview/auto-failover-group.png)
 
 > [!NOTE]
 > Consulte [a Add SQL Database a um grupo de failover](failover-group-add-single-database-tutorial.md) para um tutorial detalhado passo a passo adicionando uma base de dados na Base de Dados SQL a um grupo de failover.

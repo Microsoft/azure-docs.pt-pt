@@ -3,12 +3,12 @@ title: SDKs de grelha de eventos Azure
 description: Descreve os SDKs para Azure Event Grid. Estes SDKs fornecem gestão, publicação e consumo.
 ms.topic: reference
 ms.date: 07/07/2019
-ms.openlocfilehash: 2b21d8bf2c393b096e9046765e6cfadc76baffbf
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 5e93448ef703be88583cd59ae5eee9d1993c4054
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119111"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322534"
 ---
 # <a name="event-grid-sdks-for-management-and-publishing"></a>SDKs de grelha de eventos para gestão e publicação
 
@@ -29,14 +29,17 @@ Os SDKs de gestão permitem criar, atualizar e eliminar tópicos e subscrições
 
 Os SDKs do plano de dados permitem-lhe publicar eventos em tópicos, cuidando da autenticação, formando o evento e publicando assíncroticamente no ponto final especificado. Também lhe permitem consumir eventos de primeira festa. Atualmente, os seguintes SDKs estão disponíveis:
 
-* [.NET](https://www.nuget.org/packages/Microsoft.Azure.EventGrid)
-* [Ir](https://github.com/Azure/azure-sdk-for-go)
-* [Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-eventgrid)
-* [Nó](https://www.npmjs.com/package/azure-eventgrid)
-* [Python](https://pypi.python.org/pypi/azure-eventgrid)
-* [Ruby](https://rubygems.org/gems/azure_event_grid)
+| Linguagem de programação | SDK | 
+| -------------------- | ---------- | ---------- | 
+| .NET | Stable SDK: [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid)<p>Pré-visualização SDK: [Azure.Messaging.EventGrid](https://www.nuget.org/packages/Azure.Messaging.EventGrid/) |
+| Java | SDK estável: [azure-eventgrid](https://mvnrepository.com/artifact/com.microsoft.azure/azure-eventgrid)<p>Preview SDK: [azure-messaging-eventgrid](https://search.maven.org/artifact/com.azure/azure-messaging-eventgrid/)</p> |  
+| Python | [azure-eventgrid](https://pypi.org/project/azure-eventgrid/#history) (ver as versões mais recentes estáveis e pré-lançamento na página de histórico de **lançamento)** |
+| JavaScript | [@azure/eventgrid](https://www.npmjs.com/package/@azure/eventgrid/) (mude para o separador **Versões** para ver os mais recentes pacotes de versão estável e beta). | 
+| Go | [SDK do Azure para Go](https://github.com/Azure/azure-sdk-for-go) | | 
+| Ruby | [azure_event_grid](https://rubygems.org/gems/azure_event_grid) | | 
 
-## <a name="next-steps"></a>Próximos passos
+
+## <a name="next-steps"></a>Passos seguintes
 
 * Por exemplo, consulte as [amostras de código de Grade de Eventos](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid).
 * Para uma introdução à Grade de Eventos, veja [o que é a Grade de Eventos?](overview.md)

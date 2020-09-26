@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab
+ms.reviewer: sstein, bonova
 ms.date: 02/22/2019
-ms.openlocfilehash: 562766ada8fb9a2620fa83875dc98d02ab752d95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04f0fca06c2e50ef6d99d51c03e58b468a476e9d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338547"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323112"
 ---
 # <a name="determine-required-subnet-size--range-for-azure-sql-managed-instance"></a>Determinar o tamanho da sub-rede necessária & gama para Azure SQL Gestded Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -52,14 +52,14 @@ Dimensione a sua sub-rede de acordo com as necessidades futuras de implantação
 
 GP = propósito geral; BC = crítica de negócios; VC = cluster virtual
 
-| **Género de hardware** | **Nível de preços** | **Utilização do Azure** | **Utilização de VC** | **Utilização de exemplos** | **Total*** |
+| **Género de hardware** | **Escalão de preço** | **Utilização do Azure** | **Utilização de VC** | **Utilização de exemplos** | **Total*** |
 | --- | --- | --- | --- | --- | --- |
 | Gen4 | GP | 5 | 1 | 5 | 11 |
 | Gen4 | BC | 5 | 1 | 5 | 11 |
 | Gen5 | GP | 5 | 6 | 3 | 14 |
 | Gen5 | BC | 5 | 6 | 5 | 16 |
 
-  \*O total da coluna exibe o número de endereços que seriam tomados quando uma instância é implantada na sub-rede. Cada instância adicional na sub-rede adiciona o número de endereços representados com coluna de utilização de exemplos. Os endereços representados com a coluna de utilização Azure são partilhados em vários clusters virtuais, enquanto os endereços representados com coluna de utilização de VC são partilhados em todos os casos colocados nesse cluster virtual.
+  \* O total da coluna exibe o número de endereços que seriam tomados quando uma instância é implantada na sub-rede. Cada instância adicional na sub-rede adiciona o número de endereços representados com coluna de utilização de exemplos. Os endereços representados com a coluna de utilização Azure são partilhados em vários clusters virtuais, enquanto os endereços representados com coluna de utilização de VC são partilhados em todos os casos colocados nesse cluster virtual.
 
 A operação de atualização normalmente requer redimensionar o cluster virtual. Em algumas circunstâncias, a operação de atualização exigirá a criação de clusters virtuais (para mais detalhes, verifique [o artigo de gestão de operações).](sql-managed-instance-paas-overview.md#management-operations) Em caso de criação de cluster virtual, o número de endereços adicionais necessários é igual ao número de endereços representados pela coluna de utilização VC resumida com endereços necessários para os casos colocados nesse cluster virtual (coluna de utilização de exemplo).
 
@@ -74,7 +74,7 @@ Como mencionado acima, em algumas circunstâncias, a operação de atualização
 
 Durante a escala de casos de operação requerem temporariamente capacidade ip adicional que depende do nível de preços e geração de hardware
 
-| **Género de hardware** | **Nível de preços** | **Cenário** | **Endereços adicionais*** |
+| **Género de hardware** | **Escalão de preço** | **Cenário** | **Endereços adicionais*** |
 | --- | --- | --- | --- |
 | Gen4 | GP ou BC | Escala vCores | 5 |
 | Gen4 | GP ou BC | Armazenamento de escalonamento | 5 |
@@ -88,9 +88,9 @@ Durante a escala de casos de operação requerem temporariamente capacidade ip a
 | Gen5 | BC | Armazenamento de escalonamento | 5 |
 | Gen5 | BC | Mudar para GP | 3 |
 
-  \*O hardware da Gen4 está a ser eliminado e já não está disponível para novas implementações. Atualize a geração de hardware da Gen4 para a Gen5 para tirar partido das capacidades específicas da geração de hardware da Gen5.
+  \* O hardware da Gen4 está a ser eliminado e já não está disponível para novas implementações. Atualize a geração de hardware da Gen4 para a Gen5 para tirar partido das capacidades específicas da geração de hardware da Gen5.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral, veja [o que é Azure SQL Managed Instance?](sql-managed-instance-paas-overview.md). .
 - Saiba mais sobre [arquitetura de conectividade para SQL Managed Instance](connectivity-architecture-overview.md).

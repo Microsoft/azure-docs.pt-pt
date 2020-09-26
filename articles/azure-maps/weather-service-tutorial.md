@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Junte os dados do sensor com os dados da previsão meteorológica utilizando cadernos Azure (Python) Microsoft Azure Maps'
-description: Este tutorial mostra-lhe como juntar dados de sensores com dados de previsão meteorológica do Microsoft Azure Maps Weather Service usando Azure Notebooks (Python).
+description: Tutorial sobre como juntar dados de sensores com dados de previsão meteorológica do Microsoft Azure Maps Weather Service usando Azure Notebooks (Python).
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 01/29/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 4ec51bc84041008c0b843a8549e299747c3134a3
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 717cb600f1bdae228f45409cb271ab04d1d51a19
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851650"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91310106"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Tutorial: Junte os dados do sensor com os dados da previsão meteorológica utilizando cadernos Azure (Python)
 
@@ -182,9 +182,6 @@ Os gráficos abaixo visualizam os dados da previsão. Para a mudança da velocid
 
 ![Lote de velocidade do vento ](./media/weather-service-tutorial/speed-date-plot.png) ![ lote de direção do vento](./media/weather-service-tutorial/direction-date-plot.png)</center>
 
-
-## <a name="next-steps"></a>Passos seguintes
-
 Neste tutorial você aprendeu, como chamar Azure Maps REST APIs para obter dados de previsão do tempo. Também aprendeu a visualizar os dados em gráficos.
 
 Para saber mais sobre como chamar Azure Maps REST APIs dentro de Cadernos Azure, consulte [o encaminhamento EV usando cadernos Azure](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing).
@@ -196,4 +193,9 @@ Para explorar as APIs Azure Maps que são usadas neste tutorial, consulte:
 
 Para obter uma lista completa de APIs DE REST Azure Maps, consulte [Azure Maps REST APIs](https://docs.microsoft.com/azure/azure-maps/consumption-model).
 
-Para saber mais sobre os Cadernos Azure, consulte [os Cadernos Azure.](https://docs.microsoft.com/azure/notebooks)
+## <a name="next-steps"></a>Passos seguintes
+
+Para saber mais sobre cadernos Azure, ver
+
+> [!div class="nextstepaction"]
+> [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)

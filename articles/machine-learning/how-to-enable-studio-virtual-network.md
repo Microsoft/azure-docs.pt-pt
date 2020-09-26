@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 5dce7cde3c46fbcf3f764819f730f42cace4a74c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0c5f91f1423bc20b2202589c488c9b225ed3fbaa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897542"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333856"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Use o estúdio Azure Machine Learning numa rede virtual Azure
 
@@ -56,8 +56,7 @@ Por exemplo, se estiver a utilizar grupos de segurança de rede (NSG) para restr
 
 ## <a name="access-data-using-the-studio"></a>Aceder a dados usando o estúdio
 
-Se os seus dados forem armazenados numa rede virtual, deve configurar as suas contas de armazenamento para utilizar a [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) para permitir ao estúdio o acesso aos seus dados.
-
+Depois de [adicionar uma conta de armazenamento Azure à sua rede virtual,](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts)tem de configurar a sua conta de armazenamento para utilizar a identidade [gerida](../active-directory/managed-identities-azure-resources/overview.md) para permitir o acesso do estúdio aos seus dados. O estúdio suporta contas de armazenamento configuradas para usar pontos finais de serviço ou pontos finais privados. As contas de armazenamento utilizam os pontos finais do serviço por defeito. Para permitir o armazenamento de pontos finais privados, consulte [utilizar pontos finais privados para armazenamento Azure](../storage/common/storage-private-endpoints.md)
 
 Se não ativar a identidade gerida, receberá este erro, `Error: Unable to profile this dataset. This might be because your data is stored behind a virtual network or your data does not support profile.` além disso, as seguintes operações serão desativadas:
 
@@ -72,7 +71,6 @@ O estúdio suporta dados de leitura dos seguintes tipos de datastore numa rede v
 * Armazenamento do Azure Data Lake Ger1
 * Armazenamento do Azure Data Lake Ger2
 * Base de Dados SQL do Azure
-
 
 ### <a name="configure-datastores-to-use-managed-identity"></a>Configure as lojas de dados para utilizar a identidade gerida
 

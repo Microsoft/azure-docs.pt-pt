@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/07/2020
-ms.openlocfilehash: 0a985e7a4a0a332d3824f9cffa2a191429cfdb33
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: cdc4dfe23cce7c2f58e4c9b44f2cea46e2337e00
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029618"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322449"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Quickstart: Criar tarefas, processos e fluxos de trabalho automatizados com o Azure Logic Apps – Visual Studio
 
@@ -22,7 +22,7 @@ Se é novo no Azure Logic Apps e apenas quer os conceitos básicos, experimente 
 
 Neste arranque rápido, cria-se a mesma aplicação lógica com o Visual Studio que o quickstart do portal Azure. Esta aplicação lógica monitoriza o feed RSS de um site e envia e-mail para cada novo item nesse feed. A sua aplicação lógica acabada parece com este fluxo de trabalho de alto nível:
 
-![Aplicação lógica concluída](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
+![Screenshot que mostra o fluxo de trabalho de alto nível de uma aplicação lógica acabada.](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
 
 <a name="prerequisites"></a>
 
@@ -140,7 +140,7 @@ Quando tiver o seu projeto Azure Resource Group, crie a sua aplicação lógica 
 
    ![Selecionar a subscrição do Azure, o grupo de recursos e a localização dos recursos](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
-   | Definição | Valor de exemplo | Descrição |
+   | Definição | Valor de exemplo | Description |
    | ------- | ------------- | ----------- |
    | Conta de utilizador | Fabrikam <br> sophia-owen@fabrikam.com | A conta que usou quando se inscreveu no Visual Studio |
    | **Subscrição** | "Pay As You Go" <br> (sophia-owen@fabrikam.com) | O nome da sua subscrição do Azure e a conta associada |
@@ -230,7 +230,7 @@ Quando terminar a sua aplicação lógica, elimine o grupo de recursos que cont�
 
 1. Elimine a solução do Visual Studio do seu computador local.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criou, implementou e executou a sua aplicação lógica com o Visual Studio. Para aprender sobre como gerir e realizar implementações avançadas para aplicações lógicas com o Visual Studio, consulte estes artigos:
 

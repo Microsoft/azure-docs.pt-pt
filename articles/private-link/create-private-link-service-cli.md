@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 4312c6b89a7ba3e56e39050d76c673aa532f6f92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cfc746d883b565fe7a082a316ce314f385225df
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737347"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358180"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Criar um serviço de ligação privada utilizando o Azure CLI
 Este artigo mostra-lhe como criar um serviço de Ligação Privada em Azure usando o Azure CLI.
@@ -88,7 +88,7 @@ O serviço Private Link requer um IP a partir de qualquer sub-rede à sua escolh
 az network vnet subnet update --resource-group myResourceGroup --vnet-name myVirtualNetwork --name mySubnet --disable-private-link-service-network-policies true 
 ```
  
-## <a name="create-a-private-link-service"></a>Criar um serviço de Ligação Privada  
+## <a name="create-a-private-link-service-using-standard-load-balancer"></a>Criar um serviço de ligação privada utilizando o Balanceador de Carga Padrão 
  
 Crie um serviço de ligação privada utilizando a configuração IP do frontend standard balancer com [a criação de serviço de ligação privada da rede Az](/cli/azure/network/private-link-service#az-network-private-link-service-create). Este exemplo cria um serviço de Ligação Privada chamado *myPLS* usando o Balancer de Carga Padrão chamado *myLoadBalancer* no grupo de recursos chamado *myResourceGroup*. 
  
@@ -160,6 +160,6 @@ Consulte os pedidos de ligação no seu serviço Private Link utilizando [o prog
 ```azurecli-interactive 
 az network private-link-service show --resource-group myResourceGroup --name myPLS 
 ```
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [o serviço Azure Private Link](private-link-service-overview.md)
  

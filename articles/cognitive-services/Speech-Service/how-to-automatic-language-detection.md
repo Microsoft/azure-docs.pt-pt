@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: trbye
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 1fc7e7da62aa92812a124f920f5c59ebf8e50fcc
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 5f7d400a3b0d910894c7aa54001b673aaf54aad9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934621"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322789"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>Deteção automática de linguagem para fala a texto
 

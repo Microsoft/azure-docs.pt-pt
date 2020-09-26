@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.openlocfilehash: d2ad302042b277cf29b3a7b22af88b662686b3fd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c7e0c9aee1ce6b4a2524ac756673784b63be3b31
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90995951"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289774"
 ---
 # <a name="configure-azure-defender-for-storage"></a>Configure Azure Defender para armazenamento
 
@@ -23,11 +23,11 @@ O Azure Defender for Storage fornece uma camada adicional de inteligência de se
 
 Os alertas de segurança são desencadeados quando ocorrem anomalias na atividade. Estes alertas de segurança estão integrados no [Azure Security Center,](https://azure.microsoft.com/services/security-center/)e são também enviados por e-mail aos administradores de subscrição, com detalhes de atividades suspeitas e recomendações sobre como investigar e remediar ameaças.
 
-O serviço ingere registos de recursos de leitura, escrita e eliminação de pedidos para armazenamento blob e para Ficheiros Azure (pré-visualização) para deteção de ameaças. Para investigar alertas do Azure Defender, pode visualizar a atividade de armazenamento relacionada usando o Armazenamento Analytics Logging. Para obter mais informações, consulte **o Configure logging** in [Monitor uma conta de armazenamento no portal Azure](storage-monitor-storage-account.md#configure-logging).
+O serviço ingere registos de recursos de leitura, escrita e eliminação de pedidos para armazenamento blob e para ficheiros Azure para deteção de ameaças. Para investigar alertas do Azure Defender, pode visualizar a atividade de armazenamento relacionada usando o Armazenamento Analytics Logging. Para obter mais informações, consulte **o Configure logging** in [Monitor uma conta de armazenamento no portal Azure](storage-monitor-storage-account.md#configure-logging).
 
 ## <a name="availability"></a>Disponibilidade
 
-O Azure Defender for Storage está atualmente disponível para armazenamento blob, ficheiros Azure (pré-visualização) e Azure Data Lake Storage Gen2 (pré-visualização). Os tipos de conta que suportam o Azure Defender incluem contas de armazenamento de uso geral v2, block blob e Blob. O Azure Defender for Storage está disponível em todas as nuvens públicas e nuvens do governo dos EUA, mas não em outras regiões de nuvens soberanas ou do Governo Azure.
+O Azure Defender for Storage está atualmente disponível para armazenamento blob, ficheiros Azure e Azure Data Lake Storage Gen2. Os tipos de conta que suportam o Azure Defender incluem contas de armazenamento de uso geral v2, block blob e Blob. O Azure Defender for Storage está disponível em todas as nuvens públicas e nuvens do governo dos EUA, mas não em outras regiões de nuvens soberanas ou do Governo Azure.
 
 Contas com espaços hierárquicos habilitados para operações de suporte de armazenamento de data lake usando tanto as APIs de armazenamento de Azure Blob como as APIs de armazenamento de data lake. A ações de ficheiros Azure suportam transações sobre SMB.
 
@@ -37,8 +37,8 @@ A lista que se segue resume a disponibilidade do Azure Defender para armazenamen
 
 - Estado de libertação:
   - [Armazenamento blob](https://azure.microsoft.com/services/storage/blobs/) (disponibilidade geral)
-  - [Ficheiros Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (pré-visualização suporta transações SMB e REST)
-  - Azure Data Lake Storage Gen2 (pré-visualização)
+  - [Ficheiros Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) (disponibilidade geral)
+  - Azure Data Lake Storage Gen2 (disponibilidade geral)
 - Nuvens:<br>
     nuvens comerciais ✔<br>
     ✔ Gov dos EUA<br>

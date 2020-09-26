@@ -8,17 +8,17 @@ editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.custom: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: cbc6b2af98905a09324a58c92cafca0075d8a01d
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 1b10489ef74e681eab59694d24c4babc3ce69163
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055146"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91298716"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Criar um FCI com uma partilha de ficheiros premium (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +41,7 @@ Antes de completar as instruções deste artigo, já deve ter:
 
 ## <a name="mount-premium-file-share"></a>Monte partilha de arquivo premium
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). e ir para a sua conta de armazenamento.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). e ir para a sua conta de armazenamento.
 1. Vá a **''' Arquivar ações** em **serviço de ficheiros**e, em seguida, selecione a partilha de ficheiros premium que pretende utilizar para o seu armazenamento SQL.
 1. Selecione **Connect** para aumentar a cadeia de ligação para a sua partilha de ficheiros.
 1. Na lista de drop-down, selecione a letra de unidade que pretende utilizar e, em seguida, copie ambos os blocos de código para o Bloco de Notas.

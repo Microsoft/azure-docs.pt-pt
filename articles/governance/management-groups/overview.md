@@ -1,14 +1,15 @@
 ---
 title: Organize os seus recursos com grupos de gestão - Azure Governance
 description: Saiba mais sobre os grupos de gestão, como as permissões destes funcionam e como utilizá-los.
-ms.date: 07/06/2020
+ms.date: 09/22/2020
 ms.topic: overview
-ms.openlocfilehash: d259f44b8424afa9fcfc94b3f1812a0485ab2993
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.custom: contperfq1
+ms.openlocfilehash: e0404cdc934771f8ebc0125ce9e21559739aee35
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659239"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334162"
 ---
 # <a name="what-are-azure-management-groups"></a>O que são grupos de gestão Azure?
 
@@ -22,7 +23,7 @@ Por exemplo, pode aplicar políticas a um grupo de gestão que limita as regiõe
 Pode criar uma estrutura flexível de grupos de gestão e de subscrições para organizar os seus recursos numa hierarquia para assegurar uma gestão unificada de acesso e política. O seguinte diagrama mostra um exemplo de criação de uma hierarquia de governação com grupos de gestão.
 
 :::image type="complex" source="./media/tree.png" alt-text="Diagrama de uma hierarquia de grupo de gestão de amostras." border="false":::
-   Diagrama de um grupo de gestão de raiz que detém grupos de gestão e subscrições. Alguns grupos de gestão de crianças detêm grupos de gestão, alguns possuem assinaturas, e alguns detêm ambos. Um dos exemplos na hierarquia da amostra é 4 níveis de grupos de gestão, com o nível infantil a ser todas as subscrições.
+   Diagrama de um grupo de gestão de raiz que detém grupos de gestão e subscrições. Alguns grupos de gestão de crianças detêm grupos de gestão, alguns possuem assinaturas, e alguns detêm ambos. Um dos exemplos na hierarquia da amostra são quatro níveis de grupos de gestão, sendo o nível infantil todas as subscrições.
 :::image-end:::
 
 Pode criar uma hierarquia que se aplique a uma política, para, por exemplo, limitar as localizações das VMs à Região E.U.A. Oeste no grupo com o nome "Produção". Esta política herdará a todas as assinaturas do Acordo Empresarial (EA) que são descendentes desse grupo de gestão e aplicar-se-á a todos os VMs ao abrigo dessas subscrições. Esta política de segurança não pode ser alterada pelo proprietário do recurso ou da subscrição, o que permite uma melhor governação.
@@ -74,7 +75,7 @@ Alguns diretórios que começaram a utilizar os grupos de gestão numa fase inic
 Existem duas opções para resolver este problema.
 
 - Remover todas as atribuições de Função e de Política do grupo de gestão de raiz
-  - Ao remover quaisquer atribuições de política e de função do grupo de gestão de raiz, o serviço preenche quaisquer subscrições na hierarquia para o ciclo do próximo dia. Este processo consiste em garantir que não é concedido acesso de forma acidente ou uma atribuição de política a todas as subscrições de inquilinos.
+  - Ao remover quaisquer atribuições de política e função do grupo de gestão de raiz, o serviço reencha todas as subscrições para a hierarquia no próximo ciclo noturno. Este processo consiste em garantir que não é concedido acesso de forma acidente ou uma atribuição de política a todas as subscrições de inquilinos.
   - A melhora forma de realizar este processo sem afetar os seus serviços consiste em basicamente aplicar as atribuições de função ou de política um nível abaixo do Grupo de gestão de raiz. Então pode remover todas as atribuições do âmbito de raiz.
 - Chame a API diretamente para iniciar o processo de preenchimento
   - Qualquer cliente no diretório pode chamar as APIs _TenantBackfillStatusRequest_ ou _StartTenantBackfillRequest_. Quando a API StartTenantBackfillRequest é chamada, lança o processo inicial de configuração de mover todas as subscrições para a hierarquia. Este processo também inicia a imposição de todas as novas subscrições como sendo um filho do grupo de gestão de raiz.
@@ -167,7 +168,7 @@ Existem algumas opções diferentes para corrigir este cenário:
 
 Existem limitações quando se utilizam funções personalizadas em grupos de gestão. 
 
- - Só é possível definir um grupo de gestão nos âmbitos atribuíveis de um novo papel. Esta limitação está em vigor para reduzir o número de situações em que as definições de funções e atribuições de funções são desligadas. Esta situação acontece quando uma subscrição ou grupo de gestão com uma atribuição de papel é transferida para um pai diferente que não tem a definição de papel.  
+ - Só é possível definir um grupo de gestão nos âmbitos atribuíveis de um novo papel. Esta limitação está em vigor para reduzir o número de situações em que as definições de funções e atribuições de funções são desligadas. Esta situação acontece quando uma subscrição ou grupo de gestão com uma atribuição de papel se muda para um pai diferente que não tem a definição de papel.  
  - As ações do Plano de Dados da RBAC não podem ser definidas em funções personalizadas do grupo de gestão. Esta restrição está em vigor, uma vez que há um problema de latência com as ações da RBAC que atualizam os fornecedores de recursos de planos de dados.
    Esta questão da latência está a ser trabalhada e estas ações serão desativadas da definição de papel para reduzir quaisquer riscos.
  - O Gestor de Recursos Azure não valida a existência do grupo de gestão no âmbito atribuível da definição de função. Se houver um erro ou um ID de grupo de gestão incorreto listado, a definição de função ainda será criada.  
@@ -197,7 +198,7 @@ Os grupos de gestão são suportados no [Registo de Atividades do Azure](../../a
 
 Quando quiser consultar Grupos de Gestão fora do portal do Azure, o âmbito de destino dos grupos de gestão é semelhante a **"/ providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os grupos de gestão, veja:
 

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 23af7ff9e4740b88d3d1f8cffb3d79a46c8d0d61
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 6cb2c90658a69f3e63e9ebe08db41eea0a9bc7fa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544456"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299702"
 ---
 # <a name="tutorial-configure-gotomeeting-for-automatic-user-provisioning"></a>Tutorial: Configurar GoToMeeting para fornecimento automático de utilizadores
 
@@ -23,7 +23,7 @@ O objetivo deste tutorial é mostrar-lhe os passos que precisa de executar no Go
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário delineado neste tutorial pressupõe que já tem os seguintes itens:
+O cenário descrito neste tutorial pressupõe que já tem os seguintes itens:
 
 *   Um inquilino de diretório Azure Ative.
 *   Uma assinatura ativada por GoToMeeting.
@@ -60,7 +60,7 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 1. Desa ajuste o modo **de provisionamento** para **automático**. 
 
-    ![provisionamento](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![Screenshot do separador Provisioning para GoToMeeting no portal Azure. O modo de provisionamento está definido para nome de utilizador automático e admin, palavra-passe e ligação de teste são destacados.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
 1. Na secção Credenciais de Administração, execute os seguintes passos:
    
@@ -76,7 +76,7 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 1. Na secção Mappings, selecione **Synchronize Azure Ative Directory Users to GoToMeeting.**
 
-1. Na secção **De Mapeamentos de Atributos,** reveja os atributos do utilizador que são sincronizados de AZure AD a GoToMeeting. Os atributos selecionados como propriedades **de correspondência** são utilizados para corresponder às contas do utilizador no GoToMeeting para operações de atualização. Selecione o botão Guardar para escoar quaisquer alterações.
+1. Na secção **De Mapeamentos de Atributos,** reveja os atributos do utilizador que são sincronizados de AZure AD a GoToMeeting. Os atributos selecionados como propriedades **de correspondência** são utilizados para corresponder às contas do utilizador no GoToMeeting para operações de atualização. Selecione o botão Guardar para confirmar as alterações.
 
 1. Para ativar o serviço de prestação de AD Azure para o GoToMeeting, altere o **Estado de Provisionamento** para **On** na secção Definições
 
@@ -88,7 +88,7 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do fornecimento de conta de utilizador para apps empresariais](tutorial-list.md)
+* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 * [Configurar o único sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-saas-citrix-gotomeeting-tutorial)
 

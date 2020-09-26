@@ -1,18 +1,18 @@
 ---
-title: Ativar o Add-On do Controlador ingresso para o cluster AKS existente com gateway de aplicação Azure existente
+title: 'Tutorial: Ativar o Add-On do Controlador de Entrada para o cluster AKS existente com gateway de aplicação Azure existente'
 description: Utilize este tutorial para ativar o Add-On do Controlador de Entrada para o seu cluster AKS existente com um Gateway de aplicação existente
 services: application-gateway
 author: caya
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 06/10/2020
+ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: 35d9396ac1f4569002b95549a8752745537621cf
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: d0ce58c5bb6de4712117959f10b48ae3449f0b97
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595976"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91285661"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Tutorial: Ativar o addon do controlador de entrada de aplicativos para um cluster AKS existente com um Gateway de aplicação existente através do Azure CLI (Visualização)
 
@@ -28,6 +28,8 @@ Neste tutorial, ficará a saber como:
 > * Peer the Application Gateway virtual network with the AKS cluster virtual network
 > * Implementar uma aplicação de amostra utilizando o AGIC para Ingress no cluster AKS
 > * Verifique se a aplicação é acessível através do Gateway de Aplicação
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -150,8 +152,7 @@ Quando já não forem necessários, remova o grupo de recursos, o gateway de apl
 az group delete --name myResourceGroup 
 ```
 
-## <a name="next-steps"></a>Próximos passos
-* [Saiba mais sobre a desativação do addon AGIC](./ingress-controller-disable-addon.md)
-* [Saiba mais sobre quais anotações são apoiadas com a AGIC](./ingress-controller-annotations.md)
-* [Problemas de resolução de problemas com a AGIC](./ingress-controller-troubleshoot.md)
+## <a name="next-steps"></a>Passos seguintes
 
+> [!div class="nextstepaction"]
+> [Saiba mais sobre a desativação do addon AGIC](./ingress-controller-disable-addon.md)

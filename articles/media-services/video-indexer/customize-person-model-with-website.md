@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 08/06/2020
 ms.author: kumud
-ms.openlocfilehash: 6894eb783b990ebe98f9ebe5eb2fe112a59309a4
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 9f5a18cc51aa92b53a5391404b1e9d3fc800bb47
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904501"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91356626"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>Personalize um modelo de Pessoa com o site do Indexer de Vídeo
 
@@ -29,7 +29,7 @@ Pode utilizar o website Do Indexer de Vídeo para editar rostos que foram deteta
 
 2. Selecione o botão de personalização do modelo de conteúdo no canto superior direito da página.
 
-    ![Personalização do modelo de conteúdo](./media/customize-face-model/content-model-customization.png)
+    ![A screenshot mostra o Índice de Vídeo com o botão de personalização do modelo de conteúdo selecionado.](./media/customize-face-model/content-model-customization.png)
 
 3. Selecione o separador Pessoas.
 
@@ -37,23 +37,23 @@ Pode utilizar o website Do Indexer de Vídeo para editar rostos que foram deteta
 
     Se criou outros modelos pessoais, também estarão listados nesta página.
 
-    ![Personalização do modelo de conteúdo](./media/customize-face-model/content-model-customization-people-tab.png)
+    ![A screenshot mostra a caixa de diálogo de personalização do modelo content.](./media/customize-face-model/content-model-customization-people-tab.png)
 
 ## <a name="create-a-new-person-model"></a>Criar um novo modelo pessoa
 
 1. Selecione o botão **modelo + Adicionar.**
 
-    ![Adicione um novo modelo de pessoa](./media/customize-face-model/add-new-person.png)
+    ![O Screenshot mostra a caixa de diálogo de personalização do modelo content com o separador Pessoas selecionado.](./media/customize-face-model/add-new-person.png)
 
 2. Introduza o nome do modelo e selecione o botão de verificação ao lado do nome.
 
-    ![Adicione um novo modelo de pessoa](./media/customize-face-model/add-new-person2.png)
+    ![O Screenshot mostra a caixa de diálogo de personalização do modelo content com um nome introduzido para o modelo.](./media/customize-face-model/add-new-person2.png)
 
     Criaste um novo modelo de Pessoa. Agora pode adicionar rostos ao novo modelo Pessoa.
 
 3. Selecione o botão do menu da lista e escolha **+ Adicionar pessoa.**
 
-    ![Adicione um novo modelo de pessoa](./media/customize-face-model/add-new-person3.png)
+    ![O Screenshot mostra a caixa de diálogo de personalização do modelo content com um menu contextual para o seu novo modelo com a opção de Adicionar pessoa.](./media/customize-face-model/add-new-person3.png)
 
 ## <a name="add-a-new-person-to-a-person-model"></a>Adicione uma nova pessoa a um modelo de Pessoa
 
@@ -64,11 +64,11 @@ Pode utilizar o website Do Indexer de Vídeo para editar rostos que foram deteta
 
 1. **Selecione + Adicionar pessoa** no menu.
 
-    ![Adicione um rosto novo à pessoa](./media/customize-face-model/add-new-face.png)
+    ![O Screenshot mostra a caixa de diálogo de personalização do modelo contento pronta para adicionar uma pessoa com o menu contextual.](./media/customize-face-model/add-new-face.png)
 
     Um pop-up irá levá-lo a preencher os detalhes da Pessoa. Digite o nome da pessoa e selecione o botão de verificação.
 
-    ![Adicione um rosto novo à pessoa](./media/customize-face-model/add-new-face2.png)
+    ![A imagem mostra os detalhes de uma pessoa.](./media/customize-face-model/add-new-face2.png)
 
     Em seguida, pode escolher entre o seu explorador de ficheiros ou arrastar e deixar cair as imagens faciais do rosto. O Indexante de Vídeo irá tomar todos os tipos padrão de ficheiros de imagem (ex: JPG, PNG, e muito mais).
 
@@ -81,11 +81,11 @@ Pode mudar o nome de qualquer modelo pessoa na sua conta, incluindo o modelo Pes
 1. Selecione o botão do menu da lista ao lado do modelo Pessoa que pretende renomear.
 2. **Selecione Renomear** o menu.
 
-    ![Mude o nome de um modelo de pessoa](./media/customize-face-model/rename-person.png)
+    ![O Screenshot mostra a caixa de diálogo de personalização do modelo content com um menu contextual com a opção de mudar o nome de um modelo de pessoa. ](./media/customize-face-model/rename-person.png)
 
 3. Selecione o nome atual do modelo e escreva o seu novo nome.
 
-    ![Mude o nome de um modelo de pessoa](./media/customize-face-model/rename-person2.png)
+    ![A screenshot mostra o modelo de pessoa renomeada.](./media/customize-face-model/rename-person2.png)
 
 4. Selecione o botão de verificação para que o seu modelo seja renomeado.
 
@@ -95,11 +95,11 @@ Pode eliminar qualquer modelo pessoa que tenha criado na sua conta. No entanto, 
 
 1. **Selecione Excluir** do menu.
 
-    ![Excluir um modelo de pessoa](./media/customize-face-model/delete-person.png)
+    ![O Screenshot mostra a caixa de diálogo de personalização do modelo content com um menu contextual com a opção de eliminar um modelo de pessoa.](./media/customize-face-model/delete-person.png)
 
     Um pop-up aparecerá e notificou-o de que esta ação irá eliminar o modelo Pessoa e todas as pessoas e ficheiros que contém. Esta ação não pode ser desfeita.
 
-    ![Excluir um modelo de pessoa](./media/customize-face-model/delete-person2.png)
+    ![A screenshot mostra uma caixa de diálogo de confirmação para apagar o modelo da pessoa.](./media/customize-face-model/delete-person2.png)
 
 1. Se tiver a certeza, selecione apagar novamente.
 
@@ -110,7 +110,7 @@ Pode eliminar qualquer modelo pessoa que tenha criado na sua conta. No entanto, 
 
 Para ver o conteúdo de qualquer um dos seus modelos Pessoas, selecione a seta ao lado do nome do modelo Pessoa. A queda mostra-vos todas as pessoas desse modelo de Pessoa em particular. Se selecionar o botão do menu da lista ao lado de cada uma das pessoas, vê gerir, renomear e eliminar opções.  
 
-![Adicione um rosto novo à pessoa](./media/customize-face-model/manage-people.png)
+![O Screenshot mostra um menu contextual com opções para Gerir, Renomear e Eliminar.](./media/customize-face-model/manage-people.png)
 
 ### <a name="rename-a-person"></a>Mudar o nome de uma pessoa
 
@@ -151,16 +151,16 @@ Para utilizar o seu modelo Pessoa num novo vídeo, faça os seguintes passos:
 
 1. Selecione o botão **upload** na parte superior da página.
 
-    ![Faça upload de um modelo de pessoa](./media/customize-face-model/upload.png)
+    ![A imagem mostra o botão upload.](./media/customize-face-model/upload.png)
 
 1. Deixe o seu ficheiro de vídeo no círculo ou navegue pelo seu ficheiro.
 1. Selecione a seta **de opções Avançadas.**
 
-    ![Faça upload de um modelo de pessoa](./media/customize-face-model/upload2.png)
+    ![A screenshot mostra uma caixa de diálogo de ficheiros de mídia.](./media/customize-face-model/upload2.png)
 
 1. Selecione o drop-down e selecione o modelo Pessoa que criou.
 
-    ![Faça upload de um modelo de pessoa](./media/customize-face-model/upload3.png)
+    ![A screenshot mostra uma caixa de diálogo de ficheiros de mídia com predefinição selecionada para o modelo People nas opções Avançadas.](./media/customize-face-model/upload3.png)
 
 1. Selecione a opção **Upload** na parte inferior da página e o seu novo vídeo será indexado usando o seu modelo Pessoa.
 
@@ -174,12 +174,12 @@ Vê opções para editar, excluir e reindexar o seu vídeo.
 
 1. Selecione a opção de reindexar o seu vídeo.
 
-    ![Use o modelo pessoa para reindexar um vídeo](./media/customize-face-model/reindex.png)
+    ![A screenshot mostra vídeos de conta e a opção de reindexar o seu vídeo.](./media/customize-face-model/reindex.png)
 
     Agora pode selecionar o modelo Pessoa para reindexar o seu vídeo com.
 1. Selecione o drop-down e selecione o modelo Pessoa que pretende utilizar.
 
-    ![Use o modelo pessoa para reindexar um vídeo](./media/customize-face-model/reindex2.png)
+    ![A screenshot mostra opções para um vídeo, incluindo a seleção de um modelo People.](./media/customize-face-model/reindex2.png)
 
 1. Selecione o botão **Reindex** e o seu vídeo será reexexuado utilizando o modelo Pessoa.
 
@@ -204,14 +204,14 @@ Se não atribuir um modelo pessoa ao vídeo durante o upload, a sua edição é 
 1. Procure um vídeo que pretenda visualizar e editar na sua conta.
 1. Para editar um rosto no seu vídeo, vá ao separador Insights e selecione o ícone do lápis no canto superior direito da janela.
 
-    ![Edite um rosto no seu vídeo](./media/customize-face-model/edit-face.png)
+    ![A screenshot mostra um vídeo com uma face desconhecida para selecionar.](./media/customize-face-model/edit-face.png)
 
 1. Selecione qualquer uma das faces detetadas e altere os seus nomes de "#X Desconhecida" (ou o nome que foi previamente atribuído ao rosto).
 1. Depois de escrever o novo nome, selecione o ícone de verificação ao lado do novo nome. Esta ação salva o novo nome e reconhece e dá nome a todas as ocorrências deste rosto nos seus outros vídeos atuais e nos futuros vídeos que envia. O reconhecimento do rosto nos seus outros vídeos atuais pode demorar algum tempo a fazer efeito, uma vez que este é um processo de lote.
 
 Se nomear um rosto com o nome de uma pessoa existente no modelo Pessoa que o vídeo está a usar, as imagens faciais detetadas deste vídeo dessa pessoa fundir-se-ão com o que já existe no modelo. Se nomear um rosto com um novo nome, uma nova entrada de Pessoa é criada no modelo Pessoa que o vídeo está a usar.
 
-![Edite um rosto no seu vídeo](./media/customize-face-model/edit-face2.png)
+![A imagem mostra um rosto com um nome adicionado.](./media/customize-face-model/edit-face2.png)
 
 ### <a name="delete-a-face"></a>Apagar um rosto
 

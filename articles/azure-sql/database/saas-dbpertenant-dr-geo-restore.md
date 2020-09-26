@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/14/2019
-ms.openlocfilehash: 44ed9c0d19b6e0034b49e36448765d098d575273
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f3c7c166b72a43b6b11dc1830643332b032abad2
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325322"
+ms.locfileid: "91356898"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Utilize o geo-restauro para recuperar uma aplicação SaaS multitensante a partir de backups de bases de dados
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Este tutorial explora um cenário completo de recuperação de desastres para uma aplicação SaaS multitenante implementada com a base de dados por modelo de inquilino. Você usa [geo-restauro](recovery-using-backups.md) para recuperar as bases de dados do catálogo e dos inquilinos de backups geo-redundantes automaticamente mantidos em uma região de recuperação alternativa. Depois de a paralisação ser resolvida, [utiliza-se a geo-replicação](active-geo-replication-overview.md) para repatriar as bases de dados alteradas para a sua região original.
 
-![Geo-restauração-arquitetura](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
+![O diagrama mostra uma região original e de recuperação, ambas com uma app, catálogo, imagens originais ou espelhadas de servidores e piscinas, backups automáticos para armazenamento, com a região de recuperação a aceitar a geo-replicação de backup e ter servidor e piscina para novos inquilinos.](./media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
 Geo-restauração é a solução de recuperação de desastres mais rentável para a Base de Dados Azure SQL. No entanto, restaurar a partir de backups geo-redundantes pode resultar em perda de dados de até uma hora. Pode levar um tempo considerável, dependendo do tamanho de cada base de dados. 
 

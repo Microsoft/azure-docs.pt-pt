@@ -7,12 +7,12 @@ author: hedidin
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 1bb6e28c9dcae01f3233178706d2a24156fa509a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fdf5f25ae6f89ccc06c95ee1be021691dab0047a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76902695"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322432"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: Processamento de exceções e registo de erros das aplicações lógicas
 
@@ -103,15 +103,15 @@ Temos de registar a origem (pedido) do registo do paciente a partir do portal Dy
 
    **Inserir entrada de log**
 
-   ![Inserir Entrada de Registo](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
+   ![Screenshot do Logic App Designer mostrando as definições de configuração para InsertLogEntry.](media/logic-apps-scenario-error-and-exception-handling/lognewpatient.png)
 
    **Inserir entrada de erro**
 
-   ![Inserir Entrada de Registo](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
+   ![Screenshot do Logic App Designer mostrando as definições de configuração para CreateErrorRecord.](media/logic-apps-scenario-error-and-exception-handling/insertlogentry.png)
 
    **Verifique se criar uma falha de gravação**
 
-   ![Condição](media/logic-apps-scenario-error-and-exception-handling/condition.png)
+   ![Screenshot do ecrã CreateErrorRecord no Logic App Designer mostrando os campos para criar uma entrada de erro.](media/logic-apps-scenario-error-and-exception-handling/condition.png)
 
 ## <a name="logic-app-source-code"></a>Código fonte de aplicação lógica
 
@@ -478,7 +478,7 @@ A expressão na amostra de código anterior verifica o *estado Create_NewPatient
 
 O código fonte para a aplicação de gestão de exceções de Apps Lógicas API está disponível neste [repositório GitHub.](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API de Gestão de Exceção de Aplicativos Lógicas")
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ver mais exemplos e cenários de aplicativos lógicos](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Monitorizar aplicações lógicas](../logic-apps/monitor-logic-apps.md)

@@ -1,6 +1,6 @@
 ---
 title: Consola em série Azure para Windows Microsoft Docs
-description: Consola em série bidis para máquinas virtuais Azure e conjuntos de balança de máquinas virtuais.
+description: Consola em série bidis para máquinas virtuais Azure e conjuntos de balança de máquinas virtuais usando um exemplo windows.
 services: virtual-machines-windows
 documentationcenter: ''
 author: asinn826
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: c30999a5f0239e60c842084b60b44c165fb7182e
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c5c139cb94358d70d1f23b68f2a369adb953da08
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424005"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325985"
 ---
 # <a name="azure-serial-console-for-windows"></a>Consola em série Azure para Windows
 
@@ -160,7 +160,7 @@ Se um utilizador estiver ligado à consola em série e outro utilizador solicita
 > [!CAUTION]
 > Isto significa que um utilizador desligado não será desligado. A capacidade de impor um logout após a desconexão (utilizando SIGHUP ou mecanismo semelhante) ainda está no roteiro. Para o Windows, existe um tempo limite automático ativado no SAC; para o Linux, pode configurar a definição de tempo limite de terminal.
 
-## <a name="accessibility"></a>Accessibility (Acessibilidade)
+## <a name="accessibility"></a>Acessibilidade
 A acessibilidade é um foco chave para a consola em série Azure. Para tal, garantimos que a consola em série é acessível para pessoas com deficiência visual, ou que são difíceis de ouvir, bem como pessoas que podem não ser capazes de usar um rato.
 
 ### <a name="keyboard-navigation"></a>Navegação do teclado
@@ -200,7 +200,7 @@ A. Fornecer feedback criando um problema gitHub em https://aka.ms/serialconsolef
 
 **Q. A consola em série suporta a cópia/pasta?**
 
-A. Yes. Utilize **ctrl** + **Shift** + **C** e **Ctrl** + **Shift** + **V** para copiar e colar no terminal.
+A. Sim. Utilize **ctrl** + **Shift** + **C** e **Ctrl** + **Shift** + **V** para copiar e colar no terminal.
 
 **Q. Quem pode ativar ou desativar a consola em série para a minha subscrição?**
 
@@ -218,7 +218,7 @@ A. A sua imagem está provavelmente mal configurada para o acesso à consola em 
 
 A. Sim, é! Ver [consola em série para conjuntos de escala de máquinas virtuais](./serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Para obter um guia aprofundado dos comandos CMD e PowerShell que pode utilizar no Windows SAC, consulte os [comandos windows: CMD e PowerShell](serial-console-cmd-ps-commands.md).
 * A consola em série também está disponível para Os VMs [Linux.](serial-console-linux.md)
 * Saiba mais sobre [diagnósticos de arranque.](boot-diagnostics.md)

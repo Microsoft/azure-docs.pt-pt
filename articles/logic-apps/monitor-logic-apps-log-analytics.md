@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
-ms.date: 01/30/2020
-ms.openlocfilehash: 2a39e27c0a9fc7999d7f363767ad62513d383192
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/24/2020
+ms.openlocfilehash: 5df596560e97ea9dba38dca4d4ca58e38caabd37
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520737"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333958"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Configurar registos do Azure Monitor e recolher dados de diagnóstico para apps Azure Logic
 
@@ -19,7 +19,7 @@ Para obter informações mais ricas sobre as suas aplicações lógicas durante 
 
 Para configurar o registo para a sua aplicação lógica, pode [ativar o Log Analytics quando criar a sua aplicação lógica](#logging-for-new-logic-apps), ou pode [instalar a solução De Gestão de Aplicações Lógicas](#install-management-solution) no seu espaço de trabalho Log Analytics para aplicações lógicas existentes. Esta solução fornece informações agregadas para a sua aplicação lógica e inclui detalhes específicos como estado, tempo de execução, estado de resubmissão e IDs de correlação. Em seguida, para permitir o registo e a criação de consultas para esta informação, [crie registos do Azure Monitor](#set-up-resource-logs).
 
-Este artigo mostra como ativar o Log Analytics quando cria aplicações lógicas, como instalar e configurar a solução De Gestão de Aplicações Lógicas e como configurar e criar consultas para registos do Azure Monitor.
+Este artigo mostra como ativar o Log Analytics em novas aplicações lógicas e aplicações lógicas existentes, como instalar e configurar a solução de Gestão de Aplicações Lógicas, e como configurar e criar consultas para registos do Azure Monitor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -89,6 +89,9 @@ Se ligou o Log Analytics quando criou a sua aplicação lógica, ignore este pas
 
 Quando armazena informações sobre eventos de tempo de execução e dados nos [registos do Azure Monitor,](../azure-monitor/platform/data-platform-logs.md)pode criar [consultas de registo](../azure-monitor/log-query/log-query-overview.md) que o ajudam a encontrar e rever estas informações.
 
+> [!NOTE]
+> Depois de ativar as definições de diagnóstico, os dados de diagnóstico podem não fluir até 30 minutos para os registos no destino especificado, como Log Analytics, centro de eventos ou conta de armazenamento. Este atraso significa que os dados de diagnóstico deste período podem não existir para que possa rever. Eventos concluídos e [propriedades rastreadas](#extend-data) podem não aparecer no seu espaço de trabalho Log Analytics durante 10-15 minutos.
+
 1. No [portal Azure,](https://portal.azure.com)encontre e selecione a sua aplicação lógica.
 
 1. No menu de aplicativos logicamente, em **Monitorização,** selecione **Definições de diagnóstico**  >  **Adicione a definição de diagnóstico**.
@@ -140,13 +143,12 @@ Depois de a sua aplicação lógica ser executado, pode ver os dados sobre essas
 
    ![Ver corre e estado da aplicação lógica](./media/monitor-logic-apps-log-analytics/logic-app-run-details.png)
 
+   > [!NOTE]
+   > A capacidade **de Resubmit** nesta página não está disponível neste momento.
+
    Para ações onde [configura propriedades rastreadas,](#extend-data)também pode ver essas propriedades selecionando **Ver** na coluna **Propriedades Rastreadas.** Para pesquisar as propriedades rastreadas, utilize o filtro da coluna.
 
    ![Ver propriedades rastreadas para uma aplicação lógica](./media/monitor-logic-apps-log-analytics/logic-app-tracked-properties.png)
-
-   > [!NOTE]
-   > Propriedades rastreadas ou eventos concluídos podem experimentar atrasos de 10-15 minutos antes de aparecer no seu espaço de trabalho Log Analytics.
-   > Além disso, a capacidade **de Resubmit** nesta página não está disponível neste momento.
 
 1. Para filtrar os seus resultados, pode efetuar a filtragem do lado do cliente e do servidor.
 
@@ -279,7 +281,7 @@ Este exemplo mostra como o `ActionCompleted` evento inclui os `clientTrackingId`
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar consultas de monitorização e rastreio](../logic-apps/create-monitoring-tracking-queries.md)
 * [Monitorizar mensagens B2B com os registos do Azure Monitor](../logic-apps/monitor-b2b-messages-log-analytics.md)

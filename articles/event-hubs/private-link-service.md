@@ -1,14 +1,14 @@
 ---
 title: Integre os Hubs de Eventos Azure com o Azure Private Link Service
 description: Saiba como integrar os Hubs de Eventos Azure com o Azure Private Link Service
-ms.date: 07/29/2020
+ms.date: 08/22/2020
 ms.topic: article
-ms.openlocfilehash: 817ec7b9256829ace61a0d1dad98f1f34683c95e
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 59167635cfc0d8c1123a47410c87d6b9151f6f62
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716796"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334247"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Permitir o acesso aos espaços de nome do Azure Event Hubs através de pontos finais privados 
 O Azure Private Link Service permite-lhe aceder aos Serviços Azure (por exemplo, Azure Event Hubs, Azure Storage e Azure Cosmos DB) e a Azure acolheu serviços de cliente/parceiro sobre um **ponto final privado** na sua rede virtual.
@@ -24,7 +24,6 @@ Para mais informações, consulte [o que é a Azure Private Link?](../private-li
 > 
 > Aqui estão alguns dos serviços que não conseguem aceder aos recursos do Event Hubs quando os pontos finais privados estão ativados. Note que a lista **NÃO** é exaustiva.
 >
-> - Azure Stream Analytics
 > - Rotas do Hub Azure IoT
 > - Explorador de dispositivos Azure IoT
 > - Azure Event Grid
@@ -202,7 +201,7 @@ Quando criar um ponto final privado, a ligação tem de ser aprovada. Se o recur
 
 Existem quatro estados de provisionamento:
 
-| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Descrição |
+| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Description |
 |--|--|--|
 | Nenhum | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do recurso Private Link. |
 | Aprovar | Aprovado | A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada. |
@@ -211,7 +210,7 @@ Existem quatro estados de provisionamento:
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Aprovar, rejeitar ou remover uma ligação de ponto final privado
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 2. Na barra de pesquisa, escreva nos **centros de eventos.**
 3. Selecione o **espaço de nomes** que pretende gerir.
 4. Selecione o **separador 'Rede'.**

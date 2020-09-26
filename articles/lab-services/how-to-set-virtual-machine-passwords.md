@@ -3,12 +3,12 @@ title: Definir palavras-passe para VMs nos Serviços de Laboratório Azure Micro
 description: Saiba como definir e redefinir palavras-passe para máquinas virtuais (VMs) em laboratórios de sala de aula dos Serviços Azure Lab.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6012123b729bd1be6b4ff0fdb00d71aca56cfa09
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 49615b37875b8340f46ed900a1e7144256c7cb7d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443779"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334077"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurar e gerir o conjunto de máquinas virtuais 
 Este artigo mostra-lhe como fazer as seguintes tarefas:
@@ -24,7 +24,7 @@ Para aumentar ou diminuir a capacidade do laboratório (número de máquinas vir
 2. Insira o novo **número de VMs** que deseja no laboratório. Este número deve ser superior ou igual ao número de utilizadores registados em laboratório. 
 3. Em seguida, **selecione Save**. 
 
-    ![Comece com todo o botão](./media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
+    ![Screenshot que mostra a janela "Capacidade de laboratório" com o botão "Maximum machines in lab" e "Save" selecionados.](./media/how-to-set-virtual-machine-passwords/number-of-vms-in-lab.png)
 4. Se aumentar a capacidade, pode ver os VM ou VMs a serem criados. Se não vir o novo VM na lista, refresque a página. 
 
     ![VM sendo criado](./media/how-to-set-virtual-machine-passwords/vm-being-created.png)
@@ -100,7 +100,7 @@ O criador do laboratório (educador) pode ligar-se a um aluno VM se estiverem re
 
     ![Lista de exportação de máquinas virtuais](./media/how-to-export-users-virtual-machines-csv/virtual-machines-export-csv.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre outras opções de utilização do aluno que você (como proprietário de laboratório) pode configurar, consulte o seguinte artigo: [Configurar](how-to-configure-student-usage.md)o uso do aluno .
 
 Para saber como os alunos podem redefinir palavras-passe para os seus VMs, consulte [set ou redefinir a palavra-passe para máquinas virtuais em laboratórios de sala de aula (alunos)](how-to-set-virtual-machine-passwords-student.md).
