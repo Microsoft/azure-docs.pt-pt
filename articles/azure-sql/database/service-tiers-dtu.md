@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 11/26/2019
-ms.openlocfilehash: fbf753436a259993f6869372ae3ba7272f2a181a
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: ba2170923885eac19af4bfe3ce55ea653371c0e8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541707"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321361"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Escalões de serviço no modelo de compra baseado em DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ A escolha de um nível de serviço depende principalmente da continuidade do neg
 |**Carga de trabalho de destino**|Desenvolvimento e produção|Desenvolvimento e produção|Desenvolvimento e produção|
 |**Uptime SLA**|99,99%|99,99%|99,99%|
 |**Retenção máxima de backup**|7 dias|35 dias|35 dias|
-|**CPU**|Baixa|Baixo, Médio, Alto|Médio, Alto|
+|**CPU**|Baixo|Baixo, Médio, Alto|Médio, Alto|
 |**Produção de IO (aproximada)** |1-5 IOPS por DTU| 1-5 IOPS por DTU | 25 IOPS por DTU|
 |**Latência IO (aproximada)**|5 ms (ler), 10 ms (escrever)|5 ms (ler), 10 ms (escrever)|2 ms (ler/escrever)|
 |**Indexação de colunas** |N/D|S3 e acima|Suportado|
@@ -109,7 +109,7 @@ A base de dados é dimensionada com base num "fator de escala". O fator de escal
 
 A carga de trabalho consiste em nove tipos de transações, conforme indicado no quadro abaixo. Cada transação foi concebida para destacar um conjunto específico de características do sistema no motor de base de dados e hardware do sistema, com elevado contraste das outras transações. Esta abordagem facilita a avaliação do impacto dos diferentes componentes no desempenho global. Por exemplo, a transação "Read Heavy" produz um número significativo de operações de leitura a partir do disco.
 
-| Tipo de Transação | Descrição |
+| Tipo de Transação | Description |
 | --- | --- |
 | Ler Lite |SELECIONE; na memória; read-only |
 | Ler Médio |SELECIONE; principalmente na memória; read-only |

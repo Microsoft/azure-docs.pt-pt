@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: metan
-ms.openlocfilehash: cdf21ed85933c2a629c5752659e9cc50107a3762
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: c4aa9c22a0350c5d946d2fd45a983eac34681512
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309310"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320936"
 ---
 # <a name="language-support-for-immersive-reader"></a>Suporte linguístico para leitor imersivo
 
@@ -30,7 +30,8 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Árabe (Arábia Saudita) | ar-SA |
 | Búlgaro | bg |
 | Búlgaro (Bulgária) | bg-BG |
-| Catalão | ca-ES |
+| Catalão | ca |
+| Catalão (catalão) | ca-ES |
 | Chinês | zh |
 | Chinês (China) | zh-CN |
 | Chinês (HONG KONG SAR) | zh-HK |
@@ -40,7 +41,8 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Chinês simplificado | zh-Hans |
 | Chinês Simplificado (China) | zh-Hans-CN |
 | Chinês Simplificado (Singapura) | zh-Hans-SG |
-| Chinês tradicional | zh-Hant-CN |
+| Chinês tradicional | zh-Hant |
+| Chinês Tradicional (China) | zh-Hant-CN |
 | Tradicional Chinês (Hong Kong SAR) | zh-Hant-HK |
 | Tradicional Chinês (SAR de Macau) | zh-Hant-MO |
 | Tradicional Chinês (Taiwan) | zh-Hant-TW |
@@ -52,7 +54,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Dinamarquês (Dinamarca) | da-DK |
 | Neerlandês | nl |
 | Neerlandês (Países Baixos) | nl-NL |
-| Inglês | en |
+| Em inglês | en |
 | Inglês (Austrália) | en-AU |
 | Inglês (Canadá) | en-CA |
 | Inglês (HONG KONG SAR) | en-HK |
@@ -90,7 +92,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Malaio | ms |
 | Malaio (Malásia) | ms-MY |
 | Norueguês Bokmal| nb |
-| Bokmal norueguês (Noruega) | nb-NO |
+| Norueguês Bokmål (Noruega) | nb-NO |
 | Polaco | pl |
 | Polaco (Polónia) | pl-PL |
 | Português | pt |
@@ -103,8 +105,8 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Eslovaco | sk |
 | Eslovaco (Eslováquia) | sk-SK |
 | Esloveno | sl |
-| Esloveno (Eslovénia) | sl-SL |
-| Espanhol | es |
+| Esloveno (Eslovénia) | sl-SI |
+| Em espanhol | es |
 | Espanhol (América Latina) | es-419 |
 | Espanhol (México) | es-MX |
 | Espanhol (Espanha) | es-ES |
@@ -126,13 +128,15 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Linguagem | Etiqueta |
 |----------|-----|
 | Afrikaans | af |
+| Árabe | ar |
 | Árabe (egípcio) | ar-EG |
 | Árabe (Arábia Saudita) | ar-SA |
 | Bangla | bn |
 | Bósnio | bs |
 | Búlgaro | bg |
 | Búlgaro (Bulgária) | bg-BG |
-| Catalão | ca-ES |
+| Catalão | ca |
+| Catalão (catalão) | ca-ES |
 | Chinês | zh |
 | Chinês (China) | zh-CN |
 | Chinês (HONG KONG SAR) | zh-HK |
@@ -142,7 +146,8 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Chinês simplificado | zh-Hans |
 | Chinês Simplificado (China) | zh-Hans-CN |
 | Chinês Simplificado (Singapura) | zh-Hans-SG |
-| Chinês tradicional | zh-Hant-CN |
+| Chinês tradicional | zh-Hant |
+| Chinês Tradicional (China) | zh-Hant-CN |
 | Tradicional Chinês (Hong Kong SAR) | zh-Hant-HK |
 | Tradicional Chinês (SAR de Macau) | zh-Hant-MO |
 | Tradicional Chinês (Taiwan) | zh-Hant-TW |
@@ -152,9 +157,10 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Checo (República Checa) | cs-CZ |
 | Dinamarquês | da |
 | Dinamarquês (Dinamarca) | da-DK |
+| Dari (Afeganistão) | prs |
 | Neerlandês | nl |
 | Neerlandês (Países Baixos) | nl-NL |
-| Inglês | en |
+| Em inglês | en |
 | Inglês (Austrália) | en-AU |
 | Inglês (Canadá) | en-CA |
 | Inglês (HONG KONG SAR) | en-HK |
@@ -176,6 +182,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Alemão (Áustria) | de-AT |
 | Alemão (Alemanha) | de-DE |
 | Alemão (Suíça)| de-CH |
+| Guzerate | gu |
 | Grego | el |
 | Grego (Grécia) | el-GR |
 | Haitiano (crioulo) | ht |
@@ -198,6 +205,8 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Rio Kiswahili | sw |
 | Coreano | ko |
 | Coreano (Coreia) | ko-KR |
+| Curdo (Central) | ku |
+| Curdo (Norte) | kmr |
 | Letão | lv |
 | Lituano | lt |
 | Malgaxe | mg |
@@ -206,8 +215,11 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Malaiala | ml |
 | Maltês | mt |
 | Maori | mi |
+| Marata | sr. |
 | Norueguês Bokmal| nb |
-| Bokmal norueguês (Noruega) | nb-NO |
+| Norueguês Bokmål (Noruega) | nb-NO |
+| Oriya | ou |
+| Pashto (Afeganistão) | ps |
 | Persa | fa |
 | Polaco | pl |
 | Polaco (Polónia) | pl-PL |
@@ -227,8 +239,8 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Eslovaco | sk |
 | Eslovaco (Eslováquia) | sk-SK |
 | Esloveno | sl |
-| Esloveno (Eslovénia) | sl-SL |
-| Espanhol | es |
+| Esloveno (Eslovénia) | sl-SI |
+| Em espanhol | es |
 | Espanhol (América Latina) | es-419 |
 | Espanhol (México) | es-MX |
 | Espanhol (Espanha) | es-ES |
@@ -257,12 +269,14 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 
 | Linguagem | Etiqueta |
 |----------|-----|
+| Árabe | ar |
 | Árabe (egípcio) | ar-EG |
 | Árabe (Arábia Saudita) | ar-SA |
 | Basco | eu |
 | Búlgaro | bg |
 | Búlgaro (Bulgária) | bg-BG |
-| Catalão | ca-ES |
+| Catalão | ca |
+| Catalão (catalão) | ca-ES |
 | Chinês simplificado | zh-Hans |
 | Chinês Simplificado (China) | zh-Hans-CN |
 | Chinês Simplificado (Singapura) | zh-Hans-SG |
@@ -278,7 +292,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Dinamarquês (Dinamarca) | da-DK |
 | Neerlandês | nl |
 | Neerlandês (Países Baixos) | nl-NL |
-| Inglês | en |
+| Em inglês | en |
 | Inglês (Austrália) | en-AU |
 | Inglês (Canadá) | en-CA |
 | Inglês (HONG KONG SAR) | en-HK |
@@ -322,7 +336,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Malaio | ms |
 | Malaio (Malásia) | ms-MY |
 | Norueguês Bokmal| nb |
-| Bokmal norueguês (Noruega) | nb-NO |
+| Norueguês Bokmål (Noruega) | nb-NO |
 | Norueguês (Nynorsk) | nn |
 | Polaco | pl |
 | Polaco (Polónia) | pl-PL |
@@ -338,8 +352,8 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Eslovaco | sk |
 | Eslovaco (Eslováquia) | sk-SK |
 | Esloveno | sl |
-| Esloveno (Eslovénia) | sl-SL |
-| Espanhol | es |
+| Esloveno (Eslovénia) | sl-SI |
+| Em espanhol | es |
 | Espanhol (América Latina) | es-419 |
 | Espanhol (México) | es-MX |
 | Espanhol (Espanha) | es-ES |
@@ -365,7 +379,8 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Basco | eu |
 | Búlgaro | bg |
 | Búlgaro (Bulgária) | bg-BG |
-| Catalão | ca-ES |
+| Catalão | ca |
+| Catalão (catalão) | ca-ES |
 | Croata | hr |
 | Croata (Croácia) | hr-HR |
 | Checo | cs |
@@ -374,7 +389,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Dinamarquês (Dinamarca) | da-DK |
 | Neerlandês | nl |
 | Neerlandês (Países Baixos) | nl-NL |
-| Inglês | en |
+| Em inglês | en |
 | Inglês (Austrália) | en-AU |
 | Inglês (Canadá) | en-CA |
 | Inglês (HONG KONG SAR) | en-HK |
@@ -406,7 +421,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Letão | lv |
 | Lituano | lt |
 | Norueguês Bokmal| nb |
-| Bokmal norueguês (Noruega) | nb-NO |
+| Norueguês Bokmål (Noruega) | nb-NO |
 | Norueguês (Nynorsk) | nn |
 | Polaco | pl |
 | Polaco (Polónia) | pl-PL |
@@ -423,8 +438,8 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Eslovaco | sk |
 | Eslovaco (Eslováquia) | sk-SK |
 | Esloveno | sl |
-| Esloveno (Eslovénia) | sl-SL |
-| Espanhol | es |
+| Esloveno (Eslovénia) | sl-SI |
+| Em espanhol | es |
 | Espanhol (América Latina) | es-419 |
 | Espanhol (México) | es-MX |
 | Espanhol (Espanha) | es-ES |
@@ -443,7 +458,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Dinamarquês (Dinamarca) | da-DK |
 | Neerlandês | nl |
 | Neerlandês (Países Baixos) | nl-NL |
-| Inglês | en |
+| Em inglês | en |
 | Inglês (Austrália) | en-AU |
 | Inglês (Canadá) | en-CA |
 | Inglês (HONG KONG SAR) | en-HK |
@@ -469,14 +484,14 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Coreano | ko |
 | Coreano (Coreia) | ko-KR |
 | Norueguês Bokmal| nb |
-| Bokmal norueguês (Noruega) | nb-NO |
+| Norueguês Bokmål (Noruega) | nb-NO |
 | Polaco | pl |
 | Polaco (Polónia) | pl-PL |
 | Português | pt |
 | Português (Brasil) | pt-BR |
 | Russo | ru |
 | Russo (Rússia) | ru-RU |
-| Espanhol | es |
+| Em espanhol | es |
 | Espanhol (América Latina) | es-419 |
 | Espanhol (México) | es-MX |
 | Espanhol (Espanha) | es-ES |
@@ -493,7 +508,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Dinamarquês (Dinamarca) | da-DK |
 | Neerlandês | nl |
 | Neerlandês (Países Baixos) | nl-NL |
-| Inglês | en |
+| Em inglês | en |
 | Inglês (Austrália) | en-AU |
 | Inglês (Canadá) | en-CA |
 | Inglês (HONG KONG SAR) | en-HK |
@@ -519,7 +534,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Coreano | ko |
 | Coreano (Coreia) | ko-KR |
 | Norueguês Bokmal| nb |
-| Bokmal norueguês (Noruega) | nb-NO |
+| Norueguês Bokmål (Noruega) | nb-NO |
 | Norueguês (Nynorsk) | nn |
 | Polaco | pl |
 | Polaco (Polónia) | pl-PL |
@@ -527,7 +542,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Português (Brasil) | pt-BR |
 | Russo | ru |
 | Russo (Rússia) | ru-RU |
-| Espanhol | es |
+| Em espanhol | es |
 | Espanhol (América Latina) | es-419 |
 | Espanhol (México) | es-MX |
 | Espanhol (Espanha) | es-ES |
@@ -538,7 +553,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 
 | Linguagem | Etiqueta |
 |----------|-----|
-| Inglês | en |
+| Em inglês | en |
 | Inglês (Austrália) | en-AU |
 | Inglês (Canadá) | en-CA |
 | Inglês (HONG KONG SAR) | en-HK |
@@ -557,7 +572,7 @@ Este artigo lista línguas humanas suportadas para funcionalidades de Leitor Ime
 | Alemão (Suíça)| de-CH |
 | Italiano | que |
 | Italiano (Itália) | it-IT |
-| Espanhol | es |
+| Em espanhol | es |
 | Espanhol (América Latina) | es-419 |
 | Espanhol (México) | es-MX |
 | Espanhol (Espanha) | es-ES |

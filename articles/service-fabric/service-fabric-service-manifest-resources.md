@@ -3,12 +3,12 @@ title: Especificar pontos finais de serviço de tecido de serviço
 description: Como descrever os recursos de ponto final num manifesto de serviço, incluindo como configurar pontos finais HTTPS
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: 8fdd95a7c0390c987b7c59663e0ee12e4a4a968e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c0c3c45c47447390901e5e0d60e77ab6b85a6a0d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91267810"
+ms.locfileid: "91354764"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos num manifesto de serviço
 ## <a name="overview"></a>Descrição geral
@@ -227,9 +227,9 @@ Suponha que especifique um valor errado. Diga para o Porto que especificou um va
 Este artigo explicou como definir pontos finais no manifesto de serviço da Service Fabric. Para exemplos mais detalhados, consulte:
 
 > [!div class="nextstepaction"]
-> [Exemplos de manifesto de aplicação e do serviço](https://docs.microsoft.com/azure/service-fabric/service-fabric-manifest-examples.md)
+> [Exemplos de manifesto de aplicação e do serviço](service-fabric-manifest-examples.md)
 
 Para uma passagem de embalagens e implantação de uma aplicação existente num cluster de Tecido de Serviço, consulte:
 
 > [!div class="nextstepaction"]
-> [Pacote e implemente um executável existente para o tecido de serviço](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-existing-app.md)
+> [Pacote e implemente um executável existente para o tecido de serviço](service-fabric-deploy-existing-app.md)

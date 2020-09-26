@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 04/07/2020
+ms.date: 09/25/2020
 ms.author: victorh
-ms.openlocfilehash: bbb78fd879bc5c6bb8c2624329a23d7137b11660
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ba9f42bc932a37e1052f17db2ae00413e0769d59
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651990"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355742"
 ---
 # <a name="azure-application-gateway-features"></a>Funcionalidades do Gateway de Aplicações Azure
 
@@ -147,15 +147,15 @@ Para obter mais informações, consulte [os cabeçalhos HTTP e URL](rewrite-http
 
 ## <a name="sizing"></a>Dimensionamento
 
-O Gateway de aplicação Standard_v2 pode ser configurado para implantações de autoscaling ou de tamanho fixo. Este SKU não oferece diferentes tamanhos de instância. Para obter mais informações sobre o desempenho e preços v2, consulte o [preço de Autoscaling V2](application-gateway-autoscaling-zone-redundant.md) e [Understanding](understanding-pricing.md).
+O Gateway de aplicação Standard_v2 pode ser configurado para implantações de autoscaling ou de tamanho fixo. O V2 SKU não oferece diferentes tamanhos de instância. Para obter mais informações sobre o desempenho e preços v2, consulte o [preço de Autoscaling V2](application-gateway-autoscaling-zone-redundant.md) e [Understanding](understanding-pricing.md).
 
-O Application Gateway Standard é oferecido em três tamanhos: **Pequeno,** **Médio**e **Grande.** Os tamanhos de instâncias pequenas destinam-se a cenários de testes e desenvolvimento.
+A Aplicação Gateway Standard (v1) é oferecida em três tamanhos: **Pequeno,** **Médio**e **Grande**. Os tamanhos de instâncias pequenas destinam-se a cenários de testes e desenvolvimento.
 
 Para obter uma lista completa dos limites do gateway de aplicação, veja [limites do serviço Gateway de Aplicação](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
 A tabela a seguir mostra uma produção média para cada instância de gateway v1 de aplicação com descarregamento SSL ativado:
 
-| Tamanho médio de resposta de página de back-end | Small | Médio | Grande |
+| Tamanho médio de resposta de página de back-end | Pequeno | Médio | Grande |
 | --- | --- | --- | --- |
 | 6 KB |7.5 Mbps |13 Mbps |50 Mbps |
 | 100 KB |35 Mbps |100 Mbps |200 Mbps |
@@ -167,6 +167,6 @@ A tabela a seguir mostra uma produção média para cada instância de gateway v
 
 Para uma comparação de funcionalidades de gateway de aplicação v1-v2, consulte [Autoscaling e Zone-redundante Application Gateway v2](application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como funciona o Application Gateway - [Como funciona um gateway de aplicações](how-application-gateway-works.md)

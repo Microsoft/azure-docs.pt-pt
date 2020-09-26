@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 3cd64de05c44729f1aa714849e12fc8f69998334
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 08796b0a9b232c7b42b3f62fea69ab49b8957c60
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498621"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322092"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do Azure para o Azure
 
@@ -40,7 +40,7 @@ Os componentes envolvidos na recuperação de desastres para os VMs do Azure sã
 
 Quando ativa a replicação de um VM, a Recuperação do Site dá-lhe a opção de criar recursos-alvo automaticamente. 
 
-**Recurso de destino** | **Definição predefinida**
+**Recurso de Destino** | **Definição predefinida**
 --- | ---
 **Assinatura de destino** | O mesmo que a assinatura de origem.
 **Grupo de recursos-alvo** | O grupo de recursos a que os VMs pertencem após o failover.<br/><br/> Pode ser em qualquer região de Azure, exceto na região de origem.<br/><br/> A Recuperação do Site cria um novo grupo de recursos na região alvo, com um sufixo "asr".<br/><br/>
@@ -104,7 +104,7 @@ Um instantâneo consistente captura dados que estavam no disco quando a fotograf
 
 **Descrição** | **Detalhes** | **Recomendação**
 --- | --- | ---
-Os pontos de recuperação consistentes da aplicação são criados a partir de instantâneos consistentes com aplicações.<br/><br/> Um instantâneo consistente com aplicações contém todas as informações num instantâneo consistente com falhas, além de todos os dados na memória e transações em curso. | Os instantâneos consistentes em aplicações utilizam o Serviço de Cópia sombra de volume (VSS):<br/><br/>   1) Quando um instantâneo é iniciado, a VSS efetua uma operação de cópia-on-write (COW) sobre o volume.<br/><br/>   2) Antes de realizar o COW, a VSS informa todas as aplicações da máquina que necessita de descarregar os seus dados de residentes de memória para o disco.<br/><br/>   3) O VSS permite então que a aplicação de backup/recuperação de desastres (neste caso, recuperação do site) leia os dados do instantâneo e prossiga. | As imagens consistentes com a aplicação são tiradas de acordo com a frequência especificada. Esta frequência deve ser sempre inferior à que definiu para reter pontos de recuperação. Por exemplo, se mantiver pontos de recuperação utilizando a definição predefinida de 24 horas, deverá definir a frequência em menos de 24 horas.<br/><br/>São mais complexos e demoram mais tempo a completar do que imagens consistentes.<br/><br/> Afetam o desempenho de aplicações em execução num VM habilitado para replicação. 
+Os pontos de recuperação consistentes da aplicação são criados a partir de instantâneos consistentes com aplicações.<br/><br/> Um instantâneo consistente com aplicações contém todas as informações num instantâneo consistente com falhas, além de todos os dados na memória e transações em curso. | Os instantâneos consistentes em aplicações utilizam o Serviço de Cópia sombra de volume (VSS):<br/><br/>   1) A recuperação do site Azure usa o método de cópia apenas de cópia (VSS_BT_COPY) que não altera o tempo de cópia de segurança do registo de transações da Microsoft SQL e o número de sequência </br></br> 2) Quando um instantâneo é iniciado, a VSS efetua uma operação de cópia-on-write (COW) sobre o volume.<br/><br/>   3) Antes de realizar a COW, a VSS informa todas as aplicações da máquina que necessita de descarregar os seus dados de residentes de memória para o disco.<br/><br/>   4) O VSS permite então que a aplicação de backup/recuperação de desastres (neste caso, recuperação do site) leia os dados do instantâneo e prossiga. | As imagens consistentes com a aplicação são tiradas de acordo com a frequência especificada. Esta frequência deve ser sempre inferior à que definiu para reter pontos de recuperação. Por exemplo, se mantiver pontos de recuperação utilizando a definição predefinida de 24 horas, deverá definir a frequência em menos de 24 horas.<br/><br/>São mais complexos e demoram mais tempo a completar do que imagens consistentes.<br/><br/> Afetam o desempenho de aplicações em execução num VM habilitado para replicação. 
 
 ## <a name="replication-process"></a>Processo de replicação
 
@@ -134,7 +134,7 @@ Se o acesso de saída para VMs for controlado com URLs, permita estes URLs.
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Fornece autorização e autenticação para os URLs do serviço Site Recovery. |
 | Replicação               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`     | Permite que a VM comunique com o serviço Site Recovery. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permite que a VM escreva dados de monitorização e diagnóstico do Site Recovery. |
-| Cofre de Chaves                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Permite o acesso para permitir a replicação de máquinas virtuais ativadas por ADE através do portal |
+| Key Vault                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Permite o acesso para permitir a replicação de máquinas virtuais ativadas por ADE através do portal |
 | Automatização do Azure          | `*.automation.ext.azure.com`               | `*.azure-automation.us`                      | Permite permitir a atualização automática do agente de mobilidade para um item replicado via portal |
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP

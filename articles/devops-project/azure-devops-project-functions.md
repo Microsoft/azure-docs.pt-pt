@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 79e2726e26ff7883d5022e57fff8fa8961af2c98
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 3277fefb5615fd492b2859b741ef8e6f991eaf23
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163684"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355479"
 ---
 # <a name="deploy-to-azure-functions-with-devops-starter"></a>Implementar para funções Azure com devOps Starter
 
@@ -95,7 +95,7 @@ O DevOps Starter configura automaticamente um pipeline CI/CD na sua organizaçã
 
 1. Clique na hiperligação em **Build**. Um separador de navegador exibe o pipeline de construção para o seu novo projeto.
 
-    ![Compilar](_img/azure-devops-project-functions/build.png)
+    ![A screenshot mostra o painel de arranque do portal Azure DevOps com uma seta apontando para uma ligação sob a construção no gasoduto C I/C D.](_img/azure-devops-project-functions/build.png)
 
 1. Selecione **Editar**. Neste painel, pode examinar as várias tarefas para o seu oleoduto de construção. A construção executa várias tarefas, tais como o código fonte de busca do repo Git, a construção da aplicação, a execução de testes unitários e a publicação de saídas que são usadas para implementações.
 

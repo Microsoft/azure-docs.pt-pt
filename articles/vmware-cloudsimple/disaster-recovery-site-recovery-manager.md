@@ -1,6 +1,6 @@
 ---
 title: Azure VMware Solution by CloudSimple - Configurar a Nuvem Privada como um local de recuperação de desastres utilizando o VMware Site Recovery Manager
-description: Descreve como configurar a cloud private cloud como um local de recuperação de desastres para cargas de trabalho VMware no local
+description: Descreve como configurar a cloud private cloud como um site de recuperação de desastres usando o VMware Site Recovery Manager.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fa8b2da683d68a337df38e13726f22c5af43540a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6714b2c5d87141fd94d0f96d9cf07913442d18d6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77565932"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267062"
 ---
 # <a name="set-up-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>Configurar a Nuvem Privada como um alvo de recuperação de desastres com o VMware Site Recovery Manager
 

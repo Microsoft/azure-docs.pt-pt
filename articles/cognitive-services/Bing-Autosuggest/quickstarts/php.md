@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Sugestione consultas de pesquisa com o Bing Autosuggest REST API e PHP'
+title: 'Quickstart: Sugerir consultas de pesquisa com a Bing Autosuggest REST API e PHP'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a começar rapidamente a sugerir termos de pesquisa em tempo real com a API Bing Autosuggest.
+description: Aprenda a começar rapidamente a sugerir termos de pesquisa em tempo real com a Bing Autosuggest API e PHP.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
-ms.openlocfilehash: 6552c345678b6996f4a35e9e1fc7a1838505ff09
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 534702a9122fd19be1b47dc1fcbd54ba7bfad14c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82930187"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332615"
 ---
-# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>Quickstart: Sugestione consultas de pesquisa com o Bing Autosuggest REST API e PHP
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>Quickstart: Sugerir consultas de pesquisa com a Bing Autosuggest REST API e PHP
 
-Acompanhe este quickstart para aprender a fazer chamadas para a API Bing Autosuggest e leia a resposta jSON. Esta simples aplicação PHP envia uma consulta de pesquisa parcial à API, e devolve sugestões para pesquisas. Embora esta aplicação esteja escrita em PHP, a API é um serviço Web restful compatível com a maioria dos idiomas de programação.
+Siga este quickstart para aprender a fazer chamadas para a Bing Autosuggest API e leia a resposta JSON. Esta simples aplicação PHP envia uma consulta parcial de pesquisa para a API, e devolve sugestões de pesquisas. Embora esta aplicação esteja escrita em PHP, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,8 +32,8 @@ Acompanhe este quickstart para aprender a fazer chamadas para a API Bing Autosug
 1. Crie um novo projeto PHP no seu IDE favorito.
 2. Adicione o código indicado abaixo.
 3. Substitua o `subscriptionKey` valor por uma chave de acesso válida para a sua subscrição.
-4. Utilize o ponto final global no código ou utilize o ponto final de [subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
-5. Execute o programa.
+4. Utilize o ponto final global no código ou utilize o ponto final [de subdomínio personalizado](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
+5. Executar o programa.
 
 ```php
 <?php
@@ -80,7 +80,7 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 ?>
 ```
 
-## <a name="example-json-response"></a>Exemplo resposta JSON
+## <a name="example-json-response"></a>Exemplo JSON resposta
 
 É devolvida uma resposta com êxito em JSON, tal como é apresentado no exemplo seguinte: 
 

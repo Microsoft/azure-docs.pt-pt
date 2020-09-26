@@ -10,13 +10,13 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: nitinme
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 44de79afd6e2fb1f1d4fff1323484364a17da8d0
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.custom: devx-track-js
+ms.openlocfilehash: 02901e6b4a75257b2cda8dee84dbe3438dc15c18
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505306"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332377"
 ---
 # <a name="how-to-set-the-cookie-policy-for-the-immersive-reader"></a>Como definir a política de cookies para o Leitor Imersivo
 
@@ -44,7 +44,7 @@ var options = {
 ImmersiveReader.launchAsync(YOUR_TOKEN, YOUR_SUBDOMAIN, YOUR_DATA, options);
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Veja o [Node.js arranque rápido](../quickstarts/client-libraries.md?pivots=programming-language-nodejs) para ver o que mais pode fazer com o SDK do leitor imersivo usando Node.js
 * Veja o [tutorial do Android](../tutorial-android.md) para ver o que mais pode fazer com o SDK do leitor imersivo usando Java ou Kotlin para Android

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: d8da8bcf3d2bb6b2af2b5c69ce003289d83d3884
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 517fed0dd9eb1736344546bde9f79e52ee17182f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939390"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333108"
 ---
 # <a name="troubleshooting-azure-sql-edge-deployments"></a>Resolução de problemas Azure SQL Edge implantações 
 
@@ -138,32 +138,12 @@ docker exec -it <Container ID> /bin/bash
 
 Agora pode executar comandos como se estivesse a executá-los no terminal dentro do contentor. Quando terminar, `exit` escreva. Isto sai na sessão de comando interativo, mas o seu contentor continua a funcionar.
 
-## <a name="troubleshooting-issues-with-data-streaming"></a>Problemas de resolução de problemas com o streaming de dados
-
-Por predefinição, os registos do motor de streaming Azure SQL Edge são escritos num ficheiro nomeado `current` sob o diretório **/var/opt/mssql/log/services/00000001-0000-0000-0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000** O ficheiro pode ser acedido diretamente através do volume mapeado ou do recipiente de volume de dados ou iniciando uma sessão interativa de pedido de comando para o recipiente SQL Edge. 
-
-Além disso, se conseguir ligar-se à instância SQL Edge utilizando as ferramentas do cliente, pode utilizar o seguinte comando T-SQL para aceder ao registo do motor de streaming atual. 
-
-```sql
-
-select value as log, try_convert(DATETIME2, substring(value, 0, 26)) as timestamp 
-from 
-    STRING_SPLIT
-    (
-        (
-            select BulkColumn as logs
-            FROM OPENROWSET (BULK '/var/opt/mssql/log/services/00000001-0000-0000-0000-000000000000/current', SINGLE_CLOB) MyFile
-        ),
-        CHAR(10)
-    ) 
-where datalength(value) > 0
-
-```
-
 ### <a name="enabling-verbose-logging"></a>Habilitação de registo verboso
 
 Se o nível de registo predefinido para o motor de streaming não fornecer informações suficientes, a depuração do motor de streaming pode ser ativada em SQL Edge. Para ativar a extração de depuração adicione a `RuntimeLogLevel=debug` variável ambiente à sua implementação SQL Edge. Depois de permitir a depuração do registo, tente reproduzir o problema e verifique se os registos são de mensagens ou exceções relevantes. 
 
+> [!NOTE]
+> A opção Verbose Logging deve ser utilizada apenas para a resolução de problemas e não para a carga de trabalho regular de produção. 
 
 
 ## <a name="next-steps"></a>Passos seguintes

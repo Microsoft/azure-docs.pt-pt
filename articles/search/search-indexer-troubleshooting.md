@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 05d0cba2a3751ac010dc26f68137a31dd04c62ce
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 7eadc9121c54b636fa8b42579284d4018043e1c1
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935148"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91355130"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Problemas de resolução de problemas problemas de indexante comum na Pesquisa Cognitiva do Azure
 
@@ -91,7 +91,7 @@ api-key: [admin key]
 O indexante blob [encontra e extrai texto de bolhas num recipiente](search-howto-indexing-azure-blob-storage.md#how-azure-search-indexes-blobs). Alguns problemas com a extração de texto incluem:
 
 * O documento contém apenas imagens digitalizadas. As bolhas PDF que têm conteúdo não texto, como imagens digitalizadas (JPGs), não produzem resultados num pipeline de indexação de blob padrão. Se tiver conteúdo de imagem com elementos de texto, pode utilizar a [pesquisa cognitiva](cognitive-search-concept-image-scenarios.md) para encontrar e extrair o texto.
-* O indexante blob é configurado apenas para metadados de índice. Para extrair o conteúdo, o indexante blob deve ser configurado para [extrair tanto o conteúdo como os metadados:](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed)
+* O indexante blob é configurado apenas para metadados de índice. Para extrair o conteúdo, o indexante blob deve ser configurado para [extrair tanto o conteúdo como os metadados:](search-howto-indexing-azure-blob-storage.md#PartsOfBlobToIndex)
 
 ```
 PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2020-06-30

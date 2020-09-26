@@ -10,16 +10,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: juliemsft
 ms.author: jrasnick
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 04/19/2020
-ms.openlocfilehash: f0a9e36113226a40f4bd21a7b171ca7a65930f95
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 7ee876b1d65e71657cb1af857cdad9f62a32100e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987242"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333059"
 ---
-# <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitorização da Base de Dados SQL do Microsoft Azure e desempenho de instância gerida do Azure SQL utilizando vistas de gestão dinâmicas
+# <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitorizar o desempenho do Azure SQL Managed Instance e da Base de Dados SQL do Microsoft Azure com as vistas de gestão dinâmicas
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 A Base de Dados DO Microsoft Azure SQL e a Azure SQL Managed Instance permitem um subconjunto de visões dinâmicas de gestão para diagnosticar problemas de desempenho, que podem ser causados por consultas bloqueadas ou de longa duração, estrangulamentos de recursos, planos de consulta deficientes, e assim por diante. Este tópico fornece informações sobre como detetar problemas de desempenho comuns usando pontos de vista dinâmicos de gestão.
@@ -131,7 +131,7 @@ Ao identificar problemas de desempenho de IO, os principais tipos de espera asso
 
 ### <a name="if-the-io-issue-is-occurring-right-now"></a>Se a questão da IO está a ocorrer agora
 
-Use o [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) ou [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) para ver o `wait_type` e `wait_time` .
+Utilize o [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) ou [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) para ver o `wait_type` e `wait_time` .
 
 #### <a name="identify-data-and-log-io-usage"></a>Identificar dados e registar utilização de IO
 
@@ -499,7 +499,7 @@ GO
 
 ## <a name="monitoring-connections"></a>Conexões de monitorização
 
-Pode utilizar a vista [sys.dm_exec_connections](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-connections-transact-sql) para obter informações sobre as ligações estabelecidas num servidor específico e casos geridos e detalhes de cada ligação. Além disso, a visão [sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) é útil para recuperar informações sobre todas as ligações ativas do utilizador e tarefas internas.
+Pode utilizar a [vista sys.dm_exec_connections](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-connections-transact-sql) para obter informações sobre as ligações estabelecidas num servidor específico e casos geridos e detalhes de cada ligação. Além disso, a [visão sys.dm_exec_sessions](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sessions-transact-sql) é útil na recuperação de informações sobre todas as ligações ativas do utilizador e tarefas internas.
 
 A seguinte consulta obtém informações sobre a ligação atual:
 
@@ -517,7 +517,7 @@ WHERE c.session_id = @@SPID;
 ```
 
 > [!NOTE]
-> Ao executar as **vistas sys.dm_exec_requests** e **sys.dm_exec_sessions**, se tiver a permissão **DO VIEW DATABASE STATE** na base de dados, consulte todas as sessões de execução na base de dados; caso contrário, só se vê a sessão atual.
+> Ao executar as **sys.dm_exec_requests** e **sys.dm_exec_sessions pontos de vista**, se tiver a permissão DO VIEW DATABASE **STATE** na base de dados, consulte todas as sessões de execução na base de dados; caso contrário, só se vê a sessão atual.
 
 ## <a name="monitor-resource-use"></a>Monitorizar a utilização de recursos
 
@@ -526,12 +526,12 @@ Pode monitorizar a utilização do recurso de base de dados Azure SQL utilizando
 Também pode monitorizar a utilização utilizando estas vistas:
 
 - Base de Dados Azure SQL: [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
-- Exemplo gerido Azure SQL: [sys.server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database)
+- Azure SQL Caso Gerido: [sys.server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database)
 - Azure SQL Database e Azure SQL Managed Instance: [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx)
 
 ### <a name="sysdm_db_resource_stats"></a>sys.dm_db_resource_stats
 
-Pode utilizar a vista [sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) em todas as bases de dados. A visão **sys.dm_db_resource_stats** mostra dados recentes de utilização de recursos relativos ao nível de serviço. Percentagens médias para CPU, IO de dados, registos e memória são registadas a cada 15 segundos e são mantidas durante 1 hora.
+Pode utilizar a [vista sys.dm_db_resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) em todas as bases de dados. A **visão sys.dm_db_resource_stats** mostra dados recentes de utilização de recursos relativos ao nível de serviço. Percentagens médias para CPU, IO de dados, registos e memória são registadas a cada 15 segundos e são mantidas durante 1 hora.
 
 Como esta vista proporciona um olhar mais granular sobre o uso de recursos, use **sys.dm_db_resource_stats** primeiro para qualquer análise do estado atual ou resolução de problemas. Por exemplo, esta consulta mostra a utilização média e máxima de recursos para a base de dados atual durante a última hora:
 
@@ -552,7 +552,7 @@ Para outras consultas, consulte os exemplos em [sys.dm_db_resource_stats](https:
 
 ### <a name="sysserver_resource_stats"></a>sys.server_resource_stats
 
-Você pode usar [sys.server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database) para devolver o uso de CPU, IO e dados de armazenamento para uma Instância Gerida Azure SQL. Os dados são recolhidos e agregados dentro de intervalos de cinco minutos. Há uma fila para cada 15 segundos a reportar. Os dados devolvidos incluem uso de CPU, tamanho de armazenamento, utilização de IO e exemplo gerido SKU. Os dados históricos são conservados por aproximadamente 14 dias.
+Pode utilizar [sys.server_resource_stats](/sql/relational-databases/system-catalog-views/sys-server-resource-stats-azure-sql-database) para devolver o uso do CPU, IO e dados de armazenamento para uma Instância Gerida Azure SQL. Os dados são recolhidos e agregados dentro de intervalos de cinco minutos. Há uma fila para cada 15 segundos a reportar. Os dados devolvidos incluem uso de CPU, tamanho de armazenamento, utilização de IO e exemplo gerido SKU. Os dados históricos são conservados por aproximadamente 14 dias.
 
 ```sql
 DECLARE @s datetime;  
@@ -568,7 +568,7 @@ HAVING AVG(avg_cpu_percent) >= 80
 
 ### <a name="sysresource_stats"></a>sys.resource_stats
 
-A vista [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) na base de dados **principal** tem informações adicionais que podem ajudá-lo a monitorizar o desempenho da sua base de dados no seu nível de serviço específico e tamanho de cálculo. Os dados são recolhidos a cada 5 minutos e são mantidos durante aproximadamente 14 dias. Esta visão é útil para uma análise histórica a longo prazo de como a sua base de dados utiliza recursos.
+A [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) vista na base de dados **principal** tem informações adicionais que podem ajudá-lo a monitorizar o desempenho da sua base de dados no seu nível de serviço específico e tamanho de cálculo. Os dados são recolhidos a cada 5 minutos e são mantidos durante aproximadamente 14 dias. Esta visão é útil para uma análise histórica a longo prazo de como a sua base de dados utiliza recursos.
 
 O gráfico que se segue mostra a utilização do recurso CPU para uma base de dados Premium com o tamanho do cálculo P2 para cada hora numa semana. Este gráfico começa numa segunda-feira, mostra 5 dias de trabalho, e depois mostra um fim de semana, quando muito menos acontece na aplicação.
 
@@ -578,7 +578,7 @@ A partir dos dados, esta base de dados tem atualmente uma carga de CPU de pouco 
 
 Outros tipos de aplicação podem interpretar o mesmo gráfico de forma diferente. Por exemplo, se uma aplicação tentar processar dados de folha de pagamento todos os dias e tiver o mesmo gráfico, este tipo de modelo de "trabalho em lote" pode fazer bem com um tamanho de computação P1. O tamanho do cálculo P1 tem 100 DTUs em comparação com 200 DTUs no tamanho do cálculo P2. O tamanho do cálculo P1 proporciona metade do desempenho do tamanho do cálculo P2. Assim, 50% do uso de CPU em P2 equivale a 100% de uso de CPU em P1. Se a aplicação não tiver intervalos de tempo, pode não importar se um trabalho leva 2 horas ou 2,5 horas para terminar, se for feito hoje. Uma aplicação nesta categoria provavelmente pode usar um tamanho de computação P1. Pode aproveitar o facto de que há períodos de tempo durante o dia em que o uso do recurso é menor, de modo que qualquer "grande pico" pode derramar para uma das calhas mais tarde. O tamanho do cálculo P1 pode ser bom para este tipo de aplicação (e economizar dinheiro), desde que os trabalhos possam terminar a tempo todos os dias.
 
-O motor de base de dados expõe informações de recursos consumidos para cada base de dados ativa na visão **sys.resource_stats** da base de dados **principal** em cada servidor. Os dados na tabela são agregados para intervalos de 5 minutos. Com os níveis de serviço Basic, Standard e Premium, os dados podem demorar mais de 5 minutos a aparecer na tabela, pelo que estes dados são mais úteis para análises históricas do que para análises quase em tempo real. Consulte o **sys.resource_stats** vista para ver o histórico recente de uma base de dados e validar se a reserva que escolheu entregou o desempenho que deseja quando necessário.
+O motor de base de dados expõe informações de recursos consumidos para cada base de dados ativa na **sys.resource_stats** vista da base de dados **principal** em cada servidor. Os dados na tabela são agregados para intervalos de 5 minutos. Com os níveis de serviço Basic, Standard e Premium, os dados podem demorar mais de 5 minutos a aparecer na tabela, pelo que estes dados são mais úteis para análises históricas do que para análises quase em tempo real. Consulte a **sys.resource_stats** vista para ver o histórico recente de uma base de dados e validar se a reserva que escolheu entregou o desempenho que deseja quando necessário.
 
 > [!NOTE]
 > Na Base de Dados Azure SQL, deve estar ligado à base de dados **principal** para consultar **sys.resource_stats** nos seguintes exemplos.
@@ -594,7 +594,7 @@ ORDER BY start_time DESC
 
 ![A vista do catálogo sys.resource_stats](./media/monitoring-with-dmvs/sys_resource_stats.png)
 
-O próximo exemplo mostra-lhe diferentes formas de usar a vista de catálogo **sys.resource_stats** para obter informações sobre como a sua base de dados utiliza recursos:
+O próximo exemplo mostra-lhe diferentes formas de usar a **vista de** catálogo sys.resource_stats para obter informações sobre como a sua base de dados utiliza recursos:
 
 1. Para ver a utilização de recursos da semana passada para o userdb1 da base de dados, pode executar esta consulta:
 
@@ -624,7 +624,7 @@ O próximo exemplo mostra-lhe diferentes formas de usar a vista de catálogo **s
     WHERE database_name = 'userdb1' AND start_time > DATEADD(day, -7, GETDATE());
     ```
 
-3. Com esta informação sobre os valores médios e máximos de cada métrica de recurso, pode avaliar o quão bem a sua carga de trabalho se encaixa no tamanho do cálculo que escolheu. Normalmente, os valores médios **de sys.resource_stats** dão-lhe uma boa linha de base para usar contra o tamanho do alvo. Deve ser a sua vara de medição primária. Por exemplo, pode estar a utilizar o nível de serviço Standard com tamanho de computação S2. As percentagens médias de utilização das leituras e escritas de CPU e IO são inferiores a 40%, o número médio de trabalhadores é inferior a 50, e o número médio de sessões é inferior a 200. A sua carga de trabalho pode encaixar no tamanho da computação S1. É fácil ver se a sua base de dados se enquadra nos limites de trabalho e de sessão. Para ver se uma base de dados se enquadra num tamanho de cálculo mais baixo no que diz respeito ao CPU, lê e escreve, divida o número DTU do tamanho do cálculo inferior pelo número DTU do seu tamanho atual de cálculo e, em seguida, multiplique o resultado por 100:
+3. Com esta informação sobre os valores médios e máximos de cada métrica de recurso, pode avaliar o quão bem a sua carga de trabalho se encaixa no tamanho do cálculo que escolheu. Normalmente, os valores médios de **sys.resource_stats** dão-lhe uma boa linha de base para usar contra o tamanho do alvo. Deve ser a sua vara de medição primária. Por exemplo, pode estar a utilizar o nível de serviço Standard com tamanho de computação S2. As percentagens médias de utilização das leituras e escritas de CPU e IO são inferiores a 40%, o número médio de trabalhadores é inferior a 50, e o número médio de sessões é inferior a 200. A sua carga de trabalho pode encaixar no tamanho da computação S1. É fácil ver se a sua base de dados se enquadra nos limites de trabalho e de sessão. Para ver se uma base de dados se enquadra num tamanho de cálculo mais baixo no que diz respeito ao CPU, lê e escreve, divida o número DTU do tamanho do cálculo inferior pelo número DTU do seu tamanho atual de cálculo e, em seguida, multiplique o resultado por 100:
 
     `S1 DTU / S2 DTU * 100 = 20 / 50 * 100 = 40`
 
@@ -714,7 +714,7 @@ WHERE D.name = 'MyDatabase'
 
 Mais uma vez, estas consultas devolvem uma contagem pontual. Se recolher várias amostras ao longo do tempo, terá a melhor compreensão da sua utilização da sessão.
 
-Você pode obter estatísticas históricas sobre sessões consultando a visão [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) e revendo a coluna **ative_session_count.**
+Você pode obter estatísticas históricas sobre sessões consultando a vista [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) e revendo a coluna **ative_session_count.**
 
 ## <a name="monitoring-query-performance"></a>Desempenho da consulta de monitorização
 
@@ -743,7 +743,7 @@ ORDER BY 2 DESC;
 
 ### <a name="monitoring-blocked-queries"></a>Consultas bloqueadas de monitorização
 
-Consultas lentas ou de longa duração podem contribuir para o consumo excessivo de recursos e ser consequência de consultas bloqueadas. A causa do bloqueio pode ser o mau design de aplicações, os maus planos de consulta, a falta de índices úteis, e assim por diante. Pode utilizar a vista sys.dm_tran_locks para obter informações sobre a atividade de bloqueio atual na base de dados. Por exemplo, código, consulte [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx).
+Consultas lentas ou de longa duração podem contribuir para o consumo excessivo de recursos e ser consequência de consultas bloqueadas. A causa do bloqueio pode ser o mau design de aplicações, os maus planos de consulta, a falta de índices úteis, e assim por diante. Pode utilizar a visão sys.dm_tran_locks para obter informações sobre a atividade de bloqueio atual na base de dados. Por exemplo, código, consulte [sys.dm_tran_locks (Transact-SQL)](https://msdn.microsoft.com/library/ms190345.aspx).
 
 ### <a name="monitoring-query-plans"></a>Planos de consulta de monitorização
 
@@ -769,6 +769,6 @@ CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [Introdução à Base de Dados Azure SQL e Azure SQL Gestão de Instância](sql-database-paas-overview.md)

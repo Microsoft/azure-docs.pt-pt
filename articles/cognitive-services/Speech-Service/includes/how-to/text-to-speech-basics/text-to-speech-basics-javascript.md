@@ -4,17 +4,28 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/15/2020
 ms.author: trbye
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f5cbfc96ecc7fce8dbdcca776d13847087cfcd03
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.custom: devx-track-js
+ms.openlocfilehash: 5857e88a0d8392d9c20ed1b1e9b19b31c83a51fd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400922"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332507"
 ---
+Neste arranque rápido, você aprende padrões de design comuns para fazer síntese de texto-a-fala usando o SDK do discurso. Começa por fazer configuração e síntese básicas e passa a exemplos mais avançados para o desenvolvimento de aplicações personalizadas, incluindo:
+
+* Obtenção de respostas como fluxos de memória
+* Personalização da taxa de amostra de saída e da taxa de bits
+* Submeter pedidos de síntese utilizando SSML (linguagem de marcação da síntese da fala)
+* Usando vozes neurais
+
+## <a name="skip-to-samples-on-github"></a>Salte para as amostras no GitHub
+
+Se quiser saltar diretamente para o código de amostra, consulte as [amostras de arranque rápido do JavaScript](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech) no GitHub.
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que tem uma conta Azure e subscrição do serviço de fala. Se não tiver uma conta e subscrição, [experimente gratuitamente o serviço Desemação](../../../get-started.md).
+Este artigo pressupõe que tem uma conta Azure e subscrição do serviço de fala. Se não tiver uma conta e subscrição, [experimente gratuitamente o serviço Desemação](../../../overview.md#try-the-speech-service-for-free).
 
 ## <a name="install-the-speech-sdk"></a>Instale o SDK de discurso
 
@@ -57,19 +68,19 @@ Para mais informações `require` sobre, veja <a href="https://nodejs.org/en/kno
 
 ## <a name="create-a-speech-configuration"></a>Criar uma configuração de discurso
 
-Para ligar para o serviço de discurso usando o SDK de discurso, precisa de criar um [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest) . Esta classe inclui informações sobre a sua subscrição, como a sua chave e região associada, ponto final, anfitrião ou token de autorização.
+Para ligar para o serviço de discurso usando o SDK de discurso, precisa de criar um [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true) . Esta classe inclui informações sobre a sua subscrição, como a sua chave e região associada, ponto final, anfitrião ou token de autorização.
 
 > [!NOTE]
 > Independentemente de estar a realizar reconhecimento de voz, síntese de fala, tradução ou reconhecimento de intenções, irá sempre criar uma configuração.
 
-Há algumas maneiras de inicializar [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest) um:
+Há algumas maneiras de inicializar [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true) um:
 
 * Com uma subscrição: passe numa chave e na região associada.
 * Com um ponto final: passe num ponto final de serviço de discurso. Uma chave ou sinal de autorização é opcional.
 * Com um anfitrião: passe em um endereço de anfitrião. Uma chave ou sinal de autorização é opcional.
 * Com um sinal de autorização: passe em um token de autorização e na região associada.
 
-Neste exemplo, cria-se uma [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest) chave de subscrição e uma região. Consulte a página de apoio da [região](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) para encontrar o seu identificador da região. Também cria um código básico de placa de caldeira para usar para o resto deste artigo, que modifica para diferentes personalizações.
+Neste exemplo, cria-se uma [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true) chave de subscrição e uma região. Consulte a página de apoio da [região](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk) para encontrar o seu identificador da região. Também cria um código básico de placa de caldeira para usar para o resto deste artigo, que modifica para diferentes personalizações.
 
 ```javascript
 function synthesizeSpeech() {
@@ -81,7 +92,7 @@ synthesizeSpeech();
 
 ## <a name="synthesize-speech-to-a-file"></a>Sintetizar o discurso a um ficheiro
 
-Em seguida, [`SpeechSynthesizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?view=azure-node-latest) cria-se um objeto que executa conversões de texto para discurso e saídas para altifalantes, ficheiros ou outros fluxos de saída. O [`SpeechSynthesizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?view=azure-node-latest) aceita como params o [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest) objeto criado no passo anterior, e um [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest) objeto que especifica como os resultados de saída devem ser tratados.
+Em seguida, [`SpeechSynthesizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?view=azure-node-latest&preserve-view=true) cria-se um objeto que executa conversões de texto para discurso e saídas para altifalantes, ficheiros ou outros fluxos de saída. O [`SpeechSynthesizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer?view=azure-node-latest&preserve-view=true) aceita como params o [`SpeechConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true) objeto criado no passo anterior, e um [`AudioConfig`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig?view=azure-node-latest&preserve-view=true) objeto que especifica como os resultados de saída devem ser tratados.
 
 Para iniciar, crie uma `AudioConfig` saída para escrever automaticamente a saída para um ficheiro utilizando a `.wav` `fromAudioFileOutput()` função estática.
 
@@ -155,7 +166,7 @@ Para muitos cenários no desenvolvimento de aplicações de fala, é provável q
 > [!NOTE]
 > Passar `undefined` para o , em vez de `AudioConfig` omiti-lo como no exemplo de saída do altifalante acima, não reproduzirá o áudio por padrão no dispositivo de saída ativo atual.
 
-Desta vez, guarde o resultado para uma [`SpeechSynthesisResult`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult?view=azure-node-latest) variável. A `SpeechSynthesisResult.audioData` propriedade devolve um dos `ArrayBuffer` dados de saída. Pode trabalhar com isto `ArrayBuffer` manualmente.
+Desta vez, guarde o resultado para uma [`SpeechSynthesisResult`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisresult?view=azure-node-latest&preserve-view=true) variável. A `SpeechSynthesisResult.audioData` propriedade devolve um dos `ArrayBuffer` dados de saída. Pode trabalhar com isto `ArrayBuffer` manualmente.
 
 ```javascript
 function synthesizeSpeech() {
@@ -188,7 +199,7 @@ A seguinte secção mostra como personalizar atributos de saída de áudio, incl
 * Taxa de amostra
 * Profundidade da bit
 
-Para alterar o formato áudio, utilize a `speechSynthesisOutputFormat` propriedade no `SpeechConfig` objeto. Esta propriedade espera um `enum` [`SpeechSynthesisOutputFormat`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?view=azure-node-latest) tipo, que você usa para selecionar o formato de saída. Consulte os documentos de referência para obter uma [lista de formatos áudio](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?view=azure-node-latest) disponíveis.
+Para alterar o formato áudio, utilize a `speechSynthesisOutputFormat` propriedade no `SpeechConfig` objeto. Esta propriedade espera um `enum` [`SpeechSynthesisOutputFormat`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?view=azure-node-latest&preserve-view=true) tipo, que você usa para selecionar o formato de saída. Consulte os documentos de referência para obter uma [lista de formatos áudio](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat?view=azure-node-latest&preserve-view=true) disponíveis.
 
 Existem várias opções para diferentes tipos de ficheiros, dependendo dos seus requisitos. Note que, por definição, formatos brutos como `Raw24Khz16BitMonoPcm` não incluem cabeçalhos de áudio. Utilize formatos brutos apenas quando souber que a sua implementação a jusante pode descodificar um bitstream cru, ou se planeia construir manualmente cabeçalhos baseados na profundidade de bit, taxa de amostra, número de canais, etc.
 

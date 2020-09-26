@@ -10,19 +10,19 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: 8749b64b664571abab6f354018dcbd2bd797531e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/23/2020
+ms.openlocfilehash: a5856d85b6a967f49fd651942ca6e4596bf15e7d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531224"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320987"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração contínua e entrega na Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A integração contínua é a prática de testar cada alteração feita na sua base de código automaticamente e o mais cedo possível.A entrega contínua segue o teste que acontece durante a integração contínua e empurra alterações para um sistema de encenação ou produção.
 
@@ -212,13 +212,17 @@ Se a sua fábrica de desenvolvimento tiver um repositório de git associado, pod
 * Utiliza CI/CD automatizado e pretende alterar algumas propriedades durante a implementação do Gestor de Recursos, mas as propriedades não são parametrizadas por padrão.
 * A sua fábrica é tão grande que o modelo de Gestor de Recursos predefinido é inválido porque tem mais do que os parâmetros máximos permitidos (256).
 
-Para anular o modelo de parametrização padrão, crie um ficheiro nomeado **arm-template-parameters-definition.jsna** pasta raiz do seu ramo de git. Tens de usar esse nome exato do ficheiro.
+Para anular o modelo de parametrização padrão, vá ao centro de gestão e selecione o **modelo de parametrização** na secção de controlo de origem. Selecione **o modelo de edição** para abrir o editor de código de modelo de parâmetros. 
 
-   ![Arquivo de parâmetros personalizados](media/continuous-integration-deployment/custom-parameters.png)
+![Gerir parâmetros personalizados](media/author-management-hub/management-hub-custom-parameters.png)
+
+A criação de um modelo de parametrização personalizado cria um ficheiro nomeado **arm-template-parameters-definition.jsna** pasta raiz do seu ramo de git. Tens de usar esse nome exato do ficheiro.
+
+![Arquivo de parâmetros personalizados](media/continuous-integration-deployment/custom-parameters.png)
 
 Ao publicar a partir do ramo de colaboração, a Data Factory lerá este ficheiro e utilizará a sua configuração para gerar quais propriedades são parametrizadas. Se não for encontrado nenhum ficheiro, o modelo predefinido é utilizado.
 
-Ao exportar um modelo de Gestor de Recursos, a Data Factory lê este ficheiro a partir de qualquer ramo em que esteja a trabalhar, e não apenas a partir do ramo de colaboração. Pode criar ou editar o ficheiro a partir de uma sucursal privada, onde pode testar as suas alterações selecionando o **Modelo ARM de Exportação** na UI. Em seguida, pode fundir o ficheiro no ramo de colaboração.
+Ao exportar um modelo de Gestor de Recursos, a Data Factory lê este ficheiro a partir de qualquer ramo em que esteja a trabalhar, e não no ramo de colaboração. Pode criar ou editar o ficheiro a partir de uma sucursal privada, onde pode testar as suas alterações selecionando o **Modelo ARM de Exportação** na UI. Em seguida, pode fundir o ficheiro no ramo de colaboração.
 
 > [!NOTE]
 > Um modelo de parametrização personalizado não altera o limite de parâmetro do modelo ARM de 256. Permite-lhe escolher e diminuir o número de propriedades parametrizadas.

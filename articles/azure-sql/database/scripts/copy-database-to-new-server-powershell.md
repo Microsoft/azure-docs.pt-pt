@@ -9,14 +9,14 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: cf6e29ccc5e12969031f4c99f86d7356e7bbfadf
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 63de1ff47bdd3a6145b16ebcc8ee3b431888f926
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87063338"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321506"
 ---
 # <a name="use-powershell-to-copy-a-database-to-a-new-server"></a>Use o PowerShell para copiar uma base de dados para um novo servidor
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]

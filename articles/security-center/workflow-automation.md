@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 09/12/2020
+ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 7933cc692ebc3b40e5f608a917dce51f5298fbe3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f3a1dc716e4db51d9d8b488bd98fc254f8dad842
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904641"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322160"
 ---
 # <a name="create-automatic-responses-to-alerts-and-recommendations-with-workflow-automation"></a>Criar respostas automáticas a alertas e recomendações com automatização de fluxos de trabalho
 
@@ -38,7 +38,7 @@ Este artigo descreve a funcionalidade de automatização do fluxo de trabalho do
 
 
 
-## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Crie uma App Lógica e defina quando deve ser executado automaticamente 
+## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Crie uma aplicação lógica e defina quando deve ser executado automaticamente 
 
 1. A partir da barra lateral do Centro de Segurança, selecione **a automatização do fluxo de trabalho**.
 
@@ -63,26 +63,24 @@ Este artigo descreve a funcionalidade de automatização do fluxo de trabalho do
 
 1. Insira um nome, grupo de recursos e localização, e clique em **Criar**.
 
-1. Na sua nova Aplicação Lógica, pode escolher entre modelos incorporados e predefinidos da categoria de segurança. Ou pode definir um fluxo personalizado de eventos que ocorram quando este processo é desencadeado.
+1. Na sua nova aplicação lógica, pode escolher entre modelos incorporados e predefinidos da categoria de segurança. Ou pode definir um fluxo personalizado de eventos que ocorram quando este processo é desencadeado.
 
-    No designer da Aplicação Lógica são suportados os seguintes gatilhos dos conectores do Centro de Segurança:
+    No designer de aplicativos de lógica são suportados os seguintes gatilhos dos conectores do Centro de Segurança:
 
-    * **Quando uma recomendação do Centro de Segurança Azure é criada ou desencadeada**
-    * **Quando um alerta do Centro de Segurança Azure é criado ou desencadeado** 
-    
-    > [!TIP]
-    > Pode personalizar o gatilho de modo a que se relacione apenas com alertas com os níveis de gravidade que lhe interessam.
+    * **Quando uma recomendação do Centro de Segurança Azure for criada ou ativada** - Se a sua aplicação lógica se basear numa recomendação que seja depreciada ou substituída, a sua automatização deixará de funcionar e terá de atualizar o gatilho. Para acompanhar as alterações às recomendações, consulte [as notas de lançamento do Azure Security Center](release-notes.md).
+
+    * **Quando um Alerta do Centro de Segurança Azure é criado ou acionado** - Pode personalizar o gatilho de modo a que se relacione apenas com os níveis de gravidade que lhe interessam.
     
     > [!NOTE]
-    > Se estiver a utilizar o gatilho legado "Quando for acionada uma resposta a um alerta do Centro de Segurança Azure", as suas Aplicações Lógicas não serão lançadas pela função Demôm automação do fluxo de trabalho. Em vez disso, utilize qualquer um dos gatilhos acima mencionados. 
+    > Se estiver a utilizar o gatilho legado "Quando for desencadeada uma resposta a um alerta do Centro de Segurança Azure", as suas aplicações lógicas não serão lançadas pela funcionalidade Dem automação do fluxo de trabalho. Em vez disso, utilize qualquer um dos gatilhos acima mencionados. 
 
-    [![App lógica da amostra](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
+    [![App lógica de amostra](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
 
-1. Depois de definir a sua App Lógica, volte ao painel de definição de automatização de fluxo de trabalho ("Adicione a automatização do fluxo de trabalho"). Clique **em Refresh** para garantir que a sua nova App Lógica está disponível para seleção.
+1. Depois de definir a sua aplicação lógica, volte ao painel de definição de automatização de fluxo de trabalho ("Adicione a automatização do fluxo de trabalho"). Clique **em Refresh** para garantir que a sua nova App Lógica está disponível para seleção.
 
     ![Atualizar](media/workflow-automation/refresh-the-list-of-logic-apps.png)
 
-1. Selecione a sua App Lógica e guarde a automatização. Note que o dropdown da Aplicação Lógica apenas mostra Aplicações Lógicas com conectores de Centro de Segurança de suporte mencionados acima.
+1. Selecione a sua aplicação lógica e guarde a automatização. Note que o dropdown da Aplicação Lógica apenas mostra Aplicações Lógicas com conectores de Centro de Segurança de suporte mencionados acima.
 
 
 ## <a name="manually-trigger-a-logic-app"></a>Desencadear manualmente uma Aplicação Lógica

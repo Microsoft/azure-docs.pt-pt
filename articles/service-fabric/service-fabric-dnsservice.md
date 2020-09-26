@@ -4,12 +4,12 @@ description: Utilize o serviço dns da Service Fabric para descobrir microservi�
 ms.topic: conceptual
 ms.date: 7/20/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a05669bbd6de44447d7eb11a0b9941d18e8048d1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: f7f06920820cdc73f8d3101ab24ee46625931ee4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021277"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91268048"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Serviço DNS no Azure Service Fabric
 O Serviço DNS é um serviço de sistema opcional que pode permitir no seu cluster descobrir outros serviços utilizando o protocolo DNS. 
@@ -18,7 +18,7 @@ Muitos serviços, especialmente serviços contentorizados, são endereçados atr
 
 O serviço DNS mapeia os nomes dns para nomes de serviço, que por sua vez são resolvidos pelo Serviço de Nomeação para devolver o ponto final do serviço. O nome DNS para o serviço é fornecido no momento da criação. O diagrama seguinte mostra como o serviço DNS funciona para serviços apátridas.
 
-![pontos finais de serviço](./media/service-fabric-dnsservice/stateless-dns.png)
+![Diagrama mostrando como os nomes dns são mapeados para nomes de serviço pelo serviço DNS para serviços apátridas.](./media/service-fabric-dnsservice/stateless-dns.png)
 
 Começando pela versão 6.3 do Service Fabric, o protocolo DNS do Tecido de Serviço foi alargado para incluir um esquema de endereçamento de serviços estatais divididos. Estas extensões possibilitam a resolução de endereços IP de partição específicas utilizando uma combinação de nome DNS de serviço e o nome de partição. Todos os três sistemas de partição são apoiados:
 
@@ -28,7 +28,7 @@ Começando pela versão 6.3 do Service Fabric, o protocolo DNS do Tecido de Serv
 
 O diagrama seguinte mostra como o serviço DNS funciona para serviços estatais divididos.
 
-![pontos finais de serviço stateful](./media/service-fabric-dnsservice/stateful-dns.png)
+![Diagrama mostrando como os nomes dns são mapeados para nomes de serviço pelo serviço DNS para serviços atrilhoados divididos.](./media/service-fabric-dnsservice/stateful-dns.png)
 
 As portas dinâmicas não são suportadas pelo serviço DNS. Para resolver os serviços expostos em portas dinâmicas, utilize o [serviço de procuração inversa](./service-fabric-reverseproxy.md).
 

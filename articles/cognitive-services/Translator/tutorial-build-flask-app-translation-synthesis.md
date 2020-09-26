@@ -10,13 +10,13 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.custom: devx-track-python, devx-track-javascript
-ms.openlocfilehash: 6a81e52b833a59f51f6961a0bd41d52b040050b2
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.custom: devx-track-python, devx-track-js
+ms.openlocfilehash: 41d7fe8e22b39d8755f86e5ee490aa6e7dff97fc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876891"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330626"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutorial: Construir uma app Flask com Serviços Cognitivos Azure
 
@@ -86,7 +86,7 @@ Antes de construir a sua aplicação web Flask, terá de criar um diretório de 
    cd flask-cog-services
    ```
 
-### <a name="create-and-activate-your-virtual-environment-with-virtualenv"></a>Crie e ative o seu ambiente virtual com`virtualenv`
+### <a name="create-and-activate-your-virtual-environment-with-virtualenv"></a>Crie e ative o seu ambiente virtual com `virtualenv`
 
 Vamos criar um ambiente virtual para a nossa aplicação Flask `virtualenv` utilizando. A utilização de um ambiente virtual garante que tem um ambiente limpo para trabalhar.
 
@@ -139,7 +139,7 @@ A seguir temos de instalar o Flask. O Flask trata do encaminhamento para a nossa
    ```
    pip install Flask
    ```
-   Vamos certificar-nos de que o Flask foi instalado. Execução:
+   Vamos certificar-nos de que o Flask foi instalado. Executar:
    ```
    flask --version
    ```
@@ -291,7 +291,7 @@ A primeira coisa a fazer é escrever uma função para chamar o Tradutor. Esta f
    ```
 3. Adicione a sua chave de subscrição de Tradutor e guarde.
 
-### <a name="add-a-route-to-apppy"></a>Adicione uma rota para`app.py`
+### <a name="add-a-route-to-apppy"></a>Adicione uma rota para `app.py`
 
 Em seguida, terá de criar uma rota na sua aplicação Flask que `translate.py` ligue. Esta rota será chamada sempre que um utilizador premir o botão de tradução na sua aplicação.
 
@@ -411,7 +411,7 @@ Vamos `index.html` atualizar.
 
 O próximo passo é escrever javascript. Esta é a ponte entre a sua rota HTML e Flask.
 
-### <a name="create-mainjs"></a>Criar`main.js`  
+### <a name="create-mainjs"></a>Criar `main.js`  
 
 O `main.js` ficheiro é a ponte entre a sua rota HTML e Flask. A sua aplicação utilizará uma combinação de jQuery, Ajax e XMLHttpRequest para renderizar conteúdo e fazer `POST` pedidos para as suas rotas Flask.
 
@@ -533,7 +533,7 @@ Vamos escrever uma função para chamar a API de Análise de Texto. Esta funçã
    ```
 3. Adicione a sua chave de subscrição text Analytics e guarde.
 
-### <a name="add-a-route-to-apppy"></a>Adicione uma rota para`app.py`
+### <a name="add-a-route-to-apppy"></a>Adicione uma rota para `app.py`
 
 Vamos criar uma rota na sua aplicação Flask que `sentiment.py` liga. Esta rota será chamada sempre que um utilizador premir o botão de análise de sentimento de execução na sua aplicação. Tal como a rota para a tradução, esta rota vai aceitar `POST` pedidos, uma vez que a função espera argumentos.
 
@@ -670,7 +670,7 @@ Nesta secção, vais fazer algumas coisas:
 
 ### <a name="call-the-text-to-speech-api"></a>Ligue para a API text-to-speech
 
-Vamos escrever uma função para converter texto-a-discurso. Esta função terá dois argumentos: `input_text` e `voice_font` . Esta função é chamada sempre que um utilizador pressiona o botão de conversão texto-a-fala na sua aplicação. `input_text`é a saída de tradução devolvida pela chamada para traduzir texto, `voice_font` é o valor do seletor de fonte de voz no HTML.
+Vamos escrever uma função para converter texto-a-discurso. Esta função terá dois argumentos: `input_text` e `voice_font` . Esta função é chamada sempre que um utilizador pressiona o botão de conversão texto-a-fala na sua aplicação. `input_text` é a saída de tradução devolvida pela chamada para traduzir texto, `voice_font` é o valor do seletor de fonte de voz no HTML.
 
 1. Vamos criar um ficheiro chamado `synthesize.py` na raiz do seu diretório de trabalho.
 
@@ -727,7 +727,7 @@ Vamos escrever uma função para converter texto-a-discurso. Esta função terá
    ```
 3. Adicione a sua chave de subscrição de Serviços de Fala e guarde.
 
-### <a name="add-a-route-to-apppy"></a>Adicione uma rota para`app.py`
+### <a name="add-a-route-to-apppy"></a>Adicione uma rota para `app.py`
 
 Vamos criar uma rota na sua aplicação Flask que `synthesize.py` liga. Esta rota será chamada sempre que um utilizador premir o botão de conversão texto-a-fala na sua aplicação. Tal como as rotas para a tradução e análise de sentimentos, esta rota vai aceitar `POST` pedidos, uma vez que a função espera dois argumentos: o texto para sintetizar, e a fonte de voz para reprodução.
 

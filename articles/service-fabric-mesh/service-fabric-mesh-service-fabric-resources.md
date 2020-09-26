@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: vturecek
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 0ae2ed163560aee4c0c3525ab31910e37afaa5b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7f25d4156c3d2671e1a15a1253ed7ba22265af0
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847010"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354875"
 ---
 # <a name="introduction-to-service-fabric-resource-model"></a>Introdução ao Modelo de Recursos de Tecido de Serviço
 
@@ -29,7 +29,7 @@ Cada recurso é descrito declarativamente num ficheiro de recursos, que é um do
 
 Um recurso de aplicação é a unidade de implantação, versão e vida útil de uma aplicação de Malha. É composto por um, ou mais, recursos de serviço que representam um microserviço. Cada recurso de Serviço, por sua vez, é composto por um, ou mais, pacotes de código que descrevem tudo o que é necessário para executar a imagem do recipiente associada ao pacote de código.
 
-![Aplicativos e serviços][Image1]
+![Aplicações e serviços][Image1]
 
 Um recurso de serviço declara o seguinte:
 
@@ -66,7 +66,7 @@ Os recursos secretos são implantáveis independentemente de uma aplicação ou 
 
 Os contentores costumam disponibilizar discos temporários. No entanto, os discos temporários são efémeros, por isso obtém-se um novo disco temporário e perde-se a informação quando um contentor se despenha. Também é difícil partilhar informações sobre discos temporários com outros contentores. Os volumes são diretórios que são montados dentro dos casos do seu contentor que pode usar para persistir. Os volumes dão-lhe armazenamento de ficheiros de uso geral e permitem-lhe ler/escrever ficheiros utilizando apis de ficheiro sonoro normal. O recurso Volume é uma forma declarativa de descrever como um diretório é montado e o armazenamento de suporte para ele (ou volume de ficheiros Azure ou volume fiável de tecido de serviço).  Para mais informações, leia [o estado de armazenamento.](service-fabric-mesh-storing-state.md#volumes)
 
-![Volumes][Image3]
+![O diagrama mostra um Serviço fluindo para um volume de disco, que flui para ambos os tecidos de serviço Volume fiável, em seguida, para um disco local replicado, e para O Volume de Ficheiros Azure, em seguida, para armazenamento de rede.][Image3]
 
 ## <a name="programming-models"></a>Modelos de programação
 O recurso de serviço requer apenas uma imagem de contentor a ser executada, que é referenciada no(s) pacote de código(s) associado ao recurso. Pode executar qualquer código, escrito em qualquer idioma, utilizando qualquer estrutura dentro do recipiente sem necessidade de conhecer, ou utilizar, APIs específicos de malha de tecido de serviço. 
@@ -78,7 +78,7 @@ O seu código de aplicação permanece portátil mesmo fora da Malha de Tecido d
 As aplicações de malha de tecido de serviço baseadas no modelo de recursos são embaladas como recipientes Docker.  A Malha de Tecido de Serviço é um ambiente partilhado e multi-inquilino e os contentores dão-lhe um alto nível de isolamento.  Estas aplicações são descritas utilizando um formato JSON ou um formato YAML (que é depois convertido em JSON). Ao implementar uma aplicação de malha para malha de tecido de serviço Azure, o JSON usado para descrever a aplicação é um modelo de Gestor de Recursos Azure. Os recursos estão mapeados para os recursos do Azure.  Ao implementar uma aplicação de Malha num cluster de Tecido de Serviço (autónomo ou alojado no Azure), o JSON utilizado para descrever a aplicação é um formato semelhante a um modelo de Gestor de Recursos Azure.  Uma vez implementadas, as aplicações de malha podem ser geridas através de interfaces HTTP ou do Azure CLI. 
 
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 Para saber mais sobre a Malha de Tecido de Serviço, leia a visão geral:
 - [Visão geral da malha de tecido de serviço](service-fabric-mesh-overview.md)
 

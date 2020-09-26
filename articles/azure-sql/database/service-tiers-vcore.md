@@ -8,14 +8,14 @@ ms.subservice: features
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: sashan, moslake, carlrab
+ms.reviewer: sashan, moslake
 ms.date: 08/14/2020
-ms.openlocfilehash: 19f811c636d5cf3ffb3eef9904c7ba4f7d456b5f
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: ceb1c9711d67b32f9a31e6105df0e0e0eec42907
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462212"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321378"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>vCore model overview - Azure SQL Database e Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -222,7 +222,7 @@ On the **Details** page, provide the following:
 Approved support requests are typically fulfilled within 5 business days.
 -->
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar, consulte: 
 - [Criação de uma Base de Dados SQL utilizando o portal Azure](single-database-create-quickstart.md)
