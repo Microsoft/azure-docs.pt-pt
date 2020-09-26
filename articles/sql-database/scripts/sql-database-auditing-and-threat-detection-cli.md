@@ -9,14 +9,14 @@ ms.devlang: azurecli
 ms.topic: sample
 author: ronitr
 ms.author: ronitr
-ms.reviewer: carlrab, vanto
+ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: ac945b14091ae01cfad66c3776c84406583e491f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6791691be976e541c6400e89dde8f892fe50c6dc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037122"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336178"
 ---
 # <a name="use-cli-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Utilize o CLI para configurar a auditoria da Base de Dados SQL e a Proteção Avançada de Ameaças
 

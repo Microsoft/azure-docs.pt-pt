@@ -9,16 +9,16 @@ ms.topic: how-to
 ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: c2ce40f7d8a8d08e191fce11c98bd780e0c2fda1
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4b25458cc934097b5477c174ae7ecc47762e2929
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230080"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280305"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Ative e gere a eliminação suave para recipientes (pré-visualização)
 
-O recipiente de exclusão suave (pré-visualização) protege os seus dados de serem modificados ou eliminados acidentalmente ou erroneamente. Quando a eliminação suave do contentor estiver ativada para uma conta de armazenamento, um recipiente e o seu conteúdo podem ser recuperados após a sua eliminação, dentro de um período de retenção que especifique.
+O recipiente de exclusão suave (pré-visualização) protege os seus dados de serem modificados ou eliminados acidentalmente ou erroneamente. Quando a eliminação suave do contentor estiver ativada para uma conta de armazenamento, um recipiente e o seu conteúdo podem ser recuperados após a sua eliminação, num período de retenção que especifique.
 
 Se houver a possibilidade de os seus dados poderem ser acidentalmente modificados ou eliminados por uma aplicação ou outro utilizador de uma conta de armazenamento, a Microsoft recomenda que se interlige com a eliminação suave do contentor. Este artigo mostra como permitir a eliminação suave para recipientes. Para obter mais detalhes sobre a eliminação suave do recipiente, incluindo como se registar para a pré-visualização, consulte [Soft delete para recipientes (pré-visualização)](soft-delete-container-overview.md).
 
@@ -93,7 +93,7 @@ Para ver recipientes comvidade no portal Azure, siga estes passos:
 Pode restaurar um recipiente desausação e o seu conteúdo dentro do período de retenção. Para restaurar um recipiente de apagamento suave no portal Azure, siga estes passos:
 
 1. Navegue na sua conta de armazenamento no portal Azure e veja a lista dos seus contentores.
-1. Apresente o menu de contexto para o recipiente que deseja eliminar e escolha **Undelete** no menu.
+1. Exiba o menu de contexto para o recipiente que deseja restaurar e escolha **Undelete** no menu.
 
     :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-restore.png" alt-text="Screenshot mostrando como restaurar um recipiente de apagamento suave no portal Azure":::
 

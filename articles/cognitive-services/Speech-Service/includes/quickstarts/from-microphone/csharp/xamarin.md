@@ -11,19 +11,19 @@ ms.topic: include
 ms.date: 04/02/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 48a80d7367943c2c86fd3822a5c236b0cdf11846
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f89bdbfd144fb327c1daae020a1e371c00045859
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926460"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376327"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
 
 > [!div class="checklist"]
-> * [Criar um recurso de fala azul](../../../../get-started.md)
+> * [Criar um recurso de fala azul](../../../../overview.md#try-the-speech-service-for-free)
 > * [Configurar o seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=xamarin&pivots=programming-language-csharp)
 > * Certifique-se de que tem acesso a um microfone para captura de áudio
 

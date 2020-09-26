@@ -4,12 +4,12 @@ description: Como falhar sobre VMs/servidores físicos para Azure com Azure Site
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: d2f7fed25955d6a34c6162b87b82bfae5e58ff41
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 481e7c692be24bbebd14584f8158740a5b7043ba
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563986"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317893"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>Executar uma ativação pós-falha de local para o Azure
 
@@ -46,7 +46,7 @@ Executar o plano de recuperação falha da seguinte forma:
 1. No cofre de recuperação do local, selecione **Planos de Recuperação**  >  *recoveryplan_name*.
 2. Clique **em Failover**.
 
-    ![A screenshot mostra o painel ADRP com Failover selecionado no menu Mais.](./media/site-recovery-failover/Failover.png)
+    ![Screenshot da Recuperação do Local Azure mostrando o painel ADRP com Failover selecionado no menu Mais.](./media/site-recovery-failover/Failover.png)
 
 3. Na **Failover**  >  **direção Failover Failover,** deixe o padrão se estiver a replicar-se em Azure.
 4. Em **Failover**, selecione um **Ponto de Recuperação** para o qual falhar.
@@ -81,7 +81,7 @@ Pode executar uma falha planeada para VMs hiper-V.
 
 Há uma série de postos de trabalho associados à falta de emprego.
 
-![Ativação pós-falha](./media/site-recovery-failover/FailoverJob.png)
+![Screenshot da página Jobs mostrando uma lista de Empregos com Grupo 1: Início(1) expandido na coluna Nome. A linha para o trabalho sqlServer está em destaque.](./media/site-recovery-failover/FailoverJob.png)
 
 - **Pré-requisitos de verificação**: Certifique-se de que todas as condições necessárias para o failover são satisfeitas.
 - **Failover**: Processa os dados de modo a que possa ser criado um VM Azure a partir do mesmo. Se escolheu **o último** ponto de recuperação, é criado um ponto de recuperação a partir dos dados enviados para o serviço.

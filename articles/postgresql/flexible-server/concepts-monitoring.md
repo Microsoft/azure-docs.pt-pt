@@ -5,15 +5,15 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 7d1d7f9759fc8e2826da6232981eb3a389576c07
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: b0957219308dfaab2d375fb7c23926a13c745344
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937246"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314679"
 ---
-# <a name="monitor-metrics-azure-database-for-postgresql---flexible-server"></a>Monitor métricas Azure Database for PostgreSQL - Servidor Flexível
+# <a name="monitor-metrics-on-azure-database-for-postgresql---flexible-server"></a>Monitorize métricas na Base de Dados Azure para PostgreSQL - Servidor Flexível
 
 > [!IMPORTANT]
 > Azure Database for PostgreSQL - Flexible Server está em pré-visualização
@@ -27,8 +27,9 @@ A Azure Database for PostgreSQL fornece várias métricas que dão uma visão do
 As seguintes métricas estão disponíveis para o servidor flexível PostgreSQL:
 
 
-|Métrica|Nome de exibição métrica|Unidade|Descrição|
+|Métrica|Nome de exibição métrica|Unidade|Description|
 |---|---|---|---|
+| active_connections | Ligações Ativas | de palavras | O número de ligações ao seu servidor. | 
 | backup_storage_used | Armazenamento de backup usado | Bytes | Quantidade de armazenamento de reserva usado. Esta métrica representa a soma de armazenamento consumida por todas as cópias de segurança completas da base de dados, cópias de segurança diferenciais e cópias de segurança de registo mantidas com base no período de retenção de backup definido para o servidor. A frequência dos backups é gerida pelo serviço. Para o armazenamento geo-redundante, o uso de armazenamento de backup é o dobro do armazenamento localmente redundante. |
 | connections_failed | Ligações com Falhas | de palavras | Ligações falhadas. |
 | connections_succeeded | Conexões bem sucedidas | de palavras | Ligações bem sucedidas. |

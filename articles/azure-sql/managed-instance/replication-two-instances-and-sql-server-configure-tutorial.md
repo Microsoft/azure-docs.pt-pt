@@ -8,14 +8,14 @@ ms.custom: sqldbrb=1
 ms.topic: tutorial
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 11/21/2019
-ms.openlocfilehash: d89bc33b0ddd0793a3c55dbd64bef9678bd723e7
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9d6592ccfb3ba5236a660d689d8b5d2cd1600c48
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920148"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91283195"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Tutorial: Configurar a replicação transacional entre a Azure SQL Managed Instance e o SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -85,7 +85,7 @@ Crie uma máquina virtual SQL Server utilizando o [portal Azure](https://portal.
 - Nome: `sql-vm-sub`
 - Imagem: SQL Server 2016 ou maior
 - Grupo de recursos: o mesmo que a instância gerida
-- Rede virtual:`sql-vm-sub-vnet`
+- Rede virtual: `sql-vm-sub-vnet`
 
 Para obter mais informações sobre a implementação de um SQL Server VM para Azure, consulte [Quickstart: Create a SQL Server VM](../virtual-machines/windows/sql-vm-create-portal-quickstart.md).
 
@@ -184,11 +184,11 @@ Uma zona privada de DNS permite o encaminhamento de DNS entre as instâncias ger
 
 [Crie uma conta de armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) para o diretório de trabalho e, em seguida, crie uma [parte de arquivo](../../storage/files/storage-how-to-create-file-share.md) dentro da conta de armazenamento.
 
-Copie o caminho da partilha de ficheiros no formato de:`\\storage-account-name.file.core.windows.net\file-share-name`
+Copie o caminho da partilha de ficheiros no formato de: `\\storage-account-name.file.core.windows.net\file-share-name`
 
 Exemplo: `\\replstorage.file.core.windows.net\replshare`
 
-Copie a cadeia de ligação da chave de acesso ao armazenamento no formato de:`DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
+Copie a cadeia de ligação da chave de acesso ao armazenamento no formato de: `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
 Exemplo: `DefaultEndpointsProtocol=https;AccountName=replstorage;AccountKey=dYT5hHZVu9aTgIteGfpYE64cfis0mpKTmmc8+EP53GxuRg6TCwe5eTYWrQM4AmQSG5lb3OBskhg==;EndpointSuffix=core.windows.net`
 
@@ -349,7 +349,7 @@ Use ReplTutorial
 INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 1. Navegue para o seu grupo de recursos no [portal Azure](https://portal.azure.com).
 1. Selecione as instâncias geridas e, em seguida, **selecione Delete**. Digite `yes` na caixa de texto para confirmar que pretende eliminar o recurso e, em seguida, selecione **Eliminar**. Este processo pode demorar algum tempo a ser concluído em segundo plano, e até que esteja feito, não será capaz de eliminar o *cluster virtual* ou quaisquer outros recursos dependentes. Monitorize a eliminação no separador **'Atividade'** para confirmar que a sua instância gerida foi eliminada.
@@ -377,8 +377,8 @@ Isto é provável porque a porta 445 está fechada na firewall Azure, na firewal
 
 A utilização de um corte para a frente em vez de retrocesso no caminho do ficheiro para a partilha de ficheiros pode causar este erro.
   
-  - Isto está bom:`\\replstorage.file.core.windows.net\replshare`
-  - Isto pode causar um erro de SO 55:`'\\replstorage.file.core.windows.net/replshare'`
+  - Isto está bom: `\\replstorage.file.core.windows.net\replshare`
+  - Isto pode causar um erro de SO 55: `'\\replstorage.file.core.windows.net/replshare'`
 
 ### <a name="could-not-connect-to-subscriber"></a>Não consegui ligar ao Assinante
 
@@ -386,7 +386,7 @@ A utilização de um corte para a frente em vez de retrocesso no caminho do fich
 `Could not open a connection to SQL Server [53].`
 `A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections.`
 
-Possíveis soluções:
+Soluções possíveis:
 
 - Certifique-se de que a porta 1433 está aberta.
 - Certifique-se de que o TCP/IP está ativado no assinante.

@@ -1,6 +1,6 @@
 ---
 title: Instalar atualização 0.6 em StorSimple Virtual Array / Microsoft Docs
-description: Descreve como usar o StorSimple Virtual Array web UI para aplicar atualizações usando o portal Azure e o método hotfix
+description: Descreve como utilizar o UI web StorSimple Virtual Array para aplicar o Update 0.6 utilizando o portal Azure e o método de correção em calor.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2017
 ms.author: alkohli
-ms.openlocfilehash: 02b85cb90948f35cb6f6c855cfbe81fd58301de0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 917af7ea1789394ddba5d349d631018e2b620216
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513589"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295690"
 ---
 # <a name="install-update-06-on-your-storsimple-virtual-array"></a>Instale atualização 0.6 no seu StorSimple Virtual Array
 
@@ -35,7 +35,7 @@ Antes de aplicar uma atualização, recomendamos que leve primeiro os volumes ou
 >
 > - Se estiver a executar a Atualização 0.2 ou posterior, recomendamos que instale as atualizações através do portal Azure. Se estiver a executar as versões de software Update 0.1 ou GA, tem de utilizar o método hotfix através da UI web local para instalar o Update 0.6.
 >
-> - Tenha em mente que instalar uma atualização ou um hotfix reinicia o seu dispositivo. Dado que o StorSimple Virtual Array é um único dispositivo de nó, qualquer I/S em andamento é interrompido e o seu dispositivo experimenta tempo de inatividade.
+> - Tenha em atenção que a instalação de uma atualização ou correção reinicia o dispositivo. Dado que o StorSimple Virtual Array é um único dispositivo de nó, qualquer I/S em andamento é interrompido e o seu dispositivo experimenta tempo de inatividade.
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
@@ -124,7 +124,7 @@ Utilize este método para instalar atualizações num dispositivo em execução 
 
 7. Repita o passo 2-4 para instalar as correções de segurança do Windows utilizando ficheiros `windows8.1-kb4012213-x64` `windows8.1-kb3205400-x64` , e `windows8.1-kb4019213-x64` . A matriz virtual reinicia após cada instalação e precisa de iniciar súm na UI web local.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a administração do seu StorSimple Virtual Array](storsimple-ova-web-ui-admin.md).
 

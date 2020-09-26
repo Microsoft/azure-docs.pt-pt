@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Como exibir direções de rota usando o serviço de rota do Microsoft Azure Maps e o controlo do mapa'
-description: Saiba como exibir as direções de rota utilizando o serviço de rota do Microsoft Azure Maps e o controlo do mapa.
+title: 'Tutorial: Encontre caminho para um local / Microsoft Azure Maps'
+description: Tutorial sobre como encontrar uma rota para um ponto de interesse. Veja como definir coordenadas de endereço e consultar o serviço de Rota Azure Maps para as direções ao ponto.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/01/2020
@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 35a3f6d1e7894eec9baa4ea5432a8e3fec138a21
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 3cb9bee65ab7fa2c29185c40ecb48fd531192187
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085047"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321718"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Tutorial: Como exibir direções de rota usando o serviço de rota Azure Maps e o controlo do mapa
 
@@ -218,7 +218,7 @@ Esta secção mostra-lhe como utilizar a API das Direções de Rota do Azure Map
 
      :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Serviço de controlo e rota do mapa Azure":::
 
-    Pode obter o código fonte completo para a amostra [aqui.](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html) Uma amostra viva pode ser encontrada [aqui.](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
+Pode obter o código fonte completo para a amostra [aqui.](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html) Uma amostra viva pode ser encontrada [aqui.](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: c8868cd6f5c50b84f263155518ee553145afcfa9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a25f28b19e0f00830fd0290ff0296c317b9a5ed9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88602441"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371759"
 ---
 **Volume e retenção de recolha de dados** 
 
@@ -70,20 +70,30 @@ O Azure Monitor é um serviço de dados de alta escala que serve milhares de cli
 
 Quando envia dados para um espaço de trabalho a uma taxa de volume superior a 80% do limiar configurado no seu espaço de trabalho, é enviado um evento para a tabela *Operação* no seu espaço de trabalho a cada 6 horas enquanto o limiar continua a ser ultrapassado. Quando a taxa de volume ingerida é superior ao limiar, alguns dados são eliminados e um evento é enviado para a tabela *Operação* no seu espaço de trabalho a cada 6 horas enquanto o limiar continua a ser ultrapassado. Se a sua taxa de volume de ingestão continuar a exceder o limiar ou se espera alcançá-lo em breve, pode solicitar um aumento, abrindo um pedido de apoio. 
 
-Para ser notificado sobre a aplicação ou a obtenção do limite de taxa de volume de ingestão no seu espaço de trabalho, crie uma [regra de alerta de registo](../articles/azure-monitor/platform/alerts-log.md) utilizando a seguinte consulta com base lógica de alerta sobre o número de resultados mais ralados do que zero, período de avaliação de 5 minutos e frequência de 5 minutos.
+Para ser notificado sobre a aproximação ou o limite de taxa de volume de ingestão no seu espaço de trabalho, crie uma [regra de alerta de registo](../articles/azure-monitor/platform/alerts-log.md) utilizando a seguinte consulta com base lógica de alerta sobre o número de resultados ralador do que zero, período de avaliação de 5 minutos e frequência de 5 minutos.
 
-A taxa de volume de ingestão atingiu 80% do limiar:
+Taxa de volume de ingestão ultrapassou o limiar
 ```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed 80% of the threshold"
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Error"
 ```
 
-Taxa de volume de ingestão atingiu o limiar:
+Taxa de volume de ingestão ultrapassou 80% do limiar
 ```Kusto
 Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The data ingestion volume rate crossed the threshold"
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Warning"
+```
+
+Taxa de volume de ingestão ultrapassou 70% do limiar
+```Kusto
+Operation
+| where Category == "Ingestion"
+| where OperationKey == "Ingestion rate limit"
+| where Level == "Info"
 ```
 
 >[!NOTE]

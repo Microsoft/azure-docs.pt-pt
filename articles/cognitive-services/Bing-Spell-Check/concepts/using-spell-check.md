@@ -1,7 +1,7 @@
 ---
 title: Utilizar a API de Verificação de Ortografia do Bing
 titleSuffix: Azure Cognitive Services
-description: Conheça os modos de verificação de feitiços de Bing, configurações e outras informações relacionadas com a API.
+description: Saiba mais sobre os modos Bing Spell Check, definições e outras informações relacionadas com a API.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: c5c9ad8be8bd4cd834b01a0c67e0bbc81b8cdd4a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: a17ed0f13e352fb185d20d9dc2d7bfffa74ac957
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "68881892"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334774"
 ---
 # <a name="using-the-bing-spell-check-api"></a>Utilizar a API de Verificação de Ortografia do Bing
 
-Use este artigo para aprender sobre a utilização da API bing spell check para realizar gramática contextual e verificação de feitiços. Embora a maioria dos verificadores de feitiços dependa de conjuntos de regras baseados no dicionário, o verificador de feitiços Bing aproveita a aprendizagem automática e a tradução de máquinas estatísticas para fornecer correções precisas e contextuais. 
+Utilize este artigo para aprender a utilizar a API de Verificação ortográfica de Bing para realizar a gramática contextual e a verificação ortográfica. Embora a maioria dos verificadores de feitiços dependa de conjuntos de regras baseados no dicionário, o verificador ortográfico Bing aproveita a aprendizagem automática e a tradução de máquinas estatísticas para fornecer correções precisas e contextuais. 
 
 ## <a name="spell-check-modes"></a>Modos de verificação ortográfica
 
@@ -30,21 +30,21 @@ A API suporta dois modos de revisão de texto, `Proof` e `Spell`.  Experimente [
 O modo predefinido é `Proof`. O modo de ortografia `Proof` oferece as verificações mais abrangentes, a adição de capitalização, pontuação básica e outras funcionalidades para ajudar na criação de documentos. no entanto, está disponível apenas nos mercados en-US (inglês dos Estados Unidos), es-ES (espanhol), pt-BR (português do Brasil) (Nota: apenas na versão beta para espanhol e português). Para todos os outros mercados, defina o parâmetro de consulta de modo para Ortografia. 
 
 > [!NOTE]
-> Se o comprimento do texto de consulta exceder 4096, será truncado para 4096 caracteres, e ntão será processado. 
+> Se o comprimento do texto de consulta exceder 4096, será truncado para 4096 caracteres e, em seguida, será processado. 
 
-### <a name="spell----for-web-searchesqueries"></a>Feitiço - para pesquisas/consultas web
+### <a name="spell----for-web-searchesqueries"></a>Feitiço - para pesquisas/consultas na web
 
 A `Spell` é mais agressiva para devolver resultados melhores de pesquisa. O modo `Spell` encontra a maioria dos erros de ortografia, mas não encontra alguns dos erros de gramática que o `Proof` encontra, por exemplo, a capitalização e as palavras repetidas.
 
 > [!NOTE]
-> * O comprimento máximo de consulta suportada é inferior. Se a consulta exceder o comprimento máximo, a consulta e os seus resultados não serão alterados.
+> * O comprimento máximo de consulta suportado é abaixo. Se a consulta exceder o comprimento máximo, a consulta e os seus resultados não serão alterados.
 >    * 130 caracteres para os seguintes códigos linguísticos: en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, it, zh, ko. 
 >    * 65 caracteres para todos os outros.
-> * O modo Spell não suporta`[` caracteres `]`de suporte quadrado ( e) em consultas, e pode causar resultados inconsistentes. Recomendamos que as retire das suas consultas ao utilizar o modo Spell.
+> * O modo Spell não suporta caracteres de suporte quadrados `[` `]` (e) em consultas, e pode causar resultados inconsistentes. Recomendamos removê-las das suas consultas quando utilizar o modo Spell.
 
 ## <a name="market-setting"></a>Definição do mercado
 
-Um código de [mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#market-codes) deve `mkt` ser especificado com o parâmetro de consulta a seu pedido. De outro modo, a API utilizará um mercado por defeito com base no endereço IP do pedido.
+Um [código de mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#market-codes) deve ser especificado com o parâmetro de consulta no seu `mkt` pedido. De outra forma, a API utilizará um mercado predefinido com base no endereço IP do pedido.
 
 
 ## <a name="http-post-and-get-support"></a>HTTP POST e GET suporte

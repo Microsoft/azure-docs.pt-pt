@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 1a517b5eeac12f7d1ff342206300831d7c38ed28
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: f64cad731998fefb2cfa694314e42f0dfb629eb4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563408"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322075"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Visão geral - autenticação de serviços de domínio de diretório ativo no local sobre SMB para ações de ficheiros Azure
 
@@ -24,7 +24,7 @@ Se é novo nas ações de ficheiros Azure, recomendamos que leia o nosso [guia d
 
 - As identidades AD DS utilizadas para a autenticação AD DS dos Ficheiros AZure devem ser sincronizadas com a Azure AD. A sincronização de hash de palavra-passe é opcional. 
 - Suporta ações de ficheiros Azure geridas pela Azure File Sync.
-- Suporta a autenticação Kerberos com encriptação AD com encriptação RC4-HMAC e AES 256. A encriptação AES 128 Kerberos ainda não está suportada.
+- Suporta a autenticação Kerberos com encriptação AD com encriptação RC4-HMAC e [AES 256](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). A encriptação AES 128 Kerberos ainda não está suportada.
 - Suporta uma única experiência de inscrição.
 - Suportado apenas em clientes que executam em versões DE mais recentes do que o Windows 7 ou Windows Server 2008 R2.
 - Apenas suportado contra a floresta AD para a qual a conta de armazenamento está registada. Só é possível aceder a partilhas de ficheiros Azure com as credenciais AD DS de uma única floresta por padrão. Se precisar de aceder à sua partilha de ficheiros Azure a partir de uma floresta diferente, certifique-se de que tem a confiança florestal adequada configurada, consulte as [FAQ](storage-files-faq.md#ad-ds--azure-ad-ds-authentication) para obter mais detalhes.

@@ -1,18 +1,18 @@
 ---
 title: Considerações de networking de ArquivoS Azure Microsoft Docs
-description: Uma visão geral das opções de networking para Azure File Sync.
+description: Aprenda a configurar a rede para utilizar o Azure File Sync para cache ficheiros no local.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: af5561a010ca1c2d45cf10a37a3b302d5e224158
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b291bd45b4003dd2241f40c810ed9d78af9f8bc9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512561"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91267793"
 ---
 # <a name="azure-file-sync-networking-considerations"></a>Considerações de networking de arquivo azure
 Pode ligar-se a uma partilha de ficheiros Azure de duas formas:
@@ -142,7 +142,7 @@ TimeToExpiration       : 2419200
 DefaultTTL             : 300
 ```
 
-Se executar o mesmo comando a partir do local, verá que o mesmo nome da conta de armazenamento se resolve para o endereço IP público da conta de armazenamento; `storageaccount.file.core.windows.net`é um registo CNAME para `storageaccount.privatelink.file.core.windows.net` , que por sua vez é um registo CNAME para o cluster de armazenamento Azure que alberga a conta de armazenamento:
+Se executar o mesmo comando a partir do local, verá que o mesmo nome da conta de armazenamento se resolve para o endereço IP público da conta de armazenamento; `storageaccount.file.core.windows.net` é um registo CNAME para `storageaccount.privatelink.file.core.windows.net` , que por sua vez é um registo CNAME para o cluster de armazenamento Azure que alberga a conta de armazenamento:
 
 ```Output
 Name                              Type   TTL   Section    NameHost
@@ -171,5 +171,5 @@ As ligações efetuadas do agente Azure File Sync à sua partilha de ficheiros A
 Para obter mais informações sobre encriptação em trânsito, consulte [a necessidade de transferência segura no armazenamento Azure](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ## <a name="see-also"></a>Ver também
-- [Planear uma implementação da Sincronização de Ficheiros do Azure](storage-sync-files-planning.md)
-- [Implementar Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
+- [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)

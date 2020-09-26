@@ -1,5 +1,5 @@
 ---
-title: Inscreva o dispositivo TPM para o Serviço de Provisionamento de Dispositivos Azure utilizando a Java
+title: Quickstart - Inscreva o dispositivo TPM no Serviço de Provisionamento de Dispositivos Azure utilizando a Java
 description: Quickstart - Inscreva o dispositivo TPM para o Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS) utilizando o serviço Java SDK. Este início rápido utiliza inscrições individuais.
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 44ed6d849a29b598784ee9341bf4c61ad491e0ae
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e6b299b5befec93f21e9e8476d0cc74710612d66
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325853"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323809"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Quickstart: Inscreva o dispositivo TPM no Serviço de Provisionamento de Dispositivos IoT Hub utilizando o Serviço Java SDK
 
@@ -141,7 +141,7 @@ Esta secção mostra como adicionar os detalhes de aprovisionamento do seu dispo
 
 4. Observe a janela de saída para ver se a inscrição foi executada com êxito. 
 
-5. Navegue até ao serviço de aprovisionamento no portal do Azure. **Selecione Gerir as inscrições**e selecione o separador **Inscrições Individuais.** Nota que o *ID* de Registo do seu dispositivo TPM simulado está agora listado. 
+5. Navegue até ao serviço de aprovisionamento no portal do Azure. **Selecione Gerir as inscrições**e selecione o **separador Inscrições Individuais.** Note que o *ID* de registo do seu dispositivo TPM simulado está listado. 
 
     ![Verificar a inscrição do TPM com êxito no portal](./media/quick-enroll-device-tpm-java/verify-tpm-enrollment.png)  
 
@@ -150,7 +150,7 @@ Se planeia explorar a amostra de serviço java, não limpe os recursos criados n
 
 1. Feche a janela da saída do exemplo de Java no seu computador.
 1. Feche a janela do simulador TPM que pode ter criado para simular o seu dispositivo TPM.
-1. Navegue para o seu serviço de Provisionamento de Dispositivos no portal Azure, **selecione Gerir as inscrições**e, em seguida, selecione o separador **Inscrições Individuais.** Selecione a caixa de verificação ao lado do *ID de inscrição* para a entrada de inscrição criada através deste arranque rápido e prima o botão **Eliminar** na parte superior do painel.
+1. Navegue para o seu serviço de Provisionamento de Dispositivos no portal Azure, **selecione Gerir as inscrições**e, em seguida, selecione o separador **Inscrições Individuais.** Selecione a caixa de verificação ao lado do *ID de registo* para a entrada de inscrição que criou usando este arranque rápido e prima o botão **Eliminar** na parte superior do painel.
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste arranque rápido, inscreveu um dispositivo TPM simulado no seu serviço de Provisionamento de Dispositivos. Para ficar a conhecer aprofundadamente o aprovisionamento de dispositivos, prossiga no tutorial para a configuração do Serviço Aprovisionamento de Dispositivos no portal do Azure. 

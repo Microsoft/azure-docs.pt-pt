@@ -3,12 +3,12 @@ title: Gravação contínua de vídeo para a nuvem e reprodução do tutorial de
 description: Neste tutorial, você vai aprender a usar Azure Live Video Analytics em Azure IoT Edge para gravar continuamente o vídeo para a nuvem e transmitir qualquer parte desse vídeo usando a Azure Media Services.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: c94f87068d003fc260d861cb99c60326d4a53258
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: a5cb857dcd5f457a68b947d2ece5d78c158e78f0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566806"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336484"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Gravação contínua de vídeo para a nuvem e reprodução da nuvem
 
@@ -46,7 +46,7 @@ Os pré-requisitos para este tutorial são:
 
 No final destes passos, terá recursos Azure relevantes implantados na sua subscrição Azure:
 
-* Hub IoT do Azure
+* Azure IoT Hub
 * Conta de armazenamento do Azure
 * Conta Azure Media Services
 * Linux VM em Azure, com o [tempo de execução IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md) instalado
@@ -131,7 +131,7 @@ Em seguida, navegue na pasta src/cloud-to-device-console-app. Aqui verá o appse
 
 O manifesto de implantação define quais os módulos que são implantados num dispositivo de borda e as definições de configuração desses módulos. Siga estes passos para gerar um manifesto a partir do ficheiro do modelo e, em seguida, desloque-o para o dispositivo de borda.
 
-1. Iniciar o Visual Studio Code.
+1. Inicie o Visual Studio Code.
 1. Desagre a cadeia de ligação IoT Hub selecionando o ícone **Mais ações** ao lado do painel **AZURE IOT HUB** no canto inferior esquerdo. Copie o fio da src/cloud-to-device-console-app/appsettings.jsno ficheiro. 
 
     ![Definir cadeia de conexão IoT Hub](./media/quickstarts/set-iotconnection-string.png)
@@ -146,7 +146,7 @@ O manifesto de implantação define quais os módulos que são implantados num d
     * Vídeo ao vivo analytics no IoT Edge (nome do módulo **lvaEdge)**
     * Simulador RTSP (nome do módulo **rtspsim)**
  
-    ![IoT Hub](./media/continuous-video-recording-tutorial/iot-hub.png)
+    ![Hub IoT](./media/continuous-video-recording-tutorial/iot-hub.png)
 
 ## <a name="prepare-to-monitor-the-modules"></a>Preparar para monitorizar os módulos 
 
@@ -164,7 +164,7 @@ Quando utiliza o módulo Live Video Analytics no IoT Edge para gravar o stream d
 1. Sob o nó **GraphTopologySet,** edite o seguinte:
 
     `"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json" `
-1. Em seguida, sob os nódos **GraphInstanceSet** e **GraphTopologyDelete,** certifique-se de que o valor da **topologiaName** corresponde ao valor da propriedade do **nome** na topologia do gráfico anterior:
+1. Em seguida, no nó **GraphInstanceSet,** certifique-se de que o valor do **topologianame** corresponde ao valor da propriedade do **nome** na topologia do gráfico anterior:
 
     `"topologyName" : "CVRToAMSAsset"`  
 1. Abra a [topologia](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/cvr-asset/topology.json) num browser e veja o assetNamePattern. Para se certificar de que tem um ativo com um nome único, pode querer alterar o nome da instância do gráfico no operations.jsno ficheiro (a partir do valor predefinido do Sample-Graph-1).

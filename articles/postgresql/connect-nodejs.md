@@ -9,16 +9,16 @@ ms.custom:
 - devcenter
 - seo-javascript-september2019
 - seo-javascript-october2019
-- devx-track-javascript
+- devx-track-js
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: ca32426b2f3f6251d699c9249b8c6dfdc8fdb4eb
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 8fb12945a96d1dce8c83ea6f373a208fe6b2472d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90901919"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295758"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Quickstart: Utilize Node.js para ligar e consultar dados na Base de Dados Azure para PostgreSQL - Servidor Único
 

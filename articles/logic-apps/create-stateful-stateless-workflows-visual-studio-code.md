@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: abb6f8bcaa3b8e356bea00185702bc0ae783e071
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/25/2020
+ms.openlocfilehash: 1f67d7228da8529699a26539f20efd55f9a20c27
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270274"
+ms.locfileid: "91370985"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho stateful ou apátridas no Código do Estúdio Visual com a extensão Azure Logic Apps (Preview)
 
@@ -72,11 +72,11 @@ A extensão Azure Logic Apps (Preview) traz muitas capacidades de Aplicações L
 
 * *Sem estado*
 
-  Crie aplicações lógicas apátridas quando não precisa de guardar, rever ou referenciar dados de eventos anteriores. Estas aplicações lógicas mantêm a entrada e saída para cada ação e o seu fluxo de trabalho afirma apenas na memória, em vez de transferir esta informação para armazenamento externo. Como resultado, as aplicações lógicas apátridas têm percursos mais curtos que normalmente não são mais do que 5 minutos, desempenho mais rápido com tempos de resposta mais rápidos, maior produção e custos de funcionamento reduzidos porque os detalhes de execução e histórico não são mantidos em armazenamento externo. No entanto, se ou quando as interrupções ocorrerem, as execuções interrompidas não são automaticamente restauradas, pelo que o chamador precisa de reenviar as execuções interrompidas manualmente. Para facilitar a depuragem, pode [permitir executar o histórico](#run-history) para aplicações lógicas apátridas.
+  Crie aplicações lógicas apátridas quando não precisa de guardar, rever ou referenciar dados de eventos anteriores em armazenamento externo para posterior revisão. Estas aplicações lógicas mantêm a entrada e saída para cada ação e o seu fluxo de trabalho afirma apenas na memória, em vez de transferir esta informação para armazenamento externo. Como resultado, as aplicações lógicas apátridas têm percursos mais curtos que normalmente não são mais do que 5 minutos, desempenho mais rápido com tempos de resposta mais rápidos, maior produção e custos de funcionamento reduzidos porque os detalhes de execução e histórico não são mantidos em armazenamento externo. No entanto, se ou quando as interrupções ocorrerem, as execuções interrompidas não são automaticamente restauradas, pelo que o chamador precisa de reenviar as execuções interrompidas manualmente. Estas aplicações lógicas só podem ser executadas de forma sincronizada e para facilitar a depuragem, [podendo ativar o histórico de execução](#run-history)– o que tem algum impacto no desempenho.
 
   Atualmente, os fluxos de trabalho apátridas suportam apenas ações para [conectores geridos,](../connectors/apis-list.md#managed-api-connectors)e não gatilhos. Para iniciar o seu fluxo de trabalho, selecione o [pedido incorporado, os centros de eventos ou](../connectors/apis-list.md#built-ins)o gatilho do Service Bus . Para obter mais informações sobre gatilhos, ações e conectores não suportados, consulte [as capacidades não suportadas](#unsupported).
 
-Para diferenças na forma como as aplicações lógicas aninhadas se comportam entre aplicações lógicas stateful e [apátridas, consulte as diferenças de comportamento do Nested entre aplicações lógicas stateful e apátridas](#nested-behavior).
+Para obter informações sobre como as aplicações lógicas aninhadas se comportam de forma diferente entre aplicações lógicas stateful e [apátridas, consulte as diferenças de comportamento do Nested entre aplicações lógicas stateful e apátridas.](#nested-behavior)
 
 <a name="pricing-model"></a>
 
@@ -918,7 +918,7 @@ Ao utilizar a [ferramenta de interface de linha de comando .NET Core (CLI),](/do
 
 ## <a name="nested-behavior-differences-between-stateful-and-stateless-logic-apps"></a>Diferenças de comportamento aninhadas entre aplicações lógicas apátridas e apátridas
 
-Pode tornar um fluxo de [trabalho de aplicações lógicas chamado](../logic-apps/logic-apps-http-endpoint.md) a partir de outros fluxos de trabalho de aplicações lógicas utilizando o gatilho do [Pedido,](../connectors/connectors-native-reqres.md) o gatilho [HTTP Webhook](../connectors/connectors-native-webhook.md) ou os gatilhos de conector geridos que têm o [tipo ApiConnectionWehook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e podem receber pedidos HTTPS.
+Pode [tornar um fluxo de trabalho de aplicações lógicas chamado](../logic-apps/logic-apps-http-endpoint.md) a partir de outros fluxos de trabalho de aplicações lógicas que existem no mesmo recurso **Logic App (Preview)** utilizando o gatilho [do Pedido,](../connectors/connectors-native-reqres.md) o gatilho [HTTP Webhook](../connectors/connectors-native-webhook.md) ou os gatilhos de conector geridos que têm o [tipo ApiConnectionWehook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e podem receber pedidos HTTPS.
 
 Aqui estão os padrões de comportamento que os fluxos de trabalho de aplicações de lógica aninhados podem seguir depois de um fluxo de trabalho dos pais chamar um fluxo de trabalho infantil:
 
@@ -930,7 +930,7 @@ Aqui estão os padrões de comportamento que os fluxos de trabalho de aplicaçõ
 
   A criança reconhece o apelo devolvendo imediatamente uma `202 ACCEPTED` resposta, e o progenitor continua para a próxima ação sem esperar pelos resultados da criança. Em vez disso, o progenitor recebe os resultados quando a criança termina de correr. Os fluxos de trabalho de crianças que não incluem uma ação de resposta seguem sempre o padrão sincronizado. Para fluxos de trabalho de crianças, o histórico de execução está disponível para você rever.
 
-  Para permitir este comportamento, na definição JSON do fluxo de trabalho, definir a `OperationOptions` propriedade para `DisableAsyncPattern` . Para obter mais informações, consulte [o Gatilho e os tipos de ação - Opções de operação](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
+  Para permitir este comportamento, na definição JSON do fluxo de trabalho, definir a `operationOptions` propriedade para `DisableAsyncPattern` . Para obter mais informações, consulte [o Gatilho e os tipos de ação - Opções de operação](../logic-apps/logic-apps-workflow-actions-triggers.md#operation-options).
 
 * Desencadear e esperar
 
@@ -966,7 +966,9 @@ Para esta pré-visualização pública, estas capacidades não estão disponíve
 
 * A criação do novo recurso **Logic App (Preview)** encontra-se atualmente indisponível no macOS.
 
-* Os conectores personalizados, os gatilhos baseados na webhook e o gatilho da janela deslizante não são suportados nesta pré-visualização. Para fluxos de trabalho de aplicações de lógica apátrida, só é possível adicionar ações para [conectores geridos](../connectors/apis-list.md#managed-api-connectors), e não gatilhos. Para iniciar o seu fluxo de trabalho, utilize o [gatilho de pedido, de evento ou de ônibus de serviço.](../connectors/apis-list.md#built-ins)
+* Para iniciar o seu fluxo de trabalho, utilize o [pedido, HTTP, Event Hubs ou o gatilho do Service Bus](../connectors/apis-list.md). Atualmente, [os conectores de empresas](../connectors/apis-list.md#enterprise-connectors), [gatilhos de gateway de dados no local,](../connectors/apis-list.md#on-premises-connectors)gatilhos baseados na webhook, gatilho da janela deslizante, [conectores personalizados,](../connectors/apis-list.md#custom-apis-and-connectors)contas de integração, seus artefactos e [seus conectores](../connectors/apis-list.md#integration-account-connectors) não são suportados nesta pré-visualização. A capacidade de "chamar uma função Azure" não está disponível, por isso, por enquanto, utilize a *ação* HTTP para chamar o URL de pedido para a função Azure.
+
+  Os fluxos de trabalho de aplicações de lógica apátrida só podem usar ações para [conectores geridos,](../connectors/apis-list.md#managed-api-connectors)e não gatilhos. Com exceção dos gatilhos previamente especificados, os fluxos de trabalho estatais podem utilizar tanto os gatilhos como as ações para conectores geridos.
 
 * Pode implementar o novo tipo de recurso **Logic App (Preview)** apenas para um [plano de hospedagem Premium ou App Service em Azure](#publish-azure) ou para um [recipiente Docker](#deploy-docker), e não [ambientes de serviço de integração (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). **Os** planos de hospedagem de consumo não são suportados nem disponíveis para a implementação deste tipo de recursos.
 

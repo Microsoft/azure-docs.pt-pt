@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurepowershell
-ms.openlocfilehash: c9595d2fa4479d84b166874f9f13e43dc494f32a
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 1b88e5928d276b58339cb0266505295808bc7a7c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077777"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335488"
 ---
 # <a name="scale-a-web-app-manually-using-powershell"></a>Dimensione uma aplicação web manualmente usando PowerShell
 
@@ -43,6 +43,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [Novo AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Cria um plano do Serviço de Aplicações. |
+| [Set-AzAppServicePlan](/powershell/module/az.websites/set-azappserviceplan) | Modifica a configuração de um plano de Serviço de Aplicações. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Cria uma aplicação Web. |
 | [Set-AzWebApp](/powershell/module/az.websites/set-azwebapp) | Modifica a configuração de uma aplicação web. |
 

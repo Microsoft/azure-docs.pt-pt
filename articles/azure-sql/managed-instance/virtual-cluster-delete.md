@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: douglas, carlrab, sstein
+ms.reviewer: douglas, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: 87e73ed25ac33777c19c561223f0361d589282b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07534b834fb0b882d3c37b670f93d2a00296a248
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84697005"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323282"
 ---
 # <a name="delete-a-subnet-after-deleting-a-managed-instance-of-sql-managed-instance"></a>Eliminar uma sub-rede depois de eliminar uma instância gerida de SQL Gestd Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -50,7 +50,7 @@ As notificações do portal Azure mostrar-lhe-ão a confirmação de que o pedid
 
 Para eliminar um cluster virtual através da API, utilize os parâmetros URI especificados no [método de eliminação](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete)de clusters virtuais .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral, veja [o que é Azure SQL Managed Instance?](sql-managed-instance-paas-overview.md). .
 - Conheça a [arquitetura de conectividade em SQL Managed Instance](connectivity-architecture-overview.md).

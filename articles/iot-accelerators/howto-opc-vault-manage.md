@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 890a25ed2cf11d657cad930815d78dbf968cc9f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0829d4b3fca068ddb0db2df53dd635ab7ad80bed
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "71203664"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281920"
 ---
 # <a name="manage-the-opc-vault-certificate-service"></a>Gerir o serviço de certificados OPC Vault
+
+> [!IMPORTANT]
+> Enquanto atualizamos este artigo, consulte [a Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
 Este artigo explica as tarefas administrativas do serviço de gestão de certificados OPC Vault em Azure. Inclui informações sobre como renovar os certificados de EMER CA, como renovar a Lista de Revogação de Certificados (CRL), e como conceder e revogar o acesso ao utilizador.
 

@@ -1,6 +1,6 @@
 ---
 title: Conceitos arquitetônicos em Azure IoT Central - painel solar Microsoft Docs
-description: Este artigo introduz conceitos-chave relacionados com a arquitetura da Azure IoT Central
+description: Este artigo introduz conceitos-chave relacionados com a arquitetura da app de monitorização do painel solar Azure IoT Central.
 author: op-ravi
 ms.author: omravi
 ms.date: 10/23/2019
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: f09a8cfae9b0f12df2ea76ecc216b1b2eb66e9ff
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8c94109746545a1f7ff33534ca3ec54f55357281
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511862"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316039"
 ---
 # <a name="azure-iot-central---solar-panel-app-architecture"></a>Azure IoT Central - arquitetura de aplicativos de painel solar
 
@@ -40,7 +40,7 @@ A Azure IoT Central é uma plataforma que simplifica a construção da sua solu�
 ## <a name="extensibility-options-to-build-with-iot-central"></a>Opções de extensibilidade para construir com a IoT Central
 A plataforma IoT Central oferece duas opções de extensibilidade: Exportação contínua de dados (CDE) e APIs. Os clientes e parceiros podem escolher entre estas opções baseadas em personalizar as suas soluções para necessidades específicas. Por exemplo, um dos nossos parceiros configurava o CDE com o Azure Data Lake Storage (ADLS). Estão a usar ODLS para retenção de dados a longo prazo e outros cenários de armazenamento de caminhos frios, tais fins de processamento, auditoria e reporte. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Agora que aprendeu sobre a arquitetura, [crie uma app de painel solar gratuitamente](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
 * Para saber mais sobre o IoT Central, consulte [a visão geral do IoT Central](https://docs.microsoft.com/azure/iot-central/)

@@ -17,16 +17,16 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a013af680ecc84a2a981341ba4bb95148adc799f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d215c2e200308664f24daa28a0054c8f1bcfc09c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357261"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319882"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Utilização de conectores com o Gestor de Serviços de Sincronização AZURE AD Connect
 
-![Gestor de Serviço sincronizado](./media/how-to-connect-sync-service-manager-ui-connectors/connectors.png)
+![Screenshot que mostra o Gestor de Serviços de Sincronização.](./media/how-to-connect-sync-service-manager-ui-connectors/connectors.png)
 
 O separador Conectores é utilizado para gerir todos os sistemas a que o motor de sincronização está ligado.
 
@@ -47,7 +47,7 @@ O separador Conectores é utilizado para gerir todos os sistemas a que o motor d
 
 ### <a name="delete"></a>Eliminar
 A ação de eliminação é utilizada para duas coisas diferentes.  
-![Gestor de Serviço sincronizado](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
+![Screenshot que mostra a janela "Delete Connector" com "Delete connector only" selecionada.](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
 
 A opção **Eliminar o espaço do conector apenas** remove todos os dados, mas mantém a configuração.
 
@@ -58,17 +58,17 @@ Ambas as opções sincronizam todos os objetos e atualizam os objetos metaversos
 ### <a name="configure-run-profiles"></a>Configurar perfis de execução
 Esta opção permite-lhe ver os perfis de execução configurados para um Conector.
 
-![Gestor de Serviço sincronizado](./media/how-to-connect-sync-service-manager-ui-connectors/configurerunprofiles.png)
+![Screenshot que mostra a janela "Configure Run Profiles" com "Delta Import" selecionada.](./media/how-to-connect-sync-service-manager-ui-connectors/configurerunprofiles.png)
 
 ### <a name="search-connector-space"></a>Procurar espaço no conector
 A ação espacial do conector de pesquisa é útil para encontrar objetos e resolver problemas de dados.
 
-![Gestor de Serviço sincronizado](./media/how-to-connect-sync-service-manager-ui-connectors/cssearch.png)
+![Screenshot que mostra a janela "Search Connector Space".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearch.png)
 
 Comece por selecionar um **âmbito.** Pode pesquisar com base em dados (RDN, DN, Âncora, Sub-Árvore) ou no estado do objeto (todas as outras opções).  
-![Gestor de Serviço sincronizado](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
+![Screenshot que mostra o menu suspenso "Scope".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
 Se fizer uma pesquisa de sub-árvore, obtém todos os objetos num único U.  
-![Gestor de Serviço sincronizado](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
+![Screenshot que mostra um exemplo de uma pesquisa de "Sub-Árvore".](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 A partir desta grelha pode selecionar um objeto, selecionar **propriedades**e [segui-lo](tshoot-connect-object-not-syncing.md) a partir do espaço do conector de origem, através do metaverso e até ao espaço do conector alvo.
 
 ### <a name="changing-the-ad-ds-account-password"></a>Alterar a palavra-passe da conta do AD DS
@@ -93,7 +93,7 @@ Para resolver o problema, atualize a conta de utilizador AD DS utilizando o segu
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre a configuração da [sincronização Azure AD Connect.](how-to-connect-sync-whatis.md)
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).

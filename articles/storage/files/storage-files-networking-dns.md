@@ -1,18 +1,18 @@
 ---
 title: Configurar o reencaminhamento de DNS para ficheiros Azure / Microsoft Docs
-description: Uma visão geral das opções de networking para ficheiros Azure.
+description: Saiba como configurar o reencaminhamento de DNS para ficheiros Azure.
 author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 3/19/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6404115e64ba0ac1f65ba1cfc8d26604f1ce9cfa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b5ce48cf15c890fbdb3dfd90d9d0ab922a2f4b2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509970"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320273"
 ---
 # <a name="configuring-dns-forwarding-for-azure-files"></a>Configurar o reencaminhamento de DNS para Ficheiros do Azure
 O Azure Files permite-lhe criar pontos finais privados para as contas de armazenamento que contêm as suas ações de ficheiro. Embora úteis para muitas aplicações diferentes, os pontos finais privados são especialmente úteis para ligar às suas ações de ficheiros Azure da sua rede de acesso ao local utilizando uma ligação VPN ou ExpressRoute utilizando o peering privado. 
@@ -21,7 +21,7 @@ Para que as ligações à sua conta de armazenamento se debruçassem sobre o seu
 
 Recomendamos vivamente que leia Planeamento para uma implementação de [Ficheiros Azure](storage-files-planning.md) e [considerações de networking de Ficheiros Azure](storage-files-networking-overview.md) antes de completar os passos descritos neste artigo.
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 A Azure Files fornece dois tipos principais de pontos finais para aceder a ações de ficheiros Azure: 
 - Pontos finais públicos, que têm um endereço IP público e podem ser acedidos a partir de qualquer parte do mundo.
 - Pontos finais privados, que existem dentro de uma rede virtual e têm um endereço IP privado a partir do espaço de endereço dessa rede virtual.
@@ -152,6 +152,6 @@ Test-NetConnection -ComputerName storageaccount.file.core.windows.net -CommonTCP
 ```
 
 ## <a name="see-also"></a>Ver também
-- [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
+- [Planear uma implementação de Ficheiros do Azure](storage-files-planning.md)
 - [Considerações de networking de ficheiros Azure](storage-files-networking-overview.md)
 - [Configurar pontos finais da rede Azure Files](storage-files-networking-endpoints.md)

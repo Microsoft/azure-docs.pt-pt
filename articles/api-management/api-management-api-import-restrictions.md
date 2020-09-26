@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
-ms.openlocfilehash: 61d43addfdf9008cb7aa8a073dcf3bb702cb55f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 86ed7f3941965bcac525a2ba71786d20a4753489
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76513376"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91335505"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrições de importação de APIs e problemas conhecidos
 
@@ -34,15 +34,15 @@ Se estiver a receber erros na importação do seu documento OpenAPI, certifique-
 ### <a name="general"></a><a name="open-api-general"> </a>Geral
 
 -   Os parâmetros necessários em ambos os caminhos e consulta devem ter nomes únicos. (No OpenAPI, um nome de parâmetro só precisa de ser único dentro de um local, por exemplo, caminho, consulta, cabeçalho. No entanto, na Gestão da API permitimos que as operações sejam discriminadas tanto pelos parâmetros de percurso como por consulta (que o OpenAPI não suporta). É por isso que exigimos que os nomes dos parâmetros sejam únicos dentro de todo o modelo de URL.)
--   `\$ref`os ponteiros não podem fazer referência a ficheiros externos.
--   `x-ms-paths`e `x-servers` são as únicas extensões apoiadas.
+-   `\$ref` os ponteiros não podem fazer referência a ficheiros externos.
+-   `x-ms-paths` e `x-servers` são as únicas extensões apoiadas.
 -   As extensões personalizadas são ignoradas na importação e não são guardadas ou preservadas para exportação.
--   `Recursion`- A API Management não suporta definições definidas recursivamente (por exemplo, esquemas referentes a si mesmos).
+-   `Recursion` - A API Management não suporta definições definidas recursivamente (por exemplo, esquemas referentes a si mesmos).
 -   O URL de ficheiro de origem (se disponível) é aplicado em URLs relativos do servidor.
 -   As definições de segurança são ignoradas.
 -   As definições de esquema inline para operações de API não são suportadas. As definições de esquema são definidas no âmbito da API e podem ser referenciadas em pedidos de operações de API ou âmbitos de resposta.
 -   Um parâmetro de URL definido precisa fazer parte do modelo de URL.
--   `Produces`a palavra-chave, que descreve os tipos de MIME devolvidos por uma API, não é suportada. 
+-   `Produces` a palavra-chave, que descreve os tipos de MIME devolvidos por uma API, não é suportada. 
 
 ### <a name="openapi-version-2"></a><a name="open-api-v2"> </a>Versão OpenAPI 2
 
@@ -51,13 +51,17 @@ Se estiver a receber erros na importação do seu documento OpenAPI, certifique-
 ### <a name="openapi-version-3"></a><a name="open-api-v3"> </a>Versão OpenAPI 3
 
 -   Se muitos `servers` forem especificados, a API Management tentará selecionar o primeiro URL HTTPs. Se não houver URLs HTTPs - o primeiro URL HTTP. Se não houver URLs HTTP - o URL do servidor estará vazio.
--   `Examples`não é apoiado, mas `example` é.
+-   `Examples` não é apoiado, mas `example` é.
 
 ## <a name="openapi-import-update-and-export-mechanisms"></a>Mecanismos de importação, atualização e exportação do OpenAPI
 
+### <a name="general"></a><a name="open-import-export-general"> </a>Geral
+
+-   As definições de API exportadas do serviço de Gestão API destinam-se principalmente a aplicações externas ao serviço de Gestão de API que precisam de chamar a API hospedada no serviço de Gestão da API. As definições de API exportadas não se destinam a ser novamente importadas para o mesmo ou diferente serviço de Gestão de API. Para a gestão de configuração de defiições de API em diferentes serivces/envionments, consulte a documentação relativa à utilização do Serviço de Gestão da API com o Git. 
+
 ### <a name="add-new-api-via-openapi-import"></a>Adicionar novo API através da importação do OpenAPI
 
-Para cada operação encontrada no documento OpenAPI, será criada uma nova operação com o nome do recurso Azure e o nome de exibição definidos `operationId` para `summary` e, respectivamente. `operationId`o valor é normalizado seguindo as regras descritas abaixo. `summary`o valor é importado como é e o seu comprimento é limitado a 300 caracteres.
+Para cada operação encontrada no documento OpenAPI, será criada uma nova operação com o nome do recurso Azure e o nome de exibição definidos `operationId` para `summary` e, respectivamente. `operationId` o valor é normalizado seguindo as regras descritas abaixo. `summary` o valor é importado como é e o seu comprimento é limitado a 300 caracteres.
 
 Se `operationId` não for especificado (isto é, não `null` presente, ou vazio), o valor do nome do recurso Azure será gerado combinando método HTTP e modelo de caminho, por exemplo, `get-foo` .
 
@@ -86,7 +90,7 @@ Regras de normalização para o operationId
 
 - Converta-se em minúsculas.
 - Substitua cada sequência de caracteres não alfanuméricos por um único traço, por exemplo, `GET-/foo/{bar}?buzz={quix}` será transformado em `get-foo-bar-buzz-quix-` .
-- Traços de corte em ambos os lados, por exemplo, `get-foo-bar-buzz-quix-` tornar-se-ão`get-foo-bar-buzz-quix`
+- Traços de corte em ambos os lados, por exemplo, `get-foo-bar-buzz-quix-` tornar-se-ão `get-foo-bar-buzz-quix`
 - Truncado para caber 76 caracteres, quatro caracteres menos do que o limite máximo para um nome de recurso.
 - Utilize os restantes quatro caracteres para um sufixo deduplica, se necessário, sob a forma de `-1, -2, ..., -999` .
 
@@ -119,6 +123,6 @@ Os ficheiros WSDL são utilizados para criar APIs de passagem de SABÃO e SOAP-t
     </complexType>
 ```
 
-## <a name="wadl"></a><a name="wadl"> </a>WADL
+## <a name="wadl"></a><a name="wadl"> </a>RIO WADL
 
 Atualmente, não existem questões de importação conhecidas da WADL.

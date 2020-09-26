@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: article
 ms.date: 05/14/2019
-ms.custom: devx-track-javascript
-ms.openlocfilehash: a1fca14035dd4a9af00ecfb8d1d01dc27ab0b8d0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.custom: devx-track-js
+ms.openlocfilehash: f339ae4ff1ea90929ce7811efe002f5860f7b47d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658167"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91269340"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Adicione e execute os snippets de código usando código inline em Azure Logic Apps
 
@@ -129,7 +129,7 @@ O `workflowContext` objeto tem esta estrutura, que inclui as `actions` `trigger`
 
 Esta tabela contém mais informações sobre estas subpropriedades:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Tipo | Description |
 |----------|------|-------|
 | `actions` | Coleção de objetos | Resulte em objetos de ações que correm antes do corte de código. Cada objeto tem um par *de valores-chave* onde a chave é o nome de uma ação, e o valor é equivalente a chamar a [função de ações](../logic-apps/workflow-definition-language-functions-reference.md#actions) com `@actions('<action-name>')` . O nome da ação usa o mesmo nome de ação que é usado na definição de fluxo de trabalho subjacente, que substitui espaços (" ") no nome de ação por sublinhados (_). Este objeto fornece acesso aos valores de propriedade de ação a partir da série de fluxo de trabalho atual executada. |
 | `trigger` | Objeto | Resultado objeto do gatilho e equivalente à [função de gatilho.).](../logic-apps/workflow-definition-language-functions-reference.md#trigger) Este objeto fornece acesso aos valores de propriedade desencadeados a partir da execução atual do fluxo de trabalho. |
@@ -265,6 +265,6 @@ Se selecionar **Ações,** é solicitado para as ações que pretende adicionar.
 
 Para obter mais informações sobre a estrutura e sintaxe do **Código JavaScript** da execução na definição subjacente do fluxo de trabalho da sua aplicação lógica utilizando a Linguagem de Definição de Fluxo de Trabalho, consulte a secção de [referência](../logic-apps/logic-apps-workflow-actions-triggers.md#run-javascript-code)desta ação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [Conectores para Apps Azure Logic](../connectors/apis-list.md)

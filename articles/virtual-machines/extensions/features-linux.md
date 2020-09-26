@@ -1,6 +1,6 @@
 ---
 title: Extensões e funcionalidades do Azure VM para o Linux
-description: Saiba quais as extensões disponíveis para máquinas virtuais Azure, agrupadas pelo que fornecem ou melhoram.
+description: Saiba quais as extensões disponíveis para máquinas virtuais Azure no Linux, agrupadas pelo que fornecem ou melhoram.
 services: virtual-machines-linux
 documentationcenter: ''
 author: axayjo
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: bc29a62f469b0b9d091fcdef2488afba764a09fe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b61bbacf889df23455266fb81124e14ef44388d2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080357"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336127"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensões e funcionalidades de máquina virtual para Linux
 
@@ -231,7 +231,7 @@ Os editores disponibilizam atualizações às regiões em momentos diferentes, p
 
 #### <a name="agent-updates"></a>Atualizações de agentes
 
-O Agente VM Linux contém *código de agente de provisionamento* e código de *manuseamento de extensões* num único pacote, que não pode ser separado. Pode desativar o *Agente de Provisionamento* quando pretender provisão no Azure utilizando o cloud-init. Para isso, consulte [usando a cloud-init](../linux/using-cloud-init.md).
+O Agente VM Linux contém *código de agente de provisionamento* e código de *manuseamento de extensões*  num único pacote, que não pode ser separado. Pode desativar o *Agente de Provisionamento* quando pretender provisão no Azure utilizando o cloud-init. Para isso, consulte [usando a cloud-init](../linux/using-cloud-init.md).
 
 As versões suportadas dos Agentes podem utilizar atualizações automáticas. O único código que pode ser atualizado é o *código de tratamento de extensões,* não o código de provisionamento. O *código do Agente De provisionamento* é um código de execução.
 
@@ -403,7 +403,7 @@ Também pode remover uma extensão no portal Azure da seguinte forma:
 
 ## <a name="common-vm-extension-reference"></a>Referência comum de extensão VM
 
-| Nome de extensão | Descrição | Mais informações |
+| Nome de extensão | Description | Mais informações |
 | --- | --- | --- |
 | Extensão de script personalizado para Linux |Executar scripts contra uma máquina virtual Azure |[Extensão de script personalizado para Linux](custom-script-linux.md) |
 | Extensão de acesso da VM |Recuperar o acesso a uma máquina virtual Azure |[Extensão de acesso da VM](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |

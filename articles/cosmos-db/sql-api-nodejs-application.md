@@ -8,13 +8,13 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 9554fa63d13c5da465653064d69d7950d91f0300
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 005473fa02dda2e5466ffbc5a32499006c41292c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421880"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322704"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: Construa uma Node.js aplicação web utilizando o JavaScript SDK para gerir uma conta API SQL em Azure Cosmos DB 
 
@@ -272,7 +272,7 @@ Agora que já concluiu a configuração inicial, vai escrever o código de que a
    module.exports = config;
    ```
 
-3. No ficheiro **config.js,** atualize os valores do HOST e AUTH_KEY utilizando os valores encontrados na página Chaves da sua conta DB Azure Cosmos no [portal Azure](https://portal.azure.com). 
+3. No ficheiro **config.js, ** atualize os valores do HOST e AUTH_KEY utilizando os valores encontrados na página Chaves da sua conta DB Azure Cosmos no [portal Azure](https://portal.azure.com). 
 
 4. Guarde e feche o ficheiro **config.js**.
 
@@ -478,7 +478,7 @@ Depois de a sua aplicação ter sucesso localmente, pode implantá-la para Azure
 
 Quando estes recursos já não forem necessários, pode eliminar o grupo de recursos, a conta DB da Azure Cosmos e todos os recursos conexos. Para tal, selecione o grupo de recursos que utilizou para a conta DB Azure Cosmos, selecione **Delete**e, em seguida, confirme o nome do grupo de recursos para eliminar.
 
-## <a name="next-steps"></a><a name="_Toc395637775"></a>Próximos passos
+## <a name="next-steps"></a><a name="_Toc395637775"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar aplicações móveis com o Xamarin e o Azure Cosmos DB](mobile-apps-with-xamarin.md)

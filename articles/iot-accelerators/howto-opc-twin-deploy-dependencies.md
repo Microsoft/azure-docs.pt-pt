@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 231d1efa02ec80e8ad56a8895d4262d774480111
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae0e18a2dfbce52e50b4a8b58d478a46dff12922
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73824104"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91282107"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Implantação de dependências para o desenvolvimento local
+
+> [!IMPORTANT]
+> Enquanto atualizamos este artigo, consulte [a Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
 Este artigo explica como implementar apenas os Serviços da Plataforma Azure necessários para fazer o desenvolvimento local e depuração.   No final, terá um grupo de recursos implantado que contém tudo o que precisa para o desenvolvimento local e depuração.
 
@@ -32,7 +35,7 @@ Este artigo explica como implementar apenas os Serviços da Plataforma Azure nec
    deploy -type local
    ```
 
-2. Siga as instruções para atribuir um nome ao grupo de recursos para a sua implantação.  O script implementa apenas as dependências deste grupo de recursos na sua subscrição Azure, mas não os micro serviços.  O script também regista uma Aplicação no Diretório Ativo Azure.  Isto é necessário para apoiar a autenticação baseada em AAUTH.  A implantação pode demorar vários minutos.
+2. Siga as instruções para atribuir um nome ao grupo de recursos para a sua implantação.  O script implementa apenas as dependências deste grupo de recursos na sua subscrição Azure, mas não os micro serviços.  O script também regista uma aplicação em Azure AD.  Isto é necessário para apoiar a autenticação baseada em AAUTH.  A implantação pode demorar vários minutos.
 
 3. Uma vez que o script esteja concluído, pode selecionar para guardar o ficheiro .env.  O ficheiro ambiente .env é o ficheiro de configuração de todos os serviços e ferramentas que pretende executar na sua máquina de desenvolvimento.  
 
@@ -42,15 +45,15 @@ Este artigo explica como implementar apenas os Serviços da Plataforma Azure nec
 
 Certifique-se de que utiliza um nome de grupo de recursos curto e simples.  O nome é também utilizado para nomear recursos como tal, deve cumprir os requisitos de nomeação de recursos.  
 
-### <a name="azure-active-directory-aad-registration"></a>Registo do Azure Ative Directory (AAD)
+### <a name="azure-active-directory-ad-registration"></a>Registo do Diretório Ativo Azure (AD)
 
-O script de implementação tenta registar aplicações AAD no Azure Ative Directory.  Dependendo dos seus direitos ao inquilino selecionado da AAD, isto pode falhar.   Existem três opções:
+O script de implementação tenta registar aplicações AZure AD em Azure AD.  Dependendo dos seus direitos ao inquilino Azure AD selecionado, isso pode falhar. Existem três opções:
 
-1. Se escolheu um inquilino da AAD de uma lista de inquilinos, reinicie o guião e escolha um diferente da lista.
-2. Em alternativa, desloque um inquilino privado da AAD, reinicie o script e selecione para usá-lo.
+1. Se escolheu um inquilino AZure AD de uma lista de inquilinos, reinicie o roteiro e escolha um diferente da lista.
+2. Em alternativa, desloque um inquilino Azure AD privado, reinicie o script e selecione para usá-lo.
 3. Continue sem autenticação.  Uma vez que está a gerir os seus micro serviços localmente, isso é aceitável, mas não imita ambientes de produção.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que implementou com sucesso os serviços da OPC Twin para um projeto existente, eis o próximo passo sugerido:
 

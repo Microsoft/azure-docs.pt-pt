@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: c32b3ee5c4689e960834d543de1ca377e918751d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b36641677dbf36402c7f578b9b1887c52f441afd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82106292"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322483"
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Descodificar mensagens EDIFACT para apps lógicas Azure com o Pacote de Integração Empresarial
 
@@ -84,13 +84,13 @@ O conector EDIFACT descodifica estas tarefas:
   * Verifica o número de controlo da transação em número de controlo de outras transações definidas nesse grupo.
 * Divide o intercâmbio em conjuntos de transações ou preserva todo o intercâmbio:
   * Split Interchange como conjuntos de transações - suspender conjuntos de transações por erro: Divide o intercâmbio em conjuntos de transações e analisa cada conjunto de transações. 
-  O X12 Descodifica as saídas de ação apenas os conjuntos de transações que falham na validação `badMessages` de , e as saídas que as restantes transações definem para `goodMessages` .
+  O EDIFACT Decode outputs de ação apenas os conjuntos de transações que falham na validação `badMessages` de , e as saídas que as restantes transações definem para `goodMessages` .
   * Split Interchange como conjuntos de transações - suspender o intercâmbio por erro: Divide o intercâmbio em conjuntos de transações e analisa cada conjunto de transações. 
-  Se uma ou mais transações se estabelecerem na validação de falhas de câmbio, a ação X12 Descodifica todas as transações nesse intercâmbio para `badMessages` .
+  Se uma ou mais transações se estabelecerem na validação de falhas de câmbio, a ação de descodificar o EDIFACT produz todos os conjuntos de transações nesse intercâmbio para `badMessages` .
   * Preserve Interchange - suspenda os conjuntos de transações por erro: Preserve o intercâmbio e processe todo o intercâmbio em lote. 
-  O X12 Descodifica as saídas de ação apenas os conjuntos de transações que falham na validação `badMessages` de , e as saídas que as restantes transações definem para `goodMessages` .
+  O EDIFACT Decode outputs de ação apenas os conjuntos de transações que falham na validação `badMessages` de , e as saídas que as restantes transações definem para `goodMessages` .
   * Preservar o Intercâmbio - suspender o intercâmbio por erro: Preservar o intercâmbio e processar todo o intercâmbio em lote. 
-  Se uma ou mais transações se estabelecerem na validação de falhas de câmbio, a ação X12 Descodifica todas as transações nesse intercâmbio para `badMessages` .
+  Se uma ou mais transações se estabelecerem na validação de falhas de câmbio, a ação de descodificar o EDIFACT produz todos os conjuntos de transações nesse intercâmbio para `badMessages` .
 * Gera um reconhecimento técnico (controlo) e/ou funcional (se configurado).
   * Um Reconhecimento Técnico ou a CONTRL ACK reporta os resultados de uma verificação sintática do intercâmbio completo recebido.
   * Um reconhecimento funcional reconhece aceitar ou rejeitar um intercâmbio recebido ou um grupo

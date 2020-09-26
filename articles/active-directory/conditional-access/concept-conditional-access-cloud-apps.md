@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 838d2a1dd1c7b89c1f5c9fec6578312107264958
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 2512602b0c8c00c696253a708af13278bc513a1f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602069"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91258749"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso Condicional: aplicativos ou ações na nuvem
 
@@ -31,11 +31,11 @@ Aplicações ou ações na nuvem são um sinal chave numa política de Acesso Co
 
 Muitas das aplicações em nuvem da Microsoft existentes estão incluídas na lista de aplicações a partir das quais pode selecionar. 
 
-Os administradores podem atribuir uma política de acesso condicional às seguintes aplicações na nuvem da Microsoft. Algumas aplicações como o Office 365 (pré-visualização) e o Microsoft Azure Management incluem várias aplicações ou serviços para crianças relacionados. A seguinte lista não é exaustiva e está sujeita a alterações.
+Os administradores podem atribuir uma política de acesso condicional às seguintes aplicações na nuvem da Microsoft. Algumas aplicações como o Office 365 e o Microsoft Azure Management incluem várias aplicações ou serviços relacionados com crianças. A seguinte lista não é exaustiva e está sujeita a alterações.
 
-- [Escritório 365 (pré-visualização)](#office-365-preview)
+- [Office 365](#office-365)
 - Azure Analysis Services
-- DevOps do Azure
+- Azure DevOps
 - [Base de Dados SQL do Azure e Azure SQL Data Warehouse](../../azure-sql/database/conditional-access-configure.md)
 - Dynamics CRM Online
 - Microsoft Application Insights Analytics
@@ -67,15 +67,15 @@ Os administradores podem atribuir uma política de acesso condicional às seguin
 - Rede Privada Virtual (VPN)
 - Windows Defender ATP
 
-### <a name="office-365-preview"></a>Escritório 365 (pré-visualização)
+### <a name="office-365"></a>Office 365
 
 O Microsoft 365 fornece serviços de produtividade e colaboração baseados na nuvem, como Exchange, SharePoint e Microsoft Teams. Os serviços em nuvem da Microsoft 365 estão profundamente integrados para garantir experiências suaves e colaborativas. Esta integração pode causar confusão ao criar políticas, uma vez que algumas aplicações como as Microsoft Teams têm dependências de outras, como o SharePoint ou o Exchange.
 
-A aplicação Office 365 (pré-visualização) permite direcionar estes serviços de uma só vez. Recomendamos a utilização da nova aplicação Office 365 (pré-visualização), em vez de direcionar as aplicações individuais para a nuvem para evitar problemas com [dependências de serviços.](service-dependencies.md) Direcionar este grupo de aplicações ajuda a evitar problemas que possam surgir devido a políticas e dependências inconsistentes.
+A aplicação Office 365 permite direcionar estes serviços de uma só vez. Recomendamos a utilização da nova aplicação Office 365, em vez de direcionar as aplicações individuais para a nuvem para evitar problemas com [dependências de serviços.](service-dependencies.md) Direcionar este grupo de aplicações ajuda a evitar problemas que possam surgir devido a políticas e dependências inconsistentes.
 
-Os administradores podem optar por excluir aplicações específicas da política se assim o desejarem, incluindo a aplicação do Office 365 (pré-visualização) e excluindo as aplicações específicas da sua escolha na política.
+Os administradores podem optar por excluir aplicações específicas da política se assim o desejarem, incluindo a aplicação do Office 365 e excluindo as aplicações específicas da sua escolha na política.
 
-Aplicações-chave incluídas na aplicação do cliente Office 365 (pré-visualização):
+Aplicações-chave incluídas na aplicação do cliente Office 365:
 
    - Microsoft Flow
    - Microsoft Forms
@@ -103,7 +103,7 @@ A aplicação Microsoft Azure Management inclui vários serviços subjacentes.
    - APIs modelo de implementação clássico
    - Azure PowerShell
    - Portal de administrador de subscrições de Estúdio Visual
-   - DevOps do Azure
+   - Azure DevOps
    - Portal Azure Data Factory
 
 > [!NOTE]

@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Verifique a ortografia com a API REST e C# - Bing Spell Check'
 titleSuffix: Azure Cognitive Services
-description: Começa a utilizar a API Bing Spell Check REST para verificar a ortografia e a gramática.
+description: Começa a usar a API e o C# Bing Spell Check REST para verificar a ortografia e a gramática.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df77ea73338f37925c0b59a8838c31617ff22ad8
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: d11430ab02b37d066fb74dcc1b67833577471fd3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919408"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91323046"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Quickstart: Verifique a ortografia com a API e C de Verificação ortográfica de Bing Spell #
 

@@ -10,13 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: d924c019d5ee231f3c9d66a56c4d98857bc89abc
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 5b3ea0a2037ae80116e9578999414677db1089ef
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055554"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91319032"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação da síntese de fala (SSML)
 
@@ -220,7 +220,7 @@ Para a voz chinesa XiaoxiaoNeural, a intensidade do estilo de fala pode ser alte
 
 Utilize esta tabela para determinar quais os estilos de fala suportados por cada voz neural.
 
-| Voz                   | Estilo                     | Descrição                                                 |
+| Voz                   | Estilo                     | Description                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
 | `en-US-AriaNeural`      | `style="newscast-formal"` | Expressa um tom formal, confiante e autoritário para a entrega de notícias |
 |                         | `style="newscast-casual"` | Expressa um tom versátil e casual para a entrega de notícias gerais        |
@@ -292,7 +292,7 @@ Utilize o `break` elemento para inserir pausas (ou quebras) entre palavras ou ev
 | `strength` | Especifica a duração relativa de uma pausa utilizando um dos seguintes valores:<ul><li>nenhum</li><li>x-fraco</li><li>fraco</li><li>meio (padrão)</li><li>forte</li><li>x-forte</li></ul> | Opcional |
 | `time` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos. Exemplos de valores válidos são `2s` e `500` | Opcional |
 
-| Força                      | Descrição |
+| Força                      | Description |
 |-------------------------------|-------------|
 | Nenhum, ou se nenhum valor fornecido | 0 ms        |
 | x-fraco                        | 250 ms      |

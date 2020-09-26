@@ -3,12 +3,12 @@ title: Monitorize as mudanças de delegação no seu inquilino gerente
 description: Saiba como monitorizar a atividade da delegação desde os inquilinos do cliente até ao seu inquilino gerente.
 ms.date: 09/08/2020
 ms.topic: how-to
-ms.openlocfilehash: 19c8cd4fa2b43961c46640a736a91e3fed3ac79d
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 15e96939d4115bd93260687f637143cc798a4331
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567610"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91336603"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorize as mudanças de delegação no seu inquilino gerente
 
@@ -46,7 +46,7 @@ Por se trata de um amplo nível de acesso, recomendamos que atribua esta funçã
 
 - [Crie uma nova conta principal](../../active-directory/develop/howto-create-service-principal-portal.md) de serviço para ser utilizada apenas para esta função, em vez de atribuir esta função a um principal de serviço existente utilizado para outra automatização.
 - Certifique-se de que este diretor de serviço não tem acesso a quaisquer recursos delegados do cliente.
-- [Utilize um certificado para autenticar](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) e [armazená-lo de forma segura no Cofre da Chave Azure](../../key-vault/general/best-practices.md).
+- [Utilize um certificado para autenticar](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options) e [armazená-lo de forma segura no Cofre da Chave Azure](../../key-vault/general/best-practices.md).
 - Limitar os utilizadores que tenham acesso a agir em nome do diretor de serviço.
 
 > [!NOTE]
@@ -177,7 +177,7 @@ Os utilizadores a quem foi atribuído o papel incorporado no Monitoring Reader A
 
 Aparecerá uma lista de alterações de delegação. Pode selecionar **colunas Editar** para mostrar ou ocultar o Estado , **Categoria** **evento**, **Tempo**, **Hora, Assinatura,** **Evento iniciado por,** Grupo **de Recursos,** **Tipo de Recurso**e Valores de **Recursos.** **Subscription**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como embarcar clientes no [Farol Azure.](../concepts/azure-delegated-resource-management.md)
 - Saiba mais sobre [o Azure Monitor](../../azure-monitor/index.yml) e o [registo de atividades Azure](../../azure-monitor/platform/platform-logs-overview.md).

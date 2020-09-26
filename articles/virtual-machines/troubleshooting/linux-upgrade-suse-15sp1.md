@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 05/21/2020
 ms.author: arremana
-ms.openlocfilehash: 079574ab4c5846eae6266d1e13240baf99428a69
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ed355f82b88f460ff4b372484a690f166a15550
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449248"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359516"
 ---
 # <a name="upgrade-azure-vm-with-sles-12-to-sles-15-sp1"></a>Upgrade Azure VM com SLES 12 a SLES 15 SP1
 
@@ -66,11 +66,11 @@ A versão atual do SLES deve ser SLES 12 SP4 ou 12 SP5 antes de poder avançar p
 
 6. Aceda ao [portal Azure,](https://portal.azure.com)selecione o VM e, em seguida, selecione **a consola Serial**. Verá que o sistema para em "reboot: Reiniciar o sistema". Este processo deve demorar cerca de 15 a 45 minutos. Para a Geração 2 VM, pode estar preso no ecrã "reboot: Restarting system". Neste caso, espere 45 minutos. Se ainda não progredir mais, vá à página **geral** do VM no portal Azure, pare o VM e, em seguida, reinicie-o.
 
-     ![A imagem sobre as mensagens na consola em série](./media/linux-upgrade-suse-15sp1/reboot-message.png)
+     ![A imagem sobre as mensagens na consola em série.](./media/linux-upgrade-suse-15sp1/reboot-message.png)
 
 8. Depois de o sistema ser reiniciado com um novo núcleo, verá a seguinte mensagem.
 
-     ![A imagem sobre as mensagens na consola em série](./media/linux-upgrade-suse-15sp1/output-message.png)
+     ![A imagem sobre as mensagens na consola em série depois do sistema ser reiniciado com o novo núcleo.](./media/linux-upgrade-suse-15sp1/output-message.png)
 9. Verifique se a versão kernel e SO para verificar se o sistema foi atualizado com sucesso.
 
     ```

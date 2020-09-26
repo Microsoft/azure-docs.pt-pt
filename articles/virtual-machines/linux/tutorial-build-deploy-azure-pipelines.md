@@ -10,13 +10,13 @@ ms.tgt_pltfrm: azure-pipelines
 ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
-ms.custom: devops, devx-track-javascript
-ms.openlocfilehash: 6025e1c257ad7b94586ceb4f89c02c3a44c59c3e
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.custom: devops, devx-track-js
+ms.openlocfilehash: 6bc6776df889c5c8ccc6acfe5764549ccf7354a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090317"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91320205"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutorial: Implemente a sua aplicação para máquinas virtuais Linux em Azure utilizando serviços Azure DevOps e Pipelines Azure
 

@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1608039b051cb17684ca77cf7f00c705c9a8e7b5
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 318da4e92e6d07df1fcb89a4df0cb29d82caa630
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659533"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294873"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia híbrida de adoção de identidade
 Nesta tarefa, define a estratégia de adoção de identidade híbrida para a sua solução de identidade híbrida para satisfazer os requisitos de negócio que foram discutidos em:
@@ -55,7 +55,7 @@ O quadro a seguir ajuda a determinar as vantagens e desvantagens de cada uma das
 | Estratégia | Vantagens | Desvantagens |
 | --- | --- | --- |
 | **Identidades em nuvem** |Mais fácil de gerir para uma pequena organização. <br> Nada para instalar no local. Não é necessário hardware adicional<br>Facilmente desativado se o utilizador deixar a empresa |Os utilizadores terão de fazer sedudas ao aceder às cargas de trabalho na nuvem <br> As palavras-passe podem ou não ser as mesmas para identidades em nuvem e no local |
-| **Sincronizado** |A palavra-passe no local autentica tanto no local como nos diretórios em nuvem <br>Mais fácil de gerir para pequenas, médias ou grandes organizações <br>Os utilizadores podem ter um único sign-on (SSO) para alguns recursos <br> Método preferido da Microsoft para sincronização <br> Mais fácil de gerir |Alguns clientes podem estar relutantes em sincronizar os seus diretórios com a nuvem devido à polícia específica da empresa. |
+| **Sincronizado** |A palavra-passe no local autentica tanto no local como nos diretórios em nuvem <br>Mais fácil de gerir para pequenas, médias ou grandes organizações <br>Os utilizadores podem ter um único sign-on (SSO) para alguns recursos <br> Método preferido da Microsoft para sincronização <br> Mais fácil de gerir |Alguns clientes podem estar relutantes em sincronizar os seus diretórios com a nuvem devido às políticas específicas da empresa |
 | **Federados** |Os utilizadores podem ter um único sign-on (SSO) <br>Se um utilizador for encerrado ou sair, a conta pode ser imediatamente desativada e o acesso revogado,<br> Suporta cenários avançados que não podem ser realizados com sincronização |Mais passos para configurar e configurar <br> Maior manutenção <br> Pode exigir hardware adicional para a infraestrutura STS <br> Pode exigir hardware adicional para instalar o servidor da federação. É necessário software adicional se o AD FS for utilizado <br> Requerer uma configuração extensiva para sSO <br> Ponto crítico de falha se o servidor da federação estiver em baixo, os utilizadores não serão capazes de autenticar |
 
 ### <a name="client-experience"></a>Experiência do cliente
@@ -210,9 +210,9 @@ A autenticação multi-factor está disponível por padrão para administradores
 > 
 > 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Determinar os requisitos de proteção de dados](plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 [Visão geral de considerações de design](plan-hybrid-identity-design-considerations-overview.md)
 

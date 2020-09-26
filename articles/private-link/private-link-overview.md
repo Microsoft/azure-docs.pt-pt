@@ -7,13 +7,13 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 2d2a520540ad69697da869833d52ab10e63a7730
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.custom: fasttrack-edit, references_regions
+ms.openlocfilehash: bee3d265554367b816c744ed892975ed60712f8b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527195"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318114"
 ---
 # <a name="what-is-azure-private-link"></a>O que é a Ligação Privada do Azure? 
 O Azure Private Link permite-lhe aceder aos Serviços Azure PaaS (por exemplo, Azure Storage e SQL Database) e à Azure aloja serviços de propriedade do cliente/parceiro sobre um [ponto final privado](private-endpoint-overview.md) na sua rede virtual.
@@ -40,18 +40,18 @@ A Azure Private Link proporciona os seguintes benefícios:
 
 |Serviços suportados  |Regiões disponíveis | Considerações adicionais | Estado  |
 |:-------------------|:-----------------|:----------------|:--------|
-|Serviços de ligação privada por trás do balanceador de carga padrão Azure | Todas as regiões públicas<br/> Todas as regiões do Governo  | Suportado no Balanceador de Carga Padrão | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
-| Armazenamento Azure Blob (incluindo data lake storage gen2)       |  Todas as regiões públicas       |  Suportado na Conta Tipo Finalidade Geral V2 | GA <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
-| Ficheiros do Azure | Todas as regiões públicas      | |   GA <br/> [Saiba mais](/azure/storage/files/storage-files-networking-endpoints)   |
+|Serviços de ligação privada por trás do balanceador de carga padrão Azure | Todas as regiões públicas<br/> Todas as regiões do Governo<br/>Todas as regiões da China  | Suportado no Balanceador de Carga Padrão | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/private-link/private-link-service-overview) |
+| Armazenamento Azure Blob (incluindo data lake storage gen2)       |  Todas as regiões públicas<br/> Todas as regiões do Governo       |  Suportado na Conta Tipo Finalidade Geral V2 | GA <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
+| Ficheiros do Azure | Todas as regiões públicas<br/> Todas as regiões do Governo      | |   GA <br/> [Saiba mais](/azure/storage/files/storage-files-networking-endpoints)   |
 | Azure File Sync | Todas as regiões públicas      | |   GA <br/> [Saiba mais](/azure/storage/files/storage-sync-files-networking-endpoints)   |
-| Armazenamento de Filas do Azure       |  Todas as regiões públicas       |  Suportado na Conta Tipo Finalidade Geral V2 | GA <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
-| Armazenamento de Tabelas do Azure       |  Todas as regiões públicas       |  Suportado na Conta Tipo Finalidade Geral V2 | GA <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
-|  Base de Dados SQL do Azure         | Todas as regiões públicas <br/> Todas as regiões do Governo      |  Suportado para a política de [ligação](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) proxy | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
+| Armazenamento de Filas do Azure       |  Todas as regiões públicas<br/> Todas as regiões do Governo       |  Suportado na Conta Tipo Finalidade Geral V2 | GA <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
+| Armazenamento de Tabelas do Azure       |  Todas as regiões públicas<br/> Todas as regiões do Governo       |  Suportado na Conta Tipo Finalidade Geral V2 | GA <br/> [Saiba mais](/azure/storage/common/storage-private-endpoints)  |
+|  Base de Dados SQL do Azure         | Todas as regiões públicas <br/> Todas as regiões do Governo<br/>Todas as regiões da China      |  Suportado para a política de [ligação](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) proxy | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)      |
 |Azure Synapse Analytics (anteriormente SQL Data Warehouse)| Todas as regiões públicas <br/> Todas as regiões do Governo |  Suportado para a política de [ligação](https://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policyhttps://docs.microsoft.com/azure/azure-sql/database/connectivity-architecture#connection-policy) proxy |GA <br/> [Saiba mais](https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview)|
-|Azure Cosmos DB|  Todas as regiões públicas<br/> Todas as regiões do Governo | |GA <br/> [Saiba mais](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
-|  Base de Dados Azure para PostgreSQL - Servidor único         | Todas as regiões públicas <br/> Todas as regiões do Governo     | Suportado para fins gerais e níveis de preços otimizados de memória | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
-|  Base de Dados do Azure para MySQL         | Todas as regiões públicas<br/> Todas as regiões do Governo      |  | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
-|  Azure Database for MariaDB         | Todas as regiões públicas<br/> Todas as regiões do Governo     |  | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
+|Azure Cosmos DB|  Todas as regiões públicas<br/> Todas as regiões do Governo</br> Todas as regiões da China | |GA <br/> [Saiba mais](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-private-endpoints)|
+|  Base de Dados Azure para PostgreSQL - Servidor único         | Todas as regiões públicas <br/> Todas as regiões do Governo<br/>Todas as regiões da China     | Suportado para fins gerais e níveis de preços otimizados de memória | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/postgresql/concepts-data-access-and-security-private-link)      |
+|  Base de Dados do Azure para MySQL         | Todas as regiões públicas<br/> Todas as regiões do Governo<br/>Todas as regiões da China      |  | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/mysql/concepts-data-access-security-private-link)     |
+|  Azure Database for MariaDB         | Todas as regiões públicas<br/> Todas as regiões do Governo<br/>Todas as regiões da China     |  | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-private-link)      |
 |  Azure Key Vault         | Todas as regiões públicas<br/> Todas as regiões do Governo      |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/key-vault/private-link-service)   |
 |Serviço Azure Kubernetes - Kubernetes API | Todas as regiões públicas      |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/aks/private-clusters)   |
 |Azure Search | Todas as regiões públicas <br/> Todas as regiões do Governo | Suportado com serviço em Modo Privado | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/search/search-security-overview#endpoint-access)    |
@@ -63,12 +63,15 @@ A Azure Private Link proporciona os seguintes benefícios:
 |Reencaminhamento do Azure | Todas as regiões públicas      |  | Pré-visualizar <br/> [Saiba mais](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
 |Azure Event Grid| Todas as regiões públicas<br/> Todas as regiões do Governo       |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/event-grid/network-security) |
 |Aplicações Web do Azure | Todas as regiões públicas      | Suportado com Windows PremiumV2 e Funções Linux e Premium Elásticas  | Pré-visualizar   <br/> [Saiba mais](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
-|Azure Machine Learning | LESTE DOS EUA, CENTRO SUL DOS EUA, OESTE DOS EUA 2      |  | Pré-visualizar   <br/> [Saiba mais](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
+|Azure Machine Learning | LESTE DE NÓS, CENTRO-SUL DE NÓS,<br/>OESTE DOS EUA, OESTE DOS EUA 2,<br/>CANADÁ CENTRAL, SUDESTE ASIÁTICO,<br/>JAPÃO LESTE, NORTE DA EUROPA,<br/>REINO UNIDO SUL, LESTE DA AUSTRÁLIA     |  | Pré-visualizar   <br/> [Saiba mais](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | Automatização do Azure  | Todas as regiões públicas |  | Pré-visualizar | |
 | Azure IoT Hub | Todas as regiões públicas    |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
-| Azure SignalR | LESTE DOS EUA, OESTE DOS EUA 2, CENTRO SUL DOS EUA      |  | Pré-visualizar   <br/> [Saiba mais](https://aka.ms/asrs/privatelink)   |
+| Azure SignalR | LESTE DE NÓS, CENTRO-SUL DE NÓS,<br/>OESTE EUA 2, Todas as regiões da China      |  | Pré-visualizar   <br/> [Saiba mais](https://aka.ms/asrs/privatelink)   |
 | Azure Monitor <br/>(Log Analytics & Application Insights) | Todas as regiões públicas      |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
-| Azure Batch | LESTE DOS EUA, OESTE DOS EUA 2, CENTRO-SUL DOS EUA, CENTRO-OESTE DOS EUA, FRANÇA CENTRAL, LESTE ASIÁTICO, REINO UNIDO SUL, EUA GOV VIRGINIA, EUA GOV ARIZONA  | | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/batch/private-connectivity) |
+| Azure Batch | CENTRAL DOS EUA, NORTE-AMERICANO, CENTRO-SUL DOS EUA, CENTRO-OESTE DOS EUA, LESTE DOS EUA, LESTE DOS EUA, OESTE DOS EUA 2, LESTE DA ÁSIA, FRANÇA CENTRAL, REINO UNIDO SUL, EUROPA DO NORTE, EUROPA OCIDENTAL, JAPÃO LESTE, JAPÃO OESTE, AUSTRÁLIA LESTE <br/> Todas as regiões do Governo  | | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/batch/private-connectivity) |
+|Azure Data Factory | Todas as regiões públicas<br/> Todas as regiões do Governo<br/>Todas as regiões da China    | As credenciais precisam de ser armazenadas num cofre de chaves Azure.| GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/data-factory/data-factory-private-link)   |
+
+
 
 Para obter as notificações mais atualizadas, consulte a página de atualizações do [Link Privado Azure](https://azure.microsoft.com/updates/?product=private-link).
 

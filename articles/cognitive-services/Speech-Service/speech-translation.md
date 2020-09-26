@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: tradução da fala
-ms.openlocfilehash: 67bb418926932ebb7e443e77c65dd12c7352049d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e4bc2f07fce3917bfa59f79305498bb91889344d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401219"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359805"
 ---
 # <a name="what-is-speech-translation"></a>O que é a tradução de voz?
 
@@ -60,8 +60,8 @@ Se as suas aplicações, ferramentas ou produtos estiverem a utilizar a [API do 
 * [REST API: Texto-a-discurso](rest-text-to-speech.md)
 * [REST API: Transcrição e personalização do lote](https://westus.cris.ai/swagger/ui/index)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Complete o [quickstart](get-started-speech-translation.md) de tradução da fala
-* [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](get-started.md)
+* [Obtenha gratuitamente uma chave de subscrição de serviço de discurso](overview.md#try-the-speech-service-for-free)
 * [Obtenha o Discurso SDK](speech-sdk.md)

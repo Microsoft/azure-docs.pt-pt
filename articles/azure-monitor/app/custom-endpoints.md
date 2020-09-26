@@ -3,13 +3,13 @@ title: Azure Application Insights substitui pontos finais padrão da SDK
 description: Modificar os pontos finais do Azure Monitor Insights SDK para regiões como o Governo de Azure.
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.custom: references_regions, devx-track-javascript
-ms.openlocfilehash: 22f81b327c161df4f6605cfcb64b48b8d75beed3
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: references_regions, devx-track-js
+ms.openlocfilehash: d6cea9044cd4898480fcc30532a05e6c8a407012
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373135"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333295"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>Insights de aplicação sobreprimido pontos finais predefinidos
 
@@ -79,7 +79,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPuls
 
 Para funções Azure é agora recomendado utilizar [cordas de ligação definidas](./sdk-connection-string.md?tabs=net) nas definições de Aplicação da Função. Para aceder às definições de aplicação para **Settings**a sua função a partir do painel de funções selecione  >  Definições**configurações configurações**  >  **configurações de configuração de configuração**. 
 
-Nome: `APPLICATIONINSIGHTS_CONNECTION_STRING` Valor:`Connection String Value`
+Nome: `APPLICATIONINSIGHTS_CONNECTION_STRING` Valor: `Connection String Value`
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -158,7 +158,7 @@ Para obter orientações sobre a modificação do ponto final de ingestão para 
 
 Atualmente, as únicas regiões que necessitam de modificações no ponto final são [o Governo de Azure](../../azure-government/compare-azure-government-global-azure.md#application-insights) e [a Azure China.](/azure/china/resources-developer-guide)
 
-|Região |  Nome do ponto final | Valor |
+|Region |  Nome do ponto final | Valor |
 |-----------------|:------------|:-------------|
 | Azure China | Canal da Telemetria | `https://dc.applicationinsights.azure.cn/v2/track` |
 | Azure China | QuickPulse (Métricas Ao Vivo) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
@@ -170,7 +170,7 @@ Atualmente, as únicas regiões que necessitam de modificações no ponto final 
 Se utilizar atualmente a [API de Insights de Aplicação,](https://dev.applicationinsights.io/
 ) que é normalmente acedida através de 'api.applicationinsights.io' terá de utilizar um ponto final que seja local para a sua região:
 
-|Região |  Nome do ponto final | Valor |
+|Region |  Nome do ponto final | Valor |
 |-----------------|:------------|:-------------|
 | Azure China | API REST | `api.applicationinsights.azure.cn` |
 | Azure Government | API REST | `api.applicationinsights.us`|

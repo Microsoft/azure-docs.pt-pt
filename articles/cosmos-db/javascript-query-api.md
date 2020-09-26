@@ -7,13 +7,13 @@ ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 56fbcc3950a739c4c9fc3df86468301e2e2ff4d8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: 1e8e1aa9d8e582644d1d625fc8a97cc0e0c790df
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421132"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91334400"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Consulta JavaScript API em Azure Cosmos DB
 
@@ -35,7 +35,7 @@ Além de emitir consultas utilizando o SQL API em Azure Cosmos DB, o [Cosmos DB 
 Quando incluídos dentro das funções predicados e/ou seletores, as seguintes construções JavaScript ficam automaticamente otimizadas para funcionar diretamente nos índices DB do Azure Cosmos:
 
 - Operadores `=` `+` `-` `*` `/` `%` `|` simples: `^` `&` `==` `!=` `===` `!===` `<` `>` `<=` `>=` `||` `&&` `<<` `>>` `>>>!``~`
-- Literal, incluindo o objeto literal:{}
+- Literal, incluindo o objeto literal: {}
 - var, retorno
 
 As seguintes construções JavaScript não são otimizadas para índices DB Azure Cosmos:
@@ -50,7 +50,7 @@ Para obter mais informações, consulte a [documentação JavaScript side do cos
 A tabela seguinte apresenta várias consultas SQL e as consultas javaScript correspondentes. Tal como acontece com as consultas SQL, as propriedades (por exemplo, item.id) são sensíveis a casos.
 
 > [!NOTE]
-> `__`(duplo-sublinhado) é um pseudónimo para `getContext().getCollection()` quando se utiliza a API de consulta JavaScript.
+> `__` (duplo-sublinhado) é um pseudónimo para `getContext().getCollection()` quando se utiliza a API de consulta JavaScript.
 
 |**SQL**|**Consulta JavaScript API**|**Descrição**|
 |---|---|---|
@@ -59,9 +59,9 @@ A tabela seguinte apresenta várias consultas SQL e as consultas javaScript corr
 |SELECIONE *<br>De docs<br>WHERE<br>&nbsp;&nbsp;&nbsp;docs.id="X998_Y998"|__.filter(função(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;doc.id de regresso ==="X998_Y998";<br>});|Consultas para documentos com o predicado: id = "X998_Y998".|
 |SELECIONE *<br>De docs<br>WHERE<br>&nbsp;&nbsp;&nbsp;ARRAY_CONTAINS(docs). Etiquetas, 123)|__.filter(função(x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;retorno x.Tags && x.Tags.indexOf(123) > -1;<br>});|Consultas para documentos que tenham uma propriedade tags e Tags é uma matriz contendo o valor 123.|
 |SELECIONAR<br>&nbsp;&nbsp;&nbsp;docs.id,<br>&nbsp;&nbsp;&nbsp;docs.message AS msg<br>De docs<br>WHERE<br>&nbsp;&nbsp;&nbsp;docs.id="X998_Y998"|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(função(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;doc.id de regresso ==="X998_Y998";<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.map(função(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;retorno {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.value();|Consultas para documentos com predicado, id = "X998_Y998", e depois projeta o id e a mensagem (aliased to msg).|
-|ETIQUETA DE VALOR SELECIONADO<br>De docs<br>Junte a etiqueta em docs. Etiquetas<br>ENCOMENDA POR docs._ts|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(função(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;devolução doc. Tags && Array.isArray (doc. Etiquetas);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.sortBy (função(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;devolução doc._ts;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.pluck("Tags")<br>&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br>&nbsp;&nbsp;&nbsp;&nbsp;.value()|Filtros para documentos que tenham uma propriedade de matriz, Tags, e classifica os documentos resultantes pela propriedade do sistema de marcação de tempo _ts, e depois projetos + achata a matriz tags.|
+|ETIQUETA DE VALOR SELECIONADO<br>De docs<br>Junte a etiqueta em docs. Etiquetas<br>ENCOMENDA POR DOCS._TS|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(função(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;devolução doc. Tags && Array.isArray (doc. Etiquetas);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.sortBy (função(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;doc._ts de regresso;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.pluck("Tags")<br>&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br>&nbsp;&nbsp;&nbsp;&nbsp;.value()|Filtros para documentos que tenham uma propriedade de matriz, Tags, e classifica os documentos resultantes pela propriedade do sistema de marcação de tempo _ts, e depois projetos + achata a matriz tags.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais conceitos e como escrever e utilizar procedimentos armazenados, gatilhos e funções definidas pelo utilizador em Azure Cosmos DB:
 
