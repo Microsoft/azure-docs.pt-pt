@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/12/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a5db76f0258eb08f6b1f8ed102dc29e26c8d8bb0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e72129b1f391996f6d5b085fe602adb35a3aecbe
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85206449"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371223"
 ---
 # <a name="secure-access-to-on-premises-apis-with-azure-ad-application-proxy"></a>Acesso seguro às APIs no local com Proxy de Aplicação AD Azure
 
@@ -43,7 +43,7 @@ Uma vez que a autenticação e autorização de procuração de aplicações Azu
 Para acompanhar esta passagem, precisa:
 
 - Acesso a um diretório do Azure, com uma conta que pode criar e registar aplicações
-- A amostra web API e aplicativos de clientes nativos de[https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp](https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp)
+- A amostra web API e aplicativos de clientes nativos de [https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp](https://github.com/jeevanbisht/API-NativeApp-ADAL-SampleApp)
 
 ## <a name="publish-the-api-through-application-proxy"></a>Publicar a API através do Application Proxy
 
@@ -185,9 +185,9 @@ Para configurar a app nativa para ligar ao Azure Ative Directory e ligar para o 
 
 Depois de configurar os parâmetros, construa e execute a aplicação nativa. Quando seleciona o botão **'Iniciar',** a aplicação permite-lhe iniciar sposição e, em seguida, apresenta um ecrã de sucesso para confirmar que está ligado com sucesso ao SecretAPI.
 
-![Êxito](./media/application-proxy-secure-api-access/success.png)
+![A screenshot mostra uma mensagem Secret A P I Successful e um botão OK.](./media/application-proxy-secure-api-access/success.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure](application-proxy-add-on-premises-application.md)
 - [Quickstart: Configurar uma aplicação do cliente para aceder a APIs web](../develop/quickstart-configure-app-access-web-apis.md)

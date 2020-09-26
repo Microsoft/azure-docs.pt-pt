@@ -2,13 +2,13 @@
 title: Tópicos do sistema na Grelha de Eventos Azure
 description: Descreve tópicos do sistema na Grelha de Eventos Azure.
 ms.topic: conceptual
-ms.date: 08/27/2020
-ms.openlocfilehash: f5ca472ab5141207222987d476284813c2aacf56
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 09/24/2020
+ms.openlocfilehash: b3a6e7528da2a11c2f91007425ab8beecaf920c3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019101"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297288"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Tópicos do sistema na Grelha de Eventos Azure
 Um tópico de sistema em Event Grid representa um ou mais eventos publicados pelos serviços da Azure, tais como Azure Storage e Azure Event Hubs. Por exemplo, um tópico do sistema pode representar **todos os eventos blob** ou apenas eventos **blob criados** e **blob eliminados** publicados para uma **conta de armazenamento específica**. Neste exemplo, quando uma bolha é carregada para a conta de armazenamento, o serviço Azure Storage publica um evento **criado blob** para o tópico do sistema em Event Grid, que depois encaminha o evento para [os subscritores](event-handlers.md) do tópico que recebem e processam o evento. 
@@ -22,8 +22,9 @@ Aqui está a lista atual de serviços Azure que suportam a criação de tópicos
 - [Configuração da Aplicação Azure](event-schema-app-configuration.md)
 - [Serviço de Aplicações do Azure](event-schema-app-service.md)
 - [Armazenamento de Blobs do Azure](event-schema-blob-storage.md)
+- [Azure Communication Services](event-schema-communication-services.md) 
 - [Azure Container Registry](event-schema-container-registry.md)
-- [Hubs de Eventos do Azure](event-schema-event-hubs.md)
+- [Azure Event Hubs](event-schema-event-hubs.md)
 - [Hub IoT do Azure](event-schema-iot-hub.md)
 - [Azure Key Vault](event-schema-key-vault.md)
 - [Azure Machine Learning](event-schema-machine-learning.md)

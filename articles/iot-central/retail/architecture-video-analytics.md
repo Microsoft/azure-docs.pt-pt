@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 087c5e5716a4c8c640faebd7470905fde85d0136
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 916d491c45a2979c59580328a721c11bd79d49c0
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038314"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372209"
 ---
 # <a name="video-analytics---object-and-motion-detection-application-architecture"></a>Análise de vídeo - arquitetura de aplicação de deteção de objetos e movimentos
 
 O **modelo de aplicação de deteção de objetos e movimentos de vídeo permite-lhe** construir soluções IoT, incluindo capacidades de análise de vídeo ao vivo.
 
-:::image type="content" source="media/architecture-video-analytics/architecture.png" alt-text="Arquitetura":::
+:::image type="content" source="media/architecture-video-analytics/architecture.png" alt-text="Diagrama de objetos de análise de vídeo e componentes de deteção de movimento.":::
 
 Os componentes-chave da solução de análise de vídeo incluem:
 

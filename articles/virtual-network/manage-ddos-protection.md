@@ -16,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 73036ba1a72d657fd07a826bbee8651781f70e9b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 706379649b47846b5c020dc76493a98e346c4a8f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88931969"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317689"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gerir o Padrão de Proteção Azure DDoS utilizando o portal Azure
 
 Aprenda a ativar e desativar a proteção de negação de serviço distribuída (DDoS) e utilize a telemetria para mitigar um ataque DDoS com a Norma de Proteção DDoS do Azure. A DDoS Protection Standard protege os recursos do Azure, tais como máquinas virtuais, equiliblos de carga e gateways de aplicações que têm um [endereço IP público](virtual-network-public-ip-address.md) Azure atribuído a ele. Para saber mais sobre a Norma de Proteção DDoS e as suas capacidades, consulte [a visão geral do DDoS Protection Standard](ddos-protection-overview.md).
 
-Antes de completar quaisquer etapas neste tutorial, inicie sessão no portal Azure https://portal.azure.com com uma conta atribuída à [função de contribuinte](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) de rede ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que seja atribuída às ações [apropriadas listadas](#permissions)em Permissões .
+Antes de completar quaisquer etapas neste tutorial, inicie sessão no portal Azure https://portal.azure.com com uma conta atribuída à [função de contribuinte](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) de rede ou a uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que seja atribuída às ações [apropriadas listadas](#permissions-and-restrictions)em Permissões .
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -191,7 +191,7 @@ Os Registos de Fluxo de Mitigação de Ataques permitem-lhe rever o tráfego des
     - **Arquivar para uma conta de armazenamento**: Os dados são escritos numa conta de Armazenamento Azure. Para saber mais sobre esta opção, consulte [os registos de recursos do Arquivo.](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     - **Stream para um centro de eventos**: Permite que um recetor de log recolha registos usando um Azure Event Hub. Os centros de eventos permitem a integração com a Splunk ou outros sistemas SIEM. Para saber mais sobre esta opção, consulte [os registos de recursos do Stream para um centro de eventos.](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     - **Enviar para Log Analytics**: Escreve registos para o serviço Azure Monitor. Para saber mais sobre esta opção, consulte [recolher registos para utilização nos registos do Azure Monitor](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-1. Para visualizar os dados dos registos de fluxo no painel de análise Azure, pode importar o painel de amostras a partir de https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip
+1. Para visualizar os dados de registos de fluxo no Azure analytics Workbook, você pode importar o painel de amostras de https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20DDoS%20Protection%20Workbook
 
 Os registos de fluxo terão os seguintes campos: 
 - IP de origem
@@ -225,11 +225,11 @@ Para ver os alertas, abra o **Centro de Segurança** no portal Azure. Sob **prot
 
 Os alertas incluem informações gerais sobre o endereço IP público que está sob ataque, informações de inteligência geo e ameaças, e medidas de reparação.
 
-## <a name="permissions"></a>Permissões
+## <a name="permissions-and-restrictions"></a>Permissões e restrições
 
 Para trabalhar com planos de proteção DDoS, a sua conta deve ser atribuída à [função de contribuinte](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) de rede ou a uma função [personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) que seja atribuída às ações apropriadas listadas no quadro seguinte:
 
-| Ação                                            | Nome                                     |
+| Ação                                            | Name                                     |
 | ---------                                         | -------------                            |
 | Microsoft.Network/ddosProtectionPlans/read        | Leia um plano de proteção DDoS              |
 | Microsoft.Network/ddosProtectionPlans/write       | Criar ou atualizar um plano de proteção DDoS  |
@@ -237,6 +237,9 @@ Para trabalhar com planos de proteção DDoS, a sua conta deve ser atribuída à
 | Microsoft.Network/ddosProtectionPlans/join/action | Aderir a um plano de proteção DDoS              |
 
 Para permitir a proteção do DDoS para uma rede virtual, a sua conta também deve ser atribuída [às ações apropriadas para redes virtuais.](manage-virtual-network.md#permissions)
+
+### <a name="azure-policy"></a>Azure Policy
+Para clientes que tenham várias subscrições, e que queiram garantir um único plano para a Norma de Proteção DDoS Azure é implementado em todo o seu inquilino para controlo de custos, você pode usar a Azure Policy para restringir a [criação de planos Azure DDoS Protection Standard](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Restrict%20creation%20of%20Azure%20DDoS%20Protection%20Standard%20Plans%20with%20Azure%20Policy). Esta política bloqueará a criação de quaisquer planos DDoS, a menos que a subscrição tenha sido previamente marcada como uma exceção. Esta política também mostrará uma lista de todas as subscrições que têm um plano DDoS implementado mas não devem, marcando-as como fora do cumprimento. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

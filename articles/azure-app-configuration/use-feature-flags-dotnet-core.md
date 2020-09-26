@@ -11,15 +11,15 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 08/12/2020
+ms.date: 09/17/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 3f8a43a1ff28206a4bcc5fd059f69492c83eb34d
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: f863ca855ca36603085ed96b5aa17d277ae00516
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224718"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317315"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Use bandeiras de recurso numa aplicação core ASP.NET
 
@@ -231,6 +231,12 @@ Quando um controlador ou ação MVC é bloqueado porque a bandeira da função d
 
 ## <a name="mvc-views"></a>Vistas para o MVC
 
+Abra *_ViewImports.cshtml* no diretório *views* e adicione o ajudante de etiquetas de recurso:
+
+```html
+@addTagHelper *, Microsoft.FeatureManagement.AspNetCore
+```
+
 Nas vistas de MVC, pode utilizar uma `<feature>` etiqueta para renderizar conteúdo com base no facto de uma bandeira de recurso estar ativada:
 
 ```html
@@ -291,7 +297,7 @@ app.UseForFeature(featureName, appBuilder => {
 });
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a implementar bandeiras de funcionalidades na sua aplicação Core ASP.NET utilizando as `Microsoft.FeatureManagement` bibliotecas. Para obter mais informações sobre o suporte à gestão de funcionalidades na configuração ASP.NET Core e App, consulte os seguintes recursos:
 

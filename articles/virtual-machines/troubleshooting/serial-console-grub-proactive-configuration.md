@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/10/2019
 ms.author: mimckitt
-ms.openlocfilehash: c48ef0321ece2e7e0ffcdfcb8c0907c5f839e738
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: aba47500400004c1d6a7044a266bad6f20d5d9c9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831367"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360553"
 ---
 # <a name="proactively-ensuring-you-have-access-to-grub-and-sysrq-could-save-you-lots-of-down-time"></a>Garantir proativamente que você tem acesso a GRUB e sysrq poderia economizar muito tempo de insudor
 
@@ -57,9 +57,9 @@ Com a Consola Em Série Azure, podes interagir com o teu Linux VM como se estive
 
 Pode manipular muitos ficheiros de configuração, incluindo como o núcleo será iniciado. 
 
-Os administradores mais experientes do Linux/Unix apreciarão os modos **de utilizador** e de emergência únicos que são **acessíveis** através da Consola em Série Azure, tornando a troca de discos e a eliminação de VM para muitos cenários de recuperação redundantes.
+Os administradores mais experientes do Linux/Unix apreciarão os modos **de utilizador** e de emergência únicos que são  **acessíveis** através da Consola em Série Azure, tornando a troca de discos e a eliminação de VM para muitos cenários de recuperação redundantes.
 
-O método de recuperação depende do problema que está a ser experimentado, por exemplo, uma palavra-passe perdida ou deslocada pode ser reiniciada através das opções do portal Azure -> **redefinir a palavra-passe**. A **função Palavra-Passe reset** é conhecida como uma extensão e comunica com o agente Linux Guest.
+O método de recuperação depende do problema que está a ser experimentado, por exemplo, uma palavra-passe perdida ou deslocada pode ser reiniciada através das opções do portal Azure ->  **redefinir a palavra-passe**. A **função Palavra-Passe reset** é conhecida como uma extensão e comunica com o agente Linux Guest.
 
 Outras extensões, como o Script Personalizado, estão disponíveis no entanto estas opções requerem que o **waagent** Linux esteja de pé e em um estado saudável, o que nem sempre acontece.
 
@@ -117,7 +117,7 @@ Para configurar o parâmetro do núcleo dinamicamente
 
 Se não tiver acesso **à raiz** ou se o sudo estiver partido, não será possível configurar sysrq a partir de uma pressão de concha.
 
-Pode ativar o sysrq neste cenário utilizando o portal Azure. Este método pode ser benéfico se o ficheiro **sudoers.d/waagent** tiver sido quebrado ou tiver sido eliminado.
+Pode ativar o sysrq neste cenário utilizando o portal Azure. Este método pode ser benéfico se o ficheiro  **sudoers.d/waagent** tiver sido quebrado ou tiver sido eliminado.
 
 Utilizando o portal Azure Operations -> Executar o Comando -> Função RunShellScript, requer que o processo waagent seja saudável, pode injetar este comando para ativar o sysrq
 
@@ -210,11 +210,11 @@ Interrompa o processo boot e aceda ao menu GRUB
 
 Selecione Opções Avançadas para Ubuntu e pressione a entrada
 
-![ubunturec1](./media/virtual-machines-serial-console/ubunturec1.png)
+![A screenshot mostra a consola Serial com opções Avançadas para Ubuntu selecionadas.](./media/virtual-machines-serial-console/ubunturec1.png)
 
 Selecione a visualização da linha *(modo de recuperação)* não prima a entrada, mas prima "e"
 
-![ubunturec2](./media/virtual-machines-serial-console/ubunturec2.png)
+![O Screenshot mostra a consola Serial com uma versão de modo de recuperação selecionada.](./media/virtual-machines-serial-console/ubunturec2.png)
 
 Localize a linha que carregará o núcleo e substitua o último **nomodeset** do parâmetro com destino como **consola=ttyS0**
 
@@ -226,12 +226,12 @@ change to
 linux /boot/vmlinuz-4.15.0-1023-azure root=UUID=21b294f1-25bd-4265-9c4e-d6e4aeb57e97 ro recovery console=ttyS0
 ```
 
-![ubunturec3](./media/virtual-machines-serial-console/ubunturec3.png)
+![A screenshot mostra a consola Serial com o valor alterado.](./media/virtual-machines-serial-console/ubunturec3.png)
 
 Pressione **ctrl-x** para iniciar e carregue o grão.
 Se tudo correr bem, verá estas opções adicionais, o que pode ajudar a executar outras opções de recuperação
 
-![ubunturec4](./media/virtual-machines-serial-console/ubunturec4.png)
+![O Screenshot mostra a consola Serial no Menu Recovery, que oferece opções de recuperação adicionais.](./media/virtual-machines-serial-console/ubunturec4.png)
 
 
 ## <a name="red-hat-grub-configuration"></a>Configuração GRUB de chapéu vermelho
@@ -335,13 +335,13 @@ terminal --timeout=5 serial console
 ```
 
 
-O último terminal de linha *--timeout=5 em série* aumentará ainda mais o tempo limite **de GRUB** adicionando uma solicitação de 5 segundos mostrando **Pressione qualquer tecla para continuar.**
+O último terminal de linha  *--timeout=5 em série* aumentará ainda mais o tempo limite **de GRUB** adicionando uma solicitação de 5 segundos mostrando **Pressione qualquer tecla para continuar.**
 
-![rh6-1](./media/virtual-machines-serial-console/rh6-1.png)
+![A screenshot mostra uma consola com saída.](./media/virtual-machines-serial-console/rh6-1.png)
 
 O menu GRUB deve aparecer no ecrã para o tempo limite configurado=15 sem a necessidade de pressionar o Esc. Certifique-se de clicar na Consola no Browser para tornar ativo o menu e selecione o núcleo necessário
 
-![rh6-2](./media/virtual-machines-serial-console/rh6-2.png)
+![A screenshot mostra uma consola com duas opções Linux.](./media/virtual-machines-serial-console/rh6-2.png)
 
 ## <a name="suse"></a>Rio Suse
 
@@ -405,18 +405,18 @@ Você terá acesso a uma concha sem ter que inserir uma senha. Pode então proce
 Ter acesso ao GRUB permite-lhe interromper o processo de inicialização esta interação é útil para muitos procedimentos de recuperação.
 Se não tiver uma palavra-passe de raiz e um único utilizador exigir que tenha uma senha de raiz, pode iniciar o núcleo substituindo o programa init por uma pontuação – esta interrupção pode ser conseguida através do appending init=/bin/bash para a linha de arranque do núcleo
 
-![bash1](./media/virtual-machines-serial-console/bash1.png)
+![A screenshot mostra uma consola com a linha de arranque atualizada.](./media/virtual-machines-serial-console/bash1.png)
 
 Remonte o seu sistema de ficheiros /(raiz) RW usando o comando
 
 `mount -o remount,rw /`
 
-![bash2](./media/virtual-machines-serial-console/bash2.png)
+![A screenshot mostra uma consola com uma ação de re-montagem.](./media/virtual-machines-serial-console/bash2.png)
 
 
 Agora pode realizar a alteração da palavra-passe de raiz ou muitas outras alterações de configuração do Linux
 
-![bash3](./media/virtual-machines-serial-console/bash3.png)
+![A screenshot mostra uma consola onde pode alterar a palavra-passe de raiz e outra configuração.](./media/virtual-machines-serial-console/bash3.png)
 
 Reiniciar o VM com 
 

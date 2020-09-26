@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: 7a3d2234a140d1fb2eede50e3fe2eef5575da648
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bff846b4b64778d5e40ea7f08f88faf3dde81d9e
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81391697"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371614"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Ver artefacto de definição em Aplicações Geridas Azure
 
@@ -20,7 +20,7 @@ Este artigo fornece uma visão geral do artefacto de definição de visão e sua
 
 ## <a name="view-definition-artifact"></a>Artefacto de definição de vista
 
-O artefacto de definição de vista deve ser nomeado **viewDefinition.js** e colocado ao mesmo nível **quecreateUiDefinition.js** e **mainTemplate.jsno** pacote .zip que cria uma definição de aplicação gerida. Para aprender a criar o pacote .zip e publicar uma definição de aplicação gerida, consulte [publicar uma definição de aplicação gerida Azure](publish-service-catalog-app.md)
+O artefacto de definição de vista deve ser nomeado **viewDefinition.js** e colocado ao mesmo nível ** quecreateUiDefinition.js** e **mainTemplate.jsno** pacote .zip que cria uma definição de aplicação gerida. Para aprender a criar o pacote .zip e publicar uma definição de aplicação gerida, consulte [publicar uma definição de aplicação gerida Azure](publish-service-catalog-app.md)
 
 ## <a name="view-definition-schema"></a>Ver esquema de definição
 
@@ -103,7 +103,7 @@ Amostra JSON para definição de vista:
 }
 ```
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 `"kind": "Overview"`
 
@@ -131,7 +131,7 @@ Quando fornece esta vista em **viewDefinition.js,** substitui a página de Visã
 |descrição|No|A descrição da sua aplicação gerida.|
 |comandos|No|A matriz de botões adicionais da barra de ferramentas da página geral, ver [comandos](#commands).|
 
-![Descrição geral](./media/view-definition/overview.png)
+![O Screenshot mostra a visão geral de uma aplicação gerida com um controlo de Ação de Teste para executar uma aplicação de demonstração.](./media/view-definition/overview.png)
 
 ## <a name="metrics"></a>Métricas
 
@@ -183,12 +183,12 @@ A visão métrica permite-lhe recolher e agregar dados dos recursos geridos da a
 |Propriedade|Necessário|Descrição|
 |---------|---------|---------|
 |name|Yes|O nome da métrica.|
-|agregaçãoType|Yes|O tipo de agregação a utilizar para esta métrica. Tipos de agregação suportados:`none, sum, min, max, avg, unique, percentile, count`|
+|agregaçãoType|Yes|O tipo de agregação a utilizar para esta métrica. Tipos de agregação suportados: `none, sum, min, max, avg, unique, percentile, count`|
 |espaço de nomes|No|Informações adicionais a utilizar ao determinar o fornecedor de métricas correto.|
 |recursoRFiltro|No|A matriz de etiquetas de recursos (será separada com `or` a palavra) para a qual as métricas seriam apresentadas. Aplica-se em cima do filtro do tipo de recurso.|
 |resourceType|Yes|O tipo de recurso para o qual as métricas seriam apresentadas.|
 
-![Métricas](./media/view-definition/metrics.png)
+![A screenshot mostra uma página de monitorização chamada This is my metrics view for a managed application.](./media/view-definition/metrics.png)
 
 ## <a name="custom-resources"></a>Recursos personalizados
 
@@ -234,7 +234,7 @@ Nesta vista pode efetuar operações GET, PUT, DELETE e POST para o seu tipo de 
 |comandos|No|A matriz de botões adicionais da barra de ferramentas da vista CustomResources, consulte [os comandos](#commands).|
 |colunas|No|A matriz de colunas do recurso personalizado. Se não estiver definida, a `name` coluna será mostrada por defeito. A coluna deve ter `"key"` `"displayName"` e. . Para a chave, forneça a chave da propriedade para exibir numa vista. Se aninhado, use o ponto como delimiter, por exemplo, `"key": "name"` ou `"key": "properties.property1"` . Para o nome do visor, forneça o nome de exibição da propriedade para visualizar numa vista. Você também pode fornecer um `"optional"` imóvel. Quando definida como verdadeira, a coluna é escondida numa vista por defeito.|
 
-![Recursos personalizados](./media/view-definition/customresources.png)
+![A screenshot mostra uma página de Recursos chamada Test custom resource type e o control custom Context Action.](./media/view-definition/customresources.png)
 
 ## <a name="commands"></a>Comandos
 
@@ -256,7 +256,7 @@ Os comandos são uma série de botões adicionais da barra de ferramentas que s�
 |Propriedade|Necessário|Descrição|
 |---------|---------|---------|
 |displayName|Yes|O nome apresentado do botão de comando.|
-|path|Yes|O nome de ação do fornecedor personalizado. A ação deve ser definida em **mainTemplate.jsem**.|
+|caminho|Yes|O nome de ação do fornecedor personalizado. A ação deve ser definida em **mainTemplate.jsem**.|
 |ícone|No|O ícone do botão de comando. A lista de ícones de exemplo é definida no [Esquema JSON.](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#)|
 |createUIDefinition|No|Crie esquema de definição de UI para comando. Para uma introdução à criação de definições de UI, consulte [Começar com CreateUiDefinition](create-uidefinition-overview.md).|
 

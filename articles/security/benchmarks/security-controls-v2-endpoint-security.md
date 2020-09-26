@@ -4,17 +4,17 @@ description: Segurança V2 Endpoint de referência de segurança Azure
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: c04e4233ded34ceaeec9cd9afb240d3d1ac864e0
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 3eab0080f80b26fc7074d8a64885148c0568d8b1
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059257"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280627"
 ---
-# <a name="security-control-endpoint-security"></a>Controlo de Segurança: Segurança endpoint
+# <a name="security-control-v2-endpoint-security"></a>Controlo de Segurança V2: Segurança de ponto final
 
 A Endpoint Security cobre os controlos na deteção e resposta do ponto final. Isto inclui a utilização de deteção e resposta de pontos finais (EDR) e serviço anti-malware para pontos finais em ambientes Azure.
 
@@ -36,7 +36,7 @@ O Microsoft Defender Advanced Threat Protection fornece a capacidade EDR como pa
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Segurança de infraestrutura e pontos finais](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -64,7 +64,7 @@ O Microsoft Antimalware para Azure Cloud Services é o anti-malware padrão para
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Segurança de infraestrutura e pontos finais](/azure/cloud-adoption-framework/organize/cloud-security)
 
@@ -88,7 +88,7 @@ Siga as recomendações no Azure Security Center: "Compute &amp; Apps" para gara
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Segurança de infraestrutura e pontos finais](/azure/cloud-adoption-framework/organize/cloud-security)
 

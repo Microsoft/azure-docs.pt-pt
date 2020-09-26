@@ -3,15 +3,15 @@ title: Problemas de diagnóstico de desktop virtual do Windows - Azure
 description: Como utilizar a funcionalidade de diagnóstico virtual do Windows Desktop para diagnosticar problemas.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 09/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 50fe1eb6e5aed551b56bcd1526daa5d441185501
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 70676bd1a07acdfcbba071a906b390ed66d70074
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121413"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91279863"
 ---
 # <a name="identify-and-diagnose-windows-virtual-desktop-issues"></a>Identificar e diagnosticar problemas de ambiente de trabalho virtual do Windows
 
@@ -24,10 +24,10 @@ As ligações que não chegam ao Windows Virtual Desktop não aparecem nos resul
 
 ## <a name="common-error-scenarios"></a>Cenários de erros comuns
 
-Os cenários de erro são categorizados internamente ao serviço e externos ao Windows Virtual Desktop.
+A tabela WVDErrors rastreia erros em todos os tipos de atividade. A coluna chamada "ServiceError" fornece uma bandeira adicional marcada como "Verdadeiro" ou "Falso". Esta bandeira dir-lhe-á se o erro está relacionado com o serviço.
 
-* Problema Interno: especifica cenários que não podem ser atenuados pelo cliente e que precisam de ser resolvidos como um problema de suporte. Ao fornecer feedback através da [Comunidade Virtual desktop Tech do Windows,](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)inclua o ID de correlação e o período de tempo aproximado de quando o problema ocorreu.
-* Questão Externa: relacionar-se com cenários que podem ser atenuados pelo cliente. Estes são externos ao Windows Virtual Desktop.
+* Se o valor for "Verdadeiro", a equipa de serviço pode já ter investigado esta questão. Se isto tiver impacto na experiência do utilizador e aparecer um elevado número de vezes, recomendamos que envie um bilhete de suporte para o Windows Virtual Desktop.
+* Se o valor for "Falso", isto pode ser uma configuração errada que podes corrigir. A mensagem de erro pode dar-lhe uma pista sobre por onde começar.
 
 A tabela que se segue enumera erros comuns que os seus administradores podem encontrar.
 
@@ -46,7 +46,7 @@ A tabela que se segue enumera erros comuns que os seus administradores podem enc
 |Falhou em não assinar o utilizador do grupo de aplicações|Não foi possível desacruçar um grupo de aplicações para um utilizador. Verifique se o utilizador está disponível no Azure AD. Verifique se o utilizador faz parte de um grupo de utilizadores ao qual o grupo de aplicações é publicado. |
 |Houve um erro na recuperação dos locais disponíveis |Verifique a localização dos VM utilizados no assistente de piscina de criação. Se a imagem não estiver disponível nesse local, adicione a imagem nesse local ou escolha uma localização VM diferente. |
 
-### <a name="external-connection-error-codes"></a>Códigos de erro de ligação externa
+### <a name="connection-error-codes"></a>Códigos de erro de ligação
 
 |Código numérico|Código de erro|Solução sugerida|
 |---|---|---|

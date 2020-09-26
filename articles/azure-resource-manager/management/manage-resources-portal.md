@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 051361860a6a2d9ad70aa81e313857ec86cacfb4
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 266ad613a4966b26fc4a6ddffbb7b4196aa937b1
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827051"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372107"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Gerir os recursos do Azure utilizando o portal Azure
 
@@ -114,7 +114,7 @@ Pode selecionar o ícone do pino no canto superior direito dos gráficos para fi
 
 ## <a name="manage-access-to-resources"></a>Gerir o acesso aos recursos
 
-[O controlo de acesso baseado em funções (Azure RBAC)](../../role-based-access-control/overview.md) é a forma como gere o acesso aos recursos em Azure. Para obter mais informações, veja [Gerir o acesso através do RBAC e do portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+[O controlo de acesso baseado em funções (Azure RBAC)](../../role-based-access-control/overview.md) é a forma como gere o acesso aos recursos em Azure. Para obter mais informações, consulte [Adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

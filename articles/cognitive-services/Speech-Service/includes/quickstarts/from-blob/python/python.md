@@ -4,96 +4,96 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 3ca50a9bad36e0174dc4ee0059c9d01fcc18a5f1
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: d69cb782b3be7035b7571653dcb434e44d22da93
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400898"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377003"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
-> * [Criar um recurso azure speech](../../../../get-started.md)
-> * [Faça upload de um ficheiro fonte para uma bolha Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
+> * [Configurar o seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
+> * [Criar um recurso de discurso azul](../../../../overview.md#try-the-speech-service-for-free)
+> * [Faça o upload de um ficheiro de origem para uma bolha de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 ## <a name="download-and-install-the-api-client-library"></a>Descarregue e instale a biblioteca de clientes da API
 
-Para executar a amostra, você precisa gerar a biblioteca Python para a API REST que é gerada através de [Swagger](https://swagger.io).
+Para executar a amostra é necessário gerar a biblioteca Python para a API REST que é gerada através de [Swagger.](https://swagger.io)
 
 Siga estes passos para a instalação:
 
 1. Aceda a https://editor.swagger.io.
-1. Clique em **File**e, em seguida, clique em **URL de importação**.
-1. Introduza o URL Swagger, incluindo `https://<your-region>.cris.ai/docs/v2.0/swagger`a região para a sua subscrição de serviço de Fala: .
-1. Clique em **Gerar Cliente** e selecione **Python**.
-1. Salve a biblioteca de clientes.
-1. Extraia o python-cliente gerado pelo cliente.zip em algum lugar do seu sistema de ficheiros.
-1. Instale o módulo de python-cliente extraído `pip install path/to/package/python-client`no seu ambiente Python utilizando pip: .
-1. A embalagem instalada tem `swagger_client`o nome . Pode verificar se a instalação `python -c "import swagger_client"`funcionou utilizando o comando .
+1. Clique **em 'Arquivar'** e, em seguida, clique em **URL de importação.**
+1. Insira o URL Swagger, incluindo a região para a sua subscrição de serviço de discurso: `https://<your-region>.cris.ai/docs/v2.0/swagger` .
+1. Clique **em Gerar Cliente** e selecione **Python**.
+1. Salve a biblioteca do cliente.
+1. Extraia as python-client-generated.zip descarregadas algures no seu sistema de ficheiros.
+1. Instale o módulo python-cliente extraído no seu ambiente Python utilizando pip: `pip install path/to/package/python-client` .
+1. O pacote instalado tem o nome `swagger_client` . Pode verificar se a instalação funcionou utilizando o comando `python -c "import swagger_client"` .
 
 > [!NOTE]
-> Devido a um [bug conhecido na autogeração Swagger,](https://github.com/swagger-api/swagger-codegen/issues/7541) `swagger_client` pode encontrar erros na importação do pacote.
-> Estes podem ser corrigidos apagando a linha com o conteúdo
+> Devido a um [bug conhecido na autogeração de Swagger,](https://github.com/swagger-api/swagger-codegen/issues/7541)poderá encontrar erros na importação do `swagger_client` pacote.
+> Estes podem ser corrigidos eliminando a linha com o conteúdo
 > ```py
 > from swagger_client.models.model import Model  # noqa: F401,E501
 > ```
-> a partir `swagger_client/models/model.py` do arquivo e da linha com o conteúdo
+> do ficheiro `swagger_client/models/model.py` e da linha com o conteúdo
 > ```py
 > from swagger_client.models.inner_error import InnerError  # noqa: F401,E501
 > ```
-> a partir `swagger_client/models/inner_error.py` do ficheiro dentro da embalagem instalada. A mensagem de erro dir-lhe-á onde estes ficheiros estão localizados para a sua instalação.
+> a partir do ficheiro `swagger_client/models/inner_error.py` dentro do pacote instalado. A mensagem de erro dir-lhe-á onde estes ficheiros estão localizados para a sua instalação.
 
 ## <a name="install-other-dependencies"></a>Instalar outras dependências
 
-A amostra `requests` usa a biblioteca. Pode instalá-lo com o comando
+A amostra usa a `requests` biblioteca. Pode instalá-lo com o comando
 
 ```bash
 pip install requests
 ```
 
-## <a name="start-with-some-boilerplate-code"></a>Comece com um pouco de código de placa de caldeira
+## <a name="start-with-some-boilerplate-code"></a>Comece com um código de placa de caldeira
 
-Vamos adicionar um código que funciona como um esqueleto para o nosso projeto.
+Vamos adicionar um código que funcione como um esqueleto para o nosso projeto.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=1-2,7-34,115-119)]
 
 [!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
-## <a name="create-and-configure-an-http-client"></a>Criar e configurar um Cliente http
-A primeira coisa que precisamos é de um Cliente Http que tenha um URL base correto e conjunto de autenticação.
-Insira `transcribe` este código em[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=37-45)]
+## <a name="create-and-configure-an-http-client"></a>Criar e configurar um Cliente Http
+A primeira coisa que vamos precisar é de um Cliente Http que tenha um URL de base correto e conjunto de autenticação.
+Insira este código em `transcribe`[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=37-45)]
 
 ## <a name="generate-a-transcription-request"></a>Gerar um pedido de transcrição
-Em seguida, vamos gerar o pedido de transcrição. Adicione este `transcribe` código a[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=52-54)]
+Em seguida, geraremos o pedido de transcrição. Adicione este código para `transcribe`[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=52-54)]
 
 ## <a name="send-the-request-and-check-its-status"></a>Envie o pedido e verifique o seu estado
-Agora publicamos o pedido no serviço de Discurso e verificamos o código de resposta inicial. Este código de resposta indicará simplesmente se o serviço recebeu o pedido. O serviço devolverá um Url nos cabeçalhos de resposta que é o local onde armazenará o estado da transcrição.
+Agora publicamos o pedido ao serviço de Discurso e verificamos o código de resposta inicial. Este código de resposta apenas indicará se o serviço recebeu o pedido. O serviço devolverá um Url nos cabeçalhos de resposta que é o local onde irá armazenar o estado de transcrição.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=65-73)]
 
-## <a name="wait-for-the-transcription-to-complete"></a>Aguarde a transcrição para completar
-Uma vez que o serviço processa a transcrição assincronicamente, precisamos de fazer sondagens para o seu estatuto de vez em quando. Vamos verificar a cada 5 segundos.
+## <a name="wait-for-the-transcription-to-complete"></a>Aguarde que a transcrição esteja completa.
+Uma vez que o serviço processa a transcrição assíncroneamente, precisamos de sondar o seu estatuto de vez em quando. Vamos verificar a cada 5 segundos.
 
-Vamos enumerar todas as transcrições que este recurso do serviço speech está a processar e procurar a que criámos.
+Enumeraremos todas as transcrições que este recurso de serviço de discurso está a processar e procurar o que criamos.
 
-Aqui está o código de votação com o status display para tudo, exceto uma conclusão bem sucedida, vamos fazê-lo a seguir.
+Aqui está o código de sondagens com exibição de estado para tudo, exceto uma conclusão bem sucedida, vamos fazê-lo a seguir.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=75-94,99-112)]
 
 ## <a name="display-the-transcription-results"></a>Mostrar os resultados da transcrição
-Uma vez concluído o serviço com sucesso, os resultados serão armazenados em outro Url que podemos obter da resposta do estado.
+Uma vez que o serviço tenha concluído com sucesso a transcrição, os resultados serão armazenados em outro Url que podemos obter da resposta de estado.
 
 Aqui temos o resultado JSON e exibimo-lo.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=95-98)]
 
 ## <a name="check-your-code"></a>Verifique o seu código
-Neste ponto, o seu código deve ser assim: (Adicionámos alguns comentários a esta versão)[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=1-118)]
+Neste momento, o seu código deve ser assim: (Adicionámos alguns comentários a esta versão) [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=1-118)]
 
 ## <a name="build-and-run-your-app"></a>Construa e execute a sua app
 
-Agora está pronto para construir a sua app e testar o nosso reconhecimento de voz usando o serviço de Discurso.
+Agora está pronto para construir a sua app e testar o nosso reconhecimento de voz usando o serviço Speech.
 
 ## <a name="next-steps"></a>Passos seguintes
 

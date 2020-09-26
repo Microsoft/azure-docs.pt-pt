@@ -4,12 +4,12 @@ description: Gestão de Desempenho de Aplicações e controlo da utilização da
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 4576c8a7657ea3da1f8a732c2efd38302f33300c
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: f00eea37c43fba10e0a89498dd81366630852db7
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974040"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371387"
 ---
 # <a name="what-is-application-insights"></a>O que é o Application Insights?
 Application Insights, uma funcionalidade do [Azure Monitor,](../overview.md)é um serviço extensível de Gestão de Desempenho de Aplicações (APM) para desenvolvedores e profissionais de DevOps. Use-o para monitorizar as suas aplicações ao vivo. Irá detetar automaticamente anomalias de desempenho e inclui poderosas ferramentas de análise para ajudá-lo a diagnosticar problemas e a entender o que os utilizadores realmente fazem com a sua aplicação.  Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Funciona para apps em uma grande variedade de plataformas, incluindo .NET, Node.js, Java e Python hospedados no local, híbridos ou qualquer nuvem pública. Integra-se com o seu processo de DevOps e tem pontos de ligação a diversas outras ferramentas de programação. Pode monitorizar e analisar a telemetria de aplicações móveis ao integrar com o Visual Studio App Center.
@@ -66,7 +66,7 @@ Existem muitas formas para explorar os seus dados. Veja estes artigos:
 
 ## <a name="how-do-i-use-application-insights"></a>Como posso utilizar o Application Insights?
 
-### <a name="monitor"></a>Monitor
+### <a name="monitor"></a>Monitorizar
 Instale o Application Insights na sua aplicação, configure [testes Web de disponibilidade](./monitor-web-app-availability.md) e:
 
 * Confira o painel de [aplicações](./overview-dashboard.md) padrão para a sua sala de equipa para manter um olho na carga, capacidade de resposta e no desempenho das suas dependências, cargas de página e chamadas AJAX.
@@ -122,6 +122,7 @@ Introdução no momento de programação com:
 * [Java](./java-get-started.md)
 * [Node.js](./nodejs.md)
 * [Python](./opencensus-python.md)
+* [JavaScript](./javascript.md)
 
 
 ## <a name="support-and-feedback"></a>Suporte e comentários

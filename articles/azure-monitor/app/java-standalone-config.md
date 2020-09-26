@@ -4,12 +4,12 @@ description: Monitorização de desempenho de aplicações sem código para apli
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 561a6405a49d8f15affbf6d8d4de1a7f4886826a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 93b0b89cff7e48ddc4eb9173c9423961f96ec4bb
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056103"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371308"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opções de configuração - Java agente autónomo para Azure Monitor Application Insights
 
@@ -49,7 +49,18 @@ Isto é necessário. Pode encontrar a sua cadeia de ligação no seu recurso App
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Cadeia de conexão de insights de aplicação":::
 
+
+```json
+{
+  "instrumentationSettings": {
+    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+  }
+}
+```
+
 Também pode definir a cadeia de ligação utilizando a variável `APPLICATIONINSIGHTS_CONNECTION_STRING` ambiente.
+
+Não definir a cadeia de ligação irá desativar o agente Java.
 
 ## <a name="cloud-role-name"></a>Nome do papel da nuvem
 
@@ -93,7 +104,7 @@ Também pode definir a instância de função em nuvem usando a variável `APPLI
 
 A pré-visualização de Informações Java 3.0 captura automaticamente a marcação de aplicações através de Log4j, Logback e java.util.logging.
 
-Por predefinição, capturará todos os registos realizados ao `WARN` nível ou acima.
+Por predefinição, capturará todos os registos realizados ao `INFO` nível ou acima.
 
 Se quiser alterar este limiar:
 
@@ -103,13 +114,15 @@ Se quiser alterar este limiar:
     "preview": {
       "instrumentation": {
         "logging": {
-          "threshold": "ERROR"
+          "threshold": "WARN"
         }
       }
     }
   }
 }
 ```
+
+Também pode definir o limiar de registo utilizando a variável `APPLICATIONINSIGHTS_LOGGING_THRESHOLD` ambiente.
 
 Estes são os `threshold` valores válidos que pode especificar no `ApplicationInsights.json` ficheiro e como correspondem aos níveis de registo em diferentes quadros de registo:
 
@@ -136,9 +149,9 @@ Se tiver algumas métricas JMX que esteja interessado em capturar:
     "preview": {
       "jmxMetrics": [
         {
-          "objectName": "java.lang:type=ClassLoading",
-          "attribute": "LoadedClassCount",
-          "display": "Loaded Class Count"
+          "objectName": "java.lang:type=Runtime",
+          "attribute": "Uptime",
+          "display": "JVM uptime (millis)"
         },
         {
           "objectName": "java.lang:type=MemoryPool,name=Code Cache",
@@ -150,6 +163,10 @@ Se tiver algumas métricas JMX que esteja interessado em capturar:
   }
 }
 ```
+
+Também pode definir as métricas JMX utilizando a variável `APPLICATIONINSIGHTS_JMX_METRICS` ambiente.
+
+Este conteúdo variável do ambiente deve ser um dado json correspondente à estrutura acima referida, por exemplo. `[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Code Cache", "attribute": "Usage.used", "display": "Code Cache Used"}]`
 
 ## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrometro (incluindo métricas do Actuador de Bota de Mola)
 
@@ -214,6 +231,8 @@ Aqui está um exemplo de como definir a amostragem para **10% de todas as transa
   }
 }
 ```
+
+Também pode definir a percentagem de amostragem utilizando a variável `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` ambiente.
 
 ## <a name="http-proxy"></a>HTTP Proxy
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 5b6d1ee41434d8aebac81d38ced9cadd93e51ba8
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6d7f9ccd1c87b6105988a1f5d23700cb58693062
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181447"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296455"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemas e soluções durante a certificação de máquinas virtuais 
 
@@ -33,6 +33,9 @@ Para corrigir este problema, recupere a imagem do Azure Marketplace e faça alte
 
 - [Imagens linux](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Imagens do Windows](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
+
+> [!Note]
+> Se estiver a utilizar uma imagem base linux não tirada do Marketplace, pode compensar a primeira partição até 2048 KB. Isto permite que o espaço não testado seja utilizado para adicionar novas informações de faturação e permite que a Azure avance com a publicação do seu VM no Marketplace.  
 
 ## <a name="vm-extension-failure"></a>Falha de extensão VM
 
@@ -104,7 +107,7 @@ A tabela que se segue lista os casos de teste Linux que o conjunto de ferramenta
 |6|Versão OpenSSL|A versão OpenSSL deve ser v0.9.8 ou posterior.|
 |7|Versão de Python|A versão python 2.6 ou mais tarde é altamente recomendada.|
 |8|Intervalo de cliente vivo|Desafie o ClientAliveInterval a 180. Sobre a necessidade de aplicação, pode ser definido de 30 a 235. Se estiver a ativar o SSH para os seus utilizadores finais, este valor deve ser definido como explicado.|
-|9|Arquitetura de OS|Apenas os sistemas operativos de 64 bits são suportados.|
+|9|Arquitetura de SO|Apenas os sistemas operativos de 64 bits são suportados.|
 |10|Atualização automática|Identifica se a atualização automática do agente Linux está ativada.|
 
 ### <a name="common-errors-found-while-executing-previous-test-cases"></a>Erros comuns encontrados durante a execução de casos de teste anteriores
@@ -124,7 +127,7 @@ A tabela que se segue lista os casos de teste do Windows que o conjunto de ferra
 
 |Cenário |Casos de teste|Descrição|
 |---|---|---|---|
-|1|Arquitetura de OS|O Azure suporta apenas sistemas operativos de 64 bits.|
+|1|Arquitetura de SO|O Azure suporta apenas sistemas operativos de 64 bits.|
 |2|Dependência da conta do utilizador|A execução da aplicação não deve depender da conta do administrador.|
 |3|Cluster de ativação pós-falha|A funcionalidade de clustering de falha do Windows Server ainda não está suportada. A aplicação não deve depender desta funcionalidade.|
 |4|IPV6|O IPv6 ainda não é apoiado no ambiente Azure. A aplicação não deve depender desta funcionalidade.|
@@ -270,9 +273,12 @@ Consulte a tabela seguinte para quaisquer problemas que surjam quando descarrega
 |6|Cabeçalho condicional HTTP|O URL SAS é inválido.|Obtenha o URL SAS correto.|
 |7|Nome VHD inválido|Verifique se algum personagem especial, como um sinal por cento (%) ou aspas ("), existem no nome VHD.|Mude o nome do ficheiro VHD removendo os caracteres especiais.|
 
-## <a name="first-1-mb-partition"></a>Primeira partição de 1-MB
+## <a name="first-mb-2048-kb-partition-only-for-linux"></a>Primeira partição MB (2048 KB) (Apenas para Linux)
 
-Quando submeter o VHD, certifique-se de que a primeira divisão de 1-MB do VHD está vazia. Caso contrário, o seu pedido falhará.
+Quando submeter o VHD, certifique-se de que o primeiro KB de 2048 do VHD está vazio. Caso contrário, o seu pedido falhará*.
+
+>[!NOTE]
+>*Para certas imagens especiais, como as construídas em cima das imagens base do Azure Windows tiradas do Azure Marketplace, verificamos uma etiqueta de Faturação e ignoramos a partição MB se a etiqueta de faturação estiver presente e corresponder aos nossos valores internos disponíveis.
 
 ## <a name="default-credentials"></a>Credenciais padrão
 

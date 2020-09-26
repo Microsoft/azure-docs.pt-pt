@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 11/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 5832920ec491ce9d99219a7a423fcf0e38ba62cc
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 3a3799fc1e931993c00ba497765f4cd3e60d3493
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226141"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377082"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar:
 
 > [!div class="checklist"]
-> * [Criar um recurso de fala azul](../../../../get-started.md)
+> * [Criar um recurso de fala azul](../../../../overview.md#try-the-speech-service-for-free)
 > * [Configurar o seu ambiente de desenvolvimento](../../../../quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
 > * Certifique-se de que tem acesso a um microfone para captura de áudio
 
@@ -76,6 +76,6 @@ Selecione o botão da aplicação para iniciar uma secção de reconhecimento de
 
 ![Captura de ecrã da aplicação Android](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-13-gui-on-device.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

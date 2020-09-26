@@ -10,16 +10,40 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: aahi
-ms.openlocfilehash: f017960e304df04148c318b5098f384e6140de9a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 436d64583184ca2cd59b4ddf33056922c746fb34
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930915"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271176"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
 A API text Analytics é atualizada numa base contínua. Para se manter atualizado com os recentes desenvolvimentos, este artigo fornece-lhe informações sobre novos lançamentos e funcionalidades.
+
+## <a name="september-2020"></a>Setembro de 2020
+
+### <a name="general-api-updates"></a>Atualizações gerais da API
+
+* Lançamento de um novo URL para a pré-visualização pública de Text Analytics v3.1 para suportar atualizações aos seguintes pontos finais de Reconhecimento de Entidades Nomeadas v3: 
+    * `/pii` o ponto final inclui agora o novo `redactedText` imóvel na resposta JSON onde as entidades PII detetadas no texto de entrada são substituídas por um `*` para cada personagem dessas entidades.
+    * `/linking` o ponto final inclui agora o `bingID` imóvel na resposta JSON para entidades ligadas.
+* Os seguintes pontos finais de pré-visualização da API text analytics foram retirados em 4 de setembro de 2020:
+    * v2.1 pré-visualização
+    * v3.0 - pré-visualização
+    * v3.0-pré-visualização.1
+    
+> [!div class="nextstepaction"]
+> [Saiba mais sobre text Analytics API v3.1-Preview.2](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/Languages)
+
+### <a name="text-analytics-for-health-container-updates"></a>Análise de texto para atualizações de recipientes de saúde
+
+As seguintes atualizações são específicas para a versão de setembro do Text Analytics apenas para recipientes de saúde.
+* Uma nova imagem de recipiente com etiqueta `1.1.013530001-amd64-preview` com a nova versão modelo foi lançada para o `2020-09-03` repositório de prescrição de contentores. 
+* Esta versão modelo fornece melhorias no reconhecimento de entidades, deteção de abreviaturas e melhorias de latência.
+
+> [!div class="nextstepaction"]
+> [Saiba mais sobre Text Analytics para saúde](how-tos/text-analytics-for-health.md)
 
 ## <a name="august-2020"></a>Agosto de 2020
 
@@ -31,7 +55,7 @@ A API text Analytics é atualizada numa base contínua. Para se manter atualizad
 * Um erro HTTP 400 será agora devolvido para pedidos de V3 API que excedam os limites de [dados publicados](concepts/data-limits.md). 
 * Os pontos finais que devolvem uma compensação suportam agora o `stringIndexType` parâmetro opcional, que ajusta os `offset` valores devolvidos e `length` os valores para corresponder a um sistema de [índice de cadeia](concepts/text-offsets.md)suportado .
 
-### <a name="text-analytics-for-health-container-august-updates"></a>Análise de texto para atualizações de agosto de contentores de saúde
+### <a name="text-analytics-for-health-container-updates"></a>Análise de texto para atualizações de recipientes de saúde
 
 As seguintes atualizações são específicas para a libertação de agosto do Text Analytics apenas para recipientes de saúde.
 

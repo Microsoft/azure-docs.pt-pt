@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Diagnosticar um problema de filtro de tráfego de rede VM - Azure CLI'
 titleSuffix: Azure Network Watcher
-description: Neste início rápido, vai aprender a diagnosticar um problema de filtro de tráfego de rede numa máquina virtual com a capacidade de verificação do fluxo IP do Observador de Rede do Azure.
+description: Aprenda a usar o Azure CLI para diagnosticar um problema de filtro de tráfego de rede de máquinas virtuais utilizando a capacidade de verificação do fluxo IP do Observador de Redes Azure.
 services: network-watcher
 documentationcenter: network-watcher
 author: KumudD
@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9fcc26d17b9bb1d67d85a1775c4df191fe3524f0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 871c4fc69daac9d5f515fdf3e4ec0ca1de6fbe08
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502057"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295979"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Início Rápido: Diagnosticar um problema de filtro de tráfego de rede na máquina virtual - CLI do Azure
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o Azure CLI localmente, este arranque rápido requer que esteja a executar a versão Azure CLI 2.0.28 ou posterior. Para localizar a versão instalada, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Depois de verificar a versão Azure CLI, corra `az login` para criar uma ligação com a Azure. Os comandos Azure CLI neste quickstart são formatados para correr numa concha bash.
+Se optar por instalar e utilizar o Azure CLI localmente, este arranque rápido requer que esteja a executar a versão Azure CLI 2.0.28 ou posterior. Para localizar a versão instalada, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Depois de verificar a versão Azure CLI, corra `az login`  para criar uma ligação com a Azure. Os comandos Azure CLI neste quickstart são formatados para correr numa concha bash.
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
@@ -241,7 +241,7 @@ A regra **DenyAllInBound** é aplicada porque, conforme apresentado no resultado
 
 As verificações neste guia de início rápido testaram a configuração do Azure. Se as verificações devolverem os resultados esperados e continuar a ter problemas de rede, certifique-se de que não tem uma firewall entre a VM e o ponto final com o qual está a comunicar e que o sistema operativo na VM não tem uma firewall que esteja a permitir ou a recusar a comunicação.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, pode utilizar [az group delete](/cli/azure/group) para remover o grupo de recursos e todos os recursos que contém:
 

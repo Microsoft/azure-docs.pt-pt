@@ -4,45 +4,45 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
 ms.author: trbye
-ms.openlocfilehash: 629fc5e3bc41377fe852a1648680d77b22395d02
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: e1d2493474736ebbcdb54aeb697716e1dc7d6ee6
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81400976"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91376705"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, certifique-se de:
 
 > [!div class="checklist"]
-> * [Crie o seu ambiente de desenvolvimento e crie um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programmming-language-cpp)
-> * [Criar um recurso azure speech](../../../../get-started.md)
-> * [Faça upload de um ficheiro fonte para uma bolha Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
+> * [Configurar o seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programmming-language-cpp)
+> * [Criar um recurso de discurso azul](../../../../overview.md#try-the-speech-service-for-free)
+> * [Faça o upload de um ficheiro de origem para uma bolha de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
-## <a name="open-your-project-in-visual-studio"></a>Abra o seu projeto no Estúdio Visual
+## <a name="open-your-project-in-visual-studio"></a>Abra o seu projeto no Visual Studio
 
-O primeiro passo é garantir que tem o seu projeto aberto no Estúdio Visual.
+O primeiro passo é garantir que o seu projeto está aberto no Visual Studio.
 
-1. Lançar O Estúdio Visual 2019.
-2. Carregue o seu `helloworld.cpp`projeto e abra.
+1. Lançamento Visual Studio 2019.
+2. Carregue o seu projeto e `helloworld.cpp` abra.
 
-## <a name="add-a-references"></a>Adicione uma referência
+## <a name="add-a-references"></a>Adicionar uma referência
 
-Para acelerar o desenvolvimento do nosso código, usaremos alguns componentes externos:
+Para acelerar o nosso desenvolvimento de código, vamos usar alguns componentes externos:
 * [CPP Rest SDK](https://github.com/microsoft/cpprestsdk) Uma biblioteca de clientes para fazer chamadas REST para um serviço REST.
-* [nlohmann/json](https://github.com/nlohmann/json) Handy JSON Parsing / Serialization / Deserialization library.
+* [nlohmann/json](https://github.com/nlohmann/json) Pôr útil JSON Parsing / Serialização / Biblioteca de deserialização.
 
-Ambos podem ser instalados com [vcpkg](https://github.com/Microsoft/vcpkg/).
+Ambos podem ser instalados com [vcpkg.](https://github.com/Microsoft/vcpkg/)
 
 ```
 vcpkg install cpprestsdk cpprestsdk:x64-windows
 vcpkg install nlohmann-json
 ```
 
-## <a name="start-with-some-boilerplate-code"></a>Comece com um pouco de código de placa de caldeira
+## <a name="start-with-some-boilerplate-code"></a>Comece com um código de placa de caldeira
 
-Vamos adicionar um código que funciona como um esqueleto para o nosso projeto.
+Vamos adicionar um código que funcione como um esqueleto para o nosso projeto.
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=7-32,187-190,300-309)]
 
@@ -50,52 +50,52 @@ Vamos adicionar um código que funciona como um esqueleto para o nosso projeto.
 
 ## <a name="json-wrappers"></a>Invólucros JSON
 
-À medida que os pedidos da API rest's tomam em formato JSON e também devolvem resultados em JSON poderíamos interagir com eles usando apenas cordas, mas isso não é recomendado.
-Para facilitar a gestão dos pedidos e respostas, declararemos algumas classes para serializar/desserializar o JSON e alguns métodos para ajudar a nlohmann/json.
+Como a API do REST aceita pedidos em formato JSON e também retorno resultados em JSON poderíamos interagir com eles usando apenas cordas, mas isso não é recomendado.
+De forma a facilitar a gestão dos pedidos e respostas, declararemos algumas aulas para usar para serializar/deserizar o JSON e alguns métodos para ajudar nlohmann/json.
 
-Vá em frente e `recognizeSpeech` coloque as suas declarações antes.
+Vá em frente e coloque as suas declarações `recognizeSpeech` antes.
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=33-185)]
 
-## <a name="create-and-configure-an-http-client"></a>Criar e configurar um Cliente http
-A primeira coisa que precisamos é de um Cliente Http que tenha um URL base correto e conjunto de autenticação.
-Insira este código em`recognizeSpeech`
+## <a name="create-and-configure-an-http-client"></a>Criar e configurar um Cliente Http
+A primeira coisa que vamos precisar é de um Cliente Http que tenha um URL de base correto e conjunto de autenticação.
+Insira este código em `recognizeSpeech`
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=191-197)]
 
 ## <a name="generate-a-transcription-request"></a>Gerar um pedido de transcrição
-Em seguida, vamos gerar o pedido de transcrição. Adicione este código a`recognizeSpeech`
+Em seguida, geraremos o pedido de transcrição. Adicione este código para `recognizeSpeech`
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=199-203)]
 
 ## <a name="send-the-request-and-check-its-status"></a>Envie o pedido e verifique o seu estado
-Agora publicamos o pedido no serviço de Discurso e verificamos o código de resposta inicial. Este código de resposta indicará simplesmente se o serviço recebeu o pedido. O serviço devolverá um Url nos cabeçalhos de resposta que é o local onde armazenará o estado da transcrição.
+Agora publicamos o pedido ao serviço de Discurso e verificamos o código de resposta inicial. Este código de resposta apenas indicará se o serviço recebeu o pedido. O serviço devolverá um Url nos cabeçalhos de resposta que é o local onde irá armazenar o estado de transcrição.
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=204-216)]
 
-## <a name="wait-for-the-transcription-to-complete"></a>Aguarde a transcrição para completar
-Uma vez que o serviço processa a transcrição assincronicamente, precisamos de fazer sondagens para o seu estatuto de vez em quando. Vamos verificar a cada 5 segundos.
+## <a name="wait-for-the-transcription-to-complete"></a>Aguarde que a transcrição esteja completa.
+Uma vez que o serviço processa a transcrição assíncroneamente, precisamos de sondar o seu estatuto de vez em quando. Vamos verificar a cada 5 segundos.
 
-Podemos verificar o estado recuperando o conteúdo no Url que obtivemos quando o pedido publicou. Quando recuperarmos o conteúdo, desserializámo-lo numa das nossas aulas de ajuda para facilitar a interação.
+Podemos verificar o estado recuperando o conteúdo no Url que obtivemos quando o pedido foi publicado. Quando recuperarmos o conteúdo, deserizamo-lo numa das nossas aulas de ajudante para facilitar a interação.
 
-Aqui está o código de votação com o status display para tudo, exceto uma conclusão bem sucedida, vamos fazê-lo a seguir.
+Aqui está o código de sondagens com exibição de estado para tudo, exceto uma conclusão bem sucedida, vamos fazê-lo a seguir.
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=222-245,285-299)]
 
 ## <a name="display-the-transcription-results"></a>Mostrar os resultados da transcrição
-Uma vez concluído o serviço com sucesso, os resultados serão armazenados em outro Url que podemos obter da resposta do estado.
+Uma vez que o serviço tenha concluído com sucesso a transcrição, os resultados serão armazenados em outro Url que podemos obter da resposta de estado.
 
-Vamos descarregar o conteúdo desse URL, desserializar o JSON e dar a volta aos resultados, imprimindo o texto do ecrã à medida que avançamos.
+Vamos descarregar o conteúdo desse URL, desseeciar o JSON e dar-nos-emos através dos resultados que imprimem o texto do ecrã à medida que avançamos.
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=246-284)]
 
 ## <a name="check-your-code"></a>Verifique o seu código
-Neste ponto, o seu código deve ser assim: (Adicionámos alguns comentários a esta versão)
+Neste momento, o seu código deve ser assim: (Adicionámos alguns comentários a esta versão)
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=7-308)]
 
 ## <a name="build-and-run-your-app"></a>Construa e execute a sua app
 
-Agora está pronto para construir a sua app e testar o nosso reconhecimento de voz usando o serviço de Discurso.
+Agora está pronto para construir a sua app e testar o nosso reconhecimento de voz usando o serviço Speech.
 
 ## <a name="next-steps"></a>Passos seguintes
 

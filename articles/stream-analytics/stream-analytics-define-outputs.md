@@ -6,13 +6,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
+ms.custom: contperfq1
 ms.date: 08/25/2020
-ms.openlocfilehash: 6576ac53f43a8e176b3d166d5218b0ba9934b856
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7de882683248406e44a617dfb5d070e12879aea3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907155"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317757"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Saídas do Azure Stream Analytics
 

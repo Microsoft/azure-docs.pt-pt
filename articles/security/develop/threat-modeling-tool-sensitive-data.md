@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: 1de363e66a4d5780258b75d777a95318f36333fd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.custom: devx-track-js, devx-track-csharp
+ms.openlocfilehash: 3ee0a376b28676e3f74ac2e53010c2c953ad9d7b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000503"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317825"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Quadro de segurança: Dados sensíveis / Mitigações 
 | Produto/Serviço | Artigo |
@@ -173,7 +173,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Sql Azure, OnPrem |
 | **Atributos**              | Versão SQL - V12, VERSÃO SQL - MsSQL2016 |
-| **Referências**              | [Máscara de Dados Dinâmicos](https://msdn.microsoft.com/library/mt130841) |
+| **Referências**              | [Mascaramento dinâmico de dados](https://msdn.microsoft.com/library/mt130841) |
 | **Passos** | O objetivo da mascaração dinâmica de dados é limitar a exposição de dados sensíveis, impedindo os utilizadores que não devem ter acesso aos dados de visualização dos mesmos. A mascaração dinâmica de dados não visa impedir que os utilizadores de bases de dados se conectem diretamente à base de dados e executem consultas exaustivas que exponham peças dos dados sensíveis. A máscara dinâmica de dados é complementar a outras funcionalidades de segurança do SQL Server (auditoria, encriptação, segurança ao nível da linha...) e é altamente recomendado utilizar esta funcionalidade em conjunto com eles, além de melhor proteger os dados sensíveis na base de dados. Por favor, note que esta funcionalidade é suportada apenas pelo SQL Server a partir de 2016 e Azure SQL Database. |
 
 ## <a name="ensure-that-passwords-are-stored-in-salted-hash-format"></a><a id="salted-hash"></a>Certifique-se de que as palavras-passe são armazenadas em formato de haxixe salgado

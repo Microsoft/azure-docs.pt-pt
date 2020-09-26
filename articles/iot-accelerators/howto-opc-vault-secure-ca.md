@@ -8,14 +8,17 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 88f8188779c5fb6b3cd07c67e9f35a6b8f9ad97d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d702a3cca6a24819d2d184dc6df09153c9dcc860
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687077"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281886"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>Executar o serviço de gestão de certificados OPC Vault de forma segura
+
+> [!IMPORTANT]
+> Enquanto atualizamos este artigo, consulte [a Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) para obter o conteúdo mais atualizado.
 
 Este artigo explica como executar o serviço de gestão de certificados OPC Vault de forma segura em Azure, e revê outras diretrizes de segurança a considerar.
 
@@ -237,7 +240,7 @@ A cerimónia de geração-chave da CA deve ser realizada contra um script docume
   - Preparação de materiais para armazenamento.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a gerir de forma segura o Cofre OPC, pode:
 

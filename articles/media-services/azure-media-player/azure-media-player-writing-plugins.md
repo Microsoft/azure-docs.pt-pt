@@ -6,19 +6,19 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: how-to
 ms.date: 04/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: da827b994685e95baf28e3ad34072642c24fa510
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-js
+ms.openlocfilehash: c1a64bff8b81735d9c4c9a14d2c1e12bd0bfe57e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422611"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91296166"
 ---
 # <a name="writing-plugins-for-azure-media-player"></a>Escrevendo plugins para Azure Media Player #
 
 Um plugin é JavaScript escrito para estender ou melhorar o leitor. Pode escrever plugins que alterem a aparência do Azure Media Player, a sua funcionalidade ou até mesmo a interface com outros serviços. Pode fazê-lo em dois passos fáceis:
 
-## <a name="step-1"></a>Passo 1 ##
+## <a name="step-1"></a>Passo 1 ##
 
 Escreva o seu JavaScript numa função como esta:
 
@@ -90,6 +90,6 @@ Para inspiração e mais exemplos na criação de um plugin, veja a nossa [galer
 
 A [galeria plugin](https://aka.ms/ampplugins) tem vários plugins que a comunidade já contribuiu para funcionalidades como marcadores de linha do tempo, zoom, análise e muito mais. A página fornece acessos aos plugins e instruções sobre como a configurar, bem como uma demonstração que mostra o plugin em ação. Se criar um plugin legal que acha que deve ser incluído na nossa galeria, sinta-se à vontade para o submeter para que possamos verificar.
 
-## <a name="next-steps"></a>Próximos passos ##
+## <a name="next-steps"></a>Passos seguintes ##
 
 - [Azure Media Player Quickstart](azure-media-player-quickstart.md)

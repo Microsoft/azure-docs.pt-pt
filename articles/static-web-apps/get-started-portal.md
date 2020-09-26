@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: 66335548381a6f7e3ebf93c97eb212255639644c
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: b009b34be69e48ae6205cd9ab88d1583ca9c6561
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604092"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280572"
 ---
 # <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Quickstart: Construir a sua primeira aplicação web estática no portal Azure
 
@@ -37,9 +37,9 @@ Agora que o repositório foi criado, pode criar uma aplicação web estática a 
 1. Selecione **aplicativos web estáticos (pré-visualização)**
 1. Selecione **Criar**
 
-No separador _Basics,_ comece por configurar a sua nova aplicação e ligá-la a um repositório GitHub.
+Na secção _Basics,_ comece por configurar a sua nova app e ligá-la a um repositório GitHub.
 
-:::image type="content" source="media/getting-started-portal/basics-tab.png" alt-text="Separador básico":::
+:::image type="content" source="media/getting-started-portal/basics-tab.png" alt-text="Secção básica":::
 
 1. Selecione a sua _subscrição Azure_
 1. Selecione ou crie um novo _Grupo de Recursos_

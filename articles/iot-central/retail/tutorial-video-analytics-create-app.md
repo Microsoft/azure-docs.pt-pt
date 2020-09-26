@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 07/31/2020
-ms.openlocfilehash: b98406984f2c9f2adfca030369a6ea3d47a786f3
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: c7ddff70d24fe87380c4bf1439811042418ac76a
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762782"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369574"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central"></a>Tutorial: Criar uma aplicação de vídeo-análise - aplicação de deteção de objetos e movimentos no Azure IoT Central
 
@@ -119,7 +119,7 @@ Mais tarde neste tutorial, quando configurar o gateway IoT Edge, precisa de algu
 
 Na secção **Administração,** selecione **a sua aplicação** e tome nota do URL de **aplicação** e do ID de **aplicação** no ficheiro *scratchpad.txt:*
 
-:::image type="content" source="./media/tutorial-video-analytics-create-app/administration.png" alt-text="Administration":::
+:::image type="content" source="./media/tutorial-video-analytics-create-app/administration.png" alt-text="O Screenshot mostra o painel de administração de uma página de análise de vídeo com a aplicação U R L e a aplicação I D em destaque.":::
 
 Selecione **Tokens API** e gere um novo token chamado **LVAEdgeToken** para o papel **de Operador:**
 
@@ -245,7 +245,7 @@ Navegue na pasta *de configuração Lva* e selecione a *deployment.amd64.jsno* f
 
 No modelo do dispositivo **LVA Edge Gateway,** em **Módulos/Módulo gateway de borda LVA,** selecione **Relacionamentos**. Selecione **+ Adicione a relação** e adicione as seguintes duas relações:
 
-|Nome a Apresentar               |Nome          |Destino |
+|Nome a Apresentar               |Name          |Destino |
 |-------------------------- |------------- |------ |
 |Detetor de movimento lVA Edge   |Utilizar predefinição   |Dispositivo de detetor de movimento de borda LVA |
 |Detetor de Objetos de Borda LVA   |Utilizar predefinição   |Dispositivo de detetor de objetos de borda LVA |

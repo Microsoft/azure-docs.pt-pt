@@ -7,14 +7,14 @@ manager: rochakm
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 182b4f262361db001dcb6d47bf3e8f2aac6bc9b3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6a272294ca602e3f482156a7334084bf041f683e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091526"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307556"
 ---
-# <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Confiem a recuperação de desastres para máquinas virtuais Azure usando a Azure PowerShell
+# <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurar a recuperação após desastre para as máquinas virtuais do Azure com o Azure PowerShell
 
 Neste artigo, você vê como configurar e testar a recuperação de desastres para máquinas virtuais Azure usando Azure PowerShell.
 
@@ -40,7 +40,7 @@ Saiba como:
 
 Antes de começar:
 - Certifique-se de que compreende a [arquitetura e os componentes do cenário](azure-to-azure-architecture.md).
-- Reveja os [requisitos de suporte](azure-to-azure-support-matrix.md) de todos os componentes.
+- Reveja os [requisitos de suporte](azure-to-azure-support-matrix.md) para todos os componentes.
 - Tem o módulo Azure `Az` PowerShell. Se necessitar de instalar ou atualizar o Azure PowerShell, siga este [Guia para instalar e configurar a Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Inscreva-se na subscrição do Microsoft Azure
@@ -623,7 +623,7 @@ Depois de a reproteção estar completa, pode falhar na direção inversa, oeste
 Pode desativar a replicação com o `Remove-AzRecoveryServicesAsrReplicationProtectedItem` cmdlet.
 
 ```azurepowershell
-Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
+Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $ReplicationProtectedItem
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

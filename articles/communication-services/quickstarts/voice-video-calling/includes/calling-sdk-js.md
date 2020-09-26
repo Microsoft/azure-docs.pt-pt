@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 6922ab2aac8529da8ba55a98f465e3c0e3123b53
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5542ca2f50152e7588f32e9ac8717f691fdb4d63
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940081"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91377491"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -80,11 +80,11 @@ O seu recurso de Serviços de Comunicação deve ser configurado para permitir a
 
 const userCallee = { communicationUserId: <ACS_USER_ID> }
 const pstnCallee = { phoneNumber: <PHONE_NUMBER>};
-const groupCall = callClient.call([userCallee, pstnCallee], placeCallOptions);
+const groupCall = callAgent.call([userCallee, pstnCallee], placeCallOptions);
 
 ```
 
-### <a name="place-a-11-call-with-with-video-camera"></a>Coloque uma chamada 1:1 com câmara de vídeo
+### <a name="place-a-11-call-with-video-camera"></a>Coloque uma chamada de 1:1 com câmara de vídeo
 > [!WARNING]
 > Atualmente, não pode haver mais do que um fluxo de vídeo local de saída.
 Para fazer uma chamada de vídeo, tem de enumerar as câmaras locais utilizando o dispositivo `getCameraList` API.
@@ -95,7 +95,7 @@ const deviceManager = await callClient.getDeviceManager();
 const videoDeviceInfo = deviceManager.getCameraList()[0];
 localVideoStream = new LocalVideoStream(videoDeviceInfo);
 const placeCallOptions = {videoOptions: {localVideoStreams:[localVideoStream]}};
-const call = callClient.call(['acsUserId'], placeCallOptions);
+const call = callAgent.call(['acsUserId'], placeCallOptions);
 
 ```
 
@@ -104,7 +104,7 @@ Para iniciar uma nova chamada de grupo ou aderir a uma chamada de grupo em curso
 ```js
 
 const context = { groupId: <GUID>}
-const call = callClient.join(context);
+const call = callAgent.join(context);
 
 ```
 
@@ -113,19 +113,19 @@ const call = callClient.join(context);
 Pode aceder às propriedades de chamadas e executar várias operações durante uma chamada para gerir as definições relacionadas com vídeo e áudio.
 
 ### <a name="call-properties"></a>Propriedades de chamada
-* Obtenha o ID único para esta chamada.
+* Obtenha o ID único (string) para esta Chamada.
 ```js
 
 const callId: string = call.id;
 
 ```
 
-* Para saber mais sobre outros participantes na chamada, inspecione a `remoteParticipant` coleção sobre o `call` caso.
+* Para saber mais sobre outros participantes na chamada, inspecione a `remoteParticipant` coleção sobre o `call` caso. Array contém objetos de lista `RemoteParticipant`
 ```js
-const remoteParticipants: RemoteParticipants = call.remoteParticipants;
+const remoteParticipants = call.remoteParticipants;
 ```
 
-* A identidade do chamador se a chamada estiver a chegar.
+* A identidade do chamador se a chamada estiver a chegar. Identidade é um dos `Identifier` tipos
 ```js
 
 const callerIdentity = call.callerIdentity;
@@ -135,7 +135,7 @@ const callerIdentity = call.callerIdentity;
 * Pegue o estado da chamada.
 ```js
 
-const callState: CallState = call.state;
+const callState = call.state;
 
 ```
 Isto devolve uma corda que representa o estado atual de uma chamada:
@@ -153,35 +153,34 @@ Isto devolve uma corda que representa o estado atual de uma chamada:
 * Para ver por que uma chamada terminou, inspecione a `callEndReason` propriedade.
 ```js
 
-const callEndReason: CallEndReason = call.callEndReason;
+const callEndReason = call.callEndReason;
+// callEndReason.code (number) code associated with the reason
+// callEndReason.subCode (number) subCode associated with the reason
+```
+
+* Para saber se a chamada atual é uma chamada recebida, inspecione a `isIncoming` propriedade, ela retorna. `Boolean`
+```js
+const isIncoming = call.isIncoming;
+```
+
+*  Para verificar se o microfone atual está silenciado, inspecione a `muted` propriedade, ela devolve `Boolean` .
+```js
+
+const muted = call.isMicrophoneMuted;
 
 ```
 
-* Para saber se a chamada atual é uma chamada recebida, inspecione a `isIncoming` propriedade
+* Para ver se o fluxo de partilha de ecrã está a ser enviado a partir de um determinado ponto final, verifique a `isScreenSharingOn` propriedade, ele devolve `Boolean` .
 ```js
 
-const isIncoming: boolean = call.isIncoming;
+const isScreenSharingOn = call.isScreenSharingOn;
 
 ```
 
-*  Para verificar se o microfone atual está silenciado, inspecione a `muted` propriedade:
+* Para inspecionar os fluxos de vídeo ativos, verifique a `localVideoStreams` coleção, contém `LocalVideoStream` objetos
 ```js
 
-const muted: boolean = call.isMicrophoneMuted;
-
-```
-
-* Para ver se o fluxo de partilha de ecrã está a ser enviado a partir de um determinado ponto final, verifique a `isScreenSharingOn` propriedade:
-```js
-
-const isScreenSharingOn: boolean = call.isScreenSharingOn;
-
-```
-
-* Para inspecionar os fluxos de vídeo ativos, verifique a `localVideoStreams` recolha:
-```js
-
-const localVideoStreams: LocalVideoStream[] = call.localVideoStreams;
+const localVideoStreams = call.localVideoStreams;
 
 ```
 
@@ -194,7 +193,7 @@ Para silenciar ou desativar o ponto final local, pode utilizar as `mute` `unmute
 //mute local device 
 await call.mute();
 
-//unmute device 
+//unmute local device 
 await call.unmute();
 
 ```
@@ -206,7 +205,7 @@ Para iniciar um vídeo, tem de enumerar câmaras utilizando o `getCameraList` m�
 
 
 ```js
-const localVideoStream = new SDK.LocalVideoStream(videoDeviceInfo);
+const localVideoStream = new LocalVideoStream(videoDeviceInfo);
 await call.startVideo(localVideoStream);
 
 ```
@@ -254,49 +253,49 @@ O participante remoto tem um conjunto de propriedades e coleções associadas a 
 * Pegue o identificador para este participante remoto.
 A identidade é um dos tipos de 'Identificador':
 ```js
-
-const identity: CommunicationUser | PhoneNumber | CallingApplication | UnknownIdentifier;
-
+const identifier = remoteParticipant.identifier;
+//It can be one of:
+// { communicationUserId: '<ACS_USER_ID'> } - object representing ACS User
+// { phoneNumber: '<E.164>' } - object representing phone number in E.164 format
 ```
 
 * Obtenha o estado deste participante remoto.
 ```js
 
-const state: RemoteParticipantState = remoteParticipant.state;
+const state = remoteParticipant.state;
 ```
 Estado pode ser um dos
 * 'Ocioso' - estado inicial
 * 'Connecting' - estado de transição enquanto o participante está ligado à chamada
 * 'Connected' - participante está ligado à chamada
 * 'Hold' - participante está em espera
-* 'EarlyMedia' - o anúncio é tocado antes do participante estar ligado à chamada
+* 'EarlyMedia' - o anúncio é jogado antes do participante estar ligado à chamada
 * 'Desligado' - estado final - participante é desligado da chamada
 
 Para saber por que o participante deixou a chamada, inspecione `callEndReason` a propriedade:
 ```js
 
-const callEndReason: CallEndReason = remoteParticipant.callEndReason;
+const callEndReason = remoteParticipant.callEndReason;
+// callEndReason.code (number) code associated with the reason
+// callEndReason.subCode (number) subCode associated with the reason
+```
+
+* Para verificar se este participante remoto é silenciado ou não, inspecione `isMuted` a propriedade, devoluções `Boolean`
+```js
+const isMuted = remoteParticipant.isMuted;
+```
+
+* Para verificar se este participante remoto está ou não a falar, inspecione `isSpeaking` a propriedade que devolve `Boolean`
+```js
+
+const isSpeaking = remoteParticipant.isSpeaking;
 
 ```
 
-* Para verificar se este participante remoto está ou não silenciado, inspecione `isMuted` a propriedade:
+* Para inspecionar todos os streams de vídeo que um determinado participante está enviando nesta chamada, verifique `videoStreams` a recolha, contém `RemoteVideoStream` objetos
 ```js
 
-const isMuted: boolean = remoteParticipant.isMuted;
-
-```
-
-* Para verificar se este participante remoto está ou não a falar, inspecione `isSpeaking` a propriedade:
-```js
-
-const isSpeaking: boolean = remoteParticipant.isSpeaking;
-
-```
-
-* Para inspecionar todos os streams de vídeo que um determinado participante está enviando nesta chamada, verifique `videoStreams` a recolha:
-```js
-
-const videoStreams: RemoteVideoStream[] = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
+const videoStreams = remoteParticipant.videoStreams; // [RemoteVideoStream, ...]
 
 ```
 
@@ -312,13 +311,12 @@ const userIdentifier = { communicationUserId: <ACS_USER_ID> };
 const pstnIdentifier = { phoneNumber: <PHONE_NUMBER>}
 const remoteParticipant = call.addParticipant(userIdentifier);
 const remoteParticipant = call.addParticipant(pstnIdentifier);
-
 ```
 
 ### <a name="remove-participant-from-a-call"></a>Remova o participante de uma chamada
 
 Para remover um participante de uma chamada (seja um utilizador ou um número de telefone) pode invocar `removeParticipant` .
-Tem de passar por um dos tipos de 'identificador' Isto resolverá assíncronos assim que o participante for removido da chamada.
+Tem de passar por um dos tipos de 'Identifier' Isto resolverá assíncronos assim que o participante for removido da chamada.
 O participante também será removido da `remoteParticipants` coleção.
 
 ```js
@@ -333,7 +331,6 @@ await call.removeParticipant(pstnIdentifier);
 Para listar os streams de vídeo e a partilha de ecrãs de participantes remotos, inspecione as `videoStreams` coleções:
 
 ```js
-
 const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStreams[0];
 const streamType: MediaStreamType = remoteVideoStream.type;
 ```

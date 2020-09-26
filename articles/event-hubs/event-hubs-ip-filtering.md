@@ -3,12 +3,12 @@ title: Regras de Firewall do Azure Event Hubs Firewall Microsoft Docs
 description: Utilize regras de firewall para permitir ligações de endereços IP específicos para Azure Event Hubs.
 ms.topic: article
 ms.date: 07/16/2020
-ms.openlocfilehash: fbf3e67cdde43dbe3d5e02cd4b044d5473f409ac
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: ab7f835187a33b5e4d95c160831337172a5ed74e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185133"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318539"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>Permitir o acesso aos espaços de nomes do Azure Event Hubs a partir de endereços ou intervalos IP específicos
 Por predefinição, os espaços de nomes do Event Hubs estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Roteamento Inter-Domain Sem Classe).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
@@ -43,7 +43,7 @@ Esta secção mostra-lhe como usar o portal Azure para criar regras de firewall 
 
     Se selecionar a opção **Todas as redes,** o centro de eventos aceita ligações a partir de qualquer endereço IP (utilizando a chave de acesso). Esta definição é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0. 
 
-    ![Firewall - Todas as opções de redes selecionadas](./media/event-hubs-firewall/firewall-all-networks-selected.png)
+    ![Screenshot que mostra a página "Firewall e redes virtuais" com a opção "Todas as redes" selecionada.](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. Para restringir o acesso a endereços IP específicos, confirme que a opção **de redes Selecionadas** está selecionada. Na secção **Firewall,** siga estes passos:
     1. Selecione Adicionar a opção **de endereço IP** do seu cliente para dar ao seu cliente atual IP o acesso ao espaço de nome. 
     2. Para **o intervalo de endereços**, insira um endereço IPv4 específico ou um intervalo de endereço IPv4 na notação CIDR. 

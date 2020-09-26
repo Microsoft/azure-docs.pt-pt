@@ -10,12 +10,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 07/29/2019
-ms.openlocfilehash: 3cf73816b89d0a89ff8066fe45ceaece60c230b8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fe4bcb10db33c6f68abeb779e668726fc1a59345
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91321735"
+ms.locfileid: "91360247"
 ---
 # <a name="tutorial-design-a-relational-database-in-azure-sql-database-cx23-and-adonet"></a>Tutorial: Desenhe uma base de dados relacional na Azure SQL Database C&#x23; e ADO.NET
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -82,7 +82,7 @@ Siga estes passos para criar uma base de dados em branco.
 
 9. Na barra de ferramentas, clique em **Notificações** para monitorizar o processo de implementação.
 
-   ![notificação](./media/design-first-database-csharp-tutorial/notification.png)
+   ![O Screenshot mostra notificações no portal Azure com a Implementação em curso.](./media/design-first-database-csharp-tutorial/notification.png)
 
 ## <a name="create-a-server-level-ip-firewall-rule"></a>Criar uma regra de firewall IP de nível de servidor
 

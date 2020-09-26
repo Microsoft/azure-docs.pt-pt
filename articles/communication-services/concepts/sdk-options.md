@@ -9,14 +9,14 @@ ms.author: mikben
 ms.date: 03/18/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: f39aa76e4bd2ce3d298e555f56b09d0218ef0862
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2d5637be547b28c231ef757b5dd4355692dab88f
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937866"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318828"
 ---
-# <a name="client-libraries-and-rest-apis"></a>Bibliotecas de clientes e APIs REST
+# <a name="client-libraries-and-rest-apis"></a>Bibliotecas de cliente e APIs REST
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
@@ -28,7 +28,7 @@ As capacidades dos Serviços de Comunicação Azure estão conceptualmente organ
 | ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
 | Azure Resource Manager | REST | Abrir            | Azure.ResourceManager.Communication | Fornecimento e gestão dos recursos dos Serviços de Comunicação             |
 | Common                 | REST | Abrir               | Azure.Communication.Common          | Fornece tipos de base para outras bibliotecas de clientes |
-| Administração         | REST |                | Azure.Communication.Administration  | Gerir utilizadores, aceder a fichas e números de telefone, alocar servidores STUN e TURN compatíveis com padrões |
+| Administração         | REST | Abrir               | Azure.Communication.Administration  | Gerir utilizadores, aceder a fichas e números de telefone, alocar servidores STUN e TURN compatíveis com padrões |
 | Chat                   | DESCANSE COM sinalização proprietária | Aberto com pacote de sinalização de fonte fechada    | Azure.Communication.Chat            | Adicione o chat baseado em texto em tempo real às suas aplicações  |
 | SMS                    | REST | Abrir              | Azure.Communication.SMS             | Enviar e receber mensagens SMS |
 | Chamando                | Transporte proprietário | Fechada |Azure.Communication.Calling         | Alavancar a voz, o vídeo, a partilha de ecrãs e outras capacidades de comunicação de dados em tempo real          |

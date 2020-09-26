@@ -4,14 +4,14 @@ description: Descreve como utilizar o Azure Resource Manager para a implementaç
 ms.topic: overview
 ms.date: 09/01/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 2dc33093df0d9bc0bd75410bac8d200fe6555257
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: f78b6015846253d79020752522c10af96839a854
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293953"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372277"
 ---
-# <a name="what-is-azure-resource-manager"></a>O que é Azure Resource Manager?
+# <a name="what-is-azure-resource-manager"></a>O que é o Azure Resource Manager?
 
 O Azure Resource Manager é o serviço de implementação e gestão do Azure. Fornece uma camada de gestão que lhe permite criar, atualizar e eliminar recursos na sua conta Azure. Utiliza funcionalidades de gestão, como controlo de acessos, fechaduras e tags, para proteger e organizar os seus recursos após a implantação.
 
@@ -49,7 +49,7 @@ Com o Gestor de Recursos, pode:
 
 * Defina as dependências entre recursos para que sejam implantados na ordem correta.
 
-* Aplicar o controlo de acesso a todos os serviços porque o Controlo de Acesso Baseado em Fun (RBAC) está nativamente integrado na plataforma de gestão.
+* Aplicar o controlo de acesso a todos os serviços porque o controlo de acesso baseado em funções Azure (Azure RBAC) está nativamente integrado na plataforma de gestão.
 
 * Aplique etiquetas em recursos para organizar logicamente todos os recursos na sua subscrição.
 
@@ -83,7 +83,7 @@ Existem alguns fatores importantes a considerar ao definir o grupo de recursos:
 
    Se a região do grupo de recursos estiver temporariamente indisponível, não é possível atualizar recursos no grupo de recursos porque os metadados não estão disponíveis. Os recursos noutras regiões continuarão a funcionar como esperado, mas não é possível atualizá-los. Para obter mais informações sobre a construção de aplicações fiáveis, consulte [conceber aplicações Azure fiáveis.](/azure/architecture/checklist/resiliency-per-service)
 
-* Um grupo de recursos pode ser utilizado para definir o âmbito do controlo de acesso para ações administrativas. Para gerir um grupo de recursos, pode atribuir [Políticas Azure,](../../governance/policy/overview.md) [funções DE RBAC](../../role-based-access-control/role-assignments-portal.md)ou [bloqueios de recursos](lock-resources.md).
+* Um grupo de recursos pode ser utilizado para definir o âmbito do controlo de acesso para ações administrativas. Para gerir um grupo de recursos, pode atribuir [Políticas Azure,](../../governance/policy/overview.md) [funções Azure](../../role-based-access-control/role-assignments-portal.md)ou [bloqueios de recursos](lock-resources.md).
 
 * Pode [aplicar etiquetas](tag-resources.md) a um grupo de recursos. Os recursos do grupo de recursos não herdam essas etiquetas.
 

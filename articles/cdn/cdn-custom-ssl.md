@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/1/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 5cf1181c41af1edc752205f4477f18b78680f484
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 66e0ac622479d38d2e2a3cbf499bb7900251571d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "81254007"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359396"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar o HTTPS num domínio personalizado da CDN do Azure
 
@@ -80,7 +80,7 @@ Para ativar o HTTPS num domínio personalizado, siga estes passos:
 
 4. Na lista de domínios personalizados, selecione o domínio personalizado no qual pretende ativar o HTTPS.
 
-    ![Lista de domínios personalizados](./media/cdn-custom-ssl/cdn-custom-domain.png)
+    ![A screenshot mostra a página de domínio personalizado com a opção de usar o meu próprio certificado.](./media/cdn-custom-ssl/cdn-custom-domain.png)
 
     É apresentada a página **Domínio personalizado**.
 
