@@ -4,12 +4,12 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre o backup 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 7206a62e3148c1bbb8d2e3704d991025deeece37
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 8813794d44803a32bc6e156d3ca76360d84604c5
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377323"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91370832"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas frequentes-Back up Azure VMs
 
@@ -20,6 +20,12 @@ Este artigo responde a perguntas comuns sobre o backup dos VMs Azure com o servi
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Que imagens VM podem ser ativadas para backup quando as crio?
 
 Quando criar um VM, pode ativar a cópia de segurança para VMs que [executam sistemas operativos suportados.](backup-support-matrix-iaas.md#supported-backup-actions)
+
+### <a name="why-initial-backup-is-taking-lot-of-time-to-complete"></a>Porque é que o reforço inicial está a demorar muito tempo a ser concluído?
+
+A cópia de segurança inicial é sempre uma cópia de segurança completa e dependerá do tamanho dos dados e quando a cópia de segurança for processada. <br>
+Para melhorar o desempenho de backup ver, [backup boas práticas;](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#best-practices) [Considerações de backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations) e [desempenho de backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-performance)<br>
+Apesar de o tempo total das cópias de segurança incrementais ser inferior a 24 horas, este poderá não ser o caso para a primeira cópia de segurança.
 
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>O custo de reserva está incluído no custo do VM?
 
@@ -59,11 +65,11 @@ O feiticeiro só lista VMs na mesma região que o cofre, e isso já não está a
 
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>O meu VM está desligado. Um trabalho de reserva ou de reserva?
 
-Yes. As cópias de segurança funcionam quando uma máquina é desligada. O ponto de recuperação é marcado como consistente acidente.
+Sim. As cópias de segurança funcionam quando uma máquina é desligada. O ponto de recuperação é marcado como consistente acidente.
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Posso cancelar uma tarefa de cópia de segurança em curso?
 
-Yes. Pode cancelar o trabalho de reserva num estado **de tomada de fotos.** Não pode cancelar um emprego se a transferência de dados do instantâneo estiver em andamento.
+Sim. Pode cancelar o trabalho de reserva num estado **de tomada de fotos.** Não pode cancelar um emprego se a transferência de dados do instantâneo estiver em andamento.
 
 ### <a name="i-enabled-a-lock-on-the-resource-group-created-by-azure-backup-service-for-example-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>Consegui bloquear o grupo de recursos criado pelo Azure Backup Service (por exemplo, `AzureBackupRG_<geo>_<number>` ). As minhas cópias de segurança vão continuar a funcionar?
 
@@ -135,7 +141,7 @@ No caso de uma restauração gerida do VM, mesmo que a criação de VM falhe, os
 
 ### <a name="can-i-restore-a-vm-thats-been-deleted"></a>Posso restaurar um VM que foi apagado?
 
-Yes. Mesmo que apague o VM, pode ir ao item de backup correspondente no cofre e restaurar a partir de um ponto de recuperação.
+Sim. Mesmo que apague o VM, pode ir ao item de backup correspondente no cofre e restaurar a partir de um ponto de recuperação.
 
 ### <a name="how-do-i-restore-a-vm-to-the-same-availability-sets"></a>Como posso restaurar um VM para os mesmos conjuntos de disponibilidade?
 
@@ -154,6 +160,10 @@ Operações como o secret/key roll-over não requerem este passo e o mesmo cofre
 ### <a name="can-i-access-the-vm-once-restored-due-to-a-vm-having-broken-relationship-with-domain-controller"></a>Posso aceder ao VM uma vez restaurado devido a um VM ter quebrado a relação com o controlador de domínio?
 
 Sim, acede ao VM uma vez restaurado devido a um VM ter quebrado a relação com o controlador de domínio. Para mais informações, consulte este [artigo](./backup-azure-arm-restore-vms.md#post-restore-steps)
+
+### <a name="why-restore-operation-is-taking-long-time-to-complete"></a>Por que restaurar a operação está a demorar muito tempo a ser concluída?
+
+O tempo total de restauro depende das operações de Entrada/saída por segundo (IOPS) e do rendimento da conta de armazenamento. O tempo total de restauro pode ser afetado se a conta de armazenamento do alvo for carregada com outras operações de leitura e escrita de aplicações. Para melhorar o funcionamento da restauração, selecione uma conta de armazenamento que não esteja carregada com outros dados da aplicação.
 
 ## <a name="manage-vm-backups"></a>Gerir cópias de segurança de VMs
 

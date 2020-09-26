@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.openlocfilehash: 313b6afb8bd96f8ae507118cd552110d5f07ff78
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 26dfe8d134f9f38d8272895583ba2eff614d78e4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087524"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308389"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrar Azure HDInsight 3.6 Cargas de trabalho de colmeia para HDInsight 4.0
 
@@ -70,7 +70,7 @@ Para obter mais informações sobre a adição de contas de armazenamento a clus
 
 As tabelas geridas devem ser compatíveis com o ACID em HDInsight 4.0, por padrão. Uma vez concluída a migração de metastões, execute uma ferramenta pós-actualização para tornar as tabelas geridas anteriormente não-ACID compatíveis com o cluster HDInsight 4.0. Esta ferramenta aplicará a seguinte conversão:
 
-|3.6 |4,0 |
+|3.6 |4.0 |
 |---|---|
 |Tabelas externas|Tabelas externas|
 |Tabelas geridas não-ACID|Tabelas externas com propriedade 'external.table.purpur'='true'|
@@ -79,7 +79,7 @@ As tabelas geridas devem ser compatíveis com o ACID em HDInsight 4.0, por padr�
 Execute a ferramenta de pós-upgrade da Colmeia a partir do cluster HDInsight 4.0 utilizando a concha SSH:
 
 1. Ligue-se ao seu headnode de cluster utilizando SSH. Para obter instruções, consulte [Connect to HDInsight usando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)
-1. Abra uma concha de login como utilizador da Colmeia executando`sudo su - hive`
+1. Abra uma concha de login como utilizador da Colmeia executando `sudo su - hive`
 1. Execute o seguinte comando a partir da concha.
 
     ```bash
@@ -208,32 +208,11 @@ Depois de ter confirmado que o lançamento está completo e totalmente operacion
 
 ## <a name="query-execution-across-hdinsight-versions"></a>Execução de consultas em versões HDInsight
 
-Existem duas formas de executar e depurar consultas de Hive/LLAP dentro de um cluster HDInsight 3.6. A HiveCLI proporciona uma experiência de linha de comando e a vista Tez/Hive proporciona um fluxo de trabalho baseado em GUI.
+Existem duas formas de executar e depurar consultas de Hive/LLAP dentro de um cluster HDInsight 3.6. A HiveCLI proporciona uma experiência de linha de comando e a [vista Tez/Hive](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view) proporciona um fluxo de trabalho baseado em GUI.
 
-Em HDInsight 4.0, HiveCLI foi substituído por Beeline. A HiveCLI é cliente da Hiveserver 1, e a Beeline é um cliente JDBC que dá acesso à Hiveserver 2. Beeline também pode ser usado para ligar a qualquer outro ponto final de base de dados compatível com JDBC. A Beeline está disponível fora de caixa no HDInsight 4.0 sem necessidade de qualquer instalação.
+Em HDInsight 4.0, HiveCLI foi substituído por Beeline. A vista Tez/Hive proporciona um fluxo de trabalho baseado em GUI. A HiveCLI é cliente da Hiveserver 1, e a Beeline é um cliente JDBC que dá acesso à Hiveserver 2. Beeline também pode ser usado para ligar a qualquer outro ponto final de base de dados compatível com JDBC. A Beeline está disponível fora de caixa no HDInsight 4.0 sem necessidade de qualquer instalação.
 
-No HDInsight 3.6, o cliente GUI para interagir com o servidor Hive é o Ambari Hive View. HDInsight 4.0 não envia com Ambari View. Fornecemos uma forma de os nossos clientes utilizarem o Data Analytics Studio (DAS), que não é um serviço hdInsight core. Das não envia com clusters HDInsight fora da caixa e não é um pacote oficialmente suportado. No entanto, o DAS pode ser instalado no cluster utilizando uma [ação de script](../hdinsight-hadoop-customize-cluster-linux.md) da seguinte forma:
-
-|Propriedade | Valor |
-|---|---|
-|Tipo de script|- Personalizado|
-|Name|DAS|
-|URI de guião de bash|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
-|Tipo de nó(s)|Head|
-
-Aguarde 10 a 15 minutos e, em seguida, lance o Data Analytics Studio utilizando este URL: `https://CLUSTERNAME.azurehdinsight.net/das/` .
-
-Pode ser necessária uma atualização da UI Ambari e/ou um reinício de todos os componentes Ambari antes de aceder à DAS.
-
-Uma vez instalado o DAS, se não vir as consultas que executou no espectador de consultas, faça os seguintes passos:
-
-1. Descreva as configurações para Colmeia, Tez e DAS, conforme descrito [neste guia para a resolução de problemas da instalação DAS](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html).
-2. Certifique-se de que os seguintes configs do diretório de armazenamento Azure são blobs page, e que estão listados em `fs.azure.page.blob.dirs` :
-    * `hive.hook.proto.base-directory`
-    * `tez.history.logging.proto-base-dir`
-3. Reinicie HDFS, Hive, Tez e DAS em ambos os headnodes.
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [HdInsight 4.0 Anúncio](../hdinsight-version-release.md)
 * [HDInsight 4.0 mergulho profundo](https://azure.microsoft.com/blog/deep-dive-into-azure-hdinsight-4-0/)

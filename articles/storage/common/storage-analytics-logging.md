@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 7010e47dd9272ce620f8e057fbfb36e1fd5b26c9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5b4e2fa95b9a5eebf393d7c64feecd3997b7ecfd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021175"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280033"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registo de análise de armazenamento Azure
 
@@ -206,7 +206,7 @@ azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Log
 
 Para saber mais sobre como descarregar ficheiros específicos, consulte [Baixar ficheiros específicos](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
 
-Quando tiver descarregado os seus dados de registo, pode visualizar as entradas de registo nos ficheiros. Estes ficheiros de registo utilizam um formato de texto delimitado que muitas ferramentas de leitura de registos são capazes de analisar, incluindo o Microsoft Message Analyzer (para mais informações, consulte o guia [Monitor, Diagnóstico e Resolução de Problemas do Microsoft Azure Storage).](storage-monitoring-diagnosing-troubleshooting.md) Diferentes ferramentas têm diferentes instalações para formatação, filtragem, triagem, anúncio de pesquisa do conteúdo dos seus ficheiros de registo. Para obter mais informações sobre o formato e conteúdo do ficheiro de registo de registo de registo de armazenamento, consulte o formato de registo de [armazenamento Analytics](/rest/api/storageservices/storage-analytics-log-format) e o armazenamento de [analítica operações registadas e mensagens de estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
+Quando tiver descarregado os seus dados de registo, pode visualizar as entradas de registo nos ficheiros. Estes ficheiros de registo utilizam um formato de texto delimitado que muitas ferramentas de leitura de registos são capazes de analisar (para mais informações, consulte o guia [Monitor, Diagnóstico e Resolução de Problemas do Microsoft Azure Storage).](storage-monitoring-diagnosing-troubleshooting.md) Diferentes ferramentas têm diferentes instalações para formatação, filtragem, triagem, anúncio de pesquisa do conteúdo dos seus ficheiros de registo. Para obter mais informações sobre o formato e conteúdo do ficheiro de registo de registo de registo de armazenamento, consulte o formato de registo de [armazenamento Analytics](/rest/api/storageservices/storage-analytics-log-format) e o armazenamento de [analítica operações registadas e mensagens de estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 ## <a name="next-steps"></a>Passos seguintes
 
