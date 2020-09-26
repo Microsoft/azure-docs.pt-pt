@@ -5,12 +5,12 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 02/12/2018
-ms.openlocfilehash: c8c24134c4694a9a2df36ac278452a532a5125ad
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: f1f4320f0bfb924883eb7ae4807dcb714cd89983
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132607"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331935"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accessing diagnostics logs for Azure Data Lake Analytics (Aceder aos registos de diagnóstico do Azure Data Lake Analytics)
 
@@ -26,7 +26,7 @@ O registo de diagnóstico permite-lhe recolher pistas de auditoria de acesso a d
 
 2. Abra a sua conta Data Lake Analytics e selecione **registos** de diagnóstico na secção __Monitor.__ Em seguida, __selecione Ligue os diagnósticos__.
 
-    ![Ligue os diagnósticos para recolher registos de auditoria e de pedido](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
+    ![Screenshot que mostra a ação "Registos de diagnóstico" selecionados e "Ligue os diagnósticos para recolher os seguintes registos" realçado.](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
 3. A partir das __definições de Diagnóstico,__ introduza um __Nome__ para esta configuração de registo e, em seguida, selecione opções de registo.
 
@@ -126,7 +126,7 @@ Aqui está uma amostra de entrada no registo de pedidos formatados pela JSON. Ca
 
 #### <a name="request-log-schema"></a>Solicitar esquema de registo
 
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | hora |Cadeia |A horatampia (em UTC) do log |
 | resourceId |Cadeia |O identificador do recurso que a operação teve lugar em |
@@ -140,7 +140,7 @@ Aqui está uma amostra de entrada no registo de pedidos formatados pela JSON. Ca
 
 #### <a name="request-log-properties-schema"></a>Solicite esquema de propriedades de registo
 
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | HttpMethod |Cadeia |O método HTTP utilizado para a operação. Por exemplo, GET. |
 | Caminho |Cadeia |O caminho em que a operação foi realizada |
@@ -174,9 +174,9 @@ Aqui está uma amostra de entrada no registo de auditoria formatado pela JSON. C
 }
 ```
 
-#### <a name="audit-log-schema"></a>Esquema do registo de auditoria
+#### <a name="audit-log-schema"></a>Esquema de registo de auditoria
 
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | hora |Cadeia |A horatampia (em UTC) do log |
 | resourceId |Cadeia |O identificador do recurso que a operação teve lugar em |
@@ -194,7 +194,7 @@ Aqui está uma amostra de entrada no registo de auditoria formatado pela JSON. C
 
 #### <a name="audit-log-properties-schema"></a>Esquema de propriedades de registo de auditoria
 
-| Nome | Tipo | Descrição |
+| Nome | Tipo | Description |
 | --- | --- | --- |
 | JobId |Cadeia |A ID atribuída ao trabalho |
 | Nome de emprego |Cadeia |O nome que foi fornecido para o trabalho |

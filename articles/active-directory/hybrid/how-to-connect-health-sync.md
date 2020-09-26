@@ -16,17 +16,17 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1e988bef3876fafdee4f7f6f109858e85d75d0
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: efb332cf8d5e34a435010a39a12b38f87cff5875
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278739"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313370"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorizar a sincronização do Azure AD Connect com o Azure AD Connect Health
 A seguinte documentação é específica para monitorizar a sincronização do Azure AD Connect (Sync) com o Azure AD Connect Health.  Para informações sobre como monitorizar o AD FS com o Azure AD Connect Health consulte [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md). Adicionalmente, para informações sobre como monitorizar os Serviços de Domínio do Active Directory com o Azure AD Connect Health consulte [Utilizar o Azure AD Connect Health com o AD DS](how-to-connect-health-adds.md).
 
-![Azure AD Connect Health para Sincronização](./media/how-to-connect-health-sync/syncsnapshot.png)
+![Screenshot da página Azure AD Connect Health for Sync.](./media/how-to-connect-health-sync/syncsnapshot.png)
 
 ## <a name="alerts-for-azure-ad-connect-health-for-sync"></a>Alertas para o Azure AD Connect Health para sincronização
 A secção Alertas do Azure AD Connect Health para sincronização apresenta-lhe a lista de alertas ativos. Cada alerta inclui informações relevantes, os passos de resolução e ligações para a documentação relacionada. Ao selecionar um alerta ativo ou resolvido, verá um novo painel com informações adicionais, bem como passos que pode tomar para resolver o alerta e ligações para documentação adicional. Pode também visualizar dados históricos de alertas que foram resolvidos no passado.
@@ -40,11 +40,11 @@ Se o Azure AD Connect NÃO está a utilizar a configuração predefinida (por ex
 
 Isto limita a avaliação de alertas pelo serviço. Verá uma faixa que indica esta condição no Portal do Azure, no seu serviço.
 
-![Azure AD Connect Health para Sincronização](./media/how-to-connect-health-sync/banner.png)
+![Screenshot do banner de alerta que diz que a avaliação de alerta é limitada. Atualize as suas definições para ativar todos os alertas.](./media/how-to-connect-health-sync/banner.png)
 
 Pode alterar esta situação clicando em “Definições” e permitindo que o agente do Azure AD Connect Health carregue todos os registos de erros.
 
-![Azure AD Connect Health para Sincronização](./media/how-to-connect-health-sync/banner2.png)
+![Screenshot da opção Definições chamada e a secção Definições com a opção Guardar e a opção ON chamada.](./media/how-to-connect-health-sync/banner2.png)
 
 ## <a name="sync-insight"></a>Informações de Sincronização
 Os administradores querem frequentemente obter informações sobre o tempo que demora a sincronizar alterações ao Azure AD e a quantidade de alterações executadas. Esta funcionalidade fornece uma forma fácil de visualizar estes dados através dos gráficos abaixo:   
@@ -55,14 +55,14 @@ Os administradores querem frequentemente obter informações sobre o tempo que d
 ### <a name="sync-latency"></a>Latência de sincronização
 Esta funcionalidade fornece uma tendência gráfica de latência das operações de sincronização (importar, exportar, etc.) para os conectores.  Proporciona uma forma rápida e fácil de entender não apenas a latência das suas operações (maior, se tiver um grande conjunto de alterações a ocorrerem), mas também uma forma de detetar anomalias na latência que possam exigir investigação adicional.
 
-![Latência de sincronização](./media/how-to-connect-health-sync/synclatency02.png)
+![Screenshot do run profile Latncy do gráfico de 3 dias passados.](./media/how-to-connect-health-sync/synclatency02.png)
 
 Por predefinição, é apresentada apenas a latência da operação de 'Exportação' para o conector do Azure AD.  Para ver mais operações no conector ou para ver operações a partir de outros conectores, clique com o botão direito do rato no gráfico, selecione Editar Gráfico ou clique no botão "Editar Gráfico de Latência" e escolha a operação e conectores específicos.
 
 ### <a name="sync-object-changes"></a>Sincronização das Alterações de Objetos
 Esta funcionalidade fornece uma tendência gráfica do número de alterações que estão a ser avaliadas e exportadas para o Azure AD.  É difícil, atualmente, tentar recolher estas informações a partir de registos de sincronização.  O gráfico fornece-lhe, não apenas uma forma mais simples de monitorizar, o número de alterações que estão a ocorrer no seu ambiente, mas também um amostra visual das falhas que estão a ocorrer.
 
-![Latência de sincronização](./media/how-to-connect-health-sync/syncobjectchanges02.png)
+![Screenshot das Estatísticas de Exportação para Azure AD dos últimos 3 dias gráfico.](./media/how-to-connect-health-sync/syncobjectchanges02.png)
 
 ## <a name="object-level-synchronization-error-report"></a>Relatório de erro de sincronização de nível de objeto
 Esta funcionalidade fornece um relatório sobre erros de sincronização que podem ocorrer quando os dados de identidade são sincronizados entre o Windows Server AD e o Azure AD com o Azure AD Connect.

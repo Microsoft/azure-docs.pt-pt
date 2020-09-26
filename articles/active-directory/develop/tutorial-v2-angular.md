@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
-ms.custom: aaddev, identityplatformtop40, devx-track-javascript
-ms.openlocfilehash: a58da8b11876d662173ae83de43d8ed74ab43e93
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: aaddev, identityplatformtop40, devx-track-js
+ms.openlocfilehash: 76e82a474d2575325b09e6e82c7319b22f451715
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118302"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256930"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação de página única angular
 
@@ -43,7 +43,7 @@ Neste cenário, após a indicação de um utilizador, é solicitado um token de 
 
 Este tutorial utiliza a seguinte biblioteca:
 
-|Biblioteca|Descrição|
+|Biblioteca|Description|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteca de autenticação da Microsoft para invólucro angular JavaScript|
 
@@ -267,8 +267,8 @@ Nesse código, `scopes` solicita-se que sejam devolvidos âmbitos no token de ac
 
 Por exemplo:
 
-* `["user.read"]`para o Microsoft Graph
-* `["<Application ID URL>/scope"]`para APIs web personalizado (isto é, `api://<Application ID>/access_as_user` )
+* `["user.read"]` para o Microsoft Graph
+* `["<Application ID URL>/scope"]` para APIs web personalizado (isto é, `api://<Application ID>/access_as_user` )
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 

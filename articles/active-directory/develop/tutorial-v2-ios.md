@@ -1,6 +1,7 @@
 ---
-title: MSAL para iOS & tutorial de macOS - Plataforma de identidade da Microsoft Rio Azure
-description: Saiba como as aplicações iOS e macOS (Swift) podem chamar uma API que requer acesso a tokens usando a plataforma de identidade da Microsoft
+title: 'Tutorial: Microsoft Authentication Library (MSAL) para iOS & macOS Rio Azure'
+titleSuffix: Microsoft identity platform
+description: Saiba como as aplicações iOS e macOS (Swift) podem chamar uma API que requer acesso a tokens utilizando a plataforma de identidade da Microsoft
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -8,31 +9,28 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 06/16/2020
-ms.author: jmprieur
+ms.date: 09/18/2020
+ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 61a3884ce4d1075dbcac61a0c202c3a393d2d943
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 238f8426ae51bec64dfdb5edaa3107ca1f430914
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118149"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256913"
 ---
-# <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Inscreva-se nos utilizadores e ligue para o Microsoft Graph a partir de uma aplicação para iOS ou macOS
+# <a name="sign-in-users-and-call-microsoft-graph-from-an-ios-or-macos-app"></a>Inscreva-se nos utilizadores e ligue para o Microsoft Graph a partir de uma aplicação para iOS ou macOS
 
-Neste tutorial, irá aprender a integrar uma aplicação iOS ou macOS com a plataforma de identidade da Microsoft. A aplicação irá iniciar seduca num utilizador, obter um token de acesso para ligar para a API do Gráfico da Microsoft e fazer um pedido para a Microsoft Graph API.  
+Neste tutorial, aprende-se a integrar uma aplicação iOS ou macOS com a plataforma de identidade da Microsoft. A aplicação irá iniciar seduca num utilizador, obter um token de acesso para ligar para a API do Gráfico da Microsoft e fazer um pedido para a Microsoft Graph API.
 
 Quando tiver concluído o guia, a sua aplicação aceitará inscrições de contas pessoais da Microsoft (incluindo outlook.com, live.com e outras) e contas de trabalho ou escola de qualquer empresa ou organização que utilize o Azure Ative Directory.
-
->[!NOTE]
-> Se for novo na plataforma de identidade da Microsoft, recomendamos que comece com o [Sinal nos utilizadores e ligue para a API do Microsoft Graph a partir de uma aplicação para iOS ou macOS](quickstart-v2-ios.md).
 
 ## <a name="how-this-tutorial-works"></a>Como funciona este tutorial
 
 ![Mostra como funciona a app de amostras gerada por este tutorial](../../../includes/media/active-directory-develop-guidedsetup-ios-introduction/iosintro.svg)
 
-A aplicação neste tutorial irá iniciar snuários nos utilizadores e obter dados em seu nome.  Estes dados serão acedidos através de uma API protegida (Microsoft Graph API neste caso) que requer autorização e está protegida pela plataforma de identidade da Microsoft.
+A aplicação neste tutorial pode iniciar sísmis nos utilizadores e obter dados do Microsoft Graph em seu nome. Estes dados serão acedidos através de uma API protegida (Microsoft Graph API neste caso) que requer autorização e está protegida pela plataforma de identidade da Microsoft.
 
 Mais especificamente:
 
@@ -42,9 +40,9 @@ Mais especificamente:
 * O token de acesso será incluído no pedido HTTP para a API web.
 * Processe a resposta do Microsoft Graph.
 
-Esta amostra utiliza a biblioteca de autenticação da Microsoft (MSAL) para implementar a Autenticação. A MSAL renovará automaticamente os tokens, entregará um único sign-on (SSO) entre outras aplicações no dispositivo e gerirá a Conta(s).
+Esta amostra utiliza a Biblioteca de Autenticação do Microsoft (MSAL) para implementar a Autenticação. A MSAL renovará automaticamente os tokens, entregará um único sign-on (SSO) entre outras aplicações no dispositivo e gerirá a Conta(s).
 
-Este tutorial é aplicável tanto às aplicações iOS como ao macOS. Note que alguns passos são diferentes entre estas duas plataformas. 
+Este tutorial é aplicável tanto às aplicações iOS como ao macOS. Alguns passos são diferentes entre estas duas plataformas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -62,20 +60,20 @@ Este tutorial vai criar um novo projeto. Se pretender descarregar o tutorial com
 3. Para aplicações para macOS, selecione **macOS**  >  **App Cocoa** e selecione **Next**.
 4. Forneça um nome de produto.
 5. Desa estaca o **idioma** para **Swift** e selecione **Seguinte**.
-6. Selecione uma pasta para criar a sua aplicação e clique em **Criar**.
+6. Selecione uma pasta para criar a sua aplicação e selecione **Criar**.
 
 ## <a name="register-your-application"></a>Registar a aplicação
 
 1. Vá ao [portal Azure](https://aka.ms/MobileAppReg)
-2. Abra a lâmina de registos da App e clique **em +Novo registo.**
+2. Abra a lâmina de registos da App e selecione **+Novo registo.**
 3. Introduza um **Nome** para a sua aplicação e, em seguida, sem definir um URI de redirecionamento.
 4. Selecione **Contas em qualquer diretório organizacional (qualquer diretório AD AZure - Multitenant) e contas pessoais da Microsoft (por exemplo, Skype, Xbox)** sob **tipos de conta suportados**
-5. Clique **em Registar**
+5. Selecione **Registar-se**
 6. Na secção **Gerir** o painel que aparece, selecione **Autenticação**.
 
-7. Clique **em Experimentar a nova experiência** perto do topo do ecrã para abrir a nova experiência de registo de aplicações e, em seguida, clique em **+Novo registo**+ Adicione uma  >  **plataforma**  >  **iOS/macOS**.
+7. Selecione **Experimente a nova experiência** perto do topo do ecrã para abrir a nova experiência de registo de aplicações e, em seguida, selecione **+Novo registo**+ Adicione uma  >  **plataforma**  >  **iOS/macOS**.
     - Insira o Bundle ID do seu projeto. Se descarregou o código, este é `com.microsoft.identitysample.MSALiOS` . Se estiver a criar o seu próprio projeto, selecione o seu projeto no Xcode e abra o separador **Geral.** O identificador do pacote aparece na secção **identidade.**
-8. Clique `Configure` e guarde a **Configuração MSAL** que aparece na página **de configuração MSAL** para que possa introduzi-la quando configurar a sua aplicação mais tarde.  Clique em **Concluído**.
+8. Selecione `Configure` e guarde a **Configuração MSAL** que aparece na página **de configuração MSAL** para que possa introduzi-la quando configurar a sua aplicação mais tarde. Selecione **Concluído**.
 
 ## <a name="add-msal"></a>Adicionar MSAL
 
@@ -87,7 +85,7 @@ Escolha uma das seguintes formas de instalar a biblioteca MSAL na sua aplicaçã
 
    ```
    use_frameworks!
-   
+
    target '<your-target-here>' do
       pod 'MSAL'
    end
@@ -125,7 +123,7 @@ Também pode utilizar o Git Submodule ou consultar a versão mais recente para u
 
 ## <a name="add-your-app-registration"></a>Adicione o registo da sua aplicação
 
-Em seguida, adicionaremos o seu registo de aplicações ao seu código. 
+Em seguida, adicionaremos o seu registo de aplicações ao seu código.
 
 Em primeiro lugar, adicione a seguinte declaração de importação ao topo do `ViewController.swift` , bem como ou `AppDelegate.swift` `SceneDelegate.swift` ficheiros:
 
@@ -139,10 +137,10 @@ Em seguida, adicione o seguinte código `ViewController.swift` a `viewDidLoad()`
 // Update the below to your client ID you received in the portal. The below is for running the demo only
 let kClientID = "Your_Application_Id_Here"
 let kGraphEndpoint = "https://graph.microsoft.com/" // the Microsoft Graph endpoint
-let kAuthority = "https://login.microsoftonline.com/common" // this authority allows a personal Microsoft account and a work or school account in any organization’s Azure AD tenant to sign in
-    
+let kAuthority = "https://login.microsoftonline.com/common" // this authority allows a personal Microsoft account and a work or school account in any organization's Azure AD tenant to sign in
+
 let kScopes: [String] = ["user.read"] // request permission to read the profile of the signed-in user
-    
+
 var accessToken = String()
 var applicationContext : MSALPublicClientApplication?
 var webViewParameters : MSALWebviewParameters?
@@ -183,7 +181,7 @@ Em Xcode, abra `Info.plist` como um ficheiro de código fonte e adicione o segui
 ## <a name="for-macos-only-configure-app-sandbox"></a>Apenas para macOS, configurar app Sandbox
 
 1. Aceda ao seu projeto Xcode Definições > **capabilites tab**  >  **App Sandbox**
-2. Selecione a caixa **de verificação Desaudido (Cliente).** 
+2. Selecione a caixa **de verificação Desaudido (Cliente).**
 
 ## <a name="create-your-apps-ui"></a>Crie uI da sua aplicação
 
@@ -198,20 +196,20 @@ var callGraphButton: UIButton!
 var usernameLabel: UILabel!
 
 func initUI() {
-        
+
     usernameLabel = UILabel()
     usernameLabel.translatesAutoresizingMaskIntoConstraints = false
     usernameLabel.text = ""
     usernameLabel.textColor = .darkGray
     usernameLabel.textAlignment = .right
-        
+
     self.view.addSubview(usernameLabel)
-        
+
     usernameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 50.0).isActive = true
     usernameLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10.0).isActive = true
     usernameLabel.widthAnchor.constraint(equalToConstant: 300.0).isActive = true
     usernameLabel.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-        
+
     // Add call Graph button
     callGraphButton  = UIButton()
     callGraphButton.translatesAutoresizingMaskIntoConstraints = false
@@ -219,12 +217,12 @@ func initUI() {
     callGraphButton.setTitleColor(.blue, for: .normal)
     callGraphButton.addTarget(self, action: #selector(callGraphAPI(_:)), for: .touchUpInside)
     self.view.addSubview(callGraphButton)
-        
+
     callGraphButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     callGraphButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 120.0).isActive = true
     callGraphButton.widthAnchor.constraint(equalToConstant: 300.0).isActive = true
     callGraphButton.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-        
+
     // Add sign out button
     signOutButton = UIButton()
     signOutButton.translatesAutoresizingMaskIntoConstraints = false
@@ -233,31 +231,31 @@ func initUI() {
     signOutButton.setTitleColor(.gray, for: .disabled)
     signOutButton.addTarget(self, action: #selector(signOut(_:)), for: .touchUpInside)
     self.view.addSubview(signOutButton)
-        
+
     signOutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     signOutButton.topAnchor.constraint(equalTo: callGraphButton.bottomAnchor, constant: 10.0).isActive = true
     signOutButton.widthAnchor.constraint(equalToConstant: 150.0).isActive = true
     signOutButton.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-        
+
     let deviceModeButton = UIButton()
     deviceModeButton.translatesAutoresizingMaskIntoConstraints = false
     deviceModeButton.setTitle("Get device info", for: .normal);
     deviceModeButton.setTitleColor(.blue, for: .normal);
     deviceModeButton.addTarget(self, action: #selector(getDeviceMode(_:)), for: .touchUpInside)
     self.view.addSubview(deviceModeButton)
-        
+
     deviceModeButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     deviceModeButton.topAnchor.constraint(equalTo: signOutButton.bottomAnchor, constant: 10.0).isActive = true
     deviceModeButton.widthAnchor.constraint(equalToConstant: 150.0).isActive = true
     deviceModeButton.heightAnchor.constraint(equalToConstant: 50.0).isActive = true
-        
+
     // Add logging textfield
     loggingText = UITextView()
     loggingText.isUserInteractionEnabled = false
     loggingText.translatesAutoresizingMaskIntoConstraints = false
-        
+
     self.view.addSubview(loggingText)
-        
+
     loggingText.topAnchor.constraint(equalTo: deviceModeButton.bottomAnchor, constant: 10.0).isActive = true
     loggingText.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 10.0).isActive = true
     loggingText.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -10.0).isActive = true
@@ -265,14 +263,14 @@ func initUI() {
 }
 
 func platformViewDidLoadSetup() {
-                
+
     NotificationCenter.default.addObserver(self,
                         selector: #selector(appCameToForeGround(notification:)),
                         name: UIApplication.willEnterForegroundNotification,
                         object: nil)
-        
+
 }
-    
+
 @objc func appCameToForeGround(notification: Notification) {
     self.loadCurrentAccount()
 }
@@ -286,21 +284,21 @@ func platformViewDidLoadSetup() {
 var callGraphButton: NSButton!
 var loggingText: NSTextView!
 var signOutButton: NSButton!
-    
+
 var usernameLabel: NSTextField!
 
 func initUI() {
-        
+
     usernameLabel = NSTextField()
     usernameLabel.translatesAutoresizingMaskIntoConstraints = false
     usernameLabel.stringValue = ""
     usernameLabel.isEditable = false
     usernameLabel.isBezeled = false
     self.view.addSubview(usernameLabel)
-        
+
     usernameLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 30.0).isActive = true
     usernameLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10.0).isActive = true
-        
+
     // Add call Graph button
     callGraphButton  = NSButton()
     callGraphButton.translatesAutoresizingMaskIntoConstraints = false
@@ -309,11 +307,11 @@ func initUI() {
     callGraphButton.action = #selector(callGraphAPI(_:))
     callGraphButton.bezelStyle = .rounded
     self.view.addSubview(callGraphButton)
-        
+
     callGraphButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     callGraphButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 50.0).isActive = true
     callGraphButton.heightAnchor.constraint(equalToConstant: 34.0).isActive = true
-        
+
     // Add sign out button
     signOutButton = NSButton()
     signOutButton.translatesAutoresizingMaskIntoConstraints = false
@@ -322,18 +320,18 @@ func initUI() {
     signOutButton.action = #selector(signOut(_:))
     signOutButton.bezelStyle = .texturedRounded
     self.view.addSubview(signOutButton)
-        
+
     signOutButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     signOutButton.topAnchor.constraint(equalTo: callGraphButton.bottomAnchor, constant: 10.0).isActive = true
     signOutButton.heightAnchor.constraint(equalToConstant: 34.0).isActive = true
     signOutButton.isEnabled = false
-        
+
     // Add logging textfield
     loggingText = NSTextView()
     loggingText.translatesAutoresizingMaskIntoConstraints = false
-        
+
     self.view.addSubview(loggingText)
-        
+
     loggingText.topAnchor.constraint(equalTo: signOutButton.bottomAnchor, constant: 10.0).isActive = true
     loggingText.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 10.0).isActive = true
     loggingText.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -10.0).isActive = true
@@ -354,13 +352,13 @@ Em seguida, também dentro da `ViewController` classe, substitua o `viewDidLoad(
         super.viewDidLoad()
 
         initUI()
-        
+
         do {
             try self.initMSAL()
         } catch let error {
             self.updateLogging(text: "Unable to create Application Context \(error)")
         }
-        
+
         self.loadCurrentAccount()
         self.platformViewDidLoadSetup()
     }
@@ -374,14 +372,14 @@ Adicione o seguinte `initMSAL` método à `ViewController` classe:
 
 ```swift
     func initMSAL() throws {
-        
+
         guard let authorityURL = URL(string: kAuthority) else {
             self.updateLogging(text: "Unable to create authority URL")
             return
         }
-        
+
         let authority = try MSALAADAuthority(url: authorityURL)
-        
+
         let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
         self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
         self.initWebViewParams()
@@ -413,7 +411,7 @@ Abra o ficheiro `AppDelegate.swift`. Para lidar com a chamada após o início de
 ```swift
 // Inside AppDelegate...
 func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        
+
         return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
 }
 
@@ -424,14 +422,14 @@ Se apoiar tanto o UISceneDeeDeegate como o UIApplicationDeegate para compatibili
 
 ```swift
 func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        
+
         guard let urlContext = URLContexts.first else {
             return
         }
-        
+
         let url = urlContext.url
         let sourceApp = urlContext.options.sourceApplication
-        
+
         MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
     }
 ```
@@ -440,11 +438,11 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
 
 Agora, podemos implementar a lógica de processamento de UI da aplicação e obter fichas interativamente através da MSAL.
 
-A MSAL expõe dois métodos primários para obter `acquireTokenSilently()` fichas: `acquireTokenInteractively()` 
+A MSAL expõe dois métodos primários para obter `acquireTokenSilently()` fichas: `acquireTokenInteractively()`
 
-- `acquireTokenSilently()`tenta assinar num utilizador e obter fichas sem qualquer interação do utilizador, desde que uma conta esteja presente. `acquireTokenSilently()`requer um válido `MSALAccount` que pode ser recuperado utilizando uma das APIs de enumeração da conta MSAL. Esta amostra utiliza `applicationContext.getCurrentAccount(with: msalParameters, completionBlock: {})` para recuperar a conta corrente. 
+- `acquireTokenSilently()` tenta assinar num utilizador e obter fichas sem qualquer interação do utilizador, desde que uma conta esteja presente. `acquireTokenSilently()` requer um válido `MSALAccount` que pode ser recuperado utilizando uma das APIs de enumeração da conta MSAL. Esta amostra utiliza `applicationContext.getCurrentAccount(with: msalParameters, completionBlock: {})` para recuperar a conta corrente.
 
-- `acquireTokenInteractively()`mostra sempre UI quando se tenta assinar no utilizador. Pode utilizar cookies de sessão no navegador ou uma conta no autenticador da Microsoft para fornecer uma experiência interativa-SSO.
+- `acquireTokenInteractively()` mostra sempre UI quando se tenta assinar no utilizador. Pode utilizar cookies de sessão no navegador ou uma conta no autenticador da Microsoft para fornecer uma experiência interativa-SSO.
 
 Adicione o seguinte código à `ViewController` classe:
 
@@ -454,17 +452,17 @@ Adicione o seguinte código à `ViewController` classe:
     }
 
     @objc func callGraphAPI(_ sender: AnyObject) {
-        
+
         self.loadCurrentAccount { (account) in
-            
+
             guard let currentAccount = account else {
-                
+
                 // We check to see if we have a current logged in account.
                 // If we don't, then we need to sign someone in.
                 self.acquireTokenInteractively()
                 return
             }
-            
+
             self.acquireTokenSilently(currentAccount)
         }
     }
@@ -472,36 +470,36 @@ Adicione o seguinte código à `ViewController` classe:
     typealias AccountCompletion = (MSALAccount?) -> Void
 
     func loadCurrentAccount(completion: AccountCompletion? = nil) {
-        
+
         guard let applicationContext = self.applicationContext else { return }
-        
+
         let msalParameters = MSALParameters()
         msalParameters.completionBlockQueue = DispatchQueue.main
-                
+
         applicationContext.getCurrentAccount(with: msalParameters, completionBlock: { (currentAccount, previousAccount, error) in
-            
+
             if let error = error {
                 self.updateLogging(text: "Couldn't query current account with error: \(error)")
                 return
             }
-            
+
             if let currentAccount = currentAccount {
-                
+
                 self.updateLogging(text: "Found a signed in account \(String(describing: currentAccount.username)). Updating data for that account...")
-                
+
                 self.updateCurrentAccount(account: currentAccount)
-                
+
                 if let completion = completion {
                     completion(self.currentAccount)
                 }
-                
+
                 return
             }
-            
+
             self.updateLogging(text: "Account signed out. Updating UX")
             self.accessToken = ""
             self.updateCurrentAccount(account: nil)
-            
+
             if let completion = completion {
                 completion(nil)
             }
@@ -518,58 +516,64 @@ O código abaixo recebe um símbolo pela primeira vez criando um `MSALInteractiv
 3. Lida com erros. Para obter mais detalhes, consulte o MSAL para o [guia de manuseamento de erros iOS e macOS](msal-handling-exceptions.md).
 4. Lida com o caso de sucesso.
 
-Adicione o seguinte código à `ViewController` classe.
+Adicione o seguinte código à classe `ViewController`.
 
 ```swift
 func acquireTokenInteractively() {
-        
+
     guard let applicationContext = self.applicationContext else { return }
     guard let webViewParameters = self.webViewParameters else { return }
-        
+
     // #1
     let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: webViewParameters)
     parameters.promptType = .selectAccount
-        
+
     // #2
     applicationContext.acquireToken(with: parameters) { (result, error) in
-            
+
         // #3
         if let error = error {
-                
+
             self.updateLogging(text: "Could not acquire token: \(error)")
             return
         }
-            
+
         guard let result = result else {
-                
+
             self.updateLogging(text: "Could not acquire token: No result returned")
             return
         }
-            
+
         // #4
         self.accessToken = result.accessToken
         self.updateLogging(text: "Access token is \(self.accessToken)")
         self.updateCurrentAccount(account: result.account)
         self.getContentWithToken()
     }
-}    
+}
 ```
 
+A `promptType` propriedade de `MSALInteractiveTokenParameters` configurar o comportamento rápido de autenticação e consentimento. São suportados os seguintes valores:
+
+- `.promptIfNecessary` (predefinição) - O utilizador só é solicitado se necessário. A experiência SSO é determinada pela presença de cookies na webview, e pelo tipo de conta. Se vários utilizadores estiverem inscritos, é apresentada a experiência de seleção de conta. *Este é o comportamento padrão.*
+- `.selectAccount` - Se nenhum utilizador for especificado, a visão web de autenticação apresenta uma lista de contas atualmente assinadas para o utilizador selecionar.
+- `.login` - Requer que o utilizador autentica na webview. Apenas uma conta pode ser assinada de cada vez se especificar este valor.
+- `.consent` - Exige que o utilizador consinta no conjunto atual de âmbitos para o pedido.
 
 #### <a name="get-a-token-silently"></a>Obter um símbolo silenciosamente
 
 Para adquirir um token atualizado silenciosamente, adicione o seguinte código à `ViewController` classe. Cria um `MSALSilentTokenParameters` objeto e `acquireTokenSilent()` chama:
 
 ```swift
-    
+
     func acquireTokenSilently(_ account : MSALAccount!) {
-        
+
         guard let applicationContext = self.applicationContext else { return }
-        
+
         /**
-         
+
          Acquire a token for an existing account silently
-         
+
          - forScopes:           Permissions you want included in the access token received
          in the result in the completionBlock. Not all scopes are
          guaranteed to be included in the access token returned.
@@ -578,40 +582,40 @@ Para adquirir um token atualizado silenciosamente, adicione o seguinte código �
          - completionBlock:     The completion block that will be called when the authentication
          flow completes, or encounters an error.
          */
-        
+
         let parameters = MSALSilentTokenParameters(scopes: kScopes, account: account)
-        
+
         applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
-            
+
             if let error = error {
-                
+
                 let nsError = error as NSError
-                
+
                 // interactionRequired means we need to ask the user to sign-in. This usually happens
                 // when the user's Refresh Token is expired or if the user has changed their password
                 // among other possible reasons.
-                
+
                 if (nsError.domain == MSALErrorDomain) {
-                    
+
                     if (nsError.code == MSALError.interactionRequired.rawValue) {
-                        
+
                         DispatchQueue.main.async {
                             self.acquireTokenInteractively()
                         }
                         return
                     }
                 }
-                
+
                 self.updateLogging(text: "Could not acquire token silently: \(error)")
                 return
             }
-            
+
             guard let result = result else {
-                
+
                 self.updateLogging(text: "Could not acquire token: No result returned")
                 return
             }
-            
+
             self.accessToken = result.accessToken
             self.updateLogging(text: "Refreshed Access token is \(self.accessToken)")
             self.updateSignOutButton(enabled: true)
@@ -620,42 +624,42 @@ Para adquirir um token atualizado silenciosamente, adicione o seguinte código �
     }
 ```
 
-### <a name="call-the-microsoft-graph-api"></a>Ligue para a Microsoft Graph API 
+### <a name="call-the-microsoft-graph-api"></a>Ligue para a Microsoft Graph API
 
 Uma vez que tenha um token, a sua aplicação pode usá-la no cabeçalho HTTP para fazer um pedido autorizado ao Gráfico da Microsoft:
 
 | chave cabeçalho    | valor                 |
 | ------------- | --------------------- |
-| Autorização | Portador\<access-token> |
+| Autorização | Portador \<access-token> |
 
 Adicione o seguinte código à `ViewController` classe:
 
 ```swift
     func getContentWithToken() {
-        
+
         // Specify the Graph API endpoint
         let graphURI = getGraphEndpoint()
         let url = URL(string: graphURI)
         var request = URLRequest(url: url!)
-        
+
         // Set the Authorization header for the request. We use Bearer tokens, so we specify Bearer + the token we got from the result
         request.setValue("Bearer \(self.accessToken)", forHTTPHeaderField: "Authorization")
-        
+
         URLSession.shared.dataTask(with: request) { data, response, error in
-            
+
             if let error = error {
                 self.updateLogging(text: "Couldn't get graph result: \(error)")
                 return
             }
-            
+
             guard let result = try? JSONSerialization.jsonObject(with: data!, options: []) else {
-                
+
                 self.updateLogging(text: "Couldn't deserialize result JSON")
                 return
             }
-            
+
             self.updateLogging(text: "Result from Graph: \(result))")
-            
+
             }.resume()
     }
 ```
@@ -669,50 +673,53 @@ Em seguida, adicione suporte para a assinatura.
 > [!Important]
 > A assinatura com o MSAL remove todas as informações conhecidas sobre um utilizador da aplicação, bem como a remoção de uma sessão ativa no seu dispositivo quando permitida pela configuração do dispositivo. Também pode assinar opcionalmente o utilizador a partir do navegador.
 
-Para adicionar a capacidade de inscrição, adicione o seguinte código dentro da `ViewController` classe. 
+Para adicionar a capacidade de inscrição, adicione o seguinte código dentro da `ViewController` classe.
 
-```swift 
+```swift
 @objc func signOut(_ sender: AnyObject) {
-        
+
         guard let applicationContext = self.applicationContext else { return }
-        
+
         guard let account = self.currentAccount else { return }
-        
+
         do {
-            
+
             /**
              Removes all tokens from the cache for this application for the provided account
-             
+
              - account:    The account to remove from the cache
              */
-            
+
             let signoutParameters = MSALSignoutParameters(webviewParameters: self.webViewParameters!)
             signoutParameters.signoutFromBrowser = false // set this to true if you also want to signout from browser or webview
-            
+
             applicationContext.signout(with: account, signoutParameters: signoutParameters, completionBlock: {(success, error) in
-                
+
                 if let error = error {
                     self.updateLogging(text: "Couldn't sign out account with error: \(error)")
                     return
                 }
-                
+
                 self.updateLogging(text: "Sign out completed successfully")
                 self.accessToken = ""
                 self.updateCurrentAccount(account: nil)
             })
-            
+
         }
     }
 ```
 
 ### <a name="enable-token-caching"></a>Permitir caching token
 
-Por predefinição, o MSAL caches os tokens da sua aplicação no chaveiro iOS ou macOS. 
+Por predefinição, o MSAL caches os tokens da sua aplicação no chaveiro iOS ou macOS.
 
 Para permitir o caching token:
+
 1. Certifique-se de que a sua candidatura está devidamente assinada
-2. Aceda ao seu separador de Definições de Projeto Xcode > **Capacidades**  >  **Ativar a partilha de chavechains**
-3. Clique **+** e introduza uma seguinte entrada **dos Grupos Keychain:** 3.a Para iOS, introduza `com.microsoft.adalcache` 3.b Para a entrada do macOS`com.microsoft.identity.universalstorage`
+1. Aceda ao seu separador de Definições de Projeto Xcode > **Capacidades**  >  **Ativar a partilha de chavechains**
+1. Selecione **+** e introduza um dos **seguintes grupos keychain**:
+    - iOS: `com.microsoft.adalcache`
+    - macOS: `com.microsoft.identity.universalstorage`
 
 ### <a name="add-helper-methods"></a>Adicionar métodos de ajuda
 Adicione os seguintes métodos de ajuda à `ViewController` classe para completar a amostra.
@@ -720,9 +727,9 @@ Adicione os seguintes métodos de ajuda à `ViewController` classe para completa
 ### <a name="ios-ui"></a>IOS UI:
 
 ``` swift
-    
+
     func updateLogging(text : String) {
-        
+
         if Thread.isMainThread {
             self.loggingText.text = text
         } else {
@@ -731,7 +738,7 @@ Adicione os seguintes métodos de ajuda à `ViewController` classe para completa
             }
         }
     }
-    
+
     func updateSignOutButton(enabled : Bool) {
         if Thread.isMainThread {
             self.signOutButton.isEnabled = enabled
@@ -741,17 +748,17 @@ Adicione os seguintes métodos de ajuda à `ViewController` classe para completa
             }
         }
     }
-    
+
     func updateAccountLabel() {
-        
+
         guard let currentAccount = self.currentAccount else {
             self.usernameLabel.text = "Signed out"
             return
         }
-        
+
         self.usernameLabel.text = currentAccount.username
     }
-    
+
     func updateCurrentAccount(account: MSALAccount?) {
         self.currentAccount = account
         self.updateAccountLabel()
@@ -763,7 +770,7 @@ Adicione os seguintes métodos de ajuda à `ViewController` classe para completa
 
 ```swift
     func updateLogging(text : String) {
-        
+
         if Thread.isMainThread {
             self.loggingText.string = text
         } else {
@@ -772,7 +779,7 @@ Adicione os seguintes métodos de ajuda à `ViewController` classe para completa
             }
         }
     }
-    
+
     func updateSignOutButton(enabled : Bool) {
         if Thread.isMainThread {
             self.signOutButton.isEnabled = enabled
@@ -782,7 +789,7 @@ Adicione os seguintes métodos de ajuda à `ViewController` classe para completa
             }
         }
     }
-    
+
      func updateAccountLabel() {
 
          guard let currentAccount = self.currentAccount else {
@@ -807,15 +814,15 @@ Utilize o seguinte código para ler a configuração do dispositivo atual, inclu
 
 ```swift
     @objc func getDeviceMode(_ sender: AnyObject) {
-        
+
         if #available(iOS 13.0, *) {
             self.applicationContext?.getDeviceInformation(with: nil, completionBlock: { (deviceInformation, error) in
-                
+
                 guard let deviceInfo = deviceInformation else {
                     self.updateLogging(text: "Device info not returned. Error: \(String(describing: error))")
                     return
                 }
-                
+
                 let isSharedDevice = deviceInfo.deviceMode == .shared
                 let modeString = isSharedDevice ? "shared" : "private"
                 self.updateLogging(text: "Received device info. Device is in the \(modeString) mode.")
@@ -832,14 +839,12 @@ Esta aplicação foi construída para um cenário de conta única. O MSAL també
 
 ## <a name="test-your-app"></a>Testar a aplicação
 
-### <a name="run-locally"></a>Executar localmente
-
 Construa e implemente a aplicação para um dispositivo de teste ou simulador. Você deve ser capaz de iniciar seduca e obter fichas para Azure AD ou contas pessoais da Microsoft.
 
-A primeira vez que um utilizador entra na sua aplicação, será solicitado pela identidade da Microsoft para consentir com as permissões solicitadas.  Embora a maioria dos utilizadores sejam capazes de consentir, alguns inquilinos da Azure AD têm o consentimento do utilizador desativado, o que requer que os administradores consintam em nome de todos os utilizadores. Para suportar este cenário, registe os âmbitos da sua aplicação no portal Azure.
+A primeira vez que um utilizador entra na sua aplicação, será solicitado pela identidade da Microsoft para consentir com as permissões solicitadas. Embora a maioria dos utilizadores sejam capazes de consentir, alguns inquilinos da Azure AD têm o consentimento do utilizador desativado, o que requer que os administradores consintam em nome de todos os utilizadores. Para suportar este cenário, registe os âmbitos da sua aplicação no portal Azure.
 
 Depois de iniciar sposição, a aplicação apresentará os dados devolvidos a partir do ponto final do Microsoft `/me` Graph.
 
-## <a name="get-help"></a>Obter ajuda
+## <a name="next-steps"></a>Passos seguintes
 
-Visite [a Ajuda e suporte](./developer-support-help-options.md) se tiver problemas com este tutorial ou com a plataforma de identidade da Microsoft.
+Se precisar de suportar os Trabalhadores da Linha Primeira que partilham dispositivos entre turnos, consulte [o modo de dispositivo partilhado para dispositivos iOS](msal-ios-shared-devices.md).

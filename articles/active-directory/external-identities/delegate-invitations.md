@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 09/15/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae8bb66141e4cc4e67f1502b208cf519d37c0374
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: bb0147af559d9de4a8589344d61b06368086dd20
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88706008"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278792"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Ativar a colaboração externa B2B e gerir quem pode convidar convidados
 
@@ -24,7 +24,7 @@ Este artigo descreve como ativar a colaboração B2B do Azure Ative Directory (A
 
 Por predefinição, todos os utilizadores e hóspedes do seu diretório podem convidar os hóspedes mesmo que não estejam designados para um papel de administração. As configurações de colaboração externa permitem-lhe ligar ou desligar os convites dos hóspedes para diferentes tipos de utilizadores na sua organização. Também pode delegar convites a utilizadores individuais, atribuindo funções que lhes permitam convidar os hóspedes.
 
-O Azure AD permite-lhe restringir o que os utilizadores externos podem ver no seu diretório AD Azure. Por padrão, os utilizadores de hóspedes são definidos para um nível de permissão limitado que os bloqueia de enumerar utilizadores, grupos ou outros recursos de diretório, mas permite-lhes ver a adesão a grupos não escondidos. Uma nova definição de pré-visualização permite-lhe restringir ainda mais o acesso dos hóspedes, para que os hóspedes só possam ver as suas próprias informações de perfil. 
+O Azure AD permite-lhe restringir o que os utilizadores externos podem ver no seu diretório AD Azure. Por padrão, os utilizadores de hóspedes são definidos para um nível de permissão limitado que os bloqueia de enumerar utilizadores, grupos ou outros recursos de diretório, mas permite-lhes ver a adesão a grupos não escondidos. Uma nova definição de pré-visualização permite-lhe restringir ainda mais o acesso dos hóspedes, para que os hóspedes só possam ver as suas próprias informações de perfil. Para mais detalhes, consulte [permissões de acesso ao hóspede (pré-visualização)](../users-groups-roles/users-restrict-guest-permissions.md).
 
 ## <a name="configure-b2b-external-collaboration-settings"></a>Configurar definições de colaboração externa B2B
 
@@ -44,9 +44,6 @@ Por padrão, todos os utilizadores, incluindo os hóspedes, podem convidar os ut
 3. Selecione **identidades externas**  >  **Definições de colaboração externa .**
 
 4. Sob **as restrições de acesso ao utilizador do Hóspede (Pré-visualização)**, escolha o nível de acesso que pretende que os utilizadores dos hóspedes tenham:
-
-   > [!IMPORTANT]
-   > Por pouco tempo, estes novos controlos de portal para permissões do utilizador convidado só serão visíveis utilizando o URL [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess) . Para obter mais informações, consulte [permissões de acesso ao hóspede (pré-visualização)](https://aka.ms/exid-users-restrict-guest-permissions).
 
    - **Os utilizadores convidados têm o mesmo acesso que os membros (mais inclusivos)**: Esta opção dá aos hóspedes o mesmo acesso aos recursos AD da Azure e dados de diretórios que os utilizadores membros.
 

@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9de803789b7ec11a971cf9a79a5c4665ac372cb4
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f9d9fa461291b2fe72e9d69928163bb54e9e1be0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88928144"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303816"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>Exemplo: Como Analisar Vídeos em Tempo Real
 
@@ -204,7 +204,7 @@ Para começar a utilizar este exemplo, siga estes passos:
 
 1. Crie uma [conta do Azure](https://azure.microsoft.com/free/cognitive-services/). Se já tem um, pode saltar para o próximo passo.
 2. Crie recursos para Visão de Computador e Rosto no portal Azure para obter a sua chave e ponto final. Certifique-se de que seleciona o nível livre (F0) durante a configuração.
-   - [Visão computacional](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
+   - [Imagem Digitalizada](https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
    - [Rosto](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) Depois de os recursos serem implantados, clique em **Ir ao recurso** para recolher a sua chave e ponto final para cada recurso. 
 3. Clone o [repo Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub.
 4. Abra a amostra no Visual Studio e construa e execute as aplicações da amostra:
@@ -221,5 +221,4 @@ Neste guia, aprendeu a fazer análises em tempo real em streams de vídeo ao viv
 Sinta-se livre para fornecer feedback e sugestões no [repositório GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) ou, para feedback mais amplo da API, no nosso [site UserVoice](https://cognitive.uservoice.com/).
 
 ## <a name="related-topics"></a>Tópicos relacionados
-- [Como Identificar Rostos na Imagem](HowtoIdentifyFacesinImage.md)
 - [Como Detetar Rostos na Imagem](HowtoDetectFacesinImage.md)

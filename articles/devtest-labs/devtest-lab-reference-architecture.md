@@ -4,12 +4,12 @@ description: Este artigo fornece orientação de arquitetura de referência para
 ms.topic: article
 ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 8b71774d9a833adefdd25214ea4f0e8bdaaba485
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0791fb6c4de3da8108ffbd296c681f993c6b6cb
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480189"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91367755"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Azure DevTest Labs referencia arquitetura para empresas
 Este artigo fornece arquitetura de referência para ajudá-lo a implementar uma solução baseada na Azure DevTest Labs em uma empresa. Inclui o seguinte:
@@ -46,7 +46,7 @@ Embora a DevTest Labs não tenha quotas ou limites incorporados, outros recursos
     - **Utilização de IPs públicos partilhados**: Todos os VMs do mesmo tamanho e região vão para o mesmo grupo de recursos. Esta configuração é um "meio termo" entre as quotas de grupo de recursos e as quotas de grupo tipo de recursos por recurso, se as máquinas virtuais tiverem endereços IP públicos.
 - **Recursos por grupo de recursos por tipo de recurso**: O limite de predefinição para recursos por grupo de recursos por tipo de recurso é de [800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).  Quando utiliza *todos os VMs para a mesma* configuração do grupo de recursos, os utilizadores atingem este limite de subscrição muito mais cedo, especialmente se os VMs tiverem muitos discos extra.
 - **Contas de armazenamento**: Um laboratório em DevTest Labs vem com uma conta de armazenamento. A quota Azure para [o número de contas de armazenamento por região por subscrição é de 250](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). O número máximo de Laboratórios DevTest na mesma região também é de 250.
-- **Atribuições de funções**: Uma atribuição de funções é como dá a um utilizador ou ao principal acesso a um recurso (proprietário, recurso, nível de permissão). Em Azure, há um [limite de 2.000 atribuições por subscrição.](../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits) Por predefinição, o serviço DevTest Labs cria um grupo de recursos para cada VM. O proprietário tem permissão *do proprietário* para o DevTest Labs VM e permissão do *leitor* para o grupo de recursos. Desta forma, cada novo VM que cria utiliza duas atribuições de funções para além das atribuições que são usadas quando dá permissão aos utilizadores para o laboratório.
+- **Atribuições de funções**: Uma atribuição de funções é como dá a um utilizador ou ao principal acesso a um recurso (proprietário, recurso, nível de permissão). Em Azure, há um [limite de 2.000 atribuições por subscrição.](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-role-based-access-control-limits) Por predefinição, o serviço DevTest Labs cria um grupo de recursos para cada VM. O proprietário tem permissão *do proprietário* para o DevTest Labs VM e permissão do *leitor* para o grupo de recursos. Desta forma, cada novo VM que cria utiliza duas atribuições de funções para além das atribuições que são usadas quando dá permissão aos utilizadores para o laboratório.
 - **A API lê/escreve**: Existem várias formas de automatizar Azure e DevTest Labs, incluindo REST APIs, PowerShell, Azure CLI e Azure SDK. Através da automatização, poderá atingir outro limite nos pedidos da API: Cada subscrição permite até [12.000 pedidos de leitura e 1.200 pedidos de escrita por hora.](../azure-resource-manager/management/request-limits-and-throttling.md) Esteja ciente deste limite quando automatizar a DevTest Labs.
 
 ## <a name="manageability-considerations"></a>Considerações sobre a capacidade de gestão
@@ -62,5 +62,5 @@ A DevTest Labs tem uma excelente interface de utilizador administrativa para tra
 ## <a name="security-considerations"></a>Considerações de segurança
 A Azure DevTest Labs utiliza recursos existentes em Azure (computação, networking, e assim por diante). Assim, beneficia automaticamente das funcionalidades de segurança que são incorporadas na plataforma. Por exemplo, para exigir que as ligações remotas de ambiente de trabalho tenham origem apenas a partir da rede corporativa, basta adicionar um grupo de segurança de rede à rede virtual no gateway remoto do ambiente de trabalho. A única consideração adicional de segurança é o nível de permissões que concede aos membros da equipa que usam os laboratórios no dia-a-dia. As permissões mais comuns são [ *o proprietário* e *o utilizador.*](devtest-lab-add-devtest-user.md) Para obter mais informações sobre estas funções, consulte [adicionar proprietários e utilizadores em Azure DevTest Labs](devtest-lab-add-devtest-user.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Veja o próximo artigo desta série: [Dimensione a sua infraestrutura Azure DevTest Labs](devtest-lab-guidance-scale.md).

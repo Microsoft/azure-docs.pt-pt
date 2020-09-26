@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
-ms.custom: aaddev, identityplatformtop40, devx-track-javascript
-ms.openlocfilehash: 71516104ce5711f716b6af9d37ba96b431749fa3
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: aaddev, identityplatformtop40, devx-track-js
+ms.openlocfilehash: 728c0b4dadfa23b2d52e773928a3f78df27068b6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118200"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91256829"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA)
 
@@ -41,7 +41,7 @@ A aplicação de amostra criada por este guia permite a um JavaScript SPA consul
 
 Este guia utiliza a seguinte biblioteca:
 
-|Biblioteca|Descrição|
+|Biblioteca|Description|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Biblioteca de autenticação da Microsoft para JavaScript|
 
@@ -61,7 +61,7 @@ Este guia utiliza a seguinte biblioteca:
 
 ## <a name="create-your-project"></a>Criar o seu projeto
 
-Certifique-se de que [temNode.js](https://nodejs.org/en/download/) instalada e, em seguida, crie uma pasta para hospedar a sua aplicação. Lá, implementaremos um simples servidor web [Express](https://expressjs.com/) para servir o seu `index.html` ficheiro.
+Certifique-se de que [ temNode.js](https://nodejs.org/en/download/) instalada e, em seguida, crie uma pasta para hospedar a sua aplicação. Lá, implementaremos um simples servidor web [Express](https://expressjs.com/) para servir o seu `index.html` ficheiro.
 
 1. Utilizando um terminal (como o terminal integrado do Código do Estúdio Visual), localize a pasta do projeto e escreva:
 
@@ -416,7 +416,7 @@ O SPA gerado por este guia chama `acquireTokenSilent` e/ou `acquireTokenPopup` p
 
 #### <a name="get-a-user-token-interactively"></a>Obter um token de utilizador interativamente
 
-Após a iniciação inicial, não pretende pedir aos utilizadores que reauttenenássem sempre que precisam de pedir um token para aceder a um recurso. Assim, *adquirir oTokenSilent* deve ser usado na maior parte do tempo para adquirir fichas. Existem situações, no entanto, em que é necessário forçar os utilizadores a interagirem com o ponto final da plataforma de identidade da Microsoft. Alguns exemplos incluem:
+Após a iniciação inicial, não pretende pedir aos utilizadores que reauttenenássem sempre que precisam de pedir um token para aceder a um recurso. Assim, *adquirir oTokenSilent* deve ser usado na maior parte do tempo para adquirir fichas. Existem situações, no entanto, em que é necessário forçar os utilizadores a interagirem com o ponto final da plataforma de identidade da Microsoft. Alguns exemplos:
 
 - Os utilizadores precisam de reentrar nas suas credenciais porque a palavra-passe expirou.
 - A sua aplicação está a solicitar o acesso a um recurso e precisa do consentimento do utilizador.
@@ -426,7 +426,7 @@ Call *acquireTokenPopup* abre uma janela pop-up (ou *adquireTokenRedirect* redir
 
 #### <a name="get-a-user-token-silently"></a>Obter um token de utilizador automaticamente
 
-O `acquireTokenSilent` método lida com a aquisição e renovação de símbolos sem qualquer interação do utilizador. Depois `loginPopup` de (ou `loginRedirect` ) ser executado pela primeira vez, é `acquireTokenSilent` o método comumente usado para obter fichas usadas para aceder a recursos protegidos para chamadas subsequentes. (As chamadas para solicitar ou renovar fichas são feitas silenciosamente.) `acquireTokenSilent`pode falhar em alguns casos. Por exemplo, a palavra-passe do utilizador pode ter expirado. A sua aplicação pode lidar com esta exceção de duas formas:
+O `acquireTokenSilent` método lida com a aquisição e renovação de símbolos sem qualquer interação do utilizador. Depois `loginPopup` de (ou `loginRedirect` ) ser executado pela primeira vez, é `acquireTokenSilent` o método comumente usado para obter fichas usadas para aceder a recursos protegidos para chamadas subsequentes. (As chamadas para solicitar ou renovar fichas são feitas silenciosamente.) `acquireTokenSilent` pode falhar em alguns casos. Por exemplo, a palavra-passe do utilizador pode ter expirado. A sua aplicação pode lidar com esta exceção de duas formas:
 
 1. Faça uma chamada `acquireTokenPopup` imediatamente, o que despoleta uma solicitação de inscrição do utilizador. Este padrão é comumente utilizado em aplicações online onde não existe conteúdo não autenticado na aplicação disponível para o utilizador. A amostra gerada por esta configuração guiada utiliza este padrão.
 

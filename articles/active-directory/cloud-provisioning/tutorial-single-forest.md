@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a63bd6be9b21a506054ab5a02fa7f5d6751f303a
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 1b91763c275e4fd091b7c1554699e5d6f35a6f55
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228380"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91266331"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutorial: Integre uma única floresta com um único inquilino AZure AD
 
@@ -61,16 +61,16 @@ Você pode usar o ambiente que você cria neste tutorial para testes ou para se 
 5. Executar o agente de provisionamento Azure AD Connect.
 6. No ecrã de respingo, **aceite** os termos de licenciamento e clique em **Instalar**.
 
-   ![Ecrã de Boas-Vindas](media/how-to-install/install1.png)
+   ![Screenshot que mostra o ecrã de respingo "Microsoft Azure A D Connect Provisioning Agent Package".](media/how-to-install/install1.png)
 
 7. Uma vez concluída esta operação, o assistente de configuração será lançado.  Inscreva-se na sua conta de administrador global Azure AD.  Note que se tiver segurança reforçada iE ativada, isto bloqueará a inscrição.  Se for esse o caso, feche a instalação, desative a segurança reforçada do IE no Server Manager e clique no Assistente de **Provisionamento de Ligação AAD** para reiniciar a instalação.
 8. No ecrã **do Diretório Ativo Connect,** clique em **Adicionar diretório** e, em seguida, inscreva-se na sua conta de administrador de domínio ative Directy.  NOTA: A conta do administrador de domínio não deve ter requisitos de alteração de palavra-passe. Caso a palavra-passe expire ou se altera, terá de voltar a configurar o agente com as novas credenciais. Esta operação irá adicionar o seu diretório no local.  Clique em **Seguinte**.
 
-   ![Ecrã de Boas-Vindas](media/how-to-install/install3.png)
+   ![Screenshot do ecrã "Connect Ative Directory".](media/how-to-install/install3.png)
 
 9. No ecrã completo da **Configuração,** clique em **Confirmar**.  Esta operação registará e reiniciará o agente.
 
-   ![Ecrã de Boas-Vindas](media/how-to-install/install4.png)
+   ![Screenshot que mostra o ecrã "Configuração completa".](media/how-to-install/install4.png)
 
 10. Uma vez concluída esta operação, deverá ver um aviso: **A configuração do seu agente foi verificada com sucesso.**  Pode clicar em **Sair.**</br>
 ![Ecrã de Boas-Vindas](media/how-to-install/install5.png)</br>
@@ -83,7 +83,7 @@ A verificação do agente ocorre no portal Azure e no servidor local que está a
 ### <a name="azure-portal-agent-verification"></a>Verificação do agente do portal Azure
 Para verificar se o agente está a ser visto pela Azure siga estes passos:
 
-1. Inicie sessão no portal do Azure.
+1. Inicie sessão no Portal do Azure.
 2. À esquerda, selecione **Azure Ative Directory**, clique em **Azure AD Connect** e no center select **Manage provisioning (pré-visualização)**.</br>
 ![Portal do Azure](media/how-to-install/install6.png)</br>
 

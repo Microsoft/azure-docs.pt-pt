@@ -1,23 +1,23 @@
 ---
 title: 'Quickstart: Mude o modelo com REST APIs - LUIS'
 titleSuffix: Azure Cognitive Services
-description: Neste rest API quickstart, use uma aplicação pública disponível LUIS para determinar a intenção de um utilizador de texto de conversação.
+description: Neste rest API quickstart, adicione palavras de exemplo para alterar um modelo e treinar a app.
 services: cognitive-services
 author: diberry
 manager: nitinme
-ms.custom: seodec18, devx-track-python, devx-track-javascript, devx-track-csharp
+ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 06/03/2020
 ms.author: diberry
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: a62b12ccbc6f7d96dc1a2a9b49ab5eec0175f49d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 759c2fd23d07873f83537eee4daa4461273f5b6b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078644"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91303927"
 ---
 # <a name="quickstart-change-model-with-rest-apis"></a>Quickstart: Mude o modelo com APIs REST
 

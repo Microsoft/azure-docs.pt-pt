@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: e3b666ca7418a11bba3091a5ae8191e9c7b33411
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: e1b76c9b6a442e3be23ddd54c926b13601287d7f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705814"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354943"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>Quickstart: Ligue para uma API web ASP.NET protegida pela plataforma de identidade da Microsoft
 
@@ -162,7 +162,7 @@ Uma das formas de permitir que utilizadores de outros diretórios acedam à sua 
 1. Na secção **de âmbitos autorizados,** selecione o âmbito para a `api://<Application ID>/access_as_user` API web.
 1. Selecione **Adicionar a aplicação**.
 
-## <a name="run-your-project"></a>Executar o seu projeto
+### <a name="run-your-project"></a>Executar o seu projeto
 
 1. Prima F5 para executar o seu projeto. A sua aplicação TodoListClient deve ser aberta.
 1. No canto superior direito, selecione **Iniciar sôms e,** hotmail.com live.com em seguida, faça o sôm.

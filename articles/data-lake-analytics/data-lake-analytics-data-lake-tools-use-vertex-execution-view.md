@@ -6,12 +6,12 @@ ms.service: data-lake-analytics
 ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.topic: how-to
 ms.date: 10/13/2016
-ms.openlocfilehash: 2fdce38b19cd38439baa5d640707d159cd713657
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: b8688af24e2b67f0e21de8344188b9a946f3258b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87125621"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331952"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Use a vista de execução de vértice em ferramentas do lago de dados para estúdio visual
 Saiba como usar a Vista de Execução Vertex para fazer o exame de data lake analytics.
@@ -20,20 +20,20 @@ Saiba como usar a Vista de Execução Vertex para fazer o exame de data lake ana
 ## <a name="open-the-vertex-execution-view"></a>Abra a vista de execução do Vértice
 Abra um trabalho U-SQL em Ferramentas do Lago de Dados para Estúdio Visual. Clique na **Verção de Execução vertex** no canto inferior esquerdo. Pode ser solicitado a carregar primeiro os perfis e pode demorar algum tempo dependendo da conectividade da sua rede.
 
-![Data Lake Analytics Ferramentas Vertex Execução Vista](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-open-vertex-execution-view.png)
+![Screenshot que mostra a visualização de execução de ferramentas de análise do lago de dados](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-open-vertex-execution-view.png)
 
 ## <a name="understand-vertex-execution-view"></a>Compreender a Visão de Execução de Vértice
 A Vista de Execução vertex tem três partes:
 
-![Data Lake Analytics Ferramentas Vertex Execução Vista](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view.png)
+![Screenshot que mostra a Visualização de Execução vertex com o "seletor vertex" e painéis de centro-cima e centro-fundo realçados.](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view.png)
 
 O **seletor Vertex** à esquerda permite selecionar vértices por funcionalidades (como a leitura dos 10 melhores dados ou escolher por fase). Um dos filtros mais utilizados é ver os **vértices no caminho crítico.** O **caminho crítico** é a mais longa cadeia de vértices de um trabalho U-SQL. Compreender o caminho crítico é útil para otimizar os seus empregos, verificando qual o vértice que demora mais tempo.
   
-![Data Lake Analytics Ferramentas Vertex Execução Vista](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane2.png)
+![Screenshot que mostra o painel de execução do Vertex Ver o painel de topo do centro que mostra o "estado de execução de todos os vértices".](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane2.png)
 
 O painel central superior mostra o **estado de funcionamento de todos os vértices**.
   
-![Data Lake Analytics Ferramentas Vertex Execução Vista](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
+![Screenshot que mostra o painel de execução do vertex Ver o painel de centro inferior que exibe informações sobre cada vértice.](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
 
 O painel central inferior mostra informações sobre cada vértice:
 * Nome do processo: O nome da instância do vértice. É composto por diferentes partes no StageName. VertexName VertexRunInstance. Por exemplo, o SV7_Split[62].v1 vértice representa a segunda instância em execução (.v1, índice a partir de 0) do Vertex número 62 na fase SV7_Split.

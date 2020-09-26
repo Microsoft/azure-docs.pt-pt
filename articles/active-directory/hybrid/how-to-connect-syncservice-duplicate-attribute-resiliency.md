@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 268cf61596366d451057861db1fa5ac2d35e87d0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d1d364089d5df24cfc4e7a75c3fd6b81248f0cd6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662408"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91313319"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Sincronização de identidades e resiliência de atributos duplicados
 Duplicado Attribute Resiliency é uma funcionalidade no Azure Ative Directory que eliminará o atrito causado pelos conflitos **do UserPrincipalName** e do SMTP **ProxyAddress** ao executar uma das ferramentas de sincronização da Microsoft.
@@ -124,7 +124,7 @@ Para fazer uma pesquisa de cordas largas use a bandeira **-SearchString.** Isto 
 ## <a name="microsoft-365-admin-center"></a>Microsoft 365 admin center (Centro de administração do Microsoft 365)
 Pode ver erros de sincronização de diretórios no centro de administração microsoft 365. O relatório no centro de administração Microsoft 365 apenas exibe objetos **do Utilizador** que têm estes erros. Não mostra informações sobre conflitos entre **grupos** e **contactos.**
 
-![Utilizadores Ativos](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "Utilizadores Ativos")
+![Screenshot que mostra erros de sincronização de diretórios no centro de administração microsoft 365.](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "Utilizadores Ativos")
 
 Para obter instruções sobre como visualizar erros de sincronização de diretórios no centro de administração microsoft 365, consulte [identificar erros de sincronização de diretórios na Microsoft 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067).
 
@@ -132,7 +132,7 @@ Para obter instruções sobre como visualizar erros de sincronização de diret�
 Quando um objeto com um conflito de atributos duplicado é tratado com este novo comportamento, uma notificação é incluída no e-mail padrão do Relatório de Erro de Sincronização de Identidade que é enviado para o contacto de Notificação Técnica para o inquilino. No entanto, há uma mudança importante neste comportamento. No passado, as informações sobre um conflito de atributos duplicados seriam incluídas em todos os relatórios de erro subsequentes até que o conflito fosse resolvido. Com este novo comportamento, a notificação de erro de um dado conflito só aparece uma vez no momento em que o atributo conflituoso é colocado em quarentena.
 
 Aqui está um exemplo de como é a notificação de e-mail para um conflito ProxyAddress:  
-    ![Utilizadores Ativos](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Utilizadores Ativos")  
+    ![Screenshot que mostra um exemplo de uma notificação de e-mail para um conflito ProxyAddress.](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/6.png "Utilizadores Ativos")  
 
 ## <a name="resolving-conflicts"></a>Resolução de conflitos
 As táticas de estratégia e resolução de resolução de problemas para estes erros não devem diferir da forma como os erros duplicados foram tratados no passado. A única diferença é que a tarefa do temporizador varre o inquilino do lado do serviço para adicionar automaticamente o atributo em questão ao objeto adequado uma vez que o conflito é resolvido.
@@ -174,7 +174,7 @@ O link para *etapas sobre como resolver esta questão* é incorreto:
 
 Deve apontar [https://aka.ms/duplicateattributeresiliency](https://aka.ms/duplicateattributeresiliency) para.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 * [Sincronização Azure Ad Connect](how-to-connect-sync-whatis.md)
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)
 * [Identifique erros de sincronização de diretórios na Microsoft 365](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)

@@ -7,14 +7,14 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 4b1b8a0cfa98d48d7cb92474c1572f17c79ffd0d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 217e3b9de7c9a46174c6ce6d1a3b151c904a7bf2
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87498957"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314118"
 ---
-# <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware para Azure arquitetura de recuperação de desastres
+# <a name="vmware-to-azure-disaster-recovery-architecture"></a>Arquitetura da recuperação após desastre do VMware para o Azure
 
 Este artigo descreve a arquitetura e os processos utilizados quando implementa a replicação, falha e recuperação de máquinas virtuais VMware (VMs) entre um site VMware no local e Azure utilizando o serviço de Recuperação do [Local Azure.](site-recovery-overview.md)
 
@@ -50,6 +50,8 @@ Se estiver a usar um proxy de firewall baseado em URL para controlar a conectivi
 | Replicação               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Permite que a VM comunique com o serviço Site Recovery. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permite que a VM escreva dados de monitorização e diagnóstico do Site Recovery. |
 
+Para que a lista exaustiva de URLs seja whitelist para comunicação entre as infraestruturas de recuperação do local Azure e os serviços Azure, consulte a [secção de requisitos de rede no artigo pré-requisitos](vmware-azure-deploy-configuration-server.md#prerequisites).
+
 ## <a name="replication-process"></a>Processo de replicação
 
 1. Quando ativa a replicação de um VM, começa a replicação inicial do armazenamento do Azure, utilizando a política de replicação especificada. Tenha em atenção o seguinte:
@@ -82,6 +84,54 @@ Se estiver a usar um proxy de firewall baseado em URL para controlar a conectivi
 5. Por padrão, a ressincronização está programada para funcionar automaticamente fora do horário de expediente. Se não quiser esperar pela ressincronização padrão fora de horas, pode ressincronizar manualmente um VM. Para isso, vá ao portal Azure, selecione o VM > **Resynchronize**.
 6. Se a ressincronização predefinida falhar fora do horário de expediente e for necessária uma intervenção manual, então é gerado um erro na máquina específica no portal Azure. Pode resolver o erro e ativar a ressincronização manualmente.
 7. Após a conclusão da ressincronização, a replicação das alterações delta será retomada.
+
+## <a name="replication-policy"></a>Política de replicação 
+
+Quando ativa a replicação do Azure VM, por defeito a Recuperação do Site cria uma nova política de replicação com as definições padrão resumidas na tabela.
+
+**Definição de política** | **Detalhes** | **Predefinição**
+--- | --- | ---
+**Retenção de pontos de recuperação** | Especifica quanto tempo a Recuperação do Site mantém os pontos de recuperação | 24 horas
+**Frequência instantânea consistente com aplicações** | Quantas vezes a Recuperação do Site tira uma imagem consistente da aplicação. | A cada quatro horas
+
+### <a name="managing-replication-policies"></a>Gerir políticas de replicação
+
+Pode gerir e modificar as definições de políticas de replicação predefinidos da seguinte forma:
+- Pode modificar as definições à medida que ativa a replicação.
+- Pode criar uma política de replicação a qualquer momento e, em seguida, aplicá-la quando ativar a replicação.
+
+### <a name="multi-vm-consistency"></a>Consistência multi-VM
+
+Se quiser que os VMs se reproduzam em conjunto e que partilhem pontos de recuperação consistentes e consistentes com aplicações no failover, pode juntá-los num grupo de replicação. A consistência multi-VM tem impacto no desempenho da carga de trabalho e só deve ser utilizada para os VM que executam cargas de trabalho que necessitam de consistência em todas as máquinas. 
+
+
+
+## <a name="snapshots-and-recovery-points"></a>Instantâneos e pontos de recuperação
+
+Os pontos de recuperação são criados a partir de instantâneos de discos VM tirados num determinado ponto no tempo. Quando falhas num VM, usas um ponto de recuperação para restaurar o VM no local do alvo.
+
+Ao falhar, geralmente queremos garantir que o VM começa sem corrupção ou perda de dados, e que os dados VM são consistentes para o sistema operativo, e para aplicações que funcionam no VM. Isto depende do tipo de instantâneos tirados.
+
+A Recuperação do Site tira as fotos da seguinte forma:
+
+1. A Recuperação do Site tira por defeito instantâneos consistentes de dados e instantâneos consistentes com aplicações se especificar uma frequência para eles.
+2. Os pontos de recuperação são criados a partir dos instantâneos e armazenados de acordo com as definições de retenção na política de replicação.
+
+### <a name="consistency"></a>Consistência
+
+A tabela a seguir explica diferentes tipos de consistência.
+
+### <a name="crash-consistent"></a>Consistente com acidentes
+
+**Descrição** | **Detalhes** | **Recomendação**
+--- | --- | ---
+Um instantâneo consistente captura dados que estavam no disco quando a fotografia foi tirada. Não inclui nada na memória.<br/><br/> Contém o equivalente aos dados do disco que estariam presentes se o VM se despenhasse ou o cabo de alimentação fosse retirado do servidor no instante em que a fotografia foi tirada.<br/><br/> Uma falha-consistente não garante a consistência de dados para o sistema operativo, ou para aplicações no VM. | A Recuperação do Site cria pontos de recuperação consistentes a cada cinco minutos por defeito. Esta definição não pode ser modificada.<br/><br/>  | Hoje em dia, a maioria das aplicações pode recuperar bem de pontos consistentes com crash.<br/><br/> Os pontos de recuperação consistentes em falhas são geralmente suficientes para a replicação de sistemas operativos, e aplicações como servidores DHCP e servidores de impressão.
+
+### <a name="app-consistent"></a>Consistente com aplicativos
+
+**Descrição** | **Detalhes** | **Recomendação**
+--- | --- | ---
+Os pontos de recuperação consistentes da aplicação são criados a partir de instantâneos consistentes com aplicações.<br/><br/> Um instantâneo consistente com aplicações contém todas as informações num instantâneo consistente com falhas, além de todos os dados na memória e transações em curso. | Os instantâneos consistentes em aplicações utilizam o Serviço de Cópia sombra de volume (VSS):<br/><br/>   1) A recuperação do site Azure usa o método de cópia apenas de cópia (VSS_BT_COPY) que não altera o tempo de cópia de segurança do registo de transações da Microsoft SQL e o número de sequência </br></br> 2) Quando um instantâneo é iniciado, a VSS efetua uma operação de cópia-on-write (COW) sobre o volume.<br/><br/>   3) Antes de realizar a COW, a VSS informa todas as aplicações da máquina que necessita de descarregar os seus dados de residentes de memória para o disco.<br/><br/>   4) O VSS permite então que a aplicação de backup/recuperação de desastres (neste caso, recuperação do site) leia os dados do instantâneo e prossiga. | As imagens consistentes com a aplicação são tiradas de acordo com a frequência especificada. Esta frequência deve ser sempre inferior à que definiu para reter pontos de recuperação. Por exemplo, se mantiver pontos de recuperação utilizando a definição predefinida de 24 horas, deverá definir a frequência em menos de 24 horas.<br/><br/>São mais complexos e demoram mais tempo a completar do que imagens consistentes.<br/><br/> Afetam o desempenho de aplicações em execução num VM habilitado para replicação. 
 
 ## <a name="failover-and-failback-process"></a>Processo de ativação pós-falha e de reativação pós-falha
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: memildin
-ms.openlocfilehash: 3a3dd1c0df32e7d6a67e63c9e148327d30f0082c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 52ea6f862b7ef6190348743a128912131e6a9609
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904718"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314492"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Roteiro de prontidão do Centro de Segurança Azure
 Este documento fornece um plano de preparação que irá ajudá-lo a começar a utilizar o Centro de Segurança do Azure.
@@ -29,8 +29,8 @@ O Centro de Segurança do Azure oferece gestão de segurança unificada e prote�
 Utilize os seguintes recursos para começar a utilizar o Centro de Segurança.
 
 Artigos
-- [Introdução ao Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-- [Manual de início rápido do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-get-started)
+- [Introdução ao Centro de Segurança do Azure](security-center-introduction.md)
+- [Manual de início rápido do Centro de Segurança do Azure](security-center-get-started.md)
 
 Vídeos
 - [Vídeo de Introdução Rápida](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
@@ -42,7 +42,7 @@ Para tirar o máximo partido do Centro de Segurança, é importante compreender 
 
 Utilize os seguintes recursos para ajudá-lo durante os processos de planeamento e operações.
 
-- [Guia de operações e planeamento do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [Guia de operações e planeamento do Centro de Segurança do Azure](security-center-planning-and-operations-guide.md)
 
 
 ### <a name="onboarding-computers-to-security-center"></a>Inclusão de computadores no Centro de Segurança

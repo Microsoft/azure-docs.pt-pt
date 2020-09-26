@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/10/2020
-ms.openlocfilehash: 4aeb97f112f0c95329b1449fe9c1423fdd5bd0d6
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4b91a9a73035b3add309e72ce544375520cf279e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894515"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278622"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Monitorizar o seu serviço de cofre chave com monitor Azure para o Cofre de Chaves
 O Azure Monitor for Key Vault fornece uma monitorização completa dos seus cofres chave, proporcionando uma visão unificada dos seus pedidos de Cofre chave, desempenho, falhas e latência.
@@ -25,21 +25,6 @@ Antes de entrar na experiência, deve entender como apresenta e visualiza a info
 -    **Personalizável** onde pode alterar quais as métricas que deseja ver, modificar ou definir limiares que se alinham com os seus limites, e guardar o seu próprio livro de trabalho. Os gráficos do livro podem ser fixados aos dashboards Azure.
 
 O Azure Monitor para Key Vault combina registos e métricas para fornecer uma solução de monitorização global. Todos os utilizadores podem aceder aos dados de monitorização baseados em métricas, no entanto a inclusão de visualizações baseadas em registos pode exigir que os utilizadores permitam que os utilizadores possam ativar o [registo do seu Cofre de Chaves Azure](../../key-vault/general/logging.md).
-
-## <a name="configuring-your-key-vaults-for-monitoring"></a>Configurar os seus cofres-chave para monitorização
-
-> [!NOTE]
-> Ativar registos é um serviço pago que fornece capacidades de monitorização adicionais.
-
-1. O separador operações & de latência ajuda-o a determinar quantos e quais cofres-chave estão ativados. Para começar a recolher, selecione o botão **Enable,** que o levará a um livro separado que lista os cofres-chave que requerem registos de diagnóstico que permitem ativar registos de diagnóstico.
-
-    ![Screenshot de operações e separador de latência com botão de ativação azul exibido](./media/key-vaults-insights-overview/enable-logging.png)
-
-2. Para ativar registos de diagnóstico, clique no link **Enable** por baixo da coluna de ações e crie uma nova definição de diagnóstico que envia registos para um espaço de trabalho do Log Analytics. Recomenda-se o envio de todos os registos para o mesmo espaço de trabalho.
-
-3. Uma vez guardadas as definições de diagnóstico, poderá visualizar todos os gráficos e visualizações baseados em registos por baixo dos Insights do Cofre de Chaves. Por favor, note que pode levar vários minutos a horas para começar a povoar os troncos.
-
-4. Para obter assistência adicional sobre como ativar registos de diagnóstico para o seu serviço Key Vault, leia o [guia completo](../../key-vault/general/logging.md).
 
 ## <a name="view-from-azure-monitor"></a>Vista do Monitor Azure
 
@@ -165,10 +150,6 @@ Há um limite de 200 cofres chave que podem ser selecionados e vistos. Independe
 Só mostramos subscrições que contenham cofres-chave, escolhidos a partir do filtro de subscrição selecionado, que são selecionados no "Diretório + Subscrição" no cabeçalho do portal Azure.
 
 ![Screenshot do filtro de subscrição](./media/key-vaults-insights-overview/Subscriptions.png)
-
-### <a name="i-am-getting-an-error-message-that-the-query-exceeds-the-maximum-number-of-workspacesregions-allowed-what-to-do-now"></a>Estou a receber uma mensagem de erro de que a "consulta excede o número máximo de espaços de trabalho/regiões permitidas", o que fazer agora
-
-Atualmente, existe um limite para 25 regiões e 200 espaços de trabalho, para visualizar os seus dados, você precisará reduzir o número de subscrições e/ou grupos de recursos.
 
 ### <a name="i-want-to-make-changes-or-add-additional-visualizations-to-key-vault-insights-how-do-i-do-so"></a>Quero fazer alterações ou adicionar visualizações adicionais a Key Vault Insights, como faço isso
 
