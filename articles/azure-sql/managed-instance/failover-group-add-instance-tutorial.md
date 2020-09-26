@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sashan, carlrab
+ms.reviewer: sashan, sstein
 ms.date: 08/27/2019
-ms.openlocfilehash: a6f400db2a068953080e734148e024b575e3e1e9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 598bb30d21a17b2c39f69a845690c3c754ec2145
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070858"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325254"
 ---
 # <a name="tutorial-add-sql-managed-instance-to-a-failover-group"></a>Tutorial: Adicione a SQL Gestd Instance a um grupo de failover
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ Adicione instâncias geridas de Azure SQL Managed Instance a um grupo de failove
   > [!NOTE]
   > - Ao passar por este tutorial, certifique-se de que está a configurar os seus recursos com os [pré-requisitos para a criação de grupos de failover para a SQL Managed Instance](../database/auto-failover-group-overview.md#enabling-geo-replication-between-managed-instances-and-their-vnets). 
   > - Criar um caso gerido pode demorar um tempo significativo. Como resultado, este tutorial pode levar várias horas para ser concluído. Para obter mais informações sobre os tempos de provisionamento, consulte [as operações de gestão de instância gerida sql](sql-managed-instance-paas-overview.md#management-operations). 
-  > - Casos geridos que participam num grupo de failover requerem ou [a Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) ou dois gateways VPN conectados. O VNet Peering global não é suportado. Este tutorial fornece passos para criar e ligar os gateways VPN. Ignore estes passos se já tiver o ExpressRoute configurado. 
+  > - Casos geridos que participam num grupo de failover requerem ou [a Azure ExpressRoute](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md) ou dois gateways VPN conectados. O VNet Peering Global não é suportado. Este tutorial fornece passos para criar e ligar os gateways VPN. Ignore estes passos se já tiver o ExpressRoute configurado. 
 
 
 ## <a name="prerequisites"></a>Pré-requisitos

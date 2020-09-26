@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: Zhchia
-ms.openlocfilehash: 95ee630c1190167227a4ab3514a0c36db0401e45
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ce70a4df50be9004182e80711de449bab146a800
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91273369"
+ms.locfileid: "91360910"
 ---
 # <a name="tutorial-configure-coda-for-automatic-user-provisioning"></a>Tutorial: Configure Coda para o fornecimento automático de utilizadores
 
@@ -93,7 +93,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 5. Sob a secção **de Credenciais de Administrador,** insira o URL do seu Coda Tenant URL e o Secret Token recuperados mais cedo no Passo 2. Clique em **Testar a Ligação** para garantir que o Azure AD pode ligar-se ao Coda. Se a ligação falhar, certifique-se de que a sua conta Coda tem permissões de Administração e tente novamente.
 
-    ![provisionamento](./media/coda-provisioning-tutorial/provisioning.png)
+    ![A screenshot mostra a caixa de diálogo de Admin Credentials, onde pode inserir o seu Inquilino U R L e Secret Token.](./media/coda-provisioning-tutorial/provisioning.png)
 
 6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 

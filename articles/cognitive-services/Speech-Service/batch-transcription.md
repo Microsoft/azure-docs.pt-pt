@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3b9a491f7546fbaa8722498b164bfa56353dfcfc
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: fe864212eaccb67335586ef8b25049529ab36b81
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050187"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360757"
 ---
 # <a name="how-to-use-batch-transcription"></a>Como utilizar a transcrição do lote
 
@@ -43,7 +43,7 @@ Não se pode estimar quando um trabalho vai mudar para o estado de funcionamento
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Tal como acontece com todas as funcionalidades do serviço Speech, cria uma chave de subscrição a partir do [portal Azure](https://portal.azure.com) seguindo o nosso [guia Iniciar .](get-started.md)
+Tal como acontece com todas as funcionalidades do serviço Speech, cria uma chave de subscrição a partir do [portal Azure](https://portal.azure.com) seguindo o nosso [guia Iniciar .](overview.md#try-the-speech-service-for-free)
 
 >[!NOTE]
 > É necessária uma subscrição padrão (S0) para o serviço de fala para a transcrição do lote. As teclas de subscrição gratuitas (F0) não funcionam. Para mais informações, consulte [os preços e os limites.](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)

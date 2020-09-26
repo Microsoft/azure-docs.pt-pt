@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d33403f49429398d9bc006187c23bb8091d9b4a1
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 93f23cdcfb3fb7107e3b1838b48b3e58ccc2d028
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90885343"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288771"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS com Sinaapse SQL
 
@@ -25,12 +25,11 @@ Pode utilizar a CRIAÇÃO DE TABELA EXTERNA AS SELECT (CETAS) na piscina SQL ou 
 
   - Hadoop
   - Azure Storage Blob
-  - Azure Data Lake Storage Gen2
+  - Armazenamento do Azure Data Lake Ger2
 
 ## <a name="cetas-in-sql-pool"></a>CETAS na piscina SQL
 
-Para a utilização e sintaxe do POOL SQL, consulte [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) article. Além disso, para obter orientação sobre ctas utilizando piscina SQL, consulte o artigo [SELECT TABELA CREATE](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) AS.
-Para a utilização e sintaxe do POOL SQL, consulte [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) article. Além disso, para obter orientação sobre ctas utilizando piscina SQL, consulte o artigo [SELECT TABELA CREATE](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) AS.
+Para a piscina SQL, utilização e sintaxe CETAS, verifique a tabela externa CREATE COMO ARTIGO [SELECT.](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) Além disso, para obter orientação sobre ctas utilizando piscina SQL, consulte o artigo [SELECT TABELA CREATE](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) AS.
 
 ## <a name="cetas-in-sql-on-demand"></a>CETAS em SQL a pedido
 
@@ -159,7 +158,7 @@ O CETAS pode ser utilizado para armazenar conjuntos de resultados com os seguint
 - bit
 
 > [!NOTE]
-> LoBs não podem ser utilizados com CETAS.
+> LoBs não podem ser usados com CETAS.
 
 Os seguintes tipos de dados não podem ser utilizados na parte SELECT do CETAS:
 

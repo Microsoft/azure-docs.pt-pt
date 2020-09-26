@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 09/16/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: d80a1ba515aa137eba57051f080b4a2b4f311072
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 8406074933489e53e9235a8a6a05b68f1dd42a85
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90708772"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259141"
 ---
 # <a name="tutorial-for-configuring-saviynt-with-azure-active-directory-b2c"></a>Tutorial para configurar Saviynt com Azure Ative Directory B2C
 
-Neste tutorial de amostra, fornecemos orientações sobre como integrar o Azure Ative Directory (AD) B2C com [a Saviynt.](https://saviynt.com/) A plataforma Saviynt's Security Manager fornece a visibilidade, segurança e governação que as empresas de hoje precisam, numa única plataforma unificada. A Saviynt incorpora risco de aplicação e governação, gestão de infraestruturas, gestão de conta privilegiada e análise de risco de cliente.
+Neste tutorial de amostra, fornecemos orientações sobre como integrar o Azure Ative Directory (AD) B2C com [a Saviynt.](https://saviynt.com/integrations/azure-ad/for-b2c/) A plataforma Saviynt's Security Manager fornece a visibilidade, segurança e governação que as empresas de hoje precisam, numa única plataforma unificada. A Saviynt incorpora risco de aplicação e governação, gestão de infraestruturas, gestão de conta privilegiada e análise de risco de cliente.
 
 Neste tutorial de amostra, você vai configurar a Saviynt para fornecer uma administração delegada baseada em controlo de acesso fino para utilizadores do Azure AD B2C. A Saviynt faz as seguintes verificações para determinar se um utilizador está autorizado a gerir utilizadores Azure AD B2C.
 
@@ -46,7 +46,7 @@ A integração Saviynt inclui os seguintes componentes:
 
 - [Azure AD B2C](https://azure.microsoft.com/services/active-directory/external-identities/b2c/) – A identidade entre empresas e clientes como um serviço que permite o controlo personalizado de como os seus clientes se inscrevem, se inscrevem e gerem os seus perfis.
 
-- [Saviynt](https://saviynt.com/) – A plataforma de governação de identidade que fornece uma administração delegada fina para gestão do ciclo de vida do utilizador e governação de acesso dos utilizadores do Azure AD B2C.  
+- [Saviynt](https://saviynt.com/integrations/azure-ad/for-b2c/) – A plataforma de governação de identidade que fornece uma administração delegada fina para gestão do ciclo de vida do utilizador e governação de acesso dos utilizadores do Azure AD B2C.  
 
 - [Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api) – Esta API fornece as interfaces para a Saviynt gerir os utilizadores AZURE AD B2C e o seu acesso em Azure AD B2C.
 
@@ -54,7 +54,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 ![Imagem mostrando diagrama de arquitetura saviynt](./media/partner-saviynt/saviynt-architecture-diagram.png)
 
-|Passo | Descrição |
+|Passo | Description |
 |:-----| :-----------|
 | 1. | Um administrador delegado inicia uma operação de utilizador Azure AD B2C através da Saviynt.
 | 2. | A Saviynt verifica com o seu motor de autorização se o administrador delegado pode fazer a operação específica.
@@ -73,7 +73,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 ## <a name="configure-azure-ad-b2c-with-saviynt"></a>Configure Azure AD B2C com Saviynt
 
-### <a name="creating-an-azure-ad-application-for-saviynt"></a>Criação de uma aplicação AD AZure para Saviynt
+### <a name="create-an-azure-ad-application-for-saviynt"></a>Criar uma aplicação AD AZure para Saviynt
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/#home).
 
@@ -108,7 +108,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 15. Identificação do inquilino, identificação de cliente, e segredo de cliente serão necessários para completar a instalação em Saviynt.
 
-### <a name="enabling-saviynt-to-delete-users"></a>Permitir que a Saviynt apague os utilizadores
+### <a name="enable-saviynt-to-delete-users"></a>Permitir que saviynt elimine os utilizadores
 
 Os passos abaixo explicam como permitir que a Saviynt execute operações de eliminação do utilizador em Azure AD B2C.
 

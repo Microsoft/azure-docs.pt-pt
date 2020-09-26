@@ -1,5 +1,5 @@
 ---
-title: Inscreva dispositivos X.509 para o Serviço de Provisionamento de Dispositivos Azure utilizando a Java
+title: Quickstart - Inscreva dispositivos X.509 no Serviço de Provisionamento de Dispositivos Azure utilizando a Java
 description: Este início rápido utiliza inscrições em grupo e individuais. Neste arranque rápido, irá matricular dispositivos X.509 no Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS) utilizando o Java.
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 1d1b4e2573519fbd033121763d3e7fe6b071f075
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 924cf1e1b5bc155bfdbd2f5f766c5459d599fed5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327026"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91276191"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos com Java
 
@@ -203,7 +203,7 @@ Se planeia explorar a amostra de serviço java, não limpe os recursos criados n
 
 1. Feche a janela da saída do exemplo de Java no seu computador.
 1. Feche a janela do _X509 Cert Generator_ no seu computador.
-1. Navegue para o seu serviço de Provisionamento de Dispositivos no portal Azure, **selecione Gerir as inscrições**e, em seguida, selecione o separador **Grupos de Inscrição.** Selecione a caixa de verificação ao lado do *NOME DE GRUPO* para os dispositivos X.509 que inscreveu usando este arranque rápido e prima o botão **Eliminar** na parte superior do painel.  
+1. Navegue para o seu serviço de Provisionamento de Dispositivos no portal Azure, **selecione Gerir as inscrições**e, em seguida, selecione o **separador Grupos de Inscrição.** Selecione a caixa de verificação ao lado do *NOME DE GRUPO* para os dispositivos X.509 que inscreveu com este arranque rápido e pressione o botão **Eliminar** na parte superior do painel.  
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste arranque rápido, inscreveu um grupo simulado de dispositivos X.509 no seu serviço de Provisionamento de Dispositivos. Para ficar a conhecer aprofundadamente o aprovisionamento de dispositivos, prossiga no tutorial para a configuração do Serviço Aprovisionamento de Dispositivos no portal do Azure. 

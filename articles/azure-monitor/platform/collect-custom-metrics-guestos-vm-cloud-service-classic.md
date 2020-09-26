@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 0ff76ea3bd39f31880d0140e182ad99f293689e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f539786de589dbab3a191a5343ba315349533447
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505368"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360995"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Envie métricas de SO para a loja métrica Azure Monitor clássico Cloud Services 
 
@@ -173,7 +173,7 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 1. Aceda ao portal do Azure. 
 
-   ![Portal Métricas Azure](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png)
+   ![A screenshot mostra o portal Azure com Monitor, em seguida, métricas selecionadas.](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png)
 
 2. No menu esquerdo, selecione **Monitor.**
 
@@ -187,8 +187,8 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
 Utiliza-se a capacidade de filtragem e divisão de dimensões para visualizar a memória total que é usada por um papel específico ou por uma instância de função. 
 
- ![Portal Métricas Azure](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png)
+ ![A screenshot mostra dados de métricas.](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/metrics-graph.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [métricas personalizadas.](metrics-custom-overview.md)

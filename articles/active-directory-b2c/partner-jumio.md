@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 36a402669f8af465a1cedbf1585e16c972b18015
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 4e5becdd026b0a1c9e848b183ebeee5833654461
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293120"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259276"
 ---
 # <a name="tutorial-for-configuring-jumio-with-azure-active-directory-b2c"></a>Tutorial para configurar Jumio com Azure Ative Directory B2C
 
@@ -28,7 +28,7 @@ Para começar, vai precisar de:
 
 - Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
 
-- Um [inquilino Azure AD B2C](https://review.docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) que está ligado à sua assinatura Azure.
+- Um [inquilino Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant) que está ligado à sua assinatura Azure.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -46,7 +46,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 ![Diagrama da arquitetura de uma integração Azure AD B2C com Jumio.](./media/partner-jumio/jumio-architecture-diagram.png)
 
-|Passo | Descrição |
+|Passo | Description |
 |:-----| :-----------|
 | 1. | O utilizador chega a uma página para iniciar sessão ou iniciar sessão para criar uma conta. Azure AD B2C recolhe os atributos do utilizador.
 | 2. | Azure AD B2C chama a API de camada média e transmite os atributos do utilizador.
@@ -164,7 +164,7 @@ Pode [configurar as definições de aplicações no Azure App Service](https://d
 
 5. O serviço Jumio será chamado durante o fluxo, após a criação do atributo do utilizador. Se o fluxo estiver incompleto, verifique se o utilizador não está guardado no diretório.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações adicionais, reveja os seguintes artigos:
 

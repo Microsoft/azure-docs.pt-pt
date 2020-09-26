@@ -8,13 +8,13 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 09/04/2020
 ms.subservice: blobs
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 72ffad3724ba9c981984ef8410fc9dd9556d8b8e
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.custom: devx-track-js
+ms.openlocfilehash: 27ea88ad4d349d6a7aedd4e1e3bc8dc804683292
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89486863"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326087"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Static website hosting in Azure Storage (Alojamento de sites estáticos no Armazenamento do Microsoft Azure)
 
@@ -49,7 +49,7 @@ Pode utilizar qualquer uma destas ferramentas para enviar conteúdo para o recip
 > * [CLI do Azure](storage-blob-static-website-how-to.md?tabs=azure-cli)
 > * [Módulo do Azure PowerShell](storage-blob-static-website-how-to.md?tabs=azure-powershell)
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
-> * [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
+> * [Explorador do Storage do Azure](https://azure.microsoft.com/features/storage-explorer/)
 > * [Pipelines do Azure](https://azure.microsoft.com/services/devops/pipelines/)
 > * [Extensão do Visual Studio Code](/azure/developer/javascript/tutorial-vscode-static-website-node-01)
 
@@ -122,7 +122,7 @@ Pode ativar métricas em páginas estáticas do site. Uma vez ativadas as métri
 
 Para ativar métricas nas páginas estáticas do site, consulte [Ativar as métricas nas páginas estáticas do site](storage-blob-static-website-how-to.md#metrics).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Hospedar um site estático no Azure Storage](storage-blob-static-website-how-to.md)
 * [Mapear um domínio personalizado para um ponto final de armazenamento Azure Blob](storage-custom-domain-name.md)

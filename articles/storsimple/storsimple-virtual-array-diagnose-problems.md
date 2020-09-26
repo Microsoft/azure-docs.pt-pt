@@ -1,6 +1,6 @@
 ---
 title: Resolução de problemas StorSimple Virtual Array / Microsoft Docs
-description: Descreve a capacidade de diagnóstico do Gestor de Dispositivos StorSimple e explica como usá-lo para resolver problemas no seu StorSimple Virtual Array.
+description: Saiba mais sobre a capacidade de resolução de problemas de autosserviço fornecida no serviço StorSimple Device Manager.
 services: storsimple
 documentationcenter: ''
 author: manuaery
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: 684554c5eaf3f5fa2701bad2d49c082595552adb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6cb78a7042ca3acbb27f510207783b97f733cfb0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515178"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91249540"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-troubleshoot-the-storsimple-virtual-array"></a>Utilizar o serviço do Gestor de Dispositivos do StorSimple para resolver problemas na Matriz Virtual do StorSimple
 ## <a name="overview"></a>Descrição geral
@@ -42,6 +42,6 @@ Pode ver alguns dos problemas comuns com o StorSimple Virtual Array e rever as s
 
 3. Se não conseguir encontrar uma referência ao seu problema ou resolvê-lo, contacte o Microsoft Support para obter mais assistência.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba como [registar um bilhete de apoio](storsimple-virtual-array-log-support-ticket.md)
 

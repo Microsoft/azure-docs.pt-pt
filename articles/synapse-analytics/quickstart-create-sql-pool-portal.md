@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 768b559ddaf7364726cb26a34d12f357d4126426
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.reviewer: jrasnick
+ms.openlocfilehash: c89bd01cb2e6947df5ed192d66e0dbae08cf66d5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274259"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260636"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-preview-using-the-azure-portal"></a>Quickstart: Criar uma piscina SQL Synapse (pré-visualização) utilizando o portal Azure
 

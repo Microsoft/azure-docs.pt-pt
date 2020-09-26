@@ -8,17 +8,17 @@ editor: ''
 tags: azure-resource-management
 ms.assetid: 95a89072-0edf-49b5-88ed-584891c0e066
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 6a03a91eeb9296e60aa147f97634a15e8d344209
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a4965c587cb2f42c8411d48af2417dd3fe3d5edb
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87293046"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360791"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Backup e restauro para SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -31,7 +31,7 @@ A primeira parte deste artigo fornece uma visão geral das opções de backup e 
 
 A tabela seguinte fornece informações sobre várias opções de backup e restauro para SQL Server em VMs Azure:
 
-| Estratégia | Versões SQL | Descrição |
+| Estratégia | Versões SQL | Description |
 |---|---|---|
 | [Cópia de Segurança Automatizada](#automated) | 2014<br/> 2016<br/> 2017 | A Cópia de Segurança Automatizada permite-lhe agendar cópias de segurança regulares para todas as bases de dados num SQL Server VM. As cópias de segurança são armazenadas no armazém da Azure por um tempo até 30 dias. Começando pelo SQL Server 2016, o Backup Automático v2 oferece opções adicionais, como configurar o agendamento manual e a frequência de cópias de segurança completas e de registo. |
 | [Azure Backup for SQL VMs](#azbackup) (Azure Backup para VMs do SQL) | 2008<br/> 2012<br/> 2014<br/> 2016<br/> 2017 | O Azure Backup fornece uma capacidade de backup da classe Enterprise para O SQL Server em VMs Azure. Com este serviço, pode gerir centralmente backups para vários servidores e milhares de bases de dados. As bases de dados podem ser restauradas a um ponto específico no tempo no portal. Oferece uma política de retenção personalizável que pode manter backups durante anos. |
@@ -39,7 +39,7 @@ A tabela seguinte fornece informações sobre várias opções de backup e resta
 
 As seguintes secções descrevem cada opção com mais detalhes. A secção final deste artigo fornece um resumo sob a forma de uma matriz de recurso.
 
-## <a name="automated-backup"></a><a id="automated"></a>Backup automatizado
+## <a name="automated-backup"></a><a id="automated"></a> Backup automatizado
 
 O Backup Automatizado fornece um serviço de backup automático para as edições SQL Server Standard e Enterprise em execução num Windows VM em Azure. Este serviço é fornecido pela Extensão do [Agente IAAS do SQL Server](sql-server-iaas-agent-extension-automate-management.md), que é automaticamente instalada em imagens de máquinas virtuais SQL Server Windows no portal Azure.
 
@@ -58,7 +58,7 @@ Para obter mais informações sobre como configurar a Cópia de Segurança Autom
 - **SQL Server 2016/2017**: [Cópia de segurança automatizada v2 para máquinas virtuais Azure](automated-backup.md)
 - **SQL Server 2014**: [Cópia de segurança automatizada para máquinas virtuais SQL Server 2014](automated-backup-sql-2014.md)
 
-## <a name="azure-backup-for-sql-vms"></a><a id="azbackup"></a>Backup Azure para VMs SQL
+## <a name="azure-backup-for-sql-vms"></a><a id="azbackup"></a> Backup Azure para VMs SQL
 
 [O Azure Backup](/azure/backup/) fornece uma capacidade de backup da classe Enterprise para O SQL Server em VMs Azure. Todos os backups são armazenados e geridos num cofre dos Serviços de Recuperação. Existem várias vantagens que esta solução proporciona, especialmente para as Empresas:
 
@@ -79,7 +79,7 @@ Para uma visão geral rápida de como funciona juntamente com uma demonstração
 
 Esta solução Azure Backup para SQL VMs está geralmente disponível. Para obter mais informações, consulte [a base de dados do SQL Server para Azure](../../../backup/backup-azure-sql-database.md).
 
-## <a name="manual-backup"></a><a id="manual"></a>Backup manual
+## <a name="manual-backup"></a><a id="manual"></a> Backup manual
 
 Se pretender gerir manualmente as operações de backup e restauro nos seus VMs SQL, existem várias opções dependendo da versão do SQL Server que está a utilizar. Para obter uma visão geral da cópia de segurança e restauro, consulte um dos seguintes artigos com base na sua versão do SQL Server:
 
@@ -129,25 +129,25 @@ A tabela seguinte resume as capacidades de cada opção de backup e restauro par
 
 | Opção | Cópia de Segurança Automatizada | Backup Azure para SQL | Backup manual |
 |---|---|---|---|
-| Requer serviço Azure adicional |   | ![Sim](./media/backup-restore/yes.png) |   |
-| Configure a política de backup no portal Azure | ![Sim](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) |   |
-| Restaurar bases de dados no portal Azure |   | ![Sim](./media/backup-restore/yes.png) |   |
-| Gerir vários servidores num só dashboard |   | ![Sim](./media/backup-restore/yes.png) |   |
-| Restauro para um ponto anterior no tempo | ![Sim](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) |
-| Objetivo do ponto de recuperação de 15 minutos (RPO) | ![Sim](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) |
-| Política de retenção de backup de curto prazo (dias) | ![Sim](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) |   |
-| Política de retenção de apoio a longo prazo (meses, anos) |   | ![Sim](./media/backup-restore/yes.png) |   |
-| Suporte incorporado para SQL Server Always On |   | ![Sim](./media/backup-restore/yes.png) |   |
-| Cópia de segurança para a conta de armazenamento Azure | ![Sim](./media/backup-restore/yes.png)(automático) | ![Sim](./media/backup-restore/yes.png)(automático) | ![Sim](./media/backup-restore/yes.png)(gerido pelo cliente) |
-| Gestão de ficheiros de armazenamento e backup | | ![Sim](./media/backup-restore/yes.png) |  |
-| Backup para discos anexados no VM |   |   | ![Sim](./media/backup-restore/yes.png) |
-| Relatórios centrais de backup personalizáveis |   | ![Sim](./media/backup-restore/yes.png) |   |
-| Alertas de e-mail consolidados para falhas |   | ![Sim](./media/backup-restore/yes.png) |   |
-| Personalizar a monitorização com base nos registos do Azure Monitor |   | ![Sim](./media/backup-restore/yes.png) |   |
-| Monitorize trabalhos de backup com scripts SSMS ou Transact-SQL | ![Sim](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) | ![Sim](./media/backup-restore/yes.png) |
-| Restaurar bases de dados com scripts SSMS ou Transact-SQL | ![Sim](./media/backup-restore/yes.png) |   | ![Sim](./media/backup-restore/yes.png) |
+| Requer serviço Azure adicional |   | ![Marca verde.](./media/backup-restore/yes.png) |   |
+| Configure a política de backup no portal Azure | ![Marca verde.](./media/backup-restore/yes.png) | ![Marca verde.](./media/backup-restore/yes.png) |   |
+| Restaurar bases de dados no portal Azure |   | ![Marca verde.](./media/backup-restore/yes.png) |   |
+| Gerir vários servidores num só dashboard |   | ![Marca verde.](./media/backup-restore/yes.png) |   |
+| Restauro para um ponto anterior no tempo | ![Marca verde.](./media/backup-restore/yes.png) | ![Marca verde.](./media/backup-restore/yes.png) | ![Marca verde.](./media/backup-restore/yes.png) |
+| Objetivo do ponto de recuperação de 15 minutos (RPO) | ![Marca verde.](./media/backup-restore/yes.png) | ![Marca verde.](./media/backup-restore/yes.png) | ![Marca verde.](./media/backup-restore/yes.png) |
+| Política de retenção de backup de curto prazo (dias) | ![Marca verde.](./media/backup-restore/yes.png) | ![Marca verde.](./media/backup-restore/yes.png) |   |
+| Política de retenção de apoio a longo prazo (meses, anos) |   | ![Marca verde.](./media/backup-restore/yes.png) |   |
+| Suporte incorporado para SQL Server Always On |   | ![Marca verde.](./media/backup-restore/yes.png) |   |
+| Cópia de segurança para a conta de armazenamento Azure | ![Marca verde.](./media/backup-restore/yes.png)(automático) | ![Marca verde.](./media/backup-restore/yes.png)(automático) | ![Marca verde.](./media/backup-restore/yes.png)(gerido pelo cliente) |
+| Gestão de ficheiros de armazenamento e backup | | ![Marca verde.](./media/backup-restore/yes.png) |  |
+| Backup para discos anexados no VM |   |   | ![Marca verde.](./media/backup-restore/yes.png) |
+| Relatórios centrais de backup personalizáveis |   | ![Marca verde.](./media/backup-restore/yes.png) |   |
+| Alertas de e-mail consolidados para falhas |   | ![Marca verde.](./media/backup-restore/yes.png) |   |
+| Personalizar a monitorização com base nos registos do Azure Monitor |   | ![Marca verde.](./media/backup-restore/yes.png) |   |
+| Monitorize trabalhos de backup com scripts SSMS ou Transact-SQL | ![Marca verde.](./media/backup-restore/yes.png) | ![Marca verde.](./media/backup-restore/yes.png) | ![Marca verde.](./media/backup-restore/yes.png) |
+| Restaurar bases de dados com scripts SSMS ou Transact-SQL | ![Marca verde.](./media/backup-restore/yes.png) |   | ![Marca verde.](./media/backup-restore/yes.png) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se estiver a planear a sua implantação do SQL Server em Azure VM, pode encontrar orientações de provisionamento no seguinte guia: [Como providenciar uma máquina virtual do Windows SQL Server no portal Azure](create-sql-vm-portal.md).
 

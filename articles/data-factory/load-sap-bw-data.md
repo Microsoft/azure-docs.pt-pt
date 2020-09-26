@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 5403abab0f93edf14237dcc73f29ffb00a6581f0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bad9a706c5289966334af26eacbfa41c418b7ab5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081315"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360808"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse utilizando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -77,7 +77,7 @@ No portal do Azure, aceda à sua fábrica de dados. Selecione **Author & Monitor
 
 6. Especifique um filtro, se precisar de um. Se o seu OHD apenas contiver dados de uma única execução de processo de transferência de dados (DTP) com um único ID de pedido, ou se tiver a certeza de que o seu DTP está terminado e pretende copiar os dados, limpe a caixa de verificação **'Exclua** o Último Pedido'.
 
-   Saiba mais sobre estas definições na secção de configurações do [Sap BW Open Hub Destination](#sap-bw-open-hub-destination-configurations) deste artigo. **Selecione Validate** para verificar novamente quais os dados que serão devolvidos. Em seguida, selecione **Seguinte**.
+   Saiba mais sobre estas definições na secção de configurações do [Sap BW Open Hub Destination](#sap-bw-open-hub-destination-configurations) deste artigo. **Selecione Validate** para verificar novamente quais os dados que serão devolvidos. e selecione **Seguinte**.
 
    ![Configure o filtro SAP BW Open Hub](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
@@ -88,9 +88,9 @@ No portal do Azure, aceda à sua fábrica de dados. Selecione **Author & Monitor
    ![Criar uma página de serviço ligada à ADLS Gen2](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
    1. Selecione a sua conta de **Name** armazenamento de dados Gen2 da lista de drop-down name.
-   2. Selecione **Concluir** para criar a ligação. Em seguida, selecione **Seguinte**.
+   2. Selecione **Concluir** para criar a ligação. e selecione **Seguinte**.
 
-9. Na página Escolha o ficheiro de saída ou a página **de pasta,** **introduza o copyfromopenhub** como o nome da pasta de saída. Em seguida, selecione **Seguinte**.
+9. Na página Escolha o ficheiro de saída ou a página **de pasta,** **introduza o copyfromopenhub** como o nome da pasta de saída. e selecione **Seguinte**.
 
    ![Escolha a página da pasta de saída](media/load-sap-bw-data/choose-output-folder.png)
 
@@ -98,11 +98,11 @@ No portal do Azure, aceda à sua fábrica de dados. Selecione **Author & Monitor
 
     ![Especifique a página do formato do lavatório](media/load-sap-bw-data/specify-sink-format.png)
 
-11. Na página **Definições,** expanda as **definições de desempenho**. Introduza um valor para **o paralelismo de cópia,** como 5 para carregar a partir de SAP BW em paralelo. Em seguida, selecione **Seguinte**.
+11. Na página **Definições,** expanda as **definições de desempenho**. Introduza um valor para **o paralelismo de cópia,** como 5 para carregar a partir de SAP BW em paralelo. e selecione **Seguinte**.
 
     ![Configurar definições de cópias](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. Na página **Resumo,** reveja as definições. Em seguida, selecione **Seguinte**.
+12. Na página **Resumo,** reveja as definições. e selecione **Seguinte**.
 
 13. Na página **'Implantação',** selecione **Monitor** para monitorizar o gasoduto.
 
@@ -217,7 +217,7 @@ Se necessitar de cópia histórica e cópia incremental ou apenas de cópia incr
 
    Pode aumentar o número de processos de trabalho SAP em execução paralela para o DTP:
 
-   ![criar-sap-bw-ohd-delta3](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
+   ![A screenshot mostra definições para processamento paralelo onde pode selecionar o número de processos paralelos para o D T P.](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
 
 2. Agende o DTP em cadeias de processos.
 
@@ -271,7 +271,7 @@ Para definir o estado do DTP delta para **Fetched,** pode utilizar a seguinte op
 
 *Sem Transferência de Dados; Estado da Delta na Fonte: Recolhido*
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o suporte do conector SAP BW Open Hub:
 

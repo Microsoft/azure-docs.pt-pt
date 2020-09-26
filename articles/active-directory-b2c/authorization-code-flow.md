@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: dd94811baddba3a40910b3a0c68eb4e1b2744b0b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 157f01008636c61d95d479c396cf82d833b3b44d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201247"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91259667"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Fluxo de código de autorização OAuth 2.0 no Azure Ative Directory B2C
 
@@ -52,7 +52,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 ```
 
 
-| Parâmetro | Necessário? | Descrição |
+| Parâmetro | Necessário? | Description |
 | --- | --- | --- |
 |{inquilino}| Necessário | Nome do seu inquilino Azure AD B2C|
 | {política} | Necessário | O fluxo do utilizador a ser executado. Especifique o nome de um fluxo de utilizador que criou no seu inquilino Azure AD B2C. Por exemplo: `b2c_1_sign_in` `b2c_1_sign_up` , ou . `b2c_1_edit_profile` . |
@@ -63,6 +63,8 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | response_mode |Recomendado |O método que utiliza para enviar o código de autorização resultante de volta para a sua aplicação. Pode `query` `form_post` ser, ou `fragment` . . |
 | state |Recomendado |Um valor incluído no pedido que pode ser uma série de qualquer conteúdo que queira utilizar. Normalmente, um valor único gerado aleatoriamente é usado para evitar ataques de falsificação de pedidos de trans-locais. O Estado também é utilizado para codificar informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorrer. Por exemplo, a página em que o utilizador estava, ou o fluxo de utilizador que estava a ser executado. |
 | rápido |Opcional |O tipo de interação do utilizador que é necessária. Atualmente, o único valor válido é `login` o que obriga o utilizador a introduzir as suas credenciais nesse pedido. Uma única s inscrição não fará efeito. |
+| code_challenge  | Opcional | Utilizado para garantir concessões de código de autorização através da Chave de Prova para Troca de Códigos (PKCE). Necessário se `code_challenge_method` estiver incluído. Para mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| code_challenge_method | Opcional | O método usado para codificar o `code_verifier` `code_challenge` parâmetro. Pode ser um dos seguintes valores:<br/><br/>- `plain` <br/>- `S256`<br/><br/>Se excluído, `code_challenge` presume-se que é texto simples se `code_challenge` estiver incluído. O Azure AD B2C suporta ambos `plain` e `S256` . Para mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 Neste momento, é solicitado ao utilizador que complete o fluxo de trabalho do utilizador. Isto pode envolver o utilizador inserindo o seu nome de utilizador e senha, inserindo-se com uma identidade social, inserindo-se no diretório ou qualquer outro número de etapas. As ações do utilizador dependem da definição do fluxo do utilizador.
 
@@ -110,7 +112,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 ```
 
-| Parâmetro | Necessário? | Descrição |
+| Parâmetro | Necessário? | Description |
 | --- | --- | --- |
 |{inquilino}| Necessário | Nome do seu inquilino Azure AD B2C|
 |{política}| Necessário| O fluxo de utilizador que foi utilizado para adquirir o código de autorização. Não é possível utilizar um fluxo de utilizador diferente neste pedido. |
@@ -120,6 +122,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | scope |Recomendado |Uma lista de âmbitos separados pelo espaço. Um único valor de âmbito indica ao Azure AD ambas as permissões que estão a ser solicitadas. A utilização do ID do cliente como o âmbito indica que a sua aplicação precisa de um token de acesso que pode ser usado contra o seu próprio serviço ou a API web, representado pelo mesmo ID do cliente.  O `offline_access` âmbito indica que a sua aplicação precisa de um token de atualização para o acesso de longa duração aos recursos.  Também pode utilizar o `openid` âmbito para solicitar um token de ID do Azure AD B2C. |
 | code |Necessário |O código de autorização que adquiriu na primeira parte do fluxo. |
 | redirect_uri |Necessário |O URI redirecionado do pedido onde recebeu o código de autorização. |
+| code_verifier | Opcional | O mesmo code_verifier que foi usado para obter o authorization_code. Exigido se o PKCE foi utilizado no pedido de concessão de código de autorização. Para mais informações, consulte o [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 Uma resposta simbólica bem sucedida é a seguinte:
 
@@ -176,7 +179,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| Parâmetro | Necessário? | Descrição |
+| Parâmetro | Necessário? | Description |
 | --- | --- | --- |
 |{inquilino}| Necessário | Nome do seu inquilino Azure AD B2C|
 |{política} |Necessário |O fluxo de utilizador que foi usado para adquirir o token original da atualização. Não é possível utilizar um fluxo de utilizador diferente neste pedido. |

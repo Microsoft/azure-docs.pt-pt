@@ -8,17 +8,17 @@ editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 41863c8d-f3a3-4584-ad86-b95094365e05
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mathoma
-ms.openlocfilehash: 2904a61077c5538846fbfb7cc7d6ee1791ea890c
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 758607c37f271657c81d4699b0895f9e997450af
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231612"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91299056"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-on-azure-virtual-machines"></a>Padrões de aplicação e estratégias de desenvolvimento para O SQL Server em Máquinas Virtuais Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +41,7 @@ Pode desenvolver muitos tipos de aplicações n-tier separando os componentes da
 
 Uma aplicação típica *de n-tier* inclui o nível de apresentação, o nível de negócio e o nível de dados:
 
-| Escalão de serviço | Descrição |
+| Escalão de serviço | Description |
 | --- | --- |
 | **Apresentação** |O *nível de apresentação* (nível web, nível frontal) é a camada em que os utilizadores interagem com uma aplicação. |
 | **Empresa** |O *nível de negócio* (nível médio) é a camada que o nível de apresentação e o nível de dados usam para comunicar uns com os outros e inclui a funcionalidade central do sistema. |

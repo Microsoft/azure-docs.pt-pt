@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 3f5fd8433f8de4dab39a73e889a71c4b262dc924
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 48756b43e64576a5dd38467bb1dd97e91c168a06
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394504"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360859"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Conectividade em Vários Locais de Elevada Disponibilidade e VNet a VNet
 Este artigo disponibiliza uma descrição geral das opções de configurações de elevada disponibilidade para a conectividade em vários locais e VNet a VNet através dos Gateways de VPN do Azure.
@@ -20,7 +20,7 @@ Este artigo disponibiliza uma descrição geral das opções de configurações 
 ## <a name="about-azure-vpn-gateway-redundancy"></a><a name = "activestandby"></a>Acerca da redundância do Gateway de VPN do Azure
 Todos os Gateways de VPN do Azure consistem em duas instâncias numa configuração ativa-em espera. Caso ocorra uma manutenção planeada ou uma interrupção não planeada na instância ativa, a instância em espera assume o controlo (ativação pós-falha) automaticamente e retoma as ligações VPN S2S ou VNet a VNet. A mudança causará uma breve interrupção. Nas manutenções planeadas, a conectividade deve ser restabelecida ao fim de 10 a 15 segundos. Relativamente a problemas não planeados, a recuperação da ligação demorará mais tempo, cerca de um minuto a um minuto e meio, na pior das hipóteses. Para as ligações de cliente VPN S2S ao gateway, as ligações P2S serão desligadas e os utilizadores terão de restabelecê-las a partir dos computadores cliente.
 
-![Ativa- em espera](./media/vpn-gateway-highlyavailable/active-standby.png)
+![O diagrama mostra um site no local com sub-redes I P privadas e no local V P N ligado a uma porta de entrada ativa Azure V P N para ligar às sub-redes hospedadas em Azure, com um gateway de espera disponível.](./media/vpn-gateway-highlyavailable/active-standby.png)
 
 ## <a name="highly-available-cross-premises-connectivity"></a>Conectividade em Vários Locais de Elevada Disponibilidade
 Para proporcionar melhor disponibilidade para as ligações em vários locais, há algumas opções disponíveis:
@@ -49,7 +49,7 @@ Nesta configuração, o gateway de VPN do Azure continua no modo ativo-em espera
 ### <a name="active-active-azure-vpn-gateway"></a>Gateway de VPN do Azure ativo-ativo
 Agora, pode criar um gateway de VPN do Azure numa configuração ativa-ativa, em que ambas as instâncias das VMs do gateway estabelecem túneis VPN S2S para o dispositivo VPN no local, conforme mostrado no diagrama seguinte:
 
-![Ativa-ativa](./media/vpn-gateway-highlyavailable/active-active.png)
+![O diagrama mostra um site no local com sub-redes I P privadas e no local V P N ligado a duas portas ativas do Azure V P N para ligar às sub-redes hospedadas em Azure.](./media/vpn-gateway-highlyavailable/active-active.png)
 
 Nesta configuração, cada instância do gateway do Azure terá um endereço IP público exclusivo e estabelecerá um túnel VPN S2S IPsec/IKE para o dispositivo VPN no local especificado no gateway e na ligação de rede no local. Tenha em conta que ambos os túneis VPN fazem, efetivamente, parte da mesma ligação. Continua a ter de configurar o dispositivo VPN no local para aceitar ou estabelecer dois túneis VPN S2S para aqueles dois endereços IP públicos do gateway de VPN do Azure.
 
@@ -71,10 +71,10 @@ Esta topologia vai exigir dois gateways de rede local e duas ligações para sup
 ## <a name="highly-available-vnet-to-vnet-connectivity-through-azure-vpn-gateways"></a>Conectividade de VNet a VNet de elevada através de Gateways de VPN do Azure
 Também pode aplicar a mesma configuração ativa-ativa a ligações VNet a VNet do Azure. Pode criar gateways de VPN ativos-ativos para ambas as redes virtuais e ligá-los para formar a conectividade de malha completa de quatro túneis entre as duas VNets, conforme mostrado no diagrama abaixo:
 
-![VNet a VNet](./media/vpn-gateway-highlyavailable/vnet-to-vnet.png)
+![O diagrama mostra duas regiões de Azure que acolhem sub-redes I P privadas e duas portas Azure V P N através das quais os dois sites virtuais se conectam.](./media/vpn-gateway-highlyavailable/vnet-to-vnet.png)
 
 Desta forma, é garantido que há sempre um par de túneis entre as duas redes virtuais para eventuais eventos de manutenção planeada, proporcionando uma disponibilidade ainda melhor. Apesar de a mesma topologia para conectividade em vários locais precisar de duas ligações, a topologia de VNet a VNet mostrada anteriormente requer apenas uma ligação para cada gateway. Além disso, o BGP é opcional, a não ser que o encaminhamento do trânsito através da ligação VNet a VNet seja um requisito.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Veja [Configuring Active-Active VPN Gateways for Cross-Premises and VNet-to-VNet Connections (Configurar Gateways de VPN Ativos-Ativos para Ligações em Vários Locais e VNet a VNet)](vpn-gateway-activeactive-rm-powershell.md) para obter os passos para configurar ligações ativas-ativas em vários locais e VNet a VNet.
 

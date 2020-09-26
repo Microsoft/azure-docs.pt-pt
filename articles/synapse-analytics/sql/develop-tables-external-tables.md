@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: c0373e8a476e65a61ef4b3ea945b98e0763c0a22
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 6c76fcc0fefdf8aa3ae97a4c131481f7ea6ada81
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032933"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288856"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Utilize tabelas externas com Sinapse SQL
 
@@ -29,7 +29,7 @@ Na piscina SQL, você pode usar uma mesa externa para:
 - Consulta Azure Blob Storage e Azure Data Lake Gen2 com declarações Transact-SQL.
 - Importar e armazenar dados do Azure Blob Storage e do Azure Data Lake Storage para a piscina SQL.
 
-Quando utilizado em conjunto com a declaração [CREATE TABLE AS SELECT,](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) selecionando de uma tabela externa os dados de importação para uma tabela dentro do pool SQL. Além da [declaração COPY,](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)as tabelas externas são úteis para o carregamento de dados. 
+Quando utilizado em conjunto com a declaração [CREATE TABLE AS SELECT,](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) selecionando de uma tabela externa os dados de importação para uma tabela dentro do pool SQL. Além da [declaração COPY,](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)as tabelas externas são úteis para o carregamento de dados. 
 
 Para um tutorial de carregamento, consulte [o PolyBase para carregar os dados do Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
@@ -60,7 +60,7 @@ Acesso externo à tabela subjacente ao armazenamento do Azure utilizando a crede
 
 ## <a name="create-external-data-source"></a>CRIAR FONTE DE DADOS EXTERNA
 
-Fontes de dados externas são usadas para se ligarem a contas de armazenamento. A documentação completa está delineada [aqui.](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+Fontes de dados externas são usadas para se ligarem a contas de armazenamento. A documentação completa está delineada [aqui.](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 ### <a name="syntax-for-create-external-data-source"></a>Sintaxe para criar fonte de dados externos
 
@@ -96,7 +96,7 @@ data_source_name
 Especifica o nome definido pelo utilizador para a fonte de dados. O nome deve ser único na base de dados.
 
 #### <a name="location"></a>Localização
-LOCALIZAÇÃO = `'<prefix>://<path>'`   - Fornece o protocolo de conectividade e o caminho para a fonte de dados externa. Os seguintes padrões podem ser usados no local:
+LOCALIZAÇÃO = `'<prefix>://<path>'`   - Fornece o protocolo de conectividade e o caminho para a fonte de dados externa. Os seguintes padrões podem ser utilizados no local:
 
 | Fonte de Dados Externos        | Prefixo de localização | Caminho de localização                                         |
 | --------------------------- | --------------- | ----------------------------------------------------- |
@@ -159,7 +159,7 @@ WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/nyctlc/yel
 
 ## <a name="create-external-file-format"></a>CREATE EXTERNAL FILE FORMAT
 
-Cria um objeto de formato de ficheiro externo que define dados externos armazenados no Azure Blob Storage ou no Azure Data Lake Storage. A criação de um formato de ficheiro externo é um pré-requisito para a criação de uma tabela externa. A documentação completa está [aqui.](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+Cria um objeto de formato de ficheiro externo que define dados externos armazenados no Azure Blob Storage ou no Azure Data Lake Storage. A criação de um formato de ficheiro externo é um pré-requisito para a criação de uma tabela externa. A documentação completa está [aqui.](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 Ao criar um formato de ficheiro externo, especifica o layout real dos dados referenciados por uma tabela externa.
 
@@ -349,7 +349,7 @@ Utilizando as capacidades de exploração do Data Lake, pode agora criar e consu
 
 - Tem de ter acesso ao espaço de trabalho com, pelo menos, a função de acesso arm-contribuinte de dados de armazenamento à Conta ADLS Gen2
 
-- Você deve ter pelo menos [permissões para criar](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2) e consultar mesas externas na piscina SQL ou SQL OD
+- Você deve ter pelo menos [permissões para criar](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2&preserve-view=true) e consultar mesas externas na piscina SQL ou SQL OD
 
 - O serviço ligado associado à Conta ADLS Gen2 **deve ter acesso ao ficheiro.** Por exemplo, se o mecanismo de autenticação do serviço ligado for identidade gerida, o espaço de trabalho Identidade Gerida deve ter pelo menos permissão do leitor blob de armazenamento na conta de armazenamento
 
@@ -362,7 +362,7 @@ Uma janela de diálogo abrir-se-á. Selecione piscina SQL ou SQL on-demand, dê 
 > [!div class="mx-imgBorder"]
 >![externa2](./media/develop-tables-external-tables/external-table-2.png)
 
-O Script SQL é gerado automaticamente inferindo o esquema a partir do ficheiro:
+O Script SQL é autogerado inferindo o esquema a partir do ficheiro:
 > [!div class="mx-imgBorder"]
 >![externa3](./media/develop-tables-external-tables/external-table-3.png)
 
@@ -374,6 +374,6 @@ A tabela externa é agora criada, para futura exploração do conteúdo desta ta
 > [!div class="mx-imgBorder"]
 >![externa5](./media/develop-tables-external-tables/external-table-5.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Verifique o artigo [CETAS](develop-tables-cetas.md) sobre como guardar os resultados da consulta para uma tabela externa no Azure Storage. Ou pode começar a consultar o [Apache Spark para as tabelas externas do Azure Synapse.](develop-storage-files-spark-tables.md)

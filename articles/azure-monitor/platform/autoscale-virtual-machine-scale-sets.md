@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 37245711008442acd0379a35b393ac88c3775482
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 96d8c32791bd968dd8740a2d4633496b42e9f3f4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505541"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91360978"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração avançada de autoescalação utilizando modelos de gestor de recursos para conjuntos de escala VM
 Pode escalar e escalar em conjuntos de escala de máquina virtual com base em limiares de métrica de desempenho, por um horário recorrente ou por uma data específica. Também pode configurar notificações de email e webhook para ações de escala. Este walkthrough mostra um exemplo de configuração de todos estes objetos usando um modelo de Gestor de Recursos num Conjunto de Escala VM.
@@ -36,7 +36,7 @@ Nesta passagem de walkthrough, utilizamos [o Azure Resource Explorer](https://re
 
 3. Pode agora adicionar mais perfis e regras com base no horário ou requisitos específicos. Criamos uma definição de autoescala com três perfis. Para compreender perfis e regras em autoescala, reveja [as Melhores Práticas de Autoscale.](autoscale-best-practices.md)  
 
-    | Regras & perfis | Descrição |
+    | Regras & perfis | Description |
     |--- | --- |
     | **Perfil** |**Baseado em desempenho/métrica** |
     | Regra |Contagem de mensagens de ônibus de serviço > x |
@@ -63,7 +63,7 @@ Nesta passagem de walkthrough, utilizamos [o Azure Resource Explorer](https://re
 
 6. Clique em Editar. **Substitua** o elemento 'perfis' na definição de autoescala pela seguinte configuração:
 
-    ![perfis](media/autoscale-virtual-machine-scale-sets/profiles.png)
+    ![A imagem mostra o elemento de perfis.](media/autoscale-virtual-machine-scale-sets/profiles.png)
 
     ```
     {

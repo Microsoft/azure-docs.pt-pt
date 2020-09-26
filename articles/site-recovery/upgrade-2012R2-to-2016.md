@@ -1,6 +1,6 @@
 ---
 title: Atualizar servidor do Windows/System Center VMM 2012 R2 para recuperação do site do Windows Server 2016-Azure
-description: Saiba como configurar a recuperação de desastres para Azure Stack VMs com o serviço de Recuperação do Local Azure.
+description: Saiba como atualizar os anfitriões do Windows Server 2012 R2 & SCVMM 2012 R2 que estão configurados com Azure Site Recovery, para Windows Server 2016 & SCVMM 2016.
 services: site-recovery
 author: Sharmistha-Rai
 manager: gaggupta
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: sharrai
-ms.openlocfilehash: 82e178d37074b22cd170d6b2478525dd2ea7ddf1
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: b9869ae7dfbf5afd6b8d3b870a2ad4e56fd54c1a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424329"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91250075"
 ---
 # <a name="upgrade-windows-server-serversystem-center-2012-r2-vmm-to-windows-servervmm-2016"></a>Upgrade Servidor do Servidor do Windows/Centro do Sistema 2012 R2 VMM para Windows Server/VMM 2016 
 
@@ -78,7 +78,7 @@ Antes de atualizar os seus anfitriões Windows Sever 2012 R2, tem de atualizar o
 3. In **Adicionar programas de remoção**, selecione **VMM**  >  **Desinstalar**. b. Selecione **Remover Funcionalidades**e, em seguida, selecione**V MM management Server e VMM Console**. c. Nas **Opções de Base de Dados,** selecione **Retena a base de dados**. d. Reveja o resumo e clique em **Desinstalar**.
 
 4. [Instalar VMM 2016](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#install-vmm-2016)
-5. Lance SCVMM e verifique o estado de cada anfitrião no separador **Tecidos.** Clique em **Refresh** para obter o estado mais recente. Devia ver o estatuto de "Precisa de atenção". 
+5. Lance o SCVMM e verifique o estado de verificação de cada anfitrião no **separador Tecidos.** Clique **em Refresh** para obter o estado mais recente. Devia ver o estatuto de "Precisa de atenção". 
 17. Instale o mais recente [Provedor de Recuperação do Site microsoft Azure](https://aka.ms/downloaddra) no SCVMM.
 16. Instale o mais recente [agente do Microsoft Azure Recovery Service (MARS)](https://aka.ms/latestmarsagent) em cada anfitrião do cluster. Refresque-se para garantir que o SCVMM seja capaz de consultar com sucesso os anfitriões.
 
@@ -96,7 +96,7 @@ Antes de atualizar os seus anfitriões Windows Sever 2012 R2, tem de atualizar o
 
 1.  Desinstale o fornecedor ASR navegando para Control Panel -> Programas e Funcionalidades -> ->Recuperação do Site microsoft Azure , e clique em Desinstalar
 2. Siga os passos [aqui](/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#upgrade-a-standalone-vmm-server) mencionados com base no modo de atualização que pretende executar.
-3. Lance a consola SCVMM e verifique o estado de cada anfitrião no separador **Fabrics.** Clique em **Refresh** para obter o estado mais recente. Devia ver o estatuto de "Precisa de atenção".
+3. Lance a consola SCVMM e verifique o estado de cada anfitrião no **separador Fabrics.** Clique **em Refresh** para obter o estado mais recente. Devia ver o estatuto de "Precisa de atenção".
 4. Instale o mais recente [Provedor de Recuperação do Site microsoft Azure](https://aka.ms/downloaddra) no SCVMM.
 5. Atualize o mais recente [agente do Microsoft Azure Recovery Service (MARS)](https://aka.ms/latestmarsagent) em cada anfitrião do cluster. Refresque-se para garantir que o SC VMM seja capaz de consultar com sucesso os anfitriões.
 
@@ -108,6 +108,6 @@ Antes de atualizar os seus anfitriões Windows Sever 2012 R2, tem de atualizar o
 3. Execute *actualização-VMVersion* para atualizar as versões VM das máquinas Virtuais. 
 4.  Vá ao portal Azure e verifique o estado de saúde replicado das máquinas virtuais dentro do Cofre dos Serviços de Recuperação. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Uma vez realizada a atualização dos anfitriões, pode efetuar um [teste falhado](tutorial-dr-drill-azure.md) para testar a saúde da sua replicação e estado de recuperação de desastres.
 

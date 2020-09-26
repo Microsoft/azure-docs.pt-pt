@@ -4,17 +4,17 @@ description: Este quickstart mostra como usar as ferramentas web para criar uma 
 services: synapse-analytics
 author: euangMS
 ms.author: euang
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
 ms.date: 04/15/2020
-ms.openlocfilehash: 4ca718db8d2d2d57c73e8e492e2edbee221cb3ec
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: aca58328ada4f01072cf3779735bcd5cb518ef0a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049813"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260772"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Quickstart: Criar uma piscina Apache Spark em Azure Synapse Analytics usando ferramentas web
 
@@ -49,7 +49,7 @@ Um caderno é um ambiente interativo que suporta várias linguagens de programa�
 4. Na janela **Propriedades,** forneça um nome para o caderno.
 5. Na barra de ferramentas, clique em **Publicar.**
 6. Se existe apenas uma piscina Apache Spark no seu espaço de trabalho, então é selecionada por padrão. Utilize o drop-down para selecionar a piscina Apache Spark correta se nenhuma for selecionada.
-7. Clique **em Adicionar código**. A língua padrão é `Pyspark` . Você vai usar uma mistura de Pyspark e Spark SQL, então a escolha padrão é bom.
+7. Clique **em Adicionar código**. A língua padrão é `Pyspark` . Você vai usar uma mistura de Pyspark e Spark SQL, então a escolha padrão é bom. Outras línguas suportadas são Scala e .NET para Spark.
 8. Em seguida, cria-se um simples objeto Spark DataFrame para manipular. Neste caso, cria-se a partir do código. Há três linhas e três colunas:
 
    ```python

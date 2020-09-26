@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: Aplicação TLS 1.2 para Azure Ative Directory Connect / Microsoft Docs'
-description: Este artigo lista todos os lançamentos de Azure AD Connect e Azure AD Sync
+description: Saiba como forçar o seu servidor Azure AD Connect a utilizar apenas a Segurança da Camada de Transporte (TLS) 1.2.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -15,12 +15,12 @@ ms.date: 10/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ff5c75785622b43e66b808009c4674d4b2f2b50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c610eb8fe6caf308117fa7adfc6e2f2a35c6352
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78300853"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325900"
 ---
 # <a name="tls-12-enforcement-for-azure-ad-connect"></a>Aplicação TLS 1.2 para Azure AD Connect
 
@@ -125,5 +125,5 @@ Pode utilizar o seguinte script PowerShell para desativar o TLS 1.2 no seu servi
     Write-Host 'TLS 1.2 has been disabled.'
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md)

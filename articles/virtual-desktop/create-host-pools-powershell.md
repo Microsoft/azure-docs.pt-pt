@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1275eab36e21ea6befdda13e14759a30ef5398a3
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: ce3b2b30b1ed421937c11e58bc014cc740b45480
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121158"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287292"
 ---
 # <a name="create-a-windows-virtual-desktop-host-pool-with-powershell"></a>Crie uma piscina de anfitriões virtual do Windows desktop com PowerShell
 
@@ -140,7 +140,7 @@ Para atualizar o agente:
      - Computador\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\RDInfraAgent
      - Computador\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MICROSOFT\RDAgentBootLoader
 
-6. Uma vez desinstalados estes itens, isto deve remover todas as associações com a antiga piscina de anfitriões. Se pretender voltar a inscrever este anfitrião no serviço, siga as instruções no [Registo das máquinas virtuais para o pool de anfitriões virtual do Ambiente de Trabalho WIndows](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
+6. Uma vez desinstalados estes itens, isto deve remover todas as associações com a antiga piscina de anfitriões. Se pretender voltar a inscrever este anfitrião no serviço, siga as instruções no [Registo das máquinas virtuais para a piscina de anfitriões virtual do Windows Desktop](create-host-pools-powershell.md#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
 
 
 ## <a name="next-steps"></a>Passos seguintes

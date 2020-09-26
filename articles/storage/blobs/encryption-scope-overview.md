@@ -4,17 +4,17 @@ description: Os âmbitos de encriptação fornecem a capacidade de gerir a encri
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 09/17/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 041b0bf57f57fd8ddd74c8330888d75e31aacc83
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6fb3c9b6dbbab036ddb00edd7e1d5980bb425ebe
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90996403"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91326121"
 ---
 # <a name="encryption-scopes-for-blob-storage-preview"></a>Âmbitos de encriptação para armazenamento blob (pré-visualização)
 
@@ -22,7 +22,7 @@ Os âmbitos de encriptação fornecem a capacidade de gerir a encriptação ao n
 
 Por padrão, uma conta de armazenamento é encriptada com uma chave que é telescópio em toda a conta de armazenamento. Com um âmbito de encriptação, pode especificar que um ou mais contentores são encriptados com uma chave que é apenas traçada para esses contentores.
 
-Pode optar por utilizar as teclas geridas pela Microsoft ou as teclas geridas pelo cliente armazenadas no Cofre de Chaves Azure ou no Key Vault Managed Hardware Security Model (HSM) (pré-visualização) para proteger e controlar o acesso à chave que encripta os seus dados. Diferentes âmbitos de encriptação na mesma conta de armazenamento podem utilizar chaves geridas pela Microsoft ou geridas pelo cliente.
+Pode optar por utilizar as teclas geridas pela Microsoft ou as teclas geridas pelo cliente armazenadas no Cofre da Chave Azure para proteger e controlar o acesso à chave que encripta os seus dados. Diferentes âmbitos de encriptação na mesma conta de armazenamento podem utilizar chaves geridas pela Microsoft ou geridas pelo cliente.
 
 Depois de ter criado um âmbito de encriptação, pode especificar esse âmbito de encriptação num pedido de criação de um recipiente ou de uma bolha. Para obter mais informações sobre como criar um âmbito de encriptação, consulte [Criar e gerir os âmbitos de encriptação (pré-visualização)](encryption-scope-manage.md).
 
@@ -50,7 +50,7 @@ Quando desativar um âmbito de encriptação, quaisquer operações de leitura o
 
 Quando um âmbito de encriptação é desativado, já não é cobrado por isso. Desative quaisquer âmbitos de encriptação que não sejam necessários para evitar encargos desnecessários.
 
-Se o seu âmbito de encriptação estiver protegido com teclas geridas pelo cliente, também pode eliminar a chave associada no cofre de teclas ou gerir o HSM de forma a desativar o âmbito de encriptação. Tenha em mente que as chaves geridas pelo cliente estão protegidas por proteção de eliminação e purga suave no cofre ou HSM gerido, e uma chave eliminada está sujeita ao comportamento definido por essas propriedades. Para mais informações, consulte um dos seguintes tópicos na documentação do Cofre chave Azure:
+Se o seu âmbito de encriptação estiver protegido com teclas geridas pelo cliente, também pode eliminar a chave associada no cofre de teclas para desativar o âmbito de encriptação. Tenha em mente que as chaves geridas pelo cliente estão protegidas por proteção de eliminação e purga suave no cofre da chave, e uma chave eliminada está sujeita ao comportamento definido por essas propriedades. Para mais informações, consulte um dos seguintes tópicos na documentação do Cofre chave Azure:
 
 - [Como utilizar soft-delete com PowerShell](../../key-vault/general/soft-delete-powershell.md)
 - [Como usar soft-delete com CLI](../../key-vault/general/soft-delete-cli.md)

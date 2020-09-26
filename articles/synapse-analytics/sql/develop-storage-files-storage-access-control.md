@@ -8,13 +8,13 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: fd4cc4cfa7b7be9085ac404cab7fc7447b6d66a7
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.reviewer: jrasnick
+ms.openlocfilehash: b3df83bc68cfa1952238b792fceffe57c0dc0ce7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987142"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91288941"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Acesso à conta de armazenamento de controlo para SQL a pedido (pré-visualização)
 
@@ -53,7 +53,7 @@ Pode obter um token SAS navegando para o **portal Azure -> Storage Account -> As
 >
 > Sas token: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&&&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
-É necessário criar credenciais de âmbito de base de dados ou de âmbito de servidor para permitir o acesso através do token SAS.
+Para ativar o acesso através de um token SAS, é necessário criar uma credencial de âmbito de base de dados ou de âmbito de servidor 
 
 ### <a name="managed-identity"></a>[Identidade Gerida](#tab/managed-identity)
 
@@ -87,7 +87,7 @@ Pode utilizar as seguintes combinações de autorizações e tipos de armazename
 | [Identidade Gerida](?tabs=managed-identity#supported-storage-authorization-types) | Suportado      | Suportado        | Suportado     |
 | [Identidade do Utilizador](?tabs=user-identity#supported-storage-authorization-types)    | Suportado\*      | Suportado\*        | Suportado\*     |
 
-\*O token SAS e a identidade AD Ad Azure podem ser usados para aceder a um armazenamento que não esteja protegido com firewall.
+\* O token SAS e o AD Identity Azure podem ser usados para aceder a armazenamento que não esteja protegido com firewall.
 
 > [!IMPORTANT]
 > Ao aceder ao armazenamento protegido com a firewall, apenas a Identidade Gerida pode ser utilizada. Precisa de [permitir serviços de confiança da Microsoft... definição](../../storage/common/storage-network-security.md#trusted-microsoft-services) e atribuição explicitamente [de um papel Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) à [identidade gerida atribuída pelo sistema](../../active-directory/managed-identities-azure-resources/overview.md) para essa instância de recursos. Neste caso, o âmbito de acesso, por exemplo, corresponde à função Azure atribuída à identidade gerida.
@@ -119,7 +119,7 @@ Para garantir uma experiência de passagem AD Azure suave, todos os utilizadores
 
 ## <a name="server-scoped-credential"></a>Credencial de âmbito do servidor
 
-As credenciais de âmbito do servidor são utilizadas quando as chamadas de login do SQL `OPENROWSET` funcionam sem `DATA_SOURCE` ler ficheiros em alguma conta de armazenamento. O nome da credencial com âmbito de servidor **deve** coincidir com o URL do armazenamento Azure. Uma credencial é adicionada executando [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest). Terá de fornecer um argumento DE NOME CREDENTIAL. Deve coincidir com qualquer parte do caminho ou todo o caminho para os dados no Armazenamento (ver abaixo).
+As credenciais de âmbito do servidor são utilizadas quando as chamadas de login do SQL `OPENROWSET` funcionam sem `DATA_SOURCE` ler ficheiros em alguma conta de armazenamento. O nome da credencial com âmbito de servidor **deve** coincidir com o URL do armazenamento Azure. Uma credencial é adicionada executando [CREATE CREDENTIAL](/sql/t-sql/statements/create-credential-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Terá de fornecer um argumento DE NOME CREDENTIAL. Deve coincidir com qualquer parte do caminho ou todo o caminho para os dados no Armazenamento (ver abaixo).
 
 > [!NOTE]
 > O `FOR CRYPTOGRAPHIC PROVIDER` argumento não é apoiado.
@@ -138,7 +138,7 @@ Credenciais de âmbito do servidor permitem o acesso ao armazenamento Azure util
 
 Os utilizadores de AZure AD podem aceder a qualquer ficheiro no armazenamento Azure se `Storage Blob Data Owner` `Storage Blob Data Contributor` tiverem, ou `Storage Blob Data Reader` função. Os utilizadores de AD Azure não precisam de credenciais para aceder ao armazenamento. 
 
-Os utilizadores do SQL não podem utilizar a autenticação AZURE AD para aceder ao armazenamento.
+Os utilizadores do SQL não podem utilizar a autenticação AZure AD para aceder ao armazenamento.
 
 ### <a name="shared-access-signature"></a>[Assinatura de acesso partilhado](#tab/shared-access-signature)
 
@@ -170,7 +170,7 @@ A credencial de âmbito de dados não é necessária para permitir o acesso a fi
 
 ## <a name="database-scoped-credential"></a>Credencial de âmbito de base de dados
 
-As credenciais de âmbito de base de dados são utilizadas quando qualquer função de chamadas principais `OPENROWSET` ou `DATA_SOURCE` seleciona dados de [tabelas externas](develop-tables-external-tables.md) que não acedam a ficheiros públicos. A credencial de base de dados não precisa de corresponder ao nome da conta de armazenamento porque será explicitamente utilizada na DATA SOURCE que define a localização do armazenamento.
+As credenciais de âmbito de base de dados são utilizadas quando qualquer função de chamadas principais `OPENROWSET` ou `DATA_SOURCE` seleciona dados de [tabelas externas](develop-tables-external-tables.md) que não acedam a ficheiros públicos. A credencial de base de dados não precisa de corresponder ao nome da conta de armazenamento. Será explicitamente utilizado na DATA SOURCE que define a localização do armazenamento.
 
 As credenciais de âmbito de base de dados permitem o acesso ao armazenamento Azure utilizando os seguintes tipos de autenticação:
 
@@ -184,7 +184,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 )
 ```
 
-Os utilizadores do SQL não podem utilizar a autenticação AZURE AD para aceder ao armazenamento.
+Os utilizadores do SQL não podem utilizar a autenticação AZure AD para aceder ao armazenamento.
 
 ### <a name="shared-access-signature"></a>[Assinatura de acesso partilhado](#tab/shared-access-signature)
 
@@ -309,7 +309,7 @@ WITH ( LOCATION = 'parquet/user-data/*.parquet',
 
 ```
 
-O utilizador da base de dados pode ler o conteúdo dos ficheiros a partir da fonte de dados utilizando [a tabela externa](develop-tables-external-tables.md) ou a função [OPENROWSET](develop-openrowset.md) que faz referência à fonte de dados:
+O utilizador da base de dados pode ler o conteúdo dos ficheiros a partir da fonte de dados utilizando [a tabela externa](develop-tables-external-tables.md) ou a função [OPENROWSET](develop-openrowset.md)  que faz referência à fonte de dados:
 
 ```sql
 SELECT TOP 10 * FROM dbo.userdata;

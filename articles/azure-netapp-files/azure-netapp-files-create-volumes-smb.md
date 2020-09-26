@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/16/2020
+ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 6a90a4ad44bff392b5fe6cd0af13313bd98ce2a6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: e2c487b62813bc4480786daa08666fe6471bd18d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90988328"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325713"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -255,7 +255,7 @@ Esta definição está configurada nas Ligações de **Diretório Ativo** na **C
 
         Um nome de volume deve ser único dentro de cada piscina de capacidade. Deve ter pelo menos três caracteres de comprimento. Pode usar qualquer caracteres alfanuméricos.   
 
-        Não pode usar `default` como nome de volume.
+        Não pode usar `default` ou como nome de `bin` volume.
 
     * **Piscina de capacidade**  
         Especifique o pool de capacidade onde deseja que o volume seja criado.
@@ -264,6 +264,11 @@ Esta definição está configurada nas Ligações de **Diretório Ativo** na **C
         Especifique a quantidade de armazenamento lógico que está atribuída ao volume.  
 
         O campo **Quota disponível** mostra a quantidade de espaço não utilizado no conjunto de capacidade escolhido que pode usar para criar um novo volume. O tamanho do novo volume não pode exceder a quota disponível.  
+
+    * **Produção (MiB/S)**   
+        Se o volume for criado num pool manual de capacidade QoS, especifique a produção desejada para o volume.   
+
+        Se o volume for criado num pool de capacidade auto QoS, o valor apresentado neste campo é (rendimento de nível de serviço quota x).   
 
     * **Rede virtual**  
         Especifique a rede virtual Azure (VNet) a partir da qual pretende aceder ao volume.  

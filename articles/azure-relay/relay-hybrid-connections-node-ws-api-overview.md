@@ -3,13 +3,13 @@ title: Visão geral das APIs do Nó de Relé Azure Microsoft Docs
 description: Este artigo fornece uma visão geral da API Node.js para o serviço Azure Relay. Também mostra como usar o pacote hyco-ws Node.
 ms.topic: article
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 67d818a95d63b3097f81f799a287fb4c48a1cfb7
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-js
+ms.openlocfilehash: 558f49c09203192ff4cbb1af392eaeef8d705c94
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386253"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91263492"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Visão geral da API do relé híbrido de ligações híbridas
 
@@ -48,10 +48,10 @@ var uri = createRelayListenUri([namespaceName], [path], [[token]], [[id]])
 
 Cria um URI de ligação híbrido Azure Relay válido para o espaço e caminho de nome dado. Este URI pode então ser usado com a versão de retransmissão da classe WebSocketServer.
 
-- `namespaceName`(obrigatório) - o nome qualificado para o domínio do espaço de identificação Azure Relay para utilizar.
-- `path`(obrigatório) - o nome de uma conexão híbrida Azure Relay existente nesse espaço de nome.
-- `token`(opcional) - um token de acesso retransmissor previamente emitido que está incorporado no URI do ouvinte (ver exemplo a seguir).
-- `id`(opcional) - um identificador de rastreio que permite o rastreio dos pedidos de diagnóstico de ponta a ponta.
+- `namespaceName` (obrigatório) - o nome qualificado para o domínio do espaço de identificação Azure Relay para utilizar.
+- `path` (obrigatório) - o nome de uma conexão híbrida Azure Relay existente nesse espaço de nome.
+- `token` (opcional) - um token de acesso retransmissor previamente emitido que está incorporado no URI do ouvinte (ver exemplo a seguir).
+- `id` (opcional) - um identificador de rastreio que permite o rastreio dos pedidos de diagnóstico de ponta a ponta.
 
 O `token` valor é opcional e só deve ser utilizado quando não é possível enviar cabeçalhos HTTP juntamente com o aperto de mão WebSocket, como é o caso da stack W3C WebSocket.                  
 
@@ -64,10 +64,10 @@ var uri = createRelaySendUri([namespaceName], [path], [[token]], [[id]])
 
 Cria uma conexão híbrida Azure Relay válida enviar URI para o espaço e caminho de nome dado. Este URI pode ser usado com qualquer cliente WebSocket.
 
-- `namespaceName`(obrigatório) - o nome qualificado para o domínio do espaço de identificação Azure Relay para utilizar.
-- `path`(obrigatório) - o nome de uma conexão híbrida Azure Relay existente nesse espaço de nome.
-- `token`(opcional) - um token de acesso retransmissor previamente emitido que está incorporado no URI de envio (ver exemplo a seguir).
-- `id`(opcional) - um identificador de rastreio que permite o rastreio dos pedidos de diagnóstico de ponta a ponta.
+- `namespaceName` (obrigatório) - o nome qualificado para o domínio do espaço de identificação Azure Relay para utilizar.
+- `path` (obrigatório) - o nome de uma conexão híbrida Azure Relay existente nesse espaço de nome.
+- `token` (opcional) - um token de acesso retransmissor previamente emitido que está incorporado no URI de envio (ver exemplo a seguir).
+- `id` (opcional) - um identificador de rastreio que permite o rastreio dos pedidos de diagnóstico de ponta a ponta.
 
 O `token` valor é opcional e só deve ser utilizado quando não é possível enviar cabeçalhos HTTP juntamente com o aperto de mão WebSocket, como é o caso da stack W3C WebSocket.                   
 
@@ -80,10 +80,10 @@ var token = createRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 
 Cria um token de assinatura de acesso compartilhado Azure Relay (SAS) para a regra URI, regra SAS e SAS que é válida para o número de segundos dado ou por uma hora a partir do instante atual se o argumento de expiração for omitido.
 
-- `uri`(obrigatório) - o URI para o qual o símbolo deve ser emitido. O URI é normalizado para usar o esquema HTTP, e a informação de cadeia de consulta é despojada.
-- `ruleName`(obrigatório) - Nome da regra SAS para a entidade representada pelo URI dado, ou para o espaço de nome representado pela parte de anfitrião URI.
-- `key`(obrigatório) - chave válida para a regra SAS. 
-- `expirationSeconds`(opcional) - o número de segundos até ao termo do token gerado. Se não for especificado, o predefinido é de 1 hora (3600).
+- `uri` (obrigatório) - o URI para o qual o símbolo deve ser emitido. O URI é normalizado para usar o esquema HTTP, e a informação de cadeia de consulta é despojada.
+- `ruleName` (obrigatório) - Nome da regra SAS para a entidade representada pelo URI dado, ou para o espaço de nome representado pela parte de anfitrião URI.
+- `key` (obrigatório) - chave válida para a regra SAS. 
+- `expirationSeconds` (opcional) - o número de segundos até ao termo do token gerado. Se não for especificado, o predefinido é de 1 hora (3600).
 
 O token emitido confere os direitos associados à regra SAS especificada durante a duração determinada.
 
@@ -118,12 +118,12 @@ O `RelayedServer` construtor suporta um conjunto diferente de argumentos que o ,
 
 Argumentos construtores:
 
-- `server`(obrigatório) - o URI totalmente qualificado para um nome de ligação híbrida no qual ouvir, geralmente construído com o método de ajuda WebSocket.createRelayListenUri().
-- `token`(obrigatório) - este argumento detém uma corda simbólica previamente emitida ou uma função de retorno que pode ser chamada para obter tal corda simbólica. A opção de retorno é preferida, pois permite a renovação do sinal.
+- `server` (obrigatório) - o URI totalmente qualificado para um nome de ligação híbrida no qual ouvir, geralmente construído com o método de ajuda WebSocket.createRelayListenUri().
+- `token` (obrigatório) - este argumento detém uma corda simbólica previamente emitida ou uma função de retorno que pode ser chamada para obter tal corda simbólica. A opção de retorno é preferida, pois permite a renovação do sinal.
 
 #### <a name="events"></a>Eventos
 
-`RelayedServer`casos emitem três eventos que lhe permitem lidar com pedidos de entrada, estabelecer ligações e detetar condições de erro. Tem de subscrever o `connect` evento para lidar com mensagens. 
+`RelayedServer` casos emitem três eventos que lhe permitem lidar com pedidos de entrada, estabelecer ligações e detetar condições de erro. Tem de subscrever o `connect` evento para lidar com mensagens. 
 
 ##### <a name="headers"></a>cabeçalhos
 
@@ -198,7 +198,7 @@ WebSocket.relayedConnect(
 );
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre o Azure Relay, visite estes links:
 * [O que é o Azure Relay?](relay-what-is-it.md)
 * [APIs de retransmissão disponível](relay-api-overview.md)

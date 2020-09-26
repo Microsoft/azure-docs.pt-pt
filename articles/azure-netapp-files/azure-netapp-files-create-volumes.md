@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: 141b19ca73c3465e59d8c94a3bdc3657d0900b8d
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 413d1f787a39a5a79b94fa06b49436b49337d286
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458927"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91325594"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Criar um volume NFS para o Azure NetApp Files
 
@@ -62,7 +62,7 @@ O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NF
 
         Um nome de volume deve ser único dentro de cada piscina de capacidade. Deve ter pelo menos três caracteres de comprimento. Pode usar qualquer caracteres alfanuméricos.   
 
-        Não pode usar `default` como nome de volume.
+        Não pode usar `default` ou como nome de `bin` volume.
 
     * **Piscina de capacidade**  
         Especifique o pool de capacidade onde deseja que o volume seja criado.
@@ -71,6 +71,11 @@ O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NF
         Especifique a quantidade de armazenamento lógico que está atribuída ao volume.  
 
         O campo **Quota disponível** mostra a quantidade de espaço não utilizado no conjunto de capacidade escolhido que pode usar para criar um novo volume. O tamanho do novo volume não pode exceder a quota disponível.  
+
+    * **Produção (MiB/S)**   
+        Se o volume for criado num pool manual de capacidade QoS, especifique a produção desejada para o volume.   
+
+        Se o volume for criado num pool de capacidade auto QoS, o valor apresentado neste campo é (rendimento de nível de serviço quota x).   
 
     * **Rede virtual**  
         Especifique a rede virtual Azure (VNet) a partir da qual pretende aceder ao volume.  
@@ -118,7 +123,7 @@ O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NF
     Um volume herda a subscrição, grupo de recursos e atributos de localização do seu conjunto de capacidade. Para monitorizar o estado da implementação do volume, pode utilizar o separador Notificações.
 
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 * [Configurar o domínio predefinido do NFSv 4.1 para o Azure NetApp Files](azure-netapp-files-configure-nfsv41-domain.md)
 * [Configurar a encriptação Kerberos NFSv4.1](configure-kerberos-encryption.md)

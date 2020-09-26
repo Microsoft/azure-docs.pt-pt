@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 04/15/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0e4b96092107e3411f33411f1044fd7cc839f132
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 98fc8b23369f961ca023832430d47c8868e42158
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052002"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91260670"
 ---
 # <a name="azure-synapse-analytics-cheat-sheet"></a>Folha de batota Azure Synapse Analytics
 
@@ -26,17 +26,17 @@ A folha de batota Azure Synapse Analytics irá guiá-lo através dos conceitos b
 
 Um espaço de **trabalho da Sinapse** é um limite de colaboração garantido para fazer análises empresariais baseadas na nuvem em Azure. Um espaço de trabalho é implantado numa região específica e tem um sistema de conta e ficheiro ADLS Gen2 associado (para armazenar dados temporários). Um espaço de trabalho está sob um grupo de recursos.
 
-Um espaço de trabalho permite-lhe realizar análises com faísca SQL e Apache. Os recursos disponíveis para análises SQL e Spark estão organizados em **piscinas.** Há três tipos de piscinas.
-* **Piscinas SQL.** Estes fornecem capacidade de análise **SQL dedicada.**
-* **Piscina a pedido SQL.** Cada espaço de trabalho tem exatamente uma piscina a pedido sql. Isto fornece capacidade de análise SQL **sem servidor** numa base de consulta.
-* **Piscinas de faíscas.** Estes fornecem capacidade de análise de faíscas.
+Um espaço de trabalho permite-lhe realizar análises com faísca SQL e Apache. Os recursos disponíveis para análises SQL e Spark estão organizados em **piscinas**SQL e Spark. 
+
+## <a name="synapse-sql"></a>SQL do Synapse
+**O SQL de Sinapse** é a capacidade de fazer análises baseadas em T-SQL no espaço de trabalho da Synapse. O Synapse SQL tem dois modelos de consumo: dedicados e sem servidor.  Para o modelo dedicado, utilize **piscinas SQL dedicadas.** Um espaço de trabalho pode ter qualquer nubmer destas piscinas. Para utilizar o modelo sem servidor, utilize a piscina SQL sem servidor chamada "SQL on demand". Cada espaço de trabalho tem uma destas piscinas.
+
+## <a name="apache-spark-for-synapse"></a>Faísca apache para sinapse
+Para utilizar a análise spark, crie e use **piscinas Spark** no seu espaço de trabalho Synapse.
+
 ## <a name="terminology"></a>Terminologia
 | Termo                         | Definição      |
 |:---                                 |:---                 |
-| **Espaço de trabalho sinapse** | Um limite de colaboração securável para fazer análises empresariais baseadas em nuvem em Azure. Um espaço de trabalho é implantado numa região específica e tem um sistema de conta e ficheiro ADLS Gen2 associado (para armazenar dados temporários). Um espaço de trabalho está sob um grupo de recursos. |
-| **SQL do Synapse**   | Executar análises com piscinas ou com capacidades a pedido.  |
-| **Conjunto de SQL**   | Os recursos a provisionados de 0 a N SQL com as respetivas bases de dados podem ser implantados num espaço de trabalho. Cada piscina SQL tem uma base de dados associada. Uma piscina SQL pode ser dimensionada, pausada e retomada manualmente ou automaticamente. Uma piscina SQL pode escalar de 100 DWU até 30.000 DWU.       |
-| **SQL a pedido**   | Sistema de processamento de dados distribuído construído para dados em larga escala que permite executar consultas T-SQL sobre dados em data lake. É sem servidor, por isso não precisa de gerir a infraestrutura.       |
 |**Faísca apache para sinapse** | Tempo de corrida de faísca usado numa piscina de faíscas. A versão atual suportada é Spark 2.4 com Python 3.6.1, Scala 2.11.12, suporte .NET para Apache Spark 0.5 e Delta Lake 0.3.  | 
 | **Piscina de faíscas Apache**  | Os recursos ateados 0-a-N Spark com as respetivas bases de dados podem ser implantados num espaço de trabalho. Uma piscina spark pode ser auto-pausada, retomada e escalada.  |
 | **Aplicação de faísca**  |   Consiste num processo de condutor e num conjunto de processos de executor. Uma aplicação Spark funciona numa piscina de faíscas.            |
