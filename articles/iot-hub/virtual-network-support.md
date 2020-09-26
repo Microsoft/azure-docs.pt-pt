@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 09/24/2020
 ms.author: jlian
-ms.openlocfilehash: fadcefb0b802ec3064ac917ab98320f61f24ae5c
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: eb25fc0d7831bc06b708431ce3d47c73b36fe5c6
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033528"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281255"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Suporte ioT Hub para redes virtuais com Ligação Privada e Identidade Gerida
 
@@ -236,7 +236,7 @@ A funcionalidade de upload de ficheiros do IoT Hub permite que os dispositivos c
 
 4. Na página de recursos do seu IoT Hub, navegue para **o separador de upload de ficheiros.**
 
-5. Na página que aparece, selecione o recipiente que pretende utilizar no seu armazenamento de bolhas, configufique as **definições de notificação de ficheiros,** **SAS TTL,** **TTL Padrão**e **contagem máxima de entrega** conforme desejado. Selecione **a identidade como** o tipo de **autenticação** para o seu ponto final de armazenamento. Clique no botão **Criar**.
+5. Na página que aparece, selecione o recipiente que pretende utilizar no seu armazenamento de bolhas, configufique as **definições de notificação de ficheiros,** **SAS TTL,** **TTL Padrão**e **contagem máxima de entrega** conforme desejado. Selecione **a identidade como** o tipo de **autenticação** para o seu ponto final de armazenamento. Clique no botão **Criar**. Se tiver um erro neste passo, desapedaça temporariamente a sua conta de armazenamento para permitir o acesso a partir de **todas as redes,** e tente novamente. Pode configurar firewall na conta de armazenamento assim que a configuração de upload do Ficheiro estiver concluída.
 
 Agora, o seu ponto final de armazenamento para upload de ficheiros está configurado para usar a identidade atribuída ao sistema do seu hub, e tem permissão para aceder ao seu recurso de armazenamento, apesar das restrições de firewall.
 
@@ -289,7 +289,7 @@ Para Python, baixe a nossa versão limitada do GitHub.
     > pip instalar ./azure_iot_hub-2.2.0_limited-py2.py3-none-any.whl
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Use os links abaixo para saber mais sobre as funcionalidades do IoT Hub:
 

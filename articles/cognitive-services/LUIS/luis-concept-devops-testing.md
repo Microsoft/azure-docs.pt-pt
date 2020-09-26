@@ -1,14 +1,16 @@
 ---
 title: Teste para DevOps para apps LUIS
 description: Como testar a sua aplicação de Compreensão linguística (LUIS) num ambiente DevOps.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: 2556d2e904aff720bc02e4c7d58bf5a72af4d413
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c41e9fe1f197334bce27241ab9f28309c92f7e0a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538076"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316550"
 ---
 # <a name="testing-for-luis-devops"></a>Teste para LUIS DevOps
 
@@ -131,7 +133,7 @@ O resultado desta formação não determinística é que você pode obter uma re
 
 Se pretender desativar a formação não determinística para as versões de aplicações LUIS que está a construir para efeitos de teste, utilize as [definições de versão API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) com a `UseAllTrainingData` definição definida para `true` .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a implementação de fluxos de trabalho ci/CD](luis-concept-devops-automation.md)
 * Saiba como [implementar DevOps para LUIS com GitHub](luis-how-to-devops-with-github.md)

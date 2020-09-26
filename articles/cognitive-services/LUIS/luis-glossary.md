@@ -1,14 +1,16 @@
 ---
 title: Glossário - LUIS
 description: O glossário explica os termos que poderá encontrar enquanto trabalha com o Serviço LUIS API.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 05/08/2020
-ms.openlocfilehash: 44749648559994d986e4d84b06f38369850de6ca
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0f17e489cabb047ca2e9f0ad7406c34cd292e556
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836416"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91309494"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de compreensão linguística do vocabulário e conceitos comuns
 O glossário de Compreensão linguística (LUIS) explica termos que poderá encontrar enquanto trabalha com o serviço LUIS.
@@ -192,7 +194,7 @@ Em LUIS, [rotula-se](label-entity-example-utterance.md) uma palavra ou frase no 
 
 Consulte a definição para [aplicação (app)](#application-app).
 
-## <a name="model"></a>Modelo
+## <a name="model"></a>Modelação
 
 Um modelo (aprendido com máquina) é uma função que faz uma previsão sobre os dados de entrada. No LUIS, referimo-nos a classificadores de intenção e extratores de entidades genericamente como "modelos", e referimo-nos a uma coleção de modelos que são treinados, publicados e consultados em conjunto como uma "app".
 
@@ -283,7 +285,7 @@ Nas [entidades da lista](reference-entity-list.md)LUIS, pode criar um valor norm
 
 |Valor nãomalizado| Sinónimos|
 |--|--|
-|Small| o pequenino, 8 onça|
+|Pequeno| o pequenino, 8 onça|
 |Médio| regular, 12 onça|
 |Grande| grande, 16 onça|
 |Xtra grande| o maior, 24 onças|
@@ -309,7 +311,7 @@ Para **inglês**, um símbolo é um vão contínuo (sem espaços ou pontuação)
 |--|--|--|
 |`Dog`|1|Uma única palavra sem pontuação ou espaços.|
 |`RMT33W`|1|Um número de localizador de registos. Pode ter números e letras, mas não tem qualquer pontuação.|
-|`425-555-5555`|5|Um número de telefone. Cada marca de pontuação é um único símbolo, por isso `425-555-5555` seriam 5 fichas:<br>`425`<br>`-`<br>`555`<br>`-`<br>`5555` |
+|`425-555-5555`|5|Um número de telefone. Cada marca de pontuação é um único símbolo, por isso  `425-555-5555` seriam 5 fichas:<br>`425`<br>`-`<br>`555`<br>`-`<br>`5555` |
 |`https://luis.ai`|7|`https`<br>`:`<br>`/`<br>`/`<br>`luis`<br>`.`<br>`ai`<br>|
 
 ## <a name="train"></a>Preparar

@@ -7,17 +7,17 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 50546a3efc008e074f4e7831d2cc657539b2f98b
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: e98bfbf58c179fe9df0d99e0522e5747d220ae52
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612323"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317026"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>As melhores práticas de configuração do cluster (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -27,7 +27,7 @@ Um cluster é utilizado para alta disponibilidade e recuperação de desastres (
 Este artigo fornece as melhores práticas de configuração do cluster para ambos os [casos de cluster failover (FCIs)](failover-cluster-instance-overview.md) e [grupos de disponibilidade](availability-group-overview.md) quando os utiliza com SQL Server em VMs Azure. 
 
 
-## <a name="networking"></a>Rede
+## <a name="networking"></a>Redes
 
 Utilize um único NIC por servidor (nó de cluster) e uma única sub-rede. O networking Azure tem redundância física, o que torna niCs adicionais e sub-redes desnecessários num cluster de hóspedes virtuais Azure. O relatório de validação do cluster irá avisá-lo de que os nós são alcançáveis apenas numa única rede. Pode ignorar este aviso em aglomerados de failover de hóspedes virtuais da Azure.
 
@@ -144,7 +144,7 @@ Nas Máquinas Virtuais Azure, o MSDTC não é suportado para Windows Server 2016
 - O equilibrador de carga básico não lida com portas RPC.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de ter determinado as melhores práticas adequadas para a sua solução, começa por [preparar o seu SQL Server VM para a FCI](failover-cluster-instance-prepare-vm.md). Também pode criar o seu grupo de disponibilidade utilizando os modelos [Azure CLI](availability-group-az-cli-configure.md), ou [Azure quickstart](availability-group-quickstart-template-configure.md). 
 

@@ -3,12 +3,12 @@ title: Mobilizar recursos para inquilino
 description: Descreve como implantar recursos no âmbito do inquilino num modelo de Gestor de Recursos Azure.
 ms.topic: conceptual
 ms.date: 09/24/2020
-ms.openlocfilehash: af75e4f0e51ac685986e57b3b92a23dd37174460
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 48b3fbcedb119ae699624e79f83297f4ecbc9ede
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284764"
+ms.locfileid: "91372396"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Criar recursos ao nível dos inquilinos
 
@@ -24,7 +24,7 @@ Para políticas de Azure, utilize:
 * [políticasDefinições](/azure/templates/microsoft.authorization/policydefinitions)
 * [políticasSetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 
-Para o controlo de acesso baseado em funções, utilize:
+Para o controlo de acesso baseado em funções Azure (Azure RBAC), utilize:
 
 * [papéAs de assinaturas](/azure/templates/microsoft.authorization/roleassignments)
 
@@ -64,7 +64,7 @@ O principal que implementa o modelo deve ter permissões para criar recursos no 
 
 O Administrador Global do Diretório Ativo Azure não tem automaticamente permissão para atribuir funções. Para permitir a implementação do modelo no âmbito do inquilino, o Administrador Global deve fazer os seguintes passos:
 
-1. Elevar o acesso à conta para que o Administrador Global possa atribuir funções. Para obter mais informações, consulte [o acesso elevate para gerir todas as subscrições e grupos de gestão da Azure.](../../role-based-access-control/elevate-access-global-admin.md)
+1. Elevar o acesso à conta para que o Administrador Global possa atribuir funções. Para obter mais informações, consulte [o acesso da Elevate para gerir todas as subscrições e grupos de gestão da Azure.](../../role-based-access-control/elevate-access-global-admin.md)
 
 1. Atribua proprietário ou colaborador ao principal que precisa de implementar os modelos.
 

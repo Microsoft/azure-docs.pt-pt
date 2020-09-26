@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 1/8/2019
-ms.openlocfilehash: 84f5a8f638e4a9525b330277ff1eaa26ba035e1a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3d23ee6119b625e11ce44bb9ad11ce4b3ee0280d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907410"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295741"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Criar utilizadores na Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 
@@ -28,7 +28,7 @@ O motor PostgreSQL utiliza [funções](https://www.postgresql.org/docs/current/s
 * `postgres`
 * `citus`
 
-Uma vez que o Hyperscale é um serviço PaaS gerido, apenas a Microsoft pode iniciar súbsento com a `postgres` função de super utilizador. Para um acesso administrativo limitado, a Hyperscale fornece o `citus` papel.
+Uma vez que hyperscale (Citus) é um serviço PaaS gerido, apenas a Microsoft pode iniciar súbb pouco com a `postgres` função de super utilizador. Para um acesso administrativo limitado, a Hyperscale (Citus) fornece o `citus` papel.
 
 Permissões para o `citus` papel:
 
@@ -46,7 +46,7 @@ Notavelmente, o `citus` papel tem algumas restrições:
 
 Como mencionado, a `citus` conta de administração carece de permissão para criar utilizadores adicionais. Para adicionar um utilizador, utilize a interface do portal Azure.
 
-1. Aceda à página **Roles** para o seu grupo de servidor Hyperscale e clique **+ Adicionar**+
+1. Aceda à página **Roles** para o seu grupo de servidor Hyperscale (Citus) e clique **em + Adicionar**:
 
    :::image type="content" source="media/howto-hyperscale-create-users/1-role-page.png" alt-text="A página de papéis":::
 
@@ -75,7 +75,7 @@ GRANT SELECT ON ALL TABLES IN SCHEMA public TO db_user;
 
 ## <a name="how-to-delete-a-user-role-or-change-their-password"></a>Como eliminar uma função de utilizador ou alterar a sua palavra-passe
 
-Para atualizar um utilizador, visite a página **Roles** para o seu grupo de servidor Hyperscale e clique nas elipses... ao lado do utilizador. **...** As elipses abrirão um menu para eliminar o utilizador ou redefinir a sua palavra-passe.
+Para atualizar um utilizador, visite a página **Roles** para o seu grupo de servidor Hyperscale (Citus) e clique nas elipses... ao lado do utilizador. **...** As elipses abrirão um menu para eliminar o utilizador ou redefinir a sua palavra-passe.
 
    :::image type="content" source="media/howto-hyperscale-create-users/edit-role.png" alt-text="Editar um papel":::
 

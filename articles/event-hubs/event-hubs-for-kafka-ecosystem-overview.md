@@ -2,13 +2,13 @@
 title: Use o centro de eventos da aplicação Apache Kafka - Azure Event Hubs ! Microsoft Docs
 description: Este artigo fornece informações sobre o suporte da Apache Kafka pela Azure Event Hubs.
 ms.topic: article
-ms.date: 07/20/2020
-ms.openlocfilehash: 29850e89d1cccf7708e5cca8eaf58afee8157890
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.date: 09/25/2020
+ms.openlocfilehash: 2c552c9f901fdb886a7ddc3e71505e8e46717c03
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061412"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371495"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Use hubs de eventos Azure a partir de aplicações Apache Kafka
 O Event Hubs fornece um ponto final compatível com as APIs de produtor e consumidor apache kafka ® que podem ser usadas pela maioria das aplicações de clientes Apache Kafka existentes como alternativa à gestão do seu próprio cluster Apache Kafka. O Event Hubs apoia os clientes APIs de produtor e consumidor da Apache Kafka na versão 1.0 ou superior.
@@ -128,7 +128,7 @@ Autónomo e sem ksqlDB, a Kafka Streams tem menos capacidades do que muitos quad
 
 - [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md)
 - [Azure Synapse Analytics (via Event Hubs Capture)](../event-grid/event-grid-event-hubs-integration.md)
-- [Azure Databricks](/azure/databricks/scenarios/databricks-stream-from-eventhubs.md)
+- [Azure Databricks](/databricks/scenarios/databricks-stream-from-eventhubs)
 - [Apache Samza](https://samza.apache.org/learn/documentation/latest/connectors/eventhubs)
 - [Apache Storm](event-hubs-storm-getstarted-receive.md)
 - [Apache Spark](event-hubs-kafka-spark-tutorial.md)
@@ -139,5 +139,5 @@ Os serviços e quadros listados podem geralmente adquirir fluxos de eventos e da
 
 Se tiver de utilizar a estrutura kafka streams em Azure, [a Apache Kafka em HDInsight](../hdinsight/kafka/apache-kafka-introduction.md) fornecer-lhe-á essa opção. Apache Kafka em HDInsight fornece controlo total sobre todos os aspetos de configuração de Apache Kafka, ao mesmo tempo que está totalmente integrado com vários aspetos da plataforma Azure, desde a colocação de domínio de falha/atualização até ao isolamento da rede até à monitorização da integração. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Este artigo forneceu uma introdução aos Centros de Eventos para Kafka. Para saber mais, consulte [o guia de desenvolvimento apache Kafka para o Azure Event Hubs.](apache-kafka-developer-guide.md)

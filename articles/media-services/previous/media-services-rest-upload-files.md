@@ -1,6 +1,6 @@
 ---
 title: Faça upload de ficheiros numa conta da Azure Media Services usando REST Microsoft Docs
-description: Saiba como obter conteúdo sonoro nos Media Services criando e carregando ativos.
+description: Saiba como obter conteúdo sonoro nos Media Services criando e carregando ativos usando REST.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 68968cdbc512df527b70d0a314c90ce45ebaf7e2
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: bc0369e99552859393da206e791477040681ccc4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89264186"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91281070"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar ficheiros para uma conta dos Serviços de Multimédia com REST
 

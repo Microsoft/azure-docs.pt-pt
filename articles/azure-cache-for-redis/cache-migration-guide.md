@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: yegu
-ms.openlocfilehash: 2a95aa9e9fccdb7047c2c0901f4349fecfbab672
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 4b196818ade1e703e24ed1ced6ebac1b44d0b083
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009584"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372073"
 ---
 # <a name="migrate-to-azure-cache-for-redis"></a>Migrar para a Cache do Azure para Redis
 Este artigo descreve uma série de abordagens para migrar uma cache Redis existente que corre no local ou em outro serviço de nuvem para Azure Cache para Redis.
@@ -34,7 +34,7 @@ Há diferentes maneiras de mudar de um cache para outro. Dependendo de onde est�
    | ------------ | ---------- | ------------- |
    | Criar uma nova cache | Mais simples de implementar. | Precisa de repovoar dados para a nova cache, que pode não funcionar com muitas aplicações. |
    | Dados de exportação e importação através de ficheiro RDB | Compatível com qualquer cache Redis em geral. | Alguns dados podem ser perdidos, se forem escritos para a cache existente após a geração do ficheiro RDB. | 
-   | Dados de dupla escrita para dois caches | Sem perda de dados ou no centro. Operações ininterruptas da cache existente. Teste mais fácil da nova cache. | Precisa de dois caches por um longo período de tempo. | 
+   | Dados de dupla escrita para dois caches | Sem perda de dados ou tempo de inatividade. Operações ininterruptas da cache existente. Teste mais fácil da nova cache. | Precisa de dois caches por um longo período de tempo. | 
    | Migrar dados programáticamente | Controlo total sobre a forma como os dados são movidos. | Requer código personalizado. | 
 
 ### <a name="create-a-new-azure-cache-for-redis"></a>Criar um novo Azure Cache para Redis
@@ -115,4 +115,4 @@ As medidas gerais para implementar esta opção são:
 Saiba mais sobre o Azure Cache para funcionalidades redis.
 
 * [Cache Azure para os níveis de serviço redis](cache-overview.md#service-tiers)
-* [Dados de importação](cache-how-to-import-export-data.md#import)
+* [Importar dados](cache-how-to-import-export-data.md#import)

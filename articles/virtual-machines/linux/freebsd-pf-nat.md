@@ -8,12 +8,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2017
 ms.author: kyliel
-ms.openlocfilehash: 85804e0f9293ec2e63aa319854e9559da11c8be1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6a20708c5564075c24eb031a39292b020a2ecc00
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286279"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371325"
 ---
 # <a name="how-to-use-freebsds-packet-filter-to-create-a-secure-firewall-in-azure"></a>Como utilizar o filtro de pacotes freeBSD para criar uma firewall segura em Azure
 Este artigo introduz como implementar uma firewall NAT usando o filtro packer do FreeBSD através do modelo Azure Resource Manager para um cenário comum de servidor web.
@@ -25,7 +25,7 @@ PF (Filter de pacotes, também escrito pf) é um filtro de pacotes stateful lice
 Se estiver interessado em configurar uma firewall segura na nuvem para os seus servidores web, então vamos começar. Também pode aplicar os scripts utilizados neste modelo de Gestor de Recursos Azure para configurar a sua topologia de networking.
 O modelo Azure Resource Manager criou uma máquina virtual FreeBSD que executa NAT /redirection usando PF e duas máquinas virtuais FreeBSD com o servidor web Nginx instalado e configurado. Além de realizar o NAT para os dois servidores web esgresso, a máquina virtual NAT/redirection interceta pedidos HTTP e redireciona-os para os dois servidores web em forma de robin redondo. O VNet utiliza o espaço de endereço IP não roteável privado 10.0.0.2/24 e pode modificar os parâmetros do modelo. O modelo Azure Resource Manager também define uma tabela de rotas para todo o VNet, que é uma coleção de rotas individuais usadas para sobrepor rotas padrão Azure com base no endereço IP de destino. 
 
-![pf_topology](./media/freebsd-pf-nat/pf_topology.jpg)
+![O diagrama mostra um endereço público I P numa instância NAT que redireciona pelo método round-robin para duas máquinas virtuais de backend que hospedam servidores web Nginx.](./media/freebsd-pf-nat/pf_topology.jpg)
     
 ### <a name="deploy-through-azure-cli"></a>Implementar através do Azure CLI
 Precisa do mais recente [Azure CLI](/cli/azure/install-az-cli2) instalado e iniciado numa conta Azure utilizando [o login az](/cli/azure/reference-index). Crie um grupo de recursos com [az group create](/cli/azure/group). O exemplo a seguir cria um nome de grupo de recursos `myResourceGroup` no `West US` local.

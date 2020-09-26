@@ -3,12 +3,12 @@ title: Acerca das cópias de segurança de VMs do Azure
 description: Neste artigo, saiba como o serviço Azure Backup apoia as máquinas Azure Virtual e como seguir as melhores práticas.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f9da75a66d25896e8d977910e2eb7fbe6ea69ca1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 58079cba9a65ab4df3632bb641397ba10496ae81
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014647"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91371512"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Uma visão geral do backup Azure VM
 
@@ -105,6 +105,13 @@ Estes cenários comuns podem afetar o tempo total de backup:
 - **Discos fragmentados:** As operações de backup são mais rápidas quando as mudanças de disco são contíguas. Se as alterações forem espalhadas e fragmentadas através de um disco, a cópia de segurança será mais lenta.
 - **Churn de disco:** Se os discos protegidos que estão a passar por uma cópia de segurança incremental tiverem uma vibração diária de mais de 200 GB, a cópia de segurança pode demorar muito tempo (mais de oito horas) a ser concluída.
 - **Versões de backup:** A versão mais recente do Backup (conhecida como versão Instant Restore) utiliza um processo mais otimizado do que a comparação de checkum para identificar alterações. Mas se estiver a utilizar o Instant Restore e tiver eliminado uma imagem de backup, a cópia de segurança muda para a comparação de dados. Neste caso, a operação de reserva excederá 24 horas (ou falhará).
+
+### <a name="restore-performance"></a>Restaurar o desempenho
+
+Estes cenários comuns podem afetar o tempo total de restauro:
+
+- O tempo total de restauro depende das operações de Entrada/saída por segundo (IOPS) e do rendimento da conta de armazenamento.
+- O tempo total de restauro pode ser afetado se a conta de armazenamento do alvo for carregada com outras operações de leitura e escrita de aplicações. Para melhorar o funcionamento da restauração, selecione uma conta de armazenamento que não esteja carregada com outros dados da aplicação.
 
 ## <a name="best-practices"></a>Melhores práticas
 

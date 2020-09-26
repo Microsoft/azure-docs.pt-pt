@@ -3,12 +3,12 @@ title: Backup offline com caixa de dados Azure para DPM e MABS
 description: Pode utilizar a Caixa de Dados Azure para semear dados de backup iniciais offline a partir de DPM e MABS.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 3755a4cc77455b37ae1545247992a3c8c4f25653
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 2fd8a137abf8b76d1587894bfa3fe8447e0d646b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177691"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91271499"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Sementeira offline usando Azure Data Box para DPM e MABS (Pré-visualização)
 
@@ -110,7 +110,7 @@ Especificar fonte alternativa: *WIM:D:\Fontes\Instalar.wim:4*
 
 ## <a name="transfer-initial-backup-data-to-azure-data-box-devices"></a>Transferir dados de backup iniciais para dispositivos Azure Data Box
 
-1. No seu Servidor DPM/MABS, siga os passos para [criar um novo grupo de proteção](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019). Se estiver a adicionar uma proteção on-line ao grupo de proteção existente, clique com o botão direito no grupo de proteção existente e selecione **Add Online Protection** e comece a partir do passo **8**.
+1. No seu Servidor DPM/MABS, siga os passos para [criar um novo grupo de proteção](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). Se estiver a adicionar uma proteção on-line ao grupo de proteção existente, clique com o botão direito no grupo de proteção existente e selecione **Add Online Protection** e comece a partir do passo **8**.
 2. Na página **'Selecionar Membros do Grupo',** especifique os computadores e as fontes que pretende fazer.
 3. Na página do **método de proteção de dados Selecione,** especifique como pretende lidar com a cópia de segurança a curto e longo prazo. Certifique-se de que **seleciona que quero proteção online.**
 

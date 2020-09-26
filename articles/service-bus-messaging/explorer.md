@@ -3,12 +3,12 @@ title: Use o Azure Service Bus Explorer para realizar operações de dados no Se
 description: Este artigo fornece informações sobre como usar o Azure Service Bus Explorer baseado no portal para aceder aos dados do Azure Service Bus.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 3fa619334f1918e16c487269fe3715f5338adf85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5e97c6860c2cc01048f4f7caf9f40f9e07592d0
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340540"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91295605"
 ---
 # <a name="use-service-bus-explorer-to-perform-data-operations-on-service-bus-preview"></a>Utilize o Service Bus Explorer para realizar operações de dados no Service Bus (Preview)
 
@@ -104,7 +104,7 @@ Para receber uma mensagem de uma fila (ou da sua subqueue de carta morta)
 
 Quando a operação de receção for bem sucedida, os detalhes da mensagem serão apresentados na grelha como abaixo. Pode selecionar a mensagem da grelha para mostrar os seus dados.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="Receber MeessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-queue-2.png" alt-text="Screenshot da janela queues no Azure Service Bus Explorer com detalhes de mensagem apresentados para uma mensagem ativa que é selecionada na fila.":::
 
 
 ### <a name="peeking-a-message-from-a-queue"></a>Espreitando uma mensagem de uma fila
@@ -156,7 +156,7 @@ Tal como acontece com uma fila, a operação ***Receber*** pode ser executada co
 
 Quando a operação de receção for bem sucedida, a mensagem recebida será exibida na grelha como abaixo. Para ver os detalhes da mensagem, clique na mensagem.
 
-:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="Receber MeessageFromQueue":::
+:::image type="content" source="./media/service-bus-explorer/receive-message-from-subscription.png" alt-text="Screenshot do separador Receber no Azure Service Bus Explorer com detalhes de mensagem apresentados para uma mensagem ativa que foi recebida.":::
 
 ### <a name="peeking-a-message-from-a-subscription"></a>Espreitar uma mensagem de uma assinatura
 

@@ -12,12 +12,12 @@ manager: rkarlin
 author: memildin
 ms.reviewer: vanto
 ms.date: 09/21/2020
-ms.openlocfilehash: b789cd423d2260ce709a02ffb3ac5ea500997609
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d567876e0210c025fa34c5b82791eafe4cdff561
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938627"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91372158"
 ---
 # <a name="azure-defender-for-sql"></a>Azure Defender para SQL
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -39,7 +39,7 @@ Para obter mais informações sobre o Azure Defender para preços SQL, consulte 
 
 Os passos seguintes começam com o Azure Defender.
 
-## <a name="1-enable-azure-defender"></a>1. Ativar o Defensor Azure
+## <a name="enable-azure-defender"></a>Ativar o Azure Defender
 
 O Azure Defender pode ser acedido através do [portal Azure](https://portal.azure.com). Ativar o Azure Defender navegando para o **Centro de Segurança** sob o título de **Segurança** para o seu servidor ou caso gerido.
 
@@ -48,15 +48,15 @@ O Azure Defender pode ser acedido através do [portal Azure](https://portal.azur
 >
 > O custo do Azure Defender está alinhado com o preço de nível padrão do Azure Security Center por nó, onde um nó é todo o servidor ou instância gerida. Está assim a pagar apenas uma vez por proteger todas as bases de dados do servidor ou por exemplo gerido com o Azure Defender. Pode experimentar o Azure Defender inicialmente com um teste gratuito.
 
-## <a name="2-start-tracking-vulnerabilities-and-investigating-threat-alerts"></a>2. Comece a rastrear vulnerabilidades e a investigar alertas de ameaças
+## <a name="start-tracking-vulnerabilities-and-investigating-threat-alerts"></a>Comece a rastrear vulnerabilidades e a investigar alertas de ameaças
 
 Clique no cartão **de Avaliação de Vulnerabilidade** para visualizar e gerir verificações de vulnerabilidades e relatórios e para rastrear a sua estatura de segurança. Se os alertas de segurança tiverem sido recebidos, clique no cartão **de Proteção de Ameaças Avançadas** para ver os detalhes dos alertas e para ver um relatório consolidado sobre todos os alertas na sua assinatura Azure através da página de alertas de segurança do Azure Security Center.
 
-## <a name="3-manage-azure-defender-settings"></a>3. Gerir as definições do Azure Defender
+## <a name="manage-azure-defender-settings"></a>Gerir as configurações do Azure Defender
 
 Para visualizar e gerir as definições do Azure Defender, navegue para o **Centro de Segurança** sob o título de **Segurança** para o seu servidor ou caso gerido. Nesta página, pode ativar ou desativar o Azure Defender e modificar a avaliação de vulnerabilidades e as definições de Proteção de Ameaças Avançadas para todo o seu servidor ou instância gerida.
 
-## <a name="4-manage-azure-defender-settings-for-a-database"></a>4. Gerir as definições do Azure Defender para uma base de dados
+## <a name="manage-azure-defender-settings-for-a-database"></a>Gerir as definições do Azure Defender para uma base de dados
 
 Para anular as definições do Azure Defender para uma determinada base de dados, verifique o **Enable Azure Defender para SQL na caixa de verificação de nível de base de dados.** Utilize esta opção apenas se tiver um requisito específico para receber alertas separados de Proteção de Ameaças Avançadas ou resultados de avaliação de vulnerabilidade para cada base de dados, em vez dos alertas e resultados recebidos para todas as bases de dados do servidor ou caso gerido.
 
@@ -66,6 +66,6 @@ O Azure Defender para as definições DE SQL para o seu servidor ou instância g
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [a avaliação da vulnerabilidade](sql-vulnerability-assessment.md)
+- Saiba mais sobre [a Avaliação de Vulnerabilidades](sql-vulnerability-assessment.md)
 - Saiba mais sobre [a Proteção Avançada de Ameaças](threat-detection-configure.md)
 - Saiba mais sobre [o Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)

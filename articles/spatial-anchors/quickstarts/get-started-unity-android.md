@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 07/31/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 608b488a04eafd01e6702850445801705f6dac81
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 7e92da72e8125c22655a7eb9986f0554963aefeb
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810364"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91280909"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Quickstart: Criar uma aplicação Para Android unidade com âncoras espaciais Azure
 
@@ -34,7 +34,7 @@ Vai aprender a:
 
 Para concluir este início rápido, certifique-se de que tem:
 
-- Uma máquina Windows ou macOS com <a href="https://unity3d.com/get-unity/download" target="_blank">Unidade 2019.4 (LTS)</a> incluindo o Android Build Support e os módulos Android SDK & NDK Tools.
+- Uma máquina Windows ou macOS com <a href="https://unity3d.com/get-unity/download" target="_blank">Unidade 2019.4 (LTS)</a>, incluindo o **Android Build Support** com Android **SDK & ferramentas NDK** e módulos **OpenJDK.**
   - Se estiver a funcionar no Windows, também necessitará de <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a> e Git <a href="https://git-lfs.github.com/">LFS</a>.
   - Se estiver a funcionar com macOS, instale o Git via HomeBrew. Introduza o seguinte comando numa única linha do Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` . Então, corra `brew install git` `brew install git-lfs` e.
 - Um dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">habilitado para o desenvolvedor</a> e <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">capaz de ARCore.</a>
@@ -57,6 +57,10 @@ Para concluir este início rápido, certifique-se de que tem:
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
 Selecione o seu dispositivo no **Dispositivo run** e, em seguida, selecione Build **And Run**. Pedir-lhe-ão que guarde um `.apk` ficheiro, para o qual pode escolher qualquer nome.
+
+Assim que a aplicação começar, deverá ver um ecrã com este aspeto:
+
+![Tela de aplicativo](./media/get-started-unity-android/demo-app-screen.png)
 
 Siga as instruções na aplicação para colocar e lembre-se de uma âncora.
 

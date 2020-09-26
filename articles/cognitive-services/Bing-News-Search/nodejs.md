@@ -10,13 +10,13 @@ ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018, devx-track-javascript
-ms.openlocfilehash: d0ed69aecf03e5c8e3a65e3ac532c02c89b65ba8
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: seodec2018, devx-track-js
+ms.openlocfilehash: 884cc0a88e502b7fe56c6b7eb0f4761fe2f042bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406610"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91316669"
 ---
 # <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Quickstart: Realize uma pesquisa de notícias usando Node.js e a API de Pesquisa de Notícias Bing
 
@@ -183,7 +183,7 @@ O código-fonte desta amostra está disponível no [GitHub](https://github.com/A
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](tutorial-bing-news-search-single-page-app.md)
