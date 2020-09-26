@@ -1,18 +1,18 @@
 ---
 title: Reorientação externa de tráfego usando CLI - Azure Application Gateway
-description: Saiba como criar um gateway de aplicações que redirecione o tráfego interno da web para a piscina apropriada usando o Azure CLI.
+description: Saiba como criar um gateway de aplicações que redirecione o tráfego web externo para a piscina apropriada usando o Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/13/2019
+ms.date: 09/24/2020
 ms.author: victorh
-ms.openlocfilehash: 7566122e4edf4357562e830197fade746f18a16f
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 5a8d7aff6a030b3adbb5370caa166bbd290e09bc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594270"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331053"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>Criar um gateway de aplicações com reorientação externa usando o Azure CLI
 
@@ -131,8 +131,4 @@ Você deve ver *bing.com* aparecer no seu navegador.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, ficou a saber como:
-
-> * Configurar a rede
-> * Criar uma regra de ouvinte e redirecionamento
-> * Criar um gateway de aplicação
+- [Criar um gateway de aplicações com reorientação interna usando o Azure CLI](redirect-internal-site-cli.md)

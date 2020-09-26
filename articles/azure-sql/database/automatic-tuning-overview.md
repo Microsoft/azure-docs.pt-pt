@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 03/30/2020
-ms.openlocfilehash: d2a00be4d08a7a2dfa8e11a22593d017d184a368
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4c2faa6f015a8c1ce8f360155abdc14367d3057b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982716"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330745"
 ---
 # <a name="automatic-tuning-in-azure-sql-database-and-azure-sql-managed-instance"></a>Sintonização automática na Base de Dados Azure SQL e Azure SQL Gestão de Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -63,9 +63,9 @@ As opções de afinação automática disponíveis na Base de Dados Azure SQL e 
 
 | Opção de afinação automática | Base de dados única e suporte de base de dados em conjunto | Suporte de base de dados de casos |
 | :----------------------------- | ----- | ----- |
-| **CREATE INDEX** - Identifica índices que podem melhorar o desempenho da sua carga de trabalho, cria índices e verifica automaticamente que o desempenho das consultas melhorou. | Sim | Não |
-| **ÍNDICE DROP** - Identifica índices redundantes e duplicados diariamente, com exceção de índices únicos, e índices que não foram utilizados durante muito tempo (>90 dias). Por favor, note que esta opção não é compatível com aplicações usando comutação de partição e dicas de índice. A queda de índices não suportados não é suportada para os níveis de serviço Premium e Business Critical. | Sim | Não |
-| **FORCE LAST GOOD PLAN** (correção automática do plano) - Identifica as consultas Azure SQL utilizando um plano de execução mais lento do que o plano anterior, e consultas utilizando o último bom plano conhecido em vez do plano regressaltado. | Sim | Sim |
+| **CREATE INDEX** - Identifica índices que podem melhorar o desempenho da sua carga de trabalho, cria índices e verifica automaticamente que o desempenho das consultas melhorou. | Yes | No |
+| **ÍNDICE DROP** - Identifica índices redundantes e duplicados diariamente, com exceção de índices únicos, e índices que não foram utilizados durante muito tempo (>90 dias). Por favor, note que esta opção não é compatível com aplicações usando comutação de partição e dicas de índice. A queda de índices não suportados não é suportada para os níveis de serviço Premium e Business Critical. | Yes | No |
+| **FORCE LAST GOOD PLAN** (correção automática do plano) - Identifica as consultas Azure SQL utilizando um plano de execução mais lento do que o plano anterior, e consultas utilizando o último bom plano conhecido em vez do plano regressaltado. | Yes | Yes |
 
 ### <a name="automatic-tuning-for-sql-database"></a>Sintonização automática para base de dados SQL
 
@@ -92,7 +92,7 @@ Para saber mais sobre a construção de notificações por email para recomenda�
 
 A sintonização automática para SQL Managed Instance só suporta **FORCE LAST GOOD PLAN**. Para obter mais informações sobre a configuração das opções de afinação automática através do T-SQL, consulte [a sintonização automática introduz a correção automática do plano](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) e a correção automática do [plano](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning?view=sql-server-ver15#automatic-plan-correction).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre a inteligência incorporada utilizada na afinação automática, consulte a [Inteligência Artificial tunes Azure SQL Database](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
 - Para saber como funciona a sintonização automática sob o capot, consulte [indexar automaticamente milhões de bases de dados na Base de Dados SQL do Microsoft Azure](https://www.microsoft.com/research/uploads/prod/2019/02/autoindexing_azuredb.pdf).

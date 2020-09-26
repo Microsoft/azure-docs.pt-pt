@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: d79c42f3bdf84efcdf2187741ac270087be05272
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 14cf5238d29ede1ea229604316eee875b417e50e
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83681990"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361539"
 ---
 # <a name="drawing-conversion-errors-and-warnings"></a>Erros de conversão de desenho e avisos
 
@@ -35,9 +35,9 @@ O serviço De Conversão não é capaz de criar uma funcionalidade de mapa a par
 
 * As duas imagens abaixo mostram exemplos de polígonos auto-interseccionados.
 
-     ![Exemplo de um polígono auto-interseccionado](./media/drawing-conversion-error-codes/geometry-warning-1.png)
+     ![Exemplo de um polígono auto-interseccionado, exemplo um.](./media/drawing-conversion-error-codes/geometry-warning-1.png)
 
-     ![Exemplo de um polígono auto-interseccionado](./media/drawing-conversion-error-codes/geometry-warning-2.png)
+     ![Exemplo de um polígono auto-interseccionado, exemplo dois.](./media/drawing-conversion-error-codes/geometry-warning-2.png)
 
 * Abaixo está uma imagem que mostra um PolyLine não fechado. Suponha que a camada só suporta geometria fechada.
 
@@ -225,7 +225,7 @@ Um aviso **parcialmenteoverlappingUnit** ocorre quando o desenho contém uma geo
 
 #### <a name="example-scenarios-partiallyoverlappingunit"></a>*Cenários de exemplo ParcialmenteOverlappingUnit*
 
-Na imagem a seguir, a unidade sobreposta é realçada a vermelho. `UNIT110`e `HALLWAY` são descartados.
+Na imagem a seguir, a unidade sobreposta é realçada a vermelho. `UNIT110` e `HALLWAY` são descartados.
 
 ![Exemplo de unidades sobrepostas](./media/drawing-conversion-error-codes/partially-overlapping-unit.png)
 
@@ -350,7 +350,7 @@ O **dwgError** ocorre quando o pacote de desenho contém um ficheiro DWG que nã
 Para corrigir um **dwgError,** inspecione a sua _manifest.jsno_ ficheiro confirme que:
 
 * Todos os ficheiros DWG do seu arquivo ZIP são desenhos válidos do formato AutoCAD DWG, abertos cada um em AutoCAD. Remova ou corrija todos os desenhos inválidos.
-* A lista de ficheiros DWG na _manifest.jscorresponde aos_ ficheiros DWG no arquivo ZIP.
+* A lista de ficheiros DWG na _manifest.jscorresponde aos_  ficheiros DWG no arquivo ZIP.
 
 ## <a name="manifest-errors"></a>Erros manifestos
 
@@ -370,7 +370,7 @@ Para corrigir um erro **de InvalidJsonFormat,** utilize um linter JSON para dete
 
 #### <a name="description-for-missingrequiredfield"></a>*Descrição para o Campo Desaparecido*
 
-Um erro **desaparecido do Campo Desaguisado** ocorre quando omanifest.js_no_ ficheiro está a faltar dados necessários.
+Um erro **desaparecido do Campo Desaguisado** ocorre quando omanifest.js_ no_ ficheiro está a faltar dados necessários.
 
 #### <a name="how-to-fix-missingrequiredfield"></a>*Como corrigir o Campo Desaparecido*
 
@@ -500,7 +500,7 @@ A imagem a seguir mostra uma área de penetração vertical que se sobrepõe a m
 
 Para corrigir um erro **vertical do Artigo de Alteração,** leia como utilizar uma função de penetração vertical no artigo de requisitos de pacote de [desenho.](drawing-requirements.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Como usar o visualizador de erros do Azure Maps](drawing-error-visualizer.md)

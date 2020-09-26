@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13b020f633adc2e2286cc14b01c6d248fc2c1e3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f34355f790b56c43c2e9fae7ce23b6344b4739d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84759893"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362151"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerações de segurança para aceder remotamente a apps com Proxy de aplicações AD AZure
 
@@ -83,7 +83,7 @@ Para melhorar a segurança das aplicações publicadas pela Azure AD Application
 
 #### <a name="azure-ddos-protection-service"></a>Serviço de proteção Azure DDoS
 
-As aplicações publicadas através do Application Proxy estão protegidas contra ataques de Negação de Serviço Distribuído (DDoS). **A proteção Azure DDoS** é um serviço oferecido com a plataforma Azure para proteger os seus recursos Azure de ataques de negação de serviço. O nível **básico** de serviço é automaticamente ativado, proporcionando uma monitorização contínua do tráfego e uma mitigação em tempo real de ataques comuns ao nível da rede. Um nível **Standard** também está disponível, oferecendo capacidades de mitigação adicionais que são sintonizadas especificamente com os recursos da Rede Virtual Azure. Para mais informações, consulte [a norma de proteção Azure DDoS](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
+As aplicações publicadas através do Application Proxy estão protegidas contra ataques de Negação de Serviço Distribuído (DDoS). **A proteção Azure DDoS** é um serviço oferecido com a plataforma Azure para proteger os seus recursos Azure de ataques de negação de serviço. O nível **básico** de serviço é automaticamente ativado, proporcionando uma monitorização contínua do tráfego e uma mitigação em tempo real de ataques comuns ao nível da rede. Para mais informações, consulte [a norma de proteção Azure DDoS](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
 ## <a name="under-the-hood"></a>Os bastidores
 
@@ -178,7 +178,7 @@ Depois de receber uma resposta, o conector faz uma ligação de saída ao servi�
 Pode ocorrer aqui algum processamento da aplicação. Se configurar o Application Proxy para traduzir cabeçalhos ou URLs na sua aplicação, esse processamento acontece conforme necessário durante este passo.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Considerações de topologia de rede ao utilizar o Proxy de Aplicação AD AZure](application-proxy-network-topology.md)
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: jeedes
-ms.openlocfilehash: 9cf8a76f74e6dda6ade98ea348f5401eab15c53e
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 9d6951456593c57f9def80990e582a5ff54cc5d9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500869"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312634"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fivetran"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Fivetran
 
@@ -31,7 +31,7 @@ Neste tutorial, você vai aprender a integrar Fivetran com Azure Ative Directory
 Para começar, precisa dos seguintes itens:
 
 * Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
-* Subscrição ativada por fivetran single-on (SSO).
+* Uma conta Fivetran.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -87,7 +87,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação Fivetran espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Nome |  Atributo de origem|
+    | Name |  Atributo de origem|
     | -------------- | --------- |
     | FirstName | user.givenname |
     | LastName | utilizador.sobrenome |
@@ -96,7 +96,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     ![O link de descarregamento de certificado](common/certificatebase64.png)
 
-1. Na secção **Configurar Fivetran,** copie os URL(s) apropriados com base no seu requisito.
+1. Na secção **Configurar Fivetran,** copie os valores **do URL de login** e do **identificador Azure Ad.**
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
@@ -110,7 +110,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+   1. Clique em **Create** (Criar).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -126,7 +126,22 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-fivetran-sso"></a>Configurar Fivetran SSO
 
-Para configurar um único sign-on no lado **Fivetran,** você precisa enviar o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte Fivetran](mailto:support@fivetran.com). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Nesta secção, você vai configurar um único sinal no lado **Fivetran.**
+
+1. Numa janela diferente do navegador web, inscreva-se na sua conta Fivetran como proprietária da conta.
+1. Selecione a seta no canto superior esquerdo da janela e, em seguida, **selecione Gerir a Conta** a partir da lista de drop-down.
+
+   ![Screenshot que mostra a opção do menu 'Gerir' selecionado.](media/fivetran-tutorial/fivetran-1.png)
+
+1. Aceda à secção **SAML Config** da página **Definições.**
+
+   ![Screenshot que mostra o painel SAML Config com opções de configuração realçadas.](media/fivetran-tutorial/fivetran-2.png)
+
+   1. Para **ativar a autenticação SAML**, selecione **ON**.
+   1. Em **Iniciar sessão em URL,** cole o valor do URL de **login,** que copiou a partir do portal Azure.
+   1. Em **Emitente,** cole o valor do **Azure Ad Identifier,** que copiou do portal Azure.
+   1. Abra o seu ficheiro de certificado descarregado num editor de texto, copie o certificado na sua área de transferência e, em seguida, cole-o na caixa de texto do **certificado público.**
+   1. **Selecione SAVE CONFIG**.
 
 ### <a name="create-fivetran-test-user"></a>Criar utilizador de teste Fivetran
 

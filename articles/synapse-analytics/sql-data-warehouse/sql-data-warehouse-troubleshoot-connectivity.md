@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-csharp
-ms.openlocfilehash: 2edb3060437080e528d41d4af5f4affd4fbf3316
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d32a51e391edbfd32cf57265562d4e0cb8fe0681
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010193"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362185"
 ---
 # <a name="troubleshooting-connectivity-issues-in-synapse-sql-pool"></a>Problemas de conectividade na piscina Sinaapse SQL
 
@@ -34,13 +34,14 @@ O estado da sua piscina SQL será mostrado aqui. Se o serviço não estiver **di
 
 Se a sua saúde de recursos mostrar que a sua instância de piscina SQL está em pausa ou em escalonamento, siga as orientações para retomar a sua instância.
 
-![Serviço Pausas ](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) Informações adicionais sobre a Saúde dos Recursos podem ser consultadas aqui.
+![A screenshot mostra uma instância do armazém de dados SQL que é pausado ou escalonado.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
+Informações adicionais sobre a Saúde dos Recursos podem ser encontradas aqui.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>Verificar operação de dimensionamento ou em pausa
 
 Verifique o portal para ver se a sua caixa de piscina SQL está em pausa ou em escalonamento.
 
-![Serviço interrompido](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
+![A screenshot mostra como verificar se um armazém de dados é pausado.](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
 Se vir que o seu serviço está em pausa ou em escalonamento, verifique se não é durante o seu horário de manutenção. No portal para a sua piscina *SQL Overview,* você verá o horário de manutenção eleito.
 

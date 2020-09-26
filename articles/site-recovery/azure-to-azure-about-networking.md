@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 0a2763beec9fed9025198ca283f7746286875512
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: db4c3be7c79448e4cf0df39688959ae09a671dbd
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527382"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361420"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Sobre networking em Azure VM recuperação de desastres
 
@@ -82,11 +82,11 @@ Este exemplo mostra como configurar as regras NSG para um VM replicar.
 
 1. Crie uma regra de segurança HTTPS (443) de saída para "Storage.EastUS" no NSG, como mostrado na imagem abaixo.
 
-      ![etiqueta de armazenamento](./media/azure-to-azure-about-networking/storage-tag.png)
+      ![Screenshot mostra adicionar regra de segurança de saída para um grupo de segurança de rede para o ponto de armazenamento East U. S.](./media/azure-to-azure-about-networking/storage-tag.png)
 
 2. Crie uma regra de segurança HTTPS (443) de saída para "AzureActiveDirectory" no NSG, como mostrado na imagem abaixo.
 
-      ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
+      ![Screenshot mostra Adicionar regra de segurança de saída para um grupo de segurança de rede para Azure A D.](./media/azure-to-azure-about-networking/aad-tag.png)
 
 3. Semelhante às regras de segurança acima, crie uma regra de segurança HTTPS (443) para "EventHub.CentralUS" no NSG que corresponda à localização do alvo. Isto permite o acesso à monitorização da Recuperação do Local.
 

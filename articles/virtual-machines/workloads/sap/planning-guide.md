@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3050d0c61b6278b32b8e9272f228a863c9a0a244
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 8884711bbb32054ca1d8e4d9f9e7dee753f0c629
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89458693"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361930"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure Virtual Machines planejamento e implementação para SAP NetWeaver
 
@@ -514,11 +514,11 @@ As máquinas virtuais do Microsoft Azure utilizam diferentes tipos de armazename
 Os VMs Azure oferecem discos não persistentes após a implantação de um VM. Em caso de reinicialização de VM, todo o conteúdo dessas unidades será eliminado. Por conseguinte, é dado que os ficheiros de dados e os ficheiros de registo/redo de bases de dados não devem, em circunstância alguma, ser localizados nessas unidades não persistência. Pode haver exceções para algumas das bases de dados, onde estas unidades não persistência poderiam ser adequadas para espaços de mesa temporários e temporários. No entanto, evite utilizar esses discos para VMs da série A, uma vez que essas unidades não persistência são limitadas em produção com aquela família VM. Para mais detalhes, leia o artigo [Compreender a unidade temporária em VMs do Windows em Azure](/archive/blogs/mast/understanding-the-temporary-drive-on-windows-azure-virtual-machines)
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logotipo do Windows.][Logo_Windows] Windows
 >
 > Unidade D:\ num Azure VM é uma unidade não persistiu, que é apoiada por alguns discos locais no nó computacional Azure. Por não persistir, isto significa que quaisquer alterações feitas ao conteúdo no D:\ a unidade perde-se quando o VM é reiniciado. Por "quaisquer alterações", como ficheiros armazenados, diretórios criados, aplicações instaladas, etc.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logotipo linux.][Logo_Linux] Linux
 >
 > Os VMs Linux Azure montam automaticamente uma unidade em /mnt/recurso que é uma unidade não persistido apoiada por discos locais no nó computacional Azure. Por não persistir, isto significa que quaisquer alterações efetuadas ao conteúdo em /mnt/recurso são perdidas quando o VM é reiniciado. Por quaisquer alterações, como ficheiros armazenados, diretórios criados, aplicações instaladas, etc.
 >
@@ -774,12 +774,12 @@ Outra opção que não discutiremos em detalhe neste guia é a utilização da R
 Devido aos requisitos específicos de correção da sua versão OS ou DBMS, as imagens fornecidas no Azure Marketplace podem não corresponder às suas necessidades. Portanto, poderá ser necessário criar um VM utilizando a sua própria imagem privada de OS/DBMS VM, que pode ser implantada várias vezes depois. Para preparar tal imagem privada para duplicação, devem ser considerados os seguintes itens:
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logotipo do Windows.][Logo_Windows] Windows
 >
 > Consulte mais detalhes aqui: <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed> As definições do Windows (como o Windows SID e o nome de anfitrião) devem ser abstraídas/generalizadas nas VM no local através do comando sysprep.
 >
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logotipo linux.][Logo_Linux] Linux
 >
 > Siga os passos descritos nestes artigos para [SUSE,][virtual-machines-linux-create-upload-vhd-suse] [Red Hat,][virtual-machines-linux-redhat-create-upload-vhd]ou [Oracle Linux,][virtual-machines-linux-create-upload-vhd-oracle]para preparar um VHD para ser enviado para Azure.
 >
@@ -809,13 +809,13 @@ Os requisitos para preparar o seu próprio Disco VM Azure são:
 * Adicione outras contas locais, uma vez que estas podem ser necessárias para o cenário de implantação específico.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logotipo do Windows.][Logo_Windows] Windows
 >
 > Neste cenário, não é necessária qualquer generalização (sysprep) do VM para carregar e implantar o VM no Azure.
 > Certifique-se de que a unidade D:\ não é usado.
 > Defina a desmontagem automática do disco para discos anexados, conforme descrito no capítulo [Definição de peças automáticas para discos anexados][planning-guide-5.5.3] neste documento.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logotipo linux.][Logo_Linux] Linux
 >
 > Neste cenário, não é necessária qualquer generalização (waagent -deprovision) do VM para carregar e implantar o VM em Azure.
 > Certifique-se de que /mnt/recurso não é utilizado e que todos os discos são montados via uuid. Para o disco SO, certifique-se de que a entrada do bootloader também reflete o suporte baseado em uuid.
@@ -836,11 +836,11 @@ Os requisitos para preparar a sua própria Imagem Azure VM são:
 * Se a imagem contiver uma instalação do SAP NetWeaver e se renomear o nome do anfitrião a partir do nome original no ponto da implantação do Azure, é aconselhável copiar as versões mais recentes do DVD do GESTOR de Provisionamento de Software SAP no modelo. Isto permitir-lhe-á utilizar facilmente a funcionalidade SAP fornecida para adaptar o nome de hospedeiro alterado e/ou alterar o SID do sistema SAP dentro da imagem VM implantada assim que uma nova cópia é iniciada.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logotipo do Windows.][Logo_Windows] Windows
 >
 > Certifique-se de que a unidade D:\ não é utilizado Conjunto de conjunto automático para discos anexados, conforme descrito no capítulo [Definição de conjunto automático para discos anexados][planning-guide-5.5.3] neste documento.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logotipo linux.][Logo_Linux] Linux
 >
 > Certifique-se de que /mnt/recurso não é utilizado e que todos os discos são montados via uuid. Para o disco SO, certifique-se de que a entrada do bootloader também reflete o suporte baseado em uuid.
 >
@@ -854,13 +854,13 @@ Se o VM estiver preparado o suficiente para ser genérico e eventualmente indepe
 
 ##### <a name="generalizing-a-vm"></a>Generalização de um VM
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logotipo do Windows.][Logo_Windows] Windows
 >
 > O último passo é inscrever-se num VM com uma conta de Administrador. Abra uma janela de comando do Windows como *administrador*. Vá a %windir%\windows\system32\sysprep e execute sysprep.exe.
 > Aparecerá uma pequena janela. É importante verificar a opção **Generalização** (o padrão não é verificado) e alterar a Opção de Encerramento do seu padrão de 'Reboot' para 'shutdown'. Este procedimento pressupõe que o processo sysprep é executado no local no So convidado de um VM.
 > Se pretender realizar o procedimento com um VM já em execução em Azure, siga os passos descritos [neste artigo](../../windows/capture-image-resource.md).
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logotipo linux.][Logo_Linux] Linux
 >
 > [Como capturar uma máquina virtual do Linux para ser utilizada como modelo do Resource Manager (How to capture a Linux virtual machine to use as a Resource Manager template)][capture-image-linux-step-2-create-vm-image]
 >
@@ -1123,13 +1123,13 @@ Idealmente, o manuseamento da estrutura de um VM e dos discos associados deve se
 
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logotipo do Windows.][Logo_Windows] Windows
 >
 > Com muitos clientes vimos configurações onde, por exemplo, binários SAP e DBMS não foram instalados no c:\ unidade onde o SO foi instalado. Havia várias razões para isso, mas quando voltámos à raiz, normalmente era que as unidades eram pequenas e os upgrades de SO precisavam de espaço adicional há 10-15 anos. Ambas as condições já não se aplicam com demasiada frequência. Hoje o c:\ a unidade pode ser mapeada em discos de grande volume ou VMs. Para manter as implementações simples na sua estrutura, recomenda-se seguir o seguinte padrão de implementação para os sistemas SAP NetWeaver em Azure
 >
 > O ficheiro de página do sistema operativo Windows deve estar no D: unidade (disco não persistente)
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logotipo linux.][Logo_Linux] Linux
 >
 > Coloque o ficheiro de swap linux em /mnt /mnt/recurso no Linux, conforme descrito neste [artigo][virtual-machines-linux-agent-user-guide]. O ficheiro de troca pode ser configurado no ficheiro de configuração do Agente Linux /etc/waagent.conf. Adicione ou altere as seguintes definições:
 >
@@ -1156,11 +1156,11 @@ A experiência das implementações da SAP nos últimos dois anos ensinou-nos al
 * O tráfego do IOPS para diferentes ficheiros de dados nem sempre é o mesmo, uma vez que os sistemas de clientes existentes podem ter ficheiros de dados de tamanho diferente que representam a sua base de dados SAP. Como resultado, acabou por ser melhor usando uma configuração RAID sobre vários discos para colocar os ficheiros de dados LUNs esculpidos desses. Houve situações, especialmente com o Azure Standard Storage, em que uma taxa IOPS atingiu a quota de um único disco contra o registo de transações DBMS. Nesses cenários, recomenda-se a utilização de Armazenamento Premium ou, em alternativa, agregar vários discos standard de armazenamento com uma risca de software.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logotipo do Windows.][Logo_Windows] Windows
 >
 > * [Melhores práticas de desempenho do SQL Server nas Máquinas Virtuais do Azure][virtual-machines-sql-server-performance-best-practices]
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logotipo linux.][Logo_Linux] Linux
 >
 > * [Configure software RAID no Linux][virtual-machines-linux-configure-raid]
 > * [Configure a LVM num Linux VM em Azure][virtual-machines-linux-configure-lvm]
@@ -1189,13 +1189,13 @@ Em seguida, tem de decidir se pretende criar um disco novo e vazio ou se pretend
 **IMPORTANTE**: **NÃO** pretende utilizar o Caching hospedeiro com armazenamento padrão Azure. Deve deixar a preferência de Cache anfitrião por defeito de NENHUM. Com o Azure Premium Storage, deverá ativar o Read Caching se a característica de E/S for lida maioritariamente como tráfego de E/S típico contra ficheiros de dados de base de dados. No caso de registo de transações de base de dados, não é recomendado qualquer caching.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logotipo do Windows.][Logo_Windows] Windows
 >
 > [Como anexar um disco de dados no portal Azure][virtual-machines-linux-attach-disk-portal]
 >
 > Se os discos estiverem ligados, tem de iniciar sação no VM para abrir o Gestor do Disco do Windows. Se a desmontagem automática não estiver ativada como recomendado no capítulo [Definição de automontagens para discos anexados,][planning-guide-5.5.3]o volume recém-anexado deve ser tomado on-line e inicializado.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logotipo linux.][Logo_Linux] Linux
 >
 > Se os discos estiverem ligados, tem de iniciar sação no VM e inicializar os discos conforme descrito [neste artigo][virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]
 >
@@ -1212,7 +1212,7 @@ A azure Geo-replicação funciona localmente em cada VHD em um VM e não replica
 
 #### <a name="setting-automount-for-attached-disks"></a><a name="17e0d543-7e8c-4160-a7da-dd7117a1ad9d"></a>Definição automática para discos anexos
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logotipo do Windows.][Logo_Windows] Windows
 >
 > Para os VMs, que são criados a partir de imagens ou discos próprios, é necessário verificar e possivelmente definir o parâmetro de automonto. A definição deste parâmetro permitirá ao VM, após um reinício ou recolocação em Azure, montar automaticamente as unidades anexadas/montadas.
 > O parâmetro está definido para as imagens fornecidas pela Microsoft no Azure Marketplace.
@@ -1226,7 +1226,7 @@ A azure Geo-replicação funciona localmente em cada VHD em um VM e não replica
 >
 > Se os discos estiverem ligados, tem de iniciar sação no VM para abrir o Gestor do Disco do Windows. Se a desmontagem automática não estiver ativada como recomendado no capítulo [Definição de peças automáticas para discos anexados,][planning-guide-5.5.3]o volume recentemente anexado >deve ser tomado on-line e inicializado.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logotipo linux.][Logo_Linux] Linux
 >
 > É necessário rubricar um disco vazio recentemente anexado, conforme descrito [neste artigo.][virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]
 > Também é necessário adicionar novos discos ao /etc/fstab.
@@ -1264,7 +1264,7 @@ Consulte este artigo, que descreve detalhes sobre este tópico:
 Pode ser necessário configurar a firewall das suas máquinas virtuais para permitir o tráfego de entrada no seu sistema SAP.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logotipo do Windows.][Logo_Windows] Windows
 >
 > Por predefinição, o Windows Firewall dentro de um VM implantado Azure é ligado. Agora é necessário permitir a abertura da Porta SAP, caso contrário o SAP GUI não poderá ligar-se.
 > Para efetuar este procedimento:
@@ -1281,7 +1281,7 @@ Pode ser necessário configurar a firewall das suas máquinas virtuais para perm
 >
 > ![Definição da regra do porto][planning-guide-figure-1600]
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logotipo linux.][Logo_Linux] Linux
 >
 > As imagens Linux no Azure Marketplace não permitem por defeito a firewall dos iptables e a ligação ao seu sistema SAP deve funcionar. Se tiver ativado iptables ou outra firewall, consulte a documentação dos iptables ou a firewall usada para permitir o tráfego de entrada da TCP para a porta 32xx (onde xx é o número do sistema do seu sistema SAP).
 >
@@ -1588,7 +1588,7 @@ Outras medidas de segurança ao implementar VMs neste cenário poderiam ser a cr
 A configuração das suas impressoras de rede baseadas em TCP/IP num VM Azure é globalmente a mesma que na sua rede corporativa, assumindo que tem um túnel VPN Site-To-Site ou ligação ExpressRoute estabelecida.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logotipo do Windows.][Logo_Windows] Windows
 >
 > Para efetuar este procedimento:
 >
@@ -1599,7 +1599,7 @@ A configuração das suas impressoras de rede baseadas em TCP/IP num VM Azure é
 > * Impressora Porta 9100
 > * Se necessário, instale manualmente o controlador da impressora apropriado.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logotipo linux.][Logo_Linux] Linux
 >
 > * como para o Windows basta seguir o procedimento padrão para instalar uma impressora de rede
 > * basta seguir os guias públicos do Linux para [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) ou [Red Hat e Oracle Linux](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/sec-printer_configuration) sobre como adicionar uma impressora.
@@ -1623,13 +1623,13 @@ A partilha da impressora é identificada por um nome único na rede:
 Como:
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logotipo do Windows.][Logo_Windows] Windows
 >
 > Partilhe a sua impressora local.
 > No Azure VM, abra o Explorador do Windows e escreva o nome de partilha da impressora.
 > Um assistente de instalação da impressora irá guiá-lo através do processo de instalação.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logotipo linux.][Logo_Linux] Linux
 >
 > Aqui estão alguns exemplos de documentação sobre configurar impressoras de rede em Linux ou incluir um capítulo sobre impressão em Linux. Funcionará da mesma forma num VM Azure Linux enquanto o VM fazer parte de uma VPN:
 >
@@ -1644,7 +1644,7 @@ Como:
 No Azure, não está disponível a capacidade dos Serviços de Desktop Remoto de fornecer aos utilizadores o acesso aos seus dispositivos de impressora local numa sessão remota.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Logotipo do Windows.][Logo_Windows] Windows
 >
 > Mais detalhes sobre a impressão com o Windows podem ser consultados aqui: <https://technet.microsoft.com/library/jj590748.aspx> .
 >
@@ -1890,7 +1890,7 @@ Aqui estão dois exemplos de uma arquitetura COMPLETA SAP NetWeaver HA em Azure 
 Apenas discos não geridos: Os conceitos explicados abaixo podem ter de ser comprometidos um pouco quando implementamos muitos sistemas SAP e o número de VMs implantados estão a exceder o limite máximo de Contas de Armazenamento por subscrição. Nestes casos, os VHDs de VMs devem ser combinados numa única conta de armazenamento. Normalmente, fá-lo-ia combinando VHDs de VMs de camada de aplicação SAP de diferentes sistemas SAP.  Também combinamos VHDs diferentes de diferentes DBMS VMs de diferentes sistemas SAP numa conta de armazenamento Azure. Mantendo assim os limites do IOPS das Contas de Armazenamento Azure em mente ( <https://azure.microsoft.com/documentation/articles/storage-scalability-targets> )
 
 
-##### <a name="windowslogo_windows-ha-on-windows"></a>![Windows][Logo_Windows] HA no Windows
+##### <a name="windows-logologo_windows-ha-on-windows"></a>![Logotipo do Windows.][Logo_Windows] HA no Windows
 
 ![Aplicação SAP NetWeaver HA Arquitetura com Servidor SQL em Azure IaaS][planning-guide-figure-3200]
 
@@ -1912,7 +1912,7 @@ A figura a seguir ilustrava a mesma paisagem usando Discos Geridos.
 
 ![Aplicação SAP NetWeaver HA Arquitetura com Servidor SQL em Azure IaaS][planning-guide-figure-3201]
 
-##### <a name="linuxlogo_linux-ha-on-linux"></a>![Linux][Logo_Linux] HA em Linux
+##### <a name="linux-logologo_linux-ha-on-linux"></a>![Logotipo linux.][Logo_Linux] HA em Linux
 
 A arquitetura para SAP HA em Linux on Azure é basicamente a mesma que para o Windows como descrito acima. Consulte a NOTA SAP [1928533] para obter uma lista de soluções de alta disponibilidade apoiadas.
 
@@ -1963,7 +1963,7 @@ Outros VMs dentro do sistema SAP podem ser apoiados utilizando a funcionalidade 
 > [!NOTE]
 > A partir de dezembro de 2015 usando VM Backup NÃO mantém o ID VM único que é usado para licenciamento SAP. Isto significa que uma restauração de uma cópia de segurança VM requer a instalação de uma nova chave de licença SAP, uma vez que o VM restaurado é considerado um novo VM e não uma substituição da anterior que foi salva.
 >
-> ![Windows][Logo_Windows] Windows
+> ![Logotipo do Windows.][Logo_Windows] Windows
 >
 > Teoricamente, os VMs que executam bases de dados também podem ser suportados de forma consistente se o sistema DBMS suportar o Windows VSS (Volume Shadow Copy <https://msdn.microsoft.com/library/windows/desktop/bb968832(v=vs.85).aspx> Service), como, por exemplo, o SQL Server o faz.
 > No entanto, esteja ciente de que, com base em cópias de segurança Azure VM ponto a tempo, as restaurações das bases de dados não são possíveis. Portanto, a recomendação é realizar backups de bases de dados com funcionalidade DBMS em vez de confiar na Cópia de Segurança VM do Azure.
@@ -1972,7 +1972,7 @@ Outros VMs dentro do sistema SAP podem ser apoiados utilizando a funcionalidade 
 >
 > Outras possibilidades são utilizar uma combinação de Microsoft Data Protection Manager instalada num Azure VM e Azure Backup para backup/restaurar bases de dados. Mais informações podem ser encontradas aqui: <https://docs.microsoft.com/azure/backup/backup-azure-dpm-introduction> .
 >
-> ![Linux][Logo_Linux] Linux
+> ![Logotipo linux.][Logo_Linux] Linux
 >
 > Não há equivalente ao Windows VSS em Linux. Portanto, apenas cópias de segurança consistentes com ficheiros são possíveis, mas não cópias de segurança consistentes com aplicações. A cópia de segurança SAP DBMS deve ser feita utilizando a funcionalidade DBMS. O sistema de ficheiros que inclui os dados relacionados com o SAP pode ser guardado, por exemplo, utilizando o alcatrão como descrito aqui: <https://help.sap.com/saphelp_nw70ehp2/helpdata/en/d3/c0da3ccbb04d35b186041ba6ac301f/content.htm>
 >
@@ -1984,7 +1984,7 @@ Desde meados de 2014, as extensões a vários componentes em torno do Hyper-V, S
 
 Um blog que detalha como implementar esta solução está documentado aqui: <https://docs.microsoft.com/archive/blogs/saponsqlserver/protecting-sap-solutions-with-azure-site-recovery> .
 
-## <a name="summary"></a>Resumo
+## <a name="summary-for-high-availability-for-sap-systems"></a>Resumo para Alta Disponibilidade para sistemas SAP
 
 Os pontos-chave da Alta Disponibilidade para sistemas SAP em Azure são:
 
@@ -1999,7 +1999,7 @@ Os pontos-chave da Alta Disponibilidade para sistemas SAP em Azure são:
 * O backup das instâncias de diálogo SAP faz pouco sentido, uma vez que é geralmente mais rápido para recolocar instâncias de diálogo simples.
 * O backup do VM, que contém o diretório global do sistema SAP e com ele todos os perfis das diferentes instâncias, faz sentido e deve ser realizado com o Windows Backup ou, por exemplo, alcatrão no Linux. Uma vez que existem diferenças entre o Windows Server 2008 (R2) e o Windows Server 2012 (R2), que facilitam o back up utilizando as versões mais recentes do Windows Server, recomendamos executar o Windows Server 2012 (R2) como sistema operativo para hóspedes do Windows.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Leia os artigos:
 
 - [Implementação de máquinas virtuais Azure para SAP NetWeaver](./deployment-guide.md)

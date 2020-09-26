@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 07/24/2019
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bf9e00e8acba241f1445977dcc53724b9981039f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 721389b557fde41b1461654b03299601e2384108
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87068687"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361335"
 ---
 # <a name="cluster-an-sap-ascsscs-instance-on-a-windows-failover-cluster-by-using-a-file-share-in-azure"></a>Cluster uma instância SAP ASCS/SCS num cluster de failover do Windows utilizando uma partilha de ficheiros no Azure
 
-> ![Windows][Logo_Windows] Windows
+> ![Logotipo do Windows.][Logo_Windows] Windows
 >
 
 O cluster de falha do Windows Server é a base de uma instalação SAP ASCS/SCS de alta disponibilidade e de DBMS no Windows.
@@ -137,7 +137,7 @@ Para utilizar uma partilha de ficheiros de escala, o seu sistema deve satisfazer
 * Para um bom desempenho de rede entre VMs, que é necessário para a sincronização do disco direto dos espaços de armazenamento, utilize um tipo VM que tenha pelo menos uma largura de banda de rede "alta".
     Para obter mais informações, consulte as especificações [da Série DSv2][dv2-series] e [da Série DS.][ds-series]
 * Recomendamos que reserve alguma capacidade não acoada na piscina de armazenamento. Deixar alguma capacidade não acoada na piscina de armazenamento dá espaço aos volumes para reparar "no lugar" se uma unidade falhar. Isto melhora a segurança e o desempenho dos dados.  Para obter mais informações, consulte [escolher o tamanho do volume.][choosing-the-size-of-volumes-s2d]
-* Não é necessário configurar o balançador interno de carga Azure para o nome da rede de partilha de ficheiros de escala, como por exemplo para \<SAP global host\> . Isto é feito para \<ASCS/SCS virtual host name\> o exemplo SAP ASCS/SCS ou para o DBMS. Uma partilha de ficheiros de escala para fora escala a carga em todos os nós do cluster. \<SAP global host\>utiliza o endereço IP local para todos os nós de cluster.
+* Não é necessário configurar o balançador interno de carga Azure para o nome da rede de partilha de ficheiros de escala, como por exemplo para \<SAP global host\> . Isto é feito para \<ASCS/SCS virtual host name\> o exemplo SAP ASCS/SCS ou para o DBMS. Uma partilha de ficheiros de escala para fora escala a carga em todos os nós do cluster. \<SAP global host\> utiliza o endereço IP local para todos os nós de cluster.
 
 
 > [!IMPORTANT]

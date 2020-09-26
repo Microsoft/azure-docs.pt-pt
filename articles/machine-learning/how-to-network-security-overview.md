@@ -8,15 +8,15 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 07/07/2020
+ms.date: 09/25/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions
-ms.openlocfilehash: 36d3d84949e44719474656d07da9c7b7c46a4e98
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 1690d4b236fce53e033f08fa6825eefe6359d9e9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90893187"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362219"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Isolamento de rede virtual e visão geral da privacidade
 
@@ -80,10 +80,20 @@ Para obter instruções detalhadas sobre como completar estes passos, consulte u
 ### <a name="limitations"></a>Limitações
 
 Garantir o seu espaço de trabalho e os recursos associados dentro de uma rede virtual têm as seguintes limitações:
-- Workspace Private Link só está disponível nas seguintes regiões: eastus, westus2, southcentralus
-    - Esta limitação não se aplica aos recursos associados. Por exemplo, pode ativar o VNet para armazenamento em qualquer região de Aprendizagem automática Azure.
+- Workspace Private Link só está disponível nas seguintes regiões:
+    - **E.U.A. Leste**
+    - **E.U.A. Centro-Sul**
+    - **E.U.A. Oeste**
+    - **E.U.A. Oeste 2**
+    - **Canadá Central**
+    - **Sudeste Asiático**
+    - **Leste do Japão**
+    - **Europa do Norte**
+    - **Leste da Austrália**
+    - **Sul do Reino Unido**
+    
+    Esta limitação não se aplica aos recursos associados. Por exemplo, pode ativar o VNet para armazenamento em qualquer região de Aprendizagem automática Azure.
 - Todos os recursos devem estar por trás do mesmo VNet. No entanto, são permitidas sub-redes dentro do mesmo VNet.
-- Algumas funcionalidades do estúdio, como o designer, AutoML, rotulagem e perfis de dados não podem ser usadas com contas de armazenamento configuradas para usar um ponto final privado. Se precisar de utilizar estas funcionalidades de estúdio, utilize os pontos finais de serviço.
 
 ## <a name="secure-the-training-environment"></a>Garantir o ambiente de treino
 
@@ -150,7 +160,7 @@ Embora o estúdio possa aceder a dados numa conta de armazenamento configurada c
 * Submeta uma experiência AutoML.
 * Inicie um projeto de rotulagem.
 
-Para ativar a funcionalidade completa durante a utilização de um ponto final de serviço de armazenamento, consulte [o estúdio Use Azure Machine Learning numa rede virtual.](how-to-enable-studio-virtual-network.md#access-data-using-the-studio) Atualmente, o estúdio não suporta pontos finais privados de armazenamento.
+Para ativar a funcionalidade completa durante a utilização de um ponto final de serviço de armazenamento, consulte [o estúdio Use Azure Machine Learning numa rede virtual.](how-to-enable-studio-virtual-network.md#access-data-using-the-studio) O estúdio suporta tanto os pontos finais de serviço como os pontos finais privados para contas de armazenamento.
 
 ### <a name="limitations"></a>Limitações
 - O estúdio não pode aceder a dados em contas de armazenamento configuradas para usar pontos finais privados. Para obter a funcionalidade completa, deve utilizar os pontos finais de serviço para armazenamento e utilização da identidade gerida.

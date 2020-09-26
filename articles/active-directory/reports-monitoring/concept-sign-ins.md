@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99e15c6d1ca33623151b7a2d75e3e28878f673ef
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 2791b62d8abb1ade199ae3eb72deaf4db56f3725
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603599"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91361301"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
@@ -147,13 +147,13 @@ A **Localização** - A localização da ligação foi iniciada a partir de:
 |SMTP autenticado| |Usado pelos clientes POP e IMAP para enviar mensagens de correio e-mail.|
 |Autodiscover| |Utilizado pelos clientes Outlook e EAS para encontrar e conectar-se a caixas de correio em Exchange Online.|
 |Exchange ActiveSync| |Este filtro mostra todas as tentativas de inscrição em que o protocolo EAS foi tentado.|
-|Browser|![Marca de verificação](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de inscrição de utilizadores que usam navegadores web|
+|Browser|![Marca de verificação azul.](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de inscrição de utilizadores que usam navegadores web|
 |Exchange ActiveSync| | Mostra todas as tentativas de login dos utilizadores com aplicações de clientes que usam o Exchange ActiveSync para se conectarem ao Exchange Online|
 |Intercâmbio PowerShell Online| |Usado para ligar a Exchange Online com powerShell remoto. Se bloquear a autenticação básica para Exchange Online PowerShell, tem de utilizar o módulo Exchange Online PowerShell para se ligar. Para obter instruções, consulte [Connect to Exchange Online PowerShell utilizando a autenticação de vários fatores.](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)|
 |Serviços Web Exchange| |Uma interface de programação que é usada pelo Outlook, Outlook para Mac e aplicações de terceiros.|
 |IMAP4| |Um cliente de correio antigo que usa o IMAP para recuperar o e-mail.|
 |MAPI sobre HTTP| |Usado pelo Outlook 2010 e mais tarde.|
-|Aplicativos móveis e clientes de desktop|![Marca de verificação azul](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de login dos utilizadores que usam aplicações móveis e clientes de desktop.|
+|Aplicativos móveis e clientes de desktop|![Marca de verificação azul.](./media/concept-sign-ins/check.png)|Mostra todas as tentativas de login dos utilizadores que usam aplicações móveis e clientes de desktop.|
 |Livro de endereços offline| |Uma cópia das coleções de listas de endereços que são descarregadas e usadas pelo Outlook.|
 |Outlook Anywhere (RPC over HTTP)| |Usado pelo Outlook 2016 e mais cedo.|
 |Serviço Outlook| |Utilizado pelo aplicativo Mail and Calendar para o Windows 10.|
@@ -234,7 +234,7 @@ Ao clicar num item, obtém mais detalhes sobre a operação de início de sessã
 - Cliente
 - Localização
 - Endereço IP
-- Data
+- Date
 - MFA Necessário
 - Estado de início de sessão
 
