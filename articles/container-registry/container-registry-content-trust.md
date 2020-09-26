@@ -3,12 +3,12 @@ title: Gerir imagens assinadas
 description: Saiba como ativar a confiança de conteúdo para o seu registo de contentores Azure e empurre e puxe imagens assinadas. A confiança de conteúdo é uma característica do nível de serviço Premium.
 ms.topic: article
 ms.date: 09/06/2019
-ms.openlocfilehash: 34bb56bab869cb1f12541b65c59b06a73b215377
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 36d2a8ddef184804facdace2d517d7e2fdf1b24c
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076851"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91253484"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confiança do conteúdo no Azure Container Registry
 
@@ -40,7 +40,7 @@ O primeiro passo é ativar a confiança do conteúdo ao nível do registo. Depoi
 
 Para ativar a confiança do conteúdo no seu registo, navegue primeiro para o mesmo no portal do Azure. Em **Políticas**, selecione **Content Trust**  >  **Enabled**  >  **Save**. Também pode utilizar o comando [de atualização az acr config content-trust][az-acr-config-content-trust-update] no Azure CLI.
 
-![Ativar a confiança do conteúdo num registo no portal do Azure][content-trust-01-portal]
+![O screenshot mostra permitir a confiança de conteúdo para um registo no portal Azure.][content-trust-01-portal]
 
 ## <a name="enable-client-content-trust"></a>Ativar a confiança do conteúdo no cliente
 

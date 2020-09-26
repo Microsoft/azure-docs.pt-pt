@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 09/21/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12aa400d6ca44043d3d90e78a93ae49d97a927e8
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d281b0ecd38ebbb76e093fd4f85213da4fc7d713
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89270296"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91265799"
 ---
 # <a name="billing-model-for-azure-ad-external-identities"></a>Modelo de faturação para identidades externas Azure AD
 
@@ -43,11 +43,11 @@ O nível de preços que se aplica aos seus utilizadores convidados baseia-se no 
 
 ## <a name="link-your-azure-ad-tenant-to-a-subscription"></a>Ligue o seu inquilino Azure AD a uma subscrição
 
-Um inquilino Azure AD deve estar ligado a uma subscrição da Azure para faturação adequada e acesso a funcionalidades.
+Um inquilino Azure AD deve estar ligado a uma subscrição da Azure para faturação adequada e acesso a funcionalidades. Se o diretório já não tiver uma subscrição a que possa ligar, terá a oportunidade de adicionar uma durante este processo.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) com uma conta Azure que foi atribuída pelo menos a função [de Contribuinte](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) dentro da subscrição ou um grupo de recursos dentro da subscrição.
 
-2. Selecione o diretório que contém a sua subscrição: Na barra de ferramentas do portal Azure, selecione o ícone **Do Diretório + Subscrição** e, em seguida, selecione o diretório que contém a sua subscrição.
+2. Selecione o diretório que pretende ligar: Na barra de ferramentas do portal Azure, selecione o ícone **Do Diretório + Subscrição** e, em seguida, selecione o diretório.
 
     ![Selecione o ícone de direção + subscrição](media/external-identities-pricing/portal-mau-pick-directory.png)
 
@@ -62,6 +62,9 @@ Um inquilino Azure AD deve estar ligado a uma subscrição da Azure para fatura�
     ![Selecione o inquilino e ligue uma subscrição](media/external-identities-pricing/linked-subscriptions.png)
 
 7. No painel de subscrição Link, selecione uma **Subscrição** e um **grupo de Recursos.** Em seguida, selecione **Aplicar**.
+
+   > [!NOTE]
+   > Se não houver subscrições listadas, pode [associar uma subscrição ao seu inquilino.](../fundamentals/active-directory-how-subscriptions-associated-directory.md) Ou, pode adicionar uma nova subscrição selecionando o link **se ainda não tiver uma subscrição, pode criar uma aqui**.
 
     ![Selecione um grupo de subscrição e recursos](media/external-identities-pricing/link-subscription-resource.png)
 

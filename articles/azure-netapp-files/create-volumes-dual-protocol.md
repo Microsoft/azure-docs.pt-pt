@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 8/11/2020
+ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: dcdb3e8ce545227bc11cc60e3885c1a985ed34f4
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 972f9b1ac96ca180aa6eaeead7cde51b60ec0e93
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460002"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278498"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Criar um volume de duplo protocolo (NFSv3 e SMB) para ficheiros Azure NetApp
 
@@ -51,7 +51,7 @@ O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NF
 
         Um nome de volume deve ser único dentro de cada piscina de capacidade. Deve ter pelo menos três caracteres de comprimento. Pode usar qualquer caracteres alfanuméricos.   
 
-        Não pode usar `default` como nome de volume.
+        Não pode usar `default` ou como nome de `bin` volume.
 
     * **Piscina de capacidade**  
         Especifique o pool de capacidade onde deseja que o volume seja criado.
@@ -60,6 +60,11 @@ O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NF
         Especifique a quantidade de armazenamento lógico que está atribuída ao volume.  
 
         O campo **Quota disponível** mostra a quantidade de espaço não utilizado no conjunto de capacidade escolhido que pode usar para criar um novo volume. O tamanho do novo volume não pode exceder a quota disponível.  
+
+    * **Produção (MiB/S)**   
+        Se o volume for criado num pool manual de capacidade QoS, especifique a produção desejada para o volume.   
+
+        Se o volume for criado num pool de capacidade auto QoS, o valor apresentado neste campo é (rendimento de nível de serviço quota x).   
 
     * **Rede virtual**  
         Especifique a rede virtual Azure (VNet) a partir da qual pretende aceder ao volume.  
@@ -136,7 +141,7 @@ Pode gerir atributos POSIX como UID, Home Directory e outros valores utilizando 
 
 Siga as instruções em [Configurar um cliente NFS para a Azure NetApp Files](configure-nfs-clients.md) para configurar o cliente NFS.  
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 * [Perguntas frequentes de dois protocolos](azure-netapp-files-faqs.md#dual-protocol-faqs)
 * [Configurar um cliente NFS para o Azure NetApp Files](configure-nfs-clients.md) 
