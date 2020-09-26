@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 8645e8c1f1f371f1416a998af41104ebb6867eea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 44005dafb1e3eee60f163f80ad2e4282147233e4
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334889"
+ms.locfileid: "91355623"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gerir atualizações rolantes de aplicações em nuvem utilizando a geo-replicação ativa da SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ Se a sua aplicação depender de cópias de dados automáticas e utilizar geo-re
 > [!NOTE]
 > Estes passos de preparação não afetarão o ambiente de produção, que pode funcionar em modo de acesso total.
 
-![Configuração de geo-replicação da base de dados SQL para recuperação de desastres em nuvem.](./media/manage-application-rolling-upgrade/option1-1.png)
+![O diagrama mostra a configuração de geo-replicação da base de dados SQL para a recuperação de desastres em nuvem.](./media/manage-application-rolling-upgrade/option1-1.png)
 
 Quando os passos de preparação estiverem completos, a aplicação está pronta para a atualização real. O próximo diagrama ilustra os passos envolvidos no processo de upgrade:
 
@@ -48,7 +48,7 @@ Quando os passos de preparação estiverem completos, a aplicação está pronta
 2. Desligue a base de dados secundária utilizando o modo de terminação planeado (4). Esta ação cria uma cópia totalmente sincronizada e independente da base de dados primária. Esta base de dados será atualizada.
 3. Rode a base de dados secundária para o modo de leitura-escrita e execute o script de atualização (5).
 
-![Configuração de geo-replicação da base de dados SQL para recuperação de desastres em nuvem.](./media/manage-application-rolling-upgrade/option1-2.png)
+![O diagrama mostra a configuração de geo-replicação da base de dados SQL para a recuperação de desastres em nuvem que executa o script de atualização.](./media/manage-application-rolling-upgrade/option1-2.png)
 
 Se a atualização terminar com sucesso, está agora pronta para mudar os utilizadores para a cópia atualizada da aplicação, que se torna um ambiente de produção. A troca envolve mais alguns passos, como ilustrado no diagrama seguinte:
 
@@ -67,7 +67,7 @@ Neste ponto, a aplicação está totalmente funcional e pode repetir os passos d
 > [!NOTE]
 > O revés não requer alterações de DNS porque ainda não efetuou uma operação de troca.
 
-![Configuração de geo-replicação da base de dados SQL para recuperação de desastres em nuvem.](./media/manage-application-rolling-upgrade/option1-4.png)
+![O diagrama mostra a configuração de geo-replicação da base de dados SQL para a recuperação de desastres em nuvem com o ambiente de preparação desativado.](./media/manage-application-rolling-upgrade/option1-4.png)
 
 A principal vantagem desta opção é que você pode atualizar uma aplicação em uma única região seguindo um conjunto de passos simples. O custo do dólar da atualização é relativamente baixo. 
 
@@ -98,7 +98,7 @@ Para permitir a reversão da atualização, tem de criar um ambiente de prepara�
 > [!NOTE]
 > Estes passos de preparação não terão impacto na aplicação no ambiente de produção. Permanecerá totalmente funcional no modo de leitura-escrita.
 
-![Configuração de geo-replicação da base de dados SQL para recuperação de desastres em nuvem.](./media/manage-application-rolling-upgrade/option2-1.png)
+![O diagrama mostra a configuração de geo-replicação da base de dados SQL para recuperação de desastres em nuvem com uma cópia totalmente sincronizada da aplicação.](./media/manage-application-rolling-upgrade/option2-1.png)
 
 Quando os passos de preparação estiverem completos, o ambiente de preparação está pronto para a atualização. O próximo diagrama ilustra estes passos de upgrade:
 
@@ -120,14 +120,14 @@ REMOVE SECONDARY ON SERVER <Partner-Server>
 
 3. Executar o script de atualização contra `contoso-1-staging.azurewebsites.net` , e a base de `contoso-dr-staging.azurewebsites.net` dados primária de encenação (12). As alterações na base de dados serão replicadas automaticamente para o estágio secundário.
 
-![Configuração de geo-replicação da base de dados SQL para recuperação de desastres em nuvem.](./media/manage-application-rolling-upgrade/option2-2.png)
+![O diagrama mostra a configuração de geo-replicação da base de dados SQL para recuperação de desastres em nuvem com alterações na base de dados replicadas à encenação.](./media/manage-application-rolling-upgrade/option2-2.png)
 
 Se a atualização terminar com sucesso, está agora pronto para mudar os utilizadores para a versão V2 da aplicação. O próximo diagrama ilustra os passos envolvidos:
 
 1. Ativar uma operação de troca entre ambientes de produção e encenação da aplicação web na região primária (13) e na região de backup (14). V2 da aplicação passa a ser um ambiente de produção, com uma cópia redundante na região de reserva.
 2. Se já não precisar da aplicação V1 (15 e 16), pode desativar o ambiente de preparação.
 
-![Configuração de geo-replicação da base de dados SQL para recuperação de desastres em nuvem.](./media/manage-application-rolling-upgrade/option2-3.png)
+![O diagrama mostra a configuração de geo-replicação da base de dados SQL para a recuperação de desastres em nuvem com o desmantelamento opcional do ambiente de preparação.](./media/manage-application-rolling-upgrade/option2-3.png)
 
 Se o processo de atualização não for bem sucedido (por exemplo, devido a um erro no script de atualização), considere o ambiente de preparação num estado inconsistente. Para reverter a aplicação para o estado de pré-actualização, volte a utilizar a V1 da aplicação no ambiente de produção. Os passos necessários são mostrados no diagrama seguinte:
 
@@ -139,7 +139,7 @@ Neste ponto, a aplicação está totalmente funcional e pode repetir os passos d
 > [!NOTE]
 > O revés não requer alterações de DNS porque não efetuou uma operação de troca.
 
-![Configuração de geo-replicação da base de dados SQL para recuperação de desastres em nuvem.](./media/manage-application-rolling-upgrade/option2-4.png)
+![O diagrama mostra a configuração de geo-replicação da base de dados SQL para recuperação de desastres em nuvem com o processo de atualização recuado.](./media/manage-application-rolling-upgrade/option2-4.png)
 
 A principal vantagem desta opção é que pode atualizar a aplicação e a sua cópia geo-redundante em paralelo sem comprometer a continuidade do seu negócio durante a atualização.
 

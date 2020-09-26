@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 06/25/2020
-ms.openlocfilehash: af1df529ae0f6bb03a8d3f36e51619f273780dfe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4411bd490ab72aa27fbf16a8598a9ff0dae7a5b5
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086800"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91358955"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Tutorial: Configurar grupos de disponibilidade para SQL Server em máquinas virtuais RHEL em Azure 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -223,7 +223,7 @@ Deverá obter os seguintes resultados assim que o comando estiver concluído:
     - `<resourceGroupName>`
     - `<VM-basename>`
     - `<availabilitySetName>`
-    - `<VM-Size>`- Um exemplo seria "Standard_D16_v3"
+    - `<VM-Size>` - Um exemplo seria "Standard_D16_v3"
     - `<username>`
     - `<adminPassword>`
 
@@ -485,7 +485,7 @@ Description : The fence-agents-azure-arm package contains a fence agent for Azur
 ### <a name="register-a-new-application-in-azure-active-directory"></a>Registar uma nova aplicação no Azure Ative Directory
  
  1. Ir para https://portal.azure.com
- 2. Abra a lâmina do [Diretório Ativo Azure](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties). Vá ao Properties e escreva o ID do Diretório. Este é o`tenant ID`
+ 2. Abra a lâmina do [Diretório Ativo Azure](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties). Vá ao Properties e escreva o ID do Diretório. Este é o `tenant ID`
  3. Clique nos [ **registos da App**](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)
  4. Clique **em Novo registo**
  5. Insira um **Nome** como `<resourceGroupName>-app` , **selecione Contas neste diretório de organização apenas**
@@ -532,7 +532,7 @@ Para adicionar o papel, executar o seguinte comando:
 az role definition create --role-definition "<filename>.json"
 ```
 
-Deverá ver o seguinte resultado:
+Deverá ver o resultado seguinte:
 
 ```output
 {
@@ -570,8 +570,8 @@ Atribua o papel personalizado `Linux Fence Agent Role-<username>` que foi criado
 4. Clique **no controlo de acesso (IAM)**
 5. Clique **Em Adicionar uma atribuição de função**
 6. Selecione o papel `Linux Fence Agent Role-<username>` da lista **role**
-7. Na lista **Select,** insira o nome da aplicação que criou acima,`<resourceGroupName>-app`
-8. Clique em **Guardar**
+7. Na lista **Select,** insira o nome da aplicação que criou acima, `<resourceGroupName>-app`
+8. Clicar em **Guardar**
 9. Repita os passos acima para o nó de aglomerado.
 
 ### <a name="create-the-stonith-devices"></a>Criar os dispositivos STONITH
@@ -669,7 +669,7 @@ Uma vez terminada a configuração, pode verificar o estado do SQL Server e veri
 systemctl status mssql-server --no-pager
 ```
 
-Deverá ver o seguinte resultado:
+Deverá ver o resultado seguinte:
 
 ```output
 ● mssql-server.service - Microsoft SQL Server Database Engine
@@ -908,7 +908,7 @@ Em todas as instâncias do SQL Server, guarde as credenciais utilizadas para o l
 
 1. Uma vez que as réplicas secundárias são unidas, você pode vê-las no SSMS Object Explorer expandindo o nó **Always On High Availability:**
 
-    ![availability-group-joined.png](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
+    ![A screenshot mostra as réplicas de disponibilidade primária e secundária.](./media/rhel-high-availability-stonith-tutorial/availability-group-joined.png)
 
 ### <a name="add-a-database-to-the-availability-group"></a>Adicione uma base de dados ao grupo de disponibilidade
 
@@ -969,7 +969,7 @@ Vamos seguir o guia para [criar os recursos do grupo de disponibilidade no clust
     sudo pcs resource
     ```
 
-    Deverá ver o seguinte resultado:
+    Deverá ver o resultado seguinte:
     
     **RHEL 7** 
     
@@ -1051,7 +1051,7 @@ Vamos seguir o guia para [criar os recursos do grupo de disponibilidade no clust
     sudo pcs constraint list --full
     ```
 
-    Deverá ver o seguinte resultado:
+    Deverá ver o resultado seguinte:
     
     **RHEL 7**
 

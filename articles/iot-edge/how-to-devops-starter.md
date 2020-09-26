@@ -2,17 +2,17 @@
 title: Pipeline CI/CD com Azure DevOps Starter - Azure IoT Edge / Microsoft Docs
 description: O Azure DevOps Starter facilita o arranque do Azure. Ajuda-o a lançar uma aplicação Azure IoT Edge à sua escolha em poucos passos rápidos.
 author: shizn
-ms.author: xshi
+ms.author: kgremban
 ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7251e84af001422de2c0e33ca04fdfdb309f7afd
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: f0f0452854ef7456d1bdf7caf0674fab5bd14557
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89302997"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297135"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Criar um pipeline CI/CD para IoT Edge com Azure DevOps Starter
 
@@ -129,7 +129,7 @@ Nas secções anteriores, o Azure DevOps Starter configurau automaticamente um p
 
 Pode eliminar o Azure App Service e outros recursos relacionados que criou quando já não precisa deles. Utilize a funcionalidade **Eliminar** no painel de arranque de devOps.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Conheça as Tarefas do Azure IoT Edge em Azure DevOps em [integração contínua e implementação contínua para Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md)
 * Compreenda a implementação IoT Edge em [implementações de Borda De IoT para dispositivos individuais ou à escala](module-deployment-monitoring.md)

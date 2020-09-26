@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Implementar análises espaciais IoT com o Microsoft Azure Maps'
-description: Integre o Hub IoT com APIs de serviço Azure Maps.
+title: 'Tutorial: Implementar análise espacial IoT / Microsoft Azure Maps'
+description: Tutorial sobre como integrar o IoT Hub com apIs de serviço microsoft Azure Maps
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 09/01/2020
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 25665e75a361fbaa5479e2717d5e6aa9290c3d3a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 3eb405783b16d1bb7de27f6638dba394457601c8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90056574"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321837"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Tutorial: Implementar análises espaciais IoT utilizando mapas Azure
 
@@ -153,7 +153,7 @@ Siga estes passos para carregar a geofence utilizando a API de upload de dados d
       }
       ```
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 O IoT Hub permite uma comunicação bidirecional segura e fiável entre uma aplicação IoT e os dispositivos que gere. Para este tutorial, você deseja obter informações do seu dispositivo no veículo para determinar a localização do carro alugado. Nesta secção, você cria um hub IoT dentro do grupo de recursos *ContosoRental.* Este hub será responsável pela publicação dos eventos de telemetria do seu dispositivo.
 
@@ -253,6 +253,7 @@ Quando a sua função Azure estiver em funcionamento, pode agora enviar dados de
     dotnet run
     ```
 
+
   O seu terminal local deve parecer o de baixo.
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/terminal.png" alt-text="Screenshot da saída do terminal.":::
@@ -276,17 +277,16 @@ Para obter uma lista completa das APIs de REST do Azure Maps, consulte:
 
 * [Azure Maps REST APIs](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
 
-Para saber mais sobre ioT Plug and Play, consulte:
-
 * [IoT Plug and Play](https://docs.microsoft.com/azure/iot-pnp)
 
 Para obter uma lista de dispositivos certificados Azure para IoT, visite:
 
 * [Dispositivos certificados Azure](https://catalog.azureiotsolutions.com/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre como enviar telemetria dispositivo-nuvem, e ao contrário, consulte:
+
 
 > [!div class="nextstepaction"]
 > [Enviar telemetria a partir de um dispositivo](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)

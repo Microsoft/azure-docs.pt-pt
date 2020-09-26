@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sstein, carlrab
+ms.reviewer: sstein
 ms.date: 08/14/2019
-ms.openlocfilehash: 6c85fce45bcfa63d921297b068066b8f6e814223
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a154f9a75a70ed46155424d676d2b2cd8c6df3bf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987135"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91277976"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Configure um grupo de failover para a Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -679,7 +679,7 @@ O ponto final do ouvinte é na forma `fog-name.database.windows.net` de, e é vi
 
 - A remoção de um grupo de failover para uma base de dados única ou agrupada não para a replicação e não elimina a base de dados replicada. Terá de parar manualmente a geo-replicação e eliminar a base de dados do servidor secundário se pretender adicionar uma base de dados única ou agrupada a um grupo de failover depois de ter sido removida. Se não o fizer, pode resultar num erro semelhante ao `The operation cannot be performed due to multiple errors` de tentar adicionar a base de dados ao grupo de failover.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter etapas detalhadas que configuram um grupo de failover, consulte os seguintes tutoriais:
 

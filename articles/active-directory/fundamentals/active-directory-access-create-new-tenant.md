@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d6341aeb6db89d43ef887a3ae50c4439e3867e6
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 2c7225adcfe970d17f8f86afdd15e36e2ba76de3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318612"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287020"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Quickstart: Criar um novo inquilino no Azure Ative Directory
 Pode fazer todas as suas tarefas administrativas com o portal do Microsoft Azure Active Directory (Microsoft Azure AD), incluindo a criação de um novo inquilino para a sua organização. 
@@ -37,7 +37,7 @@ Depois de iniciar sessão no portal do Azure, pode criar um novo inquilino para 
 
     ![Diretório Ativo Azure Criar página ressoure](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
-1. Selecione **Identidade**e, em seguida, selecione **Azure Ative Directory**.
+1. Procure e selecione **Azure Active Directory**.
 
     É apresentada a página **Criar diretório**.
 
@@ -65,7 +65,7 @@ Se não continuar a utilizar esta aplicação, pode eliminar o arrendatário uti
 
     ![Página geral, com botão de diretório de delete realçado](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - Para alterar ou adicionar nomes de domínio, veja [Como adicionar um nome de domínio personalizado ao Microsoft Azure Active Directory](add-custom-domain.md)
 
 - Para adicionar utilizadores, veja [Adicionar ou eliminar um novo utilizador](add-users-azure-active-directory.md)

@@ -10,14 +10,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto, carlrab
+ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: 22ed36213c932c7e202817fd093e1ec96aec94fd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: f354cb25c93826b50c0094e75ef7a1756f7625b7
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434406"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91278180"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configure e gere a autenticação AD AD com Azure SQL
 
@@ -89,19 +89,19 @@ Para conceder a sua SQL Managed Instance AD ler permissão de leitura usando o p
 
 3. Navegue para a SQL Managed Instance que pretende utilizar para integração AZure AD.
 
-   ![aad](./media/authentication-aad-configure/aad.png)
+   ![Screenshot do portal Azure mostrando a página de administração do Ative Directory aberta para a instância gerida pelo SQL selecionado.](./media/authentication-aad-configure/aad.png)
 
 4. Selecione o banner em cima da página de administração do Ative Directory e conceda permissão ao utilizador atual.
 
-    ![conceder permissões-portal](./media/authentication-aad-configure/grant-permissions.png)
+    ![Screenshot do diálogo para conceder permissões a uma placa gerida pelo SQL para aceder ao Ative Directory. O botão de permissões Grant está selecionado.](./media/authentication-aad-configure/grant-permissions.png)
 
 5. Após o sucesso da operação, a seguinte notificação aparecerá no canto superior direito:
 
-    ![exito](./media/authentication-aad-configure/success.png)
+    ![Screenshot de uma notificação confirmando que as permissões de leitura de diretório ativo foram atualizadas com sucesso para a instância gerida.](./media/authentication-aad-configure/success.png)
 
 6. Agora pode escolher o seu administrador AD Azure para a sua SQL Managed Instance. Para isso, na página de administração do Ative Directory, selecione Definir o comando **de administração.**
 
-    ![set-admin](./media/authentication-aad-configure/set-admin.png)
+    ![Screenshot mostrando o comando de administração set realçado na página de administração do Ative Directory para a instância gerida pelo SQL selecionado.](./media/authentication-aad-configure/set-admin.png)
 
 7. Na página de administração AD AZure, procure um utilizador, selecione o utilizador ou grupo para ser administrador e, em seguida, **selecione Select**.
 
@@ -111,7 +111,7 @@ Para conceder a sua SQL Managed Instance AD ler permissão de leitura usando o p
 
 8. No topo da página de administração do Ative Directory, **selecione Save**.
 
-    ![save](./media/authentication-aad-configure/save.png)
+    ![Screenshot da página de administração do Ative Directory com o botão Guardar na primeira linha ao lado dos botões de administração set e Remover.](./media/authentication-aad-configure/save.png)
 
     O processo de alteração do administrador pode demorar vários minutos. Em seguida, o novo administrador aparece na caixa de administração do Ative Directory.
 
@@ -190,7 +190,7 @@ Para obter um administrador AD Azure, execute os seguintes comandos Azure PowerS
 
 Os cmdlets utilizados para a prestação e gestão do administrador AdD Ad para a sua SQL Managed Instance estão listados na tabela seguinte:
 
-| Nome do cmdlet | Descrição |
+| Nome do cmdlet | Description |
 | --- | --- |
 | [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) |Disposições um administrador AD Azure para a SQL Managed Instance na subscrição atual. (Deve ser da subscrição atual)|
 | [Remove-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlinstanceactivedirectoryadministrator) |Remove um administrador AD Azure para a SqL Managed Instance na subscrição atual. |
@@ -279,7 +279,7 @@ Para executar os cmdlets PowerShell, é necessário ter o Azure PowerShell insta
 
 Cmdlets utilizados para a prestação e gestão do administrador AZure AD para a Base de Dados SQL e Azure Synapse:
 
-| Nome do cmdlet | Descrição |
+| Nome do cmdlet | Description |
 | --- | --- |
 | [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Disposições um administrador do Azure Ative Directory para o servidor que hospeda a Base de Dados SQL ou Azure Synapse. (Deve ser da subscrição atual) |
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Remove um administrador do Azure Ative Directory para o servidor que hospeda a Base de Dados SQL ou Azure Synapse.|
@@ -344,7 +344,7 @@ Em todas as máquinas clientes, a partir das quais as suas aplicações ou utili
 
 - .NET Quadro 4.6 ou posteriormente de [https://msdn.microsoft.com/library/5a4x27ek.aspx](https://msdn.microsoft.com/library/5a4x27ek.aspx) .
 - Biblioteca de autenticação do Diretório Ativo Azure para o Servidor SQL* (ADAL.DLL*). Abaixo estão os links de descarregamento para instalar os mais recentes SSMS, ODBC e OLE DB que contém a biblioteca *ADAL.DLL.*
-  - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
+  - [O SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms)
   - [Controlador ODBC 17 para sql server](https://www.microsoft.com/download/details.aspx?id=56567)
   - [OLE DB Driver 18 para SQL Server](https://www.microsoft.com/download/details.aspx?id=56730)
 
@@ -532,7 +532,7 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 
 As orientações sobre problemas de resolução de problemas com a autenticação AZure AD podem ser encontradas no seguinte blog: <https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para uma visão geral de logins, utilizadores, funções de base de dados e permissões na Base de Dados SQL, consulte [Logins, utilizadores, funções de base de dados e contas de utilizador.](logins-create-manage.md)
 - Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](https://msdn.microsoft.com/library/ms181127.aspx).
