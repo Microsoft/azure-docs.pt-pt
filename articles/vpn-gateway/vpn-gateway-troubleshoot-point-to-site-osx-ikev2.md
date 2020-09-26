@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: 33e67df5ad68a78cc35f7168813716d1d794d527
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: be7b6349a7bf51a4fb99e3604a04f9d95403b74f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442807"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359329"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Resolução de problemas Ligações VPN ponto-a-local de clientes Mac OS X VPN
 
@@ -34,7 +34,7 @@ Este artigo ajuda-o a resolver problemas de conectividade ponto-a-local do Mac O
 4. A **Identificação Local** deve ser a mesma que o **Objeto** do certificado de cliente.
 5. Clique em **Definições de Autenticação** para abrir a página Definições de Autenticação.
 
-   ![Definições de autenticação](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
+   ![A screenshot mostra uma caixa de diálogo de definições de autenticação com certificado selecionado.](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
 6. Verifique se o **Certificado** é selecionado a partir do dropdown.
 7. Clique no botão **Selecione** e verifique se o certificado correto está selecionado. Clique **em OK** para guardar quaisquer alterações.
 
@@ -48,7 +48,7 @@ Este artigo ajuda-o a resolver problemas de conectividade ponto-a-local do Mac O
 4. A **identificação local** pode estar em branco.
 5. Clique no botão **Definição de Autenticação** e verifique se o "Nome de Utilizador" é selecionado a partir do dropdown.
 
-   ![Definições de autenticação](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
+   ![A screenshot mostra uma caixa de diálogo de definições de autenticação com o nome de utilizador selecionado.](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
 6. Verifique se as credenciais corretas estão inseridas.
 
 ## <a name="additional-steps"></a><a name="additional"></a>Passos adicionais
@@ -62,5 +62,5 @@ Se experimentar os passos anteriores e tudo estiver configurado corretamente, de
   
 3. Se não houver resposta do servidor nos vestígios de rede, verifique se ativou o protocolo IKEv2 na página de Configuração do Gateway Azure no website do portal Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter ajuda adicional, consulte [o Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

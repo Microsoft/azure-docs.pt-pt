@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0aca072a9e659d242dec9dd45a12f9568d419599
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 3d5c47d3e3e9485c3a6de8f93782c654fb34a516
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87124430"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330643"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adicione chit-chat a uma base de conhecimento
 
@@ -72,7 +72,7 @@ Para visualizar os metadados, selecione **Ver Opções** na barra de ferramentas
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>Adicione perguntas e respostas adicionais de chit-chat
 Pode adicionar um novo par QnA de chit-chat que não está no conjunto de dados predefinido. Certifique-se de que não está a duplicar um par QnA que já está coberto no conjunto de chit-chat. Quando adicionas qualquer novo chit-chat QnA, ele é adicionado à tua fonte **Editorial.** Para garantir que o ranker entende que isto é chit-chat, adicione a chave de metadados/par de valor "Editorial: chitchat", como visto na imagem seguinte:
 
-![! [Adicione chit-chat QnAs] (.. /media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
+:::image type="content" source="../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png" alt-text="Adicione chit-chat QnAs" lightbox="../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png":::
 
 ## <a name="delete-chit-chat-from-an-existing-kb"></a>Apagar chit-chat de um KB existente
 Selecione o seu KB e navegue para a página **Definições.** A sua fonte específica de chit-chat está listada como um ficheiro, com o nome de personalidade selecionado. Pode eliminar isto como um ficheiro de origem.

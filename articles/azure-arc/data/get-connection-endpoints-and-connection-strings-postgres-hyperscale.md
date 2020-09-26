@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 93b0547ba25f6534593a0a016ebfa5cbe4d2be2e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4087d618209ab4db46f89ef4e6db7ac87ca4cf57
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90940796"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331017"
 ---
 # <a name="get-connection-endpoints-and-form-connection-strings-for-your-arc-enabled-postgresql-hyperscale-server-group"></a>Obtenha pontos finais de ligação e forme cordas de conexão para o seu grupo de servidor de hiperescala pós-escala pós-escala ativado pelo Arco
 
@@ -77,7 +77,7 @@ postgres=#
 ```
 > [!NOTE]
 >
-> - A palavra-passe do utilizador _postgresql_ indicada no ponto final denominado "_Instância Pós-SQL_ é a palavra-passe que escolheu quando criou o grupo de servidores.
+> - A palavra-passe do utilizador _de postgres_ indicado no ponto final denominado "_PostgreSQL Instance_" é a palavra-passe que escolheu ao implementar o grupo de servidor.
 > - Sobre a azdata: o arrendamento associado à sua ligação dura cerca de 10 horas. Depois disso, tens de voltar a ligar-te. Se o seu contrato de arrendamento tiver expirado, receberá a seguinte mensagem de erro quando tentar executar um comando com azdata (com outros dados): _ERROR: (401)_ 
 >  _Reason: Headers de_resposta HTTP não 
 >  _autorizados: HTTPHeaderDict ({'Date': 'Sun, 06 set 2020 16:58:38 GMT', 'Content-Length': '0', 'WWW-Authenticate': '_ Basic 

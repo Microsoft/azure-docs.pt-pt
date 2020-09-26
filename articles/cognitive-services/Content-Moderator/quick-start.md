@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 550cec535343d48ad74dd35e6886af78bdd15701
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 7be14c07a08d58f02890a48d39dd0a8010101374
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563287"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332632"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Quickstart: Experimente o Moderador de Conteúdo na web
 
@@ -64,7 +64,7 @@ Envie o seu conteúdo para moderação. Internamente, a ferramenta de revisão i
 
 Reveja as etiquetas de moderação aplicadas. Pode ver quais as etiquetas que foram aplicadas ao seu conteúdo e qual era a pontuação em cada categoria. Consulte os tópicos de moderação [de Imagem,](image-moderation-api.md) [Texto](text-moderation-api.md)e [Vídeo](video-moderation-api.md) para saber mais sobre o que as diferentes etiquetas de conteúdo indicam.
 
-![Resultados da revisão](images/reviewresults_text.png)
+![Rever resultados](images/reviewresults_text.png)
 
 Num projeto, você ou a sua equipa de revisão podem alterar estas etiquetas ou adicionar mais tags conforme necessário. Submeterá estas alterações com o botão **Seguinte.** Como a sua aplicação de negócio chama de APIs moderador, o conteúdo marcado irá fazer fila aqui, pronto para ser revisto pelas equipas de revisão humana. Pode rever rapidamente grandes volumes de conteúdo utilizando esta abordagem.
 

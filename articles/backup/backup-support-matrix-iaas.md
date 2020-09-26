@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte ao faz
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: c50a19acceeb68ead4d86a59bbe8275ae97ecb5f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b576b5e15461f34468bd7c2d512ac7a636b73ac9
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019594"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332734"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte da cópia de segurança de uma VM do Azure
 
@@ -155,7 +155,7 @@ Backup de VMs Azure com fechaduras | Não suportado para VMs não geridos. <br><
 
 **Componente** | **Suporte**
 --- | ---
-Discos de dados Azure VM | O suporte para o backup dos VMs Azure com até 32 discos está em pré-visualização pública em todas as regiões.<br><br> O suporte para cópia de segurança de VMs Azure com discos não geridos ou VMs clássicos é apenas de 16 discos.
+Discos de dados Azure VM | Suporte para cópia de segurança de VMs Azure com até 32 discos.<br><br> O suporte para cópia de segurança de VMs Azure com discos não geridos ou VMs clássicos é apenas de 16 discos.
 Tamanho do disco de dados | O tamanho do disco individual pode ser até 32 TB e um máximo de 256 TB combinados para todos os discos num VM.
 Tipo de armazenamento | HDD padrão, SSD padrão, SSD premium.
 Managed disks | Suportado.
@@ -179,7 +179,7 @@ VMs com endereços IP públicos| Suportado.<br/><br/> Associe um endereço IP p�
 Grupo de segurança de rede (NSG) em NIC/sub-rede. |Suportado.
 Endereço IP estático | Não suportado.<br/><br/> Um novo VM que é criado a partir de um ponto de restauro é atribuído um endereço IP dinâmico.<br/><br/> Para VMs clássicos, não é possível fazer uma reserva de VM com um endereço IP reservado e sem ponto final definido.
 Endereço IP dinâmico |Suportado.<br/><br/> Se o NIC na fonte VM utilizar um endereço IP dinâmico, por predefinição o NIC no VM restaurado também o utilizará.
-Gestor de Tráfego do Azure| Suportado.<br/><br/>Se o VM de apoio estiver no Traffic Manager, adicione manualmente o VM restaurado à mesma instância do Gestor de Tráfego.
+Traffic Manager do Azure| Suportado.<br/><br/>Se o VM de apoio estiver no Traffic Manager, adicione manualmente o VM restaurado à mesma instância do Gestor de Tráfego.
 DNS do Azure |Suportado.
 DNS Personalizado |Suportado.
 Conectividade de saída via http proxy | Suportado.<br/><br/> Um representante autenticado não é apoiado.
@@ -207,10 +207,10 @@ Segurança de dados:
 
 **Máquina** | **Em trânsito** | **Em repouso**
 --- | --- | ---
-Máquinas Windows no local sem DPM/MABS | ![Sim][green] | ![Sim][green]
-VMs do Azure | ![Sim][green] | ![Sim][green]
-Instalações/VMs Azure com DPM | ![Sim][green] | ![Sim][green]
-Em instalações/VMs Azure com MABS | ![Sim][green] | ![Sim][green]
+Máquinas Windows no local sem DPM/MABS | ![Yes][green] | ![Yes][green]
+VMs do Azure | ![Yes][green] | ![Yes][green]
+Instalações/VMs Azure com DPM | ![Yes][green] | ![Yes][green]
+Em instalações/VMs Azure com MABS | ![Yes][green] | ![Yes][green]
 
 ## <a name="vm-compression-support"></a>Suporte à compressão VM
 
@@ -223,8 +223,8 @@ A cópia de segurança suporta a compressão do tráfego de backup, tal como res
 --- | --- | ---
 Máquinas Windows no local sem DPM/MABS | ND | ![Sim][green]
 VMs do Azure | ND | ND
-Instalações/VMs Azure com DPM | ![Sim][green] | ![Sim][green]
-Em instalações/VMs Azure com MABS | ![Sim][green] | ![Sim][green]
+Instalações/VMs Azure com DPM | ![Yes][green] | ![Yes][green]
+Em instalações/VMs Azure com MABS | ![Yes][green] | ![Sim][green]
 
 ## <a name="next-steps"></a>Próximos passos
 

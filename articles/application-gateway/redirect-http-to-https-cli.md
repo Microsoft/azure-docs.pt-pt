@@ -1,19 +1,19 @@
 ---
 title: HTTP para reorientação HTTPS usando O LÍI
 titleSuffix: Azure Application Gateway
-description: Saiba como criar um gateway de aplicação e adicione um certificado de rescisão de TLS utilizando o Azure CLI.
+description: Saiba como criar um HTTP para reorientação HTTPS e adicione um certificado de rescisão de TLS utilizando o Azure CLI.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/15/2019
+ms.date: 09/24/2020
 ms.author: victorh
-ms.openlocfilehash: 828012e7e41f8710dc57f1c830b81d403507d27d
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 7dbfa877f634256c86166892a38d048a95e56baa
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594273"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331034"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Criar um gateway de aplicações com HTTP para https redirecionamento usando o Azure CLI
 
@@ -223,13 +223,6 @@ Para aceitar o aviso de segurança se usou um certificado auto-assinado, selecio
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, ficou a saber como:
-
-> [!div class="checklist"]
-> * Criar um certificado autoassinado
-> * Configurar uma rede
-> * Criar um gateway de aplicação com o certificado
-> * Adicione uma regra de ouvinte e redirecionamento
-> * Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
+- [Criar um gateway de aplicações com reorientação interna usando o Azure CLI](redirect-internal-site-cli.md)
 
 

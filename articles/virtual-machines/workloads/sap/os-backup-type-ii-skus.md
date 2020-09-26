@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 100e1b974e54d8c0065194bc7beb18f458011434
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b02c669439c54f34afb4212949b20f6793784103
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616872"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91359430"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Backup de SO e restauro para SKUs tipo II de revisão 3 selos
 
@@ -69,7 +69,7 @@ O seguinte comando mostra a restauração de um ficheiro */etc/fstab da* cópia 
 
 A imagem a seguir mostra o restabelecemento de uma cópia de segurança completa:
 
-![HowtoRestoreaBackup.PNG](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
+![A screenshot mostra uma janela de ordem de comando com o restauro.](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
 
 ## <a name="how-to-install-the-rear-tool-and-change-the-configuration"></a>Como instalar a ferramenta ReaR e alterar a configuração? 
 
@@ -86,7 +86,7 @@ Para o sistema operativo **RHEL,** utilize o seguinte comando:
 ```
 #yum install rear -y
 ```
-Para configurar a ferramenta ReaR, é necessário atualizar os parâmetros **OUTPUT_URL** e **BACKUP_URL** no *ficheiro /etc/rear/local.conf*.
+Para configurar a ferramenta ReaR, é necessário atualizar os parâmetros **OUTPUT_URL**  e **BACKUP_URL**  no *ficheiro /etc/rear/local.conf*.
 ```
 OUTPUT=ISO
 ISO_MKISOFS_BIN=/usr/bin/ebiso
@@ -99,4 +99,4 @@ EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHAN
 BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
 ```
 
-A imagem a seguir mostra o restabelecemento de uma cópia de segurança completa: ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+A imagem que se segue mostra o restabelecemento de uma cópia de segurança completa: ![ O Screenshot mostra uma janela de pedido de comando com a restauração utilizando a ferramenta ReaR.](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

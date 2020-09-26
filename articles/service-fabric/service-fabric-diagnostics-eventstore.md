@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 6/6/2019
 ms.author: srrengar
-ms.openlocfilehash: e2fcbd07c105885da4180b06fa27ec13045940a6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 0b6258e160794eaf7d0c05775f8fd3b796e3ba47
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247647"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91354824"
 ---
 # <a name="eventstore-overview"></a>Visão geral da loja de eventos
 
@@ -26,7 +26,7 @@ O EventStore é um serviço stateful Service Fabric que mantém eventos do clust
 * Confirme que as ações de gestão que está a tomar no seu cluster estão a ser processadas corretamente
 * Obtenha uma "foto" de como o Service Fabric está interagindo com uma determinada entidade
 
-![Loja de Eventos](media/service-fabric-diagnostics-eventstore/eventstore.png)
+![O screenshot mostra o separador EVENTOS do Painel De Nodes de vários eventos, incluindo um evento NodeDown.](media/service-fabric-diagnostics-eventstore/eventstore.png)
 
 Para ver uma lista completa de eventos disponíveis na Loja de Eventos, consulte os [eventos de Service Fabric.](service-fabric-diagnostics-event-generation-operational.md)
 
@@ -36,15 +36,15 @@ Para ver uma lista completa de eventos disponíveis na Loja de Eventos, consulte
 O serviço EventStore pode ser consultado para eventos que estejam disponíveis para cada entidade e tipo de entidade no seu cluster. Isto significa que pode consultar eventos nos seguintes níveis:
 * Cluster: eventos específicos do próprio cluster (por exemplo, atualização do cluster)
 * Nós: todos os eventos de nível de nó
-* Nó: eventos específicos de um nó, identificado por`nodeName`
+* Nó: eventos específicos de um nó, identificado por `nodeName`
 * Aplicações: todos os eventos de nível de aplicação
-* Aplicação: eventos específicos de uma aplicação identificada por`applicationId`
+* Aplicação: eventos específicos de uma aplicação identificada por `applicationId`
 * Serviços: eventos de todos os serviços nos seus clusters
-* Serviço: eventos de um serviço específico identificado por`serviceId`
+* Serviço: eventos de um serviço específico identificado por `serviceId`
 * Partições: eventos de todas as divisórias
-* Partição: eventos de uma partição específica identificada por`partitionId`
-* Réplicas de partição: eventos de todas as réplicas/instâncias dentro de uma partição específica identificada por`partitionId`
-* Réplica de partição: eventos a partir de uma réplica/instância específica identificada por `replicaId` e`partitionId`
+* Partição: eventos de uma partição específica identificada por `partitionId`
+* Réplicas de partição: eventos de todas as réplicas/instâncias dentro de uma partição específica identificada por `partitionId`
+* Réplica de partição: eventos a partir de uma réplica/instância específica identificada por `replicaId` e `partitionId`
 
 Para saber mais sobre a API consulte a referência API da [EventStore](/rest/api/servicefabric/sfclient-index-eventsstore).
 

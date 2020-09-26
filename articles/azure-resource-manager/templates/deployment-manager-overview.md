@@ -1,15 +1,15 @@
 ---
 title: Implantação segura em regiões - Azure Deployment Manager
-description: Descreve como implementar um serviço em muitas regiões com O Gestor de Implementação Azure. Mostra práticas de implantação seguras para verificar a estabilidade da sua implantação antes de ser lançado para todas as regiões.
+description: Saiba como implementar um serviço em muitas regiões com o Azure Deployment Manager e sobre práticas de implementação seguras.
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 27e8c9c0aa2ee86b490d266fc6ff76f263eee7ef
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 8b950fdc36fe3fbea1ce9436bdd7f7372c64c055
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87130227"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333210"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Permitir práticas de implementação seguras com O Gestor de Implementação Azure (visualização pública)
 

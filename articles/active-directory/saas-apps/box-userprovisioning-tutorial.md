@@ -10,19 +10,19 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 76c0f4f021646b4cbf1a09559e085176353a4a3c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 44f2195fb68b5a17eab3980f72cbc5374e1c033a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525617"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91312911"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Tutorial: Caixa de configuração para o provisionamento automático do utilizador
 
 O objetivo deste tutorial é mostrar os passos que você precisa para executar em Box e Azure AD para automaticamente fornecendo e desavisenciar contas de utilizadores de Azure AD para Box.
 
 > [!NOTE]
-> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte [automatizar o fornecimento e desprovisionamento de aplicações saaS com diretório Azure Ative.](../app-provisioning/user-provisioning.md)
+> Este tutorial descreve um conector construído em cima do Serviço de Provisionamento de Utilizadores Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona e perguntas frequentes, veja [Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS no Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -91,19 +91,19 @@ O objetivo desta secção é delinear como permitir o provisionamento das contas
 
 3. Selecione a sua instância de Caixa e, em seguida, selecione o **separador Provisioning.**
 
-4. Desa ajuste o **modo de provisionamento** para **automático**. 
+4. Defina o **Modo de Aprovisionamento** como **Automático**. 
 
-    ![provisionamento](./media/box-userprovisioning-tutorial/provisioning.png)
+    ![Screenshot do separador Provisioning para Caixa no portal Azure. O modo de provisionamento é definido para Automático e O Autorização é destacado em Credenciais de Administração.](./media/box-userprovisioning-tutorial/provisioning.png)
 
 5. Na secção **Credenciais de Administração,** clique **em Autorizar** a abrir um diálogo de login box numa nova janela do navegador.
 
 6. No **Login para conceder acesso à** página Box, forneça as credenciais necessárias e, em seguida, clique em **'Autorizo'.** 
    
-    ![Permitir o fornecimento automático do utilizador](./media/box-userprovisioning-tutorial/IC769546.png "Permitir o fornecimento automático do utilizador")
+    ![Screenshot do Login para conceder acesso ao ecrã da caixa, mostrando entrada para Email e Password, e o botão Authorize.](./media/box-userprovisioning-tutorial/IC769546.png "Permitir o fornecimento automático do utilizador")
 
 7. Clique **em Grant acesso à Box** para autorizar esta operação e para voltar ao portal Azure. 
    
-    ![Permitir o fornecimento automático do utilizador](./media/box-userprovisioning-tutorial/IC769549.png "Permitir o fornecimento automático do utilizador")
+    ![Screenshot do ecrã de acesso autorizado em Box, mostrando uma mensagem explicativa e o acesso do Grant ao botão Box.](./media/box-userprovisioning-tutorial/IC769549.png "Permitir o fornecimento automático do utilizador")
 
 8. No portal Azure, clique em **Test Connection** para garantir que o Azure AD pode ligar-se à sua aplicação Box. Se a ligação falhar, certifique-se de que a sua conta Box tem permissões de Administração da Equipa e tente novamente o passo **"Autorizar".**
 
@@ -113,7 +113,7 @@ O objetivo desta secção é delinear como permitir o provisionamento das contas
 
 11. Na secção Mappings, selecione **Synchronize Azure Ative Directory Users to Box.**
 
-12. Na secção **De Mapeamentos de Atributos,** reveja os atributos do utilizador que são sincronizados de AD AD a Box. Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas do utilizador na Caixa para operações de atualização. Selecione o botão Guardar para escoar quaisquer alterações.
+12. Na secção **De Mapeamentos de Atributos,** reveja os atributos do utilizador que são sincronizados de AD AD a Box. Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas do utilizador na Caixa para operações de atualização. Selecione o botão Guardar para confirmar as alterações.
 
 13. Para ativar o serviço de prestação de AD Azure para a Caixa, altere o **Estado de Provisionamento** para **On** na secção Definições
 
@@ -130,6 +130,6 @@ No seu inquilino Box, os utilizadores sincronizados estão listados em **Utiliza
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do fornecimento de conta de utilizador para apps empresariais](tutorial-list.md)
+* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 * [Configurar o único sign-on](box-tutorial.md)

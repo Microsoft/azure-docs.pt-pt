@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: 307e501743d01b94cfca3692cc09c05cc90ed3ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd2f0a3e41508dd41dc0e5b62532e21677987845
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343239"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91332938"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Monitor SQL Data Sync com registos do Monitor Azure 
 
@@ -149,7 +149,7 @@ Para criar um alerta que utilize registos do Azure Monitor, faça as seguintes c
 
 5.  Em **Ações,** desa um **aviso de e-mail** para "Sim". Insira os destinatários de e-mail pretendidos.
 
-6.  Clique em **Guardar**. Os destinatários especificados recebem agora notificações por e-mail quando ocorrem erros.
+6.  Clique em **Save** (Guardar). Os destinatários especificados recebem agora notificações por e-mail quando ocorrem erros.
 
 ## <a name="create-an-azure-monitor-view-for-monitoring"></a>Criar uma vista de monitor azure para monitorização
 
@@ -197,7 +197,7 @@ Descarregue as amostras de código descritas neste artigo a partir dos seguintes
 
 -   [Vista do monitor Azure de Sincronização de Dados](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre a Sincronização de Dados SQL, veja:
 
 -   Visão geral - [Sync dados em várias bases de dados de nuvem e no local com SQL Data Sync em Azure](sql-data-sync-data-sql-server-sql-database.md)

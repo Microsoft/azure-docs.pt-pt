@@ -1,5 +1,5 @@
 ---
-title: Migração da base de dados do SQL Server para Azure SQL Database
+title: Migração da base de dados SQL Server para Base de Dados Azure SQL
 description: Saiba mais sobre a migração da base de dados do SQL Server para a Base de Dados Azure SQL.
 keywords: migração de base de dados, migração de base de dados do sql server, ferramentas de migração de base de dados, migrar base de dados, migrar base de dados sql
 services: sql-database
@@ -10,16 +10,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer: ''
 ms.date: 02/11/2019
-ms.openlocfilehash: 106337fb4756052ee682624290620093bf4a70b3
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 275ad3f2dfa04241b1f2a5687cb5dc32b7a31e75
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081949"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333176"
 ---
-# <a name="sql-server-database-migration-to-azure-sql-database"></a>Migração da base de dados do SQL Server para Azure SQL Database
+# <a name="sql-server-database-migration-to-azure-sql-database"></a>Migração da base de dados SQL Server para Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Neste artigo, você aprende sobre os métodos primários para migrar um SQL Server 2005 ou mais tarde base de dados para Azure SQL Database. Para obter informações sobre a migração para Azure SQL Managed Instance, consulte [Migrar uma instância do Servidor SQL para Azure SQL Gerenciada Instância](../managed-instance/migrate-to-instance-from-sql-server.md). Para obter informações sobre migração de outras plataformas, consulte [o Guia de Migração da Base de Dados Azure.](https://datamigration.microsoft.com/)
@@ -119,7 +119,7 @@ Além de pesquisar na Internet e utilizar estes recursos, utilize a [página de 
 > [!IMPORTANT]
 > Azure SQL Managed Instance permite-lhe migrar uma instância do SQL Server existente e as suas bases de dados com problemas mínimos de compatibilidade. Ver [O que é um caso gerido](../managed-instance/sql-managed-instance-paas-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Utilize o script no blogue de Engenheiros do Azure SQL EMEA para [Monitorizar a utilização de tempdb durante a migração](https://blogs.msdn.microsoft.com/azuresqlemea/2016/12/28/lesson-learned-10-monitoring-tempdb-usage/).
 - Utilize o script no blogue de Engenheiros do Azure SQL EMEA para [Monitorizar o espaço do registo de transações da base de dados enquanto a migração está a ocorrer](https://docs.microsoft.com/archive/blogs/azuresqlemea/lesson-learned-7-monitoring-the-transaction-log-space-of-my-database).

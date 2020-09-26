@@ -4,14 +4,14 @@ description: Saiba como gerir os recursos DB da Azure Cosmos utilizando os model
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/30/2020
+ms.date: 09/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 35659eba274b4b93ca74e480f6ad2b5edfd2e293
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b09c51c68586f6e55b4238b7420460f3f2b4ac3
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116762"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330574"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gerir uma conta do Azure Cosmos
 
@@ -19,7 +19,7 @@ Este artigo descreve como gerir várias tarefas numa conta do Azure Cosmos com o
 
 ## <a name="create-an-account"></a>Criar uma conta
 
-### <a name="azure-portal"></a><a id="create-database-account-via-portal"></a>Portal do Azure
+### <a name="azure-portal"></a><a id="create-database-account-via-portal"></a>Portal Azure
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -37,7 +37,7 @@ Consulte a [conta DB da Create Azure Cosmos com modelos de Gestor de Recursos Az
 
 ## <a name="addremove-regions-from-your-database-account"></a>Adicionar/remover regiões da conta de base de dados
 
-### <a name="azure-portal"></a><a id="add-remove-regions-via-portal"></a>Portal do Azure
+### <a name="azure-portal"></a><a id="add-remove-regions-via-portal"></a>Portal Azure
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com).
 
@@ -65,7 +65,7 @@ Por favor, consulte [Adicionar ou remover regiões com PowerShell](manage-with-p
 
 ## <a name="configure-multiple-write-regions"></a><a id="configure-multiple-write-regions"></a>Configurar várias regiões de escrita
 
-### <a name="azure-portal"></a><a id="configure-multiple-write-regions-portal"></a>Portal do Azure
+### <a name="azure-portal"></a><a id="configure-multiple-write-regions-portal"></a>Portal Azure
 
 Abra o **separador De Dados Replicar Globalmente** e selecione **Ativar** para permitir as gravações em várias regiões. Depois de permitir a escrita de várias regiões, todas as regiões de leitura que tem atualmente na conta passarão a ser regiões de leitura e escrita.
 
@@ -143,7 +143,7 @@ Uma conta pode ser migrada de um único mestre para multi-mestre, implantando o 
 
 A opção de failover automática permite que a Azure Cosmos DB falhe na região com a maior prioridade de failover sem nenhuma ação do utilizador caso uma região fique indisponível. Quando a falha automática é ativada, a prioridade da região pode ser modificada. A conta deve ter duas ou mais regiões para permitir a cadência automática.
 
-### <a name="azure-portal"></a><a id="enable-automatic-failover-via-portal"></a>Portal do Azure
+### <a name="azure-portal"></a><a id="enable-automatic-failover-via-portal"></a>Portal Azure
 
 1. A partir da sua conta Azure Cosmos, abra o painel **de dados replicado globalmente.**
 
@@ -172,7 +172,7 @@ Depois de uma conta Cosmos ser configurada para o failover automático, a priori
 > [!IMPORTANT]
 > Não é possível modificar a região de escrita (prioridade de failover de zero) quando a conta está configurada para falha automática. Para alterar a região de escrita, tem de desativar a falha automática e fazer uma falha manual.
 
-### <a name="azure-portal"></a><a id="set-failover-priorities-via-portal"></a>Portal do Azure
+### <a name="azure-portal"></a><a id="set-failover-priorities-via-portal"></a>Portal Azure
 
 1. A partir da sua conta Azure Cosmos, abra o painel **de dados replicado globalmente.**
 
@@ -206,7 +206,7 @@ O processo de realização de um failover manual implica a alteração da regiã
 > [!NOTE]
 > As contas multi-mestres não podem ser falhadas manualmente. Para aplicações que usam o Azure Cosmos SDK, o SDK detetará quando uma região fica indisponível e, em seguida, redireciona automaticamente para a região mais próxima se utilizar API multi-homing no SDK.
 
-### <a name="azure-portal"></a><a id="enable-manual-failover-via-portal"></a>Portal do Azure
+### <a name="azure-portal"></a><a id="enable-manual-failover-via-portal"></a>Portal Azure
 
 1. Vá à sua conta Azure Cosmos e abra o menu **de dados Replica globalmente.**
 
@@ -228,7 +228,7 @@ Consulte [o trigger manual failover com Azure CLI](manage-with-cli.md#trigger-ma
 
 Consulte [o gatilho de falha manual com PowerShell](manage-with-powershell.md#trigger-manual-failover)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações e exemplos sobre como gerir a conta Azure Cosmos, bem como bases de dados e contentores, leia os seguintes artigos:
 

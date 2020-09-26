@@ -12,12 +12,12 @@ ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 1d196ea33eafbfae0d9db68588c0adb131a383f4
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 2ebba2bb957a1c05fd591181f0a784ed778c6c57
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91001048"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91333380"
 ---
 # <a name="enterprise-application-permissions-for-custom-roles-in-azure-active-directory"></a>Permissões de aplicações da empresa para funções personalizadas no Azure Ative Directory
 
@@ -119,7 +119,7 @@ Para delegar a capacidade de autorizar o acesso à aplicação para provisioname
 
 ## <a name="full-list-of-permissions"></a>Lista completa de permissões
 
-Permissão | Descrição
+Permissão | Description
 ---------- | -----------
 microsoft.diretório/aplicaçãoPolicies/allProperties/read | Leia todas as propriedades sobre as políticas de aplicação.
 microsoft.diretório/aplicaçãoPolicies/allProperties/update | Atualize todas as propriedades sobre as políticas de aplicação.
@@ -138,7 +138,6 @@ microsoft.diretório/serviçoPrincipals/appRoleAssignedTo/read | Leia as atribui
 microsoft.diretório/serviçoPrincipals/appRoleAssignedTo/update | Atualizar atribuições principais de funções de serviço.
 microsoft.diretório/serviçoPrincipals/appRoleAssignments/read | Leia as atribuições de funções atribuídas aos diretores de serviço.
 microsoft.diretório/serviçoPrincipals/audience/update | Atualizar as propriedades do público nos principais serviços.
-microsoft.diretório/serviçoPrincipals/autenticação/leitura |  
 microsoft.diretório/serviçoPrincipals/autenticação/atualização | Atualizar propriedades de autenticação em principais de serviço.
 microsoft.diretório/serviçoPrincipals/básico/atualização | Atualizar propriedades básicas em principais serviços.
 microsoft.diretório/serviçoPrincipals/criar | Criar diretores de serviço.

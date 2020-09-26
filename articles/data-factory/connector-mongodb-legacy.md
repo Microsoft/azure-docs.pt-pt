@@ -1,6 +1,6 @@
 ---
 title: Copiar dados da MongoDB utilizando o legado
-description: Saiba como copiar dados da Mongo DB para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num pipeline da Azure Data Factory.
+description: Saiba como copiar dados da Mongo DB para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num oleoduto legado da Azure Data Factory.
 services: data-factory
 author: linda33wj
 ms.author: jingwang
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: ce1419c7dbb2cdecfd653995707fd1ece7798557
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cf4be078a7bee0bedbeac4326acb9ca290cde88
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558188"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91331986"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Copiar dados da MongoDB utilizando a Azure Data Factory (legado)
 
@@ -55,19 +55,19 @@ As secções seguintes fornecem detalhes sobre propriedades que são usadas para
 
 As seguintes propriedades são suportadas para o serviço ligado a MongoDB:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo |A propriedade tipo deve ser definida para: **MongoDb** |Sim |
-| servidor |Endereço IP ou nome de anfitrião do servidor MongoDB. |Sim |
+| tipo |A propriedade tipo deve ser definida para: **MongoDb** |Yes |
+| servidor |Endereço IP ou nome de anfitrião do servidor MongoDB. |Yes |
 | porta |Porta TCP que o servidor MongoDB utiliza para ouvir as ligações do cliente. |Não (padrão é 27017) |
-| base de dados Nome |Nome da base de dados mongoDB a que pretende aceder. |Sim |
-| authenticationType | Tipo de autenticação usada para ligar à base de dados mongoDB.<br/>Os valores permitidos são: **Básico,** e **Anónimo.** |Sim |
-| o nome de utilizador |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada a autenticação básica). |
+| base de dados Nome |Nome da base de dados mongoDB a que pretende aceder. |Yes |
+| authenticationType | Tipo de autenticação usada para ligar à base de dados mongoDB.<br/>Os valores permitidos são: **Básico,** e **Anónimo.** |Yes |
+| nome de utilizador |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada a autenticação básica). |
 | palavra-passe |A palavra-passe do utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Sim (se for utilizada a autenticação básica). |
 | authSource |Nome da base de dados MongoDB que pretende utilizar para verificar as suas credenciais para autenticação. |Não. Para a autenticação básica, o predefinido é utilizar a conta de administração e a base de dados especificada através da base de dados PropriedadeName. |
-| ativarSl | Especifica se as ligações ao servidor são encriptadas utilizando O S.TLS. O valor predefinido é false.  | Não |
-| permitirSelfSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é false.  | Não |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
+| ativarSl | Especifica se as ligações ao servidor são encriptadas utilizando O S.TLS. O valor predefinido é false.  | No |
+| permitirSelfSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é false.  | No |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
 
 **Exemplo:**
 
@@ -98,10 +98,10 @@ As seguintes propriedades são suportadas para o serviço ligado a MongoDB:
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte [Datasets e serviços ligados](concepts-datasets-linked-services.md). As seguintes propriedades são suportadas para conjunto de dados MongoDB:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **MongoDbCollection** | Sim |
-| coleçãoName |Nome da coleção na base de dados mongoDB. |Sim |
+| tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **MongoDbCollection** | Yes |
+| coleçãoName |Nome da coleção na base de dados mongoDB. |Yes |
 
 **Exemplo:**
 
@@ -129,9 +129,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 As seguintes propriedades são suportadas na secção fonte de **origem** da atividade de cópia:
 
-| Propriedade | Descrição | Necessário |
+| Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **MongoDbSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **MongoDbSource** | Yes |
 | consulta |Utilize a consulta personalizada SQL-92 para ler dados. Por exemplo: selecione * do MyTable. |Não (se for especificado "nome de recolha" no conjunto de dados) |
 
 **Exemplo:**
@@ -167,7 +167,7 @@ As seguintes propriedades são suportadas na secção fonte de **origem** da ati
 ```
 
 > [!TIP]
-> Quando especificar a consulta SQL, preste atenção ao formato DateTime. Por exemplo: `SELECT * FROM Account WHERE LastModifiedDate >= '2018-06-01' AND LastModifiedDate < '2018-06-02'` ou para usar o parâmetro`SELECT * FROM Account WHERE LastModifiedDate >= '@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}' AND LastModifiedDate < '@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'`
+> Quando especificar a consulta SQL, preste atenção ao formato DateTime. Por exemplo: `SELECT * FROM Account WHERE LastModifiedDate >= '2018-06-01' AND LastModifiedDate < '2018-06-02'` ou para usar o parâmetro `SELECT * FROM Account WHERE LastModifiedDate >= '@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}' AND LastModifiedDate < '@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'`
 
 ## <a name="schema-by-data-factory"></a>Schema by Data Factory
 
@@ -182,7 +182,7 @@ Ao copiar dados da MongoDB, os seguintes mapeamentos são usados desde os tipos 
 | Binário |Byte[] |
 | Booleano |Booleano |
 | Date |DateTime |
-| NúmeroDouble |Double |
+| NúmeroDouble |Double (Duplo) |
 | NúmeroInt |Int32 |
 | NúmeroLong |Int64 |
 | ObjectID |Cadeia |
@@ -230,8 +230,8 @@ As tabelas seguintes mostram as tabelas virtuais que representam as matrizes ori
 
 | _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | preço | Desconto |
 | --- | --- | --- | --- | --- | --- |
-| 1111 |0 |123 |torradeira |456 |0,2 |
-| 1111 |1 |124 |forno |1235 |0,2 |
+| 1111 |0 |123 |torradeira |456 |0.2 |
+| 1111 |1 |124 |forno |1235 |0.2 |
 | 2222 |0 |135 |frigorífico |12543 |0,0 |
 
 **Tabela "ExampleTable_Ratings":**
@@ -243,5 +243,5 @@ As tabelas seguintes mostram as tabelas virtuais que representam as matrizes ori
 | 2222 |0 |1 |
 | 2222 |1 |2 |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
