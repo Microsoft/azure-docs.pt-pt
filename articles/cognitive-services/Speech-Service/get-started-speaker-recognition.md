@@ -12,12 +12,12 @@ ms.date: 09/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: reconhecimento de colunas, biometria de voz
-ms.openlocfilehash: dd77de482289037764eb6c442502ef71cc594729
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cfb16d95c0de7fabb7e939e53903f0a611f749e9
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326988"
+ms.locfileid: "91362559"
 ---
 # <a name="get-started-with-speaker-recognition"></a>Começar com o Reconhecimento de Colunas
 
@@ -31,7 +31,7 @@ Para uma visão de alto nível dos conceitos de reconhecimento de voz, consulte 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que tem uma conta Azure e subscrição do serviço de fala. Se não tiver uma conta e subscrição, [experimente gratuitamente o serviço Desemação](get-started.md).
+Este artigo pressupõe que tem uma conta Azure e subscrição do serviço de fala. Se não tiver uma conta e subscrição, [experimente gratuitamente o serviço Desemação](overview.md#try-the-speech-service-for-free).
 
 > [!IMPORTANT]
 > Atualmente, o Reconhecimento de Oradores *só* é suportado nos recursos do Discurso Azure criados na `westus` região.

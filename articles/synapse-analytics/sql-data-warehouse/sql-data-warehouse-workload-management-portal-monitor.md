@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 4f46ed1890bb62acc92eea28c55bf9abd6153e8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 13b0dc3af524b16430408f8a920c7477c412414d
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208693"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362734"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring"></a>Azure Synapse Analytics – Monitorização do Portal de Gestão da Carga de Trabalho
 
@@ -26,7 +26,7 @@ Existem duas categorias diferentes de métricas do grupo de trabalho previstas p
 
 ## <a name="workload-management-metric-definitions"></a>Definições métricas de gestão da carga de trabalho
 
-|Nome da Métrica                    |Descrição  |Tipo de Agregação |
+|Nome da Métrica                    |Description  |Tipo de Agregação |
 |-------------------------------|-------------|-----------------|
 |Por cento efetivo do recurso cap | *A percentagem efetiva de recursos de capital* é um limite difícil para a percentagem de recursos acessíveis pelo grupo de carga de trabalho, tendo em conta a *percentagem efetiva de recursos min* atribuída a outros grupos de carga de trabalho. A métrica *de percentagem de recursos de tampa eficaz* é configurada utilizando o parâmetro na `CAP_PERCENTAGE_RESOURCE` sintaxe do GRUPO DE CARGA DE [CARGA CREATE.](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  O valor efetivo é descrito aqui.<br><br>Por exemplo, se um grupo de carga de trabalho `DataLoads` for criado com = `CAP_PERCENTAGE_RESOURCE` 100 e outro grupo de carga de trabalho for criado com uma percentagem efetiva de recursos min de 25%, o *adicional de recursos de limite efetivo* para o grupo de carga de trabalho é de `DataLoads` 75%.<br><br>A *percentagem de recursos de tampa eficaz* determina o limite superior da concuência (e, portanto, a produção potencial) que um grupo de carga de trabalho pode alcançar.  Se for necessário um rendimento adicional para além do que é atualmente reportado pela métrica *de recursos de limites eficazes,* ou aumente `CAP_PERCENTAGE_RESOURCE` o, diminua o `MIN_PERCENTAGE_RESOURCE` número de outros grupos de carga de trabalho ou aumente o caso para adicionar mais recursos.  Diminuir a `REQUEST_MIN_RESOURCE_GRANT_PERCENT` pode aumentar a conúnquidade, mas pode não aumentar a produção global.| Min, Avg, Max |
 |Por cento de recursos min eficazes |*O min resource por cento efetivo* é a percentagem mínima de recursos reservados e isolados para o grupo de trabalho, tendo em conta o nível mínimo de serviço.  A métrica de percentagem de recursos min eficaz é configurada utilizando o `MIN_PERCENTAGE_RESOURCE` parâmetro na sintaxe [do GRUPO DE CARGA DE TRABALHO CREATE.](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)  O valor efetivo é descrito [aqui.](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#effective-values)<br><br>Utilize o tipo de agregação de Soma quando esta métrica não estiver filtrada e não for executada para monitorizar o isolamento total da carga de trabalho configurado no sistema.<br><br>O *min 000* de recursos eficazes determina o limite inferior de garantia de concuência (e, portanto, produção garantida) que um grupo de carga de trabalho pode alcançar.  Se forem necessários recursos garantidos adicionais para além do que é atualmente reportado pela métrica *de recursos min eficazes,* aumente o `MIN_PERCENTAGE_RESOURCE` parâmetro configurado para o grupo de carga de trabalho.  Diminuir a `REQUEST_MIN_RESOURCE_GRANT_PERCENT` pode aumentar a conúnquidade, mas pode não aumentar a produção global. |Min, Avg, Max|
@@ -58,8 +58,9 @@ WITH ( WORKLOAD_GROUP = 'wgPriority'
 O gráfico abaixo é configurado da seguinte forma:<br>
 Métrica 1: *Percentagem eficaz de recursos min* (agregação Avg, `blue line` )<br>
 Métrica 2: *Alocação do grupo de carga de trabalho por percentagem* do sistema (agregação Avg, `purple line` )<br>
-Filtro: [Grupo de Carga de Trabalho] =`wgPriority`<br>
-![underutilized-wg.pngO ](./media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png) gráfico mostra que, com 25% de isolamento da carga de trabalho, apenas 10% está a ser usado em média.  Neste caso, o valor do `MIN_PERCENTAGE_RESOURCE` parâmetro poderia ser reduzido para entre 10 ou 15 e permitir que outras cargas de trabalho no sistema consumissem os recursos.
+Filtro: [Grupo de Carga de Trabalho] = `wgPriority`<br>
+![A screenshot mostra um gráfico com as duas métricas e filtro.](./media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png)
+O gráfico mostra que, com 25% de isolamento da carga de trabalho, apenas 10% está a ser usado em média.  Neste caso, o valor do `MIN_PERCENTAGE_RESOURCE` parâmetro poderia ser reduzido para entre 10 ou 15 e permitir que outras cargas de trabalho no sistema consumissem os recursos.
 
 ### <a name="workload-group-bottleneck"></a>Estrangulamento do grupo de carga de trabalho
 
@@ -80,10 +81,11 @@ O gráfico abaixo é configurado da seguinte forma:<br>
 Métrica 1: *Percentagem eficaz de recursos da tampa* (agregação Avg, `blue line` )<br>
 Métrica 2: *Alocação do grupo de carga de trabalho por percentagem máxima* de recursos (agregação Avg, `purple line` )<br>
 Métrica 3: Consultas em fila do *grupo de trabalho* (agregação de soma, `turquoise line` )<br>
-Filtro: [Grupo de Carga de Trabalho] =`wgDataAnalyst`<br>
-![o gráfico mostra que, com um limite de ](./media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png) 9% sobre os recursos, o grupo de carga de trabalho é 90% utilizado (a partir da atribuição do *grupo Workload por métrica de recursos máximos).*  Há uma fila constante de consultas, como mostra o *grupo workload que faz fila métrica*.  Neste caso, o aumento do `CAP_PERCENTAGE_RESOURCE` valor superior a 9% permitirá que mais consultas sejam executadas simultaneamente.  Aumentando as `CAP_PERCENTAGE_RESOURCE` assumimos que existem recursos suficientes disponíveis e não isolados por outros grupos de trabalho.  Verifique se a tampa aumentada verificando a *métrica de percentagem de recursos da tampa eficaz*.  Se se desejar mais produção, considere também aumentar o `REQUEST_MIN_RESOURCE_GRANT_PERCENT` valor superior a 3.  Aumentar o `REQUEST_MIN_RESOURCE_GRANT_PERCENT` poderia permitir que as consultas corressem mais rápido.
+Filtro: [Grupo de Carga de Trabalho] = `wgDataAnalyst`<br>
+![A screenshot mostra um gráfico com as três métricas e o filtro.](./media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png)
+O gráfico mostra que, com um limite máximo de 9% sobre os recursos, o grupo de carga de trabalho é 90% utilizado (a partir da *alocação do grupo Workload por métrica de recursos máximos).*  Há uma fila constante de consultas, como mostra o *grupo workload que faz fila métrica*.  Neste caso, o aumento do `CAP_PERCENTAGE_RESOURCE` valor superior a 9% permitirá que mais consultas sejam executadas simultaneamente.  Aumentando as `CAP_PERCENTAGE_RESOURCE` assumimos que existem recursos suficientes disponíveis e não isolados por outros grupos de trabalho.  Verifique se a tampa aumentada verificando a *métrica de percentagem de recursos da tampa eficaz*.  Se se desejar mais produção, considere também aumentar o `REQUEST_MIN_RESOURCE_GRANT_PERCENT` valor superior a 3.  Aumentar o `REQUEST_MIN_RESOURCE_GRANT_PERCENT` poderia permitir que as consultas corressem mais rápido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Quickstart: Configure o isolamento da carga de trabalho usando t-SQL](quickstart-configure-workload-isolation-tsql.md)<br>
 - [CRIAR GRUPO DE CARGA DE TRABALHO (Transact-SQL)](/sql/t-sql/statements/create-workload-group-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)<br>

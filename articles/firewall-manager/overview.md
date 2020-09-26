@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 09/15/2020
+ms.date: 09/23/2020
 ms.author: victorh
-ms.openlocfilehash: 6dc22086ed97a301e225518465482e9cd7300e11
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 6768da698838856582d29e9f302acae2bc6c28bd
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563833"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252226"
 ---
 # <a name="what-is-azure-firewall-manager"></a>O que é o Azure Firewall Manager?
 
@@ -87,7 +87,8 @@ O Azure Firewall Manager tem os seguintes problemas conhecidos:
 |Todos os Hubs Virtuais Seguros que partilham o mesmo WAN virtual devem estar no mesmo grupo de recursos.|Este comportamento está alinhado com os Hubs WAN Virtuais hoje em dia.|Crie várias WANs virtuais para permitir a criação de Hubs Virtuais Seguros em diferentes grupos de recursos.|
 |Falha na adição de endereço IP em massa|A firewall do hub seguro entra num estado falhado se adicionar vários endereços IP públicos.|Adicione pequenos incrementos de endereços IP públicos. Por exemplo, adicione 10 de cada vez.|
 |As regras de aplicação falham num hub seguro com DNS personalizado (pré-visualização) configurado.|O DNS personalizado (pré-visualização) não funciona em implementações seguras do hub e nas implementações de rede virtual do Hub onde está ativado o túnel forçado.|Consertar sob investigação.|
-|DDoS Protection Standard não suportado com centros virtuais seguros|A Norma de Proteção DDoS não está integrada com vWANs.|A investigar
+|DDoS Protection Standard não suportado com centros virtuais seguros|A Norma de Proteção DDoS não está integrada com vWANs.|A investigar|
+|Registos de atividade não totalmente suportados|A política de firewall não suporta atualmente registos de atividade.|A investigar|
 
 ## <a name="next-steps"></a>Passos seguintes
 

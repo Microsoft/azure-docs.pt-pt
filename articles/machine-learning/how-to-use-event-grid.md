@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 7b1030c816bff5b50c0c47a16fa5f1812bb16b15
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e033f00f7657f7f4e5e63509672e924979ce03e7
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250832"
+ms.locfileid: "91362521"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Ativar aplicações, processos ou fluxos de trabalho ci/CD baseados em eventos de Aprendizagem automática Azure (pré-visualização)
 
@@ -126,7 +126,7 @@ A Azure Event Grid permite que os clientes construam manipuladores de mensagens 
 
 1. Selecione o ponto final para publicar o evento para. Na seguinte imagem, o __centro de eventos__ é o ponto final selecionado:
 
-    ![manipulador de eventos](./media/how-to-use-event-grid/select-event-handler.png)
+    ![A screenshot mostra o painel de subscrição de eventos Create com Select Event Hub aberto.](./media/how-to-use-event-grid/select-event-handler.png)
 
 Uma vez confirmada a sua seleção, clique em __Criar__. Após a configuração, estes eventos serão empurrados para o seu ponto final.
 
@@ -164,15 +164,15 @@ Use [aplicativos Azure Logic](https://docs.microsoft.com/azure/logic-apps/) para
 
 1. No portal Azure, vá ao seu espaço de trabalho Azure Machine Learning e selecione o separador eventos a partir da barra esquerda. A partir daqui, selecione __aplicativos Logic__. 
 
-    ![select-logic-app](./media/how-to-use-event-grid/select-logic-ap.png)
+    ![A screenshot mostra uma página de eventos de espaço de trabalho machine learning com aplicações lógicas.](./media/how-to-use-event-grid/select-logic-ap.png)
 
 1. Inscreva-se na UI da Aplicação Lógica e selecione o serviço de Machine Learning como o tipo de tópico. 
 
-    ![tipo de tópico](./media/how-to-use-event-grid/select-topic-type.png)
+    ![A screenshot mostra o Quando ocorre uma caixa de diálogo de recurso com machine learning selecionada como tipo de recurso.](./media/how-to-use-event-grid/select-topic-type.png)
 
 1. Selecione para que eventos a notificar. Por exemplo, a seguinte imagem __RunCompleted__.
 
-    ![selecione-event-run-complete](./media/how-to-use-event-grid/select-event-runcomplete.png)
+    ![A screenshot mostra o Quando ocorre uma caixa de diálogo de recurso com um tipo de evento selecionado.](./media/how-to-use-event-grid/select-event-runcomplete.png)
 
 1. Pode utilizar o método de filtragem na secção acima ou adicionar filtros apenas para ativar a aplicação lógica num subconjunto de tipos de eventos. Na imagem seguinte, é utilizado um __filtro prefixo__ de __/datadriftID/runs/__
 
@@ -180,15 +180,15 @@ Use [aplicativos Azure Logic](https://docs.microsoft.com/azure/logic-apps/) para
 
 1. Em seguida, adicione um passo para consumir este evento e procure por e-mail. Existem várias contas de correio diferentes que pode usar para receber eventos. Também pode configurar condições para quando enviar um alerta de e-mail.
 
-    ![e-mail-ação](./media/how-to-use-event-grid/select-email-action.png)
+    ![A screenshot mostra a caixa de diálogo de ação Escolha com o e-mail introduzido na linha de pesquisa.](./media/how-to-use-event-grid/select-email-action.png)
 
 1. Selecione __Enviar um e-mail__ e preencher os parâmetros. No assunto, pode incluir o Tipo de __Evento__ e __Tópico__ para ajudar a filtrar eventos. Também pode incluir um link para a página do espaço de trabalho para execuções no corpo da mensagem. 
 
-    ![configure-email](./media/how-to-use-event-grid/configure-email-body.png)
+    ![Screenshot mostra a caixa de diálogo de e-mail enviar uma caixa de diálogo de e-mail com tópico e tipo de evento adicionado à linha de assunto da lista para a direita.](./media/how-to-use-event-grid/configure-email-body.png)
 
 1. Para guardar esta ação, **selecione Save As** no canto esquerdo da página. Do bar direito que aparece, confirme a criação desta ação.
 
-    ![confirmar lógica-app-criação](./media/how-to-use-event-grid/confirm-logic-app-create.png)
+    ![A screenshot mostra os botões Save As e Create no Logic Apps Designer.](./media/how-to-use-event-grid/confirm-logic-app-create.png)
 
 
 ### <a name="example-data-drift-triggers-retraining"></a>Exemplo: Deriva de dados desencadeia reconversão
@@ -204,7 +204,7 @@ Antes de começar, execute as seguintes ações:
 
 Neste exemplo, um simples oleoduto Data Factory é usado para copiar ficheiros numa loja de bolhas e executar um pipeline de Machine Learning publicado. Para obter mais informações sobre este cenário, veja como configurar um passo de [Machine Learning na Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-machine-learning-service)
 
-![adf-mlpipeline](./media/how-to-use-event-grid/adf-mlpipeline-stage.png)
+![A screenshot mostra o pipeline de formação em recursos de fábrica com dados de cópia1 alimentando M L Execute Pipeline1.](./media/how-to-use-event-grid/adf-mlpipeline-stage.png)
 
 1. Comece com a criação da aplicação lógica. Vá ao [portal Azure,](https://portal.azure.com)procure por Aplicações Lógicas e selecione create.
 
@@ -212,31 +212,31 @@ Neste exemplo, um simples oleoduto Data Factory é usado para copiar ficheiros n
 
 1. Preencha a informação solicitada. Para simplificar a experiência, utilize o mesmo grupo de subscrição e recursos que o seu Pipeline de Fábrica de Dados Azure e o espaço de trabalho Azure Machine Learning.
 
-    ![configuração-up-logic-app-adf](./media/how-to-use-event-grid/set-up-logic-app-for-adf.png)
+    ![A screenshot mostra o painel de criação de aplicativos lógicos.](./media/how-to-use-event-grid/set-up-logic-app-for-adf.png)
 
 1. Uma vez criado a aplicação lógica, selecione __Quando ocorrer um evento de recursos de Grade de Eventos__. 
 
-    ![selecione-eventgrid-trigger](./media/how-to-use-event-grid/select-event-grid-trigger.png)
+    ![O Screenshot mostra o Design de Aplicações Lógicas com Início com opções comuns de gatilho, incluindo quando ocorre um evento de recursos de Grade de Eventos.](./media/how-to-use-event-grid/select-event-grid-trigger.png)
 
 1. Faça login e preencha os detalhes do evento. Desaprote o __nome de recurso__ para o nome do espaço de trabalho. Defina o __tipo de evento__ para __datasetDriftDetected__.
 
-    ![login-add-event](./media/how-to-use-event-grid/login-and-add-event.png)
+    ![A screenshot mostra o quando ocorre um evento de recurso com um item tipo de evento selecionado.](./media/how-to-use-event-grid/login-and-add-event.png)
 
 1. Adicione um novo passo e procure __a Azure Data Factory.__ __Selecione Criar uma corrida de gasodutos__. 
 
-    ![criar-adf-pipeline-run](./media/how-to-use-event-grid/create-adfpipeline-run.png)
+    ![A screenshot mostra o painel de ação Escolha um painel de ação com Criar uma corrida de gasoduto selecionada.](./media/how-to-use-event-grid/create-adfpipeline-run.png)
 
 1. Faça login e especifique o pipeline Azure Data Factory publicado para executar.
 
-    ![especificar-adfpipeline](./media/how-to-use-event-grid/specify-adf-pipeline.png)
+    ![A screenshot mostra o painel de conduta Create com vários valores.](./media/how-to-use-event-grid/specify-adf-pipeline.png)
 
 1. Guarde e crie a aplicação lógica utilizando o botão **de poupança** no topo esquerdo da página. Para ver a sua aplicação, vá ao seu espaço de trabalho no [portal Azure](https://portal.azure.com) e clique em **Eventos.**
 
-    ![show-logicapp-webhook](./media/how-to-use-event-grid/show-logic-app-webhook.png)
+    ![A Screenshot mostra eventos com a Aplicação Lógica em destaque.](./media/how-to-use-event-grid/show-logic-app-webhook.png)
 
 Agora, o gasoduto da fábrica de dados é acionado quando ocorre a deriva. Veja detalhes sobre a sua deriva de dados e o pipeline de aprendizagem automática no [novo portal do espaço de trabalho.](https://ml.azure.com) 
 
-![espaço de visão-trabalho](./media/how-to-use-event-grid/view-in-workspace.png)
+![A screenshot mostra pontos finais do gasoduto.](./media/how-to-use-event-grid/view-in-workspace.png)
 
 ### <a name="example-deploy-a-model-based-on-tags"></a>Exemplo: Implementar um modelo baseado em etiquetas
 

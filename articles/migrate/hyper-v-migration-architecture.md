@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 8bca88fc63a7fc04a22d2a68adbe59259b07f50e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 390a8a49e9a47ee5e6845d85fe4fe02f514708e8
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74185884"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362202"
 ---
 # <a name="how-does-hyper-v-replication-work"></a>Como funciona a replicação do Hiper-V?
 
@@ -30,7 +30,7 @@ A migração do servidor Azure Migrate é uma ferramenta para migrar cargas de t
 
 ## <a name="architectural-components"></a>Componentes da arquitetura
 
-![Arquitetura](./media/hyper-v-replication-architecture/architecture.png)
+![O diagrama mostra uma rede Source Hyper-V com um canal de dados H T P S para o Microsoft Azure, com detalhes explicados numa tabela.](./media/hyper-v-replication-architecture/architecture.png)
 
 
 
@@ -86,6 +86,6 @@ Se tiver largura de banda sobressalente para replicação e quiser aumentar os u
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Experimente a [migração hyper-V](tutorial-migrate-hyper-v.md) usando a migração do servidor Azure Migrate.
