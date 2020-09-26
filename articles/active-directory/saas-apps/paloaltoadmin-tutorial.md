@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/17/2020
+ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: d8a4a4360265cabc179c8cd41d0a33a0575f55a6
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 73b7b57aad43eea8e8d592d437185ca5c7e8a666
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855039"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304662"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Tutorial: Integração do Diretório Ativo Azure com a Palo Alto Networks - Admin UI
 
@@ -26,9 +26,6 @@ Integrar as Redes Palo Alto - ADmin UI com Azure AD proporciona-lhe os seguintes
 * Você pode controlar em Azure AD que tem acesso a Palo Alto Networks - Admin UI.
 * Pode permitir que os seus utilizadores sejam automaticamente inscritos nas Redes Palo Alto - Admin UI (Single Sign-On) com as suas contas AD Azure.
 * Pode gerir as suas contas numa localização central - o portal Azure.
-
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,13 +40,12 @@ Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um
 
 * Palo Alto Networks - Admin UI suporta **SP** iniciado SSO
 * Palo Alto Networks - Admin UI suporta provisão de utilizadores **just in time**
-* Uma vez configurar a Palo Alto Networks - Admin UI pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-palo-alto-networks---admin-ui-from-the-gallery"></a>Adicionar Palo Alto Networks - Admin UI da galeria
 
 Para configurar a integração da Palo Alto Networks - Admin UI em Azure AD, é necessário adicionar a Palo Alto Networks - Admin UI da galeria à sua lista de aplicações geridas para o SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
@@ -57,10 +53,11 @@ Para configurar a integração da Palo Alto Networks - Admin UI em Azure AD, é 
 1. Selecione **Palo Alto Networks - Admin UI** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Configurar e testar Azure AD SSO
+
 Nesta secção, configura e testa o Azure AD com a Palo Alto Networks - Admin UI com base num utilizador de teste chamado **B.Simon**.
 Para um único sinal de saúde a funcionar, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Palo Alto Networks - Admin UI.
 
-Para configurar e testar o Azure AD com a Palo Alto Networks - Admin UI, é necessário completar os seguintes blocos de construção:
+Para configurar e testar o Azure AD com a Palo Alto Networks - Admin UI, execute os seguintes passos:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     * Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
@@ -69,23 +66,15 @@ Para configurar e testar o Azure AD com a Palo Alto Networks - Admin UI, é nece
     * **[Criar a Palo Alto Networks - utilizador de testes Admin UI](#create-palo-alto-networks---admin-ui-test-user)** - para ter uma contrapartida de B.Simon em Palo Alto Networks - Admin UI que está ligada à representação AD AD do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
+Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-Para configurar o Azure AD single sign-on com Palo Alto Networks - Admin UI, execute os seguintes passos:
+1. No portal Azure, na página de integração de aplicações **Palo Alto Networks - Admin UI,** encontre a secção **Gerir** e selecione um único sinal de **saúde**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
+1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações **Palo Alto Networks - Admin UI,** selecione Single **sign-on**.
-
-    ![Configurar link único de inscrição](common/select-sso.png)
-
-1. No diálogo do **método de inscrição única,** selecione o modo **SAML/WS-Fed** para ativar um único sinal de súplica.
-
-    ![Único modo de seleção de s-on](common/select-saml-option.png)
-
-1. Na **configuração de 'Sessão única' com** a página SAML, clique em **Editar** o ícone para abrir o diálogo básico de **configuração SAML.**
-
-    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
+   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 1. Na secção **de Configuração Básica SAML,** execute os seguintes passos:
 
@@ -133,11 +122,6 @@ Para configurar o Azure AD single sign-on com Palo Alto Networks - Admin UI, exe
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de Inicio de Sessão
-
-    b. Identificador Azure Ad
-
-    c. Logout URL
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
@@ -149,7 +133,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+   1. Clique em **Create** (Criar).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
@@ -158,18 +142,12 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Palo Alto Networks - Admin UI**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O link do utilizador adicionar](common/add-assign-user.png)
-
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-### <a name="configure-palo-alto-networks---admin-ui-sso"></a>Configure Redes Palo Alto - Administrador UI SSO
+## <a name="configure-palo-alto-networks---admin-ui-sso"></a>Configure Redes Palo Alto - Administrador UI SSO
 
 1. Abra o Palo Alto Networks Firewall Admin UI como administrador numa nova janela.
 
@@ -258,20 +236,17 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 Palo Alto Networks - Admin UI suporta o fornecimento de utilizadores just-in-time. Se um utilizador ainda não existir, este encontra-se automaticamente criado no sistema após uma autenticação bem sucedida. Não é necessária qualquer ação da sua parte para criar o utilizador.
 
-### <a name="test-sso"></a>Teste SSO
+## <a name="test-sso"></a>Teste SSO
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Quando clicar nas Redes Palo Alto - Azulejo UI Admin no Painel de Acesso, deverá ser automaticamente inscrito nas Redes Palo Alto - UI de administração para as quais configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+1. Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para Palo Alto Networks - Admin UI Url de inscrição, onde pode iniciar o fluxo de login. 
 
-## <a name="additional-resources"></a>Recursos Adicionais
+2. Vá diretamente à Palo Alto Networks - Admin UI Sign-on URL e inicie o fluxo de login a partir daí.
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+3. Pode utilizar o Microsoft Access Panel. Quando clicar nas Redes Palo Alto - Azulejo UI Admin no Painel de Acesso, deverá ser automaticamente inscrito nas Redes Palo Alto - Administração UI para as quais configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Experimente a Palo Alto Networks - Admin UI com Azure AD](https://aad.portal.azure.com/)
-
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+Uma vez configurar a Palo Alto Networks - Admin UI pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

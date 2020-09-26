@@ -11,12 +11,12 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 25ab7d275957aff03ad76bf2e946a98fc6cd8821
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: fecb78b240f5c983580d4bdb34535a879ffe3e2e
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032967"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289281"
 ---
 # <a name="maximize-rowgroup-quality-for-columnstore-index-performance"></a>Maximizar a qualidade do grupo de linha para o desempenho do índice de loja de colunas
 
@@ -26,7 +26,7 @@ A qualidade do grupo rowgroup é determinada pelo número de linhas num grupo de
 
 Uma vez que um índice de loja de colunas digitaliza uma tabela através da digitalização de segmentos de colunas de grupos de linha individuais, maximizar o número de linhas em cada grupo de linha melhora o desempenho da consulta. Quando os grupos de linha têm um elevado número de linhas, a compressão de dados melhora, o que significa que há menos dados para ler a partir do disco.
 
-Para obter mais informações sobre grupos de linha, consulte o Guia de [Índices de Colunas.](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
+Para obter mais informações sobre grupos de linha, consulte o Guia de [Índices de Colunas.](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 ## <a name="target-size-for-rowgroups"></a>Tamanho do alvo para grupos de linha
 
@@ -38,11 +38,11 @@ Durante uma reconstrução do índice de carga a granel ou de colunas, por vezes
 
 Quando não há memória suficiente para comprimir pelo menos 10.000 linhas em cada grupo de linha, será gerado um erro.
 
-Para obter mais informações sobre o carregamento a granel, consulte [a carga a granel num índice de loja de colunas agrupado](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#Bulk ).
+Para obter mais informações sobre o carregamento a granel, consulte [a carga a granel num índice de loja de colunas agrupado](/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#Bulk&preserve-view=true ).
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>Como monitorizar a qualidade do grupo de linha
 
-O DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats[(sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) contém a definição de visualização correspondente ao SQL DB) que expõe informações úteis, como o número de linhas em grupos de linha e a razão para aparar se houvesse aparar. Pode criar a seguinte vista como uma forma útil de consultar este DMV para obter informações sobre o corte de grupos de remo.
+O DMV sys.dm_pdw_nodes_db_column_store_row_group_physical_stats[(sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) contém a definição de visualização correspondente ao SQL DB) que expõe informações úteis, como o número de linhas em grupos de linha e a razão para aparar se houvesse aparar. Pode criar a seguinte vista como uma forma útil de consultar este DMV para obter informações sobre o corte de grupos de remo.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -77,14 +77,15 @@ O trim_reason_desc diz se o grupo de linha foi aparado (trim_reason_desc = NO_TR
 
 ## <a name="how-to-estimate-memory-requirements"></a>Como estimar os requisitos de memória
 
-A memória máxima necessária para comprimir um grupo de linha é aproximadamente
+A memória máxima necessária para comprimir um grupo de linha é, aproximadamente:
 
 - 72 MB +
 - \#\* \# linhas colunas \* 8 bytes +
 - \#linhas \* \# de curtas-cordas colunas \* 32 bytes +
 - \#colunas de longa duração \* 16 MB para dicionário de compressão
 
-quando as colunas de cordas curtas utilizam tipos de dados de cadeias de <= 32 bytes e colunas de cordas longas utilizam tipos de dados de cordas de > 32 bytes.
+> [!NOTE]
+> Quando as colunas de cordas curtas usam tipos de dados de cadeias de <= 32 bytes e colunas de cordas longas utilizam tipos de dados de cordas de > 32 bytes.
 
 As cordas longas são comprimidas com um método de compressão concebido para comprimir texto. Este método de compressão utiliza um *dicionário* para armazenar padrões de texto. O tamanho máximo de um dicionário é de 16 MB. Há apenas um dicionário para cada longa coluna de cordas no grupo de linha.
 
@@ -139,7 +140,7 @@ O tamanho do DWU e a classe de recursos do utilizador em conjunto determinam a q
 - Para aumentar os DWUs, veja [como dimensionar o desempenho?](../sql-data-warehouse/quickstart-scale-compute-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - Para alterar a classe de recursos para uma consulta, consulte [Alterar um exemplo de classe de recursos do utilizador](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#change-a-users-resource-class).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para encontrar mais formas de melhorar o desempenho no Synapse SQL, consulte a [visão geral](../overview-cheat-sheet.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)do Desempenho .
 

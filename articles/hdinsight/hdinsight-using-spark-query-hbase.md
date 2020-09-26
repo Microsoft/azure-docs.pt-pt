@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 08/12/2020
-ms.openlocfilehash: 9454cb83d535d97a3dd95cd9f5d0636769797d08
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: eb62cf099d7ccc133a207a843a8be3debf5c5454
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166948"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91308423"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Utilizar o Apache Spark para ler e escrever dados do Apache HBase
 
@@ -94,11 +94,11 @@ __NOTA:__ Antes de prosseguir, certifique-se de que adicionou a conta de armazen
     |Propriedade | Valor |
     |---|---|
     |URI de guião de bash|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-hbase.sh`|
-    |Tipo de nó(s)|Região|
+    |Tipo de nó(s)|Region|
     |Parâmetros|`-s SECONDARYS_STORAGE_URL`|
     |Persistiu|sim|
 
-    * `SECONDARYS_STORAGE_URL`é a url do armazenamento padrão do lado da Faísca. Exemplo de parâmetro:`-s wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.net`
+    * `SECONDARYS_STORAGE_URL` é a url do armazenamento padrão do lado da Faísca. Exemplo de parâmetro: `-s wasb://sparkcon-2020-08-03t18-17-37-853z@sparkconhdistorage.blob.core.windows.net`
 
 
 2.  Utilize a Ação do Script no seu cluster Spark para aplicar as alterações com as seguintes considerações:
@@ -107,7 +107,7 @@ __NOTA:__ Antes de prosseguir, certifique-se de que adicionou a conta de armazen
     |---|---|
     |URI de guião de bash|`https://hdiconfigactions.blob.core.windows.net/hbasesparkconnectorscript/connector-spark.sh`|
     |Tipo de nó(s)|Cabeça, Trabalhador, Zookeeper|
-    |Parâmetros|`-s "SPARK-CRON-SCHEDULE"`(opcional) `-h "HBASE-CRON-SCHEDULE"` (opcional)|
+    |Parâmetros|`-s "SPARK-CRON-SCHEDULE"` (opcional) `-h "HBASE-CRON-SCHEDULE"` (opcional)|
     |Persistiu|sim|
 
 
@@ -162,8 +162,8 @@ Como exemplo, a tabela a seguir lista duas versões e os comandos correspondente
 
     |Versão spark| Versão HDI HBase  | Versão SHC    |  Comando  |
     | :-----------:| :----------: | :-----------: |:----------- |
-    |      2.1    | HDI 3.6 (HBase 1.1) | 1.1.0.3.1.2.2-1    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
-    |      2,4    | HDI 4.0 (HBase 2.0) | 1.1.1-2.1-s_2.11  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
+    |      2.1    | HDI 3.6 (HBase 1.1) | 1.1.1-2.1-s_2.11    | `spark-shell --packages com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/` |
+    |      2.4    | HDI 4.0 (HBase 2.0) | 1.1.0.3.1.2.2-1  | `spark-shell --packages com.hortonworks.shc:shc-core:1.1.0.3.1.2.2-1 --repositories http://repo.hortonworks.com/content/groups/public/` |
 
 2. Mantenha esta instância de concha spark aberta e continue a [definir um catálogo e consulta.](#define-a-catalog-and-query) Se não encontrar os frascos que correspondem às suas versões no repositório SHC Core, continue a ler. 
 

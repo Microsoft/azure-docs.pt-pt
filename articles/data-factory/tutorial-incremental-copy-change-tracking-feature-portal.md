@@ -1,6 +1,6 @@
 ---
 title: Copie gradualmente dados usando o Change Tracking utilizando o portal Azure
-description: Neste tutorial, cria-se um pipeline Azure Data Factory que copia dados delta incrementalmente de várias tabelas numa base de dados do SQL Server para uma base de dados na Base de Dados Azure SQL.
+description: Neste tutorial, você cria uma fábrica de dados Azure com um pipeline que carrega dados delta com base em informações de rastreamento de alterações na base de dados de origem na Base de Dados Azure SQL para um armazenamento de bolhas Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: c28489c2fa502f0ba1283abdea19219ed7438a99
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 919eef113b1a44b84aacf306426ac4f82baa2423
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86085825"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321089"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Carregue gradualmente os dados da Base de Dados Azure SQL para o Armazenamento Azure Blob utilizando informações de rastreio de alterações utilizando o portal Azure
 
@@ -177,7 +177,7 @@ Instale os mais recentes módulos Azure PowerShell seguindo instruções sobre [
 4. Selecione **V2 (Pré-visualização)** para a **versão**.
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 6. Selecione **Afixar ao dashboard**.     
-7. Clique em **Criar**.      
+7. Clique em **Create** (Criar).      
 8. No painel de instrumentos, vê-se o seguinte azulejo com estado: **Implantação da fábrica de dados**.
 
     ![Mosaico “implementar a fábrica de dados”](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
@@ -205,7 +205,7 @@ Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dado
 
     1. Introduza **AzureStorageLinkedService** em **Nome**.
     2. Selecione a sua conta de Armazenamento Azure para **o nome da conta de armazenamento**.
-    3. Clique em **Guardar**.
+    3. Clique em **Save** (Guardar).
 
    ![Definições da Conta de Armazenamento do Azure](./media/tutorial-incremental-copy-change-tracking-feature-portal/azure-storage-linked-service-settings.png)
 
@@ -360,7 +360,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 ## <a name="create-a-pipeline-for-the-delta-copy"></a>Criar um pipeline para a cópia do delta
 Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicamente. As duas **atividades de pesquisa** obtêm os SYS_CHANGE_VERSION antigo e novo da Base de Dados SQL do Azure e passe-o para a atividade de cópia. A **atividade de cópia** copia os dados inseridos/atualizados/eliminados entre os dois valores de SYS_CHANGE_VERSION da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure. A **atividade de procedimentos armazenados** atualiza o valor de SYS_CHANGE_VERSION para a próxima execução de pipeline.
 
-1. Na UI da Fábrica de Dados, mude para o separador **Editar.** Clique **+ (mais)** no painel esquerdo e clique em **Pipeline**.
+1. Na UI da Fábrica de Dados, mude para o **separador Editar.** Clique **+ (mais)** no painel esquerdo e clique em **Pipeline**.
 
     ![Menu Novo pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
 2. Verá um separador novo para configurar o pipeline. Também verá o pipeline na vista de árvore. Na janela **Propriedades**, altere o nome do pipeline para **IncrementalCopyPipeline**.

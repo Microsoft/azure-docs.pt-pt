@@ -3,33 +3,24 @@ title: Ligue ao Windows Virtual Desktop Windows 10 ou 7 - Azure
 description: Como ligar-se ao Windows Virtual Desktop utilizando o cliente Windows Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 09/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0e4f41cb23ec4a9463b983049f5f37d09d1b8c71
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c9da2acac0957d7fe06d0249775fbed73b5f458d
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226714"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91287343"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Ligar ao cliente de Ambiente de Trabalho do Windows
 
-> Aplica-se a: Windows 7, Windows 10 e Windows 10 IoT Enterprise
+> Aplica-se a: Windows 10, Windows 10 IoT Enterprise e Windows 7
 
 >[!IMPORTANT]
 >Este conteúdo aplica-se ao Windows Virtual Desktop com objetos de ambiente de trabalho virtuais do Windows, gestor de recursos do Azure. Se estiver a utilizar o Windows Virtual Desktop (clássico) sem objetos Azure Resource Manager, consulte [este artigo](./virtual-desktop-fall-2019/connect-windows-7-10-2019.md).
 
-Pode aceder aos recursos de Desktop Virtual do Windows em dispositivos com Windows 7, Windows 10 e Windows 10 IoT Enterprise utilizando o cliente Windows Desktop. O cliente não suporta a Janela 8 ou o Windows 8.1.
-
->[!NOTE]
->O cliente Do Windows falha automaticamente no Windows Virtual Desktop (clássico). No entanto, se o cliente detetar que o utilizador também tem recursos Azure Resource Manager, adiciona automaticamente os recursos ou notifica o utilizador de que está disponível.
-
-> [!IMPORTANT]
-> O Windows Virtual Desktop não suporta o cliente RemoteApp e Desktop Connections (RADC) ou o cliente Remote Desktop Connection (MSTSC).
-
-> [!IMPORTANT]
-> O Windows Virtual Desktop não suporta atualmente o cliente remote desktop a partir da Windows Store.
+Pode aceder aos recursos de Desktop Virtual do Windows em dispositivos com Windows 10, Windows 10 IoT Enterprise e Windows 7 utilizando o cliente Windows Desktop. O cliente não suporta a Janela 8 ou o Windows 8.1.
 
 ## <a name="install-the-windows-desktop-client"></a>Instale o cliente windows desktop
 
@@ -43,6 +34,9 @@ Pode instalar o cliente para o utilizador atual, que não requer direitos de adm
 
 Uma vez instalado, o cliente pode ser lançado a partir do menu Iniciar, procurando por **Desktop Remoto**.
 
+> [!IMPORTANT]
+> O Windows Virtual Desktop não suporta o cliente RemoteApp e Desktop Connections (RADC) ou o cliente Remote Desktop Connection (MSTSC).
+
 ## <a name="subscribe-to-a-workspace"></a>Subscreva um espaço de trabalho
 
 Há duas formas de subscrever um Espaço de Trabalho. O cliente pode tentar descobrir os recursos disponíveis a partir do seu trabalho ou conta escolar ou pode especificar diretamente o URL onde os seus recursos estão para casos em que o cliente não os consegue encontrar. Uma vez subscrito um Espaço de Trabalho, pode lançar recursos com um dos seguintes métodos:
@@ -55,6 +49,9 @@ Há duas formas de subscrever um Espaço de Trabalho. O cliente pode tentar desc
 1. A partir da página principal do cliente, **selecione Subscrever**.
 2. Inscreva-se na sua conta de utilizador quando solicitado.
 3. Os recursos aparecerão no Centro de Conexão, e são agrupados por espaço de trabalho.
+
+>[!NOTE]
+>O cliente Do Windows falha automaticamente no Windows Virtual Desktop (clássico). No entanto, se o cliente detetar que o utilizador também tem recursos Azure Resource Manager, adiciona automaticamente os recursos ou notifica o utilizador de que está disponível.
 
 ### <a name="subscribe-with-a-url"></a>Inscreva-se com um URL
 

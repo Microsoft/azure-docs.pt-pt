@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Verifique a ortografia com a API REST e Node.js - Bing Spell Check'
 titleSuffix: Azure Cognitive Services
-description: Começa a utilizar a API Bing Spell Check REST para verificar a ortografia e a gramática com este arranque rápido.
+description: Começa a utilizar a API de Verificação ortográfica Bing e Node.js para verificar a ortografia e a gramática.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,13 +10,13 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
-ms.openlocfilehash: aaaa571928556a6972d3136ef4cacaa3bd4cb798
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-js
+ms.openlocfilehash: 050e06a389ec1deb019677b0bd6ecc92c51d0762
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405012"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330694"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-nodejs"></a>Quickstart: Verifique a ortografia com a API de verificação ortográfica Bing Spell REST e Node.js
 
@@ -158,7 +158,7 @@ req.end ();
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../tutorials/spellcheck.md)

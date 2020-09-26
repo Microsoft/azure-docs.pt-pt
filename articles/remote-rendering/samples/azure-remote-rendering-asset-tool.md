@@ -1,16 +1,16 @@
 ---
 title: Ferramenta de Recursos Azure Remote Rendering
-description: Link para o repositório GitHub que abriga a aplicação de exibição
+description: Saiba mais sobre a Ferramenta de Ativo de Renderização Remota Azure (ARRT), que é uma aplicação de ambiente de trabalho de código aberto desenvolvida em C++/Qt.
 author: mafranc
 ms.author: mafranc
 ms.date: 06/09/2020
 ms.topic: sample
-ms.openlocfilehash: c02bb46cfdfa37fed7f9c9cc2ad3c2a426547ce8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e20d21f1f8b58b69ee760fd4e95d6f194e13105a
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84637151"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91322177"
 ---
 # <a name="azure-remote-rendering-asset-tool-arrt"></a>Ferramenta de ativo de renderização remota Azure (ARRT)
 

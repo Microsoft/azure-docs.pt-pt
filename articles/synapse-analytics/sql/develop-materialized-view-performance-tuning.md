@@ -1,6 +1,6 @@
 ---
 title: Otimização do desempenho com vistas materializadas
-description: Recomendações e considerações que deve conhecer ao utilizar pontos de vista materializados para melhorar o seu desempenho de consulta.
+description: Recomendações e considerações para visualizações materializadas para melhorar o seu desempenho de consulta.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: d476bef6faa19defad1d2e1ef1a90f7e5d83def5
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1f04f8b447f07f62561f56722df3b9502ad58d41
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495697"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91289043"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Otimização do desempenho com vistas materializadas
 
@@ -29,7 +29,7 @@ Uma visão padrão calcula os seus dados cada vez que a vista é usada.  Não h�
 
 Uma vista materializada pré-computa, armazena e mantém os seus dados em piscina SQL como uma mesa.  A recomputação não é necessária cada vez que uma vista materializada é usada.  É por isso que as consultas que usam todos ou um subconjunto dos dados em vistas materializadas podem ganhar um desempenho mais rápido.  Ainda melhor, as consultas podem usar uma visão materializada sem fazer referência direta a ela, por isso não há necessidade de alterar o código de aplicação.  
 
-A maioria dos requisitos de visão padrão ainda se aplicam a uma visão materializada. Para obter mais informações sobre a sintaxe de vista materializada e outros requisitos, consulte a [VISÃO MATERIALIZADA COMO SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+A maioria dos requisitos de visão padrão ainda se aplicam a uma visão materializada. Para obter mais informações sobre a sintaxe de vista materializada e outros requisitos, consulte a [VISÃO MATERIALIZADA COMO SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 | Comparação                     | Vista                                         | Vista materializada
 |:-------------------------------|:---------------------------------------------|:--------------------------------------------------------------|
@@ -37,7 +37,7 @@ A maioria dos requisitos de visão padrão ainda se aplicam a uma visão materia
 |Ver conteúdos                    | Gerada cada vez que a vista é usada.   | Pré-processado e armazenado no armazém de dados Azure durante a criação de visualização. Atualizado à medida que os dados são adicionados às tabelas subjacentes.
 |Atualização de dados                    | Sempre atualizado                               | Sempre atualizado
 |Velocidade para recuperar dados de visualização de consultas complexas     | Lento                                         | Rápido  
-|Armazenamento extra                   | Não                                           | Sim
+|Armazenamento extra                   | No                                           | Yes
 |Syntax                          | CRIAR VISTA                                  | CRIAR VISTA MATERIALIZADA COMO SELEÇÃO
 
 ## <a name="benefits-of-materialized-views"></a>Benefícios de vistas materializadas
@@ -55,8 +55,8 @@ Uma visão materializada devidamente concebida proporciona os seguintes benefíc
 Em comparação com outros fornecedores de armazéns de dados, as vistas materializadas implementadas no pool SQL também proporcionam os seguintes benefícios adicionais:
 
 - Atualização automática e sincronizada de dados com alterações de dados nas tabelas base. Não é necessária qualquer ação do utilizador.
-- Suporte de função agregado alargado. Consulte [CREATE VISTA MATERIALIZADA COMO SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
-- O apoio à recomendação de visualização materializada específica da consulta.  Ver [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+- Suporte de função agregado alargado. Consulte [CREATE VISTA MATERIALIZADA COMO SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+- O apoio à recomendação de visualização materializada específica da consulta.  Ver [EXPLAIN (Transact-SQL)](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
 ## <a name="common-scenarios"></a>Cenários comuns  
 
@@ -143,13 +143,17 @@ O otimizador de armazém de dados pode automaticamente usar vistas materializada
 
 **Monitorar vistas materializadas**
 
-Uma vista materializada é armazenada no armazém de dados tal como uma tabela com índice de loja de colunas agrupado (CCI).  Ler dados de uma vista materializada inclui digitalizar o índice e aplicar alterações a partir da loja delta.  Quando o número de linhas na loja delta é demasiado elevado, a resolução de uma consulta a partir de uma vista materializada pode demorar mais do que consultar diretamente as tabelas base.  Para evitar a degradação do desempenho da consulta, é uma boa prática executar [a DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) monitorizar o overhead_ratio da vista (total_rows/base_view_row).  Se o overhead_ratio for demasiado elevado, considere reconstruir a vista materializada para que todas as linhas da loja delta sejam transferidas para o índice da loja de colunas.  
+Uma vista materializada é armazenada no armazém de dados tal como uma tabela com índice de loja de colunas agrupado (CCI).  Ler dados de uma vista materializada inclui digitalizar o índice e aplicar alterações a partir da loja delta.  Quando o número de linhas na loja delta é demasiado elevado, a resolução de uma consulta a partir de uma vista materializada pode demorar mais do que consultar diretamente as tabelas base.  
+
+Para evitar a degradação do desempenho da consulta, é uma boa prática executar [a DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) monitorizar o overhead_ratio da vista (total_rows/base_view_row).  Se o overhead_ratio for demasiado elevado, considere reconstruir a vista materializada para que todas as linhas da loja delta sejam transferidas para o índice da loja de colunas.  
 
 **Vista materializada e conjunto de resultados**
 
 Estas duas funcionalidades são introduzidas na piscina SQL por volta do mesmo tempo para afinação de desempenho de consulta. O cache do conjunto de resultados é usado para alcançar tempos de alta concordância e resposta rápida de consultas repetitivas contra dados estáticos.  
 
-Para utilizar o resultado em cache, a forma da consulta de pedido de cache deve coincidir com a consulta que produziu a cache.  Além disso, o resultado em cache deve aplicar-se a toda a consulta.  As vistas materializadas permitem alterações de dados nas tabelas base.  Os dados em vistas materializadas podem ser aplicados a uma peça de consulta.  Este suporte permite que as mesmas vistas materializadas sejam usadas por diferentes consultas que partilhem algum cálculo para um desempenho mais rápido.
+Para utilizar o resultado em cache, a forma da consulta de pedido de cache deve coincidir com a consulta que produziu a cache.  Além disso, o resultado em cache deve aplicar-se a toda a consulta.  
+
+As vistas materializadas permitem alterações de dados nas tabelas base.  Os dados em vistas materializadas podem ser aplicados a uma peça de consulta.  Este suporte permite que as mesmas vistas materializadas sejam usadas por diferentes consultas que partilhem algum cálculo para um desempenho mais rápido.
 
 ## <a name="example"></a>Exemplo
 
@@ -352,7 +356,7 @@ GROUP BY c_customer_id
 
 ```
 
-Verifique novamente o plano de execução da consulta original.  Agora o número de juntas muda de 17 para 5 e não há mais confusão.  Clique no ícone de funcionamento do filtro no plano. A sua Lista de Saídas mostra que os dados são lidos a partir das vistas materializadas em vez de tabelas base.  
+Verifique novamente o plano de execução da consulta original.  Agora o número de juntas muda de 17 para 5 e não há mais confusão.  Selecione o ícone de funcionamento do filtro no plano. A sua Lista de Saídas mostra que os dados são lidos a partir das vistas materializadas em vez de tabelas base.  
 
  ![Plan_Output_List_with_Materialized_Views](./media/develop-materialized-view-performance-tuning/output-list.png)
 

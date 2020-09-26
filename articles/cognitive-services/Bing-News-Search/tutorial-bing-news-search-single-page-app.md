@@ -10,13 +10,13 @@ ms.subservice: bing-news-search
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: aahi
-ms.custom: seodec2018, devx-track-javascript
-ms.openlocfilehash: 2391b63cbc0539b9c2e505e8cf531aeb78eb9bfd
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: seodec2018, devx-track-js
+ms.openlocfilehash: 225ab3a8ab03c507132bdfcb176aeeb706d6b115
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406083"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91304054"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: Criar uma aplicação web de uma página
 
@@ -321,9 +321,9 @@ function renderResults(items) {
     return html.join("\n\n");
 }
 ```
-A API de Pesquisa de Notícias do Bing devolve até quatro tipos diferentes de resultados relacionados, cada um no seu próprio objeto de nível superior. São:
+A API de Pesquisa de Notícias do Bing devolve até quatro tipos diferentes de resultados relacionados, cada um no seu próprio objeto de nível superior. A saber:
 
-|Relação|Descrição|
+|Relação|Description|
 |-|-|
 |`pivotSuggestions`|Consultas que substituem uma palavra “pivô” na pesquisa original por outra diferente. Por exemplo, se procurar "flores vermelhas", uma palavra pivô poderá ser "vermelhas" e uma sugestão pivô "flores amarelas".|
 |`queryExpansions`|Consultas que reduzem a consulta original mediante a adição de mais termos. Por exemplo, se procurar "Microsoft Surface", uma expansão da consulta poderá ser "Microsoft Surface Pro".|
@@ -424,6 +424,6 @@ cors-proxy-server
 
 Deixe a janela de comando aberta enquanto utiliza a aplicação de tutorial. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP expansíveis, abaixo dos resultados da pesquisa, pode agora ver o cabeçalho `X-MSEdge-ClientID` (entre outros) e confirmar se é o mesmo em todos os pedidos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Referência da API de Pesquisa de Notícias do Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference)

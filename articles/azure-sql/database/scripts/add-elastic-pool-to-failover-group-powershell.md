@@ -9,14 +9,14 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 07/16/2019
-ms.openlocfilehash: e509fc0f93c60d271409b5453aecdf793cd22ecb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 95d6066cd13876400ffff934b0b0f3ccdcde1c59
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040612"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91321553"
 ---
 # <a name="use-powershell-to-add-an-elastic-pool-to-a-failover-group"></a>Use o PowerShell para adicionar uma piscina elástica a um grupo de failover
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]

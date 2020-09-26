@@ -7,15 +7,15 @@ ms.subservice: elastic-pools
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 03/12/2019
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: e87a083f5b31237c00bc8421774c14d3ef8ef33f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: bd3917c42859d4240fbb3a75f951ff38a548e204
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89439713"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91330813"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Gerir piscinas elásticas em Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -115,7 +115,7 @@ Para criar e gerir piscinas elásticas SQL Database e bases de dados em conjunto
 |[Bases de dados - Lista por servidor](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Retorna uma lista de bases de dados num servidor.|
 |[Bases de dados - Atualização](https://docs.microsoft.com/rest/api/sql/databases/update)|Atualiza uma base de dados existente.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre os padrões de estrutura de aplicações SaaS que utilizam conjuntos elásticos, consulte o artigo [Padrões de Estrutura de Aplicações SaaS Multi-inquilino com a Base de Dados SQL do Azure](saas-tenancy-app-design-patterns.md).
 * Para um tutorial SaaS utilizando piscinas elásticas, consulte [Introdução à aplicação Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md).
