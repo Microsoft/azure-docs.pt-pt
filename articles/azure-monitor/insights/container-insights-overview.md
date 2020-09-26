@@ -2,13 +2,13 @@
 title: Visão geral do Monitor Azure para contentores Microsoft Docs
 description: Este artigo descreve o Azure Monitor para recipientes que monitorizam a solução AKS Container Insights e o valor que fornece através da monitorização da saúde dos seus agrupamentos AKS e Instâncias de Contentores em Azure.
 ms.topic: conceptual
-ms.date: 05/21/2020
-ms.openlocfilehash: 85adae1b79609f13be6bb73eb4e57000beda6d77
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 09/08/2020
+ms.openlocfilehash: 215427adc38ebd554ca7ac650ec65a05f5a781e8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320277"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317162"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Descrição geral do Azure Monitor para contentores
 
@@ -17,11 +17,11 @@ O Azure Monitor para contentores é uma característica concebida para monitoriz
 - Agrupamentos geridos de Kubernetes hospedados no [Serviço Azure Kubernetes (AKS)](../../aks/intro-kubernetes.md)
 - Clusters Kubernetes auto-geridos hospedados em Azure usando [motor AKS](https://github.com/Azure/aks-engine)
 - [Azure Container Instances](../../container-instances/container-instances-overview.md)
-- Clusters Kubernetes auto-geridos hospedados em [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) ou no local
+- Clusters Kubernetes auto-geridos hospedados em [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910&preserve-view=true) ou no local
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
 - [Azure Arc ativou Kubernetes](../../azure-arc/kubernetes/overview.md) (pré-visualização)
 
-O Azure Monitor para contentores suporta clusters que executam o sistema operativo Linux e Windows Server 2019.
+O Azure Monitor para contentores suporta clusters que executam o sistema operativo Linux e Windows Server 2019. Os tempos de funcionação do contentor que suporta são Docker, Moby, e qualquer tempo de execução compatível com CRI como CRI-O e ContainerD.
 
 Monitorizar os seus contentores é fundamental, especialmente quando se está a executar um cluster de produção, em escala, com múltiplas aplicações.
 
@@ -40,7 +40,7 @@ O Azure Monitor para contentores proporciona uma experiência de monitorização
 * Entenda o comportamento do cluster sob cargas médias e mais pesadas. Este conhecimento pode ajudá-lo a identificar necessidades de capacidade e determinar a carga máxima que o cluster pode suportar.
 * Configure alertas para notificá-lo proativamente ou registrá-lo quando a CPU e a utilização da memória em nós ou contentores excederem os seus limiares, ou quando ocorre uma mudança de estado de saúde no cluster na infraestrutura ou nos nós de saúde rollup.
 * Integre com [a Prometheus](https://prometheus.io/docs/introduction/overview/) para visualizar as métricas de aplicação e carga de trabalho que recolhe de nós e Kubernetes usando [consultas](container-insights-log-search.md) para criar alertas personalizados, dashboards e análise detalhada detalhada.
-* Monitorar as cargas de trabalho dos contentores implantados no local do [motor AKS](https://github.com/Azure/aks-engine) e [no motor AKS em Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+* Monitorar as cargas de trabalho dos contentores implantados no local do [motor AKS](https://github.com/Azure/aks-engine) e [no motor AKS em Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908&preserve-view=true).
 * Monitorar as cargas de trabalho dos contentores [implantadas no Azure Red Hat OpenShift](../../openshift/intro-openshift.md).
 
     >[!NOTE]

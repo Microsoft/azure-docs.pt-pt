@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: d3a2c85540a4efa2f934605c4c056b458e2879ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe8cf0da6cb6542646f3107980b49fb6fef9cb45
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749588"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317638"
 ---
 # <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Encriptação ExpressRoute: IPsec over ExpressRoute for Virtual WAN
 
@@ -237,6 +237,6 @@ Quando já não precisar destes recursos, pode utilizar [o Remove-AzResourceGrou
 Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo ajuda-o a criar uma ligação VPN sobre o expressRoute peering privado usando O WAN Virtual. Para saber mais sobre o WAN virtual e funcionalidades relacionadas, consulte a visão geral do [WAN virtual.](virtual-wan-about.md)

@@ -1,5 +1,5 @@
 ---
-title: Faça upload do inventário de recursos, dados de utilização, métricas e registos para o Azure Monitor
+title: Faça upload de dados de utilização, métricas e registos para o Azure Monitor
 description: Faça upload do inventário de recursos, dados de utilização, métricas e registos para o Azure Monitor
 services: azure-arc
 ms.service: azure-arc
@@ -9,25 +9,59 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: ac6ffd2b5bf48079db6a0cd261dbe2535e1821ac
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7c8e92604cc6188d17411a266f8b27db55c8fbad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939107"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317281"
 ---
-# <a name="upload-resource-inventory-usage-data-metrics-and-logs-to-azure-monitor"></a>Faça upload do inventário de recursos, dados de utilização, métricas e registos para o Azure Monitor
+# <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Faça upload de dados de utilização, métricas e registos para o Azure Monitor
 
-Com os serviços de dados do Azure Arc pode enviar *opcionalmente* as suas métricas e registos para o Azure Monitor para que possa agregar e analisar métricas, registos, levantar alertas, enviar notificações ou desencadear ações automatizadas. O envio dos seus dados para o Azure Monitor também permite armazenar dados de monitorização e registos fora do site e em grande escala permitindo o armazenamento a longo prazo dos dados para análises avançadas.  Se tiver vários sites que possuam serviços de dados do Azure Arc, pode utilizar o Azure Monitor como localização central para recolher todos os seus registos e métricas em todos os seus sites.
+A monitorização é uma das muitas capacidades incorporadas que os serviços de dados habilitados a Azure Arc trazem consigo. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+## <a name="upload-usage-data"></a>Carregar dados de utilização
 
-## <a name="before-you-begin"></a>Before you begin
+As informações de utilização, tais como o inventário e a utilização de recursos, podem ser enviadas para a Azure da seguinte forma:
+
+1. Exportar os dados de utilização utilizando ```azdata export``` o comando, da seguinte forma:
+
+   ```console
+   #login to the data controller and enter the values at the prompt
+   azdata login
+
+   #run the export command
+   azdata arc dc export --type usage --path usage.json
+   ```
+   Este comando cria um `usage.json` ficheiro com todos os recursos de dados ativados pelo Arco Azure, tais como instâncias geridas pelo SQL e instâncias de hiperescala postgresQL, etc. que são criadas no controlador de dados.
+
+2. Faça o upload dos dados de utilização usando ```azdata upload``` o comando
+
+   > [!NOTE]
+   > Por favor, aguarde pelo menos 24 horas após a criação do controlador de dados Azure Arc antes de executar o upload
+
+   ```console
+   #login to the data controller and enter the values at the prompt
+   azdata login
+
+   #run the upload command
+   azdata arc dc upload --path usage.json
+   ```
+
+## <a name="upload-metrics-and-logs"></a>Carregar métricas e registos
+
+Com os serviços de dados do Azure Arc, pode enviar opcionalmente as suas métricas e registos para o Azure Monitor para que possa agregar e analisar métricas, registos, levantar alertas, enviar notificações ou desencadear ações automatizadas. 
+
+O envio dos seus dados para o Azure Monitor também permite armazenar dados de monitorização e registos fora do site e em grande escala, permitindo o armazenamento a longo prazo dos dados para análises avançadas.
+
+Se tiver vários sites que tenham serviços de dados do Azure Arc, pode utilizar o Azure Monitor como localização central para recolher todos os seus registos e métricas em todos os seus sites.
+
+### <a name="before-you-begin"></a>Before you begin
 
 Existem algumas etapas de configuração únicas necessárias para ativar os cenários de upload de registos e métricas:
 
-1) Crie uma aplicação principal de serviço/Azure Ative Directory, incluindo a criação de um segredo de acesso ao cliente e atribua o principal do serviço à função de "Editor de Métricas de Monitorização" na(s) subscrição(s) onde estão localizados os recursos da sua caixa de dados.
-2) Crie um espaço de trabalho de análise de log analytics e obtenha as chaves e desaprote a informação em variáveis ambientais.
+1. Crie uma aplicação de Diretório Ativo De Serviço/Azure, incluindo a criação de um segredo de acesso ao cliente e atribua o principal do serviço à função de "Editor de Métricas de Monitorização" na(s) subscrição(s) onde estão localizados os recursos da sua caixa de dados.
+2. Crie um espaço de trabalho de análise de log analytics e obtenha as chaves e desaprote a informação em variáveis ambientais.
 
 O primeiro item é necessário para carregar métricas e o segundo é necessário para carregar registos.
 
@@ -51,7 +85,7 @@ az ad sp create-for-rbac --name <a name you choose>
 
 Exemplo de saída:
 
-```console
+```output
 "appId": "2e72adbf-de57-4c25-b90d-2f73f126e123",
 "displayName": "azure-arc-metrics",
 "name": "http://azure-arc-metrics",
@@ -59,36 +93,47 @@ Exemplo de saída:
 "tenant": "72f988bf-85f1-41af-91ab-2d7cd01ad1234"
 ```
 
-Guarde os valores de appId e inquilino numa variável ambiental para utilização posterior:
+Guarde os valores de appId e inquilino numa variável ambiental para utilização posterior. 
 
-```console
-#PowerShell
+Para guardar os valores de appId e inquilino com PowerShell, siga este exemplo:
 
+```powershell
 $Env:SPN_CLIENT_ID='<the 'appId' value from the output of the 'az ad sp create-for-rbac' command above>'
 $Env:SPN_CLIENT_SECRET='<the 'password' value from the output of the 'az ad sp create-for-rbac' command above>'
 $Env:SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
-
-#Linux/macOS
-
-export SPN_CLIENT_ID='<the 'appId' value from the output of the 'az ad sp create-for-rbac' command above>'
-export SPN_CLIENT_SECRET='<the 'password' value from the output of the 'az ad sp create-for-rbac' command above>'
-export SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
-
-#Example (using Linux):
-export SPN_CLIENT_ID='2e72adbf-de57-4c25-b90d-2f73f126e123'
-export SPN_CLIENT_SECRET='5039d676-23f9-416c-9534-3bd6afc78123'
-export SPN_TENANT_ID='72f988bf-85f1-41af-91ab-2d7cd01ad1234'
 ```
+
+Em alternativa, em Linux ou macOS, pode guardar os valores appId e inquilinos com este exemplo:
+
+   ```console
+   export SPN_CLIENT_ID='<the 'appId' value from the output of the 'az ad sp create-for-rbac' command above>'
+   export SPN_CLIENT_SECRET='<the 'password' value from the output of the 'az ad sp create-for-rbac' command above>'
+   export SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
+
+   #Example (using Linux):
+   export SPN_CLIENT_ID='2e72adbf-de57-4c25-b90d-2f73f126e123'
+   export SPN_CLIENT_SECRET='5039d676-23f9-416c-9534-3bd6afc78123'
+   export SPN_TENANT_ID='72f988bf-85f1-41af-91ab-2d7cd01ad1234'
+   ```
 
 Executar este comando para atribuir o principal de serviço à função "Monitoring Metrics Publisher" na subscrição onde estão localizados os recursos da sua caixa de dados:
 
+
+> [!NOTE]
+> Tem de utilizar cotações duplas para nomes de papéis quando correr a partir de um ambiente Windows.
+
+
 ```console
-az role assignment create --assignee <appId value from output above> --role 'Monitoring Metrics Publisher' --scope subscriptions/<sub ID>
+az role assignment create --assignee <appId value from output above> --role "Monitoring Metrics Publisher" --scope subscriptions/<sub ID>
 az role assignment create --assignee <appId value from output above> --role 'Contributor' --scope subscriptions/<sub ID>
 
 #Example:
-#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role 'Monitoring Metrics Publisher' --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
+#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role "Monitoring Metrics Publisher" --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
 #az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role 'Contributor' --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
+
+#On Windows environment
+#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role "Monitoring Metrics Publisher" --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
+#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role "Contributor" --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
 ```
 
 Exemplo de saída:
@@ -96,12 +141,12 @@ Exemplo de saída:
 ```console
 {
   "canDelegate": null,
-  "id": "/subscriptions/182c901a-129a-4f5d-86e4-cc6b29459123/providers/Microsoft.Authorization/roleAssignments/f82b7dc6-17bd-4e78-93a1-3fb733b912d",
+  "id": "/subscriptions/<Subscription ID>/providers/Microsoft.Authorization/roleAssignments/f82b7dc6-17bd-4e78-93a1-3fb733b912d",
   "name": "f82b7dc6-17bd-4e78-93a1-3fb733b9d123",
   "principalId": "5901025f-0353-4e33-aeb1-d814dbc5d123",
   "principalType": "ServicePrincipal",
-  "roleDefinitionId": "/subscriptions/182c901a-129a-4f5d-86e4-cc6b29459123/providers/Microsoft.Authorization/roleDefinitions/3913510d-42f4-4e42-8a64-420c39005123",
-  "scope": "/subscriptions/182c901a-129a-4f5d-86e4-cc6b29459123",
+  "roleDefinitionId": "/subscriptions/<Subscription ID>/providers/Microsoft.Authorization/roleDefinitions/3913510d-42f4-4e42-8a64-420c39005123",
+  "scope": "/subscriptions/<Subscription ID>",
   "type": "Microsoft.Authorization/roleAssignments"
 }
 ```
@@ -114,19 +159,19 @@ Em seguida, execute estes comandos para criar um Log Analytics Workspace e defin
 > Ignore este passo se já tiver um espaço de trabalho.
 
 ```console
-az monitor log-analytics workspace create --resource-group <resource group name> --name <some name you choose>
+az monitor log-analytics workspace create --resource-group <resource group name> --workspace-name <some name you choose>
 
 #Example:
-#az monitor log-analytics workspace create --resource-group MyResourceGroup --name MyLogsWorkpace
+#az monitor log-analytics workspace create --resource-group MyResourceGroup --workspace-name MyLogsWorkpace
 ```
 
 Exemplo de saída:
 
-```console
+```output
 {
   "customerId": "d6abb435-2626-4df1-b887-445fe44a4123",
   "eTag": null,
-  "id": "/subscriptions/182c901a-129a-4f5d-86e4-cc6b29459123/resourcegroups/user-arc-demo/providers/microsoft.operationalinsights/workspaces/user-logworkspace",
+  "id": "/subscriptions/<Subscription ID>/resourcegroups/user-arc-demo/providers/microsoft.operationalinsights/workspaces/user-logworkspace",
   "location": "eastus",
   "name": "user-logworkspace",
   "portalUrl": null,
@@ -162,7 +207,7 @@ export WORKSPACE_ID='<the customerId from the 'log-analytics workspace create' c
 Este comando imprimirá as teclas de acesso necessárias para ligar ao seu espaço de trabalho de análise de registo:
 
 ```console
-az monitor log-analytics workspace get-shared-keys --resource-group MyResourceGroup --name MyLogsWorkpace
+az monitor log-analytics workspace get-shared-keys --resource-group MyResourceGroup --workspace-name MyLogsWorkpace
 ```
 
 Exemplo de saída:
@@ -222,25 +267,61 @@ echo $SPN_AUTHORITY
 
 ## <a name="upload-metrics-to-azure-monitor"></a>Carregar métricas para o Monitor Azure
 
-Para carregar as métricas para as suas instâncias geridas Azure SQL e Azure Database para grupos de servidores de hiperescala postgresQL executados, os seguintes comandos CLI:
+Para carregar métricas para o seu arco Azure habilitado a sql gerido instâncias e Azure Arc ativado grupos de servidores de hiperescala postgreSQL funcionam, os seguintes comandos CLI:
 
-Esta ação vai exportar todas as métricas para o ficheiro especificado:
+1. Exportar todas as métricas para o ficheiro especificado:
+
+   ```console
+   #login to the data controller and enter the values at the prompt
+   azdata login
+
+   #export the metrics
+   azdata arc dc export --type metrics --path metrics.json
+   ```
+
+2. Carregar métricas para o monitor Azure:
+
+   ```console
+   #login to the data controller and enter the values at the prompt
+   azdata login
+
+   #upload the metrics
+   azdata arc dc upload --path metrics.json
+   ```
+
+   >[!NOTE]
+   >Aguarde pelo menos 30 minutos após a criação de instâncias de dados ativadas pelo Arco Azure para o primeiro upload
+   >
+   >Certifique-se de que `upload` as métricas imediatamente a `export` seguir, uma vez que o Azure Monitor só aceita métricas durante os últimos 30 minutos. [Saiba mais](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)
+
+
+Se vir algum erro que indique "Falha na obter métricas" durante a exportação, verifique se a recolha de dados está definida ```true``` para executar o seguinte comando:
 
 ```console
-azdata arc dc export -t metrics --path metrics.json
+azdata arc dc config show
 ```
 
-Esta ação vai carregar as métricas para o Azure Monitor:
+e olhar em "secção de segurança"
 
-```console
-azdata arc dc upload --path metrics.json
+```output
+ "security": {
+      "allowDumps": true,
+      "allowNodeMetricsCollection": true,
+      "allowPodMetricsCollection": true,
+      "allowRunAsRoot": false
+    },
 ```
+
+Verifique se as `allowNodeMetricsCollection` propriedades e `allowPodMetricsCollection` propriedades estão definidas para `true` .
 
 ## <a name="view-the-metrics-in-the-portal"></a>Ver as métricas no Portal
 
-Após as métricas estarem carregadas, deverá ser capaz de as visualizar no portal do Azure.
+Uma vez que as suas métricas são carregadas, você pode vê-las a partir do portal Azure.
+> [!NOTE]
+> Por favor, note que pode levar alguns minutos para que os dados carregados sejam processados antes de poder ver as métricas no portal.
 
-Para ver as suas métricas no portal, utilize este link especial para abrir o portal: Em seguida, procure a <https://portal.azure.com> sua base de dados por exemplo na barra de pesquisa:
+
+Para ver as suas métricas no portal, utilize este link para abrir o portal: Em seguida, procure a <https://portal.azure.com> sua caixa de dados por exemplo na barra de pesquisa:
 
 Pode ver a utilização do CPU na página 'Vista Geral' ou se quiser métricas mais detalhadas, pode clicar em métricas a partir do painel de navegação à esquerda
 
@@ -255,19 +336,27 @@ Altere a frequência para durar 30 minutos:
 
 ## <a name="upload-logs-to-azure-monitor"></a>Carregar registos para o Azure Monitor
 
- Para carregar registos para as suas instâncias geridas Azure SQL e Azure Database para grupos de servidores de hiperescala PostgreSQL executam os seguintes comandos CLI-
+ Para carregar registos para o seu Arco Azure ativou instâncias geridas pelo SQL e os grupos de servidores de hiperescala pós-SQL ativados executam os seguintes comandos CLI-
 
-Esta ação vai exportar todos os registos para o ficheiro especificado:
+1. Exporte todos os registos para o ficheiro especificado:
 
-```console
-azdata arc dc export -t logs --path logs.json
-```
+   ```console
+   #login to the data controller and enter the values at the prompt
+   azdata login
 
-Isto irá enviar registos para um espaço de trabalho de analítica de registo de registos do monitor Azure:
+   #export the logs
+   azdata arc dc export --type logs --path logs.json
+   ```
 
-```console
-azdata arc dc upload --path logs.json
-```
+2. Faça upload de registos para um espaço de trabalho de analítica de registo de monitores Azure:
+
+   ```console
+   #login to the data controller and enter the values at the prompt
+   azdata login
+
+   #Upload the logs
+   azdata arc dc upload --path logs.json
+   ```
 
 ## <a name="view-your-logs-in-azure-portal"></a>Veja os seus registos no portal Azure
 
@@ -276,18 +365,18 @@ Após os registos serem carregados, deverá ser capaz de consultar os mesmos com
 1. Abra o portal Azure e, em seguida, procure o seu espaço de trabalho pelo nome na barra de pesquisa no topo e, em seguida, selecione-o
 2. Clique em Registos no painel esquerdo
 3. Clique em 'Iniciar') (ou clique nos links da página 'Iniciar-se' para saber mais sobre o 'Registar Analytics' se é novo na página)
-4. Siga o tutorial para saber mais sobre Log Analytics se é a sua primeira vez
+4. Siga o tutorial para saber mais sobre o Log Analytics se esta é a sua primeira vez usando o Log Analytics
 5. Expanda os Registos Personalizados na parte inferior da lista de tabelas e verá uma tabela com o nome "sql_instance_logs_CL".
 6. Clique no ícone de "olho" ao lado do nome da tabela
 7. Clique no botão "Ver no editor de consultas"
-8. Agora vai ter uma consulta no editor de consultas que vai apresentar os 10 eventos mais recentes no registo
+8. Você terá agora uma consulta no editor de consulta que mostrará os mais recentes 10 eventos no log
 9. A partir daqui, pode experimentar a consulta de registos, com o editor de consultas, definir alertas, etc.
 
-## <a name="automating-metrics-and-logs-uploads-optional"></a>Automatização de métricas e uploads de registos (opcional)
+## <a name="automating-uploads-optional"></a>Automatização de uploads (opcional)
 
-Se quiser carregar constantemente métricas e registos, pode criar um script e executá-lo num temporizador a cada poucos minutos.  Abaixo está um exemplo de automatização dos uploads usando um script linux shell.
+Se quiser carregar métricas e registos numa base programada, pode criar um script e executá-lo num temporizador a cada poucos minutos. Abaixo está um exemplo de automatização dos uploads usando um script linux shell.
 
-No seu editor de texto/código favorito, adicione o seguinte ao conteúdo do script no ficheiro e guarde como um ficheiro executável de scripts como .sh (Linux/Mac) ou .cmd, .bat, .ps1.
+No seu editor de texto/código favorito, adicione o seguinte script ao ficheiro e guarde como um ficheiro executável de scripts como .sh (Linux/Mac) ou .cmd, .bat, .ps1.
 
 ```console
 azdata arc dc export --type metrics --path metrics.json --force
@@ -300,10 +389,24 @@ Tornar o ficheiro de script executável
 chmod +x myuploadscript.sh
 ```
 
-Execute o guião a cada 2 minutos:
+Execute o guião a cada 20 minutos:
 
 ```console
-watch -n 120 ./myuploadscript.sh
+watch -n 1200 ./myuploadscript.sh
 ```
 
 Você também pode usar um programador de trabalho como cron ou Windows Task Scheduler ou um orquestrador como Ansible, Puppet ou Chef.
+
+## <a name="general-guidance-on-exporting-and-uploading-usage-metrics"></a>Orientações gerais sobre exportação e upload de utilização, métricas
+
+Criar, ler, atualizar e eliminar (CRUD) operações em Azure Arc os serviços de dados habilitados são registados para efeitos de faturação e monitorização. Existem serviços de fundo que monitorizam estas operações crud e calculam o consumo adequadamente. O cálculo real da utilização ou consumo ocorre numa base programada e é feito em segundo plano. 
+
+Durante a pré-visualização, este processo acontece todas as noites. A orientação geral é fazer o upload do uso apenas uma vez por dia. Quando as informações de utilização são exportadas e carregadas várias vezes no mesmo período de 24 horas, apenas o inventário de recursos é atualizado no portal Azure, mas não no uso do recurso.
+
+Para carregar métricas, o monitor Azure só aceita os últimos 30 minutos de dados[(Saiba mais).](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting) A orientação para o upload das métricas é carregar as métricas imediatamente após a criação do ficheiro de exportação para que possa ver todo o conjunto de dados no portal Azure. Por exemplo, se exportasse as métricas às 14:00 e executasse o comando de upload às 14:50. Uma vez que o Azure Monitor só aceita dados durante os últimos 30 minutos, poderá não ver quaisquer dados no portal. 
+
+## <a name="next-steps"></a>Passos seguintes
+
+[Faça upload de dados de faturação para a Azure e veja-os no portal Azure](view-billing-data-in-azure.md)
+
+[Ver recurso do controlador de dados Azure Arc no portal Azure](view-data-controller-in-azure-portal.md)

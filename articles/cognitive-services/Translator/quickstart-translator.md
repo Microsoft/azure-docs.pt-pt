@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: tradutor, serviço de tradutor, tradução de texto, texto transliterado, deteção de linguagem
-ms.openlocfilehash: 65f16c9689984a493e3fed041545557688fbc279
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e5b0bc17e8df1d82fb23a098f857be4fea13b982
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602256"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318845"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Quickstart: Começa com o Tradutor
 
@@ -2228,9 +2228,9 @@ import (
 )
 
 func main() {
-    subscriptionKey := "151526a0d75d472fa4aef87aa4cf3bd9"
     endpoint := "https://api.cognitive.microsofttranslator.com/"
-    uri := endpoint + "/dictionary/lookup?api-version=3.0"
+    uri := endpoint + "/dictionary/examples?api-version=3.0"
+    subscriptionKey := "YOUR_SUBSCRIPTION_KEY"
 
     // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
     u, _ := url.Parse(uri)
@@ -2241,12 +2241,12 @@ func main() {
 
     // Create an anonymous struct for your request body and encode it to JSON
     body := []struct {
-        Text string
+        Text        string
         Translation string
     }{
         {
-          Text: "How are you? I am fine. What did you do today?",
-          Translation: "¿Cómo estás? Estoy bien. ¿Qué hiciste hoy?",
+            Text:        "Shark",
+            Translation: "tiburón",
         },
     }
     b, _ := json.Marshal(body)

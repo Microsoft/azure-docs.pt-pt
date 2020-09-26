@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 678b7571d54c8938c163801a584ad813c6e5963f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9e7ac5afb176e58ce47f918ddcbab742ecb90baf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551171"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317451"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Tutorial: Conigure Concur para o fornecimento automático de utilizadores
 
@@ -23,7 +23,7 @@ O objetivo deste tutorial é mostrar-lhe os passos que precisa de executar em Co
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário delineado neste tutorial pressupõe que já tem os seguintes itens:
+O cenário descrito neste tutorial pressupõe que já tem os seguintes itens:
 
 *   Um inquilino de diretório Azure Ative.
 *   Uma assinatura ativada por um único acordo.
@@ -94,9 +94,9 @@ Pelas seguintes razões, esta ação não deve ser feita com o perfil que utiliz
 
 8. Selecione a sua instância de Concur e, em seguida, selecione o **separador Provisioning.**
 
-9. Desa ajuste o **modo de provisionamento** para **automático**. 
+9. Defina o **Modo de Aprovisionamento** como **Automático**. 
  
-    ![provisionamento](./media/concur-provisioning-tutorial/provisioning.png)
+    ![Screenshot do separador Provisioning para Concur no portal Azure. O modo de provisionamento está definido para Automático e o botão de ligação de teste é realçado.](./media/concur-provisioning-tutorial/provisioning.png)
 
 10. Na secção **Credenciais de Administração,** insira o nome de **utilizador** e a **palavra-passe** do seu administrador Concur.
 
@@ -108,7 +108,7 @@ Pelas seguintes razões, esta ação não deve ser feita com o perfil que utiliz
 
 14. Na secção Mappings, selecione **Synchronize Azure Ative Directory Users para Concur.**
 
-15. Na secção **De Mapeamentos de Atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD para Concur. Os atributos selecionados como propriedades **de correspondência** são utilizados para corresponder às contas do utilizador em Concur para operações de atualização. Selecione o botão Guardar para escoar quaisquer alterações.
+15. Na secção **De Mapeamentos de Atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD para Concur. Os atributos selecionados como propriedades **de correspondência** são utilizados para corresponder às contas do utilizador em Concur para operações de atualização. Selecione o botão Guardar para confirmar as alterações.
 
 16. Para permitir o serviço de prestação de Azure AD para Concur, altere o **Estado de Provisionamento** para **On** na secção **Definições**
 
@@ -118,7 +118,7 @@ Agora pode criar uma conta de teste. Aguarde até 20 minutos para verificar se a
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do fornecimento de conta de utilizador para apps empresariais](tutorial-list.md)
+* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 * [Configurar o único sign-on](concur-tutorial.md)
 

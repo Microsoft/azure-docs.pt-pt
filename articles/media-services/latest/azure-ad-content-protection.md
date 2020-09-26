@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 006e312e67f5f4014248c44a799c2dde826801c2
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.custom: devx-track-js
+ms.openlocfilehash: 71bfff1b2ef75a13a3898d2fd9760dd60b83e3a5
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258848"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318318"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Tutorial: Proteção de conteúdo de ponta a ponta utilizando Azure AD
 
@@ -161,7 +161,7 @@ Escolha um inquilino AZure AD para usar para a nossa amostra de ponta a ponta. T
 1. Selecione **Manifesto** no menu. A vista manifesto aparecerá.
 1. Alterar o valor do `accessTokenAcceptedVersion` para *2* (sem cotações).
 1. Alterar o valor do `groupMembershipClaims` *"SecurityGroup"* (com cotações).
-1. Clique em **Guardar**.
+1. Clique em **Save** (Guardar).
 1. Selecione **Expor uma API** do menu. Aparecerá a vista De âmbito adicionar. (O Azure fornece um ID URI de aplicação, mas se quiser alterá-lo, pode editar no campo ID URI da aplicação.)
 1. Clique **em Guardar e continuar.** A vista vai mudar. Para cada uma das definições na coluna Definição na tabela abaixo, introduza o valor na coluna Valor e, em seguida, clique em **Adicionar âmbito**.
 
@@ -209,7 +209,7 @@ Escolha um inquilino AZure AD para usar para a nossa amostra de ponta a ponta. T
     > [!NOTE]
     > Neste momento, ainda não tem o URL para a sua aplicação de jogador.  Se estiver a executar a aplicação a partir do seu webserver local, pode usar apenas o par de valor local. Assim que implementar a aplicação do jogador, pode adicionar a entrada aqui com o URL implantado.  Se se esquecer de o fazer, verá uma mensagem de erro no sinal AZure AD.
 
-1. Clique em **Guardar**.
+1. Clique em **Save** (Guardar).
 1. Finalmente para verificar se a sua configuração está correta, selecione **Autenticação**.  Aparecerá a vista de autenticação. A sua aplicação ao cliente será listada como uma App de Página Única (SPA), o URI de redirecionamento será listado, e o tipo de subvenção será O Fluxo de Código de Autorização com PKCE.
 
 ### <a name="set-up-the-media-services-account-content-key-policy-and-streaming-policies"></a>Criar a política-chave de conteúdos de conta dos Media Services e as políticas de streaming
@@ -263,7 +263,7 @@ Tem duas opções para configurar a aplicação do jogador:
 
 ### <a name="option-1"></a>Opção 1
 
-1. Iniciar o Visual Studio Code.
+1. Inicie o Visual Studio Code.
 1. Para abrir o projeto, clique em Ficheiros -> Open Folder -> navegue e selecione a pasta-mãe do *package.jsno* ficheiro.
 1. Abra o ficheiro JavaScript *público/javascript/constants.js*.
 1. Substitua `OAUTH2_CONST.CLIENT_ID` pela `client_id` aplicação do seu cliente registado no inquilino da AAD.  Pode encontrar a `client_id` secção Geral da aplicação registada no portal Azure. Nota: é a identificação do cliente, não a identificação do objeto.

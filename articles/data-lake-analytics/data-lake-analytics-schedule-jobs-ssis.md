@@ -8,12 +8,12 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: ac747b87cf1a0f2d7c85d05975a31f953bfa5aae
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: a5c7b9fb6a3431534d743f1ebd0b21f1da9fab7b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132505"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318709"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Agendar empregos U-SQL utilizando serviços de integração de servidores SQL (SSIS)
 
@@ -56,7 +56,7 @@ Siga abaixo os passos para configurar a ligação entre a tarefa do sistema de f
 
 Na vista de design de pacoteS SSIS, adicione uma **tarefa do sistema de ficheiros Azure Data Lake Store,** um recipiente **foreach Loop** e uma tarefa de análise do Lago de **Dados Azure** no recipiente Foreach Loop. A tarefa do sistema de ficheiros Azure Data Lake Store ajuda a descarregar ficheiros U-SQL na sua conta ADLS para uma pasta temporária. O Foreach Loop Container e a Azure Data Lake Analytics Task ajudam a enviar todos os ficheiros U-SQL sob a pasta temporária para a conta Azure Data Lake Analytics como um trabalho U-SQL.
 
-![Use ficheiros U-SQL na Azure Data Lake Store](./media/data-lake-analytics-schedule-jobs-ssis/use-u-sql-files-in-azure-data-lake-store.png)
+![Diagrama que mostra uma tarefa do sistema de ficheiros Azure Data Lake Store sendo adicionada a um recipiente foreach Loop.](./media/data-lake-analytics-schedule-jobs-ssis/use-u-sql-files-in-azure-data-lake-store.png)
 
 ### <a name="configure-azure-data-lake-store-file-system-task"></a>Configure Azure Data Lake Store File System Task
 
@@ -77,7 +77,7 @@ Na vista de design de pacoteS SSIS, adicione uma **tarefa do sistema de ficheiro
 
 3. Desaperte **os ficheiros** na **configuração do Enumerador** para `*.usql` que o recipiente de loop apenas apanhe os ficheiros que terminam com `.usql` .
 
-    ![Recipiente de loop foreach configurado](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-collection.png)
+    ![Screenshot que mostra o Foreach Loop Editor com "Collection" selecionado e as secções de configuração enumerador e enumerador em destaque.](./media/data-lake-analytics-schedule-jobs-ssis/configure-foreach-loop-container-collection.png)
 
 4. Na página **De Mapeamentos Variáveis,** adicione uma variável definida pelo utilizador para obter o nome do ficheiro para cada ficheiro U-SQL. Desave o **Índice** para 0 para obter o nome do ficheiro. Neste exemplo, defina uma variável chamada `User::FileName` . Esta variável será usada para obter dinamicamente a ligação de ficheiros de script U-SQL e definir o nome de trabalho U-SQL em Azure Data Lake Analytics Task.
 
@@ -94,7 +94,7 @@ Na vista de design de pacoteS SSIS, adicione uma **tarefa do sistema de ficheiro
    1. Escolha **\<New Connection...>** na definição de 'FileConnection'.
    2. Desave **o tipo de utilização** para **o ficheiro existente**e desacorda o **Ficheiro** para qualquer trajetória de ficheiro existente.
 
-       ![Recipiente de loop foreach configurado](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
+       ![Screenshot que mostra o Diretor de Ligação de Ficheiros Com "Ficheiro existente" selecionado para "Tipo de Utilização".](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)
 
    3. Na **visualização de Gestores de Conexão,** clique com o botão direito na ligação de ficheiros criada agora e escolha **Propriedades**.
 

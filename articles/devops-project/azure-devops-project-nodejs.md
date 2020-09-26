@@ -1,6 +1,6 @@
 ---
 title: Criar um pipeline CI/CD para um PWA com GatsbyJS e Azure DevOps Starter
-description: DevOps Starter facilita o arranque do Azure. Ajuda-o a utilizar o seu próprio código e o repositório GitHub para lançar uma aplicação num serviço do Azure à sua escolha com alguns passos rápidos.
+description: Aprenda a criar uma aplicação web progressiva NodeJS (PWA) usando GatsbyJS e a experiência simplificada de criação Azure DevOps Starter.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: angrobe
-ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 5453677826e1490977257fd75e10308ee45df00a
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: fa6d0f78f984c5e71ccdbcada45ea1bc50be9e95
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421761"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318624"
 ---
 # <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Criar um gasoduto CI/CD em Pipelines Azure para Node.js com arranque Azure DevOps
 
@@ -190,7 +190,7 @@ Nos dois passos anteriores, adicionou um Gatsby gerado PWA ao seu repo git e edi
 
 Pode eliminar o Azure App Service e outros recursos relacionados que criou quando já não precisa dos recursos. Utilize a funcionalidade **Eliminar** no painel de arranque de devOps.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Quando configurar o seu processo CI/CD, os gasodutos de construção e libertação são automaticamente criados. Pode alterar estes oleodutos de construção e libertação para atender às necessidades da sua equipa. Para saber mais sobre o oleoduto CI/CD, consulte:
 

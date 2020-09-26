@@ -14,12 +14,12 @@ ms.date: 07/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0306ae3193dc53f25a1e82eae1eb09c7d26ba9b6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 2a2c3c112183e102f6c3c4a0bebb83376c7e8d85
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055457"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317543"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Ativar as minhas funções do Microsoft Azure AD no PIM
 
@@ -40,7 +40,7 @@ A partir de novembro de 2019, a parte de funções da AZure AD da Gestão de Ide
 
 # <a name="new-version"></a>[Nova versão](#tab/new)
 
-## <a name="activate-a-role"></a>Ativar um papel
+## <a name="activate-a-role-for-new-version"></a>Ativar um papel para nova versão
 
 Quando precisar de assumir um papel de AD Azure, pode solicitar a ativação abrindo **as minhas funções** na Gestão de Identidade Privilegiada.
 
@@ -80,7 +80,7 @@ Quando precisar de assumir um papel de AD Azure, pode solicitar a ativação abr
 
     ![O pedido de ativação está pendente de notificação de aprovação](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
 
-## <a name="view-the-status-of-your-requests"></a>Ver o estado dos seus pedidos
+## <a name="view-the-status-of-your-requests-for-new-version"></a>Veja o estado dos seus pedidos para nova versão
 
 Pode visualizar o estado dos seus pedidos pendentes para ativar.
 
@@ -92,7 +92,7 @@ Pode visualizar o estado dos seus pedidos pendentes para ativar.
 
 1. Percorra o direito de visualizar a coluna **'Estado de pedido'.**
 
-## <a name="cancel-a-pending-request"></a>Cancelar um pedido pendente
+## <a name="cancel-a-pending-request-for-new-version"></a>Cancelar um pedido pendente de nova versão
 
 Se não necessitar de ativação de uma função que exija aprovação, pode cancelar um pedido pendente a qualquer momento.
 
@@ -106,7 +106,7 @@ Se não necessitar de ativação de uma função que exija aprovação, pode can
 
    ![A minha lista de pedidos com ação cancelada em destaque](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## <a name="troubleshoot"></a>Resolução de problemas
+## <a name="troubleshoot-for-new-version"></a>Resolução de problemas para nova versão
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Permissões não concedidas após a ativação de uma função
 
@@ -226,6 +226,6 @@ Quando ativar uma função na Gestão de Identidade Privilegiada, a ativação p
 
  ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ativar os meus papéis de AD Azure em Gestão de Identidade Privilegiada](pim-how-to-activate-role.md)

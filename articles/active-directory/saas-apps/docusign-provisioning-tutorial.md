@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 5b4e74d5db2d1454360370c05d75cdf826875143
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d56f9890396d0381d24676964dabc57e2020ec28
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88535939"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317434"
 ---
 # <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Tutorial: Configurar docuSign para o fornecimento automático de utilizadores
 
@@ -23,7 +23,7 @@ O objetivo deste tutorial é mostrar-lhe os passos que precisa de executar em Do
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O cenário delineado neste tutorial pressupõe que já tem os seguintes itens:
+O cenário descrito neste tutorial pressupõe que já tem os seguintes itens:
 
 *   Um inquilino de diretório Azure Ative.
 *   Uma assinatura ativada por docuSign.
@@ -63,9 +63,9 @@ O objetivo desta secção é delinear como permitir o fornecimento de contas de 
 
 1. Selecione a sua instância de DocuSign e, em seguida, selecione o **separador Provisioning.**
 
-1. Desa ajuste o **modo de provisionamento** para **automático**. 
+1. Defina o **Modo de Aprovisionamento** como **Automático**. 
 
-    ![provisionamento](./media/docusign-provisioning-tutorial/provisioning.png)
+    ![Screenshot do separador Provisioning para DocuSign no portal Azure. O modo de provisionamento está definido para nome de utilizador automático e admin, palavra-passe e ligação de teste são destacados.](./media/docusign-provisioning-tutorial/provisioning.png)
 
 1. Na secção **Credenciais de Administração,** forneça as seguintes definições de configuração:
    
@@ -84,7 +84,7 @@ O objetivo desta secção é delinear como permitir o fornecimento de contas de 
 
 1. Sob a secção Mappings, selecione **Synchronize Azure Ative Directory Users to DocuSign.**
 
-1. Na secção **De mapeamentos de atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD a DocuSign. Os atributos selecionados como propriedades **de correspondência** são utilizados para corresponder às contas do utilizador no DocuSign para operações de atualização. Selecione o botão Guardar para escoar quaisquer alterações.
+1. Na secção **De mapeamentos de atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD a DocuSign. Os atributos selecionados como propriedades **de correspondência** são utilizados para corresponder às contas do utilizador no DocuSign para operações de atualização. Selecione o botão Guardar para confirmar as alterações.
 
 1. Para ativar o serviço de prestação de Ad Azure para docuSign, altere o **Estado de Provisionamento** para **On** na secção Definições
 
@@ -96,6 +96,6 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gestão do fornecimento de conta de utilizador para apps empresariais](tutorial-list.md)
+* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 * [Configurar o único sign-on](docusign-tutorial.md)

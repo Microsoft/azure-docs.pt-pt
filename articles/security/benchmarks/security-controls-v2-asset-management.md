@@ -4,17 +4,17 @@ description: Azure Security Benchmark V2 Gestão de Ativos
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ba010c0dd3384af895c68d980fcae788c2d6d45a
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: 845c4f3194f35c68306e74734e5ecc6109d9c103
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059267"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91318029"
 ---
-# <a name="security-control-asset-management"></a>Controlo de Segurança: Gestão de Ativos
+# <a name="security-control-v2-asset-management"></a>Controlo de Segurança V2: Gestão de Ativos
 
 A Gestão de Ativos cobre controlos para garantir visibilidade e governação de segurança sobre os recursos da Azure. Isto inclui recomendações sobre permissões para pessoal de segurança, acesso de segurança ao inventário de ativos, e gestão de aprovações para serviços e recursos (inventário, pista e correto).
 
@@ -22,7 +22,7 @@ A Gestão de Ativos cobre controlos para garantir visibilidade e governação de
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| AM-1 | 1.1, 1.2, 1.3, 1.4, 9.1, 12.1 | CM-7, CM-8, CM-11, PM-5 |
+| AM-1 | 1.1, 1.2 | CM-8, PM-5 |
 
 Certifique-se de que as equipas de segurança recebem permissões de Leitor de Segurança no seu inquilino Estaure e subscrições para que possam monitorizar riscos de segurança usando o Centro de Segurança Azure. 
 
@@ -38,7 +38,7 @@ Nota: Podem ser necessárias permissões adicionais para obter visibilidade em c
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Segurança de infraestrutura e pontos finais](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -48,7 +48,7 @@ Nota: Podem ser necessárias permissões adicionais para obter visibilidade em c
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| AM-2 | 1.5 | CM-8, PM-5 |
+| AM-2 | 1.1, 1.2, 1.4, 1.5, 9.1, 12.1 | CM-8, PM-5 |
 
 Certifique-se de que as equipas de segurança têm acesso a um inventário continuamente atualizado de ativos em Azure. As equipas de segurança precisam frequentemente deste inventário para avaliar a exposição potencial da sua organização a riscos emergentes, e como um contributo para melhorias contínuas de segurança. 
 
@@ -64,7 +64,7 @@ Organizar logicamente ativos de acordo com a taxonomia da sua organização usan
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Segurança de infraestrutura e pontos finais](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -86,7 +86,7 @@ Utilize a Política Azure para auditar e restringir quais os serviços que os ut
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Gestão de Conformidade de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -106,7 +106,7 @@ Remova os recursos de Azure quando já não forem necessários.
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Segurança de infraestrutura e pontos finais](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -126,7 +126,7 @@ Utilize o Acesso Condicional AD Azure para limitar a capacidade dos utilizadores
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
 
@@ -136,7 +136,7 @@ Utilize o Acesso Condicional AD Azure para limitar a capacidade dos utilizadores
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| AM-6 | 2,6 | AC-3, CM-7, CM-8, CM-10, CM-11 |
+| AM-6 | 2.6, 2.7 | AC-3, CM-7, CM-8, CM-10, CM-11 |
 
 Certifique-se de que apenas o software autorizado executa e todo o software não autorizado está bloqueado de ser executado em Azure Virtual Machines.
 
@@ -156,7 +156,7 @@ Também pode usar uma solução de terceiros para descobrir e identificar softwa
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Segurança de infraestrutura e pontos finais](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 

@@ -4,27 +4,28 @@ description: Acesso Privilegiado Azure Security Benchmark V2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/13/2020
+ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 8727cbd07fad1960f4bdb33742729b6bda3a369e
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: b5315b4d2ec8b757f7fa1075a438419679f5e798
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90059346"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91317978"
 ---
-# <a name="security-control-privileged-access"></a>Controlo de Segurança: Acesso Privilegiado
+# <a name="security-control-v2-privileged-access"></a>Controlo de Segurança V2: Acesso Privilegiado
 
 O Acesso Privilegiado cobre controlos para proteger o acesso privilegiado ao seu inquilino e recursos Azure. Isto inclui uma gama de controlos para proteger o seu modelo administrativo, contas administrativas e estações de trabalho privilegiadas de acesso contra riscos deliberados e inadvertidos.
 
-## <a name="pa-1-protect-and-limit-the-global-administrators"></a>PA-1: Proteger e limitar os administradores globais
+## <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: Proteger e limitar utilizadores altamente privilegiados
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
 | PA-1 | 4.3, 4.8 | AC-2 |
 
-Os utilizadores que estão atribuídos à função de administrador global podem ler e modificar todas as configurações administrativas da sua organização AZure AD. Limite o número das suas contas de administrador global Azure a não mais de duas por cada subscrição. As funções mais críticas incorporadas no AD Azure são o Administrador Global e o Administrador de Função Privilegiado, uma vez que os utilizadores designados para estas duas funções podem delegar funções de administrador:
+Limite o número de contas de utilizador altamente privilegiadas e proteja estas contas a um nível elevado. As funções mais críticas incorporadas no AD Azure são o Administrador Global e o Administrador de Função Privilegiado, porque os utilizadores atribuídos a estas duas funções podem delegar funções de administrador. Com estes privilégios, os utilizadores podem ler e modificar, direta ou indiretamente, todos os recursos do seu ambiente Azure:
+
 - Administrador Global / Administrador da Empresa: Os utilizadores com esta função têm acesso a todas as funcionalidades administrativas em Azure AD, bem como serviços que utilizam identidades AZure AD.
 
 - Administrador privilegiado: Os utilizadores com esta função podem gerir atribuições de funções em Azure AD, bem como dentro da Azure AD Privileged Identity Management (PIM). Além disso, esta função permite a gestão de todos os aspetos da PIM e das unidades administrativas.
@@ -33,170 +34,175 @@ Nota: Pode ter outras funções críticas que precisam de ser regidas se utiliza
 
 Você pode ativar o acesso privilegiado just-in-time (JIT) aos recursos Azure e AD Azure usando Azure AD Gestão de Identidade Privilegiada (PIM). O JIT concede permissões temporárias para executar tarefas privilegiadas apenas quando os utilizadores precisam dela. A PIM também pode gerar alertas de segurança quando há atividade suspeita ou insegura na sua organização Azure AD.
 
-Nota: Alguns serviços Azure, como o Azure SQL, suportam a autenticação do utilizador local, para além da autenticação AZure AD. Este tipo de autenticação local do utilizador não é gerido através do Azure AD. Terá de gerir estes utilizadores separadamente.
-
 - [Permissões de função de administrador em Azure AD](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
-
-- [Funções personalizadas do Azure](../../role-based-access-control/custom-roles.md)
 
 - [Use alertas de segurança de gestão de identidade privilegiada Azure](../../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md)
 
-- [Como obter um papel de diretório em Azure AD com PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
-
-- [Use o Centro de Segurança Azure para monitorizar a identidade e o acesso](../../security-center/security-center-identity-access.md)
+- [Proteção de acesso privilegiado para implementações híbridas e na cloud no Azure AD](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-- [Identidade e chaves](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
+- [Identidade e gestão chave](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
-- [Segurança das aplicações e DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
+- [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-## <a name="pa-2-review-and-reconcile-user-access-regularly"></a>PA-2: Rever e conciliar o acesso dos utilizadores regularmente
+- [Gestão de Conformidade de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
+
+- [Operações de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+
+## <a name="pa-2-restrict-administrative-access-to-business-critical-systems"></a>PA-2: Restringir o acesso administrativo a sistemas críticos de negócios
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| PA-2 | 4.1, 16.9, 16.10 | AC-2 |
+| PA-2 | 13.2, 2.10 | AC-2, SC-3, SC-7 |
 
-Reveja regularmente as contas dos utilizadores e os direitos de acesso para garantir que as contas dos utilizadores e o seu acesso são válidos. 
+Isolar o acesso a sistemas críticos de negócio, limitando quais as contas que têm acesso privilegiado às subscrições e grupos de gestão em que se encontram. Certifique-se de que também restringe o acesso aos sistemas de gestão, identidade e segurança que tenham acesso administrativo aos ativos críticos do seu negócio, tais como Controladores de Domínio de Diretório Ativo (DCs), ferramentas de segurança e ferramentas de gestão de sistemas com agentes instalados em sistemas críticos de negócio. Os atacantes que comprometem estes sistemas de gestão e segurança podem imediatamente armar-los para comprometer ativos críticos do negócio. 
 
-Use a identidade Azure E aceda a comentários para gerir membros do grupo, acesso a aplicações empresariais e atribuições de funções. O relatório AD AD do Azure pode fornecer registos para ajudar a descobrir contas velhas. Também pode utilizar a Azure AD Privileged Identity Management para criar o fluxo de trabalho do relatório de revisão de acessos para facilitar o processo de revisão.
+Todos os tipos de controlos de acesso devem ser alinhados com a sua estratégia de segmentação da empresa para garantir um controlo de acesso consistente. 
 
-Para os utilizadores administrativos ao nível do serviço Azure e do nível de carga de trabalho, deve ser realizada uma revisão mais frequente do utilizador e do acesso. Também pode utilizar alertas de segurança de Gestão de Identidade Privilegiada Azure para detetar quando as contas do administrador são criadas, e para encontrar contas de administrador que estejam incómilias ou configuradas indevidamente. 
+Certifique-se de atribuir contas privilegiadas separadas que são distintas das contas padrão de utilizador utilizadas para tarefas de e-mail, navegação e produtividade.
 
-Nota: Alguns serviços Azure, como o Azure SQL, suportam utilizadores locais que não foram geridos através do Azure AD. Terá de gerir estes utilizadores separadamente.
+- [Componentes Azure e modelo de referência](/security/compass/microsoft-security-compass-introduction#azure-components-and-reference-model-2151)
 
-- [Como obter um papel de diretório em Azure AD com PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Acesso ao Grupo de Gestão](../../governance/management-groups/overview.md#management-group-access)
 
-- [Como obter membros de um papel de diretório em Azure AD com PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Administradores de subscrição da Azure](../../cost-management-billing/manage/add-change-subscription-administrator.md)
 
-- [Use o Centro de Segurança Azure para monitorizar a identidade e o acesso](../../security-center/security-center-identity-access.md)
+**Responsabilidade**: Cliente
 
-- [Use alertas de segurança de gestão de identidade privilegiada Azure](../../active-directory/privileged-identity-management/pim-how-to-configure-security-alerts.md)
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-- [Alinhar responsabilidades administrativas entre equipas](/azure/cloud-adoption-framework/organize/raci-alignment) 
+- [Identidade e gestão chave](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
-- [Compreenda a Azure AD reportando](/azure/active-directory/reports-monitoring/)
+- [Gestão de Conformidade de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
+
+- [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
+
+## <a name="pa-3-review-and-reconcile-user-access-regularly"></a>PA-3: Rever e conciliar o acesso dos utilizadores regularmente
+
+| Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
+|--|--|--|--|
+| PA-3 | 4.1, 16.9, 16.10 | AC-2 |
+
+Reveja regularmente as contas dos utilizadores e a atribuição de acesso para garantir que as contas e o seu nível de acesso são válidos. Você pode usar comentários de acesso Azure AD para rever membros do grupo, acesso a aplicações empresariais e atribuições de funções. O relatório AD AD do Azure pode fornecer registos para ajudar a descobrir contas velhas. Também pode utilizar a Azure AD Privileged Identity Management para criar um fluxo de trabalho de relatório de revisão de acesso que facilita o processo de revisão.
+Além disso, a Azure Privileged Identity Management pode ser configurada para alertar quando um número excessivo de contas de administrador é criado, e para identificar contas de administrador que estão incompras ou configuradas indevidamente. 
+
+Nota: Alguns serviços Azure suportam utilizadores locais e funções que não são geridas através do Azure AD. Tem de gerir estes utilizadores separadamente.
+
+- [Criar uma revisão de acesso das funções de recursos da Azure na Gestão de Identidade Privilegiada (PIM)](../../active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md)
 
 - [Como utilizar a identidade AD do Azure e as avaliações de acesso](../../active-directory/governance/access-reviews-overview.md)
 
-- [Gestão de Identidade Privilegiada - Rever acesso às funções de Azure AD](../../active-directory/privileged-identity-management/pim-how-to-start-security-review.md)
-
-- [Centro de Segurança Azure - Monitorizar identidade e acesso](../../security-center/security-center-identity-access.md)
-
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-- [Identidade e chaves](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
+- [Identidade e gestão chave](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
 - [Segurança das aplicações e DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Gestão de conformidade de segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
+- [Gestão de Conformidade de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-## <a name="pa-3-set-up-an-emergency-access-account-in-azure-ad"></a>PA-3: Criar uma conta de acesso de emergência em Azure AD
+## <a name="pa-4-set-up-emergency-access-in-azure-ad"></a>PA-4: Criar acesso de emergência em Azure AD
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| PA-3 | 12.3 | AC-2 |
+| PA-4 | 16 | AC-2, CP-2 |
 
 Para evitar que seja acidentalmente bloqueado fora da sua organização Azure AD, crie uma conta de acesso de emergência para acesso quando não puder ser utilizada uma conta administrativa normal. As contas de acesso de emergência são geralmente altamente privilegiadas, e não devem ser atribuídas a indivíduos específicos. As contas de acesso de emergência limitam-se a cenários de emergência ou "vidro quebrado", onde as contas administrativas normais não podem ser utilizadas.
-
 Deve certificar-se de que as credenciais (como palavra-passe, certificado ou cartão inteligente) para contas de acesso de emergência são mantidas seguras e conhecidas apenas por indivíduos autorizados a usá-las apenas em caso de emergência.
 
 - [Gerir contas de acesso de emergência em Azure AD](../../active-directory/users-groups-roles/directory-emergency-access.md)
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-- [Identidade e chaves](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
+- [Identidade e gestão chave](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
 - [Segurança das aplicações e DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Gestão de conformidade de segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
+- [Gestão de Conformidade de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-- [Centro de operações de segurança (SOC)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operações de Segurança (SecOps)](//azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-## <a name="pa-4-automate-azure-identity-and-access-request-workflow"></a>PA-4: Automatizar a identidade do Azure e o fluxo de trabalho do pedido de acesso
+## <a name="pa-5-automate-entitlement-management"></a>PA-5: Gestão de direitos de automatização
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| PA-4 | N/D | AC-2, AC-5, PM-10 |
+| PA-5 | 16 | AC-2, AC-5, PM-10 |
 
-Utilize funcionalidades de gestão de direitos Azure AD para automatizar fluxos de trabalho de pedido de acesso Azure, incluindo atribuições de acesso, revisões e expiração. A aprovação dual ou multi-fase também é apoiada.  
+Utilize funcionalidades de gestão de direitos Azure AD para automatizar fluxos de trabalho de pedidos de acesso, incluindo atribuições de acesso, revisões e expiração. A aprovação dual ou multi-fase também é apoiada.
+- [O que são avaliações de acesso AZure AD](../../active-directory/governance/access-reviews-overview.md) 
 
 - [O que é a gestão de direitos da AD Azure](../../active-directory/governance/entitlement-management-overview.md)
 
-- [Como configurar o pedido de acesso e o processo de aprovação](../../active-directory/governance/entitlement-management-access-package-request-policy.md)
-
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-- [Identidade e chaves](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
+- [Identidade e gestão chave](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
 - [Segurança das aplicações e DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Gestão de conformidade de segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
+- [Gestão de Conformidade de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-## <a name="pa-5-use-highly-secured-machines-for-administrative-tasks"></a>PA-5: Utilize máquinas altamente seguras para tarefas administrativas
+## <a name="pa-6-use-privileged-access-workstations"></a>PA-6: Utilize postos de trabalho privilegiados de acesso
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| PA-5 | 4.6, 11.6, 12.12 | AC-2, SC-7 |
+| PA-6 | 4.6, 11.6, 12.12 | AC-2, SC-3, SC-7 |
 
-Estações de trabalho seguras e isoladas são de importância crucial para a segurança de funções sensíveis como administradores, desenvolvedores e operadores de serviços críticos. Utilize estações de trabalho de utilizador altamente seguras e/ou Bastião Azure para tarefas administrativas:
-- Utilize o Azure Ative Directory, Microsoft Defender Advanced Threat Protection (ATP) e/ou Microsoft Intune para implementar uma estação de trabalho segura e gerida para tarefas administrativas. As estações de trabalho seguras podem ser geridas centralmente para impor uma configuração segura, incluindo bases de autenticação forte, software e hardware, restrições lógicos e acesso à rede. 
+Estações de trabalho seguras e isoladas são de importância crucial para a segurança de funções sensíveis como administradores, desenvolvedores e operadores de serviços críticos. Utilize estações de trabalho de utilizador altamente seguras e/ou Bastião Azure para tarefas administrativas. Utilize o Azure Ative Directory, Microsoft Defender Advanced Threat Protection (ATP) e/ou Microsoft Intune para implementar uma estação de trabalho segura e gerida para tarefas administrativas. As estações de trabalho seguras podem ser geridas centralmente para impor a configuração segura, incluindo a autenticação forte, linhas de base de software e hardware, e acesso lógico e de rede restrito. 
 
-- Utilize a função Azure Bastion para um caminho seguro para aceder às suas máquinas virtuais através de RDP ou SSH. Azure Bastion é um serviço PaaS totalmente gerido que pode ser a provisionado por rede virtual sem criar uma nova rede virtual. 
+- [Compreender estações de trabalho de acesso privilegiada](../../active-directory/devices/concept-azure-managed-workstation.md)
 
-- [Compreenda estações de trabalho seguras e geridas pelo Azure](../../active-directory/devices/concept-azure-managed-workstation.md)
-
-- [Implementar uma estação de trabalho segura e gerida pelo Azure](../../active-directory/devices/howto-azure-managed-workstation.md)
-
-- [Use o anfitrião do Azure Bastion](../../bastion/bastion-create-host-portal.md)
+- [Implementar uma estação de trabalho de acesso privilegiada](../../active-directory/devices/howto-azure-managed-workstation.md)
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Segurança das aplicações e DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Centro de operações de segurança (SOC)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operações de Segurança (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Identidade e chaves](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
+- [Identidade e gestão chave](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
-## <a name="pa-6-assign-privileges-to-resources-using-azure-rbac"></a>PA-6: Atribuir privilégios a recursos usando o Azure RBAC
+## <a name="pa-7-follow-just-enough-administration-least-privilege-principle"></a>PA-7: Siga a administração suficiente (princípio de mínimo privilégio)
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| PA-6 | 14.6 | AC-2, AC-3 |
+| PA-7 | 14.6 | AC-2, AC-3, SC-3 |
 
-O controlo de acesso baseado em funções (RBAC) permite-lhe gerir privilégios para aceder a recursos Azure através de atribuições de funções. Pode atribuir estas funções aos utilizadores, grupos de diretores de serviço e identidades geridas. Existem funções incorporadas pré-definidas para determinados recursos, e estas funções podem ser inventariadas ou consultadas através de ferramentas como Azure CLI, Azure PowerShell ou o portal Azure. 
+O controlo de acesso baseado em funções (Azure RBAC) permite-lhe gerir o acesso a recursos Azure através de atribuições de funções. Pode atribuir estas funções aos utilizadores, aos principais do serviço de grupo e às identidades geridas. Existem funções incorporadas pré-definidas para determinados recursos, e estas funções podem ser inventariadas ou consultadas através de ferramentas como Azure CLI, Azure PowerShell e o portal Azure. Os privilégios que atribui aos recursos através do Azure RBAC devem estar sempre limitados ao que é exigido pelas funções. Privilégios limitados complementam a abordagem just in time (JIT) da Azure AD Privileged Identity Management (PIM), e esses privilégios devem ser revistos periodicamente.
+Utilize funções incorporadas para alocar a permissão e apenas crie um papel personalizado quando necessário. 
 
 - [O que é o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md)
 
-- [Como configurar o RBAC em Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Como configurar o Azure RBAC](../../role-based-access-control/role-assignments-portal.md)
+
+- [Como utilizar a identidade AD do Azure e as avaliações de acesso](../../active-directory/governance/access-reviews-overview.md)
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Segurança das aplicações e DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Gestão de conformidade de segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
+- [Gestão de Conformidade de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management) 
 
-- [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
+- [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)    
 
-- [Identidade e chaves](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
+- [Identidade e gestão chave](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
-## <a name="pa-7-choose-approval-process-for-microsoft-support"></a>PA-7: Escolha o processo de aprovação para suporte da Microsoft
+## <a name="pa-8-choose-approval-process-for-microsoft-support"></a>PA-8: Escolha o processo de aprovação para suporte da Microsoft 
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP800-53 r4 ID(s) |
 |--|--|--|--|
-| PA-7 | 16 | AC-2, AC-3, AC-4 |
+| PA-8 | 16 | AC-2, AC-3, AC-4 |
 
 Em cenários de suporte onde a Microsoft precisa de aceder aos dados dos clientes, o Customer Lockbox fornece uma capacidade para que você reveja e aprove ou rejeite explicitamente cada pedido de acesso aos dados do cliente.
 
@@ -204,11 +210,11 @@ Em cenários de suporte onde a Microsoft precisa de aceder aos dados dos cliente
 
 **Responsabilidade**: Cliente
 
-**Partes interessadas em segurança do cliente:**
+**Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
 - [Segurança das aplicações e DevSecOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Gestão de conformidade de segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
+- [Gestão de Conformidade de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management) 
 
-- [Identidade e chaves](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
+- [Identidade e gestão chave](/azure/cloud-adoption-framework/organize/cloud-security-identity-keys)
 
