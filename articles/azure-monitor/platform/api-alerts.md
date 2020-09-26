@@ -4,21 +4,21 @@ description: A API de Alerta de Log Analytics permite-lhe criar e gerir alertas 
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 07/29/2018
-ms.openlocfilehash: eec7aeab32aa071ce9d4476b15740c89210f0606
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: dce340db90c1528c46c1be0bc172751a04feaf31
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322334"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294080"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerir regras de alerta em Log Analytics com REST API 
 
+> [!IMPORTANT]
+> Conforme [anunciado,](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/)log analytics workspace(s) criado após 1 de *junho de 2019* gere regras de alerta usando a atual [API de Regras De Castas.](/rest/api/monitor/scheduledqueryrules/) Os clientes são encorajados [a mudar para a API atual](./alerts-log-api-switch.md) em espaços de trabalho mais antigos para aproveitar os [benefícios](./alerts-log-api-switch.md#benefits)agendados do Azure MonitorQueryRules . Este artigo descreve a gestão das regras de alerta usando a API legado.
+
 A API de Alerta de Log Analytics permite-lhe criar e gerir alertas em Log Analytics.  Este artigo fornece detalhes da API e vários exemplos para a realização de diferentes operações.
 
-> [!IMPORTANT]
-> Como [anunciado anteriormente](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), log analytics workspace(s) criado após *1 de junho de 2019* - será capaz de gerir regras de alerta usando **apenas** Azure programadoQueryRules [REST API,](/rest/api/monitor/scheduledqueryrules/) [Azure Resource Mananger Template](./alerts-log.md#managing-log-alerts-using-azure-resource-template) e [PowerShell cmdlet](./alerts-log.md#managing-log-alerts-using-powershell). Os clientes podem facilmente [mudar os seus meios preferidos de gestão de regras de alerta](./alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) para espaços de trabalho mais antigos para alavancar o Azure Monitor programadoQueryRules como padrão e ganhar muitos novos [benefícios](./alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) como a capacidade de usar cmdlets powershell nativos, aumento do tempo de retrocesso nas regras, criação de regras em grupo de recursos separados ou subscrição e muito mais.
-
-O Log Analytics Search REST API é RESTful e pode ser acedido através da API do Gestor de Recursos Azure. Neste documento, encontrará exemplos onde a API é acedida a partir de uma linha de comando PowerShell utilizando [o ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comando de código aberto que simplifica a invocação da API do Gestor de Recursos Azure. A utilização de ARMClient e PowerShell é uma das muitas opções para aceder à API de Pesquisa de Ambulasção de Log Analytics. Com estas ferramentas, pode utilizar a API restful Azure Resource Manager para fazer chamadas para log analytics e executar comandos de pesquisa dentro deles. A API irá obter resultados de pesquisa para si no formato JSON, permitindo-lhe utilizar os resultados da pesquisa de várias maneiras programáticamente.
+O Log Analytics Search REST API é RESTful e pode ser acedido através da API do Gestor de Recursos Azure. Neste documento, encontrará exemplos onde a API é acedida a partir de uma linha de comando PowerShell utilizando  [o ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comando de código aberto que simplifica a invocação da API do Gestor de Recursos Azure. A utilização de ARMClient e PowerShell é uma das muitas opções para aceder à API de Pesquisa de Ambulasção de Log Analytics. Com estas ferramentas, pode utilizar a API restful Azure Resource Manager para fazer chamadas para log analytics e executar comandos de pesquisa dentro deles. A API irá obter resultados de pesquisa para si no formato JSON, permitindo-lhe utilizar os resultados da pesquisa de várias maneiras programáticamente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Atualmente, os alertas só podem ser criados com uma pesquisa guardada no Log Analytics.  Pode consultar a [API do Log Search REST](../log-query/log-query-overview.md) para obter mais informações.
@@ -136,7 +136,7 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupN
 ### <a name="alert-actions"></a>Ações de Alerta
 A Agenda deve ter uma e única ação de alerta.  As ações de alerta têm uma ou mais secções na tabela seguinte.  Cada um é descrito em mais detalhes abaixo.
 
-| Section | Descrição | Utilização |
+| Section | Description | Utilização |
 |:--- |:--- |:--- |
 | Limiar |Critérios para quando a ação é executada.| Necessário para cada alerta, antes ou depois de estendidos ao Azure. |
 | Gravidade |Etiqueta usada para classificar o alerta quando acionado.| Necessário para cada alerta, antes ou depois de estendidos ao Azure. |

@@ -9,13 +9,13 @@ ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 2c97a770dc10168284bebbc038d8c48145c2a385
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-js
+ms.openlocfilehash: 11979a09f0f55d4eaab3c8380f9f819162c630b4
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88917895"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307624"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure em Node.js usando APIs REST
 > [!div class="op_single_selector"]

@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: 1126c218f8e80b7d89183746890a3fae1357d29d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/23/2020
+ms.openlocfilehash: f38006e83be47142a6d7a6db25eefb3daccd0d92
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938520"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307590"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Extensões PostgreSQL na Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -33,6 +33,8 @@ As seguintes extensões estão disponíveis na Base de Dados Azure para PostgreS
 > [!div class="mx-tableFixed"]
 > | **Extensão**| **Versão da extensão** | **Descrição** |
 > |---|---|---|
+> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 3.0.0           | Usado para analisar um endereço em elementos constituintes. |
+> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 3.0.0           | Exemplo de conjunto de dados do Standardizer US de endereço|
 > |[amcheck](https://www.postgresql.org/docs/12/amcheck.html)                    | 1.2             | funções para verificar a integridade da relação|
 > |[florescer](https://www.postgresql.org/docs/12/bloom.html)                    | 1.0             | bloom access method - índice baseado em ficheiros de assinatura|
 > |[btree_gin](https://www.postgresql.org/docs/12/btree-gin.html)                    | 1.3             | apoio à indexação de tipos de dados comuns no GIN|
@@ -61,7 +63,11 @@ As seguintes extensões estão disponíveis na Base de Dados Azure para PostgreS
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | mostrar informações de bloqueio de nível de linha|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | mostrar estatísticas de nível tuple|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1.0             | Linguagens processuais PL/pgSQL|
-> |[pós-gígis](https://www.postgis.net/)                      | 3.0.0           | Geometria pós-GIS, geografia e funções espaciais raster|
+> |[pós-gígis](https://www.postgis.net/)                      | 3.0.0           | Geometria pós-GIS, geografia |
+> |[postgis_raster](https://www.postgis.net/)               | 3.0.0           | Tipos e funções de raster pós-GIS| 
+> |[postgis_sfcgal](https://www.postgis.net/)               | 3.0.0           | Funções SFCGAL pós-gis|
+> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 3.0.0           | Geocoder de tigre pós-GIS e geocodificador invertido|
+> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 3.0.0           | Tipos e funções espaciais de topologia pós-GIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/12/postgres-fdw.html)                 | 1.0             | invólucro de dados estrangeiros para servidores postgreSQL remotos|
 > |[sslinfo](https://www.postgresql.org/docs/12/sslinfo.html)                    | 1.2             | informação sobre certificados SSL|
 > |[tsm_system_rows](https://www.postgresql.org/docs/12/tsm-system-rows.html)                    | 1.0             |  Método TABLESAMPLE que aceita o número de linhas como limite|
@@ -76,6 +82,8 @@ As seguintes extensões estão disponíveis na Base de Dados Azure para PostgreS
 > [!div class="mx-tableFixed"]
 > | **Extensão**| **Versão da extensão** | **Descrição** |
 > |---|---|---|
+> |[address_standardizer](http://postgis.net/docs/Address_Standardizer.html)         | 2.5.1           | Usado para analisar um endereço em elementos constituintes. |
+> |[address_standardizer_data_us](http://postgis.net/docs/Address_Standardizer.html) | 2.5.1           | Exemplo de conjunto de dados do Standardizer US de endereço|
 > |[amcheck](https://www.postgresql.org/docs/11/amcheck.html)                    | 1.1             | funções para verificar a integridade da relação|
 > |[florescer](https://www.postgresql.org/docs/11/bloom.html)                    | 1.0             | bloom access method - índice baseado em ficheiros de assinatura|
 > |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | apoio à indexação de tipos de dados comuns no GIN|
@@ -105,6 +113,9 @@ As seguintes extensões estão disponíveis na Base de Dados Azure para PostgreS
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | mostrar estatísticas de nível tuple|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | Linguagens processuais PL/pgSQL|
 > |[pós-gígis](https://www.postgis.net/)                      | 2.5.1           | Geometria pós-GIS, geografia e funções espaciais raster|
+> |[postgis_sfcgal](https://www.postgis.net/)               | 2.5.1           | Funções SFCGAL pós-gis|
+> |[postgis_tiger_geocoder](https://www.postgis.net/)       | 2.5.1           | Geocoder de tigre pós-GIS e geocodificador invertido|
+> |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | Tipos e funções espaciais de topologia pós-GIS|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | invólucro de dados estrangeiros para servidores postgreSQL remotos|
 > |[sslinfo](https://www.postgresql.org/docs/11/sslinfo.html)                    | 1.2             | informação sobre certificados SSL|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | funções que manipulam tabelas inteiras, incluindo crosstab|
@@ -114,9 +125,21 @@ As seguintes extensões estão disponíveis na Base de Dados Azure para PostgreS
 > |[uuid-ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | gerar identificadores universalmente únicos (UUIDs)|
 
 
+## <a name="dblink-and-postgres_fdw"></a>dblink e postgres_fdw
+[dblink](https://www.postgresql.org/docs/current/contrib-dblink-function.html) e [postgres_fdw](https://www.postgresql.org/docs/current/postgres-fdw.html) permitem-lhe ligar de um servidor PostgreSQL a outro, ou a outra base de dados no mesmo servidor. O servidor de envio precisa de permitir ligações de saída ao servidor recetor. O servidor recetor precisa de permitir ligações a partir do servidor de envio.
+
+Recomendamos a implementação dos seus servidores com [integração VNet](concepts-networking.md) se pretender utilizar estas duas extensões. Por defeito, a integração VNet permite ligações entre servidores no VNET. Também pode optar por utilizar [grupos de segurança de rede VNet](../../virtual-network/manage-network-security-group.md) para personalizar o acesso.
+
+
 ## <a name="pg_prewarm"></a>pg_prewarm
 
 A extensão pg_prewarm carrega os dados relacionais em cache. Pré-emaraçar os caches significa que as suas consultas têm melhores tempos de resposta na primeira corrida após um recomeço. A funcionalidade auto-pré-guerra não está atualmente disponível na Base de Dados Azure para PostgreSQL - Servidor Flexível.
+
+## <a name="pg_stat_statements"></a>pg_stat_statements
+A [extensão pg_stat_statements](https://www.postgresql.org/docs/current/pgstatstatements.html) é pré-carregada em todas as bases de dados Azure para servidor flexível PostgreSQL para fornecer-lhe um meio de rastrear as estatísticas de execução de declarações SQL.
+A definição `pg_stat_statements.track` , que controla as declarações contadas pela extensão, não tem `top` padrão, o que significa que todas as declarações emitidas diretamente pelos clientes são rastreadas. Os outros dois níveis de rastreio são `none` `all` e. Esta definição é configurável como parâmetro do servidor.
+
+Existe uma compensação entre a informação de execução de consultas pg_stat_statements fornece e o impacto no desempenho do servidor à medida que regista cada declaração SQL. Se não estiver a utilizar ativamente a extensão pg_stat_statements, recomendamos que se desemalte `pg_stat_statements.track` `none` . Note que alguns serviços de monitorização de terceiros podem contar com pg_stat_statements para fornecer insights de desempenho de consulta, por isso confirme se este é o caso para si ou não.
 
 
 ## <a name="next-steps"></a>Passos seguintes

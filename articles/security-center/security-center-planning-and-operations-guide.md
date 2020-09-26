@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e5d483af44116274019851f049d6222adfd8dbcd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4ef879806555634598d5de999bcd9fc01c050d60
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904837"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314560"
 ---
 # <a name="planning-and-operations-guide"></a>Guia de planeamento e operações
 Este guia destina-se a profissionais de tecnologias da informação (TI), arquitetos de TI, analistas de segurança da informação e administradores de nuvem que planeiam usar o Azure Security Center.
@@ -117,21 +117,21 @@ Quando planear o controlo de acesso através do RBAC para o Centro de Segurança
 As políticas de segurança definem a configuração pretendida para as suas cargas de trabalho e ajudam a garantir a conformidade com os requisitos da empresa ou regulamentares. No Centro de Segurança, pode definir políticas para as suas subscrições do Azure, que podem ser adaptadas ao tipo de carga de trabalho ou à sensibilidade dos dados.
 
 As políticas do Centro de Segurança contêm os componentes seguintes:
-- [Recolha de dados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): aprovisionamento de agente e definições de recolha de dados.
-- [Política de](https://docs.microsoft.com/azure/security-center/security-center-policies)segurança : uma [Política Azure](../governance/policy/overview.md) que determina quais os controlos monitorizados e recomendados pelo Security Center, ou usar a Política Azure para criar novas definições, definir políticas adicionais e atribuir políticas entre grupos de gestão.
-- [Notificações por e-mail](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): contactos de segurança e definições de notificação.
-- [Nível de preços](https://docs.microsoft.com/azure/security-center/security-center-pricing): com ou sem Azure Defender, que determina quais as funcionalidades do Centro de Segurança disponíveis para os recursos de âmbito (pode ser especificado para subscrições, grupos de recursos e espaços de trabalho).
+- [Recolha de dados](security-center-enable-data-collection.md): aprovisionamento de agente e definições de recolha de dados.
+- [Política de](tutorial-security-policy.md)segurança : uma [Política Azure](../governance/policy/overview.md) que determina quais os controlos monitorizados e recomendados pelo Security Center, ou usar a Política Azure para criar novas definições, definir políticas adicionais e atribuir políticas entre grupos de gestão.
+- [Notificações por e-mail](security-center-provide-security-contact-details.md): contactos de segurança e definições de notificação.
+- [Nível de preços](security-center-pricing.md): com ou sem Azure Defender, que determina quais as funcionalidades do Centro de Segurança disponíveis para os recursos de âmbito (pode ser especificado para subscrições, grupos de recursos e espaços de trabalho).
 
 > [!NOTE]
-> Especificar um contacto de segurança garante que o Azure consegue contactar a pessoa certa da sua organização se ocorrer um incidente de segurança. Leia [Provide security contact details in Azure Security Center (Fornecer detalhes de contacto de segurança no Centro de Segurança do Azure)](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) para obter mais informações sobre como ativar esta recomendação.
+> Especificar um contacto de segurança garante que o Azure consegue contactar a pessoa certa da sua organização se ocorrer um incidente de segurança. Leia [Provide security contact details in Azure Security Center (Fornecer detalhes de contacto de segurança no Centro de Segurança do Azure)](security-center-provide-security-contact-details.md) para obter mais informações sobre como ativar esta recomendação.
 
 ### <a name="security-policies-definitions-and-recommendations"></a>Definições e recomendações de políticas de segurança
 O Centro de Segurança cria automaticamente uma política de segurança predefinida para cada uma das suas subscrições do Azure. Pode editá-la no Centro de Segurança ou utilizar a Política do Azure para criar definições novas, definir políticas adicionais e atribuir políticas a vários Grupos de Gestão (que podem representar toda a organização, uma unidade de negócio, etc.) e monitorizar a conformidade com estas políticas nestes âmbitos.
 
-Antes de configurar as políticas de segurança, reveja cada uma das [recomendações de segurança](https://docs.microsoft.com/azure/security-center/security-center-recommendations) e determine se estas são adequadas para as suas várias subscrições e grupos de recursos. Também é importante entender que ação deve ser realizada para abordar as recomendações de segurança e quem na sua organização será responsável por monitorizar novas recomendações e tomar as medidas necessárias.
+Antes de configurar as políticas de segurança, reveja cada uma das [recomendações de segurança](security-center-recommendations.md) e determine se estas são adequadas para as suas várias subscrições e grupos de recursos. Também é importante entender que ação deve ser realizada para abordar as recomendações de segurança e quem na sua organização será responsável por monitorizar novas recomendações e tomar as medidas necessárias.
 
 ## <a name="data-collection-and-storage"></a>Armazenamento e recolha de dados
-O Azure Security Center utiliza o agente Log Analytics – este é o mesmo agente utilizado pelo serviço Azure Monitor – para recolher dados de segurança das suas máquinas virtuais. Os [dados recolhidos](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) neste agente serão armazenados nas suas áreas de trabalho do Log Analytics.
+O Azure Security Center utiliza o agente Log Analytics – este é o mesmo agente utilizado pelo serviço Azure Monitor – para recolher dados de segurança das suas máquinas virtuais. Os [dados recolhidos](security-center-enable-data-collection.md) neste agente serão armazenados nas suas áreas de trabalho do Log Analytics.
 
 ### <a name="agent"></a>Agente
 
@@ -189,9 +189,9 @@ Também deve monitorizar regularmente os recursos existentes para alterações d
 
 ### <a name="hardening-access-and-applications"></a>Proteger o acesso e as aplicações
 
-Como parte das suas operações de segurança, deve também adotar medidas preventivas para limitar o acesso às VMs e controlar as aplicações que estão a ser executadas nas mesmas. Ao restringir o tráfego de entrada às VMs do Azure, reduz a exposição a ataques e, paralelamente, proporciona acesso fácil para ligar a VMs sempre que necessário. Utilize a funcionalidade de acesso [VM just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) para endurecer o acesso aos seus VMs.
+Como parte das suas operações de segurança, deve também adotar medidas preventivas para limitar o acesso às VMs e controlar as aplicações que estão a ser executadas nas mesmas. Ao restringir o tráfego de entrada às VMs do Azure, reduz a exposição a ataques e, paralelamente, proporciona acesso fácil para ligar a VMs sempre que necessário. Utilize a funcionalidade de acesso [vm just-in-time](security-center-just-in-time.md) para endurecer o acesso aos seus VMs.
 
-Pode utilizar [controlos de aplicações adaptativos](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application) para limitar quais aplicações podem ser executadas nos seus VMs localizados em Azure. Entre outros benefícios, isto ajuda a endurecer os seus VMs contra malware. Utilizando machine learning, o Security Center analisa os processos em execução no VM para ajudá-lo a criar regras de listagem.
+Pode utilizar [controlos de aplicação adaptativos](security-center-adaptive-application.md) para limitar quais aplicações podem ser executadas nos seus VMs localizados em Azure. Entre outros benefícios, isto ajuda a endurecer os seus VMs contra malware. Utilizando machine learning, o Security Center analisa os processos em execução no VM para ajudá-lo a criar regras de listagem.
 
 
 ## <a name="incident-response"></a>Resposta a incidentes

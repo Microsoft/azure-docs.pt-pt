@@ -3,12 +3,12 @@ title: Assegurar funções de Azure
 description: Saiba como tornar o seu código de função em funcionamento em Azure mais seguro de ataques comuns.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9bec32c4c3d8005ef0d3c9fc5732785a5fa19a0c
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: e48991788307a47d0e01a7921e0c94d77ddcd5ad
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850717"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91294755"
 ---
 # <a name="securing-azure-functions"></a>Assegurar funções de Azure
 
@@ -128,6 +128,8 @@ Por predefinição, armazena cadeias de ligação e segredos utilizados pela sua
 Por exemplo, cada aplicação de função requer uma conta de armazenamento associada, que é usada pelo tempo de execução. Por predefinição, a ligação a esta conta de armazenamento é armazenada numa definição de aplicação denominada `AzureWebJobsStorage` .
 
 As definições de aplicações e as cadeias de ligação são armazenadas encriptadas no Azure. Só são desencriptadas antes de serem injetadas na memória de processo da sua aplicação quando a aplicação começa. As chaves de encriptação são rodadas regularmente. Se preferir gerir o armazenamento seguro dos seus segredos, a definição da aplicação deve, em vez disso, ser referência ao Cofre da Chave Azure. 
+
+Também pode encriptar as definições por padrão no local.settings.jsno ficheiro ao desenvolver funções no seu computador local. Para saber mais, consulte a `IsEncrypted` propriedade no ficheiro de [configurações locais.](functions-run-local.md#local-settings-file)  
 
 #### <a name="key-vault-references"></a>Referências do Cofre-Chave
 

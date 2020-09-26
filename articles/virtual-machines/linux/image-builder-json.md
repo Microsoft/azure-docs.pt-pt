@@ -4,16 +4,16 @@ description: Aprenda a criar um modelo para usar com O Azure Image Builder.
 author: danielsollondon
 ms.author: danis
 ms.date: 08/13/2020
-ms.topic: conceptual
-ms.service: virtual-machines-linux
+ms.topic: reference
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.reviewer: cynthn
-ms.openlocfilehash: 3c2dbf8c98901d5a4147939c42e289abf25f7d21
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 43f33093010aa6a70d02c58e9faa34f7f0e2dfee
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378377"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91307284"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Pré-visualização: Criar um modelo de construtor de imagens Azure 
 
@@ -96,7 +96,7 @@ Por predefinição, o Image Builder não alterará o tamanho da imagem, utilizar
 ```
 
 ## <a name="vnetconfig"></a>vnetConfig
-Se não especificar quaisquer propriedades VNET, então o Image Builder criará os seus próprios VNET, Public IP e NSG. O IP público é utilizado para o serviço de comunicação com o VM de construção, no entanto, se não quiser um IP público ou quiser que o Image Builder tenha acesso aos recursos VNET existentes, tais como servidores de configuração (DSC, Chef, Puppet, Ansible), partilhas de ficheiros, etc., então pode especificar um VNET. Para mais informações, [reveja a documentação de networking,](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibNetworking.md#networking-with-azure-vm-image-builder)isto é opcional.
+Se não especificar quaisquer propriedades VNET, então o Image Builder criará os seus próprios VNET, Public IP e NSG. O IP público é utilizado para o serviço de comunicação com o VM de construção, no entanto, se não quiser um IP público ou quiser que o Image Builder tenha acesso aos recursos VNET existentes, tais como servidores de configuração (DSC, Chef, Puppet, Ansible), partilhas de ficheiros, etc., então pode especificar um VNET. Para mais informações, [reveja a documentação de networking,](image-builder-networking.md)isto é opcional.
 
 ```json
     "vnetConfig": {
@@ -120,7 +120,7 @@ Para obter mais informações, consulte [Definir as dependências de recursos.](
 
 ## <a name="identity"></a>Identidade
 
-Obrigatório - Para que o Construtor de Imagem tenha permissões para ler/escrever imagens, leia nos scripts do Azure Storage deve criar uma Identidade Atribuída ao Utilizador Azure, que tenha permissões para os recursos individuais. Para mais detalhes sobre como funcionam as permissões do Image Builder e os passos relevantes, por favor reveja a [documentação.](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements)
+Obrigatório - Para que o Construtor de Imagem tenha permissões para ler/escrever imagens, leia nos scripts do Azure Storage deve criar uma Identidade Atribuída ao Utilizador Azure, que tenha permissões para os recursos individuais. Para mais detalhes sobre como funcionam as permissões do Image Builder e os passos relevantes, por favor reveja a [documentação.](image-builder-user-assigned-identity.md)
 
 
 ```json
@@ -233,7 +233,7 @@ Por predefinição, o Image Builder funcionará durante 240 minutos. Depois diss
 [ERROR] complete: 'context deadline exceeded'
 ```
 
-Se não especificar um valor buildTimeoutInMinutes, ou o definir para 0, este utilizará o valor predefinido. Pode aumentar ou diminuir o valor, até ao máximo de 960mins (16hrs). Para o Windows, não recomendamos que o ajuste abaixo dos 60 minutos. Se descobrir que está a acertar no tempo limite, reveja os [registos,](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-image-build-logs)para ver se o passo de personalização está à espera de algo como a entrada do utilizador. 
+Se não especificar um valor buildTimeoutInMinutes, ou o definir para 0, este utilizará o valor predefinido. Pode aumentar ou diminuir o valor, até ao máximo de 960mins (16hrs). Para o Windows, não recomendamos que o ajuste abaixo dos 60 minutos. Se descobrir que está a acertar no tempo limite, reveja os [registos,](image-builder-troubleshoot.md#customization-log)para ver se o passo de personalização está à espera de algo como a entrada do utilizador. 
 
 Se descobrir que precisa de mais tempo para que as personalizações se concretizem, desemote isto no que acha que precisa, com um pouco de sobrecarga. Mas não o coloque demasiado alto porque pode ter de esperar que ele a tempo limite antes de ver um erro. 
 
@@ -481,7 +481,7 @@ Para anular os comandos, utilize os provisionadores de scripts PowerShell ou She
 * Janelas: c:\DeprovisioningScript.ps1
 * Linux: /tmp/DeprovisioningScript.sh
 
-O Image Builder irá ler estes comandos, estes são escritos para os registos AIB, 'personalização.log'. Consulte [a resolução de problemas](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-logs) sobre como recolher registos.
+O Image Builder irá ler estes comandos, estes são escritos para os registos AIB, 'personalização.log'. Consulte [a resolução de problemas](image-builder-troubleshoot.md#customization-log) sobre como recolher registos.
  
 ## <a name="properties-distribute"></a>Propriedades: distribuir
 
@@ -658,7 +658,7 @@ az resource invoke-action \
 ### <a name="cancelling-an-image-build"></a>Cancelar uma construção de imagem
 Se estiver a executar uma construção de imagem que acredita estar incorreta, à espera da entrada do utilizador, ou se sentir que nunca completará com sucesso, então pode cancelar a construção.
 
-A construção pode ser cancelada a qualquer momento. Se a fase de distribuição tiver começado ainda pode cancelar, mas terá de limpar quaisquer imagens que possam não estar concluídas. O comando de cancelamento não espera que o cancelamento esteja concluído, por favor monitorize `lastrunstatus.runstate` para cancelar o progresso, utilizando estes [comandos de](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#get-statuserror-of-the-template-submission-or-template-build-status)estado .
+A construção pode ser cancelada a qualquer momento. Se a fase de distribuição tiver começado ainda pode cancelar, mas terá de limpar quaisquer imagens que possam não estar concluídas. O comando de cancelamento não espera que o cancelamento esteja concluído, por favor monitorize `lastrunstatus.runstate` para cancelar o progresso, utilizando estes [comandos de](image-builder-troubleshoot.md#customization-log)estado .
 
 
 Exemplos de `cancel` comandos:
@@ -675,6 +675,6 @@ az resource invoke-action \
      --action Cancel 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Existem ficheiros de amostra .json para diferentes cenários no [Azure Image Builder GitHub](https://github.com/danielsollondon/azvmimagebuilder).

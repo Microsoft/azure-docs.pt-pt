@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 7c98bfe4adb9cbbcc1009c530ba875511ea9ec01
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: fd7ba2eeddb3eddd98f97bda1a26c69c2cfa77c8
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905118"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315308"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Implementar um modelo de machine learning para o Azure App Service (pré-visualização)
 
@@ -40,7 +40,7 @@ Para obter mais informações sobre as funcionalidades fornecidas pelo Azure App
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma área de trabalho do Azure Machine Learning. Para mais informações, consulte o [Artigo Criar um espaço de trabalho.](how-to-manage-workspace.md)
-* O [Azure CLI.](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* O [Azure CLI.](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
 * Um modelo de aprendizagem automática treinado registado no seu espaço de trabalho. Se não tiver um modelo, use o tutorial de [classificação de imagem: modelo de comboio](tutorial-train-models-with-aml.md) para treinar e registar um.
 
     > [!IMPORTANT]
@@ -101,7 +101,7 @@ Para obter mais informações sobre a configuração de inferência, consulte [i
 
 ## <a name="create-the-image"></a>Criar a imagem
 
-Para criar a imagem Docker que é implantada no Azure App Service, utilize [o Model.package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-). O seguinte corte de código demonstra como construir uma nova imagem a partir do modelo e configuração de inferência:
+Para criar a imagem Docker que é implantada no Azure App Service, utilize [o Model.package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-). O seguinte corte de código demonstra como construir uma nova imagem a partir do modelo e configuração de inferência:
 
 > [!NOTE]
 > O código de corte assume que `model` contém um modelo registado, e que contém `inference_config` a configuração para o ambiente de inferência. Para obter mais informações, consulte [implementar modelos com Azure Machine Learning](how-to-deploy-and-where.md).

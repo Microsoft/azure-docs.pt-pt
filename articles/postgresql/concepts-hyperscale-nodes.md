@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 07/28/2019
-ms.openlocfilehash: a02583825f4a1ef15992aa2307e7f666d5abeaba
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: b3eda2c8de8319552f32938f20ff98af0e0a49fc
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136461"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91314832"
 ---
 # <a name="nodes-and-tables-in-azure-database-for-postgresql--hyperscale-citus"></a>Nós e tabelas na Base de Dados Azure para PostgreSQL – Hiperescala (Citus)
 
@@ -24,7 +24,7 @@ O tipo de hospedagem Hyperscale (Citus) permite que a Base de Dados Azure para s
 
 Cada grupo de servidores tem um nó coordenador e vários trabalhadores. As candidaturas enviam as suas consultas ao nó coordenador, que o transmite aos trabalhadores relevantes e acumula os seus resultados. As aplicações não podem ligar-se diretamente aos trabalhadores.
 
-A Hiperescala (Citus) permite ao administrador da base de dados *distribuir* tabelas, armazenando diferentes linhas em diferentes nós de trabalhadores. As tabelas distribuídas são a chave para o desempenho da Hyperscale. Não distribuir mesas deixa-as inteiramente no nó coordenador e não pode tirar partido do paralelismo entre máquinas.
+A Hiperescala (Citus) permite ao administrador da base de dados *distribuir* tabelas, armazenando diferentes linhas em diferentes nós de trabalhadores. As tabelas distribuídas são a chave para o desempenho da Hyperscale (Citus). Não distribuir mesas deixa-as inteiramente no nó coordenador e não pode tirar partido do paralelismo entre máquinas.
 
 Para cada consulta em tabelas distribuídas, o coordenador ou o encaminha para um único nó de trabalhador, ou o paralelo em vários dependendo se os dados necessários vivem num único nó ou múltiplo. O coordenador decide o que fazer consultando tabelas de metadados. Estas tabelas acompanham os nomes do DNS e a saúde dos nós dos trabalhadores, e a distribuição de dados através dos nós.
 
@@ -101,6 +101,6 @@ WHERE shardid = 102027;
 └─────────┴───────────┴──────────┘
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Determine o tipo da sua aplicação](concepts-hyperscale-app-type.md) para se preparar para modelação de dados

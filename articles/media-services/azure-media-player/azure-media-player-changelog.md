@@ -5,15 +5,29 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 07/27/2020
-ms.openlocfilehash: 9642f6d1090ef358cf86241640255c647dea52eb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.date: 09/23/2020
+ms.openlocfilehash: c63a8efc4bbcf6e5a124d439e6f9f91397e2fa53
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432668"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91315087"
 ---
-# <a name="changelog"></a>Registo de alterações #
+# <a name="changelog"></a>Registo de alterações
+
+## <a name="236-official-update-september-21-2020"></a>2.3.6 (Atualização Oficial 21 de setembro de 2020)
+
+### <a name="features-236"></a>Características 2.3.6
+
+Suporte áudio adicionado apenas para a tecnologia azureHtml5JS (DASH) Suporte ao início tardio da transcrição ao vivo Apoiar a mudança de linguagem na transcrição ao vivo
+
+### <a name="bug-fixes-236"></a>Correções de Erros 2.3.6
+
+Ao utilizar "playinline" em reprodução HLS em dispositivos Apple, clicar no botão "LIVE" faz com que o vídeo reinicie a imagem do cartaz AMP por vezes causa uma exceção O botão de volume estava em falta ao reproduzir HLS FairPlay [Acessibilidade] Dicas de ferramentas não definidas para botões quando o teclado é utilizado [Acessibilidade] A relação de luminosidade é inferior a 1.3:1 para a barra de progresso [Acessibilidade] O foco do teclado às vezes não volta ao botão de qualidade de vídeo [Acessibilidade] Os controlos não são visíveis no Vídeo tela, impedindo o Narrador de encontrá-los
+
+### <a name="changes-236"></a>Alterações 2.3.6
+
+Devolva erros significativos de KeyDelivery a aplicações de chamadas
 
 ## <a name="235-official-update-june-1-2020"></a>2.3.5 (Atualização Oficial 1 de junho de 2020)
 
@@ -727,6 +741,6 @@ ms.locfileid: "87432668"
 
 Pré-lançamento inicial
 
-## <a name="next-steps"></a>Próximos passos ##
+## <a name="next-steps"></a>Passos seguintes ##
 
 - [Azure Media Player Quickstart](azure-media-player-quickstart.md)

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 5d2ff25762f28c19b6d389a779fb455de3c84f3e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2a24433389e738bf5d0ecb7ecac6bf369c8ba183
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91253773"
+ms.locfileid: "91369489"
 ---
 # <a name="azure-cognitive-services-container-image-tags"></a>Etiquetas de imagem de recipientes de serviços cognitivos Azure
 
@@ -1131,22 +1131,22 @@ Esta imagem do recipiente tem as seguintes etiquetas disponíveis:
 | Etiquetas de imagem                                  | Notas                                                                      |
 |---------------------------------------------|:---------------------------------------------------------------------------|
 | `latest`                                    | Imagem de recipiente com o `en-US` local e `en-US-AriaNeural` a voz.      |
-| `1.1.0-amd64-de-de-katjaneural-preview`     | Imagem de recipiente com o `de-DE` local e `de-DE-KatjaNeural` a voz.     |
-| `1.1.0-amd64-en-au-natashaneural-preview`   | Imagem de recipiente com o `en-AU` local e `en-AU-NatashaNeural` a voz.   |
-| `1.1.0-amd64-en-ca-claraneural-preview`     | Imagem de recipiente com o `en-CA` local e `en-CA-ClaraNeural` a voz.     |
-| `1.1.0-amd64-en-gb-libbyneural-preview`     | Imagem de recipiente com o `en-GB` local e `en-GB-LibbyNeural` a voz.     |
-| `1.1.0-amd64-en-gb-mianeural-preview`       | Imagem de recipiente com o `en-GB` local e `en-GB-MiaNeural` a voz.       |
-| `1.1.0-amd64-en-us-arianeural-preview`      | Imagem de recipiente com o `en-US` local e `en-US-AriaNeural` a voz.      |
-| `1.1.0-amd64-en-us-guyneural-preview`       | Imagem de recipiente com o `en-US` local e `en-US-GuyNeural` a voz.       |
-| `1.1.0-amd64-es-es-elviraneural-preview`    | Imagem de recipiente com o `es-ES` local e `es-ES-ElviraNeural` a voz.    |
-| `1.1.0-amd64-es-mx-dalianeural-preview`     | Imagem de recipiente com o `es-MX` local e `es-MX-DaliaNeural` a voz.     |
-| `1.1.0-amd64-fr-ca-sylvieneural-preview`    | Imagem de recipiente com o `fr-CA` local e `fr-CA-SylvieNeural` a voz.    |
-| `1.1.0-amd64-fr-fr-deniseneural-preview`    | Imagem de recipiente com o `fr-FR` local e `fr-FR-DeniseNeural` a voz.    |
-| `1.1.0-amd64-it-it-elsaneural-preview`      | Imagem de recipiente com o `it-IT` local e `it-IT-ElsaNeural` a voz.      |
-| `1.1.0-amd64-ja-jp-nanamineural-preview`    | Imagem de recipiente com o `ja-JP` local e `ja-JP-NanamiNeural` a voz.    |
-| `1.1.0-amd64-ko-kr-sunhineural-preview`     | Imagem de recipiente com o `ko-KR` local e `ko-KR-SunHiNeural` a voz.     |
-| `1.1.0-amd64-pt-br-franciscaneural-preview` | Imagem de recipiente com o `pt-BR` local e `pt-BR-FranciscaNeural` a voz. |
-| `1.1.0-amd64-zh-cn-xiaoxiaoneural-preview`  | Imagem de recipiente com o `zh-CN` local e `zh-CN-XiaoxiaoNeural` a voz.  |
+| `1.2.0-amd64-de-de-katjaneural-preview`     | Imagem de recipiente com o `de-DE` local e `de-DE-KatjaNeural` a voz.     |
+| `1.2.0-amd64-en-au-natashaneural-preview`   | Imagem de recipiente com o `en-AU` local e `en-AU-NatashaNeural` a voz.   |
+| `1.2.0-amd64-en-ca-claraneural-preview`     | Imagem de recipiente com o `en-CA` local e `en-CA-ClaraNeural` a voz.     |
+| `1.2.0-amd64-en-gb-libbyneural-preview`     | Imagem de recipiente com o `en-GB` local e `en-GB-LibbyNeural` a voz.     |
+| `1.2.0-amd64-en-gb-mianeural-preview`       | Imagem de recipiente com o `en-GB` local e `en-GB-MiaNeural` a voz.       |
+| `1.2.0-amd64-en-us-arianeural-preview`      | Imagem de recipiente com o `en-US` local e `en-US-AriaNeural` a voz.      |
+| `1.2.0-amd64-en-us-guyneural-preview`       | Imagem de recipiente com o `en-US` local e `en-US-GuyNeural` a voz.       |
+| `1.2.0-amd64-es-es-elviraneural-preview`    | Imagem de recipiente com o `es-ES` local e `es-ES-ElviraNeural` a voz.    |
+| `1.2.0-amd64-es-mx-dalianeural-preview`     | Imagem de recipiente com o `es-MX` local e `es-MX-DaliaNeural` a voz.     |
+| `1.2.0-amd64-fr-ca-sylvieneural-preview`    | Imagem de recipiente com o `fr-CA` local e `fr-CA-SylvieNeural` a voz.    |
+| `1.2.0-amd64-fr-fr-deniseneural-preview`    | Imagem de recipiente com o `fr-FR` local e `fr-FR-DeniseNeural` a voz.    |
+| `1.2.0-amd64-it-it-elsaneural-preview`      | Imagem de recipiente com o `it-IT` local e `it-IT-ElsaNeural` a voz.      |
+| `1.2.0-amd64-ja-jp-nanamineural-preview`    | Imagem de recipiente com o `ja-JP` local e `ja-JP-NanamiNeural` a voz.    |
+| `1.2.0-amd64-ko-kr-sunhineural-preview`     | Imagem de recipiente com o `ko-KR` local e `ko-KR-SunHiNeural` a voz.     |
+| `1.2.0-amd64-pt-br-franciscaneural-preview` | Imagem de recipiente com o `pt-BR` local e `pt-BR-FranciscaNeural` a voz. |
+| `1.2.0-amd64-zh-cn-xiaoxiaoneural-preview`  | Imagem de recipiente com o `zh-CN` local e `zh-CN-XiaoxiaoNeural` a voz.  |
 
 ## <a name="key-phrase-extraction"></a>Extração de Expressões-Chave
 

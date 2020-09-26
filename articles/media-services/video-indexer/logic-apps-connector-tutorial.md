@@ -8,12 +8,12 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: 99f3c2c05117fb537527f2a2bcb52f0f9843385a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 41dddd677b2060c6d5d605867adde3eb27a9a5eb
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329640"
+ms.locfileid: "91369863"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Tutorial: use Video Indexer com App lógica e automatização de energia
 
@@ -54,7 +54,7 @@ Para configurar o primeiro fluxo, terá de fornecer as suas credenciais de API i
 ![Nome da ligação e a chave de API](./media/logic-apps-connector-tutorial/connection-name-api-key.png)
 
 > [!TIP]
-> Se tiver conectado previamente um Indexador de Vídeo ou uma conta de Armazenamento em Aplicações Lógicas, os seus dados de ligação são armazenados e será ligado automaticamente. Pode editar a ligação clicando na **Ligação Change** na parte inferior de cada ação.
+> Se anteriormente ligou uma conta Azure Storage ou Video Indexer a uma App Lógica, os seus dados de ligação são armazenados e será ligado automaticamente. <br/>Pode editar a ligação clicando na **ligação Change** na parte inferior de uma ação de Armazenamento Azure (a janela de armazenamento) ou indexante de vídeo (a janela do leitor).
 
 Assim que conseguir ligar-se às suas contas Azure Storage e Video Indexer, encontre e escolha o gatilho "Quando uma bolha é adicionada ou modificada" no **Logic Apps Designer**.
 
@@ -80,7 +80,7 @@ Por enquanto, deixará a URL de retorno. Só o adicionará depois de terminar o 
 
 Pode utilizar o valor predefinido para os outros parâmetros ou defini-los de acordo com as suas necessidades. 
 
-Clique em "Guardar", e vamos passar a configurar o segundo fluxo, para extrair os insights uma vez que o upload e a indexação esteja concluído. 
+Clique em **Guardar**, e vamos passar a configurar o segundo fluxo, para extrair os insights uma vez que o upload e a indexação esteja concluído. 
 
 ## <a name="set-up-the-second-flow---json-extraction"></a>Configurar o segundo fluxo - extração JSON  
 

@@ -1,5 +1,5 @@
 ---
-title: Adicione o sign-in da plataforma de identidade da Microsoft a uma aplicação web ASP.NET [ Rio Azure
+title: Adicione o s-in com a Microsoft a uma aplicação web ASP.NET [ Rio Azure
 description: Saiba como implementar o sôm-in da Microsoft numa aplicação web ASP.NET utilizando o OpenID Connect.
 services: active-directory
 author: jmprieur
@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 09/25/2020
 ms.author: jmprieur
-ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 97a040ec166894197520b2e3a6dfc720262b7f1c
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperfq1
+ms.openlocfilehash: ada6e36e03f326ab3161306b0f5da2e097e57e0c
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691297"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369676"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Quickstart: Adicione o início da plataforma de identidade da Microsoft a uma aplicação web ASP.NET
 Neste quickstart, você usa uma amostra de código para saber como uma ASP.NET web para assinar em contas pessoais (hotmail.com, outlook.com, outros) e contas de trabalho e escola de qualquer instância do Azure Ative Directory (Azure AD).  (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
@@ -156,7 +156,7 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-> |Onde  | Descrição |
+> |Onde  | Description |
 > |---------|---------|
 > | `ClientId`     | O ID de Aplicação da aplicação registada no portal do Azure |
 > | `Authority`    | O ponto final STS para o utilizador autenticar. Normalmente `https://login.microsoftonline.com/{tenant}/v2.0` para a cloud pública, em que {tenant} é o nome do seu inquilino, o Id do seu inquilino, ou *common* para uma referência ao ponto final comum (utilizado para aplicações multi-inquilino) |
