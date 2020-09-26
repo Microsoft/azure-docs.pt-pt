@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: ab1865608146880bbf612b7cb08c2a673c93b31f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fa60d6127a42f0118df152e5b3081751c595dbcf
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087968"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91362636"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Configure Sempre Encriptado usando o Cofre da Chave Azure 
 
@@ -183,7 +183,7 @@ Pode encriptar as colunas agora ou guardar um script PowerShell para ser executa
 
 Verifique se as definições estão todas corretas e clique em **Terminar** para completar a configuração para Sempre Encriptado.
 
-![Resumo](./media/always-encrypted-azure-key-vault-configure/summary.png)
+![A screenshot mostra a página de resultados com tarefas marcadas como passadas.](./media/always-encrypted-azure-key-vault-configure/summary.png)
 
 ### <a name="verify-the-wizards-actions"></a>Verifique as ações do feiticeiro
 
@@ -606,7 +606,7 @@ Depois de a sua base de dados estar configurada para utilizar Sempre Encriptado,
 ## <a name="related-information"></a>Informações relacionadas
 
 - [Sempre encriptado (desenvolvimento do cliente)](https://msdn.microsoft.com/library/mt147923.aspx)
-- [Encriptação de dados transparente](https://msdn.microsoft.com/library/bb934049.aspx)
+- [Encriptação de dados transparentes](https://msdn.microsoft.com/library/bb934049.aspx)
 - [Encriptação do Servidor SQL](https://msdn.microsoft.com/library/bb510663.aspx)
 - [Feiticeiro sempre encriptado](https://msdn.microsoft.com/library/mt459280.aspx)
 - [Blog sempre encriptado](https://docs.microsoft.com/archive/blogs/sqlsecurity/always-encrypted-key-metadata)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: edbe202350b0912372aad822c8530c5f79c76384
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 2d3f382635e9a8b8a562f7a7f60f256d68b90b8f
+ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254831"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91363210"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizar as contas de programador ao utilizar o Azure Active Directory na Gestão de API do Azure
 
@@ -34,7 +34,7 @@ Este artigo mostra-lhe como permitir o acesso ao portal do desenvolvedor para ut
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autorizar contas de programadores utilizando a Azure AD
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
-2. Selecione ![seta](./media/api-management-howto-aad/arrow.png).
+2. Selecione ![Ícone de seta.](./media/api-management-howto-aad/arrow.png).
 3. Digite **api** na caixa de pesquisa.
 4. Selecione **serviços de Gestão API.**
 5. Selecionar a sua instância de serviço de Gestão de API.
@@ -103,7 +103,7 @@ Depois de adicionar um grupo Azure AD externo, pode rever e configurar as suas p
  
 Os utilizadores da instância AD Azure configurada podem agora iniciar sação no portal do desenvolvedor. Podem ver e subscrever quaisquer grupos para os quais tenham visibilidade.
 
-## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"></a>Portal do desenvolvedor - adicione a autenticação da conta Azure AD
+## <a name="developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"></a> Portal do desenvolvedor - adicione a autenticação da conta Azure AD
 
 No portal do desenvolvedor, o s-in com AAD é possível com o **botão de iniciar sposição: widget OAuth.** O widget já está incluído na página de inscrição do conteúdo do portal do desenvolvedor predefinido.
 

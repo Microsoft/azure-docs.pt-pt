@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, synapse-analytics
-ms.openlocfilehash: bb05a817ae553872fa1a6c364da4c075ae454e1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f089a67262c78f31092780bb8b4d7d803d47e0d
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85211181"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91369098"
 ---
 # <a name="tutorial-load-data-to--azure-synapse-analytics-sql-pool"></a>Tutorial: Carregar dados para a piscina SQL Azure Synapse Analytics
 
@@ -69,7 +69,7 @@ Siga estes passos para criar uma piscina SQL em branco.
     | ------- | --------------- | ----------- |
     |**Nome da piscina SQL**|SampleDW| Para nomes de bases de dados válidos, veja [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Identificadores de Bases de Dados). |
     | **Nome do servidor** | Qualquer nome globalmente exclusivo | Para nomes de servidores válidos, veja [Naming rules and restrictions](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) (Atribuição de nomes de regras e restrições). |
-    | **Início de administração do servidor** | Qualquer nome válido | Para nomes de início de sessão válidos, veja [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Identificadores de Bases de Dados).|
+    | **Início de sessão de administrador do servidor** | Qualquer nome válido | Para nomes de início de sessão válidos, veja [Database Identifiers](/sql/relational-databases/databases/database-identifiers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Identificadores de Bases de Dados).|
     | **Palavra-passe** | Qualquer palavra-passe válida | A sua palavra-passe deve ter, pelo menos, oito carateres e deve conter carateres de três das seguintes categorias: carateres maiúsculos, carateres minúsculos, números e carateres não alfanuméricos. |
     | **Localização** | Nenhuma localização válida | Para obter mais informações sobre regiões, veja [Azure Regions](https://azure.microsoft.com/regions/) (Regiões do Azure). |
 
@@ -83,7 +83,7 @@ Siga estes passos para criar uma piscina SQL em branco.
 
 1. Selecione **Rever + criar** para rever as suas definições e, em seguida, selecione **Criar** para criar o seu armazém de dados. Pode monitorizar o seu progresso abrindo a página de **implementação em progresso** a partir do menu **Notificações.**
 
-     ![notificação](./media/load-data-wideworldimportersdw/notification.png)
+     ![A screenshot mostra notificações com implementação em curso.](./media/load-data-wideworldimportersdw/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>Criar uma regra de firewall ao nível do servidor
 
@@ -100,7 +100,7 @@ O serviço Azure Synapse Analytics cria uma firewall ao nível do servidor que i
 1. Selecione o nome do servidor.
     ![server name](././media/load-data-wideworldimportersdw/find-server-name.png)
 
-1. Selecione **as definições de firewall**do Show . A página **de definições de Firewall** para o servidor abre.
+1. Selecione **Mostrar definições da firewall**. A página **de definições de Firewall** para o servidor abre.
 
     ![definições do servidor](./media/load-data-wideworldimportersdw/server-settings.png)
 
@@ -732,7 +732,7 @@ Este script não carrega dados nas tabelas wwi.dimension_Date e wwi.fact_Sale. E
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>Criar tabelas e procedimentos para gerar as tabelas Data e Vendas
 
-Esta secção cria as tabelas wwi.dimension_Date e wwi.fact_Sale. Também cria procedimentos armazenados que podem gerar milhões de linhas nas tabelas wwi.dimension_Date e wwi.fact_Sale.
+Esta secção cria as mesas de wwi.dimension_Date e wwi.fact_Sale. Também cria procedimentos armazenados que podem gerar milhões de linhas nas tabelas wwi.dimension_Date e wwi.fact_Sale.
 
 1. Crie as tabelas dimension_Date e fact_Sale.  
 
@@ -933,7 +933,7 @@ Esta secção cria as tabelas wwi.dimension_Date e wwi.fact_Sale. Também cria p
 
 ## <a name="generate-millions-of-rows"></a>Gerar milhões de linhas
 
-Utilize os procedimentos armazenados para gerar milhões de linhas na tabela wwi.fact_Sale e os dados correspondentes na tabela wwi.dimension_Date.
+Utilize os procedimentos armazenados para gerar milhões de linhas na tabela wwi.fact_Sale e dados correspondentes na tabela wwi.dimension_Date.
 
 1. Execute este procedimento para preencher o [wwi].[seed_Sale] com mais linhas.
 
@@ -941,7 +941,7 @@ Utilize os procedimentos armazenados para gerar milhões de linhas na tabela wwi
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. Executar este procedimento para povoar wwi.fact_Sale com 100.000 linhas por dia para cada dia no ano 2000.
+2. Executar este procedimento para povoar wwi.fact_Sale com 100.000 linhas por dia para cada dia do ano 2000.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
@@ -1073,7 +1073,7 @@ Para obter um desempenho de consulta elevado, é importante criar estatísticas 
     EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Estão a ser-lhe cobrados os recursos de computação e os dados que carregou para o armazém de dados. São faturados em separado.  
 
@@ -1081,7 +1081,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) e clique no seu armazém de dados.
 
-    ![Limpar recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
+    ![Limpar os recursos](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
 2. Se quiser manter os dados no armazenamento, pode interromper a computação quando não estiver a utilizar o armazém de dados. Ao fazer uma pausa no cálculo, será cobrado apenas pelo armazenamento de dados e poderá retomar o cálculo sempre que estiver pronto para trabalhar com os dados. Para interromper a computação, clique no botão **Pausar**. Quando o armazém de dados estiver em pausa, verá um botão **Iniciar**.  Para retomar a computação, clique em **Iniciar**.
 
@@ -1091,7 +1091,7 @@ Siga estes passos para limpar os recursos conforme quiser.
 
 5. Para remover o grupo de recursos, clique em **SampleRG** e, em seguida, clique em **Eliminar grupo de recursos**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a criar um armazém de dados e a criar um utilizador para carregar dados. Criou tabelas externas para definir a estrutura dos dados armazenados no Azure Storage Blob e, em seguida, utilizou a instrução PolyBase CREATE TABLE AS SELECT para carregar dados para o armazém de dados.
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 09/24/2020
 author: palma21
-ms.openlocfilehash: 460b592924a19449d77ce8d45f470f3e3129f4a6
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 4a814d575e0879daec64ebfdabc1539219bea250
+ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357952"
+ms.locfileid: "91368945"
 ---
 # <a name="stop-and-start-an-azure-kubernetes-service-aks-cluster-preview"></a>Parar e Iniciar um cluster de serviço Azure Kubernetes (AKS) (pré-visualização)
 
@@ -28,6 +28,7 @@ Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um
 Ao utilizar a função de arranque/paragem do cluster, aplicam-se as seguintes restrições:
 
 - Esta funcionalidade é suportada apenas para conjuntos de escala de máquina virtual.
+- Durante a pré-visualização, esta funcionalidade não é suportada para clusters privados.
 - O estado de aglomerado de um aglomerado AKS parado é preservado por até 12 meses. Se o seu aglomerado for parado por mais de 12 meses, o estado de agrupamento não pode ser recuperado. Para mais informações, consulte as [Políticas de Apoio À AKS.](support-policies.md)
 - Só pode iniciar ou eliminar um cluster AKS parado. Para realizar qualquer operação como escala ou upgrade, inicie primeiro o seu cluster.
 
