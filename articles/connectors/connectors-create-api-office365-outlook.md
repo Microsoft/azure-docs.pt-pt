@@ -7,16 +7,16 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 07/27/2020
 tags: connectors
-ms.openlocfilehash: e0e152b3c0e10c34bc6213ddf867b79c58d1d767
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 9b10778e665675e9e033953e2a8b9df16dd636d3
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832982"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400779"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gerir e-mails, contactos e calendários no Outlook do Office 365 com o Azure Logic Apps
 
-Com [as Apps Azure Logic](../logic-apps/logic-apps-overview.md) e o [conector Office 365 Outlook,](/connectors/office365connector/)pode criar tarefas e fluxos de trabalho automatizados que gerem a sua conta Office 365 através da construção de aplicações lógicas. Por exemplo, automatiza estas tarefas:
+Com [as Apps Azure Logic](../logic-apps/logic-apps-overview.md) e o [conector Office 365 Outlook,](/connectors/office365connector/)pode criar tarefas e fluxos de trabalho automatizados que gerem o seu trabalho ou conta escolar através da construção de aplicações lógicas. Por exemplo, automatiza estas tarefas:
 
 * Receber, enviar e responder ao e-mail. 
 * Marque reuniões no seu calendário.
@@ -31,9 +31,9 @@ Pode utilizar qualquer gatilho para iniciar o seu fluxo de trabalho, por exemplo
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 
-* Uma [conta do Office 365](https://www.office.com/)
+* Uma [conta de trabalho ou escola](https://www.office.com/)
 
-* A aplicação lógica onde pretende aceder à sua conta Office 365 Outlook. Para iniciar o seu fluxo de trabalho com um gatilho do Office 365 Outlook, precisa de ter uma [aplicação lógica em branco.](../logic-apps/quickstart-create-first-logic-app-workflow.md) Para adicionar uma ação do Office 365 Outlook ao seu fluxo de trabalho, a sua aplicação lógica já precisa de ter um gatilho.
+* A aplicação lógica onde pretende aceder ao seu trabalho ou à sua conta escolar. Para iniciar o seu fluxo de trabalho com um gatilho do Office 365 Outlook, precisa de ter uma [aplicação lógica em branco.](../logic-apps/quickstart-create-first-logic-app-workflow.md) Para adicionar uma ação do Office 365 Outlook ao seu fluxo de trabalho, a sua aplicação lógica já precisa de ter um gatilho.
 
 ## <a name="add-a-trigger"></a>Adicionar um acionador
 
@@ -45,7 +45,7 @@ Um [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts) é um even
    
    ![Selecione o gatilho para iniciar a sua aplicação lógica](./media/connectors-create-api-office365-outlook/office365-trigger.png)
 
-1. Se for solicitado a iniciar scontabilidade, forneça as credenciais do Seu Office 365 para que a sua aplicação lógica possa ligar-se à sua conta. Caso contrário, se a sua ligação já existir, forneça as informações para as propriedades do gatilho.
+1. Se for solicitado a iniciar sedutar, forneça as suas credenciais de trabalho ou escola para que a sua aplicação lógica possa ligar-se à sua conta. Caso contrário, se a sua ligação já existir, forneça as informações para as propriedades do gatilho.
 
    > [!NOTE]
    > A sua ligação não expira até ser revogada, mesmo que altere as suas credenciais de inscrição. Para obter mais informações, consulte [as vidas de símbolos configurantes no Diretório Ativo Azure](../active-directory/develop/active-directory-configurable-token-lifetimes.md).
@@ -78,7 +78,7 @@ Uma [ação](../logic-apps/logic-apps-overview.md#logic-app-concepts) é uma ope
 
    ![Selecione a ação para executar na sua aplicação lógica](./media/connectors-create-api-office365-outlook/office365-actions.png) 
 
-1. Se for solicitado a iniciar scontabilidade, forneça as credenciais do Seu Office 365 para que a sua aplicação lógica possa ligar-se à sua conta. Caso contrário, se a sua ligação já existir, forneça as informações para os imóveis da ação.
+1. Se for solicitado a iniciar sedutar, forneça as suas credenciais de trabalho ou escola para que a sua aplicação lógica possa ligar-se à sua conta. Caso contrário, se a sua ligação já existir, forneça as informações para os imóveis da ação.
 
    > [!NOTE]
    > A sua ligação não expira até ser revogada, mesmo que altere as suas credenciais de inscrição. Para obter mais informações, consulte [as vidas de símbolos configurantes no Diretório Ativo Azure](../active-directory/develop/active-directory-configurable-token-lifetimes.md).

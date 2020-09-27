@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: b7cf0d35ae610c3f9fe477267e28e5449459148b
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 334cbef7460306ef2954881a1cab918573e1e371
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924585"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400643"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>Configurar a recuperação de desastres VMware num ambiente de vários arrendamentos com o programa Cloud Solution Provider (CSP)
 
-O [programa CSP](https://partner.microsoft.com/cloud-solution-provider) promove histórias melhores para os serviços na nuvem da Microsoft, incluindo o Office 365, Enterprise Mobility Suite e Microsoft Azure. Com a CSP, os parceiros possuem a relação de ponta a ponta com os clientes, e tornam-se o principal ponto de contacto de relacionamento. Os parceiros podem implementar subscrições Azure para os clientes e combinar as subscrições com as suas próprias ofertas personalizadas de valor acrescentado.
+O [programa CSP](https://partner.microsoft.com/cloud-solution-provider) promove histórias melhores para os serviços na nuvem da Microsoft, incluindo o Microsoft 365, Enterprise Mobility Suite e Microsoft Azure. Com a CSP, os parceiros possuem a relação de ponta a ponta com os clientes, e tornam-se o principal ponto de contacto de relacionamento. Os parceiros podem implementar subscrições Azure para os clientes e combinar as subscrições com as suas próprias ofertas personalizadas de valor acrescentado.
 
 Com [a Azure Site Recovery,](site-recovery-overview.md)como parceiros, pode gerir a recuperação de desastres para os clientes diretamente através da CSP. Em alternativa, pode utilizar a CSP para configurar ambientes de recuperação de locais e permitir que os clientes gerem as suas próprias necessidades de recuperação de desastres de forma self-service. Em ambos os cenários, os parceiros são a ligação entre a Recuperação do Site e os seus clientes. Os parceiros prestam serviço à relação com o cliente e faturam os clientes para o uso da Recuperação do Site.
 

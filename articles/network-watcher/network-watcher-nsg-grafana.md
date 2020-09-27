@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: damendo
-ms.openlocfilehash: 4d07feb54a689c32e119d997275416a5dd8f0aad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ec4b9343efab9ae501b2b3dcc606e6e3f5fe826
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725091"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399691"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gerir e analisar os registos de fluxo do Grupo de Segurança de Rede utilizando o Network Watcher e o Grafana
 
@@ -27,7 +27,7 @@ ms.locfileid: "84725091"
 
 Pode ter muitos NSGs na sua rede com registo de fluxo ativado. Esta quantidade de dados de registo torna difícil analisar e obter informações dos seus registos. Este artigo fornece uma solução para gerir centralmente estes registos de fluxo NSG usando Grafana, uma ferramenta de gráfico de código aberto, ElasticSearch, um motor de pesquisa e análise distribuído, e Logstash, que é um pipeline de processamento de dados do lado do servidor de código aberto.  
 
-## <a name="scenario"></a>Scenario
+## <a name="scenario"></a>Cenário
 
 Os registos de fluxo NSG são ativados utilizando o Network Watcher e são armazenados no armazenamento de bolhas Azure. Um plugin logstash é utilizado para ligar e processar registos de fluxo a partir do armazenamento de bolhas e enviá-los para o ElasticSearch.  Uma vez que os registos de fluxo são armazenados em ElasticSearch, eles podem ser analisados e visualizados em dashboards personalizados em Grafana.
 
@@ -191,7 +191,7 @@ Em seguida, é necessário adicionar o índice ElasticSearch contendo registos d
 
 ![Adicionar origem de dados](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig2.png)
 
-#### <a name="create-a-dashboard"></a>Create a dashboard (Criar um dashboard)
+#### <a name="create-a-dashboard"></a>Criar um dashboard
 
 Agora que configuraste com sucesso a Grafana para ler a partir do índice ElasticSearch que contém registos de fluxo NSG, podes criar e personalizar dashboards. Para criar um novo painel de instrumentos, selecione **Criar o seu primeiro dashboard**. A seguinte configuração do gráfico de amostra mostra fluxos segmentados pela regra NSG:
 
@@ -199,13 +199,13 @@ Agora que configuraste com sucesso a Grafana para ler a partir do índice Elasti
 
 A imagem que se segue mostra um gráfico e gráfico que mostra os fluxos superiores e a sua frequência. Os fluxos também são mostrados pela regra e fluxos NSG por decisão. Grafana é altamente personalizável, por isso é aconselhável que crie dashboards de acordo com as suas necessidades específicas de monitorização. O exemplo a seguir mostra um painel típico:
 
-![Gráfico de tablier](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
+![Screenshot que mostra a configuração do gráfico de amostra com fluxos segmentados pela regra NSG.](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
 
 ## <a name="conclusion"></a>Conclusão
 
 Ao integrar o Network Watcher com ElasticSearch e Grafana, tem agora uma forma conveniente e centralizada de gerir e visualizar registos de fluxo NSG, bem como outros dados. Grafana tem uma série de outras funcionalidades de gráficos poderosos que também podem ser usadas para gerir ainda mais os registos de fluxo e entender melhor o tráfego da sua rede. Agora que tem um caso Grafana configurado e ligado ao Azure, sinta-se livre para continuar a explorar a outra funcionalidade que oferece.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a utilização [do Network Watcher.](network-watcher-monitoring-overview.md)
 

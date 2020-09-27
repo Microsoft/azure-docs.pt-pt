@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: c9483363dcf6b4a5c05d71daa75d680dd25b8308
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 54c14f1ef78694055c567ded0fdccede062605ba
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002689"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400320"
 ---
 # <a name="azure-identity-management-security-overview"></a>Visão geral da segurança da gestão de identidade Azure
 
@@ -54,7 +54,7 @@ O artigo centra-se nas seguintes capacidades de gestão de identidade Azure:
 
 SSO significa poder aceder a todas as aplicações e recursos que precisa para fazer negócios, fazendo a sessão apenas uma vez utilizando uma única conta de utilizador. Uma vez assinado, pode aceder a todas as aplicações de que necessita sem ser obrigado a autenticar (por exemplo, digitar uma palavra-passe) uma segunda vez.
 
-Muitas organizações confiam em aplicações SaaS como Office 365, Box e Salesforce para a produtividade dos utilizadores. Historicamente, o pessoal de TI precisava de criar e atualizar individualmente as contas de utilizador em cada aplicação SaaS, e os utilizadores tinham de se lembrar de uma palavra-passe para cada aplicação SaaS.
+Muitas organizações confiam em aplicações SaaS como Microsoft 365, Box e Salesforce para a produtividade dos utilizadores. Historicamente, o pessoal de TI precisava de criar e atualizar individualmente as contas de utilizador em cada aplicação SaaS, e os utilizadores tinham de se lembrar de uma palavra-passe para cada aplicação SaaS.
 
 O Azure AD estende os ambientes do Ative Directory para a nuvem, permitindo que os utilizadores utilizem a sua conta organizacional primária para assinar não só os seus dispositivos e recursos da empresa ligados ao domínio, mas também a todas as aplicações web e SaaS de que necessitam para os seus empregos.
 
@@ -87,14 +87,14 @@ Saiba mais:
 * [O que é a Multi-Factor Authentication do Azure?](/azure/active-directory/authentication/multi-factor-authentication)
 * [Como funciona o Multi-Factor Authentication do Azure](../../active-directory/authentication/concept-mfa-howitworks.md)
 
-## <a name="azure-rbac"></a>Azure RBAC
+## <a name="azure-rbac"></a>RBAC do Azure
 
 O Azure RBAC é um sistema de autorização construído na Azure Resource Manager que fornece uma gestão de acesso de granulado fino de recursos em Azure. O Azure RBAC permite-lhe controlar granulivelmente o nível de acesso que os utilizadores têm. Por exemplo, pode limitar um utilizador a gerir apenas redes virtuais e outro utilizador para gerir todos os recursos num grupo de recursos. O Azure inclui várias funções incorporadas que pode utilizar. São apresentadas em seguida quatro funções incorporadas fundamentais. As três primeiras aplicam-se a todos os tipos de recursos.
 
-- [Proprietário](/azure/role-based-access-control/built-in-roles#owner) - Tem acesso total a todos os recursos, incluindo o direito de delegar o acesso a outros. 
-- [Contribuinte](/azure/role-based-access-control/built-in-roles#contributor) - Pode criar e gerir todos os tipos de recursos Azure, mas não pode conceder acesso a outros.
+- [Proprietário](/azure/role-based-access-control/built-in-roles#owner) – tem acesso total a todos os recursos, incluindo o direito de delegar o acesso a outras pessoas. 
+- [Contribuidor](/azure/role-based-access-control/built-in-roles#contributor) – pode criar e gerir todos os tipos de recursos do Azure, mas não pode conceder acesso a outras pessoas.
 - [Leitor](/azure/role-based-access-control/built-in-roles#reader) - Pode ver os recursos Azure existentes.
-- [Administrador de Acesso ao Utilizador](/azure/role-based-access-control/built-in-roles#user-access-administrator) - Permite-lhe gerir o acesso do utilizador aos recursos do Azure.
+- [Administrador de Acesso dos Utilizadores](/azure/role-based-access-control/built-in-roles#user-access-administrator) – permite gerir o acesso dos utilizadores aos recursos do Azure.
 
 Saiba mais:
 
@@ -147,14 +147,14 @@ Saiba mais:
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
-Com a Azure AD Privileged Identity Management, pode gerir, controlar e monitorizar as suas identidades privilegiadas e aceder a recursos em Azure AD, bem como outros serviços online da Microsoft, como o Office 365 e o Microsoft Intune.
+Com a Azure AD Privileged Identity Management, pode gerir, controlar e monitorizar as suas identidades privilegiadas e aceder a recursos em Azure AD, bem como outros serviços online da Microsoft, como o Microsoft 365 e o Microsoft Intune.
 
-Por vezes, os utilizadores precisam de realizar operações privilegiadas em recursos do Azure ou do Office 365, ou noutras aplicações saaS. Esta necessidade significa frequentemente que as organizações têm de dar aos utilizadores um acesso privilegiado permanente em Azure AD. Este acesso é um risco crescente de segurança para os recursos hospedados na nuvem, porque as organizações não conseguem monitorizar suficientemente o que os utilizadores estão a fazer com os seus privilégios de administrador. Além disso, se uma conta de utilizador com acesso privilegiado estiver comprometida, essa violação pode afetar a segurança geral da nuvem da organização. A Azure AD Gestão de Identidade Privilegiada ajuda a mitigar este risco.
+Por vezes, os utilizadores precisam de realizar operações privilegiadas em recursos Azure ou Microsoft 365, ou em outras aplicações SaaS. Esta necessidade significa frequentemente que as organizações têm de dar aos utilizadores um acesso privilegiado permanente em Azure AD. Este acesso é um risco crescente de segurança para os recursos hospedados na nuvem, porque as organizações não conseguem monitorizar suficientemente o que os utilizadores estão a fazer com os seus privilégios de administrador. Além disso, se uma conta de utilizador com acesso privilegiado estiver comprometida, essa violação pode afetar a segurança geral da nuvem da organização. A Azure AD Gestão de Identidade Privilegiada ajuda a mitigar este risco.
 
 Com a Azure AD Gestão de Identidade Privilegiada, pode:
 
 * Veja quais os utilizadores que são administradores da AD Azure.
-* Permitir o acesso administrativo a pedido, just-in-time (JIT) a serviços da Microsoft, como o Office 365 e o Intune.
+* Permitir o acesso administrativo a pedido, just-in-time (JIT) a serviços da Microsoft, como o Microsoft 365 e o Intune.
 * Obtenha relatórios sobre o histórico de acesso do administrador e alterações nas atribuições de administrador.
 * Receba alertas sobre o acesso a um papel privilegiado.
 
@@ -174,7 +174,7 @@ Saiba mais:
 
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>Gestão híbrida de identidade/Azure AD conecta
 
-As soluções de identidade da Microsoft abrangem capacidades baseadas na cloud e no local, ao criar uma única identidade de utilizador para autenticação e autorização a todos os recursos, independentemente da localização. Chamamos-lhe identidade híbrida. O Azure AD Connect é a ferramenta da Microsoft concebida para satisfazer e atingir os seus objetivos de identidade híbrida. Isto permite-lhe fornecer uma identidade comum para o utilizadores das aplicações do Office 365, do Azure e do SaaS integradas com o Azure AD. Proporciona as seguintes funcionalidades:
+As soluções de identidade da Microsoft abrangem capacidades baseadas na cloud e no local, ao criar uma única identidade de utilizador para autenticação e autorização a todos os recursos, independentemente da localização. Chamamos-lhe identidade híbrida. O Azure AD Connect é a ferramenta da Microsoft concebida para satisfazer e atingir os seus objetivos de identidade híbrida. Permite-lhe fornecer uma identidade comum aos seus utilizadores no Microsoft 365, Azure e aplicações SaaS integradas no Azure AD. Proporciona as seguintes funcionalidades:
 
 * Sincronização
 * AD FS e integração da federação

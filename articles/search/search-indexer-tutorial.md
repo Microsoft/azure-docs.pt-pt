@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/23/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9c8647e28701316ecd7305e206918c53281deb6b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e04c7da40719f77ca478f2ce577688af773f523d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004260"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399232"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Tutorial: Índice Azure SQL dados usando o .NET SDK
 
@@ -57,7 +57,7 @@ Se tiver um recurso de Base de Dados Azure SQL existente, pode adicionar-lhe a t
 
 1. Encontre ou crie uma **Base de Dados SQL.** Pode utilizar as predefinições e o nível mais baixo do escalão de preço. Uma vantagem da criação de um servidor é que pode especificar um nome de utilizador e uma palavra-passe de administrador, que são necessários para criar e carregar tabelas num passo posterior.
 
-   ![Página Nova base de dados](./media/search-indexer-tutorial/indexer-new-sqldb.png "Página Nova base de dados")
+   :::image type="content" source="media/search-indexer-tutorial/indexer-new-sqldb.png" alt-text="Página Nova base de dados" border="false":::
 
 1. Clique **em Rever + criar** para implementar o novo servidor e base de dados. Aguarde que o servidor e a base de dados sejam implementados.
 
@@ -69,7 +69,7 @@ Se tiver um recurso de Base de Dados Azure SQL existente, pode adicionar-lhe a t
 
 1. Selecione o ficheiro e clique em **Abrir**. O script deverá ser parecido com o da captura de ecrã seguinte:
 
-   ![Script de SQL](./media/search-indexer-tutorial/sql-script.png "Script de SQL")
+   :::image type="content" source="media/search-indexer-tutorial/sql-script.png" alt-text="Script de SQL" border="false":::
 
 1. Clique em **Executar** para executar a consulta. No painel Resultados, deverá ver uma mensagem de consulta bem-sucedida para três linhas.
 
@@ -99,7 +99,7 @@ As chamadas da API requerem o URL de serviço e uma chave de acesso. Um serviço
 
 1. Em **Definições**  >  **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio, caso precise de rolar uma. Pode utilizar a tecla primária ou secundária nos pedidos de adição, modificação e eliminação de objetos.
 
-   ![Obtenha uma chave de acesso http e acesso](media/search-get-started-postman/get-url-key.png "Obtenha uma chave de acesso http e acesso")
+   :::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Obtenha uma chave de acesso http e acesso" border="false":::
 
 ## <a name="2---set-up-your-environment"></a>2 - Configurar o seu ambiente
 
@@ -201,7 +201,7 @@ Um objeto indexante é agnóstico de plataforma, onde a configuração, o agenda
 
 Prima F5 para construir e executar a solução. O programa é executado no modo de depuração. O estado de cada operação é reportado numa janela da consola.
 
-   ![Saída da consola](./media/search-indexer-tutorial/console-output.png "Saída da consola")
+   :::image type="content" source="media/search-indexer-tutorial/console-output.png" alt-text="Saída da consola" border="false":::
 
 O seu código é executado localmente no Visual Studio, conectando-se ao seu serviço de pesquisa no Azure, que por sua vez se conecta à Base de Dados Azure SQL e recupera o conjunto de dados. Com estas muitas operações, existem vários pontos potenciais de falha. Se tiver um erro, verifique primeiro as seguintes condições:
 
@@ -217,7 +217,7 @@ Use o portal Azure para verificar a criação de objetos e, em seguida, use **o 
 
 1. [Inscreva-se no portal Azure](https://portal.azure.com/), e na página **geral do** seu serviço de pesquisa, abra cada lista por sua vez para verificar se o objeto foi criado. **Os índices**, **Indexantes**e **Fontes de Dados** terão "hotéis", "azure-sql-indexer", e "azure-sql", respectivamente.
 
-   ![Mosaicos de indexador e origem de dados](./media/search-indexer-tutorial/tiles-portal.png)
+   :::image type="content" source="media/search-indexer-tutorial/tiles-portal.png" alt-text="Mosaicos de indexador e origem de dados" border="false":::
 
 1. Selecione o índice de hotéis. Na página dos hotéis, **o Explorador de Pesquisa** é o primeiro separador. 
 
@@ -225,7 +225,7 @@ Use o portal Azure para verificar a criação de objetos e, em seguida, use **o 
 
    As três entradas no índice são devolvidas como documentos JSON. O Explorador de Pesquisa devolve documentos em JSON, para que possa ver a estrutura inteira.
 
-   ![Consulta de um índice](./media/search-indexer-tutorial/portal-search.png "Consulta de um índice")
+   :::image type="content" source="media/search-indexer-tutorial/portal-search.png" alt-text="Consulta de um índice" border="false":::
    
 1. Em seguida, introduza uma cadeia de pesquisa: `search=river&$count=true`. 
 

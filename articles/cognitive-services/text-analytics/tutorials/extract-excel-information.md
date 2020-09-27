@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
-ms.openlocfilehash: b9e6561c1ed9870b669ec5e9825a376f8bd03c4d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: b67de07777fa3f4f2b6190d8b003eb0495e66d15
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145713"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400490"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Extrair informações no Excel usando Análise de Texto e Automatizar Energia 
 
@@ -23,7 +23,7 @@ Neste tutorial, irá criar um fluxo power automate para extrair texto numa folha
 
 Este fluxo levará uma folha de cálculo de problemas relatados sobre um complexo de apartamentos, e classificá-los-á em duas categorias: canalização e outras. Também extrairá os nomes e números de telefone dos inquilinos que os enviaram. Por último, o fluxo anexará esta informação à folha excel. 
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, irá aprender a:
 
 > [!div class="checklist"]
 > * Use o Power Automamate para criar um fluxo
@@ -37,7 +37,7 @@ Neste tutorial, ficará a saber como:
 - Um recurso de Análise de Texto. Se não tiver um, pode [criar um no portal Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) e usar o nível livre para completar este tutorial.
 - A [chave e o ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) que foi gerado para si durante a inscrição.
 - Uma folha de cálculo contendo problemas com inquilinos. Os dados de exemplo são fornecidos no GitHub
-- Escritório 365, com OneDrive para negócios.
+- Microsoft 365, com OneDrive para negócios.
 
 ## <a name="add-the-excel-file-to-onedrive-for-business"></a>Adicione o ficheiro Excel ao OneDrive para negócios
 
@@ -78,10 +78,10 @@ Adicione as seguintes informações às variáveis que criou. Representam as col
 
 | Ação |Nome   | Tipo | Valor |
 |---------|---------|---|---|
-| Inicializar variável | var_person | String | Pessoa |
-| Inicializar variável 2 | var_phone | String | Phone_Number |
-| Inicializar variável 3 | var_plumbing | String | canalização |
-| Inicializar variável 4 | var_other | String | outro | 
+| Inicializar variável | var_person | Cadeia | Pessoa |
+| Inicializar variável 2 | var_phone | Cadeia | Phone_Number |
+| Inicializar variável 3 | var_plumbing | Cadeia | canalização |
+| Inicializar variável 4 | var_other | Cadeia | other | 
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="informação contida nas variáveis de fluxo":::
@@ -218,7 +218,7 @@ No **Se não houver** condição, clique em **Adicionar uma ação**e selecione 
 
 ## <a name="test-the-workflow"></a>Testar o fluxo de trabalho
 
-No canto superior direito do ecrã, clique em **Guardar**e, em seguida, **Test**. Selecione **I'll executar a ação do gatilho**. Clique **em Guardar & Teste,** Executar o **fluxo**e, em seguida, **fazer**.
+No canto superior direito do ecrã, clique em **Guardar**e, em seguida, **Test**. Selecione  **I'll executar a ação do gatilho**. Clique **em Guardar & Teste,** Executar o **fluxo**e, em seguida, **fazer**.
 
 O ficheiro Excel será atualizado na sua conta OneDrive. Vai parecer o que está abaixo.
 

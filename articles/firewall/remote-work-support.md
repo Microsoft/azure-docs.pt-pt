@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: victorh
-ms.openlocfilehash: da5100fafc98ae38809c93e9b3db5ef41c58766a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68789d3b8a4be51a381e95d6e6f840331b46b4e9
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82863421"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400116"
 ---
 # <a name="azure-firewall-remote-work-support"></a>Suporte remoto de trabalho Azure Firewall
 
@@ -24,8 +24,8 @@ O trabalho a partir de políticas domésticas requer que muitas organizações d
 
 ## <a name="azure-windows-virtual-desktop-support"></a>Suporte a desktop virtual do Azure Windows
 
-O Windows Virtual Desktop é um serviço abrangente de virtualização de desktop e aplicações em execução no Azure. É a única infraestrutura virtual de desktop (VDI) que fornece gestão simplificada, Windows 10 multi-sessão, otimizações para o Office 365 ProPlus e suporte para ambientes de Serviços remotos de Desktop (RDS). Pode implementar e escalar os seus desktops e aplicações do Windows em Azure em minutos e obter funcionalidades de segurança e conformidade incorporadas. O Windows Virtual Desktop não necessita de abrir qualquer acesso à sua rede virtual. No entanto, deve permitir um conjunto de ligações de rede de saída para as máquinas virtuais do Windows Desktop que funcionam na sua rede virtual. Para obter mais informações, consulte [o Azure Firewall para proteger as implementações do Ambiente de Trabalho Virtual da Janela](protect-windows-virtual-desktop.md).
+O Windows Virtual Desktop é um serviço abrangente de virtualização de desktop e aplicações em execução no Azure. É a única infraestrutura virtual de desktop (VDI) que fornece gestão simplificada, windows 10 multi-sessão, otimizações para aplicações microsoft 365 para empresas, e suporte para ambientes de Serviços remotos de Desktop (RDS). Pode implementar e escalar os seus desktops e aplicações do Windows em Azure em minutos e obter funcionalidades de segurança e conformidade incorporadas. O Windows Virtual Desktop não necessita de abrir qualquer acesso à sua rede virtual. No entanto, deve permitir um conjunto de ligações de rede de saída para as máquinas virtuais do Windows Desktop que funcionam na sua rede virtual. Para obter mais informações, consulte [o Azure Firewall para proteger as implementações do Ambiente de Trabalho Virtual da Janela](protect-windows-virtual-desktop.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [o Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/).

@@ -8,14 +8,14 @@ ms.author: heidist
 ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 11979a09f0f55d4eaab3c8380f9f819162c630b4
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ab3142426b12f86b9f8afa84ce0ea05fc1939eec
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91307624"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400609"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure em Node.js usando APIs REST
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ As chamadas para o serviço requerem um ponto final URL e uma chave de acesso em
 
     Pegue a chave de consulta também. É uma boa prática emitir pedidos de consulta com acesso apenas de leitura.
 
-![Obtenha o nome de serviço e as chaves de administração e consulta](media/search-get-started-nodejs/service-name-and-keys.png)
+:::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Obtenha o nome de serviço e as chaves de administração e consulta" border="false":::
 
 Todos os pedidos requerem uma chave API no cabeçalho de cada pedido enviado ao seu serviço. Uma chave válida estabelece confiança, por pedido, entre o pedido de envio do pedido e o serviço que o trata.
 
@@ -473,7 +473,7 @@ Deve ver uma série de mensagens descrevendo as ações que estão a ser tomadas
 
 Abra a **visão geral** do seu serviço de pesquisa no portal Azure. Selecione o separador **Índices.** Devia ver algo como o seguinte:
 
-![Screenshot do portal Azure, Visão geral do serviço de pesquisa, separador Índices](media/search-get-started-nodejs/create-index-no-data.png)
+:::image type="content" source="media/search-get-started-nodejs/create-index-no-data.png" alt-text="Screenshot do portal Azure, Visão geral do serviço de pesquisa, separador Índices" border="false":::
 
 No próximo passo, irá adicionar dados ao indexar. 
 

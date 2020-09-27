@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: 8a06435d4b5a4c11f74073e67e3f48fd2ed0779d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 63adb5d6898fd467a0557aa147e54f814c167e72
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079575"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400139"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure glossário: Um dicionário de terminologia em nuvem na plataforma Azure
 
@@ -30,7 +30,7 @@ O glossário microsoft Azure é um pequeno dicionário de terminologia em nuvem 
 * [Termos de computação em nuvem](https://azure.microsoft.com/overview/cloud-computing-dictionary/) em nuvem - termos gerais da indústria em nuvem.
 
 ## <a name="account"></a>conta
-Uma conta que é usada para aceder e gerir uma subscrição do Azure. É frequentemente referido como uma conta Azure, embora uma conta possa ser qualquer uma delas: um trabalho existente, escola ou conta pessoal da Microsoft, ou um nome de utilizador e senha do Office 365. Também pode criar uma conta para gerir uma subscrição do Azure quando se inscreve para o [teste gratuito.](https://azure.microsoft.com)  
+Uma conta que é usada para aceder e gerir uma subscrição do Azure. É frequentemente referido como uma conta Azure, embora uma conta possa ser qualquer uma delas: um trabalho existente, escola ou conta pessoal da Microsoft. Também pode criar uma conta para gerir uma subscrição do Azure quando se inscreve para o [teste gratuito.](https://azure.microsoft.com)  
 Consulte [a inscrição para uma subscrição do Azure com a sua conta Microsoft 365](cost-management-billing/manage/microsoft-365-account-for-azure-subscription.md) e [contas que pode utilizar para iniciar scontabilidade](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## <a name="api-app"></a>App API
@@ -46,7 +46,7 @@ Ver [Gerir a disponibilidade de máquinas virtuais do Windows](virtual-machines/
 ## <a name="azure-classic-deployment-model"></a><a name="classic-model"></a>Modelo de implementação clássico Azure
 Um dos dois modelos de [implantação usados](resource-manager-deployment-model.md) para implantar recursos no Azure (o novo modelo é Azure Resource Manager). Alguns serviços Azure suportam apenas o modelo de implementação do Gestor de Recursos, alguns suportam apenas o modelo clássico de implementação, e alguns suportes ambos. A documentação de cada serviço Azure especifica quais os modelos que suportam.
 
-## <a name="azure-command-line-interface-cli"></a><a name="cli"></a>Interface de linha de comando Azure (CLI)
+## <a name="azure-command-line-interface-cli"></a><a name="cli"></a>Interface de linha de comandos (CLI) do Azure
 Uma interface de linha de comando que pode ser usada para gerir os serviços Azure a partir de Windows, macOS e Linux.  Alguns serviços ou funcionalidades de serviço só podem ser geridos através do PowerShell ou do CLI. Ver [Azure CLI](/cli/azure)
 
 ## <a name="azure-powershell"></a><a name="powershell"></a>Azure PowerShell
@@ -90,7 +90,7 @@ Consulte a página de detalhes da [oferta do Azure](https://azure.microsoft.com/
 ## <a name="portal"></a>portal
 O portal web seguro utilizado para implementar e gerir os serviços Azure.
 
-## <a name="region"></a>.
+## <a name="region"></a>region
 Uma área dentro de um geo que não atravessa as fronteiras nacionais e contém um ou mais centros de dados. Os preços, os serviços regionais e os tipos de oferta estão expostos a nível regional. Uma região é tipicamente emparelhada com outra região, que pode estar a várias centenas de milhas de distância. Os pares regionais podem ser usados como um mecanismo para a recuperação de desastres e cenários de alta disponibilidade. Também referido como *local.*  
 Ver [Regiões de Azure](best-practices-availability-paired-regions.md)
 

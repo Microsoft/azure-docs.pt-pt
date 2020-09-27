@@ -9,18 +9,18 @@ ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7474cfbd0182797bd62e97979e83e2aeb5244cbc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 23684dbbc5cb8c2d5fc4880ae8fe1999450928e0
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008799"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400575"
 ---
 # <a name="tutorial-work-with-azure-storage-queues-in-net"></a>Tutorial: Trabalhar com filas de armazenamento Azure em .NET
 
 O armazenamento da Fila Azure implementa filas baseadas em nuvem para permitir a comunicação entre componentes de uma aplicação distribuída. Cada fila mantém uma lista de mensagens que podem ser adicionadas por um componente remetente e processadas por um componente recetor. Com uma fila, a sua aplicação pode escalar imediatamente para satisfazer a procura. Este artigo mostra os passos básicos para trabalhar com uma fila de armazenamento Azure.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -227,6 +227,8 @@ Crie um novo método para recuperar uma mensagem da fila. Uma vez que a mensagem
    # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 
    Este método recebe uma mensagem da fila chamando [ReceiveMessagesAsync,](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync)passando 1 no primeiro parâmetro para recuperar apenas a próxima mensagem na fila. Depois de receber a mensagem, elimine-a da fila chamando [DeleteMessageAsync](/dotnet/api/azure.storage.queues.queueclient.deletemessageasync).
+
+   Quando uma mensagem é enviada para a fila com uma versão do SDK antes do v12, é automaticamente codificada base64. A partir do v12 essa funcionalidade foi removida. Quando recupera uma mensagem utilizando o V12 SDK, esta não é automaticamente descodificada na Base64. Deve explicitamente [a Base64 descodificar](/dotnet/api/system.convert.frombase64string) o conteúdo por si mesmo.
 
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_InitialRetrieveMessage":::
 

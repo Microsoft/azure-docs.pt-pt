@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 34da82510f96ef7bde65ceec397b048c941e3234
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c09e75a98e5342ab54710e05466755d86705b2a
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563609"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399436"
 ---
 # <a name="what-are-security-partner-providers"></a>O que são fornecedores de parceiros de segurança?
 
@@ -44,7 +44,7 @@ São apoiados os seguintes cenários:
 
 ## <a name="best-practices-for-internet-traffic-filtering-in-secured-virtual-hubs"></a>Boas práticas para filtragem de tráfego de Internet em centros virtuais seguros
 
-O tráfego de internet normalmente inclui tráfego web. Mas também inclui tráfego destinado a aplicações saaS como Office 365 (O365) e Azure serviços públicos PaaS como Azure Storage, Azure Sql, e assim por diante. Seguem-se recomendações de boas práticas para a manipulação do tráfego para estes serviços:
+O tráfego de internet normalmente inclui tráfego web. Mas também inclui tráfego destinado a aplicações SaaS como a Microsoft 365 e a Azure serviços públicos paaS como Azure Storage, Azure Sql, e assim por diante. Seguem-se recomendações de boas práticas para a manipulação do tráfego para estes serviços:
 
 ### <a name="handling-azure-paas-traffic"></a>Manuseamento do tráfego de Azure PaaS
  
@@ -54,16 +54,16 @@ O tráfego de internet normalmente inclui tráfego web. Mas também inclui tráf
 
 ![Todos os cenários para Azure Firewall Manager](media/trusted-security-partners/all-scenarios.png)
 
-## <a name="handling-office-365-o365-traffic"></a>Tráfego do Gabinete de Gestão 365 (O365)
+## <a name="handling-microsoft-365-traffic"></a>Manuseamento do tráfego microsoft 365
 
-Em cenários de localização de ramificação distribuídos globalmente, você deve redirecionar o tráfego do Office 365 diretamente na sucursal antes de enviar o tráfego de Internet restante seu centro seguro Azure.
+Em cenários de localização de sucursais distribuídos globalmente, deverá redirecionar o tráfego da Microsoft 365 diretamente para a sucursal antes de enviar o restante tráfego de Internet do seu hub seguro Azure.
 
-Para o Office 365, a latência e desempenho da rede são fundamentais para uma experiência de utilizador bem sucedida. Para alcançar estes objetivos em torno do desempenho ideal e da experiência do utilizador, os clientes devem implementar o Office 365 escape direto e local antes de considerar o encaminhamento do resto do tráfego da Internet através do Azure.
+Para o Microsoft 365, a latência e o desempenho da rede são fundamentais para uma experiência de utilizador bem sucedida. Para alcançar estes objetivos em torno do desempenho ideal e da experiência do utilizador, os clientes devem implementar a fuga direta e local do Microsoft 365 antes de considerar o encaminhamento do resto do tráfego da Internet através do Azure.
 
-[Os princípios de conectividade da rede do Office 365](https://docs.microsoft.com/office365/enterprise/office-365-network-connectivity-principles) exigem que as ligações de rede do Office 365 sejam encaminhada localmente da filial do utilizador ou dispositivo móvel e diretamente através da Internet para o ponto de presença mais próximo da rede da Microsoft.
+[Os princípios de conectividade da rede Microsoft 365](/microsoft-365/enterprise/microsoft-365-network-connectivity-principles) exigem que as principais ligações de rede microsoft 365 sejam encaminhada localmente da filial do utilizador ou dispositivo móvel e diretamente através da Internet para o ponto de presença mais próximo da rede da Microsoft.
 
-Além disso, as ligações do Office 365 são encriptadas para privacidade e utilização de protocolos eficientes e proprietários por razões de desempenho. Isto torna impraticável e impactante sujeitar essas ligações a soluções tradicionais de segurança ao nível da rede. Por estas razões, recomendamos vivamente que os clientes enviem o tráfego do Office 365 diretamente das agências, antes de enviarem o resto do tráfego através do Azure. A Microsoft estabeleceu uma parceria com vários fornecedores de soluções SD-WAN, que se integram com o Azure e o Office 365 e facilitam aos clientes a fuga direta e local da Internet do Office 365. Para mais [detalhes, como posso definir as minhas políticas de O365 através do VIRTUAL WAN?](https://docs.microsoft.com/azure/virtual-wan/virtual-wan-office365-overview)
+Além disso, as ligações Microsoft 365 são encriptadas para privacidade e utilização de protocolos eficientes e proprietários por razões de desempenho. Isto torna impraticável e impactante sujeitar essas ligações a soluções tradicionais de segurança ao nível da rede. Por estas razões, recomendamos vivamente que os clientes enviem o tráfego microsoft 365 diretamente das agências, antes de enviarem o resto do tráfego através do Azure. A Microsoft estabeleceu uma parceria com vários fornecedores de soluções SD-WAN, que se integram com o Azure e o Microsoft 365 e facilitam aos clientes a entrada em funcionamento direto e local da Internet do Microsoft 365. Para mais detalhes, veja [o que é Azure Virtual WAN?](../virtual-wan/virtual-wan-about.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Implementar um parceiro de segurança que ofereça num centro seguro, utilizando o Azure Firewall Manager](deploy-trusted-security-partner.md).

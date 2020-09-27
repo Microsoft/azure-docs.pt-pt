@@ -6,20 +6,17 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 8b413b82ceb148374bd89fd2baec7d4db13f54d5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 512a103f5ac116f1f4eb18631cdc8e4a8b9380c9
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329553"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399215"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql-flexible-server-preview"></a>Registos de consulta lenta na Base de Dados Azure para o MySQL Flexible Server (Pré-visualização)
 
 > [!IMPORTANT] 
 > A azure Database for MySQL - Flexible Server encontra-se atualmente em pré-visualização pública.
-
-> [!NOTE]
-> A integração com as definições de diagnóstico do Azure Monitor para aceder a registos está em processo de implantação e a funcionalidade completa estará disponível em breve.
 
 Na Base de Dados Azure para o MySQL Flexible Server, o registo de consulta lenta está disponível para os utilizadores configurar e aceder. Os registos de consulta lenta são desativados por padrão e podem ser ativados para ajudar a identificar estrangulamentos de desempenho durante a resolução de problemas.
 
@@ -42,10 +39,7 @@ Consulte a [documentação](https://dev.mysql.com/doc/refman/5.7/en/slow-query-l
 
 ## <a name="access-slow-query-logs"></a>Aceder a registos de consulta lenta
 
-> [!NOTE]
-> A integração com as definições de diagnóstico do Azure Monitor para aceder a registos está em processo de implantação e a funcionalidade completa estará disponível em breve.
-
-Os registos de consulta lenta são integrados com as definições de diagnóstico do Azure Monitor. Uma vez que tenha ativado os registos de auditoria no seu servidor flexível MySQL, pode emitê-los para registos do Azure Monitor, Centros de Eventos ou Armazenamento Azure. Para saber mais sobre as definições de diagnóstico, consulte a documentação dos [registos de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md). Para saber mais sobre como ativar as definições de diagnóstico no portal Azure, consulte o artigo do [portal de registo de consulta lenta](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics).
+Os registos de consulta lenta são integrados com as definições de diagnóstico do Azure Monitor. Uma vez ativados os registos de consulta lenta no seu servidor flexível MySQL, pode emitê-los para registos do Azure Monitor, Centros de Eventos ou Armazenamento Azure. Para saber mais sobre as definições de diagnóstico, consulte a documentação dos [registos de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md). Para saber mais sobre como ativar as definições de diagnóstico no portal Azure, consulte o artigo do [portal de registo de consulta lenta](how-to-configure-slow-query-logs-portal.md#set-up-diagnostics).
 
 A tabela seguinte descreve a saída do registo de consulta lenta. Dependendo do método de saída, os campos incluídos e a ordem em que aparecem podem variar.
 

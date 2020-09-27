@@ -8,14 +8,14 @@ ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: e9a2ff5d46557ddf8f5f62b456e8a3d54bf90c55
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 6be511029221e1f7bd1e58ad111503a43ee157fb
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89290354"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400660"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Quickstart: Criar um índice de pesquisa cognitiva Azure em Java usando APIs de REST
 > [!div class="op_single_selector"]
@@ -53,11 +53,11 @@ As chamadas para o serviço requerem um ponto final URL e uma chave de acesso em
 
    Crie uma chave de consulta, também. É uma boa prática emitir pedidos de consulta com acesso apenas de leitura.
 
-![Obtenha o nome de serviço e as chaves de administração e consulta](media/search-get-started-nodejs/service-name-and-keys.png)
+:::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Obtenha o nome de serviço e as chaves de administração e consulta" border="false":::
 
 Cada pedido enviado ao seu serviço requer uma chave api. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
-## <a name="set-up-your-environment"></a>Configurar o seu ambiente
+## <a name="set-up-your-environment"></a>Configurar o ambiente
 
 Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 
@@ -67,7 +67,7 @@ Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 1. Selecione **Maven**.
 1. Na lista **do Project SDK,** selecione o Java 11 SDK.
 
-    ![Criar um projeto maven](media/search-get-started-java/java-quickstart-create-new-maven-project.png) 
+    :::image type="content" source="media/search-get-started-java/java-quickstart-create-new-maven-project.png" alt-text="Criar um projeto maven" border="false":::
 
 1. Para **GroupId** e **ArtifactId,** insira `AzureSearchQuickstart` .
 1. Aceite os restantes incumprimentos para abrir o projeto.
@@ -78,7 +78,7 @@ Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 1. Na janela **Definições,** selecione **Construção, Execução, Implementação**  >  **Ferramentas de Construção**  >  **Maven**  >  **Maven Importando**.
 1. Selecione os  **projetos Import Maven** verifique automaticamente a caixa e clique **em OK** para fechar a janela. Os plugins maven e outras dependências serão automaticamente sincronizados quando atualizar o ficheiro pom.xml no passo seguinte.
 
-    ![Opções de importação de Maven nas definições de IntelliJ](media/search-get-started-java/java-quickstart-settings-import-maven-auto.png)
+    :::image type="content" source="media/search-get-started-java/java-quickstart-settings-import-maven-auto.png" alt-text="Opções de importação de Maven nas definições de IntelliJ" border="false":::
 
 1. Abra o ficheiro pom.xml e substitua o conteúdo pelos seguintes detalhes de configuração Maven. Estes incluem referências ao [Plugin Maven DoEc e](https://www.mojohaus.org/exec-maven-plugin/) a uma [API de interface JSON](https://javadoc.io/doc/org.glassfish/javax.json/1.0.2)
 
@@ -140,7 +140,7 @@ Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 
     Quando terminar, a árvore do projeto deve parecer a seguinte imagem.
 
-    ![Estrutura do diretório do projeto](media/search-get-started-java/java-quickstart-basic-code-tree.png)
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree.png" alt-text="Estrutura do diretório do projeto" border="false":::
 
 1. Clique em **OK** para fechar a janela.
 
@@ -373,10 +373,10 @@ Comece por abrir o IntelliJ IDEA e criar um novo projeto.
 
 1. Verifique se o seu projeto tem a seguinte estrutura.
 
-    ![Estrutura de diretório de projeto mais aulas](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
+    :::image type="content" source="media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png" alt-text="Estrutura de diretório de projeto mais aulas" border="false":::
 
 1. Abra a janela da ferramenta **Maven** e execute este objetivo maven: `verify exec:java` 
- ![ Execute o objetivo maven: verifique exec:java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)
+ :::image type="content" source="media/search-get-started-java/java-quickstart-execute-maven-goal.png" alt-text="Execute o objetivo maven: verifique exec:java" border="false":::
 
 Ao processar concluído, procure uma mensagem BUILD SUCCESS seguida de um código de saída zero (0).
 
@@ -515,7 +515,7 @@ A definição de índice de hotéis contém campos simples e um campo complexo. 
     
     O `Description` campo neste índice usa a propriedade opcional para anular o `analyzer` analisador de linguagem Lucene padrão. O `Description_fr` campo está a usar o analisador francês Lucene porque armazena texto `fr.lucene` francês. Está `Description` a usar o analisador de idioma opcional da Microsoft en.lucene. Para saber mais sobre os analisadores, consulte [os Analisadores para processamento de texto na Pesquisa Cognitiva Azure.](search-analyzers.md)
 
-1. Adicione o seguinte código à `SearchServiceClient` classe. Estes métodos constroem URLs de serviço de rest de pesquisa cognitiva Azure que criam e apagam um índice, e que determinam se existe um índice. Os métodos também fazem o pedido HTTP.
+1. Adicione o seguinte código à classe `SearchServiceClient`. Estes métodos constroem URLs de serviço de rest de pesquisa cognitiva Azure que criam e apagam um índice, e que determinam se existe um índice. Os métodos também fazem o pedido HTTP.
 
     ```java
     public boolean indexExists() throws IOException, InterruptedException {
@@ -695,7 +695,7 @@ A definição de índice de hotéis contém campos simples e um campo complexo. 
 
 Agora que você carregou os documentos dos hotéis, você pode criar consultas de pesquisa para aceder aos dados dos hotéis.
 
-1. Adicione o seguinte código à `SearchServiceClient` classe. Este código constrói URLs de serviço de rest de pesquisa cognitiva Azure para pesquisar os dados indexados e imprime os resultados da pesquisa.
+1. Adicione o seguinte código à classe `SearchServiceClient`. Este código constrói URLs de serviço de rest de pesquisa cognitiva Azure para pesquisar os dados indexados e imprime os resultados da pesquisa.
 
     A `SearchOptions` classe e o método permitem `createSearchOptions` especificar um subconjunto das opções de consulta API de Pesquisa Cognitiva Azure disponível. Para obter mais informações sobre as opções de consulta rest API, consulte [Documentos de Pesquisa (Azure Cognitive Search REST API)](/rest/api/searchservice/search-documents).
 

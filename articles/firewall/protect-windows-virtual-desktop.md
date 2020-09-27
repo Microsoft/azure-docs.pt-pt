@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: victorh
-ms.openlocfilehash: c725673281b564958bb081fb47fe51a0ad66bea2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae33d763bda49756e9f90a05feda5089b63ef28b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611140"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400167"
 ---
 # <a name="use-azure-firewall-to-protect-window-virtual-desktop-deployments"></a>Utilizar o Azure Firewall para proteger implementações de Ambientes de Trabalho Virtuais do Windows
 
@@ -61,7 +61,7 @@ As máquinas virtuais Azure que cria para o Windows Virtual Desktop devem ter ac
 
 ## <a name="host-pool-outbound-access-to-the-internet"></a>Hospedar piscina de acesso à Internet
 
-Dependendo das necessidades da sua organização, pode querer permitir um acesso seguro à Internet para os seus utilizadores finais. Nos casos em que a lista de destinos permitidos esteja bem definida (por [exemplo, o acesso ao Office 365),](https://docs.microsoft.com/Office365/Enterprise/office-365-ip-web-service)pode utilizar a aplicação E as regras de rede do Azure Firewall para configurar o acesso necessário. Isto encaminha o tráfego de utilizadores finais diretamente para a Internet para melhor desempenho.
+Dependendo das necessidades da sua organização, pode querer permitir um acesso seguro à Internet para os seus utilizadores finais. Nos casos em que a lista de destinos permitidos esteja bem definida (por exemplo, [acesso ao Microsoft 365),](/microsoft-365/enterprise/microsoft-365-ip-web-service)pode utilizar a aplicação Estrutural do Azure Firewall e as regras de rede para configurar o acesso necessário. Isto encaminha o tráfego de utilizadores finais diretamente para a Internet para melhor desempenho.
 
 Se pretender filtrar o tráfego de Internet do utilizador de saída utilizando um portal web seguro existente no local, pode configurar navegadores web ou outras aplicações em execução no pool do anfitrião do Windows Virtual Desktop com uma configuração explícita de procuração. Por exemplo, consulte [como utilizar as opções da linha de comando do Microsoft Edge para configurar as definições de procuração](https://docs.microsoft.com/deployedge/edge-learnmore-cmdline-options-proxy-settings). Estas definições de procuração apenas influenciam o acesso à Internet do utilizador final, permitindo que a plataforma virtual do Windows ultrapasse o tráfego diretamente através do Azure Firewall.
 
@@ -74,6 +74,6 @@ Poderá ser necessário configurar regras adicionais de firewall, dependendo dos
    Por predefinição, as máquinas virtuais que executam o Windows conectam-se a time.windows.com sobre a porta UDP 123 para sincronização de tempo. Crie uma regra de rede para permitir este acesso, ou para um servidor de tempo que utiliza no seu ambiente.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o Windows Virtual Desktop: [O que é o Windows Virtual Desktop?](../virtual-desktop/overview.md)

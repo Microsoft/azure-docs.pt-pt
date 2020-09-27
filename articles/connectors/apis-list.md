@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 4876c5cb0490a96d5a77da9ced83e1650e98379a
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 23e6834f4850cc8f44f563a12f4704fec2e13ef7
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488835"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400813"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores para o Azure Logic Apps
 
@@ -66,7 +66,7 @@ Para aplicações lógicas que necessitem de acesso direto aos recursos numa red
 > [!NOTE]
 > As aplicações lógicas que funcionam num ISE e os seus conectores, independentemente do local onde esses conectores funcionam, seguem um plano de preços fixos em relação ao plano de preços baseado no consumo. Para obter mais informações, consulte [o modelo de preços de Apps Lógicas](../logic-apps/logic-apps-pricing.md) e detalhes de preços de Apps [Lógicas.](https://azure.microsoft.com/pricing/details/logic-apps/)
 
-| Etiqueta | Exemplo | Descrição |
+| Etiqueta | Exemplo | Description |
 |-------|---------|-------------|
 | **CORE** | ![Conector CORE exemplo](./media/apis-list/example-core-connector.png) | Os gatilhos incorporados e as ações com esta etiqueta funcionam no mesmo ISE que as suas aplicações lógicas. |
 | **ISE** | ![Conector ISE exemplo](./media/apis-list/example-ise-connector.png) | Os conectores geridos com esta etiqueta funcionam no mesmo ISE que as suas aplicações lógicas. Se tiver um sistema no local ligado a uma rede virtual Azure, um ISE permite que as suas aplicações lógicas acedam diretamente a esse sistema sem o [portal de dados no local.](../logic-apps/logic-apps-gateway-connection.md) Em vez disso, pode utilizar o conector **ISE** do sistema, se disponível, uma ação HTTP ou um [conector personalizado.](#custom) Para sistemas no local que não tenham conectores **ISE,** utilize o portal de dados no local. Para rever os conectores ISE disponíveis, consulte [os conectores ISE](#ise-connectors). |
@@ -136,7 +136,7 @@ A Logic Apps fornece estes conectores Standard populares para automatizar tarefa
 | [![Azure Service Bus geriu o conector ][azure-service-bus-icon]<br> **Azure Service Bus**][azure-service-bus-doc] | Faça a gestão de mensagens assíncronas, sessões e subscrições de tópicos com o conector mais usado em Logic Apps. |
 | [![SQL Server gerido conector ][sql-server-icon]<br> **SQL Server**][sql-server-doc] | Ligue ao seu SQL Server nas instalações ou numa Base de Dados Azure SQL na nuvem para que possa gerir registos, executar procedimentos armazenados ou realizar consultas. |
 | [![Azure Blob Storage gerido conector ][azure-blob-storage-icon]<br> **Azure Blob <br> Storage**][azure-blob-storage-doc] | Ligue-se à sua conta de armazenamento para que possa criar e gerir o conteúdo blob. |
-| [![Office 365 Outlook gerido conector ][office-365-outlook-icon]<br> **Office 365 <br> Outlook**][office-365-outlook-doc] | Ligue-se à sua conta de e-mail Office 365 para que possa criar e gerir e-mails, tarefas, eventos de calendário e reuniões, contactos, pedidos e muito mais. |
+| [![Office 365 Outlook gerido conector ][office-365-outlook-icon]<br> **Office 365 <br> Outlook**][office-365-outlook-doc] | Conecte-se à sua conta de e-mail de trabalho ou escola para que possa criar e gerir e-mails, tarefas, eventos de calendário e reuniões, contactos, pedidos e muito mais. |
 | [![Conector gerido ][sftp-ssh-icon]<br> **SFTP-SSH SFTP-SSH**][sftp-ssh-doc] | Conecte-se aos servidores SFTP que pode aceder a partir da internet utilizando o SSH para que possa trabalhar com os seus ficheiros e pastas. |
 | [![SharePoint Contacto Gerido Online ][sharepoint-online-icon]<br> **SharePoint <br> Online**][sharepoint-online-doc] | Ligue-se ao SharePoint Online para que possa gerir ficheiros, anexos, pastas e muito mais. |
 | [![Azure Queues geriu o conector ][azure-queues-icon]<br> **Azure <br> Queues**][azure-queues-doc] | Ligue-se à sua conta de Armazenamento Azure para que possa criar e gerir filas e mensagens. |
@@ -412,7 +412,7 @@ Se a sua organização não permitir a ligação a recursos específicos utiliza
 
 Embora crie ligações a partir de uma aplicação lógica, as ligações são recursos Azure separados com as suas próprias definições de recursos. Para rever estas definições de recursos de conexão, [baixe a sua aplicação lógica do Azure para o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), que é a forma mais fácil de criar um modelo de aplicação lógica parametrizada válido que esteja maioritariamente pronto para ser implantado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Ver a [lista completa do conector](/connectors)
 * [Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
@@ -588,7 +588,7 @@ Embora crie ligações a partir de uma aplicação lógica, as ligações são r
 [instagram-doc]: ./connectors-create-api-instagram.md "Ligue-se ao Instagram. Desencadear ou agir em eventos"
 [mandrill-doc]: ./connectors-create-api-mandrill.md "Ligue ao Mandrill para comunicação"
 [mysql-doc]: /connectors/mysql/ "Ligue-se à base de dados MySQL no local para que possa ler e escrever dados"
-[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Conecte-se à sua conta Office 365 para que possa enviar e receber e-mails, gerir o seu calendário e contactos, entre outros"
+[office-365-outlook-doc]: ./connectors-create-api-office365-outlook.md "Conecte-se à sua conta de trabalho ou escola para que possa enviar e receber e-mails, gerir o seu calendário e contactos, entre outros"
 [onedrive-doc]: ./connectors-create-api-onedrive.md "Conecte-se ao seu Microsoft OneDrive pessoal para que possa carregar, eliminar, listar ficheiros e muito mais"
 [onedrive-for-business-doc]: ./connectors-create-api-onedriveforbusiness.md "Conecte-se ao seu negócio Microsoft OneDrive para que possa carregar, eliminar, listar os seus ficheiros e muito mais"
 [oracle-db-doc]: ./connectors-create-api-oracledatabase.md "Ligue-se a uma base de dados Oráculo para que possa adicionar, inserir, eliminar linhas e muito mais"

@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: overview
 ms.date: 09/23/2020
 ms.author: victorh
-ms.openlocfilehash: 6768da698838856582d29e9f302acae2bc6c28bd
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 74d83ecc240fa4b48421dbaa1c5cc9e62990655d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91252226"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399453"
 ---
 # <a name="what-is-azure-firewall-manager"></a>O que é o Azure Firewall Manager?
 
@@ -78,7 +78,7 @@ O Azure Firewall Manager tem os seguintes problemas conhecidos:
 
 |Problema  |Description  |Mitigação  |
 |---------|---------|---------|
-|Divisão de tráfego|O escritório 365 e a divisão de tráfego do Azure Public PaaS não são suportados neste momento. Como tal, a seleção de um fornecedor de terceiros para V2I ou B2I também envia todo o tráfego Azure Public PaaS e Office 365 através do serviço de parceiros.|A investigar a divisão de trânsito no centro.
+|Divisão de tráfego|A divisão de tráfego da Microsoft 365 e do Azure Public PaaS não está suportada neste momento. Como tal, selecionar um fornecedor de terceiros para V2I ou B2I também envia todo o tráfego Azure Public PaaS e Microsoft 365 através do serviço de parceiros.|A investigar a divisão de trânsito no centro.
 |Um centro virtual seguro por região|Não se pode ter mais do que um centro virtual seguro por região.|Crie várias WANs virtuais numa região.|
 |As políticas de base devem estar na mesma região que a política local|Crie todas as suas políticas locais na mesma região que a política de base. Pode ainda aplicar uma política criada numa região num centro seguro de outra região.|A investigar|
 |Filtrar o tráfego inter-hub em implementações de centros virtuais seguros|O Hub Virtual Seguro para a filtragem de comunicação do Hub Virtual Garantido ainda não está suportado. No entanto, a comunicação do hub para hub ainda funciona se a filtragem de tráfego privado através do Azure Firewall não estiver ativada.|A investigar|

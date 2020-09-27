@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 15ae1ca6902c27732812a591f492430150c84ecb
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: c44ac820349973240328fbb92dea14668b019a12
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926183"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400796"
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticação e permissões de utilizador
 
@@ -28,13 +28,13 @@ Todas as aplicações e ferramentas do cliente utilizam uma ou mais bibliotecas 
 
 As três bibliotecas de clientes suportam tanto o fluxo interativo AZure AD como os métodos de autenticação não interativos. Os dois métodos não interativos, Password de Diretório Ativo e Métodos de Autenticação Integrado de Diretório Ativo podem ser utilizados em aplicações que usassem AMOMD e MSOLAP. Estes dois métodos nunca resultam em caixas de diálogo pop-up.
 
-Aplicações de clientes como Excel e Power BI Desktop, e ferramentas como SSMS e Analysis Services projetam extensão de projetos para Visual Studio instalar as versões mais recentes das bibliotecas quando atualizadas para o lançamento mais recente. A extensão dos projetos de power BI Desktop, SSMS e Analysis Services são atualizadas mensalmente. O Excel é [atualizado com o Office 365](https://support.office.com/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). As atualizações do Office 365 são menos frequentes e algumas organizações usam o canal diferido, o que significa que as atualizações são adiadas até três meses.
+Aplicações de clientes como Excel e Power BI Desktop, e ferramentas como SSMS e Analysis Services projetam extensão de projetos para Visual Studio instalar as versões mais recentes das bibliotecas quando atualizadas para o lançamento mais recente. A extensão dos projetos de power BI Desktop, SSMS e Analysis Services são atualizadas mensalmente. O Excel é [atualizado com o Microsoft 365](https://support.microsoft.com/office/when-do-i-get-the-newest-features-for-microsoft-365-da36192c-58b9-4bc9-8d51-bb6eed468516). As atualizações da Microsoft 365 são menos frequentes e algumas organizações usam o canal diferido, o que significa que as atualizações são adiadas até três meses.
 
 Dependendo da aplicação ou ferramenta do cliente que utiliza, o tipo de autenticação e a forma como se inscreve pode ser diferente. Cada aplicação pode suportar diferentes funcionalidades para a ligação a serviços na nuvem como os Azure Analysis Services.
 
 Power BI Desktop, Visual Studio e SSMS suportam autenticação universal do Diretório Ativo, um método interativo que também suporta a autenticação multi-factor Azure (MFA). O Azure MFA ajuda a salvaguardar o acesso a dados e aplicações, ao mesmo tempo que fornece um processo simples de inscrição. Oferece autenticação forte com várias opções de verificação (chamada telefónica, mensagem de texto, cartões inteligentes com pin ou notificação de aplicações móveis). O MFA interativo com Azure AD pode resultar numa caixa de diálogo pop-up para validação. **Recomenda-se a autenticação universal.**
 
-Se iniciar sessão no Azure utilizando uma conta Windows e a Autenticação Universal não for selecionada ou disponível (Excel), são [necessários Serviços da Federação de Diretórios Ativos (AD FS).](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) Com a Federação, os utilizadores do Azure AD e do Office 365 são autenticados utilizando credenciais no local e podem aceder aos recursos do Azure.
+Se iniciar sessão no Azure utilizando uma conta Windows e a Autenticação Universal não for selecionada ou disponível (Excel), são [necessários Serviços da Federação de Diretórios Ativos (AD FS).](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) Com a Federação, os utilizadores do Azure AD e da Microsoft 365 são autenticados utilizando credenciais no local e podem aceder aos recursos do Azure.
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
 

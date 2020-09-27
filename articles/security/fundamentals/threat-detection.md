@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 1522d143f2837a57481a4d678911e7a3c44d084d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 78043e3d95a94d0e9be810164b31ef031234d620
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541027"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399606"
 ---
 # <a name="azure-advanced-threat-detection"></a>Deteção avançada de ameaças do Azure
 
@@ -64,13 +64,13 @@ Exemplos de algumas das formas que a Azure Identity Protection pode ajudar a pro
 
 ### <a name="azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management
 
-Com [a Azure Ative Directory Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md)pode gerir, controlar e monitorizar o acesso dentro da sua organização. Esta funcionalidade inclui acesso a recursos em AZure AD e outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.
+Com [a Azure Ative Directory Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md)pode gerir, controlar e monitorizar o acesso dentro da sua organização. Esta funcionalidade inclui acesso a recursos em AD Azure e outros serviços online da Microsoft, como o Microsoft 365 ou o Microsoft Intune.
 
 ![Diagrama de Gestão de Identidade Privilegiada Azure AD](./media/threat-detection/azure-threat-detection-fig2.png)
 
 A PIM ajuda-o:
 
--   Receba alertas e relatórios sobre administradores da AD Azure e acesso administrativo just-in-time (JIT) aos serviços online da Microsoft, como o Office 365 e o Intune.
+-   Receba alertas e relatórios sobre administradores da AD Azure e acesso administrativo just-in-time (JIT) aos serviços online da Microsoft, como o Microsoft 365 e o Intune.
 
 -   Obtenha relatórios sobre o histórico de acesso do administrador e alterações nas atribuições de administrador.
 
@@ -155,7 +155,7 @@ O Centro de Segurança emprega análises de segurança avançadas, que ultrapass
 
 A Microsoft tem acesso a uma enorme quantidade de inteligência global de ameaças.
 
-A telemetria flui de várias fontes, tais como Azure, Office 365, Microsoft CRM on-line, Microsoft Dynamics AX, outlook.com, MSN.com, a Microsoft Digital Crimes Unit (DCU) e o Microsoft Security Response Center (MSRC).
+A telemetria flui de várias fontes, tais como Azure, Microsoft 365, Microsoft CRM on-line, Microsoft Dynamics AX, outlook.com, MSN.com, a Microsoft Digital Crimes Unit (DCU) e o Microsoft Security Response Center (MSRC).
 
 ![Descobertas de inteligência de ameaça](./media/threat-detection/azure-threat-detection-fig10.jpg)
 
@@ -190,7 +190,7 @@ Alguns exemplos incluem:
 
 -   **Scripts Malicious PowerShell**: PowerShell pode ser usado por atacantes para executar código malicioso em máquinas virtuais alvo para vários fins. O Centro da Segurança inspeciona a atividade do PowerShell quanto a provas de atividade suspeita.
 
--   **Ataques de saída**: os atacantes concentram-se muitas vezes nos recursos da nuvem com o objetivo de os utilizar para preparar ataques adicionais. Máquinas virtuais comprometidas, por exemplo, podem ser usadas para lançar ataques de força bruta contra outras máquinas virtuais, enviar spam ou digitalizar portas abertas e outros dispositivos na internet. Ao aplicar o machine learning ao tráfego de rede, o Centro de Segurança pode detetar quando as comunicações da rede de saída excedem o normal. Quando o spam é detetado, o Security Center também correlaciona tráfego de e-mail incomum com informações do Office 365 para determinar se o correio é provavelmente nefasto ou o resultado de uma campanha de e-mail legítima.
+-   **Ataques de saída**: os atacantes concentram-se muitas vezes nos recursos da nuvem com o objetivo de os utilizar para preparar ataques adicionais. Máquinas virtuais comprometidas, por exemplo, podem ser usadas para lançar ataques de força bruta contra outras máquinas virtuais, enviar spam ou digitalizar portas abertas e outros dispositivos na internet. Ao aplicar o machine learning ao tráfego de rede, o Centro de Segurança pode detetar quando as comunicações da rede de saída excedem o normal. Quando o spam é detetado, o Security Center também correlaciona tráfego de e-mail incomum com informações da Microsoft 365 para determinar se o correio é provavelmente nefasto ou o resultado de uma campanha de e-mail legítima.
 
 ### <a name="anomaly-detection"></a>Deteção de anomalias
 
@@ -365,7 +365,7 @@ Ao recolher dados destas fontes, a Cloud App Security executa uma análise sofis
 
 ## <a name="third-party-advanced-threat-detection-capabilities-through-the-azure-marketplace"></a>Capacidades de deteção de ameaças avançadas de terceiros através do Azure Marketplace
 
-### <a name="web-application-firewall"></a>Firewall de Aplicação Web
+### <a name="web-application-firewall"></a>Firewall de Aplicações Web
 
 Web Application Firewall inspeciona o tráfego web de entrada e bloqueia injeções DE SQL, scripts de sites cruzados, uploads de malware, ataques DDoS de aplicações e outros ataques direcionados para as suas aplicações web. Também inspeciona as respostas dos servidores web de back-end para a prevenção da perda de dados (DLP). O motor integrado de controlo de acesso permite aos administradores criar políticas de controlo de acesso granular para a autenticação, autorização e contabilidade (AAA), o que confere às organizações uma forte autenticação e controlo do utilizador.
 

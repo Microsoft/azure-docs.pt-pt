@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: b1df1219590aa94331a4404b1315eb7231c59699
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 097db6683127b410e713be53e6de838cf7734ddc
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75445871"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400728"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Gerir dados do Excel Online com apps Azure Logic
 
@@ -33,7 +33,7 @@ Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps?](../logi
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* Uma [conta do Office 365](https://www.office.com/) para a sua conta de trabalho ou conta pessoal da Microsoft
+* Uma [conta de trabalho ou escola](https://www.office.com/) para a sua conta de trabalho ou conta pessoal da Microsoft
 
   Os seus dados Excel podem existir como um ficheiro de valor separado de vírgula (CSV) numa pasta de armazenamento, por exemplo, no OneDrive. 
   Também pode utilizar o mesmo ficheiro CSV com o [conector de ficheiro plano](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
@@ -53,7 +53,7 @@ Se é novo em aplicações lógicas, [reveja o que é Azure Logic Apps?](../logi
    > [!NOTE]
    > O Logic App Designer não consegue carregar tabelas com 100 ou mais colunas. Se possível, reduza o número de colunas na tabela selecionada para que o designer possa carregar a tabela.
 
-1. Se solicitado, inscreva-se na sua conta do Office 365.
+1. Se solicitado, inscreva-se na sua conta de trabalho ou escola.
 
    As suas credenciais autorizam a sua aplicação lógica a criar uma ligação ao Excel Online e a aceder aos seus dados.
 
@@ -66,6 +66,6 @@ Para detalhes técnicos, tais como gatilhos, ações e limites, conforme descrit
 * [Excel Online para Negócios](/connectors/excelonlinebusiness/)
 * [Excel Online para OneDrive](/connectors/excelonline/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [outros conectores de Apps Lógicas](../connectors/apis-list.md)

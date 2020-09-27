@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: agummadi
-ms.openlocfilehash: 2912488286745bf8d2e567d09e445b0a44dc7c39
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e2d3f0b5abcd7a9dcd4f49c120353adacffcb31
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67672186"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399657"
 ---
 # <a name="network-monitoring-solutions"></a>Soluções de monitorização de rede 
 
@@ -65,7 +65,7 @@ O NPM para o ExpressRoute oferece uma monitorização completa do ExpressRoute p
 * Deteção da topologia da rede desde as instalações até às suas aplicações em nuvem
 * Planeamento de capacidade, análise de utilização da largura de banda
 * Monitorização e alerta nos caminhos primário e secundário
-* Monitorização da conectividade com serviços Azure como Office 365, Dynamics 365, ... sobre ExpressRoute
+* Monitorização da conectividade com serviços Azure como Microsoft 365, Dynamics 365, ... sobre ExpressRoute
 * Detetar a degradação da conectividade com os VNets
 
 ![Geo-mapa mostrando tráfego em regiões](./media/network-monitoring-overview/expressroute-topology-map.png) 
@@ -84,7 +84,7 @@ Com a monitorização da Conectividade de Serviço, pode agora testar a capacida
 * Alcance da aplicação de teste de vários locais de utilizadores em todo o mundo
 * Determine a latência da rede e a perda de pacotes para a sua linha de negócios e aplicações SaaS
 * Determinar pontos quentes na rede, que podem estar a causar um fraco desempenho da aplicação
-* Monitor de alcance para aplicações do Office 365, utilizando testes incorporados para Microsoft Office 365, Dynamics 365, Skype para negócios e outros serviços da Microsoft
+* Monitor de alcance para aplicações Microsoft 365, utilizando testes incorporados para Microsoft 365, Dynamics 365, Skype para empresas e outros serviços da Microsoft
 
 Para obter mais informações, veja os seguintes artigos:
 

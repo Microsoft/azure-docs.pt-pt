@@ -3,12 +3,12 @@ title: Adicione um utilizador como criador de laboratório nos Serviços Azure L
 description: Este artigo mostra como adicionar um utilizador ao papel de Criador de Laboratório para uma conta de laboratório nos Serviços do Laboratório Azure. Os criadores do laboratório podem criar laboratórios dentro desta conta de laboratório.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 34fbf9085f36d008607b648825585d3435cc2895
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fdeb33dab60a2fb9f1680295c355e2c7c0e775a
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444289"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399487"
 ---
 # <a name="add-lab-creators-to-a-lab-account-in-azure-lab-services"></a>Adicione criadores de laboratório a uma conta de laboratório nos Serviços do Laboratório Azure
 Este artigo mostra-lhe como adicionar utilizadores como criadores de laboratório a uma conta de laboratório nos Serviços Azure Lab. Estas utilizações podem então criar laboratórios de sala de aula na conta do laboratório. 
@@ -31,7 +31,7 @@ Para fornecer aos educadores a permissão para criar laboratórios para as suas 
 ## <a name="add-a-non-microsoft-account-user-as-a-lab-creator"></a>Adicione um utilizador de conta não-Microsoft como criador de laboratório
 Para adicionar um utilizador como criador de laboratório, utiliza as suas contas de e-mail. Podem ser utilizados os seguintes tipos de contas de e-mail:
 
-- Uma conta de e-mail fornecida pelo Office 365 Azure Ative Directory (AAD) da sua universidade. 
+- Uma conta de e-mail fornecida pelo Azure Ative Directory (AAD) da sua universidade.
 - Uma conta de e-mail da Microsoft, `@outlook.com` `@hotmail.com` como, `@msn.com` por exemplo, ou `@live.com` .
 - Uma conta de e-mail não-Microsoft, como uma fornecida pela Yahoo ou google. No entanto, este tipo de contas deve estar ligado a uma conta microsoft.
 - Uma conta do GitHub. Esta conta deve estar ligada a uma conta microsoft.
@@ -60,7 +60,7 @@ Na página **de opções de iniciar sção,** selecione **Iniciar sôs com o Git
 Finalmente, são solicitados a criar uma conta Microsoft que esteja ligada à sua conta GitHub. Acontece automaticamente quando o instrutor seleciona **Next**.  O instrutor é imediatamente assinado e ligado ao laboratório da sala de aula.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 - [Como dono de laboratório, crie e gere laboratórios](how-to-manage-classroom-labs.md)

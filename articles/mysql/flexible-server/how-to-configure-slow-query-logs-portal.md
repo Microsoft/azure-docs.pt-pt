@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 1a829f4e5f45394d9c5bbed0db9289727b816917
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a73a2bc82c7f4e77808f751bb8ba24adcacd2e31
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91315036"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400388"
 ---
 # <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Configurar e aceder a registos de consulta lenta para Azure Database for MySQL - Servidor Flexível utilizando o portal Azure
 
@@ -45,9 +45,6 @@ A partir da página **'Parâmetros do Servidor',** pode voltar à lista de regis
 
 ## <a name="set-up-diagnostics"></a>Configurar diagnósticos
 
-> [!NOTE]
-> A integração com as definições de diagnóstico do Azure Monitor para aceder a registos está em processo de implantação e a funcionalidade completa estará disponível em breve.
-
 Os registos de consulta lenta são integrados com as definições de diagnóstico do Azure Monitor para permitir que encanize os seus registos em registos do Monitor Azure, nos Centros de Eventos ou no Armazenamento Azure.
 
 1. Sob a secção **de monitorização** na barra lateral, selecione **definições de diagnóstico**Adicione as  >  **definições de diagnóstico**.
@@ -66,7 +63,7 @@ Os registos de consulta lenta são integrados com as definições de diagnóstic
 
 1. Aceda aos registos de consulta lenta explorando-os nos sumidouros de dados configurados. Pode levar até 10 minutos para os registos aparecerem.
 
-Se canalizar os seus registos para registos do Monitor Azure (Log Analytics), consulte algumas [consultas de amostra que](concepts-audit-logs.md#analyze-logs-in-azure-monitor-logs) pode utilizar para análise. 
+Se canalizar os seus registos para registos do Monitor Azure (Log Analytics), consulte algumas [consultas de amostra que](concepts-slow-query-logs.md#analyze-logs-in-azure-monitor-logs) pode utilizar para análise. 
 
 ## <a name="next-steps"></a>Passos seguintes
 <!-- - See [Access slow query Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download slow query logs programmatically.-->

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/12/2020
 ms.author: kumud
-ms.openlocfilehash: 39601da6cc8e10ba8f4a24eeddb97cfe677c031f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 364f4f38599508e4dfb455f1336d4a6978cdf5b6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651726"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400456"
 ---
 # <a name="azure-networking-services-overview"></a>Visão geral dos serviços de networking do Azure
 
@@ -53,7 +53,7 @@ A Azure Virtual Network (VNet) é o bloco de construção fundamental para a sua
 Para mais informações, veja [o que é a Rede Virtual Azure?](../virtual-network/virtual-networks-overview.md)
 
 ### <a name="expressroute"></a><a name="expressroute"></a>ExpressRoute
-O ExpressRoute permite-lhe estender as suas redes no local para a nuvem da Microsoft através de uma ligação privada facilitada por um fornecedor de conectividade. Esta ligação é privada. O tráfego não é transmitido pela Internet. Com o ExpressRoute, pode ligar aos serviços cloud da Microsoft, como o Microsoft Azure, o Office 365 e o Dynamics 365.  Para mais informações, veja [o que é ExpressRoute?](../expressroute/expressroute-introduction.md)
+O ExpressRoute permite-lhe estender as suas redes no local para a nuvem da Microsoft através de uma ligação privada facilitada por um fornecedor de conectividade. Esta ligação é privada. O tráfego não é transmitido pela Internet. Com o ExpressRoute, pode estabelecer ligação aos serviços cloud da Microsoft, como o Microsoft Azure, o Microsoft 365 e o Dynamics 365.  Para mais informações, veja [o que é ExpressRoute?](../expressroute/expressroute-introduction.md)
 
 ![Azure ExpressRoute](./media/networking-overview/expressroute-connection-overview.png)
 
@@ -84,7 +84,7 @@ O VIRTUAL Network NAT (tradução de endereços de rede) simplifica a conectivid
 ![Gateway NAT de rede virtual](./media/networking-overview/flow-map.png)
 
 ### <a name="azure-peering-service"></a><a name="azurepeeringservice"></a> Serviço de Peering Azure
-O serviço Azure Peering melhora a conectividade do cliente com os serviços na nuvem da Microsoft, tais como o Office 365, Dynamics 365, software como serviço (SaaS), Azure, ou quaisquer serviços da Microsoft acessíveis através da internet pública. Para mais informações, veja [o que é o Serviço de Espreitamento Azure?](../peering-service/about.md)
+O serviço Azure Peering melhora a conectividade do cliente com os serviços na nuvem da Microsoft, tais como o Microsoft 365, Dynamics 365, software como serviço (SaaS), Azure, ou quaisquer serviços da Microsoft acessíveis através da internet pública. Para mais informações, veja [o que é o Serviço de Espreitamento Azure?](../peering-service/about.md)
 
 ## <a name="application-protection-services"></a><a name="protect"></a>Serviços de proteção de aplicações
 
@@ -208,7 +208,7 @@ A imagem que se segue mostra como funciona a rede virtual TAP.
 
 Para mais informações, consulte [O que é a Rede Virtual TAP.](../virtual-network/virtual-network-tap-overview.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Crie o seu primeiro VNet e conecte alguns VMs ao mesmo, completando os passos no Create o seu primeiro artigo [de rede virtual.](../virtual-network/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 - Ligue o computador a um VNet completando os passos no [Configure um artigo de ligação ponto-a-local](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json).

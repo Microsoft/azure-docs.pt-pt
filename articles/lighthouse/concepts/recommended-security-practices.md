@@ -3,12 +3,12 @@ title: Práticas de segurança recomendadas
 description: Ao utilizar o Farol Azure, é importante considerar o controlo de segurança e acesso.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: ddc4d2c69e7aacc49c5309bc407aecd9bc8e572f
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 097611837e3bba2d1a44ec521862e03cc467d707
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163276"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399385"
 ---
 # <a name="recommended-security-practices"></a>Práticas de segurança recomendadas
 
@@ -28,7 +28,7 @@ Sugerimos que peça aos seus clientes que implementem a Autenticação Multi-Fac
 Para facilitar a gestão, utilize grupos Azure Ative Directory (Azure AD) para cada função necessária para gerir os recursos dos seus clientes. Isto permite adicionar ou remover utilizadores individuais ao grupo conforme necessário, em vez de atribuir permissões diretamente a cada utilizador.
 
 > [!IMPORTANT]
-> Para adicionar permissões para um grupo AD Azure, o **tipo de grupo** deve ser a **Segurança** e não o **Office 365**. Esta opção é selecionada quando o grupo é criado. Para obter mais informações, consulte [Criar um grupo básico e adicionar membros utilizando o Azure Ative Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+> Para adicionar permissões para um grupo AD Azure, o **tipo de grupo** deve ser definido como **Segurança**. Esta opção é selecionada quando o grupo é criado. Para obter mais informações, consulte [Criar um grupo básico e adicionar membros utilizando o Azure Ative Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Ao criar a sua estrutura de permissão, certifique-se de seguir o princípio do menor privilégio para que os utilizadores tenham apenas as permissões necessárias para completar o seu trabalho, ajudando a reduzir a chance de erros inadvertidos.
 
@@ -39,7 +39,7 @@ Por exemplo, pode querer usar uma estrutura como esta:
 |Arquitetos     |Grupo de utilizadores         |\<principalId\>         |Contribuidor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |Avaliação     |Grupo de utilizadores         |\<principalId\>         |Leitor         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
 |Especialistas em VM     |Grupo de utilizadores         |\<principalId\>         |Colaborador VM         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
-|Automatização     |Nome principal do serviço (SPN)         |\<principalId\>         |Contribuidor         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Automatização     |Nome principal do serviço (SPN)         |\<principalId\>         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
 Uma vez criados estes grupos, pode atribuir os utilizadores conforme necessário. Adicione apenas os utilizadores que realmente precisam de ter acesso. Certifique-se de rever regularmente a adesão ao grupo e remover quaisquer utilizadores que já não sejam apropriados ou necessários para incluir.
 

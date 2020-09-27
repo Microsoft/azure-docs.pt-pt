@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 09/22/2020
 ms.custom: generated
-ms.openlocfilehash: 973426c6d9d3a4c642e5f37aebe60acce54d581b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ade4a6b791a8aca963a056800bd8c58767aeb766
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326410"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400099"
 ---
 # <a name="azure-resource-provider-operations"></a>Operações de fornecedor de recursos Azure
 
@@ -5098,7 +5098,7 @@ Serviço Azure: [Serviços Cognitivos](../cognitive-services/index.yml)
 
 ### <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
-Serviço Azure: [Machine Learning Studio (clássico)](../machine-learning/studio/index.yml)
+Serviço Azure: [Machine Learning Studio (clássico)](../machine-learning/classic/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Ação | Descrição |
@@ -5242,36 +5242,6 @@ Serviço Azure: [Serviço de Aprendizagem automática](../machine-learning/index
 > | Microsoft.MachineLearningServices/workspaces/services/aks/listkeys/action | Lista chaves para serviços AKS em Espaço de Trabalho de Serviços de Aprendizagem Automática |
 > | Microsoft.MachineLearningServices/workspaces/services/aks/delete | Elimina os serviços AKS no espaço de trabalho dos serviços de aprendizagem automática |
 > | Microsoft.MachineLearningServices/workspaces/services/aks/score/action | Pontuações serviços AKS em espaço de trabalho de serviços de aprendizagem automática |
-
-
-### <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
-
-Serviço Azure: [Machine Learning Studio (clássico)](../machine-learning/classic/index.yml)
-
-> [!div class="mx-tableFixed"]
-> | Ação | Descrição |
-> | --- | --- |
-> | Microsoft.MachineLearning/register/action | Regista a subscrição do fornecedor de recursos de serviço web machine learning e permite a criação de serviços web. |
-> | Microsoft.MachineLearning/webServices/action | Criar propriedades regionais de serviço web para regiões apoiadas |
-> | Microsoft.MachineLearning/commitmentPlans/read | Leia qualquer plano de compromisso de aprendizagem automática |
-> | Microsoft.MachineLearning/commitmentPlans/write | Criar ou atualizar qualquer plano de compromisso de aprendizagem automática |
-> | Microsoft.MachineLearning/commitmentPlans/delete | Excluir qualquer plano de compromisso de aprendizagem automática |
-> | Microsoft.MachineLearning/commitmentPlans/join/action | Aderir a qualquer Plano de Compromisso de Aprendizagem automática |
-> | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/read | Leia qualquer Associação de Planos de Compromisso de Aprendizagem automática |
-> | Microsoft.MachineLearning/commitmentPlans/commitmentAssociations/move/action | Mover qualquer Associação de Planos de Compromisso de Aprendizagem automática |
-> | Microsoft.MachineLearning/locations/operationresults/read | Obtenha o resultado de uma operação de aprendizagem automática |
-> | Microsoft.MachineLearning/locations/operationsstatus/read | Obtenha o estado de uma operação de aprendizagem automática em curso |
-> | Microsoft.MachineLearning/operations/read | Obtenha operações de aprendizagem automática |
-> | Microsoft.MachineLearning/skus/read | Obter Plano de Compromisso de Aprendizagem Automática SKUs |
-> | Microsoft.MachineLearning/webServices/read | Leia qualquer serviço web de aprendizagem automática |
-> | Microsoft.MachineLearning/webServices/write | Criar ou atualizar qualquer serviço web de aprendizagem automática |
-> | Microsoft.MachineLearning/webServices/delete | Excluir qualquer serviço web de aprendizagem automática |
-> | Microsoft.MachineLearning/webServices/listkeys/read | Obtenha as chaves de um serviço web de machine learning |
-> | Microsoft.MachineLearning/Workspaces/read | Leia qualquer espaço de trabalho de aprendizagem automática |
-> | Microsoft.MachineLearning/Workspaces/write | Criar ou atualizar qualquer espaço de trabalho de aprendizagem automática |
-> | Microsoft.MachineLearning/Workspaces/delete | Excluir qualquer espaço de trabalho de aprendizagem automática |
-> | Microsoft.MachineLearning/Workspaces/listworkspacekeys/action | Listar chaves para um espaço de trabalho de aprendizagem automática |
-> | Microsoft.MachineLearning/Workspaces/resyncstoragekeys/ação | Chaves ressínc de conta de armazenamento configuradas para um espaço de trabalho de machine learning |
 
 ## <a name="internet-of-things"></a>Internet das Coisas
 
@@ -8239,7 +8209,7 @@ Serviço Azure: [Azure Policy](../governance/policy/overview.md), [Azure RBAC,](
 > | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Authorization/elevateAccess/action | Concede ao chamador o acesso de Administrador de Acesso de Utilizador no âmbito do inquilino |
-> | Microsoft.Authorization/classicAdministrators/read | Lê os administradores para a subscrição. |
+> | Microsoft.Authorization/classicAdministrators/read | Lê os administradores para a subscrição. Não tem efeito se usado como NotAction num papel personalizado. |
 > | Microsoft.Authorization/classicAdministrators/write | Adicione ou modifique o administrador a uma subscrição. |
 > | Microsoft.Authorization/classicAdministrators/delete | Remove o administrador da subscrição. |
 > | Microsoft.Authorization/classicAdministrators/operationstatuses/read | Obtém o estado de operação do administrador da subscrição. |

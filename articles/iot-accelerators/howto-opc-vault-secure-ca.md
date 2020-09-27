@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: d702a3cca6a24819d2d184dc6df09153c9dcc860
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 01213cd4d04783d0d877b4565493f06fa3718f8d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91281886"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399640"
 ---
 # <a name="run-the-opc-vault-certificate-management-service-securely"></a>Executar o serviço de gestão de certificados OPC Vault de forma segura
 
@@ -94,7 +94,7 @@ Todos os sistemas devem ser monitorizados e atualizados continuamente com as mai
 
 ### <a name="security-monitoring"></a>Monitorização de segurança
 
-Subscreva ou implemente um controlo de segurança adequado. Por exemplo, subscreva uma solução central de monitorização (como o Azure Security Center ou a solução de monitorização do Office 365) e configufique-a adequadamente para garantir que os eventos de segurança sejam transmitidos à solução de monitorização.
+Subscreva ou implemente um controlo de segurança adequado. Por exemplo, subscreva uma solução central de monitorização (como o Azure Security Center ou a solução de monitorização Microsoft 365) e configufique-a adequadamente para garantir que os eventos de segurança sejam transmitidos à solução de monitorização.
 
 > [!IMPORTANT]
 > Por predefinição, o serviço OPC Vault é implantado com [a Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) como solução de monitorização. A adição de uma solução de segurança como [o Azure Security Center](https://azure.microsoft.com/services/security-center/) é altamente recomendada.

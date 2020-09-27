@@ -10,16 +10,16 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: 548d4f90bd9632e4807547120ac1be589668e8fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03ece391b6f33b47f34705cec1c5907602ac7b23
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84872037"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400184"
 ---
 # <a name="azure-peering-service-overview"></a>Visão geral do serviço de peering Azure
 
-O Azure Peering Service é um serviço de networking que melhora a conectividade do cliente com os serviços na nuvem da Microsoft, tais como Office 365, Dynamics 365, software como serviço (SaaS), Azure, ou quaisquer serviços da Microsoft acessíveis através da internet pública. A Microsoft estabeleceu uma parceria com fornecedores de serviços de internet (ISPs), parceiros de intercâmbio de internet (IXPs) e fornecedores de interligação de nuvem definida por software (SDCI) em todo o mundo para fornecer conectividade pública fiável e de alto desempenho com o encaminhamento ideal do cliente para a rede Microsoft.
+O Azure Peering Service é um serviço de networking que melhora a conectividade do cliente com os serviços na nuvem da Microsoft, tais como o Microsoft 365, Dynamics 365, software como serviço (SaaS), Azure ou quaisquer serviços da Microsoft acessíveis através da internet pública. A Microsoft estabeleceu uma parceria com fornecedores de serviços de internet (ISPs), parceiros de intercâmbio de internet (IXPs) e fornecedores de interligação de nuvem definida por software (SDCI) em todo o mundo para fornecer conectividade pública fiável e de alto desempenho com o encaminhamento ideal do cliente para a rede Microsoft.
 
 Com o Serviço de Escondamento, os clientes podem selecionar um prestador de serviços parceiros bem conectado numa determinada região. A conectividade pública é otimizada para alta fiabilidade e latência mínima dos serviços na nuvem até à localização do utilizador final.
 
@@ -50,7 +50,7 @@ O Serviço de Observação não é um produto de conectividade privada como o Az
 
 ## <a name="background"></a>Fundo
 
-Office 365, Dynamics 365 e quaisquer outros serviços Microsoft SaaS estão hospedados em vários datacenters da Microsoft e podem ser acedidos a partir de qualquer localização geográfica. A rede global da Microsoft tem localizações do Ponto de Presença (PoP) do Microsoft Edge em todo o mundo, onde pode ligar-se a um utilizador final através dos seus fornecedores de serviços. 
+Microsoft 365, Dynamics 365 e quaisquer outros serviços Microsoft SaaS estão hospedados em vários datacenters da Microsoft e podem ser acedidos a partir de qualquer localização geográfica. A rede global da Microsoft tem localizações do Ponto de Presença (PoP) do Microsoft Edge em todo o mundo, onde pode ligar-se a um utilizador final através dos seus fornecedores de serviços. 
 
 A Microsoft e os fornecedores de serviços de parceiros asseguram que o tráfego dos prefixos registados com uma ligação peering Service entra e sai das localizações poP do Microsoft Edge mais próximas na rede global da Microsoft. A Microsoft garante que a saída de tráfego de rede a partir dos prefixos registados nas ligações peering Service leva as localizações poP do Microsoft Edge mais próximas na rede global da Microsoft.
 
@@ -80,13 +80,13 @@ O Serviço de Observação utiliza dois tipos de redundância:
 
    Cada local de observação é a provisionado com ligações de espreitamento redundantes e diversificadas.
 
-- **Geodusiunância**
+- **Georredundância**
 
    A Microsoft interligou-se com fornecedores de serviços em vários locais do metro para que, se um dos nós edge tiver degradado o desempenho, as rotas de tráfego de e para a Microsoft através de sites alternativos. A Microsoft encaminha o tráfego na sua rede global utilizando políticas de encaminhamento baseadas em SDN para um melhor desempenho.
 
     Este tipo de redundância utiliza o caminho de encaminhamento mais curto, escolhendo sempre o Microsoft Edge PoP mais próximo para o utilizador final e garante que o cliente está a um salto de rede (AS hops) longe da Microsoft.
 
-   ![Geodusiunância](./media/peering-service-about/peering-service-geo-shortest.png)
+   ![Georredundância](./media/peering-service-about/peering-service-geo-shortest.png)
 
 ### <a name="optimal-routing"></a>Encaminhamento ideal
 
@@ -126,7 +126,7 @@ A Microsoft garante a rota do tráfego através de caminhos preferenciais, mesmo
 
 As anomalias da rota BGP são reportadas no portal Azure, se houver.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre as ligações do Serviço de Peering, consulte [as ligações do Serviço de Peering](connection.md).
 - Para saber mais sobre a telemetria de conexão peering Service, consulte [a telemetria de conexão peering service](connection-telemetry.md).

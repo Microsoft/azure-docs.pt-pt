@@ -3,12 +3,12 @@ title: Configurar configurações de utilização em laboratórios de sala de au
 description: Aprenda a configurar o número de alunos para um laboratório, registei-os no laboratório, controle o número de horas que podem usar o VM, e muito mais.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 229147891d1456d7b7b11fd5297755842d85e600
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 742fcd2b504bce7ad2257edd559e4b66a9172d24
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445955"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399674"
 ---
 # <a name="add-and-manage-lab-users"></a>Adicionar e gerir utilizadores de laboratório
 
@@ -166,7 +166,7 @@ Para fixar quotas adicionais, faça o seguinte:
 
 Para adicionar alunos a um laboratório de sala de aula, você usa as suas contas de e-mail. Os alunos podem ter os seguintes tipos de contas de e-mail:
 
-- Uma conta de e-mail para estudantes fornecida pelo Azure Ative Directory da sua universidade para o Office 365. 
+- Uma conta de e-mail estudantil fornecida pelo azure ative directory da sua universidade.
 - Uma conta de e-mail de domínio microsoft, como *outlook.com,* *hotmail.com,* *msn.com*ou *live.com*.
 - Uma conta de e-mail não-Microsoft, como a fornecida pela Yahoo! ou Google. No entanto, este tipo de contas deve estar ligado a uma conta microsoft.
 - Uma conta do GitHub. Esta conta deve estar ligada a uma conta microsoft.
@@ -208,7 +208,7 @@ Se ainda não ligaram a sua conta GitHub a uma conta da Microsoft, podem fazer o
     ![O botão "Exportação CSV"](./media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 - Para administradores: [Criar e gerir contas de laboratório](how-to-manage-lab-accounts.md)

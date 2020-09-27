@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: fba6943adb18675bc804a3881042fe9d68f5b331
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: abd18132c7489153566042b0b7e3557662864f30
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85114746"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399470"
 ---
-# <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Distribuição de dados globais com o Azure Cosmos DB – descrição geral
+# <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Distribuir dados globalmente com o Azure Cosmos DB
 
 As aplicações de hoje são necessárias para serem altamente responsivas e sempre online. Para alcançar baixa latência e elevada disponibilidade, é necessário implementar casos destas aplicações em centros de dados próximos dos seus utilizadores. Estas aplicações são normalmente implantadas em vários datacenters e são chamadas distribuídas globalmente. As aplicações distribuídas globalmente precisam de uma base de dados distribuída globalmente que possa replicar de forma transparente os dados em qualquer parte do mundo para permitir que as aplicações operem numa cópia dos dados próxima dos utilizadores. 
 
@@ -45,7 +45,7 @@ Ao utilizar as APIs multi-homing da Azure Cosmos, a sua aplicação está ciente
 
 **Escolha entre vários modelos de consistência bem definidos.** O protocolo de replicação DB Azure Cosmos oferece cinco modelos de consistência bem definidos, práticos e intuitivos. Cada modelo tem uma troca entre consistência e desempenho. Use estes modelos de consistência para construir aplicações distribuídas globalmente com facilidade.
 
-## <a name="next-steps"></a><a id="Next Steps"></a>Próximos passos
+## <a name="next-steps"></a><a id="Next Steps"></a>Passos seguintes
 
 Leia mais sobre distribuição global nos seguintes artigos:
 

@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2149fd68cdf5f2991d6035f245f70515e920045c
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 4fcd3d143cf2dbb529a8c9c78a769165621e2e89
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187205"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400422"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Resolver problemas da Função de Trabalho de Runbook Híbrida
 
@@ -234,13 +234,13 @@ Os registos são armazenados localmente em cada trabalhador híbrido em C:\Progr
 
 Os trabalhadores híbridos enviam [produção e mensagens runbook](../automation-runbook-output-and-messages.md) para a Azure Automation da mesma forma que os trabalhos de runbook que funcionam na nuvem enviam saídas e mensagens. Pode ativar os streams Verbose e Progress tal como faz para os livros de execução.
 
-### <a name="scenario-orchestratorsandboxexe-cant-connect-to-office-365-through-proxy"></a><a name="no-orchestrator-sandbox-connect-O365"></a>Cenário: Orchestrator.Sandbox.exe não consegue ligar-se ao Office 365 através de procuração
+### <a name="scenario-orchestratorsandboxexe-cant-connect-to-microsoft-365-through-proxy"></a>Cenário: Orchestrator.Sandbox.exe não consegue ligar-se à Microsoft 365 através de procuração
 
 #### <a name="issue"></a>Problema
 
-Um script que está a decorrer num Windows Hybrid Runbook Worker não pode ligar-se como esperado ao Office 365 numa caixa de areia do Orquestrador. O script está a utilizar [o Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) para ligação. 
+Um script que está a ser executado num Windows Hybrid Runbook Worker não pode ligar-se como esperado ao Microsoft 365 numa caixa de areia do Orquestrador. O script está a utilizar [o Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) para ligação. 
 
-Se ajustar **Orchestrator.Sandbox.exe.config** para definir o proxy e a lista de bypass, a caixa de areia ainda não se conecta corretamente. Um **ficheiroPowershell_ise.exe.config** com as mesmas definições de lista de procuração e bypass parece funcionar como espera. Os registos de Automação de Gestão de Serviços (SMA) e os registos PowerShell não fornecem qualquer informação sobre o proxy.
+Se ajustar **Orchestrator.Sandbox.exe.config** para definir o proxy e a lista de bypass, a caixa de areia ainda não se conecta corretamente. Um ** ficheiroPowershell_ise.exe.config** com as mesmas definições de lista de procuração e bypass parece funcionar como espera. Os registos de Automação de Gestão de Serviços (SMA) e os registos PowerShell não fornecem qualquer informação sobre o proxy.
 
 #### <a name="cause"></a>Causa
 

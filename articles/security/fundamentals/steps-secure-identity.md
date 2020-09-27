@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: d05670d55d8a4f9ad7ab691da3f05f1c3e0cd177
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: a8fa14999c75528171fbe811ee64f65b913ed820
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386151"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399810"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco passos para garantir a sua infraestrutura de identidade
 
@@ -82,7 +82,7 @@ Pode utilizar [o PowerShell para evitar que as palavras-passe expirem](../../act
 Se a sua organização utilizar uma solução de identidade híbrida com autenticação ou federação pass-through, então deve ativar a sincronização de haxixe de palavra-passe pelas seguintes razões:
 
 * Os [Utilizadores com credenciais vazadas reportam](../../active-directory/reports-monitoring/concept-risk-events.md) na gestão AZure AD alerta para o nome de utilizador e os pares de palavras-passe, que foram expostos na "dark web". Um volume incrível de palavras-passe é vazado através de phishing, malware e reutilização de palavras-passe em sites de terceiros que são posteriormente violados. A Microsoft encontra muitas destas credenciais vazadas e dir-lhe-á, neste relatório, se correspondem às credenciais da sua organização – mas apenas se [ativar a sincronização de haxixe de palavra-passe](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)!
-* Em caso de paragem no local (por exemplo, num ataque de ransomware) pode passar a utilizar a autenticação na [nuvem utilizando a sincronização de haxixe de palavra-passe](choose-ad-authn.md). Este método de autenticação de backup permitirá continuar a aceder a aplicações configuradas para autenticação com o Azure Ative Directory, incluindo o Office 365. Neste caso, o pessoal de TI não precisará recorrer a contas de email pessoais para partilhar dados até que a paralisação no local seja resolvida.
+* Em caso de paragem no local (por exemplo, num ataque de ransomware) pode passar a utilizar a autenticação na [nuvem utilizando a sincronização de haxixe de palavra-passe](choose-ad-authn.md). Este método de autenticação de backup permitirá continuar a aceder a aplicações configuradas para autenticação com o Azure Ative Directory, incluindo o Microsoft 365. Neste caso, o pessoal de TI não precisará recorrer a contas de email pessoais para partilhar dados até que a paralisação no local seja resolvida.
 
 Saiba mais sobre como funciona a [sincronização de haxixe de palavra-passe.](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)
 
@@ -193,7 +193,7 @@ A redefinição da palavra-passe de autosserviço da Azure AD [(SSPR)](../../act
 
 ### <a name="implement-self-service-group-and-application-access"></a>Implementar o grupo de self-service e o acesso à aplicação
 
-A Azure AD oferece a capacidade de não administradores gerirem o acesso aos recursos, utilizando grupos de segurança, grupos do Office 365, funções de aplicação e catálogos de pacotes de acesso.  [A gestão do grupo de self-service](../../active-directory/users-groups-roles/groups-self-service-management.md) permite aos proprietários do grupo gerir os seus próprios grupos, sem necessidade de serem atribuídos um papel administrativo. Os utilizadores também podem criar e gerir grupos do Office 365 sem depender de administradores para lidar com os seus pedidos, e os grupos não reutilizados expiram automaticamente.  [A gestão de direitos Azure AD](../../active-directory/governance/entitlement-management-overview.md) permite ainda delegação e visibilidade, com fluxos de trabalho de pedido de acesso abrangente e expiração automática.  Pode delegar a não administradores a capacidade de configurar os seus próprios pacotes de acesso para grupos, equipas, aplicações e sites SharePoint Online que possuam, com políticas personalizadas para quem é obrigado a aprovar o acesso, incluindo configurar os gestores dos colaboradores e patrocinadores de parceiros de negócio como aprovadores.
+O Azure AD fornece a capacidade de não administradores gerirem o acesso aos recursos, utilizando grupos de segurança, grupos microsoft 365, funções de aplicação e catálogos de pacotes de acesso.  [A gestão do grupo de self-service](../../active-directory/users-groups-roles/groups-self-service-management.md) permite aos proprietários do grupo gerir os seus próprios grupos, sem necessidade de serem atribuídos um papel administrativo. Os utilizadores também podem criar e gerir grupos microsoft 365 sem depender de administradores para lidar com os seus pedidos, e os grupos não reutilizados expiram automaticamente.  [A gestão de direitos Azure AD](../../active-directory/governance/entitlement-management-overview.md) permite ainda delegação e visibilidade, com fluxos de trabalho de pedido de acesso abrangente e expiração automática.  Pode delegar a não administradores a capacidade de configurar os seus próprios pacotes de acesso para grupos, equipas, aplicações e sites SharePoint Online que possuam, com políticas personalizadas para quem é obrigado a aprovar o acesso, incluindo configurar os gestores dos colaboradores e patrocinadores de parceiros de negócio como aprovadores.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Implementar comentários de acesso a Azure AD
 
@@ -211,7 +211,7 @@ Existem muitos aspetos para uma infraestrutura de identidade segura, mas esta li
 
 Agradecemos a seriedade com que leva a Segurança identitária e esperamos que este documento seja um roteiro útil para uma postura mais segura para a sua organização.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se precisar de assistência para planear e implementar as recomendações, consulte os planos de implementação do [projeto Azure AD](https://aka.ms/deploymentplans) para obter ajuda.
 

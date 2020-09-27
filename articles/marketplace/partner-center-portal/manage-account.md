@@ -7,12 +7,12 @@ ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 08/27/2020
-ms.openlocfilehash: 7438351aa9849e3110952043eff8f7d860b5b7de
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a2d2c4d29a6af073e3e4e6a74c257cb864b8a78c
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89015837"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400694"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Gerir a sua conta de mercado comercial no Partner Center
 
@@ -306,7 +306,7 @@ Para obter mais informações sobre a gestão de funções e permissões noutras
 
 ## <a name="manage-tenants"></a>Gerir inquilinos
 
-Um inquilino do Azure Ative Directory (AD), também referido como a sua "conta de trabalho" ao longo desta documentação, é uma representação da sua organização criada no portal Azure e ajuda-o a gerir uma instância específica dos serviços de cloud da Microsoft para os seus utilizadores internos e externos. Se a sua organização subscreveu um serviço de cloud da Microsoft, como a Azure, a Microsoft Intune ou o Office 365, foi criado um inquilino Azure AD para si.
+Um inquilino do Azure Ative Directory (AD), também referido como a sua "conta de trabalho" ao longo desta documentação, é uma representação da sua organização criada no portal Azure e ajuda-o a gerir uma instância específica dos serviços de cloud da Microsoft para os seus utilizadores internos e externos. Se a sua organização subscreveu um serviço de cloud da Microsoft, como a Azure, a Microsoft Intune ou a Microsoft 365, foi criado um inquilino AZure AD para si.
 
 Você pode configurar vários inquilinos para usar com Partner Center. Qualquer utilizador com a função **Manager** na conta Partner Center terá a opção de adicionar e remover os inquilinos AD da conta.  
 

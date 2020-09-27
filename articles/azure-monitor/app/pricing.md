@@ -7,12 +7,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 5/7/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5dd1fd1209be29774d19a155b6e585fa6ebcc036
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b695205c08f9039fbf91eaeddb7622b784d81d12
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930490"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91400592"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerir a utilização e os custos do Application Insights
 
@@ -264,7 +264,7 @@ A retenção por defeito para os recursos de Insights de Aplicação é de 90 di
 
 Para alterar a retenção, a partir do seu recurso Application Insights, aceda à página **Utilização e Custos Estimados** e selecione a opção **de Retenção de Dados:**
 
-![Ajuste a tampa diária de volume de telemetria](./media/pricing/pricing-005.png)
+![Screenshot que mostra onde alterar o período de retenção de dados.](./media/pricing/pricing-005.png)
 
 Quando a retenção é reduzida, há um período de carência de vários dias antes de os dados mais antigos serem removidos.
 

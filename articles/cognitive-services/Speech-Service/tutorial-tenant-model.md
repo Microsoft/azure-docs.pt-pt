@@ -1,7 +1,7 @@
 ---
 title: Criar um modelo de inquilino (pré-visualização) - Serviço de Fala
 titleSuffix: Azure Cognitive Services
-description: Geram automaticamente um modelo de inquilino seguro e compatível (Discurso Personalizado com dados do Office 365) que utiliza os dados do Seu Office 365 para fornecer o melhor reconhecimento de voz para termos específicos da organização.
+description: Geram automaticamente um modelo de inquilino seguro e compatível (Custom Speech with Microsoft 365 data) que utiliza os dados do Microsoft 365 para fornecer o melhor reconhecimento de voz para termos específicos da organização.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -11,21 +11,21 @@ ms.topic: tutorial
 ms.date: 06/25/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 52e4271fca02dc9b0eab45ca98581ecd85119b59
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 5e861182ee57a0b49d3e62a858fc97dbf0890ea3
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934485"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399708"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>Tutorial: Criar um modelo de inquilino (pré-visualização)
 
-O Modelo de Inquilino (Discurso Personalizado com dados do Office 365) é um serviço de opt-in para clientes empresariais do Office 365 que gera automaticamente um modelo de reconhecimento de voz personalizado a partir dos dados do Office 365 da sua organização. O modelo é otimizado para termos técnicos, jargão e nomes de pessoas, tudo de forma segura e conforme.
+O Modelo de Inquilino (Custom Speech with Microsoft 365 data) é um serviço de opt-in para clientes empresariais microsoft 365 que gera automaticamente um modelo de reconhecimento de voz personalizado a partir dos dados microsoft 365 da sua organização. O modelo é otimizado para termos técnicos, jargão e nomes de pessoas, tudo de forma segura e conforme.
 
 > [!IMPORTANT]
-> Se a sua organização se inscrever utilizando o serviço Modelo de Inquilino, o Serviço de Fala poderá aceder ao modelo linguístico da sua organização. O modelo é gerado a partir de e-mails e documentos de grupo público do Office 365, que podem ser vistos por qualquer pessoa da sua organização. O administrador do Office 365 da sua organização pode ligar ou desligar o uso do modelo linguístico em toda a organização a partir do portal de administração office 365.
+> Se a sua organização se inscrever utilizando o serviço Modelo de Inquilino, o Serviço de Fala poderá aceder ao modelo linguístico da sua organização. O modelo é gerado a partir de e-mails e documentos de grupo público microsoft 365, que podem ser vistos por qualquer pessoa da sua organização. O administrador da sua organização pode ligar ou desligar o uso do modelo linguístico em toda a organização a partir do portal de administração.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Inscreva-se no Modelo de Inquilino utilizando o centro de administração Microsoft 365
@@ -36,7 +36,7 @@ Neste tutorial, vai aprender a:
 
 ## <a name="enroll-in-the-tenant-model-service"></a>Inscreva-se no serviço Modelo de Inquilino
 
-Antes de poder implementar o seu modelo de inquilino, tem de estar inscrito no serviço Modelo de Inquilino. A inscrição é concluída no centro de administração Microsoft 365 e só pode ser feita pelo seu administrador Microsoft 365.
+Antes de poder implementar o seu modelo de inquilino, tem de estar inscrito no serviço Modelo de Inquilino. A inscrição é concluída no centro de administração microsoft 365 e só pode ser feita pelo seu administrador.
 
 1. Inicie sessão no [centro de administração do Microsoft 365](https://admin.microsoft.com).
 
@@ -69,7 +69,7 @@ Para utilizar o seu modelo de inquilino com o Speech SDK, precisa de um recurso 
 
 ## <a name="create-a-language-model"></a>Criar um modelo de linguagem
 
-Depois de o seu administrador ter ativado o Modelo de Inquilino para a sua organização, pode criar um modelo linguístico baseado nos dados do seu Office 365.
+Depois de o seu administrador ter ativado o Modelo de Inquilino para a sua organização, pode criar um modelo linguístico baseado nos seus dados Microsoft 365.
 
 1. Inscreva-se no [Speech Studio.](https://speech.microsoft.com/)
 1. No topo direito, selecione **Definições** (ícone de engrenagem) e, em seguida, selecione **as definições do Modelo do Inquilino**.
@@ -79,7 +79,7 @@ Depois de o seu administrador ter ativado o Modelo de Inquilino para a sua organ
    O Speech Studio exibe uma mensagem que lhe permite saber se está qualificado para criar um modelo de inquilino.
 
    > [!NOTE]
-   > Os clientes empresariais do Office 365 na América do Norte são elegíveis para criar um modelo de inquilino (inglês). Se for um cliente do Customer Lockbox, da Chave de Clientes ou do Office 365, esta funcionalidade não está disponível. Para determinar se é um cliente de bloqueio ao cliente ou chave de cliente, consulte:
+   > Os clientes empresariais na América do Norte são elegíveis para criar um modelo de inquilino (inglês). Se for um cliente do Customer Lockbox, da Chave de Clientes ou do Office 365, esta funcionalidade não está disponível. Para determinar se é um cliente de bloqueio ao cliente ou chave de cliente, consulte:
    > * [Sistema de Proteção de Dados do Cliente](/microsoft-365/compliance/customer-lockbox-requests)
    > * [Chave do Cliente](/microsoft-365/compliance/customer-key-overview)
    > * [Gabinete 365 Governo](https://www.microsoft.com/microsoft-365/government)
@@ -302,7 +302,7 @@ Em seguida, você precisa reconstruir e executar o projeto a partir da linha de 
    dotnet TenantLMSample.dll --Username=<Username> --Password=<Password> --SubscriptionKey=<Subscription-Key> --EndpointUri=<Endpoint-Uri>
    ```
 
-Neste tutorial, aprendeu a usar os dados do Office 365 para criar um modelo personalizado de reconhecimento de voz, implantá-lo e usá-lo com o Speech SDK.
+Neste tutorial, aprendeu a usar os dados do Microsoft 365 para criar um modelo personalizado de reconhecimento de voz, implantá-lo e usá-lo com o Speech SDK.
 
 ## <a name="next-steps"></a>Passos seguintes
 

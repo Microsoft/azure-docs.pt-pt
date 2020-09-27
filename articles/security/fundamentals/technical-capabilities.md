@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: d861388c8c7a5ff64a17607736d4c8a292343dec
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3dd209d90947ebef7eb7b074992a55305005e7bb
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071598"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91399538"
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas da segurança do Azure
 Este artigo fornece uma introdução aos serviços de segurança em Azure que o ajudam a proteger os seus dados, recursos e aplicações na nuvem e a atender às necessidades de segurança do seu negócio.
@@ -68,7 +68,7 @@ Seguem-se as capacidades de gestão de identidade do Azure:
 
 - Início de sessão único
 
-- Multi-factor authentication
+- Autenticação multifator
 
 - Relatórios de monitorização de segurança, alertas e aprendizagem automática
 
@@ -84,13 +84,13 @@ Seguem-se as capacidades de gestão de identidade do Azure:
 
 [Um único sinal de sso significa](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) poder aceder a todas as aplicações e recursos que precisa para fazer negócios, fazendo a sessão apenas uma vez utilizando uma única conta de utilizador. Uma vez assinado, pode aceder a todas as aplicações de que necessita sem ser obrigado a autenticar (por exemplo, digitar uma palavra-passe) uma segunda vez.
 
-Muitas organizações confiam no software como aplicações de serviço (SaaS) como o Office 365, Box e Salesforce para a produtividade do utilizador final. Historicamente, o pessoal de TI precisava de criar e atualizar individualmente as contas de utilizador em cada aplicação SaaS, e os utilizadores tinham de se lembrar de uma palavra-passe para cada aplicação SaaS.
+Muitas organizações confiam no software como aplicações de serviço (SaaS) como a Microsoft 365, Box e Salesforce para a produtividade do utilizador final. Historicamente, o pessoal de TI precisava de criar e atualizar individualmente as contas de utilizador em cada aplicação SaaS, e os utilizadores tinham de se lembrar de uma palavra-passe para cada aplicação SaaS.
 
 [O Azure AD estende o Ative Directory para o interior da nuvem,](../../active-directory/manage-apps/what-is-single-sign-on.md)permitindo que os utilizadores utilizem a sua conta organizacional primária para não só iniciar em seus dispositivos e recursos da empresa ligados ao domínio, mas também todas as aplicações web e SaaS necessárias para o seu trabalho.
 
 Não só os utilizadores não têm de gerir vários conjuntos de nomes de utilizador e palavras-passe, como o acesso à aplicação pode ser automaticamente aprovisionado ou desprovisionado com base em grupos organizacionais e no seu estatuto de colaborador. [O Azure AD introduz controlos de governação](../../active-directory/active-directory-enterprise-apps-manage-sso.md) de segurança e acesso que lhe permitem gerir centralmente o acesso dos utilizadores através das aplicações SaaS.
 
-#### <a name="multi-factor-authentication"></a>Multi-factor authentication
+#### <a name="multi-factor-authentication"></a>Autenticação multifator
 
 [A Azure Multi-Factor Authentication (MFA)](../../active-directory/authentication/multi-factor-authentication.md) é um método de autenticação que requer a utilização de mais de um método de verificação e adiciona uma segunda camada crítica de segurança às entradas e transações do utilizador. [O MFA ajuda a salvaguardar](../../active-directory/authentication/concept-mfa-howitworks.md) o acesso a dados e aplicações ao mesmo tempo que satisfaz a procura do utilizador por um processo simples de inscrição. Fornece autenticação forte através de uma série de opções de verificação — chamada telefónica, mensagem de texto ou código de verificação ou verificação de aplicações móveis e fichas OAuth de terceiros.
 
@@ -126,15 +126,15 @@ Quando combinado com uma solução [de gestão de dispositivos móveis (MDM),](h
 
 #### <a name="privileged-identity-management"></a>Privileged Identity Management
 
-[A Azure Ative Directory (AD) Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) permite-lhe gerir, controlar e monitorizar as suas identidades privilegiadas e aceder a recursos em Azure AD, bem como outros serviços online da Microsoft como o Office 365 ou o Microsoft Intune.
+[A Azure Ative Directory (AD) Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) permite-lhe gerir, controlar e monitorizar as suas identidades privilegiadas e aceder a recursos em Azure AD, bem como outros serviços online da Microsoft como o Microsoft 365 ou o Microsoft Intune.
 
-Por vezes, os utilizadores precisam de realizar operações privilegiadas em recursos do Azure ou do Office 365, ou outras aplicações SaaS. Isto muitas vezes significa que as organizações têm de lhes dar acesso privilegiado permanente em Azure AD. Este é um risco crescente de segurança para os recursos hospedados na nuvem porque as organizações não conseguem monitorizar suficientemente o que esses utilizadores estão a fazer com os seus privilégios administrativos. Além disso, se uma conta de utilizador com acesso privilegiado estiver comprometida, essa violação pode afetar a sua segurança total na nuvem. A Azure AD Gestão de Identidade Privilegiada ajuda a resolver este risco.
+Por vezes, os utilizadores precisam de realizar operações privilegiadas em recursos Azure ou Microsoft 365, ou outras aplicações SaaS. Isto muitas vezes significa que as organizações têm de lhes dar acesso privilegiado permanente em Azure AD. Este é um risco crescente de segurança para os recursos hospedados na nuvem porque as organizações não conseguem monitorizar suficientemente o que esses utilizadores estão a fazer com os seus privilégios administrativos. Além disso, se uma conta de utilizador com acesso privilegiado estiver comprometida, essa violação pode afetar a sua segurança total na nuvem. A Azure AD Gestão de Identidade Privilegiada ajuda a resolver este risco.
 
 A Azure AD Gestão de Identidade Privilegiada permite-lhe:
 
 - Ver quais os utilizadores que são administradores AD Azure
 
-- Permitir acesso administrativo a pedido, "mesmo a tempo" aos Serviços Online do Microsoft, como o Office 365 e o Intune
+- Ativar a pedido, acesso administrativo "just in time" aos Serviços Online do Microsoft como o Microsoft 365 e o Intune
 
 - Obtenha relatórios sobre o histórico de acesso do administrador e alterações nas atribuições de administradores
 
@@ -167,7 +167,7 @@ Uma das chaves para a proteção de dados na nuvem é a contabilização dos pos
 - Repouso: Isto inclui todos os objetos de armazenamento de informação, recipientes e tipos que existem estáticamente em meios físicos, seja em disco magnético ou ótico.
 - Em trânsito: Quando os dados são transferidos entre componentes, locais ou programas, como através da rede, através de um autocarro de serviço (de instalações para nuvem e vice-versa, incluindo ligações híbridas como o ExpressRoute), ou durante um processo de entrada/saída, é considerado como estando em movimento.
 
-### <a name="encryption-at-rest"></a>Encriptação de dados inativos
+### <a name="encryption-at-rest"></a>Encriptação inativa
 
 A encriptação em repouso é discutida em detalhe na [Encriptação de Dados Azure-at-Rest](encryption-atrest.md).
 
@@ -210,7 +210,7 @@ As organizações que são fracas na classificação de [dados](https://download
 ## <a name="secure-your-application"></a>Proteja a sua aplicação
 Embora a Azure seja responsável por garantir a infraestrutura e plataforma em que a sua aplicação funciona, é da sua responsabilidade garantir a sua própria aplicação. Por outras palavras, precisa de desenvolver, implementar e gerir o código de aplicação e o conteúdo de forma segura. Sem isso, o código de aplicação ou conteúdo ainda pode ser vulnerável a ameaças.
 
-### <a name="web-application-firewall"></a>Firewall de aplicações Web
+### <a name="web-application-firewall"></a>Firewall de aplicação Web
 [A firewall de aplicações web (WAF)](../../application-gateway/waf-overview.md) é uma funcionalidade do [Application Gateway](../../application-gateway/overview.md) que fornece proteção centralizada das suas aplicações web contra explorações e vulnerabilidades comuns.
 
 A firewall de aplicações Web baseia-se nas regras dos [conjuntos de regras de núcleo OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 ou 2.2.9. Cada vez mais, as aplicações Web são alvo de ataques maliciosos que exploram vulnerabilidades conhecidas comuns. Destas vulnerabilidades, são frequentes os ataques de injeção de SQL, scripting entre sites, entre muitas outras. Impedir este tipo de ataques ao código das aplicações constitui um desafio e exige uma manutenção, correção e monitorização rigorosas em várias camadas da topologia da aplicação. Uma firewall de aplicações Web centralizada ajuda a simplificar em muito a gestão da segurança e confere aos administradores de aplicações uma maior garantia de proteção contra as ameaças ou intrusões. Uma solução WAF também pode reagir mais rapidamente a uma ameaça de segurança ao corrigir uma vulnerabilidade conhecida numa localização central, em vez de proteger cada uma das aplicações Web individualmente. Os gateways de aplicações existentes podem ser facilmente convertidos num gateway de aplicação com firewall de aplicações Web ativada.
@@ -339,7 +339,7 @@ O [Centro de Segurança do Azure](../../security-center/security-center-intro.md
 
 O Centro de Segurança analisa o estado de segurança dos seus recursos Azure para identificar potenciais vulnerabilidades de segurança. Uma lista de recomendações orienta-o no processo de configuração de controlos necessários.
 
-Os exemplos incluem:
+Alguns exemplos:
 
 - Aprovisionamento de antimalware para ajudar a identificar e remover o software malicioso
 
