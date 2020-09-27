@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 06/23/2020
-ms.openlocfilehash: 8a615dc02b78993a18a86def9d8f496ba0bba922
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: f501b9f4215b9eeb48aa8bc80d492d55cf940404
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929708"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397390"
 ---
 # <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>Tutorial: Blobs índice JSON do Azure Storage usando REST
 
@@ -54,7 +54,7 @@ Se possível, crie tanto na mesma região como no grupo de recursos para proximi
 
 1. Procure a *conta de armazenamento* e selecione a oferta de Conta de Armazenamento da Microsoft.
 
-   ![Criar conta de Armazenamento](media/cognitive-search-tutorial-blob/storage-account.png "Criar conta de Armazenamento")
+   :::image type="content" source="media/cognitive-search-tutorial-blob/storage-account.png" alt-text="Criar conta de Armazenamento" border="false":::
 
 1. No separador Básicos, são necessários os seguintes itens. Aceite os incumprimentos para tudo o resto.
 
@@ -76,11 +76,11 @@ Se possível, crie tanto na mesma região como no grupo de recursos para proximi
 
 1. Depois de criado o recipiente, abra-o e selecione **upload** na barra de comando.
 
-   ![Upload na barra de comando](media/search-semi-structured-data/upload-command-bar.png "Upload na barra de comando")
+   :::image type="content" source="media/search-semi-structured-data/upload-command-bar.png" alt-text="Upload na barra de comando" border="false":::
 
 1. Navegue para a pasta que contém os ficheiros de amostragem. Selecione todos e, em seguida, clique em **Upload**.
 
-   ![Carregar ficheiros](media/search-semi-structured-data/clinicalupload.png "Carregar ficheiros")
+   :::image type="content" source="media/search-semi-structured-data/clinicalupload.png" alt-text="Carregar ficheiros" border="false":::
 
 Quando o carregamento estiver concluído, os ficheiros devem aparecer na sua própria subpasta dentro do contentor de dados.
 
@@ -98,7 +98,7 @@ As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos
 
 1. Em **Definições**  >  **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio, caso precise de rolar uma. Pode utilizar a tecla primária ou secundária nos pedidos de adição, modificação e eliminação de objetos.
 
-![Obtenha uma chave de acesso http e acesso](media/search-get-started-postman/get-url-key.png "Obtenha uma chave de acesso http e acesso")
+:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Obtenha uma chave de acesso http e acesso" border="false":::
 
 Todos os pedidos requerem uma chave API em cada pedido enviado ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
@@ -110,7 +110,7 @@ Os métodos de pedido para cada chamada neste tutorial são **POST** e **GET.** 
 
 Em Cabeçalhos, desconfie "Content-type" `application/json` e desaver-se `api-key` com a chave api de administração do seu serviço de Pesquisa Cognitiva Azure. Uma vez definidos os cabeçalhos, pode usá-los para todos os pedidos neste exercício.
 
-  ![Carteiro solicita URL e cabeçalho](media/search-get-started-postman/postman-url.png "Carteiro solicita URL e cabeçalho")
+  :::image type="content" source="media/search-get-started-postman/postman-url.png" alt-text="Carteiro solicita URL e cabeçalho" border="false":::
 
 Os URIs devem especificar uma versão api e cada chamada deve devolver um **201 Criado**. A versão api geralmente disponível para a utilização de matrizes JSON é `2020-06-30` .
 
@@ -315,11 +315,11 @@ Pode começar a procurar assim que o primeiro documento estiver carregado.
 
 1. Adicione o `$select` parâmetro de consulta para limitar os resultados a menos campos: `https://[service name].search.windows.net/indexes/clinical-trials-json-index/docs?search=*&$select=Gender,metadata_storage_size&api-version=2020-06-30&$count=true` .  Para esta consulta, 100 documentos coincidem, mas por padrão, a Azure Cognitive Search apenas devolve 50 nos resultados.
 
-   ![Consulta parametrizada](media/search-semi-structured-data/lastquery.png "Consulta paramterizada")
+   :::image type="content" source="media/search-semi-structured-data/lastquery.png" alt-text="Consulta parametrizada" border="false":::
 
 1. Um exemplo de consulta mais complexa incluiria `$filter=MinimumAge ge 30 and MaximumAge lt 75` , que retorna apenas resultados quando os parâmetros MinimumAge é maior ou igual a 30 e MaximumAge é inferior a 75. Substitua a `$select` expressão pela `$filter` expressão.
 
-   ![Pesquisa semiestruturada](media/search-semi-structured-data/metadatashort.png)
+   :::image type="content" source="media/search-semi-structured-data/metadatashort.png" alt-text="Pesquisa semiestruturada" border="false":::
 
 Também pode utilizar operadores lógicos (e, ou não) e operadores de comparação (eq, ne, gt, lt, ge, le). As comparações de cadeias são sensíveis às maiúsculas e minúsculas. Para obter mais informações e exemplos, consulte [Criar uma consulta simples.](search-query-simple-examples.md)
 

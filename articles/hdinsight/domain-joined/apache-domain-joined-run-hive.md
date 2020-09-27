@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 71c1306d1516d8af3fb16c0ba353ab8144de2562
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 03c783b5a475f0a49fe94d33aa866654e9c9f5f1
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202591"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397832"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurar as políticas do Apache Hive no HDInsight com o Pacote de Segurança Enterprise
 
@@ -22,7 +22,7 @@ Saiba como configurar as políticas apache ranger para a Colmeia Apache. Neste a
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Um cluster HDInsight com pacote de segurança empresarial. Consulte [os clusters Configure HDInsight com ESP](apache-domain-joined-configure.md).
-* Uma estação de trabalho com o Office 2016, o Office 2013 Professional Plus, o Office 365 Pro Plus, o Excel 2013 Standalone ou o Office 2010 Professional Plus.
+* Uma estação de trabalho com aplicativos Microsoft 365 para empresas, Office 2016, Office 2013 Professional Plus, Excel 2013 Standalone ou Office 2010 Professional Plus.
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>Ligar à IU do Apache Ranger Admin
 **Para ligar à IU do Ranger Admin**
@@ -56,7 +56,7 @@ Nesta secção, cria-se duas políticas ranger para aceder ao hivesmpletable. Co
     |---|---|
     |Nome da Política|read-hivesampletable-all|
     |Base de Dados da Colmeia|predefinição|
-    |tabela|hivesmpletable|
+    |mesa|hivesmpletable|
     |Coluna da Colmeia|*|
     |Selecionar Utilizador|hiveuser1|
     |Permissões|selecionar|
@@ -74,7 +74,7 @@ Nesta secção, cria-se duas políticas ranger para aceder ao hivesmpletable. Co
     |---|---|
     |Nome da Política|read-hivesampletable-devicemake|
     |Base de Dados da Colmeia|predefinição|
-    |tabela|hivesmpletable|
+    |mesa|hivesmpletable|
     |Coluna de colmeia|cliente, fabricante de dispositivos|
     |Selecionar Utilizador|hiveuser2|
     |Permissões|selecionar|

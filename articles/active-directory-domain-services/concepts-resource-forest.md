@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 62a2ffeea1d15a16c4ec4aa6a2b88c8e34763064
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 88069c6ac90fce7e33cac6ed3c30accb18ded8bf
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480412"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396404"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Conceitos e funcionalidades da floresta de recursos para serviços de domínio do diretório ativo Azure
 
-A Azure Ative Directory Domain Services (Azure AD DS) proporciona uma experiência de inscrição para aplicações antigas, no local, linha de negócios. Os utilizadores, grupos e hashes de passwords de utilizadores no local e utilizadores da nuvem são sincronizados com o domínio gerido Azure AD DS. Estas hashes de palavra-passe sincronizadas são o que dá aos utilizadores um único conjunto de credenciais que podem usar para os AD DS, Office 365 e Azure Ative Directory.
+A Azure Ative Directory Domain Services (Azure AD DS) proporciona uma experiência de inscrição para aplicações antigas, no local, linha de negócios. Os utilizadores, grupos e hashes de passwords de utilizadores no local e utilizadores da nuvem são sincronizados com o domínio gerido Azure AD DS. Estas hashes de palavra-passe sincronizadas são o que dá aos utilizadores um único conjunto de credenciais que podem usar para os AD DS, Microsoft 365 e Azure Ative Directory.
 
 Embora seguros e ofereçam benefícios adicionais de segurança, algumas organizações não podem sincronizar essas palavras-passe do utilizador hashes para Azure AD ou Azure AD DS. Os utilizadores de uma organização podem não saber a sua palavra-passe porque apenas utilizam a autenticação de cartões inteligentes. Estas limitações impedem que algumas organizações utilizem a Azure AD DS para levantar e transferir aplicações clássicas no local para a Azure.
 

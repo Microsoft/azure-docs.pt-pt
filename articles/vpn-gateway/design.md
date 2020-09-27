@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: ecfb569f2791b674fe842e1c21cba972a8e9d2a7
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 61732f66aef58f5a9edcb9e095782e19e8aaffdd
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89443012"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397220"
 ---
 # <a name="vpn-gateway-design"></a>Design VPN Gateway
 
@@ -77,7 +77,7 @@ Poderá utilizar o VNet peering para criar a ligação, desde que a rede virtual
 
 ## <a name="expressroute-private-connection"></a><a name="ExpressRoute"></a>ExpressRoute (ligação privada)
 
-O ExpressRoute permite-lhe expandir as redes no local para a Microsoft Cloud através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode estabelecer ligações aos serviços em nuvem da Microsoft, tais como o Microsoft Azure, Office 365 e o CRM Online. A conectividade pode ser a partir de uma rede de qualquer para qualquer (IP VPN), uma rede Ethernet ponto a ponto, ou uma ligação cruzada virtual através de um provedor de conectividade em uma instalação de coinstalação.
+O ExpressRoute permite-lhe expandir as redes no local para a Microsoft Cloud através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode estabelecer ligações aos serviços de cloud da Microsoft, tais como Microsoft Azure, Microsoft 365 e CRM Online. A conectividade pode ser a partir de uma rede de qualquer para qualquer (IP VPN), uma rede Ethernet ponto a ponto, ou uma ligação cruzada virtual através de um provedor de conectividade em uma instalação de coinstalação.
 
 As ligações do ExpressRoute não passam para a Internet pública. Tal permite que as ligações do ExpressRoute ofereçam mais fiabilidade, velocidades superiores, latências inferiores e uma maior segurança do que as ligações típicas através da Internet.
 
@@ -99,7 +99,7 @@ Pode configurar uma Rede de VPNs como um caminho de ativação pós-falha seguro
 
 Para planeamento e conceção de ligações altamente disponíveis, consulte [ligações altamente disponíveis.](vpn-gateway-highlyavailable.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Veja as [FAQ do Gateway de VPN](vpn-gateway-vpn-faq.md) para obter mais informações.
 

@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 4cc8f2c90e74b5b3ab6df3169df0524f1134b66e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 94b5b3d2ab1f576f87ead23b389252ec96a20f11
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85113607"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397356"
 ---
-# <a name="globally-scale-provisioned-throughput"></a>Dimensionamento global de débito aprovisionado 
+# <a name="how-does-azure-cosmos-db-globally-scale-the-provisioned-throughput"></a>Como é que a Azure Cosmos DB escala globalmente a produção a provisionada?
 
 Em Azure Cosmos DB, a produção a provisionada é representada como unidades de pedido/segundo (RU/s ou rus forma plural). As RUs medem o custo das operações de leitura e escrita contra o seu contentor Cosmos, como mostra a seguinte imagem:
 
@@ -36,7 +36,7 @@ Assumindo que um recipiente Cosmos está configurado com *RUs 'R'* e existem reg
 
 A sua escolha de modelo de [consistência](consistency-levels.md) também afeta a produção. Pode obter aproximadamente 2x de produção de leitura para os níveis de consistência mais descontraídos (por exemplo, *sessão,* *prefixo consistente* e *consistência eventual)* em comparação com níveis de consistência mais fortes (por exemplo, *estagnação limitada* ou *forte* consistência).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, pode aprender a configurar a produção num contentor ou base de dados:
 

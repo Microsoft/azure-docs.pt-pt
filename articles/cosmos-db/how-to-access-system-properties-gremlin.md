@@ -5,14 +5,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/10/2019
-author: luisbosquez
-ms.author: lbosq
-ms.openlocfilehash: a0feac9bbd98dc4c67464e84e9a3204bd9730355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+author: SnehaGunda
+ms.author: sngun
+ms.openlocfilehash: c03e4db30d590df21a8ceb3c483ece4b59e548d8
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390351"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397322"
 ---
 # <a name="system-document-properties"></a>Propriedades de documento do sistema
 
@@ -32,7 +32,7 @@ g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_etag').cre
 
 ## <a name="time-to-live-ttl"></a>TTL
 
-Se a recolha tiver expiração de documento ativada e os documentos tiverem ```ttl``` propriedade definida sobre eles, então esta propriedade estará disponível em Gremlin traversal como um vértice regular ou propriedade de borda. ```ProjectionStrategy```não é necessário para permitir a exposição de propriedades de tempo para viver.
+Se a recolha tiver expiração de documento ativada e os documentos tiverem ```ttl``` propriedade definida sobre eles, então esta propriedade estará disponível em Gremlin traversal como um vértice regular ou propriedade de borda. ```ProjectionStrategy``` não é necessário para permitir a exposição de propriedades de tempo para viver.
 
 O vértice criado com o percurso abaixo será eliminado automaticamente em **123 segundos**.
 
@@ -40,6 +40,6 @@ O vértice criado com o percurso abaixo será eliminado automaticamente em **123
 g.addV('vertex-one').property('ttl', 123)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Simultaneidade Otimista do Cosmos DB](faq.md#how-does-the-sql-api-provide-concurrency)
 * [Tempo para Viver (TTL)](time-to-live.md) em Azure Cosmos DB

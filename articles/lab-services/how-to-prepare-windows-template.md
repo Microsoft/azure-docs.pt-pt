@@ -5,12 +5,12 @@ author: EMaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: 5e1d772deb71e03311489ea61d012415860cbe54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf1b9db8de2c0f2c852a41d1e30343c5cef1b20b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445326"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396693"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guia para configurar uma máquina de modelos Windows nos serviços do Azure Lab
 
@@ -61,7 +61,7 @@ Se estiver numa máquina que não esteja a utilizar o Ative Directory, os utiliz
 
 Se a sua máquina virtual estiver ligada ao Ative Directory, pode configurar a máquina de modelos para solicitar automaticamente aos seus alunos que transcam as pastas conhecidas para o OneDrive.  
 
-Primeiro, terá de recuperar a identificação do inquilino do escritório.  Para mais informações, consulte [o seu ID do Seu Escritório 365 Inquilino.](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id)  Você também pode obter o Office 365 Tenant ID usando o seguinte PowerShell.
+Primeiro, tens de recuperar a identificação da tua organização.  Para mais instruções, consulte [o seu ID de organização Microsoft 365](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  Também pode obter o ID da organização usando o seguinte PowerShell.
 
 ```powershell
 Install-Module MSOnline -Confirm
@@ -71,7 +71,7 @@ $officeTenantID = Get-MSOLCompanyInformation |
     Select-Object -expand Guid
 ```
 
-Assim que tiver o seu ID do Inquilino Office 365, desloque o OneDrive para solicitar a deslocação de pastas conhecidas para o OneDrive utilizando o seguinte PowerShell.
+Assim que tiver o ID da sua organização, desloque o OneDrive para solicitar a deslocação de pastas conhecidas para o OneDrive utilizando o seguinte PowerShell.
 
 ```powershell
 if ($officeTenantID -eq $null)
@@ -95,7 +95,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
 
 ### <a name="silently-sign-in-users-to-onedrive"></a>Assine silenciosamente nos utilizadores para o OneDrive
 
-O OneDrive pode ser configurado para iniciar automaticamente o login com as credenciais do Windows do utilizador registado no utilizador.  O acesso automático é útil para as aulas onde o aluno assina com as suas credenciais escolares do Office 365.
+O OneDrive pode ser configurado para iniciar automaticamente o login com as credenciais do Windows do utilizador registado no utilizador.  O acesso automático é útil para as aulas onde o aluno assina com as suas credenciais escolares.
 
 ```powershell
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
@@ -115,7 +115,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
 
 ### <a name="set-the-maximum-size-of-a-file-that-to-be-download-automatically"></a>Desfie o tamanho máximo de um ficheiro que será descarregado automaticamente
 
-Esta definição é utilizada em conjunto com o sinal silencioso dos utilizadores para o cliente de sincronização OneDrive com as suas credenciais Windows em dispositivos que não têm ficheiros OneDrive on-demand ativados. Qualquer utilizador que tenha um OneDrive maior do que o limiar especificado (em MB) será solicitado a escolher as pastas que pretende sincronizar antes que o cliente de sincronização OneDrive (OneDrive.exe) descarregue os ficheiros.  No nosso exemplo, "1111-2222-3333-4444" é o ID do inquilino do Office 365 e 0005000 fixa um limiar de 5 GB.
+Esta definição é utilizada em conjunto com o sinal silencioso dos utilizadores para o cliente de sincronização OneDrive com as suas credenciais Windows em dispositivos que não têm ficheiros OneDrive on-demand ativados. Qualquer utilizador que tenha um OneDrive maior do que o limiar especificado (em MB) será solicitado a escolher as pastas que pretende sincronizar antes que o cliente de sincronização OneDrive (OneDrive.exe) descarregue os ficheiros.  No nosso exemplo, "1111-2222-3333-4444" é o ID da organização e 0005000 fixa um limiar de 5 GB.
 
 ```powershell
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
@@ -124,23 +124,23 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive\DiskSpaceChec
     -Name "1111-2222-3333-4444" -Value "0005000" -PropertyType DWORD
 ```
 
-## <a name="install-and-configure-microsoft-office-365"></a>Instalar e configurar o Microsoft Office 365
+## <a name="install-and-configure-microsoft-365"></a>Instalar e configurar a Microsoft 365
 
-### <a name="install-microsoft-office-365"></a>Instalar o Microsoft Office 365
+### <a name="install-microsoft-365"></a>Instalar o Microsoft 365
 
-Se a máquina de modelo precisar do Office, recomendamos a instalação do Office através da [Ferramenta de Implantação do Office (ODT)](https://www.microsoft.com/download/details.aspx?id=49117 ). Terá de criar um ficheiro de configuração reutilizável utilizando o [Serviço de Configuração do Cliente do Office 365](https://config.office.com/) para escolher qual a arquitetura, quais as funcionalidades que vai precisar do Office e com que frequência atualiza.
+Se a máquina de modelo precisar do Office, recomendamos a instalação do Office através da [Ferramenta de Implantação do Office (ODT)](https://www.microsoft.com/download/details.aspx?id=49117). Terá de criar um ficheiro de configuração reutilizável utilizando o [Microsoft 365 Apps Admin Center](https://config.office.com/) para escolher qual a arquitetura, quais as funcionalidades que vai precisar do Office e com que frequência atualiza.
 
-1. Vá ao [Serviço de Configuração do Cliente do Office 365](https://config.office.com/) e descarregue o seu próprio ficheiro de configuração.
+1. Vá ao [Microsoft 365 Apps Admin Center](https://config.office.com/) e descarregue o seu próprio ficheiro de configuração.
 2. Baixar [ferramenta de implementação do office](https://www.microsoft.com/download/details.aspx?id=49117).  O ficheiro descarregado será `setup.exe` .
 3. Corra `setup.exe /download configuration.xml` para descarregar componentes do Office.
 4. Corra `setup.exe /configure configuration.xml` para instalar componentes do Office.
 
-### <a name="change-the-microsoft-office-365-update-channel"></a>Alterar o canal de atualização microsoft Office 365
+### <a name="change-the-microsoft-365-update-channel"></a>Alterar o canal de atualização Microsoft 365
 
-Utilizando a Ferramenta de Configuração do Office, pode definir com que frequência o Office recebe atualizações. No entanto, se precisar de modificar a frequência com que o Office recebe atualizações após a instalação, pode alterar o URL do canal de atualização. Os endereços URL do canal de atualização podem ser encontrados no [canal de atualização Do Office 365 ProPlus para dispositivos na sua organização](https://docs.microsoft.com/deployoffice/change-update-channels). O exemplo abaixo mostra como definir o Office 365 para usar o Canal de Atualização Mensal.
+Utilizando a Ferramenta de Configuração do Office, pode definir com que frequência o Office recebe atualizações. No entanto, se precisar de modificar a frequência com que o Office recebe atualizações após a instalação, pode alterar o URL do canal de atualização. Os endereços URL do canal de atualização podem ser encontrados no [alterar o canal de atualização de aplicações microsoft 365 para dispositivos na sua organização](https://docs.microsoft.com/deployoffice/change-update-channels). O exemplo abaixo mostra como definir o Microsoft 365 para usar o Canal de Atualização Mensal.
 
 ```powershell
-# Update to the Office 365 Monthly Channel
+# Update to the Microsoft 365 Monthly Channel
 Set-ItemProperty
     -Path "HKLM:\SOFTWARE\Microsoft\Office\ClickToRun\Configuration\CDNBaseUrl"
     -Name "CDNBaseUrl"
@@ -228,7 +228,7 @@ Instale outras aplicações comumente utilizadas para o ensino através da aplic
 
 ## <a name="conclusion"></a>Conclusão
 
-Este artigo mostrou-lhe passos opcionais para preparar o seu VM modelo windows para uma classe eficaz.  Os passos incluem a instalação do OneDrive e a instalação do Office 365, a instalação das atualizações para o Windows e a instalação de atualizações para aplicações da Microsoft Store.  Também discutimos como definir atualizações para um horário que funciona melhor para a sua aula.  
+Este artigo mostrou-lhe passos opcionais para preparar o seu VM modelo windows para uma classe eficaz.  Os passos incluem instalar o OneDrive e instalar o Microsoft 365, instalar as atualizações para o Windows e instalar atualizações para aplicações da Microsoft Store.  Também discutimos como definir atualizações para um horário que funciona melhor para a sua aula.  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte o artigo sobre como controlar o comportamento de paragem do Windows para ajudar na gestão de custos: [Guia para controlar o comportamento de paragem do Windows](how-to-windows-shutdown.md)

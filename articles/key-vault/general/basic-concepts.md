@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e0bb3c3f3a6a1a38f974acf361937928ad4e2cfd
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: b537fecefd0b8b00967894daa94881a084d5c8f2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983292"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398515"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Conceitos básicos Azure Key Vault
 
@@ -23,7 +23,7 @@ Azure Key Vault é um serviço de nuvem para armazenar e aceder a segredos de fo
 
 Aqui estão outros termos importantes:
 
-- **Inquilino**: um inquilino é a organização que possui e gere uma instância específica de serviços cloud da Microsoft. É mais frequentemente usado para se referir ao conjunto de serviços Azure e Office 365 para uma organização.
+- **Inquilino**: um inquilino é a organização que possui e gere uma instância específica de serviços cloud da Microsoft. É mais frequentemente usado para se referir ao conjunto de serviços Azure e Microsoft 365 para uma organização.
 
 - **Proprietário do Key Vault**: um proprietário do cofre pode criar um cofre de chaves e obter acesso total e controlo sobre o mesmo. O proprietário do cofre também pode configurar uma auditoria ao registo de quem acede a segredos e chaves. Os administradores podem controlar o ciclo de vida das chaves. Podem implementar uma nova versão da chave, fazer uma cópia de segurança e executar tarefas relacionadas.
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 4232f4cd39c3f6dd6efa0bf78959798ea842e2dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b174e2631131e6bf26d7b1cb62442c8a99102e2e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676051"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397288"
 ---
 # <a name="control-updates-with-maintenance-control-and-the-azure-portal"></a>Atualizações de controlo com o Controlo de Manutenção e o portal Azure
 
@@ -38,7 +38,7 @@ O controlo de manutenção permite-lhe decidir quando aplicar atualizações aos
 
    ![Screenshot mostrando como adicionar tags a uma configuração de manutenção](media/virtual-machines-maintenance-control-portal/maintenance-configurations-tags.png)
 
-1. Reveja o resumo. Clique em **Criar**.
+1. Reveja o resumo. Clique em **Create** (Criar).
 
    ![Screenshot mostrando como criar uma configuração de manutenção](media/virtual-machines-maintenance-control-portal/maintenance-configurations-create.png)
 
@@ -76,7 +76,7 @@ Há também duas formas de verificar se as atualizações estão pendentes para 
 
 Também pode verificar um anfitrião específico usando **Máquinas Virtuais** ou propriedades do anfitrião dedicado. 
 
-![Screenshot mostrando como verificar manutenção para um anfitrião](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png)
+![Screenshot que mostra o estado de manutenção realçado.](media/virtual-machines-maintenance-control-portal/maintenance-configurations-pending-vm.png)
 
 ## <a name="apply-updates"></a>Aplicar atualizações
 
@@ -94,9 +94,9 @@ Pode verificar o progresso das atualizações para uma configuração em **Confi
 
 Para eliminar uma configuração, abra os detalhes da configuração e clique em **Eliminar**.
 
-![Screenshot mostrando como verificar manutenção para um anfitrião](media/virtual-machines-maintenance-control-portal/maintenance-configurations-delete.png)
+![Screenshot que mostra como apagar uma configuração.](media/virtual-machines-maintenance-control-portal/maintenance-configurations-delete.png)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais, consulte [Manutenção e atualizações.](maintenance-and-updates.md)

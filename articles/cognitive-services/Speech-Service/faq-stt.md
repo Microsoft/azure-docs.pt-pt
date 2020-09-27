@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: panosper
-ms.openlocfilehash: 50ca6eacc7e75a3ff391401e7ced0e3583f1a285
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 0fe5b1350fdcf53eeda11f6de430d8d02a24fdbf
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357578"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397764"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Discurso ao Texto frequentemente feito perguntas
 
@@ -152,17 +152,17 @@ Ver [Quotas e Limites de Serviços de Fala.](speech-services-quotas-and-limits.m
 
 **R**: Carregar uma lista de palavras irá adicionar as palavras ao vocabulário, mas não ensinará ao sistema como as palavras são normalmente usadas. Ao fornecer expressões completas ou parciais (frases ou frases de coisas que os utilizadores são suscetíveis de dizer), o modelo de idioma pode aprender as novas palavras e como são usadas. O modelo de linguagem personalizada é bom não só para adicionar novas palavras ao sistema, mas também para ajustar a probabilidade de palavras conhecidas para a sua aplicação. Fornecer expressões completas ajuda o sistema a aprender melhor.
 
-## <a name="tenant-model-custom-speech-with-office-365-data"></a>Modelo de inquilino (Discurso personalizado com dados do Office 365)
+## <a name="tenant-model-custom-speech-with-microsoft-365-data"></a>Modelo de inquilino (Discurso personalizado com dados da Microsoft 365)
 
 **P: Que informação está incluída no Modelo de Inquilino, e como é criada?**
 
-**A:** Um Modelo de Inquilino é construído usando e-mails de [grupo público](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) e documentos que podem ser vistos por qualquer pessoa na sua organização.
+**A:** Um Modelo de Inquilino é construído usando e-mails de [grupo público](https://support.microsoft.com/office/learn-about-microsoft-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2) e documentos que podem ser vistos por qualquer pessoa na sua organização.
 
 **P: Que experiências de fala são melhoradas pelo Modelo de Inquilino?**
 
 **A:** Quando o Modelo de Inquilino está habilitado, criado e publicado, é utilizado para melhorar o reconhecimento de quaisquer aplicações empresariais construídas através do serviço Speech; que também passam um token AD do utilizador Azure indicando a adesão à empresa.
 
-As experiências de discurso incorporadas no Office 365, tais como O Ditado e a Legendagem de PowerPoint, não são alteradas quando cria um Modelo de Inquilino para as suas aplicações de serviço de Discurso.
+As experiências de fala incorporadas na Microsoft 365, tais como O Ditado e a Legendagem de PowerPoint, não são alteradas quando cria um Modelo de Inquilino para as suas aplicações de serviço de Discurso.
 
 ## <a name="next-steps"></a>Passos seguintes
 

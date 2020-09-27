@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dc229b366a7816c861da665c73d6421e67545c6
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 06900483598e1c03bd56cd8ac8c905f885012f08
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985908"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395894"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Armazenamento de dados de identidade para clientes europeus no Azure Ative Directory
 Os dados de identidade são armazenados pela Azure AD numa localização geográfica baseada no endereço fornecido pela sua organização ao subscrever um serviço Microsoft Online como o Microsoft 365 e o Azure. Para obter informações sobre onde os seus dados de identidade são armazenados, pode utilizar a secção [Onde os seus dados estão localizados?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
@@ -35,6 +35,10 @@ Para a autenticação Azure Multi-Factor baseada na nuvem, a autenticação é c
 * Os pedidos de autenticação de vários fatores que utilizam códigos OATH originários de centros de dados da UE são validados na UE.
 
 Para obter mais informações sobre as informações do utilizador recolhidas pelo Azure Multi-Factor Authentication Server (MFA Server) e pelo Azure MFA baseado na nuvem, consulte a recolha de dados de [autenticação multi-factor Azure](../authentication/howto-mfa-reporting-datacollection.md).
+
+## <a name="password-based-single-sign-on-for-enterprise-applications"></a>Sign-on único baseado em palavra-passe para aplicações empresariais
+ 
+Se um cliente criar uma nova aplicação empresarial (seja através da Galeria AD AZure ou não da Galeria) e permitir sSO baseado em palavra-passe, o sinal de aplicação em URL e o sinal de captura personalizado nos campos são armazenados nos Estados Unidos. Para obter mais informações sobre esta funcionalidade, consulte o [Configure o único sinal baseado em palavra-passe](../manage-apps/configure-password-single-sign-on-non-gallery-applications.md)
 
 ## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
 

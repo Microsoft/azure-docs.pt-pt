@@ -1,5 +1,6 @@
 ---
-title: Obtenha um token numa aplicação web que chama APIs web - Plataforma de identidade microsoft / Rio Azure
+title: Obtenha um símbolo numa aplicação web que chama APIs web Rio Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como adquirir um símbolo para uma aplicação web que chama APIs web
 services: active-directory
 author: jmprieur
@@ -8,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/14/2020
+ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 4904cd95dc81aad959c88c1dfdb09416923046e6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4fe3744f3f8cb39a7493ce788ee9badc1b31b75e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518186"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396183"
 ---
 # <a name="a-web-app-that-calls-web-apis-acquire-a-token-for-the-app"></a>Uma aplicação web que chama APIs web: Adquira um símbolo para a app
 
@@ -27,7 +28,11 @@ Construíste o objeto de candidatura ao teu cliente. Agora, vai usá-lo para adq
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Os métodos do controlador estão protegidos por um `[Authorize]` atributo que obriga os utilizadores a serem autenticados a utilizarem a aplicação web. Aqui está o código que chama o Microsoft Graph:
+*Microsoft.Identity.Web* adiciona métodos de extensão que fornecem serviços de conveniência para ligar para o Microsoft Graph ou uma API web a jusante. Estes métodos são explicados em detalhe numa [aplicação web que chama APIs web: Call a API](scenario-web-app-call-api-call-api.md). Com estes métodos de ajuda, não precisa de adquirir manualmente um símbolo.
+
+Se, no entanto, pretender adquirir manualmente um token, o seguinte código mostra um exemplo de utilização do *Microsoft.Identity.Web* para o fazer num controlador doméstico. Chama o Microsoft Graph utilizando a API REST (em vez do Microsoft Graph SDK). Para obter um token para ligar para a API a jusante, injeta o `ITokenAcquisition` serviço por injeção de dependência no construtor do seu controlador (ou no seu construtor de página se utilizar o Blazor), e utiliza-o nas ações do seu controlador, obtendo um sinal para o utilizador `GetAccessTokenForUserAsync` () ou para a própria aplicação `GetAccessTokenForAppAsync` () num cenário de daemon.
+
+Os métodos do controlador estão protegidos por um `[Authorize]` atributo que garante que apenas os utilizadores autenticados podem utilizar a aplicação web.
 
 ```csharp
 [Authorize]
@@ -82,7 +87,7 @@ O código para ASP.NET é semelhante ao código mostrado para ASP.NET Core:
 - Uma ação de controlador, protegida por um atributo [Authorize], extrai o ID do inquilino e a identificação do utilizador `ClaimsPrincipal` do membro do controlador. (ASP.NET `HttpContext.User` utiliza.)
 - A partir daí, constrói um `IConfidentialClientApplication` objeto MSAL.NET.
 - Finalmente, chama o `AcquireTokenSilent` método da aplicação confidencial do cliente.
-- Se for necessária interação, a aplicação web precisa de desafiar o utilizador (reinscreva)e pedir mais reclamações.
+- Se for necessária interação, a aplicação web precisa de desafiar o utilizador (re-signiná-lo) e pedir mais reclamações.
 
 O seguinte corte de código é extraído do [HomeController.cs#L157-L192](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect/blob/257c8f96ec3ff875c351d1377b36403eed942a18/WebApp/Controllers/HomeController.cs#L157-L192) na amostra [de código ms-identidade-aspnet-webapp-openidconnect](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect) ASP.NET amostra de código MVC:
 
@@ -196,7 +201,7 @@ def graphcall():
 
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Chamar uma API Web](scenario-web-app-call-api-call-api.md)

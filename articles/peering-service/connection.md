@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 05/18/2020
 ms.author: derekol
-ms.openlocfilehash: df337736a676c40f1345310afb9a2e685ddc1d5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0540fa9c7a29456aaf343adce83509b2d0e390e4
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84872023"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398925"
 ---
 # <a name="peering-service-connection"></a>Conexão de serviço de observação
 
@@ -29,7 +29,7 @@ Uma ligação normalmente refere-se a um conjunto de informações lógicas, ide
 O cliente pode estabelecer uma única ligação ou múltiplas ligações de acordo com o requisito. Uma ligação também é usada como uma unidade de coleção de telemetria. Por exemplo, para optar por alertas de telemetria, o cliente deve definir a ligação que será monitorizada.
 
 > [!Note]
-> Quando se inscreve no Serviço de Peering, analisamos a sua telemetria Windows e Office 365 de forma a fornecer-lhe medições de latência para os seus prefixos selecionados.
+> Quando se inscreve no Serviço de Peering, analisamos a telemetria Windows e Microsoft 365 de forma a fornecer-lhe medições de latência para os seus prefixos selecionados.
 >Para obter mais informações sobre a telemetria de ligação, consulte a [telemetria de ligação de serviço de pares](connection-telemetry.md).
 >
 
@@ -43,7 +43,7 @@ O cliente pode estabelecer uma única ligação ou múltiplas ligações de acor
 > A filtragem de nível estatal é considerada para a localização física do cliente quando a ligação está geo-localizada nos Estados Unidos.
 >
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender passo a passo processo sobre como registar a ligação do Serviço de Peering, consulte [o Serviço de Permôns registador utilizando o portal Azure](azure-portal.md).
 

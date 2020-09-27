@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 5ba3fc70a2ccfbe342e222dbb475658629ec60a4
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 8f482c4fe6817c75079ceb98e981c846c395ad13
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851700"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396030"
 ---
-# <a name="consistency-levels-in-azure-cosmos-db"></a>Níveis de consistência no Azure Cosmos DB
+# <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>O que são níveis de consistência no Azure Cosmos DB?
 
 Bases de dados distribuídas que dependem da replicação para alta disponibilidade, baixa latência, ou ambos, fazem a troca fundamental entre a consistência de leitura vs. disponibilidade, latência e produção. A maioria das bases de dados distribuídas comercialmente pedem aos desenvolvedores que escolham entre os dois modelos de consistência extrema: *forte* consistência e *eventual* consistência. A linearizabilidade do modelo de consistência forte é o padrão dourado da programabilidade de dados. Mas adiciona um preço de maior latência de escrita (em estado estável) e disponibilidade reduzida (durante as falhas). Por outro lado, uma eventual consistência oferece maior disponibilidade e melhor desempenho, mas dificulta o programa de aplicações.
 
@@ -91,7 +91,7 @@ O gráfico a seguir ilustra a consistência do prefixo de consistência com nota
 
   :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="vídeo":::
 
-- **Eventual:** Não há garantia de encomenda para leituras. Na ausência de mais escritos, as réplicas eventualmente convergem.  
+- **Eventual:** Não há garantia de encomenda para leituras. Na ausência de escritas adicionais, as réplicas acabam por convergir.  
 A consistência eventual é a forma mais fraca de consistência porque um cliente pode ler os valores que são mais antigos do que os que tinha lido antes. A eventual consistência é ideal quando a aplicação não requer quaisquer garantias de encomenda. Exemplos incluem contagem de retweets, gostos ou comentários não roscados. O gráfico a seguir ilustra a eventual consistência com notas musicais.
 
   :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="vídeo":::
@@ -108,7 +108,7 @@ Para saber mais sobre conceitos de consistência, leia os seguintes artigos:
 - [Probabilistic Bounded Staleness (PBS) para Quórums Parciais Práticos](https://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 - [Eventualmente Consistente - Revisitado](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os níveis de consistência no Azure Cosmos DB, leia os seguintes artigos:
 

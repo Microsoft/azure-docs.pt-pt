@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 06/17/2020
-ms.openlocfilehash: 6ca03e56d49d26fcd34a25ce1e3734db65b19b65
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7b42c12499977b5f7bc1704c57904e90be2e8466
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646843"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398019"
 ---
 # <a name="create-a-consulting-service-offer"></a>Criar uma oferta de serviço de consultoria
 
@@ -25,7 +25,7 @@ Antes de criar a sua oferta, reveja os pré-requisitos em [pré-requisitos de se
 Benefícios da publicação no mercado comercial:
 
 - Promova a sua empresa utilizando a marca Microsoft.
-- Potencialmente chegam a mais de 100 milhões de utilizadores do Office 365 e Da Dynamics 365 no AppSource e mais de 200.000 organizações através do Azure Marketplace.
+- Potencialmente chegam a mais de 100 milhões de utilizadores microsoft 365 e Dynamics 365 no AppSource e mais de 200.000 organizações através do Azure Marketplace.
 - Receba pistas de alta qualidade destes mercados.
 - Tenha os seus serviços promovidos pelo campo microsoft e equipas de televendas
 
@@ -141,7 +141,7 @@ Aqui está um exemplo de como a informação de oferta aparece no Azure Marketpl
 4. Indústrias
 5. Nome da oferta
 6. Resumo
-7. Descrição
+7. Description
 8. Screenshots/vídeos
 
 <br>Aqui está um exemplo de como as informações de oferta aparecem no Microsoft AppSource (quaisquer preços listados são apenas para fins e não se destinam a refletir custos reais):
@@ -156,7 +156,7 @@ Aqui está um exemplo de como a informação de oferta aparece no Azure Marketpl
 4. Indústrias
 5. Nome da oferta
 6. Resumo
-7. Descrição
+7. Description
 8. Screenshots/vídeos
 9. Documentos
 
@@ -174,7 +174,7 @@ O nome:
 
 Forneça uma breve descrição da sua oferta. Isto pode ter até 100 caracteres de comprimento e é usado em resultados de pesquisa no mercado.
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 

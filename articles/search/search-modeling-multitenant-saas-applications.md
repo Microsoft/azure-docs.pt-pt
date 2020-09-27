@@ -7,13 +7,13 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: ea0dac74d4f995e41513b3451dd28d177040e672
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: cd21197d6d1559b681ae622b974f6eb7ba95ad3d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935029"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397373"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Padrões de design para aplicações SaaS multitenant e Pesquisa Cognitiva Azure
 
@@ -76,7 +76,8 @@ No caso de um cenário multitenante, o desenvolvedor de aplicações consome um 
 3. *Mistura de ambos:* Os inquilinos maiores e mais ativos são atribuídos serviços dedicados, enquanto os inquilinos mais pequenos são atribuídos índices individuais dentro dos serviços partilhados.
 
 ## <a name="1-index-per-tenant"></a>1. Índice por inquilino
-![Um retrato do modelo index-per-inquilino](./media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png)
+
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-index-per-tenant.png" alt-text="Um retrato do modelo index-per-inquilino" border="false":::
 
 Num modelo de índice por inquilino, vários inquilinos ocupam um único serviço de Pesquisa Cognitiva Azure onde cada inquilino tem o seu próprio índice.
 
@@ -93,7 +94,8 @@ A Azure Cognitive Search permite que a escala dos índices individuais e o núme
 Se o número total de índices crescer demasiado grande para um único serviço, outro serviço tem de ser prestado para acomodar os novos inquilinos. Se os índices tiverem de ser movidos entre os serviços de pesquisa à medida que novos serviços são adicionados, os dados do índice têm de ser copiados manualmente de um índice para o outro, uma vez que a Azure Cognitive Search não permite que um índice seja movido.
 
 ## <a name="2-service-per-tenant"></a>2. Serviço por inquilino
-![Um retrato do modelo de serviço por inquilino](./media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png)
+
+:::image type="content" source="media/search-modeling-multitenant-saas-applications/azure-search-service-per-tenant.png" alt-text="Um retrato do modelo de serviço por inquilino" border="false":::
 
 Numa arquitetura de serviço por inquilino, cada inquilino tem o seu próprio serviço de pesquisa.
 

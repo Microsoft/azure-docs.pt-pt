@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/16/2020
 ms.author: duau
-ms.openlocfilehash: 221627a756c69d11ec5385b12970bb835d6a0a0c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9279b3e77147449ae0ede0cc0b76e57f130c9a44
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318459"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398036"
 ---
 # <a name="caching-with-azure-front-door"></a>Caching com Azure Front Door
 O documento que se segue especifica o comportamento para a Porta frontal com regras de encaminhamento que permitiram o caching. Front Door é uma moderna Rede de Entrega de Conteúdos (CDN) e assim, juntamente com a aceleração dinâmica do site e o equilíbrio de carga, também suporta comportamentos de caching como qualquer outro CDN.
@@ -83,7 +83,7 @@ Quando um pedido de um ativo especifica a compressão e o pedido resulta numa fa
 
 ## <a name="query-string-behavior"></a>Comportamento da corda de consulta
 Com a Porta Frontal, pode controlar como os ficheiros são cached para um pedido web que contém uma cadeia de consulta. Num pedido web com uma cadeia de consulta, a cadeia de consulta é essa parte do pedido que ocorre após um ponto de interrogação (?). Uma cadeia de consulta pode conter um ou mais pares de valor-chave, nos quais o nome do campo e o seu valor são separados por um sinal igual (=). Cada par de valores-chave é separado por um ampersand (&). Por exemplo, `http://www.contoso.com/content.mov?field1=value1&field2=value2`. Se houver mais de um par de valores-chave numa sequência de consulta de um pedido, a sua encomenda não importa.
-- **Ignore as cadeias de consulta**: Modo padrão. Neste modo, a Porta Frontal passa as cordas de consulta do solicitador para o backend no primeiro pedido e caches do ativo. Todos os pedidos subsequentes para o ativo que são servidos a partir do ambiente da Porta frontal ignoram as cordas de consulta até que o ativo em cache expire.
+- **Ignore as cordas de consulta**: Neste modo, a Porta Frontal passa as cordas de consulta do solicitador para o backend no primeiro pedido e caches o ativo. Todos os pedidos subsequentes para o ativo que são servidos a partir do ambiente da Porta frontal ignoram as cordas de consulta até que o ativo em cache expire.
 
 - **Cache cada URL único**: Neste modo, cada pedido com um URL único, incluindo a cadeia de consulta, é tratado como um ativo único com a sua própria cache. Por exemplo, a resposta do backend para um pedido `www.example.ashx?q=test1` de pedido é em cache no ambiente da porta da frente e devolvida para caches subsequentes com a mesma cadeia de consulta. Um pedido `www.example.ashx?q=test2` é em cache como um ativo separado com a sua própria definição de tempo-a-vida.
 

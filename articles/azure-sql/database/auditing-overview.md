@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: de41d9c1dc69726f5f7f031616462b2d1d330476
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a7edbbb50777cc2d91332260c9ebe72be042874b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333193"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396251"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria para Azure SQL Database e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -86,7 +86,7 @@ A secção seguinte descreve a configuração da auditoria utilizando o portal A
 2. Navegue para **a Auditoria** sob o título de Segurança na sua base **de dados SQL** ou painel **de servidor SQL.**
 3. Se preferir configurar uma política de auditoria do servidor, pode selecionar o link de definições do servidor Ver na página de auditoria da base de **dados.** Pode então visualizar ou modificar as definições de auditoria do servidor. As políticas de auditoria do servidor aplicam-se a todas as bases de dados existentes e recentemente criadas neste servidor.
 
-    ![Painel de navegação](./media/auditing-overview/2_auditing_get_started_server_inherit.png)
+    ![Screenshot que mostra o link de definições do servidor Ver realçado na página de auditoria da base de dados.](./media/auditing-overview/2_auditing_get_started_server_inherit.png)
 
 4. Se preferir ativar a auditoria ao nível da base de dados, **altere a Auditoria** para **ON**. Se a auditoria do servidor estiver ativada, a auditoria configurada pela base de dados existirá lado a lado com a auditoria do servidor.
 
@@ -163,7 +163,7 @@ Se optar por escrever registos de auditoria numa conta de armazenamento Azure, e
 
 - Utilize o [portal do Azure](https://portal.azure.com).  Abra a base de dados relevante. No topo da página de **Auditoria** da base de **dados,** clique em Ver registos de auditoria .
 
-    ![Painel de navegação](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
+    ![Screenshot que mostra o botão de registos de auditoria Do View realçado na página de auditoria da base de dados.](./media/auditing-overview/7_auditing_get_started_blob_view_audit_logs.png)
 
     **Os registos** de auditoria abrem, a partir dos quais poderá ver os registos.
 
@@ -171,14 +171,14 @@ Se optar por escrever registos de auditoria numa conta de armazenamento Azure, e
   - Pode alternar entre os registos de auditoria que foram criados pela *política de auditoria* do servidor e a política de auditoria da base de *dados* através da toggling **Audit Source**.
   - Só pode ver os registos de auditoria relacionados com a injeção DE SQL verificando apenas os registos de auditoria do Show para a caixa de verificação **de injeções SQL.**
 
-       ![Painel de navegação]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
+       ![Screenshot que mostra as opções para visualizar os registos de auditoria.]( ./media/auditing-overview/8_auditing_get_started_blob_audit_records.png)
 
 - Utilize a função do sistema **sys.fn_get_audit_file** (T-SQL) para devolver os dados de registo de auditoria em formato tabular. Para obter mais informações sobre a utilização desta função, consulte [sys.fn_get_audit_file](/sql/relational-databases/system-functions/sys-fn-get-audit-file-transact-sql).
 
 - Use **ficheiros de auditoria de fusão** no SQL Server Management Studio (a começar pelo SSMS 17):
     1. A partir do menu SSMS, selecione **Ficheiros**de Auditoria de Fusão  >  **Aberta**  >  **de Ficheiros.**
 
-        ![Painel de navegação](./media/auditing-overview/9_auditing_get_started_ssms_1.png)
+        ![Screenshot que mostra a opção do menu De Ficheiros de Auditoria de Fusão.](./media/auditing-overview/9_auditing_get_started_ssms_1.png)
     2. Abre a caixa de diálogo **'Add Audit Files'.** Selecione uma das opções **Add** para escolher se funde ficheiros de auditoria a partir de um disco local ou os importe do Azure Storage. É-lhe exigido que forneça os seus dados de Armazenamento Azure e a chave da conta.
 
     3. Depois de todos os ficheiros a fundir terem sido adicionados, clique **em OK** para concluir a operação de fusão.
@@ -218,7 +218,7 @@ Na produção, é provável que refresque as chaves de armazenamento periodicame
 
 1. Detalhes **de armazenamento abertos**. Na caixa chave de acesso ao **armazenamento,** selecione **Secondary**, e clique **em OK**. Em seguida, clique em **Guardar** no topo da página de configuração de auditoria.
 
-    ![Painel de navegação](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
+    ![Screenshot que mostra o processo de seleção de uma chave de acesso de armazenamento secundário.](./media/auditing-overview/5_auditing_get_started_storage_key_regeneration.png)
 2. Vá à página de configuração de armazenamento e regenera a chave de acesso primário.
 
     ![Painel de navegação](./media/auditing-overview/6_auditing_get_started_regenerate_key.png)

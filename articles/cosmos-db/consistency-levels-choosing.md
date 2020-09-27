@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: aa8f2d14124e7cfc5db0025c295f9b38d96bf56c
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 0a79f6883a150cb95724a7be30dcbd2e8e03f01f
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921832"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396081"
 ---
-# <a name="choose-the-right-consistency-level"></a>Escolher o nível de consistência certo 
+# <a name="how-to-choose-the-right-consistency-level-for-your-azure-cosmos-db-application"></a>Como escolher o nível de consistência certo para a sua aplicação DB Azure Cosmos? 
 
 Bases de dados distribuídas que dependem da replicação para alta disponibilidade, baixa latência ou ambas, fazem a troca fundamental entre a consistência de leitura vs. disponibilidade, latência e produção. A maioria das bases de dados distribuídas comercialmente pedem aos desenvolvedores que escolham entre os dois modelos de consistência extrema: *forte* consistência e *eventual* consistência. A Azure Cosmos DB permite que os desenvolvedores escolham entre os cinco modelos de consistência bem definidos: *forte,* *limitado,* *sessão,* *prefixo consistente* e *eventual*. Cada um destes modelos de consistência é bem definido, intuitivo e pode ser usado para cenários específicos do mundo real. Cada um dos cinco modelos de consistência proporciona uma disponibilidade precisa e trocas de desempenho e são apoiados por SLAs [abrangentes.](consistency-levels-tradeoffs.md) Pode configurar uma consistência predefinida ao nível da conta e [sobrepor-se ao nível de pedido](how-to-manage-consistency.md#override-the-default-consistency-level). As seguintes considerações simples irão ajudá-lo a fazer a escolha certa em muitos cenários comuns.
 
@@ -56,7 +56,7 @@ Se a sua conta Azure Cosmos estiver configurada com um nível de consistência d
 
 A estagnação deslimaturada probabilística mostra como a sua eventual consistência é a sua eventual consistência. Esta métrica fornece uma visão de quantas vezes você pode obter uma consistência mais forte do que o nível de consistência que você tem atualmente configurado na sua conta Azure Cosmos. Por outras palavras, pode-se ver a probabilidade (medida em milissegundos) de obter leituras fortemente consistentes para uma combinação de regiões de escrita e leitura.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia mais sobre os níveis de consistência nos seguintes artigos:
 

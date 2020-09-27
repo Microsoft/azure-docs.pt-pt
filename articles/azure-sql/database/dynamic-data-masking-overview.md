@@ -12,12 +12,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/04/2020
 tags: azure-synpase
-ms.openlocfilehash: 14ae9103571d72b0a48ee8e1a9c9dc6bb008373b
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 0689cea221142ec9c9bdbb18ab82fab00a3e2fe5
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552136"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398617"
 ---
 # <a name="dynamic-data-masking"></a>Máscara de dados dinâmica 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -46,8 +46,8 @@ A mascaragem dinâmica de dados pode ser configurada pelas funções de administ
 | --- | --- |
 | **Predefinição** |**Mascaramento completo de acordo com os tipos de dados dos campos designados**<br/><br/>• Utilize XXXX ou menos Xs se o tamanho do campo for inferior a 4 caracteres para tipos de dados de cordas (nchar, ntext, nvarchar).<br/>• Utilize um valor zero para tipos de dados numéricos (bigint, bit, decimal, int, money, numérico, pequeno, pequeno dinheiro, minúsculo, flutuante, real).<br/>• Utilize 01-01-1900 para tipos de dados de data/hora (data, data2, data, data, data, tempo de data, hora de data, hora certa).<br/>• Para a variante SQL, é utilizado o valor predefinido do tipo atual.<br/>• Para XML o documento \<masked/> é utilizado.<br/>• Utilize um valor vazio para tipos especiais de dados (tabela de relógios, hierarquia, GUID, binário, imagem, tipos espaciais varbinários). |
 | **Cartão de crédito** |**Método de mascaramento, que expõe os últimos quatro dígitos dos campos designados** e adiciona uma cadeia constante como um prefixo na forma de um cartão de crédito.<br/><br/>XXXX-XXXX-XXXX-1234 |
-| **Email** |**Método de mascaramento, que expõe a primeira letra e substitui o domínio por XXX.com** usando um prefixo de corda constante sob a forma de um endereço de e-mail.<br/><br/>aXX@XXXX.com |
-| **Número aleatório** |**Método de mascaramento, que gera um número aleatório** de acordo com os limites selecionados e tipos de dados reais. Se os limites designados forem iguais, então a função de máscara é um número constante.<br/><br/>![Painel de navegação](./media/dynamic-data-masking-overview/1_DDM_Random_number.png) |
+| **E-mail** |**Método de mascaramento, que expõe a primeira letra e substitui o domínio por XXX.com** usando um prefixo de corda constante sob a forma de um endereço de e-mail.<br/><br/>aXX@XXXX.com |
+| **Número aleatório** |**Método de mascaramento, que gera um número aleatório** de acordo com os limites selecionados e tipos de dados reais. Se os limites designados forem iguais, então a função de máscara é um número constante.<br/><br/>![Screenshot que mostra o método de mascaramento para gerar um número aleatório.](./media/dynamic-data-masking-overview/1_DDM_Random_number.png) |
 | **Texto personalizado** |**Método de mascaramento, que expõe os primeiros e últimos caracteres** e adiciona uma corda de enchimento personalizada no meio. Se a corda original for mais curta do que o prefixo e sufixo expostos, apenas é utilizada a corda de enchimento. <br/>prefixo[enchimento]sufixo]sufixo<br/><br/>![Painel de navegação](./media/dynamic-data-masking-overview/2_DDM_Custom_text.png) |
 
 <a name="Anchor1"></a>

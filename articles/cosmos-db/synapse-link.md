@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 4226676ed7fbaf5b2998306fa5240316c327d59c
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 89282b0cc07f210e7bbf80503c9dbef5f97b13a2
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90891479"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397339"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>O que é Azure Synapse Link para Azure Cosmos DB (Preview)?
 
@@ -116,7 +116,7 @@ O Synapse Link não é recomendado se estiver à procura de requisitos tradicion
 
 ## <a name="limitations"></a>Limitações
 
-* A Azure Synapse Link é suportado para a API API AZure Cosmos DB SQL (Core) e a API da AZure Cosmos DB para a MongoDB. O apoio à API de Cassandra está atualmente sob uma pré-visualização fechada. Para solicitar o acesso à pré-visualização fechada, envie um e-mail à [equipa DB da Azure Cosmos](mailto:cosmosdbsynapselink@microsoft.com).
+* A Azure Synapse Link é suportado para a API API AZure Cosmos DB SQL (Core) e a API da AZure Cosmos DB para a MongoDB.
 
 * Atualmente, a loja analítica só pode ser ativada para novos contentores. Para utilizar a loja analítica para recipientes existentes, migrar dados dos seus recipientes existentes para novos recipientes utilizando [ferramentas de migração Azure Cosmos DB](cosmosdb-migrationchoices.md). Pode ativar o Synapse Link em novas e existentes contas DB do Azure Cosmos.
 

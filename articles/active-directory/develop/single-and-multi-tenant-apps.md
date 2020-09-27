@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 09/24/2020
 ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: dfb9cb80bdcd2854a3ddd5b273806fbcdda916b0
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 0868d87d977b15a552b04d5dbd6d19de6931f0ae
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90705644"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395911"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Arrendamento em Diretório Ativo Azure
 
@@ -43,7 +43,7 @@ No portal Azure, pode configurar a sua app para ser um inquilino único ou multi
 Construir grandes aplicativos multi-inquilinos pode ser um desafio devido ao número de políticas diferentes que os administradores de TI podem definir nos seus inquilinos. Se optar por construir uma app multi-arrendatário, siga estas boas práticas:
 
 * Teste a sua aplicação num inquilino que tenha configurado [políticas de Acesso Condicional.](../azuread-dev/conditional-access-dev-guide.md)
-* Siga o princípio do menor acesso ao utilizador para garantir que a sua app apenas solicita permissões de que necessita. Evite solicitar permissões que exijam consentimento administrativo, uma vez que tal poderá impedir os utilizadores de adquirirem a sua app em algumas organizações. 
+* Siga o princípio do menor acesso ao utilizador para garantir que a sua app apenas solicita permissões de que necessita. 
 * Forneça nomes e descrições apropriados para quaisquer permissões que exponha como parte da sua aplicação. Isto ajuda os utilizadores e administradores a saber em que estão a concordar quando tentam usar as APIs da sua aplicação. Para mais informações, consulte a secção de boas práticas no guia de [permissões.](v2-permissions-and-consent.md)
 
 ## <a name="next-steps"></a>Passos seguintes

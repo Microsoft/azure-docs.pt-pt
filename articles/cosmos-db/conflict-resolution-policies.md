@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: c3b1cf01cbaa8de8ec33bbf9c19ee991ae898d58
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91054318d4b030d9b2cb9bb80424ade80aeeca85
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82182757"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395843"
 ---
-# <a name="conflict-types-and-resolution-policies"></a>Tipos de conflito e políticas de resolução
+# <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>Tipos de conflitos e políticas de resolução ao utilizar várias regiões de escrita
 
 Os conflitos e as políticas de resolução de conflitos são aplicáveis se a sua conta DB Azure Cosmos estiver configurada com várias regiões de escrita.
 

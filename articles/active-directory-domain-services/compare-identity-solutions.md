@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 06/08/2020
 ms.author: iainfou
-ms.openlocfilehash: 1ed1305939f4f8a9de62de85a2f09c323a2636b1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: af4ebcac38d4714b8a133087fe328b4d2f6c4872
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489593"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396370"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Compare os serviços de domínio do diretório ativo auto-geridos, o Azure Ative Directory e os serviços de domínio do diretório ativo geridos a Azure Ative Directory
 
@@ -26,7 +26,7 @@ Embora as três soluções de identidade baseadas em Ative Directory partilhem u
 * **Ative Directory Domain Services (AD DS)** - Servidor de acesso a diretório leve pronto para a empresa (LDAP) que fornece funcionalidades-chave como identidade e autenticação, gestão de objetos informáticos, política de grupo e fidedignidades.
     * O AD DS é um componente central em muitas organizações com um ambiente de TI no local, e fornece recursos de autenticação de conta de utilizador e gestão de computadores.
     * Para obter mais informações, consulte a [visão geral dos Serviços de Domínio do Diretório Ativo na documentação do Windows Server][overview-adds].
-* **Azure Ative Directory (Azure AD)** - Gestão de identidade e dispositivos móveis baseados na nuvem que fornece serviços de conta de utilizador e autenticação para recursos como o Office 365, o portal Azure ou aplicações SaaS.
+* **Azure Ative Directory (Azure AD)** - Gestão de identidade e dispositivos móveis baseados na nuvem que fornece serviços de conta de utilizador e autenticação para recursos como o Microsoft 365, o portal Azure ou aplicações SaaS.
     * O Azure AD pode ser sincronizado com um ambiente AD DS no local para fornecer uma única identidade aos utilizadores que trabalham nativamente na nuvem.
     * Para mais informações sobre a Azure AD, veja [o que é o Diretório Ativo Azure?][whatis-azuread]
 * **Azure Ative Directory Domain Services (Azure AD DS)** - Fornece serviços de domínio geridos com um subconjunto de funcionalidades tradicionais de AD DS tradicionais totalmente compatíveis, tais como a junção de domínio, política de grupo, LDAP e autenticação Kerberos /NTLM.

@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 09/25/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 3f3c53d412105489a814f082bbc0fd209476ecf9
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 7f6be959bf09cbe20bb37dfa3d17d64467758bd6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90971392"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397900"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indexadores na Pesquisa Cognitiva do Azure
 
@@ -48,7 +48,7 @@ Indexantes rastejam lojas de dados em Azure.
 
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 * [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) (em pré-visualização)
-* [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
+* [Table Storage do Azure](search-howto-indexing-azure-tables.md)
 * [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
 * [Base de Dados SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Instância Gerida do SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
@@ -60,7 +60,7 @@ Numa execução inicial, quando o índice estiver vazio, um indexante lerá todo
 
 Para cada um dos documentos que ingere, um indexante implementa ou coordena vários passos, desde a recuperação de documentos até um motor de busca final "handoff" para indexação. Opcionalmente, um indexante também é fundamental na execução e saídas de skillset de condução, assumindo que um skillset é definido.
 
-![Estágios indexantes](./media/search-indexer-overview/indexer-stages.png "estágios indexantes")
+:::image type="content" source="media/search-indexer-overview/indexer-stages.png" alt-text="Estágios indexantes" border="false":::
 
 ### <a name="stage-1-document-cracking"></a>Fase 1: Rachadura de documento
 
@@ -173,6 +173,6 @@ Agora que tem uma noção básica, o passo seguinte é rever os requisitos e as 
 * [Base de Dados Azure SQL, SQL Managed Instance ou SQL Server em uma máquina virtual Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
-* [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
+* [Table Storage do Azure](search-howto-indexing-azure-tables.md)
 * [Indexação de bolhas de CSV utilizando o indexante Azure Cognitive Search Blob](search-howto-index-csv-blobs.md)
 * [Indexação de bolhas JSON com indexante de blob de pesquisa cognitiva Azure](search-howto-index-json-blobs.md)

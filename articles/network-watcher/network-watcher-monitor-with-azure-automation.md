@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: d833a4cf26ee8ab69d16cbd1d776ca49a2df4bc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 273e9f7ce65cdd15000b1cc4ac7c19cde5992992
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738220"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396778"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Monitorar gateways VPN com resolução de problemas do Observador de Rede
 
 Obter informações profundas sobre o desempenho da sua rede é fundamental para fornecer serviços fiáveis aos clientes. Por isso, é fundamental detetar rapidamente as condições de paragem da rede e tomar medidas corretivas para mitigar o estado de paragem. A Azure Automation permite-lhe implementar e executar uma tarefa de forma programática através de runbooks. A utilização da Azure Automation cria uma receita perfeita para a monitorização e alerta contínuas de rede.
 
-## <a name="scenario"></a>Scenario
+## <a name="scenario"></a>Cenário
 
 O cenário na imagem seguinte é uma aplicação multi-camadas, com conectividade nas instalações estabelecida usando um Gateway VPN e túnel. Garantir que o Gateway VPN está em funcionamento é fundamental para o desempenho das aplicações.
 
@@ -42,7 +42,7 @@ Antes de iniciar este cenário, deve ter os seguintes pré-requisitos:
 
 - Uma conta de automação Azure em Azure. Certifique-se de que a conta de automação tem os módulos mais recentes e também tem o módulo AzureRM.Network. O módulo AzureRM.Network está disponível na galeria do módulo se precisar de adicioná-lo à sua conta de automação.
 - Deve ter um conjunto de credenciais configurar na Azure Automation. Saiba mais na [segurança da Azure Automation](../automation/automation-security-overview.md)
-- Um servidor SMTP válido (Office 365, o seu e-mail no local ou outro) e credenciais definidas na Azure Automation
+- Um servidor SMTP válido (Microsoft 365, o seu e-mail no local ou outro) e credenciais definidas na Azure Automation
 - Um Gateway de rede virtual configurado em Azure.
 - Uma conta de armazenamento existente com um recipiente existente para armazenar os registos.
 
@@ -53,7 +53,7 @@ Antes de iniciar este cenário, deve ter os seguintes pré-requisitos:
 
 O primeiro passo para configurar o exemplo é criar o livro de recortes. Este exemplo utiliza uma conta executada. Para saber sobre contas corram como resultados, visite [Authenticate Runbooks com a conta Azure Run As](../automation/automation-create-runas-account.md)
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 Navegue para a Azure Automation no [portal Azure](https://portal.azure.com) e clique em **Runbooks**
 
@@ -85,7 +85,7 @@ Use o seguinte código como clique **Para Guardar**
 
 ```powershell
 # Set these variables to the proper values for your environment
-$o365AutomationCredential = "<Office 365 account>"
+$automationCredential = "<work or school account>"
 $fromEmail = "<from email address>"
 $toEmail = "<to email address>"
 $smtpServer = "<smtp.office365.com>"
@@ -99,8 +99,8 @@ $storageAccountName = "<storage account name>"
 $storageAccountResourceGroup = "<resource group name>"
 $storageAccountContainer = "<container name>"
 
-# Get credentials for Office 365 account
-$cred = Get-AutomationPSCredential -Name $o365AutomationCredential
+# Get credentials for work or school account
+$cred = Get-AutomationPSCredential -Name $automationCredential
 
 # Get the connection "AzureRunAsConnection "
 $servicePrincipalConnection=Get-AutomationConnection -Name $runAsConnectionName
@@ -155,7 +155,7 @@ Deve ser criado um novo horário. Clique **em Ligar um horário para o seu runbo
 
 ![Passo 7][7]
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 Na **lâmina Agenda,** clique em **Criar um novo horário**
 
@@ -183,7 +183,7 @@ Clique em Guardar para guardar o horário para o livro de recortes.
 
 ![Passo 10][10]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que tem um entendimento sobre como integrar a resolução de problemas do Observador de Rede com a Azure Automation, aprenda a desencadear capturas de pacotes em alertas VM visitando [Criar uma captura de pacotes desencadeado em alerta com o Azure Network Watcher](network-watcher-alert-triggered-packet-capture.md).
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: fb86b25fc24ea505ae258cc44d5554a019723af6
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ddba41acfcfe497059a661b701906cda0d4d77c6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019203"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398379"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: Parte 2 - Ver as mensagens encaminhadas
 
@@ -82,7 +82,7 @@ A fila do Service Bus serve para receber mensagens designadas como críticas. Co
 
    ![As opções office365](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
 
-8. Inscreva-se na sua conta office 365 para configurar a ligação. Se isto acabar, tenta outra vez. Especifique os endereços de e-mail dos destinatários. Especifique também o assunto e escreva a mensagem para apresentar no corpo ao destinatário. Para fins de teste, introduza o seu próprio endereço de e-mail para o destinatário.
+8. Inscreva-se na sua conta de trabalho ou escola para configurar a ligação. Se isto acabar, tenta outra vez. Especifique os endereços de e-mail dos destinatários. Especifique também o assunto e escreva a mensagem para apresentar no corpo ao destinatário. Para fins de teste, introduza o seu próprio endereço de e-mail para o destinatário.
 
    **Selecione Adicionar conteúdo dinâmico** para mostrar o conteúdo da mensagem que pode incluir. Selecione **Conteúdo** – incluirá a mensagem no e-mail.
 

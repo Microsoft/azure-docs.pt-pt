@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/23/2018
+ms.date: 09/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 0fc18c6d67935889b0ba0c306dc326eca3b888f5
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: f6fffadd3c53f67af2e4c833a6a1d442c18efa0b
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184300"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398191"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrar dados da série StorSimple 5000-7000 para 8000
 
@@ -80,8 +80,8 @@ Antes de começar a migração, certifique-se de que:
 
     ![Verifique a versão do software no dispositivo legado](media/storsimple-8000-migrate-from-5000-7000/check-version-legacy-device1.png)
 
-    * Se o seu dispositivo vivo não estiver a funcionar v2.1.1.518 ou posterior, por favor atualize o seu sistema para a versão mínima necessária. Para obter instruções detalhadas, consulte a [Atualização do seu sistema para v2.1.1.518](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518).
-    * Se estiver a executar v2.1.1.518, vá à Web UI para ver se existem notificações para falhas de restauro do registo. Se a restauração do registo tivesse falhado, executar o registo restabelecendo. Para obter mais informações, aceda à restauração do registo de [execução.](http://onlinehelp.storsimple.com/111_Appliance/2_User_Guides/1_Current_(v2.1.1)/1_Web_UI_User_Guide_WIP/2_Configuration/4_Cloud_Accounts/1_Cloud_Credentials#Restoring_Backup_Registry)
+    * Se o seu dispositivo vivo não estiver a funcionar v2.1.1.518 ou posterior, por favor atualize o seu sistema para a versão mínima necessária. Poderá ter de trabalhar com o Microsoft Support para o ajudar a realizar a atualização.
+    * Se estiver a executar v2.1.1.518, vá à Web UI para ver se existem notificações para falhas de restauro do registo. Se a restauração do registo tivesse falhado, executar o registo restabelecendo. Poderá ter de trabalhar com o Microsoft Support para o ajudar a restaurar o seu registo.
     * Se tiver um dispositivo para baixo que não esteja a funcionar v2.1.1.518, efetue uma falha num dispositivo de substituição que esteja a funcionar v2.1.1.518. Para obter instruções detalhadas, consulte o DR do seu dispositivo StorSimple da série 5000/7000.
     * Revendo os dados para o seu dispositivo tirando uma fotografia em nuvem.
     * Verifique se existem outros trabalhos de backup ativos que estejam a ser geridos no dispositivo de origem. Isto inclui os trabalhos no anfitrião da consola de proteção de dados StorSimple. Espere que os trabalhos atuais terminem.

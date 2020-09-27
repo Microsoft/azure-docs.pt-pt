@@ -7,13 +7,13 @@ ms.author: terrychr
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 05/19/2020
-ms.openlocfilehash: b6164ef955ac92a7ef8776e560ea4d3a92abaf8d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: 8bbd0b1979da69e5d4d18009100a7caee5a3d722
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935981"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397407"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Tutorial: Diagnosticar, reparar e comprometer alterações na sua habilidade
 
@@ -59,7 +59,7 @@ As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos
 
 1. Em **Definições**  >  **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio, caso precise de rolar uma. Pode utilizar a tecla primária ou secundária nos pedidos de adição, modificação e eliminação de objetos.
 
-![Obtenha uma chave de acesso http e acesso](media/search-get-started-postman/get-url-key.png "Obtenha uma chave de acesso http e acesso")
+:::image type="content" source="media/search-get-started-postman/get-url-key.png" alt-text="Obtenha uma chave de acesso http e acesso" border="false":::
 
 Todos os pedidos requerem uma chave API em cada pedido enviado ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
@@ -78,15 +78,13 @@ Nesta secção, o Carteiro e uma recolha fornecida são utilizados para criar a 
 1. Introduza o armazenamentoConnectionString a partir da página de chaves da sua conta de Armazenamento Azure.
 1. Introduza o recipienteName para o recipiente que criou na conta de armazenamento.
 
-> [!div class="mx-imgBorder"]
-> ![editar variáveis no Carteiro](media/cognitive-search-debug/postman-enter-variables.png)
+> :::image type="content" source="media/cognitive-search-debug/postman-enter-variables.png" alt-text="editar variáveis no Carteiro":::
 
 A coleção contém quatro chamadas REST diferentes que são usadas para completar esta secção.
 
 A primeira chamada cria a fonte de dados. `clinical-trials-ds`. A segunda chamada cria o skillset, `clinical-trials-ss` . A terceira chamada cria o índice, `clinical-trials` . A quarta e última chamada cria o indexante, `clinical-trials-idxr` . Depois de todas as chamadas da coleção terem sido concluídas, feche o Carteiro e regresse ao portal Azure.
 
-> [!div class="mx-imgBorder"]
-> ![usando o Carteiro para criar fonte de dados](media/cognitive-search-debug/postman-create-data-source.png)
+> :::image type="content" source="media/cognitive-search-debug/postman-create-data-source.png" alt-text="usando o Carteiro para criar fonte de dados":::
 
 ## <a name="check-the-results"></a>Verifique os resultados
 
@@ -109,8 +107,7 @@ Volte ao ecrã geral do serviço de pesquisa.
 
 ## <a name="start-your-debug-session"></a>Inicie a sua sessão de depurar
 
-> [!div class="mx-imgBorder"]
-> ![iniciar uma nova sessão de depurar](media/cognitive-search-debug/new-debug-session-screen-required.png)
+> :::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="iniciar uma nova sessão de depurar":::
 
 1. Clique no separador Debug (pré-visualização).
 1. Selecione +NewDebugSession
@@ -123,8 +120,7 @@ Volte ao ecrã geral do serviço de pesquisa.
 > [!Important]
 > Uma sessão de depurar só funciona com um único documento. Um documento específico no conjunto de dados pode ser > selecionado ou a sessão será padrão para o primeiro documento.
 
-> [!div class="mx-imgBorder"]
-> ![Nova sessão de depurar começou](media/cognitive-search-debug/debug-execution-complete1.png)
+> :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="Nova sessão de depurar começou":::
 
 Quando a sessão de depuração tiver terminado de executar, a sessão predefine no separador DeSecimentos de IA, destacando o Gráfico de Habilidades.
 
@@ -144,8 +140,7 @@ No separador Erros/Avisos, existe um erro para uma operação rotulada `Enrichme
 1. Selecione o **</>** símbolo no início da linha e abra o Avaliador de Expressão.
 1. Clique no botão **Avaliar** para confirmar que esta expressão está a resultar num erro. Confirmará que a propriedade "languageCode" não é uma entrada válida.
 
-> [!div class="mx-imgBorder"]
-> ![Avaliador de Expressão](media/cognitive-search-debug/expression-evaluator-language.png)
+> :::image type="content" source="media/cognitive-search-debug/expression-evaluator-language.png" alt-text="Avaliador de Expressão":::
 
 Há duas formas de investigar este erro na sessão. A primeira é olhar para onde vem a entrada - que habilidade na hierarquia deve produzir este resultado? O separador Execuções no painel de detalhes de habilidade deve mostrar a origem da entrada. Se não houver origem, isto indica um erro de mapeamento de campo.
 
@@ -153,8 +148,7 @@ Há duas formas de investigar este erro na sessão. A primeira é olhar para ond
 1. Olhe para os INPUTS e encontre "languageCode". Não há nenhuma fonte para esta entrada listada. 
 1. Mude o painel esquerdo para visualizar a Estrutura de Dados Enriquecida. Não existe um caminho mapeado correspondente ao "languageCode".
 
-> [!div class="mx-imgBorder"]
-> ![Estrutura de Dados Enriquecida](media/cognitive-search-debug/enriched-data-structure-language.png)
+> :::image type="content" source="media/cognitive-search-debug/enriched-data-structure-language.png" alt-text="Estrutura de Dados Enriquecida":::
 
 Há um caminho traçado para "linguagem". Então, há um erro nas definições de habilidade. Para corrigir isto, a expressão no #1 habilidade com a expressão "/documento/idioma" terá de ser atualizada.
 
@@ -170,13 +164,11 @@ Assim que a execução da sessão de depuração estiver concluída, clique no s
 
 ## <a name="fix-missing-skill-output-values"></a>Corrigir valores de saída de competência em falta
 
-> [!div class="mx-imgBorder"]
-> ![Erros e avisos](media/cognitive-search-debug/warnings-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Erros e avisos":::
 
 Faltam valores de saída de uma habilidade. Para identificar a habilidade com o erro aceda à Estrutura de Dados Enriquecidos, encontre o nome de valor e veja a sua Fonte Originária. No caso das organizações e dos valores de locais em falta, são saídas de #1 de competências. A abertura do avaliador de expressão </> para cada caminho, apresentará as expressões listadas como "/documento/conteúdo/organizações" e "/documento/conteúdo/localizações", respectivamente.
 
-> [!div class="mx-imgBorder"]
-> ![Entidade de avaliadores de expressão](media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/expression-eval-missing-value-locations-organizations.png" alt-text="Entidade de avaliadores de expressão":::
 
 A produção para estas entidades está vazia e não deve estar vazia. Quais são as entradas que produzem este resultado?
 
@@ -184,16 +176,14 @@ A produção para estas entidades está vazia e não deve estar vazia. Quais sã
 1. Selecione O separador **execuções** no painel de detalhes de habilidades certos.
 1. Abra o avaliador de expressão **</>** para o "texto" do INPUT.
 
-> [!div class="mx-imgBorder"]
-> ![Entrada para habilidade de texto](media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/input-skill-missing-value-locations-organizations.png" alt-text="Entrada para habilidade de texto":::
 
 O resultado apresentado para esta entrada não parece uma entrada de texto. Parece uma imagem rodeada de novas linhas. A falta de texto significa que nenhuma entidade pode ser identificada. Olhando para a hierarquia do skillset exibe o conteúdo é processado primeiro pela habilidade #6 (OCR) e depois passado para a habilidade #5 (Merge). 
 
 1. Selecione a habilidade #5 (Merge) no **Gráfico de Habilidades**.
 1. Selecione o separador **Execuções** no painel de detalhes de habilidades certos e abra o Avaliador de Expressão **</>** para o "Texto fundido" do OUTPUTS.
 
-> [!div class="mx-imgBorder"]
-> ![Saída para a capacidade de fusão](media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/merge-output-detail-missing-value-locations-organizations.png" alt-text="Saída para a capacidade de fusão":::
 
 Aqui o texto é emparelhado com a imagem. Olhando para a expressão "/document/merged_content" é visível o erro nos caminhos das "organizações" e "localizações" para a #1 habilidade. Em vez de utilizar "/documento/conteúdo" deve utilizar "/document/merged_content" para as entradas de "texto".
 
@@ -213,8 +203,7 @@ Depois que o indexante terminou de funcionar, os erros ainda estão lá. Volte p
 1. Navegue nas **Definições de Habilidade** para encontrar "saídas".
 1. Abra o Avaliador de Expressão **</>** para a entidade "organizações".
 
-> [!div class="mx-imgBorder"]
-> ![Produção para entidades de organizações](media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/skill-output-detail-missing-value-locations-organizations.png" alt-text="Produção para entidades de organizações":::
 
 Avaliar o resultado da expressão dá o resultado correto. A habilidade está a trabalhar para identificar o valor correto para a entidade, "organizações". No entanto, o mapeamento de saída no caminho da entidade ainda está a lançar um erro. Ao comparar a trajetória de saída na habilidade com a trajetória de saída no erro, a habilidade que está a ser a parentalidade das saídas, organizações e localizações sob o nó /documento/conteúdo. Enquanto o mapeamento do campo de saída espera que os resultados sejam parentados no nó /documento/merged_content. No passo anterior, a entrada passou de '/documento/conteúdo' para '/documento/merged_content'. O contexto nas definições de habilidades tem de ser alterado de modo a garantir que a saída é gerada com o contexto certo.
 
@@ -225,8 +214,7 @@ Avaliar o resultado da expressão dá o resultado correto. A habilidade está a 
 1. Clique em **Guardar** no painel de detalhes de habilidades certos.
 1. Clique em **Executar** no menu da janela das sessões. Isto irá dar início a mais uma execução do skillset usando o documento.
 
-> [!div class="mx-imgBorder"]
-> ![Correção de contexto na definição de habilidade](media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png)
+> :::image type="content" source="media/cognitive-search-debug/skill-setting-context-correction-missing-value-locations-organizations.png" alt-text="Correção de contexto na definição de habilidade":::
 
 Todos os erros foram resolvidos.
 

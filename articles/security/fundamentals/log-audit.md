@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: terrylan
-ms.openlocfilehash: bd0f42507e22559690e2682a391c53b9c090aa6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5ac9daeb741d400a759603c7a3e3e462cc9294f
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75750799"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398874"
 ---
 # <a name="azure-security-logging-and-auditing"></a>Azure security logging and auditing (Registo e auditoria de segurança do Azure)
 
@@ -48,7 +48,7 @@ A tabela que se segue lista os tipos mais importantes de registos disponíveis n
 
 | Categoria do registo | Tipo de registo | Utilização | Integração |
 | ------------ | -------- | ------ | ----------- |
-|[Registos de atividade](../../azure-monitor/platform/platform-logs-overview.md)|Eventos de control-plane nos recursos do Gestor de Recursos da Azure|  Fornece informações sobre as operações que foram realizadas sobre os recursos na sua subscrição.|    Rest API, [Monitor Azure](../../azure-monitor/platform/platform-logs-overview.md)|
+|[Troncos de atividade](../../azure-monitor/platform/platform-logs-overview.md)|Eventos de control-plane nos recursos do Gestor de Recursos da Azure|  Fornece informações sobre as operações que foram realizadas sobre os recursos na sua subscrição.|    Rest API, [Monitor Azure](../../azure-monitor/platform/platform-logs-overview.md)|
 |[Registos de recursos Azure](../../azure-monitor/platform/platform-logs-overview.md)|Dados frequentes sobre o funcionamento dos recursos do Gestor de Recursos Azure em subscrição|   Fornece informações sobre as operações que o seu próprio recurso realizou.| Azure Monitor|
 |[Relatórios do Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md)|Registos e relatórios | Reporta atividades de inscrição do utilizador e informações de atividade do sistema sobre utilizadores e gestão de grupos.|[Graph API](../../active-directory/develop/active-directory-graph-api-quickstart.md)|
 |[Máquinas virtuais e serviços na nuvem](../../azure-monitor/learn/quick-collect-azurevm.md)|Serviço de Registo de Eventos do Windows e Syslog Linux|  Captura dados do sistema e regista dados nas máquinas virtuais e transfere esses dados para uma conta de armazenamento à sua escolha.|   Windows (utilizando o armazenamento do Windows Azure Diagnostics[[WAD]](../../monitoring-and-diagnostics/azure-diagnostics.md)e o Linux no Azure Monitor|
@@ -60,7 +60,7 @@ A tabela que se segue lista os tipos mais importantes de registos disponíveis n
 ## <a name="log-integration-with-on-premises-siem-systems"></a>Integração de registos com sistemas SIEM no local
 [Integrar alertas do Security Center](../../security-center/security-center-export-data-to-siem.md) discute como sincronizar os alertas do Security Center, eventos de segurança de máquinas virtuais recolhidos por registos de diagnóstico azure e registos de auditoria do Azure com os registos do Azure Monitor ou solução SIEM.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Auditoria e registo:](management-monitoring-overview.md)Proteja os dados mantendo a visibilidade e respondendo rapidamente a alertas de segurança oportunos.
 
@@ -68,4 +68,4 @@ A tabela que se segue lista os tipos mais importantes de registos disponíveis n
 
 - [Configurar as definições](https://support.office.com/article/Configure-audit-settings-for-a-site-collection-A9920C97-38C0-44F2-8BCB-4CF1E2AE22D2?ui=&rs=&ad=US)de auditoria para uma recolha do site : Se for um administrador de recolha de sites, recupere o histórico das ações individuais dos utilizadores e o histórico de ações realizadas durante um intervalo de datas específicas.
 
-- [Pes faça uma pesquisa no registo de auditoria do Office 365 Security & Compliance Center](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=&rs=&ad=US): Utilize o Centro de Conformidade & de Segurança do Office 365 para pesquisar o registo de auditoria unificado e ver a atividade do utilizador e administrador no seu Escritório 365.
+- [Pesta no registo de auditoria no centro de segurança Microsoft 365](/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance): Utilize o centro de segurança Microsoft 365 para pesquisar o registo de auditoria unificado e ver a atividade do utilizador e administrador na sua organização.

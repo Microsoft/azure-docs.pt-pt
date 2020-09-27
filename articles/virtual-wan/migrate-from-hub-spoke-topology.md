@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4c39a24664d36e4a69a44b7fe06835572e0cfe75
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b07ed4589a54948ef87f516ac4bb97ef8492283e
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329249"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398840"
 ---
 # <a name="migrate-to-azure-virtual-wan"></a>Migrar para Azure Virtual WAN
 
@@ -72,7 +72,7 @@ Resumo:
 - Os hubs também fornecem a rescisão VPN para utilizadores de roaming em vários tipos de clientes usando a conectividade OpenVPN para a rede global de malha, permitindo o acesso não só a aplicações migradas para Azure, mas também quaisquer recursos que permaneçam no local.
 - Conectividade da Internet para recursos dentro de uma rede virtual fornecida pela Azure Virtual WAN.
 
-Conectividade da Internet para sites remotos também fornecida por Azure Virtual WAN. Fuga de internet local suportada através da integração de parceiros para acesso otimizado a serviços SaaS como o Office 365.
+Conectividade da Internet para sites remotos também fornecida por Azure Virtual WAN. Fuga de internet local suportada através da integração de parceiros para acesso otimizado a serviços SaaS como o Microsoft 365.
 
 ## <a name="migrate-to-virtual-wan"></a>Migrar para WAN Virtual
 

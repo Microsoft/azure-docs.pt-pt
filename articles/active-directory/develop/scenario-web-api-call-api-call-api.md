@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b1582af2bbd97579852ead0d4462f80f3a50fe6a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9212e99ae317a3abec4bebfc7fb131c6774f8e4d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91257151"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396200"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Uma API web que chama APIs web: Chame uma API
 
@@ -28,11 +28,11 @@ Depois de ter um token, pode chamar uma API web protegida. Normalmente, liga par
 
 Quando utilizar *o Microsoft.Identity.Web,* tem três cenários de utilização:
 
-- [Ligue para o Microsoft Graph](#call-microsoft-graph)
-- [Ligue para uma API web que não seja o Microsoft Graph](#call-web-api-other-than-microsoft-graph)
-- [Adquirir um símbolo manualmente](#acquire-a-token-manually)
+- [Opção 1: Ligue para o Microsoft Graph com o Microsoft Graph SDK](#option-1-call-microsoft-graph-with-the-sdk)
+- [Opção 2: Ligue para uma API web a jusante com a classe de ajudante](#option-2-call-a-downstream-web-api-with-the-helper-class)
+- [Opção 3: Ligue para uma API web a jusante sem a classe de ajudante](#option-3-call-a-downstream-web-api-without-the-helper-class)
 
-#### <a name="call-microsoft-graph"></a>Ligue para o Microsoft Graph
+#### <a name="option-1-call-microsoft-graph-with-the-sdk"></a>Opção 1: Ligue para o Gráfico da Microsoft com o SDK
 
 Neste cenário, adicionou `.AddMicrosoftGraph()` em *Startup.cs* conforme especificado na [configuração do Código](scenario-web-api-call-api-app-configuration.md#option-1-call-microsoft-graph), e pode injetar diretamente o seu controlador ou construtor de página para `GraphServiceClient` utilização nas ações. O exemplo seguinte A página Razor exibe a foto do utilizador inscrito.
 
@@ -68,7 +68,7 @@ Neste cenário, adicionou `.AddMicrosoftGraph()` em *Startup.cs* conforme especi
  }
 ```
 
-#### <a name="call-web-api-other-than-microsoft-graph"></a>Ligue para a API web que não seja o Microsoft Graph
+#### <a name="option-2-call-a-downstream-web-api-with-the-helper-class"></a>Opção 2: Ligue para uma API web a jusante com a classe de ajudante
 
 Neste cenário, adicionou `.AddDownstreamWebApi()` em *Startup.cs* conforme especificado na [configuração do Código](scenario-web-api-call-api-app-configuration.md#option-2-call-a-downstream-web-api-other-than-microsoft-graph), e pode injetar diretamente um serviço no seu controlador ou construtor de página e `IDownstreamWebApi` usá-lo nas ações:
 
@@ -115,7 +115,7 @@ O `CallWebApiForUserAsync` método também tem sobreposições genéricas fortem
  }
 ```
 
-#### <a name="acquire-a-token-manually"></a>Adquirir um símbolo manualmente
+#### <a name="option-3-call-a-downstream-web-api-without-the-helper-class"></a>Opção 3: Ligue para uma API web a jusante sem a classe de ajudante
 
 Se decidiu adquirir um símbolo manualmente usando o `ITokenAcquisition` serviço, agora precisa usar o token. Nesse caso, o seguinte código continua o código de exemplo mostrado numa [API web que chama APIs web: Adquira um símbolo para a aplicação](scenario-web-api-call-api-acquire-token.md). O código é chamado nas ações dos controladores da API. Chama a abaixo a API chamada *lista de todos os.*
 

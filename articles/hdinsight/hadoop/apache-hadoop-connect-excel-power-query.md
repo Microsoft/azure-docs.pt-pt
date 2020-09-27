@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: acb5171048b5a12310b6c0af5d652b7e615a71f5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 8664efd40bb5392f56803515f09cccc800fdf21c
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86087814"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397118"
 ---
 # <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>Conecte o Excel a Apache Hadoop utilizando a Consulta de Energia
 
@@ -23,7 +23,7 @@ Uma das principais características da solução de big data da Microsoft é a i
 
 * Um aglomerado Apache Hadoop em HDInsight. Ver [Começar com HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * Uma estação de trabalho que está a executar o Windows 10, 7, Windows Server 2008 R2 ou um sistema operativo posterior.
-* Office 2016, Office 2013 Professional Plus, Office 365 ProPlus, Excel 2013 Standalone ou Office 2010 Professional Plus.
+* Aplicativos Microsoft 365 para empresas, Office 2016, Office 2013 Professional Plus, Excel 2013 Standalone ou Office 2010 Professional Plus.
 
 ## <a name="install-microsoft-power-query"></a>Instalar consulta de energia da Microsoft
 
@@ -71,9 +71,9 @@ O add-in power-in para o Excel facilita a importação de dados do seu cluster H
 
     ![Tabela importada de consulta de energia HDI Excel](./media/apache-hadoop-connect-excel-power-query/powerquery-importedtable.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, aprendeu a usar a Power Query para recuperar dados de HDInsight para Excel. Da mesma forma, pode obter dados de HDInsight para Azure SQL Database. Também é possível enviar dados para o HDInsight. Para saber mais, consulte os seguintes artigos:
+Neste artigo, aprendeu a usar a Power Query para recuperar dados de HDInsight para Excel. Da mesma forma, pode obter dados de HDInsight para Azure SQL Database. Também é possível enviar dados para o HDInsight. Para saber mais, leia os artigos seguintes:
 
 * [Visualizar os dados da Apache Hive com o Microsoft Power BI em Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
 * [Visualizar dados de hive de consulta interativa com Power BI em Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).

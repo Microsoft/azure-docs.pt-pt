@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 7dbb1b4a8b85350b8bf8a6df0c9035a19055444c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3af8a7de7dad3ce20d4f0247892bca83f06c9d22
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79409024"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397305"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Catálogo de Dados Azure frequentemente fez perguntas
 Este artigo fornece respostas a perguntas frequentes relacionadas com o serviço Azure Data Catalog.
@@ -38,7 +38,7 @@ Os serviços do Data Catalog estão atualmente disponíveis nos seguintes centro
 * Europa Ocidental
 * Europa do Norte
 * Leste da Austrália
-* Ásia Sudeste
+* Sudeste Asiático
 
 ## <a name="what-are-its-limits-on-the-number-of-data-assets"></a>Quais são os seus limites no número de ativos de dados?
 A Edição Gratuita do Catálogo de Dados está limitada a 5.000 ativos de dados registados.
@@ -55,7 +55,7 @@ Para submeter pedidos de funcionalidades e outros feedbacks, aceda ao [Catálogo
 
 ## <a name="why-do-i-get-an-error-catalog-already-exists-when-i-try-to-create-a-new-catalog"></a>Porque é que eu tenho um *catálogo de erros que já existe* quando tento criar um novo catálogo?
 
-Ao comprar o Office 365 E5 com a Licença Power BI Pro, a Microsoft cria automaticamente um catálogo padrão na região da subscrição. Este catálogo utiliza o SKU gratuito. A licença de utilizador do Office 365 / Power BI é gerida na página de Administração do Office 365. 
+Ao comprar o Office 365 E5 com a Licença Power BI Pro, a Microsoft cria automaticamente um catálogo padrão na região da subscrição. Este catálogo utiliza o SKU gratuito. A licença de utilizador do Office 365 / Power BI é gerida na página de administração. 
 
 No entanto, este tipo de catálogo de dados não tem uma **Opção de Administrador** e não está visível no **portal Azure**. Não é possível eliminar este tipo de catálogo de dados. Da mesma forma, não está autorizado a mudar o nome do catálogo de dados, e não pode movê-lo para outra região. 
 
@@ -75,7 +75,7 @@ Para registar os seus dados no Catálogo de Dados:
 As propriedades específicas diferem da fonte de dados para a fonte de dados mas, em geral, o serviço de publicação do Catálogo de Dados extrai as seguintes informações:
 
 * Nome do ativo
-* Tipo de ativo
+* Tipo de Recurso
 * Descrição do ativo
 * Nomes de atributos/colunas
 * Tipos de dados de atributo/coluna

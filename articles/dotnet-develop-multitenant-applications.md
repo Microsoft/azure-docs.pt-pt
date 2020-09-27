@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: ad77278d593e4b2165708e0c9110a9ffff19a255
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 71114b6663d010437e5778d288eacf4e120b3da5
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017707"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395979"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicações Multi-inquilino no Azure
-Uma aplicação multitenante é um recurso partilhado que permite que "utilizadores em inquilinos separados" vejam a aplicação como se fosse sua. Um cenário típico que se presta a uma aplicação multitenante é aquele em que todos os utilizadores da aplicação de diferentes inquilinos podem querer personalizar a experiência do utilizador, mas de outra forma têm os mesmos requisitos básicos de negócio. Exemplos de grandes aplicações multitenantes são o Office 365, Outlook.com e visualstudio.com.
+Uma aplicação multitenante é um recurso partilhado que permite que "utilizadores em inquilinos separados" vejam a aplicação como se fosse sua. Um cenário típico que se presta a uma aplicação multitenante é aquele em que todos os utilizadores da aplicação de diferentes inquilinos podem querer personalizar a experiência do utilizador, mas de outra forma têm os mesmos requisitos básicos de negócio. Exemplos de grandes aplicações multitenantes são o Microsoft 365, Outlook.com e visualstudio.com.
 
 Do ponto de vista de um fornecedor de aplicações, os benefícios da multitenância dizem principalmente respeito à eficiência operacional e de custos. Uma versão da sua aplicação pode atender às necessidades de muitos inquilinos/clientes, permitindo a consolidação de tarefas de administração do sistema como monitorização, afinação de desempenho, manutenção de software e backups de dados.
 

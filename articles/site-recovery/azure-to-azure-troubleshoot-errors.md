@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: d3e70384a99e2dad3f19825cb85b83861e4647e9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ab3597ddba3e41e88c8b2b575ed5857aca01e610
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87083825"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397968"
 ---
-# <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Resolução de problemas Erros de replicação Azure-to-Azure VM
+# <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Resolver erros de replicação de VMs do Azure para Azure
 
 Este artigo descreve como resolver erros comuns na Recuperação do Local de Azure durante a replicação e recuperação de máquinas virtuais Azure (VM) de uma região para outra. Para obter mais informações sobre configurações suportadas, consulte a [matriz de suporte para replicar VMs Azure](azure-to-azure-support-matrix.md).
 
@@ -197,11 +197,11 @@ Tente aceder ao servidor DNS a partir da máquina virtual. Se o servidor DNS nã
 
 #### <a name="possible-cause"></a>Causa possível
 
-Não é possível estabelecer uma ligação aos pontos finais ip4 de autenticação e identidade do Office 365.
+Não é possível estabelecer uma ligação com os pontos finais ip4 de autenticação e identidade do Microsoft 365.
 
 #### <a name="fix-the-problem"></a>Corrigir o problema
 
-A Recuperação do Sítio Azure exigiu o acesso aos intervalos IP do Office 365 para autenticação.
+A Azure Site Recovery exigiu o acesso às gamas IP do Microsoft 365 para autenticação.
 Se estiver a utilizar as regras do Azure Network Security Group (NSG) /proxy firewall para controlar a conectividade da rede de saída no VM, certifique-se de que utiliza a regra NSG baseada na etiqueta de [serviço Azure Ative (AAD)](../virtual-network/security-overview.md#service-tags) para permitir o acesso ao AAD. Já não apoiamos as regras NSG baseadas em endereços IP.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Edição 3: A configuração da recuperação do local falhou (151197)
@@ -575,4 +575,4 @@ Siga os passos abaixo para corrigir este problema -
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Replicar VMs Azure para outra região do Azure](azure-to-azure-how-to-enable-replication.md)
+[Replicar VMs do Azure para outra região do Azure](azure-to-azure-how-to-enable-replication.md)

@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 4de696e2538bf1fa4823aafe30f931b7852535a7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5046e40ea15a27e80f4e92ebf36488dedeee1821
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82191741"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396013"
 ---
-# <a name="consistency-availability-and-performance-tradeoffs"></a>Compromissos de consistência, disponibilidade e desempenho
+# <a name="latency-availability-and-performance-tradeoffs-with-different-azure-cosmos-db-consistency-levels"></a>Trocas de latência, disponibilidade e desempenho com diferentes níveis de consistência do Azure Cosmos DB
 
 As bases de dados distribuídas que dependem da replicação para elevada disponibilidade, baixa latência ou ambos, têm vantagens e desvantagens. As vantagens e desvantagens estão entre a consistência da leitura vs disponibilidade, latência e débito.
 
@@ -49,12 +49,12 @@ A latência exata do RTT é uma função da distância de velocidade da luz e da
 
 - Para um determinado tipo de operação de escrita, como inserir, substituir, aumentar e apagar, o resultado de escrita para unidades de pedido é idêntico para todos os níveis de consistência.
 
-|**Nível de Consistência**|**Leituras de quórum**|**Quorum escreve**|
+|**Nível de consistência**|**Leituras de quórum**|**Quorum escreve**|
 |--|--|--|
 |**Forte**|Minoria Local|Maioria Global|
-|**Estagnação Limitada**|Minoria Local|Maioria Local|
+|**Estagnação limitada**|Minoria Local|Maioria Local|
 |**Sessão**|Réplica única (token de sessão)|Maioria Local|
-|**Prefixo Consistente**|Réplica única|Maioria Local|
+|**Prefixo consistente**|Réplica única|Maioria Local|
 |**Eventual**|Réplica única|Maioria Local|
 
 ## <a name="consistency-levels-and-data-durability"></a><a id="rto"></a>Níveis de consistência e durabilidade dos dados

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: aahi
 ms.custom: seodec18
-ms.openlocfilehash: 326d3a4783b058855d86e17198cbe8d7492feba2
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 2c21c872649e3b171f2658ef6bdb0476552f0e59
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91370645"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397199"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Instalar e executar Recipientes de leitura (pré-visualização)
 
@@ -24,9 +24,26 @@ ms.locfileid: "91370645"
 
 Os contentores permitem-lhe executar as APIs de Imagem Digitalizada no seu próprio ambiente. Os contentores são ótimos para requisitos específicos de governação de dados e segurança. Neste artigo, ficará a saber como transferir, instalar e executar um contentor de Imagem Digitalizada.
 
-O recipiente *Ler* permite detetar e extrair *texto impresso* a partir de imagens de vários objetos com diferentes superfícies e fundos, tais como recibos, cartazes e cartões de visita. Além disso, o recipiente *Ler* deteta *texto manuscrito* em imagens e fornece suporte de ficheiros PDF, TIFF e multi-páginas. Para mais informações, consulte a documentação da [API.](concept-recognizing-text.md#read-api)
+O recipiente *Ler* permite detetar e extrair *texto impresso* a partir de imagens de vários objetos com diferentes superfícies e fundos, tais como recibos, cartazes e cartões de visita. Além disso, o recipiente *Ler* deteta *texto manuscrito* em imagens e fornece suporte de ficheiros PDF, TIFF e multi-páginas. Para mais informações, consulte a documentação da [API de leitura.](concept-recognizing-text.md#read-api)
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
+Existem duas versões dos recipientes 3.x disponíveis na pré-visualização. Ambas as versões proporcionam uma precisão adicional e características sobre o recipiente anterior.
+
+O recipiente de pré-visualização Ler 3.0 fornece:
+* Novos modelos para maior precisão.
+* Suporte para várias línguas dentro do mesmo documento
+* Apoio para: Holandês, Inglês, Francês, Alemão, Italiano, Português e Espanhol.
+* Uma única operação para documentos e imagens.
+* Suporte para documentos e imagens maiores.
+* A confiança marca de 0 a 1.
+* Apoio a documentos com texto impresso e manuscrito
+
+O recipiente de pré-visualização Read 3.1 proporciona os mesmos benefícios que a pré-visualização v3.0, com características adicionais:
+
+* Apoio a chineses e japoneses simplificados.
+* pontuações de confiança e etiquetas para texto impresso e manuscrito. 
+* Capacidade de extrair texto de apenas páginas selecionadas num documento.
+
+Ao considerar qual a versão do recipiente a utilizar, note que a pré-visualização v3.1 está num estado anterior de pré-visualização. Se estiver a utilizar os recipientes Read 2.0 hoje, consulte o [guia de migração](read-container-migration-guide.md) para saber mais sobre as mudanças nas novas versões.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,6 +54,8 @@ Deve encontrar os seguintes pré-requisitos antes de utilizar os recipientes:
 |Motor do Docker| Precisa do Motor Docker instalado num [computador anfitrião.](#the-host-computer) O Docker oferece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contentores se conectem e enviem dados de faturação para a Azure. <br><br> **No Windows,** o Docker também deve ser configurado para suportar recipientes Linux.<br><br>|
 |Familiaridade com Docker | Você deve ter uma compreensão básica de conceitos docker, como registos, repositórios, contentores e imagens de contentores, bem como conhecimento de `docker` comandos básicos.| 
 |Recurso de Visão Computacional |Para utilizar o recipiente, deve ter:<br><br>Um recurso Azure **Computer Vision** e a chave API associada o ponto final URI. Ambos os valores estão disponíveis nas páginas 'Visão Geral' e Chaves para o recurso e são obrigados a iniciar o contentor.<br><br>**{API_KEY}**: Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}**: O ponto final, conforme fornecido na página **'Vista Geral',**|
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 ## <a name="request-approval-to-run-the-container"></a>Solicitar aprovação para executar o contentor
 
@@ -71,6 +90,7 @@ As imagens do recipiente para Ler estão disponíveis.
 
 | Contentor | Registo de contentores / Repositório / Nome da imagem |
 |-----------|------------|
+| Ler 2.0 pré-visualização | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
 | Ler 3.0 pré-visualização | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview` |
 | Ler 3.1 pré-visualização | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview` |
 
@@ -88,6 +108,12 @@ docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview
 
 ```bash
 docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.0-preview
+```
+
+# <a name="version-20-preview"></a>[Versão 2.0-pré-visualização](#tab/version-2)
+
+```bash
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview
 ```
 
 ---
@@ -142,6 +168,23 @@ Este comando:
 * Expõe a porta TCP 5000 e atribui um pseudo-TTY para o recipiente.
 * Remove automaticamente o recipiente depois de sair. A imagem do recipiente ainda está disponível no computador anfitrião.
 
+# <a name="version-20-preview"></a>[Versão 2.0-pré-visualização](#tab/version-2)
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+Este comando:
+
+* Executa o recipiente Ler a partir da imagem do recipiente.
+* Atribui 8 núcleos de CPU e 16 gigabytes (GB) de memória.
+* Expõe a porta TCP 5000 e atribui um pseudo-TTY para o recipiente.
+* Remove automaticamente o recipiente depois de sair. A imagem do recipiente ainda está disponível no computador anfitrião.
+
 ---
 
 
@@ -177,6 +220,10 @@ Utilize o anfitrião, `http://localhost:5000`, para APIs de contentor. Pode ver 
 # <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
 Utilize o anfitrião, `http://localhost:5000`, para APIs de contentor. Pode ver o caminho de Swagger em: `http://localhost:5000/swagger/vision-v3.0-preview-read/swagger.json` .
+
+# <a name="version-20-preview"></a>[Versão 2.0-pré-visualização](#tab/version-2)
+
+Utilize o anfitrião, `http://localhost:5000`, para APIs de contentor. Pode ver o caminho de Swagger em: `http://localhost:5000/swagger/vision-v2.0-preview-read/swagger.json` .
 
 ---
 
@@ -330,6 +377,67 @@ O `operation-location` url totalmente qualificado é acedido através de um HTTP
 }
 ```
 
+# <a name="version-20-preview"></a>[Versão 2.0-pré-visualização](#tab/version-2)
+
+Pode utilizar o `POST /vision/v2.0/read/core/asyncBatchAnalyze` e `GET /vision/v2.0/read/operations/{operationId}` operações em conjunto para ler assíncroneamente uma imagem, semelhante à forma como o serviço de Visão De Computador utiliza as operações correspondentes do REST. O método ASYNCHRONOUS POST devolverá um `operationId` que é usado como identificador ao pedido HTTP GET.
+
+A partir da UI swagger, selecione o `asyncBatchAnalyze` para expandi-lo no navegador. Em seguida, **selecione Experimente-o**  >  **Escolha o ficheiro**. Neste exemplo, usaremos a seguinte imagem:
+
+![separadores vs espaços](media/tabs-vs-spaces.png)
+
+Quando o POST assíncrona tiver funcionado com sucesso, devolve um código de estado **HTTP 202.** Como parte da resposta, há um `operation-location` cabeçalho que detém o resultado final para o pedido.
+
+```http
+ content-length: 0
+ date: Fri, 13 Sep 2019 16:23:01 GMT
+ operation-location: http://localhost:5000/vision/v2.0/read/operations/a527d445-8a74-4482-8cb3-c98a65ec7ef9
+ server: Kestrel
+```
+
+O `operation-location` url totalmente qualificado é acedido através de um HTTP GET. Aqui está a resposta JSON da execução do `operation-location` URL a partir da imagem anterior:
+
+```json
+{
+  "status": "Succeeded",
+  "recognitionResults": [
+    {
+      "page": 1,
+      "clockwiseOrientation": 2.42,
+      "width": 502,
+      "height": 252,
+      "unit": "pixel",
+      "lines": [
+        {
+          "boundingBox": [ 56, 39, 317, 50, 313, 134, 53, 123 ],
+          "text": "Tabs VS",
+          "words": [
+            {
+              "boundingBox": [ 90, 43, 243, 53, 243, 123, 94, 125 ],
+              "text": "Tabs",
+              "confidence": "Low"
+            },
+            {
+              "boundingBox": [ 259, 55, 313, 62, 313, 122, 259, 123 ],
+              "text": "VS"
+            }
+          ]
+        },
+        {
+          "boundingBox": [ 221, 148, 417, 146, 417, 206, 227, 218 ],
+          "text": "Spaces",
+          "words": [
+            {
+              "boundingBox": [ 230, 148, 416, 141, 419, 211, 232, 218 ],
+              "text": "Spaces"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
 ---
 
 > [!IMPORTANT]
@@ -346,6 +454,10 @@ Pode utilizar a seguinte operação para ler sincronizadamente uma imagem.
 # <a name="version-30-preview"></a>[Versão 3.0-pré-visualização](#tab/version-3)
 
 `POST /vision/v3.0/read/syncAnalyze`
+
+# <a name="version-20-preview"></a>[Versão 2.0-pré-visualização](#tab/version-2)
+
+`POST /vision/v2.0/read/core/Analyze`
 
 ---
 

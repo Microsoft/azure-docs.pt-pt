@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/07/2020
-ms.openlocfilehash: 8f004ff8118829ebf2d245a136cf22cdde23accc
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: adcd07ad370ad9f1301caa41c494a33958743dd8
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929793"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398413"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Quickstart: Use o explorador de pesquisa para executar consultas no portal
 
@@ -37,11 +37,11 @@ Antes de começar, deve ter o seguinte:
 
 1. Explorador de pesquisa aberta da barra de comando:
 
-   ![Procurar comando do explorador no portal](./media/search-explorer/search-explorer-cmd2.png "Procurar comando do explorador no portal")
+   :::image type="content" source="media/search-explorer/search-explorer-cmd2.png" alt-text="Procurar comando do explorador no portal" border="false":::
 
     Ou use o **separador de explorador de pesquisa** incorporado num índice aberto:
 
-   ![Separador de explorador de pesquisa](./media/search-explorer/search-explorer-tab.png "Separador de explorador de pesquisa")
+   :::image type="content" source="media/search-explorer/search-explorer-tab.png" alt-text="Separador de explorador de pesquisa" border="false":::
 
 ## <a name="unspecified-query"></a>Consulta não especificada
 
@@ -55,7 +55,7 @@ Sintaxe equivalente para uma procura vazia é `*` ou `search=*` .
 
    **Resultados**
    
-   ![Exemplo de consulta vazia](./media/search-explorer/search-explorer-example-empty.png "Exemplo de consulta não qualificada ou vazia")
+   :::image type="content" source="media/search-explorer/search-explorer-example-empty.png" alt-text="Exemplo de consulta não qualificada ou vazia" border="false":::
 
 ## <a name="free-text-search"></a>Pesquisa de texto gratuita
 
@@ -71,7 +71,7 @@ Note que quando fornece critérios de pesquisa, tais como termos de consulta ou 
 
    Você pode usar Ctrl-F para pesquisar dentro de resultados para termos de interesse específicos.
 
-   ![Exemplo de consulta de texto gratuito](./media/search-explorer/search-explorer-example-freetext.png "Exemplo de consulta de texto gratuito")
+   :::image type="content" source="media/search-explorer/search-explorer-example-freetext.png" alt-text="Exemplo de consulta de texto gratuito" border="false":::
 
 ## <a name="count-of-matching-documents"></a>Contagem de documentos correspondentes 
 
@@ -83,7 +83,7 @@ Adicione **$count=verdade** para obter o número de fósforos encontrados num í
 
    **Resultados**
 
-   ![Contagem de documentos exemplo](./media/search-explorer/search-explorer-example-count.png "Contagem de documentos correspondentes em índice")
+   :::image type="content" source="media/search-explorer/search-explorer-example-count.png" alt-text="Contagem de documentos correspondentes em índice" border="false":::
 
 ## <a name="limit-fields-in-search-results"></a>Limite os campos nos resultados da pesquisa
 
@@ -95,7 +95,7 @@ Adicione [**$select**](search-query-odata-select.md) para limitar os resultados 
 
    **Resultados**
 
-   ![Exemplo de campos limite](./media/search-explorer/search-explorer-example-selectfield.png "Restringir campos nos resultados de pesquisa")
+   :::image type="content" source="media/search-explorer/search-explorer-example-selectfield.png" alt-text="Restringir campos nos resultados de pesquisa" border="false":::
 
 ## <a name="return-next-batch-of-results"></a>Devolva o próximo lote de resultados
 
@@ -107,7 +107,7 @@ A Azure Cognitive Search devolve os 50 melhores jogos com base no ranking de pes
 
    **Resultados**
 
-   ![Resultados da pesquisa de lote](./media/search-explorer/search-explorer-example-topskip.png "Devolva o próximo lote de resultados de pesquisa")
+   :::image type="content" source="media/search-explorer/search-explorer-example-topskip.png" alt-text="Devolva o próximo lote de resultados de pesquisa" border="false":::
 
 ## <a name="filter-expressions-greater-than-less-than-equal-to"></a>Expressões de filtro (maiores do que, menos do que, iguais)
 
@@ -119,7 +119,7 @@ Utilize o parâmetro [**$filter**](search-query-odata-filter.md) quando pretende
    
    **Resultados**
 
-   ![Expressão de filtro](./media/search-explorer/search-explorer-example-filter.png "Filtrar por critérios")
+   :::image type="content" source="media/search-explorer/search-explorer-example-filter.png" alt-text="Filtrar por critérios" border="false":::
 
 ## <a name="order-by-expressions"></a>Expressões ordenadas
 
@@ -131,7 +131,7 @@ Adicione [**$orderby**](search-query-odata-orderby.md) para classificar resultad
    
    **Resultados**
 
-   ![Expressão ordem](./media/search-explorer/search-explorer-example-ordery.png "Alterar a sequência de ordenação")
+   :::image type="content" source="media/search-explorer/search-explorer-example-ordery.png" alt-text="Alterar a sequência de ordenação" border="false":::
 
 Expressões **$filter** e **$orderby** são construções OData. Para obter mais informações, veja [Filter OData syntax (Sintaxe de Filtros OData)](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 

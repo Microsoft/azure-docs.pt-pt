@@ -7,12 +7,12 @@ ms.date: 05/12/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 07e5ce5cb6fee11e3f55ce808da51ccad59b9ff2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 037598212773ca75abbdd086fe0577e0660f2218
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801364"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398583"
 ---
 # <a name="use-workflows-to-integrate-your-azure-iot-central-application-with-other-cloud-services"></a>Utilize fluxos de trabalho para integrar a sua aplicação Azure IoT Central com outros serviços na nuvem
 
@@ -22,8 +22,8 @@ Pode criar regras na IoT Central que desencadeiem ações, como o envio de um e-
 
 O conector Azure IoT Central V3 para Power Automamate e Azure Logic Apps permite criar regras mais avançadas para automatizar operações em IoT Central:
 
-- Quando uma regra dispara na sua aplicação Azure IoT Central, pode desencadear um fluxo de trabalho em Power Automamate ou Azure Logic Apps. Estes fluxos de trabalho podem executar ações em outros serviços na nuvem, como o Office 365, ou um serviço de terceiros.
-- Um evento em outro serviço de nuvem, como o Office 365, pode desencadear um fluxo de trabalho em Power Automamate ou Azure Logic Apps. Estes fluxos de trabalho podem executar ações ou obter dados da sua aplicação IoT Central.
+- Quando uma regra dispara na sua aplicação Azure IoT Central, pode desencadear um fluxo de trabalho em Power Automamate ou Azure Logic Apps. Estes fluxos de trabalho podem executar ações em outros serviços na nuvem, como o Microsoft 365 ou um serviço de terceiros.
+- Um evento em outro serviço na nuvem, como o Microsoft 365, pode desencadear um fluxo de trabalho em Power Automamate ou Azure Logic Apps. Estes fluxos de trabalho podem executar ações ou obter dados da sua aplicação IoT Central.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -176,7 +176,7 @@ Utilize esta ação para atualizar os valores de propriedade na nuvem para um di
 | Aplicação | Escolha na sua lista de aplicações IoT Central. |
 | Dispositivo | A identificação única do dispositivo para apagar. |
 | Modelo de dispositivo | Escolha entre a lista de modelos de dispositivo na sua aplicação IoT Central. |
-| Propriedades em nuvem | Depois de escolher um modelo de dispositivo, é adicionado um campo para cada propriedade na nuvem definida no modelo. |
+| Propriedades da cloud | Depois de escolher um modelo de dispositivo, é adicionado um campo para cada propriedade na nuvem definida no modelo. |
 
 ### <a name="update-device-properties"></a>Atualizar as propriedades do dispositivo
 
@@ -189,6 +189,6 @@ Utilize esta ação para atualizar valores de propriedades escritas para um disp
 | Modelo de dispositivo | Escolha entre a lista de modelos de dispositivo na sua aplicação IoT Central. |
 | Propriedades escritas | Depois de escolher um modelo de dispositivo, é adicionado um campo para cada propriedade escrita definida no modelo. |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a criar uma regra avançada na sua aplicação Azure IoT Central, pode aprender a analisar dados do [dispositivo na sua aplicação Azure IoT Central](howto-create-analytics.md)

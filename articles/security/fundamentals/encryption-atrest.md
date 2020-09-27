@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 337deec076a25183a4dd866362c7dc55a485834d
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: ec81a8f7f9d9f45f1d068a415a599ce30a0d4581
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224497"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397254"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Encriptação de dados inativa do Azure
 
@@ -81,13 +81,13 @@ As teclas de encriptação de dados, encriptadas com as Chaves de Encriptação 
 
 Os serviços da Microsoft Cloud são utilizados nos três modelos em nuvem: IaaS, PaaS, SaaS. Abaixo você tem exemplos de como se encaixam em cada modelo:
 
-- Serviços de software, referidos como Software como Servidor ou SaaS, que têm aplicação fornecida pela nuvem como o Office 365.
+- Serviços de software, referidos como Software como Um Servidor ou SaaS, que têm aplicações fornecidas pela nuvem como o Microsoft 365.
 - Serviços de plataforma que os clientes aproveitam a nuvem nas suas aplicações, usando a nuvem para coisas como armazenamento, análise e funcionalidade de ônibus de serviço.
 - Serviços de infraestrutura, ou Infraestrutura como Serviço (IaaS) em que o cliente implementa sistemas operativos e aplicações que estão hospedados na nuvem e possivelmente alavancando outros serviços na nuvem.
 
 ### <a name="encryption-at-rest-for-saas-customers"></a>Encriptação em repouso para clientes SaaS
 
-Os clientes de software como serviço (SaaS) normalmente têm encriptação em repouso ativada ou disponível em cada serviço. O Office 365 tem várias opções para os clientes verificarem ou permitirem a encriptação em repouso. Para obter informações sobre os serviços do Office 365, consulte [a Encriptação no Office 365](https://docs.microsoft.com/office365/securitycompliance/encryption).
+Os clientes de software como serviço (SaaS) normalmente têm encriptação em repouso ativada ou disponível em cada serviço. O Microsoft 365 tem várias opções para os clientes verificarem ou permitirem a encriptação em repouso. Para obter informações sobre os serviços microsoft 365, consulte [a Encriptação no Microsoft 365](/microsoft-365/compliance/encryption).
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>Encriptação em repouso para clientes PaaS
 
@@ -136,7 +136,7 @@ A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é supor
 
 A proteção dos dados dos clientes armazenados nos Serviços Azure é da maior importância para a Microsoft. Todos os serviços hospedados pela Azure estão empenhados em fornecer opções de Encriptação em Rest. Os serviços Azure suportam chaves geridas pelo serviço, chaves geridas pelo cliente ou encriptação do lado do cliente. Os serviços Azure estão a melhorar amplamente a encriptação na disponibilidade de repouso e estão previstas novas opções para pré-visualização e disponibilidade geral nos próximos meses.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte [os modelos](encryption-models.md) de encriptação de dados para saber mais sobre chaves geridas pelo serviço e chaves geridas pelo cliente.
 - Saiba como o Azure usa [encriptação dupla](double-encryption.md) para mitigar ameaças que vêm com dados encriptadores.

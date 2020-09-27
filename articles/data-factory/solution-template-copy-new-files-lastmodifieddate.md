@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 3/8/2019
-ms.openlocfilehash: 363af1012b327a55703cc6e35a02dc1f27869bd0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 99d90e4d93f0e4a70350a5a33a65700c3e14acb4
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82629070"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398328"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Copie ficheiros novos e alterados por LastModifiedDate com Azure Data Factory
 
@@ -75,7 +75,7 @@ O modelo define seis parâmetros:
     
 7. Agora pode adicionar um gatilho de janelas para automatizar este oleoduto, para que o gasoduto possa sempre copiar ficheiros novos e alterados apenas por LastModifiedDate periodicamente.  **Selecione Adicionar o gatilho**e selecione **Novo/Editar**.
 
-    ![Reveja o resultado](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
+    ![Screenshot que realça a opção de menu Novo/Editar que aparece quando seleciona Adicionar gatilho.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
     
 8. Na janela **Add Triggers,** selecione **+ Novo**.
 
@@ -103,7 +103,7 @@ O modelo define seis parâmetros:
 
 14. Reveja o resultado. Verá que o seu oleoduto será acionado automaticamente a cada 15 minutos, e apenas os ficheiros novos ou alterados da loja de origem serão copiados para a loja de destino em cada corrida de gasoduto.
 
-    ![Reveja o resultado](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
+    ![Screenshot que mostra os resultados que regressam quando o gasoduto é acionado.](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
     
 ## <a name="next-steps"></a>Passos seguintes
 

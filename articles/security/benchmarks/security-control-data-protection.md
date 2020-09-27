@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2622d7a2e54dac710ac09d61dee639ab1d104f02
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: f2162ee6df551e1bc64741229aec99d5e697fd29
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079001"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91395996"
 ---
 # <a name="security-control-data-protection"></a>Controlo de Segurança: Proteção de Dados
 
@@ -74,7 +74,7 @@ Siga as recomendações do Azure Security Center para encriptação em repouso e
 
 Quando não houver nenhuma funcionalidade disponível para o seu serviço específico no Azure, utilize uma ferramenta de descoberta ativa de terceiros para identificar todas as informações sensíveis armazenadas, processadas ou transmitidas pelos sistemas tecnológicos da organização, incluindo as localizadas no local, ou num prestador de serviços remotos, e atualize o inventário de informação sensível da organização.
 
-Utilize a Proteção de Informações Azure para identificar informações sensíveis dentro dos documentos do Office 365.
+Utilize a Proteção de Informações Azure para identificar informações sensíveis dentro dos documentos da Microsoft 365.
 
 Utilize a Azure SQL Information Protection para ajudar na classificação e rotulagem das informações armazenadas na Base de Dados Azure SQL.
 

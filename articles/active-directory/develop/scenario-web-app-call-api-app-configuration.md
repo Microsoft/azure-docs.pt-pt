@@ -1,5 +1,6 @@
 ---
-title: Configure uma aplicação web que chama APIs web - Plataforma de identidade microsoft / Rio Azure
+title: Configure uma aplicação web que chama APIs web Rio Azure
+titleSuffix: Microsoft identity platform
 description: Saiba como configurar o código de uma aplicação web que chama APIs web
 services: active-directory
 author: jmprieur
@@ -8,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/14/2020
+ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 8827d413144d8bc6f00c3948a99be3ee3aa2264e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 27926c687871180da78930be8e0968febcd77869
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855439"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91396319"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Uma aplicação web que chama APIs web: configuração de código
 
@@ -31,9 +32,9 @@ A [aplicação Web que assina nos](scenario-web-app-sign-user-overview.md) cená
 
 As seguintes bibliotecas da Microsoft Authentication Library (MSAL) suportam o fluxo de código de autorização para aplicações web:
 
-| Biblioteca MSAL | Descrição |
+| Biblioteca MSAL | Description |
 |--------------|-------------|
-| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Suporte para plataformas .NET Framework e .NET Core. Não suportadas são a Universal Windows Platform (UWP), Xamarin.iOS e Xamarin.Android, porque essas plataformas são usadas para construir aplicações de clientes públicos. Para ASP.NET aplicações web core e APIs web, MSAL.NET é encapsulado em uma biblioteca de nível superior chamada [Microsoft.Identity.Web](https://aka.ms/ms-identity-web)|
+| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Suporte para plataformas .NET Framework e .NET Core. Não suportadas são a Universal Windows Platform (UWP), Xamarin.iOS e Xamarin.Android, porque essas plataformas são usadas para construir aplicações de clientes públicos. <br/><br/>Para ASP.NET aplicações web core e APIs web, MSAL.NET é encapsulado numa biblioteca de nível superior chamada [Microsoft.Identity.Web](https://aka.ms/ms-identity-web). |
 | ![Pitão MSAL](media/sample-v2-code/logo_python.png) <br/> MSAL para Python | Suporte para aplicações web Python. |
 | ![MSAL Java](media/sample-v2-code/logo_java.png) <br/> MSAL para Java | Suporte para aplicações web Java. |
 
@@ -41,32 +42,153 @@ Selecione o separador para a plataforma em que está interessado:
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Para ativar a sua aplicação web para chamar APIs protegidos ao utilizar o Microsoft.Identity.Web, basta ligar `AddWebAppCallsProtectedWebApi` e especificar um formato de serialização de cache simbólico (por exemplo, cache simbólico na memória):
+## <a name="client-secrets-or-client-certificates"></a>Segredos do cliente ou certificados de cliente
 
-```C#
-// This method gets called by the runtime. Use this method to add services to the container.
-public void ConfigureServices(IServiceCollection services)
+Dado que a sua aplicação web agora chama uma API web a jusante, você precisa fornecer um certificado de cliente secreto ou cliente no *appsettings.jsem* arquivo. Também pode adicionar uma secção que especifica:
+
+- O URL da API da web a jusante
+- Os âmbitos necessários para chamar a API
+
+No exemplo seguinte, a `GraphBeta` secção especifica estas definições.
+
+```JSON
 {
-    // more code here
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "ClientId": "[Client_id-of-web-app-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
+    "TenantId": "common"
 
-    services.AddMicrosoftIdentityWebAppAuthentication(Configuration,
-                                                      "AzureAd")
-            .EnableTokenAcquisitionToCallDownstreamApi(
-                    initialScopes: new string[] { "user.read" })
-                .AddInMemoryTokenCaches();
-
-    // more code here
+   // To call an API
+   "ClientSecret": "[Copy the client secret added to the app from the Azure portal]",
+   "ClientCertificates": [
+  ]
+ },
+ "GraphBeta": {
+    "BaseUrl": "https://graph.microsoft.com/beta",
+    "Scopes": "user.read"
+    }
 }
 ```
 
-Se estiver interessado em entender mais sobre a cache simbólica, consulte as [opções de serialização da cache token](#token-cache)
+Em vez de um segredo de cliente, pode fornecer um certificado de cliente. O seguinte código snippet mostra usando um certificado armazenado em Azure Key Vault.
+
+```JSON
+{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "ClientId": "[Client_id-of-web-app-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
+    "TenantId": "common"
+
+   // To call an API
+   "ClientCertificates": [
+      {
+        "SourceType": "KeyVault",
+        "KeyVaultUrl": "https://msidentitywebsamples.vault.azure.net",
+        "KeyVaultCertificateName": "MicrosoftIdentitySamplesCert"
+      }
+   ]
+  },
+  "GraphBeta": {
+    "BaseUrl": "https://graph.microsoft.com/beta",
+    "Scopes": "user.read"
+  }
+}
+```
+
+*Microsoft.Identity.Web* fornece várias formas de descrever certificados, tanto por configuração como por código. Para mais detalhes, consulte [Microsoft.Identity.Web - Utilizando certificados](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates) no GitHub.
+
+## <a name="startupcs"></a>Startup.cs
+
+A sua aplicação web terá de adquirir um símbolo para a API a jusante. Especifica-o adicionando a `.EnableTokenAcquisitionToCallDownstreamApi()` linha depois `.AddMicrosoftIdentityWebApi(Configuration)` . Esta linha expõe o `ITokenAcquisition` serviço que pode utilizar no seu controlador e ações de página. No entanto, como verá nas duas opções seguintes, pode ser feito de forma mais simples. Você também precisará escolher uma implementação de cache simbólico, por `.AddInMemoryTokenCaches()` exemplo, em *Startup.cs:*
+
+   ```csharp
+   using Microsoft.Identity.Web;
+
+   public class Startup
+   {
+     // ...
+     public void ConfigureServices(IServiceCollection services)
+     {
+     // ...
+     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+             .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
+               .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
+               .AddInMemoryTokenCaches();
+      // ...
+     }
+     // ...
+   }
+   ```
+
+Os âmbitos passados `EnableTokenAcquisitionToCallDownstreamApi` são opcionais e permitem que a sua aplicação web solicite os âmbitos e o consentimento do utilizador para esses âmbitos quando estes iniciarem sessão. Se não especificar os âmbitos, o *Microsoft.Identity.Web* permitirá uma experiência de consentimento incremental.
+
+Se você não quiser adquirir o token por si mesmo, *o Microsoft.Identity.Web* fornece dois mecanismos para chamar uma API web a partir de uma aplicação web. A opção que escolher depende se pretende ligar para o Microsoft Graph ou para outra API.
+
+### <a name="option-1-call-microsoft-graph"></a>Opção 1: Ligue para o Gráfico da Microsoft
+
+Se pretender ligar para o Microsoft Graph, *o Microsoft.Identity.Web* permite-lhe utilizar diretamente o `GraphServiceClient` (exposto pelo Microsoft Graph SDK) nas suas ações API. Para expor o Gráfico do Microsoft:
+
+1. Adicione o pacote [Microsoft.Identity.Web.MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) NuGet ao seu projeto.
+1. Adicione `.AddMicrosoftGraph()` depois no ficheiro `.EnableTokenAcquisitionToCallDownstreamApi()` *Startup.cs.* `.AddMicrosoftGraph()` tem vários sobreposições. Utilizando o sobreposição que toma uma secção de configuração como parâmetro, o código torna-se:
+
+   ```csharp
+   using Microsoft.Identity.Web;
+
+   public class Startup
+   {
+     // ...
+     public void ConfigureServices(IServiceCollection services)
+     {
+     // ...
+     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+             .AddMicrosoftIdentityWebApp(Configuration, Configuration.GetSection("AzureAd"))
+               .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
+                  .AddMicrosoftGraph(Configuration.GetSection("GraphBeta"))
+               .AddInMemoryTokenCaches();
+      // ...
+     }
+     // ...
+   }
+   ```
+
+### <a name="option-2-call-a-downstream-web-api-other-than-microsoft-graph"></a>Opção 2: Ligue para uma API web a jusante que não seja o Microsoft Graph
+
+Para chamar uma API web diferente do Microsoft Graph, *o Microsoft.Identity.Web* fornece `.AddDownstreamWebApi()` , que solicita tokens e chama a API web a jusante.
+
+   ```csharp
+   using Microsoft.Identity.Web;
+
+   public class Startup
+   {
+     // ...
+     public void ConfigureServices(IServiceCollection services)
+     {
+     // ...
+     services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+             .AddMicrosoftIdentityWebApp(Configuration, "AzureAd")
+               .EnableTokenAcquisitionToCallDownstreamApi(new string[]{"user.read" })
+                  .AddDownstreamWebApi("MyApi", Configuration.GetSection("GraphBeta"))
+               .AddInMemoryTokenCaches();
+      // ...
+     }
+     // ...
+   }
+   ```
+
+### <a name="summary"></a>Resumo
+
+Tal como acontece com as APIs web, pode escolher várias implementações de cache simbólicas. Para mais detalhes, consulte [Microsoft.Identity.Web - Serialization cache token](https://aka.ms/ms-id-web/token-cache-serialization) no GitHub.
+
+A imagem a seguir mostra as várias possibilidades do *Microsoft.Identity.Web* e o seu impacto no ficheiro *Startup.cs:*
+
+:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.png" alt-text="Ao criar uma api web, pode optar por chamar uma api a jusante e implementar cache simbólico.":::
 
 > [!NOTE]
 > Para compreender plenamente os exemplos de código aqui, é necessário estar familiarizado com [ASP.NET fundamentos fundamentais do Núcleo](/aspnet/core/fundamentals), e em particular com a injeção de [dependência](/aspnet/core/fundamentals/dependency-injection) e [as opções.](/aspnet/core/fundamentals/configuration/options)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-Como o pedido de sômis do utilizador é delegado ao middleware de ligação open id (OIDC), deve interagir com o processo OIDC. A forma como interage depende da estrutura que usa.
+Como o pedido de sômis do utilizador é delegado ao middleware OpenID Connect (OIDC), deve interagir com o processo OIDC. A forma como interage depende da estrutura que usa.
 
 Para ASP.NET, você vai subscrever eventos OIDC de middleware:
 

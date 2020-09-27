@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: b5bf29969f8b6d54215e2b2f1a2d0b1587faad6f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b2fc13158d197aaa2e870d1b772386628ee3f9bc
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332190"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398806"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas mais frequentes sobre o Azure Synapse Link para o Azure Cosmos DB
 
@@ -21,7 +21,7 @@ Azure Synapse Link for Azure Cosmos DB cria uma integração apertada entre Azur
 
 ### <a name="is-synapse-link-supported-for-all-azure-cosmos-db-apis"></a>A Synapse Link é suportada para todas as APIs Azure Cosmos DB?
 
-No comunicado de pré-visualização pública, a Synapse Link é suportada pela API API AZure Cosmos DB SQL (Core) e para a API API AZure Cosmos para a MongoDB. O apoio à API de Cassandra está atualmente em pré-visualização. Para solicitar o acesso à pré-visualização fechada, contacte a equipa DB da [Azure Cosmos](mailto:cosmosdbsynapselink@microsoft.com).
+No comunicado de pré-visualização pública, a Synapse Link é suportada pela API API AZure Cosmos DB SQL (Core) e para a API API AZure Cosmos para a MongoDB. 
 
 ### <a name="is-synapse-link-supported-for-multi-region-azure-cosmos-accounts"></a>A Synapse Link é suportada para contas de Cosmos multi-regiões?
 

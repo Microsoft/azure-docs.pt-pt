@@ -4,12 +4,12 @@ description: Saiba como invocar processos de negócio a partir da sua aplicaçã
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: ddd57bfe653766d133824f42098d9ad9adb1e56b
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 5aa563e55c64893d57522dd1154a64c7e90a1690
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962201"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397441"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Tutorial: Enviar e-mail e invocar outros processos de negócio do Serviço de Aplicações
 
@@ -84,7 +84,8 @@ Implemente uma aplicação com o enquadramento linguístico da sua escolha para 
 1. Na parte inferior do designer, clique em **Novo passo,** **digite** Gmail na caixa de pesquisa de ações e encontre e selecione **Enviar e-mail (V2)**.
     
     > [!TIP]
-    > Pode pesquisar outros tipos de integrações, tais como SendGrid, MailChimp, Office 365 e SalesForce. Para mais informações, consulte [a documentação da Logic Apps](../logic-apps/index.yml).
+    > Pode procurar outros tipos de integrações, tais como SendGrid, MailChimp, Microsoft 365 e SalesForce. Para mais informações, consulte [a documentação da Logic Apps](../logic-apps/index.yml).
+
 1. No diálogo do **Gmail,** selecione **Iniciar s.S.** e iniciar scontabilidade na conta do Gmail a partir do seguinte.
 
     ![Screenshot que mostra a caixa de diálogo do Gmail que usa para assinar na conta do Gmail a partir da a quais pretende enviar e-mail.](./media/tutorial-send-email/gmail-sign-in.png)

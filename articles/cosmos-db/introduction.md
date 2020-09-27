@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: bfac783fcb8ce88977fc8d97f821a7350f57aab8
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 4e9d632880b792d16ffe752a55396c649c6688e5
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118581"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91398823"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
@@ -56,7 +56,7 @@ Manter o esquema de base de dados e os índices em sincronização com o esquema
 
 ### <a name="battle-tested-database-service"></a>Serviço de base de dados testado em batalha
 
-Cosmos DB é um serviço fundamental em Azure. Durante quase uma década, a Cosmos DB tem sido usada por muitos dos produtos da Microsoft para aplicações críticas de missão à escala global, incluindo Skype, Xbox, Office 365, Azure, entre muitos outros. Hoje, a Cosmos DB é um dos serviços que mais cresce no Azure, utilizado por muitos clientes externos e aplicações críticas de missão que requerem escala elástica, distribuição global chave na mão, replicação multi-master para baixa latência e alta disponibilidade de ambos os leituras e escritos.
+O Cosmos DB é um serviço fundamental no Azure. Durante quase uma década, a Cosmos DB tem sido usada por muitos dos produtos da Microsoft para aplicações críticas de missão à escala global, incluindo Skype, Xbox, Microsoft 365, Azure, entre muitos outros. Hoje, a Cosmos DB é um dos serviços que mais cresce no Azure, utilizado por muitos clientes externos e aplicações críticas de missão que requerem escala elástica, distribuição global chave na mão, replicação multi-master para baixa latência e alta disponibilidade de ambos os leituras e escritos.
 
 ### <a name="ubiquitous-regional-presence"></a>Presença regional ubíqua
 
@@ -64,7 +64,7 @@ Cosmos DB está disponível em todas as regiões do Azure em todo o mundo, inclu
 
 ### <a name="secure-by-default-and-enterprise-ready"></a>Seguro por defeito e empresa pronta
 
-Cosmos DB é certificado para uma [grande variedade de padrões de conformidade](compliance.md). Além disso, todos os dados em Cosmos DB são encriptados em repouso e em movimento. Cosmos DB fornece autorização de nível de linha e adere a rigorosos padrões de segurança.
+Cosmos DB é certificado para uma [grande variedade de padrões de conformidade](compliance.md). Além disso, todos os dados no Cosmos DB são encriptados quando inativos e em movimento. O Cosmos DB proporciona autorização ao nível da linha e cumpre as normas de segurança estritas.
 
 ### <a name="significant-tco-savings"></a>Economia significativa de TCO
 

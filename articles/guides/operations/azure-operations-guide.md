@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 0a383e8e2c38dbd00e0a55f9debb9b4daf40fa9c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0f67939358a4395416ea28c1c459d4890ab0351d
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87832761"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91397815"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Começar pelos operadores de TI da Azure
 
@@ -68,7 +68,7 @@ O Azure fornece várias ofertas de computação PaaS, incluindo a funcionalidade
 
 O SaaS é um software que é centralmente hospedado e gerido. É geralmente baseado numa arquitetura multitenant - uma única versão da aplicação é usada para todos os clientes. Pode ser dimensionado para várias instâncias para garantir o melhor desempenho em todos os locais. O software SaaS é normalmente licenciado através de uma subscrição mensal ou anual. Os fornecedores de software SaaS são responsáveis por todos os componentes da pilha de software, pelo que tudo o que gere são os serviços prestados.
 
-O Microsoft Office 365 é um bom exemplo de uma oferta saaS. Os subscritores pagam uma taxa de subscrição mensal ou anual, e recebem o Microsoft Exchange, o Microsoft OneDrive e o resto da suite do Microsoft Office como um serviço. Os subscritores obtêm sempre a versão mais recente e o servidor Exchange é gerido por si. Comparando com a instalação e modernização do Escritório todos os anos, este é menos dispendioso e requer menos esforço.
+O Microsoft 365 é um bom exemplo de uma oferta saaS. Os subscritores pagam uma taxa de subscrição mensal ou anual, e recebem o Microsoft Exchange, o Microsoft OneDrive e o resto da suite do Microsoft Office como um serviço. Os subscritores obtêm sempre a versão mais recente e o servidor Exchange é gerido por si. Comparando com a instalação e modernização do Escritório todos os anos, este é menos dispendioso e requer menos esforço.
 
 ## <a name="azure-services"></a>Serviços do Azure
 
@@ -128,7 +128,7 @@ Serviços de ligação em rede tanto no interior do Azure como entre o Azure e o
 
 - Traffic Manager do Azure
 
-- Rede de Entrega de Conteúdos do Microsoft Azure
+- Rede de Entrega de Conteúdos do Azure
 
 Para obter documentação detalhada sobre os serviços da Azure, consulte [a documentação do serviço Azure](https://docs.microsoft.com/azure).
 
@@ -308,7 +308,7 @@ Aqui estão alguns [papéis incorporados em Azure:](../../role-based-access-cont
 
 Para obter mais informações, veja [Gerir o acesso através do RBAC e do portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
-## <a name="azure-virtual-machines"></a>Máquinas Virtuais do Azure
+## <a name="azure-virtual-machines"></a>Máquinas Virtuais do Microsoft Azure
 
 Azure Virtual Machines é um dos serviços centrais da IaaS em Azure. A Azure Virtual Machines suporta a implementação de máquinas virtuais Windows ou Linux num datacenter Microsoft Azure. Com as Máquinas Virtuais Azure, tem total controlo sobre a configuração VM e é responsável por toda a instalação, configuração e manutenção do software.
 
