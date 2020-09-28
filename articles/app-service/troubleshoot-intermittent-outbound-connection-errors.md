@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations,fasttrack-edit
-ms.openlocfilehash: b38ba59b3efc7e5869eecbc84879a6c0a4ce7369
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: ee1b4da6f02623346d078b9812c99e5093dc2691
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360213"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408220"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Resolução de problemas erros de ligação intermitente de saída no Serviço de Aplicações Azure
 
@@ -92,16 +92,6 @@ Embora o PHP não suporte o agrupamento de ligações, pode tentar utilizar liga
 * Outras fontes de dados
 
    * [Gestão de Conexões PHP](https://www.php.net/manual/en/pdo.connections.php)
-
-#### <a name="python"></a>Python
-
-* [MySQL](https://github.com/mysqljs/mysql#pooling-connections)
-* [MongoDB](https://blog.mlab.com/2017/05/mongodb-connection-pooling-for-express-applications/)
-* [PostgreSQL](https://node-postgres.com/features/pooling)
-* [SQL Server](https://github.com/tediousjs/node-mssql#connection-pools) (NOTA: SQLAlchemy pode ser usado com outras bases de dados além do MicrosoftSQL Server)
-* [HTTP Keep-alive](https://requests.readthedocs.io/en/master/user/advanced/#keep-alive)(Keep-Alive é automático quando se utiliza [sessões de objetos de sessão).](https://requests.readthedocs.io/en/master/user/advanced/#keep-alive)
-
-Para outros ambientes, o provedor de revisão ou documentos específicos do condutor para a implementação de agrupamentos de ligação nas suas aplicações.
 
 ### <a name="modify-the-application-to-reuse-connections"></a>Modificar a aplicação para reutilizar ligações
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/25/2020
+ms.date: 09/28/2020
 ms.author: allensu
-ms.openlocfilehash: 3180fa34b85c3ec5f7cb1d2d9da8c2e1b528bd69
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 5efcf944f5d22759f9d448da5862bcf1f19e2efe
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855799"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409566"
 ---
 # <a name="what-is-virtual-network-nat"></a>O que é Virtual Network NAT?
 
@@ -32,7 +32,7 @@ O VIRTUAL Network NAT (tradução de endereços de rede) simplifica a conectivid
 -->
 
 <p align="center">
-  <img src="./media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP and an IP prefix." width="256" title="Rede Virtual NAT">
+  <img src="./media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP (PIP) and an IP prefix." width="256" title="Rede Virtual NAT">
 </p>
 
 
@@ -51,11 +51,11 @@ Todo o tráfego de saída da sub-rede é processado automaticamente pela NAT sem
 
 O NAT utiliza a "tradução de endereços de rede portuária" (PNAT ou PAT) e é recomendado para a maioria das cargas de trabalho. Cargas de trabalho dinâmicas ou divergentes podem ser facilmente acomodadas com alocação de fluxo de saída a pedido. Evita-se um planeamento extensivo, uma pré-atribuição e, em última análise, uma sobreprovisão dos recursos de saída. Os recursos portuários SNAT são partilhados e disponíveis em todas as sub-redes utilizando um recurso específico de gateway NAT e são fornecidos quando necessário.
 
-Um endereço IP público anexado ao NAT fornece até 64.000 fluxos simultâneos para UDP e TCP. Pode começar com um único endereço IP e escalar até 16 endereços IP públicos.
+Um endereço IP público anexado ao NAT fornece até 64.000 fluxos simultâneos para UDP e TCP, respectivamente. Pode começar com um único endereço IP e escalar até 16 endereços IP utilizando endereços IP públicos ou prefixos IP públicos ou ambos.  Um recurso de gateway NAT utilizará todos os endereços IP associados ao recurso para ligações de saída de todas as sub-redes configuradas com o mesmo recurso de gateway NAT.
 
 O NAT permite que os fluxos sejam criados da rede virtual para a Internet. O tráfego de devolução da Internet só é permitido em resposta a um fluxo ativo.
 
-Ao contrário do que acontece com o SNAT de saída do balanceador de carga, o NAT não tem restrições sobre as quais o IP privado de uma instância de máquina virtual pode fazer ligações de saída.  As configurações ip secundárias podem criar ligação à Internet de saída com o NAT.
+Ao contrário do que acontece com o SNAT de saída do balanceador de carga, o NAT não tem restrições sobre as quais o IP privado de uma instância de máquina virtual pode fazer ligações de saída.  As configurações IP primárias e secundárias podem criar ligação à Internet de saída com o NAT.
 
 ## <a name="coexistence-of-inbound-and-outbound"></a>Coexistência de entrada e saída
 

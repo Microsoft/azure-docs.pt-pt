@@ -1,18 +1,18 @@
 ---
 title: Etapas de pré-migração para a migração de dados para a API da Azure Cosmos DB para a MongoDB
 description: Este doc fornece uma visão geral dos pré-requisitos para uma migração de dados de MongoDB para Cosmos DB.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 09/01/2020
-ms.author: lbosq
-ms.openlocfilehash: be38b1cfa698907f44c6deee77bb9b8ca88b77b7
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.author: jasonh
+ms.openlocfilehash: 01bfff6db7827218dafa539b8bc2c7ce0a7869f2
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318221"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409651"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Etapas de pré-migração para migrações de dados de MongoDB para Azure Cosmos DB's API para MongoDB
 
@@ -85,7 +85,7 @@ As capacidades de indexação fornecidas pela Azure Cosmos DB incluem a adição
 
 [O Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db.md) migra automaticamente as coleções MongoDB com índices únicos. No entanto, os índices únicos devem ser criados antes da migração. A Azure Cosmos DB não suporta a criação de índices únicos, quando já existem dados nas suas coleções. Para mais informações, consulte [as teclas Únicas em Azure Cosmos DB](unique-keys.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Migrar os seus dados mongoDB para a Cosmos DB utilizando o Serviço de Migração da Base de Dados.](../dms/tutorial-mongodb-cosmos-db.md) 
 * [Produção de provisão em contentores e bases de dados da Azure Cosmos](set-throughput.md)
 * [Criação de partições no Azure Cosmos DB](partition-data.md)

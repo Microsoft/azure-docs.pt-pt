@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 04/23/2020
 ms.author: JenCook
-ms.openlocfilehash: 476b93400b69063590c12ed38037c0bf6c6d1714
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4723bce8f3721833ae80b233f7b346fe69363b0b
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281077"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409549"
 ---
 # <a name="quickstart-deploy-an-azure-confidential-computing-vm-in-the-azure-portal"></a>Quickstart: Implementar um VM de computação confidencial Azure no portal Azure
 
@@ -144,7 +144,7 @@ Para obter mais informações sobre como ligar a VMs do Linux, veja [Criar uma V
 > [!NOTE]
 > Se vir um alerta de segurança PuTTY sobre a chave de anfitrião do servidor não estar em cache no registo, escolha entre as seguintes opções. Se confiar neste anfitrião, selecione **Sim** para adicionar a chave à cache do PuTTy e continue a ligar. Se pretender continuar a ligar apenas uma vez, sem adicionar a chave à cache, selecione **Nº**. Se não confia neste anfitrião, **selecione Cancelar** para abandonar a ligação.
 
-## <a name="install-the-open-enclave-sdk-oe-sdk"></a>Instale o SDK do Enclave Aberto (OE SDK)<a id="Install"></a>
+## <a name="install-the-open-enclave-sdk-oe-sdk"></a>Instale o SDK do Enclave Aberto (OE SDK) <a id="Install"></a>
 
 Siga as instruções passo a passo para instalar o [OE SDK](https://github.com/openenclave/openenclave) na sua máquina virtual série DCsv2 que executa uma imagem Ubuntu 18.04 LTS Gen 2. 
 
@@ -199,9 +199,7 @@ Selecione o grupo de recursos para a máquina virtual e, em seguida, **selecione
 
 Neste quickstart, implementou uma máquina virtual de computação confidencial e instalou o Open Enclave SDK. Para obter mais informações sobre máquinas virtuais de computação confidencial no Azure, consulte [Soluções em Máquinas Virtuais.](virtual-machine-solutions.md) 
 
-Se implementou um VM do Windows, aprenda a construir aplicações com as [amostras OE SDK para windows](https://github.com/openenclave/openenclave/blob/master/samples/README_Windows.md) no GitHub. 
-
-Descubra como pode construir aplicações de computação confidencial no Linux, continuando com as amostras Open Enclave SDK Linux no GitHub. 
+Descubra como pode construir aplicações de computação confidencial, continuando com as amostras SDK do Open Enclave no GitHub. 
 
 > [!div class="nextstepaction"]
-> [Edifício aberto enclave amostras SDK em Linux](https://github.com/openenclave/openenclave/blob/master/samples/README_Linux.md)
+> [Edifício open enclave amostras SDK](https://github.com/openenclave/openenclave/blob/master/samples/README.md)

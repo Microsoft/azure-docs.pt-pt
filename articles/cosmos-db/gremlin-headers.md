@@ -5,14 +5,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/03/2019
-author: luisbosquez
-ms.author: lbosq
-ms.openlocfilehash: d244a5bfb6d0a1e2a0965cc72a8f223e0646fa77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+author: jasonwhowell
+ms.author: jasonh
+ms.openlocfilehash: f39b93058f3f96d37683ec1f3ae3de0f8c1cb786
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390861"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409532"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Cabeçalhos de resposta do servidor Azure Cosmos DB Gremlin
 Este artigo aborda os cabeçalhos devolvidos pelo servidor do Gremlin no Cosmos DB ao chamador mediante a execução do pedido. Estes cabeçalhos são úteis para resolver problemas de desempenho de pedidos, ao criar aplicações que se integram nativamente no serviço Cosmos DB e ao simplificar o suporte ao cliente.
@@ -40,14 +40,14 @@ Os códigos de estado mais comuns devolvidos pelo servidor estão listados abaix
 | --- | --- |
 | **401** | A mensagem de erro `"Unauthorized: Invalid credentials provided"` é devolvida quando a palavra-passe de autenticação não corresponde à chave da conta Cosmos DB. Navegue na sua conta Cosmos DB Gremlin no portal Azure e confirme que a chave está correta.|
 | **404** | Operações simultâneas que tentam eliminar e atualizar simultaneamente a mesma borda ou vértice. A mensagem de erro `"Owner resource does not exist"` indica que a base de dados ou a coleção especificada está incorreta nos parâmetros de ligação no formato `/dbs/<database name>/colls/<collection or graph name>`.|
-| **408** | `"Server timeout"`indica que traversal demorou mais de **30 segundos** e foi cancelado pelo servidor. Otimize os seus traversais para correr rapidamente filtrando vértices ou arestas em cada salto de travessia para reduzir o alcance de pesquisa.|
+| **408** | `"Server timeout"` indica que traversal demorou mais de **30 segundos** e foi cancelado pelo servidor. Otimize os seus traversais para correr rapidamente filtrando vértices ou arestas em cada salto de travessia para reduzir o alcance de pesquisa.|
 | **409** | `"Conflicting request to resource has been attempted. Retry to avoid conflicts."` normalmente, ocorre quando um vértice ou uma margem com um identificador já existe no gráfico.| 
 | **412** | O código de estado é complementado com uma mensagem de erro `"PreconditionFailedException": One of the specified pre-condition is not met` . Este erro é indicativo de uma violação otimista do controlo da concordância entre ler uma borda ou vértice e escrevê-lo de volta à loja após modificação. A maioria das situações comuns quando este erro ocorre é modificação de propriedade, por exemplo `g.V('identifier').property('name','value')` . O motor Gremlin lia o vértice, modificava-o e escrevia-o de volta. Se houver outra travessia em paralelo a tentar escrever o mesmo vértice ou uma borda, um deles receberá este erro. A aplicação deve submeter transversalmente ao servidor novamente.| 
 | **429** | Pedido foi acelerado e deve ser novamente julgado após valor em **x-ms-retry-after-ms**| 
 | **500** | a mensagem de erro que contém `"NotFoundException: Entity with the specified id does not exist in the system."` indica que uma base de dados e/ou coleção foram recriadas com o mesmo nome. Este erro desaparece no espaço de cinco minutos, à medida que a alteração se propaga e invalida as caches em diferentes componentes do Cosmos DB. Para evitar este problema, utilize sempre nomes de bases de dados e coleções exclusivos.| 
 | **1000** | Este código de estado é devolvido quando o servidor analisou com sucesso uma mensagem, mas não foi capaz de executar. Geralmente indica um problema com a consulta.| 
 | **1001** | Este código é devolvido quando o servidor completa a execução transversal, mas não consegue serializar a resposta de volta ao cliente. Este erro pode ocorrer quando o traversal gera resultados complexos, que são demasiado grandes ou não estão em conformidade com a especificação do protocolo TinkerPop. A aplicação deve simplificar o traversal quando encontra este erro. | 
-| **1003** | `"Query exceeded memory limit. Bytes Consumed: XXX, Max: YYY"`é devolvido quando transversalmente excede o limite de memória permitido. O limite de memória é **de 2 GB** por transversal.| 
+| **1003** | `"Query exceeded memory limit. Bytes Consumed: XXX, Max: YYY"` é devolvido quando transversalmente excede o limite de memória permitido. O limite de memória é **de 2 GB** por transversal.| 
 | **1004** | Este código de estado indica um pedido de gráfico mal formado. O pedido pode ser mal formado quando falha na deserialização, o tipo sem valor está a ser deserializado como tipo de valor ou operação gremlin não suportada solicitada. O pedido não deve voltar a julgar o pedido porque não será bem sucedido. | 
 | **1007** | Normalmente, este código de estado é devolvido com mensagem de erro `"Could not process request. Underlying connection has been closed."` . Esta situação pode acontecer se o condutor do cliente tentar utilizar uma ligação que está a ser fechada pelo servidor. A aplicação deve voltar a tentar a travessia numa ligação diferente.
 | **1008** | O servidor Cosmos DB Gremlin pode terminar as ligações para reequilibrar o tráfego no cluster. Os controladores de clientes devem lidar com esta situação e usar apenas ligações ao vivo para enviar pedidos para o servidor. Ocasionalmente, os condutores de clientes podem não detetar que a ligação foi fechada. Quando a aplicação encontra um erro, `"Connection is too busy. Please retry after sometime or open more connections."` deve voltar a tentar atravessar numa ligação diferente.
@@ -106,7 +106,7 @@ try {
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Códigos de estado HTTP para Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb) 
 * [Cabeçalhos de resposta Common Azure Cosmos DB REST](/rest/api/cosmos-db/common-cosmosdb-rest-response-headers)
 * [Requisitos do fornecedor do controlador de gráficos TinkerPop]( http://tinkerpop.apache.org/docs/current/dev/provider/#_graph_driver_provider_requirements)

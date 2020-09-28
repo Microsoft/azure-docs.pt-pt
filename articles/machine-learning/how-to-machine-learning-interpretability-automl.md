@@ -10,12 +10,12 @@ ms.custom: how-to
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: 7cb40df6a4619e11694e65020bfcb560cf695795
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 35bf66549cedba22ec14999c4fea62a2c449416e
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897451"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408020"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Interpretação: explicações de modelos em machine learning automatizado (pré-visualização)
 
@@ -33,7 +33,7 @@ Neste artigo, vai aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Características de interpretação. Corra `pip install azureml-interpret azureml-contrib-interpret` para obter os pacotes necessários.
+- Características de interpretação. Corra `pip install azureml-interpret` para obter o pacote necessário.
 - Conhecimento de construção de experiências automatizadas de ML. Para obter mais informações sobre como utilizar o Azure Machine Learning SDK, complete este [tutorial de modelo de regressão](tutorial-auto-train-models.md) ou veja como [configurar experiências automatizadas de ML](how-to-configure-auto-train.md).
 
 ## <a name="interpretability-during-training-for-the-best-model"></a>Interpretação durante o treino para o melhor modelo
@@ -53,7 +53,7 @@ Recupere a explicação do `best_run` , que inclui explicações para as caracte
 Pode utilizar `ExplanationClient` para descarregar as explicações de recursos projetados da loja de artefactos do `best_run` . 
 
 ```python
-from azureml.explain.model._internal.explanation_client import ExplanationClient
+from azureml.interpret import ExplanationClient
 
 client = ExplanationClient.from_run(best_run)
 engineered_explanations = client.download_model_explanation(raw=False)
@@ -99,7 +99,7 @@ Para gerar uma explicação para os modelos AutoML, utilize a `MimicWrapper` cla
 O MimicWrapper também leva o `automl_run` objeto onde as explicações projetadas serão carregadas.
 
 ```python
-from azureml.explain.model.mimic_wrapper import MimicWrapper
+from azureml.interpret import MimicWrapper
 
 # Initialize the Mimic Explainer
 explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,

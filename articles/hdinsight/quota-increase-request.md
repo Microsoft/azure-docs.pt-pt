@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/07/2020
-ms.openlocfilehash: f8411176e0979bdb894983bcf866abd0e1109e21
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 999be38e413288d2eb2f6342874e692972f300ad
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291675"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409719"
 ---
 # <a name="requesting-quota-increases-for-azure-hdinsight"></a>Pedido de aumento de quota para Azure HDInsight
 
 As quotas centrais da CPU ajudam a garantir que a utilização de recursos seja distribuída de forma justa entre todos os clientes de uma determinada região do Azure. No entanto, em certos casos, os seus requisitos de negócio podem exigir mais recursos de cluster do que a sua quota atual permitirá. Nesses casos, pode solicitar um aumento de quota de base da CPU para que possa implantar clusters, que correspondam aos seus requisitos de processamento de dados.
 
-Quando se atinge um limite de quota, não se pode implantar novos clusters ou escalar os aglomerados existentes adicionando mais nós de trabalhadores. O único limite de quota é a quota cpu Cores que existe a nível regional para cada subscrição. Por exemplo, a sua subscrição pode ter um limite de núcleo de 30 CPU na região leste dos EUA, com outros 30 núcleos de CPU permitidos no Leste dos EUA 2.
+Quando se atinge um limite de quota, não se pode implantar novos clusters ou escalar os aglomerados existentes adicionando mais nós de trabalhadores. O único limite de quota é a quota cpu Cores que existe a nível regional para cada subscrição. Por exemplo, a sua subscrição pode ter um limite de núcleo de 30 CPU na região leste dos EUA, com outros 30 núcleos de CPU permitidos no Leste dos EUA.
 
 ## <a name="gather-required-information"></a>Recolher informações necessárias
 
@@ -71,7 +71,7 @@ Pode [contactar o suporte para solicitar um aumento de quota.](https://docs.micr
 
 Há alguns limites de quota fixa. Por exemplo, uma única subscrição do Azure pode ter no máximo 10.000 núcleos. Para obter mais informações sobre estes limites, consulte [os limites de subscrição e serviços da Azure, quotas e constrangimentos.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Configurar clusters em HDInsight com Apache Hadoop, Spark, Kafka, e muito mais](hdinsight-hadoop-provision-linux-clusters.md): Aprenda a configurar e configurar clusters em HDInsight.
 * [Monitor cluster performance](hdinsight-key-scenarios-to-monitor.md): Saiba mais sobre cenários-chave para monitorizar o seu cluster HDInsight que pode afetar a capacidade do seu cluster.

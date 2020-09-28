@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 9ba3d25a07e4d6c32bd14c315018f0d008032b73
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7d22226721d4fc09b4f5affc15047b6799ed0d19
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250492"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409481"
 ---
 # <a name="test-drive-technical-configuration"></a>Configuração técnica da versão de teste
 
@@ -30,7 +30,7 @@ A Microsoft pode remover a complexidade da configuração de um test drive hospe
 
 - **Unidades de teste simultâneas máximas** (necessárias) – Desaprova o número máximo de clientes que podem utilizar o seu test drive de uma só vez. Cada utilizador simultâneo consumirá uma licença Dynamics 365 enquanto o test drive estiver ativo, por isso certifique-se de que tem licenças suficientes disponíveis para suportar o limite máximo definido. O valor recomendado é 3-5.
 
-- **Duração do test drive** (obrigatório) – Introduza o número de horas em que o test drive permanecerá ativo. Após este tempo, a sessão terminará e deixará de consumir uma das suas licenças. Recomendamos um valor de 2-24 horas dependendo da complexidade da sua oferta. Esta duração só pode ser definida em horas inteiras (por exemplo, as horas "2" são válidas; "1,5" não é). O utilizador pode solicitar uma nova sessão se ficar sem tempo e quiser aceder novamente ao test drive.
+- **Duração do test drive** (obrigatório) – Introduza o número de horas em que o test drive permanecerá ativo (pelo menos uma hora). Após este tempo, a sessão terminará e deixará de consumir uma das suas licenças. Recomendamos um valor de 2-24 horas dependendo da complexidade da sua oferta. Esta duração só pode ser definida em horas inteiras (por exemplo, as horas "2" são válidas; "1,5" não é). O utilizador pode solicitar uma nova sessão se ficar sem tempo e quiser aceder novamente ao test drive.
 
 - **URL de exemplo** (obrigatório) – O URL onde o cliente iniciará o seu test drive. Tipicamente, o URL da sua instância Dynamics 365 executa a sua aplicação com dados de amostra instalados (por exemplo, `https://testdrive.crm.dynamics.com` ).
 
@@ -48,7 +48,7 @@ Este tipo de test drive não é hospedado pela Microsoft. Use-o para se conectar
 
 - **Unidades de teste simultâneas máximas** (necessárias) – Desaprova o número máximo de clientes que podem utilizar o seu test drive de uma só vez. Estes test drives já estão implantados, permitindo que os clientes acedam instantaneamente aos mesmos sem esperar por uma implantação.
 
-- **Duração do test drive** (obrigatório) – Introduza o tempo de duração em que a Unidade de Teste se mantenha ativa, em 4 de horas. A unidade de teste termina automaticamente após o fim deste período de tempo.
+- **Duração do test drive** (obrigatório) – Introduza o número de horas em que o test drive permanecerá ativo (pelo menos uma hora). A unidade de teste termina automaticamente após o fim deste período de tempo.
 
 - **Nome do grupo de recursos Azure** (obrigatório) – Introduza o [grupo de recursos Azure](../azure-resource-manager/resource-group-overview.md#resource-groups)) nome onde o seu test drive da Logic App é guardado.
 

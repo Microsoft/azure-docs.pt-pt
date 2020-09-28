@@ -2,25 +2,25 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 01/13/2020
+ms.date: 09/28/2020
 ms.author: glenga
-ms.openlocfilehash: 3fcca11e4e27a8ad291cffeda68d9e32e02a0912
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 187c900ad2fa82cfae358fc5c43ab9e08f1fc1bb
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84268834"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408570"
 ---
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Antes de poder publicar a aplicação, tem de iniciar sessão no Azure. 
+Antes de poder publicar a aplicação, tem de iniciar sessão no Azure.
 
-1. Se ainda não se inscreveu, escolha o ícone Azure na barra de Atividades, então na área **Azure: Funções,** escolha **Iniciar súmido para Azure...**. Se ainda não tiver um, pode **[criar uma conta Azure gratuita.](https://azure.microsoft.com/free/)** Os alunos podem clicar aqui para ** [criar uma conta gratuita para estudantes](https://azure.microsoft.com/free/students/)**
+1. Se ainda não se inscreveu, escolha o ícone Azure na barra de Atividades, então na área **Azure: Funções,** escolha **Iniciar súmido para Azure...**. Se ainda não tiver um, pode **[criar uma conta Azure gratuita.](https://azure.microsoft.com/free/)** Os alunos podem **[criar uma conta Azure gratuita para os Estudantes.](https://azure.microsoft.com/free/students/)**
 
-    ![Resposta da função localhost no browser](./media/functions-sign-in-vs-code/functions-sign-into-azure.png)
+    ![Inscreva-se no Azure dentro do Código VS](./media/functions-sign-in-vs-code/functions-sign-into-azure.png)
 
     Se já assinou, vá para a próxima secção.
 
-1. Quando solicitado no navegador, escolha a sua conta Azure e inscreva-se usando as suas credenciais de conta Azure. 
+1. Quando solicitado no navegador, escolha a sua conta Azure e inscreva-se usando as suas credenciais de conta Azure.
 
 1. Depois de ter assinado com sucesso, pode fechar a nova janela do navegador. As subscrições que pertencem à sua conta Azure são apresentadas na barra Lateral.

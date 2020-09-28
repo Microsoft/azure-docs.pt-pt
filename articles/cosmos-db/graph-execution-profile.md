@@ -2,19 +2,19 @@
 title: Use o perfil de execução para avaliar consultas em Azure Cosmos DB Gremlin API
 description: Aprenda a resolver problemas e a melhorar as suas consultas gremlin usando o passo do perfil de execução.
 services: cosmos-db
-author: luisbosquez
+author: jasonwhowell
 manager: kfile
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 03/27/2019
-ms.author: lbosq
-ms.openlocfilehash: faacaf6700b14ba068d5cf0a48ea851f562e2302
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: jasonh
+ms.openlocfilehash: 841d2bcc50b62554fac8643048a3b3534e82dfa3
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261805"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408237"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Como utilizar o passo do perfil de execução para avaliar as consultas do Gremlin
 
@@ -155,7 +155,7 @@ A resposta de uma função de execuçãoProfile() produzirá uma hierarquia de o
     - `storeOps.count`: Representa o número de resultados que esta operação de armazenamento devolveu.
     - `storeOps.size`: Representa o tamanho dos bytes do resultado de uma determinada operação de armazenamento.
 
-Operador de tempo de execução Cosmos DB Gremlin|Descrição
+Operador de tempo de execução Cosmos DB Gremlin|Description
 ---|---
 `GetVertices`| Este passo obtém um conjunto de objetos pré-indicados da camada de persistência. 
 `GetEdges`| Este passo obtém as bordas adjacentes a um conjunto de vértices. Este passo pode resultar em uma ou muitas operações de armazenamento.
@@ -387,6 +387,6 @@ Estas duas consultas atingiram o mesmo resultado, no entanto, a primeira exigir�
 - O `metrics[0].time` valor é maior na primeira resposta, o que indica que este único passo demorou mais tempo a ser resolvido.
 - O `metrics[0].counts.resultsCount` valor é mais elevado também na primeira resposta, o que indica que o conjunto de dados de trabalho inicial foi maior.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Conheça as [funcionalidades suportadas da Gremlin](gremlin-support.md) no Azure Cosmos DB. 
 * Saiba mais sobre a [API de Gremlin em Azure Cosmos DB](graph-introduction.md).

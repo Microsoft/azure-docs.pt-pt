@@ -11,14 +11,14 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 62202946193c111921c97dc95a7ec7955a63804f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2aa2c0c8cbd8b826444dc5420685aaa9731cddab
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85251192"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409595"
 ---
-# <a name="create-configure-and-manage-elastic-jobs"></a>Criar, configurar e gerir trabalhos elásticos
+# <a name="create-configure-and-manage-elastic-jobs-preview"></a>Criar, configurar e gerir trabalhos elásticos (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Neste artigo, você vai aprender a criar, configurar e gerir trabalhos elásticos.
@@ -98,7 +98,7 @@ Da mesma forma, um script tem de poder ser executado com êxito ao testar logica
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar e gerir Tarefas Elásticas com o PowerShell](elastic-jobs-powershell-create.md)
 - [Criar e gerir Tarefas Elásticas com o Transact-SQL (T-SQL)](elastic-jobs-tsql-create-manage.md)

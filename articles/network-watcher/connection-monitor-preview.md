@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: f331c62060b2d8a39a87bab95b00225f363b4a56
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 31733abc945fe7c751f786649fb05b753a7c243d
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400252"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408869"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor-preview"></a>Monitorização da conectividade da rede com monitor de ligação (pré-visualização)
 
@@ -34,7 +34,7 @@ Aqui estão alguns casos de utilização para Monitor de Ligação (Pré-visuali
 - A sua aplicação híbrida necessita de conectividade para um ponto final de armazenamento Azure. O seu site no local e a sua aplicação Azure ligam-se ao mesmo ponto final de armazenamento Azure. Você quer comparar as latências do local com as latências da aplicação Azure.
 - Pretende verificar a conectividade entre as configurações no local e os VMs Azure que acolhem a sua aplicação em nuvem.
 
-Na sua fase de pré-visualização, o Connection Monitor combina o melhor de duas funcionalidades: a funcionalidade Monitor de [Conexão](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) do Observador de Rede e a funcionalidade monitor de conectividade de [serviço](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity) do Monitor de Desempenho da Rede (NPM).
+Na sua fase de pré-visualização, o Connection Monitor combina o melhor de duas funcionalidades: a funcionalidade Monitor de [Ligação](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) do Observador de Rede e o Monitor de Conectividade de Serviço (NPM) Monitor de [Serviço](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [Monitorização ExpressRoute](https://docs.microsoft.com/azure/expressroute/how-to-npm)e [Monitorização de Desempenho.](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor)
 
 Aqui estão alguns benefícios do Monitor de Ligação (Visualização):
 
@@ -94,9 +94,8 @@ As fontes podem ser VMs Azure ou máquinas no local que tenham um agente de moni
 1. Na página inicial do portal Azure, vá ao **Network Watcher**.
 1. À esquerda, na secção **de Monitorização,** selecione **Connection Monitor (Preview)**.
 1. Vê todos os monitores de ligação que foram criados no Connection Monitor (Preview). Para ver os monitores de ligação que foram criados na experiência clássica do Connection Monitor, aceda ao separador **Monitor de Ligação.**
-
-    ![Screenshot mostrando monitores de conexão que foram criados no Monitor de Ligação (Preview)](./media/connection-monitor-2-preview/cm-resource-view.png)
-
+    
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Screenshot mostrando monitores de conexão que foram criados no Monitor de Ligação (Preview)" lightbox="./media/connection-monitor-2-preview/cm-resource-view.png":::
 
 ### <a name="create-a-connection-monitor"></a>Criar um monitor de ligação
 
@@ -156,7 +155,7 @@ Depois de criar um monitor de ligação, as fontes verificam a conectividade com
 
 Com base no protocolo que escolheu na configuração do teste, o Connection Monitor (Preview) executa uma série de verificações para o par de destino de origem. Os cheques são executados de acordo com a frequência de teste que escolheu.
 
-Se utilizar HTTP, o serviço calcula o número de respostas HTTP que devolveram um código de resposta. O resultado determina a percentagem de verificações falhadas. Para calcular o RTT, o serviço mede o tempo entre uma chamada HTTP e a resposta.
+Se utilizar HTTP, o serviço calcula o número de respostas HTTP que devolveram um código de resposta válido. Podem ser definidos códigos de resposta válidos utilizando o PowerShell e o CLI. O resultado determina a percentagem de verificações falhadas. Para calcular o RTT, o serviço mede o tempo entre uma chamada HTTP e a resposta.
 
 Se utilizar O TCP ou o ICMP, o serviço calcula a percentagem de perda de pacote para determinar a percentagem de verificações falhadas. Para calcular o RTT, o serviço mede o tempo necessário para receber o reconhecimento (ACK) para os pacotes que foram enviados. Se ativar os dados de rastreamento para os seus testes de rede, pode ver perda de hop-by-hop e latência para a sua rede no local.
 
@@ -166,7 +165,11 @@ Com base nos dados que os cheques devolvem, os testes podem ter os seguintes est
 
 * **Passe** – Os valores reais para a percentagem de verificações falhadas e o RTT estão dentro dos limiares especificados.
 * **Falha** – Os valores reais para a percentagem de verificações falhadas ou rtt excederam os limiares especificados. Se não for especificado um limiar, um teste atinge o estado de Falha quando a percentagem de controlos falhados é de 100.
-* **Aviso** – Não foram especificados critérios para a percentagem de verificações falhadas. Na ausência de critérios especificados, o Monitor de Ligação (Pré-visualização) atribui automaticamente um limiar. Quando esse limiar for ultrapassado, o estado do teste muda para Aviso.
+* **Aviso** – 
+     * Se o limiar for especificado e o Monitor de Ligação (Preview) observar os controlos falhados por cento mais de 80% do limiar, o teste é marcado como aviso.
+     * Na ausência de limiares especificados, o Monitor de Ligação (Pré-visualização) atribui automaticamente um limiar. Quando esse limiar for ultrapassado, o estado do teste muda para Aviso.Para o tempo de ida e volta nos testes TCP ou ICMP, o limiar é de 750msec. No que diz a falta de cheques por cento, o limiar é de 10%. 
+* **Indeterminado**   – Sem dados no Log Analytics Workspace.Verifique as métricas. 
+* **Não correr**   – Deficiente por desativar o grupo de teste  
 
 ### <a name="data-collection-analysis-and-alerts"></a>Recolha, análise e alertas de dados
 
@@ -192,77 +195,71 @@ No painel de instrumentos, pode expandir cada monitor de ligação para ver os s
 
 Pode filtrar uma lista com base em:
 
-* **Filtros de alto nível** – Escolha subscrições, regiões, fontes de carimbo de tempo e tipos de destino. Ver caixa 2 na imagem a seguir.
-* **Filtros estatais** – Filtrar pelo estado do monitor de ligação, grupo de teste ou teste. Consulte a seta 3 na imagem a seguir.
-* **Filtros personalizados** – Escolha **Selecione todos** para fazer uma pesquisa genérica. Para pesquisar por uma entidade específica, selecione a partir da lista de drop-down. Consulte a seta 4 na imagem a seguir.
+* **Filtros de nível superior** – Lista de pesquisa por texto, tipo de entidade (Monitor de ligação, grupo de teste ou teste) de timetamp. O âmbito inclui assinaturas, regiões, fontes e tipos de destino. Ver a caixa 1 na imagem a seguir.
+* **Filtros estatais** – Filtrar pelo estado do monitor de ligação, grupo de teste ou teste. Ver caixa 2 na imagem a seguir.
+* **Filtro baseado em alerta** - Filtrar por alertas disparados sobre o recurso do monitor de ligação. Ver a caixa 3 na imagem a seguir.
 
-![Screenshot mostrando como filtrar vistas de monitores de ligação, grupos de teste e testes no Monitor de Ligação (Preview)](./media/connection-monitor-2-preview/cm-view.png)
-
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Screenshot mostrando como filtrar vistas de monitores de ligação, grupos de teste e testes no Monitor de Ligação (Preview)" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
+    
 Por exemplo, para ver todos os testes no Monitor de Ligação (Pré-visualização) onde o IP de origem é 10.192.64.56:
 1. Alterar a vista para **Testar**.
 1. No campo de pesquisa, tipo *10.192.64.56*
-1. Na lista de drop-down, selecione **Sources**.
+1. No **Âmbito do** filtro de nível superior, selecione **Fontes**.
 
 Para mostrar apenas testes falhados no Monitor de Ligação (Pré-visualização) onde o IP de origem é 10.192.64.56:
 1. Alterar a vista para **Testar**.
 1. Para o filtro estatal, selecione **Fail**.
 1. No campo de pesquisa, tipo *10.192.64.56*
-1. Na lista de drop-down, selecione **Sources**.
+1. No **Âmbito do** filtro de nível superior, selecione **Fontes**.
 
 Para mostrar apenas testes falhados no Monitor de Ligação (Pré-visualização) onde o destino é outlook.office365.com:
 1. Alterar a vista para **o Teste**.
 1. Para o filtro estatal, selecione **Fail**.
 1. No campo de pesquisa, *introduza outlook.office365.com*
-1. Na lista de drop-down, selecione **Destinations**.
+1. No **Âmbito do** filtro de nível superior, selecione **Destinos**.
+  
+  :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Screenshot mostrando uma vista que é filtrada para mostrar apenas testes falhados para o destino Outlook.Office365.com" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
 
-   ![Screenshot mostrando uma vista que é filtrada para mostrar apenas testes falhados para o destino Outlook.Office365.com](./media/connection-monitor-2-preview/tests-view.png)
-
+Para saber a razão da falha de um monitor de ligação ou grupo de teste ou teste, clique na coluna chamada reason.  Isto indica qual o limiar (verificações falhadas % ou RTT) e mensagens de diagnóstico relacionadas
+  
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-reason-of-failure.png" alt-text="Screenshot mostrando razão de falha para um monitor de ligação, teste ou grupo de teste" lightbox="./media/connection-monitor-2-preview/cm-reason-of-failure.png":::
+    
 Para visualizar as tendências do RTT e a percentagem de verificações falhadas de um monitor de ligação:
-1. Selecione o monitor de ligação que pretende investigar. Por predefinição, os dados de monitorização são organizados por grupo de teste.
+1. Selecione o monitor de ligação que pretende investigar.
 
-   ![Screenshot mostrando métricas para um monitor de ligação, exibido por grupo de teste](./media/connection-monitor-2-preview/cm-drill-landing.png)
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing.png" alt-text="Screenshot mostrando métricas para um monitor de ligação, exibido por grupo de teste" lightbox="./media/connection-monitor-2-preview/cm-drill-landing.png":::
 
-1. Escolha o grupo de teste que quer investigar.
+1. Verá as seguintes secções  
+    1. Essenciais - Propriedades específicas do recurso do monitor de conexão selecionado 
+    1. Resumo - 
+        1. Tendências agregadas para RTT e percentagem de verificações falhadas para todos os testes no monitor de ligação. Pode definir uma hora específica para ver os detalhes.
+        1. Top 5 entre grupos de teste, fontes e destinos com base no RTT ou percentagem de verificações falhadas. 
+    1. Separadores para grupos de teste , Fontes, Destinos e Configurações de Teste- Lista grupos de teste, fontes ou destinos no Monitor de Ligação. Os testes de verificação falharam, agregaram o RTT e os controlos falharam % dos valores.  Também pode voltar no tempo para ver os dados. 
+    1. Problemas - Problemas de nível de lúpulo para cada teste no Monitor de Ligação. 
 
-   ![Screenshot mostrando onde selecionar um grupo de teste](./media/connection-monitor-2-preview/cm-drill-select-tg.png)
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing-2.png" alt-text="Screenshot mostrando métricas para um monitor de ligação, exibido pela parte do grupo de teste 2" lightbox="./media/connection-monitor-2-preview/cm-drill-landing-2.png":::
 
-    Vê os cinco melhores testes falhados do seu grupo de testes, com base no RTT ou percentagem de verificações falhadas. Para cada teste, consulte o RTT e as linhas de tendência para a percentagem de verificações falhadas.
-1. Selecione um teste da lista ou escolha outro teste para investigar. Para o seu intervalo de tempo e a percentagem de verificações falhadas, vê limiar e valores reais. Para o RTT, vê-se os valores do limiar, médio, mínimo e máximo.
+1. É possível
+    * Clique em Ver todos os testes - para ver todos os testes no Monitor de Ligação
+    * Clique em Ver todos os grupos de teste, configurações de teste, fontes e destinos - para ver detalhes específicos de cada um. 
+    * Escolha um grupo de teste, configuração de teste, origem ou destino - para ver todos os testes na entidade.
 
-   ![Screenshot mostrando os resultados de um teste para RTT e percentagem de verificações falhadas](./media/connection-monitor-2-preview/cm-drill-charts.png)
-
-1. Altere o intervalo de tempo para visualizar mais dados.
-1. Altere a vista para ver fontes, destinos ou configurações de teste. 
-1. Escolha uma fonte baseada em testes falhados e investigue os cinco melhores testes falhados. Por exemplo, escolha **Ver por**  >  **Fontes** e **Ver por**  >  **Destinos** para investigar os testes relevantes no monitor de ligação.
-
-   ![Screenshot mostrando métricas de desempenho para os cinco melhores testes falhados](./media/connection-monitor-2-preview/cm-drill-select-source.png)
+1. A partir da vista de todos os testes, você pode:
+    * Selecione testes e clique em comparação.
+    
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-compare-test.png" alt-text="Screenshot mostrando comparação de 2 testes" lightbox="./media/connection-monitor-2-preview/cm-compare-test.png":::
+    
+    * Utilize cluster para expandir recursos compostos como vnet, subnets aos seus recursos infantis
+    * Ver topologia para quaisquer testes clicando em topologia.
 
 Para visualizar as tendências do RTT e a percentagem de controlos falhados para um grupo de ensaio:
-
 1. Selecione o grupo de teste que pretende investigar. 
-
-    Por predefinição, os dados de monitorização são organizados por fontes, destinos e configurações de teste (testes). Mais tarde, pode alterar a vista de grupos de teste para fontes, destinos ou configurações de teste. Em seguida, escolha uma entidade para investigar os cinco testes falhados. Por exemplo, altere a visão para fontes e destinos para investigar os testes relevantes no monitor de ligação selecionado.
-1. Escolha o teste que quer investigar.
-
-   ![Screenshot mostrando onde selecionar um teste](./media/connection-monitor-2-preview/tg-drill.png)
-
-    Para o seu intervalo de tempo e para a sua percentagem de verificações falhadas, vê valores limiar e valores reais. Para o RTT, vê-se valores para limiar, médio, mínimo e máximo. Também vê alertas disparados para o teste que selecionou.
-1. Altere o intervalo de tempo para visualizar mais dados.
+1. Você verá semelhante ao monitor de ligação - essencial, resumo, tabela para grupos de teste, fontes, destinos e configurações de teste. Navegue-os como faria para um monitor de ligação
 
 Para visualizar as tendências do RTT e a percentagem de verificações falhadas para um teste:
-1. Selecione a configuração de origem, destino e teste que pretende investigar.
+1. Selecione o teste que pretende investigar. Você verá a topologia da rede e o fim para terminar os gráficos de tendência para verificações falhou % e tempo de viagem de ida e volta. Para ver os problemas identificados, na topologia, selecione qualquer salto no caminho. (Estes lúpulo são recursos Azure.) Esta funcionalidade não está atualmente disponível para redes no local
 
-    Para o seu intervalo de tempo e para a percentagem de verificações falhadas, vê valores limiar e valores reais. Para o RTT, vê-se valores para limiar, médio, mínimo e máximo. Também vê alertas disparados para o teste que selecionou.
-
-   ![Screenshot mostrando métricas para um teste](./media/connection-monitor-2-preview/test-drill.png)
-
-1. Para ver a topologia da rede, selecione **Topology**.
-
-   ![Screenshot mostrando o separador topologia da rede](./media/connection-monitor-2-preview/test-topo.png)
-
-1. Para ver os problemas identificados, na topologia, selecione qualquer salto no caminho. (Estes lúpulo são recursos Azure.) Esta funcionalidade não se encontra disponível para redes no local.
-
-   ![Screenshot mostrando um link de lúpulo selecionado no separador Topology](./media/connection-monitor-2-preview/test-topo-hop.png)
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-test-topology.png" alt-text="Screenshot mostrando vista topologia de um teste" lightbox="./media/connection-monitor-2-preview/cm-test-topology.png":::
 
 #### <a name="log-queries-in-log-analytics"></a>Consultas de registo em Log Analytics
 
@@ -272,7 +269,7 @@ Utilize o Log Analytics para criar visualizações personalizadas dos seus dados
 
 Nos monitores de ligação que foram criados antes da experiência do Monitor de Ligação (Pré-visualização), as quatro métricas estão disponíveis: % Sondas Falhadas, MédiasRoundtripMs, ChecksFailedPercent (Preview) e RoundTripTimeMs (Preview). Nos monitores de ligação que foram criados na experiência Connection Monitor (Preview), os dados só estão disponíveis para as métricas que estão marcadas com *(Preview)*.
 
-![Screenshot mostrando métricas no Monitor de Ligação (Pré-visualização)](./media/connection-monitor-2-preview/monitor-metrics.png)
+  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Screenshot mostrando métricas no Monitor de Ligação (Pré-visualização)" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
 Quando utilizar métricas, desenhe o tipo de recurso como Microsoft.Network/networkWatchers/connectionMonitors
 
@@ -283,24 +280,27 @@ Quando utilizar métricas, desenhe o tipo de recurso como Microsoft.Network/netw
 | ChecksFailedPercent (Pré-visualização) | % Verificações falhadas (pré-visualização) | Percentagem | Média | Percentagem de cheques falhados para um teste. | ConnectionMonitorResourceId <br>FonteAddress <br>Nome fonte <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinoAddress <br>Nome de destino <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
 | RoundTripTimeMs (Pré-visualização) | Tempo de ida e volta (ms) (Pré-visualização) | Milissegundos | Média | RTT para verificações enviadas entre a fonte e o destino. Este valor não é mediado. | ConnectionMonitorResourceId <br>FonteAddress <br>Nome fonte <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinoAddress <br>Nome de destino <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
 
-#### <a name="metric-alerts-in-azure-monitor"></a>Alertas métricos no Monitor Azure
+#### <a name="metric-based-alerts-for-connection-monitor"></a>Alertas métricos para o Monitor de Ligação
 
-Para criar um alerta no Azure Monitor:
+Pode criar alertas métricos em monitores de ligação utilizando os métodos abaixo 
 
-1. Escolha o recurso do monitor de ligação que criou no Monitor de Ligação (Preview).
-1. Certifique-se de que **a Métrica** aparece como tipo de sinal para o monitor de ligação.
-1. Em **Condição de Adicionar**, para o Nome do **Sinal**, selecione **ChecksFailedPercent (Preview)** ou **RoundTripTimeMs (Preview)**.
-1. Para **o tipo de sinal,** escolha **métricas.** Por exemplo, selecione **ChecksFailedPercent (Preview)**.
-1. Todas as dimensões da métrica estão listadas. Escolha o nome de dimensão e valor da dimensão. Por exemplo, selecione **o Endereço de Origem** e, em seguida, introduza o endereço IP de qualquer fonte no seu monitor de ligação.
-1. Na **Lógica de Alerta,** preencha os seguintes detalhes:
-   * **Tipo de condição**: **Estática**.
-   * **Condição** e **Limiar**.
-   * **Agregação Granularidade e Frequência de Avaliação**: Monitor de Ligação (Pré-visualização) atualiza os dados a cada minuto.
-1. Em **Ações,** escolha o seu grupo de ação.
-1. Forneça detalhes de alerta.
-1. Crie a regra de alerta.
+1. Do Monitor de Ligação (Preview), durante a criação do Monitor de [Ligação utilizando o portal Azure](connection-monitor-preview-create-using-portal.md#) 
+1. Do Monitor de Ligação (Pré-visualização), utilizando "Alertas de Configuração" no painel de instrumentos 
+1. Do Monitor Azure - Para criar um alerta no Monitor Azure: 
+    1. Escolha o recurso do monitor de ligação que criou no Monitor de Ligação (Preview).
+    1. Certifique-se de que **a Métrica** aparece como tipo de sinal para o monitor de ligação.
+    1. Em **Condição de Adicionar**, para o Nome do **Sinal**, selecione **ChecksFailedPercent (Preview)** ou **RoundTripTimeMs (Preview)**.
+    1. Para **o tipo de sinal,** escolha **métricas.** Por exemplo, selecione **ChecksFailedPercent (Preview)**.
+    1. Todas as dimensões da métrica estão listadas. Escolha o nome de dimensão e valor da dimensão. Por exemplo, selecione **o Endereço de Origem** e, em seguida, introduza o endereço IP de qualquer fonte no seu monitor de ligação.
+    1. Na **Lógica de Alerta,** preencha os seguintes detalhes:
+        * **Tipo de condição**: **Estática**.
+        * **Condição** e **Limiar**.
+        * **Agregação Granularidade e Frequência de Avaliação**: Monitor de Ligação (Pré-visualização) atualiza os dados a cada minuto.
+    1. Em **Ações,** escolha o seu grupo de ação.
+    1. Forneça detalhes de alerta.
+    1. Crie a regra de alerta.
 
-   ![Screenshot mostrando a área de regras Criar no Monitor Azure; Destacam-se "Endereço de origem" e "Nome do ponto final de origem"](./media/connection-monitor-2-preview/mdm-alerts.jpg)
+  :::image type="content" source="./media/connection-monitor-2-preview/mdm-alerts.jpg" alt-text="Screenshot mostrando a área de regras Criar no Monitor Azure. O endereço de origem e o nome do ponto final de Origem estão destacados" lightbox="./media/connection-monitor-2-preview/mdm-alerts.jpg":::
 
 ## <a name="diagnose-issues-in-your-network"></a>Diagnosticar problemas na sua rede
 
@@ -347,3 +347,8 @@ Para as redes cujas fontes são Azure VMs, podem ser detetadas as seguintes ques
 * O trânsito parou por causa das vias do sistema ou da UDR.
 * BGP não está ativado na ligação do gateway.
 * A sonda DIP está no equilibrador de carga.
+
+## <a name="next-steps"></a>Passos Seguintes
+    
+   * [Saiba como criar o Monitor de Ligação (Pré-visualização) utilizando o portal Azure](connection-monitor-preview-create-using-portal.md)  
+   * [Saiba como criar o Monitor de Ligação (Pré-visualização) utilizando o ARMClient](connection-monitor-preview-create-using-arm-client.md)  

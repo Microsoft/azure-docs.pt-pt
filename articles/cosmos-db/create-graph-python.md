@@ -1,20 +1,20 @@
 ---
 title: 'Quickstart: Gremlin API com Python - Azure Cosmos DB'
 description: Este início rápido mostra como utilizar a API do Gremlin do Azure Cosmos DB para criar uma aplicação de consola com o portal do Azure e Python
-author: luisbosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2019
-ms.author: lbosq
+ms.author: jasonh
 ms.custom: devx-track-python
-ms.openlocfilehash: b927a0a64256283536a73002cc5915bcaddd2efc
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 624aa946df5e637c98a11ada3b455c50dec896f5
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873148"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409345"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Quickstart: Criar uma base de dados de gráficos em Azure Cosmos DB usando Python e o portal Azure
 
@@ -186,7 +186,7 @@ Depois de inserir os vértices e bordas, pode agora voltar ao Data Explorer e ve
 
 5. **Selecione Adicionar propriedade** para adicionar cada uma das seguintes propriedades. Tenha em atenção que pode criar propriedades exclusivas para cada pessoa no seu gráfico. Só é necessária a chave de id.
 
-    chave|valor|Notas
+    key|valor|Notas
     ----|----|----
     pk|/pk| 
     ID|ashley|O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.
@@ -204,7 +204,7 @@ Depois de inserir os vértices e bordas, pode agora voltar ao Data Explorer e ve
 
 9. **Selecione Adicionar propriedade** para adicionar cada uma das seguintes propriedades:
 
-    chave|valor|Notas
+    key|valor|Notas
     ----|----|----
     pk|/pk| 
     ID|rakesh|O identificador exclusivo do vértice. Se não especificar, é gerado um id automaticamente.

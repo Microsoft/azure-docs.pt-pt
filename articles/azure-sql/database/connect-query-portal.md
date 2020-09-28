@@ -1,5 +1,5 @@
 ---
-title: Consulta uma Base de Dados SQL utilizando o editor de consulta no portal Azure
+title: Consulta uma Base de Dados SQL utilizando o editor de consulta no portal Azure (pré-visualização)
 description: Saiba como utilizar o Editor de Consulta para executar consultas Transact-SQL (T-SQL) contra uma base de dados na Base de Dados Azure SQL.
 titleSuffix: Azure SQL Database
 keywords: conectar à base de dados sql,base de dados de sql de consulta, portal azul, portal, editor de consulta
@@ -13,14 +13,14 @@ author: Ninarn
 ms.author: ninarn
 ms.reviewer: sstein
 ms.date: 05/29/2020
-ms.openlocfilehash: 2b6a54c25430cd2c1e68c42571f0f9039449ce96
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4eb02c65a8ce486ea152863d8b6c6d0600280893
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335097"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409596"
 ---
-# <a name="quickstart-use-the-azure-portals-query-editor-to-query-an-azure-sql-database"></a>Quickstart: Use o editor de consulta do portal Azure para consultar uma Base de Dados Azure SQL
+# <a name="quickstart-use-the-azure-portals-query-editor-preview-to-query-an-azure-sql-database"></a>Quickstart: Use o editor de consulta do portal Azure (pré-visualização) para consultar uma Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 O editor de consulta é uma ferramenta no portal Azure para executar consultas SQL contra a sua base de dados na Base de Dados Azure SQL ou armazém de dados em Azure Synapse Analytics. 

@@ -2,18 +2,18 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 01/12/2020
+ms.date: 09/28/2020
 ms.author: glenga
-ms.openlocfilehash: 2eb8b988d7d65b444fe41ecb21dddfab4ff4cfa1
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 0d83f3a92efe7bddcefdeebb5b6d580caf749206
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83125855"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408593"
 ---
-1. No Código do Estúdio Visual, prima F1 para abrir a paleta de comando. Na paleta de comando, procure e selecione `Azure Functions: Open in portal` .
+1. No Código do Estúdio Visual, prima <kbd>F1</kbd> para abrir a paleta de comando. Na paleta de comando, procure e selecione `Azure Functions: Open in portal` .
 
-1. Escolha a sua aplicação de função e prima Enter. A página de aplicação de função abre no portal Azure.
+1. Escolha a sua aplicação de função e prima <kbd>Enter</kbd>. A página de aplicação de função abre no portal Azure.
 
 1. No **separador Visão Geral,** selecione o link nomeado ao lado **do grupo De recursos**.
 

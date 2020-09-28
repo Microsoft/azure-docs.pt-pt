@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 09/28/2020
 ms.author: victorh
-ms.openlocfilehash: eb7cf1899b24ed225941f0a02040206504e6486b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16e128fd61c8b0aeae017e5298ae1d8aed6e97e9
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85095591"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91408512"
 ---
 # <a name="azure-firewall-features"></a>Funcionalidades do Azure Firewall
 
@@ -22,9 +22,9 @@ ms.locfileid: "85095591"
 
 A azure Firewall inclui as seguintes funcionalidades:
 
-- [Elevada disponibilidade incorporada](#built-in-high-availability)
+- [Alta disponibilidade incorporada](#built-in-high-availability)
 - [Zonas de Disponibilidade](#availability-zones)
-- [Escalabilidade da cloud sem restrições](#unrestricted-cloud-scalability)
+- [Escalabilidade de nuvem sem restrições](#unrestricted-cloud-scalability)
 - [Regras de filtragem de FQDN de aplicação](#application-fqdn-filtering-rules)
 - [Regras de filtragem de tráfego de rede](#network-traffic-filtering-rules)
 - [Etiquetas FQDN](#fqdn-tags)
@@ -33,7 +33,7 @@ A azure Firewall inclui as seguintes funcionalidades:
 - [Suporte SNAT de saída](#outbound-snat-support)
 - [Suporte DNAT de entrada](#inbound-dnat-support)
 - [Vários endereços IP públicos](#multiple-public-ip-addresses)
-- [Registo do Azure Monitor](#azure-monitor-logging)
+- [Registo do Monitor Azure](#azure-monitor-logging)
 - [Túnel forçado](#forced-tunneling)
 - [Certificações](#certifications)
 
@@ -62,11 +62,11 @@ O Azure Firewall pode aumentar verticalmente conforme as suas necessidades para 
 
 ## <a name="application-fqdn-filtering-rules"></a>Regras de filtragem de FQDN de aplicação
 
-Pode limitar o tráfego HTTP/S de saída ou o tráfego Azure SQL (pré-visualização) a uma lista especificada de nomes de domínio totalmente qualificados (FQDN) incluindo cartões selvagens. Esta funcionalidade não requer a rescisão do TLS.
+Pode limitar o tráfego HTTP/S de saída ou o tráfego Azure SQL a uma lista especificada de nomes de domínio totalmente qualificados (FQDN) incluindo cartões selvagens. Esta funcionalidade não requer a rescisão do TLS.
 
 ## <a name="network-traffic-filtering-rules"></a>Regras de filtragem de tráfego de rede
 
-Pode criar centralmente regras de filtragem de rede de *permissão* ou *negação* por endereço IP de origem e destino, porta e protocolo. O Azure Firewall tem total monitoração de estado, para conseguir distinguir pacotes legítimos para diferentes tipos de ligações. As regras são impostas e registadas em várias subscrições e redes virtuais.
+Pode criar centralmente *regras de* filtragem de *rede* por endereço IP de origem e destino, porta e protocolo. O Azure Firewall tem total monitoração de estado, para conseguir distinguir pacotes legítimos para diferentes tipos de ligações. As regras são impostas e registadas em várias subscrições e redes virtuais.
 
 ## <a name="fqdn-tags"></a>Etiquetas FQDN
 
@@ -78,7 +78,7 @@ Uma etiqueta de [serviço](service-tags.md) representa um grupo de prefixos de e
 
 ## <a name="threat-intelligence"></a>Informações sobre ameaças
 
-[A](threat-intel.md)filtragem baseada em inteligência de ameaça pode ser ativada para a sua firewall alertar e negar o tráfego de/para endereços e domínios IP maliciosos conhecidos. Os endereços e domínios IP são obtidos a partir do feed de Inteligência de Ameaça da Microsoft.
+[A](threat-intel.md)filtragem baseada em inteligência de ameaça pode ser ativada para a sua firewall alertar e negar o tráfego de/para endereços e domínios IP maliciosos conhecidos. Os domínios e endereços IP são obtidos a partir do feed das Informações sobre Ameaças da Microsoft.
 
 ## <a name="outbound-snat-support"></a>Suporte SNAT de saída
 
@@ -96,8 +96,8 @@ Pode associar [vários endereços IP públicos](deploy-multi-public-ip-powershel
 
 Isto permite os seguintes cenários:
 
-- **DNAT** - Pode traduzir várias instâncias de porta padrão para os seus servidores backend. Por exemplo, se tiver dois endereços IP públicos, pode traduzir a porta TCP 3389 (PDR) para ambos os endereços IP.
-- **SNAT** - Estão disponíveis portas adicionais para ligações SNAT de saída, reduzindo o potencial de exaustão portuária SNAT. Neste momento, o Azure Firewall seleciona aleatoriamente o endereço IP público de origem para utilizar para uma ligação. Se tiver alguma filtragem a jusante na sua rede, tem de permitir todos os endereços IP públicos associados à sua firewall. Considere utilizar um [prefixo de endereço IP público](../virtual-network/public-ip-address-prefix.md) para simplificar esta configuração.
+- **DNAT** - Pode traduzir várias instâncias de porta padrão para os seus servidores backend. Por exemplo, se tiver dois endereços IP públicos, poderá converter a porta TCP 3389 (RDP) para ambos os endereços IP.
+- **SNAT** - Estão disponíveis portas adicionais para ligações SNAT de saída, reduzindo o potencial de exaustão portuária SNAT. Neste momento, o Azure Firewall seleciona aleatoriamente o endereço IP público de origem para utilizar para uma ligação. Se tiver alguma filtragem a jusante na rede, terá de permitir todos os endereços IP públicos associados à firewall. Considere utilizar um [prefixo de endereço IP público](../virtual-network/public-ip-address-prefix.md) para simplificar esta configuração.
 
 ## <a name="azure-monitor-logging"></a>Registo do Azure Monitor
 
@@ -111,6 +111,6 @@ Você pode configurar a Azure Firewall para encaminhar todo o tráfego ligado à
 
 Azure Firewall é a Indústria de Cartões de Pagamento (PCI), Os Controlos da Organização de Serviços (SOC), a Organização Internacional de Normalização (ISO) e a ICSA Labs em conformidade. Para obter mais informações, consulte [as certificações de conformidade da Azure Firewall.](compliance-certifications.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Lógica de processamento de regras do Azure Firewall](rule-processing.md)

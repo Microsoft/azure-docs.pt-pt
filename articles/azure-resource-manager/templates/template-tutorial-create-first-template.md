@@ -2,20 +2,20 @@
 title: Tutorial - Criar & modelo de implementação
 description: Crie o seu primeiro modelo de Gestor de Recursos Azure. No tutorial, você aprende sobre a sintaxe do ficheiro do modelo e como implementar uma conta de armazenamento.
 author: mumian
-ms.date: 06/10/2020
+ms.date: 09/28/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 124df19287062a7fc8a6b9cf8b9d32eb3863b581
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 6eb2cf792eb5a458bff8508bc21e1e0690e2e1f3
+ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069242"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91409221"
 ---
 # <a name="tutorial-create-and-deploy-your-first-arm-template"></a>Tutorial: Crie e implemente o seu primeiro modelo ARM
 
-Este tutorial apresenta-o aos modelos Azure Resource Manager (ARM). Mostra como criar um modelo de arranque e implantá-lo para Azure. Você vai aprender sobre a estrutura do modelo e as ferramentas que você precisa para trabalhar com modelos. Leva cerca de **12 minutos** para completar este tutorial, mas o tempo real variará com base em quantas ferramentas precisa instalar.
+Este tutorial apresenta-o aos modelos do Gestor de Recursos Azure (modelos ARM). Mostra como criar um modelo de arranque e implantá-lo para Azure. Você vai aprender sobre a estrutura do modelo e as ferramentas que você precisa para trabalhar com modelos. Leva cerca de **12 minutos** para completar este tutorial, mas o tempo real variará com base em quantas ferramentas precisa instalar.
 
 Este tutorial é o primeiro de uma série. À medida que progride através da série, modifica o modelo inicial passo a passo até que tenha explorado todas as partes centrais de um modelo ARM. Estes elementos são os blocos de construção para modelos muito mais complexos. Esperamos que até ao final da série esteja confiante em criar os seus próprios modelos e pronto para automatizar as suas implementações com modelos.
 
@@ -25,7 +25,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="get-tools"></a>Obter ferramentas
 
-Comecemos por ter a certeza de que tem as ferramentas necessárias para criar e implementar modelos.
+Comecemos por ter a certeza de que tem as ferramentas necessárias para criar e implementar modelos. Instale estas ferramentas na sua máquina local.
 
 ### <a name="editor"></a>Editor
 
