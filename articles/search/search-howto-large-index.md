@@ -7,13 +7,13 @@ author: dereklegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.openlocfilehash: 80307c97464e61d7b7d338703de90d1199adc819
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/25/2020
+ms.openlocfilehash: 081f073fa4933d67604173d2169a7abdc3ac7c3f
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927022"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403573"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Como indexar grandes conjuntos de dados na Pesquisa Cognitiva do Azure
 
@@ -25,34 +25,37 @@ As mesmas técnicas também se aplicam a processos de longa duração. Em especi
 
 As secções seguintes exploram técnicas para indexar grandes quantidades de dados usando tanto a API push como os indexantes.
 
-## <a name="push-api"></a>Empurre a API
+## <a name="use-the-push-api"></a>Use a API push
 
-Ao empurrar dados para um índice, há várias considerações fundamentais que impactam a velocidade de indexação para a API push. Estes fatores estão descritos na secção abaixo. 
+Ao empurrar dados para um índice utilizando a [API de Add Documents REST](/rest/api/searchservice/addupdate-or-delete-documents) ou o método [Index,](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index)existem várias considerações fundamentais que impactam a velocidade de indexação. Estes fatores estão delineados na secção abaixo, e vão desde a definição da capacidade de serviço até otimizações de códigos.
 
-Além das informações neste artigo, também pode tirar partido das amostras de código no tutorial de velocidades de [indexação otimização](tutorial-optimize-indexing-push-api.md) para saber mais.
+Para obter mais informações e amostras de código que ilustram a indexação do modelo de impulso, consulte [Tutorial: Otimize as velocidades de indexação](tutorial-optimize-indexing-push-api.md).
 
-### <a name="service-tier-and-number-of-partitionsreplicas"></a>Nível de serviço e número de divisórias/réplicas
+### <a name="capacity-of-your-service"></a>Capacidade do seu serviço
 
-Adicionar divisórias ou aumentar o nível do seu serviço de pesquisa irá aumentar as velocidades de indexação.
+Como primeiro passo, reveja as características e [limites](search-limits-quotas-capacity.md) do nível em que adquirou o serviço. Um dos principais fatores diferenciadores entre os níveis de preços é o tamanho e a velocidade das divisórias, que tem um impacto direto na velocidade de indexação. Se forte o seu serviço de pesquisa num nível insuficiente para a carga de trabalho, a atualização para um novo nível pode ser a solução mais fácil e eficaz para aumentar a produção de indexação.
 
-A adição de réplicas adicionais também pode aumentar as velocidades de indexação, mas não está garantida. Por outro lado, réplicas adicionais aumentarão o volume de consulta que o seu serviço de pesquisa pode suportar. As réplicas são também um componente chave para obter um [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+Uma vez satisfeito com o nível, o próximo passo pode ser aumentar o número de divisórias. A atribuição de divisórias pode ser reajustada para baixo após uma primeira corrida de indexação para reduzir o custo global de funcionamento do serviço.
 
-Antes de adicionar divisórias/réplicas ou de upgrade para um nível mais elevado, considere o custo monetário e o tempo de alocação. A adição de divisórias pode aumentar significativamente a velocidade de indexação, mas a adição/remoção pode demorar entre 15 minutos e várias horas. Para obter mais informações, consulte a documentação sobre [o ajuste da capacidade.](search-capacity-planning.md)
+> [!NOTE]
+> A adição de réplicas adicionais também pode aumentar as velocidades de indexação, mas não está garantida. Por outro lado, réplicas adicionais aumentarão o volume de consulta que o seu serviço de pesquisa pode suportar. As réplicas são também um componente chave para obter um [SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+>
+> Antes de adicionar divisórias/réplicas ou de upgrade para um nível mais elevado, considere o custo monetário e o tempo de alocação. A adição de divisórias pode aumentar significativamente a velocidade de indexação, mas a adição/remoção pode demorar entre 15 minutos e várias horas. Para obter mais informações, consulte a documentação sobre [o ajuste da capacidade.](search-capacity-planning.md)
+>
 
-### <a name="index-schema"></a>Esquema de Índice
+### <a name="review-index-schema"></a>Comentário de esquema de índice
 
-O esquema do seu índice desempenha um papel importante na indexação de dados. Adicionar campos e adicionar propriedades adicionais a esses campos (como *pescáveis,* *facetáveis*ou *filtrados*) reduzem as velocidades de indexação.
-
-Em geral, recomendamos apenas adicionar propriedades adicionais aos campos se pretender usá-los.
+O esquema do seu índice desempenha um papel importante na indexação de dados. Quanto mais campos tiver, e mais propriedades você definir (como *pescável,* *facetable*, ou *filtrado*) todos contribuem para o aumento do tempo de indexação. Em geral, deve apenas criar e especificar os campos de que realmente precisa num índice de pesquisa.
 
 > [!NOTE]
 > Para manter o tamanho do documento baixo, evite adicionar dados não-questionáveis a um índice. As imagens e outros dados binários não são diretamente pespáveis e não devem ser armazenados no índice. Para integrar dados não-questionáveis nos resultados da pesquisa, deve definir um campo não pes pes pespável que armazena uma referência URL ao recurso.
 
-### <a name="batch-size"></a>Tamanho do lote
+### <a name="check-the-batch-size"></a>Verifique o tamanho do lote
 
-Um dos mecanismos mais simples para a indexação de um conjunto de dados maior é apresentar vários documentos ou registos num único pedido. Enquanto toda a carga útil for inferior a 16 MB, um pedido pode lidar com até 1000 documentos numa operação de upload a granel. Estes limites aplicam-se quer esteja a utilizar o [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) ou o [método Index](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index?view=azure-dotnet) no .NET SDK. Para qualquer um dos pedidos, embale 1000 documentos no corpo de cada pedido.
+Um dos mecanismos mais simples para a indexação de um conjunto de dados maior é apresentar vários documentos ou registos num único pedido. Enquanto toda a carga útil for inferior a 16 MB, um pedido pode lidar com até 1000 documentos numa operação de upload a granel. Estes limites aplicam-se quer esteja a utilizar o [Add Documents REST API](/rest/api/searchservice/addupdate-or-delete-documents) ou o [método Index](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index) no .NET SDK. Para qualquer um dos pedidos, embale 1000 documentos no corpo de cada pedido.
 
 A utilização de lotes para indexar documentos melhorará significativamente o desempenho da indexação. Determinar o tamanho ideal do lote para os seus dados é um componente chave para otimizar as velocidades de indexação. Os dois fatores primários que influenciam o tamanho ideal do lote são:
+
 + O esquema do seu índice
 + O tamanho dos seus dados
 
@@ -79,7 +82,7 @@ Pode modificar esta amostra e testar com diferentes contagens de fios para deter
 + **503 Serviço Indisponível** - Este erro significa que o sistema está sob carga pesada e o seu pedido não pode ser processado neste momento.
 + **207 Multi-Status** - Este erro significa que alguns documentos foram bem sucedidos, mas pelo menos um falhou.
 
-### <a name="retry-strategy"></a>Estratégia de repetição 
+### <a name="retry-strategy"></a>Estratégia de repetição
 
 Se uma falha acontecer, os pedidos devem ser novamente julgados utilizando uma [estratégia de retrocesso exponencial](/dotnet/architecture/microservices/implement-resilient-applications/implement-retries-exponential-backoff).
 
@@ -89,7 +92,7 @@ Azure Cognitive Search.NET SDK retrifica automaticamente 503s e outros pedidos f
 
 As velocidades de transferência de dados de rede podem ser um fator limitativo ao indexar dados. A indexação de dados dentro do seu ambiente Azure é uma forma fácil de acelerar a indexação.
 
-## <a name="indexers"></a>Indexadores
+## <a name="use-indexers-pull-api"></a>Utilizar indexantes (puxar API)
 
 [Os indexantes](search-indexer-overview.md) são usados para rastrear fontes de dados suportadas pelo Azure para conteúdo pesquisável. Embora não se destinem especificamente a uma indexação em larga escala, várias capacidades de indexante são particularmente úteis para acomodar conjuntos de dados maiores:
 
@@ -100,7 +103,7 @@ As velocidades de transferência de dados de rede podem ser um fator limitativo 
 > [!NOTE]
 > Os indexantes são específicos de dados, pelo que a utilização de uma abordagem indexante só é viável para fontes de dados selecionadas no Azure: [SQL Database,](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) [Blob storage,](search-howto-indexing-azure-blob-storage.md) [Table storage](search-howto-indexing-azure-tables.md), [Cosmos DB](search-howto-index-cosmosdb.md).
 
-### <a name="batch-size"></a>Tamanho do lote
+### <a name="check-the-batchsize-argument-on-create-indexer"></a>Verifique o argumento do loteSize no Create Indexer
 
 Tal como acontece com a API push, os indexantes permitem-lhe configurar o número de itens por lote. Para indexadores com base na [API Do Bloco de Índices,](/rest/api/searchservice/Create-Indexer)pode definir o `batchSize` argumento para personalizar esta definição para melhor corresponder às características dos seus dados. 
 
@@ -112,7 +115,7 @@ O agendamento do indexante é um mecanismo importante para o processamento de gr
 
 Por design, a indexação programada começa em intervalos específicos, com um trabalho tipicamente concluído antes de retomar no intervalo agendado seguinte. No entanto, se o processamento não estiver concluído dentro do intervalo, o indexante para (porque ficou sem tempo). No intervalo seguinte, o processamento retoma onde ficou pela última vez, com o sistema a acompanhar onde isso ocorre. 
 
-Em termos práticos, para cargas de índices que se estendem por vários dias, pode colocar o indexante num horário de 24 horas. Quando a indexação retoma para o próximo ciclo de 24 horas, reinicia no último bom documento conhecido. Desta forma, um indexante pode trabalhar o seu caminho através de um atraso de documento ao longo de uma série de dias até que todos os documentos não processados sejam processados. Para obter mais informações sobre esta abordagem, consulte [indexar grandes conjuntos de dados no armazenamento Azure Blob](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets). Para obter mais informações sobre a definição de horários em geral, consulte [a API do Indexer REST](/rest/api/searchservice/Create-Indexer) ou consulte [Como agendar indexadores para a Pesquisa Cognitiva Azure](search-howto-schedule-indexers.md).
+Em termos práticos, para cargas de índices que se estendem por vários dias, pode colocar o indexante num horário de 24 horas. Quando a indexação retoma para o próximo ciclo de 24 horas, reinicia no último bom documento conhecido. Desta forma, um indexante pode trabalhar o seu caminho através de um atraso de documento ao longo de uma série de dias até que todos os documentos não processados sejam processados. Para obter mais informações sobre a definição de horários em geral, consulte [a API do Indexer REST](/rest/api/searchservice/Create-Indexer) ou consulte [Como agendar indexadores para a Pesquisa Cognitiva Azure](search-howto-schedule-indexers.md).
 
 <a name="parallel-indexing"></a>
 

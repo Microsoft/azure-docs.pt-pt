@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 3eab0080f80b26fc7074d8a64885148c0568d8b1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 452b1a33520309ae696ab318c034f0186c993fdc
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280627"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91402927"
 ---
 # <a name="security-control-v2-endpoint-security"></a>Controlo de Segurança V2: Segurança de ponto final
 
@@ -98,3 +98,4 @@ Siga as recomendações no Azure Security Center: "Compute &amp; Apps" para gara
 
 - [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
+- [Avaliação e recomendações de proteção de pontos finais no Centro de Segurança Azure](../../security-center/security-center-endpoint-protection.md)

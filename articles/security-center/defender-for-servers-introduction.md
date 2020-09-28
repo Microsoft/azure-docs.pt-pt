@@ -7,12 +7,12 @@ ms.date: 9/23/2020
 ms.topic: conceptual
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d0e75ab8a2e4d853fa2edc66174502dd3a7930e9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5e4244c0526dbac3bb8e9b2d3856eb01e1b2a2b7
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301674"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403503"
 ---
 # <a name="introduction-to-azure-defender-for-servers"></a>Introdução ao Azure Defender para servidores
 
@@ -41,7 +41,7 @@ As capacidades de deteção e proteção de ameaças fornecidas com o Azure Defe
 
 - **Controlos de aplicação adaptativos (AAC)** - Os controlos de aplicação adaptativa são uma solução inteligente e automatizada para definir listas de aplicações conhecidas e seguras para as suas máquinas.
 
-    Quando tiver ativado e configurado controlos de aplicação adaptativa, receberá alertas de segurança se qualquer aplicação correr além das que definiu como seguras. [Saiba mais](security-center-adaptive-network-hardening.md).
+    Quando tiver ativado e configurado controlos de aplicação adaptativa, receberá alertas de segurança se qualquer aplicação correr além das que definiu como seguras. [Saiba mais](security-center-adaptive-application.md).
 
 - **Endurecimento adaptativo da rede (ANH)** - Aplicação de grupos de segurança de rede (NSG) para filtrar o tráfego de e para os recursos, melhora a sua postura de segurança de rede. No entanto, ainda pode haver alguns casos em que o tráfego real que flui através do NSG é um subconjunto das regras do NSG definidos. Nestes casos, melhorar ainda mais a postura de segurança pode ser alcançado endurecendo as regras do NSG, com base nos padrões reais de tráfego.
 
@@ -58,7 +58,7 @@ As capacidades de deteção e proteção de ameaças fornecidas com o Azure Defe
 
 - **Deteção de ataques sem ficheiros (apenas Windows)** - Ataques sem ficheiros injetam cargas maliciosas na memória para evitar a deteção por técnicas de digitalização baseadas em discos. A carga útil do intruso persiste então na memória de processos comprometidos e executa uma ampla gama de atividades maliciosas.
 
-  Com a deteção de ataques sem ficheiros, as técnicas forenses de memória automatizada identificam kits de ferramentas de ataque sem ficheiros, técnicas e comportamentos. Esta solução analisa periodicamente a sua máquina em tempo de execução e extrai insights diretamente da memória dos processos. Informações específicas para o Linux incluem a identificação de: 
+  Com a deteção de ataques sem ficheiros, as técnicas forenses de memória automatizada identificam kits de ferramentas de ataque sem ficheiros, técnicas e comportamentos. Esta solução analisa periodicamente a sua máquina em tempo de execução e extrai insights diretamente da memória dos processos. Informações específicas incluem a identificação de: 
 
   - Kits de ferramentas bem conhecidos e software de mineração de cripto 
 

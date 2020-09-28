@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/03/2019
-ms.openlocfilehash: 01daf0af039a00f6a81b850b07cfcf6d901a7732
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 606d3c78e96491a92b2e09aa74801247369ba0ab
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284640"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403301"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notificações por e-mail para afinação automática
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -187,7 +187,7 @@ Para completar a solução, como passo final, criar um fluxo de automatização 
 
 - "**Azure Automation - Create job**" – usado para executar o script PowerShell para recuperar recomendações de sintonização automática dentro do runbook Azure Automation.
 - "**Azure Automation - Get job output**" – usado para recuperar a saída do script powerShell executado.
-- "**Office 365 Outlook – Enviar um e-mail**" - usado para enviar e-mail. Os e-mails são enviados utilizando a conta do Office 365 do indivíduo que cria o fluxo.
+- "**Office 365 Outlook – Enviar um e-mail**" - usado para enviar e-mail. Os e-mails são enviados utilizando o trabalho ou a conta escolar do indivíduo que cria o fluxo.
 
 Para saber mais sobre as capacidades do Microsoft Flow, consulte [Começar com o Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
 

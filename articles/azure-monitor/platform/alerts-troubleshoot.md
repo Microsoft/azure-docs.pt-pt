@@ -6,12 +6,12 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: c3eed095d87d1e1fa1f210b360822ceefdbe0521
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d86c6d8b67546aede86a3fc3c905f6feb40d92db
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045251"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403420"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Problemas de resolução de problemas nos alertas do Monitor Azure
 
@@ -61,7 +61,7 @@ Se vir um alerta acionado no portal do Azure, mas não tiver recebido o e-mail q
     Além disso, verifique:
 
    - as definições de spam do seu cliente de e-mail (como Outlook, Gmail)
-      - os limites do remetente/definições de spam/definições de quarentena do servidor de e-mail (como o Exchange, o Office 365, o G-suite)
+      - os limites do remetente / configurações de spam / definições de quarentena do seu servidor de e-mail (como Exchange, Microsoft 365, G-suite)
       - as definições do seu aparelho de segurança de e-mail, se houver (como Barracuda, Cisco).
 
 1. **Não foi subscrita acidentalmente do grupo de ação?**
@@ -203,7 +203,7 @@ Se vir um alerta acionado no portal, mas uma regra de ação relacionada não ti
 
     Os alertas de estado de funcionamento de serviço (serviço de monitorização = “Service Health”) não são afetados pelas regras de ação. 
 
-1. **A regra de ação agiu no seu alerta?** 
+1. **A regra da ação atuou no alerta?** 
 
     Verifique se a regra de alerta processou o alerta ao clicar no alerta acionado no portal e observar o separador Histórico.
 
@@ -216,7 +216,7 @@ Se vir um alerta acionado no portal, mas uma regra de ação relacionada não ti
     ![Ação repetida em múltiplos grupos de ação](media/alerts-troubleshoot/action-repeated-multi-action-groups.png)
  
 
-1. **O âmbito de regra de ação e o filtro coincidem com o alerta disparado?** 
+1. **O âmbito da regra de ação e o filtro correspondem ao alerta acionado?** 
 
     Se pensa que a regra de ação devia ter acionado, mas não o fez, ou que não devia ter acionado, mas o fez, examine cuidadosamente o âmbito da regra de ação e as condições do filtro ao compará-los com as propriedades do alerta acionado. 
 

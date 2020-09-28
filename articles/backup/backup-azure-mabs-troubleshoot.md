@@ -4,12 +4,12 @@ description: Instalação de resolução de problemas, registo do Azure Backup S
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: d3b2ee87dda09fe1b5611d00ce567304aec33a6f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 09e5fe5da7e316257cbbdcb89074fe8a4bc692c0
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91298376"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403012"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Resolução de problemas do Azure Backup Server
 
@@ -142,7 +142,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Operação | Detalhes do erro | Solução |
 | --- | --- | --- |
-| Configuração de notificações de e-mail utilizando uma conta do Office 365 |ID de erro: 2013| **Causa:**<br> Tentar usar a conta do Office 365 <br>**Ação recomendada:**<ol><li> A primeira coisa a garantir é que "Permitir o Retransmissor Anónimo num Conector De Receção" para o seu servidor DPM está configurado no Exchange. Para obter mais informações sobre como configurar isto, consulte [Permitir o Retransmissor Anónimo num Conector De Receção](/exchange/mail-flow/connectors/allow-anonymous-relay).</li> <li> Se não puder utilizar um relé SMTP interno e precisar de configurar utilizando o servidor Office 365, pode configurar o IIS para ser um retransmissor. Configure o servidor DPM para [transmitir o SMTP a O365 utilizando o IIS](/exchange/mail-flow/test-smtp-with-telnet).<br><br>  Certifique-se de que utiliza o formato domain.com utilizador \@ e *não* o domínio\utilizador.<br><br><li>Ponto DPM para usar o nome do servidor local como servidor SMTP, porta 587. Em seguida, aponte para o e-mail do utilizador de que os e-mails devem vir.<li> O nome de utilizador e a palavra-passe na página de configuração do DPM SMTP devem ser para uma conta de domínio no domínio em que o DPM está ligado. </li><br> Quando estiver a alterar o endereço do servidor SMTP, faça a alteração para as novas definições, feche a caixa de definições e, em seguida, reabram-na para se certificar de que reflete o novo valor.  Simplesmente mudar e testar pode nem sempre fazer com que as novas definições produzam efeito, por isso testá-lo desta forma é uma boa prática.<br><br>A qualquer momento durante este processo, pode limpar estas definições fechando a consola DPM e editando as seguintes teclas de registo: **HKLM\SOFTWARE\Microsoft\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Delete SMTPPassword and SMTPUserName keys**. Pode adicioná-los de volta à UI quando o lançar novamente.
+| Criação de notificações de e-mail usando uma conta de trabalho ou escola |ID de erro: 2013| **Causa:**<br> Tentar usar o trabalho ou a conta escolar <br>**Ação recomendada:**<ol><li> A primeira coisa a garantir é que "Permitir o Retransmissor Anónimo num Conector De Receção" para o seu servidor DPM está configurado no Exchange. Para obter mais informações sobre como configurar isto, consulte [Permitir o Retransmissor Anónimo num Conector De Receção](/exchange/mail-flow/connectors/allow-anonymous-relay).</li> <li> Se não puder utilizar um relé SMTP interno e precisar de configurar utilizando o servidor Office 365, pode configurar o IIS para ser um retransmissor. Configure o servidor DPM para [transmitir o SMTP ao Office 365 utilizando o IIS](/exchange/mail-flow/test-smtp-with-telnet).<br><br>  Certifique-se de que utiliza o formato domain.com utilizador \@ e *não* o domínio\utilizador.<br><br><li>Ponto DPM para usar o nome do servidor local como servidor SMTP, porta 587. Em seguida, aponte para o e-mail do utilizador de que os e-mails devem vir.<li> O nome de utilizador e a palavra-passe na página de configuração do DPM SMTP devem ser para uma conta de domínio no domínio em que o DPM está ligado. </li><br> Quando estiver a alterar o endereço do servidor SMTP, faça a alteração para as novas definições, feche a caixa de definições e, em seguida, reabram-na para se certificar de que reflete o novo valor.  Simplesmente mudar e testar pode nem sempre fazer com que as novas definições produzam efeito, por isso testá-lo desta forma é uma boa prática.<br><br>A qualquer momento durante este processo, pode limpar estas definições fechando a consola DPM e editando as seguintes teclas de registo: **HKLM\SOFTWARE\Microsoft\Microsoft\Microsoft Data Protection Manager\Notification\ <br/> Delete SMTPPassword and SMTPUserName keys**. Pode adicioná-los de volta à UI quando o lançar novamente.
 
 ## <a name="common-issues"></a>Problemas comuns
 
