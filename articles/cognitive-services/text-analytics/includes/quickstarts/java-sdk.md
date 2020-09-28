@@ -10,12 +10,12 @@ ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: aahi
 ms.reviewer: tasharm, assafi, sumeh
-ms.openlocfilehash: f9f5a8904ff8038b0747fa8f086bc9894971428c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 61240b6238b4653ff45985a8403534570cbf0773
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332359"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91401097"
 ---
 <a name="HOLTop"></a>
 
@@ -180,7 +180,46 @@ No método do seu `main()` programa, ligue para o método de autenticação para
 > * A Análise de Sentimento inclui a análise de Mineração de Opinião que é uma bandeira opcional. 
 > * A mineração de opinião contém aspeto e sentimento de nível de opinião. 
 
+Crie uma nova função chamada `sentimentAnalysisExample()` que leva o cliente que criou anteriormente, e chama a sua `analyzeSentiment()` função. O objeto devolvido `AnalyzeSentimentResult` conterá `documentSentiment` `sentenceSentiments` e, se for bem sucedido, ou `errorMessage` se não. 
+
+```java
+static void sentimentAnalysisExample(TextAnalyticsClient client)
+{
+    // The text that need be analyzed.
+    String text = "I had the best day of my life. I wish you were there with me.";
+
+    DocumentSentiment documentSentiment = client.analyzeSentiment(text);
+    System.out.printf(
+        "Recognized document sentiment: %s, positive score: %s, neutral score: %s, negative score: %s.%n",
+        documentSentiment.getSentiment(),
+        documentSentiment.getConfidenceScores().getPositive(),
+        documentSentiment.getConfidenceScores().getNeutral(),
+        documentSentiment.getConfidenceScores().getNegative());
+
+    for (SentenceSentiment sentenceSentiment : documentSentiment.getSentences()) {
+        System.out.printf(
+            "Recognized sentence sentiment: %s, positive score: %s, neutral score: %s, negative score: %s.%n",
+            sentenceSentiment.getSentiment(),
+            sentenceSentiment.getConfidenceScores().getPositive(),
+            sentenceSentiment.getConfidenceScores().getNeutral(),
+            sentenceSentiment.getConfidenceScores().getNegative());
+        }
+    }
+}
+```
+
+### <a name="output"></a>Saída
+
+```console
+Recognized document sentiment: positive, positive score: 1.0, neutral score: 0.0, negative score: 0.0.
+Recognized sentence sentiment: positive, positive score: 1.0, neutral score: 0.0, negative score: 0.0.
+Recognized sentence sentiment: neutral, positive score: 0.21, neutral score: 0.77, negative score: 0.02.
+```
+
+### <a name="opinion-mining"></a>Mineração de opinião
+
 Para realizar a análise de sentimento com a mineração de opinião, crie uma nova função chamada `sentimentAnalysisWithOpinionMiningExample()` que leva o cliente que criou anteriormente, e ligue para a sua `analyzeSentiment()` função com o objeto de opção de definição `AnalyzeSentimentOptions` . O objeto devolvido `AnalyzeSentimentResult` conterá `documentSentiment` `sentenceSentiments` e, se for bem sucedido, ou `errorMessage` se não. 
+
 
 ```java
 static void sentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client)

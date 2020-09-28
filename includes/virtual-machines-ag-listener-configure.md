@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 73ba78eca710f0b98b2a209494519cb8003e554b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd635d4c0563c35979f8d85c33dfbde35f05f9e6
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75467554"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91401093"
 ---
 O ouvinte do grupo de disponibilidade é um endereço IP e nome de rede que o grupo de disponibilidade do SQL Server ouve. Para criar o ouvinte do grupo de disponibilidade, faça o seguinte:
 
@@ -30,7 +30,7 @@ O ouvinte do grupo de disponibilidade é um endereço IP e nome de rede que o gr
 
     b. No painel **Roles,** clique com o botão direito no nome do grupo de disponibilidade e, em seguida, **selecione Adicionar**Ponto de Acesso ao Cliente de Recurso  >  **Client Access Point**.
 
-   ![Ponto de Acesso ao Cliente](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
+   ![Screenshot que mostra a opção do menu Ponto de Acesso ao Cliente.](./media/virtual-machines-ag-listener-configure/92-addclientaccesspoint.png)
 
     c. Na caixa **Nome,** crie um nome para este novo ouvinte. 
    O nome para o novo ouvinte é o nome de rede que as aplicações usam para se ligarem às bases de dados do grupo de disponibilidade do SQL Server.
@@ -50,7 +50,7 @@ O ouvinte do grupo de disponibilidade é um endereço IP e nome de rede que o gr
 
     c. No **endereço IP**, clique no Endereço IP **estático.** Desconfigue o endereço IP como o mesmo endereço que utilizou quando definir o endereço do balançador de carga no portal Azure.
 
-   ![Recurso IP](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
+   ![Screenshot que mostra onde define o endereço IP.](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
 
     <!-----------------------I don't see this option on server 2016
     1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
@@ -64,7 +64,7 @@ O ouvinte do grupo de disponibilidade é um endereço IP e nome de rede que o gr
 
     c. No separador dependências, adicione o nome do recurso ponto de acesso ao cliente (o ouvinte).
 
-   ![Recurso IP](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
+   ![Screenshot que mostra onde adicionar o nome no separador Dependências.](./media/virtual-machines-ag-listener-configure/97-propertiesdependencies.png) 
 
     d. Clique em **OK**.
 
@@ -74,23 +74,23 @@ O ouvinte do grupo de disponibilidade é um endereço IP e nome de rede que o gr
 
     b. No separador **Recursos,** clique com o botão direito no recurso ponto de acesso do cliente sob **o Nome do Servidor**e, em seguida, clique em **Propriedades**. 
 
-   ![Recurso IP](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
+   ![Screenshot que mostra a opção do menu Propriedades para o nome do servidor.](./media/virtual-machines-ag-listener-configure/98-dependencies.png) 
 
     c. Clique no separador **Dependências.** Verifique se o endereço IP é uma dependência. Se não for, desaponseeça uma dependência do endereço IP. Se houver vários recursos listados, verifique se os endereços IP têm ou, não E, dependências. Clique em **OK**. 
 
    ![Recurso IP](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
     >[!TIP]
-    >Pode validar que as dependências estão corretamente configuradas. Em Failover Cluster Manager, vá a Roles, clique com o botão direito no grupo de disponibilidade, clique em **Mais Ações**e, em seguida, clique em **Mostrar Relatório de Dependência**. Quando as dependências estão corretamente configuradas, o grupo de disponibilidade depende do nome da rede e o nome da rede depende do endereço IP. 
+    >Pode validar que as dependências estão corretamente configuradas. Em Failover Cluster Manager, vá a Roles, clique com o botão direito no grupo de disponibilidade, clique em **Mais Ações**e, em seguida, clique em  **Mostrar Relatório de Dependência**. Quando as dependências estão corretamente configuradas, o grupo de disponibilidade depende do nome da rede e o nome da rede depende do endereço IP. 
 
 
 1. <a name="setparam"></a>Desa estale os parâmetros do cluster no PowerShell.
 
    a. Copie o seguinte script PowerShell para uma das suas instâncias do SQL Server. Atualize as variáveis para o seu ambiente.
 
-   - `$ListenerILBIP`é o endereço IP que criou no equilibrador de carga Azure para o ouvinte do grupo de disponibilidade.
+   - `$ListenerILBIP` é o endereço IP que criou no equilibrador de carga Azure para o ouvinte do grupo de disponibilidade.
     
-   - `$ListenerProbePort`é a porta que configuraste no equilibrador de carga Azure para o ouvinte do grupo de disponibilidade.
+   - `$ListenerProbePort` é a porta que configuraste no equilibrador de carga Azure para o ouvinte do grupo de disponibilidade.
 
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
@@ -122,9 +122,9 @@ Se necessário, repita os passos acima para definir os parâmetros de cluster pa
   
    a. Copie o seguinte script PowerShell para uma das suas instâncias do SQL Server. Atualize as variáveis para o seu ambiente.
 
-   - `$ClusterCoreIP`é o endereço IP que criou no equilibrador de carga Azure para o recurso de cluster de núcleo WSFC. É diferente do endereço IP para o ouvinte do grupo de disponibilidade.
+   - `$ClusterCoreIP` é o endereço IP que criou no equilibrador de carga Azure para o recurso de cluster de núcleo WSFC. É diferente do endereço IP para o ouvinte do grupo de disponibilidade.
 
-   - `$ClusterProbePort`é a porta que configuraste no equilibrador de carga Azure para a sonda de saúde WSFC. É diferente da sonda para o ouvinte do grupo de disponibilidade.
+   - `$ClusterProbePort` é a porta que configuraste no equilibrador de carga Azure para a sonda de saúde WSFC. É diferente da sonda para o ouvinte do grupo de disponibilidade.
 
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)

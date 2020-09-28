@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: 8586d90631e8d38fa020ff9dab3f626aaedb2760
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
-ms.translationtype: HT
+ms.openlocfilehash: c111752dcca03781dfb2a11fb100dafc4bad90f7
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003828"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91401115"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
@@ -54,7 +54,7 @@ Para criar um cofre dos Serviços de Recuperação, siga estes passos.
 
 1. Depois de introduzir os valores, selecione **Rever + criar**.
 
-    ![Criar o cofre dos Serviços de Recuperação](./media/backup-create-rs-vault/review-and-create.png)
+    ![Screenshot que mostra o botão Review + criar no processo de abóbada criar um processo de abóbada de Serviços de Recuperação.](./media/backup-create-rs-vault/review-and-create.png)
 
 1. Quando estiver pronto para criar o cofre dos Serviços de Recuperação, selecione **Criar**.
 

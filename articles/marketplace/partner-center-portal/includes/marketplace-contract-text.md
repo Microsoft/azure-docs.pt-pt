@@ -1,5 +1,5 @@
 ---
-title: incluir ficheiro
+title: ficheiro de inclusão
 description: incluir arquivo de texto para contrato padrão de mercado comercial da Microsoft
 documentationcenter: partner-center-commercial-marketplace
 ms.service: marketplace
@@ -9,12 +9,12 @@ ms.date: 01/22/2020
 ms.custom: include file
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: d899db8b5f6f3b7c0ccef4e44c814f1e126c626a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e1119cf5c40cdcb1fd598b85410ea9149a7cc146
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326681"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91401108"
 ---
 A Microsoft fornece um modelo de contrato padrão para o mercado comercial.
 
@@ -46,7 +46,7 @@ Termos de alteração universal **ao Contrato Padrão para o mercado comercial d
 **Termos de alteração personalizada ao Contrato Padrão para o mercado comercial da Microsoft**: Comece por selecionar os termos de alteração **personalizada**. Pode fornecer até 10 termos de emenda personalizados por oferta.
 
 - **Termos de emenda personalizados**: Introduza os termos de emenda personalizados na caixa de termos de emenda personalizada. Pode introduzir um número ilimitado de caracteres nesta caixa. Apenas os clientes dos IDs do inquilino que especifique para estes termos personalizados serão apresentados com os termos de alteração personalizados no fluxo de compra da oferta no portal Azure.  
-- **IDs do inquilino** (obrigatório): Cada alteração personalizada pode ser direcionada até 20 IDs de inquilino. Se adicionar uma emenda personalizada, deve fornecer pelo menos uma identificação de inquilino. A identificação do inquilino identifica o seu cliente em Azure. Pode pedir ao seu cliente este ID e eles podem encontrá-lo navegando para portal.azure.com > Azure Ative Directy > Properties. O valor de ID do diretório é o ID do inquilino (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Você também pode procurar o iD do inquilino da organização do seu cliente usando o seu nome de domínio URL em [Qual é o meu ID de inquilino Microsoft Azure e Office 365?](https://www.whatismytenantid.com)
+- **IDs do inquilino** (obrigatório): Cada alteração personalizada pode ser direcionada até 20 IDs de inquilino. Se adicionar uma emenda personalizada, deve fornecer pelo menos uma identificação de inquilino. A identificação do inquilino identifica o seu cliente em Azure. Pode pedir ao seu cliente este ID e eles podem encontrá-lo navegando para portal.azure.com > Azure Ative Directy > Properties. O valor de ID do diretório é o ID do inquilino (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Você também pode procurar o iD do inquilino da organização do seu cliente usando o seu nome de domínio URL em [Qual é o meu ID de inquilino Microsoft Azure e Microsoft 365?](https://www.whatismytenantid.com)
 - **Descrição** (opcional): Opcionalmente fornecer uma descrição amigável para o ID do inquilino que o ajuda a identificar o cliente que você está visando com a emenda.
 
 **Termos e condições**

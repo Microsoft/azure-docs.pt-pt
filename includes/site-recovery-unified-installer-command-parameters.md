@@ -4,14 +4,14 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
-ms.openlocfilehash: 9d9790c9b3dbe3b130be999dd76092ae64f7b52c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8076a6af2382ccec1ac832cd83c3946d8c7c6f57
+ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67183965"
+ms.lasthandoff: 09/27/2020
+ms.locfileid: "91401057"
 ---
-|Nome do Parâmetro| Tipo | Descrição| Valores Possíveis|
+|Nome do Parâmetro| Tipo | Description| Valores Possíveis|
 |-|-|-|-|
 | /ServerMode|Obrigatório|Especifica se a configuração e os servidores de processos devem ser instalados, ou apenas o servidor de processos|CS<br>PS|
 |/InstallLocation|Obrigatório|A pasta na qual os componentes são instalados| Qualquer pasta no computador|
@@ -21,7 +21,7 @@ ms.locfileid: "67183965"
 |/PSIP|Obrigatório|Endereço IP do NIC a ser utilizado para transferência de dados de replicação| Qualquer endereço IP válido|
 |/CSIP|Obrigatório|O endereço IP do NIC em que o servidor de configuração está a ouvir| Qualquer endereço IP válido|
 |/PassphraseFilePath|Obrigatório|O caminho completo para a localização do ficheiro da frase de acesso|Caminho do ficheiro válido|
-|/BypassProxy|Opcional|Especifica que o servidor de configuração estabelece uma ligação ao Azure sem um proxy|Para obter este valor do Venu|
+|/BypassProxy|Opcional|Especifica que o servidor de configuração estabelece uma ligação ao Azure sem um proxy||
 |/ProxySettingsFilePath|Opcional|Definições de proxy (o proxy predefinido necessita de autenticação ou de um proxy personalizado)|O ficheiro deve estar no formato especificado abaixo|
 |DataTransferSecurePort|Opcional|Número da porta no PSIP a ser utilizado para dados de replicação| Número de Porta Válido (o valor predefinido é 9433)|
 |/SkipSpaceCheck|Opcional|Ignorar a verificação de espaços para a cache do disco| |
