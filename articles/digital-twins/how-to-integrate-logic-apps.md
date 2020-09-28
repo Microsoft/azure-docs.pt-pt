@@ -199,7 +199,7 @@ Hit *Save* in the Logic Apps Designer.
 
 Pode escolher outras operações selecionando _+ Novo passo_ na mesma janela.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Vista acabada da aplicação no Connector De Aplicação Lógica. A caixa DigitalTwinsAdd está preenchida com os valores acima descritos, incluindo uma amostra do corpo de Patch JSON. Destaca-se o botão "Guardar" para a janela.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="Vista acabada da aplicação no Connector De Aplicação Lógica. A caixa DigitalTwinsAdd está preenchida com os valores acima descritos, incluindo uma amostra do corpo de Patch JSON. Destaca-se o botão Guardar para a janela.":::
 
 ## <a name="query-twin-to-see-the-update"></a>Consulta twin para ver a atualização
 
