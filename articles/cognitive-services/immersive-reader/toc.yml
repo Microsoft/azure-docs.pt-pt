@@ -16,7 +16,7 @@
       href: tutorial-multiple-resources.md
 - name: Procedimentos
   items:
-    - name: Criar recurso da Leitura Avançada
+    - name: Criar um recurso da Leitura Avançada
       href: how-to-create-immersive-reader.md
     - name: Definir a política de cookies
       href: how-to/set-cookie-policy.md

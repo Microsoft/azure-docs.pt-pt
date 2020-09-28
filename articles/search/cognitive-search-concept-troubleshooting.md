@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 8347ca5a33790d0b35176be47a0fa4811a19e3f1
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1ab366cddbabf7e6d574189892e779ab49f6fad8
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935471"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403386"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Dicas para enriquecimento de IA em Pesquisa Cognitiva Azure
 
@@ -110,12 +110,11 @@ Para a indexação baseada no portal (como descrito no arranque rápido), escolh
 ## <a name="tip-8-increase-indexing-throughput"></a>Dica 8: Aumentar a produção de indexação
 
 Para [uma indexação paralela,](search-howto-large-index.md)coloque os seus dados em vários recipientes ou várias pastas virtuais dentro do mesmo recipiente. Em seguida, crie vários pares de recursos de dados e indexantes. Todos os indexantes podem usar o mesmo skillset e escrever no mesmo índice de pesquisa alvo, por isso a sua aplicação de pesquisa não precisa de estar ciente desta partição.
-Para obter mais informações, consulte [Indexar grandes conjuntos de dados.](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 
 ## <a name="see-also"></a>Ver também
+
 + [Quickstart: Criar um oleoduto de enriquecimento de IA no portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Aprenda AI enriquecimento REST APIs](cognitive-search-tutorial-blob.md)
 + [Especificar credenciais de origem de dados](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
-+ [Indexação de grandes conjuntos de dados](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
 + [Como definir um skillset](cognitive-search-defining-skillset.md)
 + [Como mapear campos enriquecidos para um índice](cognitive-search-output-field-mapping.md)

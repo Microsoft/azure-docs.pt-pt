@@ -10,13 +10,13 @@ metadata:
   ms.topic: landing-page
   author: PatrickFarley
   ms.author: pafarley
-  ms.date: 10/01/2019
-  ms.openlocfilehash: 45515fc865d989394c465a25b5474153f8370bd0
-  ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+  ms.date: 09/22/2020
+  ms.openlocfilehash: 3a11be023df31fc4f6babe44d869ae89862ae501
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/15/2020
-  ms.locfileid: "90530221"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91277245"
 landingContent:
 - title: Sobre a Imagem Digitalizada
   linkLists:
@@ -86,11 +86,11 @@ landingContent:
       url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
     - text: Utilizar o SDK do Go
       url: quickstarts-sdk/client-library.md?pivots=programming-language-go
-- title: Utilizar contentores
+- title: Utilizar o contentor de Leitura
   linkLists:
   - linkListType: get-started
     links:
-    - text: Instalar e executar contentores
+    - text: Instalar e executar o contentor
       url: computer-vision-how-to-install-containers.md
   - linkListType: how-to-guide
     links:
@@ -102,6 +102,26 @@ landingContent:
       url: deploy-computer-vision-on-container-instances.md
     - text: Utilizar com o Kubernetes e Helm
       url: deploy-computer-vision-on-premises.md
+- title: Utilizar o contentor de análise espacial
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Instalar e executar o contentor
+      url: spatial-analysis-container.md
+    - text: Configurar operações
+      url: spatial-analysis-operations.md
+  - linkListType: deploy
+    links:
+    - text: Implementar uma aplicação de contagem de pessoas
+      url: spatial-analysis-web-app.md
+  - linkListType: concept
+    links:
+    - text: Posicionamento de zona e linha
+      url: spatial-analysis-zone-line-placement.md
+    - text: Posicionamento da câmara
+      url: spatial-analysis-camera-placement.md
+    - text: Registo e resolução de problemas
+      url: spatial-analysis-logging.md
 - title: Detetar rostos em imagens
   linkLists:
   - linkListType: concept

@@ -13,12 +13,12 @@ metadata:
   ms.date: 09/10/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: aec131b8c7a3e5092b6b090668fb0eb006b079a3
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.openlocfilehash: 07d167ca046bb4c4a5e5e50cec43c7685fcec8fb
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90904136"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91262013"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -144,8 +144,8 @@ productDirectory:
     azureCategories:
     - ai-machine-learning
     url: cognitive-services/bing-web-search/overview.md
-  - title: Communication Services
-    summary: Adicionar voz, vídeo e telefonia em tempo real às suas aplicações
+  - title: Azure Communication Services (Pré-visualização)
+    summary: Crie experiências de comunicação avançadas com a mesma plataforma segura que o Microsoft Teams utiliza
     imageSrc: ./media/index/communication-services.svg
     azureCategories:
     - web

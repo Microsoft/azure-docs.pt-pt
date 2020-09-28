@@ -9,6 +9,10 @@
   items:
     - name: Criar um Front Door - Portal
       href: quickstart-create-front-door.md
+    - name: Criar um Front Door - PowerShell
+      href: quickstart-create-front-door-powershell.md
+    - name: Criar um Front Door - CLI
+      href: quickstart-create-front-door-cli.md
     - name: Criar um Front Door - Modelo do ARM
       href: quickstart-create-front-door-template.md
 - name: Tutoriais

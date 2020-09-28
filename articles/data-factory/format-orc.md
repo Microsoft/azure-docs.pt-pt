@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 3aa42d6060ecdd93dd97438a025c4f5e4f05ac52
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 9e6b8511164cd7e9a855a70d9edba4ce6492c3a3
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531734"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404735"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC na Azure Data Factory
 
@@ -30,14 +30,15 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 | Propriedade         | Descrição                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| tipo             | A propriedade do tipo do conjunto de dados deve ser definida para **Orc**. | Yes      |
-| localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . **Consulte os detalhes na secção de propriedades do conector -> Dataset**. | Yes      |
+| tipo             | A propriedade do tipo do conjunto de dados deve ser definida para **Orc**. | Sim      |
+| localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . **Consulte os detalhes na secção de propriedades do conector -> Dataset**. | Sim      |
+| compressãoCodec         | O codec de compressão para utilizar ao escrever em ficheiros ORC. Ao ler em ficheiros ORC, as Fábricas de Dados determinam automaticamente o código de compressão com base nos metadados de ficheiro.<br>Os tipos suportados não são **nenhum,** **zlib,** **snappy** (padrão) e **lzo**. Nota atualmente A atividade copy não suporta LZO quando lê/escreve ficheiros ORC. | Não      |
 
 Abaixo está um exemplo do conjunto de dados ORC no Armazenamento Azure Blob:
 
 ```json
 {
-    "name": "ORCDataset",
+    "name": "OrcDataset",
     "properties": {
         "type": "Orc",
         "linkedServiceName": {
@@ -60,7 +61,6 @@ Tenha em atenção os seguintes pontos:
 
 * Os tipos de dados complexos não são suportados (STRUCT, MAP, LIST, UNION).
 * O espaço branco no nome da coluna não é suportado.
-* O ficheiro ORC tem três [opções relacionadas com a compressão](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NENHUM, ZLIB, SNAPPY. O Data Factory suporta a leitura de dados a partir de um ficheiro ORC em qualquer um destes formatos de compressão. Utiliza o codec de compressão existente nos metadados para ler os dados. No entanto, ao escrever num ficheiro ORC, o Data Factory escolhe a opção ZLIB, que é a predefinição para ORC. De momento, não existem opções para contornar este comportamento.
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 
@@ -72,8 +72,8 @@ As seguintes propriedades são suportadas na secção *** \* de origem \* *** da
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida para **OrcSource**. | Yes      |
-| lojaSs | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | No       |
+| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida para **OrcSource**. | Sim      |
+| lojaSs | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | Não       |
 
 ### <a name="orc-as-sink"></a>ORC como pia
 
@@ -81,17 +81,78 @@ As seguintes propriedades são suportadas na secção de *** \* lavatório \* **
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida para **OrcSink**. | Yes      |
-| formatoStas | Um grupo de propriedades. Consulte a tabela de **definições de escrita ORC** abaixo. |    No      |
-| lojaSs | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | No       |
+| tipo          | A propriedade do tipo do lavatório de atividade de cópia deve ser definida para **OrcSink**. | Sim      |
+| formatoStas | Um grupo de propriedades. Consulte a tabela de **definições de escrita ORC** abaixo. |    Não      |
+| lojaSs | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | Não       |
 
 As **definições** de escrita ORC suportadas em `formatSettings` :
 
 | Propriedade      | Descrição                                                  | Obrigatório                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| tipo          | O tipo de formatoStas devem ser definidas para **OrcWriteSettings**. | Yes                                                   |
-| maxRowsPerFile | Ao escrever dados numa pasta, pode optar por escrever em vários ficheiros e especificar as linhas máximas por ficheiro.  | No |
-| fileNamePrefix | Aplicável quando `maxRowsPerFile` é configurado.<br> Especifique o prefixo do nome do ficheiro ao escrever dados em vários ficheiros, resultando neste padrão: `<fileNamePrefix>_00000.<fileExtension>` . Se não for especificado, o prefixo do nome do ficheiro será gerado automaticamente. Esta propriedade não se aplica quando a fonte é loja baseada em ficheiros ou [loja de dados ativada por opção de partição.](copy-activity-performance-features.md)  | No |
+| tipo          | O tipo de formatoStas devem ser definidas para **OrcWriteSettings**. | Sim                                                   |
+| maxRowsPerFile | Ao escrever dados numa pasta, pode optar por escrever em vários ficheiros e especificar as linhas máximas por ficheiro.  | Não |
+| fileNamePrefix | Aplicável quando `maxRowsPerFile` é configurado.<br> Especifique o prefixo do nome do ficheiro ao escrever dados em vários ficheiros, resultando neste padrão: `<fileNamePrefix>_00000.<fileExtension>` . Se não for especificado, o prefixo do nome do ficheiro será gerado automaticamente. Esta propriedade não se aplica quando a fonte é loja baseada em ficheiros ou [loja de dados ativada por opção de partição.](copy-activity-performance-features.md)  | Não |
+
+## <a name="mapping-data-flow-properties"></a>Mapeamento de propriedades de fluxo de dados
+
+No mapeamento dos fluxos de dados, pode ler e escrever para o formato ORC nas seguintes lojas de dados: [Azure Blob Storage,](connector-azure-blob-storage.md#mapping-data-flow-properties) [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md#mapping-data-flow-properties)e [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties).
+
+Pode apontar para ficheiros ORC utilizando conjunto de dados ORC ou utilizando um [conjunto de dados inline](data-flow-source.md#inline-datasets).
+
+### <a name="source-properties"></a>Propriedades de origem
+
+A tabela abaixo lista as propriedades suportadas por uma fonte ORC. Pode editar estas propriedades no separador **Opções Fonte.**
+
+Ao utilizar o conjunto de dados inline, verá definições de ficheiros adicionais, que são as mesmas que as propriedades descritas na secção [de propriedades do conjunto de dados.](#dataset-properties)
+
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Formato | Formato deve ser `orc` | sim | `orc` | formato |
+| Caminhos de wild card | Todos os ficheiros correspondentes ao caminho wildcard serão processados. Substitui a pasta e o caminho do ficheiro definido no conjunto de dados. | não | Corda[] | wildcardPaths |
+| Caminho da raiz da partição | Para os dados de ficheiros que são divididos, pode introduzir um caminho de raiz de partição para ler pastas partidas como colunas | não | String | partitionRootPath |
+| Lista de ficheiros | Se a sua fonte está a apontar para um ficheiro de texto que lista ficheiros para processar | não | `true` ou `false` | fileList |
+| Coluna para armazenar nome de ficheiro | Criar uma nova coluna com o nome e caminho do ficheiro de origem | não | String | rowUrlColumn |
+| Após a conclusão | Elimine ou mova os ficheiros após o processamento. O caminho do arquivo começa a partir da raiz do recipiente | não | Excluir: `true` ou `false` <br> Mover-se: `[<from>, <to>]` | purgeFiles <br> moveFiles |
+| Filtrar por última modificação | Opte por filtrar ficheiros com base na última alteração que foram alterados | não | Timestamp | modificado Depois <br> modificadoSForo antes |
+| Não permita que não encontrem ficheiros | Se for verdade, um erro não é jogado se nenhum ficheiro for encontrado | não | `true` ou `false` | ignoreNoFilesFound |
+
+### <a name="source-example"></a>Exemplo de origem
+
+O script de fluxo de dados associado de uma configuração de origem ORC é:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    rowUrlColumn: 'fileName',
+    format: 'orc') ~> OrcSource
+```
+
+### <a name="sink-properties"></a>Propriedades de pia
+
+A tabela abaixo lista as propriedades suportadas por um lavatório ORC. Pode editar estas propriedades no **separador Definições.**
+
+Ao utilizar o conjunto de dados inline, verá definições de ficheiros adicionais, que são as mesmas que as propriedades descritas na secção [de propriedades do conjunto de dados.](#dataset-properties)
+
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Formato | Formato deve ser `orc` | sim | `orc` | formato |
+| Limpe a pasta | Se a pasta de destino for apurada antes de escrever | não | `true` ou `false` | truncato |
+| Opção de nome de ficheiro | O formato de nomeação dos dados escritos. Por predefinição, um ficheiro por partição em formato `part-#####-tid-<guid>` | não | Padrão: Corda <br> Por partição: String[] <br> Como dados na coluna: String <br> Saída para um único ficheiro: `['<fileName>']` | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
+
+### <a name="sink-example"></a>Exemplo de pia
+
+O script de fluxo de dados associado de uma configuração de pia ORC é:
+
+```
+OrcSource sink(
+    format: 'orc',
+    filePattern:'output[n].orc',
+    truncate: true,
+    allowSchemaDrift: true,
+    validateSchema: false,
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> OrcSink
+```
 
 ## <a name="using-self-hosted-integration-runtime"></a>Utilização do tempo de execução de integração auto-hospedado
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: dd8dcbe136558e997ca16a2d9754cbf1c4e7620b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: b7b6a7202392e083aaaa5cdc8adcf0c81cfb0e0d
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326108"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403709"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de Conectividade do Serviço
 
@@ -19,8 +19,8 @@ Pode utilizar a capacidade do Monitor de Conectividade de Serviço no [Monitor d
 
 Pode executar as seguintes funções com o Monitor de Conectividade de Serviço: 
 
-- Monitorize a conectividade da rede com as suas aplicações e serviços de rede a partir de várias sucursais ou locais. As aplicações e serviços de rede incluem o Office 365, Dynamics CRM, aplicações internas de linha de negócio e bases de dados SQL.
-- Utilize testes incorporados para monitorizar a conectividade da rede nos pontos finais do Office 365 e Dynamics 365. 
+- Monitorize a conectividade da rede com as suas aplicações e serviços de rede a partir de várias sucursais ou locais. Aplicações e serviços de rede incluem Microsoft 365, Dynamics CRM, aplicações internas de linha de negócios e bases de dados SQL.
+- Utilize testes incorporados para monitorizar a conectividade da rede com os pontos finais microsoft 365 e Dynamics 365. 
 - Determine o tempo de resposta, a latência da rede e a perda de pacote sofrida ao ligar-se ao ponto final.
 - Determinar se o fraco desempenho da aplicação se deve à rede ou devido a algum problema no final do fornecedor de aplicações.
 - Identifique os pontos quentes na rede que possam estar a causar um fraco desempenho da aplicação ao visualizar a latência contribuida por cada salto num mapa de topologia.

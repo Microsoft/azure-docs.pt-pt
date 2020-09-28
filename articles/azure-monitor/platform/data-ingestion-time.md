@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 99d5594dd3ebe3750cb0a09ea803065e2aeb5ba2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ced838d05ef9d8ca9f6c724d88fabdad010ed727
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77666642"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403556"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Log data ingestion time in Azure Monitor (Tempo de ingestão de dados de registo no Azure Monitor)
 O Azure Monitor é um serviço de dados de alta escala que serve milhares de clientes que enviam terabytes de dados todos os meses a um ritmo crescente. Muitas vezes existem dúvidas sobre o tempo que os dados de registo demoram a ficar disponíveis após a sua recolha. Este artigo explica os diferentes fatores que afetam esta latência.
@@ -51,7 +51,7 @@ Uma vez disponíveis no ponto de ingestão, os dados demoram 2 a 5 minutos adici
 ### <a name="management-solutions-collection"></a>Recolha de soluções de gestão
 Algumas soluções não recolhem os seus dados de um agente e podem utilizar um método de recolha que introduz latência adicional. Algumas soluções recolhem dados a intervalos regulares sem tentar a recolha em tempo real. Exemplos específicos incluem:
 
-- O Office 365 solution polls logs de atividade utilizando o Office 365 Management Activity API, que atualmente não fornece quaisquer garantias de latência em tempo real.
+- A Microsoft 365 regista registos de atividade de sondagens utilizando a API de Atividade de Gestão, que atualmente não fornece quaisquer garantias de latência em tempo real.
 - As soluções do Windows Analytics (Update Compliance, por exemplo) são recolhidas pela solução numa frequência diária.
 
 Consulte a documentação de cada solução para determinar a sua frequência de recolha.
@@ -141,6 +141,6 @@ Heartbeat
 | top 20 by NoHeartbeatPeriod desc 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Leia o [Acordo de Nível de Serviço (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) para O Monitor Azure.
 

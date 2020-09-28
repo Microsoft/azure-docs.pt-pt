@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 27926c687871180da78930be8e0968febcd77869
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: c8d68a17b3b991b88e02cf056dcb46da2debfa71
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396319"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403199"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Uma aplicação web que chama APIs web: configuração de código
 
@@ -181,7 +181,7 @@ Tal como acontece com as APIs web, pode escolher várias implementações de cac
 
 A imagem a seguir mostra as várias possibilidades do *Microsoft.Identity.Web* e o seu impacto no ficheiro *Startup.cs:*
 
-:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.png" alt-text="Ao criar uma api web, pode optar por chamar uma api a jusante e implementar cache simbólico.":::
+:::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Diagrama de bloco mostrando opções de configuração de serviço no ponto de arranque C S para chamar uma API web e especificar uma implementação de cache de símbolo":::
 
 > [!NOTE]
 > Para compreender plenamente os exemplos de código aqui, é necessário estar familiarizado com [ASP.NET fundamentos fundamentais do Núcleo](/aspnet/core/fundamentals), e em particular com a injeção de [dependência](/aspnet/core/fundamentals/dependency-injection) e [as opções.](/aspnet/core/fundamentals/configuration/options)

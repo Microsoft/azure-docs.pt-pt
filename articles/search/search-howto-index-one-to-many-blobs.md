@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: 6606391d7fd5c2419714531e1220d97fb29aea4d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76086dd7cccb042fdde3722b68b654343f2df012
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529595"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403590"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>Indexação de bolhas para produzir vários documentos de pesquisa
 Por predefinição, um indexante blob tratará o conteúdo de uma bolha como um único documento de pesquisa. Certos **valores de parsingMode** suportam cenários onde uma bolha individual pode resultar em vários documentos de pesquisa. Os diferentes tipos de **parsingMode** que permitem a um indexante extrair mais de um documento de pesquisa de uma bolha são:
@@ -109,7 +109,10 @@ Se pretender configurar um mapeamento de campo explícito, certifique-se de que 
 > [!NOTE]
 > A abordagem utilizada para `AzureSearch_DocumentKey` garantir a singularidade por entidade extraída está sujeita a alterações e, por isso, não deve confiar no seu valor para as necessidades da sua aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="help-us-make-azure-cognitive-search-better"></a>Ajude-nos a melhorar a pesquisa cognitiva do Azure
+Se tiver pedidos de funcionalidades ou ideias para melhorias, forneça a sua entrada no [UserVoice](https://feedback.azure.com/forums/263029-azure-search/). Se precisar de ajuda para utilizar a função existente, publique a sua pergunta no [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/18870).
+
+## <a name="next-steps"></a>Passos seguintes
 
 Se ainda não está familiarizado com a estrutura básica e o fluxo de trabalho da indexação de bolhas, deve rever o [Indexing Azure Blob Storage com Azure Cognitive Search](search-howto-index-json-blobs.md) em primeiro lugar. Para obter mais informações sobre modos de análise para diferentes tipos de conteúdo de bolhas, reveja os seguintes artigos.
 

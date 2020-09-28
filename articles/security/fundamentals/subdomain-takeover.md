@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: faa61dc351bebd3d2a85ad229036e5b9fba9256e
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: c0494fe39f8ae64ba65db4e3cd728069aa4a5052
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514616"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403216"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Evitar entradas de DNS pendentes e evitar a aquisição de subdomínios
 
@@ -92,7 +92,7 @@ A ferramenta suporta os recursos Azure listados na tabela seguinte. A ferramenta
 | Armazenamento de Blobs do Azure        | microsoft.storage/storageaccounts           | propriedades.primaryEndpoints.blob           | `abc. blob.core.windows.net`    |
 | CDN do Azure                 | microsoft.cdn/perfis/pontos finais            | propriedades.hostName                        | `abc.azureedge.net`             |
 | Endereços IP públicos       | microsoft.network/publicipaddresses         | properties.dnsSettings.fqdn                | `abc.EastUs.cloudapp.azure.com` |
-| Gestor de Tráfego do Azure     | microsoft.network/trafficmanagerprofils    | properties.dnsConfig.fqdn                  | `abc.trafficmanager.net`        |
+| Traffic Manager do Azure     | microsoft.network/trafficmanagerprofils    | properties.dnsConfig.fqdn                  | `abc.trafficmanager.net`        |
 | Instância de Contentor do Azure  | microsoft.containerinstance/containergroups | propriedades.ipAddress.fqdn                  | `abc.EastUs.azurecontainer.io`  |
 | API Management do Azure      | microsoft.apimanagement/service             | propriedades.hostnameConfigurations.hostName | `abc.azure-api.net`             |
 | Serviço de Aplicações do Azure         | microsoft.web/sites                         | propriedades.defaultName                 | `abc.azurewebsites.net`         |
@@ -117,14 +117,7 @@ Se é administrador global do inquilino da sua organização, eleve a sua conta 
 
 ### <a name="run-the-script"></a>Executar o script
 
-Existem duas versões do script, ambas têm os mesmos parâmetros de entrada e produzem saídas semelhantes:
-
-|Script  |Informações  |
-|---------|---------|
-|**Get-DanglingDnsRecordsPsCore.ps1**    |O modo paralelo é suportado apenas na versão 7 do PowerShell e superior, caso contrário, funcionará em modo de série.|
-|**Get-DanglingDnsRecordsPsDesktop.ps1** |Suportado apenas no ambiente de trabalho/versão PowerShell inferior a 6, uma vez que este script utiliza [o Fluxo de Trabalho do Windows](https://docs.microsoft.com/dotnet/framework/windows-workflow-foundation/overview).|
-
-Saiba mais e baixe os scripts PowerShell do GitHub: https://aka.ms/DanglingDNSDomains .
+Saiba mais sobre o script PowerShell, **Get-DanglingDnsRecords.ps1**, e descarregue-o a partir do GitHub: https://aka.ms/DanglingDNSDomains .
 
 ## <a name="remediate-dangling-dns-entries"></a>Remediar as entradas de DNS pendentes 
 
@@ -203,7 +196,7 @@ Muitas vezes cabe aos desenvolvedores e equipas de operações executar processo
     - Elimine o registo DNS se já não estiver em uso, ou aponte-o para o recurso Azure (FQDN) de propriedade da sua organização.
  
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre serviços relacionados e funcionalidades Azure que pode usar para se defender contra a aquisição de subdomínios, consulte as páginas seguintes.
 

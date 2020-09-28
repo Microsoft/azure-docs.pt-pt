@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/12/2020
 ms.author: jodowns
 ms.custom: fasttrack-new
-ms.openlocfilehash: b099a6ea706482e25b2c37a87cf0a24f2fe475bb
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9a20a7966daff372cf5c0abc9b7b1dbbfd459838
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86532120"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403243"
 ---
 # <a name="revisions-in-azure-api-management"></a>Revisões na Gestão AZURE API
 
@@ -38,7 +38,7 @@ Cada revisão à sua API pode ser acedida através de um URL especialmente forma
 
 `https://apis.contoso.com/customers;rev=3?customerId=123`
 
-Por predefinição, cada revisão tem as mesmas definições de segurança que a revisão atual. Pode alterar deliberadamente as políticas para uma revisão específica se quiser ter uma segurança diferente aplicada para cada revisão. Por exemplo, é melhor adicionar uma [política de whitelisting IP](./api-management-access-restriction-policies.md#RestrictCallerIPs) para impedir que os chamadores externos acedam a uma revisão que ainda está em desenvolvimento.
+Por predefinição, cada revisão tem as mesmas definições de segurança que a revisão atual. Pode alterar deliberadamente as políticas para uma revisão específica se quiser ter uma segurança diferente aplicada para cada revisão. Por exemplo, é melhor adicionar uma [política de filtragem IP](./api-management-access-restriction-policies.md#RestrictCallerIPs) para impedir que os chamadores externos acedam a uma revisão que ainda está em desenvolvimento.
 
 Uma revisão pode ser desativada, o que torna inacessível aos chamadores, mesmo que tentem aceder à revisão através do seu URL. Pode marcar uma revisão como offline utilizando o portal Azure. Se utilizar o PowerShell, pode utilizar o `Set-AzApiManagementApiRevision` cmdlet e definir o `Path` argumento para `$null` .
 

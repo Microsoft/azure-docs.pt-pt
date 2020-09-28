@@ -2,11 +2,14 @@
   href: index.yml
   items:
     - name: Descrição geral
+      expanded: true
       items:
         - name: Comparar soluções para Identidades Externas
           href: compare-with-b2c.md
         - name: O que é o acesso do utilizador convidado B2B?
           href: what-is-b2b.md
+        - name: O que é o Azure AD B2C?
+          href: 'https://docs.microsoft.com/azure/active-directory-b2c/overview'
     - name: Guias de Início Rápido
       items:
         - name: Adicionar utilizadores convidados no portal
@@ -15,15 +18,15 @@
           href: b2b-quickstart-invite-powershell.md
     - name: Tutoriais
       items:
-        - name: Convite em massa através do PowerShell
+        - name: Convidar utilizadores convidados em massa através do PowerShell
           href: bulk-invite-powershell.md
-        - name: Convite em massa através do portal
+        - name: Convidar utilizadores convidados em massa através do portal
           href: tutorial-bulk-invite.md
-        - name: Reforçar autenticação multifator
+        - name: Impor a autenticação multifator para os utilizadores convidados
           href: b2b-tutorial-require-mfa.md
     - name: Amostras
       items:
-        - name: Exemplos para inscrição self-service
+        - name: Exemplos para a inscrição personalizada de utilizadores convidados
           href: code-samples-self-service-sign-up.md
         - name: Exemplos de códigos e do Azure PowerShell
           href: code-samples.md
@@ -63,9 +66,9 @@
     - name: Guias de procedimentos
       expanded: true
       items:
-        - name: Configurar partilha externa
+        - name: Configurar as definições de colaboração externa
           href: delegate-invitations.md
-        - name: Convidar utilizadores B2B
+        - name: Convidar utilizadores
           items:
             - name: Administradores que adicionam utilizadores B2B
               href: add-users-administrator.md
@@ -91,7 +94,7 @@
               href: direct-federation-adfs.md
         - name: Autenticação com código de acesso único
           href: one-time-passcode.md
-        - name: Inscrição personalizada (Pré-visualização)
+        - name: Inscrição personalizada para utilizadores convidados (Pré-visualização)
           items:
             - name: Adicionar um fluxo de utilizador de inscrição personalizada
               href: self-service-sign-up-user-flow.md
@@ -103,7 +106,7 @@
               href: self-service-sign-up-add-api-connector.md
             - name: Adicionar um sistema de aprovação personalizado
               href: self-service-sign-up-add-approvals.md
-        - name: Gerir contas de convidado
+        - name: Gerir contas de utilizador convidado
           items:
             - name: Adicionar um utilizador B2B a uma função
               href: add-guest-to-role.md
@@ -113,7 +116,7 @@
               href: user-properties.md
             - name: B2B para aplicações integradas do Azure AD
               href: configure-saas-apps.md
-        - name: Gerir o acesso numa organização híbrida
+        - name: Gerir o acesso para convidados numa organização híbrida
           items:
             - name: Conceder aos utilizadores locais acesso a aplicações na cloud
               href: hybrid-on-premises-to-cloud.md

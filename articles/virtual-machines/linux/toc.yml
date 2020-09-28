@@ -362,6 +362,9 @@
           href: ../../bastion/bastion-overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Estados e ciclo de vida
       href: ../states-lifecycle.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+    - name: Chamadas PUT para operações de criação ou atualização
+      href: ../put-calls-create-or-update.md
+      maintainContext: true
     - name: Monitorização
       href: ../../azure-monitor/insights/monitor-vm-azure.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Diagnósticos de arranque.
@@ -534,7 +537,7 @@
                 - name: Criar uma VM a partir de uma Versão de Imagem
                   href: 'https://azure.microsoft.com/resources/templates/101-vm-from-sig/'
             - name: Resolver problemas de imagens partilhadas
-              href: troubleshooting-shared-images.md
+              href: ../troubleshooting-shared-images.md
             - name: Utilizar chaves geridas pelo cliente
               displayName: 'SSE, CMK, encrypt'
               href: ../image-version-encryption.md
@@ -556,8 +559,8 @@
                   href: image-builder-permissions-powershell.md
             - name: Tarefa de DevOps
               href: image-builder-devops-task.md
-            - name: Referência do modelo do Resource Manager
-              displayName: 'ARM,Resource Manager'
+            - name: Referência de modelo do Image Builder
+              displayName: json
               href: image-builder-json.md
             - name: Criar para galerias de imagens
               href: image-builder-gallery.md
@@ -617,6 +620,8 @@
               href: how-to-verify-encryption-status.md
             - name: Como configurar LVM e RAID em crypt
               href: how-to-configure-lvm-raid-on-crypt.md
+            - name: Como redimensionar volumes LVM encriptados
+              href: how-to-resize-encrypted-lvm.md
             - name: Resolução de problemas de encriptação de discos
               href: disk-encryption-troubleshooting.md
             - name: FAQ de encriptação de discos
@@ -849,7 +854,7 @@
         - name: Dimensionamento Automático
           href: ../../virtual-machine-scale-sets/overview.md?bc=/azure/virtual-machines/linux/breadcrumb/toc.json&toc=/azure/virtual-machines/linux/toc.json
         - name: Elevada disponibilidade
-          href: manage-availability.md
+          href: ../manage-availability.md
         - name: Alterar o conjunto de disponibilidade
           href: ../windows/change-availability-set.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Criar um grupo de colocação em proximidade

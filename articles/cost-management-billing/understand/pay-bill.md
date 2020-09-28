@@ -8,18 +8,18 @@ tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/21/2020
 ms.author: banders
-ms.openlocfilehash: 6cfebc9cfbd856567fde3d6736c6ddc5f1a94b4d
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: e9ad580ae5e3ffe7a7f5781423f96897272a4844
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688713"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972074"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Como pagar a sua fatura do Microsoft Azure
 
-Este artigo aplica-se aos clientes com um Contrato de Cliente da Microsoft que se inscreveram no Azure através do site do Azure. [Verifique o seu acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
+Este artigo aplica-se aos clientes com um Contrato de Cliente da Microsoft (MCA) que se inscreveram no Azure através do site do Azure. [Verifique o seu acesso a um Contrato de Cliente da Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
 O método de pagamento predefinido do seu perfil de faturação pode ser um cartão de crédito ou cheque/transferência bancária. Se tiver Créditos do Azure, estes serão automaticamente aplicados à sua fatura a cada período de faturação. Para se tornar elegível para pagar por cheque/transferência bancária, veja [como pagar por fatura](../manage/pay-by-invoice.md).
 
@@ -29,11 +29,11 @@ Se o método de pagamento predefinido for um cartão de crédito, cobraremos aut
 
 ## <a name="pay-now-in-the-azure-portal"></a>Pagar agora no portal do Azure
 
-Tem de ser proprietário, contribuidor, leitor ou gestor de faturas de um perfil de faturação para pagar faturas no portal do Azure.
+Para pagar faturas no portal do Azure, tem de ser o administrador da Conta de Faturação. O administrador da Conta de Faturação é o utilizador que se inscreveu originalmente na conta de MCA.
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
-1. No menu do lado esquerdo, selecione **Faturas** em "Faturação".
+1. No menu esquerdo, selecione **Faturas** em **Faturação**.
 1. Se algumas das suas faturas estiverem em dívida ou vencidas, verá a ligação **Pagar agora** em azul para essa fatura. Selecione **Pagar agora**.
 1. No novo painel, clique em **Selecionar um método de pagamento** para escolher um cartão de crédito existente ou adicionar um novo.
 1. Depois de selecionar o método de pagamento, clique em **Pagar agora**.
@@ -42,3 +42,7 @@ O estado da fatura será atualizado para pago no painel das faturas.
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso ao Contrato de Cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
+
+## <a name="next-steps"></a>Passos seguintes
+
+- Para se tornar elegível para pagar por cheque/transferência bancária, veja [como pagar por fatura](../manage/pay-by-invoice.md)

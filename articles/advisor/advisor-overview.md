@@ -2,13 +2,13 @@
 title: Introdução ao Assistente do Azure
 description: Utilize o Azure Advisor para otimizar as suas implementações Azure.
 ms.topic: article
-ms.date: 02/01/2019
-ms.openlocfilehash: 27e49fa28e7b02b873ca145d514920784689b407
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.date: 09/27/2020
+ms.openlocfilehash: 12e56bf44a29a32b2149bca14f7c99f319c9c4ea
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654026"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405212"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introdução ao Assistente do Azure
 
@@ -24,7 +24,7 @@ Com o Advisor, pode:
 
 Pode aceder ao Advisor através do [portal Azure.](https://aka.ms/azureadvisordashboard) Inscreva-se no [portal,](https://portal.azure.com) **localize** o Advisor no menu de navegação ou procure-o no menu **Todos os serviços.**
 
-O painel Advisor apresenta recomendações personalizadas para todas as suas subscrições.  Pode aplicar filtros para apresentar recomendações para subscrições específicas e tipos de recursos.  As recomendações dividem-se em cinco categorias: 
+O painel Advisor apresenta recomendações personalizadas para todas as suas subscrições.  Pode aplicar filtros para apresentar recomendações para subscrições específicas e tipos de recursos.  As recomendações estão divididas em cinco categorias: 
 
 * **Fiabilidade (anteriormente denominada Alta Disponibilidade)**: Para garantir e melhorar a continuidade das suas aplicações críticas ao negócio. Para mais informações, consulte [recomendações de Fiabilidade do Conselheiro](advisor-high-availability-recommendations.md).
 * **Segurança**: Detetar ameaças e vulnerabilidades que possam levar a falhas de segurança. Para mais informações, consulte [recomendações de Segurança Do Conselheiro](advisor-security-recommendations.md).
@@ -68,7 +68,9 @@ Para adiar ou rejeitar uma recomendação, clique no link **Adia.** Pode especif
 Para saber mais sobre as recomendações do Advisor, consulte:
 
 * [Introdução ao Assistente](advisor-get-started.md)
+* [Pontuação do conselheiro](azure-advisor-score.md)
 * [Recomendações de fiabilidade do conselheiro](advisor-high-availability-recommendations.md)
 * [Recomendações de Segurança do Conselheiro](advisor-security-recommendations.md)
 * [Recomendações de Desempenho do Conselheiro](advisor-performance-recommendations.md)
 * [Recomendações de Custos Do Consultor](advisor-cost-recommendations.md)
+* [Recomendações de excelência operacional do consultor](advisor-operational-excellence-recommendations.md)

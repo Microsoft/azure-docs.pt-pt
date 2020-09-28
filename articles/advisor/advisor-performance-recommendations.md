@@ -2,13 +2,13 @@
 title: Melhorar o desempenho das aplicações da Azure com o Advisor
 description: Utilize recomendações de desempenho no Azure Advisor para melhorar a rapidez e capacidade de resposta das suas aplicações críticas ao negócio.
 ms.topic: article
-ms.date: 01/29/2019
-ms.openlocfilehash: 9a8499e85a264488c756a3d497565398f2e1c229
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.date: 07/29/2020
+ms.openlocfilehash: 9625bb3b063234e9cadb20aacfcc5ca8a28b35cc
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651579"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405161"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Melhorar o desempenho das aplicações da Azure utilizando o Azure Advisor
 
@@ -63,8 +63,6 @@ O advisor identifica tabelas que não têm estatísticas atualizadas de [tabelas
 
 A análise do conselho pode indicar que a sua aplicação conectada a um servidor MySQL pode não estar a gerir as ligações de forma eficiente. Esta condição poderia conduzir a um consumo desnecessário de recursos e a uma maior latência da aplicação. Para melhorar a gestão das ligações, recomendamos que reduza o número de ligações de curta duração e elimine as ligações inativas desnecessárias. Pode efetá-las configurando um pooler de ligação do lado do servidor, como o ProxySQL.
 
-## <a name="update-your-current-compute-management-sdk-version-to-the-most-recent-version"></a>Atualizar a versão atual do SDK de Gestão de Computação para a versão mais recente
-O Advisor identifica subscrições que têm operações utilizando versões SDK de gestão de computação desatualizadas. Isto pode afetar a segurança e o desempenho das suas cargas de trabalho e, assim, o Advisor recomenda que mude para a versão mais recente da Compute Management SDK. 
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Dimensione para otimizar a utilização de cache nas suas tabelas Azure Synapse Analytics para aumentar o desempenho da consulta
 
@@ -170,18 +168,27 @@ A análise do conselho indica que o seu servidor MySQL pode estar a incorrer em 
 ## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Distribuir dados no grupo de servidores para distribuir a carga de trabalho entre nós
 O advisor identifica os grupos de servidores onde os dados não foram distribuídos, mas permanece no coordenador. Com base nisto, o Advisor recomenda que para benefícios completos da Hyperscale (Citus) distribuam dados em nós de trabalhadores para os seus grupos de servidores. Isto melhorará o desempenho da consulta utilizando recursos de cada nó no grupo do servidor. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
+## <a name="improve-user-experience-and-connectivity-by-deploying-vms-closer-to-windows-virtual-desktop-deployment-location"></a>Melhorar a experiência e conectividade do utilizador implementando VMs mais perto da localização de implementação virtual do Windows Desktop
+Determinámos que as VMs estão localizadas numa região diferente ou longe do local a partir do qual os utilizadores se ligam com o Windows Virtual Desktop (WVD), o que pode provocar tempos de resposta de ligação prolongados e afetar a experiência geral do utilizador no WVD. Ao criar VMs para os conjuntos de anfitriões, deve tentar utilizar uma região mais próxima do utilizador. Ter uma maior proximidade garante a satisfação contínua com o serviço WVD e uma melhor qualidade da experiência geral. [Saiba mais sobre a latência da conexão aqui.](https://docs.microsoft.com/azure/virtual-desktop/connection-latency)
+
+## <a name="upgrade-to-the-latest-version-of-the-immersive-reader-sdk"></a>Atualizar para a versão mais recente do SDK de Leitura Avançada
+Identificámos recursos nesta subscrição com versões desatualizadas do SDK de Leitura Avançada. Utilizar a versão mais recente do SDK de Leitura Avançada proporciona-lhe uma segurança atualizada, desempenho e um conjunto expandido de funcionalidades para personalizar e melhorar a sua experiência de integração.
+Saiba mais sobre [o leitor imersivo SDK.](https://aka.ms/ImmersiveReaderAzureAdvisorSDKLearnMore)
+
+
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Como aceder às recomendações de desempenho no Advisor
 
 1. Inscreva-se no [portal Azure,](https://portal.azure.com)e depois abra [o Advisor](https://aka.ms/azureadvisordashboard).
 
 2.  No painel 'Advisor', selecione o **separador Desempenho.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as recomendações do Advisor, consulte:
 
 * [Introdução ao Conselheiro](advisor-overview.md)
 * [Introdução ao Assistente](advisor-get-started.md)
+* [Pontuação do conselheiro](azure-advisor-score.md)
 * [Recomendações de custos do Assistente](advisor-cost-recommendations.md)
 * [Recomendações de fiabilidade do consultor](advisor-high-availability-recommendations.md)
 * [Recomendações de segurança do conselheiro](advisor-security-recommendations.md)

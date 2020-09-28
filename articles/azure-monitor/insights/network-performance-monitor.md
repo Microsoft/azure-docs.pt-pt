@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 34e81076c27086ad838cca23de0e150a3c1b076c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c5a442a3d3711b85c0bad30218cb1ffab92558d9
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798912"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403726"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução monitor de desempenho de rede em Azure
 
@@ -28,7 +28,7 @@ O Monitor de Desempenho da Rede oferece três amplas capacidades:
 
 * [Monitor de Conectividade](network-performance-monitor-service-connectivity.md)de Serviço : Pode monitorizar a conectividade dos seus utilizadores com os serviços de que se preocupa, determinar que infraestruturas está no caminho e identificar onde ocorrem estrangulamentos de rede. Pode saber sobre falhas antes dos seus utilizadores e ver a localização exata dos problemas ao longo do seu caminho de rede. 
 
-    Esta capacidade ajuda-o a realizar testes com base em HTTP, HTTPS, TCP e ICMP para monitorizar em tempo real ou historicamente o tempo de disponibilidade e resposta do seu serviço. Também pode monitorizar a contribuição da rede em perda de pacotes e latência. Com um mapa de topologia de rede, pode isolar abrandamentos de rede. Pode identificar pontos problemáticos que ocorrem ao longo do caminho da rede desde o nó até ao serviço, com dados de latência em cada salto. Com testes incorporados, pode monitorizar a conectividade da rede ao Office 365 e Dynamics CRM sem qualquer pré-confirmação. Com esta capacidade, pode monitorizar a conectividade da rede a qualquer ponto final capaz de TCP, como websites, aplicações SaaS, aplicações PaaS e bases de dados SQL.
+    Esta capacidade ajuda-o a realizar testes com base em HTTP, HTTPS, TCP e ICMP para monitorizar em tempo real ou historicamente o tempo de disponibilidade e resposta do seu serviço. Também pode monitorizar a contribuição da rede em perda de pacotes e latência. Com um mapa de topologia de rede, pode isolar abrandamentos de rede. Pode identificar pontos problemáticos que ocorrem ao longo do caminho da rede desde o nó até ao serviço, com dados de latência em cada salto. Com testes incorporados, é possível monitorizar a conectividade da rede com o Microsoft 365 e o Dynamics CRM sem qualquer pré-confirmação. Com esta capacidade, pode monitorizar a conectividade da rede a qualquer ponto final capaz de TCP, como websites, aplicações SaaS, aplicações PaaS e bases de dados SQL.
 
 * [ExpressRoute Monitor](network-performance-monitor-expressroute.md): Monitorize a conectividade e o desempenho de ponta a ponta entre as suas sucursais e a Azure, sobre o Azure ExpressRoute.  
 
@@ -82,7 +82,7 @@ Utilize os processos básicos para instalar agentes nos [computadores Connect Wi
 
     Para monitorizar uma ligação de rede, instale agentes em ambos os pontos finais dessa ligação. Se não tiver a certeza sobre a topologia da sua rede, instale os agentes em servidores com cargas de trabalho críticas entre as quais pretende monitorizar o desempenho da rede. Por exemplo, se pretender monitorizar a ligação de rede entre um servidor web e um servidor em execução SQL, instale um agente em ambos os servidores. Os agentes monitorizam a conectividade da rede (ligações) entre os anfitriões, e não os próprios anfitriões. 
 
-* **Monitor de Conectividade de Serviço**: Instale um agente Log Analytics em cada nó a partir do qual pretende monitorizar a conectividade da rede até ao ponto final de serviço. Um exemplo é se pretender monitorizar a conectividade da rede ao Office 365 dos seus sites de escritórios com o nome de O1, O2 e O3. Instale o agente Log Analytics em pelo menos um nó cada em O1, O2 e O3. 
+* **Monitor de Conectividade de Serviço**: Instale um agente Log Analytics em cada nó a partir do qual pretende monitorizar a conectividade da rede até ao ponto final de serviço. Um exemplo é se pretender monitorizar a conectividade da rede com o Microsoft 365 a partir dos seus sites de escritórios com a etiqueta O1, O2 e O3. Instale o agente Log Analytics em pelo menos um nó cada em O1, O2 e O3. 
 
 * **Monitor ExpressRoute**: Instale pelo menos um agente Log Analytics na sua rede virtual Azure. Instale também pelo menos um agente na sua sub-rede no local, que está ligada através do espreitamento privado ExpressRoute.  
 
@@ -128,7 +128,7 @@ O Network Performance Monitor utiliza transações sintéticas para monitorizar 
 
    ![Vista do Monitor de Desempenho](media/network-performance-monitor/npm-synthetic-transactions.png)
     
-   **Monitor de Conectividade**de Serviço : A capacidade fornece testes pré-configurados incorporados para monitorizar a conectividade da rede ao Office 365 e Dynamics 365 dos seus agentes. Escolha os serviços Office 365 e Dynamics 365 que pretende monitorizar selecionando as caixas de verificação ao seu lado. Para escolher os agentes a partir dos quais pretende monitorizar, **selecione Adicionar Agentes**. Se não quiser utilizar esta capacidade ou quiser instalá-la mais tarde, não escolha nada e **selecione Save & Continue**.
+   **Monitor de Conectividade de Serviço**: A capacidade fornece testes pré-configurados incorporados para monitorizar a conectividade da rede com o Microsoft 365 e o Dynamics 365 dos seus agentes. Escolha os serviços Microsoft 365 e Dynamics 365 que pretende monitorizar selecionando as caixas de verificação ao seu lado. Para escolher os agentes a partir dos quais pretende monitorizar, **selecione Adicionar Agentes**. Se não quiser utilizar esta capacidade ou quiser instalá-la mais tarde, não escolha nada e **selecione Save & Continue**.
 
    ![Vista do Monitor de Conectividade de Serviço](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 

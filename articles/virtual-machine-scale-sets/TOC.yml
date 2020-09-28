@@ -214,6 +214,9 @@
         - name: Quotas de vCPU
           href: ../virtual-machines/windows/quotas.md
           maintainContext: true
+    - name: Chamadas PUT para operações de criação ou atualização
+      href: ../virtual-machines/put-calls-create-or-update.md
+      maintainContext: true
     - name: FAQ do Conjunto de Dimensionamento
       href: virtual-machine-scale-sets-faq.md
 - name: Procedimento
@@ -274,6 +277,8 @@
             - name: Utilizar chaves geridas pelo cliente
               displayName: 'SSE, CMK, encrypt'
               href: ../virtual-machines/image-version-encryption.md
+            - name: Registo de aplicações para partilha
+              href: share-images-across-tenants.md
     - name: Criar um modelo
       items:
         - name: Saiba mais sobre modelos de conjunto de dimensionamento
@@ -326,6 +331,15 @@
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Converter um modelo de conjunto de dimensionamento para utilizar um disco gerido
           href: virtual-machine-scale-sets-convert-template-to-md.md
+        - name: Utilizar anfitriões dedicados (pré-visualização)
+          href: ../virtual-machines/dedicated-hosts.md
+          items:
+            - name: CLI
+              href: ../virtual-machines/linux/dedicated-hosts-cli.md
+            - name: PowerShell
+              href: ../virtual-machines/windows/dedicated-hosts-powershell.md
+            - name: Portal
+              href: ../virtual-machines/dedicated-hosts-portal.md
         - name: Utilizar a instância do Spot
           href: use-spot.md
     - name: Gerir
@@ -358,18 +372,6 @@
           href: virtual-machine-scale-sets-scale-in-policy.md
         - name: Terminar notificação ao eliminar
           href: virtual-machine-scale-sets-terminate-notification.md
-        - name: Galerias de imagens partilhadas
-          items:
-            - name: Descrição geral
-              href: shared-image-galleries.md
-            - name: CLI
-              href: shared-images-cli.md
-            - name: PowerShell
-              href: shared-images-powershell.md
-            - name: Partilhar imagens entre inquilinos
-              href: share-images-across-tenants.md
-            - name: Resolver problemas de imagens partilhadas
-              href: troubleshooting-shared-images.md
         - name: Criar um grupo de colocação em proximidade
           href: proximity-placement-groups.md
         - name: Dimensionamento vertical num conjunto de dimensionamento

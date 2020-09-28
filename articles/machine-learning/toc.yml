@@ -15,19 +15,18 @@
 - name: Tutoriais
   expanded: true
   items:
-    - name: Python (dia 1)
+    - name: Dia 1 de introdução ao Python
       expanded: true
       items:
         - name: 1. Configurar um computador local
           href: tutorial-1st-experiment-sdk-setup-local.md
-        - name: 2. Hello world
+        - name: 2. "Hello world"
           href: tutorial-1st-experiment-hello-world.md
-        - name: 3. Preparar um modelo
+        - name: 3. Preparar o seu modelo
           href: tutorial-1st-experiment-sdk-train.md
         - name: 4. Traga os seus próprios dados
           href: tutorial-1st-experiment-bring-data.md
     - name: Jupyter Notebooks
-      expanded: true
       items:
         - name: Classificação de imagens (dados MNIST)
           items:
@@ -331,8 +330,13 @@
               displayName: parameter
               href: how-to-tune-hyperparameters.md
         - name: Trabalhar com o MLflow
-          displayName: 'log, monitor, deploy, metrics, Databricks, model registry, register'
-          href: how-to-use-mlflow.md
+          items:
+            - name: Controlar experiências com o MLflow
+              displayName: 'log, monitor, deploy, metrics,  model registry, register'
+              href: how-to-use-mlflow.md
+            - name: Controlar as execuções do Azure Databricks com o MLflow
+              displayName: 'log, monitor, deploy, metrics, databricks'
+              href: how-to-use-mlflow-azure-databricks.md
         - name: Scikit-learn
           href: how-to-train-scikit-learn.md
         - name: TensorFlow
@@ -552,6 +556,9 @@
     - name: Incorporações do Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
+    - name: Ambientes organizados
+      displayName: 'environments, curated environments'
+      href: resource-curated-environments.md
 - name: Recursos
   items:
     - name: Notas de versão
@@ -578,6 +585,3 @@
     - name: Funcionalidades de acessibilidade do estruturador
       displayName: 'accessibility, designer, visual interface, screen reader, keyboard shortcuts'
       href: designer-accessibility.md
-    - name: Ambientes Organizados
-      displayName: 'environments, curated environments'
-      href: resource-curated-environments.md

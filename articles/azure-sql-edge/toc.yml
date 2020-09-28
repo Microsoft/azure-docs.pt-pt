@@ -46,8 +46,8 @@
           href: disconnected-deployment.md
         - name: Implementar no Kubernetes
           href: deploy-kubernetes.md
-        - name: Ferramentas de SQL
-          href: 'https://docs.microsoft.com/en-us/sql/tools/overview-sql-tools?toc=/azure/azure-sql-edge/toc.json'
+        - name: Implementar com o Azure Data Studio
+          href: 'https://docs.microsoft.com/sql/azure-data-studio/deploy-azure-sql-edge?toc=/azure/azure-sql-edge/toc.json'
     - name: Aprendizagem automática
       items:
         - name: Aprendizagem automática e IA com ONNX

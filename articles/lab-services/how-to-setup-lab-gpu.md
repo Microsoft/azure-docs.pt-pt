@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: f41ad80e0e39d66020d039d6229a4b0fc62627f1
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: abd182339719f19a521feed95f7cfbed6942b3e8
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286007"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404787"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Criar um laboratório com máquinas virtuais gpu
 
@@ -30,7 +30,7 @@ Tal como descrito na tabela seguinte, o tamanho da GPU *do cálculo* destina-se 
 
 | Tamanho | Núcleos | RAM | Descrição | 
 | ---- | ----- | --- | ----------- | 
-| Pequena GPU (Computação) | -&nbsp;6 &nbsp; núcleos<br>-&nbsp;56 &nbsp; GB &nbsp; DE RAM  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Este tamanho é mais adequado para aplicações intensivas em computador, como inteligência artificial (IA) e aprendizagem profunda. |
+| Pequena GPU (Computação) | -&nbsp;6 &nbsp; núcleos<br>-&nbsp;56 &nbsp; GB &nbsp; DE RAM  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Este tamanho é mais adequado para aplicações computacionalmente intensivas, como inteligência artificial (IA) e aprendizagem profunda. |
 
 Os tamanhos de GPU *de visualização* destinam-se a aplicações com grande intensidade gráfica.  Por exemplo, o tipo de [classe de engenharia SOLIDWORKS](./class-type-solidworks.md) mostra usando o tamanho **de GPU pequeno (Visualização).**  A GPU de visualização é adequada para este tipo de aula, porque os alunos interagem com o ambiente de design 3D assistido por computador SOLIDWORKS (CAD) para modelar e visualizar objetos sólidos.
 
@@ -38,6 +38,9 @@ Os tamanhos de GPU *de visualização* destinam-se a aplicações com grande int
 | ---- | ----- | --- | ----------- | 
 | Pequeno GPU (Visualização) | -&nbsp;6 &nbsp; núcleos<br>-&nbsp;56 &nbsp; GB &nbsp; DE RAM  | [Standard_NV6](https://docs.microsoft.com/azure/virtual-machines/nv-series) | Este tamanho é mais adequado para visualização remota, streaming, jogos e codificação que utilizam quadros como OpenGL e DirectX. |
 | GPU médio (Visualização) | -&nbsp;12 &nbsp; núcleos<br>-&nbsp;112 &nbsp; GB &nbsp; DE RAM  | [Standard_NV12](https://docs.microsoft.com/azure/virtual-machines/nv-series?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) | Este tamanho é mais adequado para visualização remota, streaming, jogos e codificação que utilizam quadros como OpenGL e DirectX. |
+
+> [!NOTE]
+> Pode não ver alguns destes tamanhos de VM na lista ao criar um laboratório de sala de aula. A lista é povoada com base na capacidade atual da localização do laboratório. Se o criador da conta de laboratório permitir que os criadores de [laboratório escolham um local para o laboratório,](allow-lab-creator-pick-lab-location.md)pode tentar escolher um local diferente para o laboratório e ver se o tamanho do VM está disponível. Para disponibilidade de VMs, consulte [produtos disponíveis por região.](https://azure.microsoft.com/regions/services/?products=virtual-machines)
 
 ## <a name="ensure-that-the-appropriate-gpu-drivers-are-installed"></a>Certifique-se de que os controladores de GPU adequados são instalados
 Para tirar partido das capacidades de GPU dos seus VMs de laboratório, certifique-se de que os controladores de GPU apropriados estão instalados.  No assistente de criação de laboratório, quando selecionar um tamanho GPU VM, pode selecionar a opção **de controladores GPU instalar.**  

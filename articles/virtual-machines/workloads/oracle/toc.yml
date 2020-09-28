@@ -4,7 +4,7 @@
       href: oracle-overview.md
     - name: Soluções sobre as VMs do Azure
       href: oracle-vm-solutions.md
-    - name: O que é o Oracle WebLogic Server no Azure?
+    - name: Quais são as soluções para executar o Oracle WebLogic Server nas Máquinas Virtuais do Azure?
       href: oracle-weblogic.md
     - name: Soluções com o OCI
       href: oracle-oci-overview.md

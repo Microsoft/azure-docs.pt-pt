@@ -12,7 +12,7 @@
     - name: Criar um orçamento - Modelo ARM
       href: costs/quick-create-budget-template.md
       displayName: 'ARM template, resource manager template'
-- name: Tutorials (Tutoriais)
+- name: Tutoriais
   items:
     - name: Analisar a fatura de contas individuais
       href: understand/review-individual-bill.md
@@ -40,6 +40,10 @@
           href: costs/understand-work-scopes.md
         - name: Opções de grupo e filtro
           href: costs/group-filter.md
+        - name: Plano para gerir custos
+          href: understand/plan-manage-costs.md
+        - name: Evitar custos inesperados
+          href: understand/analyze-unexpected-charges.md
         - name: Gerir os custos com a automatização
           href: costs/manage-automation.md
         - name: Cost Management para parceiros
@@ -114,6 +118,8 @@
           href: understand/mca-overview.md
         - name: Contas de faturação do Contrato de Parceiro da Microsoft
           href: understand/mpa-overview.md
+        - name: Acerca da transferência de subscrições
+          href: understand/subscription-transfer.md
         - name: Transferir subscrições entre parceiros (Pré-visualização)
           href: manage/azure-plan-subscription-transfer-partners.md
 - name: Guias de procedimentos
@@ -124,7 +130,7 @@
           items:
             - name: Tarefas do administrador de contas
               href: manage/account-admin-tasks.md
-            - name: Editar perfil
+            - name: Editar informações de contacto de faturação
               href: manage/change-azure-account-profile.md
             - name: Resolver saldo em dívida
               href: manage/resolve-past-due-balance.md
@@ -246,8 +252,6 @@
               href: manage/upgrade-azure-subscription.md
     - name: Executar tarefas essenciais de gestão de custos
       items:
-        - name: Evitar custos inesperados
-          href: manage/getting-started.md
         - name: Calcular preços
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: Utilizar a análise de custos para tarefas comuns

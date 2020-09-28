@@ -277,19 +277,19 @@
     - name: Receber o pagamento
       items:
         - name: Receber o pagamento
-          href: partner-center-portal/get-paid.md
+          href: /partner-center/marketplace-get-paid?context=/azure/marketplace/context/context
         - name: Configurar a conta de dividendos e os formulários fiscais
-          href: partner-center-portal/set-up-your-payout-account-tax-forms.md
-        - name: 'Limiares, métodos e períodos de tempo de pagamento'
-          href: partner-center-portal/payment-thresholds-methods-timeframes.md
-        - name: Descrição geral do resumo de dividendos
-          href: partner-center-portal/payout-summary-overview.md
-        - name: Resumos de dividendos
-          href: partner-center-portal/payout-summary.md
+          href: /partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context
+        - name: Limiares e intervalos de tempo de pagamento
+          href: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
+        - name: Declaração de dividendos
+          href: /partner-center/payout-statement?context=/azure/marketplace/context/context
         - name: Detalhes da política de dividendos
-          href: partner-center-portal/payout-policy-details.md
+          href: /partner-center/payout-policy-details?context=/azure/marketplace/context/context
         - name: Detalhes fiscais
-          href: partner-center-portal/tax-details-paid-transactions.md
+          href: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
+        - name: FAQ sobre dividendos
+          href: /partner-center/payout-faq?context=/azure/marketplace/context/context
     - name: Referência da API CPP
       items:
         - name: Descrição geral

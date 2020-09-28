@@ -115,6 +115,8 @@
           href: windows-stop-error-bad-system-config-info.md
         - name: Erro de paragem do Windows - Estado Sem Memória
           href: troubleshoot-windows-stop-error.md
+        - name: Erro de paragem do Windows - Processo de Sistema Terminado
+          href: windows-stop-error-system-process-terminated.md
 - name: Não consigo ligar à minha VM
   items:
     - name: RDP

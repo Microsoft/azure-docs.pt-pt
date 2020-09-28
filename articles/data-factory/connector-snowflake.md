@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: 255fa9e058fdbb3b7edb73e75fd53f4a2490bfca
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 5bb5599c6ab6e630e0f26c6d4a13e9c9af8a15a7
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90023861"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405178"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Copiar e transformar dados em Snowflake utilizando a Azure Data Factory
 
@@ -51,9 +51,9 @@ As seguintes propriedades são suportadas para um serviço ligado a Floco de Nev
 
 | Propriedade         | Descrição                                                  | Obrigatório |
 | :--------------- | :----------------------------------------------------------- | :------- |
-| tipo             | A propriedade do tipo deve ser definida para **Snowflake**.              | Yes      |
-| conexãoStragem | Especifica a informação necessária para se ligar à instância do Floco de Neve. Pode optar por colocar senha ou cadeia de conexão inteira no Cofre da Chave Azure. Consulte os exemplos abaixo da tabela, bem como as credenciais da Loja no artigo [Azure Key Vault,](store-credentials-in-key-vault.md) para obter mais detalhes.<br><br>Algumas configurações típicas:<br>- **Nome da conta:** O  [nome completo](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) da sua conta Snowflake (incluindo segmentos adicionais que identificam a região e a plataforma cloud), por exemplo, xy12345.east-us-2.azure.<br/>- **Nome do utilizador:** O nome de login do utilizador para a ligação.<br>- **Senha:** A senha para o utilizador.<br>- **Base de dados:** A base de dados predefinido para utilizar uma vez ligada. Deve ser uma base de dados existente para a qual a função especificada tem privilégios.<br>- **Armazém:** O armazém virtual para usar uma vez ligado. Deve ser um armazém existente para o qual o papel especificado tem privilégios.<br>- **Função:** A função de controlo de acesso predefinido a ser utilizada na sessão de Flocos de Neve. A função especificada deve ser uma função existente que já tenha sido atribuída ao utilizador especificado. O papel de incumprimento é o PÚBLICO. | Yes      |
-| connectVia       | O [tempo de integração](concepts-integration-runtime.md) que é usado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou um tempo de integração auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | No       |
+| tipo             | A propriedade do tipo deve ser definida para **Snowflake**.              | Sim      |
+| conexãoStragem | Especifica a informação necessária para se ligar à instância do Floco de Neve. Pode optar por colocar senha ou cadeia de conexão inteira no Cofre da Chave Azure. Consulte os exemplos abaixo da tabela, bem como as credenciais da Loja no artigo [Azure Key Vault,](store-credentials-in-key-vault.md) para obter mais detalhes.<br><br>Algumas configurações típicas:<br>- **Nome da conta:** O  [nome completo](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) da sua conta Snowflake (incluindo segmentos adicionais que identificam a região e a plataforma cloud), por exemplo, xy12345.east-us-2.azure.<br/>- **Nome do utilizador:** O nome de login do utilizador para a ligação.<br>- **Senha:** A senha para o utilizador.<br>- **Base de dados:** A base de dados predefinido para utilizar uma vez ligada. Deve ser uma base de dados existente para a qual a função especificada tem privilégios.<br>- **Armazém:** O armazém virtual para usar uma vez ligado. Deve ser um armazém existente para o qual o papel especificado tem privilégios.<br>- **Função:** A função de controlo de acesso predefinido a ser utilizada na sessão de Flocos de Neve. A função especificada deve ser uma função existente que já tenha sido atribuída ao utilizador especificado. O papel de incumprimento é o PÚBLICO. | Sim      |
+| connectVia       | O [tempo de integração](concepts-integration-runtime.md) que é usado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou um tempo de integração auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | Não       |
 
 **Exemplo:**
 
@@ -111,7 +111,7 @@ As seguintes propriedades são suportadas para o conjunto de dados snowflake.
 
 | Propriedade  | Descrição                                                  | Obrigatório                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
-| tipo      | A propriedade do tipo do conjunto de dados deve ser definida para **SnowflakeTable**. | Yes                         |
+| tipo      | A propriedade do tipo do conjunto de dados deve ser definida para **SnowflakeTable**. | Sim                         |
 | esquema | O nome do esquema. Note que o nome do esquema é sensível a maiíssimos em ADF. |Não para a fonte, sim para a pia.  |
 | mesa | Nome da mesa/vista. Note que o nome da tabela é sensível a maiôs na ADF. |Não para a fonte, sim para a pia.  |
 
@@ -149,13 +149,13 @@ Para copiar dados de Snowflake, as seguintes propriedades são suportadas na sec
 
 | Propriedade                     | Descrição                                                  | Obrigatório |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
-| tipo                         | A propriedade tipo da fonte de atividade copy deve ser definida para **SnowflakeSource**. | Yes      |
-| consulta          | Especifica a consulta SQL para ler dados de Snowflake. Se os nomes do esquema, da tabela e das colunas contiverem uma minúscula, cite o identificador de objetos em consulta, por `select * from "schema"."myTable"` exemplo.<br>A execução do procedimento armazenado não é suportada. | No       |
-| exportaçõesSettings | Configurações avançadas usadas para recuperar dados de Snowflake. Pode configurar os suportados pelo COPY no comando que a Data Factory passará quando invocar a declaração. | No       |
+| tipo                         | A propriedade tipo da fonte de atividade copy deve ser definida para **SnowflakeSource**. | Sim      |
+| consulta          | Especifica a consulta SQL para ler dados de Snowflake. Se os nomes do esquema, da tabela e das colunas contiverem uma minúscula, cite o identificador de objetos em consulta, por `select * from "schema"."myTable"` exemplo.<br>A execução do procedimento armazenado não é suportada. | Não       |
+| exportaçõesSettings | Configurações avançadas usadas para recuperar dados de Snowflake. Pode configurar os suportados pelo COPY no comando que a Data Factory passará quando invocar a declaração. | Não       |
 | ***Em `exportSettings` :*** |  |  |
-| tipo | O tipo de comando de exportação, definido para **SnowflakeExportCopyCommand**. | Yes |
-| opçõescopy adicionais | Opções de cópia adicionais, fornecidas como um dicionário de pares de valores-chave. Exemplos: MAX_FILE_SIZE, OVERWRITE. Para obter mais informações, consulte [as Opções de Cópia snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | No |
-| opções adicionais | Opções adicionais de formato de ficheiro que são fornecidas ao comando COPY como um dicionário de pares de valor-chave. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obter mais informações, consulte [as opções do tipo de formato snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | No |
+| tipo | O tipo de comando de exportação, definido para **SnowflakeExportCopyCommand**. | Sim |
+| opçõescopy adicionais | Opções de cópia adicionais, fornecidas como um dicionário de pares de valores-chave. Exemplos: MAX_FILE_SIZE, OVERWRITE. Para obter mais informações, consulte [as Opções de Cópia snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#copy-options-copyoptions). | Não |
+| opções adicionais | Opções adicionais de formato de ficheiro que são fornecidas ao comando COPY como um dicionário de pares de valor-chave. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obter mais informações, consulte [as opções do tipo de formato snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html#format-type-options-formattypeoptions). | Não |
 
 #### <a name="direct-copy-from-snowflake"></a>Cópia direta de Snowflake
 
@@ -280,13 +280,13 @@ Para copiar dados para Snowflake, as seguintes propriedades são suportadas na s
 
 | Propriedade          | Descrição                                                  | Obrigatório                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
-| tipo              | A propriedade tipo da pia de atividade copy, definida para **SnowflakeSink**. | Yes                                           |
-| preCopyScript     | Especifique uma consulta SQL para a atividade copy para executar antes de escrever dados em Snowflake em cada corrida. Utilize esta propriedade para limpar os dados pré-carregados. | No                                            |
-| importaçõesS | Definições avançadas usadas para escrever dados em Snowflake. Pode configurar os suportados pelo COPY no comando que a Data Factory passará quando invocar a declaração. | No |
+| tipo              | A propriedade tipo da pia de atividade copy, definida para **SnowflakeSink**. | Sim                                           |
+| preCopyScript     | Especifique uma consulta SQL para a atividade copy para executar antes de escrever dados em Snowflake em cada corrida. Utilize esta propriedade para limpar os dados pré-carregados. | Não                                            |
+| importaçõesS | Definições avançadas usadas para escrever dados em Snowflake. Pode configurar os suportados pelo COPY no comando que a Data Factory passará quando invocar a declaração. | Não |
 | ***Em `importSettings` :*** |                                                              |  |
-| tipo | O tipo de comando de importação, definido para **SnowflakeImportCopyCommand**. | Yes |
-| opçõescopy adicionais | Opções de cópia adicionais, fornecidas como um dicionário de pares de valores-chave. Exemplos: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Para obter mais informações, consulte [as Opções de Cópia snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | No |
-| opções adicionais | Opções adicionais de formato de ficheiro fornecidas ao comando COPY, fornecidas como um dicionário de pares de valores-chave. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obter mais informações, consulte [as opções do tipo de formato snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | No |
+| tipo | O tipo de comando de importação, definido para **SnowflakeImportCopyCommand**. | Sim |
+| opçõescopy adicionais | Opções de cópia adicionais, fornecidas como um dicionário de pares de valores-chave. Exemplos: ON_ERROR, FORCE, LOAD_UNCERTAIN_FILES. Para obter mais informações, consulte [as Opções de Cópia snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#copy-options-copyoptions). | Não |
+| opções adicionais | Opções adicionais de formato de ficheiro fornecidas ao comando COPY, fornecidas como um dicionário de pares de valores-chave. Exemplos: DATE_FORMAT, TIME_FORMAT, TIMESTAMP_FORMAT. Para obter mais informações, consulte [as opções do tipo de formato snowflake](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html#format-type-options-formattypeoptions). | Não |
 
 #### <a name="direct-copy-to-snowflake"></a>Cópia direta para Snowflake
 
@@ -357,7 +357,7 @@ Se a sua loja de dados de origem e formato satisfaçam os critérios descritos n
 
 #### <a name="staged-copy-to-snowflake"></a>Cópia encenada para Floco de Neve
 
-Quando a sua loja ou formato de dados da pia não for compatível com o comando Snowflake COPY, como mencionado na última secção, ative a cópia encenada incorporada utilizando uma instância de armazenamento provisória de Azure Blob. A funcionalidade de cópia encenada também lhe proporciona uma melhor produção. A Data Factory converte automaticamente os dados para satisfazer os requisitos do formato de dados do Floco de Neve. Em seguida, invoca o comando COPY para carregar dados em Floco de Neve. Finalmente, limpa os seus dados temporários do armazenamento de bolhas. Consulte [a cópia encenada](copy-activity-performance-features.md#staged-copy) para obter mais informações sobre a cópia dos dados utilizando a encenação.
+Quando a sua loja de dados de origem ou formato não for compatível com o comando Snowflake COPY, como mencionado na última secção, ative a cópia encenada incorporada utilizando uma instância de armazenamento provisória de Azure Blob. A funcionalidade de cópia encenada também lhe proporciona uma melhor produção. A Data Factory converte automaticamente os dados para satisfazer os requisitos do formato de dados do Floco de Neve. Em seguida, invoca o comando COPY para carregar dados em Floco de Neve. Finalmente, limpa os seus dados temporários do armazenamento de bolhas. Consulte [a cópia encenada](copy-activity-performance-features.md#staged-copy) para obter mais informações sobre a cópia dos dados utilizando a encenação.
 
 Para utilizar esta funcionalidade, crie um [serviço ligado ao armazenamento Azure Blob](connector-azure-blob-storage.md#linked-service-properties) que se refere à conta de armazenamento Azure como a encenação provisória. Em seguida, especifique as `enableStaging` propriedades e propriedades na atividade `stagingSettings` Copy.
 
@@ -443,9 +443,9 @@ A tabela abaixo lista as propriedades suportadas pela pia Snowflake. Pode editar
 
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Método de atualização | Especifique quais as operações permitidas no seu destino Snowflake.<br>Para atualizar, intensificar ou apagar linhas, é necessária uma [transformação de linha Alter](data-flow-alter-row.md) para marcar linhas para essas ações. | Yes | `true` ou `false` | deletable <br/>inserível <br/>atualizável <br/>upsertable |
-| Colunas-chave | Para atualizações, atualizações e eliminações, deve ser definida uma coluna ou colunas-chave para determinar qual a linha a alterar. | No | Matriz | keys |
-| Ação de mesa | Determina se deve recriar ou remover todas as linhas da tabela de destino antes de escrever.<br>- **Nenhuma:** nenhuma ação será feita à mesa.<br>- **Recriar:** A mesa será largada e recriada. Necessário se criar uma nova tabela dinamicamente.<br>- **Truncato**: Todas as linhas da mesa-alvo serão removidas. | No | `true` ou `false` | recriar<br/>truncato |
+| Método de atualização | Especifique quais as operações permitidas no seu destino Snowflake.<br>Para atualizar, intensificar ou apagar linhas, é necessária uma [transformação de linha Alter](data-flow-alter-row.md) para marcar linhas para essas ações. | Sim | `true` ou `false` | deletable <br/>inserível <br/>atualizável <br/>upsertable |
+| Colunas-chave | Para atualizações, atualizações e eliminações, deve ser definida uma coluna ou colunas-chave para determinar qual a linha a alterar. | Não | Matriz | keys |
+| Ação de mesa | Determina se deve recriar ou remover todas as linhas da tabela de destino antes de escrever.<br>- **Nenhuma:** nenhuma ação será feita à mesa.<br>- **Recriar:** A mesa será largada e recriada. Necessário se criar uma nova tabela dinamicamente.<br>- **Truncato**: Todas as linhas da mesa-alvo serão removidas. | Não | `true` ou `false` | recriar<br/>truncato |
 
 #### <a name="snowflake-sink-script-examples"></a>Exemplos de script de pia de floco de neve
 
@@ -485,6 +485,6 @@ IncomingStream sink(allowSchemaDrift: true,
 
 Para obter mais informações sobre as propriedades, consulte [a atividade da Lookup.](control-flow-lookup-activity.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma lista de lojas de dados suportadas como fontes e pias por copy atividade na Data Factory, consulte [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)

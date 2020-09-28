@@ -31,6 +31,8 @@
       href: plan-monitoring-and-reporting.md
     - name: Registos de auditoria
       href: concept-audit-logs.md
+    - name: Novos registos de início de sessão - pré-visualização
+      href: concept-all-sign-ins.md
     - name: Registos de início de sessão
       href: concept-sign-ins.md
     - name: Relatório de Utilização e Informações

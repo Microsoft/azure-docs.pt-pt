@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/28/2020
+ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: 55d950435522a18eafda69d152619426fe54d87f
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d9422cfb9bd8e5539f1a9b43d6fb7b137778f3d4
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90896697"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404923"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Prever preço do automóvel com o designer
 
@@ -75,7 +75,7 @@ Pode definir um **alvo de computação padrão** para todo o pipeline, que irá 
     Se já tiver um alvo de computação disponível, pode selecioná-lo para executar este pipeline.
 
     > [!NOTE]
-    > O designer só pode realizar experiências de formação em Azure Machine Learning Compute e Azure Machine Learning computação, mas outros alvos de computação não serão mostrados.
+    > O designer só pode realizar experiências de treino no Azure Machine Learning Compute, mas outros alvos de computação não serão mostrados.
 
 1. Insira um nome para o recurso compute.
 

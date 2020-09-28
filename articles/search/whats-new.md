@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 8c6cb08f8236ab6164a71b710656951203be3d19
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ccc10327d4de4134dd15e0ed936f6b938cbe31dd
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91314578"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403675"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades na Pesquisa Cognitiva Azure
 
@@ -70,7 +70,7 @@ Crie uma identidade para um serviço de pesquisa no Azure Ative Directory e, em 
 
 |Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrição | Disponibilidade  |
 |---------|------------------|-------------|---------------|
-| [**Exclusão suave de blob nativo (pré-visualização)**](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) | Indexadores | Um indexante de armazenamento Azure Blob na Azure Cognitive Search reconhecerá as bolhas que estão em estado de eliminação suave e removerá o documento de pesquisa correspondente durante a indexação. | Pré-visualização pública. </br> Utilize o [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) e REST API 2019-05-06-Preview, com Índice de Execução contra uma fonte de dados Azure Blob que tem "soft delete" ativada. |
+| [**Exclusão suave de blob nativo (pré-visualização)**](search-howto-index-changed-deleted-blobs.md) | Indexadores | Um indexante de armazenamento Azure Blob na Azure Cognitive Search reconhecerá as bolhas que estão em estado de eliminação suave e removerá o documento de pesquisa correspondente durante a indexação. | Pré-visualização pública. </br> Utilize o [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) e REST API 2019-05-06-Preview, com Índice de Execução contra uma fonte de dados Azure Blob que tem "soft delete" ativada. |
 | [**Gestão REST API (2020-03-13)**](/rest/api/searchmanagement/management-api-versions) | REST | Nova API rest estável para criar e gerir um serviço de pesquisa. Adiciona firewall IP e suporte de ligação privada | Geralmente disponível. |
 
 ## <a name="february-2020"></a>Fevereiro de 2020

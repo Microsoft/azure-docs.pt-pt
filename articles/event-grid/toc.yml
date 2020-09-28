@@ -40,6 +40,8 @@
       href: custom-event-to-eventhub.md
     - name: Eventos do Container Registry
       href: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Processar eventos do Azure Communication Services
+      href: ../communication-services/quickstarts/telephony-sms/handle-sms-events.md?toc=%2fazure%2fevent-grid%2ftoc.json
 - name: Tutoriais
   items:
     - name: Enviar e-mail quando a VM altera
@@ -112,6 +114,8 @@
               href: event-schema-app-service.md
             - name: Armazenamento de Blobs do Azure
               href: event-schema-blob-storage.md
+            - name: Azure Communication Services
+              href: event-schema-communication-services.md
             - name: Registo de Contentores do Azure
               href: event-schema-container-registry.md
             - name: Azure Event Hubs
@@ -214,7 +218,7 @@
       href: auth0-how-to.md
     - name: Receber eventos num ponto final de HTTP
       href: receive-events.md
-    - name: Mensagens não entregues e tentar novamente
+    - name: Definir a localização e a política de repetição das mensagens não entregues
       href: manage-event-delivery.md
     - name: Filtrar eventos
       href: how-to-filter-events.md

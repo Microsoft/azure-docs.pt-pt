@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/22/2020
-  ms.openlocfilehash: 175c01423b9d7ae987b38913b0376c333f5c9ea9
-  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.date: 09/24/2020
+  ms.openlocfilehash: 9f5117a43ce406603a3a691d59fb9f651ad20c7b
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/22/2020
-  ms.locfileid: "90904056"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91318437"
 landingContent:
 - title: Acerca do Azure Policy
   linkLists:
@@ -47,6 +47,8 @@ landingContent:
       url: ./assign-policy-azurecli.md
     - text: Atribuir uma política (Azure PowerShell)
       url: ./assign-policy-powershell.md
+    - text: Atribuir uma política (JavaScript)
+      url: ./assign-policy-javascript.md
     - text: Atribuir uma política (Python)
       url: ./assign-policy-python.md
     - text: Atribuir uma política (REST)

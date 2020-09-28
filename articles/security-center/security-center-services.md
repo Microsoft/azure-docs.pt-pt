@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: cece53544bfc8287f6ef542575d92b05032991f0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f5be0b43de8265b2b337c024117ae8f424e4a3bc
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318046"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403498"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para máquinas
 
@@ -42,12 +42,12 @@ Os dois separadores abaixo mostram as funcionalidades do Azure Security Center q
 |[Proteção de rede ajustável](security-center-adaptive-network-hardening.md)|✔|-|-|Yes|
 |[Relatórios de & do painel de conformidade regulamentar](security-center-compliance-dashboard.md)|✔|✔|✔|Yes|
 |Recomendações e proteção contra ameaças em contentores IaaS hospedados em Docker|-|-|-|Yes|
-|Avaliação de patches de SO em falta|✔|✔|✔|Azure: Grátis<br><br>Non-Azure: Sim|
+|Avaliação de patches de SO em falta|✔|✔|✔|Azure: Não<br><br>Non-Azure: Sim|
 |Avaliação de erros de segurança|✔|✔|✔|Azure: Não<br><br>Non-Azure: Sim|
 |[Avaliação da proteção do ponto final](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: Não<br><br>Non-Azure: Sim|
-|Avaliação da encriptação do disco|✔</br>(para [cenários apoiados)](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)|✔|-|Gratuito|
-|Avaliação da vulnerabilidade de terceiros|✔|-|-|Gratuito|
-|[Avaliação da segurança da rede](security-center-network-recommendations.md)|✔|✔|-|Gratuito|
+|Avaliação da encriptação do disco|✔</br>(para [cenários apoiados)](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)|✔|-|No|
+|Avaliação da vulnerabilidade de terceiros|✔|-|-|No|
+|[Avaliação da segurança da rede](security-center-network-recommendations.md)|✔|✔|-|No|
 
 
 ### <a name="linux-machines"></a>[**Máquinas Linux**](#tab/features-linux)
@@ -66,12 +66,12 @@ Os dois separadores abaixo mostram as funcionalidades do Azure Security Center q
 |[Proteção de rede ajustável](security-center-adaptive-network-hardening.md)|✔|-|-|Yes|
 |[Relatórios de & do painel de conformidade regulamentar](security-center-compliance-dashboard.md)|✔|✔|✔|Yes|
 |Recomendações e proteção contra ameaças em contentores IaaS hospedados em Docker|✔|✔|✔|Yes|
-|Avaliação de patches de SO em falta|✔|✔|✔|Azure: Grátis<br><br>Non-Azure: Sim|
-|Avaliação de erros de segurança|✔|✔|✔|Azure: Grátis<br><br>Non-Azure: Sim|
-|[Avaliação da proteção do ponto final](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Gratuito|
-|Avaliação da encriptação do disco|✔</br>(para [cenários apoiados)](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)|✔|-|Gratuito|
-|Avaliação da vulnerabilidade de terceiros|✔|-|-|Gratuito|
-|[Avaliação da segurança da rede](security-center-network-recommendations.md)|✔|✔|-|Gratuito|
+|Avaliação de patches de SO em falta|✔|✔|✔|Azure: Não<br><br>Non-Azure: Sim|
+|Avaliação de erros de segurança|✔|✔|✔|Azure: Não<br><br>Non-Azure: Sim|
+|[Avaliação da proteção do ponto final](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|No|
+|Avaliação da encriptação do disco|✔</br>(para [cenários apoiados)](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)|✔|-|No|
+|Avaliação da vulnerabilidade de terceiros|✔|-|-|No|
+|[Avaliação da segurança da rede](security-center-network-recommendations.md)|✔|✔|-|No|
 
 --- 
 

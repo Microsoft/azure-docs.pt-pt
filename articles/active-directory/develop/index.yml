@@ -9,12 +9,12 @@ metadata:
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: f6893522b66f20dd26905084e5b09d303cbfd5b3
-  ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+  ms.openlocfilehash: c0f87da61b0fa2d4aed57eeef7ee9829a17d0f80
+  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/09/2020
-  ms.locfileid: "89612761"
+  ms.lasthandoff: 09/25/2020
+  ms.locfileid: "91258375"
 landingContent:
 - title: Acerca da plataforma de identidade da Microsoft
   linkLists:
@@ -83,7 +83,7 @@ landingContent:
     - text: ASP.NET
       url: quickstart-v2-dotnet-native-aspnet.md
     - text: Núcleo de ASP.NET
-      url: /samples/azure-samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore/calling-a-web-api-in-an-aspnet-core-web-application-using-azure-ad/
+      url: quickstart-v2-aspnet-core-web-api.md
 - title: Microsoft Graph
   linkLists:
   - linkListType: get-started
@@ -120,6 +120,10 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
+    - text: 'Início Rápido: Proteger uma API Web do ASP.NET Core'
+      url: quickstart-v2-aspnet-core-web-api.md
+    - text: Referência da API de Python MSAL
+      url: /python/api/msal/
     - text: 'Início Rápido: Registar uma aplicação (reescrever)'
       url: quickstart-register-app.md
     - text: 'Início Rápido: Expor uma API Web (reescrever)'

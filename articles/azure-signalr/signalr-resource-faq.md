@@ -7,38 +7,18 @@ ms.topic: overview
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: d5dd765dd9b174ffbfec35b63ad5e55ce84193ad
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 5d6b46e288007bc0bbac53a97b1bdd5e727b8ac8
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489566"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91405127"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service FAQ
 
 ## <a name="is-azure-signalr-service-ready-for-production-use"></a>O Serviço Azure SignalR está pronto para ser utilizado pela produção?
 
-Yes.
-Para o anúncio de disponibilidade geral, consulte [o Serviço Azure SignalR agora geralmente disponível](https://azure.microsoft.com/blog/azure-signalr-service-now-generally-available/). 
-
-[ASP.NET o Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction) está totalmente suportado.
-
-O suporte para ASP.NET SignalR ainda está em *pré-visualização pública*. [Aqui está um exemplo de código.](https://github.com/aspnet/AzureSignalR-samples/tree/master/aspnet-samples/ChatRoom)
-
-## <a name="the-client-connection-closes-with-the-error-message-no-server-available-what-does-it-mean"></a>A ligação ao cliente fecha-se com a mensagem de erro "Não há servidor disponível". O que é que isso significa?
-
-Este erro ocorre apenas quando os clientes estão a enviar mensagens para o Serviço Azure SignalR.
-
-Se não tiver qualquer servidor de aplicação e utilizar apenas a API do Serviço Azure SignalR, este comportamento é *por design*.
-Na arquitetura sem servidor, as ligações do cliente estão em modo *de escuta* e não enviam nenhuma mensagem para o Serviço Azure SignalR.
-Leia [mais sobre a API REST.](./signalr-quickstart-rest-api.md)
-
-Se tiver servidores de aplicações, esta mensagem de erro significa que nenhum servidor de aplicação está ligado à sua instância do Serviço Azure SignalR.
-
-As causas possíveis são:
-- Nenhum servidor de aplicações está ligado ao Serviço Azure SignalR. Verifique os registos do servidor de aplicações para obter possíveis erros de ligação. Este caso é raro numa definição de alta disponibilidade que tem mais de um servidor de aplicação.
-- Existem problemas de conectividade com as instâncias do Serviço Azure SignalR. Esta questão é transitória e as ocorrências irão automaticamente recuperar.
-Se persistir por mais de uma hora, [abra um problema no GitHub](https://github.com/Azure/azure-signalr/issues/new) ou crie um pedido de apoio em [Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+Sim, tanto o suporte para [ASP.NET Core SignalR](https://dotnet.microsoft.com/apps/aspnet/signalr) como [ASP.NET SignalR](https://docs.microsoft.com/aspnet/signalr/overview/getting-started/introduction-to-signalr) estão geralmente disponíveis.
 
 ## <a name="when-there-are-multiple-application-servers-are-client-messages-sent-to-all-servers-or-just-one-of-them"></a>Quando existem vários servidores de aplicações, as mensagens do cliente são enviadas para todos os servidores ou apenas um deles?
 
@@ -68,7 +48,7 @@ Não.
 
 O Serviço Azure SignalR fornece os três transportes que ASP.NET o Core SignalR suporta por padrão. Não é configurável. O Serviço Azure SignalR tratará de ligações e transportes para todas as ligações do cliente.
 
-Pode configurar os transportes do lado do cliente, conforme documentado na [configuração do Core SignalR ASP.NET](https://docs.microsoft.com/aspnet/core/signalr/configuration?view=aspnetcore-2.1&tabs=dotnet#configure-allowed-transports-2).
+Pode configurar os transportes do lado do cliente, conforme documentado na [configuração do Core SignalR ASP.NET](https://docs.microsoft.com/aspnet/core/signalr/configuration#configure-allowed-transports-1).
 
 ## <a name="what-is-the-meaning-of-metrics-like-message-count-or-connection-count-shown-in-the-azure-portal-which-kind-of-aggregation-type-should-i-choose"></a>Qual é o significado de métricas como a contagem de mensagens ou a contagem de ligação mostrada no portal Azure? Que tipo de agregação devo escolher?
 
@@ -78,19 +58,22 @@ No painel geral dos recursos do Serviço Azure SignalR, já escolhemos o tipo de
 
 ## <a name="what-is-the-meaning-of-the-default-serverless-and-classic-service-modes-how-can-i-choose"></a>Qual é o significado dos `Default` `Serverless` modos de `Classic` serviço e dos modos de serviço? Como posso escolher?
 
-Aqui está a informação sobre os modos:
-* `Default` o modo *requer* um servidor hub. Neste modo, o Serviço Azure SignalR encaminha o tráfego do cliente para as suas ligações de servidores de hub conectados. O Serviço Azure SignalR verifica se há um servidor de hub ligado. Se o serviço não conseguir encontrar um servidor de hub conectado, rejeita as ligações do cliente que chegam. Também pode utilizar a *API de Gestão* neste modo para gerir os clientes conectados diretamente através do Serviço Azure SignalR.
-* `Serverless` o modo *não* permite qualquer ligação ao servidor. Ou seja, rejeitará todas as ligações do servidor. Todos os clientes devem estar em modo sem servidor. Os clientes conectam-se ao Serviço Azure SignalR, e os utilizadores geralmente usam tecnologias sem servidor, como *as Funções Azure* para lidar com lógicas de hub. [Veja um exemplo simples](https://docs.microsoft.com/azure/azure-signalr/signalr-quickstart-azure-functions-javascript?WT.mc_id=signalrquickstart-github-antchu) que utiliza o modo sem servidor no Serviço Azure SignalR.
-* `Classic` modo é um estado misto. Quando um hub tem uma ligação de servidor, o novo cliente será encaminhado para um servidor hub. Caso contrário, o cliente entrará no modo sem servidor. 
+Para novas aplicações, apenas deve ser utilizado o modo predefinido e sem servidor. A principal diferença é se tem servidores de aplicações que estabelecem ligações de servidor ao serviço (isto é, usar `AddAzureSignalR()` para ligar ao serviço). Se sim utilizar o modo predefinido, de outra forma use o modo sem servidor.
 
-  Isto pode causar um problema. Por exemplo, se todas as ligações do servidor estiverem perdidas por um momento, alguns clientes entrarão em modo sem servidor em vez de encaminhar para um servidor de hub.
+O modo clássico é projetado para retrocompatibilidade para aplicações existentes, pelo que não deve ser utilizado para novas aplicações.
 
-Aqui ficam algumas diretrizes para escolher um modo:
-- Se não houver servidor de hub, escolha `Serverless` .
-- Se todos os hubs tiverem servidores hub, escolha `Default` .
-- Se alguns hubs têm servidores hub, mas outros não, pode escolher `Classic` , mas isso pode causar um problema. A melhor maneira é criar dois casos: um é `Serverless` - e o outro é `Default` .
+Para mais informações sobre o modo de serviço [neste doc](concept-service-mode.md).
+
+## <a name="can-i-send-message-from-client-in-serverless-mode"></a>Posso enviar mensagem do cliente em modo sem servidor?
+
+Pode enviar mensagem do cliente se configurar a montante no seu caso SignalR. A montante é um conjunto de pontos finais que podem receber mensagens e eventos de ligação do serviço SignalR. Se não houver configuração a montante, as mensagens do cliente serão ignoradas.
+
+Para mais informações sobre a montante consulte [este doc](concept-upstream.md).
+
+A montante está atualmente em pré-visualização pública.
 
 ## <a name="are-there-any-feature-differences-in-using-azure-signalr-service-with-aspnet-signalr"></a>Existem diferenças de funcionalidades na utilização do Serviço Azure SignalR com ASP.NET SignalR?
+
 Quando estiver a utilizar o Serviço Azure SignalR, algumas APIs e funcionalidades de ASP.NET SignalR não são suportadas:
 - A capacidade de passar pelo estado arbitrário entre os clientes e o hub (muitas vezes `HubState` chamado) não é suportada.
 - A `PersistentConnection` aula não é apoiada.

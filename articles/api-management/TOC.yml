@@ -197,6 +197,8 @@
       items:
         - name: Definir ou editar políticas
           href: set-edit-policies.md
+        - name: Políticas de depuração
+          href: api-management-debug-policies.md
         - name: Expressões de política
           href: api-management-policy-expressions.md
         - name: Colocação em cache personalizada
@@ -221,6 +223,8 @@
           href: api-management-cross-domain-policies.md
         - name: Políticas de transformação
           href: api-management-transformation-policies.md
+        - name: Políticas de integração do Distributed Application Runtime (Dapr)
+          href: api-management-dapr-policies.md
     - name: Gerir na produção
       items:
         - name: Exportar APIs para o Power Platform

@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9bb3f0d57f7d47e4cb754305627c52003273ca09
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: eb93321e0eb1b3d2dc7963f03715b1aedb4cfdcb
+ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377017"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91403692"
 ---
 # <a name="azure-managed-applications-overview"></a>Descrição geral das aplicações geridas do Azure
 
@@ -77,9 +77,9 @@ Quando o consumidor elimina a aplicação gerida, o grupo de recursos gerido tam
 
 ## <a name="azure-policy"></a>Azure Policy
 
-Pode aplicar uma [Política Azure](../../governance/policy/overview.md) para auditar a sua aplicação gerida. Aplica definições de política para garantir que as instâncias implementadas da sua aplicação gerida satisfaçam os requisitos de dados e segurança. Se a sua aplicação interagir com dados confidenciais, confirme que avaliou a forma como estes devem ser protegidos. Por exemplo, se a sua aplicação interagir com os dados do Office 365, aplique uma definição de política para garantir que a encriptação de dados está ativada.
+Pode aplicar uma [Política Azure](../../governance/policy/overview.md) para auditar a sua aplicação gerida. Aplica definições de política para garantir que as instâncias implementadas da sua aplicação gerida satisfaçam os requisitos de dados e segurança. Se a sua aplicação interagir com dados confidenciais, confirme que avaliou a forma como estes devem ser protegidos. Por exemplo, se a sua aplicação interagir com dados da Microsoft 365, aplique uma definição de política para garantir que a encriptação de dados está ativada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu sobre os benefícios da utilização de aplicações geridas. Aceda ao artigo seguinte para criar uma definição da aplicação gerida.
 

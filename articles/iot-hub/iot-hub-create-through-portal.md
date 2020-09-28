@@ -9,12 +9,12 @@ ms.date: 09/06/2018
 ms.author: robinsh
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: 8f7555129f5f514d1954ac56cf87872a85ca91d0
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c7414728ab65258f73f80ee7fb303c7e6b961052
+ms.sourcegitcommit: ada9a4a0f9d5dbb71fc397b60dc66c22cf94a08d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326737"
+ms.lasthandoff: 09/28/2020
+ms.locfileid: "91404964"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Criar um hub IoT utilizando o portal Azure
 
@@ -24,7 +24,7 @@ Este artigo descreve como criar e gerir centros IoT utilizando o [portal Azure](
 
 Para utilizar os passos neste tutorial, precisa de uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -78,7 +78,7 @@ As rotas são o primeiro separador no painel de encaminhamento de mensagens. Par
 
 ![Screenshot mostrando a adição de uma nova rota](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
 
-Diga o nome do seu centro. O nome deve ser único dentro da lista de rotas para aquele centro. 
+Diga a sua rota. O nome da rota deve ser único dentro da lista de rotas para aquele centro. 
 
 Para **Endpoint,** pode selecionar um da lista de dropdown ou adicionar um novo. Neste exemplo, já estão disponíveis uma conta de armazenamento e um contentor. Para adicioná-los como ponto final, clique em +**Adicione** ao lado do dropdown endpoint e selecione **Blob Storage**. O ecrã a seguir mostra onde a conta de armazenamento e o recipiente são especificados.
 
