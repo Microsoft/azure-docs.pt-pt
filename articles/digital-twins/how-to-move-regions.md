@@ -168,7 +168,7 @@ O ADT Explorer irá agora enviar os seus modelos e gráficos (incluindo os géme
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Caixa de diálogo indicando o sucesso da importação de gráficos. Diz: "Importar bem sucedido. 2 modelos importados. 4 gémeos importados. 2 relações importadas.»" lightbox="media/how-to-move-regions/import-success.png":::
+        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Caixa de diálogo indicando o sucesso da importação de gráficos. Diz: Importar bem sucedido. 2 modelos importados. 4 gémeos importados. 2 relações importadas.»" lightbox="media/how-to-move-regions/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
