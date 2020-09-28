@@ -251,8 +251,12 @@
                       href: ../common/storage-import-export-tool-repairing-an-export-job-v1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: FAQ
                   href: ../common/storage-import-export-service-faq.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: API REST
-                  href: /rest/api/storageimportexport/jobs
+                - name: Referência
+                  items:
+                    - name: API REST
+                      href: /rest/api/storageimportexport/jobs
+                    - name: Azure PowerShell
+                      href: /powershell/module/Az.ImportExport
                 - name: Contactar o Suporte
                   href: ../common/storage-import-export-contact-microsoft-support.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Arquivo
