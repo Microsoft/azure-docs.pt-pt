@@ -32,7 +32,7 @@ A partir do Android Studio, selecione Iniciar um novo projeto Android Studio.
 
 Selecione o modelo de projeto "Atividade Vazia" em "Telefone e Tablet".
 
-:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Screenshot mostrando a opção "Atividade Vazia" selecionada no ecrã do modelo do projeto.":::
+:::image type="content" source="../media/android/studio-blank-activity.png" alt-text="Screenshot mostrando a opção Atividade Vazia selecionada no ecrã do modelo do projeto.":::
 
 Selecione biblioteca mínima de clientes de "API 26: Android 8.0 (Oreo)" ou superior.
 
