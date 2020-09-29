@@ -7,17 +7,17 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 04/23/2020
-ms.openlocfilehash: fa60d6127a42f0118df152e5b3081751c595dbcf
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 98ba8c54b1754d6384dfcedb86e6c4889e52cb4f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91362636"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444847"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Configure Sempre Encriptado usando o Cofre da Chave Azure 
 
@@ -596,7 +596,7 @@ Em seguida, adicione o *parâmetro de definição de encriptação da coluna=ati
    
    ![Nova aplicação para consolas](./media/always-encrypted-azure-key-vault-configure/ssms-plaintext.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de a sua base de dados estar configurada para utilizar Sempre Encriptado, pode querer fazer o seguinte:
 

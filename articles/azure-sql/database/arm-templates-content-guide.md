@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: service
 ms.custom: overview-samples sqldbrb=2
 ms.devlang: ''
-ms.topic: sample
+ms.topic: guide
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/04/2019
-ms.openlocfilehash: ee2c6580285246d3b170602e507aed038b2507f4
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 48a2c00f7ff487def13e9872c4f43a3ca36809ba
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85983644"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444638"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database--sql-managed-instance"></a>Modelos de gestor de recursos Azure para Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -31,7 +31,7 @@ A tabela seguinte inclui links para modelos de Gestor de Recursos Azure para Azu
 |---|---|
 | [Base de Dados SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create) | Este modelo de Gestor de Recursos Azure cria uma única base de dados na Base de Dados Azure SQL e configura as regras de firewall IP de nível do servidor. |
 | [Servidor](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Este modelo de Gestor de Recursos Azure cria um servidor para a Base de Dados Azure SQL. |
-| [Conjunto elástico](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create) | Este modelo permite-lhe implantar uma piscina elástica e atribuir-lhe bases de dados. |
+| [Piscina elástica](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create) | Este modelo permite-lhe implantar uma piscina elástica e atribuir-lhe bases de dados. |
 | [Grupos de ativação pós-falha](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | Este modelo cria dois servidores, uma única base de dados e um grupo de failover na Base de Dados Azure SQL.|
 | [Deteção de Ameaças](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | Este modelo permite-lhe implementar um servidor e um conjunto de bases de dados com Deteção de Ameaças ativadas, com um endereço de e-mail para alertas para cada base de dados. A Deteção de Ameaças faz parte da oferta de Proteção avançada de ameaças (ATP) sql e fornece uma camada de segurança que responde a potenciais ameaças sobre servidores e bases de dados.|
 | [Auditoria ao armazenamento da Azure Blob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) | Este modelo permite-lhe implementar um servidor com auditoria habilitada a escrever registos de auditoria para um armazenamento blob. A auditoria ao Azure SQL Database rastreia eventos de base de dados e escreve-os para um registo de auditoria que pode ser colocado na sua conta de armazenamento Azure, espaço de trabalho OMS ou Centros de Eventos.|
