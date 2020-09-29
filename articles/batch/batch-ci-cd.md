@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 9612c61945a41b30fb5d4768e1eb0909a07911d3
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: d125427a3b2e519e909aad9e6f9cf08a963d2d46
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229400"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461534"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utilize gasodutos Azure para construir e implementar soluções HPC
 
@@ -43,7 +43,7 @@ A estrutura da base de código utilizada nesta amostra assemelha-se ao seguinte;
 
 * Uma pasta **de modelos de braço,** contendo uma série de modelos do Gestor de Recursos Azure. Os modelos são explicados neste artigo.
 * Uma pasta **de aplicação ao cliente,** que é uma cópia do Processamento de [Ficheiros Azure Batch .NET com amostra de ffmpeg.](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) Isto não é necessário para este artigo.
-* Uma pasta **de aplicação hpc,** que é a versão do Windows 64-bit de [ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip).
+* Uma pasta **de aplicação hpc,** que é a versão do Windows 64-bit de [ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip).
 * Uma pasta **de oleodutos.** Isto contém um ficheiro YAML que descreve o nosso processo de construção. Isto é discutido no artigo.
 
 Esta secção pressupõe que está familiarizado com o controlo de versão e projetando modelos de Gestor de Recursos. Se não está familiarizado com estes conceitos, consulte as seguintes páginas para obter mais informações.
@@ -500,7 +500,7 @@ Redimensione a piscina para que existam nóns de computação disponíveis para 
 az batch pool resize --pool-id <poolname> --target-dedicated-nodes 4
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Além deste artigo, existem dois tutoriais que utilizam o ffmpeg, utilizando .NET e Python. Consulte estes tutoriais para obter mais informações sobre como interagir com uma conta Batch através de uma aplicação simples.
 

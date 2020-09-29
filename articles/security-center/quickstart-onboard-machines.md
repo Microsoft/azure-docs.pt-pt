@@ -4,15 +4,15 @@ description: Saiba como ligar as suas máquinas não-Azure ao Centro de Seguran�
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: how-to
+ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 82b8161f92f337002e9d8bbdc45cd53d5921fc00
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6f2889c298f525e1babf80f86d4ae140ef2ce96f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280679"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448948"
 ---
 #  <a name="connect-your-non-azure-machines-to-security-center"></a>Ligue as suas máquinas não-Azure ao Centro de Segurança
 
@@ -96,7 +96,7 @@ Parabéns! Agora podem ver as suas máquinas Azure e não-Azure juntas num só l
   ![icon2](./media/quick-onboard-linux-computer/security-center-monitoring-icon2.png) VM do Azure
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Esta página mostrou-lhe como adicionar as suas máquinas não-Azure ao Centro de Segurança Azure. Para monitorizar o seu estado, utilize as ferramentas de inventário como explicado na página seguinte:
 
