@@ -69,6 +69,8 @@
       href: ../../backup/security-baseline.md
     - name: Linha de base de segurança da Cache do Azure para Redis
       href: ../../azure-cache-for-redis/security-baseline.md
+    - name: Linha de base de segurança do Azure Cognitive Search
+      href: ../../search/security-baseline.md
     - name: Linha de base de segurança do Azure Data Box
       href: ../../databox/security-baseline.md
     - name: Linha de base de segurança do Azure Data Explorer
