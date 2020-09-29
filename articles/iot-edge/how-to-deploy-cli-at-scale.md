@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: ebc4f25496588eeaffbfe89e110bad57dbbc848e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 8b9c8107c102409b717da0a277b7cdd360e9c8ee
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501564"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439670"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Implementar e monitorizar os módulos IoT Edge em escala utilizando o CLI Azure
 
@@ -29,7 +29,7 @@ Neste artigo, você configura Azure CLI e a extensão IoT. Em seguida, aprende a
 
 * Um [hub IoT](../iot-hub/iot-hub-create-using-cli.md) na sua assinatura Azure.
 * [Dispositivos IoT Edge](how-to-register-device.md#prerequisites-for-the-azure-cli) com o tempo de execução IoT Edge instalado.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) no seu ambiente. No mínimo, a sua versão Azure CLI deve ser de 2.0.70 ou superior. Utilize `az --version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comandos Knack.
+* [Azure CLI](/cli/azure/install-azure-cli) no seu ambiente. No mínimo, a sua versão Azure CLI deve ser de 2.0.70 ou superior. Utilize `az --version` para validar. Esta versão suporta comandos de extensão az e apresenta a arquitetura de comandos Knack.
 * A [extensão IoT para Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ## <a name="configure-a-deployment-manifest"></a>Configure um manifesto de implantação
@@ -183,7 +183,7 @@ Para obter mais informações sobre os gémeos e tags do dispositivo, consulte [
 
 Implementa módulos nos seus dispositivos-alvo criando uma implementação que consiste no manifesto de implantação, bem como outros parâmetros.
 
-Utilize o comando de implementação de [borda az iot](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-create) para criar uma implementação:
+Utilize o comando de implementação de [borda az iot](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-create) para criar uma implementação:
 
 ```cli
 az iot edge deployment create --deployment-id [deployment id] --hub-name [hub name] --content [file path] --labels "[labels]" --target-condition "[target query]" --priority [int]
@@ -216,7 +216,7 @@ Se atualizar a condição do alvo, ocorrem as seguintes atualizações:
 
 Não é possível atualizar o conteúdo de uma implementação, que inclui os módulos e rotas definidos no manifesto de implantação. Se pretender atualizar o conteúdo de uma implementação, fá-lo criando uma nova implementação que vise os mesmos dispositivos com uma maior prioridade. Pode modificar certas propriedades de um módulo existente, incluindo a condição alvo, etiquetas, métricas e prioridade.
 
-Utilize o comando [de atualização de implementação de arestas az iot](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-update) para atualizar uma implementação:
+Utilize o comando [de atualização de implementação de arestas az iot](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-update) para atualizar uma implementação:
 
 ```cli
 az iot edge deployment update --deployment-id [deployment id] --hub-name [hub name] --set [property1.property2='value']
@@ -225,9 +225,9 @@ az iot edge deployment update --deployment-id [deployment id] --hub-name [hub na
 O comando de atualização de implementação requer os seguintes parâmetros:
 
 * **...-id-implantação -** O nome da implantação que existe no hub IoT.
-* **--hub-name** - Nome do hub IoT em que a implantação existe. O centro deve estar na subscrição atual. Mude para a subscrição desejada com o comando`az account set -s [subscription name]`
+* **--hub-name** - Nome do hub IoT em que a implantação existe. O centro deve estar na subscrição atual. Mude para a subscrição desejada com o comando `az account set -s [subscription name]`
 * **--set** - Atualizar uma propriedade na implementação. Pode atualizar as seguintes propriedades:
-  * targetCondição - por exemplo`targetCondition=tags.location.state='Oregon'`
+  * targetCondição - por exemplo `targetCondition=tags.location.state='Oregon'`
   * rótulos
   * prioridade
 * **--adicionar** - Adicione uma nova propriedade à implantação, incluindo condições-alvo ou etiquetas.
@@ -237,7 +237,7 @@ O comando de atualização de implementação requer os seguintes parâmetros:
 
 Quando elimina uma implantação, qualquer dispositivo assume a sua próxima implantação de maior prioridade. Se os seus dispositivos não cumprirem a condição alvo de qualquer outra implantação, os módulos não são removidos quando a implementação é eliminada.
 
-Utilize o comando [de exclusão de borda az iot](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-delete) para eliminar uma implantação:
+Utilize o comando [de exclusão de borda az iot](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-delete) para eliminar uma implantação:
 
 ```cli
 az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub name]
@@ -246,8 +246,8 @@ az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub na
 O comando de eliminação de implantação requer os seguintes parâmetros:
 
 * **...-id-implantação -** O nome da implantação que existe no hub IoT.
-* **--hub-name** - Nome do hub IoT em que a implantação existe. O centro deve estar na subscrição atual. Mude para a subscrição desejada com o comando`az account set -s [subscription name]`
+* **--hub-name** - Nome do hub IoT em que a implantação existe. O centro deve estar na subscrição atual. Mude para a subscrição desejada com o comando `az account set -s [subscription name]`
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [a implementação de módulos para dispositivos IoT Edge](module-deployment-monitoring.md).

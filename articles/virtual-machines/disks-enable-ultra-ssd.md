@@ -4,16 +4,16 @@ description: Saiba mais sobre discos ultra para VMs Azure
 author: roygara
 ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 681804eadc1f710eb5fbf6980fabca4beaaf5439
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e57317dce64b58e5c92684152d840955a30df660
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328233"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441195"
 ---
 # <a name="using-azure-ultra-disks"></a>Usando discos ultra Azure
 
@@ -155,7 +155,7 @@ Esta secção abrange a implantação de uma máquina virtual equipada com um di
 - Altere os valores do tamanho do **disco personalizado (GiB),** **do Disco IOPS**e da **produção** do disco para os que escolherem.
 - Selecione **OK** em ambas as lâminas.
 
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Screenshot da lâmina de tamanho do disco, disco ultra selecionado para o tipo de armazenamento, outros valores destacados.":::
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Screenshot de criar uma nova lâmina de disco, alterar tamanho realçado.":::
 
 - Continue com a implantação de VM, será o mesmo que implementaria qualquer outro VM.
 
@@ -250,7 +250,7 @@ Em alternativa, se o seu VM existente estiver numa zona de região/disponibilida
 - Altere o **tipo de Conta** para Ultra **Disco**.
 - Altere os valores do tamanho do **disco personalizado (GiB),** **do Disco IOPS**e da **produção** do disco para os que escolherem.
 
-    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Screenshot da lâmina de tamanho do disco, disco ultra selecionado para o tipo de armazenamento, outros valores destacados.":::
+    :::image type="content" source="media/virtual-machines-disks-getting-started-ultra-ssd/ultra-disk-select-new-disk.png" alt-text="Screenshot de criar uma nova lâmina de disco, alterar tamanho realçado.":::
 
 - Selecione **OK** e, em seguida, selecione **Criar**.
 - Depois de ser devolvido à lâmina do disco, **selecione Save**.
@@ -407,6 +407,7 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 ```
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Consulte [discos ultra Azure no Serviço Azure Kubernetes (pré-visualização)](../aks/use-ultra-disks.md).
+- [Utilize discos ultra Azure no Serviço Azure Kubernetes (pré-visualização)](../aks/use-ultra-disks.md).
+- [Migrar o disco de log para um disco ultra.](../azure-sql/virtual-machines/windows/storage-migrate-to-ultradisk.md)

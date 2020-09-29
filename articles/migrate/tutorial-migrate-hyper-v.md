@@ -6,12 +6,12 @@ ms.date: 06/08/2020
 ms.custom:
 - MVC
 - fasttrack-edit
-ms.openlocfilehash: 10e17a4fba1adbccf71497c54060fda2f60088ab
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 842513536bf4dbfc0a3e3bd82905b397da9fa6c4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90525342"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439076"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrar VMs Hyper-V para o Azure 
 
@@ -20,7 +20,7 @@ Este artigo mostra-lhe como migrar no local Hiper-V VMs para Azure com a ferrame
 Este tutorial é o terceiro de uma série que demonstra como avaliar e migrar máquinas para Azure. 
 
 > [!NOTE]
-> Os tutoriais mostram-lhe o caminho de implantação mais simples para um cenário para que possa configurar rapidamente uma prova de conceito. Os tutoriais usam opções padrão sempre que possível e não mostram todas as definições e caminhos possíveis. 
+> Os tutoriais mostram-lhe o caminho de implantação mais simples para um cenário para que possa configurar rapidamente uma prova de conceito. Os tutoriais utilizam opções predefinidas sempre que possível e não mostram todas as definições e caminhos possíveis. 
 
  Neste tutorial, ficará a saber como:
 
@@ -133,7 +133,7 @@ Com a descoberta concluída, pode começar a replicação de Hiper-VMs para Azur
 
     ![Definições de cálculo VM](./media/tutorial-migrate-hyper-v/compute-settings.png)
 
-12. Em **Discos**, especifique se os discos das VMs devem ser replicados para o Azure e selecione o tipo de disco (discos geridos SSD/HDD standard ou premium) no Azure. Em seguida, clique em **Seguinte**.
+12. Em **Discos**, especifique os discos VM que precisam de ser replicados para Azure. Em seguida, clique em **Seguinte**.
     - Pode excluir discos da replicação.
     - Se excluir discos, estes não estarão presentes na VM do Azure após a migração. 
 
@@ -239,6 +239,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 -  Considere implementar o [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para monitorizar a utilização e as despesas do recurso.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

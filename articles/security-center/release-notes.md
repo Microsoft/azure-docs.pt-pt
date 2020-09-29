@@ -7,17 +7,17 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 556177b0f3eb156f5b128995cb81555aa77bc8d2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b1bd0ff28906f35ddc56afbd0287bbe29879deb4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289910"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91438937"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -245,7 +245,7 @@ Além disso, as recomendações **de pré-visualização** não tornam um recurs
 
 Um exemplo de uma recomendação de pré-visualização:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recomendação com a bandeira de pré-visualização":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Incluir resultados de segurança alternando na configuração contínua da exportação":::
 
 [Saiba mais sobre pontuação segura](secure-score-security-controls.md).
 
@@ -254,7 +254,7 @@ Um exemplo de uma recomendação de pré-visualização:
 
 A página de detalhes para recomendações inclui agora um indicador de intervalo de frescura (sempre que relevante) e uma clara demonstração da gravidade da recomendação.
 
-:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Página de recomendação mostrando frescura e gravidade":::
+:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Incluir resultados de segurança alternando na configuração contínua da exportação":::
 
 
 
@@ -678,7 +678,7 @@ Os controlos de segurança - e este alternador - fazem parte da nova experiênci
 
 Saiba mais sobre os controlos de segurança na [pontuação de segurança melhorada (pré-visualização) no Azure Security Center](secure-score-security-controls.md).
 
-:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="Grupo por controlos alternar para recomendações":::
+:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="Incluir resultados de segurança alternando na configuração contínua da exportação":::
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Controlo de segurança alargado "Implementar as melhores práticas de segurança" 
 

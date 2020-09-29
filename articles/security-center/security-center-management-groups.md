@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 43a6c10c8c73e8fb5189b6f085a6969c0d776593
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 6bbc38d79f51ba4ffcc3795718d276a7e9c0bf03
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534911"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440783"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Ganhe visibilidade em todo o inquilino para o Azure Security Center
 Este artigo explica como gerir a postura de segurança da sua organização em escala, aplicando políticas de segurança a todas as subscrições da Azure ligadas ao seu inquilino Azure Ative Directory.
@@ -185,7 +185,7 @@ Pode adicionar subscrições ao grupo de gestão que criou. Estes passos não s�
    > [!NOTE]
    > Os grupos de gestão podem conter assinaturas e grupos de gestão de crianças. Quando atribui um papel de Azure a um utilizador ao grupo de gestão dos pais, o acesso é herdado pelas assinaturas do grupo de gestão infantil. As políticas definidas no grupo de gestão dos pais também são herdadas pelas crianças. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste artigo, aprendeu a ganhar visibilidade para o Centro de Segurança Azure. Para saber mais sobre o Centro de Segurança, veja os artigos seguintes:
 
 > [!div class="nextstepaction"]

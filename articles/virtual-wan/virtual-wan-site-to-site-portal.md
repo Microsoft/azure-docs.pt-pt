@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/09/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: eceb9e4c8c839e4da333e005e879ea6094936092
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5f39f5a8f758f390536e5d113629b185252c05d9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525185"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439366"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma ligação site a site com a WAN Virtual do Azure
 
@@ -231,7 +231,7 @@ Se precisar de instruções para configurar o dispositivo, pode utilizar as inst
 
 Pode visualizar e configurar as definições de gateway VPN a qualquer momento selecionando **Ver/Configurar**.
 
-:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Ver configuração" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
+:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Screenshot que mostra a página 'VPN (Site-to-site)' com uma seta que aponta para a ação 'Ver/Configurar'." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
 
 Na página **Editar VPN Gateway,** pode ver as seguintes definições:
 
@@ -240,7 +240,7 @@ Na página **Editar VPN Gateway,** pode ver as seguintes definições:
 * Endereço IP BGP padrão VPN Gateway (atribuído por Azure)
 * Opção de configuração para Endereço IP BGP personalizado: Este campo está reservado para APIPA (Endereço IP Privado Automático). A Azure suporta o BGP IP nos intervalos 169.254.21.* e 169.254.22.* . O Azure aceita ligações BGP nestas gamas, mas irá marcar a ligação com o IP BGP predefinido.
 
-   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Ver configuração" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Screenshot que mostra a página 'VPN (Site-to-site)' com uma seta que aponta para a ação 'Ver/Configurar'." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
 
 ## <a name="next-steps"></a>Próximos passos
 

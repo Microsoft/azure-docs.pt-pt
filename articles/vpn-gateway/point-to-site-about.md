@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9ad0ad7b1ff2f0b706595daf8b8c93f480f0e00b
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 68d2ed0d6702a42f44e502f2f7d3a91c0221ff6a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421718"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440948"
 ---
 # <a name="about-point-to-site-vpn"></a>Sobre a VPN ponto-a-local
 
@@ -68,7 +68,7 @@ O servidor RADIUS também pode integrar-se com os serviços de certificados AD. 
 
 Um servidor RADIUS também pode integrar-se com outros sistemas de identidade externos. Isto abre muitas opções de autenticação para P2S VPN, incluindo opções multi-factor.
 
-![ponto a local](./media/point-to-site-about/p2s.png "Ponto a Site")
+![Diagrama que mostra uma VPN ponto-a-local com um local no local.](./media/point-to-site-about/p2s.png)
 
 ## <a name="what-are-the-client-configuration-requirements"></a>What are the client configuration requirements? (Quais são os requisitos de configuração do cliente?)
 

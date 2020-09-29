@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6dac922f1a50dd54973f7eefff7011aab3b49994
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 29f5b549bd5f5dbc421487739bb1eb8c7f120bb0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983758"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441037"
 ---
 # <a name="connect-a-vpn-gateway-virtual-network-gateway-to-virtual-wan"></a>Ligue um Gateway VPN (gateway de rede virtual) ao VIRTUAL WAN
 
@@ -83,7 +83,7 @@ Nesta secção, descarrega o ficheiro de configuração VPN para cada um dos sit
 
 1. No topo da página virtual dos sites WAN **VPN,** selecione o **Site**e, em seguida, selecione **Descarregue a configuração VPN site-to-site**. O Azure cria um ficheiro de configuração com as definições.
 
-   ![ficheiro de configuração de descarregamento](./media/connect-virtual-network-gateway-vwan/download.png "transferir")
+   ![Screenshot que mostra a página "sites VPN" com a ação "Transferir configuração VPN site-to-site" selecionada.](./media/connect-virtual-network-gateway-vwan/download.png "transferir")
 2. Faça o download e abra o ficheiro de configuração.
 3. Repita estes passos para o segundo local. Uma vez abertos os dois ficheiros de configuração, pode proceder à secção seguinte.
 
@@ -98,7 +98,7 @@ Nesta secção, cria-se duas portas de rede locais Azure VPN Gateway. Os ficheir
    * **Subscrição, Grupo de Recursos e Localização** são os mesmos que para o centro DE WAN Virtual.
 2. Reveja e crie o portal de rede local. O seu portal de rede local deve ser semelhante a este exemplo.
 
-   ![ficheiro de configuração de descarregamento](./media/connect-virtual-network-gateway-vwan/lng1.png "instância0")
+   ![Screenshot que mostra a página "Configuração" com um endereço IP realçado e "Configurar definições de BGP" selecionadas.](./media/connect-virtual-network-gateway-vwan/lng1.png "instância0")
 3. Repita estes passos para criar outro gateway de rede local, mas desta vez, use os valores 'Instance1' em vez dos valores de 'Instance0' a partir do ficheiro de configuração.
 
    ![ficheiro de configuração de descarregamento](./media/connect-virtual-network-gateway-vwan/lng2.png "instância1")
@@ -138,7 +138,7 @@ Pode testar a conectividade criando duas máquinas virtuais, uma na lateral do g
 4. Clique **em OK** para criar a ligação de rede virtual.
 5. A conectividade está agora definida entre os VMs. Você deve ser capaz de ping um VM do outro, a menos que existam quaisquer firewalls ou outras políticas que bloqueiem a comunicação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter medidas para configurar uma política personalizada do IPsec, consulte [configurar uma política personalizada do IPsec para o VIRTUAL WAN](virtual-wan-custom-ipsec-portal.md).
 Para obter mais informações sobre o WAN Virtual, consulte [About Azure Virtual WAN](virtual-wan-about.md) e o [Azure Virtual WAN FAQ](virtual-wan-faq.md).

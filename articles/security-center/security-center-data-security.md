@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: 33f2c9f4-21aa-4f0c-9e5e-4cd1223e39d7
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: 97d3b5030ed0ddb29fc439f4a0f6bcc7ff98b6ce
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8a999e2b5706c04b426f758ba46f49fb9f7e3057
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268031"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91438778"
 ---
 # <a name="azure-security-center-data-security"></a>Segurança de Dados do Centro de Segurança do Azure
 Para ajudar os clientes a prevenir, detetar e responder a ameaças, o Azure Security Center recolhe e processa dados relacionados com a segurança, incluindo informações de configuração, metadados, registos de eventos e muito mais. A Microsoft respeita diretrizes rigorosas de conformidade e segurança, desde a codificação à operação de um serviço.
@@ -83,7 +83,7 @@ Os clientes podem consumir dados relacionados com o Centro de Segurança a parti
 > [!NOTE]
 > As recomendações de segurança também podem ser consumidas pela API REST. Leia [Security Resource Provider REST API Reference (Referência da API REST do Fornecedor de Recursos de Segurança)](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx) para obter mais informações.
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 Através deste documento aprendeu como os dados são geridos e salvaguardados no Centro de Segurança do Azure. Para saber mais acerca do Centro de Segurança do Azure, veja:
 
 * [Guia de Planeamento e Operações do Centro de Segurança Azure](security-center-planning-and-operations-guide.md) — Aprenda a planear e a compreender as considerações de design para adotar o Centro de Segurança Azure.

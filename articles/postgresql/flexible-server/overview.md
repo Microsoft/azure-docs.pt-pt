@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/22/2020
-ms.openlocfilehash: 71cf11673756dcefb828ad1fad0412a791b43efd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 268eedf6f9d64d52539e20006322b6b1dd9964e8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947540"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439957"
 ---
 # <a name="azure-database-for-postgresql---flexible-server"></a>Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -49,15 +49,14 @@ Durante eventos de failover planeados ou não planeados, se o servidor se deslig
 1. É a provisionado um novo computação Linux VM.
 2. O armazenamento com ficheiros de dados está mapeado para a nova Máquina Virtual
 3. O motor de base de dados PostgreSQL é colocado online na nova Máquina Virtual.
-4. O serviço Gateway garante falhas transparentes, garantindo que não são necessárias alterações laterais de aplicação.
 
 A imagem abaixo mostra a transição para VM e falha de armazenamento.
 
- :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine-storage-failure.png" alt-text="Servidor flexível - VM e falhas de armazenamento":::
+ :::image type="content" source="./media/overview/overview-azure-postgres-flex-virtualmachine.png" alt-text="Servidor flexível - VM e falhas de armazenamento":::
 
 Se a zona redundante de alta disponibilidade for configurada, as disposições de serviço e mantém um servidor de espera quente em toda a zona de disponibilidade dentro da mesma região de Azure. As alterações de dados no servidor de origem são sincronizadas replicadas no servidor de espera para garantir a perda de dados zero. Com a zona redundante alta disponibilidade, uma vez que o evento de failover planeado ou não planeado é desencadeado, o servidor de espera entra imediatamente em linha e está disponível para processar transações recebidas. Isto permite a resiliência do serviço da falha da zona de disponibilidade dentro de uma região do Azure que suporta múltiplas zonas de disponibilidade, como mostrado na imagem abaixo.
 
- :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Zona redundante alta disponibilidade":::
+ :::image type="content" source="./media/business-continuity/concepts-zone-redundant-high-availability-architecture.png" alt-text="Servidor flexível - VM e falhas de armazenamento":::
 
  Consulte [o documento de alta disponibilidade](./concepts-high-availability.md) para mais detalhes.
 
@@ -94,7 +93,7 @@ O serviço executa a versão comunitária do PostgreSQL. Isto permite a compatib
 - **Despejo e Restauro** – Para migrações offline, onde os utilizadores podem pagar algum tempo de inatividade, despejar e restaurar usando ferramentas comunitárias como pg_dump e pg_restore podem fornecer uma forma mais rápida de migrar. Consulte [a Migração utilizando o despejo e restaure-o](https://docs.microsoft.com/azure/postgresql/howto-migrate-using-dump-and-restore) para obter mais detalhes.
 - **Serviço de Migração de Bases de Dados Azure** – Para migrações perfeitas e simplificadas para servidor flexível com tempo mínimo de inatividade, o Serviço de Migração da Base de Dados Azure pode ser alavancado. Ver [DMS via portal](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online-portal) e [DMS via CLI](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online). Pode migrar da sua Base de Dados Azure para PostgreSQL - Servidor Único para Servidor Flexível. Consulte este [artigo do DMS](https://docs.microsoft.com/azure/dms/tutorial-azure-postgresql-to-azure-postgresql-online-portal) para mais detalhes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que leu uma introdução à Base de Dados Azure para o modo de implementação flexível do servidor Pós-SQL, está pronto para criar o seu primeiro servidor: [Criar uma Base de Dados Azure para PostgreSQL - Servidor Flexível utilizando o portal Azure](./quickstart-create-server-portal.md)
 

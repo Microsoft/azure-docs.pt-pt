@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: c2589b47c1619dd528ab843dcf4befd0da227d16
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b8ee222b7d65fe9b6b9a605bf055e127aef58ff9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331493"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439291"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes sobre discos de VM IaaS do Azure e discos premium geridos e não geridos
 
@@ -304,7 +304,7 @@ Não. Azure Site Recovery Azure to Azure protection for VMs with Managed Disks e
 
 **Posso migrar VMs com discos não geridos que estão localizados em contas de armazenamento que são ou foram previamente encriptadas para discos geridos?**
 
-Yes
+Sim
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Encriptação de Discos Geridos e Serviço de Armazenamento
 
@@ -342,7 +342,7 @@ Sim. Todas as imagens e imagens geridas são automaticamente encriptadas.
 
 **Posso converter VMs com discos não geridos que estão localizados em contas de armazenamento que são ou foram previamente encriptadas para discos geridos?**
 
-Yes
+Sim
 
 **Será que um VHD exportado de um disco gerido ou de um instantâneo também será encriptado?**
 
@@ -398,7 +398,7 @@ Não, os discos geridos padrão SSD de qualquer tamanho não podem ser utilizado
 
 **Qual é o maior tamanho do disco gerido suportado para sistema operativo e discos de dados?**
 
-O tipo de partição que o Azure suporta para um disco de sistema operativo é o registo principal de arranque (MBR). O formato MBR suporta um tamanho de disco até 2 TiB. O maior tamanho que o Azure suporta para um disco de sistema operativo é 4 TiB. O Azure suporta até 32 TiB para discos de dados geridos.
+O tipo de partição que o Azure suporta para um disco de sistema operativo é o registo de arranque principal (MBR) e a Tabela de Partição GUID (GPT) para Gen 1 e Gen 2 VMs. O formato MBR suporta um tamanho de disco até 2 TiB. Para os VMs da Gen 1, enquanto pode alocar até 4 TiB, só pode utilizar até 2 TiB deste espaço de disco para o sistema operativo. Para os VMs da Gen 2, o maior tamanho que pode alocar e usar para um disco de sistema operativo é 4 TiB. O Azure suporta até 32 TiB para discos de dados geridos.
 
 **Qual é o maior tamanho de disco não gerido suportado para sistema operativo e discos de dados?**
 

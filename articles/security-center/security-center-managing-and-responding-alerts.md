@@ -7,18 +7,18 @@ author: memildin
 manager: rkarlin
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: 2551a3c860dbdf27e7c9473e88c3a3293f575faa
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e17c7d6618d67d66c89875696c5c529af3a85ea9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883958"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440549"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gerir e responder a alertas de segurança no Centro de Segurança do Azure
 
@@ -75,7 +75,7 @@ O Centro de Segurança recolhe, analisa e integra automaticamente dados de regis
 
 
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 Neste documento, aprendeu a ver alertas de segurança. Consulte as seguintes páginas para obter material relacionado:
 

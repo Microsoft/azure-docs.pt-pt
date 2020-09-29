@@ -11,15 +11,15 @@ ms.service: security-center
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 07/02/2020
 ms.author: memildin
-ms.openlocfilehash: ed73c4781b9fd9926e12910ca1eb2f71d2b99245
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 2a66873d558495049c97b987dfb69bbf83b4e1d8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904833"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439485"
 ---
 # <a name="permissions-in-azure-security-center"></a>Permissions in Azure Security Center (Permissões no Centro de Segurança do Azure)
 
@@ -55,7 +55,7 @@ A tabela que se segue exibe funções e permitiu ações no Centro de Segurança
 >
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Este artigo explicou como o Security Center usa o RBAC para atribuir permissões aos utilizadores e identificou as ações permitidas para cada função. Agora que está familiarizado com as atribuições de papel necessárias para monitorizar o estado de segurança da sua subscrição, editar políticas de segurança e aplicar recomendações, aprender a:
 
 - [Definir políticas de segurança no Centro de Segurança](tutorial-security-policy.md)

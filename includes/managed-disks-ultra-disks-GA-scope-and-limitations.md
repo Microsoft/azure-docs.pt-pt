@@ -1,19 +1,19 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/25/2020
+ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: db377a933507f9a25b377ba52ebd956416a1dfd2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7b41105bafedb8eeaffe5f266f5dd824957c57e0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328231"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441181"
 ---
 Por enquanto, os discos ultra têm limitações adicionais, são os seguintes:
 
@@ -35,7 +35,9 @@ O quadro que se segue descreve as regiões em que os discos ultra estão dispon�
 |US Gov - Arizona     |Apenas VMs únicos (conjuntos de disponibilidade e conjuntos de escala de máquina virtual não são suportados)|
 |US Gov - Virginia     |Apenas VMs únicos (conjuntos de disponibilidade e conjuntos de escala de máquina virtual não são suportados)|
 |E.U.A. Oeste     |Apenas VMs únicos (conjuntos de disponibilidade e conjuntos de escala de máquina virtual não são suportados)        |
+|Austrália Central    |Apenas VMs únicos (conjuntos de disponibilidade e conjuntos de escala de máquina virtual não são suportados)|
 |Leste da Austrália     |Três zonas de disponibilidade         |
+|Sudeste Asiático    |Três zonas de disponibilidade        |
 |Canadá Central*     |Três zonas de disponibilidade          |
 |E.U.A. Central     |Três zonas de disponibilidade          |
 |E.U.A. Leste     |Três zonas de disponibilidade          |

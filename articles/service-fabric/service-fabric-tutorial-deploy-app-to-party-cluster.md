@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 4cd21669b30b8ec83d6a0538c90d4cec5cafe32a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e35b655dc8b735214de891884fe40fb951dd16cd
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244995"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441280"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutorial: Implementar uma aplicação do Service Fabric num cluster no Azure
 
@@ -78,19 +78,19 @@ No **ponto final de ligação,** selecione Criar novo **cluster**.  Se estiver a
 
 No **separador Cluster,** insira o **nome Cluster** (por exemplo, "mytestcluster"), selecione a sua subscrição, selecione uma região para o cluster (como o South Central US), introduza o número de nós de cluster (recomendamos três nós para um cluster de teste) e insira um grupo de recursos (como "mytestclustergroup"). Clique em **Seguinte**.
 
-![Criar um cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
+![A screenshot mostra o separador Cluster da caixa de diálogo Do Cluster de Tecido de Serviço Criar.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/create-cluster.png)
 
 No **separador Certificado,** introduza a palavra-passe e o percurso de saída para o certificado de cluster. Um certificado auto-assinado é criado como um ficheiro PFX e guardado na trajetória de saída especificada.  O certificado é utilizado tanto para a segurança nó-a-nó como para a segurança do cliente-a-nó.  Não use um certificado auto-assinado para clusters de produção.  Este certificado é utilizado pelo Visual Studio para autenticar com o cluster e implementar aplicações. **Selecione certificado de importação** para instalar o PFX no CurrentUser\A minha loja de certificados do seu computador.  Clique em **Seguinte**.
 
-![Criar um cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
+![A screenshot mostra o separador certificado da caixa de diálogo Do Cluster de Tecido de Serviço Criar.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/certificate.png)
 
 No **separador VM Detail,** insira o **nome de utilizador** e a **palavra-passe** para a conta de administração do cluster.  Selecione a **imagem da máquina Virtual** para os nós de cluster e o tamanho da máquina **Virtual** para cada nó de cluster.  Clique no separador **Avançado.**
 
-![Criar um cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/vm-detail.png)
+![A screenshot mostra o separador V M Detail da caixa de diálogo Do Cluster de Tecido de Serviço Criar.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/vm-detail.png)
 
 Nos Portos , **insira**o ponto final do serviço VotingWeb a partir do passo anterior (por exemplo, 8080).  Quando o cluster é criado, estas portas de aplicação são abertas no equilibrador de carga Azure para encaminhar o tráfego para o cluster.  Clique em **Criar** para criar o cluster, que demora vários minutos.
 
-![Criar um cluster](./media/service-fabric-tutorial-deploy-app-to-party-cluster/advanced.png)
+![A screenshot mostra o separador Avançado da caixa de diálogo Do Cluster de Tecido de Serviço Criar.](./media/service-fabric-tutorial-deploy-app-to-party-cluster/advanced.png)
 
 ## <a name="publish-the-application-to-the-cluster"></a>Publicar a aplicação para o cluster
 
@@ -108,7 +108,7 @@ Uma vez implementada a aplicação, abra um browser e introduza o endereço de c
 ![Exemplo de votação do Service Fabric](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-screenshot-new-azure.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Nesta parte do tutorial, ficou a saber como:
 
 > [!div class="checklist"]

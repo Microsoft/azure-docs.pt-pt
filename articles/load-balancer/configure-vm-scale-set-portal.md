@@ -6,12 +6,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: e12532107ed554385ccf38531bb95b7b70298934
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cb7bfb9ac4b10b807ac186d087b0037953abd559
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333890"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439522"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-portal"></a>Configure uma balança de máquina virtual definida com um Equilibrador de Carga Azure existente usando o portal Azure
 
@@ -62,7 +62,7 @@ Nesta secção, irá criar uma balança de máquina virtual definida no portal A
     | Confirmar palavra-passe               | Reinsenter a sua senha de administração |
 
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="Crie conjunto de escala de máquina virtual." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-01.png" alt-text="A screenshot mostra o separador de escala de máquina virtual Create Basics." border="true":::
 
 4. Selecione o **separador 'Rede'.**
 
@@ -79,7 +79,7 @@ Nesta secção, irá criar uma balança de máquina virtual definida no portal A
     | Selecione um equilibrador de carga            | Selecione **myLoadBalancer** ou o seu balanceador de carga existente |
     | Selecione uma piscina de backend             | Selecione **myBackendPool** ou o pool de backend existente.  |
 
-    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="Crie conjunto de escala de máquina virtual." border="true":::
+    :::image type="content" source="./media/vm-scale-sets/create-vm-scale-set-02.png" alt-text="A screenshot mostra o separador de escala de máquina virtual Create Basics." border="true":::
 
 6. Selecione o **separador Gestão.**
 
@@ -89,7 +89,7 @@ Nesta secção, irá criar uma balança de máquina virtual definida no portal A
 
 9. Reveja as definições e selecione o botão **Criar.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, implementou uma balança de máquina virtual definida com um Balançador de Carga Azure existente.  Para saber mais sobre conjuntos de balanças de máquinas virtuais e balanceador de carga, consulte:
 

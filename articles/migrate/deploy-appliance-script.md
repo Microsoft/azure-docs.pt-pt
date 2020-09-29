@@ -3,12 +3,12 @@ title: Configurar um aparelho Azure Migrate com um script
 description: Saiba como configurar um aparelho Azure Migrate com um script
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 5be6f161724b8ab555c406ebf6e75072d7902eda
-ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
+ms.openlocfilehash: 6b0637019e40308cf40dcdbb4dc78512a8aa91e8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89514412"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91438926"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurar um aparelho com um script
 
@@ -26,7 +26,7 @@ O script configura o aparelho Azure Migrate numa máquina física ou VM existent
 
 - A máquina que funcionará como aparelho deve satisfazer os seguintes requisitos de hardware e so:
 
-Cenário | Requisitos
+Cenário | Requirements
 --- | ---
 VMware | Windows Server 2016, com 32 GB de memória, oito vCPUs, cerca de 80 GB de armazenamento de disco
 Hyper-V | Windows Server 2016, com 16 GB de memória, oito vCPUs, cerca de 80 GB de armazenamento de disco
@@ -46,12 +46,12 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 1. No computador para o qual transferiu o ficheiro, abra uma janela de comando de administrador.
 2. Executar o seguinte comando para gerar o haxixe para o ficheiro zipped
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256```
+    - Exemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-VMware-Public.zip SHA256```
 3. Verifique a versão e o script mais recente do aparelho para a nuvem pública Azure:
 
     **Algoritmo** | **Transferência** | **SHA256**
     --- | --- | ---
-    VMware (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2116601) | 72fef66b8efd93106e626ea87354af0fb800893f9cb77edb5490490106c6a193
+    VMware (85.8 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2116601) | 85b74d93dfcee434123861808d82147916330e66669f94c7969fe1b3d0fe72
 
 
 
@@ -94,13 +94,13 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 1. No computador para o qual transferiu o ficheiro, abra uma janela de comando de administrador.
 2. Executar o seguinte comando para gerar o haxixe para o ficheiro zipped
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256```
+    - Exemplo: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-HyperV.zip SHA256```
 
 3. Verifique a versão e o script mais recente do aparelho para a nuvem pública Azure:
 
     **Cenário** | **Transferência** | **SHA256**
     --- | --- | ---
-    Hiper-V (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2116657) |  bea013eab690ae3a47622c55becd87c369c14834e52f8cafe6ad0ed7f416b4f
+    Hiper-V (85,8 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2116657) |  9bbef62e22481eda4b77c7fdf05db98c3767c20f0a873114fb0dcfa6ed682a
 
 ### <a name="run-the-script"></a>Executar o script
 

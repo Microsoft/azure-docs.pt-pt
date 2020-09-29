@@ -3,18 +3,18 @@ title: Documentação da plataforma de identidade da Microsoft
 summary: A plataforma de identidades da Microsoft é um serviço de autenticação, bibliotecas open-source e ferramentas de gestão de aplicações. Aprenda a criar soluções de autenticação modernas e baseadas em padrões com os nossos inícios rápidos, tutoriais e exemplos de código. Crie aplicações nas quais os seus utilizadores e clientes iniciam sessão para utilizarem as respetivas identidades da Microsoft ou contas de redes sociais e autorize o acesso às suas APIs ou APIs da Microsoft, como o Microsoft Graph.
 metadata:
   ms.topic: landing-page
-  ms.date: 08/11/2020
+  ms.date: 09/26/2020
   author: mmacy
   ms.author: marsma
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: c0f87da61b0fa2d4aed57eeef7ee9829a17d0f80
-  ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+  ms.openlocfilehash: d80d722594e717319bda473e2cb86551acc8d9f0
+  ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/25/2020
-  ms.locfileid: "91258375"
+  ms.lasthandoff: 09/28/2020
+  ms.locfileid: "91403148"
 landingContent:
 - title: Acerca da plataforma de identidade da Microsoft
   linkLists:
@@ -64,8 +64,8 @@ landingContent:
       url: quickstart-v2-aspnet-webapp.md
     - text: ASP.NET Core
       url: quickstart-v2-aspnet-core-webapp.md
-    - text: Python
-      url: quickstart-v2-python-webapp.md
+    - text: Blazor Server
+      url: tutorial-blazor-server.md
 - title: Aplicações móveis/nativas
   linkLists:
   - linkListType: get-started
@@ -120,6 +120,8 @@ landingContent:
   linkLists:
   - linkListType: whats-new
     links:
+    - text: 'Tutorial: Blazor Server'
+      url: tutorial-blazor-server.md
     - text: 'Início Rápido: Proteger uma API Web do ASP.NET Core'
       url: quickstart-v2-aspnet-core-web-api.md
     - text: Referência da API de Python MSAL
@@ -136,5 +138,3 @@ landingContent:
       url: msal-android-handling-exceptions.md
     - text: Atributos de extensão de esquema de diretório em afirmações
       url: active-directory-schema-extensions.md
-    - text: Código de autenticação MSAL.js 2.0 + PKCE e CORS
-      url: quickstart-v2-javascript-auth-code.md

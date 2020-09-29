@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 17a3d0364f3085e4baf4e0faa40f117d9fbbb04f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 12140b71f8ef720a9e48b486a43e683b5766d102
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268167"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439004"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utilize controlos de aplicação adaptativos para reduzir as superfícies de ataque das suas máquinas
 
@@ -54,7 +54,7 @@ Ao definir listas de aplicações conhecidas e gerar alertas quando qualquer out
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
 |Máquinas suportadas:|![Sim ](./media/icons/yes-icon.png) Azure e máquinas não-Azure que executam Windows e Linux<br>![Sim ](./media/icons/yes-icon.png) [Azure Arc](https://docs.microsoft.com/azure/azure-arc/) máquinas|
 |Funções e permissões necessárias:|**As** funções de Leitor de Segurança e **Leitor** podem ver grupos e listas de aplicações conhecidas e seguras<br>**As** funções de Administrador de Colaborador e **Segurança** podem editar grupos e listas de aplicações conhecidas e seguras|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -225,7 +225,7 @@ Algumas das funções que estão disponíveis na API REST:
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, aprendeu a utilizar o controlo de aplicações adaptativas no Azure Security Center para definir as listas de aplicações em execução nas suas máquinas Azure e não-Azure. Para saber mais sobre algumas das outras funcionalidades de proteção da carga de trabalho em nuvem do Security Center, consulte:
 
 * [Compreensão do acesso ao VM just-in-time (JIT)](just-in-time-explained.md)

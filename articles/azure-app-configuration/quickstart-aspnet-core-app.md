@@ -9,12 +9,12 @@ ms.custom: devx-track-csharp, contperfq1
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: dc886ae2e113b77a6c49219a61a905aaeeb7d2a5
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 5fd042b91ede91491590a53abf4dec552fbf6487
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372341"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440404"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Quickstart: Criar uma aplicação Core ASP.NET com configuração de aplicações Azure
 
@@ -53,59 +53,7 @@ Executar o seguinte comando para criar um projeto core MVC ASP.NET numa nova pas
 dotnet new mvc --no-https --output TestAppConfig
 ```
 
-## <a name="add-secret-manager"></a>Adicionar Gerente Secreto
-
-Uma ferramenta chamada Secret Manager armazena dados sensíveis para trabalhos de desenvolvimento fora da sua árvore do projeto. Esta abordagem ajuda a evitar a partilha acidental de segredos de aplicações no código fonte. Complete os seguintes passos para permitir a utilização de Gestor Secreto no projeto:
-
-#### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
-
-Executar o seguinte comando para permitir o armazenamento de segredos no projeto:
-
-```dotnetcli
-dotnet user-secrets init
-```
-
-Um `UserSecretsId` elemento que contenha um GUID é adicionado ao ficheiro *.csproj:*
-
-```xml
-<Project Sdk="Microsoft.NET.Sdk.Web">
-    
-    <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
-        <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-    </PropertyGroup>
-
-</Project>
-```
-
-#### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
-
-1. Abra o ficheiro *.csproj.*
-
-1. Adicione um `UserSecretsId` elemento ao ficheiro *.csproj* como mostrado aqui. Pode usar o mesmo GUID, ou pode substituir este valor pelo seu.
-
-    ```xml
-    <Project Sdk="Microsoft.NET.Sdk.Web">
-    
-        <PropertyGroup>
-            <TargetFramework>netcoreapp2.1</TargetFramework>
-            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
-        </PropertyGroup>
-    
-        <ItemGroup>
-            <PackageReference Include="Microsoft.AspNetCore.App" />
-            <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
-        </ItemGroup>
-    
-    </Project>
-    ```
-    
-1. Guarde o ficheiro *.csproj.*
-
----
-
-> [!TIP]
-> Para saber mais sobre o Secret Manager, consulte [o armazenamento seguro de segredos de aplicações em desenvolvimento em ASP.NET Core.](/aspnet/core/security/app-secrets)
+[!INCLUDE[Add Secret Manager support to an ASP.NET Core project](../../includes/azure-app-configuration-add-secret-manager.md)]
 
 ## <a name="connect-to-the-app-configuration-store"></a>Conecte-se à loja de Configuração de Aplicações
 
@@ -225,7 +173,7 @@ No código anterior, as chaves da loja de configuração de aplicações são ut
 
 [!INCLUDE[Azure App Configuration cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, irá:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: 2ef7095d186902425adb5065c470325be1283023
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: d06501abe69ce9b06656cfa8949c42bb53a03983
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475741"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439255"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Conector de registos Azure Monitor para Apps Lógicas e Automatização de Energia
 [As Azure Logic Apps](../../logic-apps/index.yml) e [Power Automamate](https://flow.microsoft.com) permitem criar fluxos de trabalho automatizados usando centenas de ações para uma variedade de serviços. O conector Azure Monitor Logs permite-lhe construir fluxos de trabalho que recuperem dados de um espaço de trabalho do Log Analytics ou de uma aplicação de Insights de Aplicação no Azure Monitor. Este artigo descreve as ações incluídas com o conector e fornece uma passagem para construir um fluxo de trabalho usando estes dados.
@@ -68,7 +68,7 @@ Clique **+ Novo passo** para adicionar uma ação que corre após a ação de re
 
 Clique em **Azure Log Analytics – Faça consulta e visualize resultados.**
 
-![Executar consulta e visualizar a ação de resultados](media/logicapp-flow-connector/select-query-action-visualize.png)
+![Screenshot de uma nova ação sendo adicionada a um passo no Logic App Designer. Os Registos monitores Azure são destacados no Choose a action.](media/logicapp-flow-connector/select-query-action-visualize.png)
 
 
 ### <a name="add-azure-monitor-logs-action"></a>Adicione ação de registos do monitor Azure
@@ -87,7 +87,7 @@ Event
 
 Selecione *Definir em consulta* para o intervalo de **tempo** e **tabela HTML** para o tipo **de gráfico**.
    
-![Executar consulta e visualizar a ação de resultados](media/logicapp-flow-connector/run-query-visualize-action.png)
+![Screenshot das definições para a nova ação Azure Monitor Logs chamada consulta run e visualizar resultados.](media/logicapp-flow-connector/run-query-visualize-action.png)
 
 O correio será enviado pela conta associada à ligação atual. Pode especificar outra conta clicando na **ligação Change**.
 
@@ -122,7 +122,7 @@ Quando a aplicação lógica estiver concluída, verifique o correio do destinat
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [consultas de registo no Azure Monitor](../log-query/log-query-overview.md).
 - Saiba mais sobre [aplicações lógicas](../../logic-apps/index.yml)

@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 6f13a465aa43f0c45fa99d2ea396a5ca92d75d66
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.openlocfilehash: 47cf0a1f1d40b9e8358d6bdb4a3ea6a501b67da2
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85446394"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439208"
 ---
 # <a name="send-azure-activity-log-to-log-analytics-workspace-using-azure-portal"></a>Enviar log de atividade azure para log analytics espaço de trabalho usando o portal Azure
 O registo de Atividades é um registo de plataforma no Azure que fornece informações sobre eventos de nível de subscrição. Isto inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Pode visualizar o registo de Atividade no portal Azure ou recuperar entradas com PowerShell e CLI. Este quickstart mostra como usar o portal Azure para criar um espaço de trabalho log Analytics e uma definição de diagnóstico para enviar o registo de Atividade para Registos do Monitor Azure, onde pode analisá-lo usando [consultas de registo](../log-query/log-query-overview.md) e ativar [outras funcionalidades,](../platform/alerts-log-query.md) tais como alertas de registo e livros de [trabalho.](../platform/workbooks-overview.md) 
@@ -24,7 +24,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 ## <a name="create-a-log-analytics-workspace"></a>Criar uma área de trabalho do Log Analytics
 No portal Azure, procure e, em seguida, selecione **log analytics espaços de trabalho**. 
 
-![Portal do Azure](media/quick-create-workspace/azure-portal-01.png)
+![Screenshot do portal Azure mostrando "log analytics workspaces" na caixa de pesquisa e espaços de trabalho Log Analytics destacados nos Serviços.](media/quick-create-workspace/azure-portal-01.png)
   
 Clique **em Adicionar**, e, em seguida, forneça valores para o grupo de **Recursos,** nome **do**espaço de trabalho e **localização**. O nome do espaço de trabalho deve ser único em todas as subscrições do Azure.
 
@@ -36,7 +36,7 @@ Clique **em Rever + criar** para rever as definições e, em seguida, **criar** 
 ## <a name="create-diagnostic-setting"></a>Criar definição de diagnóstico
 No portal Azure, procure e, em seguida, selecione **Monitor**. 
 
-![Portal do Azure](media/quick-collect-activity-log/azure-portal-monitor.png)
+![Screenshot do portal Azure com "monitor" na caixa de pesquisa e Monitor destacado em Serviços.](media/quick-collect-activity-log/azure-portal-monitor.png)
 
 Selecione **registo de atividades**. Deve ver eventos recentes para a subscrição atual. Clique **nas definições de Diagnóstico** para visualizar as definições de diagnóstico para a subscrição.
 
@@ -72,7 +72,7 @@ Experimente uma consulta mais complexa, como `AzureActivity | summarize count() 
 ![Consulta complexa](media/quick-collect-activity-log/query-02.png)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste arranque rápido, configuraste o registo de Atividade para ser enviado para um espaço de trabalho do Log Analytics. Pode agora configurar outros dados a serem recolhidos no espaço de trabalho onde pode analisá-los em conjunto usando [consultas de registo](../log-query/log-query-overview.md) no Azure Monitor e funcionalidades de alavancagem, tais como [alertas](../platform/alerts-log-query.md) de registo e livros de [trabalho.](../platform/workbooks-overview.md) Em seguida, deverá recolher [registos](../platform/resource-logs.md) de recursos dos seus recursos Azure que complementam os dados no registo de Atividade fornecendo informações sobre as operações que foram realizadas dentro de cada recurso.
 
 

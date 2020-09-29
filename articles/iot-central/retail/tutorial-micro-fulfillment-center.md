@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 880d8ee0e6e2b3984f6bea4b994642724085d512
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 28afa98313ef1c9577e90ed161a1d20cbf5faf75
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90980547"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440204"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação do centro de micro-realização
 
@@ -62,11 +62,11 @@ A partir do painel de instrumentos, pode:
    * Veja a planta do piso e a localização dos portadores robóticos dentro da estrutura de realização.
    * Os comandos de gatilho, tais como a reposição do sistema de controlo, a atualização do firmware da transportadora e a reconfiguração da rede.
 
-     ![Screenshot da metade superior do painel de micro-realização dos Northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
+     ![Screenshot da metade superior do painel de micro-realização northwind Traders.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard1.png)
    * Veja um exemplo do painel de instrumentos que um operador pode utilizar para monitorizar as condições dentro do centro de realização. 
    * Monitorize a saúde das cargas que estão a funcionar no dispositivo de gateway dentro do centro de realização.    
 
-     ![Screenshot da metade botton do centro de micro-realização northwind Traders](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
+     ![Screenshot da metade botton do centro de micro-realização northwind Traders.](./media/tutorial-micro-fulfillment-center-app/mfc-dashboard2.png)
 
 ## <a name="device-template"></a>Modelo de dispositivo
 Se selecionar o separador modelos do dispositivo, verá que existem dois tipos de dispositivos diferentes que fazem parte do modelo: 
@@ -90,7 +90,7 @@ Se não continuar a utilizar esta aplicação, elimine o modelo de aplicação. 
 
 ![Screenshot da página de definições de aplicação do centro de micro-realização](./media/tutorial-micro-fulfillment-center-app/delete.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Mais informações sobre
 > [!div class="nextstepaction"]

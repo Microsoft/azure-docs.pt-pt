@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: f0ff647581447ad4436daf6c8b1d2ecbf817f7f8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 78165e9c14d4a83dbc20cbccd2f31dc8ac4c79ed
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90983627"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440869"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Registos e métricas Azure Virtual WAN
 
@@ -66,7 +66,7 @@ Os seguintes passos ajudam-no a localizar e a visualizar métricas:
 
 4. Na página **Métricas,** pode ver as métricas em que está interessado.
 
-   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="página de métricas":::
+   :::image type="content" source="./media/logs-metrics/metrics-page.png" alt-text="A screenshot mostra um site para o painel V P N com vista no Monitor Azure selecionado.":::
 
 ## <a name="diagnostic-logs"></a><a name="diagnostic"></a>Registos de diagnósticos
 
@@ -93,15 +93,15 @@ Os seguintes passos ajudam-no a localizar e a visualizar diagnósticos:
 
 1. No portal, navegue para o seu recurso Virtual WAN. Na secção **Visão Geral** da página Geral WAN no portal, selecione **Essentials** para expandir a vista e obter informações de grupo de recursos. Copie a informação do grupo de recursos.
 
-   :::image type="content" source="./media/logs-metrics/3.png" alt-text="página de métricas":::
+   :::image type="content" source="./media/logs-metrics/3.png" alt-text="A screenshot mostra um site para o painel V P N com vista no Monitor Azure selecionado.":::
 
 2. Na secção de Monitorização, navegue para o grupo de recursos. Selecione **definições de diagnóstico**e, em seguida, insira as informações de recursos. Esta é a informação de recursos que copiou no Passo 2 da secção [de métricas do Gateway View,](#metrics-steps) no início deste artigo.
 
-   :::image type="content" source="./media/logs-metrics/4.png" alt-text="página de métricas":::
+   :::image type="content" source="./media/logs-metrics/4.png" alt-text="A screenshot mostra um site para o painel V P N com vista no Monitor Azure selecionado.":::
 
 3. Na página de resultados, selecione **+Adicionar a definição de diagnóstico**e, em seguida, selecione uma opção. Pode optar por enviar para Log Analytics, transmitir para um centro de eventos ou simplesmente arquivar para uma conta de armazenamento.
 
-   :::image type="content" source="./media/logs-metrics/5.png" alt-text="página de métricas":::
+   :::image type="content" source="./media/logs-metrics/5.png" alt-text="A screenshot mostra um site para o painel V P N com vista no Monitor Azure selecionado.":::
 
 ### <a name="log-analytics-sample-query"></a><a name="sample-query"></a>Consulta de amostra de Log Analytics
 
@@ -121,7 +121,7 @@ Substitua os valores abaixo, após o **= =**, conforme necessário.
 
 **As** entradas de registo de atividade são recolhidas por predefinição e podem ser vistas no portal Azure. Pode utilizar registos de atividades da Azure (anteriormente conhecidos como *registos operacionais* e *registos de auditoria)* para visualizar todas as operações submetidas à sua subscrição do Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para aprender a monitorizar registos e métricas do Azure Firewall, consulte [Tutorial: Monitor Azure Firewall .](../firewall/tutorial-diagnostics.md)
 * Para saber mais sobre as métricas no Azure Monitor, consulte [métricas no Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).

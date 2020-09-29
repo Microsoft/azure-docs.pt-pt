@@ -249,6 +249,8 @@
           href: connector-azure-database-for-mysql.md
         - name: Base de Dados do Azure para PostgreSQL
           href: connector-azure-database-for-postgresql.md
+        - name: Delta Lake no Azure Databricks
+          href: connector-azure-databricks-delta-lake.md
         - name: Armazenamento de Ficheiros do Azure
           href: connector-azure-file-storage.md
         - name: Base de Dados SQL do Azure

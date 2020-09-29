@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 08/17/2020
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: cd4ec60691344cef4030472b474a82e84c70244f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8c9e6462beb48e3326de3c2348b73053f717e032
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91261180"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441276"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-hololens-unity-app-using-azure-spatial-anchors"></a>Tutorial: Instruções passo a passo para criar uma nova app HoloLens Unitity usando âncoras espaciais Azure
 
@@ -208,7 +208,7 @@ Finalmente, vamos juntar tudo. No seu `CreateAndSaveSphere()` método, adicione 
 
 [!code-csharp[AzureSpatialAnchorsScript](../../../includes/spatial-anchors-new-unity-hololens-app-finished.md?range=320-397&highlight=26-77)]
 
-Execute o seu aplicativo a partir do **Visual Studio** mais uma vez. Mova-se à volta da cabeça e toque de ar para colocar a esfera. Assim que tivermos quadros suficientes, a esfera ficará amarela, e o upload da nuvem começará. Assim que o upload terminar, a sua esfera ficará azul. Opcionalmente, também pode utilizar a [janela Saída](https://docs.microsoft.com/visualstudio/ide/reference/output-window) enquanto desormes no **Estúdio Visual** para monitorizar as mensagens de registo que a sua aplicação está a enviar. Pode ver o `RecommendedForCreateProgress` , e assim que o upload estiver completo, poderá ver o identificador de âncora devolvido da nuvem.
+Execute o seu aplicativo a partir do **Visual Studio** mais uma vez. Mova-se à volta da cabeça e toque de ar para colocar a esfera. Assim que tivermos quadros suficientes, a esfera ficará amarela, e o upload da nuvem começará. Assim que o upload terminar, a sua esfera ficará azul. Opcionalmente, também pode utilizar a [janela Saída](https://docs.microsoft.com/visualstudio/ide/reference/output-window) enquanto desormes no **Estúdio Visual** para monitorizar as mensagens de registo que a sua aplicação está a enviar. Certifique-se de que implementa a `Debug` configuração da sua aplicação a partir do Visual Studio para ver as mensagens de registo. Pode ver o `RecommendedForCreateProgress` , e assim que o upload estiver completo, poderá ver o identificador de âncora devolvido da nuvem.
 
 > [!NOTE]
 > Se obtém "DllNotFoundException: Incapaz de carregar DLL 'AzureSpatialAnchors": O módulo especificado não foi encontrado.» deve **limpar** e construir novamente **a** sua solução.

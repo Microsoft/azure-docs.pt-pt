@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: c8a2a589-b737-46c1-b508-7ea52e301e8f
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 5e58904b9462a3e23d95eda9babad4fb47cde4a7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 89230b6aca9e225c28a1efd0b99476b35f4d8db0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323747"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439558"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Comparar linhas de base com a Monitorização d a Integridade dos Ficheiros (FIM)
 

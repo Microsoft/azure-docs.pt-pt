@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 5b2446aa62b16dcf9773c367d87faac65d79fa0b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 4a709527c0de2e092bcca2bbd9bc596aa0eb4cc0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904855"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440725"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteja as suas portas de gestão com acesso just-in-time
 
@@ -37,7 +37,7 @@ Esta página ensina-lhe como incluir o JIT no seu programa de segurança. Vai ap
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
 |VMs suportados:|![Sim ](./media/icons/yes-icon.png) VMs implantados através do Azure Resource Manager.<br>![Não há ](./media/icons/no-icon.png) VMs implantados com modelos clássicos de implantação. [Saiba mais sobre estes modelos de implantação.](../azure-resource-manager/management/deployment-models.md)<br>![Sem ](./media/icons/no-icon.png) VMs protegidos por Firewalls Azure controlados pelo [Azure Firewall Manager](https://docs.microsoft.com/azure/firewall-manager/overview)|
 |Funções e permissões necessárias:|**As** funções reader e **SecurityReader** podem visualizar o estado e os parâmetros do JIT.<br>Para criar funções personalizadas que possam funcionar com o JIT, veja [quais as permissões necessárias para configurar e utilizar o JIT?](just-in-time-explained.md#what-permissions-are-needed-to-configure-and-use-jit)<br>Para criar um papel menos privilegiado para os utilizadores que precisam solicitar o acesso do JIT a um VM, e não realizar outras operações JIT, use o [script Set-JitLeastPrivilegedRole](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20scripts/JIT%20Custom%20Role) a partir das páginas comunitárias do Centro de Segurança GitHub.|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -241,7 +241,7 @@ Cada uma destas opções é explicada num separado abaixo.
 
 Quando um VM tem um JIT ativado, tem de solicitar acesso para se ligar ao mesmo. Pode solicitar o acesso de qualquer uma das formas apoiadas, independentemente da forma como ativou o JIT.
 
-:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Solicitando acesso JIT do Centro de Segurança":::
+:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Configurar o acesso jit VM no Centro de Segurança Azure":::
 
 1. A partir da página **de acesso VM just-in-time,** selecione o separador **Configurado.**
 
@@ -363,7 +363,7 @@ Você pode obter insights sobre as atividades de VM usando a pesquisa de registo
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a configurar e utilizar o acesso vm mesmo a tempo. Para saber por que o JIT deve ser usado, leia o artigo do conceito explicando as ameaças contra as quais defende:
 

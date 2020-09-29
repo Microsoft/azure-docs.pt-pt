@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e929463c33603c650bec2e9a49a13dde6965e39f
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: bf8b8554aa2ea1d6d06f58f726ca65f77499ec5f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926659"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91440048"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Compreender as capacidades offline alargadas para dispositivos, módulos e dispositivos ioT Edge
 
@@ -68,7 +68,7 @@ Pode declarar a relação pai-filho ao criar um novo dispositivo. Ou para dispos
 
 #### <a name="option-2-use-the-az-command-line-tool"></a>Opção 2: Utilize a `az` ferramenta de linha de comando
 
-Utilizando a [interface de linha de comando Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) com [extensão IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 ou mais recente), pode gerir as relações dos pais com as subcomeças de identidade do [dispositivo.](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest) O exemplo abaixo utiliza uma consulta para atribuir todos os dispositivos não-IoT Edge no centro para serem dispositivos infantis de um dispositivo IoT Edge.
+Utilizando a [interface de linha de comando Azure](/cli/azure/) com [extensão IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 ou mais recente), pode gerir as relações dos pais com as subcomeças de identidade do [dispositivo.](/cli/azure/ext/azure-iot/iot/hub/device-identity) O exemplo abaixo utiliza uma consulta para atribuir todos os dispositivos não-IoT Edge no centro para serem dispositivos infantis de um dispositivo IoT Edge.
 
 ```azurecli
 # Set IoT Edge parent device
@@ -138,7 +138,7 @@ Esta definição é uma propriedade desejada do hub IoT Edge, que é armazenado 
 
 As mensagens e as informações do estado do módulo são armazenadas no sistema de ficheiros de contentores locais do hub IoT Edge por padrão. Para uma maior fiabilidade, especialmente ao operar offline, também pode dedicar armazenamento no dispositivo IoT Edge do anfitrião. Para obter mais informações, consulte [Dar acesso aos módulos ao armazenamento local de um dispositivo](how-to-access-host-storage-from-module.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como configurar uma porta de entrada transparente para as ligações entre pais e filhos:
 

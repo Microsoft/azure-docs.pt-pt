@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: ac76ce5d4fb788e6c2fb3dc9ec01c8d88bfb55cb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0c777c2461047f21e8fb413faec6d5f1140fc75f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268082"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91438813"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Validação de alerta no Centro de Segurança Azure
 Este documento ajuda-o a aprender como verificar se o sistema está corretamente configurado para os alertas do Centro de Segurança do Azure.
@@ -68,7 +68,7 @@ Se integrou o Serviço Azure Kubernetes com o Security Center, pode testar que o
 
 Para obter mais informações sobre a defesa dos seus nódoas e aglomerados Kubernetes, consulte [Introdução ao Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Este artigo apresentou-lhe o processo de validação de alertas. Agora que está familiarizado com a validação, experimente os seguintes artigos:
 
 * [Validação da deteção de ameaças de cofre de chave Azure no Centro de Segurança Azure](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 0ba603dad7d48be725f308f3a3296676c5f4f108
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/26/2020
+ms.openlocfilehash: 9127df2805a7eef5b119a64fd8d8ccdab52f22f8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90883244"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91439088"
 ---
 # <a name="train-pytorch-model"></a>Preparar um Modelo do PyTorch
 
@@ -49,7 +49,7 @@ Este artigo descreve como usar o módulo **Train Pytorch Model** em Azure Machin
 
 8.  Para **Patience**, especifique quantas épocas para parar cedo o treino se a perda de validação não diminuir consecutivamente. por defeito 3.
 
-9.  Envie o oleoduto. Se o seu conjunto de dados tiver um tamanho maior, levará algum tempo.
+9.  Envie o oleoduto. Se o seu conjunto de dados tiver um tamanho maior, levará algum tempo e recomenda-se a computação gpu.
 
 ## <a name="results"></a>Resultados
 
@@ -68,11 +68,11 @@ Após a execução do gasoduto, para utilizar o modelo para pontuação, ligue o
 
 | Name          | Intervalo            | Tipo    | Predefinição | Descrição                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
-| Épocas        | >0               | Integer (Número inteiro) | 5       | Selecione a coluna que contém a etiqueta ou coluna de resultados |
-| Tamanho do lote    | >0               | Integer (Número inteiro) | 16      | Quantas instâncias para treinar num lote   |
+| Épocas        | >0               | Número inteiro | 5       | Selecione a coluna que contém a etiqueta ou coluna de resultados |
+| Tamanho do lote    | >0               | Número inteiro | 16      | Quantas instâncias para treinar num lote   |
 | Taxa de aprendizagem | >=duplo. Epsilon | Float   | 0.001   | A taxa de aprendizagem inicial para o otimizador de descida de gradiente estocástico. |
-| Sementes aleatórias   | Qualquer              | Integer (Número inteiro) | 1       | A semente para o gerador de números aleatórios usado pelo modelo. |
-| Paciência      | >0               | Integer (Número inteiro) | 3       | Quantas épocas para parar o treino precoce   |
+| Sementes aleatórias   | Qualquer              | Número inteiro | 1       | A semente para o gerador de números aleatórios usado pelo modelo. |
+| Paciência      | >0               | Número inteiro | 3       | Quantas épocas para parar o treino precoce   |
 
 ###  <a name="outputs"></a>Saídas  
 
@@ -80,7 +80,7 @@ Após a execução do gasoduto, para utilizar o modelo para pontuação, ligue o
 | ------------- | -------------- | ------------- |
 | Modelo treinado | ModelDirectory | Modelo treinado |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 
