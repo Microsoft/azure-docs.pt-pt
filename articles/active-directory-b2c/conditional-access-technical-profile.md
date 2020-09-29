@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d2a62b55ce7f8cd408afeb2f10fd40f42b36d53d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: ef7599441cbfa11c555453adea0ca135569524b5
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89393943"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91459834"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de acesso condicional numa política personalizada do Azure Ative Directory B2C
 
@@ -53,7 +53,7 @@ Para cada sing-in, o Azure AD B2C avalia todas as políticas e garante que todos
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| OperaçãoType | Yes | Deve ser **avaliação.**  |
+| OperaçãoType | Sim | Deve ser **avaliação.**  |
 
 ### <a name="input-claims"></a>Reclamações de entrada
 
@@ -61,10 +61,10 @@ O elemento **InputClaims** contém uma lista de reclamações a enviar para Aces
 
 | ReclamaçãoReferênciaId | Necessário | Tipo de Dados | Descrição |
 | --------- | -------- | ----------- |----------- |
-| IDUtilizador | Yes | string | O identificador do utilizador que se inscreve. |
-| Autenticação MehodsUsed | Yes |stringCollection | A lista de métodos que o utilizador usou para iniciar sinscrevi-se. Valores possíveis: `Password` e `OneTimePasscode` . |
-| IsFederated | Yes |boolean | Indica se um utilizador assinou ou não com uma conta federada. O valor deve `false` ser. |
-| IsMfaRegistered | Yes |boolean | Indica se o utilizador já inscreveu um número de telefone para autenticação multi-factor. |
+| IDUtilizador | Sim | string | O identificador do utilizador que se inscreve. |
+| Autenticação MehodsUsed | Sim |stringCollection | A lista de métodos que o utilizador usou para iniciar sinscrevi-se. Valores possíveis: `Password` e `OneTimePasscode` . |
+| IsFederated | Sim |boolean | Indica se um utilizador assinou ou não com uma conta federada. O valor deve `false` ser. |
+| IsMfaRegistered | Sim |boolean | Indica se o utilizador já inscreveu um número de telefone para autenticação multi-factor. |
 
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de elementos de **entradaClaimsTransformation** que são utilizados para modificar as reclamações de entrada ou gerar novas antes de enviá-las para o serviço de Acesso Condicional.
@@ -75,8 +75,8 @@ O elemento **OutputClaims** contém uma lista de reclamações geradas pelo Cond
 
 | ReclamaçãoReferênciaId | Necessário | Tipo de Dados | Descrição |
 | --------- | -------- | ----------- |----------- |
-| Desafios | Yes |stringCollection | Lista de ações para remediar a ameaça identificada. Valores possíveis: `block` |
-| MultiConditionalAccessStatus | Yes | stringCollection |  |
+| Desafios | Sim |stringCollection | Lista de ações para remediar a ameaça identificada. Valores possíveis: `block` |
+| MultiConditionalAccessStatus | Sim | stringCollection |  |
 
 O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos de **saídaClaimsTransformation** que são utilizados para modificar as alegações de saída ou gerar novos.
 
@@ -92,7 +92,7 @@ O exemplo a seguir mostra um perfil técnico de Acesso Condicional que é utiliz
     <Item Key="OperationType">Evaluation</Item>
   </Metadata>
   <InputClaimsTransformations>
-    <InputClaimsTransformation ReferenceId="IsMfaRegistered" />
+    <InputClaimsTransformation ReferenceId="IsMfaRegisteredCT" />
   </InputClaimsTransformations>
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="UserId" />
@@ -115,7 +115,7 @@ O modo de **remediação** do perfil técnico de Acesso Condicional informa a Az
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| OperaçãoType | Yes | Deve ser **remediação.**  |
+| OperaçãoType | Sim | Deve ser **remediação.**  |
 
 ### <a name="input-claims"></a>Reclamações de entrada
 
@@ -123,7 +123,7 @@ O elemento **InputClaims** contém uma lista de reclamações a enviar para Aces
 
 | ReclamaçãoReferênciaId | Necessário | Tipo de Dados | Descrição |
 | --------- | -------- | ----------- |----------- |
-| DesafiosSSatisficados | Yes | stringCollection| A lista de desafios satisfeitos para remediar a ameaça identificada como retorno do modo de avaliação, desafia a reivindicação.|
+| DesafiosSSatisficados | Sim | stringCollection| A lista de desafios satisfeitos para remediar a ameaça identificada como retorno do modo de avaliação, desafia a reivindicação.|
 
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de elementos de **entradaClaimsTransformation** que são utilizados para modificar as reclamações de entrada ou gerar novas antes de ligar para o serviço de Acesso Condicional.
@@ -367,6 +367,7 @@ No seu elemento TrustFrameworkPolicy, adicione estas Sub-Jornadas como mostrado 
         </OrchestrationStep>
       </OrchestrationSteps>
     </SubJourney>
+  </SubJourneys>
 
 ```
 
@@ -376,7 +377,7 @@ Adicione uma viagem de utilizador que utiliza as novas reclamações, como mostr
   <UserJourneys>
     <UserJourney Id="SignUpOrSignInWithCA">
       <OrchestrationSteps>
-        <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsigninsam">
+        <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
           <ClaimsProviderSelections>
             <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
 
@@ -412,20 +413,14 @@ Adicione uma viagem de utilizador que utiliza as novas reclamações, como mostr
           </ClaimsExchanges>
         </OrchestrationStep>
 
-        <OrchestrationStep Order="4" Type="ClaimsExchange">
-          <ClaimsExchanges>
-            <ClaimsExchange Id="UserJourneyContext" TechnicalProfileReferenceId="SimpleUJContext" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-
-        <OrchestrationStep Order="5" Type="InvokeSubJourney">
+        <OrchestrationStep Order="4" Type="InvokeSubJourney">
           <JourneyList>
             <Candidate SubJourneyReferenceId="ConditionalAccess_Evaluation" />
           </JourneyList>
         </OrchestrationStep>
 
         <!--MFA based on Conditional Access-->
-        <OrchestrationStep Order="6" Type="ClaimsExchange">
+        <OrchestrationStep Order="5" Type="ClaimsExchange">
           <Preconditions>
             <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
               <Value>CAChallengeIsMfa</Value>
@@ -443,7 +438,7 @@ Adicione uma viagem de utilizador que utiliza as novas reclamações, como mostr
         </OrchestrationStep>
 
         <!--Save MFA phone number: The precondition verifies whether the user provided a new number in the previous step. If so, the phone number is stored in the directory for future authentication requests.-->
-        <OrchestrationStep Order="7" Type="ClaimsExchange">
+        <OrchestrationStep Order="6" Type="ClaimsExchange">
           <Preconditions>
             <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
               <Value>newPhoneNumberEntered</Value>
@@ -455,7 +450,7 @@ Adicione uma viagem de utilizador que utiliza as novas reclamações, como mostr
           </ClaimsExchanges>
         </OrchestrationStep>
 
-        <OrchestrationStep Order="8" Type="ClaimsExchange" >
+        <OrchestrationStep Order="7" Type="ClaimsExchange" >
           <Preconditions>
             <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
               <Value>CAChallengeIsBlock</Value>
@@ -474,12 +469,12 @@ Adicione uma viagem de utilizador que utiliza as novas reclamações, como mostr
 
         <!--If a user has reached this point, this means a remediation was applied-->
         <!--  You can add a precondition here to call remediation only if a Conditional Access challenge was issued-->
-        <OrchestrationStep Order="9" Type="InvokeSubJourney">
+        <OrchestrationStep Order="8" Type="InvokeSubJourney">
           <JourneyList>
             <Candidate SubJourneyReferenceId="ConditionalAccess_Remediation" />
           </JourneyList>
         </OrchestrationStep>
-        <OrchestrationStep Order="10" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+        <OrchestrationStep Order="9" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
       </OrchestrationSteps>
       <ClientDefinition ReferenceId="DefaultWeb" />
     </UserJourney>

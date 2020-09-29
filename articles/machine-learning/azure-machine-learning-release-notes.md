@@ -9,18 +9,55 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: d89a5c951f2923f9e107dd2dabec7773f292fa02
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8df50096cc123003299b86da88f9230c95854775
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91290522"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450070"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
 Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para obter o conteúdo completo de referência SDK, visite a página de referência principal do Azure Machine Learning para a página de referência [**python.**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
 
 Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer bugs e soluções alternativas conhecidas.
+
+## <a name="2020-09-28"></a>2020-09-28
+
+### <a name="azure-machine-learning-sdk-for-python-v1150"></a>Azure Machine Learning SDK para Python v1.15.0
++ **Correções e melhorias de bugs**
+  + **azureml-contrib-interpret**
+    + O explicador de LIME passou de azureml-contrib-interpret para interpret-community package and image explainer removido do pacote de interpretação azureml-contrib
+    + painel de visualização removido do pacote de interpretação de azureml-contrib, cliente explicativo mudou-se para pacote de interpretação de azureml e precotado em pacote de interpretação de azureml-contrib-interpret e cadernos atualizados para refletir a API melhorada
+    + corrigir descrições de pacotes de pypi para azureml-interpret, azureml-explain-model, azureml-contrib-interpret e azureml-tensorboard
+  + **azureml-contrib-notebook**
+    + Pin nbcovert dependência para < 6 para que a fábrica de papel 1.x continue a funcionar.
+  + **azureml-core**
+    + Parâmetros adicionados ao construtor tensorflowConfiguration e MpiConfiguration para permitir uma inicialização mais simplificada dos atributos de classe sem exigir que o utilizador desafie cada atributo individual. Adicionou uma aula de Configuração PyTorch para configurar empregos PyTorch distribuídos no ScriptRunConfig.
+    + Fixar a versão do recurso azure-mgmt para corrigir o erro de autenticação.
+    + Suporte Tritão Sem Implementação de Código
+    + os diretórios de saídas especificados em Run.start_logging() serão agora rastreados quando utilizarem a execução em cenários interativos. Os ficheiros rastreados serão visíveis no ML Studio ao chamar Run.complete()
+    + A codificação de ficheiros pode agora ser especificada durante a criação do conjunto de dados com `Dataset.Tabular.from_delimited_files` e `Dataset.Tabular.from_json_lines_files` passando o `encoding` argumento. As codificações apoiadas são 'utf8', 'iso88591', 'latin1', 'ascii', utf16', 'utf32', 'utf8bom' e 'windows1252'.
+    + Correção de erros quando o objeto ambiente não é passado para o construtor ScriptRunConfig.
+    + Run.cancel atualizado para permitir o cancelamento de uma execução local de outra máquina.
+  + **azureml-dataprep**
+    +  Problemas de tempo de montagem de conjunto de dados fixos.
+  + **azureml-explain-modelo**
+    + corrigir descrições de pacotes de pypi para azureml-interpret, azureml-explain-model, azureml-contrib-interpret e azureml-tensorboard
+  + **azureml-interpret**
+    + painel de visualização removido do pacote de interpretação de azureml-contrib, cliente explicativo mudou-se para pacote de interpretação de azureml e precotado em pacote de interpretação de azureml-contrib-interpret e cadernos atualizados para refletir a API melhorada
+    + pacote de interpretação azureml atualizado para depender da comunidade interpretação 0.15.0
+    + corrigir descrições de pacotes de pypi para azureml-interpret, azureml-explain-model, azureml-contrib-interpret e azureml-tensorboard
+  + **azureml-pipeline-core**
+    +  Problema de suspensão do gasoduto fixo com `OutputFileDatasetConfig` quando é chamado com o parâmetro definido para um nome de conjunto de `register_on_complete` `name` dados pré-existente.
+  + **azureml-pipeline-steps**
+    + Removidos cadernos de dados velhos.
+  + **azureml-tensorboard**
+    + corrigir descrições de pacotes de pypi para azureml-interpret, azureml-explain-model, azureml-contrib-interpret e azureml-tensorboard
+  + **azureml-train-automl-runtime**
+    + painel de visualização removido do pacote de interpretação de azureml-contrib, cliente explicativo mudou-se para pacote de interpretação de azureml e precotado em pacote de interpretação de azureml-contrib-interpret e cadernos atualizados para refletir a API melhorada
+  + **azureml-widgets**
+    + painel de visualização removido do pacote de interpretação de azureml-contrib, cliente explicativo mudou-se para pacote de interpretação de azureml e precotado em pacote de interpretação de azureml-contrib-interpret e cadernos atualizados para refletir a API melhorada
 
 ## <a name="2020-09-21"></a>2020-09-21
 
@@ -61,7 +98,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
     + Desde que a propriedade da Swaggerurl para a entidade de ponta de gasoduto através desse utilizador possa ver a definição de esquema para o ponto final do gasoduto publicado.
   + **azureml-pipeline-steps**
     + Novo Kusto Step e Kusto Compute Target.
-  + **azureml-telemetry**
+  + **azureml-telemetria**
     + Atualizar a descrição do pacote para a página geral do pypi.
   + **azureml-train**
     + Atualizar a descrição do pacote para a página geral do pypi.
@@ -350,7 +387,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
   + **azureml-pipeline-steps**
     + Doc melhora o pacote de passos de gasoduto azureml.
     + Removido o requisito de passthru_automl_config para a utilização intermédia de dados com AutoMLStep em Pipelines.
-  + **azureml-telemetry**
+  + **azureml-telemetria**
     + Doc melhora a azureml-telemetria.
   + **azureml-train-automl-client**
     + Consertado um bug onde `experiment.submit()` chamado duas vezes num `AutoMLConfig` objeto resultou em comportamento diferente.
@@ -448,7 +485,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
       + O valor predefinido para process_count_per_node é alterado para 1. O utilizador deve sintonizar este valor para um melhor desempenho. As melhores práticas são definir como o número de gPU ou nó CPU tem.
       + ParallelRunStep não injeta nenhum pacote, o utilizador precisa incluir pacotes **azureml-core** e **azureml-dataprep [pandas, fusíveis]** na definição ambiental. Se a imagem de estivador personalizada for utilizada com user_managed_dependencies, o utilizador terá de instalar conda na imagem.
       
-+ **Alterações interruptivas**
++ **Quebra de mudanças**
   + **azureml-pipeline-steps**
     + Depreifed o uso de azureml.dprep.Dataflow como um tipo válido de entrada para AutoMLConfig
   + **azureml-train-automl-client**
@@ -640,7 +677,7 @@ Agora pode criar, editar e partilhar cadernos e ficheiros de machine learning di
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
     
-| Ferramenta baseada na web  |     Description  |
+| Ferramenta baseada na web  |     Descrição  |
 |---|---|
 | Cadernos do estúdio Azure ML   |     Primeira autoria em classe para ficheiros de portátil e suporte a toda a operação disponível no Azure ML Python SDK. | 
 
@@ -652,7 +689,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
   + Os clusters AmlCompute suportam agora a criação de uma identidade gerida no cluster no momento do provisionamento. Basta especificar se gostaria de usar uma identidade atribuída ao sistema ou uma identidade atribuída ao utilizador, e passar um ID de identidade para este último. Em seguida, pode configurar permissões para aceder a vários recursos, como Armazenamento ou ACR, de forma a que a identidade do computação seja usada para aceder de forma segura aos dados, em vez de uma abordagem baseada em fichas que a AmlCompute emprega hoje em dia. Consulte a nossa referência SDK para obter mais informações sobre os parâmetros.
   
 
-+ **Alterações interruptivas**
++ **Quebra de mudanças**
   + Os clusters AmlCompute apoiaram uma funcionalidade de Pré-visualização em torno da criação baseada em execução, que estamos planejando depreciar em duas semanas. Pode continuar a criar metas de computação persistentes, como sempre, utilizando a classe Amlcompute, mas a abordagem específica de especificar o identificador "amlcompute" como o alvo de computação em run config não será suportada num futuro próximo. 
 
 + **Correções e melhorias de bugs**
@@ -723,7 +760,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v120"></a>Azure Machine Learning SDK para Python v1.2.0
 
-+ **Alterações interruptivas**
++ **Quebra de mudanças**
   + Suporte de queda para python 2.7
 
 + **Correções e melhorias de bugs**
@@ -758,7 +795,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
   + **Python 2.7**
     + Última versão para apoiar python 2.7
 
-+ **Alterações interruptivas**
++ **Quebra de mudanças**
   + **Semantic Versioning 2.0.0** (Controlo de Versões Semântico 2.0.0)
     + Começando pela versão 1.1 Azure ML Python SDK adota a Versão Semântica 2.0.0. [Leia mais aqui.](https://semver.org/) Todas as versões subsequentes seguirão o novo esquema de numeração e o contrato de versão semântica. 
 
@@ -921,7 +958,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v110rc0-pre-release"></a>Azure Machine Learning SDK para Python v1.1.0rc0 (Pré-lançamento)
 
-+ **Alterações interruptivas**
++ **Quebra de mudanças**
   + **Semantic Versioning 2.0.0** (Controlo de Versões Semântico 2.0.0)
     + Começando pela versão 1.1 Azure ML Python SDK adota a Versão Semântica 2.0.0. [Leia mais aqui.](https://semver.org/) Todas as versões subsequentes seguirão o novo esquema de numeração e o contrato de versão semântica. 
   
@@ -1051,7 +1088,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
 ### <a name="azure-machine-learning-sdk-for-python-v1076"></a>Azure Machine Learning SDK para Python v1.0.76
 
-+ **Alterações interruptivas**
++ **Quebra de mudanças**
   + Problemas de upgrade Azureml-Train-AutoML
     + A atualização para>azureml-train-automl =1.0.76 de azureml-train-automl<1.0.76 pode causar instalações parciais, fazendo com que algumas importações automl falhem. Para resolver isto, pode executar o script de configuração encontrado em https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/automl_setup.cmd . Ou se estiver a usar o pip diretamente, pode:
       + "pip install --upgrade azureml-train-automl"
@@ -1152,7 +1189,7 @@ A partir do estúdio, você pode treinar, testar, implementar e gerir ativos de 
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
-| Ferramenta baseada na web | Description | 
+| Ferramenta baseada na web | Descrição | 
 |-|-|-|
 | VM do portátil (pré-visualização) | Estação de trabalho totalmente gerida em nuvem | 
 | [Aprendizagem automática de máquinas](tutorial-first-experiment-automated-ml.md) (pré-visualização) | Nenhuma experiência de código para automatizar o desenvolvimento de modelos de aprendizagem automática | 
@@ -2023,6 +2060,6 @@ Foi [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-
   + Novo visualizador de ficheiros de Logs
   + Links para execuções experimentais, cálculo, modelos, imagens e implementações a partir do separador de atividades
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia a descrição geral do [Azure Machine Learning](overview-what-is-azure-ml.md).

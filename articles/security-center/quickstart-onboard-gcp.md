@@ -4,15 +4,15 @@ description: Monitorização dos seus recursos GCP a partir do Centro de Seguran
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: how-to
+ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: c4020bc5e96ff35fa2d04a872216e43abbba5323
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 71f1de7b4ff265a5740181a2bb2032f33a83abe3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328314"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448986"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Ligue as suas contas GCP ao Azure Security Center
 
@@ -39,7 +39,7 @@ Na imagem abaixo pode ver projetos GCP apresentados no painel de visão geral do
 |Estado de libertação:|Pré-visualizar|
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
 |Funções e permissões necessárias:|**Proprietário** ou **Colaborador** na assinatura Azure relevante|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 ## <a name="connect-your-gcp-account"></a>Ligar a conta GCP
@@ -80,7 +80,7 @@ Saiba mais sobre o [Centro de Comando de Segurança API.](https://cloud.google.c
     1. Selecione **ADD**.
     1. No campo **Novos membros,** cole o **valor de Email** que copiou anteriormente.
     1. Especifique a Função como **Visualizador de Administração do Centro de Segurança** e, em seguida, selecione Save.
-        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="Definição das permissões GCP relevantes":::
+        :::image type="content" source="./media/quickstart-onboard-gcp/iam-settings-gcp-permissions-admin-viewer.png" alt-text="3 projetos GCP listados no painel de visão geral do Security Center":::
 
 
 ### <a name="step-4-create-a-private-key-for-the-dedicated-service-account"></a>Passo 4: Criar uma chave privada para a conta de serviço dedicada
@@ -107,7 +107,7 @@ Saiba mais sobre o [Centro de Comando de Segurança API.](https://cloud.google.c
 Quando o conector é criado com sucesso e o Centro de Comando de Segurança GCP foi configurado corretamente:
 
 - A norma CEI GCP será apresentada no painel de conformidade regulamentar do Centro de Segurança.
-- Recomendações de segurança para os seus recursos GCP aparecerão no portal do Centro de Segurança e no painel de conformidade regulamentar 5-10 minutos após a conclusão do embarque:   :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="recursos e recomendações do GCP na página de recomendações do Centro de Segurança":::
+- Recomendações de segurança para os seus recursos GCP aparecerão no portal do Centro de Segurança e no painel de conformidade regulamentar 5-10 minutos após a conclusão do embarque:   :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resources-in-recommendations.png" alt-text="3 projetos GCP listados no painel de visão geral do Security Center":::
 
 
 ## <a name="monitoring-your-gcp-resources"></a>Monitorização dos seus recursos GCP
@@ -116,10 +116,10 @@ Como mostrado acima, a página de recomendações de segurança do Azure Securit
 
 Para ver todas as recomendações ativas para os seus recursos por tipo de recurso, utilize a página de inventário de ativos do Security Center e filtre para o tipo de recurso GCP em que está interessado:
 
-:::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Filtro de tipo de recurso da página de inventário de ativos mostrando as opções de GCP"::: 
+:::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="3 projetos GCP listados no painel de visão geral do Security Center"::: 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 A ligação da sua conta GCP faz parte da experiência multi-nuvem disponível no Azure Security Center. Para obter informações relacionadas, consulte a seguinte página:
 

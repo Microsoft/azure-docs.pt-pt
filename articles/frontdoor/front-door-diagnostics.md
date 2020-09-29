@@ -9,20 +9,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 6f5051dd7dedcc49320557f17148bcdc9bf539ab
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: a1e77b5f669d1b492f2d71063a6c77bec1178696
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399757"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449283"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Métricas de monitorização e troncos na Porta frontal de Azure
 
 Ao utilizar a Porta Frontal Azure, pode monitorizar os recursos das seguintes formas:
 
-- **Métricas**. A Azure Front Door tem atualmente sete métricas para visualizar balcões de desempenho.
+- **Métricas**. A Azure Front Door tem atualmente oito métricas para visualizar balcões de desempenho.
 - **Troncos**. Os registos de atividade e de diagnóstico permitem que o desempenho, o acesso e outros dados sejam guardados ou consumidos a partir de um recurso para fins de monitorização.
 
 ### <a name="metrics"></a>Métricas
@@ -52,16 +52,16 @@ Aceda aos registos de atividades na porta da frente ou em todos os registos dos 
 1. Selecione a sua instância da Porta da Frente.
 2. Selecione **registo de atividades**.
 
-    ![Registo de atividades](./media/front-door-diagnostics/activity-log.png)
+    :::image type="content" source="./media/front-door-diagnostics/activity-log.png" alt-text="Registo de atividades":::
 
 3. Escolha um âmbito de filtragem e, em seguida, **selecione Aplicar**.
 
 ## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Registos de diagnósticos
 Os registos de diagnóstico fornecem informações ricas sobre operações e erros que são importantes para a auditoria e resolução de problemas. Os registos de diagnóstico diferem dos registos de atividade.
 
-Os registos de atividade fornecem informações sobre as operações es feitas sobre os recursos da Azure. Os registos de diagnóstico fornecem informações sobre as operações que o seu recurso realizou. Para obter mais informações, consulte [os registos de diagnóstico do Azure Monitor](../azure-monitor/platform/platform-logs-overview.md).
+Os registos de atividade fornecem informações sobre as operações es feitas sobre os recursos da Azure. Os registos de diagnóstico fornecem informações sobre as operações que o seu recurso fez. Para obter mais informações, consulte [os registos de diagnóstico do Azure Monitor](../azure-monitor/platform/platform-logs-overview.md).
 
-![Registos de diagnósticos](./media/front-door-diagnostics/diagnostic-log.png)
+:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Registo de atividades":::
 
 Para configurar registos de diagnóstico para a sua porta frontal:
 
@@ -103,7 +103,6 @@ A Porta frontal fornece atualmente registos de diagnóstico (lotados por hora). 
 | Regra de encaminhamento com caching ativado. Cache atingido na borda POP | 1 | Código POP edge | Vazio | Falso | ATROPELAMENTO |
 | Regra de encaminhamento com caching ativado. Cache falha na borda POP mas cache atingido em cache pai POP | 2 | 1. Código POP edge</br>2. Código POP cache dos pais | 1. Nome de anfitrião POP da cache dos pais</br>2. Vazio | 1. Verdade</br>2. Falso | 1. MISS</br>2. PARTIAL_HIT |
 | Regra de encaminhamento com caching ativado. Cache falha tanto na borda como na cache dos pais POP | 2 | 1. Código POP edge</br>2. Código POP cache dos pais | 1. Nome de anfitrião POP da cache dos pais</br>2. Backend que ajuda a preencher cache | 1. Verdade</br>2. Falso | 1. MISS</br>2. MISS |
-
 
 ## <a name="next-steps"></a>Próximos passos
 

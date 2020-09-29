@@ -9,21 +9,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: c96dac55df2cdc15b7d3699e947c851a9fe69b02
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4cbeea8ad20d41daff3d4ad086a36df5e988991f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399638"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449246"
 ---
 # <a name="health-probes"></a>Sondas do estado de funcionamento
 
-Para determinar a saúde e proximidade de cada backend de um determinado ambiente da Porta frontal, cada ambiente da Porta Frontal envia periodicamente um pedido de HTTP/HTTPS sintético a cada um dos seus backends configurados. Depois, utiliza as respostas dessas sondas para determinar os “melhores” back-ends para os quais encaminhar os pedidos reais do cliente. 
+Para determinar a saúde e proximidade de cada backend para um determinado ambiente da porta da frente, cada ambiente da porta da frente envia periodicamente um pedido de HTTP/HTTPS sintético a cada um dos seus backends configurados. A Porta da Frente utiliza então estas respostas da sonda para determinar os recursos de backend "melhores" para encaminhar os pedidos do seu cliente. 
 
 > [!WARNING]
-> Uma vez que a Porta Frontal tem muitos ambientes de borda a nível global, a sonda de saúde solicita que o volume para os seus backends possa ser bastante elevado - variando de 25 pedidos por minuto até 1200 pedidos por minuto, dependendo da frequência da sonda de saúde configurada. Com a frequência padrão da sonda de 30 segundos, o volume da sonda no seu backend deve ser de cerca de 200 pedidos por minuto.
+> Uma vez que a Porta Frontal tem muitos ambientes de borda a nível global, o volume da sonda de saúde para os seus backends pode ser bastante elevado - variando de 25 pedidos por minuto até 1200 pedidos por minuto, dependendo da frequência da sonda de saúde configurada. Com a frequência padrão da sonda de 30 segundos, o volume da sonda no seu backend deve ser de cerca de 200 pedidos por minuto.
 
 ## <a name="supported-protocols"></a>Protocolos suportados
 
@@ -44,7 +44,7 @@ Porta frontal suporta os seguintes métodos HTTP para o envio das sondas sanitá
 | Respostas  | Descrição | 
 | ------------- | ------------- |
 | Determinação da Saúde  |  Um código de estado de 200 OK indica que o backend é saudável. Todo o resto é considerado um fracasso. Se, por qualquer motivo (incluindo falha de rede) não for recebida uma resposta HTTP válida para uma sonda, a sonda é contada como uma falha.|
-| Medição da Latência  | A latência é o tempo do relógio de parede medido a partir do momento imediatamente antes de enviarmos o pedido da sonda para o momento em que recebemos o último byte da resposta. Utilizamos uma nova ligação TCP para cada pedido, pelo que esta medição não é tendenciosa para backends com ligações quentes existentes.  |
+| Medição da Latência  | A latência é o tempo do relógio de parede medido a partir do momento imediatamente antes de enviarmos o pedido da sonda para o momento em que recebemos o último byte da resposta. Usamos uma nova ligação TCP para cada pedido, por isso esta medição não é tendenciosa para backends com conexões quentes existentes.  |
 
 ## <a name="how-front-door-determines-backend-health"></a>Como a Porta da Frente determina a saúde do backend
 
@@ -59,7 +59,7 @@ Azure Front Door usa o mesmo processo de três etapas abaixo em todos os algorit
 
     * _x_ é configurado alterando a propriedade SuccessfulSamplesRequired em configurações de equilíbrio de carga.
 
-3. Fora do conjunto de backends saudáveis na piscina de backend, a Porta frontal mede adicionalmente e mantém a latência (tempo de ida e volta) para cada backend.
+3. Para os conjuntos de backends saudáveis na piscina de backend, a Porta frontal mede e mantém a latência (tempo de ida e volta) para cada backend.
 
 
 ## <a name="complete-health-probe-failure"></a>Falha completa da sonda de saúde

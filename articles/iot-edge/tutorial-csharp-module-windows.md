@@ -9,18 +9,18 @@ ms.date: 08/03/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, amqp, devx-track-csharp
-ms.openlocfilehash: b904fcd03247f6e6ae01f51c5048c29826bb8e5a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 24a63a167f640646b9e07126a038663f4da3e23b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018472"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449608"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um módulo C# IoT Edge para dispositivos Windows
 
 Utilize o Visual Studio para desenvolver o código C# e implemente-o num dispositivo Windows que executa o Azure IoT Edge.
 
-Pode utilizar os módulos do Azure IoT Edge para implementar código que aplica a sua lógica de negócio diretamente aos seus dispositivos IoT Edge. Este tutorial explica-lhe como criar e implementar um módulo do IoT Edge que filtra dados de sensores. Neste tutorial, vai aprender a:
+Pode utilizar os módulos do Azure IoT Edge para implementar código que aplica a sua lógica de negócio diretamente aos seus dispositivos IoT Edge. Este tutorial explica-lhe como criar e implementar um módulo do IoT Edge que filtra dados de sensores. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -311,11 +311,11 @@ Na secção anterior, criou uma solução do IoT Edge e adicionou código ao **C
 
 ## <a name="deploy-modules-to-device"></a>Implementar módulos para dispositivo
 
-Utilize o explorador de nuvem Visual Studio e a extensão Azure IoT Edge Tools para implantar o projeto do módulo no seu dispositivo IoT Edge. Já tem um manifesto de implantação preparado para o seu cenário, o **deployment.windows-amd64.jsficheiro na** pasta config. Agora tudo o que precisa de fazer é selecionar um dispositivo para receber a implementação.
+Utilize o Visual Studio Cloud Explorer e a extensão Azure IoT Edge Tools para implementar o projeto do módulo no seu dispositivo IoT Edge. Já tem um manifesto de implantação preparado para o seu cenário, o **deployment.windows-amd64.jsficheiro na** pasta config. Agora tudo o que precisa de fazer é selecionar um dispositivo para receber a implementação.
 
 Certifique-se de que o seu dispositivo IoT Edge está a funcionar.
 
-1. No explorador de nuvem Visual Studio, expanda os recursos para ver a sua lista de dispositivos IoT.
+1. No Visual Studio Cloud Explorer, expanda os recursos para ver a sua lista de dispositivos IoT.
 
 2. Clique com o botão direito no nome do dispositivo IoT Edge que deseja receber a implementação.
 
@@ -323,7 +323,7 @@ Certifique-se de que o seu dispositivo IoT Edge está a funcionar.
 
 4. No explorador de ficheiros, selecione o **deployment.windows-amd64.jsficheiro** na pasta config da sua solução.
 
-5. Refresque o explorador de nuvem para ver os módulos implantados listados no seu dispositivo.
+5. Refresh Cloud Explorer para ver os módulos implantados listados no seu dispositivo.
 
 ## <a name="view-generated-data"></a>Ver os dados gerados
 
@@ -331,7 +331,7 @@ Depois de aplicar o manifesto de implementação no seu dispositivo IoT Edge, o 
 
 Pode utilizar a extensão IoT Edge Tools para visualizar as mensagens à medida que chegam ao seu Hub IoT.
 
-1. No explorador de nuvem Visual Studio, selecione o nome do seu dispositivo IoT Edge.
+1. No Visual Studio Cloud Explorer, selecione o nome do seu dispositivo IoT Edge.
 
 2. Na lista **de Ações,** selecione **Start Monitoring Built-in Event Endpoint**.
 
@@ -361,7 +361,7 @@ Caso contrário, pode eliminar as configurações locais e os recursos Azure que
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, criou uma função do módulo do IoT Edge com código para filtrar os dados não processados que são gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para construir os seus próprios módulos, poderá aprender mais sobre [o desenvolvimento dos seus próprios módulos IoT Edge](module-development.md) ou como desenvolver [módulos com o Visual Studio.](how-to-visual-studio-develop-module.md) Por exemplo, os módulos IoT Edge, incluindo o módulo de temperatura simulada, consulte as amostras do [módulo IoT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules).
 

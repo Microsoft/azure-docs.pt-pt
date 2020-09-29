@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-csharp
-ms.openlocfilehash: cf108e0e7036894e045028ec3fce8c2af6b9ce4f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ff6153abb3e930e3268ed7768e4ab44c9b5824cc
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008348"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449563"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Envie mensagens da nuvem para o seu dispositivo com IoT Hub (.NET)
 
@@ -91,13 +91,20 @@ Nesta secção, modifique a aplicação do dispositivo que criou em [Enviar tele
 
 O `ReceiveAsync` método retorna assincroticamente a mensagem recebida no momento em que é recebida pelo dispositivo. Retorna *nulo* após um período de tempo especificado. Neste exemplo, é utilizado o padrão de um minuto. Quando a aplicação recebe um *nulo,* deve continuar a aguardar novas mensagens. Esta exigência é a razão da `if (receivedMessage == null) continue` linha.
 
-A chamada para `CompleteAsync()` notificar o IoT Hub de que a mensagem foi processada com sucesso. A mensagem pode ser removida com segurança da fila do dispositivo. Se algo aconteceu que impediu a aplicação do dispositivo de completar o processamento da mensagem, o IoT Hub volta a entregá-la. A lógica de processamento de mensagens na aplicação do dispositivo deve ser *idempotente*, de modo a que receber a mesma mensagem várias vezes produza o mesmo resultado.
+A chamada para `CompleteAsync()` notificar o IoT Hub de que a mensagem foi processada com sucesso e que a mensagem pode ser removida com segurança da fila do dispositivo. O dispositivo deve chamar este método quando o seu processamento estiver concluído com sucesso, independentemente do protocolo que está a utilizar.
 
-Uma aplicação também pode abandonar temporariamente uma mensagem, o que resulta no hub IoT mantendo a mensagem na fila para consumo futuro. Ou a aplicação pode rejeitar uma mensagem, que remove permanentemente a mensagem da fila. Para obter mais informações sobre o ciclo de vida da mensagem nuvem-para-dispositivo, consulte [as mensagens D2C e C2D com o IoT Hub](iot-hub-devguide-messaging.md).
+Com AMQP e HTTPS, mas não MQTT, o dispositivo também pode:
 
-   > [!NOTE]
-   > Ao utilizar HTTPS em vez de MQTT ou AMQP como transporte, o `ReceiveAsync` método retorna imediatamente. O padrão suportado para mensagens nuvem-a-dispositivo com HTTPS é dispositivos intermitentemente ligados que verificam mensagens com pouca frequência (menos de 25 em 25 minutos). A emissão de mais HTTPS recebe resultados no IoT Hub a estrangular os pedidos. Para obter mais informações sobre as diferenças entre o suporte MQTT, AMQP e HTTPS, e o estrangulamento do IoT Hub, consulte [mensagens D2C e C2D com ioT Hub](iot-hub-devguide-messaging.md).
-   >
+* Abandone uma mensagem, o que resulta em IoT Hub manter a mensagem na fila do dispositivo para consumo futuro.
+* Rejeite uma mensagem que remova permanentemente a mensagem da fila do dispositivo.
+
+Se algo acontecer que impeça o dispositivo de completar, abandonar ou rejeitar a mensagem, o IoT Hub irá, após um período de tempo fixo, fazer fila para a entrega novamente. Por este motivo, a lógica de processamento de mensagens na aplicação do dispositivo deve ser *idempotente*– de modo a que receber a mesma mensagem várias vezes produza o mesmo resultado.
+
+Para obter informações mais detalhadas sobre como o IoT Hub processa mensagens nuvem-dispositivo, incluindo detalhes do ciclo de vida da mensagem nuvem-para-dispositivo, consulte [Enviar mensagens cloud-to-device a partir de um hub IoT](iot-hub-devguide-messages-c2d.md).
+
+> [!NOTE]
+> Ao utilizar HTTPS em vez de MQTT ou AMQP como transporte, o `ReceiveAsync` método retorna imediatamente. O padrão suportado para mensagens nuvem-a-dispositivo com HTTPS é dispositivos intermitentemente ligados que verificam mensagens com pouca frequência (um mínimo de cada 25 minutos). A emissão de mais HTTPS recebe resultados no IoT Hub a estrangular os pedidos. Para obter mais informações sobre as diferenças entre suporte MQTT, AMQP e HTTPS, consulte [a orientação de comunicações Cloud-to-device](iot-hub-devguide-c2d-guidance.md) e [Escolha um protocolo de comunicação](iot-hub-devguide-protocols.md).
+>
 
 ## <a name="get-the-iot-hub-connection-string"></a>Obtenha a cadeia de conexão do hub IoT
 
@@ -164,7 +171,7 @@ Nesta secção, cria-se uma aplicação de consola .NET que envia mensagens nuve
 
 1. Prima **F5**. Ambas as aplicações devem começar. Selecione a janela **SendCloudToDevice** e prima **Enter**. Deverá ver a mensagem a ser recebida pela aplicação do dispositivo.
 
-   ![Mensagem de receção de aplicativo](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
+   ![Mensagem de receção de aplicativo de dispositivo](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 
 ## <a name="receive-delivery-feedback"></a>Receber feedback de entrega
 
@@ -211,13 +218,13 @@ Nesta secção, modifica a aplicação **SendCloudToDevice** para solicitar feed
 
 1. Executar as aplicações pressionando **F5**. Devia ver ambas as aplicações a começar. Selecione a janela **SendCloudToDevice** e prima **Enter**. Deverá ver a mensagem a ser recebida pela aplicação do dispositivo e, passados alguns segundos, a mensagem de feedback recebida pela sua aplicação **SendCloudToDevice.**
 
-   ![Mensagem de receção de aplicativo](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
+   ![Aplicação de dispositivo que recebe mensagem e app de serviço recebendo feedback](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
 > Para simplificar, este tutorial não implementa nenhuma política de retenção. No código de produção, deve implementar políticas de repetição, tais como o backoff exponencial, tal como sugerido no [tratamento de falhas transitórias](/azure/architecture/best-practices/transient-faults).
 >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste modo de como, aprendeu a enviar e a receber mensagens cloud-to-device.
 

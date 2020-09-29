@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00b5f39363e4c8b2fd3a0d74a8c013d315bff1fe
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0ae663b2c7a88e116315464c11b8d162135f0aff
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264945"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450382"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Atribuir funções âmbito a uma unidade administrativa
 
@@ -29,7 +29,7 @@ Para obter os passos que se preparem para utilizar o PowerShell e o Microsoft Gr
 
 ## <a name="roles-available"></a>Funções disponíveis
 
-Função  |  Description
+Função  |  Descrição
 ----- |  -----------
 Administrador de Autenticação  |  Tem acesso a visualização, definição e reposição de informações do método de autenticação para qualquer utilizador não administrativo apenas na unidade administrativa atribuída.
 Administrador de Grupos  |  Pode gerir todos os aspetos de grupos e grupos configurações como a definição e expiração apenas na unidade administrativa atribuída.
@@ -37,6 +37,12 @@ Administrador helpdesk  |  Pode redefinir palavras-passe para administradores n�
 Administrador de Licença  |  Pode atribuir, remover e atualizar as atribuições de licença apenas dentro da unidade administrativa.
 Administrador de password  |  Pode redefinir palavras-passe apenas para administradores não administradores e administradores de passwords dentro da unidade administrativa atribuída.
 Administrador do Utilizador  |  Pode gerir todos os aspetos dos utilizadores e grupos, incluindo a reposição de palavras-passe para administradores limitados apenas dentro da unidade administrativa atribuída.
+
+## <a name="security-principals-that-can-be-assigned-to-an-au-scoped-role"></a>Princípios de segurança que podem ser atribuídos a uma função de âmbito da AU
+Os seguintes princípios de segurança podem ser atribuídos a uma função de âmbito da AU:
+* Utilizadores
+* Grupos de nuvem atribuíveis por função (pré-visualização)
+* Nome do Principal do Serviço (SPN)
 
 ## <a name="assign-a-scoped-role"></a>Atribuir uma função de âmbito
 
@@ -50,15 +56,19 @@ Selecione a função a atribuir e, em seguida, **selecione atribuir atribuiçõe
 
 ![Selecione a função para o âmbito e, em seguida, selecione atribuições adicionar](./media/roles-admin-units-assign-roles/select-add-assignment.png)
 
+> [!Note]
+>
+> Para atribuir um papel numa unidade administrativa utilizando a PIM, siga os passos [aqui](/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md#assign-a-role-with-restricted-scope).
+
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
 $AdminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
 $Role = Get-AzureADDirectoryRole | Where-Object -Property DisplayName -EQ -Value "User Account Administrator"
-$administrativeUnit = Get-AzureADAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+$administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
 $RoleMember = New-Object -TypeName Microsoft.Open.AzureAD.Model.RoleMemberInfo
 $RoleMember.ObjectId = $AdminUser.ObjectId
-Add-AzureADScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
+Add-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
 ```
 
 A secção realçada pode ser alterada conforme necessário para o ambiente específico.
@@ -67,7 +77,7 @@ A secção realçada pode ser alterada conforme necessário para o ambiente espe
 
 ```http
 Http request
-POST /administrativeUnits/{id}/scopedRoleMembers
+POST /directory/administrativeUnits/{id}/scopedRoleMembers
     
 Request body
 {
@@ -87,8 +97,8 @@ Todas as atribuições de funções escruladas com um âmbito de unidade adminis
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-$administrativeUnit = Get-AzureADAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
-Get-AzureADScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
+$administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+Get-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
 ```
 
 A secção realçada pode ser alterada conforme necessário para o ambiente específico.
@@ -97,12 +107,12 @@ A secção realçada pode ser alterada conforme necessário para o ambiente espe
 
 ```http
 Http request
-GET /administrativeUnits/{id}/scopedRoleMembers
+GET /directory/administrativeUnits/{id}/scopedRoleMembers
 Request body
 {}
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Use grupos de nuvem para gerir atribuições de funções](roles-groups-concept.md)
 - [Resolver problemas de funções atribuídas a grupos de cloud](roles-groups-faq-troubleshooting.md)

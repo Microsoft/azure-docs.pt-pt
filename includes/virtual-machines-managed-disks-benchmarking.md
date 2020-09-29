@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: da5811abec889bcc47d08878a0950df7f0983663
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5fea0cb8c6ac3f706cfef5e4a153fbbf4ff465b8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87010835"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91451494"
 ---
 *Aquecimento da Cache*  
 O disco com o cache do anfitrião ReadOnly é capaz de dar IOPS mais alto do que o limite do disco. Para obter este desempenho de leitura máxima da cache do anfitrião, primeiro deve aquecer a cache deste disco. Isto garante que os IOs de Leitura que a ferramenta de benchmarking irá conduzir no volume CacheReads, realmente atinge a cache, e não o disco diretamente. Os hits de cache resultam em IOPS adicionais a partir do disco ativado por cache única.
@@ -25,7 +25,7 @@ O disco com o cache do anfitrião ReadOnly é capaz de dar IOPS mais alto do que
 
 ### <a name="iometer"></a>Ímetro
 
-[Descarregue a ferramenta Iometer](https://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) no VM.
+[Descarregue a ferramenta Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/1.1.0/iometer-1.1.0-win64.x86_64-bin.zip/download) no VM.
 
 #### <a name="test-file"></a>Arquivo de teste
 

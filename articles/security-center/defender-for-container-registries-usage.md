@@ -4,15 +4,15 @@ description: Saiba como utilizar o Azure Defender para registos de contentores p
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 04a7b7f40e1591a919668e940a883dde9a6f4689
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1ff28b13d9adc120f8ee40bcd0119bf9b6883d6a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302014"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449126"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Utilize o Azure Defender para registos de contentores para digitalizar as suas imagens para obter vulnerabilidades
 
@@ -30,7 +30,7 @@ Quando o scanner reporta vulnerabilidades ao Centro de Segurança, o Centro de S
 |Preços:|**Azure Defender para registos de contentores** é faturado como mostrado [na página de preços](security-center-pricing.md)|
 |Registos e imagens suportados:|![Sim, ](./media/icons/yes-icon.png) registos ACR hospedados em Linux que são acessíveis a partir da internet pública e fornecem acesso à concha.<br>![Sem ](./media/icons/no-icon.png) registos ACR hospedados pelo Windows.<br>![Sem ](./media/icons/no-icon.png) registos 'Privados' - O Centro de Segurança exige que os seus registos sejam acessíveis a partir da internet pública. O Security Center não pode atualmente ligar-se ou digitalizar registos com acesso limitado com uma firewall, um ponto final de serviço ou pontos finais privados, como o Azure Private Link.<br>![Nenhuma ](./media/icons/no-icon.png) imagem super minimalista, como [imagens de rascunho de Docker,](https://hub.docker.com/_/scratch/) ou imagens "Distroless" que contenham apenas uma aplicação e as suas dependências de tempo de execução sem um gestor de pacotes, concha ou SO.|
 |Funções e permissões necessárias:|**Leitor de segurança** e [papel de leitor de registo de contentores Azure](https://docs.microsoft.com/azure/container-registry/container-registry-roles)|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -150,11 +150,11 @@ Para criar uma regra:
 1. Para ver, anular ou apagar uma regra: 
     1. **Selecione Regra de desativação**.
     1. Da lista de âmbito, as subscrições com regras ativas mostram **como regra aplicada**.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modificar ou eliminar uma regra existente":::
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Criar uma regra de desativação para as conclusões do VA no registo":::
     1. Para visualizar ou eliminar a regra, selecione o menu de elipses ("...").
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre o Azure Defender](azure-defender.md)

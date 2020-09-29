@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: how-to
 ms.date: 05/24/2018
-ms.openlocfilehash: 7f9af576640e6d269ff5a44d7b0e2a529c20c505
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4819b5cb252d2c646905d277fcbedc57a55fe692
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502941"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450207"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Adicionar um novo utilizador no portal do Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "87502941"
 2. Clique **em Adicionar O Assistente do Utilizador**.
 3. No passo **de utilizador Select,** encontre o utilizador que pretende adicionar. Clique em **Selecionar**.
 4. **o passo de função Select,** escolha Data Lake Analytics **Developer**. Esta função tem o conjunto mínimo de permissões necessárias para submeter/monitorizar/gerir os empregos U-SQL. Atribuir a esta função se o grupo não se destinar a gerir os serviços da Azure.
-5. Na etapa de permissões de **catálogo Select,** selecione quaisquer bases de dados adicionais às quais o utilizador precise de acesso. Ler e escrever Acesso à base de dados principal é necessário para apresentar postos de trabalho. Quando tiver terminado, clique em **OK**.
+5. Na etapa de permissões de **catálogo Select,** selecione quaisquer bases de dados adicionais às quais o utilizador precise de acesso. Ler e escrever Acesso à base de dados estática predefinida chamada "mestre" é necessário para apresentar empregos. Quando tiver terminado, clique em **OK**.
 6. No passo final chamado **Atribuir permissões selecionadas** rever as alterações que o assistente irá es fazer. Clique em **OK**.
 
 
@@ -49,7 +49,7 @@ O comando da amostra para dar acesso ao utilizador para submeter empregos, ver n
 `Add-AdlaJobUser.ps1 -Account myadlsaccount -EntityToAdd 546e153e-0ecf-417b-ab7f-aa01ce4a7bff -EntityType User -FullReplication`
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Descrição geral do Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Começar com data lake analytics usando o portal Azure](data-lake-analytics-get-started-portal.md)

@@ -10,23 +10,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 09/28/2020
 ms.author: duau
 ms.reviewer: tyao
-ms.openlocfilehash: 558d1c098f07f8e09a6a68a065cac9b7b38cfbf3
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 42697a57d39f4a34eee4866b67e2cde947db1ff5
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399655"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449253"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Geo-filtração em um domínio para Azure Front Door
 
-Por predefinição, a Porta Frontal Azure responde às solicitações do utilizador, independentemente da localização do utilizador que es faz o pedido. No entanto, em alguns casos, poderá querer restringir o acesso às suas aplicações web por país/região. O serviço de firewall de aplicação web (WAF) na Porta frontal permite-lhe definir uma política usando regras de acesso personalizado para uma trajetória específica no seu ponto final para permitir ou bloquear o acesso de países/regiões especificados. 
+Por predefinição, a Porta Frontal Azure responderá a todos os pedidos do utilizador, independentemente do local de onde o pedido está a vir. Em alguns cenários, poderá querer restringir o acesso à sua aplicação web por países/regiões. O serviço de firewall de aplicação Web (WAF) na Porta Frontal permite-lhe definir uma política usando regras de acesso personalizado para uma trajetória específica no seu ponto final para permitir ou bloquear o acesso de países/regiões especificados. 
 
-Uma política da WAF geralmente inclui um conjunto de regras personalizadas. Uma regra é constituída por condições de correspondência, uma ação e uma prioridade. Numa condição de correspondência, vai definir uma variável de correspondência, um operador e um valor de correspondência.  Para a regra de filtragem geo, a variável de correspondência é REMOTE_ADDR, o operador é GeoMatch, valor é o código de interesse país/região de duas letras. Pode combinar uma condição GeoMatch e uma condição de correspondência de cadeia de carateres REQUEST_URI para criar uma regra de filtragem geográfica baseada no caminho.
+Uma política da WAF contém um conjunto de regras personalizadas. A regra consiste em condições de jogo, uma ação e uma prioridade. Em condições de jogo, você define uma variável de correspondência, operador e valor de correspondência. Para uma regra de filtragem geo, uma variável de correspondência é REMOTE_ADDR, o operador é GeoMatch, e o valor é um código de interesse país/região de duas letras. Pode combinar uma condição GeoMatch e uma condição de correspondência de cordas REQUEST_URI para criar uma regra de geo-filtragem baseada no caminho.
 
-Pode configurar uma política de geo-filtragem para a sua Porta frontal utilizando [o Azure PowerShell](front-door-tutorial-geo-filtering.md) ou utilizando o nosso [modelo de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
+Pode configurar uma política de geo-filtragem para a sua porta frontal utilizando [o Azure PowerShell](front-door-tutorial-geo-filtering.md) ou utilizando um [modelo de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
 ## <a name="countryregion-code-reference"></a>Referência de código país/região
 
@@ -212,5 +212,5 @@ Pode configurar uma política de geo-filtragem para a sua Porta frontal utilizan
 
 ## <a name="next-steps"></a>Próximos passos
 
-- Saiba mais sobre a [segurança de camada de aplicação com o Front Door](front-door-application-security.md).
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).
+- Aprenda quente para [configurar uma política de WAF de geo-filtragem](front-door-tutorial-geo-filtering.md).

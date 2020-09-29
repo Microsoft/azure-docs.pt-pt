@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: ccdf5885dd1199ff8ed8000e5feaf80662aae42a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4dc5b84ff127aef173deecfd2be705004d92ee0c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318067"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449927"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluções de monitorização da rede Azure no Azure Monitor
 
@@ -87,10 +87,10 @@ Utilize as seguintes instruções para instalar e configurar a solução de aná
 1. No portal Azure, navegue para o recurso Application Gateway para monitorizar.
 2. Selecione *registos de Diagnóstico* para abrir a página seguinte.
 
-   ![imagem do recurso Azure Application Gateway](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
+   ![Screenshot da página de registos de diagnóstico para um recurso De Gateway de Aplicação mostrando a opção de ligar os diagnósticos.](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
 3. Clique *em Ligar os diagnósticos* para abrir a página seguinte.
 
-   ![imagem do recurso Azure Application Gateway](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
+   ![Screenshot da página para configurar as definições de Diagnóstico. A opção para Enviar para Registar Analytics é selecionada como três tipos de Log e uma Métrica.](media/azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
 4. Para ligar os diagnósticos, clique *em 'On'* em *Estado .*
 5. Clique na caixa de verificação para *Enviar para Registar Analytics*.
 6. Selecione um espaço de trabalho log analytics existente ou crie um espaço de trabalho.
@@ -123,9 +123,9 @@ Depois de clicar no azulejo **azure Application Gateway** na Visão Geral, pode 
   * Saúde do anfitrião para gateway de aplicação
   * Máximo e 95º percentil para pedidos de gateway de aplicação falharam
 
-![imagem do painel de análise Azure Application Gateway](media/azure-networking-analytics/log-analytics-appgateway01.png)
+![Screenshot do painel de registos de acesso gateway de aplicação mostrando azulejos com dados para erros de gateway, pedidos e pedidos falhados.](media/azure-networking-analytics/log-analytics-appgateway01.png)
 
-![imagem do painel de análise Azure Application Gateway](media/azure-networking-analytics/log-analytics-appgateway02.png)
+![Screenshot do painel de registos de acesso gateway de aplicação mostrando azulejos com dados de erros por agente do utilizador, saúde do anfitrião e pedidos falhados.](media/azure-networking-analytics/log-analytics-appgateway02.png)
 
 No painel de análise do **Azure Application Gateway,** reveja as informações resumidas numa das lâminas e, em seguida, clique numa para ver informações detalhadas na página de pesquisa de registo.
 
@@ -158,10 +158,10 @@ Utilize as seguintes instruções para instalar e configurar a solução Azure N
 1. No portal Azure, navegue para o recurso do Grupo de Segurança da Rede para monitorizar
 2. Selecione *registos de Diagnóstico* para abrir a página seguinte
 
-   ![imagem do recurso Azure Network Security Group](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics01.png)
+   ![Screenshot da página de registos de diagnóstico para um recurso do Grupo de Segurança de Rede mostrando a opção de ligar os diagnósticos.](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics01.png)
 3. Clique *em Ligar os diagnósticos* para abrir a página seguinte
 
-   ![imagem do recurso Azure Network Security Group](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
+   ![Screenshot da página para configurar as definições de Diagnóstico. O estado está definido para On, Send to Log Analytics é selecionado e dois tipos de Log são selecionados.](media/azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
 4. Para ligar os diagnósticos, clique *em 'On'* *Status*
 5. Clique na caixa de verificação para *Enviar para Registar Analytics*
 6. Selecione um espaço de trabalho log analytics existente ou crie um espaço de trabalho
@@ -189,9 +189,9 @@ Depois de clicar no azulejo **analítico do Grupo de Segurança da Rede Azure** 
   * Regras do grupo de segurança da rede com fluxos permitidos
   * Endereços MAC com fluxos permitidos
 
-![imagem do painel de análise do Grupo de Segurança da Rede Azure](media/azure-networking-analytics/log-analytics-nsg01.png)
+![Screenshot de azulejos com dados para grupo de segurança de rede bloqueou fluxos, incluindo regras com fluxos bloqueados e endereços MAC com fluxos bloqueados.](media/azure-networking-analytics/log-analytics-nsg01.png)
 
-![imagem do painel de análise do Grupo de Segurança da Rede Azure](media/azure-networking-analytics/log-analytics-nsg02.png)
+![Screenshot de azulejos com dados para grupo de segurança de rede permitiu fluxos, incluindo regras com fluxos permitidos e endereços MAC com fluxos permitidos.](media/azure-networking-analytics/log-analytics-nsg02.png)
 
 No painel de análise do **Azure Network Security Group,** reveja as informações resumidas numa das lâminas e, em seguida, clique numa para ver informações detalhadas na página de pesquisa de registo.
 
@@ -221,13 +221,13 @@ Para utilizar as soluções atualizadas:
    + Para qualquer campo que tenha um sufixo de \_ s, \_ d ou g \_ no nome, mude o primeiro personagem para minúsculas
    + Para qualquer campo que tenha um sufixo de \_ o em nome, os dados são divididos em campos individuais com base nos nomes de campo aninhados.
 4. Remova a solução *Azure Networking Analytics (Deprecada).*
-   + Se estiver a utilizar o PowerShell, use`Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
+   + Se estiver a utilizar o PowerShell, use `Set-AzureOperationalInsightsIntelligencePack -ResourceGroupName <resource group that the workspace is in> -WorkspaceName <name of the log analytics workspace> -IntelligencePackName "AzureNetwork" -Enabled $false`
 
 Os dados recolhidos antes da alteração não são visíveis na nova solução. Pode continuar a consultar estes dados utilizando os nomes antigos do Tipo e do campo.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Utilize [consultas de log no Azure Monitor](../log-query/log-query-overview.md) para ver dados de diagnósticos detalhados do Azure.
 

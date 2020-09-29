@@ -7,14 +7,14 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: charwen
-ms.openlocfilehash: 82f92a6dc33173918102015c8cedea1755d77805
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1e76fffd17ee565d4103ca8a7bf1523bbd16209d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744209"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445378"
 ---
-# <a name="enable-and-work-with-bastion-resource-logs"></a>Ativar e trabalhar com registos de recursos de Bastião
+# <a name="enable-and-work-with-bastion-resource-logs"></a>Enable and work with Bastion resource logs (Ativar e trabalhar com registos do recurso do Bastion)
 
 À medida que os utilizadores se conectam a cargas de trabalho usando Azure Bastion, Bastion pode registar diagnósticos das sessões remotas. Em seguida, pode utilizar os diagnósticos para visualizar quais os utilizadores ligados a que cargas de trabalho, a que horas, de onde e outras informações de registo relevantes. Para utilizar os diagnósticos, deve ativar os registos de diagnóstico no Azure Bastion. Este artigo ajuda-o a ativar os registos de diagnóstico e, em seguida, a visualizar os registos.
 
@@ -22,13 +22,13 @@ ms.locfileid: "84744209"
 
 1. No [portal Azure,](https://portal.azure.com)navegue para o seu recurso Azure Bastion e selecione **as definições** de Diagnóstico a partir da página Azure Bastion.
 
-   ![definições de diagnósticos](./media/diagnostic-logs/1diagnostics-settings.png)
+   ![Screenshot que mostra a página "Definições de Diagnóstico".](./media/diagnostic-logs/1diagnostics-settings.png)
 2. Selecione **as definições de Diagnóstico**e, em seguida, selecione +Adicione a **definição de diagnóstico** para adicionar um destino para os registos.
 
-   ![adicionar definição de diagnóstico](./media/diagnostic-logs/2add-diagnostic-setting.png)
+   ![Screenshot que mostra a página "Definições de Diagnóstico" com o botão "Adicionar definição de diagnóstico" selecionado.](./media/diagnostic-logs/2add-diagnostic-setting.png)
 3. Na página **de definições de Diagnóstico,** selecione o tipo de conta de armazenamento a utilizar para armazenar registos de diagnóstico.
 
-   ![selecionar localização de armazenamento](./media/diagnostic-logs/3add-storage-account.png)
+   ![Screenshot da página "Definições de diagnóstico" com a secção para selecionar um local de armazenamento realçado.](./media/diagnostic-logs/3add-storage-account.png)
 4. Quando completar as definições, será semelhante a este exemplo:
 
    ![definições de exemplo](./media/diagnostic-logs/4example-settings.png)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: 4f4b914fe5851df0928df9ccc41ca3b20c5d3469
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d428382493e15d2e0571f4cb4b6f090cf9056fe4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955960"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449307"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Filtros nas vistas do Monitor Azure
 Um **filtro** numa [vista do Azure Monitor](view-designer.md) permite que os utilizadores filtram os dados na vista pelo valor de uma determinada propriedade sem modificar a vista em si.  Por exemplo, pode permitir que os utilizadores da sua visão filtram a vista de dados apenas a partir de um determinado computador ou conjunto de computadores.  Pode criar vários filtros numa única vista para permitir que os utilizadores filtrem por várias propriedades.  Este artigo descreve como usar um filtro e adicionar um a uma vista personalizada.
@@ -19,12 +19,12 @@ Um **filtro** numa [vista do Azure Monitor](view-designer.md) permite que os uti
 ## <a name="using-a-filter"></a>Usando um filtro
 Clique no intervalo de tempo de data na parte superior de uma vista para abrir a queda onde pode alterar o intervalo de tempo de data para a vista.
 
-![Exemplo de filtro](media/view-designer-filters/filters-example-time.png)
+![Screenshot do menu de dropdown da gama tempo para uma visualização no Azure Monitor, mostrando o botão de rádio para os últimos 7 dias selecionados.](media/view-designer-filters/filters-example-time.png)
 
 Clique no **+** para adicionar um filtro utilizando filtros personalizados definidos para a vista. Selecione um valor para o filtro a partir do dropdown ou escreva um valor. Continue a adicionar filtros clicando no **+** . 
 
 
-![Exemplo de filtro](media/view-designer-filters/filters-example-custom.png)
+![Screenshot do diálogo para adicionar um filtro personalizado no Azure Monitor. A propriedade Computers está sendo selecionada no menu select property dropdown.](media/view-designer-filters/filters-example-custom.png)
 
 Se remover todos os valores de um filtro, o filtro deixará de ser aplicado.
 
@@ -37,7 +37,7 @@ Crie um filtro a partir do **separador Filtros** ao [editar uma vista](view-desi
 
 A tabela seguinte descreve as definições de um filtro.
 
-| Definição | Descrição |
+| Definições | Descrição |
 |:---|:---|
 | Nome do Campo | Nome do campo utilizado para filtragem.  Este campo deve corresponder ao campo resumida em **Consulta de Valores**. |
 | Consulta de Valores | Consulta para executar para preencher o recuo do filtro para o utilizador.  Esta consulta deve ser utilizada em [resumo](/azure/kusto/query/summarizeoperator) ou [distinto](/azure/kusto/query/distinctoperator) para fornecer valores únicos para um determinado campo, e deve corresponder ao Nome de **Campo**.  Pode utilizar [o sorteio](/azure/kusto/query/sortoperator) para classificar os valores que são apresentados ao utilizador. |

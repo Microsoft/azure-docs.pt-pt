@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 67ab15a6b890bc5f28cd18fca8a35adbc7437778
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3a1d5c70913f7e2a56eaf04be333a931c1adbc3d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91280985"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450067"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Questões conhecidas e resolução de problemas em Azure Machine Learning
 
@@ -61,7 +61,7 @@ Para obter mais informações sobre a resolução de problemas, consulte os [pr�
      
 * **Pacote de explicação não garantido para ser instalado ao instalar o azureml-train-automl-cliente:** 
    
-   Ao executar uma execução remota de AutoML com a explicação do modelo ativada, verá uma mensagem de erro "Por favor instale o pacote azureml-explain-model para explicações do modelo." Este é um problema conhecido. Como uma solução alternativa siga um dos passos abaixo:
+   Ao executar uma execução remota de AutoML com a explicação do modelo ativada, verá uma mensagem de erro "Por favor instale o pacote azureml-explain-model para explicações do modelo." Trata-se de um problema conhecido. Como uma solução alternativa siga um dos passos abaixo:
   
   1. Instale localmente o modelo azureml-explain-explain.
    ```
@@ -209,6 +209,9 @@ Se estiver a utilizar a partilha de ficheiros para outras cargas de trabalho, co
     ```
 
     Se não incluir o corte dianteiro principal, '/', terá de pré-fixar o diretório de trabalho, por exemplo, `/mnt/batch/.../tmp/dataset` no alvo do cálculo para indicar onde pretende que o conjunto de dados seja montado.
+
+### <a name="mount-dataset"></a>Conjunto de dados de montagem
+* **A inicialização do conjunto de dados falhou: A espera que o ponto de montagem esteja pronto está esgotado**: A lógica de re-try foi adicionada para mitigar o `azureml-sdk >=1.12.0` problema. Se estiver em versões anteriores do azureml-sdk, por favor atualize para a versão mais recente. Se já estiver `azureml-sdk>=1.12.0` ligado, por favor recrie o seu ambiente para que tenha o mais recente patch com a correção.
 
 ### <a name="data-labeling-projects"></a>Projetos de rotulagem de dados
 
@@ -475,7 +478,7 @@ O controlo de acesso baseado em funções Azure pode ser usado para restringir a
 
 Para obter mais informações, consulte [Gerir os utilizadores e as funções.](how-to-assign-roles.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Ver mais artigos de resolução de problemas para Azure Machine Learning:
 

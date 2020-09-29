@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: cafde6ed66e5b636be60533abafcd6f221fe33a1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6f819d9b6ba4d74612da304aafea0118f9094bde
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502521"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91451563"
 ---
 Os discos partilhados Azure são uma nova funcionalidade para discos geridos aZure que permite anexar um disco gerido a várias máquinas virtuais (VMs) simultaneamente. A anexação de um disco gerido a vários VMs permite-lhe implementar novas ou migrar aplicações agrupadas existentes para o Azure.
 
@@ -57,7 +57,7 @@ Os discos partilhados Azure são suportados em:
 - [SUSE SLE para SAP e SUSE SLE HA 15 SP1 e superior](https://documentation.suse.com/sle-ha/15-SP1/single-html/SLE-HA-guide/index.html)
 - [Ubuntu 18.04 e acima](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
 - [Pré-visualização do desenvolvedor RHEL em qualquer versão RHEL 8](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index)
-- [Oracle Enterprise Linux] (https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
+- [Oracle Enterprise Linux](https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
 
 Os clusters Linux podem alavancar gestores de clusters como [o Pacemaker.](https://wiki.clusterlabs.org/wiki/Pacemaker) O Pacemaker baseia-se no [Corosync,](http://corosync.github.io/corosync/)permitindo comunicações de cluster para aplicações implantadas em ambientes altamente disponíveis. Alguns sistemas de ficheiros agrupados comuns incluem [ocfs2](https://oss.oracle.com/projects/ocfs2/) e [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Pode utilizar modelos de agrupamento scsi persistente (SCSI PR) e/ou dispositivo de bloqueio STONITH (SBD) para arbitrar o acesso ao disco. Ao utilizar o SCSI PR, pode manipular reservas e registos utilizando utilitários como [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) e [sg_persist](https://linux.die.net/man/8/sg_persist).
 
@@ -111,7 +111,7 @@ Os discos ultra têm a capacidade única de permitir definir o seu desempenho ex
 |DiskIOPSReadOnly*     |O número total de IOPS permitiu que todos os VMs montassem o disco partilhado como `ReadOnly` .         |
 |DiskMBpsReadOnly*     |A produção total (MB/s) permitiu que todos os VMs montassem o disco partilhado como `ReadOnly` .         |
 
-\*Aplica-se apenas a discos ultra partilhados
+\* Aplica-se apenas a discos ultra partilhados
 
 As seguintes fórmulas explicam como os atributos de desempenho podem ser definidos, uma vez que são modificáveis pelo utilizador:
 
@@ -131,19 +131,19 @@ Os exemplos que se seguem retratam alguns cenários que mostram como o estrangul
 
 Segue-se um exemplo de um WSFC de 2 nós utilizando volumes partilhados agrupados. Com esta configuração, ambos os VMs têm acesso simultâneo ao disco, o que resulta na divisão do `ReadWrite` acelerador entre os dois VMs e o acelerador não ser `ReadOnly` utilizado.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="CSV dois exemplo ultra nó":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Uma imagem de uma tabela que retrata o acesso 'ReadOnly' ou 'Read/Write' para Titular de Reserva, Registado e Outros.":::
 
 ##### <a name="two-node-cluster-without-cluster-share-volumes"></a>Dois aglomerados de nó sem volumes de partilha de cluster
 
 Segue-se um exemplo de um WSFC de 2 nós que não está a utilizar volumes partilhados agrupados. Com esta configuração, apenas um VM tem acesso por escrito ao disco. Isto resulta em que o `ReadWrite` acelerador seja utilizado exclusivamente para o VM primário e o `ReadOnly` acelerador só seja utilizado pelo secundário.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="CSV dois nóns sem exemplo de disco ultra csv":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Uma imagem de uma tabela que retrata o acesso 'ReadOnly' ou 'Read/Write' para Titular de Reserva, Registado e Outros.":::
 
 ##### <a name="four-node-linux-cluster"></a>Aglomerado de linux de quatro nó
 
 Segue-se um exemplo de um aglomerado linux de 4 nós com um único escritor e três leitores de escala. Com esta configuração, apenas um VM tem acesso por escrito ao disco. Isto resulta na utilização exclusiva do `ReadWrite` acelerador para o VM primário e no `ReadOnly` acelerador que está a ser dividido pelos VM secundários.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Quatro exemplos de ultra estrangulamento de nó":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Uma imagem de uma tabela que retrata o acesso 'ReadOnly' ou 'Read/Write' para Titular de Reserva, Registado e Outros.":::
 
 #### <a name="ultra-pricing"></a>Preços ultra-preços
 

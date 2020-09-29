@@ -4,15 +4,15 @@ description: Monitorização dos seus recursos AWS a partir do Azure Security Ce
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: how-to
+ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 33ff6748eba9d0349df244e70f07ad178f258373
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: cddae0a7115fc2999b52eaba7df2b49db509981b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250289"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449042"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Ligue as suas contas AWS ao Azure Security Center
 
@@ -42,7 +42,7 @@ Na imagem abaixo pode ver as contas AWS apresentadas no painel de visão geral d
 |Estado de libertação:|Pré-visualizar|
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
 |Funções e permissões necessárias:|**Proprietário** ou **Colaborador** na assinatura Azure relevante|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -71,7 +71,7 @@ Existem duas formas de permitir que o Centro de Segurança autentica a AWS:
 
 #### <a name="create-an-iam-role-for-security-center"></a>Criar um papel IAM para o Centro de Segurança
 1. A partir da sua consola Amazon Web Services, em **Segurança, Identidade & Compliance**, selecione **IAM**.
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="Serviços AWS":::
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="3 projetos GCP listados no painel de visão geral do Security Center":::
 
 1. Selecione **Funções** e **Crie função.**
 1. Selecione **outra conta AWS**.
@@ -127,12 +127,12 @@ Como **Proprietário** na subscrição que pretende utilizar para o embarque, cr
 
 1. A partir do menu do Security Center, selecione **Conectores multi nuvem**.
 1. **Selecione adicionar a conta AWS**.
-    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Adicione o botão de conta AWS na página de conectores multi nuvem do Security Center":::
+    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="3 projetos GCP listados no painel de visão geral do Security Center":::
 1. Configure as opções no **separador de autenticação AWS:**
     1. Introduza um **nome de exibição** para o conector.
     1. Confirme se a subscrição está correta. É a subscrição que incluirá as recomendações do connector e do AWS Security Hub.
     1. Dependendo da opção de autenticação que escolheu no [Passo 2. Configurar a autenticação para o Centro de Segurança em AWS:](#step-2-set-up-authentication-for-security-center-in-aws)
-        - Selecione  **Assumir Role** e cole o ARN a partir de [Criar uma função IAM para Centro de Segurança](#create-an-iam-role-for-security-center) :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Colagem do ficheiro ARN no campo relevante do assistente de conexão AWS no Portal Azure":::
+        - Selecione  **Assumir Role** e cole o ARN a partir de [Criar uma função IAM para Centro de Segurança](#create-an-iam-role-for-security-center) :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="3 projetos GCP listados no painel de visão geral do Security Center":::
 
             OU
 
@@ -164,7 +164,7 @@ Quando o conector é criado com sucesso e o AWS Security Hub foi configurado cor
 - O serviço ASC verifica novas instâncias AWS EC2 a cada 6 horas e a bordo de acordo com a configuração.
 - A norma AWS CIS será apresentada no painel de conformidade regulamentar do Centro de Segurança.
 - Se a política do Hub de Segurança estiver ativada, as recomendações aparecerão no portal do Centro de Segurança e no painel de conformidade regulamentar 5-10 minutos após a conclusão do embarque.
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="Recursos e recomendações da AWS na página de recomendações do Centro de Segurança":::
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="3 projetos GCP listados no painel de visão geral do Security Center":::
 
 
 
@@ -174,7 +174,7 @@ Como mostrado acima, a página de recomendações de segurança do Azure Securit
 
 Para ver todas as recomendações ativas para os seus recursos por tipo de recurso, utilize a página de inventário de ativos do Security Center e filtre para o tipo de recurso AWS em que está interessado:
 
-:::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="Filtro de tipo de recurso da página de inventário de ativos mostrando as opções AWS"::: 
+:::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="3 projetos GCP listados no painel de visão geral do Security Center"::: 
 
 
 ## <a name="aws-in-security-center-faq"></a>AWS no Centro de Segurança FAQ
@@ -191,7 +191,7 @@ SISTEMA suportado para embarque automático no Arco de Azure para máquinas AWS
 - Red Hat Enterprise Linux (RHEL) 7 (x64) - SSM deve ser instalado manualmente ou a bordo separadamente
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Ligar a sua conta AWS faz parte da experiência multi-nuvem disponível no Azure Security Center. Para obter informações relacionadas, consulte a seguinte página:
 

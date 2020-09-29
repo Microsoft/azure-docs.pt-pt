@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: ffd967797a4e586387a0385169672220727f78a7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 683a3fc148d3521366beef4427e87200ea81a9f3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90886739"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445732"
 ---
 # <a name="deploy-azure-sql-edge"></a>Implementar borda Azure SQL 
 
@@ -48,7 +48,7 @@ O Azure Marketplace é um mercado de aplicações e serviços online onde pode n
    |**Campo**  |**Descrição**  |
    |---------|---------|
    |Subscrição  |  A subscrição Azure sob a qual o IoT Hub foi criado |
-   |Hub IoT   |  Nome do Hub IoT onde o dispositivo IoT Edge está registado e, em seguida, selecione "Implementar para um dispositivo"|
+   |Hub IoT   |  Nome do Hub IoT onde o dispositivo IoT Edge está registado e, em seguida, selecione "Implementar para um dispositivo"|
    |Nome do dispositivo de borda IoT  |  Nome do dispositivo IoT Edge onde o SQL Edge seria implantado |
 
 4. Nos **Módulos De Conjunto no dispositivo:** página, clique no módulo Azure SQL Edge em **módulos IoT Edge**. O nome do módulo predefinido é definido para *AzureSQLEdge*. 
@@ -62,7 +62,6 @@ O Azure Marketplace é um mercado de aplicações e serviços online onde pode n
 
    |**Parâmetro**  |**Descrição**|
    |---------|---------|
-   | Name | Nome para o módulo. |
    | MSSQL_SA_PASSWORD  | Altere o valor predefinido para especificar uma palavra-passe forte para a conta de administração SQL Edge. |
    | MSSQL_LCID   | Altere o valor predefinido para definir o ID do idioma pretendido para utilizar para SQL Edge. Por exemplo, 1036 é francês. |
    | MSSQL_COLLATION | Altere o valor predefinido para definir a colagem predefinida para SQL Edge. Esta definição substitui o mapeamento padrão do ID da linguagem (LCID) à colagem. |
@@ -110,7 +109,7 @@ O Azure Marketplace é um mercado de aplicações e serviços online onde pode n
    
 8. No painel do **módulo IoT Edge de atualização,** clique em **Update**.
 9. Nos **módulos set na** página do dispositivo clique em **seguinte: Rotas >** se precisar de definir rotas para a sua implantação. Caso contrário, clique em **Rever + Criar**. Para obter mais informações sobre as rotas de configuração, consulte [os módulos de implantação e estabeleça rotas em IoT Edge.](../iot-edge/module-composition.md)
-11. No painel do **módulo IoT Edge da atualização,** clique em **Criar**.
+11. Nos **módulos set na** página do dispositivo, clique em **Criar**.
 
 ## <a name="connect-to-azure-sql-edge"></a>Ligue-se à Borda Azure SQL
 

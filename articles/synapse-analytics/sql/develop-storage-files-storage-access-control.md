@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: b3df83bc68cfa1952238b792fceffe57c0dc0ce7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 182ab55f8e86d972293222f8a3bcf32dada89328
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288941"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449471"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Acesso à conta de armazenamento de controlo para SQL a pedido (pré-visualização)
 
@@ -129,7 +129,7 @@ O nome CREDENCIAL ao nível do servidor deve corresponder ao caminho completo da
 | Fonte de Dados Externos       | Prefixo | Caminho da conta de armazenamento                                |
 | -------------------------- | ------ | --------------------------------------------------- |
 | Armazenamento de Blobs do Azure         | https  | <storage_account>.blob.core.windows.net             |
-| Armazenamento do Azure Data Lake Ger1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
+| Azure Data Lake Storage Gen1 | https  | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Armazenamento do Azure Data Lake Ger2 | https  | <storage_account>.dfs.core.windows.net              |
 
 Credenciais de âmbito do servidor permitem o acesso ao armazenamento Azure utilizando os seguintes tipos de autenticação:
@@ -268,7 +268,7 @@ O utilizador da base de dados pode ler o conteúdo dos ficheiros a partir da fon
 SELECT TOP 10 * FROM dbo.userPublicData;
 GO
 SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
-                                DATA_SOURCE = [mysample],
+                                DATA_SOURCE = 'mysample',
                                 FORMAT='PARQUET') as rows;
 GO
 ```
@@ -314,11 +314,11 @@ O utilizador da base de dados pode ler o conteúdo dos ficheiros a partir da fon
 ```sql
 SELECT TOP 10 * FROM dbo.userdata;
 GO
-SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT='PARQUET') as rows;
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = 'mysample', FORMAT='PARQUET') as rows;
 GO
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Os artigos listados abaixo irão ajudá-lo a aprender como consultar diferentes tipos de pastas, tipos de ficheiros e criar e utilizar vistas:
 

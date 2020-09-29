@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/19/2020
-ms.openlocfilehash: 4c91e6396171511fa3b11b0295504f0ca0d75d15
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 0824275bcf53409764e3d3062e456d2e56590f4f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030866"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445367"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Visão geral do portal do mercado comercial no Partner Center
 
@@ -52,7 +52,7 @@ A análise do Partner Center proporciona uma visão do desempenho das suas ofert
 
 Saiba mais sobre lançamentos recentes e futuros visitando o roteiro do mercado comercial da [Microsoft,](../marketplace-roadmap.md)ou junte-se à conversa na [Microsoft Partner Community](https://www.microsoftpartnercommunity.com/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para os novos parceiros da Microsoft que estejam interessados em publicar uma oferta para os mercados, consulte [Criar uma conta de Mercado Comercial no Partner Center.](create-account.md)
 - Para os parceiros existentes que já publicaram ofertas no Portal do Parceiro Cloud, [Gerencie a sua conta de Mercado Comercial no Partner Center.](manage-account.md)

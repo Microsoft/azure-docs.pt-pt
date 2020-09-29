@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: 340eb1a983f074a5ab934a30c55649852ec08b62
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 06698ad3ab2ceb76278e23bc1ac0002b9c2284f9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325156"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445775"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solução de Dados de Fio 2.0 (Pré-visualização) no Monitor Azure
 
@@ -183,7 +183,7 @@ O agente Dependency está instalado em computadores que executam o Windows atrav
 Utilize os seguintes passos para instalar o agente Dependency em cada computador que executa o Windows:
 
 1. Instale o agente Log Analytics seguindo os passos na [Recolha de dados dos computadores Windows alojados no seu ambiente](../platform/agent-windows.md).
-2. Descarregue o agente de dependência do Windows utilizando o link na secção anterior e, em seguida, execute-o utilizando o seguinte comando:`InstallDependencyAgent-Windows.exe`
+2. Descarregue o agente de dependência do Windows utilizando o link na secção anterior e, em seguida, execute-o utilizando o seguinte comando: `InstallDependencyAgent-Windows.exe`
 3. Siga o assistente para instalar o agente.
 4. Se o agente de dependência não arrancar, verifique se os registos são informativo de erro. Para agentes do Windows, o diretório do registo é %Programfiles%\Microsoft Dependency Agent\logs.
 
@@ -364,15 +364,15 @@ Na página **Descrição Geral** da área de trabalho do Log Analytics no portal
 
 Pode utilizar o painel **Agentes a capturar tráfego de rede** para determinar a quantidade de largura de banda de rede que está a ser consumida pelos computadores. Este painel pode ajudá-lo a encontrar facilmente o computador _mais ativo_ no seu ambiente. Esses computadores podem estar sobrecarregados, a agir de forma anormal ou a utilizar mais recursos de rede do que o habitual.
 
-![exemplo de pesquisa de registos](./media/wire-data/log-search-example01.png)
+![Screenshot dos Agentes que captam a lâmina de tráfego de rede no painel De dados de arame 2.0 mostrando a largura de banda da rede consumida por cada computador.](./media/wire-data/log-search-example01.png)
 
 Da mesma forma, pode utilizar o painel **Sub-redes Locais** para determinar a quantidade de tráfego de rede que é movida através das suas sub-redes. Frequentemente, os utilizadores definem as sub-redes em torno das áreas críticas das suas aplicações. Este painel oferece uma vista dessas áreas.
 
-![exemplo de pesquisa de registos](./media/wire-data/log-search-example02.png)
+![Screenshot da lâmina de sub-redes local no painel De dados de fio 2.0 mostrando a largura de banda da rede consumida por cada LocalSubnet.](./media/wire-data/log-search-example02.png)
 
 O painel **Protocolos ao Nível das Aplicações** é útil porque ajuda a saber quais os protocolos em utilização. Por exemplo, poderia esperar que o SSH não estivesse em utilização no seu ambiente de rede. A visualização das informações disponíveis no painel pode rapidamente confirmar ou refutar essa expectativa.
 
-![exemplo de pesquisa de registos](./media/wire-data/log-search-example03.png)
+![Screenshot da lâmina de protocolos de nível de aplicação no painel de instrumentos De fio 2.0 mostrando a largura de banda da rede consumida por cada protocolo.](./media/wire-data/log-search-example03.png)
 
 Também é útil para saber se o tráfego do protocolo aumenta ou diminui ao longo do tempo. Por exemplo, se a quantidade de dados a ser transmitida por uma aplicação estiver a aumentar, pode ser algo a que deve estar atento ou que possa considerar significativo.
 
@@ -414,7 +414,7 @@ Os dados por fio recolhem metadados sobre o tráfego de rede com os agentes que 
 | RemoteIPLongitude | Valor da longitude do IP |
 | RemoteIPLatitude | Valor da latitude do IP |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Registos de pesquisa](../log-query/log-query-overview.md) para ver registos detalhados da pesquisa dos dados por fio.
 

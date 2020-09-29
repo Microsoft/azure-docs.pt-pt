@@ -9,13 +9,13 @@ ms.topic: reference
 ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
-ms.date: 07/27/2020
-ms.openlocfilehash: 3a02581ab898fad0440f45626676ec6bdd7227eb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/29/2020
+ms.openlocfilehash: de372b9800f4b76b42624b30f05848bc570ae6e7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318271"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450120"
 ---
 # <a name="execute-python-script-module"></a>Execute o módulo de script python
 
@@ -56,6 +56,9 @@ if spec is None:
 
 > [!NOTE]
 > Se o seu pipeline contiver vários módulos executados do Script Python que precisam de pacotes que não estão na lista pré-instalada, instale as embalagens em cada módulo.
+
+> [!WARNING]
+> O módulo Excute Python Script não suporta a instalação de pacotes que dependem de bibliotecas extra-nativas com comando como "apt-get", como Java, PyODBC e etc. Isto porque este módulo é executado num ambiente simples com Python pré-instalado apenas e com permissão não administrada.  
 
 ## <a name="upload-files"></a>Carregar ficheiros
 O módulo de script de Python executante suporta o upload de ficheiros utilizando o [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-).
@@ -140,7 +143,10 @@ O módulo de script execute python contém o código Python de amostra que pode 
 
     Dois conjuntos de dados podem ser devolvidos ao designer, que deve ser uma sequência de tipo `pandas.DataFrame` . Pode criar outras saídas no seu código Python e escrevê-las diretamente no armazenamento Azure.
 
-6. Envie o pipeline ou selecione o módulo e selecione **Executar selecionado** para executar apenas o script Python.
+    > [!WARNING]
+    > **Não** é recomendado ligar-se a uma base de dados ou a outros armazenamentos externos no **Módulo de Script De Python Executado.** Pode utilizar [módulo de dados de importação](./import-data.md) e módulo de [dados de exportação](./export-data.md)     
+
+6. Envie o oleoduto.
 
     Todos os dados e códigos são carregados numa máquina virtual, e executados usando o ambiente python especificado.
 
@@ -266,6 +272,6 @@ Os pacotes pré-instalados são:
 -    werkzeug==0.16.1
 -    roda==0.34.2
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

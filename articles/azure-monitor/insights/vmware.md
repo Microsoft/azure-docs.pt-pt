@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: dccd953d2a31b306994c06ae644959e18332f5da
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: be50deb836082354db899e84ef24d75c4d403432
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090181"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450399"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solução de Monitorização VMware (Preprecada) no Azure Monitor
 
@@ -133,16 +133,16 @@ Pode perfurar mais clicando num anfitrião ESXi ou num tipo de evento.
 
 Quando clicar num nome de anfitrião ESXi, vê as informações do anfitrião ESXi. Se quiser reduzir os resultados com o tipo de evento, adicione `“ProcessName_s=EVENT TYPE”` a sua consulta de pesquisa. Pode selecionar **o Nome de Processo** no filtro de pesquisa. Isso limita a informação para si.
 
-![broca](./media/vmware/eventhostdrilldown.png)
+![Screenshot do anfitrião ESXi per Event Count e Breakdown Per Event Type blades na vista do painel de monitorização VMware.](./media/vmware/eventhostdrilldown.png)
 
 #### <a name="find-high-vm-activities"></a>Encontre atividades de VM elevadas
 Uma máquina virtual pode ser criada e eliminada em qualquer anfitrião ESXi. É útil para um administrador identificar quantos VMs um hospedeiro ESXi cria. Isso, por sua vez, ajuda a compreender o desempenho e o planeamento de capacidades. Acompanhar os eventos de atividade em VM é crucial para gerir o seu ambiente.
 
-![broca](./media/vmware/vmactivities1.png)
+![Screenshot da lâmina de atividades da máquina virtual no painel de monitorização VMware, mostrando um gráfico de criação e eliminação de VM pelo anfitrião ESXi.](./media/vmware/vmactivities1.png)
 
 Se quiser ver dados adicionais de criação de VM do anfitrião ESXi, clique num nome de anfitrião ESXi.
 
-![broca](./media/vmware/createvm.png)
+![Screenshot de um painel do painel de monitorização VMware mostrando uma tabela com uma linha de dados para cada criação de máquina virtual por um anfitrião ESXi.](./media/vmware/createvm.png)
 
 #### <a name="common-log-queries"></a>Consultas de log comuns
 A solução inclui outras consultas úteis que podem ajudá-lo a gerir os seus anfitriões ESXi, tais como espaço de armazenamento elevado, latência de armazenamento e falha de caminho.
@@ -172,7 +172,7 @@ Sim, tu podes. Pode utilizar as definições de nível de registo do anfitrião 
 Havia um bug de hospedeiro ESXi para o slogan do syslog. Para mais informações, consulte a Base de [Conhecimentos VMware.](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2111202) Depois de aplicar a solução alternativa, o Hostd deve funcionar normalmente.
 
 ### <a name="can-i-have-multiple-esxi-hosts-forwarding-syslog-data-to-a-single-vm-with-omsagent"></a>Posso ter vários anfitriões ESXi a encaminhar dados de syslog para um único VM com omsagent?
-Yes. Pode ter vários anfitriões ESXi a encaminhar-se para um único VM com omsagent.
+Sim. Pode ter vários anfitriões ESXi a encaminhar-se para um único VM com omsagent.
 
 ### <a name="why-dont-i-see-data-flowing-into-log-analytics"></a>Por que não vejo dados a fluir para o Log Analytics?
 Pode haver várias razões:
@@ -196,7 +196,7 @@ Pode haver várias razões:
 
      d. Se o ficheiro não existir ou a definição do utilizador e do grupo estiver errada, tome medidas corretivas [preparando um servidor Linux](#prepare-a-linux-server).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Utilize [consultas de registo](../log-query/log-query-overview.md) no Log Analytics para ver dados detalhados do anfitrião VMware.
 * [Crie os seus próprios dashboards](../learn/tutorial-logs-dashboards.md) mostrando dados do anfitrião VMware.
 * [Crie alertas](../platform/alerts-overview.md) quando ocorrerem eventos específicos de anfitrião VMware.

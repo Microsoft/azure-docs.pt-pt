@@ -4,16 +4,16 @@ description: Conheça os benefícios e funcionalidades do Azure Defender para a 
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: dcdbc3efba53f78890816721b6659aa69553d6ea
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 328a565dbb22a13c71a7001d43941e7be062dff9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301614"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449058"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Introdução ao Azure Defender para o SQL
 
@@ -26,7 +26,7 @@ O Azure Defender for SQL inclui dois planos do Azure Defender que alargam o paco
 |Estado de libertação:|**Azure Defender para servidores de base de dados Azure SQL** - Geralmente disponível (GA)<br>**Azure Defender para servidores SQL em máquinas** - Pré-visualização|
 |Preços:|Os dois planos que formam **o Azure Defender para o SQL** são faturados como mostrado na [página de preços](security-center-pricing.md)|
 |Versões SQL protegidas:|Base de Dados SQL do Azure <br>Instância Gerida do Azure SQL<br>Azure Synapse Analytics (anteriormente SQL DW)<br>SQL Server (todas as versões suportadas)|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov|
 |||
 
 ## <a name="what-does-azure-defender-for-sql-protect"></a>O que a Azure Defender protege para a SQL?
@@ -62,7 +62,7 @@ Os alertas incluem detalhes do incidente que os desencadeou, bem como recomenda�
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu sobre Azure Defender para a SQL.
 

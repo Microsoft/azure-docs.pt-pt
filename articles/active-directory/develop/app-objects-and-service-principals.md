@@ -13,12 +13,12 @@ ms.date: 07/22/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: 0b6a6eac04711b564d602408a57b92f833fb5d5d
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: db25e0a9ebe01a45c594fe214efcdd3551cf6c14
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782444"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449367"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos do principal de serviço e aplicação no Azure Active Directory
 
@@ -49,7 +49,7 @@ Para aceder aos recursos que são assegurados por um inquilino da Azure AD, a en
 
 Um diretor de serviço é a representação local, ou instância de aplicação, de um objeto de aplicação global em um único inquilino ou diretório. Um principal de serviço é um caso concreto criado a partir do objeto de aplicação e herda certas propriedades a partir desse objeto de aplicação.  Um diretor de serviço é criado em cada inquilino onde a aplicação é usada e faz referência ao objeto de aplicação globalmente único.  O objeto principal do serviço define o que a app pode realmente fazer no inquilino específico, que pode aceder à app, e quais os recursos a que a app pode aceder.
 
-Quando um pedido é autorizado a aceder a recursos num inquilino (mediante registo ou [consentimento),](developer-glossary.md#consent)é criado um objeto principal de serviço. Também pode criar o objeto principal de serviço num inquilino utilizando [Azure PowerShell](howto-authenticate-service-principal-powershell.md), Azure CLI, [Microsoft Graph,](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http)o [portal Azure][AZURE-Portal]e outras ferramentas.  Ao utilizar o portal, é criado automaticamente um resmounte de serviço quando regista uma aplicação.
+Quando um pedido é autorizado a aceder a recursos num inquilino (mediante registo ou [consentimento),](developer-glossary.md#consent)é criado um objeto principal de serviço. Também pode criar o principal objeto de serviço num inquilino utilizando [Azure PowerShell](howto-authenticate-service-principal-powershell.md), [Azure CLI,](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) [Microsoft Graph,](/graph/api/serviceprincipal-post-serviceprincipals?view=graph-rest-1.0&tabs=http)o [portal Azure][AZURE-Portal]e outras ferramentas.  Ao utilizar o portal, é criado automaticamente um resmounte de serviço quando regista uma aplicação.
 
 A lâmina **de aplicações da Enterprise** no portal é usada para listar e gerir os principais serviços num inquilino. Pode ver as permissões do titular do serviço, permissões consentidas pelo utilizador, que os utilizadores fizeram esse consentimento, assinar informações e muito mais.
 
@@ -88,7 +88,7 @@ Neste cenário de exemplo:
 | 2    | Quando os administradores da Contoso e da Fabrikam consentem completamente, um objeto principal de serviço é criado no inquilino AZure AD da sua empresa e atribuiu as permissões que o administrador concedeu. Note também que a aplicação HR poderia ser configurada/projetada para permitir o consentimento dos utilizadores para uso individual. |
 | 3    | Os inquilinos de consumo da aplicação de RH (Contoso e Fabrikam) têm cada um o seu próprio objeto principal de serviço. Cada um representa a sua utilização de um caso do pedido em tempo de execução, regido pelas permissões consentidas pelo respetivo administrador. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Pode utilizar o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) para consultar os objetos principais da aplicação e do serviço.
 - Pode aceder ao objeto de aplicação de uma aplicação utilizando a Microsoft Graph API, o editor manifesto de aplicação [do portal Azure,][AZURE-Portal] ou [cmdlets Azure AD PowerShell](/powershell/azure/?view=azureadps-2.0), representado pela sua entidade de [aplicação][MS-Graph-App-Entity]OData .

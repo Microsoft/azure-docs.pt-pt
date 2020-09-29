@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 8f482c4fe6817c75079ceb98e981c846c395ad13
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: aa09b1ec1e3f73547d211fab0907c9e3388c008b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396030"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445341"
 ---
 # <a name="what-are-consistency-levels-in-azure-cosmos-db"></a>O que são níveis de consistência no Azure Cosmos DB?
 
@@ -43,9 +43,7 @@ A semântica dos cinco níveis de consistência é descrita aqui:
 
   O gráfico que se segue ilustra a forte consistência com notas musicais. Depois de os dados terem sido escritos para a região "West US 2", quando lê os dados de outras regiões, obtém-se o valor mais recente:
 
-  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="vídeo":::
-
-- **Estagnação limitada**: As leituras são garantidas para honrar a garantia consistente-prefixo. As leituras podem ficar atrás de escritos pela maioria das versões *"K"* (isto é, "atualizações") de um item ou por intervalo de tempo *"T",* o que for alcançado primeiro. Por outras palavras, quando se escolhe a estagnação limitada, a "estagnação" pode ser configurada de duas maneiras:
+  :::image type="content" source="media/consistency-levels/strong-consistency.gif" alt-text="Consistência como espectro" pode ser configurada de duas maneiras:
 
 - O número de versões *(K)* do item
 - O intervalo de tempo *(T)* pelo qual as leituras podem ficar atrás das escritas
@@ -61,9 +59,7 @@ Dentro da janela de estagnação, a estagnação limitada fornece as seguintes g
 
   A estagnação limitada é frequentemente escolhida por aplicações distribuídas globalmente que esperam baixas latências de escrita, mas requerem total garantia de ordem global. A estagnação limitada é ótima para aplicações com colaboração e partilha de grupos, ticker de stock, publicação-subscrever/fila, etc. O gráfico a seguir ilustra a consistência deslimícula com notas musicais. Após a escrita dos dados para a região "West US 2", as regiões "Leste DOS EUA 2" e "Austrália Oriental" lêem o valor escrito baseado no tempo de atraso máximo configurado ou nas operações máximas:
 
-  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="vídeo":::
-
-- **Sessão**: Dentro de uma única sessão de clientes são garantidas leituras para honrar as consistentes-prefixos, leituras monotónicas, escritas monótonas, leituras-seus-escritos e garantias de leitura de leituras de escrita. Isto pressupõe uma única sessão de "escritor" ou partilhar o símbolo da sessão para vários escritores.
+  :::image type="content" source="media/consistency-levels/bounded-staleness-consistency.gif" alt-text="Consistência como espectro" ou partilhar o símbolo da sessão para vários escritores.
 
 Os clientes fora da sessão que realizam escritas verão as seguintes garantias:
 
@@ -74,7 +70,7 @@ Os clientes fora da sessão que realizam escritas verão as seguintes garantias:
 
   A consistência da sessão é o nível de consistência mais utilizado tanto para uma região como para aplicações distribuídas globalmente. Fornece latências escritas, disponibilidade e produção de leitura comparáveis às de eventual consistência, mas também fornece garantias de consistência que se adequam às necessidades das aplicações escritas para operar no contexto de um utilizador. O gráfico que se segue ilustra a consistência da sessão com notas musicais. O "West US 2 writer" e o "West US 2 reader" estão a usar a mesma sessão (Sessão A) para que ambos leiam os mesmos dados ao mesmo tempo. Enquanto a região "Australia East" está a usar a "Sessão B" por isso, recebe dados mais tarde, mas na mesma ordem que os escritos.
 
-  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="vídeo":::
+  :::image type="content" source="media/consistency-levels/session-consistency.gif" alt-text="Consistência como espectro":::
 
 - **Prefixo consistente**: As atualizações devolvidas contêm algum prefixo de todas as atualizações, sem lacunas. Garantias consistentes de nível de consistência prefixo que lê nunca ver escritos fora de ordem.
 
@@ -89,12 +85,12 @@ Abaixo estão as garantias de consistência para Prefix consistente:
 
 O gráfico a seguir ilustra a consistência do prefixo de consistência com notas musicais. Em todas as regiões, as leituras nunca vêem fora de ordem escreve:
 
-  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="vídeo":::
+  :::image type="content" source="media/consistency-levels/consistent-prefix.gif" alt-text="Consistência como espectro":::
 
 - **Eventual:** Não há garantia de encomenda para leituras. Na ausência de escritas adicionais, as réplicas acabam por convergir.  
 A consistência eventual é a forma mais fraca de consistência porque um cliente pode ler os valores que são mais antigos do que os que tinha lido antes. A eventual consistência é ideal quando a aplicação não requer quaisquer garantias de encomenda. Exemplos incluem contagem de retweets, gostos ou comentários não roscados. O gráfico a seguir ilustra a eventual consistência com notas musicais.
 
-  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="vídeo":::
+  :::image type="content" source="media/consistency-levels/eventual-consistency.gif" alt-text="Consistência como espectro":::
 
 ## <a name="additional-reading"></a>Leitura adicional
 
@@ -108,7 +104,7 @@ Para saber mais sobre conceitos de consistência, leia os seguintes artigos:
 - [Probabilistic Bounded Staleness (PBS) para Quórums Parciais Práticos](https://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 - [Eventualmente Consistente - Revisitado](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os níveis de consistência no Azure Cosmos DB, leia os seguintes artigos:
 

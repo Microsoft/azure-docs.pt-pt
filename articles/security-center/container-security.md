@@ -7,17 +7,17 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 3edd7ddf79f8400462b52f964b7677840a7e86df
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6b57428aeba702dc8cf06ec4ae7984854a94ac7a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301963"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449183"
 ---
 # <a name="container-security-in-security-center"></a>Segurança de contentores no Centro de Segurança
 
@@ -95,7 +95,7 @@ Saiba mais em [Proteger as cargas de trabalho dos Seus Kubernetes.](kubernetes-w
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Nesta visão geral, você aprendeu sobre os elementos fundamentais da segurança do contentor no Azure Security Center. Para materiais relacionados ver:
 

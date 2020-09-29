@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: bc01c283fd4e2b6e3494c18c1908152aecee2c5f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4ff4d5a810eb79fb11e66591cd0b695062b1c9f6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489117"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450183"
 ---
 # <a name="monitor-iot-edge-deployments"></a>Monitorizar implementações do IoT Edge
 
@@ -25,7 +25,7 @@ Ambos os dispositivos e módulos têm dados semelhantes, como a conectividade, p
 
 O serviço IoT Hub recolhe dados relatados por gémeos de dispositivos e módulos e fornece contagens dos vários estados que os dispositivos podem ter. O serviço IoT Hub organiza estes dados em quatro grupos de métricas:
 
-| Tipo | Description |
+| Tipo | Descrição |
 | --- | ---|
 | Direcionado | Mostra os dispositivos IoT Edge que correspondem à condição de alvo de implantação. |
 | Aplicado | Mostra os dispositivos IoT Edge direcionados que não são alvo de outra implementação de maior prioridade. |
@@ -55,7 +55,7 @@ Para visualizar os detalhes de uma implantação e monitorizar os dispositivos q
     | Tempo da Criação | A data de tempo de quando a implantação foi criada. Esta estampação de tempo é usada para quebrar laços quando duas implementações têm a mesma prioridade. |
 
 1. Selecione a implementação que pretende monitorizar.  
-1. Na página Detalhes de **Implementação,** desloque-se para a secção inferior e selecione o separador **'Estado-Alvo'.** Selecione **Ver** para listar os dispositivos que correspondem à condição alvo. Pode alterar a condição e também a **Prioridade.** **Selecione Guardar** se escoou alterações.
+1. Na página **'Detalhes de implementação',** desloque-se para a secção inferior e selecione o **separador 'Estado alvo'.** Selecione **Ver** para listar os dispositivos que correspondem à condição alvo. Pode alterar a condição e também a **Prioridade.** **Selecione Guardar** se escoou alterações.
 
    ![Ver dispositivos direcionados para uma implementação](./media/how-to-monitor-iot-edge-deployments/target-devices.png)
 
@@ -63,12 +63,11 @@ Para visualizar os detalhes de uma implantação e monitorizar os dispositivos q
 
    ![Ver métricas para uma implantação](./media/how-to-monitor-iot-edge-deployments/deployment-metrics-tab.png)
 
-
 Para escoar alterações na sua implementação, consulte [Modificar uma implementação](how-to-deploy-at-scale.md#modify-a-deployment).
 
 ## <a name="monitor-a-deployment-with-azure-cli"></a>Monitorize uma implantação com O Azure CLI
 
-Utilize o comando [de exibição az IoT Edge](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-show) para mostrar os detalhes de uma única implantação:
+Utilize o comando [de exibição az IoT Edge](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show) para mostrar os detalhes de uma única implantação:
 
 ```cli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]
@@ -77,7 +76,7 @@ az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name
 O comando do show de implantação toma os seguintes parâmetros:
 
 * **...-id-implantação -** O nome da implantação que existe no hub IoT. Parâmetro necessário.
-* **--hub-name** - Nome do hub IoT em que a implantação existe. O centro deve estar na subscrição atual. Mude para a subscrição desejada com o comando`az account set -s [subscription name]`
+* **--hub-name** - Nome do hub IoT em que a implantação existe. O centro deve estar na subscrição atual. Mude para a subscrição desejada com o comando `az account set -s [subscription name]`
 
 Inspecione a colocação na janela de comando.A propriedade **métrica** lista uma contagem para cada métrica que é avaliada por cada hub:
 
@@ -86,7 +85,7 @@ Inspecione a colocação na janela de comando.A propriedade **métrica** lista u
 * **reportedSuccessfulCount** - Uma métrica do dispositivo que especifica o número de dispositivos IoT Edge na implementação reportando o sucesso do tempo de execução do cliente IoT Edge.
 * **reportedFailedCount** - Uma métrica do dispositivo que especifica o número de dispositivos IoT Edge na falha de reporte de implementação do tempo de funcionamento do cliente IoT Edge.
 
-Pode apresentar uma lista de IDs ou objetos do dispositivo para cada uma das métricas com o comando [métrico de exibição az IoT Edge:](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/edge/deployment?view=azure-cli-latest#ext-azure-iot-az-iot-edge-deployment-show-metric)
+Pode apresentar uma lista de IDs ou objetos do dispositivo para cada uma das métricas com o comando [métrico de exibição az IoT Edge:](/cli/azure/ext/azure-iot/iot/edge/deployment#ext-azure-iot-az-iot-edge-deployment-show-metric)
 
 ```cli
 az iot edge deployment show-metric --deployment-id [deployment id] --metric-id [metric id] --hub-name [hub name]
@@ -100,6 +99,6 @@ O comando show-metric de implantação requer os seguintes parâmetros:
 
 Para escoar alterações na sua implementação, consulte [Modificar uma implementação](how-to-deploy-cli-at-scale.md#modify-a-deployment).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda a [monitorizar os gémeos módulos](how-to-monitor-module-twins.md), principalmente os módulos de execução IoT Edge Agent e IoT Edge Hub, para a conectividade e saúde das suas implementações IoT Edge.

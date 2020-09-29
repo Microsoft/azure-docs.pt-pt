@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: fd0412459e7d6e51b6abdccbc8782d157acee6b9
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.date: 09/27/2020
+ms.openlocfilehash: f6527a0c5712d68756310b699d214013e89f38e1
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319802"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449582"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de lançamento do Azure HDInsight
 
@@ -23,56 +23,43 @@ Este artigo fornece informações sobre as **mais recentes** atualizações de l
 
 O Azure HDInsight é um dos serviços mais populares entre os clientes empresariais para análises de código aberto em Azure.
 
-## <a name="release-date-08092020"></a>Data de lançamento: 08/09/2020
+## <a name="release-date-09282020"></a>Data de lançamento: 09/28/2020
 
-Esta versão aplica-se apenas a HDInsight 4.0. O lançamento hdInsight é disponibilizado a todas as regiões ao longo de vários dias. A data de lançamento aqui indica a primeira data de lançamento da região. Se não vir alterações abaixo, aguarde que o lançamento seja transmitido ao vivo na sua região dentro de vários dias.
+Esta versão aplica-se tanto para HDInsight 3.6 como HDInsight 4.0. O lançamento hdInsight é disponibilizado a todas as regiões ao longo de vários dias. A data de lançamento aqui indica a primeira data de lançamento da região. Se não vir alterações abaixo, aguarde que o lançamento seja transmitido ao vivo na sua região dentro de vários dias.
 
 ## <a name="new-features"></a>Novas funcionalidades
-### <a name="support-for-sparkcruise"></a>Apoio à SparkCruise
-SparkCruise é um sistema automático de reutilização de computação para a Spark. Seleciona subexpressões comuns para se materializar com base na carga de trabalho de consulta anterior. O SparkCruise materializa estas subexpressões como parte do processamento de consultas e reutilização de cálculo é automaticamente aplicado em segundo plano. Pode beneficiar-se do SparkCruise sem qualquer modificação ao código Spark.
- 
-### <a name="support-hive-view-for-hdinsight-40"></a>Suporte Vista hive para HDInsight 4.0
-Apache Ambari Hive View foi projetado para ajudá-lo a autorizar, otimizar e executar consultas de Hive a partir do seu navegador web. A Hive View é suportada de forma nativa para clusters HDInsight 4.0 a partir desta versão. Não se aplica aos aglomerados existentes. Você precisa cair e recriar o cluster para obter a vista de colmeia incorporada.
- 
-### <a name="support-tez-view-for-hdinsight-40"></a>Vista Tez de suporte para HDInsight 4.0
-Apache Tez View é usado para rastrear e depurar a execução do trabalho de Hive Tez. O Tez View é suportado de forma nativa para HDInsight 4.0 a partir desta versão. Não se aplica aos aglomerados existentes. Você precisa cair e recriar o cluster para obter a vista de Tez incorporada.
+### <a name="llap-cluster-auto-scale-general-available"></a>Escala automática de cluster LLAP Disponível
+A escala automática para o tipo de cluster LLAP está agora disponível geral (GA). Todos os clusters LLAP criados após 27 de agosto de 2020 terão suporte AG para a escala automática.
+
+### <a name="hbase-cluster-supports-premium-adls-gen2"></a>Cluster HBase suporta Premium ADLS Gen2
+O HDInsight agora suporta o Premium ADLS Gen2 como conta de armazenamento primário para os clusters HDInsight HBase 3.6 e 4.0. Juntamente com [As Escritas Aceleradas,](./hbase/apache-hbase-accelerated-writes.md)pode obter um melhor desempenho para os seus clusters HBase.
+
+### <a name="kafka-partition-distribution-on-azure-fault-domains"></a>Distribuição de partição kafka nos domínios de falhas de Azure
+Um domínio de falha é um agrupamento lógico de hardware subjacente num centro de dados do Azure. Cada domínio de falha partilha um comutador de rede e uma fonte de alimentação. Antes de HDInsight Kafka pode armazenar todas as réplicas de partição no mesmo domínio de avaria. A partir desta versão, o HDInsight suporta agora a distribuição automática de divisórias Kafka com base em domínios de avarias Azure. 
+
+### <a name="encryption-in-transit"></a>Encriptação de dados em circulação
+Os clientes podem ativar a encriptação em trânsito entre nós de cluster usando encriptação IPSec com teclas geridas pela plataforma. Esta opção pode ser ativada no tempo de criação do cluster. Consulte mais detalhes sobre [como permitir a encriptação em trânsito.](./domain-joined/encryption-in-transit.md)
+
+### <a name="encryption-at-host"></a>Encriptação no anfitrião
+Quando ativa a encriptação no anfitrião, os dados armazenados no anfitrião VM são encriptados em repouso e os fluxos encriptados para o serviço de armazenamento. A partir desta versão, pode **ativar a encriptação no anfitrião no disco de dados temporários** ao criar o cluster. A encriptação no anfitrião só é suportada [em certos SKUs VM em regiões limitadas](https://docs.microsoft.com/azure/virtual-machines/linux/disks-enable-host-based-encryption-portal). O HDInsight suporta a [seguinte configuração do nó e SKUs](./hdinsight-supported-node-configuration.md). Consulte mais detalhes sobre [como ativar a encriptação no anfitrião.](https://docs.microsoft.com/azure/hdinsight/disk-encryption#encryption-at-host-using-platform-managed-keys)
+
+### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Movendo-se para conjuntos de escala de máquina virtual Azure
+O HDInsight agora utiliza máquinas virtuais Azure para abastecer o cluster. A partir desta versão, o serviço migrará gradualmente para [conjuntos de escala de máquina virtual Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). Todo o processo pode levar meses. Após a migração das suas regiões e subscrições, os clusters HDInsight recém-criados serão executados em conjuntos de escala de máquinas virtuais sem ações do cliente. Não se espera mudanças de rutura.
 
 ## <a name="deprecation"></a>Preterição
-### <a name="deprecation-of-spark-21-and-22-in-hdinsight-36-spark-cluster"></a>Descontinuação do Spark 2.1 e 2.2 no cluster do Spark no HDInsight 3.6
-A partir de 1 de julho de 2020, os clientes não podem criar novos clusters Spark com Spark 2.1 e 2.2 no HDInsight 3.6. Os clusters existentes funcionarão como está sem o suporte da Microsoft. Considere mover-se para Spark 2.3 no HDInsight 3.6 até 30 de junho de 2020 para evitar possíveis interrupções do sistema/suporte.
- 
-### <a name="deprecation-of-spark-23-in-hdinsight-40-spark-cluster"></a>Descontinuação do Spark 2.3 no cluster do Spark no HDInsight 4.0
-A partir de 1 de julho de 2020, os clientes não podem criar novos clusters Spark com Spark 2.3 em HDInsight 4.0. Os clusters existentes funcionarão como está sem o suporte da Microsoft. Considere migrar para o Spark 2.4 no HDInsight 4.0 até 30 de junho de 2020 para evitar a potencial interrupção do sistema/suporte.
- 
-### <a name="deprecation-of-kafka-11-in-hdinsight-40-kafka-cluster"></a>Descontinuação do Kafka 1.1 no cluster do Kafka no HDInsight 4.0
-A partir de 1 de julho de 2020, os clientes não poderão criar novos clusters Kafka com Kafka 1.1 no HDInsight 4.0. Os clusters existentes funcionarão como está sem o suporte da Microsoft. Considere migrar para o Kafka 2.1 no HDInsight 4.0 até 30 de junho de 2020 para evitar a potencial interrupção do sistema/suporte.
+Sem depreciação para esta libertação.
 
 ## <a name="behavior-changes"></a>Mudanças de comportamento
-### <a name="ambari-stack-version-change"></a>Mudança de versão da pilha Ambari
-Nesta versão, a versão Ambari muda de 2.x.x.x para 4.1. Pode verificar a versão stack (HDInsight 4.1) em Ambari: Ambari > Versãos > do Utilizador.
+Nenhuma mudança de comportamento para esta libertação.
 
 ## <a name="upcoming-changes"></a>Próximas alterações
-Sem próximas alterações de rutura a que tens de prestar atenção.
+As seguintes alterações irão ocorrer nos próximos lançamentos.
+
+### <a name="ability-to-select-different-zookeeper-sku-for-spark-hadoop-and-ml-services"></a>Capacidade de selecionar diferentes Zookeeper SKU para spark, Hadoop e ML Services
+O HDInsight hoje em dia não suporta a mudança de zookeeper SKU para tipos de cluster Spark, Hadoop e ML Services. Utiliza A2_v2/A2 SKU para nós zookeeper e os clientes não são cobrados por eles. No próximo lançamento, os clientes podem mudar o Zookeeper SKU para spark, Hadoop e ML Services, conforme necessário. Serão carregados os nós zookeeper com SKU que não A2_v2/A2. O SKU predefinido ainda será A2_V2/A2 e gratuito.
 
 ## <a name="bug-fixes"></a>Correções de erros
 O HDInsight continua a fazer melhorias na fiabilidade do cluster e no desempenho. 
 
-Abaixo, os JIRAs estão de volta para a Colmeia:
-* [HIVE-23619](https://issues.apache.org/jira/browse/HIVE-23619)
-* [HIVE-21223](https://issues.apache.org/jira/browse/HIVE-21223)
-* [HIVE-22599](https://issues.apache.org/jira/browse/HIVE-22599)
-* [HIVE-22121](https://issues.apache.org/jira/browse/HIVE-22121)
-* [HIVE-22136](https://issues.apache.org/jira/browse/HIVE-22136)
-* [HIVE-18786](https://issues.apache.org/jira/browse/HIVE-18786)
-
-Abaixo, os JIRAs estão de volta para a Base H:
-* [HBASE-21458](https://issues.apache.org/jira/browse/HBASE-21458)
-* [HBASE-24208](https://issues.apache.org/jira/browse/HBASE-24208)
-* [HBASE-24205](https://issues.apache.org/jira/browse/HBASE-24205)
-
 ## <a name="component-version-change"></a>Alteração da versão do componente
 Nenhuma alteração da versão componente para esta versão. Pode encontrar as versões componentes atuais para HDInsight 4.0 e HDInsight 3.6 [neste doc](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
-
-## <a name="known-issues"></a>Problemas conhecidos
-
-Foi corrigido um problema no portal do Azure, no qual os utilizadores estavam a obter um erro ao tentarem criar um cluster do Azure HDInsight com um tipo de autenticação SSH de chave pública. Quando os utilizadores clicavam em **Rever + Criar**, obtinham o erro “Não deve conter três caracteres consecutivos do nome de utilizador SSH”. Este problema foi corrigido, mas pode ser necessário atualizar a cache do browser ao premir CTRL + F5 para carregar a vista corrigida. A solução alternativa para este problema era criar um cluster com um modelo do Resource Manager. 

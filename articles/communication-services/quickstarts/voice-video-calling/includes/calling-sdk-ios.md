@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 31f7e348a805c86964a8856fb81b83831c611de5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7ca15baffd3fac4a1f3635ac7377bac620673446
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376440"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91451626"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +41,7 @@ Adicione os Serviços de Comunicação Azure Chamando a biblioteca do cliente e 
 5. Abra o separador **Definições** de Construção do editor de definições do projeto e percorra para a secção **Caminhos de Busca.** Adicione uma nova entrada **de Caminhos de Busca-Quadro** para o diretório contendo o **AzureCommunicationCalling.framework**.
     1. Adicione outra entrada dos Caminhos de Busca-Quadro apontando para a pasta que contém as dependências.
 
-:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Screenshot mostrando a atualização dos caminhos de pesquisa de quadro dentro do XCode.":::
+:::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Screenshot mostrando a nova janela do Novo Projeto dentro do Xcode.":::
 
 ### <a name="request-access-to-the-microphone"></a>Solicitar acesso ao microfone
 
@@ -113,7 +113,7 @@ Passe ComunicaçãoUser Objeto cedente acima para ACSCallClient
 callClient = ACSCallClient()
 callClient?.createCallAgent(userCredential!,
     withCompletionHandler: { (callAgent, error) in
-        if error != nil {
+        if error == nil {
             print("Create agent succeeded")
             self.callAgent = callAgent
         } else {
@@ -186,7 +186,7 @@ A notificação de push móvel é a notificação pop-up que obtém no dispositi
 - Passo 2: Capacidades de & de assinatura de > Xcode -> adicionar capacidade -> "Modos de fundo"
 - Passo 3: "Modos de fundo" -> Selecione "Voice over IP" e "Remote Notifications"
 
-:::image type="content" source="../media/ios/xcode-push-notification.png" alt-text="Screenshot mostrando como adicionar capacidades no Xcode." lightbox="../media/ios/xcode-push-notification.png":::
+:::image type="content" source="../media/ios/xcode-push-notification.png" alt-text="Screenshot mostrando a nova janela do Novo Projeto dentro do Xcode." lightbox="../media/ios/xcode-push-notification.png":::
 
 #### <a name="register-for-push-notifications"></a>Registar-se para notificações push
 

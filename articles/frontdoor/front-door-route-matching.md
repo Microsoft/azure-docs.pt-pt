@@ -9,18 +9,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 9593a6c4fa45d9810aabb2bbb3123428930c5891
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 67940db973f494cd4a12c2f16db528e0b113d656
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401576"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449203"
 ---
-# <a name="how-front-door-matches-requests-to-a-routing-rule"></a>Como o Front Door faz a correspondência entre os pedidos e uma regra de encaminhamento
+# <a name="how-requests-are-matched-to-a-routing-rule"></a>Como os pedidos são combinados com uma regra de encaminhamento
 
-Depois de estabelecer uma ligação e fazer um aperto de mão TLS, quando um pedido aterra num ambiente da Porta da Frente uma das primeiras coisas que a Porta Frontal faz é determinar a partir de todas as configurações, qual a regra de encaminhamento particular para corresponder ao pedido e, em seguida, tomar a ação definida. O documento que se segue explica como a Porta Frontal determina qual a configuração da Rota a utilizar ao processar um pedido HTTP.
+Depois de estabelecer uma ligação e completar um aperto de mão TLS, quando um pedido aterra num ambiente da Porta da Frente uma das primeiras coisas que a Porta Frontal faz é determinar qual a regra de encaminhamento específica para corresponder ao pedido e, em seguida, tomar a ação definida na configuração. O documento que se segue explica como a Porta Frontal determina qual a configuração da Rota a utilizar ao processar um pedido HTTP.
 
 ## <a name="structure-of-a-front-door-route-configuration"></a>Estrutura de uma configuração de rota da porta da frente
 Uma configuração da regra de encaminhamento da porta frontal é composta por duas partes principais: um "lado esquerdo" e um "lado direito". Correspondemos ao pedido de entrada para o lado esquerdo da rota enquanto o lado direito define como processamos o pedido.
@@ -41,7 +41,7 @@ A decisão de como processar o pedido depende se o caching está ou não habilit
 Esta secção concentrar-se-á na forma como nos correspondemos a uma determinada regra de encaminhamento da Porta frontal. O conceito básico é que sempre correspondemos ao **jogo mais específico primeiro** olhando apenas para o "lado esquerdo".  Primeiro combinamos com base no protocolo HTTP, depois no Frontend Host, depois no Caminho.
 
 ### <a name="frontend-host-matching"></a>Frontend host matching
-Ao combinar anfitriões frontend, usamos a lógica como abaixo:
+Ao combinar anfitriões frontend, usamos a lógica definida abaixo:
 
 1. Procure por qualquer encaminhamento com uma correspondência exata no anfitrião.
 2. Se nenhum anfitrião de frontend corresponder, rejeite o pedido e envie um erro de 400 Bad Request.

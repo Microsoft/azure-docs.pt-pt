@@ -3,12 +3,12 @@ title: Aplicação do Azure Migrate
 description: Fornece um resumo do suporte para o aparelho Azure Migrate.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: e2bd3f2fa40bbf31713393f18a04624d70cbd244
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: ac3c90f1c09d290d5112a0e0d7abc5218788caf7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084775"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450050"
 ---
 # <a name="azure-migrate-appliance"></a>Aplicação do Azure Migrate
 
@@ -20,9 +20,9 @@ O aparelho Azure Migrate é utilizado nos seguintes cenários.
 
 **Cenário** | **Ferramenta** | **Utilizado para** 
 --- | --- | ---
-**Avaliação VMware VM** | Azure Migrate:Avaliação do servidor | Descubra VMware VMs<br/><br/> Descubra aplicativos e dependências de máquinas<br/><br/> Recolha metadados de máquina e metadados de desempenho para avaliações.
-**VMware VM migração sem agente** | Azure Migrate:Migração de servidores | Descubra VMware VMs <br/><br/> Replicar VMware VMs com migração sem agente.
-**Avaliação de VM hiper-V** | Azure Migrate:Avaliação do servidor | Descubra VMs Hiper-V<br/><br/> Recolha metadados de máquina e metadados de desempenho para avaliações.
+**Avaliação VMware VM** | Azure Migrate:Avaliação do servidor | Detetar VMs VMware<br/><br/> Descubra aplicativos e dependências de máquinas<br/><br/> Recolha metadados de máquina e metadados de desempenho para avaliações.
+**VMware VM migração sem agente** | Azure Migrate:Migração de servidores | Detetar VMs VMware <br/><br/> Replicar VMware VMs com migração sem agente.
+**Avaliação de VM hiper-V** | Azure Migrate:Avaliação do servidor | Detetar VMs Hyper-V<br/><br/> Recolha metadados de máquina e metadados de desempenho para avaliações.
 **Avaliação física da máquina** |  Azure Migrate:Avaliação do servidor |  Descubra servidores físicos (ou VMs que trata como servidores físicos).<br/><br/> Recolha metadados de máquina e metadados de desempenho para avaliações.
 
 ## <a name="deployment-methods"></a>Métodos de implantação
@@ -47,12 +47,12 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para o VMwa
 **Implantação suportada** | Implemente como VMware VM utilizando o modelo OVA.<br/><br/> Implemente como VMware VM ou máquina física utilizando o script de instalação PowerShell.
 **Apoio ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
 **Limites de descoberta** | Um aparelho pode descobrir até 10.000 VMware VMs num servidor vCenter.<br/> Um aparelho pode ligar-se a um único servidor vCenter.
-**Modelo de OVA** | Descarregue a partir do portal ou a partir [daqui](https://go.microsoft.com/fwlink/?linkid=2140333)<br/><br/> O tamanho do download é de 11,6 GB.<br/><br/> O modelo de aparelho descarregado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver próximo de expirar, recomendamos que descarregue e implemente um novo aparelho, ou que ative a licença do sistema operativo do aparelho VM.
+**Modelo de OVA** | Descarregue a partir do portal ou a partir [daqui](https://go.microsoft.com/fwlink/?linkid=2140333)<br/><br/> O tamanho do download é de 11,9 GB.<br/><br/> O modelo de aparelho descarregado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver próximo de expirar, recomendamos que descarregue e implemente um novo aparelho, ou que ative a licença do sistema operativo do aparelho VM.
 **Script do PowerShell** | Consulte este [artigo.](./deploy-appliance-script.md#set-up-the-appliance-for-vmware)<br/><br/> 
 **Software/hardware** |  O aparelho deve funcionar em máquina com o Windows Server 2016, 32 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo.<br/> O aparelho requer acesso à Internet, diretamente ou através de um representante.<br/><br/> Se executar o aparelho num VMware VMware, precisa de recursos suficientes no servidor vCenter para alocar um VM que satisfaça os requisitos.<br/><br/> Se executar o aparelho numa máquina física, certifique-se de que está a executar o Windows Server 2016 e que cumpre os requisitos de hardware.
 **Requisitos de VMware** | Se colocar o aparelho como VMware VM, deve ser implantado numa versão de execução do anfitrião ESXi 5.5 ou posterior.<br/><br/> vCenter Server com execução de 5.5, 6.0, 6.5 ou 6.7.
 **VDDK (migração sem agente)** | Se colocar o aparelho como VMware VMware e estiver a executar uma migração sem agentes, o VMware vSphere VDDK deve ser instalado no VM do aparelho.
-**Valor de haxixe-OVA** | [Verifique](tutorial-assess-vmware.md#verify-security) os valores do hash do modelo OVA.
+**Valor de haxixe-OVA** | [Verifique](tutorial-discover-vmware.md#verify-security) os valores do hash do modelo OVA.
 **Roteiro hash value-PowerShell** | [Verifique](deploy-appliance-script.md#verify-file-security) os valores do hash do script PowerShell.
 
 
@@ -67,11 +67,11 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para o VMwa
 **Implantação suportada** | Implemente como Hyper-V VM utilizando um modelo VHD.<br/><br/> Implemente como um VM Hiper-V ou uma máquina física utilizando um script de instalação PowerShell.
 **Apoio ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
 **Limites de descoberta** | Um aparelho pode descobrir até 5000 Hiper-VMs.<br/> Um aparelho pode ligar até 300 anfitriões Hiper-V.
-**Modelo VHD** | Pasta com fecho, incluindo VHD. Descarregue a partir do portal ou a partir [daqui.](https://go.microsoft.com/fwlink/?linkid=2140422)<br/><br/> O tamanho do download é de 10,4 GB.<br/><br/> O modelo de aparelho descarregado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver próximo de expirar, recomendamos que descarregue e implemente um novo aparelho, ou que ative a licença do sistema operativo do aparelho VM.
+**Modelo VHD** | Pasta com fecho, incluindo VHD. Descarregue a partir do portal ou a partir [daqui.](https://go.microsoft.com/fwlink/?linkid=2140422)<br/><br/> O tamanho do download é de 8.91 GB.<br/><br/> O modelo de aparelho descarregado vem com uma licença de avaliação do Windows Server 2016, que é válida por 180 dias. Se o período de avaliação estiver próximo de expirar, recomendamos que descarregue e implemente um novo aparelho, ou que ative a licença do sistema operativo do aparelho VM.
 **Script do PowerShell** | Consulte este [artigo.](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v)<br/><br/> 
-**Software/hardware***   |  O aparelho deve funcionar em máquina com o Windows Server 2016, 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo.<br/> O aparelho necessita de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou através de um representante.<br/><br/> Se executar o aparelho como um VM Hiper-V, precisa de recursos suficientes no hospedeiro Hyper-V para alocar 16 GB de RAM, 8 vCPUs, cerca de 80 GB de espaço de armazenamento e um interruptor externo para o VM do aparelho.<br/><br/> Se executar o aparelho numa máquina física, certifique-se de que está a executar o Windows Server 2016 e que cumpre os requisitos de hardware. 
+**Software/hardware***   |  O aparelho deve funcionar em máquina com o Windows Server 2016, 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo.<br/> O aparelho necessita de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou através de um representante.<br/><br/> Se executar o aparelho como Um VM Hiper-V, precisa de recursos suficientes no hospedeiro Hyper-V para alocar os requisitos de hardware.<br/><br/> Se executar o aparelho numa máquina física, certifique-se de que está a executar o Windows Server 2016 e que cumpre os requisitos de hardware. 
 **Requisitos de hiper-V** | Se colocar o aparelho com o modelo VHD, o aparelho VM fornecido pela Azure Migrate é a versão 5.0 do Hiper-VM.<br/><br/> O anfitrião Hyper-V deve estar a executar o Windows Server 2012 R2 ou mais tarde. 
-**Valor de haxixe VHD** | Valores de hash do modelo VHD.
+**Valor de haxixe VHD** | [Verificar](tutorial-discover-hyper-v.md#verify-security) Valores de hash do modelo VHD.
 **Roteiro hash value-PowerShell** | [Verifique](deploy-appliance-script.md#verify-file-security) os valores do hash do script PowerShell.
 
 
@@ -84,9 +84,9 @@ A tabela que se segue resume os requisitos do aparelho Azure Migrate para o VMwa
 **Implantação suportada** | Implemente como uma máquina física dedicada, ou um VM, utilizando um script de instalação PowerShell. O script está disponível para download a partir do portal.
 **Apoio ao projeto** |  Um aparelho pode ser associado a um único projeto. <br/> Qualquer número de aparelhos pode ser associado a um único projeto.<br/> 
 **Limites de descoberta** | Um aparelho pode descobrir até 1000 servidores físicos.
-**Script do PowerShell** | Descarregue o script (AzureMigrateInstaller.ps1) numa pasta com fecho de correr a partir do portal ou a partir [daqui](https://go.microsoft.com/fwlink/?linkid=2140334). [Saiba mais](tutorial-discover-physical.md).<br/><br/> O tamanho do download é de 85 MB.
-**Software/hardware** |  O aparelho deve funcionar em máquina com o Windows Server 2016, 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo.<br/> O aparelho necessita de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou através de um representante.<br/><br/> Se executar o aparelho numa máquina física, certifique-se de que está a executar o Windows Server 2016 e que cumpre os requisitos de hardware.<br/> A execução do aparelho numa máquina com o Windows Server 2019 não é suportada.
-**Valor de hash** | [Verifique](deploy-appliance-script.md#verify-file-security) os valores do hash do script PowerShell.
+**Script do PowerShell** | Descarregue o script (AzureMigrateInstaller.ps1) numa pasta com fecho de correr a partir do portal ou a partir [daqui](https://go.microsoft.com/fwlink/?linkid=2140334). [Saiba mais](tutorial-discover-physical.md).<br/><br/> O tamanho do download é de 85,8 MB.
+**Software/hardware** |  O aparelho deve funcionar em máquina com o Windows Server 2016, 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento de disco.<br/> O aparelho necessita de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou através de um representante.<br/><br/> Se executar o aparelho numa máquina física, certifique-se de que está a executar o Windows Server 2016 e que cumpre os requisitos de hardware.<br/>_(Atualmente, a implementação do aparelho só é suportada no Windows Server 2016.)_
+**Valor de hash** | [Verifique](tutorial-discover-physical.md#verify-security) os valores do hash do script PowerShell.
 
 ## <a name="url-access"></a>Acesso a URL
 
@@ -390,7 +390,7 @@ GUIA DE BIOS | Win32_ComputerSystemProduct | UUID
 Tipo de bota | Win32_DiskPartition | Verifique a partição com o Tipo = **GPT:Sistema** de EFI/BIOS
 Nome do SO | Win32_OperatingSystem | Legenda
 Versão do SO |Win32_OperatingSystem | Versão
-Arquitetura de OS | Win32_OperatingSystem | OsArchitecture
+Arquitetura de SO | Win32_OperatingSystem | OsArchitecture
 Contagem de discos | Win32_DiskDrive | Modelo, Tamanho, DeviceID, MediaType, Nome
 Tamanho do disco | Win32_DiskDrive | Tamanho
 Lista DE NIC | Win32_NetworkAdapterConfiguration | Descrição, Índice
@@ -410,7 +410,7 @@ Número de série BIOS | Lshw \| grep "serial:" \| head -n1 \| awk '{print $2}' 
 GUIA DE BIOS | gato /sys/class/dmi/id/product_uuid
 Tipo de bota | [ d /sys/firmware/efi ] && eco EFI \| \| echo BIOS
 Nome/versão do SO | Acedemos a estes ficheiros para a versão e nome do SO:<br/><br/> /etc/os-release<br/> /usr/lib/os-release <br/> /etc/enterprise-release <br/> /etc/redhat-release<br/> /etc/oráculo-liberação<br/>  /etc/SuSE-release<br/>  /etc/lsb-release  <br/> /etc/debian_version
-Arquitetura de OS | Uname-m
+Arquitetura de SO | Uname-m
 Contagem de discos | fdisk -l \| egrep 'Disk.*bytes' \| awk '{print $2}' \| corte -f1 -d ':'
 Disco de arranque | df /boot \| sed -n 2p \| awk '{print $1}'
 Tamanho do disco | fdisk -l \| egrep 'Disk.*bytes' \| egreps $disk: \| awk '{print $5}'
@@ -522,7 +522,7 @@ Se estiver a executar uma versão mais antiga para qualquer um dos componentes, 
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Saiba como](how-to-set-up-appliance-vmware.md) configurar o aparelho para VMware.
 - [Saiba como](how-to-set-up-appliance-hyper-v.md) configurar o aparelho para o Hyper-V.

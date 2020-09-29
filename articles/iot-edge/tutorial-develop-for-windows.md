@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d4846a69f548c99de735cc9d9e06bd6bb263b4bd
-ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
+ms.openlocfilehash: a0bc934d32a2d09fcd6b52ec1f186855bf0da92c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87439703"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449625"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desenvolver módulos IoT Edge para dispositivos Windows
 
@@ -281,7 +281,7 @@ Verificou que as imagens dos contentores construídos estão armazenadas no regi
 
    ![Criar implementação para dispositivo único](./media/tutorial-develop-for-windows/create-deployment.png)
 
-3. No explorador de ficheiros, navegue para a pasta config do seu projeto e selecione a **deployment.windows-amd64.jsno** ficheiro. Este ficheiro é frequentemente localizado em`C:\Users\<username>\source\repos\CSharpTutorialApp\CSharpTutorialApp\config\deployment.windows-amd64.json`
+3. No explorador de ficheiros, navegue para a pasta config do seu projeto e selecione a **deployment.windows-amd64.jsno** ficheiro. Este ficheiro é frequentemente localizado em `C:\Users\<username>\source\repos\CSharpTutorialApp\CSharpTutorialApp\config\deployment.windows-amd64.json`
 
    Não utilize o deployment.template.jsno ficheiro, que não tem os valores de imagem do módulo completos.
 
@@ -295,7 +295,7 @@ Verificou que as imagens dos contentores construídos estão armazenadas no regi
 
 O código IotEdgeModule1 recebe mensagens através da sua fila de entrada e passa-as através da sua fila de saída. O manifesto de implantação declarou rotas que passaram mensagens de SimulatedTemperatureSensor a IotEdgeModule1, e depois reencaminharam mensagens de IotEdgeModule1 para IoT Hub. As ferramentas Azure IoT Edge para o Visual Studio permitem-lhe ver mensagens à medida que chegam ao IoT Hub a partir dos seus dispositivos individuais.
 
-1. No explorador de nuvem Visual Studio, selecione o nome do dispositivo IoT Edge para o quais implementou.
+1. No Visual Studio Cloud Explorer, selecione o nome do dispositivo IoT Edge para o quais implementou.
 
 2. No menu **Ações,** selecione **Start Monitoring Built-in Event Endpoint**.
 
@@ -337,7 +337,7 @@ Caso contrário, pode eliminar as configurações locais e os recursos Azure que
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, configura o Visual Studio 2019 na sua máquina de desenvolvimento e implementou o seu primeiro módulo IoT Edge a partir dele. Agora que conhece os conceitos básicos, tente adicionar funcionalidade a um módulo para que possa analisar os dados que passam por ele. Escolha o seu idioma preferido:
 

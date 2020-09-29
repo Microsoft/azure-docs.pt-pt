@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 9c77ed2bf0d764fbbbe24770cc70b3fbeec7f678
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 73b1ba5e93ad82498938055db50abb665849f442
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833458"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449001"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Compreensão do acesso ao VM just-in-time (JIT)
 
@@ -83,7 +83,7 @@ Se quiser criar funções personalizadas que possam funcionar com o JIT, precisa
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Esta página explicou _por que razão_ deve ser utilizado o acesso à máquina virtual (VM) just-in-time (JIT). 
 

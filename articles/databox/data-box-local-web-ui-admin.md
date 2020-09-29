@@ -6,20 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 7cac14708adecbdf3c809e3a9656d25c727d80e3
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 8455fafe9ce2465df450e9556e8b2442b01e4e23
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88206147"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449670"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Utilize o UI web local para administrar a sua Caixa de Dados e Caixa de Dados Pesada
 
-Este artigo descreve algumas das tarefas de configuração e gestão que podem ser realizadas nos dispositivos Data Box e Data Box Heavy. Pode gerir os dispositivos Data Box e Data Box Heavy através do portal Azure UI e da UI web local para o dispositivo. Este artigo aborda em especial as tarefas que pode efetuar com a IU de Web local.
+Este artigo descreve algumas das tarefas de configuração e gestão realizadas em dispositivos Data Box e Data Box Heavy. Pode gerir os dispositivos Data Box e Data Box Heavy através do portal Azure UI e da UI web local para o dispositivo. Este artigo foca tarefas realizadas através da UI web local.
 
-A UI web local para a Caixa de Dados e Caixa de Dados Pesada é utilizada para a configuração inicial do dispositivo. Também pode utilizar o UI web local para desligar ou reiniciar o dispositivo, executar testes de diagnóstico, atualizar software, ver registos de cópias e gerar um pacote de registo para o Microsoft Support. Num dispositivo Data Box Heavy com dois nós independentes, pode aceder a duas UI locais separadas correspondentes a cada nó do dispositivo.
+A UI web local para a Caixa de Dados e para Data Box Heavy é utilizada para a configuração inicial do dispositivo. Também pode utilizar o UI web local para desligar ou reiniciar o dispositivo, executar testes de diagnóstico, atualizar software, ver registos de cópias e gerar um pacote de registo para o Microsoft Support. Num dispositivo Data Box Heavy com dois nós independentes, pode aceder a duas UI locais separadas correspondentes a cada nó do dispositivo.
 
 Este artigo inclui os seguintes tutoriais:
 
@@ -53,7 +53,7 @@ Se surgir qualquer problema com o dispositivo, pode criar um Pacote de suporte a
 
 ## <a name="shut-down-or-restart-your-device"></a>Encerrar ou reiniciar o dispositivo
 
-Pode desligar ou reiniciar o seu dispositivo utilizando a UI web local. Recomendamos que antes de reiniciar, coloque as partilhas offline no anfitrião e, em seguida, no dispositivo. Ao fazê-lo, minimiza qualquer possibilidade de corrupção de dados. Certifique-se de que a cópia de dados não está em curso quando encerra o dispositivo.
+Pode desligar ou reiniciar o seu dispositivo utilizando a UI web local. Recomendamos que antes de reiniciar, coloque as partilhas offline no anfitrião e, em seguida, no dispositivo. Ao fazê-lo, minimiza qualquer possibilidade de corrupção de dados. Certifique-se de que a cópia de dados não está em andamento quando desligar o dispositivo.
 
 Para desligar o seu dispositivo, tome os seguintes passos.
 
@@ -62,7 +62,7 @@ Para desligar o seu dispositivo, tome os seguintes passos.
 
     ![Encerrar Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
-3. Quando solicitado para confirmação, selecione **OK** para prosseguir.
+3. Quando solicitado para confirmação, selecione **OK** para continuar.
 
     ![Encerrar o Data Box 2](media/data-box-local-web-ui-admin/shut-down-local-web-ui-2.png)
 
@@ -75,7 +75,7 @@ Para reiniciar o Data Box, execute os passos seguintes.
 
     ![Reiniciar Data Box 1](media/data-box-local-web-ui-admin/restart-local-web-ui-1.png)
 
-3. Quando solicitado para confirmação, selecione **OK** para prosseguir.
+3. Quando solicitado para confirmação, selecione **OK** para continuar.
 
    O dispositivo é desligado e, em seguida, reinicia-se.
 
@@ -93,7 +93,7 @@ Antes de começar, siga estes passos para descarregar ficheiros BOM ou manifesto
 
     <!-- ![Select Download list of files](media/data-box-portal-admin/download-list-of-files.png) -->
 
-3. No File Explorer, verá que a lista separada de ficheiros é gerada dependendo do protocolo utilizado para ligar ao dispositivo e ao tipo de Armazenamento Azure utilizado.
+3. No File Explorer, verá que são geradas listas separadas de ficheiros, dependendo do protocolo utilizado para ligar ao dispositivo e ao tipo de Armazenamento Azure utilizado.
 
     <!-- ![Files for storage type and connection protocol](media/data-box-portal-admin/files-storage-connection-type.png) -->
     ![Ficheiros para tipo de armazenamento e protocolo de ligação](media/data-box-local-web-ui-admin/prepare-to-ship-5.png)
@@ -202,6 +202,49 @@ Para ativar a sessão de SMB no seu Dispositivo Azure:
 4. Na IU de Web local, aceda a **Encerrar ou reiniciar**.
 5. **Selecione Reiniciar**.
 
+## <a name="enable-backup-operator-privileges"></a>Ativar privilégios do operador de backup
+
+Os seus utilizadores de UI da web têm privilégios de Backup Operator em ações SMB por padrão. Se não quiser, utilize **os privilégios do Operador De Trás** para desativar ou ativar os privilégios.
+
+Para obter informações, consulte os operadores de backup em [Grupos de Segurança do Diretório Ativo](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups#backup-operators).
+
+Para ativar os privilégios do Operador de Backup no seu Dispositivo Azure:
+
+1. No canto superior direito da UI web local do seu dispositivo, selecione **Definições**.
+
+   ![Abrir configurações de caixa de dados](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Ativar** Privilégios de backup do operador.
+
+   ![Ativar privilégios do operador de backup](media/data-box-local-web-ui-admin/data-box-backup-operator-privileges-1.png)
+
+3. **Selecione Aplicar**.
+4. Na IU de Web local, aceda a **Encerrar ou reiniciar**.
+5. **Selecione Reiniciar**.
+
+## <a name="enable-acls-for-azure-files"></a>Ativar ACLs para Ficheiros Azure
+
+Os metadados em ficheiros são transferidos por padrão quando os utilizadores fazem o upload de dados via SMB para a sua Caixa de Dados. Os metadados incluem listas de controlo de acesso (ACLs), atributos de ficheiros e timetamps. Se não quiser isto, utilize **ACLs para ficheiros Azure** para desativar ou ativar esta funcionalidade.
+
+<!--For more information about metadata that is transferred, see [Preserving the ACLs and metadata with Azure Data Box](./data-box-local-web-ui-admin.md#enable-backup-operator-privileges) - IN DEVELOPMENT-->
+
+> [!Note]
+> Para transferir metadados com ficheiros, tem de ser um Operador de Cópia de Segurança. Quando utilizar esta funcionalidade, certifique-se de que os utilizadores locais da UI web são Operadores de Reserva. Consulte [os privilégios do Operador de Backup](#enable-backup-operator-privileges).
+
+Para permitir a transferência de ACLs para ficheiros Azure:
+
+1. No canto superior direito da UI web local do seu dispositivo, selecione **Definições**.
+
+    ![Abrir configurações de caixa de dados](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Ativar** ACLs para ficheiros Azure.
+
+     ![Ativar ACLs para ficheiros Azure](media/data-box-local-web-ui-admin/data-box-acls-for-azure-files-1.png)
+  
+3. Selecione **Aplicar**.
+4. Na IU de Web local, aceda a **Encerrar ou reiniciar**.
+5. **Selecione Reiniciar**.
+
 ## <a name="enable-tls-11"></a>Ativar TLS 1.1
 
 Por padrão, a Azure Data Box utiliza a Segurança da Camada de Transporte (TLS) 1.2 para encriptação, uma vez que é mais segura do que a TSL 1.1. No entanto, se você ou os seus clientes estiverem a usar um browser para aceder a dados que não suportem TLS 1.2, poderá ativar o TLS 1.1.
@@ -212,7 +255,7 @@ Para ativar o TLS 1.1 no seu dispositivo Azure:
 
 1. No canto superior direito da UI web local do seu dispositivo, selecione **Definições**.
 
-    ![Abrir Definições](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Abrir configurações de caixa de dados](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Ativar** TLS 1.1.
 
@@ -222,6 +265,6 @@ Para ativar o TLS 1.1 no seu dispositivo Azure:
 4. Na IU de Web local, aceda a **Encerrar ou reiniciar**.
 5. **Selecione Reiniciar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba como gerir a Caixa de [Dados e a Caixa de Dados Pesada através do portal Azure](data-box-portal-admin.md).

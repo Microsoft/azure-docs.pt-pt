@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: hdinsightactive
 ms.date: 02/25/2020
-ms.openlocfilehash: 8c22ff3cc79d326da09c44167519adbea48b5643
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: c6209ae985f8e59e1acae2d8fd6a1c821acae5a7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651340"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449557"
 ---
 # <a name="what-is-apache-kafka-in-azure-hdinsight"></a>O que é Apache Kafka em Azure HDInsight
 
@@ -33,7 +33,9 @@ Seguem-se as características específicas do Kafka no HDInsight:
 
     Para mais informações, consulte [Alta disponibilidade com Apache Kafka em HDInsight.](apache-kafka-high-availability.md)
 
-* O HDInsight permite-lhe alterar o número de nós de trabalho (que alojam o mediador Kafka) após a criação do cluster. O escalonamento pode ser executado a partir do portal do Azure, do Azure PowerShell e de outras interfaces de gestão do Azure. Para o Kafka, deve reequilibrar as réplicas de partições após as operações de dimensionamento. Reequilibrar partições permite ao Kafka tirar partido do novo número de nós de trabalho.
+* O HDInsight permite-lhe alterar o número de nós de trabalho (que alojam o mediador Kafka) após a criação do cluster. A escala ascendente pode ser realizada a partir do portal Azure PowerShell e outras interfaces de gestão Azure. Para o Kafka, deve reequilibrar as réplicas de partições após as operações de dimensionamento. Reequilibrar partições permite ao Kafka tirar partido do novo número de nós de trabalho.
+
+   HDInsight Kafka não suporta a escala descendente ou diminui o número de corretores dentro de um cluster. Se for feita uma tentativa de diminuir o número de nós, é devolvido um `InvalidKafkaScaleDownRequestErrorCode` erro.
 
     Para mais informações, consulte [Alta disponibilidade com Apache Kafka em HDInsight.](apache-kafka-high-availability.md)
 
@@ -71,7 +73,7 @@ Seguem-se as tarefas comuns e os padrões que podem ser efetuados com o Kafka no
 |Agregação|Utilizando o processamento de fluxo, pode agregar informações de diferentes fluxos para combinar e centralizar a informação em dados operacionais.|
 |Transformação|Utilizando o processamento de fluxo, pode combinar e enriquecer dados de vários tópicos de entrada em um ou mais tópicos de saída.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Utilize as seguintes ligações para saber como utilizar o Apache Kafka no HDInsight:
 

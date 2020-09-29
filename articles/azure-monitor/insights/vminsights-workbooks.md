@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: a6ab126c3a5b0d2a82b17fac42dcc9e20f6aba3f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8ae8c633bdfca72d6e383715cac9b1bcdddd9d17
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480458"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449790"
 ---
 # <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Criar relatórios interativos do Azure Monitor para VMs com livros
 
@@ -66,7 +66,7 @@ Um livro é composto por secções compostas por gráficos, tabelas, texto e con
 
 Os livros de trabalho têm dois modos: **modo de edição**e **modo de leitura**. Quando um novo livro é lançado pela primeira vez, abre-se no **modo de edição**. Mostra todo o conteúdo do livro, incluindo quaisquer passos e parâmetros que sejam escondidos de outra forma. **O modo de leitura** apresenta uma visão simplificada do estilo de relatório. O modo de leitura permite-lhe abstrair a complexidade que foi criar um relatório, ao mesmo tempo que ainda tem a mecânica subjacente a apenas alguns cliques de distância quando necessário para modificação.
 
-![Monitor Azure para controlos de edição de livros de trabalho em VMs](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
+![Screenshot da secção de workbook das máquinas virtuais no Azure Monitor mostrando um novo livro no modo de edição com os controlos de edição em destaque.](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 
 1. Quando terminar de editar uma secção, clique em **Edição Feita** no canto inferior esquerdo da secção.
 
@@ -102,7 +102,7 @@ Para incluir dados de outros espaços de trabalho do Log Analytics ou de uma apl
 
 Cada secção tem as suas próprias definições avançadas, que são acessíveis através das definições ![ A secção de edição de livros de trabalho controla ](media/vminsights-workbooks/006-settings.png) o ícone localizado à direita do botão **De adicionar parâmetros.**
 
-![Monitor Azure para controlos de edição de livros de trabalho em VMs](media/vminsights-workbooks/007-settings-expanded.png)
+![Screenshot do diálogo de Definições Avançadas na secção de livro de máquinas virtuais do Monitor Azure. Destaca-se o ícone que abre o diálogo.](media/vminsights-workbooks/007-settings-expanded.png)
 
 |         |          |
 | ---------------- |:-----|
@@ -118,11 +118,11 @@ Um dos livros pré-construídos - **Tráfego TCP**, fornece informações sobre 
 
 A primeira secção do livro baseia-se em dados de consulta de registo. A segunda secção também é baseada em dados de consulta de registo, mas selecionar uma linha na primeira tabela irá atualizar interativamente o conteúdo dos gráficos:
 
-![Monitor Azure para controlos de edição de livros de trabalho em VMs](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
+![Screenshot da secção máquinas virtuais no Monitor Azure mostrando o tráfego TCP do livro pré-construído.](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
 
 O comportamento é possível através da utilização do **artigo Quando um item é selecionado, exportar um parâmetro** de definições avançadas, que são ativadas na consulta de log da tabela.
 
-![Monitor Azure para controlos de edição de livros de trabalho em VMs](media/vminsights-workbooks/009-settings-export.png)
+![Screenshot do diálogo de Definições Avançadas para um livro de máquinas virtuais com a opção "Quando um item é selecionado, exporte um parâmetro" verificado.](media/vminsights-workbooks/009-settings-export.png)
 
 A segunda consulta de registo utiliza então os valores exportados quando uma linha é selecionada para criar um conjunto de valores que são depois utilizados pela posição e gráficos da secção. Se não for selecionada nenhuma linha, oculta o título e os gráficos da secção. 
 
@@ -141,7 +141,7 @@ As secções de métricas dão-lhe acesso total para incorporar dados de métric
 
 Aqui está um exemplo de dados de máquinas virtuais sendo puxados para um livro para fornecer uma visualização de grelha do desempenho do CPU:
 
-![Monitor Azure para controlos de edição de livros de trabalho em VMs](media/vminsights-workbooks/010-metrics-grid.png)
+![Screenshot da secção de métricas de um livro de máquinas virtuais no Azure Monitor. O desempenho do CPU para cada máquina virtual é mostrado graficamente.](media/vminsights-workbooks/010-metrics-grid.png)
 
 ## <a name="adding-parameter-sections"></a>Adicionar secções de parâmetros
 
@@ -180,11 +180,11 @@ Se a coluna for um tipo de corda, a corda nula/vazia é considerada falsa, e qua
 
 Vejamos os parâmetros presentes no relatório "Connections Overview". Clique no símbolo de edição ao lado **da Direção**.
 
-![Monitor Azure para controlos de edição de livros de trabalho em VMs](media/vminsights-workbooks/011-workbook-using-dropdown.png)
+![Screenshot da secção para adicionar e editar parâmetros de relatório no Azure Monitor. É selecionado o ícone editar para o parâmetro Direction.](media/vminsights-workbooks/011-workbook-using-dropdown.png)
 
 Isto lançará o item do menu **Edito Para parâmetro.**
 
-![Monitor Azure para controlos de edição de livros de trabalho em VMs](media/vminsights-workbooks/012-workbook-edit-parameter.png)
+![Screenshot do diálogo do parâmetro de edição. O nome do parâmetro é Direção, o tipo de parâmetro é Drop down, e Obter dados de JSON é selecionado.](media/vminsights-workbooks/012-workbook-edit-parameter.png)
 
 O JSON permite-lhe gerar uma tabela arbitrária povoada de conteúdo. Por exemplo, o seguinte JSON gera dois valores na queda:
 

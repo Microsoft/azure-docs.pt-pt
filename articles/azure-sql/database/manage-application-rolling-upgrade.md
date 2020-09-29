@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 44005dafb1e3eee60f163f80ad2e4282147233e4
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 659a8a3b38a79cc9dcc97f6f1e9c4395426ef7a8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91355623"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450264"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gerir atualizações rolantes de aplicações em nuvem utilizando a geo-replicação ativa da SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -110,7 +110,7 @@ ALTER DATABASE <Prod_DB>
 SET (ALLOW_CONNECTIONS = NO)
 ```
 
-2. Terminar a geo-replicação desligando o secundário (11). Esta ação cria uma cópia independente mas totalmente sincronizada da base de dados de produção. Esta base de dados será atualizada. O exemplo a seguir utiliza o Transact-SQL, mas [o PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) também está disponível. 
+2. Terminar a geo-replicação desligando o secundário (11). Esta ação cria uma cópia independente mas totalmente sincronizada da base de dados de produção. Esta base de dados será atualizada. O exemplo a seguir utiliza o Transact-SQL, mas [o PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0&preserve-view=true) também está disponível. 
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication
@@ -149,7 +149,7 @@ A principal compensação é que requer o dobro do despedimento de cada componen
 
 Os dois métodos de atualização descritos no artigo diferem em complexidade e custo do dólar, mas ambos se concentram em minimizar o tempo que o utilizador está limitado a operações apenas de leitura. Esse tempo é definido diretamente pela duração do script de atualização. Não depende do tamanho da base de dados, do nível de serviço que escolheu, da configuração do site ou de outros fatores que não pode controlar facilmente. Todos os passos de preparação são dissociados das etapas de upgrade e não impactam a aplicação de produção. A eficiência do script de upgrade é um fator chave que determina a experiência do utilizador durante as atualizações. Assim, a melhor maneira de melhorar essa experiência é concentrar os seus esforços em tornar o script de upgrade o mais eficiente possível.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para uma visão geral de continuidade do negócio e cenários, consulte [a visão geral da continuidade do Negócio.](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 * Para obter uma geo-replicação ativa da Base de Dados Azure SQL, consulte [criar bases de dados secundárias legíveis utilizando a geo-replicação ativa.](active-geo-replication-overview.md)

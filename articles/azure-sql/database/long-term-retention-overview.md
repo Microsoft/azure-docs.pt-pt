@@ -12,18 +12,16 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 05/18/2019
-ms.openlocfilehash: c4c19850cda158afdb888188d3f99b7d93195aa5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 83d3bb78ef27af377b0a8c5edf75f658a0ca93e7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334859"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450226"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Retenção a longo prazo - Azure SQL Database e Azure SQL Managed Instance
 
-Muitas aplicações têm fins regulamentares, de conformidade ou outros fins comerciais que exigem que mantenha cópias de dados de base para além dos 7-35 dias fornecidos pela Azure SQL Database e pela Azure SQL Managed Instance [cópias de segurança automáticas.](automated-backups-overview.md) Ao utilizar a funcionalidade de retenção de longo prazo (LTR), pode armazenar cópias de dados sql e de extensão gerida especificadas em armazenamento Azure Blob com armazenamento geo-redundante de acesso de leitura por um período máximo de 10 anos. Em seguida, pode restaurar qualquer cópia de segurança como uma nova base de dados.
-
-Adicionalmente, a SQL Managed Instance introduz [redundância de armazenamento de backup configurável](automated-backups-overview.md#backup-storage-redundancy) que proporciona flexibilidade para escolher entre bolhas de armazenamento locais redundantes (LRS), zonas redundantes (ZRS) ou [blobs](../../storage/common/storage-redundancy.md)de armazenamento geo-redundantes (RA-GRS). Esta opção só está disponível durante o processo de instância gerido por criar e não pode ser alterada uma vez que o recurso é aprovisionado.
+Muitas aplicações têm fins regulamentares, de conformidade ou outros fins comerciais que exigem que mantenha cópias de dados de base para além dos 7-35 dias fornecidos pela Azure SQL Database e pela Azure SQL Managed Instance [cópias de segurança automáticas.](automated-backups-overview.md) Ao utilizar a funcionalidade de retenção de longo prazo (LTR), pode armazenar cópias de dados completas de SQL e SQL Managed Instance no armazenamento Azure Blob com [redundância configurada](automated-backups-overview.md#backup-storage-redundancy) por um período máximo de 10 anos. Em seguida, pode restaurar qualquer cópia de segurança como uma nova base de dados.
 
 A retenção de longo tempo pode ser ativada para Azure SQL Database, e está em pré-visualização pública limitada para Azure SQL Managed Instance. Este artigo fornece uma visão geral conceptual da retenção a longo prazo. Para configurar a retenção a longo prazo, consulte [Configure Azure SQL Database LTR](long-term-backup-retention-configure.md) e [Configure Azure SQL Managed Instance LTR](../managed-instance/long-term-backup-retention-configure.md). 
 
@@ -98,7 +96,7 @@ Para aprender a configurar a retenção a longo prazo ou restaurar uma base de d
 
 Para restaurar uma base de dados a partir do armazenamento LTR, pode selecionar uma cópia de segurança específica com base na sua hora de tempo. A base de dados pode ser restaurada em qualquer servidor existente sob a mesma subscrição que a base de dados original. Para aprender a restaurar a sua base de dados a partir de uma cópia de segurança LTR, utilizando o portal Azure, ou PowerShell, consulte [Gerir a rede de backup de longo prazo da Manage Azure SQL Database](long-term-backup-retention-configure.md). No seu pedido, por favor, diga que gostaria de estar inscrito na antevisão pública limitada do LTR para SQL Managed Instance.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Como as cópias de dados protegem os dados da corrupção acidental ou da eliminação, são uma parte essencial de qualquer estratégia de continuidade de negócios e recuperação de desastres. Para conhecer as outras soluções de continuidade de negócios da SQL Database, consulte [a visão geral da continuidade do Negócio.](business-continuity-high-availability-disaster-recover-hadr-overview.md)
  

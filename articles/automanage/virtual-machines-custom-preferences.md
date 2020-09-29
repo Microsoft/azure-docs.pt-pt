@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: cf8e7340ce3554bf27364335457a5b7eadcdc049
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7a716ed9bca6d34ad4dbcd2566837a839f71153b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937645"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450313"
 ---
 # <a name="create-a-custom-preference-in-azure-automanage-for-vms"></a>Crie uma preferência personalizada em Azure Automanage para VMs
 
@@ -34,7 +34,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta](https://azure.microsof
 > As contas de teste gratuitas não têm acesso às máquinas virtuais utilizadas neste tutorial. Por favor, atualize para uma subscrição Pay-As-You-Go.
 
 > [!IMPORTANT]
-> É necessária a seguinte permissão RBAC para permitir a autoadministração: Função **de proprietário** ou **colaborador,** juntamente com as funções **de Administrador de Acesso ao Utilizador.**
+> É necessária a seguinte permissão RBAC para permitir a autoadministração: Função **do proprietário** ou **colaborador,** juntamente com as funções **de Administrador de Acesso ao Utilizador.**
 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -57,11 +57,11 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 4. No **perfil de Configuração,** clique **em procurar e altere perfis e preferências.**
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Navegue e altere perfis e preferências.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\existing-vm-quick-create.png" alt-text="Selecione vM existente da lista de VMs disponíveis.":::
 
 5. No **perfil de configuração Select + preferences** blade, selecione um perfil no lado esquerdo: *Dev/Test* para teste, *Prod* para produção.
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Navegue no perfil de configuração de produção.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Selecione vM existente da lista de VMs disponíveis.":::
 
 6. No perfil escolhido, nas **preferências de Configuração** existe um dropdown onde pode ajustar-se a determinados serviços.
     1. Clique **em Criar novas preferências.**
@@ -71,7 +71,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
         1. Nome de preferência
         1. Region
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Preencha as preferências de configuração.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\create-preference.png" alt-text="Selecione vM existente da lista de VMs disponíveis.":::
 
 7. Vá ao separador Preferências e ajuste as preferências de configuração desejada.
         
@@ -88,7 +88,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 Pare rapidamente de utilizar a auto-gestão Azure para máquinas virtuais desativando a auto-gestão.
 
-:::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Desativar a auto-produção numa máquina virtual.":::
+:::image type="content" source="media\virtual-machine-custom-preferences\disable-step-1.png" alt-text="Selecione vM existente da lista de VMs disponíveis.":::
 
 1. Vá à página **de boas práticas da máquina virtual Automanage – Azure** que lista todos os seus VMs geridos automaticamente.
 1. Selecione a caixa de verificação ao lado da máquina virtual que pretende desativar.
@@ -107,7 +107,7 @@ A Azure Automanage cria grupos de recursos predefinidos para armazenar recursos 
 1. Quando solicitado, confirme o nome do grupo de recursos e, em seguida, **selecione Delete**.
 
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 Obtenha as perguntas mais frequentemente respondidas nas nossas FAQ. 
 

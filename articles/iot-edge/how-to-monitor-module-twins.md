@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c24cef2cf9e4c54d16ebc75eb1a56273d8826355
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bf2e3f07d9e5576f62ef9badd9c8a46ac92fad0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84221406"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450163"
 ---
 # <a name="monitor-module-twins"></a>Monitorizar módulos duplos
 
 Os gémeos módulos no Azure IoT Hub permitem monitorizar a conectividade e a saúde das suas implementações IoT Edge. Os gémeos módulos armazenam informações úteis no seu hub IoT sobre o desempenho dos seus módulos de funcionamento. O [agente IoT Edge](iot-edge-runtime.md#iot-edge-agent) e os módulos de execução do hub [IoT Edge](iot-edge-runtime.md#iot-edge-hub) mantêm cada um os seus gémeos módulos `$edgeAgent` `$edgeHub` e, respectivamente:
 
-* `$edgeAgent`contém dados de saúde e conectividade sobre o agente IoT Edge e os módulos de tempo de funcionação do hub IoT Edge, e os seus módulos personalizados. O agente IoT Edge é responsável por implantar os módulos, monitorizá-los e reportar o estado de ligação ao seu hub Azure IoT.
-* `$edgeHub`contém dados sobre comunicações entre o hub IoT Edge em execução num dispositivo e o seu hub Azure IoT. Isto inclui o processamento de mensagens recebidas de dispositivos a jusante. O hub IoT Edge é responsável pelo processamento das comunicações entre o Azure IoT Hub e os dispositivos e módulos IoT Edge.
+* `$edgeAgent` contém dados de saúde e conectividade sobre o agente IoT Edge e os módulos de tempo de funcionação do hub IoT Edge, e os seus módulos personalizados. O agente IoT Edge é responsável por implantar os módulos, monitorizá-los e reportar o estado de ligação ao seu hub Azure IoT.
+* `$edgeHub` contém dados sobre comunicações entre o hub IoT Edge em execução num dispositivo e o seu hub Azure IoT. Isto inclui o processamento de mensagens recebidas de dispositivos a jusante. O hub IoT Edge é responsável pelo processamento das comunicações entre o Azure IoT Hub e os dispositivos e módulos IoT Edge.
 
 Os dados são organizados em metadados, tags, juntamente com conjuntos de propriedade desejados e reportados nas estruturas JSON dos gémeos do módulo. As propriedades desejadas especificadas no seu deployment.jsem ficheiro são copiadas para os gémeos do módulo. O agente IoT Edge e o hub IoT Edge atualizam cada uma as propriedades reportadas para os seus módulos.
 
@@ -213,7 +213,7 @@ Se escoar alterações, selecione **Update Module Twin** acima do código no edi
 
 Para ver se o IoT Edge está em funcionamento, use o [hub az iot invocando](how-to-edgeagent-direct-method.md#ping) o método do módulo para pingar o agente IoT Edge.
 
-A estrutura [az iot hub módulo-twin](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) fornece estes comandos:
+A estrutura [az iot hub módulo-twin](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) fornece estes comandos:
 
 * **az iot hub módulo-twin show** - Mostre uma definição de módulo twin.
 * **az iot hub module-twin update** - Atualize uma definição de módulo twin.

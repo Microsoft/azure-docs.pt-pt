@@ -8,17 +8,17 @@ manager: rkarlin
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2020
 ms.author: memildin
-ms.openlocfilehash: 77bf0f4cd60ba6e85763334a4d864975945ec2c3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7087fb7b1de0b16480d0bb02043b40e0e97204f6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894781"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449955"
 ---
 # <a name="feature-coverage-for-azure-paas-services"></a>Cobertura de recursos para serviços Azure PaaS <a name="paas-services"></a>
 

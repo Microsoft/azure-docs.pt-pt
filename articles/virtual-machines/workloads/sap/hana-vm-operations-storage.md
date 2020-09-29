@@ -7,20 +7,20 @@ author: msjuergent
 manager: bburns
 editor: ''
 tags: azure-resource-manager
-keywords: ''
+keywords: SAP, Azure HANA, Disco Ultra de Armazenamento, Armazenamento Premium
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/03/2020
+ms.date: 09/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 60947a8138972834f30274715226648d1b2360a1
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 62faec3fd9ee36cb7a2b5da7e6bae07c6c8e06af
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440699"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449378"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento da máquina virtual do Azure do SAP HANA
 
@@ -266,65 +266,9 @@ As recomendações excedem frequentemente os requisitos mínimos do SAP, tal com
 
 
 ## <a name="nfs-v41-volumes-on-azure-netapp-files"></a>Volumes NFS v4.1 em ficheiros Azure NetApp
-O Azure NetApp Files fornece ações NFS nativas que podem ser usadas para **volumes /hana/shared,** **/hana/data**, e **/hana/log** volumes. A utilização de ações NFS baseadas em ANF para os volumes **/hana/data** e **/hana/log** requer a utilização do protocolo v4.1 NFS. O protocolo NFS v3 não é suportado para a utilização de **/hana/data** e **/hana/log** volumes ao basear as ações na ANF. 
-
-> [!IMPORTANT]
-> O protocolo NFS v3 implementado nos Ficheiros Azure NetApp **não** é suportado para ser utilizado para **/hana/dados** e **/hana/log**. A utilização do NFS 4.1 é obrigatória para **volumes /hana/dados** e **/hana/log** do ponto de vista funcional. Considerando que para o volume **/hana/partilhado** o NFS v3 ou o protocolo NFS v4.1 podem ser utilizados de um ponto de vista funcional.
-
-### <a name="important-considerations"></a>Considerações importantes
-Ao considerar os ficheiros Azure NetApp para o SAP Netweaver e o SAP HANA, esteja ciente das seguintes considerações importantes:
-
-- A capacidade mínima é de 4 TiB.  
-- O tamanho mínimo do volume é 100 GiB
-- Os ficheiros Azure NetApp e todas as máquinas virtuais, onde os volumes dos Ficheiros Azure NetApp serão montados, devem estar na mesma Rede Virtual Azure ou em [redes virtuais na](../../../virtual-network/virtual-network-peering-overview.md) mesma região.  
-- A rede virtual selecionada deve ter uma sub-rede delegada nos Ficheiros Azure NetApp.
-- O rendimento de um volume Azure NetApp é uma função da quota de volume e do nível de Serviço, conforme documentado no [nível de Serviço para ficheiros Azure NetApp](../../../azure-netapp-files/azure-netapp-files-service-levels.md). Ao dimensionar os volumes HANA Azure NetApp, certifique-se de que a produção resultante satisfaz os requisitos do sistema HANA.  
-- O Azure NetApp Files oferece [uma política de exportação:](../../../azure-netapp-files/azure-netapp-files-configure-export-policy.md)pode controlar os clientes autorizados, o tipo de acesso (Ler&Escrever, Ler Apenas, etc.). 
-- A funcionalidade Azure NetApp Files ainda não está ciente da zona. Atualmente, a funcionalidade Azure NetApp Files não está implantada em todas as zonas de Disponibilidade numa região do Azure. Esteja ciente das potenciais implicações de latência em algumas regiões de Azure.  
-- É importante ter as máquinas virtuais implantadas nas proximidades do armazenamento do Azure NetApp para baixa latência. 
-- O ID do Utilizador para <b>sid</b>adm e o ID do Grupo `sapsys` para as máquinas virtuais devem corresponder à configuração em Ficheiros Azure NetApp. 
-
-> [!IMPORTANT]
-> Para as cargas de trabalho da SAP HANA, a baixa latência é fundamental. Trabalhe com o seu representante da Microsoft para garantir que as máquinas virtuais e os volumes dos Ficheiros Azure NetApp são implantados em proximidade.  
-
-> [!IMPORTANT]
-> Se houver um desfasamento entre o ID do Utilizador para o <b>sid</b>adm e o ID do Grupo `sapsys` entre a máquina virtual e a configuração Azure NetApp, as permissões para ficheiros em volumes Azure NetApp, montados em máquinas virtuais, serão apresentadas como `nobody` . Certifique-se de especificar o ID do utilizador correto para <b>sid</b>adm e o ID do grupo para `sapsys` , ao embarcar um novo [sistema](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) para Azure NetApp Files.
-
-### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Dimensionamento para base de dados HANA em Ficheiros Azure NetApp
-
-O rendimento de um volume Azure NetApp é uma função do tamanho do volume e do nível de Serviço, conforme documentado no [nível de Serviço para ficheiros Azure NetApp](../../../azure-netapp-files/azure-netapp-files-service-levels.md). 
-
-Ao conceber a infraestrutura para SAP em Azure, deve estar ciente de alguns requisitos mínimos de produção de armazenamento por PARTE DA SAP, que se traduzem em características mínimas de produção de:
-
-- Ativar a leitura/escrita em **/hana/log** de um 250 MB/seg com 1 MB Tamanhos de I/O  
-- Permitir a atividade de leitura de pelo menos 400 MB/seg para **/hana/dados** para 16 tamanhos de MB e 64 MB I/O  
-- Permitir a atividade de escrita de pelo menos 250 MB/seg para **/hana/dados** com tamanhos de 16 MB e 64 MB I/O  
-
-Os [limites de produção dos ficheiros Azure NetApp](../../../azure-netapp-files/azure-netapp-files-service-levels.md) por 1 TiB da quota de volume são:
-- Nível de armazenamento premium - 64 MiB/s  
-- Nível de Armazenamento Ultra - 128 MiB/s  
-
-> [!IMPORTANT]
-> Independentemente da capacidade que se implanta num único volume NFS, espera-se que a potência seja plana na gama de largura de banda de 1,2-1,4 GB/seg alavancada por um consumidor numa máquina virtual. Isto tem a ver com a arquitetura subjacente da oferta da ANF e os limites de sessão linux relacionados em torno da NFS. Os números de desempenho e de produção, tal como documentados no artigo Os resultados dos [testes de benchmark de desempenho para a Azure NetApp Files](../../../azure-netapp-files/performance-benchmarks-linux.md) foram realizados contra um volume NFS partilhado com VMs de vários clientes e como resultado de múltiplas sessões. Este cenário é diferente do cenário que medimos no SAP. Onde medimos a produção de um único VM contra um volume NFS. hospedado na ANF.
-
-Para satisfazer os requisitos mínimos de produção do SAP para os dados e registos, e de acordo com as diretrizes `/hana/shared` para, os tamanhos recomendados seriam como:
-
-| Volume | Tamanho<br /> Nível de armazenamento premium | Tamanho<br /> Nível de armazenamento ultra | Protocolo NFS apoiado |
-| --- | --- | --- |
-| /hana/log/ | 4 TiB | 2 TiB | v4.1 |
-| /hana/dados | 6.3 TiB | 3.2 TiB | v4.1 |
-| /hana/compartilhado | Max (512 GB, 1xRAM) por 4 nós de trabalhador | Max (512 GB, 1xRAM) por 4 nós de trabalhador | v3 ou v4.1 |
+Para obter detalhes sobre a ANF para HANA, leia o documento [NFS v4.1 volumes em Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
 
 
-> [!NOTE]
-> As recomendações de dimensionamento dos Ficheiros Azure NetApp aqui declaradas visam cumprir os requisitos mínimos que a SAP expressa para os seus fornecedores de infraestruturas. Em verdadeiros cenários de colocação de clientes e de carga de trabalho, isso pode não ser suficiente. Utilize estas recomendações como ponto de partida e adapte-se, com base nos requisitos da sua carga de trabalho específica.  
-
-Por isso, pode considerar a implementação de uma produção semelhante para os volumes ANF listados para armazenamento ultra disco já. Considere também os tamanhos para os tamanhos listados para os volumes para os diferentes SKUs VM como feito nas tabelas de disco ultra já.
-
-> [!TIP]
-> Pode redimensionar os volumes Azure NetApp Files dinamicamente, sem necessidade `unmount` de volumes, parar as máquinas virtuais ou parar o SAP HANA. Isso permite flexibilidade para atender a sua aplicação, tanto as exigências de produção esperadas como imprevistas.
-
-A documentação sobre como implantar uma configuração de escala SAP HANA com nó de espera utilizando volumes NFS v4.1 que são hospedados na ANF é publicada em [escala SAP HANA com nó de standby em Azure VMs com Ficheiros Azure NetApp no SUSE Linux Enterprise Server](./sap-hana-scale-out-standby-netapp-files-suse.md).
 
 
 ## <a name="cost-conscious-solution-with-azure-premium-storage"></a>Solução consciente de custos com armazenamento premium Azure

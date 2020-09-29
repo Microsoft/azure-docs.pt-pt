@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30b673994e20f01dde504adb438aa1b199c96d88
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1166d2ad17aea97a4dd7fdda53c42d6b3df75936
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91264735"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450358"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Gerir unidades administrativas em Azure Ative Directory
 
@@ -33,9 +33,6 @@ Para um controlo administrativo mais granular em Azure Ative Directory (Azure AD
 
     ![Screenshot mostrando link para "Grant consentimento administrativo"](./media/roles-admin-units-manage/select-graph-explorer.png)
 
-    b. No Graph Explorer, selecione a versão **beta.**
-
-    ![Screenshot mostrando a versão beta selecionada](./media/roles-admin-units-manage/select-beta-version.png)
 
 1. Utilize a versão de pré-visualização do Azure AD PowerShell.
 
@@ -59,7 +56,7 @@ Instale a Azure AD PowerShell (pré-visualização) antes de tentar executar os 
 
 ```powershell
 Connect-AzureAD
-New-AzureADAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
+New-AzureADMSAdministrativeUnit -Description "West Coast region" -DisplayName "West Coast"
 ```
 
 Pode modificar os valores que estão incluídos nas aspas, conforme necessário.
@@ -91,8 +88,8 @@ Em Azure AD, pode remover uma unidade administrativa de que já não necessita c
 ### <a name="use-powershell"></a>Utilizar o PowerShell
 
 ```powershell
-$delau = Get-AzureADAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
-Remove-AzureADAdministrativeUnit -ObjectId $delau.ObjectId
+$delau = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'DeleteMe Admin Unit'"
+Remove-AzureADMSAdministrativeUnit -ObjectId $delau.ObjectId
 ```
 
 Pode modificar os valores que estão incluídos em aspas, conforme necessário para o ambiente específico.
@@ -106,7 +103,7 @@ Request body
 {}
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Gerir utilizadores numa unidade administrativa](roles-admin-units-add-manage-users.md)
 * [Gerir grupos numa unidade administrativa](roles-admin-units-add-manage-groups.md)

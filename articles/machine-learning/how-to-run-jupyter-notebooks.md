@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: b310f195477f4cba83ef30c6fb5ea2fd24c4df9a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 46435ef773e90234538bb755e20035990bbf1066
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897387"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460038"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar os Jupyter Notebooks na área de trabalho
 
@@ -80,15 +80,20 @@ Para aceder ao terminal:
 1. Selecione um alvo **compute** ou crie um novo e espere até estar em funcionamento.
 1. Selecione o ícone **do terminal Aberto.**
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Terminal aberto":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Criar novo ficheiro":::
 
 1. Se não vir o ícone, selecione o **...** à direita do alvo do cálculo e, em seguida, selecione **Open terminal**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Terminal aberto de ...":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Criar novo ficheiro":::
 
 
 Saiba mais sobre [a clonagem de repositórios de Git no seu sistema de ficheiros de espaço de trabalho.](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system)
 
+### <a name="copy-and-paste-in-terminal"></a>Copiar e colar no terminal
+
+> * Janelas: `Ctrl-Insert` copiar e utilizar ou `Ctrl-Shift-v` `Shift-Insert` colar.
+> * Mac OS: `Cmd-c` copiar e `Cmd-v` colar.
+> * O FireFox/IE pode não suportar adequadamente as permissões de prancheta.
 
 ### <a name="share-notebooks-and-other-files"></a>Partilhar cadernos e outros ficheiros
 
@@ -121,7 +126,7 @@ Ao longo da criação de um caderno, normalmente acaba-se com células que utili
 1. Executar todas as suas celas de caderno.
 1. Selecione a célula que contém o código que deseja que o novo caderno possa ser executado. Por exemplo, o código que submete uma experiência, ou talvez o código que regista um modelo.
 1. Selecione o ícone **'Recolha'** que aparece na barra de ferramentas da célula.
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Screenshot: selecione o ícone 'Recolha', selecione":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Criar novo ficheiro":::
 1. Insira o nome do seu novo caderno "recolhido".  
 
 O novo caderno contém apenas células de código, com todas as células necessárias para produzir os mesmos resultados que a célula selecionada para recolha.
@@ -132,7 +137,7 @@ A Azure Machine Learning cria um ficheiro de checkpoint quando cria um ficheiro�
 
 Na barra de ferramentas do portátil, selecione o menu e, em seguida, ** &gt; Guarde e registe** para guardar manualmente o portátil e adicionará um ficheiro de verificação associado ao portátil.
 
-:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Screenshot da ferramenta de salvamento na barra de ferramentas do portátil":::
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Criar novo ficheiro":::
 
 Todos os cadernos são automaticamente a cada 30 segundos.Faça automaticamente atualizações apenas no ficheiro *ipynb*   inicial, não no ficheiro de verificação.
  
@@ -243,7 +248,7 @@ Um indicador ao lado da queda do **Kernel** mostra o seu estado.
 
 Encontre detalhes sobre as suas instâncias de computação na página **compute** em [estúdio](https://ml.azure.com).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Executar a sua primeira experiência](tutorial-1st-experiment-sdk-train.md)
 * [Faça backup do armazenamento do seu ficheiro com instantâneos](../storage/files/storage-snapshots-files.md)

@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: charwen
-ms.openlocfilehash: ad1476847874f7cea53c6e9c0c3d9f142c949dac
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6835c5e1ecbf0fc99a14754d17bb6e6380eda6c8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90987716"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445356"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copiar e colar a uma máquina virtual: Azure Bastion
 
@@ -35,13 +35,13 @@ Depois de ligar à máquina virtual utilizando o [portal Azure, ](https://portal
 1. Copie o texto/conteúdo do dispositivo local para a área de transferência local.
 1. Durante a sessão remota, lance a paleta de ferramentas de acesso à prancheta Bastion selecionando as duas setas. As setas estão localizadas no centro esquerdo da sessão.
 
-   ![paleta de ferramentas](./media/bastion-vm-manage/left.png)
+   ![Screenshot que mostra as setas de lançamento para a paleta de ferramentas realçadas no lado esquerdo da janela.](./media/bastion-vm-manage/left.png)
 
    ![A screenshot mostra uma prancheta para texto copiado em Bastion.](./media/bastion-vm-manage/clipboard.png)
 1. Normalmente, o texto copiado aparece automaticamente na paleta de pasta de cópia Bastion. Se o seu texto não estiver lá, então cole o texto na área de texto na paleta.
 1. Uma vez que o texto esteja na área de texto, pode colar-o à sessão remota.
 
-   ![pasta](./media/bastion-vm-manage/local.png)
+   ![Screenshot que mostra o botão de cópia/pasta realçado e uma cadeia de texto de amostra copiada para a sessão remota.](./media/bastion-vm-manage/local.png)
 
 ## <a name="copy-from-a-remote-session"></a><a name="from"></a>Cópia de uma sessão remota
 
@@ -58,6 +58,6 @@ Depois de ligar à máquina virtual utilizando o [portal Azure, ](https://portal
 
    ![pasta](./media/bastion-vm-manage/local2.png)
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia as [FAQ do Bastião.](bastion-faq.md)

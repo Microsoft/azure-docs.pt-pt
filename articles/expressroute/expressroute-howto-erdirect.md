@@ -1,22 +1,22 @@
 ---
 title: 'Azure ExpressRoute: Configure ExpressRoute Direct'
-description: Saiba como usar o Azure PowerShell para configurar o Azure ExpressRoute Direct para ligar diretamente à rede global da Microsoft em locais de observação em todo o mundo.
+description: Aprenda a usar o Azure PowerShell para configurar o Azure ExpressRoute Direct para ligar diretamente à rede global da Microsoft.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
-ms.date: 01/22/2020
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: c4ce764f50f85ef9979d5a14235759c16228f6b7
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 1748db76aa2d1f65ea21046bcff2fff43ca732b0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89396034"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450189"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Como configurar o ExpressRoute Direct
 
-O ExpressRoute Direct dá-lhe a capacidade de se ligar diretamente à rede global da Microsoft em locais de observação estrategicamente distribuídos em todo o mundo. Para obter mais informações, veja [Sobre o ExpressRoute Direct](expressroute-erdirect-about.md).
+O ExpressRoute Direct dá-lhe a capacidade de se conectar diretamente à rede global da Microsoft através de localizações de observação estrategicamente distribuídas em todo o mundo. Para obter mais informações, veja [Sobre o ExpressRoute Direct](expressroute-erdirect-about.md).
 
 ## <a name="create-the-resource"></a><a name="resources"></a>Criar o recurso
 
@@ -155,10 +155,20 @@ O ExpressRoute Direct dá-lhe a capacidade de se ligar diretamente à rede globa
    Circuits                   : []
    ```
 
-## <a name="change-admin-state-of-links"></a><a name="state"></a>Alterar Estado de Administração de ligações
+## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>Gerar a Carta de Autorização (LOA)
 
-  Este processo deve ser utilizado para realizar um teste da Camada 1, certificando-se de que cada ligação cruzada está corretamente remendada em cada router para o primário e secundário.
-1. Obtenha detalhes diretos expressRoute.
+Faça referência ao recurso ExpressRoute Direct recentemente criado, insira um nome de cliente para escrever a LOA e (opcionalmente) definir um local de arquivo para armazenar o documento. Se um caminho de ficheiro não for referenciado, o documento será transferido para o diretório atual.
+
+  ```powershell 
+   New-AzExpressRoutePortLOA -ExpressRoutePort $ERDirect -CustomerName TestCustomerName -Destination "C:\Users\SampleUser\Downloads" 
+   ```
+ **Saída de exemplo**
+
+   ```powershell
+   Written Letter of Authorization To: C:\Users\SampleUser\Downloads\LOA.pdf
+
+  This process should be used to conduct a Layer 1 test, ensuring that each cross-connection is properly patched into each router for primary and secondary.
+1. Get ExpressRoute Direct details.
 
    ```powershell
    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
@@ -227,13 +237,13 @@ O ExpressRoute Direct dá-lhe a capacidade de se ligar diretamente à rede globa
 
 ## <a name="create-a-circuit"></a><a name="circuit"></a>Criar um circuito
 
-Por predefinição, pode criar 10 circuitos na subscrição onde se encontra o recurso ExpressRoute Direct. Isto pode ser aumentado através do apoio. É responsável por rastrear a largura de banda de Provisioned e Used. Largura de banda aprovisionada é a soma de largura de banda de todos os circuitos no recurso ExpressRoute Direct e a largura de banda utilizada é o uso físico das interfaces físicas subjacentes.
+Por predefinição, pode criar 10 circuitos na subscrição onde se encontra o recurso ExpressRoute Direct. Este limite pode ser aumentado através do apoio. É responsável por rastrear a largura de banda de Provisioned e Used. Largura de banda aprovisionada é a soma de largura de banda de todos os circuitos no recurso ExpressRoute Direct e a largura de banda utilizada é o uso físico das interfaces físicas subjacentes.
 
-Existem larguras de banda de circuitos adicionais que podem ser utilizadas no ExpressRoute Direct apenas para suportar os cenários acima descritos. Estes são: 40Gbps e 100Gbps.
+Existem larguras de banda de circuitos adicionais que podem ser utilizadas no ExpressRoute Direct para suportar apenas os cenários acima descritos. Estas larguras de banda são de 40 Gbps e 100 Gbps.
 
 **SkuTier** pode ser Local, Standard ou Premium.
 
-**O SkuFamily** só deve ser MedidodData, uma vez que o ilimitado não é suportado no ExpressRoute Direct.
+**SkuFamily** só pode ser MedidodData. Ilimitado não é suportado no ExpressRoute Direct.
 
 Crie um circuito no recurso ExpressRoute Direct.
 

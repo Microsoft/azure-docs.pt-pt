@@ -1,33 +1,38 @@
 ---
-title: Como instalar e executar recipientes para a utilização da API do Detetor de Anomalias
+title: Instale e execute os recipientes Docker para a API do Detetor de Anomalias
 titleSuffix: Azure Cognitive Services
-description: Aprenda a instalar e utilizar o recipiente para utilizar os algoritmos avançados da API do Detetor de Anomalias.
+description: Use os algoritmos da API do Detetor de Anomalias para encontrar anomalias nos seus dados, no local usando um recipiente Docker.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: 2a4ff7da16524e0706601e43dff39325952990ff
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.custom: cog-serv-seo-aug-2020
+keywords: no local, Docker, contentor, streaming, algoritmos
+ms.openlocfilehash: ff4d15b33cb261e71ea883c0245afe5781005e38
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90903554"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460005"
 ---
-# <a name="install-and-run-anomaly-detector-containers"></a>Instalar e executar contentores do Detetor de Anomalias 
+# <a name="install-and-run-docker-containers-for-the-anomaly-detector-api"></a>Instale e execute os recipientes Docker para a API do Detetor de Anomalias 
 
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
-O Detetor de Anomalias tem a seguinte funcionalidade de contentor:
+Os recipientes permitem-lhe utilizar o Detetor de Anomalias API o seu próprio ambiente. Os contentores são ótimos para requisitos específicos de governação de dados e segurança. Neste artigo você vai aprender a descarregar, instalar e executar um recipiente de detetor de anomalias.
 
-| Função | Funcionalidades |
-|--|--|
-| Detetor de anomalias | <li> Deteta anomalias à medida que ocorrem em tempo real. <li> Deteta anomalias em todo o seu conjunto de dados como um lote. <li> Deteta pontos de mudança de tendência no seu conjunto de dados como um lote.<li> Infere o intervalo normal esperado dos seus dados. <li> Suporta um ajuste de sensibilidade à deteção de anomalias para melhor se adaptar aos seus dados. |
+O Detetor de Anomalias oferece um único recipiente Docker para a utilização da API no local. Utilize o recipiente para:
+* Use os algoritmos do Detetor de Anomalias nos seus dados
+* Monitorize os dados de streaming e detete anomalias à medida que ocorrem em tempo real.
+* Detete anomalias em todo o seu conjunto de dados como um lote. 
+* Detete pontos de mudança de tendência no seu conjunto de dados como um lote.
+* Ajuste a sensibilidade do algoritmo de deteção de anomalias para melhor se adaptar aos seus dados.
 
-Para obter informações detalhadas sobre as APIs, consulte:
+Para obter informações detalhadas sobre a API, consulte:
 * [Saiba mais sobre o serviço API do Detetor de Anomalias](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
@@ -187,7 +192,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 > [!IMPORTANT]
 > Os recipientes dos Serviços Cognitivos não estão licenciados para funcionar sem estarem ligados ao Azure para a medição. Os clientes precisam de permitir que os contentores comuniquem informações de faturação com o serviço de medição em todos os momentos. Os contentores dos Serviços Cognitivos não enviam dados dos clientes (por exemplo, os dados da série de tempo que está a ser analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Rever recipientes de configuração](anomaly-detector-container-configuration.md) para configurações de configuração
 * [Implantar um detetor de anomalias em instâncias de contentores de Azure](how-to/deploy-anomaly-detection-on-container-instances.md)

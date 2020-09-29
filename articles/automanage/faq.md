@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: fa24c0db398c4c799d218ff5e8ec8e3d3e321742
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 348106c405e6e096f7bfd9a225fc783c4454b1ad
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311551"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449766"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Perguntas frequentes para Azure Automanage para VMs
 
@@ -33,12 +33,13 @@ São os seguintes pré-requisitos para permitir a auto-produção da Azure:
 - O utilizador deve ter permissões corretas
 - VMs definidos não escala apenas
 - Os VMs não devem ligar-se a um espaço de trabalho de análise de registo numa subscrição diferente
+- Automanage não suporta subscrições sandbox neste momento
 
 **Que permissão do RBAC é necessária para permitir a auto-produção?**
 
-Se estiver a ativar a auto-gestão num VM com uma Conta de Auto-gestão existente, precisa de uma função de Contribuinte para o Grupo de Recursos onde reside o VM. 
+Se estiver a ativar a auto-gestão num VM com uma Conta de Auto-gestão existente, precisa de uma função de Contribuinte para o Grupo de Recursos onde reside o VM.
 
-Se estiver a utilizar uma nova Conta de Autoadministração ao habilitar, os utilizadores devem ter a função De Proprietário ou ter função de Administrador de Acesso ao Utilizador + para a subscrição.
+Se estiver a utilizar uma nova Conta de Autoadministração ao habilitar, tem de ter a função De Proprietário ou ter função de Administrador de Acesso ao Utilizador + para a subscrição.
 
 
 **Que regiões são apoiadas?**
@@ -50,6 +51,9 @@ Os VMs nas seguintes regiões são apoiados: Europa Ocidental, Leste dos EUA, Eu
 
 Automanagem matricula, configura e monitoriza ao longo do ciclo de vida do VM os serviços listados [aqui](virtual-machines-best-practices.md).
 
+**A Azure Automanage funciona com VMs ativados pelo Azure Arc?**
+
+A automanagem atualmente não suporta VMs ativados pelo Arco.
 
 **Posso personalizar configurações na Azure Automanage?**
 
@@ -88,7 +92,7 @@ A Conta De Gestão Automática é um MSI (Identidade de Serviço Gerido) que for
 
 **Ao ativar a auto-produção, tem impacto em VMs adicionais para além dos VM(s) que selecionei?**
 
-Se o seu VM estiver ligado a um espaço de trabalho log analytics existente, reutilizaremos esse espaço de trabalho para aplicar estas soluções: Change Tracking, Inventory e Update Management. Todos os VMs ligados a esse espaço de trabalho terão essas soluções ativadas. 
+Se o seu VM estiver ligado a um espaço de trabalho log analytics existente, reutilizaremos esse espaço de trabalho para aplicar estas soluções: Change Tracking, Inventory e Update Management. Todos os VMs ligados a esse espaço de trabalho terão essas soluções ativadas.
 
 
 **Posso alterar o perfil de configuração do meu VM?**
@@ -109,7 +113,7 @@ Se vir o estado como *Falhado,* pode resolver problemas de resolução através 
 Pode arquivar um [bilhete de caso de suporte técnico.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) Para a opção **Serviço,** procure e selecione *Automanagem* sob a secção *de Monitorização e Gestão.*
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Tente ativar a auto-produção de máquinas virtuais no portal Azure.
 

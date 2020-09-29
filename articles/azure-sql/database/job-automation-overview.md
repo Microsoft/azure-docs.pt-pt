@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: overview
-author: jovanpop-msft
-ms.author: jovanpop
-ms.reviewer: sstein
+ms.topic: conceptual
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 03/10/2020
-ms.openlocfilehash: 78758fbfd14810cb7320d95026f8d4af647a3f2f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6b4b31ab4bc0cb1fe5bd9140870df86db6841ff3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334961"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450350"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizar tarefas de gestão utilizando trabalhos de base de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -249,7 +249,7 @@ O **Exemplo 3** mostra um grupo de destino semelhante ao do *Exemplo 2*, mas é 
 O **Exemplo 4** mostra um grupo de destino que contém um conjunto elástico como o destino. Tal como no *Exemplo 2*, o conjunto será enumerado dinamicamente no momento de execução do trabalho para determinar a lista de bases de dados contidas no mesmo.
 <br><br>
 
-![Exemplos de grupos de destino](./media/job-automation-overview/targetgroup-examples2.png)
+![Exemplos adicionais do grupo alvo](./media/job-automation-overview/targetgroup-examples2.png)
 
 **Os exemplos 5** e **exemplo 6** mostram cenários avançados onde servidores, piscinas elásticas e bases de dados podem ser combinados usando incluir e excluir regras.<br>
 O **Exemplo 7** mostra que as partições num mapa de partições também podem ser avaliadas no momento de execução do trabalho.
@@ -286,7 +286,7 @@ Atualmente, a pré-visualização está limitada a 100 tarefas simultâneas.
 
 Para garantir que os recursos não são sobrecarregados quando executar tarefas nas bases de dados num conjunto elástico de SQL, as tarefas podem ser configuradas para limitar o número de bases de dados nas quais uma tarefa pode ser executada ao mesmo tempo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [O que é o Agente de Servidor SQL](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent)
 - [Como criar e gerir trabalhos elásticos](elastic-jobs-overview.md)

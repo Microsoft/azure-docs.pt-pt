@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
-ms.openlocfilehash: 3227585b62583d0a05f8dbc0444ee5bb4a27df77
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 32ad92b333eda8cd429303177dba160f0b58af54
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320515"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445539"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Utilize a funcionalidade Mapa do Monitor Azure para VMs para entender os componentes da aplicação
 No Azure Monitor para VMs, pode ver os componentes de aplicações descobertos nas máquinas virtuais Windows e Linux (VMs) que funcionam no Azure ou no seu ambiente. Pode observar os VMs de duas maneiras. Veja um mapa diretamente de um VM ou veja um mapa do Azure Monitor para ver os componentes em grupos de VMs. Este artigo irá ajudá-lo a entender estes dois métodos de visualização e como usar a funcionalidade Mapa. 
@@ -95,7 +95,7 @@ O mapa visualiza as dependências do VM através da descoberta de grupos de proc
 
 Por predefinição, o mapa mostra os últimos 30 minutos. Se quiser ver como as dependências pareciam no passado, pode consultar intervalos históricos de tempo de até uma hora. Para executar a consulta, utilize o seletor **TimeRange** no canto superior esquerdo. Você pode fazer uma consulta, por exemplo, durante um incidente ou para ver o estado antes de uma mudança.  
 
-![Visão geral do mapa VM direto](./media/vminsights-maps/map-direct-vm-01.png)
+![Screenshot do separador Mapa na secção de Insights de Monitorização do portal Azure mostrando um diagrama das dependências entre máquinas virtuais.](./media/vminsights-maps/map-direct-vm-01.png)
 
 ## <a name="view-a-map-from-a-virtual-machine-scale-set"></a>Ver um mapa de um conjunto de escala de máquina virtual
 
@@ -111,7 +111,7 @@ Para carregar um mapa para uma instância específica, selecione primeiro esta i
 
 Por predefinição, o mapa mostra os últimos 30 minutos. Se quiser ver como as dependências pareciam no passado, pode consultar intervalos históricos de tempo de até uma hora. Para executar a consulta, utilize o seletor **TimeRange.** Você pode fazer uma consulta, por exemplo, durante um incidente ou para ver o estado antes de uma mudança.
 
-![Visão geral do mapa VM direto](./media/vminsights-maps/map-direct-vmss-01.png)
+![Screenshot do separador Mapa na secção de Insights de Monitorização do portal Azure mostrando um diagrama de dependências entre conjuntos de escala de máquina virtual.](./media/vminsights-maps/map-direct-vmss-01.png)
 
 >[!NOTE]
 >Também pode aceder a um mapa para uma instância específica a partir da vista **Instâncias** para o seu conjunto de escala de máquina virtual. Na secção **Definições,** aceda a **Informações**  >  **sobre Casos**.
@@ -132,7 +132,7 @@ O seletor **do Grupo** devolve subscrições, grupos de recursos, [grupos de com
 
 Por predefinição, o mapa mostra os últimos 30 minutos. Se quiser ver como as dependências pareciam no passado, pode consultar intervalos históricos de tempo de até uma hora. Para executar a consulta, utilize o seletor **TimeRange.** Você pode fazer uma consulta, por exemplo, durante um incidente ou para ver o estado antes de uma mudança.  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para identificar estrangulamentos, verifique o desempenho e compreenda a utilização global dos seus VMs, consulte o estado de desempenho do [Azure Monitor para VMs](vminsights-performance.md). 
 

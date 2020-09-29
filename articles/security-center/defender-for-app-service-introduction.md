@@ -4,15 +4,15 @@ description: Conheça os benefícios e funcionalidades do Azure Defender para o 
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d15e881ca1246d463d8054fe5bd094efaff0cdd5
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: c53f7e712668f32766feaf76d6a08582bda9af22
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90977177"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449115"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Introdução ao Azure Defender para o Serviço de Aplicações
 
@@ -30,7 +30,7 @@ Ao usar a visibilidade que o Azure tem como fornecedor de nuvem, o Security Cent
 |Estado de libertação:|Pré-visualizar|
 |Preços:|[O Azure Defender for App Service](azure-defender.md) é faturado como mostrado na página de [preços](security-center-pricing.md)|
 |Planos de Serviço de Aplicações suportados:|![Sim ](./media/icons/yes-icon.png) Básico, Standard, Premium, Isolado ou Linux<br>![Sem ](./media/icons/no-icon.png) Consumo Gratuito, Partilhado ou Partilhado<br>[Saiba mais sobre Planos de Serviço de Aplicações](https://azure.microsoft.com/pricing/details/app-service/plans/)|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 ## <a name="what-does-azure-defender-for-app-service-protect"></a>O que protege o Azure Defender para o Serviço de Aplicações?
@@ -58,7 +58,7 @@ O Security Center está nativamente integrado com o Serviço de Aplicações, el
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu sobre Azure Defender para o Serviço de Aplicações. 
 

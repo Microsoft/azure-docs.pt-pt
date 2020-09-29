@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/19/2020
+ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 20cbc9b33e567ffe306aae694bb835d95c2d861e
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: b2e597ff8fc761b66de6228063c471933a364144
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88704982"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449644"
 ---
 # <a name="configure-an-nfs-client-for-azure-netapp-files"></a>Configurar um cliente NFS para o Azure NetApp Files
 
@@ -46,6 +46,9 @@ Independentemente do sabor Linux que usa, são necessárias as seguintes configu
     `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou= OU=$YOUROU,DC=$DOMAIN,DC=TLD`
 
 ## <a name="ubuntu-configuration"></a>Configuração Ubuntu 
+Esta secção descreve a configuração Ubuntu para os clientes NFS.  
+
+### <a name="if-you-are-using-nfsv41-kerberos-encryption"></a>Se estiver a usar encriptação NFSv4.1 Kerberos 
 
 1. Instalar pacotes:  
     `sudo yum -y install realmd packagekit sssd adcli samba-common krb5-workstation chrony`
@@ -56,7 +59,27 @@ Independentemente do sabor Linux que usa, são necessárias as seguintes configu
 3. Junte-se ao Domínio do Diretório Ativo:  
     `sudo realm join $DOMAIN.NAME -U $SERVICEACCOUNT --computer-ou= OU=$YOUROU,DC=$DOMAIN,DC=TLD`
 
-## <a name="next-steps"></a>Passos seguintes  
+### <a name="if-you-are-using-dual-protocol"></a>Se estiver a utilizar o protocolo duplo  
+
+1. Executar o seguinte comando para atualizar os pacotes instalados:  
+    `sudo apt update && sudo apt install libnss-ldap libpam-ldap ldap-utils nscd`
+
+    Exemplo:   
+
+    `base dc=hariscus,dc=com` `uri ldap://10.20.0.4:389/`
+    `ldap_version 3`
+    `rootbinddn cn=admin,cn=Users,dc=hariscus,dc=com`
+    `pam_password ad`
+ 
+2. Executar o seguinte comando para reiniciar e ativar o serviço:   
+    `sudo systemctl restart nscd && sudo systemctl enable nscd`
+
+O exemplo seguinte consulta o servidor AD LDAP do cliente Ubuntu LDAP para um utilizador LDAP `ldapu1` :   
+
+`root@cbs-k8s-varun4-04:/home/cbs# getent passwd hari1`   
+`hari1:*:1237:1237:hari1:/home/hari1:/bin/bash`   
+
+## <a name="next-steps"></a>Próximos passos  
 
 * [Criar um volume NFS para o Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Criar um volume de duplo protocolo para ficheiros Azure NetApp](create-volumes-dual-protocol.md)
