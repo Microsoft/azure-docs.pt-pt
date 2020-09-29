@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 7459d674cde123bc45544322347bc4c1fe89e820
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 1fb05b52bbe3e8f544b17537ef9070e5b2b0b77b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009618"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460174"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar cache Azure para Redis
 Este tópico descreve as configurações disponíveis para o seu Azure Cache para instâncias Redis. Este tópico também cobre a configuração padrão do servidor Redis para Azure Cache para instâncias Redis.
@@ -30,7 +30,7 @@ A cache azul para as definições de Redis são visualizadas e configuradas na *
 
 Pode visualizar e configurar as seguintes definições utilizando o **Menu de Recursos.**
 
-* [Descrição Geral](#overview)
+* [Descrição geral](#overview)
 * [Registo de atividades](#activity-log)
 * [Controlo de acesso (IAM)](#access-control-iam)
 * [Etiquetas](#tags)
@@ -50,7 +50,7 @@ Pode visualizar e configurar as seguintes definições utilizando o **Menu de Re
     * [Bloqueios](#locks)
     * [Script de automatização](#automation-script)
 * Administração
-    * [Dados de importação](#importexport)
+    * [Importar dados](#importexport)
     * [Exportar dados](#importexport)
     * [Reiniciar](#reboot)
 * [Monitorização](#monitoring)
@@ -132,7 +132,7 @@ A **política Maxmemory**, **reservada ao maxmemory**, e as definições **reser
 
 **A política maxmemory** configura a política de despejo para a cache e permite-lhe escolher entre as seguintes políticas de despejo:
 
-* `volatile-lru`- Esta é a política de despejo padrão.
+* `volatile-lru` - Esta é a política de despejo padrão.
 * `allkeys-lru`
 * `volatile-random`
 * `allkeys-random`
@@ -141,9 +141,9 @@ A **política Maxmemory**, **reservada ao maxmemory**, e as definições **reser
 
 Para obter mais informações sobre `maxmemory` políticas, consulte [as políticas de despejo.](https://redis.io/topics/lru-cache#eviction-policies)
 
-A definição **reservada ao maxmemory** configura a quantidade de memória, em MB, que é reservada para operações não-cache, como a replicação durante o failover. Definir este valor permite-lhe ter uma experiência de servidor Redis mais consistente quando a sua carga varia. Este valor deve ser mais elevado para cargas de trabalho que são escritas pesadas. Quando a memória é reservada para tais operações, não está disponível para armazenamento de dados em cache.
+A definição **reservada ao maxmemory** configura a quantidade de memória, em MB por exemplo num cluster, que é reservada para operações não-cache, como a replicação durante o failover. Definir este valor permite-lhe ter uma experiência de servidor Redis mais consistente quando a sua carga varia. Este valor deve ser mais elevado para cargas de trabalho que são escritas pesadas. Quando a memória é reservada para tais operações, não está disponível para armazenamento de dados em cache.
 
-A **definição reservada ao maxfragmentationmemory** configura a quantidade de memória em MB que é reservada para acomodar para fragmentação da memória. Definir este valor permite-lhe ter uma experiência de servidor Redis mais consistente quando a cache está cheia ou perto de completa e a relação de fragmentação é elevada. Quando a memória é reservada para tais operações, não está disponível para armazenamento de dados em cache.
+A **definição reservada ao maxfragmentationmemory** configura a quantidade de memória, em MB por exemplo num cluster, que é reservada para acomodar para fragmentação da memória. Definir este valor permite-lhe ter uma experiência de servidor Redis mais consistente quando a cache está cheia ou perto de completa e a relação de fragmentação é elevada. Quando a memória é reservada para tais operações, não está disponível para armazenamento de dados em cache.
 
 Uma coisa a ter em conta na escolha de um novo valor de reserva de memória (**reservado ao maxmemory** ou **maxfragment-reserved**) é como esta mudança pode afetar uma cache que já está a funcionar com grandes quantidades de dados no mesmo. Por exemplo, se tiver uma cache de 53 GB com 49 GB de dados, em seguida, altere o valor da reserva para 8 GB, esta alteração deixará a memória máxima disponível para o sistema para 45 GB. Se a sua corrente `used_memory` ou os seus `used_memory_rss` valores forem superiores ao novo limite de 45 GB, então o sistema terá de despejar dados até ambos `used_memory` e ficar `used_memory_rss` abaixo dos 45 GB. O despejo pode aumentar a carga do servidor e a fragmentação da memória. Para obter mais informações sobre métricas de cache, tais como `used_memory` `used_memory_rss` e, consulte [métricas disponíveis e intervalos de reporte](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
@@ -188,7 +188,7 @@ Cada nível de preços tem limites diferentes para ligações ao cliente, memór
 | Utilização da largura de banda de rede |[Desempenho da cache - largura de banda disponível](cache-planning-faq.md#azure-cache-for-redis-performance) |
 | Clientes conectados |[Configuração padrão do servidor Redis - maxclients](#maxclients) |
 | Carga do servidor |[Gráficos de utilização - Redis Server Load](cache-how-to-monitor.md#usage-charts) |
-| Utilização da memória |[Desempenho da cache - tamanho](cache-planning-faq.md#azure-cache-for-redis-performance) |
+| Utilização de memória |[Desempenho da cache - tamanho](cache-planning-faq.md#azure-cache-for-redis-performance) |
 
 Para atualizar o seu cache, clique em **Atualizar agora** para alterar o nível de preços e [escalar](#scale) o seu cache. Para obter mais informações sobre a escolha de um nível de preços, consulte [escolher o nível certo](cache-overview.md#choosing-the-right-tier)
 
@@ -290,7 +290,7 @@ As definições na secção **Administração** permitem-lhe executar as seguint
 
 ![Administração](./media/cache-configure/redis-cache-administration.png)
 
-* [Dados de importação](#importexport)
+* [Importar dados](#importexport)
 * [Exportar dados](#importexport)
 * [Reiniciar](#reboot)
 
@@ -394,7 +394,7 @@ A nova cache Azure para instâncias Redis são configuradas com os seguintes val
 | `maxmemory-samples` |3 |Para guardar a memória, os algoritmos LRU e TTL mínimos são algoritmos aproximados em vez de algoritmos precisos. Por defeito, o Redis verifica três chaves e escolhe a que foi usada menos recentemente. |
 | `lua-time-limit` |5000 |Tempo de execução máxima de um guião lua em milissegundos. Se o tempo máximo de execução for atingido, o Redis regista que um script ainda está em execução após o tempo máximo permitido, e começa a responder a perguntas com um erro. |
 | `lua-event-limit` |500 |Tamanho máximo da fila do evento do script. |
-| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Os limites do tampão de saída do cliente podem ser usados para forçar a desconexão de clientes que não estão a ler dados do servidor com rapidez suficiente por alguma razão (uma razão comum é que um cliente Pub/Sub não pode consumir mensagens tão rápido quanto o editor pode produzi-los). Para mais informações, [https://redis.io/topics/clients](https://redis.io/topics/clients) consulte. |
+| `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |Os limites do tampão de saída do cliente podem ser usados para forçar a desconexão de clientes que não estão a ler dados do servidor com rapidez suficiente por alguma razão (uma razão comum é que um cliente Pub/Sub não pode consumir mensagens tão rápido quanto o editor pode produzi-los). Para obter mais informações, veja [https://redis.io/topics/clients](https://redis.io/topics/clients). |
 
 <a name="databases"></a>
 <sup>1</sup> O limite `databases` para é diferente para cada Cache Azure para o nível de preços redis e pode ser definido na criação de cache. Se não `databases` for especificada qualquer definição durante a criação da cache, o padrão é 16.
@@ -504,5 +504,5 @@ Pode mover o seu cache para uma nova subscrição clicando em **Move**.
 
 Para obter informações sobre a deslocação de recursos de um grupo de recursos para outro, e de uma subscrição para outra, consulte [mover recursos para novo grupo de recursos ou subscrição](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Para mais informações sobre trabalhar com os comandos redis, veja [como posso comandar redis?](cache-development-faq.md#how-can-i-run-redis-commands)

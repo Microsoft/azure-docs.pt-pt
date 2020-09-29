@@ -7,17 +7,17 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: 28242341ddd21adea33e56c3e1f35f0677e5921a
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 66a04ebec6eb9d7219d4d5db3bdd1dfd780a730f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907355"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445993"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Proteção avançada de ameaças do Microsoft Defender com Centro de Segurança Azure
 
@@ -30,9 +30,9 @@ O Azure Security Center integra-se com [o Microsoft Defender Advanced Threat Pro
 |----|:----|
 |Estado de libertação:|Geralmente disponível (GA)|
 |Preços:|Requer [Azure Defender](security-center-pricing.md)|
-|Máquinas suportadas:|![Yes](./media/icons/yes-icon.png) Máquinas Azure executando Janelas<br>![Yes](./media/icons/yes-icon.png) Máquinas Azure Arc executando janelas|
+|Máquinas suportadas:|![Sim](./media/icons/yes-icon.png) Máquinas Azure executando Janelas<br>![Sim](./media/icons/yes-icon.png) Máquinas Azure Arc executando janelas|
 |Funções e permissões necessárias:|Para ativar/desativar a integração: **Administrador de segurança** ou **Proprietário**<br>Para ver alertas de MDATP no Centro de Segurança: **Leitor de segurança,** **leitor,** **contribuinte do grupo de recursos,** **proprietário do grupo de recursos,** **administrador de segurança,** **proprietário de assinatura,** ou **colaborador de subscrição**|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais.<br>![No](./media/icons/no-icon.png) Clientes da GCC que executam cargas de trabalho em nuvens públicas do Azure<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais.<br>![Não](./media/icons/no-icon.png) Clientes da GCC que executam cargas de trabalho em nuvens públicas do Azure<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov|
 |||
 
 
@@ -126,7 +126,7 @@ Para gerar um alerta de teste ATP do Microsoft Defender benigno:
 
 1. A partir da janela de investigação, selecione o link para ir ao portal ATP do Microsoft Defender.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Plataformas e funcionalidades suportadas pelo Centro de Segurança do Azure](security-center-os-coverage.md)
 - [Definição de políticas de segurança no Azure Security Center](tutorial-security-policy.md): Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos Azure.

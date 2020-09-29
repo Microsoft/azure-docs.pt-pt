@@ -6,12 +6,12 @@ ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: chlound
-ms.openlocfilehash: 31dc1973af42a1785a2a65cb1887f479e44af162
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 61679e1ee3843ed866ef12138a0edeff8877b1e6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553908"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448601"
 ---
 # <a name="refresh-with-azure-automation"></a>Atualizar com a Automatização do Azure
 
@@ -54,17 +54,17 @@ O Diretor de Serviço que cria deve ter permissões de administrador de servidor
 
 1. Na Conta Dem automação, crie um recurso **de Credenciais** que será utilizado para armazenar de forma segura o Diretor de Serviço.
 
-    ![Criar credencial](./media/analysis-services-refresh-azure-automation/6.png)
+    ![Screenshot que mostra a página "Credenciais" com a ação "Adicionar uma credencial" selecionada.](./media/analysis-services-refresh-azure-automation/6.png)
 
-2. Insira os detalhes para a credencial. Em **Nome do Utilizador,** insira o Id de aplicação principal do serviço (appid) e, em seguida, em **Password,** insira o serviço principal Secret.
+2. Insira os detalhes para a credencial. Em **Nome do Utilizador,** insira o ID principal do serviço (appid) e, em seguida, em **Password,** insira o serviço principal Secret.
 
     ![Criar credencial](./media/analysis-services-refresh-azure-automation/7.png)
 
-3. Importar o Livro de Execução da Automação
+3. Importe o Livro de Execução da Automação.
 
-    ![Livro de importação](./media/analysis-services-refresh-azure-automation/8.png)
+    ![Screenshot que mostra a página "Runbooks" com a ação "Importer um runbook" selecionada.](./media/analysis-services-refresh-azure-automation/8.png)
 
-4. Navegue pelo ficheiro [Refresh-Model.ps1,](#sample-powershell-runbook) forneça um **Nome** e **Descrição**e, em seguida, clique em **Criar**.
+4. Navegue pelo ficheiro [Refresh-Model.ps1, ](#sample-powershell-runbook) forneça um **Nome** e **Descrição**e, em seguida, clique em **Criar**.
 
     > [!NOTE]
     > Utilize o script da secção [Sample Powershell Runbook](#sample-powershell-runbook) na parte inferior deste documento para criar um ficheiro chamado Refresh-Model.ps1 e guardar para a máquina local para importar em Runbook.
@@ -80,7 +80,7 @@ O Diretor de Serviço que cria deve ter permissões de administrador de servidor
 
 6. Teste o livro de execução clicando **em Iniciar**.
 
-    ![Inicie o Runbook](./media/analysis-services-refresh-azure-automation/11.png)
+    ![Screenshot que mostra a página "Visão Geral" com a ação "Iniciar" selecionada.](./media/analysis-services-refresh-azure-automation/11.png)
 
 7. Preencha os parâmetros **DATABASENAME,** **ANALYSISSERVER**e **REFRESHTYPE** e, em seguida, clique **em OK**. O parâmetro **WEBHOOKDATA** não é necessário quando o Runbook é executado manualmente.
 
@@ -108,7 +108,7 @@ Isto pode ser configurado da seguinte forma:
 
 4. Preencha os parâmetros para o horário. Estes serão utilizados sempre que o Runbook acionar. O parâmetro **WEBHOOKDATA** deve ficar em branco quando funciona através de um horário.
 
-    ![Parâmetros de configuração](./media/analysis-services-refresh-azure-automation/16.png)
+    ![Configurar os parâmetros](./media/analysis-services-refresh-azure-automation/16.png)
 
 5. Clique em **OK**.
 

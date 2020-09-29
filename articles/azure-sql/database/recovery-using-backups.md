@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: d95bf9ed50f819c5a92c7945827ee82a2c6ecdc9
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 23fdc69b59cc1415d06bd394fd9ef729b7ef4ce0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371784"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448805"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperar usando cópias de dados automatizadas - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,11 +33,6 @@ Se configurar [a retenção de longo prazo de backup,](long-term-retention-overv
 
 > [!IMPORTANT]
 > Não pode substituir uma base de dados existente durante a restauração.
-
-Por predefinição, a Base de Dados Azure SQL e as cópias de segurança Azure SQL Managed Instance são armazenadas em armazenamento de bolhas geo-replicadas (tipo de armazenamento RA-GRS). Além disso, a SQL Managed Instance suporta o armazenamento de backup localmente redundante (LRS) e redundante de zona (ZRS). A redundância garante que os seus dados estão protegidos contra eventos planeados e não planeados, incluindo falhas de hardware transitórios, falhas de rede ou de energia, e desastres naturais maciços. O armazenamento redundante de zona (ZRS) só está disponível em [determinadas regiões.](../../storage/common/storage-redundancy.md#zone-redundant-storage)
-
-> [!IMPORTANT]
-> Configurar a redundância de armazenamento para cópias de segurança está disponível apenas para instâncias geridas e permitidas durante o processo de criação. Uma vez que o recurso é aprovisionado, não é possível alterar a opção de redundância de armazenamento de backup.
 
 Quando estiver a utilizar o nível de serviço Standard ou Premium, a sua restauração da base de dados pode incorrer num custo extra de armazenamento. O custo extra é incorrido quando o tamanho máximo da base de dados restaurada é maior do que a quantidade de armazenamento incluída com o nível de serviço e nível de desempenho da base de dados-alvo. Para obter detalhes sobre preços de armazenamento extra, consulte a [página de preços da Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se a quantidade real de espaço usado for inferior à quantidade de armazenamento incluída, pode evitar este custo extra definindo o tamanho máximo da base de dados para a quantidade incluída.
 
@@ -143,7 +138,7 @@ Para uma amostra do script PowerShell que mostra como restaurar uma base de dado
 ## <a name="geo-restore"></a>Georrestauro
 
 > [!IMPORTANT]
-> O geo-restauro só está disponível para instâncias geridas configuradas com o tipo de armazenamento de backup geo-redundante (RA-GRS). Casos geridos configurados com tipos de armazenamento de backup localmente redundantes ou redundantes em zonas não suportam o geo-restauro.
+> O geo-restauro só está disponível para bases de dados SQL ou instâncias geridas configuradas com armazenamento de [backup](automated-backups-overview.md#backup-storage-redundancy)geo-redundante .
 
 Pode restaurar uma base de dados em qualquer servidor de base de dados SQL ou uma base de dados de instâncias em qualquer instância gerida em qualquer região do Azure a partir das cópias de segurança geo-replicadas mais recentes. Geo-restauração utiliza uma cópia de segurança geo-replicada como fonte. Pode solicitar a geo-restauração mesmo que a base de dados ou o datacenter esteja inacessível devido a uma paragem.
 
@@ -259,7 +254,7 @@ Para restaurar uma base de dados de instância gerida utilizando o Azure CLI, co
 
 As cópias de segurança automáticas protegem as suas bases de dados contra erros de utilizador e aplicação, eliminação acidental da base de dados e interrupções prolongadas. Esta capacidade incorporada está disponível para todos os níveis de serviço e tamanhos de cálculo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Descrição geral da continuidade de negócio](business-continuity-high-availability-disaster-recover-hadr-overview.md)
 - [Backups automatizados da Base de Dados SQL](automated-backups-overview.md)

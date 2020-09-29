@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 2ce2b7dab3e9eb4c9635ce4abc2933fd954844d5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a01f5d2d000ef6e177000828500ef2ab0e26c4ca
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326008"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448182"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Using Linux Diagnostic Extension to monitor metrics and logs (Utilizar a Extensão de Diagnóstico do Linux para monitorizar métricas e registos)
 
@@ -219,7 +219,7 @@ Você pode facilmente construir o token SAS necessário através do portal Azure
 1. Faça as secções apropriadas como descrito anteriormente
 1. Clique no botão "Gerar SAS".
 
-![image](./media/diagnostics-linux/make_sas.png)
+![A screenshot mostra a página de assinatura de acesso compartilhado com Generate S A S.](./media/diagnostics-linux/make_sas.png)
 
 Copie o SAS gerado no campo de armazenamentoSasToken; remover o ponto de interrogação principal ("?").
 
@@ -777,7 +777,7 @@ A `resourceId` configuração deve corresponder à do VM ou do conjunto de balan
 
 Utilize o portal Azure para visualizar dados de desempenho ou definir alertas:
 
-![image](./media/diagnostics-linux/graph_metrics.png)
+![A screenshot mostra o portal Azure com o espaço do disco usado na métrica selecionada e no gráfico resultante.](./media/diagnostics-linux/graph_metrics.png)
 
 Os `performanceCounters` dados são sempre armazenados numa tabela de Armazenamento Azure. As APIs de Armazenamento Azure estão disponíveis para muitos idiomas e plataformas.
 
@@ -786,7 +786,7 @@ Os dados enviados para as pias JsonBlob são armazenados em bolhas na conta de a
 Além disso, pode utilizar estas ferramentas de UI para aceder aos dados no Azure Storage:
 
 * Explorador visual do servidor do estúdio.
-* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Explorador do Storage do Azure").
+* [A screenshot mostra contentores e mesas no Azure Storage Explorer.](https://azurestorageexplorer.codeplex.com/ "Explorador do Storage do Azure")
 
 Esta imagem de uma sessão do Microsoft Azure Storage Explorer mostra as mesas e recipientes de armazenamento Azure gerados a partir de uma extensão LAD 3.0 corretamente configurada num VM de teste. A imagem não corresponde exatamente à [configuração lad 3.0](#an-example-lad-30-configuration)da amostra .
 
@@ -794,7 +794,7 @@ Esta imagem de uma sessão do Microsoft Azure Storage Explorer mostra as mesas e
 
 Consulte a documentação relevante do [EventHubs](../../event-hubs/event-hubs-about.md) para aprender a consumir mensagens publicadas num ponto final do EventHubs.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Crie alertas métricos no [Azure Monitor](../../azure-monitor/platform/alerts-classic-portal.md) para as métricas que recolhe.
 * Crie [gráficos de monitorização](../../azure-monitor/platform/data-platform.md) para as suas métricas.

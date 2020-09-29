@@ -4,15 +4,15 @@ description: Reveja como monitorizar a implementação do Azure File Sync utiliz
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/05/2019
+ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9db8a0397c836e8cbc45404d9c4f149255fc76fa
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 1ef24522f688c5ae1176630a2f370cd7ee7c3cd7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271061"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448029"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorizar o Azure File Sync
 
@@ -35,8 +35,10 @@ Utilize [o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overvie
 As métricas do Azure File Sync são ativadas por predefinição e são enviadas para o Azure Monitor a cada 15 minutos.
 
 **Como ver as métricas do Azure File Sync no Azure Monitor**
-- Vá ao seu **Serviço de Sincronização de Armazenamento** no portal **Azure** e clique em **Métricas**.
-- Clique na **métrica** e selecione a métrica que pretende visualizar.
+1. Vá ao seu **Serviço de Sincronização de Armazenamento** no portal **Azure** e clique em **Métricas**.
+2. Clique na **métrica** e selecione a métrica que pretende visualizar.
+
+![Screenshot das métricas Azure File Sync](media/storage-sync-files-troubleshoot/file-sync-metrics.png)
 
 As seguintes métricas para Azure File Sync estão disponíveis no Azure File Sync:
 
@@ -58,15 +60,15 @@ Os alertas notificam-no proativamente quando forem encontradas condições impor
 
 **Como criar alertas para a Azure File Sync**
 
-- Aceda ao seu **Serviço de Sincronização de Armazenamento** no portal **Azure**. 
-- Clique em **Alertas** na secção de Monitorização e, em seguida, clique **em + Nova regra de alerta**.
-- Clique **em Selecionar a condição** e fornecer as seguintes informações para o alerta: 
+1. Aceda ao seu **Serviço de Sincronização de Armazenamento** no portal **Azure**. 
+2. Clique em **Alertas** na secção de Monitorização e, em seguida, clique **em + Nova regra de alerta**.
+3. Clique **em Selecionar a condição** e fornecer as seguintes informações para o alerta: 
     - **Métrica**
     - **Nome de dimensão**
     - **Lógica de alerta**
-- Clique **em Selecionar grupo de ação** e adicione um grupo de ação (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
-- Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
-- Clique **em Criar regra de alerta** para criar o alerta.  
+4. Clique **em Selecionar grupo de ação** e adicione um grupo de ação (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
+5. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
+6. Clique **em Criar regra de alerta** para criar o alerta.  
 
 A tabela a seguir enumera alguns cenários de exemplo para monitorizar e a métrica adequada a utilizar para o alerta:
 
@@ -96,6 +98,8 @@ Para visualizar a saúde da sua implementação de Azure File Sync no **portal A
 
 Para ver a **saúde** do servidor registado no portal, navegue para a secção de **servidores registados** do Serviço de **Sincronização de Armazenamento**.
 
+![Screenshot da saúde dos servidores registados](media/storage-sync-files-troubleshoot/file-sync-registered-servers.png)
+
 - Se o estado do **servidor registado** estiver **Online,** o servidor comunica-se com sucesso com o serviço.
 - Se o estado do **servidor registado** **for "Offline",** o processo de Monitor de Sincronização de Armazenamento (AzureStorageSyncMonitor.exe) não está em funcionamento ou o servidor não consegue aceder ao serviço Azure File Sync. Consulte a [documentação de resolução de problemas](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#server-endpoint-noactivity) para obter orientação.
 
@@ -103,7 +107,9 @@ Para ver a **saúde** do servidor registado no portal, navegue para a secção d
 
 Para visualizar a saúde de um **ponto final** do servidor no portal, navegue para a secção **Sync groups** do Serviço de **Sincronização** de Armazenamento e selecione um **grupo de sincronização**.
 
-- A atividade **de saúde** e **sincronização** do servidor no portal baseia-se nos eventos de sincronização que são registados no registo de eventos de Telemetria no servidor (ID 9102 e 9302). Se uma sessão de sincronização falhar devido a um erro transitório, como erro cancelado, a sincronização continuará a mostrar-se tão saudável no portal enquanto a sessão de sincronização atual estiver a progredir (os ficheiros são aplicados). O ID 9302 do evento é o evento de progresso sincronizado e o Event ID 9102 é registado assim que uma sessão de sincronização estiver concluída.  Para obter mais informações, consulte [a saúde sincronizada](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) e [sincronizar o progresso.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session) Se o portal mostrar um erro porque a sincronização não está a progredir, consulte [a documentação de resolução de problemas](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) para obter orientação.
+![Screenshot da saúde do ponto final do servidor](media/storage-sync-files-troubleshoot/file-sync-server-endpoint-health.png)
+
+- A atividade **de saúde** e **sincronização** do servidor no portal baseia-se nos eventos de sincronização que são registados no registo de eventos de Telemetria no servidor (ID 9102 e 9302). Se uma sessão de sincronização falhar devido a um erro transitório, como erro cancelado, o ponto final do servidor continuará a mostrar-se **tão saudável** no portal enquanto a sessão de sincronização atual estiver a progredir (os ficheiros são aplicados). O ID 9302 do evento é o evento de progresso sincronizado e o Event ID 9102 é registado assim que uma sessão de sincronização estiver concluída.  Para obter mais informações, consulte [a saúde sincronizada](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) e [sincronizar o progresso.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session) Se a saúde do ponto final do servidor mostrar um **Erro** ou **Nenhuma Atividade,** consulte a [documentação de resolução de problemas](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) para obter orientação.
 - A contagem **de ficheiros não sincronizados** no portal baseia-se no ID 9121 do evento que está registado no registo de eventos de Telemetria no servidor. Este evento é registado para cada erro por item uma vez que a sessão de sincronização esteja concluída. Para resolver erros por artigo, veja [como vejo se existem ficheiros ou pastas específicas que não estão a sincronizar?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)
 - Para visualizar a **eficiência de tiering** da nuvem no portal, aceda às Propriedades do **Ponto Final** do Servidor e navegue para a secção **Cloud Tiering.** Os dados fornecidos para a eficiência do tiering em nuvem baseiam-se no ID 9071 do evento que é registado no registo de eventos de Telemetria no servidor. Para saber mais, consulte [cloud Tiering Overview](https://docs.microsoft.com/azure/storage/files/storage-sync-cloud-tiering).
 - Para ver **ficheiros que não estão a nivelar** e **a recordar erros** no portal, aceda às Propriedades do **Ponto Final** do Servidor e navegue para a secção **Cloud Tiering.** **O tiering de ficheiros não** é baseado no ID 9003 do evento que está registado no registo de eventos de Telemetria no servidor e os **erros de recuperação** são baseados no ID do evento 9006. Para investigar ficheiros que não estão a hierarquizador ou a recordar, consulte [Como resolver ficheiros que não estão em nível](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) e [como resolver ficheiros que não são recolhidos](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled).
@@ -142,7 +148,7 @@ Saúde sincronizada
 
 - O ID 9121 do evento é registado para cada erro por item assim que a sessão de sincronização estiver concluída. Utilize este evento para determinar o número de ficheiros que não estão a sincronizar com este erro **(PersistenteCount** e **TransientCount).** Erros persistentes por item devem ser investigados, ver [como vejo se existem ficheiros ou pastas específicas que não estão a sincronizar?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)
 
-- O ID 9302 do evento é registado a cada 5 a 10 minutos se houver uma sessão de sincronização ativa. Utilize este evento para determinar se a sessão de sincronização atual está a progredir **(AppliedItemCount > 0**). Se a sincronização não estiver a progredir, a sessão de sincronização deverá eventualmente falhar e um ID 9102 do Evento será registado com o erro. Para obter mais informações, consulte a documentação de [progresso sincronizada.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)
+- O ID 9302 do evento é registado a cada 5 a 10 minutos se houver uma sessão de sincronização ativa. Utilize este evento para determinar quantos itens devem ser sincronizados **(TotalItemCount),** número de itens que sincronizaram até agora (**AppliedItemCount**) e número de itens que não sincronizaram devido a um erro por item **(PerItemErrorCount).** Se a sincronização não estiver a progredir **(AppliedItemCount=0),** a sessão de sincronização acabará por falhar e um ID 9102 do Evento será registado com o erro. Para obter mais informações, consulte a documentação de [progresso sincronizada.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)
 
 Saúde do servidor registado
 
@@ -248,6 +254,7 @@ Esta secção fornece alguns alertas de exemplo para Azure File Sync.
      - Tipo de agregação: **Máximo**  
      - Valor limiar (em bytes): **1** 
      - Avaliado com base em: Granularidade agregação = **1 hora** / Frequência de avaliação = **A cada 30 minutos** 
+        - Note que as métricas são enviadas para o Monitor Azure a cada 15 a 20 minutos. Não desacione a **frequência de avaliação** em menos de 30 minutos (gerará falsos alertas).
      - Clique **em 'Fazer'.** 
 8. Clique **em Selecionar grupo de ação** para adicionar um grupo de ação (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
 9. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
@@ -275,7 +282,7 @@ Esta secção fornece alguns alertas de exemplo para Azure File Sync.
 9. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
 10. Clique em **Criar regra de alerta**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
 - [Considere as definições de firewall e proxy](storage-sync-files-firewall-and-proxy.md)
 - [Implementar o Azure File Sync](storage-sync-files-deployment-guide.md)

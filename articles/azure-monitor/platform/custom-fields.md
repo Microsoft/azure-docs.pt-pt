@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: ffe3d457d4827250418c9c2d838df35c11e01af7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 496dab24f636c97e1c7b27b871e1fded9216277d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90974717"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448559"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Criar campos personalizados num espaço de trabalho log analytics em Azure Monitor (Pré-visualização)
 
@@ -101,7 +101,7 @@ Destacamos o nome do serviço na propriedade **RenderedDescription** e utilizamo
 
 Vemos que o nome de serviço é identificado corretamente para alguns registos, mas não para outros.   Os **Resultados** da Pesquisa mostram que parte do nome do **Adaptador de Desempenho WMI** não foi selecionado.  O **Resumo** mostra que um gravador identificou **o instalador** de módulos em vez do Instalador de **Módulos**do Windows .  
 
-![Resultados da pesquisa](media/custom-fields/search-results-01.png)
+![Screenshot mostrando partes do nome de serviço realçadas no painel de Resultados de Pesquisa e um nome de serviço incorreto realçado no Resumo.](media/custom-fields/search-results-01.png)
 
 Começamos com o disco do **Adaptador de Desempenho WMI.**  Clicamos no ícone de edição e depois **modificamos este destaque.**  
 
@@ -113,7 +113,7 @@ Aumentamos o destaque para incluir a palavra **WMI** e, em seguida, reexamecê-l
 
 Podemos ver que as entradas para o **Adaptador de Desempenho WMI** foram corrigidas, e o Log Analytics também utilizou essa informação para corrigir os registos do **Instalador de Módulos do Windows**.
 
-![Resultados da pesquisa](media/custom-fields/search-results-02.png)
+![Screenshot mostrando o nome de serviço completo realçado no painel de Resultados de Pesquisa e os nomes de serviço corretos destacados no Resumo.](media/custom-fields/search-results-02.png)
 
 Agora podemos fazer uma consulta que verifica **Service_CF** é criado, mas ainda não é adicionado a nenhum registo. Isso é porque o campo personalizado não funciona contra os registos existentes, por isso temos de esperar que sejam recolhidos novos registos.
 
@@ -127,7 +127,7 @@ Agora podemos usar o campo personalizado como qualquer outra propriedade discogr
 
 ![Grupo por consulta](media/custom-fields/query-group.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para construir consultas usando campos personalizados para critérios.
 * Monitorize [ficheiros de registo personalizados](data-sources-custom-logs.md) que analisa utilizando campos personalizados.
 

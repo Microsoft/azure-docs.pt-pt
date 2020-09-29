@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 138b3b35633b432193a1972421f05d0a8e52b90a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8a387adde6c74b8eb1ff950c5e6b5183e43d1f4f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301369"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448670"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteger cargas de trabalho do Kubernetes
 
@@ -39,7 +39,7 @@ O Security Center oferece mais funcionalidades de segurança para contentores se
 |Preços:|Gratuito|
 |Funções e permissões necessárias:|**Administrador de proprietário** ou **segurança** para editar uma atribuição<br>**Leitor** para ver as recomendações|
 |Aglomerados apoiados|Kubernetes v1.14 (ou superior) é necessário<br>Sem recurso PodSecurityPolicy (modelo antigo da PSP) nos clusters<br>Os nómadas do Windows não são suportados|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -58,7 +58,7 @@ O Azure Security Center inclui um conjunto de recomendações que estão dispon�
 
     1. A partir de qualquer um dos controlos de segurança, selecione a recomendação para ver os recursos em que pode instalar o addon e selecione **Remediate**. 
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="A página de detalhes da recomendação para o addon da Política de Azure para Kubernetes deve ser instalada e ativada nos seus clusters**":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Recomendação **Azure Policy add-on for Kubernetes deve ser instalado e ativado nos seus clusters**":::
 
 1. Aproximadamente 30 minutos após o fim da instalação adicional, o Centro de Segurança mostra o estado de saúde dos clusters para as seguintes recomendações, cada uma no controlo de segurança relevante, conforme mostrado:
 
@@ -69,12 +69,12 @@ O Azure Security Center inclui um conjunto de recomendações que estão dispon�
 
     | Nome da recomendação                                                                   | Controlo de segurança                         | Configuração necessária |
     |---------------------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | O CPU do contentor e os limites de memória devem ser aplicados (pré-visualização)                          | Proteja as aplicações contra o ataque do DDoS | No                     |
-    | Os recipientes privilegiados devem ser evitados (pré-visualização)                                     | Gerir acessos e permissões            | No                     |
-    | O sistema de ficheiros de raiz imutável (apenas para leitura) deve ser aplicado para os contentores (pré-visualização)     | Gerir acessos e permissões            | No                     |
-    | O contentor com escalada de privilégio deve ser evitado (pré-visualização)                       | Gerir acessos e permissões            | No                     |
-    | Devem ser evitados os recipientes de funcionamento como utilizador de raiz (pré-visualização)                           | Gerir acessos e permissões            | No                     |
-    | Devem ser evitados os recipientes que partilham espaços sensíveis para o nome do hospedeiro (pré-visualização)              | Gerir acessos e permissões            | No                     |
+    | O CPU do contentor e os limites de memória devem ser aplicados (pré-visualização)                          | Proteja as aplicações contra o ataque do DDoS | Não                     |
+    | Os recipientes privilegiados devem ser evitados (pré-visualização)                                     | Gerir acessos e permissões            | Não                     |
+    | O sistema de ficheiros de raiz imutável (apenas para leitura) deve ser aplicado para os contentores (pré-visualização)     | Gerir acessos e permissões            | Não                     |
+    | O contentor com escalada de privilégio deve ser evitado (pré-visualização)                       | Gerir acessos e permissões            | Não                     |
+    | Devem ser evitados os recipientes de funcionamento como utilizador de raiz (pré-visualização)                           | Gerir acessos e permissões            | Não                     |
+    | Devem ser evitados os recipientes que partilham espaços sensíveis para o nome do hospedeiro (pré-visualização)              | Gerir acessos e permissões            | Não                     |
     | As capacidades linux menos privilegiadas devem ser aplicadas para contentores (pré-visualização)       | Gerir acessos e permissões            | **Sim**                |
     | A utilização dos suportes de volume do Pod HostPath deve ser restringida a uma lista conhecida (pré-visualização)    | Gerir acessos e permissões            | **Sim**                |
     | Os contentores devem ouvir apenas as portas permitidas (pré-visualização)                              | Restringir o acesso não autorizado à rede     | **Sim**                |
@@ -99,7 +99,7 @@ O Azure Security Center inclui um conjunto de recomendações que estão dispon�
 
     1. Abra a página de detalhes da recomendação e selecione **Deny**:
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Negar opção para parâmetro da Política Azure":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Recomendação **Azure Policy add-on for Kubernetes deve ser instalado e ativado nos seus clusters**":::
 
         Isto abrirá o painel onde definirá o âmbito. 
 
@@ -113,7 +113,7 @@ O Azure Security Center inclui um conjunto de recomendações que estão dispon�
 
 1. Ao visualizar uma recomendação do conjunto de proteção da carga de trabalho, verá o número de cápsulas afetadas ("componentes Kubernetes") listados ao lado do cluster. Para obter uma lista das cápsulas específicas, selecione o cluster e, em seguida, **selecione Ação**.
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Visualização das cápsulas afetadas para uma recomendação de K8s"::: 
+    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Recomendação **Azure Policy add-on for Kubernetes deve ser instalado e ativado nos seus clusters**"::: 
 
 1. Para testar a execução, utilize as duas implementações de Kubernetes abaixo:
 
@@ -235,7 +235,7 @@ spec:
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a configurar a proteção da carga de trabalho da Kubernetes. 
 

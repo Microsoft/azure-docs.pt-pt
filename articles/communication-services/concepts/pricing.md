@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/10/2020
+ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 94a34937af92eefa6146c7a043b6d5d68cf6b852
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0b82d7dc8f6aaaa28a5293966440f058fbf42dc1
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90947424"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460939"
 ---
 # <a name="pricing-scenarios"></a>Cenários de preços
 

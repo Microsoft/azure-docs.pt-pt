@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: 906311452598d592b73a263ce25d0c8c51cc1cc7
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 26644d42e0e51d59c6c28daaba5447a65a43b6a5
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870192"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460646"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Utilize identidades geridas para aceder à Base de Dados Azure SQL a partir de um trabalho de Azure Stream Analytics (Preview)
 
@@ -60,15 +60,15 @@ Depois de criar uma identidade gerida, selecione um administrador do Ative Direc
 
    ![Adicionar administrador de diretório ativo](./media/sql-db-output-managed-identity/add-admin.png)
 
-   A página de administração do Ative Directory mostra todos os membros e grupos do seu Diretório Ativo. Os utilizadores ou grupos que estão acinzentados não podem ser selecionados porque não são suportados como administradores da AD Azure. Consulte a lista de administradores suportados na secção **Azure AD Features and Limitations**   of Use [Azure Ative Directory Authentication for authentication with SQL Database ou Azure Synapse](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations). O controlo de acesso baseado em funções (RBAC) aplica-se apenas ao portal e não é propagado ao SQL Server. Além disso, o utilizador ou grupo selecionado é o utilizador que poderá criar o **Utilizador de Base de Dados Contido** na secção seguinte.
+   A página de administração do Ative Directory mostra todos os membros e grupos do seu Diretório Ativo. Os utilizadores ou grupos que estão acinzentados não podem ser selecionados porque não são suportados como administradores do Azure Ative Directory. Consulte a lista de administradores suportados na secção **Azure Ative Directory Features and Limitations**   of Use [Azure Ative Directory Authentication for authentication with SQL Database ou Azure Synapse](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations). O controlo de acesso baseado em funções (RBAC) aplica-se apenas ao portal e não é propagado ao SQL Server. Além disso, o utilizador ou grupo selecionado é o utilizador que poderá criar o **Utilizador de Base de Dados Contido** na secção seguinte.
 
 1. **Selecione Guardar** na página de administração do **Diretório Ativo.** O processo de mudança de administração demora alguns minutos.
 
-   Quando configurar o administrador AD AD Azure, o novo nome de administração (utilizador ou grupo) não pode estar presente na base de dados principal virtual como utilizador de autenticação do SQL Server. Se estiver presente, a configuração de administração Ad D. Azure falhará e reverterá a sua criação, indicando que já existe um administrador (nome). Uma vez que o utilizador de autenticação sql Server não faz parte do Azure AD, qualquer esforço para ligar ao servidor utilizando a autenticação AD Azure uma vez que o utilizador falha. 
+   Quando configurar o administrador do Azure Ative Directory, o novo nome de administração (utilizador ou grupo) não pode estar presente na base de dados primária virtual como utilizador de autenticação do SQL Server. Se estiver presente, a configuração de administração do Azure Ative Directory falhará e reverterá a sua criação, indicando que já existe um administrador (nome). Uma vez que o utilizador de autenticação do SQL Server não faz parte do Azure Ative Directory, qualquer esforço para se ligar ao servidor utilizando a autenticação do Azure Ative Directory uma vez que o utilizador falha. 
 
 ## <a name="create-a-contained-database-user"></a>Criar um utilizador de base de dados contido
 
-Em seguida, cria um utilizador de base de dados contido na sua Base de Dados SQL que está mapeada para a identidade do Diretório Ativo Azure. O utilizador da base de dados contido não tem um login para a base de dados principal, mas mapeia para uma identidade no diretório que está associado à base de dados. A identidade do Diretório Ativo Azure pode ser uma conta de utilizador individual ou um grupo. Neste caso, pretende criar um utilizador de base de dados contido para o seu trabalho stream Analytics. 
+Em seguida, cria um utilizador de base de dados contido na sua Base de Dados SQL que está mapeada para a identidade do Diretório Ativo Azure. O utilizador da base de dados contido não tem um login para a base de dados primária, mas mapeia para uma identidade no diretório que está associado à base de dados. A identidade do Diretório Ativo Azure pode ser uma conta de utilizador individual ou um grupo. Neste caso, pretende criar um utilizador de base de dados contido para o seu trabalho stream Analytics. 
 
 1. Ligue-se à Base de Dados SQL utilizando o SQL Server Management Studio. **O nome de Utilizador** é um utilizador do Azure Ative Directory com a permissão ALTER ANY **USER.** O administrador que definiu no SQL Server é um exemplo. Utilize **o Diretório Ativo Azure – Universal com** autenticação MFA. 
 
@@ -124,7 +124,7 @@ Certifique-se de que criou uma tabela na sua Base de Dados SQL com o esquema de 
 
 1. Preencha o resto das propriedades. Para saber mais sobre a criação de uma saída de Base de Dados SQL, consulte [Criar uma saída de Base de Dados SQL com Stream Analytics](sql-database-output.md). Quando terminar, **selecione Save**. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Compreender as saídas do Azure Stream Analytics](stream-analytics-define-outputs.md)
 * [Saída Azure Stream Analytics para Azure SQL Database](stream-analytics-sql-output-perf.md)

@@ -1,27 +1,29 @@
 ---
-title: Contentores estivadores - LUIS
+title: Instale e execute os recipientes Docker para o LUIS
 titleSuffix: Azure Cognitive Services
-description: O recipiente LUIS carrega a sua aplicação treinada ou publicada num recipiente de estivadores e fornece acesso às previsões de consulta dos pontos finais da API do contentor.
+description: Use o recipiente LUIS para carregar a sua aplicação treinada ou publicada e tenha acesso às suas previsões no local.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: bec96f45de69ab2698f3f0cf26f08222e4595ea5
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+keywords: no local, Docker, contentor
+ms.openlocfilehash: c65a81d9daed85b5bf056d24949e36ec227c19c6
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90889492"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460990"
 ---
-# <a name="install-and-run-luis-docker-containers"></a>Instalar e executar recipientes de estivadores LUIS
+# <a name="install-and-run-docker-containers-for-luis"></a>Instale e execute os recipientes Docker para o LUIS
 
 [!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
 
+Os recipientes permitem-lhe utilizar o LUIS no seu próprio ambiente. Os contentores são ótimos para requisitos específicos de governação de dados e segurança. Neste artigo você vai aprender a baixar, instalar e executar um recipiente LUIS.
 
 O recipiente Language Understanding (LUIS) carrega o seu modelo de Compreensão linguística treinado ou publicado. Como [uma aplicação LUIS,](https://www.luis.ai)o estivador fornece acesso às previsões de consulta dos pontos finais da API do contentor. Pode recolher registos de consultas a partir do contentor e enviá-los de volta para a aplicação Dein entendimento de idiomas para melhorar a precisão de previsão da aplicação.
 
@@ -388,7 +390,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 > [!IMPORTANT]
 > Os recipientes dos Serviços Cognitivos não estão licenciados para funcionar sem estarem ligados ao Azure para a medição. Os clientes precisam de permitir que os contentores comuniquem informações de faturação com o serviço de medição em todos os momentos. Os recipientes de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Reveja os recipientes de configuração](luis-container-configuration.md) para configurações.
 * Consulte [as limitações do contentor LUIS](luis-container-limitations.md) para as restrições de capacidade conhecidas.

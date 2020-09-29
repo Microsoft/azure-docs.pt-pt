@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 09/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: d8e3c7258a70902fe362ee73c2f366146484ce54
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b186c2d2c4b5efc8e1e052a63505549e860b5619
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91287554"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460833"
 ---
 # <a name="data-storage"></a>Armazenamento de Dados
 
@@ -26,15 +26,14 @@ Este artigo descreve o armazenamento de dados em Azure Time Series Insights Gen2
 Quando cria um ambiente Azure Time Series Insights Gen2, tem as seguintes opções:
 
 * Armazenamento de dados frios:
-   * Crie um novo recurso de Armazenamento Azure na subscrição e região que escolheu para o seu ambiente.
-   * Anexar uma conta de Armazenamento Azure pré-existente. Esta opção só está disponível através de um [modelo](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions)de Gestor de Recursos Azure , e não está visível no portal Azure.
+  * Crie um novo recurso de Armazenamento Azure na subscrição e região que escolheu para o seu ambiente.
+  * Anexar uma conta de Armazenamento Azure pré-existente. Esta opção só está disponível através de um [modelo](https://docs.microsoft.com/azure/templates/microsoft.timeseriesinsights/allversions)de Gestor de Recursos Azure , e não está visível no portal Azure.
 * Armazenamento de dados quente:
-   * Uma loja quente é opcional e pode ser ativada ou desativada durante ou após o tempo de provisão. Se decidir ativar a loja quente mais tarde e já existirem dados na sua loja de colde, reveja [esta](concepts-storage.md#warm-store-behavior) secção abaixo para entender o comportamento esperado. O tempo de retenção de dados de armazenamento quente pode ser configurado durante 7 a 31 dias, o que também pode ser ajustado conforme necessário.
+  * Uma loja quente é opcional e pode ser ativada ou desativada durante ou após o tempo de provisão. Se decidir ativar a loja quente mais tarde e já existirem dados na sua loja de colde, reveja [esta](concepts-storage.md#warm-store-behavior) secção abaixo para entender o comportamento esperado. O tempo de retenção de dados de armazenamento quente pode ser configurado durante 7 a 31 dias, o que também pode ser ajustado conforme necessário.
 
 Quando um evento é ingerido, é indexado tanto em loja quente (se ativado) como no cold store.
 
 [![Visão geral do armazenamento](media/concepts-storage/pipeline-to-storage.png)](media/concepts-storage/pipeline-to-storage.png#lightbox)
-
 
 > [!WARNING]
 > Como proprietário da conta de armazenamento Azure Blob onde residem os dados do cold store, tem acesso total a todos os dados da conta. Este acesso inclui permissões de escrita e eliminação. Não edite nem elimine os dados que o Azure Time Series Insights Gen2 escreve porque isso pode causar perda de dados.
@@ -50,11 +49,11 @@ Azure Time Series Insights Gen2 partitions and indexes datas para o melhor desem
 
 Os dados na sua loja quente só estão disponíveis através das [APIs de Consulta de Séries Temporais,](./time-series-insights-update-tsq.md)do [Azure Time Series Insights TSI Explorer,](./time-series-insights-update-explorer.md)ou do [Conector Power BI](./how-to-connect-power-bi.md). As consultas de loja quente são gratuitas e não há quota, mas há um [limite de 30](https://docs.microsoft.com/rest/api/time-series-insights/reference-api-limits#query-apis---limits) pedidos simultâneos.
 
-### <a name="warm-store-behavior"></a>Comportamento quente da loja 
+### <a name="warm-store-behavior"></a>Comportamento quente da loja
 
 * Quando ativados, todos os dados transmitidos para o seu ambiente serão encaminhados para a sua loja quente, independentemente da hora do evento. Note que o gasoduto de ingestão de streaming é construído para o streaming em tempo quase real e ingerir eventos históricos não é [suportado](./concepts-streaming-ingestion-event-sources.md#historical-data-ingestion).
 * O período de retenção é calculado com base no momento em que o evento foi indexado em loja quente, e não na marca de tempo do evento. Isto significa que os dados já não estão disponíveis em loja quente após o período de retenção ter decorrido, mesmo que o tempo de evento seja para o futuro.
-  - Exemplo: um evento com previsões meteorológicas de 10 dias é ingerido e indexado num recipiente de armazenamento quente configurado com um período de retenção de 7 dias. Após 7 dias de tempo, a previsão já não é acessível em loja quente, mas pode ser questionada do frio. 
+  * Exemplo: um evento com previsões meteorológicas de 10 dias é ingerido e indexado num recipiente de armazenamento quente configurado com um período de retenção de 7 dias. Após 7 dias de tempo, a previsão já não é acessível em loja quente, mas pode ser questionada do frio.
 * Se ativar a loja quente num ambiente existente que já tenha dados recentes indexados no armazenamento a frio, note que a sua loja quente não estará cheia de dados.
 * Se tiver ativado a loja quente e estiver a ter problemas de visualização dos seus dados recentes no Explorer, pode temporariamente desviar as consultas de loja quentes:
 
@@ -122,7 +121,7 @@ Os eventos da Azure Time Series Insights Gen2 estão mapeados para os conteúdos
 * Todas as outras propriedades enviadas como dados de telemetria são mapeadas para nomes de colunas que terminam com `_bool` (boolean), `_datetime` (carimbo de `_long` tempo), `_double` (longo), `_string` (duplo), (cadeia) ou `dynamic` (dinâmico), dependendo do tipo de propriedade.  Para mais informações, leia sobre [os tipos de dados suportados.](./concepts-supported-data-types.md)
 * Este esquema de mapeamento aplica-se à primeira versão do formato de ficheiro, referenciada como **V=1** e armazenada na pasta base com o mesmo nome. À medida que esta funcionalidade evolui, este esquema de mapeamento pode mudar e o nome de referência incrementado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Leia sobre [modelação de dados.](./time-series-insights-update-tsm.md)
 

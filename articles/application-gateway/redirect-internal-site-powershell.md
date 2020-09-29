@@ -6,18 +6,18 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 03/03/2020
+ms.date: 09/28/2020
 ms.author: victorh
-ms.openlocfilehash: 2e3f53cc14b22e7d689e246c3f0609ce80c29ec4
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: d838fe1d1015e1913c8aa28a122b06d108fb4676
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594310"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446649"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Criar um gateway de aplicações com reorientação interna usando Azure PowerShell
 
-Pode utilizar o Azure Powershell para configurar a [reorientação de tráfego web](multiple-site-overview.md) quando criar um [gateway de aplicações](overview.md). Neste tutorial, você define uma piscina de backend usando um conjunto de escala de máquinas virtuais. Em seguida, configura os ouvintes e as regras com base em domínios que possui para garantir que o tráfego web chegue à piscina apropriada. Este tutorial pressupõe que possui vários domínios e utiliza exemplos de *www \. contoso.com* e *www \. contoso.org*.
+Pode utilizar o Azure Powershell para configurar a [reorientação de tráfego web](multiple-site-overview.md) quando criar um [gateway de aplicações](overview.md). Neste artigo, você define uma piscina de backend usando um conjunto de escala de máquinas virtuais. Em seguida, configura os ouvintes e as regras com base em domínios que possui para garantir que o tráfego web chegue à piscina apropriada. Este artigo pressupõe que possui vários domínios e utiliza exemplos de *www \. contoso.com* e *www \. contoso.org*.
 
 Neste artigo, vai aprender a:
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer a versão 1.0.0 ou mais tarde do módulo Azure PowerShell. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este artigo requer a versão 1.0.0 ou mais tarde do módulo Azure PowerShell. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -106,7 +106,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-first-listener-and-rule"></a>Crie o primeiro ouvinte e regra
 
-É necessário um serviço de escuta para permitir ao gateway de aplicação encaminhar o tráfego adequadamente para o conjunto de back-end. Neste tutorial, vai criar dois serviços de escuta para os seus dois domínios. Neste exemplo, os ouvintes são criados para os domínios do *www \. contoso.com* e *www \. contoso.org*.
+É necessário um serviço de escuta para permitir ao gateway de aplicação encaminhar o tráfego adequadamente para o conjunto de back-end. Neste artigo, cria-se dois ouvintes para os seus dois domínios. Neste exemplo, os ouvintes são criados para os domínios do *www \. contoso.com* e *www \. contoso.org*.
 
 Crie o primeiro ouvinte chamado *contosoComListener* utilizando [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) com a configuração frontal e porta frontal que criou anteriormente. É necessária uma regra para o serviço de escuta saber qual o conjunto de back-end a utilizar para o tráfego de entrada. Crie uma regra básica chamada *contosoComRule* usando [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
@@ -299,11 +299,4 @@ Altere o endereço para o seu outro domínio, por exemplo, `https://www.contoso.
 
 ## <a name="next-steps"></a>Próximos passos
 
-Neste artigo, aprendeu a:
-
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar um gateway de aplicação
-> * Adicione os ouvintes e a regra de redirecionamento
-> * Crie um conjunto de escala de máquina virtual com as piscinas de backend
-> * Criar um registo CNAME no seu domínio
+- [Visão geral do redirecionamento do Gateway de Aplicação](redirect-overview.md)

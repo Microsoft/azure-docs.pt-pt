@@ -4,15 +4,15 @@ description: Conheça os benefícios e funcionalidades do Azure Defender para re
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 6254b78ad19e7034f78f7891d57a3474fee0c602
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 12264a79ee5428e98d6cf7d37bef6706295e68dc
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301929"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448376"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introdução ao Azure Defender para registos de contentores
 
@@ -73,7 +73,7 @@ Para obter uma lista dos tipos de registos de contentores suportados pelo Azure 
 Se ligar registos não suportados à sua assinatura Azure, eles não serão digitalizados e não será cobrado por eles.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre as funcionalidades de segurança do Security Center, consulte:
 

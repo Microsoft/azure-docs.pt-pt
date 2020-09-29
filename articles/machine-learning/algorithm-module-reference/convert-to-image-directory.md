@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 677cf60ff3e614fd1486445786154fbf026b7cd9
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/28/2020
+ms.openlocfilehash: 9f5f4b2b069ebc65430fba4bc31a9891ed61fedf
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898686"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91450117"
 ---
 # <a name="convert-to-image-directory"></a>Converter para o Diretório da Imagem
 
@@ -22,9 +22,10 @@ Este artigo descreve como usar o módulo Converte para Diretório de Imagem para
 
 ## <a name="how-to-use-convert-to-image-directory"></a>Como usar Converter para Diretório de Imagem  
 
-1.  Adicione o módulo **Converte-imagem ao Diretório de Imagens** à sua experiência. Pode encontrar este módulo na categoria 'Visão de Computador/Transformação de Dados de Imagem' na lista de módulos. 
+1.  Adicione o módulo **Converte-imagem ao Diretório de Imagem** à tela. Pode encontrar este módulo na categoria 'Visão de Computador/Transformação de Dados de Imagem' na lista de módulos. 
 
-2.  [Registe um conjunto de dados de imagem](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) e conecte-o à porta de entrada do módulo. Certifique-se de que há imagem no conjunto de dados de entrada. 
+2.  A entrada do módulo **Converte para o Diretório de Imagem** deve ser um conjunto de dados de ficheiros. [Registe um conjunto de dados de imagem](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) e conecte-o à porta de entrada do módulo. Certifique-se de que há imagem no conjunto de dados de entrada. Atualmente o Designer não suporta visualizar o conjunto de dados de imagem.
+ 
     Os seguintes formatos de conjunto de dados são suportados:
 
     - Ficheiro comprimido nestas extensões: ".zip", ".tar", ".gz", ".bz2".
@@ -35,20 +36,24 @@ Este artigo descreve como usar o módulo Converte para Diretório de Imagem para
     
 
     > [!NOTE]
-    > Se utilizar o conjunto de dados de imagem na aprendizagem supervisionada, é necessário o rótulo.
-    > Para a tarefa de classificação de imagem, o rótulo pode ser gerado como 'categoria' de imagem na saída do módulo se este conjunto de dados de imagem estiver organizado no formato Torchvision ImageFolder. Caso contrário, apenas as imagens são guardadas sem etiqueta. Aqui está um exemplo de como você poderia organizar conjunto de dados de imagem para obter etiqueta, usar a categoria de imagem como nome de sub-classificação. Consulte os [conjuntos de dados da torchvision](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) para obter mais informações.
+    > - Se utilizar o conjunto de dados de imagem na aprendizagem supervisionada, tem de especificar o rótulo do conjunto de dados de treino.
+    > - Para a tarefa de classificação de imagem, o rótulo pode ser gerado como 'categoria' de imagem na saída do módulo se este conjunto de dados de imagem estiver organizado no formato Torchvision ImageFolder. Caso contrário, apenas as imagens são guardadas sem etiqueta. Segue-se um exemplo de como poderia organizar o conjunto de dados de imagem para obter etiqueta, usar a categoria de imagem como nome de sub-classificação. 
+    > - Não é necessário carregar a mesma contagem de imagens em cada pasta de categoria.
+    > - As imagens com estas extensões (em minúsculas) são suportadas: '.jpg', '.jpeg', '.png', '.ppm', 'bmp', 'pgm', '.tif', '.tiff', '.webp'. Também pode ter vários tipos de imagens numa pasta.    
+    > - Consulte os [conjuntos de dados da torchvision](https://pytorch.org/docs/stable/torchvision/datasets.html#imagefolder) para obter mais informações.
     >
     > ```
-    > root/dog/xxx.png
-    > root/dog/xxy.png
-    > root/dog/xxz.png
+    > Your_image_folder_name/Category_1/xxx.png
+    > Your_image_folder_name/Category_1/xxy.jpg
+    > Your_image_folder_name/Category_1/xxz.jpeg
     >
-    > root/cat/123.png
-    > root/cat/nsdf3.png
-    > root/cat/asd932_.png
+    > Your_image_folder_name/Category_2/123.png
+    > Your_image_folder_name/Category_2/nsdf3.png
+    > Your_image_folder_name/Category_2/asd932_.png
     > ```
-
-3.  Envie o oleoduto.
+    > - Se utilizar o conjunto de dados de imagem para pontuação, o conjunto de dados do ficheiro de entrada deste módulo deve conter imagens não classificadas.
+    
+3.  Envie o oleoduto. Este módulo pode ser executado em GPU ou CPU.
 
 ## <a name="results"></a>Resultados
 
@@ -68,6 +73,6 @@ A saída do módulo **Converte para Diretório de Imagem** está no formato de D
 | ---------------------- | -------------- | ---------------------- |
 | Diretório de imagem de saída | ImageDirectory | Diretório de imagem de saída |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

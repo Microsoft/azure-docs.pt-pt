@@ -9,22 +9,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 66767d4329a0a757de99308e1f586b56b327a515
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4beba141fec7a819df52e4c3a669312a4ad76998
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399927"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449293"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door"></a>Backends e piscinas de backend na Porta frontal Azure
-Este artigo descreve conceitos sobre como mapear a implementação da sua aplicação com a Porta Frontal Azure. Também explica os diferentes termos na configuração da Porta Frontal em torno de backends de aplicações.
+Este artigo descreve conceitos sobre como mapear a implementação da sua aplicação web com a Porta Frontal Azure. Também explica as diferentes terminologias utilizadas na configuração da porta frontal em torno dos backends da aplicação.
 
 ## <a name="backends"></a>Back-ends
-Um backend é igual ao caso de implementação de uma aplicação numa região. A Porta da Frente suporta os backends Azure e não-Azure, pelo que a região não se limita apenas às regiões de Azure. Além disso, pode ser o seu datacenter no local ou uma instância de aplicação em outra nuvem.
+Um backend refere-se a uma implementação de aplicações web numa região. A Porta frontal suporta recursos Azure e não-Azure na piscina de backend. A aplicação pode estar no datacenter no local ou localizada noutro fornecedor de nuvem.
 
-Os backends front door referem-se ao nome de anfitrião ou IP público da sua app, que pode servir os pedidos do cliente. Os backends não devem ser confundidos com o nível da base de dados, o nível de armazenamento, e assim por diante. Os backends devem ser vistos como o ponto final público do seu backend da sua aplicação. Quando adicionar um backend numa piscina de backend front door, também deve adicionar o seguinte:
+Front Door backends refere-se ao nome de anfitrião ou IP público da sua aplicação que serve os pedidos do seu cliente. Os backends não devem ser confundidos com o nível da base de dados, o nível de armazenamento, e assim por diante. Os backends devem ser vistos como o ponto final público para o backend da sua aplicação. Quando adicionar um backend a uma piscina de backend front door, também deve adicionar o seguinte:
 
 - **Tipo de anfitrião backend**. O tipo de recurso que pretende adicionar. A Porta Frontal suporta a autodiscover dos seus suportes de aplicações a partir do serviço de aplicações, serviço na nuvem ou armazenamento. Se quiser um recurso diferente em Azure ou mesmo um backend não-Azure, selecione **Anfitrião Personalizado**.
 
@@ -41,13 +41,13 @@ Os backends front door referem-se ao nome de anfitrião ou IP público da sua ap
 
 ### <a name="backend-host-header"></a><a name = "hostheader"></a>Cabeçalho de anfitrião de backend
 
-Os pedidos reencaminhados pela Porta Frontal para um backend incluem um campo de cabeçalho anfitrião que o backend utiliza para recuperar o recurso visado. O valor para este campo normalmente vem do backend URI e tem o hospedeiro e a porta.
+Os pedidos reencaminhados pela Porta Frontal para um backend incluem um campo de cabeçalho anfitrião que o backend utiliza para recuperar o recurso visado. O valor para este campo normalmente vem do backend URI que tem o cabeçalho anfitrião e a porta.
 
 Por exemplo, um pedido feito `www.contoso.com` terá o cabeçalho anfitrião www.contoso.com. Se utilizar o portal Azure para configurar o seu backend, o valor padrão para este campo é o nome de anfitrião do backend. Se o seu backend for contoso-westus.azurewebsites.net, no portal Azure, o valor autopovoado para o cabeçalho do anfitrião de backend será contoso-westus.azurewebsites.net. No entanto, se utilizar modelos do Gestor de Recursos Azure ou outro método sem definir explicitamente este campo, a Porta Frontal enviará o nome de anfitrião de entrada como o valor para o cabeçalho do anfitrião. Se o pedido foi feito para www \. contoso.com, e o seu backend é contoso-westus.azurewebsites.net que tem um campo de cabeçalho vazio, a Porta frontal definirá o cabeçalho do anfitrião como www \. contoso.com.
 
 A maioria dos backends de aplicações (Azure Web Apps, Blob storage e Cloud Services) requerem o cabeçalho do anfitrião para combinar com o domínio do backend. No entanto, o anfitrião frontal que as rotas para o seu backend usarão um nome de anfitrião diferente, como www.contoso.net.
 
-Se o seu backend exigir que o cabeçalho do anfitrião corresponda ao nome do anfitrião de backend, certifique-se de que o cabeçalho do anfitrião de backend inclui o nome do anfitrião.
+Se o seu backend exigir que o cabeçalho do anfitrião corresponda ao nome do anfitrião de backend, certifique-se de que o cabeçalho do anfitrião de backend inclui o nome de anfitrião do backend.
 
 #### <a name="configuring-the-backend-host-header-for-the-backend"></a>Configurar o cabeceamento do anfitrião de backend para o backend
 
@@ -71,7 +71,7 @@ A Porta Frontal envia pedidos periódicos de sonda HTTP/HTTPS a cada um dos seus
 
 - **Protocolo**: Define se envia os pedidos de sonda de saúde da Porta frontal para os seus backends com o protocolo HTTP ou HTTPS.
 
-- **Método**:O método HTTP a utilizar para o envio de sondas sanitárias. As opções incluem GET ou HEAD (predefinição).
+- **Método**: O método HTTP a utilizar para o envio de sondas sanitárias. As opções incluem GET ou HEAD (predefinição).
     > [!NOTE]
     > Para uma carga mais baixa e um custo nas suas costas, a Porta Frontal recomenda a utilização de pedidos DE CABEÇA para sondas de saúde.
 

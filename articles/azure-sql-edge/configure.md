@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: b2c52457972d94b2e999c137d19d3a434ff17a7d
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 6284e85d8c4e9ad9f9896081f04c6b7669b8e1c0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90888370"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446950"
 ---
 # <a name="configure-azure-sql-edge"></a>Configure Azure SQL Edge
 
@@ -33,7 +33,8 @@ O Azure SQL Edge expõe várias variáveis ambientais diferentes que podem ser u
 As seguintes novas variáveis ambientais foram adicionadas à Azure SQL Edge. 
 
 | Variável de ambiente | Descrição | Valores |     
-|-----|-----| ---------- |   
+|-----|-----| ---------- | 
+| **PlanId** | Especifica o Azure SQL Edge SKU para ser utilizado durante a inicialização. Esta variável ambiente só é necessária quando se implanta a Borda Azure SQL utilizando a borda Azure IoT. | **asde-developer-on-iot-edge** ou **asde-premium-on-iot-edge** | 
 | **MSSQL_TELEMETRY_ENABLED** | Ativar ou desativar a recolha de dados de utilização e diagnóstico. | VERDADEIRO ou FALSO |  
 | **MSSQL_TELEMETRY_DIR** | Define o directório-alvo para os ficheiros de auditoria de recolha de dados de utilização e diagnóstico. | Localização da pasta dentro do recipiente SQL Edge. Esta pasta pode ser mapeada para um volume de hospedeiro utilizando pontos de montagem ou volumes de dados. | 
 | **MSSQL_PACKAGE** | Especifica a localização do pacote dacpac ou bacpac a ser implantado. | Pasta, ficheiro ou URL SAS contendo os pacotes dacpac ou bacpac. Para obter mais informações, consulte [os pacotes DEPLOY SQL Database DACPAC e BACPAC em SQL Edge](deploy-dacpac.md). |
@@ -93,7 +94,7 @@ As seguintes opções mssql.conf não são aplicáveis à SQL Edge:
 |:---|:---|
 |**Comentários dos clientes** | Escolha se o SQL Server envia feedback para a Microsoft. |
 |**Perfil de correio de base de dados** | Desacrie o perfil de correio de base de dados predefinido para o SQL Server no Linux. |
-|**Alta disponibilidade** | Ativar grupos de disponibilidade. |
+|**Elevada disponibilidade** | Ativar grupos de disponibilidade. |
 |**Coordenador de transações distribuídas da Microsoft** | Configure e resolva os problemas msdTC em Linux. As opções adicionais de configuração distribuídas relacionadas com transações não são suportadas para o SQL Edge. Para obter mais informações sobre estas opções de configuração adicionais, consulte [Configure MSDTC](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#msdtc). |
 |**Serviços ML EULAs** | Aceite eulas R e Python para pacotes de aprendizagem automática Azure. Aplica-se apenas ao SQL Server 2019.|
 |**saída da rede de trabalho** |Permitir o acesso à rede de saída para [extensões de Serviços de Machine Learning](/sql/linux/sql-server-linux-setup-machine-learning/) R, Python e Java.|
@@ -229,7 +230,7 @@ Para remover um recipiente de volume de dados, utilize o `docker volume rm` coma
 > Se eliminar o recipiente de volume de dados, quaisquer dados do Azure SQL Edge no recipiente são *permanentemente* eliminados.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Ligue-se à Borda Azure SQL](connect.md)
 - [Construa uma solução IoT de ponta a ponta com o SQL no Edge](tutorial-deploy-azure-resources.md)

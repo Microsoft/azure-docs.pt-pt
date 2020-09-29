@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: cb2f08c4788c90f8bdb2af9c6ef95fd1ac43b994
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 42d994a9cdd0e2718d8c2288b6cc0b9618202b41
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028673"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447513"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Repor uma palavra-passe do Windows local da VM do Azure offline
 Pode redefinir a palavra-passe local do Windows de um VM em Azure utilizando o [portal Azure ou Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) desde que o agente convidado Azure esteja instalado. Este método é a forma primária de redefinir uma palavra-passe para um VM Azure. Se encontrar problemas com o agente convidado Azure que não responde ou que não instala depois de carregar uma imagem personalizada, pode redefinir manualmente uma palavra-passe do Windows. Este artigo detalha como redefinir uma palavra-passe de conta local anexando o disco virtual de origem os a outro VM. Os passos descritos neste artigo não se aplicam aos controladores de domínio do Windows. 
@@ -67,21 +67,21 @@ Tente sempre redefinir uma palavra-passe utilizando o [portal Azure ou Azure Pow
      
      ```
      [Startup]
-     0CmdLine=C:\Windows\System32\FixAzureVM.cmd
+     0CmdLine=FixAzureVM.cmd
      0Parameters=
      ```
      
-     ![Criar scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini.png)
+     ![Criar scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini-1.png)
 
-5. Crie `FixAzureVM.cmd` `\Windows\System32` com os seguintes conteúdos, substituindo `<username>` e pelos seus `<newpassword>` próprios valores:
+5. Crie `FixAzureVM.cmd` `\Windows\System32\GroupPolicy\Machine\Scripts\Startup\` com os seguintes conteúdos, substituindo `<username>` e pelos seus `<newpassword>` próprios valores:
    
     ```
-    net user <username> <newpassword> /add
+    net user <username> <newpassword> /add /Y
     net localgroup administrators <username> /add
     net localgroup "remote desktop users" <username> /add
     ```
 
-    ![Criar FixAzureVM.cmd](./media/reset-local-password-without-agent/create-fixazure-cmd.png)
+    ![Criar FixAzureVM.cmd](./media/reset-local-password-without-agent/create-fixazure-cmd-1.png)
    
     Tem de cumprir os requisitos de complexidade de palavra-passe configurados para o seu VM ao definir a nova palavra-passe.
 
@@ -93,7 +93,7 @@ Tente sempre redefinir uma palavra-passe utilizando o [portal Azure ou Azure Pow
 
 9. Da sua sessão remota para o novo VM, remova os seguintes ficheiros para limpar o ambiente:
     
-    * De %windir%\System32
+    * De %windir%\System32\GroupPolicy\Machine\Scripts\Startup
       * remover FixAzureVM.cmd
     * De %windir%\System32\GroupPolicy\Machine\Scripts
       * remover scripts.ini
@@ -113,31 +113,31 @@ Tente sempre redefinir uma palavra-passe utilizando o [portal Azure ou Azure Pow
    
    * Selecione o VM no portal Azure e, em seguida, clique em *Eliminar*:
      
-     ![Eliminar vm existente](./media/reset-local-password-without-agent/delete-vm-classic.png)
+     ![Eliminar o VM clássico existente](./media/reset-local-password-without-agent/delete-vm-classic.png)
 
 2. Fixe o disco de oss de origem da VM ao VM de resolução de problemas. O VM de resolução de problemas deve situar-se na mesma região que o disco de oss da origem VM (tais `West US` como):
    
    1. Selecione o VM de resolução de problemas no portal Azure. Clique *em Discos*  |  *Anexar existentes:*
      
-      ![Anexar o disco existente](./media/reset-local-password-without-agent/disks-attach-existing-classic.png)
+      ![Anexar o disco existente - Clássico](./media/reset-local-password-without-agent/disks-attach-existing-classic.png)
      
    2. Selecione *O Ficheiro VHD* e, em seguida, selecione a conta de armazenamento que contém a sua fonte VM:
      
-      ![Selecionar a conta de armazenamento](./media/reset-local-password-without-agent/disks-select-storage-account-classic.png)
+      ![Selecione conta de armazenamento - Clássico](./media/reset-local-password-without-agent/disks-select-storage-account-classic.png)
      
    3. Verifique a caixa marcada *Mostrar contas de armazenamento clássicas*e, em seguida, selecione o recipiente de origem. O recipiente de origem é tipicamente *vhds:*
      
-      ![Selecione recipiente de armazenamento](./media/reset-local-password-without-agent/disks-select-container-classic.png)
+      ![Selecione recipiente de armazenamento - Clássico](./media/reset-local-password-without-agent/disks-select-container-classic.png)
 
-      ![Selecione recipiente de armazenamento](./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png)
+      ![Selecione recipiente de armazenamento - VHD - Clássico](./media/reset-local-password-without-agent/disks-select-container-vhds-classic.png)
      
    4. Selecione o OS vhd para anexar. Clique *em Selecionar* para concluir o processo:
      
-      ![Selecione disco virtual de origem](./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png)
+      ![Selecione disco virtual de origem - Clássico](./media/reset-local-password-without-agent/disks-select-source-vhd-classic.png)
 
    5. Clique em Ok para anexar o disco
 
-      ![Anexar o disco existente](./media/reset-local-password-without-agent/disks-attach-okay-classic.png)
+      ![Anexar o disco existente - DIÁLOGO OK - Clássico](./media/reset-local-password-without-agent/disks-attach-okay-classic.png)
 
 3. Ligue-se ao VM de resolução de problemas utilizando o Ambiente de Trabalho Remoto e certifique-se de que o disco oss da fonte VM está visível:
 
@@ -163,7 +163,7 @@ Tente sempre redefinir uma palavra-passe utilizando o [portal Azure ou Azure Pow
      Version=1
      ```
      
-     ![Criar gpt.ini](./media/reset-local-password-without-agent/create-gpt-ini-classic.png)
+     ![Criar gpt.ini - Clássico](./media/reset-local-password-without-agent/create-gpt-ini-classic.png)
 
 5. Criar `scripts.ini` em `\Windows\System32\GroupPolicy\Machines\Scripts\` . Certifique-se de que as pastas ocultas são mostradas. Se necessário, crie as `Machine` pastas ou `Scripts` as pastas.
    
@@ -171,21 +171,21 @@ Tente sempre redefinir uma palavra-passe utilizando o [portal Azure ou Azure Pow
 
      ```
      [Startup]
-     0CmdLine=C:\Windows\System32\FixAzureVM.cmd
+     0CmdLine=FixAzureVM.cmd
      0Parameters=
      ```
      
-     ![Criar scripts.ini](./media/reset-local-password-without-agent/create-scripts-ini-classic.png)
+     ![Criar scripts.ini - Clássico](./media/reset-local-password-without-agent/create-scripts-ini-classic-1.png)
 
-6. Crie `FixAzureVM.cmd` `\Windows\System32` com os seguintes conteúdos, substituindo `<username>` e pelos seus `<newpassword>` próprios valores:
+6. Crie `FixAzureVM.cmd` `\Windows\System32\GroupPolicy\Machine\Scripts\Startup\` com os seguintes conteúdos, substituindo `<username>` e pelos seus `<newpassword>` próprios valores:
    
     ```
-    net user <username> <newpassword> /add
+    net user <username> <newpassword> /add /Y
     net localgroup administrators <username> /add
     net localgroup "remote desktop users" <username> /add
     ```
 
-    ![Criar FixAzureVM.cmd](./media/reset-local-password-without-agent/create-fixazure-cmd-classic.png)
+    ![Criar FixAzureVM.cmd - Clássico](./media/reset-local-password-without-agent/create-fixazure-cmd-classic-1.png)
    
     Tem de cumprir os requisitos de complexidade de palavra-passe configurados para o seu VM ao definir a nova palavra-passe.
 
@@ -195,17 +195,17 @@ Tente sempre redefinir uma palavra-passe utilizando o [portal Azure ou Azure Pow
    
    2. Selecione o disco de dados anexado no passo 2, clique em **Retirar**e, em seguida, clique em **OK**.
 
-     ![Disco de desprendimento](./media/reset-local-password-without-agent/data-disks-classic.png)
+     ![Disco de desprendimento - Resolução de Problemas VM - Clássico](./media/reset-local-password-without-agent/data-disks-classic.png)
      
-     ![Disco de desprendimento](./media/reset-local-password-without-agent/detach-disk-classic.png)
+     ![Disco de desprendimento - Resolução de Problemas VM - Ok diálogo - Clássico](./media/reset-local-password-without-agent/detach-disk-classic.png)
 
 8. Criar um VM a partir do disco oss da fonte VM:
    
-     ![Criar um VM a partir do modelo](./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png)
+     ![Criar um VM a partir do modelo - Clássico](./media/reset-local-password-without-agent/create-new-vm-from-template-classic.png)
 
-     ![Criar um VM a partir do modelo](./media/reset-local-password-without-agent/choose-subscription-classic.png)
+     ![Criar um VM a partir do modelo - Escolha a Subscrição - Clássico](./media/reset-local-password-without-agent/choose-subscription-classic.png)
 
-     ![Criar um VM a partir do modelo](./media/reset-local-password-without-agent/create-vm-classic.png)
+     ![Criar um VM a partir do modelo - Criar VM - Clássico](./media/reset-local-password-without-agent/create-vm-classic.png)
 
 ## <a name="complete-the-create-virtual-machine-experience"></a>Complete a experiência de máquina virtual Create
 
@@ -213,12 +213,12 @@ Tente sempre redefinir uma palavra-passe utilizando o [portal Azure ou Azure Pow
 
 2. Da sua sessão remota para o novo VM, remova os seguintes ficheiros para limpar o ambiente:
     
-    * De`%windir%\System32`
-      * remover`FixAzureVM.cmd`
-    * De`%windir%\System32\GroupPolicy\Machine\Scripts`
-      * remover`scripts.ini`
-    * De`%windir%\System32\GroupPolicy`
+    * De `%windir%\System32\GroupPolicy\Machine\Scripts\Startup\`
+      * remover `FixAzureVM.cmd`
+    * De `%windir%\System32\GroupPolicy\Machine\Scripts`
+      * remover `scripts.ini`
+    * De `%windir%\System32\GroupPolicy`
       * remover `gpt.ini` (se `gpt.ini` existisse antes, e renomeou-o `gpt.ini.bak` para, renomear o `.bak` ficheiro de volta para `gpt.ini` )
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Se ainda não conseguir ligar-se através do Ambiente de Trabalho Remoto, consulte o [guia de resolução de problemas RDP](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). O [guia detalhado de resolução de problemas rdp](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) analisa métodos de resolução de problemas em vez de passos específicos. Também pode abrir um pedido de [apoio ao Azure](https://azure.microsoft.com/support/options/) para assistência prática.

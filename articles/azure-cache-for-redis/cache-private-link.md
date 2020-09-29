@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 932d138a4b594aa51b73c365cc3e753f49f886f6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1bf204cb1eddb86daee604f791601bbf44884d50
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91328999"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460072"
 ---
 # <a name="azure-cache-for-redis-with-azure-private-link-public-preview"></a>Cache Azure para Redis com Link Privado Azure (Visualização pública)
 Neste artigo, você vai aprender a criar uma rede virtual e um Azure Cache para o caso Redis com um ponto final privado usando o portal Azure. Você também vai aprender a adicionar um ponto final privado a um Azure Cache existente para o exemplo de Redis.
@@ -24,7 +24,7 @@ Azure Private Endpoint é uma interface de rede que o liga de forma privada e se
 > [!NOTE]
 > Esta funcionalidade encontra-se atualmente em pré-visualização pública para regiões limitadas. Se não tiver a opção de criar um ponto final privado, [contacte-nos](mailto:azurecache@microsoft.com). Para usar pontos finais privados, o seu Azure Cache para a instância Redis precisa de ter sido criado após 28 de julho de 2020.
 >
-> Regiões com acesso público de pré-visualização atualmente: West Central US, North Central US, West US, East US 2, Noruega East, Europe North, Asia East, Japan East e India Central.
+> Regiões com acesso público de pré-visualização atualmente: West Central EUA, North Central EUA, West US 2, East US, East US 2, Noruega East, Noruega West, Europe North, Europe West, Ásia Leste, Japão Leste, Suíça Norte, Índia Central, EAU Central, Coreia Central, Reino Unido Sul, África do Sul Norte, França Sul, França Central, Canadá Central, Alemanha Norte, Austrália Central, Índia , e Brasil Sul.
 >
 
 ## <a name="create-a-private-endpoint-with-a-new-azure-cache-for-redis-instance"></a>Crie um ponto final privado com um novo Azure Cache para a instância Redis 
@@ -71,7 +71,7 @@ Para criar uma instância de cache, siga estes passos.
    
 1. Na página **Nova,** selecione **Bases de Dados** e, em seguida, selecione **Azure Cache para Redis**.
 
-    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selecione Azure Cache para Redis.":::
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Selecione Criar um recurso.":::
    
 1. Na página **New Redis Cache,** configufique as definições para o seu novo cache.
    
@@ -89,7 +89,7 @@ Para criar uma instância de cache, siga estes passos.
 
 1. Clique no botão **Adicionar** para criar o seu ponto final privado.
 
-    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="Em networking, adicione um ponto final privado.":::
+    :::image type="content" source="media/cache-private-link/3-add-private-endpoint.png" alt-text="Selecione Criar um recurso.":::
 
 1. Na página **de ponto final privado,** configufique as definições para o seu ponto final privado com a rede virtual e a sub-rede que criou na última secção e selecione **OK**. 
 
@@ -153,7 +153,7 @@ Para criar um ponto final privado, siga estes passos.
 
 1. No portal Azure, procure **a Cache Azure para Redis** e prima para entrar ou selecioná-la a partir das sugestões de pesquisa.
 
-    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Procure por Azure Cache para Redis.":::
+    :::image type="content" source="media/cache-private-link/4-search-for-cache.png" alt-text="Selecione Criar um recurso.":::
 
 2. Selecione a instância de cache a que pretende adicionar um ponto final privado.
 
@@ -161,7 +161,7 @@ Para criar um ponto final privado, siga estes passos.
 
 4. Clique no botão **Private Endpoint** para criar o seu ponto final privado.
 
-    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Adicione o ponto final privado.":::
+    :::image type="content" source="media/cache-private-link/5-add-private-endpoint.png" alt-text="Selecione Criar um recurso.":::
 
 5. Na **página 'Criar' privado,** configure as definições para o seu ponto final privado.
 
@@ -189,7 +189,7 @@ Para criar um ponto final privado, siga estes passos.
 13. Depois de aparecer a mensagem **de validação** verde, selecione **Criar**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o Azure Private Link, consulte a documentação do [Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview). 
 

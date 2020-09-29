@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 05/26/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e26f2ed498b8bfcf6b1518ea34815efb75a8eabe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 939d78fb75dc69af91cbc920fadce69945a24e39
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392459"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447723"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Adicione atribuições de funções Azure usando modelos de Gestor de Recursos Azure
 
-[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)]Além de utilizar o Azure PowerShell ou o Azure CLI, pode atribuir funções utilizando [modelos do Gestor de Recursos Azure](../azure-resource-manager/templates/template-syntax.md). Os modelos podem ser úteis se precisar de mobilizar recursos de forma consistente e repetida. Este artigo descreve como atribuir funções usando modelos.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Além de utilizar o Azure PowerShell ou o Azure CLI, pode atribuir funções utilizando [modelos do Gestor de Recursos Azure](../azure-resource-manager/templates/template-syntax.md). Os modelos podem ser úteis se precisar de mobilizar recursos de forma consistente e repetida. Este artigo descreve como atribuir funções usando modelos.
 
 ## <a name="get-object-ids"></a>Obtenha iDs de objeto
 
@@ -40,7 +40,7 @@ $objectid = (Get-AzADUser -DisplayName "{name}").id
 objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
 ```
 
-### <a name="group"></a>Grupo
+### <a name="group"></a>Group
 
 Para obter o ID de um grupo, você pode usar os comandos de grupo [get-AzADGroup](/powershell/module/az.resources/get-azadgroup) ou [az ad show.](/cli/azure/ad/group#az-ad-group-show)
 
@@ -298,7 +298,7 @@ Se criar um novo diretor de serviço e tentar imediatamente atribuir um papel a 
 O modelo a seguir demonstra:
 
 - Como criar um novo diretor de serviço de identidade gerido
-- Como especificar o`principalType`
+- Como especificar o `principalType`
 - Como atribuir o papel de Contribuinte a esse principal de serviço num âmbito de grupo de recursos
 
 Para utilizar o modelo, deve especificar as seguintes entradas:
@@ -365,12 +365,12 @@ No Azure RBAC, para remover o acesso a um recurso Azure, você remove a atribui�
 
 - [Portal do Azure](role-assignments-portal.md#remove-a-role-assignment)
 - [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
-- [CLI do Azure](role-assignments-cli.md#remove-a-role-assignment)
+- [CLI do Azure](role-assignments-cli.md#remove-role-assignment)
 - [API REST](role-assignments-rest.md#remove-a-role-assignment)
 
 ## <a name="next-steps"></a>Próximos passos
 
 - [Início Rápido: Criar e implementar um modelo do Azure Resource Manager com o portal do Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
-- [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/templates/template-syntax.md) (Compreender a estrutura e a sintaxe dos Modelos do Azure Resource Manager)
+- [Compreender a estrutura e a sintaxe dos modelos do Gestor de Recursos Azure](../azure-resource-manager/templates/template-syntax.md)
 - [Criar grupos de recursos e recursos ao nível de subscrição](../azure-resource-manager/templates/deploy-to-subscription.md)
-- [Modelos de arranque rápido de Azure](https://azure.microsoft.com/resources/templates/?term=rbac)
+- [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

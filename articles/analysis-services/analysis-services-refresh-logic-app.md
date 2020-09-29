@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: chlound
 ms.custom: references_regions
-ms.openlocfilehash: 7412a28b53f3b17fb888e3877ecbe50a19c4a3d3
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: fd5c4043d417a99c7ffa57534fd7808f1710190a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552242"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448588"
 ---
 # <a name="refresh-with-logic-apps"></a>Atualizar com o Logic Apps
 
@@ -53,9 +53,9 @@ Este passo irá povoar-se com o URL HTTP POST assim que a Aplicação Lógica fo
 
 2. Adicione um novo passo e procure **http**.  
 
-   ![Adicionar atividade HTTP](./media/analysis-services-async-refresh-logic-app/9.png)
+   ![Screenshot da secção "Escolha uma ação" com o azulejo "HTTP" selecionado.](./media/analysis-services-async-refresh-logic-app/9.png)
 
-   ![Adicionar atividade HTTP](./media/analysis-services-async-refresh-logic-app/10.png)
+   ![Screenshot da janela "HTTP" com o azulejo "HTTP - HTTP" selecionado.](./media/analysis-services-async-refresh-logic-app/10.png)
 
 3. Selecione **HTTP** para adicionar esta ação.
 
@@ -98,15 +98,15 @@ Se não planeia utilizar uma ferramenta de Orquestração, como a Data Factory, 
 
 Utilizando o exemplo acima, elimine a primeira atividade e substitua-a por uma atividade **Agendar.**
 
-![Atividade de Agenda](./media/analysis-services-async-refresh-logic-app/12.png)
+![Screenshot que mostra a página "Logic Apps" com o azulejo "Agendar" selecionado.](./media/analysis-services-async-refresh-logic-app/12.png)
 
-![Atividade de Agenda](./media/analysis-services-async-refresh-logic-app/13.png)
+![Screenshot que mostra a página "Triggers".](./media/analysis-services-async-refresh-logic-app/13.png)
 
 Este exemplo utilizará **a Recorrência.**
 
 Uma vez adicionada a atividade, configuure o Intervalo e a Frequência, em seguida, adicione um novo parâmetro e escolha **nestas horas**.
 
-![Atividade de Agenda](./media/analysis-services-async-refresh-logic-app/16.png)
+![Screenshot que mostra a secção "Recorrência" com o parâmetro "A estas horas" selecionado.](./media/analysis-services-async-refresh-logic-app/16.png)
 
 Selecione as horas desejadas.
 

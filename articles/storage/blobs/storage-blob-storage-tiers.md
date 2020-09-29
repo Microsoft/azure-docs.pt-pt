@@ -3,34 +3,34 @@ title: Camadas de acesso quentes, frescos e de arquivo para bolhas - Azure Stora
 description: Leia sobre os níveis de acesso quentes, frescos e de arquivo para armazenamento Azure Blob. Reveja as contas de armazenamento que suportam o tiering. Compare as opções de armazenamento de blob de bloco.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/27/2020
+ms.date: 09/28/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 59a0433a3b22877808fbe2b8371258e00f214d10
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 569e785cd8fc3ec4bbf9960cef63258e83496847
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226187"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460735"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Armazenamento de blobs do Azure: camadas de armazenamento frequente, esporádico e de arquivo
 
-O armazenamento Azure oferece diferentes níveis de acesso, que permitem armazenar dados de objetos blob da forma mais rentável. Os níveis de acesso disponíveis incluem:
+O armazenamento Azure oferece diferentes níveis de acesso, que permitem armazenar dados de objetos blob da forma mais rentável. As camadas de acesso disponíveis incluem:
 
 - **Hot** - Otimizado para armazenar dados que são acedidos frequentemente.
 - **Cool** - Otimizado para armazenar dados que são pouco acessados e armazenados durante pelo menos 30 dias.
 - **Arquivo** - Otimizado para armazenar dados que raramente são acedidos e armazenados durante pelo menos 180 dias com requisitos flexíveis de latência (na ordem do dia).
 
-Aplicam-se as seguintes considerações aos diferentes níveis de acesso:
+As seguintes considerações aplicam-se às diferentes camadas de acesso:
 
-- Apenas os níveis de acesso quente e fresco podem ser definidos ao nível da conta. O nível de acesso ao arquivo não está disponível ao nível da conta.
-- Os níveis quentes, frescos e de arquivo podem ser definidos ao nível do blob durante o upload ou após o upload.
-- Os dados no nível de acesso fresco podem tolerar uma disponibilidade ligeiramente mais baixa, mas ainda requer alta durabilidade, latência de recuperação e características de produção semelhantes aos dados quentes. Para os dados frescos, um acordo de nível de serviço de disponibilidade ligeiramente mais baixo (SLA) e custos de acesso mais elevados em comparação com os dados quentes são compensações aceitáveis para custos de armazenamento mais baixos.
-- O armazenamento de arquivo armazena os dados offline e oferece os custos de armazenamento mais baixos, mas também os mais altos custos de rehidrata de dados e de acesso.
+- Apenas as camadas de acesso esporádico ou frequente podem ser definidas ao nível da conta. A camada de acesso de arquivo não está disponível ao nível da conta.
+- As camadas frequentes, esporádicas e de arquivo podem ser definidas ao nível de blobs durante ou após o carregamento.
+- Os dados na camada de acesso esporádico podem tolerar uma disponibilidade ligeiramente inferior, mas continuam a exigir uma elevada durabilidade, latência de obtenção e caraterísticas de débito semelhantes aos dados frequentes. Em relação aos dados esporádicos, um SLA (contrato de nível de serviço) de disponibilidade ligeiramente inferior e custos de acesso mais elevados em comparação com os dados frequentes são considerados compensações aceitáveis para custos de armazenamento mais baixos.
+- O armazenamento de arquivos armazena dados offline e oferece os custos de armazenamento mais baixos, mas também os custos mais altos de acesso e reidratação de dados.
 
-Os dados armazenados na nuvem crescem a um ritmo exponencial. Para gerir os custos das suas necessidades de armazenamento em expansão, é recomendável organizar os dados com base em atributos como a frequência de acesso e o período de retenção planeado para otimizar os custos. Os dados armazenados na nuvem podem ser diferentes com base na forma como são gerados, processados e acedidos ao longo da sua vida útil. Alguns dados são ativamente acedidos e modificados durante o seu ciclo de vida. Alguns dados são acedidos frequentemente no início da sua vida, mas o acesso diminui significativamente à medida que a sua idade aumenta. Alguns dados permanecem inativos na nuvem e raramente, se é que alguma vez, são acedidos após o seu armazenamento.
+Os dados armazenados na nuvem crescem a um ritmo exponencial. Para gerir os custos das suas necessidades de armazenamento em expansão, é recomendável organizar os dados com base em atributos como a frequência de acesso e o período de retenção planeado para otimizar os custos. Os dados armazenados na cloud podem ser diferentes com base na forma como são gerados, processados e acedidos durante o seu ciclo de vida. Alguns dados são ativamente acedidos e modificados durante o seu ciclo de vida. Alguns dados são acedidos frequentemente no início da sua vida, mas o acesso diminui significativamente à medida que a sua idade aumenta. Alguns dados permanecem inativos na cloud e raramente ou nunca são acedidos depois de serem armazenados.
 
 Cada um destes cenários de acesso a dados beneficia de um nível de acesso diferente que é otimizado para um determinado padrão de acesso. Com níveis de acesso quentes, frescos e de arquivo, o armazenamento Azure Blob aborda esta necessidade de camadas de acesso diferenciadas com modelos de preços separados.
 
@@ -44,14 +44,14 @@ O armazenamento de blob e as contas GPv2 expõem o atributo **Access Tier** ao n
 
 ## <a name="hot-access-tier"></a>Camada de armazenamento frequente
 
-O nível de acesso a quente tem custos de armazenamento mais elevados do que os níveis de arquivo e frescos, mas os custos de acesso mais baixos. Os cenários de utilização de exemplo para o nível de acesso quente incluem:
+A camada de acesso frequente tem custos de armazenamento mais elevados do que as camadas de acesso esporádico ou de arquivo, mas tem os custos de acesso mais baixos. Exemplos de cenários de utilização da camada de acesso frequente incluem:
 
-- Dados que estão em uso ativo ou que se espera que sejam acedidos (lidos e escritos para) frequentemente.
-- Dados que são encenados para o processamento e eventual migração para o nível de acesso legal.
+- Dados que estão em utilização ativa ou aos quais se espera aceder (ler e escrever) frequentemente.
+- Dados preparados para o processamento e eventual migração para a camada de acesso esporádico.
 
 ## <a name="cool-access-tier"></a>Camada de armazenamento esporádico
 
-O nível de acesso fresco tem custos de armazenamento mais baixos e custos de acesso mais elevados em comparação com o armazenamento quente. Esta camada destina-se de dados que permanecem na camada de acesso esporádico durante, pelo menos, 30 dias. Os cenários de utilização de exemplo para o nível de acesso fresco incluem:
+A camada de acesso esporádico tem custos de armazenamento inferiores e custos de acesso superiores em comparação com o armazenamento frequente. Esta camada destina-se de dados que permanecem na camada de acesso esporádico durante, pelo menos, 30 dias. Exemplos de cenários de utilização da camada de acesso esporádico incluem:
 
 - Conjuntos de dados de cópia de segurança e recuperação após desastre de curto prazo.
 - Conteúdo de multimédia mais antigo que já não é visualizado com frequência, mas que deverá estar disponível de imediato quando acedido.
@@ -235,7 +235,7 @@ A estrutura de preços entre as contas GPv1 e GPv2 são diferentes e os clientes
 
 **Posso armazenar objetos nos três níveis de acesso (quentes, frescos e de arquivo) na mesma conta?**
 
-Yes. O atributo **Access Tier** definido ao nível da conta é o nível de conta padrão que se aplica a todos os objetos nessa conta sem um nível definido explícito. O nível de nível de bolhas permite-lhe definir o nível de acesso ao nível do objeto, independentemente da definição do nível de acesso na conta. Podem existir bolhas em qualquer uma das três camadas de acesso (quentes, frias ou arquivadas) dentro da mesma conta.
+Sim. O atributo **Access Tier** definido ao nível da conta é o nível de conta padrão que se aplica a todos os objetos nessa conta sem um nível definido explícito. O nível de nível de bolhas permite-lhe definir o nível de acesso ao nível do objeto, independentemente da definição do nível de acesso na conta. Podem existir bolhas em qualquer uma das três camadas de acesso (quentes, frias ou arquivadas) dentro da mesma conta.
 
 **Posso alterar o nível de acesso predefinido da minha conta de armazenamento Blob ou GPv2?**
 
@@ -248,6 +248,10 @@ Não. Apenas os níveis de acesso quente e fresco podem ser definidos como o ní
 **Em que regiões estão disponíveis os níveis de acesso quente, fresco e arquivado?**
 
 Os níveis de acesso quente e fresco, juntamente com o nível de nível de bolhas, estão disponíveis em todas as regiões. Inicialmente, o armazenamento de arquivo só estará disponível em determinadas regiões. Para obter uma lista completa, veja [Produtos do Azure disponíveis por região](https://azure.microsoft.com/regions/services/).
+
+**Que opções de redundância são suportadas para os níveis de acesso quente, fresco e arquivado?**
+
+Os níveis quentes e frescos suportam todas as opções de redundância. O nível de arquivo suporta apenas LRS, GRS e RA-GRS. ZRS, GZRS e RA-GZRS não são suportados para o nível de arquivo.
 
 **As bolhas no nível de acesso fresco comportam-se de forma diferente das do nível de acesso quente?**
 
@@ -279,7 +283,7 @@ O portal, o PowerShell e as ferramentas da CLI do Azure e as bibliotecas de.NET,
 
 O armazenamento de dados juntamente com outros limites são definidos ao nível da conta e não por nível de acesso. Pode optar por utilizar todo o seu limite num só nível ou nos três níveis. Para obter mais informações, consulte [os objetivos de Escalabilidade e desempenho para as contas de armazenamento padrão.](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Avalie o calor, o frio e o arquivo nas contas de armazenamento de GPv2 e Blob
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/24/2020
+ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 9d3aafad457f5c72a8c45f4f98f8f03eb8d978d7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c43f7ba52ed0f6018ee32583011bb92786708119
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324268"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460480"
 ---
 # <a name="azure-stack-edge-pro-with-gpu-general-availability-ga-release-notes"></a>Azure Stack Edge Pro com notas de lançamento gpu Geral Availability (GA)
 
@@ -21,7 +21,7 @@ As seguintes notas de lançamento identificam os problemas abertos críticos e o
 
 As notas de lançamento são continuamente atualizadas, e à medida que são descobertas questões críticas que requerem uma solução alternativa, são adicionadas. Antes de implementar o seu dispositivo Azure Stack Edge Pro, reveja cuidadosamente as informações contidas nas notas de lançamento.
 
-Este artigo aplica-se ao lançamento do **Azure Stack Edge Pro 2009** que mapeia para a versão do software número **2.1.1358.2075**.
+Este artigo aplica-se ao lançamento do **Azure Stack Edge Pro 2009** que mapeia para a versão do software número **2.1.1364.2110**.
 
 ## <a name="whats-new"></a>Novidades
 
@@ -63,7 +63,7 @@ A tabela seguinte fornece um resumo de problemas conhecidos para o dispositivo A
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Prepare-se para implementar o dispositivo Azure Stack Edge Pro com GPU](azure-stack-edge-gpu-deploy-prep.md)
 

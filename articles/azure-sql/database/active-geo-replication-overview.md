@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: 3526510e4cbd77ffe1f468512e1128dcebe9b1da
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 33ad1deff4d543564db1b52bce986b11758042c9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330847"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445063"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Criação e utilização de geo-replicação ativa - Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -118,7 +118,7 @@ Para garantir que a sua aplicação pode aceder imediatamente ao novo primário 
 
 ## <a name="configuring-secondary-database"></a>Configuração da base de dados secundária
 
-As bases de dados primárias e secundárias são necessárias para ter o mesmo nível de serviço. Recomenda-se também que a base de dados secundária seja criada com o mesmo tamanho de cálculo (DTUs ou vCores) que o principal. Se a base de dados primária estiver a experimentar uma carga de trabalho de escrita pesada, um secundário com menor tamanho de cálculo pode não ser capaz de acompanhar. Isso fará com que o redo lag no secundário, e potencial indisponibilidade do secundário. Para mitigar estes riscos, a geo-replicação ativa acelerará a taxa de registo de transações primária, se necessário, para permitir que os seus secundários se apanhem.
+As bases de dados primárias e secundárias são necessárias para ter o mesmo nível de serviço. Recomenda-se também vivamente que a base de dados secundária seja criada com o mesmo tamanho de armazenamento de backup e tamanho de cálculo (DTUs ou vCores) como o principal. Se a base de dados primária estiver a experimentar uma carga de trabalho de escrita pesada, um secundário com menor tamanho de cálculo pode não ser capaz de acompanhar. Isso fará com que o redo lag no secundário, e potencial indisponibilidade do secundário. Para mitigar estes riscos, a geo-replicação ativa acelerará a taxa de registo de transações primária, se necessário, para permitir que os seus secundários se apanhem.
 
 Outra consequência de uma configuração secundária desequilibrada é que, após o failover, o desempenho da aplicação pode sofrer devido à capacidade de computação insuficiente do novo primário. Nesse caso, será necessário aumentar o objetivo do serviço de bases de dados ao nível necessário, o que pode demorar tempo significativo e recursos de computação, e exigirá uma [elevada redução](high-availability-sla.md) de disponibilidade no final do processo de escala.
 
@@ -126,8 +126,13 @@ Se decidir criar o secundário com menor tamanho de cálculo, o gráfico de perc
 
 A taxa de registo de transações que se reduz no principal devido ao menor tamanho do cálculo num secundário é reportada utilizando o tipo de espera HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO, visível nas [vistas de sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) base de dados.
 
+Por predefinição, a redundância de armazenamento de backup do secundário é a mesma da base de dados primária. Pode optar por configurar o secundário com uma redundância de armazenamento de backup diferente. As cópias de segurança são sempre tomadas na base de dados primária. Se o secundário estiver configurado com uma redundância de armazenamento de backup diferente, após o failover quando o secundário for promovido ao primário, as cópias de segurança serão faturadas de acordo com a redundância de armazenamento selecionada na nova primária (secundária anterior). 
+
 > [!NOTE]
 > A taxa de registo de transações no primário pode ser acelerada por razões não relacionadas com o tamanho do cálculo mais baixo num secundário. Este tipo de estrangulamento pode ocorrer mesmo que o secundário tenha o mesmo tamanho de computação ou maior do que o primário. Para mais detalhes, incluindo tipos de espera para diferentes tipos de taxa de registo, consulte a [governação da taxa de registo de transações](resource-limits-logical-server.md#transaction-log-rate-governance).
+
+> [!NOTE]
+> Azure SQL Database Configurable Backup Storage Despedimento está atualmente disponível em pré-visualização pública apenas na região do Sudeste Asiático Azure. Na pré-visualização, se a base de dados de origem for criada com redundância de backup local ou redundante, a criação de uma base de dados secundária numa região de Azure diferente não será suportada. 
 
 Para obter mais informações sobre os tamanhos de cálculo da Base de Dados [SQL, consulte quais são os Níveis de Serviço de Base de Dados SQL](purchasing-models.md).
 
@@ -288,7 +293,7 @@ Como discutido anteriormente, a geo-replicação ativa também pode ser gerida p
 | [Eliminar ligação de replicação](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Elimina uma ligação de replicação de base de dados. Não é possível fazê-lo durante o fracasso. |
 |  | |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para os scripts de amostra, consulte:
   - [Configurar e efetuar a ativação pós-falha de uma base de dados através de georreplicação ativa](scripts/setup-geodr-and-failover-database-powershell.md)

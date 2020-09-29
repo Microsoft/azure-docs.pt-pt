@@ -1,23 +1,25 @@
 ---
-title: Instalar recipientes de fala - Serviço de fala
+title: Instale e execute os recipientes Docker para as APIs do serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Instale e execute recipientes de fala. A palavra-a-texto transcreve os fluxos de áudio para texto em tempo real que as suas aplicações, ferramentas ou dispositivos podem consumir ou exibir. O texto-a-discurso converte o texto de entrada em discurso sintetizado humano.
+description: Utilize os recipientes Docker para o serviço de discurso para realizar reconhecimento de voz, transcrição, geração e mais no local.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: be4b7f6a0f8afae9188b1f969956424041e77d9e
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.custom: cog-serv-seo-aug-2020
+keywords: no local, Docker, contentor
+ms.openlocfilehash: 45edd1b13d4fe6f78eb127e7aad8feb611bce1d1
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91371682"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460055"
 ---
-# <a name="install-and-run-speech-service-containers"></a>Instalar e executar recipientes de serviço de fala 
+# <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instale e execute os recipientes Docker para as APIs do serviço de fala 
 
 Os contentores permitem-lhe executar algumas das APIs do Serviço de voz no seu próprio ambiente. Os contentores são ótimos para requisitos específicos de governação de dados e segurança. Neste artigo, ficará a saber como transferir, instalar e executar um contentor de Voz.
 
@@ -482,7 +484,7 @@ ApiKey={API_KEY}
 
 Este comando: 
 
-* Executa um recipiente de deteção de linguagem da fala a partir da imagem do recipiente. Atualmente não será cobrado por executar esta imagem. 
+* Executa um recipiente de deteção de linguagem da fala a partir da imagem do recipiente. Atualmente não será cobrado por executar esta imagem.
 * Atribui 1 núcleos de CPU e 1 gigabyte (GB) de memória.
 * Expõe a porta TCP 5003 e atribui um pseudo-TTY para o recipiente.
 * Remove automaticamente o recipiente depois de sair. A imagem do recipiente ainda está disponível no computador anfitrião.
@@ -687,7 +689,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 > [!IMPORTANT]
 >  Os recipientes dos Serviços Cognitivos não estão licenciados para funcionar sem estarem ligados ao Azure para a medição. Os clientes precisam de permitir que os contentores comuniquem informações de faturação com o serviço de medição em todos os momentos. Os recipientes de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Reveja os recipientes de configuração](speech-container-configuration.md) para configurações de configuração
 * Saiba como [usar recipientes de serviço de fala com Kubernetes e Helm](speech-container-howto-on-premises.md)

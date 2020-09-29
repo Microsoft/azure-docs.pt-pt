@@ -4,15 +4,15 @@ description: Conheça as funcionalidades da página geral do Centro de Seguranç
 author: memildin
 ms.author: memildin
 ms.date: 9/12/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 637f7dde63d562f71aa31561a960ed3502a80229
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: cc52610eacc3916b7a8978cba17a1db3f3d50686
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90937174"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447676"
 ---
 # <a name="azure-security-centers-overview-page"></a>Página geral do Centro de Segurança Azure
 
@@ -27,7 +27,7 @@ A visão geral proporciona uma visão unificada da postura de segurança das sua
 
 ## <a name="features-of-the-overview-page"></a>Características da página geral
 
-:::image type="content" source="media/overview-page/top-bar-of-overview.png" alt-text="O melhor bar da página geral do Centro de Segurança":::
+:::image type="content" source="media/overview-page/top-bar-of-overview.png" alt-text="Página de descrição geral do Centro de Segurança":::
 
 A **barra de menu superior** oferece:
 - **Subscrições** - Pode visualizar e filtrar a lista de subscrições selecionando este botão. O Centro de Segurança ajustará o ecrã para refletir a postura de segurança das subscrições selecionadas.
@@ -49,7 +49,7 @@ O **painel Insights** oferece itens personalizados para o seu ambiente, incluind
 - As recomendações ativas com mais recursos impactados
 - Publicações recentes de blogs por especialistas do Azure Security Center
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Esta página introduziu a página geral do Centro de Segurança. Para obter informações relacionadas, consulte:
 

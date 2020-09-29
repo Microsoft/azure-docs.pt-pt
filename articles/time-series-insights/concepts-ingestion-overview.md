@@ -8,20 +8,20 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/28/2020
 ms.custom: seodec18
-ms.openlocfilehash: 33cafd058e55951f7da4e925a603c2c442d4aed1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 57c23ba4acdbde1a5dfac39d89a09dfcef6b25a1
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077675"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460905"
 ---
 # <a name="azure-time-series-insights-gen2-data-ingestion-overview"></a>Azure Time Series Insights Gen2 data ingestion visão geral
 
 O seu ambiente Azure Time Series Insights Gen2 contém um *motor de ingestão* para recolher, processar e armazenar dados da série de tempo de streaming. À medida que os dados chegam à sua fonte de eventos, a Azure Time Series Insights Gen2 consumirá e armazenará os seus dados em tempo real.
 
-[![Visão geral da ingestão](media/concepts-ingress-overview/ingress-overview.png)](media/concepts-ingress-overview/ingress-overview.png#lightbox)
+[![Descrição geral da ingestão](media/concepts-ingress-overview/ingress-overview.png)](media/concepts-ingress-overview/ingress-overview.png#lightbox)
 
 ## <a name="ingestion-topics"></a>Tópicos de ingestão
 
@@ -35,6 +35,6 @@ Os seguintes artigos abrangem o tratamento de dados em profundidade, incluindo a
 
 * Reveja as [limitações de produção](./concepts-streaming-ingress-throughput-limits.md) do seu ambiente para planear as suas necessidades de escala.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* Continue a conhecer mais sobre [fontes de eventos](./concepts-streaming-ingestion-event-sources.md) para o seu ambiente Azure Time Series Insights Gen2. 
+* Continue a conhecer mais sobre [fontes de eventos](./concepts-streaming-ingestion-event-sources.md) para o seu ambiente Azure Time Series Insights Gen2.

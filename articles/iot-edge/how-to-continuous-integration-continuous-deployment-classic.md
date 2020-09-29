@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 427d72b2a8531fa4dafa0040266249b138b6edf3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c4a9d7fbfbda568c07a528e5a7eafd70b85add45
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91291083"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447797"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Integração contínua e implementação contínua para dispositivos Azure IoT Edge (editor clássico)
 
@@ -160,7 +160,7 @@ Este gasoduto está agora configurado para funcionar automaticamente quando intr
 >[!NOTE]
 >Se desejar utilizar implementações em **camadas** no seu pipeline, as implementações em camadas ainda não são suportadas nas tarefas Azure IoT Edge em Azure DevOps.
 >
->No entanto, pode utilizar uma [tarefa Azure CLI em Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) para criar a sua implementação como uma implementação em camadas. Para o valor **do Script Inline,** pode utilizar o [comando de criação de borda az iot](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
+>No entanto, pode utilizar uma [tarefa Azure CLI em Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) para criar a sua implementação como uma implementação em camadas. Para o valor **do Script Inline,** pode utilizar o [comando de criação de borda az iot](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
 >
 >   ```azurecli-interactive
 >   az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true
@@ -168,7 +168,7 @@ Este gasoduto está agora configurado para funcionar automaticamente quando intr
 
 [!INCLUDE [iot-edge-verify-iot-edge-continuous-integration-continuous-deployment](../../includes/iot-edge-verify-iot-edge-continuous-integration-continuous-deployment.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * IoT Edge DevOps amostra de boas práticas em [Azure DevOps Starter para IoT Edge](how-to-devops-starter.md)
 * Compreenda a implementação IoT Edge em [implementações de Borda De IoT para dispositivos individuais ou à escala](module-deployment-monitoring.md)

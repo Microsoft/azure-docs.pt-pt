@@ -16,12 +16,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 296aabdd79e1cd5c37248a0a44d57ebf17a4ea44
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 4ba90724f75635ea9fd5f72f75de6a46d7b6d288
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90979414"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446993"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management"></a>Resolução de problemas Azure AD gestão de direitos
 
@@ -146,11 +146,11 @@ Só pode cancelar um pedido pendente que ainda não tenha sido entregue ou cuja 
     | P1 | Utilizadores e grupos específicos no seu diretório OU organizações conectadas específicas |
     | P2 | Todos os membros do seu diretório (excluindo os hóspedes) |
     | P3 | Todos os utilizadores do seu diretório (incluindo convidados) OU organizações conectadas específicas |
-    | P4 | Todas as organizações conectadas OU Todos os utilizadores (todas as organizações conectadas + quaisquer novos utilizadores externos) |
+    | P4 | Todas as organizações conectadas configuradas OR Todos os utilizadores (todas as organizações conectadas + quaisquer novos utilizadores externos) |
     
     Se alguma política estiver numa categoria de prioridade mais elevada, as categorias de prioridades mais baixas são ignoradas. Para um exemplo de como são apresentadas várias políticas com a mesma prioridade ao solicitador, consulte [Selecione uma política](entitlement-management-request-access.md#select-a-policy).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Gerir o acesso dos utilizadores externos](entitlement-management-external-users.md)
 - [Ver relatórios de como os utilizadores tiveram acesso na gestão de direitos](entitlement-management-reports.md)

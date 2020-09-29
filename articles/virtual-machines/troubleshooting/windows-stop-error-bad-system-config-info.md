@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: 071b5786127af31a2ad3266c128dbfb7cacad656
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 4f2b338b8629209363acb7bbe0533831a089fe6f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942193"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447316"
 ---
 # <a name="windows-stop-error---0x00000074-bad-system-config-info"></a>Erro de paragem do Windows - 0x000000074 Bad System Config Info
 
@@ -61,10 +61,10 @@ O código de paragem **BAD_SYSTEM_CONFIG_INFO** ocorre se a colmeia de registo *
 1. Utilize os passos 1-3 dos Comandos de [Reparação VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar um VM de reparação.
 1. Verifique se há corrupção de colmeias.
 1. Utilize ligação de ambiente de trabalho remoto para ligar ao VM de reparação.
-1. Copie a `\windows\system32\config` pasta e guarde-a na sua divisória de disco saudável ou noutro local seguro. Faça o reforço desta pasta como precaução, uma vez que irá editar ficheiros de registo críticos.
+1. Copie a `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` pasta e guarde-a na sua divisória de disco saudável ou noutro local seguro. Faça o reforço desta pasta como precaução, uma vez que irá editar ficheiros de registo críticos. 
 
 > [!NOTE]
-> Faça uma cópia da `\windows\system32\config` pasta como cópia de segurança no caso de precisar de reverter quaisquer alterações que fizer ao registo.
+> Faça uma cópia da `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config` pasta como cópia de segurança no caso de precisar de reverter quaisquer alterações que fizer ao registo.
 
 ### <a name="check-for-hive-corruption"></a>Verifique a corrupção da colmeia
 
@@ -72,7 +72,7 @@ As instruções abaixo vão ajudá-lo a determinar se a causa foi devido à corr
 
 1. Na sua VM de reparação, abra a aplicação **do Editor de Registo.** Digite "REGEDIT" na barra de pesquisa do Windows para encontrá-lo.
 1. No Editor de Registos, selecione **HKEY_LOCAL_MACHINE** para realçá-lo e, em seguida, selecione **Ficheiro > Load Hive...** do menu.
-1. Navegue e `\windows\system32\config\SYSTEM` selecione **Abrir**.
+1. Navegue e `<VOLUME LETTER OF BROKEN OS DISK>:\windows\system32\config\SYSTEM` selecione **Abrir**.
 1. Quando solicitado para introduzir um nome, **insira BROKENSYSTEM**.
 
    1. Se a colmeia não abrir, ou se estiver vazia, então a colmeia é corrompida. Se a colmeia tiver sido corrompida, [abra um bilhete de apoio.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)

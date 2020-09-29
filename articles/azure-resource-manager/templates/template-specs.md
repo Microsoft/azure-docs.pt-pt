@@ -2,15 +2,15 @@
 title: Visão geral das especificações do modelo
 description: Descreve como criar especificações de modelo e partilhá-las com outros utilizadores na sua organização.
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/28/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 0516947ff134992d684aa6826999c4d65bba1457
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 30e7f26a53e81ebdeebe2acaef44dccab1cf4b27
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369081"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448819"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Especificações do modelo do Gestor de Recursos Azure (Visualização)
 
@@ -73,7 +73,7 @@ Crie uma especificação de modelo utilizando:
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -Location westus2 -TemplateJsonFile ./mainTemplate.json
+New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -Location westus2 -TemplateFile ./mainTemplate.json
 ```
 
 # <a name="cli"></a>[CLI](#tab/azure-cli)
@@ -165,7 +165,7 @@ Na prática, normalmente corre `Get-AzTemplateSpec` para obter o ID da especific
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Version.Id
+$id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Versions.Id
 
 New-AzResourceGroupDeployment `
   -ResourceGroupName demoRG `
@@ -336,7 +336,7 @@ Para obter mais informações sobre as especificações do modelo de ligação, 
 
 Quando cria uma especificação de modelo, fornece-se um número de versão para o mesmo. Ao iterar no código do modelo, pode atualizar uma versão existente (para hotfixes) ou publicar uma nova versão. A versão é uma cadeia de texto. Pode optar por seguir qualquer sistema de versão, incluindo a versão semântica. Os utilizadores da especificação do modelo podem fornecer o número de versão que pretendem utilizar ao implementá-lo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para criar e implementar uma especificação de modelo, consulte [Quickstart: Criar e implementar a especificação do modelo](quickstart-create-template-specs.md).
 

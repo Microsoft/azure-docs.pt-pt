@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ac0b3c151b379096ffb60e049d18b8f6219b1445
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: a36c7076de0c4db64b67f4eba38de4daf4213bca
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91359686"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446692"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acesso seguro a dados em Azure Machine Learning
 
@@ -65,9 +65,9 @@ Serviços de armazenamento baseados em nuvem suportados em Azure que podem ser r
 + Sistema de Ficheiros do Databricks
 + Base de Dados do Azure para MySQL
 
-## <a name="datasets"></a>Conjuntos de dados
+## <a name="datasets"></a>Conjuntos de Dados
 
-Conjuntos de dados Azure Machine Learning são referências que apontam para os dados do seu serviço de armazenamento. Não são cópias dos seus dados Ao criar um conjunto de dados Azure Machine Learning, cria uma referência à localização da fonte de dados, juntamente com uma cópia dos seus metadados. 
+Os conjuntos de dados de Aprendizagem automática Azure não são cópias dos seus dados. Ao criar um conjunto de dados, cria uma referência aos dados no seu serviço de armazenamento, juntamente com uma cópia dos seus metadados. 
 
 Como os conjuntos de dados são avaliados preguiçosamente, e os dados permanecem na sua localização existente,
 
@@ -121,7 +121,7 @@ No contexto da aprendizagem automática, a deriva de dados é a mudança nos dad
 
 Consulte o artigo [do monitor do conjunto de dados,](how-to-monitor-datasets.md) para saber mais sobre como detetar e alertar para a deriva de dados em novos dados num conjunto de dados.
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 + Crie um conjunto de dados no estúdio Azure Machine Learning ou com o Python SDK [usando estes passos.](how-to-create-register-datasets.md)
 + Experimente exemplos de formação de dataset com os [nossos cadernos de amostras.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/)

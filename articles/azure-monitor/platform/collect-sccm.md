@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: 6d6431aa26637e4b956d5c334a2862f689f845bf
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 20d55de7ef0f7b7f49b922409f8cb61874fae0f6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319325"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448149"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Ligue o Gestor de Configuração ao Monitor Azure
 Pode ligar o ambiente do Microsoft Endpoint Configuration Manager ao Azure Monitor para sincronizar os dados de recolha de dispositivos e fazer referência a estas coleções no Azure Monitor e na Azure Automation.  
@@ -47,7 +47,7 @@ No procedimento seguinte, concede o papel *de Contribuinte* no seu espaço de tr
 > Tem de especificar permissões no espaço de trabalho do Log Analytics para o Gestor de Configurações. Caso contrário, recebe uma mensagem de erro quando utiliza o assistente de configuração no Gestor de Configurações.
 >
 
-1. No portal do Azure, clique em **Todos os serviços**, que se encontra no canto superior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
+1. No portal do Azure, clique em **Todos os serviços**, que se encontra no canto superior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione o **Log Analytics**.
 
 2. Na sua lista de espaços de trabalho Log Analytics, selecione o espaço de trabalho para modificar.
 
@@ -135,7 +135,7 @@ Depois de ter concluído a configuração inicial para importar coleções de di
 4. Selecione **Grupos de Computadores** e, em seguida, selecione **SCCM**.  
 5. Selecione **os membros de coleção do Gestor de Configuração de Importação** e, em seguida, clique em **Guardar**.  
    
-    ![Grupos informáticos - separador SCCM](./media/collect-sccm/sccm-computer-groups01.png)
+    ![Screenshot dos Grupos de Computadores definições avançadas para S C C M contendo a opção para membros de coleção de Gestor de Configuração de Importação.](./media/collect-sccm/sccm-computer-groups01.png)
 
 ## <a name="view-data-from-configuration-manager"></a>Ver dados do Gestor de Configuração
 
@@ -143,11 +143,11 @@ Depois de ter adicionado uma ligação Log Analytics ao Gestor de Configuração
 
 Depois de importadas as coleções, pode ver quantos computadores com membros de recolha foram detetados. Pode também ver o número de coleções que foram importadas.
 
-![Grupos informáticos - separador SCCM](./media/collect-sccm/sccm-computer-groups02.png)
+![Screenshot dos Grupos de Computadores definições avançadas para S C C M mostrando a opção para membros de coleção de gestor de configuração de importação selecionados.](./media/collect-sccm/sccm-computer-groups02.png)
 
 Quando clica em qualquer um, o editor de consulta de registos abre a exibição de todos os grupos importados ou de todos os computadores que pertencem a cada grupo. Utilizando [a Pesquisa de Registo,](../log-query/log-query-overview.md)pode efetuar uma análise mais aprofundada dos dados de membros da recolha.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Utilize [a Pesquisa de Registo](../log-query/log-query-overview.md) para ver informações detalhadas sobre os dados do seu Gestor de Configuração.
 

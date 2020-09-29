@@ -4,12 +4,12 @@ description: Saiba como configurar um aparelho Azure Migrate para avaliação f�
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/15/2020
-ms.openlocfilehash: bace4ab03051a9febfe14cc30143bd4a5cfa7c84
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 348c12e08a9bed98016ac825921b67836b32b9e9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085957"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448066"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Configurar um aparelho para servidores físicos
 
@@ -34,7 +34,7 @@ Para configurar o aparelho:
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Gere a chave do projeto Azure Migrate
 
-1. In **Migration Goals**  >  **Servers**  >  **Azure Migrate: Server Assessment**, select **Discover**.
+1. Em **Objetivos de Migração** > **Servidores** > **Azure Migrate: Avaliação do Servidor**, selecione **Detetar**.
 2. In **Discover machines**  >  **Are your machines virtualized?** **Physical or other (AWS, GCP, Xen, etc.)**
 3. Na **tecla de projeto 1:Generate Azure Migrate,** forneça um nome para o aparelho Azure Migrate que irá configurar para a descoberta de servidores físicos ou virtuais. O nome deve ser alfanumérico com 14 caracteres ou menos.
 1. Clique na **chave Gerar** para iniciar a criação dos recursos Azure necessários. Por favor, não feche a página das máquinas Discover durante a criação de recursos.
@@ -59,7 +59,7 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Uso de exemplo para nuvem pública: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public.zip SHA256 ```
     - Uso de exemplo para nuvem governamental: ```  C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-USGov.zip MD5 ```
-3.  Verifique a versão mais recente do aparelho e as definições de valores de haxixe.
+3.  Verifique a versão mais recente do aparelho e as definições de [valores de haxixe.](tutorial-discover-physical.md#verify-security)
  
 
 ## <a name="run-the-azure-migrate-installer-script"></a>Executar o script do instalador Azure Migrate
@@ -154,10 +154,10 @@ Isto começa a ser descoberto. Leva aproximadamente 2 minutos por servidor para 
 
 Após o fim da descoberta, pode verificar se os servidores aparecem no portal.
 
-1. Abra o painel Azure Migrate.
+1. Abra o dashboard do Azure Migrate.
 2. Em **Azure Migrate - Servidores**  >  **Azure Migrate:** Página de Avaliação do servidor, clique no ícone que exibe a contagem para **servidores descobertos**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Experimente [a avaliação dos servidores físicos](tutorial-assess-physical.md) com a Avaliação do Servidor Azure Migrate.

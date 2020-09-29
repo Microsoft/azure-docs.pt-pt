@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: seoapril2019
 ms.devlang: sqldbrb=2
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 04/06/2020
-ms.openlocfilehash: 2c8c31219f014935c14371cf4dd30b61ba35819b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1442ca7957a458e1458c4815033bf5e79c67c32a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91319508"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448925"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Configure exportação de streaming de Azure SQL Database e SQL Managed Instance telemetria de diagnóstico
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,17 +37,17 @@ Além de transmitir a exportação do registo De Insights Inteligentes, também 
 
 | Telemetria de diagnóstico para bases de dados | Suporte à base de dados Azure SQL | Suporte de Instância Gerida do SQL do Azure |
 | :------------------- | ----- | ----- |
-| [Métricas básicas](#basic-metrics): Contém percentagem de DTU/CPU, limite de DTU/CPU, percentagem de leitura de dados físicos, percentagem de registo, Sucesso/Falhado/Bloqueado por ligações de firewall, percentagem de sessões, percentagem de trabalhadores, armazenamento, percentagem de armazenamento e percentagem de armazenamento de XTP. | Yes | No |
-| [Instância e App Advanced](#advanced-metrics): Contém dados de base de dados do sistema temporário e registo do tamanho do ficheiro e ficheiro de registo temporário por cento utilizado. | Yes | No |
-| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Contém informações sobre as estatísticas de tempo de consulta, tais como estatísticas de utilização de CPU e duração de consulta. | Yes | Yes |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics): Contém informações sobre as estatísticas de espera de consulta (em que as suas consultas aguardavam) tais como CPU, LOG e LOCKING. | Yes | Yes |
-| [Erros](#errors-dataset): Contém informações sobre erros SQL numa base de dados. | Yes | Yes |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contém informações sobre quanto tempo uma base de dados passou à espera de diferentes tipos de espera. | Yes | No |
-| [Intervalos de](#time-outs-dataset)tempo : Contém informações sobre intervalos de tempo numa base de dados. | Yes | No |
-| [Blocos](#blockings-dataset): Contém informações sobre o bloqueio de eventos numa base de dados. | Yes | No |
-| [Impasses](#deadlocks-dataset): Contém informações sobre eventos de impasse numa base de dados. | Yes | No |
-| [Sintonização Automática](#automatic-tuning-dataset): Contém informações sobre recomendações de sintonização automática para uma base de dados. | Yes | No |
-| [SQLInsights](#intelligent-insights-dataset): Contém insights inteligentes sobre o desempenho de uma base de dados. Para saber mais, consulte [Insights Inteligentes.](intelligent-insights-overview.md) | Yes | Yes |
+| [Métricas básicas](#basic-metrics): Contém percentagem de DTU/CPU, limite de DTU/CPU, percentagem de leitura de dados físicos, percentagem de registo, Sucesso/Falhado/Bloqueado por ligações de firewall, percentagem de sessões, percentagem de trabalhadores, armazenamento, percentagem de armazenamento e percentagem de armazenamento de XTP. | Sim | Não |
+| [Instância e App Advanced](#advanced-metrics): Contém dados de base de dados do sistema temporário e registo do tamanho do ficheiro e ficheiro de registo temporário por cento utilizado. | Sim | Não |
+| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Contém informações sobre as estatísticas de tempo de consulta, tais como estatísticas de utilização de CPU e duração de consulta. | Sim | Sim |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): Contém informações sobre as estatísticas de espera de consulta (em que as suas consultas aguardavam) tais como CPU, LOG e LOCKING. | Sim | Sim |
+| [Erros](#errors-dataset): Contém informações sobre erros SQL numa base de dados. | Sim | Sim |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contém informações sobre quanto tempo uma base de dados passou à espera de diferentes tipos de espera. | Sim | Não |
+| [Intervalos de](#time-outs-dataset)tempo : Contém informações sobre intervalos de tempo numa base de dados. | Sim | Não |
+| [Blocos](#blockings-dataset): Contém informações sobre o bloqueio de eventos numa base de dados. | Sim | Não |
+| [Impasses](#deadlocks-dataset): Contém informações sobre eventos de impasse numa base de dados. | Sim | Não |
+| [Sintonização Automática](#automatic-tuning-dataset): Contém informações sobre recomendações de sintonização automática para uma base de dados. | Sim | Não |
+| [SQLInsights](#intelligent-insights-dataset): Contém insights inteligentes sobre o desempenho de uma base de dados. Para saber mais, consulte [Insights Inteligentes.](intelligent-insights-overview.md) | Sim | Sim |
 
 > [!NOTE]
 > As definições de diagnóstico não podem ser configuradas para as **bases de dados**do sistema, tais são bases de dados master, msdb, modelo, recursos e bases de dados temporárias.
@@ -610,7 +610,7 @@ Saiba mais sobre [os dados das estatísticas de espera da Loja de Consultas.](ht
 |query_hash_s|Haxixe de consulta da consulta falhada, se disponível |
 |query_plan_hash_s|Plano de consulta da consulta falhada, se disponível |
 
-Saiba mais sobre [as mensagens de erro SQL](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors?view=sql-server-ver15).
+Saiba mais sobre [as mensagens de erro SQL](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors).
 
 #### <a name="database-wait-statistics-dataset"></a>Conjunto de dados de estatísticas de espera de base de dados
 
@@ -743,7 +743,7 @@ Saiba mais sobre [estatísticas de espera na base de dados.](https://docs.micros
 
 Saiba mais sobre o [formato de registo de Insights Inteligentes.](intelligent-insights-use-diagnostics-log.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para aprender como permitir a exploração madeireira e compreender as métricas e categorias de registo suportadas pelos vários serviços Azure, consulte:
 

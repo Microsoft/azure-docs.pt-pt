@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 9bd203586d6a9da974604099d361d2908a39e1d9
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5aa168c8f280859112f3ab317ef83d32260cead4
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297997"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460599"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Começa com o grupo a chamar amostra de herói
 
@@ -42,11 +42,11 @@ Aqui está o aspeto da amostra:
 
 Quando carrega no botão "Iniciar uma chamada", a aplicação web requer um token de acesso do utilizador a partir da aplicação do lado do servidor. Este token é então usado para ligar a app do cliente aos Serviços de Comunicação Azure. Assim que o token for recuperado, ser-lhe-á solicitado que especifique a câmara e o microfone que pretende utilizar. Poderá desativar/ativar os seus dispositivos com controlos de alternância:
 
-:::image type="content" source="./media/calling/pre-call.png" alt-text="Screenshot mostrando o ecrã pré-chamada da aplicação da amostra.":::
+:::image type="content" source="./media/calling/pre-call.png" alt-text="Screenshot mostrando a página de aterragem da aplicação da amostra.":::
 
 Assim que configurar o nome e os dispositivos do ecrã, pode juntar-se à sessão de chamadas. Agora você verá a tela principal de chamada onde vive a experiência principal de chamada.
 
-:::image type="content" source="./media/calling/main-app.png" alt-text="Screenshot mostrando o ecrã principal da aplicação da amostra.":::
+:::image type="content" source="./media/calling/main-app.png" alt-text="Screenshot mostrando a página de aterragem da aplicação da amostra.":::
 
 Componentes do ecrã principal de chamada:
 
@@ -61,7 +61,7 @@ Abaixo encontrará mais informações sobre pré-requisitos e passos para config
 - Crie uma conta Azure com uma subscrição ativa. Para mais detalhes, consulte [Criar uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Node.js (12.18.4 ou mais)](https://nodejs.org/en/download/)
 - [Estúdio Visual (2019 e acima)](https://visualstudio.microsoft.com/vs/)
-- [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2) (Certifique-se de instalar versão que corresponda à sua instância de estúdio visual, 32 vs 64 bit)
+- [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Certifique-se de instalar versão que corresponda à sua instância de estúdio visual, 32 vs 64 bit)
 - Criar um recurso Azure Communication Services. Para mais detalhes, consulte [Criar um Recurso de Comunicação Azure](../quickstarts/create-communication-resource.md). Terá de gravar a **sua cadeia de ligação** de recursos para este arranque rápido.
 
 ## <a name="locally-deploy-the-service--client-applications"></a>Implementar localmente o serviço & aplicações de clientes
@@ -100,7 +100,7 @@ Pode testar a amostra localmente abrindo várias sessões de navegador com o URL
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../quickstarts/create-communication-resource.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 >[!div class="nextstepaction"] 
 >[Faça o download da amostra do GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)

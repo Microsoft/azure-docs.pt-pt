@@ -7,18 +7,18 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: a3603c7a4b704327f829588f0fc5827d97288be0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 1e88afd91c0e0b344cc0eb8d82b637a88d5a1656
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440818"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447975"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Acerca do encaminhamento VPN de Ponto a Site
 
 Este artigo ajuda-o a entender como o encaminhamento VPN Azure Point-to-Site se comporta. O comportamento de encaminhamento P2S VPN depende do cliente OS, do protocolo utilizado para a ligação VPN e de como as redes virtuais (VNets) estão ligadas entre si.
 
-A Azure suporta atualmente dois protocolos para acesso remoto, IKEv2 e SSTP. O IKEv2 é suportado em muitos sistemas operativos clientes, incluindo Windows, Linux, MacOS, Android e iOS. O SSTP só é suportado no Windows. Se fizer uma alteração na topologia da sua rede e tiver clientes Windows VPN, o pacote de clientes VPN para clientes Windows deve ser descarregado e instalado novamente para que as alterações sejam aplicadas ao cliente.
+A Azure suporta atualmente dois protocolos para acesso remoto, IKEv2 e SSTP. O IKEv2 é suportado em muitos sistemas operativos clientes, incluindo Windows, Linux, macOS, Android e iOS. O SSTP só é suportado no Windows. Se fizer uma alteração na topologia da sua rede e tiver clientes Windows VPN, o pacote de clientes VPN para clientes Windows deve ser descarregado e instalado novamente para que as alterações sejam aplicadas ao cliente.
 
 > [!NOTE]
 > Este artigo aplica-se apenas ao IKEv2.
@@ -195,7 +195,7 @@ Neste exemplo, a ligação de gateway VPN ponto-a-local é para VNet1. O VNet1 e
 
 Todos os clientes podem aceder apenas ao VNet1.
 
-![multi-VNet S2S e sucursal](./media/vpn-gateway-about-point-to-site-routing/7.jpg "multi-VNet S2S e sucursal")
+![Diagrama que mostra um S2S multi-VNet e uma sucursal.](./media/vpn-gateway-about-point-to-site-routing/7.jpg "multi-VNet S2S e sucursal")
 
 ### <a name="address-space"></a>Espaço de endereços
 

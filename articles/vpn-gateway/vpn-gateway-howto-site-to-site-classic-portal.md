@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: cherylmc
-ms.openlocfilehash: 1f096993645aca6999667af88c91d3f55f79d914
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de3ef63600b36e1bcee8a2f5db8a1c1248524173
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84983058"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445928"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Criar uma ligação de Site a Site com o portal do Azure (clássico)
 
@@ -31,7 +31,7 @@ Uma ligação de gateway de VPN de Site para Site é utilizada para ligar a sua 
 
 ![Diagrama da ligação de Gateway de Rede de VPNs em vários sites](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
 
-## <a name="before-you-begin"></a><a name="before"></a>Before you begin
+## <a name="before-you-begin"></a><a name="before"></a>Antes de começar
 
 Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 
@@ -46,7 +46,7 @@ Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
 Os exemplos neste artigo utilizam os seguintes valores. Pode utilizar estes valores para criar um ambiente de teste ou consultá-los para compreender melhor os exemplos neste artigo.
 
 * **Nome VNet:** TestVNet1
-* **Espaço de Endereços:** 
+* **Espaço de endereço:** 
   * 10.11.0.0/16
   * 10.12.0.0/16 (opcional para este exercício)
 * **Sub-redes:**
@@ -112,7 +112,7 @@ O site local refere-se, normalmente, à sua localização no local. Contém o en
    - **Endereço IP do gateway de VPN:** este é o endereço IP público do dispositivo VPN para a rede no local. O dispositivo VPN requer um endereço IP público IPv4. Especifique um endereço IP público válido para o dispositivo VPN ao qual pretende ligar. Deve ser acessível por Azure. Se não souber o endereço IP do seu dispositivo VPN, pode sempre colocar um valor de marcador de posição (desde que esteja no formato de um endereço IP público válido) e, em seguida, alterá-lo mais tarde.
    - **Espaço de endereços de cliente:** lista os intervalos de endereços IP que pretende que sejam encaminhados para a rede no local através deste gateway. Pode adicionar vários intervalos de espaço de endereços. Certifique-se de que os intervalos que especifica aqui não se sobrepõem aos intervalos de outras redes às quais a rede virtual se liga ou aos intervalos de endereços da própria rede virtual.
 
-   ![Site local](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "Configurar site local")
+   ![Screenshot que mostra as janelas "New VPN Connection and "Local site".](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png)
 
 Clique **em OK** para fechar a página do site local. **Não clique em OK para fechar a nova página de Ligação VPN**.
 
@@ -159,9 +159,9 @@ Neste passo, vai definir a chave partilhada e criar a ligação. A chave que def
 
 ### <a name="step-1-connect-to-your-azure-account"></a>Passo 1. Ligar à sua conta do Azure
 
-Tem de executar estes comandos localmente utilizando o módulo de gestão de serviços PowerShell. 
+Tem de executar estes comandos localmente utilizando o módulo de Gestão de Serviços PowerShell. 
 
-1. Abra a sua consola PowerShell com direitos elevados. Para mudar para a gestão de serviços, utilize este comando:
+1. Abra a sua consola PowerShell com direitos elevados. Para mudar para Gestão de Serviços, utilize este comando:
 
    ```powershell
    azure config mode asm

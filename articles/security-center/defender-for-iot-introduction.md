@@ -4,15 +4,15 @@ description: Saiba mais sobre o Azure Defender para IoT
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 307916680d9a05a5083aea057b2ef4b855a4ff57
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2f41aac085fef62e0356a93a07823f21d7ba3667
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301810"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448347"
 ---
 # <a name="introduction-to-azure-defender-for-iot"></a>Introdução ao Azure Defender para IoT
 
@@ -32,7 +32,7 @@ Todos os detalhes estão disponíveis [na documentação dedicada.](https://docs
 |Estado de libertação:|Geralmente disponível (GA)|
 |Preços:|Requer [Azure Defender](security-center-pricing.md)|
 |Funções e permissões necessárias:|Escreva permissões nos NSGs da máquina|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 ## <a name="what-devices-can-azure-defender-for-iot-secure"></a>Quais os dispositivos que o Azure Defender pode para ioT seguro?
@@ -56,7 +56,7 @@ As equipas da SecOps podem:
 - Integre o Azure Defender para IoT com fluxos de trabalho SOC existentes e ferramentas de segurança de terceiros, tais como Splunk, IBM QRadar e ServiceNow
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu sobre Azure Defender para IoT no Azure Security Center. Para obter mais informações, consulte:
 

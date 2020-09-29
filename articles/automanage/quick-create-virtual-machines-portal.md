@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 09/04/2020
 ms.author: jushiman
-ms.openlocfilehash: f1dc37173dff8e694ba4d1e5aa9a1b14e462581a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d66c19ce3a9786a5ca0f1390acb398c2a9cf502f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311585"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445796"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>Quickstart: Ativar a auto-produção do Azure para máquinas virtuais no portal Azure
 
@@ -49,34 +49,36 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
     1. Verifique a caixa de verificação de cada máquina virtual que pretende embarcar.
     1. Clique no botão **Seleção.**
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Selecione vM existente da lista de VMs disponíveis.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Ativar em VM existente.":::
 
 4. No **perfil de Configuração,** clique **em procurar e altere perfis e preferências.**
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Navegue e altere perfis e preferências.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Ativar em VM existente.":::
 
 5. No **perfil de configuração Select + preferências** lâmina:
     1. Selecione um perfil à esquerda: *Dev/Teste* para testes, *Prod* para produção.
     1. Clique no botão **Seleção.**
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Navegue no perfil de configuração de produção.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Ativar em VM existente.":::
 
 6. Clique no botão **Ativar**.
 
 
 ## <a name="enable-automanage-for-vms-on-a-new-vm"></a>Permitir a auto-produção de VMs num novo VM
 
+Inscreva-se [aqui](https://aka.ms/automanageportalnextstep) no portal Azure para criar um novo VM e ativar a auto-gestão.
+
 1. Siga os passos de criação no [Quickstart - crie um Windows VM no portal Azure](..\virtual-machines\windows\quick-create-portal.md).
 
 2. Depois de o seu VM ser implantado, pousará na página de estado de implantação que recomendou os **próximos passos** na parte inferior.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\create-next-steps.png" alt-text="Secção de passos seguintes localizada na parte inferior da página de implantação.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\create-next-steps.png" alt-text="Ativar em VM existente.":::
 
 3. Nos **próximos passos**, selecione **Ativar as melhores práticas da máquina virtual de auto-geração**.
 
 4. Na página **de auto-mutilação – Azure, as** **máquinas** virtuais serão automaticamente povoadas pelo seu VM recém-criado.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\create-new-enable-overview.png" alt-text="O VM recém-criado aparecerá como máquina selecionada.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\create-new-enable-overview.png" alt-text="Ativar em VM existente.":::
 
 5. No **perfil de Configuração,** clique **em procurar e altere perfis e preferências.**
 
@@ -84,16 +86,15 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
     1. Selecione um perfil à esquerda: *Dev/Teste* para testes, *Prod* para produção.
     1. Clique no botão **Seleção.**
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Navegue no perfil de configuração de produção.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Ativar em VM existente.":::
 
 7. Clique no botão **Ativar**.
-
 
 ## <a name="disable-automanage-for-vms"></a>Desativar a auto-mutilação para VMs
 
 Pare rapidamente de utilizar a auto-gestão Azure para máquinas virtuais desativando a auto-gestão.
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Desativar a auto-produção numa máquina virtual.":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Ativar em VM existente.":::
 
 1. Vá à página **de boas práticas da máquina virtual Automanage – Azure** que lista todos os seus VMs geridos automaticamente.
 1. Selecione a caixa de verificação ao lado da máquina virtual que pretende desativar.
@@ -112,7 +113,7 @@ A Azure Automanage cria grupos de recursos predefinidos para armazenar recursos 
 1. Quando solicitado, confirme o nome do grupo de recursos e, em seguida, **selecione Delete**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, permitiu que a Azure Automanage para VMs. 
 

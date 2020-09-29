@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 09/28/2020
 ms.author: victorh
-ms.openlocfilehash: 7c65f143552aa14f9e309b68f484f9c0695e8dbd
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: c4d1d16d07aaf92a0bc3cc365ac094893fc41c79
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89596066"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446527"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Criar um gateway de aplicações com HTTP para https redirecionamento usando Azure PowerShell
 
@@ -331,13 +331,6 @@ Para aceitar o aviso de segurança se usou um certificado auto-assinado, selecio
 
 ![Testar o URL base no gateway de aplicação](./media/redirect-http-to-https-powershell/application-gateway-iistest.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste tutorial, ficou a saber como:
-
-> [!div class="checklist"]
-> * Criar um certificado autoassinado
-> * Configurar uma rede
-> * Criar um gateway de aplicação com o certificado
-> * Adicione uma regra de ouvinte e redirecionamento
-> * Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
+- [Reescrever cabeçalhos HTTP e URL com Gateway de aplicação](rewrite-http-headers-url.md)

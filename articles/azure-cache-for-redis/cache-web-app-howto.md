@@ -4,15 +4,15 @@ description: Neste quickstart, você aprende a criar uma ASP.NET web app com Azu
 author: yegu-ms
 ms.service: cache
 ms.topic: quickstart
-ms.date: 06/18/2018
+ms.date: 09/29/2020
 ms.author: yegu
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 8bf301413abaa090682f14d1e7a6f9fa7096bd66
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 963021e26036969a51f77641376c693e94ac5061
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209209"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460345"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Quickstart: Use Azure Cache para Redis com uma aplicação web ASP.NET 
 
@@ -20,7 +20,7 @@ Neste quickstart, você usa o Visual Studio 2019 para criar uma aplicação web 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
+- Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/dotnet)
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) com o **ASP.NET e desenvolvimento web e** cargas de trabalho de desenvolvimento **Azure.**
 
 ## <a name="create-the-visual-studio-project"></a>Criar o projeto do Visual Studio
@@ -134,52 +134,41 @@ O tempo de execução do ASP.NET une o conteúdo do ficheiro externo e a marcaç
     public ActionResult RedisCache()
     {
         ViewBag.Message = "A simple example with Azure Cache for Redis on ASP.NET.";
-
-        var lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
-        {
-            string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
-            return ConnectionMultiplexer.Connect(cacheConnection);
-        });
-
-        // Connection refers to a property that returns a ConnectionMultiplexer
-        // as shown in the previous example.
             
-        using (ConnectionMultiplexer redis = lazyConnection.Value)
+        IDatabase cache = Connection.GetDatabase();
+
+        // Perform cache operations using the cache object...
+
+        // Simple PING command
+        ViewBag.command1 = "PING";
+        ViewBag.command1Result = cache.Execute(ViewBag.command1).ToString();
+
+        // Simple get and put of integral data types into the cache
+        ViewBag.command2 = "GET Message";
+        ViewBag.command2Result = cache.StringGet("Message").ToString();
+
+        ViewBag.command3 = "SET Message \"Hello! The cache is working from ASP.NET!\"";
+        ViewBag.command3Result = cache.StringSet("Message", "Hello! The cache is working from ASP.NET!").ToString();
+
+        // Demonstrate "SET Message" executed as expected...
+        ViewBag.command4 = "GET Message";
+        ViewBag.command4Result = cache.StringGet("Message").ToString();
+
+        // Get the client list, useful to see if connection list is growing...
+        ViewBag.command5 = "CLIENT LIST";
+        StringBuilder sb = new StringBuilder();
+
+        var endpoint = (System.Net.DnsEndPoint)Connection.GetEndPoints()[0];
+        var server = Connection.GetServer(endpoint.Host, endpoint.Port);
+        var clients = server.ClientList();
+
+        sb.AppendLine("Cache response :");
+        foreach (var client in clients)
         {
-            IDatabase cache = redis.GetDatabase();
+            sb.AppendLine(client.Raw);
+        }
 
-            // Perform cache operations using the cache object...
-
-            // Simple PING command
-            ViewBag.command1 = "PING";
-            ViewBag.command1Result = cache.Execute(ViewBag.command1).ToString();
-
-            // Simple get and put of integral data types into the cache
-            ViewBag.command2 = "GET Message";
-            ViewBag.command2Result = cache.StringGet("Message").ToString();
-
-            ViewBag.command3 = "SET Message \"Hello! The cache is working from ASP.NET!\"";
-            ViewBag.command3Result = cache.StringSet("Message", "Hello! The cache is working from ASP.NET!").ToString();
-
-            // Demonstrate "SET Message" executed as expected...
-            ViewBag.command4 = "GET Message";
-            ViewBag.command4Result = cache.StringGet("Message").ToString();
-
-            // Get the client list, useful to see if connection list is growing...
-            ViewBag.command5 = "CLIENT LIST";
-            StringBuilder sb = new StringBuilder();
-
-            var endpoint = (System.Net.DnsEndPoint)Connection.GetEndPoints()[0];
-            var server = Connection.GetServer(endpoint.Host, endpoint.Port);
-            var clients = server.ClientList();
-
-            sb.AppendLine("Cache response :");
-            foreach (var client in clients)
-            {
-                sb.AppendLine(client.Raw);
-            }
-
-            ViewBag.command5Result = sb.ToString();
+        ViewBag.command5Result = sb.ToString();
 
         return View();
     }
@@ -218,7 +207,7 @@ O tempo de execução do ASP.NET une o conteúdo do ficheiro externo e a marcaç
 
 1. No **Explorador de Soluções**, expanda a pasta **Vistas** e, em seguida, clique com o botão direito do rato na pasta **Raiz**. Escolha **Adicionar**  >  **Vista...**.
 
-2. Na caixa de diálogo **Adicionar Vista**, introduza **RedisCache** como o Nome da Vista. Em seguida, **selecione Adicionar**.
+2. Na caixa de diálogo **Adicionar Vista**, introduza **RedisCache** como o Nome da Vista. Em seguida, selecione **Adicionar**.
 
 3. Substitua o código no ficheiro *RedisCache.cshtml* pelo código seguinte:
 
@@ -345,7 +334,7 @@ Caso contrário, se tiver concluído o exemplo de aplicação do início rápido
 
 Após alguns instantes, o grupo de recursos e todos os respetivos recursos são eliminados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 No próximo tutorial, você usa Azure Cache para Redis num cenário mais realista para melhorar o desempenho de uma app. Vai atualizar esta aplicação com os resultados de classificação da cache com o padrão cache-aside com ASP.NET e uma base de dados.
 

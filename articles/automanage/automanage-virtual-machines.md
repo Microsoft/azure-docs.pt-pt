@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
 ms.custom: references_regions
-ms.openlocfilehash: 089cf07854f1f29eda7028db614edb1028e5d66a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 54a81ac36fb0b99f6931b372543dc3e4bca6a12c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91311568"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447914"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Azure Automanage para máquinas virtuais
 
@@ -46,6 +46,7 @@ Existem vários pré-requisitos a considerar antes de tentar ativar a auto-produ
 - Os VMs devem estar numa região apoiada
 - O utilizador deve ter permissões corretas
 - Os VMs não devem ligar-se a um espaço de trabalho de análise de registo numa subscrição diferente
+- Automanage não suporta subscrições sandbox neste momento
 
 É necessário ter a função **Contribuinte** para permitir a auto-produção utilizando uma Conta de Automanagem existente. Se estiver a ativar a Automanage com uma nova Conta de Autoadministração, precisa das seguintes permissões: Função **de proprietário** ou **colaborador,** juntamente com as funções **de Administrador de Acesso ao Utilizador.**
 
@@ -111,7 +112,7 @@ Na experiência do portal Azure, quando está a permitir a auto-managem nos seus
 
 No portal Azure, vá à página **de boas práticas da máquina virtual Automanage – Azure** que lista todos os seus VMs geridos automaticamente. Aqui verá o estado geral de cada máquina virtual.
 
-:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Lista de máquinas virtuais configuradas.":::
+:::image type="content" source="media\automanage-virtual-machines\configured-status.png" alt-text="Inteligentemente a bordo de serviços.":::
 
 Para cada VM listado, são apresentados os seguintes detalhes: Nome, perfil de configuração, preferência de configuração, Estado, Conta, Subscrição e Grupo de Recursos.
 
@@ -129,7 +130,7 @@ Pode decidir um dia desativar a auto-mutilação em certos VMs. Por exemplo, a s
 
 Para isso no portal Azure, vá à página **de boas práticas da máquina virtual Automanage – Azure** que lista todos os seus VMs geridos automaticamente. Selecione a caixa de verificação ao lado da máquina virtual que pretende desativar a partir da gestão automática e, em seguida, clique no botão **de gestão automática desativada.**
 
-:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Desativar a auto-produção numa máquina virtual.":::
+:::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Inteligentemente a bordo de serviços.":::
 
 Leia atentamente através das mensagens no pop-up resultante antes de concordar com o **Desactivamento**.
 
@@ -144,7 +145,7 @@ Disabling automanagement in a VM results in the following behavior:
 Em primeiro lugar, não vamos desabar a máquina virtual de nenhum dos serviços a que a embarcamos e configuramos. Assim, quaisquer encargos incorridos por esses serviços continuarão a ser faturadas. Terá de sair do quadro, se necessário. Qualquer comportamento de auto-condutor parará imediatamente. Por exemplo, deixaremos de monitorizar o VM para deriva.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você descobriu que a autogestão para máquinas virtuais fornece um meio para o qual você pode eliminar a necessidade de você saber, a bordo, e configurar as melhores práticas serviços Azure. Além disso, se uma máquina que a bordo a bordo de Automanage for Virtual Machines deriva dos perfis de configuração configurados, nós automaticamente a traremos de volta ao cumprimento.
 

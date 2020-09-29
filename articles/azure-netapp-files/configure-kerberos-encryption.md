@@ -12,20 +12,20 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 9/29/2020
 ms.author: b-juche
-ms.openlocfilehash: 05d173b715a8bc060e2f4d9cdcc7e3aef5630109
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: b683719fa2d0c1e7b5333c2ddf9c93f2797ade9b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535476"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461483"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configure encriptação NFSv4.1 Kerberos para ficheiros Azure NetApp
 
 O Azure NetApp Files suporta a encriptação do cliente NFS nos modos Kerberos (krb5, krb5i e krb5p) com encriptação AES-256. Este artigo descreve as configurações necessárias para a utilização de um volume NFSv4.1 com encriptação Kerberos.
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 Os seguintes requisitos aplicam-se à encriptação do cliente NFSv4.1: 
 
@@ -135,7 +135,7 @@ Esta secção descreve o impacto de desempenho do lado único do cliente das vá
 
 ### <a name="expected-performance-impact"></a>Impacto de desempenho esperado 
 
-Existem duas áreas de foco: carga leve e limite superior. As listas que se seguem descrevem a definição de segurança do impacto de desempenho por definição de segurança e cenário por cenário. Todas as comparações são feitas com o `sec=sys` parâmetro de segurança.
+Existem duas áreas de foco: carga leve e limite superior. As listas que se seguem descrevem a definição de segurança do impacto de desempenho por definição de segurança e cenário por cenário. Todas as comparações são feitas com o `sec=sys` parâmetro de segurança. O teste foi feito num único volume, usando um único cliente. 
 
 Impacto de desempenho do krb5:
 
@@ -170,9 +170,9 @@ Impacto de desempenho do krb5p:
     * A E/S aleatória máxima diminuiu 65% para cargas de trabalho de leitura pura, com o impacto global a diminuir para 43% à medida que a carga de trabalho passa para a escrita pura. 
     * A carga máxima de metadados diminuiu 30%.
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 * [PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp](azure-netapp-files-faqs.md)
 * [Criar um volume NFS para o Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Criar uma ligação ative directy](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)
-* [Configure um cliente NFS para ficheiros Azure NetApp](configure-nfs-clients.md) 
+* [Configurar um cliente NFS para o Azure NetApp Files](configure-nfs-clients.md) 

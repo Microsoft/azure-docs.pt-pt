@@ -8,12 +8,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 9353750fdbbb52aff60fc41b7fd028ec4c5f0ec8
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 846153dd482130bbb3b35c38a3dbb791e0d0d32e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "91000794"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448272"
 ---
 # <a name="manage-a-managed-hsm-using-the-azure-cli"></a>Gerir um HSM gerido utilizando o Azure CLI
 
@@ -53,7 +53,7 @@ Use `az keyvault key create` o comando para criar uma chave.
 
 ### <a name="create-an-rsa-key"></a>Criar uma chave RSA
 
-O exemplo abaixo mostra como criar uma chave **RSA** de 3070 bits que será usada apenas para **wrapKey, desembrulhar** operações (--ops). 
+O exemplo abaixo mostra como criar uma chave **RSA** de 3072 bits que será usada apenas para **wrapKey, desembrulhar** operações (--ops). 
 
 
 ```azurecli-interactive
@@ -82,7 +82,7 @@ az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myec25
 
 ### <a name="create-a-256-bit-symmetric-key"></a>Criar uma chave simétrica de 256 bits
 
-O exemplo abaixo mostra como criar uma chave **simétrica** de 3070 bits que será usada apenas para **encriptar e desencriptar** operações (--ops).
+O exemplo abaixo mostra como criar uma chave **simétrica** de 256 bits que será usada apenas para **encriptar e desencriptar** operações (--ops).
 
 ```azurecli-interactive
 az keyvault key create --hsm-name ContosoMHSM --name myaeskey --ops encrypt decrypt  --tags --kty oct-HSM --size 256
@@ -223,7 +223,7 @@ az keyvault key recover --id https://ContosoMHSM.managedhsm.azure.net/deletedKey
 
 Para importar uma chave do seu HSM no local para o HSM gerido, consulte [as chaves protegidas pelo Import HSM para o Gerido HSM (BYOK)](hsm-protected-keys-byok.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma referência completa do Azure CLI para comandos de cofre de chaves, consulte [a referência CLI do Cofre-Chave](/cli/azure/keyvault).
 - Para obter referências de programação, consulte [o guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)

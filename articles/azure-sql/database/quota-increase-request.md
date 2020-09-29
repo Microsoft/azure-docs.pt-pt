@@ -4,24 +4,24 @@ description: Esta página descreve como criar um pedido de suporte para aumentar
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
-ms.topic: conceptual
+ms.topic: how-to
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 06/04/2020
-ms.openlocfilehash: 4557d2ecdb49cd50396986f0ea30277f50ecf9f7
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: cfcdd143a26d36ed3c4646122fce7c19c41976d0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85987291"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448828"
 ---
 # <a name="request-quota-increases-for-azure-sql-database-and-sql-managed-instance"></a>Aumentos de quota de pedido para Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
 Este artigo explica como solicitar um aumento de quota para a Azure SQL Database e Azure SQL Managed Instance. Também explica como permitir o acesso por subscrição a uma região.
 
-## <a name="create-a-new-support-request"></a><a id="newquota"></a>Criar um novo pedido de apoio
+## <a name="create-a-new-support-request"></a><a id="newquota"></a> Criar um novo pedido de apoio
 
 Utilize as seguintes etapas para criar um novo pedido de suporte a partir do portal Azure para a Base de Dados SQL.
 
@@ -56,7 +56,7 @@ Utilize as seguintes etapas para criar um novo pedido de suporte a partir do por
 
 Clicar **em introduzir detalhes** mostra a janela **de detalhes da Quota** que lhe permite adicionar informações adicionais. As seguintes secções descrevem as diferentes opções para os tipos de quota de placas de **base de dados SQL** e **SQL Database Managed Instance.**
 
-## <a name="sql-database-quota-types"></a><a id="sqldbquota"></a>Tipos de quotas de base de dados SQL
+## <a name="sql-database-quota-types"></a><a id="sqldbquota"></a> Tipos de quotas de base de dados SQL
 
 As seguintes secções descrevem as opções de aumento de quota para os tipos de quotas **sql Database:**
 
@@ -93,7 +93,7 @@ Utilize as seguintes etapas para solicitar um aumento do número de servidores p
 
 Para obter mais informações, consulte [os limites de recursos da Base de Dados SQL e a governação dos recursos.](resource-limits-logical-server.md)
 
-### <a name="enable-subscription-access-to-a-region"></a><a id="region"></a>Permitir o acesso por subscrição a uma região
+### <a name="enable-subscription-access-to-a-region"></a><a id="region"></a> Permitir o acesso por subscrição a uma região
 
 Alguns tipos de oferta não estão disponíveis em todas as regiões. Pode ver um erro como o seguinte:
 
@@ -107,9 +107,9 @@ Se a sua subscrição precisar de acesso numa determinada região, selecione a o
 
 1. Insira o **Modelo de Compra**e Detalhes do Consumo **Esperado.**
 
-   ![Solicitar acesso à região](./media/quota-increase-request/quota-details-whitelisting.png)
+   ![Solicitar acesso à região](./media/quota-increase-request/quota-request.png)
 
-### <a name="enable-m-series-access-to-a-region"></a><a id="mseries"></a>Permitir o acesso da série M a uma região
+### <a name="enable-m-series-access-to-a-region"></a><a id="mseries"></a> Permitir o acesso da série M a uma região
 
 Para permitir o hardware da série M para uma subscrição e região, deve ser aberto um pedido de apoio.
 
@@ -118,9 +118,9 @@ Para permitir o hardware da série M para uma subscrição e região, deve ser a
 1. Na lista **de localização Selecione,** selecione a região Azure para utilizar. A quota é por subscrição em cada região.
 
 
-   ![Solicitar acesso à região](./media/quota-increase-request/quota-m-series.png)
+   ![Solicitar acesso à região da série M](./media/quota-increase-request/quota-m-series.png)
 
-## <a name="sql-managed-instance-quota-type"></a><a id="sqlmiquota"></a>Tipo de quota de instância gerida SQL
+## <a name="sql-managed-instance-quota-type"></a><a id="sqlmiquota"></a> Tipo de quota de instância gerida SQL
 
 Para o tipo de quota **de instância gerida SQL,** utilize os seguintes passos:
 

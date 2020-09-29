@@ -4,12 +4,12 @@ description: Conheça os parceiros do Azure Monitor e como pode aceder à docume
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 80b60e9f93720d0e06c1df1576834c5f462e7358
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: b56b2386422d9f7f2fa598ff804a2206bf4b4d83
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449430"
+ms.locfileid: "91460101"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -211,6 +211,17 @@ Empurre todas as métricas para o Azure Monitor e consuma-as onde precisar.
 ![Logotipo QRadar](./media/partners/qradar.png)
 
 O Microsoft Azure DSM e o Microsoft Azure Event Hub Protocol estão disponíveis para download a partir do website de [suporte da IBM](https://www.ibm.com/support). Pode saber mais sobre a integração com a Azure na [documentação QRadar.](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0)
+
+
+## <a name="rsa"></a>RSA
+
+![Logotipo RSA](./media/partners/rsa.png)
+
+A Plataforma RSA NetWitness é uma plataforma líder de deteção e resposta de ameaças que reúne o SIEM evoluído e soluções de deteção e resposta alargadas. As soluções proporcionam visibilidade, análise e capacidades de resposta automatizadas. Estas capacidades combinadas ajudam as equipas de segurança a trabalhar de forma mais eficiente e eficaz, aumentando as suas capacidades de caça ameaçadoras e permitindo-lhes investigar e responder a ameaças mais rapidamente, em toda a infraestrutura da sua organização — seja na nuvem, nas instalações ou virtualmente. 
+
+A integração da RSA NetWitness Platform com o Azure Monitor fornece rapidamente capacidades de saída da caixa para ingerir dados de eventos e registos do Azure Monitor na plataforma RSA NetWitness através de uma UI intuitiva e capacidades de análise nativa robustas. Obtenha uma visibilidade rápida em Eventos de Atividade, Diagnóstico, Diretório Ativo e outros dados do Event Hub e consulte estes dados ao lado das outras informações de segurança da empresa numa solução completa de deteção e resposta de ameaças.
+
+[Saiba mais.](https://community.rsa.com/docs/DOC-101239)
 
 
 ## <a name="sciencelogic"></a>ScienceLogic

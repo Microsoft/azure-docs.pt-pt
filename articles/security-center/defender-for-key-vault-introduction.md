@@ -4,16 +4,16 @@ description: Conheça os benefícios e funcionalidades do Azure Defender para o 
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 78a522922f8580003e2d2ff588cbf10dbf5fff9d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6649a8d470a75922aac423bf0b411163bdd79f71
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301776"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449083"
 ---
 # <a name="introduction-to-azure-defender-for-key-vault"></a>Introdução ao Azure Defender para o Cofre de Chaves
 
@@ -27,7 +27,7 @@ Ativar **o Azure Defender para Key Vault** para a proteção de ameaças avança
 |----|:----|
 |Estado de libertação:|Geralmente disponível (GA)|
 |Preços:|**Azure Defender for Key Vault** é faturado como mostrado na página de [preços](security-center-pricing.md)|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-key-vault"></a>Quais são os benefícios do Azure Defender para o Key Vault?
@@ -48,7 +48,7 @@ Os alertas aparecem na página de **Segurança** do Key Vault, no painel de inst
 > Pode simular alertas de Azure Defender para key vault seguindo as instruções para [validar a deteção de ameaças de azure key vault no Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336).
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu sobre o Azure Defender para o Key Vault.
 

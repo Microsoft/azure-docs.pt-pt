@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: 1e2eb1c2b6ecb98c60b117d004a97cd4e5f07a55
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: d1705456c316a29aede537e67dee74b6231ff22b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182174"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460582"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Tratamento de notificações de manutenção planeadas
 
@@ -80,7 +80,7 @@ Para obter mais informações sobre a elevada disponibilidade, consulte [Disponi
 
 **P: Como sou notificado sobre a manutenção planeada?**
 
-**A:** Uma onda de manutenção planeada começa por definir um horário para uma ou mais regiões de Azure. Logo a seguir, é enviada uma notificação por e-mail para os Administradores de subscrição (um e-mail por subscrição). Canais e destinatários adicionais para esta notificação podem ser configurados usando Alertas de Registo de Atividade. Caso desloque uma máquina virtual para uma região onde a manutenção planeada já esteja programada, não receberá a notificação, mas precisará verificar o estado de manutenção do VM.
+**A:** Uma onda de manutenção planeada começa por definir um horário para uma ou mais regiões de Azure. Logo a seguir, é enviada uma notificação por e-mail para os administradores de serviço (um e-mail por subscrição). Canais e destinatários adicionais para esta notificação podem ser configurados usando Alertas de Registo de Atividade. Caso desloque uma máquina virtual para uma região onde a manutenção planeada já esteja programada, não receberá a notificação, mas precisará verificar o estado de manutenção do VM.
 
 **P: Não vejo qualquer indicação de manutenção planeada no portal, PowerShell ou CLI. O que se passa?**
 
@@ -120,6 +120,6 @@ Para obter mais informações sobre a elevada disponibilidade, consulte [Disponi
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Pode manusear a manutenção planeada utilizando o [Azure CLI,](maintenance-notifications-cli.md) [Azure PowerShell](maintenance-notifications-powershell.md) ou [portal](maintenance-notifications-portal.md).

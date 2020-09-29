@@ -7,17 +7,17 @@ ms.service: sql-db-mi
 ms.subservice: data-movement
 ms.custom: sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 06/25/2019
-ms.openlocfilehash: 9e7d2d08c7041b23f0eb02328367d07e72fe35eb
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 0b78419f4fb37bb96e2c71c89f740a35914ccede
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333074"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446385"
 ---
 # <a name="move-resources-to-new-region---azure-sql-database--azure-sql-managed-instance"></a>Mover recursos para a nova região - Azure SQL Database & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -170,7 +170,7 @@ A replicação de todas as bases de dados em cada instância será iniciada auto
 
 ### <a name="monitor-the-preparation-process"></a>Monitorizar o processo de preparação
 
-Pode ligar periodicamente para [o Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup?view=azps-2.3.2) para monitorizar a replicação das suas bases de dados desde a fonte até ao alvo. O objeto de saída `Get-AzSqlDatabaseFailoverGroup` inclui uma propriedade para o Estado de **Replicação:**
+Pode ligar periodicamente para [o Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) para monitorizar a replicação das suas bases de dados desde a fonte até ao alvo. O objeto de saída `Get-AzSqlDatabaseFailoverGroup` inclui uma propriedade para o Estado de **Replicação:**
 
 - **ReplicationState = 2** (CATCH_UP) indica que a base de dados está sincronizada e pode ser falhada com segurança.
 - **ReplicationState = 0** (SEEDING) indica que a base de dados ainda não está semeada, e uma tentativa de falhar falhará.
@@ -182,7 +182,7 @@ Uma vez **replicationState** é `2` , conecte-se a cada base de dados, ou subcon
 ### <a name="initiate-the-move"></a>Inicie o movimento
 
 1. Ligue-se à instância gerida pelo alvo utilizando o ponto final `<fog-name>.secondary.database.windows.net` secundário.
-1. Utilize [o Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup?view=azps-2.3.2) para mudar a instância gerida secundária para ser a principal com sincronização completa. Esta operação terá sucesso, ou vai voltar para trás.
+1. Utilize [o Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) para mudar a instância gerida secundária para ser a principal com sincronização completa. Esta operação terá sucesso, ou vai voltar para trás.
 1. Verifique se o comando foi concluído com sucesso utilizando `nslook up <fog-name>.secondary.database.windows.net` para verificar se a entrada do DNS CNAME aponta para o endereço IP da região alvo. Se o comando do interruptor falhar, o CNAME não será atualizado.
 
 ### <a name="remove-the-source-managed-instances"></a>Remova as instâncias geridas pela fonte
@@ -193,6 +193,6 @@ Uma vez terminada a mudança, retire os recursos da região de origem para evita
 1. Eliminar a instância gerida pela fonte utilizando [remove-AzSqlInstance](/powershell/module/az.sql/remove-azsqlinstance).
 1. Remova quaisquer recursos adicionais no grupo de recursos, tais como o cluster virtual, a rede virtual e o grupo de segurança.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Gerencie](manage-data-after-migrating-to-database.md) a sua base de dados depois de ter sido migrada.

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72ed8fede56385248415caf0438b190d5c191bbc
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 9ff683c7c3214be6ae60b5d00d4cd1c2becc32e2
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460869"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447080"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Reger o acesso dos utilizadores externos na gestão dos direitos da AD Azure
 
@@ -83,7 +83,7 @@ Para garantir que pessoas fora da sua organização podem solicitar pacotes de a
 
 - Permitir que os hóspedes convidem outros hóspedes para o seu diretório significa que os convites dos hóspedes podem ocorrer fora da gestão de direitos. Recomendamos que **os hóspedes possam convidar** para o **Nº** apenas para permitir convites devidamente governados.
 - Se estiver a utilizar a lista de autorizações B2B, deve certificar-se de que qualquer domínio que pretenda associar-se à gestão de direitos é adicionado à lista. Em alternativa, se estiver a utilizar a lista de negação B2B, deve certificar-se de que qualquer domínio com o qual pretende associar-se não é adicionado à lista.
-- Se criar uma política de gestão de direitos para **todos os utilizadores** (Todas as organizações conectadas + quaisquer novos utilizadores externos), qualquer B2B permite ou nega definições de lista que tenha terá precedência. Portanto, certifique-se de incluir os domínios que pretende incluir nesta política na sua lista de autorizações se estiver a utilizar um, e exclua-os da sua lista de negação se estiver a utilizar uma lista de negação.
+- Se criar uma política de gestão de direitos para **todos os utilizadores** (todas as organizações conectadas + quaisquer novos utilizadores externos) e um utilizador não pertencer a uma organização conectada no seu diretório, uma organização conectada será automaticamente criada para eles quando solicitar o pacote. Qualquer B2B permite ou nega as definições da lista que tiver terá precedência. Portanto, certifique-se de incluir os domínios que pretende incluir nesta política na sua lista de autorizações se estiver a utilizar um, e exclua-os da sua lista de negação se estiver a utilizar uma lista de negação.
 - Se pretender criar uma política de gestão de direitos que inclua **Todos os utilizadores** (Todas as organizações conectadas + quaisquer novos utilizadores externos), tem primeiro de ativar a autenticação de código de acesso de e-mail para o seu diretório. Para obter mais informações, consulte a autenticação de código de acesso de [email (pré-visualização)](../external-identities/one-time-passcode.md#opting-in-to-the-preview).
 - Para obter mais informações sobre as definições de colaboração externa Azure AD B2B, consulte [a colaboração externa do Enable B2B e gere quem pode convidar os hóspedes.](../external-identities/delegate-invitations.md)
 
@@ -143,7 +143,7 @@ Pode selecionar o que acontece quando um utilizador externo, que foi convidado p
 
 1. Se pretender remover a conta de utilizador do utilizador neste diretório, pode definir o número de dias antes de ser removido. Se pretender remover a conta de utilizador do hóspede assim que perder a sua última atribuição a quaisquer pacotes de acesso, desagreva o Número de dias antes de retirar o **utilizador externo deste diretório** para **0**.
 
-1. Clique em **Guardar**.
+1. Clique em **Save** (Guardar).
 
 ## <a name="next-steps"></a>Próximos passos
 

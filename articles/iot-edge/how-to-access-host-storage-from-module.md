@@ -8,12 +8,12 @@ ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fe24cc79d749761b697a8d1a162ec2867da9a649
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 4af63421e831318e6250825cffd1abad415b85bb
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88257478"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447833"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Fornecer o acesso a módulos ao armazenamento local de um dispositivo
 
@@ -85,10 +85,10 @@ Pode encontrar mais detalhes sobre a criação de opções a partir de [docs doc
 
 ## <a name="encrypted-data-in-module-storage"></a>Dados encriptados no armazenamento de módulos
 
-Quando os módulos invocam a API de carga de trabalho do Daemon IoT Edge para encriptar dados, a chave de encriptação é derivada usando o ID do módulo e o ID de geração do módulo. Um ID de geração é usado para proteger segredos se um módulo for removido da implementação e, em seguida, outro módulo com o mesmo módulo ID é posteriormente implantado para o mesmo dispositivo. Pode ver o id de geração de um módulo usando o comando Azure CLI [az iot hub módulo-identidade show](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show).
+Quando os módulos invocam a API de carga de trabalho do Daemon IoT Edge para encriptar dados, a chave de encriptação é derivada usando o ID do módulo e o ID de geração do módulo. Um ID de geração é usado para proteger segredos se um módulo for removido da implementação e, em seguida, outro módulo com o mesmo módulo ID é posteriormente implantado para o mesmo dispositivo. Pode ver o id de geração de um módulo usando o comando Azure CLI [az iot hub módulo-identidade show](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show).
 
 Se quiser partilhar ficheiros entre módulos entre gerações, eles não devem conter nenhum segredo ou não serão desencriptados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter um exemplo adicional de acesso ao armazenamento de hospedeiros a partir de um módulo, consulte [os dados da Loja na borda com o Azure Blob Storage no IoT Edge](how-to-store-data-blob.md).

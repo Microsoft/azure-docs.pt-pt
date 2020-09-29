@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: bf22e20a6c6187677f000e0c50ac64582233c3cd
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 005bfd4b7e7d062640a79896ccd3d7f76e3d6fb3
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019670"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447203"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configure o calendário de remendos de SISTEMA para clusters HDInsight baseados em Linux
 
 > [!IMPORTANT]
-> As imagens Ubuntu ficam disponíveis para a nova criação do cluster Azure HDInsight no prazo de três meses após a sua publicação. A partir de janeiro de 2019, os clusters de corrida não são remendados automaticamente. Os clientes devem usar ações de script ou outros mecanismos para corrigir um cluster de execução. Os clusters recém-criados terão sempre as últimas atualizações disponíveis, incluindo os mais recentes patches de segurança.
+> As imagens Ubuntu ficam disponíveis para a nova criação do cluster Azure HDInsight no prazo de três meses após a sua publicação. Os agrupamentos de corrida não são remendados automaticamente. Os clientes devem usar ações de script ou outros mecanismos para corrigir um cluster de execução. Como uma boa prática, você pode executar estas ações de script e aplicar atualizações de segurança logo após a criação do cluster.
 
 O HDInsight fornece suporte para que execute tarefas comuns no seu cluster, tais como a instalação de patches de SISTEMA, atualizações de segurança e nól de reinicialização. Estas tarefas são realizadas utilizando os seguintes dois scripts que podem ser executados como [ações de script](hdinsight-hadoop-customize-cluster-linux.md), e configurados com parâmetros:
 

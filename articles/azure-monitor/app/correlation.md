@@ -7,12 +7,12 @@ ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: b48b02d20ed3d0b731f04d2c6568274bc0262e2e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fd9299d49f42eb021d64ae25447fd13e7378ff3f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933363"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447861"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria em Insights de Aplicação
 
@@ -55,7 +55,7 @@ Nos resultados, note que todos os itens de telemetria partilham a raiz `operatio
 
 Quando a chamada `GET /api/stock/value` é feita para um serviço externo, precisa de saber a identidade desse servidor para que possa definir o campo `dependency.target` adequadamente. Quando o serviço externo não suporta a monitorização, `target` é definido para o nome de anfitrião do serviço (por exemplo, `stock-prices-api.com` ). Mas se o serviço se identificar devolvendo um cabeçalho HTTP predefinido, `target` contém a identidade de serviço que permite que a Application Insights construa um traço distribuído consultando telemetria a partir desse serviço.
 
-## <a name="correlation-headers"></a>Cabeçalhos de correlação
+## <a name="correlation-headers-using-w3c-tracecontext"></a>Cabeçalhos de correlação usando OContexto de Vestígios W3C
 
 A Application Insights está em transição para [o Contexto de Rastreio W3C,](https://w3c.github.io/trace-context/)que define:
 
@@ -70,6 +70,18 @@ O [protocolo HTTP de correlação, também chamado Request-Id,](https://github.c
 - `Correlation-Context`: Transporta a coleção de pares de valor-nome das propriedades de vestígios distribuídos.
 
 Os Insights de Aplicação também definem a [extensão](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) para o protocolo HTTP de correlação. Utiliza `Request-Context` pares de valor-nome para propagar a coleção de propriedades utilizadas pelo chamador ou callee imediato. O Application Insights SDK utiliza este cabeçalho para definir os `dependency.target` campos e `request.source` campos.
+
+Os modelos de dados de rastreio e aplicação de rastreio [w3C](https://w3c.github.io/trace-context/) mapeiam da seguinte forma:
+
+| Application Insights                   | Traçado W3C                                      |
+|------------------------------------    |-------------------------------------------------    |
+| `Request`, `PageView`                  | `SpanKind` é servidor se sincronizado; `SpanKind` é consumidor se assíncronos                    |
+| `Dependency`                           | `SpanKind` é cliente se sincronizado; `SpanKind` é produtor se assíncronos                   |
+| `Id` de `Request` e `Dependency`     | `SpanId`                                            |
+| `Operation_Id`                         | `TraceId`                                           |
+| `Operation_ParentId`                   | `SpanId` do período de tempo dos pais deste período. Se isto é uma extensão de raiz, então este campo deve estar vazio.     |
+
+Para obter mais informações, consulte o [modelo de dados de telemetria Da Aplicação Insights](../../azure-monitor/app/data-model.md).
 
 ### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>Ativar suporte de rastreio distribuído W3C para aplicações de ASP.NET clássicas
  
@@ -204,25 +216,11 @@ Esta funcionalidade está em `Microsoft.ApplicationInsights.JavaScript` . É des
   </script>
   ```
 
-## <a name="opentracing-and-application-insights"></a>Aberturatracing e Insights de Aplicação
-
-A [especificação do modelo de dados OpenTracing](https://opentracing.io/) e os modelos de dados do Application Insights mapeam da seguinte forma:
-
-| Application Insights                   | Abretracção                                        |
-|------------------------------------    |-------------------------------------------------    |
-| `Request`, `PageView`                  | `Span` com `span.kind = server`                    |
-| `Dependency`                           | `Span` com `span.kind = client`                    |
-| `Id` de `Request` e `Dependency`     | `SpanId`                                            |
-| `Operation_Id`                         | `TraceId`                                           |
-| `Operation_ParentId`                   | `Reference` do tipo `ChildOf` (o período dos pais)     |
-
-Para obter mais informações, consulte o [modelo de dados de telemetria Da Aplicação Insights](../../azure-monitor/app/data-model.md).
-
-Para definições de conceitos OpenTracing, consulte a [especificação](https://github.com/opentracing/specification/blob/master/specification.md) OpenTracing e [as convenções semânticas.](https://github.com/opentracing/specification/blob/master/semantic_conventions.md)
-
 ## <a name="telemetry-correlation-in-opencensus-python"></a>Correlação de telemetria em OpenCensus Python
 
-O OpenCensus Python segue as especificações do `OpenTracing` modelo de dados descritas anteriormente. Também suporta [o contexto de rastreio W3C](https://w3c.github.io/trace-context/) sem necessitar de qualquer configuração.
+O OpenCensus Python suporta [o contexto de rastreio W3C](https://w3c.github.io/trace-context/) sem necessitar de configuração adicional.
+
+Como referência, o modelo de dados OpenCensus pode ser consultado [aqui.](https://github.com/census-instrumentation/opencensus-specs/tree/master/trace)
 
 ### <a name="incoming-request-correlation"></a>Correlação de pedido de entrada
 
@@ -370,7 +368,7 @@ A Aplicação Insights SDK, a começar pela versão 2.4.0-beta1, utiliza `Diagno
 
   O Arranque de Arranque de Mola atribui automaticamente `cloudRoleName` ao valor que introduz para a `spring.application.name` propriedade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Escreva [telemetria personalizada.](../../azure-monitor/app/api-custom-events-metrics.md)
 - Para cenários de correlação avançados em ASP.NET Core e ASP.NET, consulte [as operações personalizadas track](custom-operations-tracking.md).

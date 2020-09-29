@@ -3,12 +3,12 @@ title: Crie um aparelho Azure Migrate para VMware
 description: Saiba como configurar um aparelho Azure Migrate para avaliar e migrar VMware VMs.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: c9a9f1567f984fc5770b47d3998610cb69643360
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 9a4e652180b236262ea57ae49d35410ebfbdc927
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923631"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448656"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configurar um aparelho para VMware VMs
 
@@ -34,7 +34,7 @@ Para configurar o aparelho utilizando um modelo OVA:
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Gere a chave do projeto Azure Migrate
 
-1. In **Migration Goals**  >  **Servers**  >  **Azure Migrate: Server Assessment**, select **Discover**.
+1. Em **Objetivos de Migração** > **Servidores** > **Azure Migrate: Avaliação do Servidor**, selecione **Detetar**.
 2. In **Discover machines**  >  **Are your machines virtualized?** **Yes, with VMware vSphere hypervisor**
 3. Na **tecla de projeto 1:Generate Azure Migrate,** forneça um nome para o aparelho Azure Migrate que irá configurar para a descoberta de VMware VMs.O nome deve ser alfanumérico com 14 caracteres ou menos.
 1. Clique na **chave Gerar** para iniciar a criação dos recursos Azure necessários. Por favor, não feche a página das máquinas Discover durante a criação de recursos.
@@ -57,7 +57,7 @@ Verifique se o ficheiro OVA está seguro, antes de o implementar.
 1. No computador para o qual transferiu o ficheiro, abra uma janela de comando de administrador.
 2. Executar o seguinte comando, para gerar o haxixe para o OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Utilização de exemplo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+    - Utilização de exemplo: ```C:\>C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256```
 3. Para a versão mais recente do aparelho, o haxixe gerado deve coincidir com estas [definições](./tutorial-assess-vmware.md#verify-security).
 
 
@@ -143,6 +143,6 @@ A descoberta funciona da seguinte forma:
 - Leva cerca de 15 minutos para que os metadados VM descobertos apareçam no portal.
 - A descoberta de aplicações, funções e funcionalidades instaladas leva algum tempo. A duração depende do número de VMs descobertos. Para 500 VMs, leva aproximadamente uma hora para o inventário da aplicação aparecer no portal Azure Migrate.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Reveja os tutoriais para [avaliação de VMware](tutorial-assess-vmware.md) e [migração sem agentes.](tutorial-migrate-vmware.md)

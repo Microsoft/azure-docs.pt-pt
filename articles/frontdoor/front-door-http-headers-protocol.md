@@ -9,29 +9,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/10/2018
+ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 6864a854215d899043607b3d01cffbd343ee7751
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e72443e33d1b6f097f61f4c027b5f547b43ee2a9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399519"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91449221"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Suporte de protocolo para cabeçalhos HTTP na Porta frontal Azure
 Este artigo descreve o protocolo que a Porta frontal suporta com partes do caminho de chamada (ver imagem). As seguintes secções fornecem mais informações sobre cabeçalhos HTTP suportados pela Porta frontal.
 
-![Protocolo de cabeçalhos HTTP porta frontal Azure][1]
+:::image type="content" source="./media/front-door-http-headers-protocol/front-door-protocol-summary.png" alt-text="Protocolo de cabeçalhos HTTP porta frontal Azure":::
 
 >[!IMPORTANT]
 >A Porta da Frente não certifica quaisquer cabeçalhos HTTP que não estejam documentados aqui.
 
 ## <a name="client-to-front-door"></a>Cliente para Porta da Frente
-A Porta da Frente aceita a maioria dos cabeçalhos do pedido de entrada sem modificá-los. Alguns cabeçalhos reservados são removidos do pedido de entrada se enviados, incluindo cabeçalhos com o prefixo X-FD-*.
+A Porta da Frente aceita a maioria dos cabeçalhos para o pedido de entrada sem modificá-los. Alguns cabeçalhos reservados são removidos do pedido de entrada se enviados, incluindo cabeçalhos com o prefixo X-FD-*.
 
 ## <a name="front-door-to-backend"></a>Porta da frente para o backend
 
-A Porta frontal inclui cabeçalhos de um pedido de entrada, a menos que seja removido devido a restrições. Porta da Frente também adiciona os seguintes cabeçalhos:
+A Porta da Frente inclui cabeçalhos para um pedido de entrada, a menos que sejam removidos devido a restrições. Porta da Frente também adiciona os seguintes cabeçalhos:
 
 | Cabeçalho  | Exemplo e descrição |
 | ------------- | ------------- |
@@ -52,12 +52,9 @@ Quaisquer cabeçalhos enviados para a Porta da Frente a partir do backend també
 
 | Cabeçalho  | Exemplo |
 | ------------- | ------------- |
-| X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOJBV2NT4TY6SQVJC0zV1NURURHRTA2MTKANDM3YzgyY2QtMzYwYS0YTU0LTU0LT0YZMTNHMNzA3NjQ3Nzgz* </br> Esta é uma cadeia de referência única que identifica um pedido servido pela Porta da Frente. Isto é fundamental para a resolução de problemas, uma vez que é usado para pesquisar registos de acesso.|
+| X-Azure-Ref |  *X-Azure-Ref: 0zxV+XAAAAABKMMOJBV2NT4TY6SQVJC0zV1NURURHRTA2MTKANDM3YzgyY2QtMzYwYS0YTU0LTU0LT0YZMTNHMNzA3NjQ3Nzgz* </br> Esta é uma cadeia de referência única que identifica um pedido servido pela Porta da Frente, que é fundamental para a resolução de problemas, uma vez que é usado para pesquisar registos de acesso.|
 
 ## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma Porta de Entrada](quickstart-create-front-door.md)
 - [Como funciona a Porta da Frente](front-door-routing-architecture.md)
-
-<!--Image references-->
-[1]: ./media/front-door-http-headers-protocol/front-door-protocol-summary.png

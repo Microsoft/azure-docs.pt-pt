@@ -12,13 +12,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/29/2020
-ms.openlocfilehash: f1fad6554a347acb1de72bfe1e5c3413e6f74d9f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/28/2020
+ms.openlocfilehash: 35a637df85984bcfd20836bcd87aa5ecf1583170
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004163"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461143"
 ---
 # <a name="quickstart-use-ssms-to-connect-to-and-query-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Utilize SSMS para ligar e consultar a Base de Dados Azure SQL ou a exemplo gerida do Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -79,18 +79,21 @@ No SSMS, ligue-se ao seu servidor.
    | **Nome do servidor** | O nome de servidor completamente qualificado | Algo como: **servername.database.windows.net.** |
    | **Autenticação** | Autenticação do SQL Server | Este tutorial utiliza a Autenticação SQL. |
    | **Iniciar sessão** | ID do utilizador da conta de administração do servidor | O ID do utilizador a partir da conta de administração do servidor utilizado para criar o servidor. |
-   | **Palavra-passe** | Senha de conta de administração do servidor | A palavra-passe da conta de administração do servidor utilizada para criar o servidor. |
+   | **Palavra-passe** | Palavra-passe da conta de administrador do servidor | A palavra-passe da conta de administração do servidor utilizada para criar o servidor. |
    ||||
 
    ![ligar ao servidor](./media/connect-query-ssms/connect.png)  
+
+> [!NOTE]
+> Este tutorial utiliza a Autenticação do Servidor SQL.  No entanto, para ligar via Azure Ative Directory com O MFA, certifique-se de que está a utilizar [SSMS 18.6 ou mais recente](https://aka.ms/ssms). 
 
 3. Selecione **Opções** na caixa de diálogo **'Ligar ao Servidor'.** No menu **'Ligar para baixo' da base de dados,** selecione **mySampleDatabase**. Completar o quickstart na [secção Pré-Requisitos](#prerequisites) cria uma base de dados AdventureWorksLT chamada mySampleDatabase. Se a sua cópia de trabalho da base de dados AdventureWorks tiver um nome diferente do mySampleDatabase, então selecione-a.
 
    ![ligar à base de dados no servidor](./media/connect-query-ssms/options-connect-to-db.png)  
 
-4. Selecione **Ligar**. A janela do Explorador de Objetos abre-se.
+4. Selecione **Ligar**. É aberta a janela Object Explorer.
 
-5. Para visualizar os objetos da base de **dados,** expanda as bases de dados e, em seguida, expanda o nó de base de dados.
+5. Para ver os objetos de base de dados, expanda **Bases de dados** e, em seguida, expanda o nó da sua base de dados.
 
    ![objetos mySampleDatabase](./media/connect-query-ssms/connected.png)  
 
@@ -155,7 +158,7 @@ Executar este código [INSERT](/sql/t-sql/statements/insert-transact-sql/) Trans
 
 ### <a name="update-data"></a>Atualizar dados
 
-Executar este código [UPDATE](/sql/t-sql/queries/update-transact-sql?view=sql-server-ver15) Transact-SQL para modificar o seu novo produto.
+Executar este código [UPDATE](/sql/t-sql/queries/update-transact-sql) Transact-SQL para modificar o seu novo produto.
 
 1. Substitua a consulta anterior por esta que devolve o novo recorde criado anteriormente:
 
@@ -180,7 +183,7 @@ Executar este código [DELETE](/sql/t-sql/statements/delete-transact-sql/) Trans
 
 2. **Selecione Executar** para eliminar a linha especificada na `Product` tabela. O painel **de mensagens** apresenta **(1 linha afetada)**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter informações sobre o SSMS, consulte [o SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms/).
 - Para ligar e consultar utilizando o portal Azure, consulte [Ligar e consultar o editor de consulta do portal Azure SQL](connect-query-portal.md).

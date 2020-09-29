@@ -9,12 +9,12 @@ ms.custom: vs-azure, devx-track-csharp
 ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: d0d0465e2e60945649958911c508e06aee877ac9
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: addccf337f82b1695c76ae975c4a33f44ba50f8a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378870"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448140"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicione o Cofre chave à sua aplicação web utilizando serviços conectados ao estúdio visual
 
@@ -189,6 +189,9 @@ Afeta o ficheiro do projeto .NET referências e `packages.config` (referências 
 | .NET; NuGet | Azure.Identidade |
 | .NET; NuGet | Azure.Security.KeyVault.Keys |
 | .NET; NuGet | Azure.Security.KeyVault.Secrets |
+
+> [!IMPORTANT] 
+> Por defeito, a Azure.Identity 1.1.1 está instalada, que não suporta a Credencial de Estúdio Visual. Pode atualizar a referência do pacote manualmente para 1.2+ utilizar a Credencial de Estúdio Visual.
 
 ### <a name="added-files-for-aspnet-framework"></a>Ficheiros adicionados para ASP.NET Framework
 

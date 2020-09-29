@@ -3,12 +3,12 @@ title: Tipos de Recursos Suportados através da Azure Resource Health Microsoft 
 description: Tipos de Recursos Suportados através da Saúde dos Recursos Azure
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 9aedc115a29f11d4d54715d51bb6231ea1ea9e03
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: e299e45f08b9e39af02208a0e74734475528b3ae
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89660660"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447052"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipos de recursos e verificações de saúde na saúde dos recursos Azure
 Abaixo está uma lista completa de todos os cheques executados através da saúde de recursos por tipos de recursos.
@@ -207,7 +207,7 @@ Abaixo está uma lista completa de todos os cheques executados através da saúd
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
 |Verificações executadas|
 |---|
-|<ul><li>O recurso de capacidade está a funcionar?</li><li>Todas as cargas de trabalho estão a funcionar?</li></ul>|
+|<ul><li>O recurso de capacidade está a funcionar?</li><li>Todas as cargas de trabalho estão a funcionar?</li></ul>
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |Verificações executadas|

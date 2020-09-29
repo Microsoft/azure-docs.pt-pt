@@ -7,17 +7,17 @@ ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: sstein
 ms.date: 04/19/2020
-ms.openlocfilehash: 7ee876b1d65e71657cb1af857cdad9f62a32100e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 61160943fc5762fd492f61a75a44159f2ef9cab2
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333059"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448783"
 ---
 # <a name="monitoring-microsoft-azure-sql-database-and-azure-sql-managed-instance-performance-using-dynamic-management-views"></a>Monitorizar o desempenho do Azure SQL Managed Instance e da Base de Dados SQL do Microsoft Azure com as vistas de gestão dinâmicas
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -56,7 +56,7 @@ Este artigo contém uma coleção de consultas de DMV que pode executar usando o
 - [Recuperar informações de utilização de recursos em todo o sistema e base de dados](#monitor-resource-use)
 - [Recuperar informações sobre desempenho de consulta](#monitoring-query-performance)
 
-## <a name="identify-cpu-performance-issues"></a>Identificar problemas de desempenho do CPU
+## <a name="identify-cpu-performance-issues"></a>Identificar problemas de desempenho da CPU
 
 Se o consumo de CPU for superior a 80% por longos períodos de tempo, considere as seguintes etapas de resolução de problemas:
 
@@ -769,6 +769,6 @@ CROSS APPLY sys.dm_exec_sql_text(plan_handle) AS q
 ORDER BY highest_cpu_queries.total_worker_time DESC;
 ```
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 [Introdução à Base de Dados Azure SQL e Azure SQL Gestão de Instância](sql-database-paas-overview.md)

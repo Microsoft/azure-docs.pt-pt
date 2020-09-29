@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/17/2020
+ms.date: 09/25/2020
 ms.author: ryanwi
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 2f6ade3a01022bf3bcc4d6b522e45ae98fe29b33
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c5866ddfee049499a4179505e0c1a206b1c68945
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258425"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447309"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Vidas de token configuradas na plataforma de identidade da Microsoft (Preview)
 
@@ -50,7 +50,7 @@ Os tokens SAML são usados por muitas aplicações SAAS baseadas na web, e são 
 
 O valor de NotOnOrAfter pode ser alterado usando o `AccessTokenLifetime` parâmetro num `TokenLifetimePolicy` . Será definido para a vida útil configurada na apólice, se houver, mais um fator de distorção do relógio de cinco minutos.
 
-Note que a confirmação do assunto NotOnOrAfter especificada no `<SubjectConfirmationData>` elemento não é afetada pela configuração Token Lifetime. 
+A confirmação do assunto NotOnOrAfter especificada no `<SubjectConfirmationData>` elemento não é afetada pela configuração Token Lifetime. 
 
 ### <a name="refresh-tokens"></a>Fichas de atualização
 
@@ -103,7 +103,7 @@ Uma política de vida simbólica é um tipo de objeto político que contém regr
 | Refresh Token Max Inative Time (emitido para clientes confidenciais) |Fichas de atualização (emitidas para clientes confidenciais) |90 dias |
 | Refresh Token Max Age (emitido para clientes confidenciais) |Fichas de atualização (emitidas para clientes confidenciais) |Até revogação |
 
-* <sup>1 Utilizadores</sup> federados que tenham informações de revogação insuficientes incluem quaisquer utilizadores que não tenham o atributo "LastPasswordChangeTimestamp" sincronizado. Estes utilizadores recebem esta curta Idade Max porque a AAD não consegue verificar quando revogar tokens que estão ligados a uma credencial antiga (como uma palavra-passe que foi alterada) e devem voltar a fazer o check-in com mais frequência para garantir que o utilizador e os tokens associados ainda estão em boas condições. Para melhorar esta experiência, os administradores do arrendatário devem certificar-se de que estão a sincronizar o atributo "LastPasswordChangeTimestamp" (isto pode ser definido no objeto do utilizador utilizando o PowerShell ou através do AADSync).
+* <sup>1 Utilizadores</sup> federados que tenham informações de revogação insuficientes incluem quaisquer utilizadores que não tenham o atributo "LastPasswordChangeTimestamp" sincronizado. Estes utilizadores recebem esta curta Idade Max porque o Azure Ative Directory não consegue verificar quando revogar fichas que estão ligadas a uma credencial antiga (como uma palavra-passe que foi alterada) e devem voltar a fazer o check-in com mais frequência para garantir que o utilizador e os tokens associados ainda estão em boas condições. Para melhorar esta experiência, os administradores do arrendatário devem certificar-se de que estão a sincronizar o atributo "LastPasswordChangeTimestamp" (isto pode ser definido no objeto do utilizador utilizando o PowerShell ou através do AADSync).
 
 ### <a name="policy-evaluation-and-prioritization"></a>Avaliação política e priorização
 Você pode criar e, em seguida, atribuir uma política de vida simbólica a uma aplicação específica, à sua organização e aos diretores de serviço. Várias políticas podem aplicar-se a uma aplicação específica. A política simbólica de vida vitalícia que entra em vigor segue estas regras:
@@ -382,170 +382,37 @@ Neste exemplo, cria-se algumas políticas para aprender como funciona o sistema 
 
 ## <a name="cmdlet-reference"></a>Referência de cmdlets
 
+Estes são os cmdlets no [Azure Ative Directory PowerShell para o módulo de pré-visualização de gráficos](/powershell/module/azuread/?view=azureadps-2.0-preview#service-principals&preserve-view=true&preserve-view=true).
+
 ### <a name="manage-policies"></a>Gerir políticas
 
 Pode utilizar os seguintes cmdlets para gerir as políticas.
 
-#### <a name="new-azureadpolicy"></a>Política new-AzureAD
-
-Cria uma nova política.
-
-```powershell
-New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -IsOrganizationDefault <boolean> -Type <Policy Type>
-```
-
-| Parâmetros | Descrição | Exemplo |
-| --- | --- | --- |
-| <code>&#8209;Definition</code> |Conjunto de JSON cordified que contém todas as regras da apólice. | `-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;DisplayName</code> |Sequência do nome da apólice. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;IsOrganizationDefault</code> |Se for verdade, define a política como a política de incumprimento da organização. Se falso, não faz nada. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code> |Tipo de política. Para vidas simbólicas, use sempre "TokenLifetimePolicy". | `-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code> [Opcional] |Define uma identificação alternativa para a apólice. |`-AlternativeIdentifier "myAltId"` |
-
-</br></br>
-
-#### <a name="get-azureadpolicy"></a>Get-AzureADPolicy
-Obtém todas as políticas AD da Azure ou uma política especificada.
-
-```powershell
-Get-AzureADPolicy
-```
-
-| Parâmetros | Descrição | Exemplo |
-| --- | --- | --- |
-| <code>&#8209;Id</code> [Opcional] |**ObjectId (ID)** da política que deseja. |`-Id <ObjectId of Policy>` |
-
-</br></br>
-
-#### <a name="get-azureadpolicyappliedobject"></a>Get-AzureADPolicyAppliedObject
-Obtém todas as aplicações e diretores de serviços que estão ligados a uma política.
-
-```powershell
-Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
-```
-
-| Parâmetros | Descrição | Exemplo |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** da política que deseja. |`-Id <ObjectId of Policy>` |
-
-</br></br>
-
-#### <a name="set-azureadpolicy"></a>Política set-AzureAD
-Atualiza uma política existente.
-
-```powershell
-Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
-```
-
-| Parâmetros | Descrição | Exemplo |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** da política que deseja. |`-Id <ObjectId of Policy>` |
-| <code>&#8209;DisplayName</code> |Sequência do nome da apólice. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;Definition</code> [Opcional] |Conjunto de JSON cordified que contém todas as regras da apólice. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;IsOrganizationDefault</code> [Opcional] |Se for verdade, define a política como a política de incumprimento da organização. Se falso, não faz nada. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code> [Opcional] |Tipo de política. Para vidas simbólicas, use sempre "TokenLifetimePolicy". |`-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code> [Opcional] |Define uma identificação alternativa para a apólice. |`-AlternativeIdentifier "myAltId"` |
-
-</br></br>
-
-#### <a name="remove-azureadpolicy"></a>Remover-AzureADPolicy
-Elimina a política especificada.
-
-```powershell
- Remove-AzureADPolicy -Id <ObjectId of Policy>
-```
-
-| Parâmetros | Descrição | Exemplo |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** da política que deseja. | `-Id <ObjectId of Policy>` |
-
-</br></br>
+| Cmdlet | Descrição | 
+| --- | --- |
+| [Política new-AzureAD](/powershell/module/azuread/new-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Cria uma nova política. |
+| [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Obtém todas as políticas AD da Azure ou uma política especificada. |
+| [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) | Obtém todas as aplicações e diretores de serviços que estão ligados a uma política. |
+| [Política set-AzureAD](/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Atualiza uma política existente. |
+| [Remover-AzureADPolicy](/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Elimina a política especificada. |
 
 ### <a name="application-policies"></a>Políticas da aplicação
 Pode utilizar os seguintes cmdlets para políticas de aplicação.</br></br>
 
-#### <a name="add-azureadapplicationpolicy"></a>Add-AzureADApplicação Política
-Liga a política especificada a uma aplicação.
-
-```powershell
-Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectId of Policy>
-```
-
-| Parâmetros | Descrição | Exemplo |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** da aplicação. | `-Id <ObjectId of Application>` |
-| <code>&#8209;RefObjectId</code> |**ObjectId** da apólice. | `-RefObjectId <ObjectId of Policy>` |
-
-</br></br>
-
-#### <a name="get-azureadapplicationpolicy"></a>Get-AzureADApplicationPolicy
-Obtém a apólice que é atribuída a uma aplicação.
-
-```powershell
-Get-AzureADApplicationPolicy -Id <ObjectId of Application>
-```
-
-| Parâmetros | Descrição | Exemplo |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** da aplicação. | `-Id <ObjectId of Application>` |
-
-</br></br>
-
-#### <a name="remove-azureadapplicationpolicy"></a>Remover-AzureADApplicaçãoPolição
-Remove uma apólice de uma aplicação.
-
-```powershell
-Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectId of Policy>
-```
-
-| Parâmetros | Descrição | Exemplo |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** da aplicação. | `-Id <ObjectId of Application>` |
-| <code>&#8209;PolicyId</code> |**ObjectId** da apólice. | `-PolicyId <ObjectId of Policy>` |
-
-</br></br>
+| Cmdlet | Descrição | 
+| --- | --- |
+| [Add-AzureADApplicação Política](/powershell/module/azuread/add-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | Liga a política especificada a uma aplicação. |
+| [Get-AzureADApplicationPolicy](/powershell/module/azuread/get-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | Obtém a apólice que é atribuída a uma aplicação. |
+| [Remover-AzureADApplicaçãoPolição](/powershell/module/azuread/remove-azureadapplicationpolicy?view=azureadps-2.0-preview&preserve-view=true) | Remove uma apólice de uma aplicação. |
 
 ### <a name="service-principal-policies"></a>Políticas principais de serviços
 Pode utilizar os seguintes cmdlets para as políticas principais do serviço.
 
-#### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy
-Liga a política especificada a um diretor de serviço.
-
-```powershell
-Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectId <ObjectId of Policy>
-```
-
-| Parâmetros | Descrição | Exemplo |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** da aplicação. | `-Id <ObjectId of Application>` |
-| <code>&#8209;RefObjectId</code> |**ObjectId** da apólice. | `-RefObjectId <ObjectId of Policy>` |
-
-</br></br>
-
-#### <a name="get-azureadserviceprincipalpolicy"></a>Get-AzureADServicePrincipalPolicy
-Obtém qualquer política ligada ao principal de serviço especificado.
-
-```powershell
-Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
-```
-
-| Parâmetros | Descrição | Exemplo |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** da aplicação. | `-Id <ObjectId of Application>` |
-
-</br></br>
-
-#### <a name="remove-azureadserviceprincipalpolicy"></a>Remove-AzureADServicePrincipalPolicy
-Remove a política do principal de serviço especificado.
-
-```powershell
-Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -PolicyId <ObjectId of Policy>
-```
-
-| Parâmetros | Descrição | Exemplo |
-| --- | --- | --- |
-| <code>&#8209;Id</code> |**ObjectId (ID)** da aplicação. | `-Id <ObjectId of Application>` |
-| <code>&#8209;PolicyId</code> |**ObjectId** da apólice. | `-PolicyId <ObjectId of Policy>` |
+| Cmdlet | Descrição | 
+| --- | --- |
+| [Add-AzureADServicePrincipalPolicy](/powershell/module/azuread/add-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Liga a política especificada a um diretor de serviço. |
+| [Get-AzureADServicePrincipalPolicy](/powershell/module/azuread/get-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Obtém qualquer política ligada ao principal de serviço especificado.|
+| [Remove-AzureADServicePrincipalPolicy](/powershell/module/azuread/remove-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Remove a política do principal de serviço especificado.|
 
 ## <a name="license-requirements"></a>Requisitos de licença
 

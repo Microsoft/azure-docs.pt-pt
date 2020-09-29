@@ -1,29 +1,30 @@
 ---
-title: Instalar e executar recipientes - Face
+title: Instale e execute os recipientes Docker para a API face
 titleSuffix: Azure Cognitive Services
-description: Este artigo mostra-lhe como descarregar, instalar e executar recipientes para Face neste tutorial walkthrough.
+description: Utilize o recipiente Docker para a API facial para detetar e identificar rostos humanos em imagens.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: 766af570c959ff2c49256058dfbfffdd1021295f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+keywords: no local, Docker, contentor, identificar
+ms.openlocfilehash: 0f6807f771510f85c5a20cfb2a160cfe1e8726a3
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548468"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461517"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Instalar e executar recipientes face (pré-visualização)
 
 > [!IMPORTANT]
 > Foi atingido o limite de utilizadores do contentor de Face. De momento, não estamos a aceitar novas aplicações para o contentor de Face.
 
-A Azure Cognitive Services Face fornece um recipiente Linux padronizado para Docker que deteta rostos humanos em imagens. Também identifica atributos, que incluem marcos faciais como narizes e olhos, sexo, idade e outras características faciais previstas pela máquina. Além da deteção, o Face pode verificar se duas faces na mesma imagem ou imagens diferentes são as mesmas usando uma pontuação de confiança. Face também pode comparar rostos com uma base de dados para ver se um rosto semelhante ou idêntico já existe. Também pode organizar rostos semelhantes em grupos usando traços visuais partilhados.
+A Azure Cognitive Services Face API fornece um recipiente Linux Docker que deteta e analisa rostos humanos em imagens. Também identifica atributos, que incluem marcos faciais como narizes e olhos, sexo, idade e outras características faciais previstas pela máquina. Além da deteção, o Face pode verificar se duas faces na mesma imagem ou imagens diferentes são as mesmas usando uma pontuação de confiança. Face também pode comparar rostos com uma base de dados para ver se um rosto semelhante ou idêntico já existe. Também pode organizar rostos semelhantes em grupos usando traços visuais partilhados.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
@@ -49,7 +50,7 @@ A tabela seguinte descreve os núcleos e memórias de CPU mínimos e recomendado
 
 | Contentor | Mínimo | Recomendado | Transações por segundo<br>(Mínimo, máximo)|
 |-----------|---------|-------------|--|
-|Face | 1 núcleo, memória de 2 GB | 1 núcleo, memória de 4-GB |10, 20|
+|Rostos | 1 núcleo, memória de 2 GB | 1 núcleo, memória de 4-GB |10, 20|
 
 * Cada núcleo deve ser pelo menos 2,6 GHz ou mais rápido.
 * Transações por segundo (TPS).
@@ -62,7 +63,7 @@ Estão disponíveis imagens de contentores para o serviço Face.
 
 | Contentor | Repositório |
 |-----------|------------|
-| Face | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
+| Rostos | `containerpreview.azurecr.io/microsoft/cognitive-services-face:latest` |
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
@@ -153,7 +154,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para como descarregar, inst
 > [!IMPORTANT]
 > Os contentores dos Serviços Cognitivos não estão licenciados para funcionar sem estarem ligados ao Azure para a medição. Os clientes devem permitir que os recipientes comuniquem sempre informações de faturação com o serviço de medição. Os contentores dos Serviços Cognitivos não enviam dados dos clientes, como a imagem ou texto que está a ser analisado, para a Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para configurações, consulte [recipientes de configuração](face-resource-container-config.md).
 * Para saber mais sobre como detetar e identificar rostos, consulte [a visão geral do Face](Overview.md).

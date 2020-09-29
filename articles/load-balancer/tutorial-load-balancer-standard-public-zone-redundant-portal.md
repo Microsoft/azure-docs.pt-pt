@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: d9f16b612b508a6237c748bd135ff32618015b0b
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 4deab6fcadda36ad729096ff2f38e40ce81c7ae9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86057012"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446092"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Tutorial: VMs de balanceamento de carga em múltiplas zonas de disponibilidade com um Balanceador de Carga Standard, através do portal do Azure
 
@@ -56,7 +56,7 @@ O Balanceador de Carga Standard só suporta endereços IP Públicos Standard. Ao
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | **Selecione Criar novo** e digitar *MyResourceGroupLBAZ* na caixa de texto.|
-    | Nome                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | Region         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Público**.                                        |
     | SKU           | Selecione **Standard**.                          |
@@ -93,7 +93,7 @@ Crie um grupo de segurança de rede para definir ligações recebidas para a sua
     - *myNetworkSecurityGroup* – no nome do grupo de segurança de rede.
     - *myResourceGroupLBAZ* – no nome do grupo de recursos existente.
    
-![Criar uma rede virtual](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
+![A screenshot mostra o painel do grupo de segurança da rede Create.](./media/load-balancer-standard-public-availability-zones-portal/create-nsg.png)
 
 ### <a name="create-network-security-group-rules"></a>Criar regras do grupo de segurança de rede
 
@@ -112,7 +112,7 @@ Nesta secção, irá criar regras do grupo de segurança de rede para permitir l
     - *Allow HTTP* – na descrição da regra do balanceador de carga.
 4. Clique em **OK**.
  
-   ![Criar uma rede virtual](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![A screenshot mostra o painel de regras de segurança de entrada Adicionar.](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. Repita os passos 2 a 4 para criar outra regra com o nome *myRDPRule* para permitir uma ligação RDP de entrada através da porta 3389 com os seguintes valores:
     - *Service Tag* - na **Origem**.
     - *Internet* - na **Etiqueta do serviço de origem**
@@ -229,10 +229,10 @@ Para permitir ao balanceador de carga monitorizar o estado da aplicação, pode 
 
 Para ver o balanceador de carga a distribuir tráfego nas VMs ao longo da zona, pode forçar a atualização do browser.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, o balanceador de carga e todos os recursos relacionados. Para tal, selecione o grupo de recursos que contém o balanceador de carga e clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [o Balancer de Carga Padrão](load-balancer-standard-overview.md).

@@ -6,15 +6,15 @@ author: joplum
 ms.author: joplum
 ms.service: sql-database
 ms.workload: data-services
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/08/2020
 ms.custom: sqldbrb=1
-ms.openlocfilehash: 551276895de0ba659349c20205fa21d3d2c6b43e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6e60403344a0341b4aee74a001287c09ba67e114
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669579"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448898"
 ---
 # <a name="how-to-migrate-your-sqlite-database-to-azure-sql-database-serverless"></a>Como migrar a sua base de dados SQLite para o Azure SQL Database sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

@@ -3,12 +3,12 @@ title: Crie um aparelho Azure Migrate para Hiper-V
 description: Saiba como configurar um aparelho Azure Migrate para avaliar e migrar Os VMs Hiper-V.
 ms.topic: article
 ms.date: 03/23/2020
-ms.openlocfilehash: c53f82268bd1a5d94659a8b749a14fd026f91ce1
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 8841f934ba21fda6cc36b856ea773ed0f53cfe32
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087155"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448087"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurar um aparelho para Hiper-VMs
 
@@ -34,7 +34,7 @@ Para configurar o aparelho utilizando um modelo VHD:
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Gere a chave do projeto Azure Migrate
 
-1. In **Migration Goals**  >  **Servers**  >  **Azure Migrate: Server Assessment**, select **Discover**.
+1. Em **Objetivos de Migração** > **Servidores** > **Azure Migrate: Avaliação do Servidor**, selecione **Detetar**.
 2. In **Discover machines**  >  **Are your machines virtualized?** **Yes, with Hyper-V**
 3. Na **tecla de projeto 1:Generate Azure Migrate**, forneça um nome para o aparelho Azure Migrate que irá configurar para a descoberta de VMs Hiper-V.O nome deve ser alfanumérico com 14 caracteres ou menos.
 1. Clique na **chave Gerar** para iniciar a criação dos recursos Azure necessários. Por favor, não feche a página das máquinas Discover durante a criação de recursos.
@@ -58,7 +58,7 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 1. No computador para o qual transferiu o ficheiro, abra uma janela de comando de administrador.
 2. Executar o seguinte comando para gerar o haxixe para o VHD
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Utilização de exemplo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
+    - Utilização de exemplo: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
 
 
@@ -130,7 +130,7 @@ Se estiver a executar VHDs em SMBs, deve ativar a delegação de credenciais do 
 1. No aparelho VM, este comando. HyperVHost1/HyperVHost2 são nomes de anfitriões exemplo.
 
     ```
-    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
     ```
 
 2. Em alternativa, faça-o no Editor de Política do Grupo Local sobre o aparelho:
@@ -169,10 +169,10 @@ Isto começa a ser descoberto. Leva aproximadamente 2 minutos por anfitrião par
 
 Após o fim da descoberta, pode verificar se os VMs aparecem no portal.
 
-1. Abra o painel Azure Migrate.
+1. Abra o dashboard do Azure Migrate.
 2. Em **Azure Migrate - Servidores**  >  **Azure Migrate:** Página de Avaliação do servidor, clique no ícone que exibe a contagem para **servidores descobertos**.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Experimente [a avaliação do Hiper-V](tutorial-assess-hyper-v.md) com a avaliação do servidor Azure Migrate.

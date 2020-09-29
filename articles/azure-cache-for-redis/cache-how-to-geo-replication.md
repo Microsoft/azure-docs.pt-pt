@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: yegu
-ms.openlocfilehash: 956e3e83686677f3eb9895354a008783df5f7dcd
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e4739c0c550988e1639e89a647815e5dd86b17b7
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003694"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461347"
 ---
 # <a name="how-to-set-up-geo-replication-for-azure-cache-for-redis"></a>Como configurar a geo-replicação para Azure Cache para Redis
 
@@ -145,8 +145,8 @@ Sim, a geo-replicação de caches em VNETs é suportada com ressalvas:
 - A geo-replicação entre caches no mesmo VNET é suportada.
 - A geo-replicação entre caches em diferentes VNETs também é suportada.
   - Se os VNETs estiverem na mesma região, pode ligá-los utilizando [o ntenet VNET](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) ou uma [ligação VPN Gateway VNET-to-VNET](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways#V2V).
-  - Se os VNETs estiverem em diferentes regiões, a geo-replicação utilizando o espreguiçadamento VNET não é suportada devido a uma restrição com os equilibradores de carga interno básicos. Para obter mais informações sobre as restrições de observação do VNET, consulte [Rede Virtual - Peering - Requisitos e restrições](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). A solução recomendada é utilizar uma ligação VPN Gateway VNET-to-VNET.
-
+  - Se os VNETs estiverem em diferentes regiões, a geo-replicação utilizando o peering VNET é suportada, mas um cliente VM em VNET 1 (região 1) não será capaz de aceder à cache em VNET 2 (região 2) através do seu nome DNS devido a uma restrição com os equilibradores internos básicos. Para obter mais informações sobre as restrições de observação do VNET, consulte [Rede Virtual - Peering - Requisitos e restrições](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints). A solução recomendada é utilizar uma ligação VPN Gateway VNET-to-VNET.
+  
 Utilizando [este modelo Azure,](https://azure.microsoft.com/resources/templates/201-redis-vnet-geo-replication/)pode rapidamente implantar duas caches geo-replicadas num VNET ligado a uma ligação VNET-vNET do Gateway VPN.
 
 ### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>Qual é o calendário de replicação da geo-replicação do Redis?
@@ -185,7 +185,7 @@ A falha automática nas regiões de Azure não é suportada por caches geo-repli
 
 Para iniciar uma falha iniciada pelo cliente, primeiro desvincula as caches. Em seguida, mude o seu cliente Redis para utilizar o ponto final de ligação da cache secundária (anteriormente ligada). Quando os dois caches são desvinculados, a cache secundária torna-se novamente uma cache de leitura-escrita regular e aceita pedidos diretamente dos clientes Redis.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Saiba mais sobre o Azure Cache para funcionalidades redis.
 
 * [Cache Azure para os níveis de serviço redis](cache-overview.md#service-tiers)

@@ -6,13 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
+ms.custom: contperfq1
 ms.date: 06/21/2019
-ms.openlocfilehash: de8b69cbe3117a3ec248cee4808b676b39c56658
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 271cae3504601ffa42c077029541cef8c7726053
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324799"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461041"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configurar alertas para trabalhos do Azure Stream Analytics
 
@@ -59,12 +60,12 @@ Recomenda-se que os seguintes alertas sejam necessários para monitorizar o dese
 
 |Métrica|Condição|Agregação do tempo|Limiar|Ações corretivas|
 |-|-|-|-|-|
-|Utilização su%|Maior que|Máximo|80|Existem múltiplos fatores que aumentam a utilização por PARTE. Pode escalar com paralelização de consulta ou aumentar o número de unidades de streaming. Para obter mais informações, veja [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md) (Tirar partido da paralelização de consultas no Azure Stream Analytics).|
-|Erros de tempo de execução|Maior que|Total|0|Examine a atividade ou registos de recursos e eseri as alterações adequadas às entradas, consultas ou saídas.|
-|Atraso da marca de água|Maior que|Máximo|Quando o valor médio desta métrica ao longo dos últimos 15 minutos for maior do que a tolerância de chegada tardia (em segundos). Se não tiver modificado a tolerância de chegada tardia, o padrão é definido para 5 segundos.|Tente aumentar o número de SUs ou paralelizar a sua consulta. Para obter mais informações sobre as SUs, consulte [compreender e ajustar unidades de streaming.](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job) Para obter mais informações sobre a paralelização da sua consulta, consulte [a paralelização da consulta de alavancagem no Azure Stream Analytics](stream-analytics-parallelization.md).|
-|Erros de deserialização de entradas|Maior que|Total|0|Examine a atividade ou registos de recursos e faça alterações apropriadas na entrada. Para obter mais informações sobre registos de recursos, consulte [Troubleshoot Azure Stream Analytics utilizando registos de recursos](stream-analytics-job-diagnostic-logs.md)|
+|Utilização su%|Maior do que|Máximo|80|Existem múltiplos fatores que aumentam a utilização por PARTE. Pode escalar com paralelização de consulta ou aumentar o número de unidades de streaming. Para obter mais informações, veja [Leverage query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md) (Tirar partido da paralelização de consultas no Azure Stream Analytics).|
+|Erros de tempo de execução|Maior do que|Total|0|Examine a atividade ou registos de recursos e eseri as alterações adequadas às entradas, consultas ou saídas.|
+|Atraso da marca de água|Maior do que|Máximo|Quando o valor médio desta métrica ao longo dos últimos 15 minutos for maior do que a tolerância de chegada tardia (em segundos). Se não tiver modificado a tolerância de chegada tardia, o padrão é definido para 5 segundos.|Tente aumentar o número de SUs ou paralelizar a sua consulta. Para obter mais informações sobre as SUs, consulte [compreender e ajustar unidades de streaming.](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job) Para obter mais informações sobre a paralelização da sua consulta, consulte [a paralelização da consulta de alavancagem no Azure Stream Analytics](stream-analytics-parallelization.md).|
+|Erros de deserialização de entradas|Maior do que|Total|0|Examine a atividade ou registos de recursos e faça alterações apropriadas na entrada. Para obter mais informações sobre registos de recursos, consulte [Troubleshoot Azure Stream Analytics utilizando registos de recursos](stream-analytics-job-diagnostic-logs.md)|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)

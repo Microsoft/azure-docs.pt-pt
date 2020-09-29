@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a31c4a5c9d20b5b248f7d722ed3d9289bbb4dded
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 7aa356c806b6b96fa6a22f8642b005b2002f7c2a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335821"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447898"
 ---
 # <a name="administrative-units-in-azure-active-directory"></a>Unidades administrativas em Diretório Ativo Azure
 
@@ -48,7 +48,7 @@ Pode gerir unidades administrativas utilizando o portal Azure, cmdlets e scripts
 
 - [Criar, remover, preencher e adicionar funções às unidades administrativas](roles-admin-units-manage.md): Complete os procedimentos de como fazer
 - [Trabalhar com unidades de administração](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true): Como trabalhar com unidades administrativas utilizando o PowerShell
-- [Suporte de gráfico de unidade administrativa](/graph/api/resources/administrativeunit?view=graph-rest-beta&preserve-view=true): Documentação detalhada no Microsoft Graph para unidades administrativas.
+- [Suporte de gráfico de unidade administrativa](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true): Documentação detalhada no Microsoft Graph para unidades administrativas.
 
 ### <a name="planning-your-administrative-units"></a>Planejando as suas unidades administrativas
 
@@ -95,13 +95,10 @@ Permissões |   MS Graph/PowerShell   | Portal Azure AD | Microsoft 365 admin ce
 gestão administrativa de propriedades e membros do grupo     |  Suportado   |    Suportado    |  Não suportado
 gestão administrativa do licenciamento do grupo   |    Suportado  |    Suportado   |   Não suportado
 
-> [!NOTE]
->
-> Os administradores com um âmbito de unidade administrativa não conseguem gerir regras dinâmicas de adesão ao grupo.
 
 As unidades administrativas aplicam âmbito apenas às permissões de gestão. Não impedem que membros ou administradores utilizem as suas [permissões de utilizador predefinidas](../fundamentals/users-default-permissions.md) para navegar em outros utilizadores, grupos ou recursos fora da unidade administrativa. No centro de administração microsoft 365, os utilizadores fora das unidades administrativas de um administrador de âmbito são filtrados, mas pode navegar em outros utilizadores no portal AD AD, PowerShell e outros serviços da Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Gestão de AUs](roles-admin-units-manage.md)
 - [Gerir utilizadores em AUs](roles-admin-units-add-manage-users.md)

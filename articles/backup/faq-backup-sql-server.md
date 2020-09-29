@@ -4,12 +4,12 @@ description: Encontre respostas a perguntas comuns sobre como fazer backup das b
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 9c6e99b81ce10cfabd4109bb18376b2579edef20
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 6abfdb09fe16272e870fff517359759968417f79
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500339"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461228"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>FAQ sobre bases de dados do SQL Server que estão a funcionar numa cópia de segurança do Azure VM
 
@@ -39,7 +39,7 @@ A cura automática como capacidade é ativada por padrão para todos os utilizad
 
 ## <a name="can-i-control-how-many-concurrent-backups-run-on-the-sql-server"></a>Posso controlar quantas cópias de segurança simultâneas são executadas no servidor SQL?
 
-Yes. Pode acelerar a velocidade a que a política de backup funciona para minimizar o impacto numa instância do SQL Server. Para alterar a definição:
+Sim. Pode acelerar a velocidade a que a política de backup funciona para minimizar o impacto numa instância do SQL Server. Para alterar a definição:
 
 1. Na instância do Servidor SQL, na pasta *de backup\bin de cópia de trabalho do programa C:\Azure,* crie a *ExtensionSettingsOverrides.jsno* ficheiro.
 2. Na *ExtensionSettingsOverrides.jsno* ficheiro, altere a definição **DefaultBackupTasksThreshold** para um valor mais baixo (por exemplo, 5). <br>
@@ -101,6 +101,10 @@ Pode selecionar a base de dados, que agora é renomeada e configurar a proteçã
 Uma base de dados que [adicione a uma instância autoprotegido](backup-sql-server-database-azure-vms.md#enable-auto-protection) pode não aparecer imediatamente em itens protegidos. Isto porque a descoberta normalmente corre a cada 8 horas. No entanto, pode descobrir e proteger novas bases de dados imediatamente se executar manualmente uma descoberta selecionando **Rediscover DBs,** como mostra a seguinte imagem:
 
   ![Descubra manualmente uma base de dados recém-adicionada](./media/backup-azure-sql-database/view-newly-added-database.png)
+  
+## <a name="can-i-protect-databases-that-have-tde-transparent-data-encryption-turned-on-and-will-the-database-stay-encrypted-through-the-entire-backup-process"></a>Posso proteger bases de dados que tenham o TDE (Encriptação de Dados Transparente) ligado e que a base de dados permaneça encriptada durante todo o processo de backup?
+
+Sim, o Azure Backup suporta a cópia de segurança das bases de dados do SQL Server ou do servidor com TDE ativada. A cópia de segurança suporta [o TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) com teclas geridas pela Azure, ou com teclas geridas pelo cliente (BYOK).  A cópia de segurança não executa qualquer encriptação SQL como parte do processo de backup para que a base de dados permaneça encriptada quando estiver cópia de segurança.
 
 ## <a name="next-steps"></a>Próximos passos
 

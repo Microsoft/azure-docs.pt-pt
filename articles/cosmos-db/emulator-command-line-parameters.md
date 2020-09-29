@@ -6,12 +6,13 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
-ms.openlocfilehash: 70e68c566ccb0fe08ce3b8d2dc11fc3c141c16bc
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.custom: contperfq1
+ms.openlocfilehash: f8bcadf25ac8e001657f2be012f99ddb507e672d
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90997800"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91445180"
 ---
 # <a name="command-line-and-powershell-reference-for-azure-cosmos-db-emulator"></a>Linha de comando e referência PowerShell para emulador DB Azure Cosmos
 
@@ -84,7 +85,7 @@ Eis um resumo dos comandos para controlar o emulador a partir do PowerShell:
 
 ### `Get-CosmosDbEmulatorStatus`
 
-**Sintaxe**
+**Syntax**
 
 `Get-CosmosDbEmulatorStatus`
 
@@ -94,7 +95,7 @@ Devolve um dos seguintes valores de ServiceControllerStatus: ServiceControllerSt
 
 ### `Start-CosmosDbEmulator`
 
-**Sintaxe**
+**Syntax**
 
 `Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>] [<CommonParameters>]`
 
@@ -104,7 +105,7 @@ Inicia o emulador. Por predefinição, o comando aguarda até que o emulador est
 
 ### `Stop-CosmosDbEmulator`
 
-**Sintaxe**
+**Syntax**
 
  `Stop-CosmosDbEmulator [-NoWait]`
 
@@ -114,7 +115,7 @@ Para o emulador. Por predefinição, este comando aguarda até que o emulador se
 
 ### `Uninstall-CosmosDbEmulator`
 
-**Sintaxe**
+**Syntax**
 
 `Uninstall-CosmosDbEmulator [-RemoveData]`
 
@@ -144,7 +145,7 @@ Para alterar o número de contentores disponíveis no Emulador Azure Cosmos, exe
 
 1. Inicie o emulador com o sinalizador de PartitionCount, ao definir um valor <= 250. Por exemplo: `C:\Program Files\Azure Cosmos DB Emulator> Microsoft.Azure.Cosmos.Emulator.exe /PartitionCount=100`.
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Exporte os certificados emuladores Azure Cosmos para uso com aplicativos Java, Python e Node.js](local-emulator-export-ssl-certificates.md)
 * [Problemas de depurar com o emulador](troubleshoot-local-emulator.md)

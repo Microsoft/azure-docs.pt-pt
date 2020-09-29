@@ -1,28 +1,31 @@
 ---
-title: Contentores de Serviços Cognitivos Azure
+title: Utilizar recipientes de serviços cognitivos Azure no local
 titleSuffix: Azure Cognitive Services
-description: Saiba como os recipientes Docker podem aproximar os Serviços Cognitivos dos seus dados.
+description: Aprenda a usar os recipientes Docker para usar os Serviços Cognitivos no local.
 services: cognitive-services
 author: aahill
 manager: nitinme
-ms.custom: seodec18
+ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 09/10/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.openlocfilehash: bda6fae31e3f5ef63d2c917937d80b2c1ea4fc48
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+keywords: no local, Docker, contentor, Kubernetes
+ms.openlocfilehash: 48bfad4b101556dfcc4e57cf684341bda8063202
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90907004"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91461211"
 ---
 # <a name="azure-cognitive-services-containers"></a>Contentores dos Serviços Cognitivos Azure
 
 > [!WARNING]
 > A 11 de junho de 2020, a Microsoft anunciou que não irá vender tecnologia de reconhecimento facial a esquadras da polícia nos Estados Unidos até à implementação de uma regulamentação rígida assente nos direitos humanos. Como tal, os clientes não podem utilizar funcionalidades ou funcionalidades de reconhecimento facial incluídas nos Serviços Azure, como o Face ou o Video Indexer, se um cliente estiver, ou estiver a permitir o uso de tais serviços por ou para, um departamento de polícia nos Estados Unidos.
 
-O suporte a contentores nos Serviços Cognitivos Azure permite que os desenvolvedores utilizem as mesmas APIs ricas que estão disponíveis no Azure, e permite flexibilidade em onde implantar e hospedar os serviços que vêm com [os contentores Docker.](https://www.docker.com/what-container) O suporte ao contentor está atualmente disponível para um subconjunto de Serviços Cognitivos Azure, incluindo partes de:
+A Azure Cognitive Services fornece [vários recipientes Docker](https://www.docker.com/what-container) que permitem usar as mesmas APIs que estão disponíveis em Azure, no local. A utilização destes recipientes confere-lhe a flexibilidade para aproximar os Serviços Cognitivos dos seus dados por razões de conformidade, segurança ou outras razões operacionais. 
+
+O suporte ao contentor está atualmente disponível para um subconjunto de Serviços Cognitivos Azure, incluindo partes de:
 
 > [!div class="checklist"]
 > * [Detetor de Anomalias][ad-containers]
@@ -42,9 +45,9 @@ Os recursos dos Serviços Cognitivos estão disponíveis no [Microsoft Azure.](h
 ## <a name="features-and-benefits"></a>Características e benefícios
 
 - **Infraestrutura imutável**: Permitir que as equipas de DevOps aproveitem um conjunto consistente e fiável de parâmetros conhecidos do sistema, ao mesmo tempo que podem adaptar-se à mudança. Os recipientes proporcionam a flexibilidade para girar dentro de um ecossistema previsível e evitar a deriva de configuração.
-- **Controlo sobre os dados**: Permitir que os clientes escolham onde estes Serviços Cognitivos processam os seus dados. Isto é essencial para os clientes que não podem enviar dados para a nuvem, mas precisam de acesso à tecnologia de Serviços Cognitivos. Apoiar a consistência em ambientes híbridos – através de dados, gestão, identidade e segurança.
-- **Controlo sobre atualizações de modelos**: Forneça aos clientes flexibilidade na versão e atualização dos modelos implementados nas suas soluções.
-- **Arquitetura portátil**: Possibilite a criação de uma arquitetura de aplicações portáteis que possa ser implantada em Azure, no local e na borda. Os contentores podem ser implantados diretamente no [Serviço Azure Kubernetes](../aks/index.yml), [Instâncias de Contentores Azure](../container-instances/index.yml)ou num cluster [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](/azure-stack/operator). Para obter mais informações, consulte [Implementar Kubernetes para Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+- **Controlo sobre os dados**: Escolha onde os seus dados são tratados pelos Serviços Cognitivos. Isto pode ser essencial se não puder enviar dados para a nuvem, mas precisa de acesso a APIs de Serviços Cognitivos. Apoiar a consistência em ambientes híbridos – através de dados, gestão, identidade e segurança.
+- **Controlo sobre atualizações de modelos**: Flexibilidade na versão e atualização dos modelos implementados nas suas soluções.
+- **Arquitetura portátil**: Permite a criação de uma arquitetura de aplicações portáteis que possa ser implantada em Azure, no local e na borda. Os contentores podem ser implantados diretamente no [Serviço Azure Kubernetes](../aks/index.yml), [Instâncias de Contentores Azure](../container-instances/index.yml)ou num cluster [Kubernetes](https://kubernetes.io/) implantado no [Azure Stack](/azure-stack/operator). Para obter mais informações, consulte [Implementar Kubernetes para Azure Stack](/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
 - **Alta produção / baixa latência**: Forneça aos clientes a capacidade de escalar para elevados requisitos de produção e baixa latência, permitindo que os Serviços Cognitivos corram fisicamente perto da sua lógica e dados de aplicação. Os contentores não fazem limites às transações por segundo (TPS) e podem ser feitos para escalar tanto para cima como para fora para lidar com a procura se fornecer os recursos de hardware necessários.
 - **Escalabilidade**: Com a crescente popularidade do software de containerização e orquestração de contentores, como Kubernetes; a escalabilidade está na vanguarda dos avanços tecnológicos. Com base numa fundação de cluster escalável, o desenvolvimento de aplicações atende à alta disponibilidade.
 
@@ -77,7 +80,7 @@ Os recipientes Azure Cognitive Services fornecem o seguinte conjunto de recipien
 Além disso, alguns recipientes são suportados em Serviços Cognitivos [**All-In-One oferecendo**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) chaves de recursos. Pode criar um único recurso De Serviços Cognitivos All-In-One e utilizar a mesma chave de faturação através de serviços suportados para os seguintes serviços:
 
 * Imagem Digitalizada
-* Face
+* Rostos
 * LUIS
 * Análise de Texto
 
@@ -105,7 +108,7 @@ Os recipientes individuais também podem ter os seus próprios requisitos, inclu
 
 [!INCLUDE [Discoverability of more container information](../../includes/cognitive-services-containers-discoverability.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [as receitas de recipientes](containers/container-reuse-recipe.md) que pode utilizar com os Serviços Cognitivos.
 

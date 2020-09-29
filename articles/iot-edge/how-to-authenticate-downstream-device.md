@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3ccb8d29d0ec52c31913a43358c7daa1c0693df7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a9d2116062dc45f3602bf5ee0efba31ad815c0c9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84308851"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447854"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticar um dispositivo a jusante no Hub IoT do Azure
 
@@ -69,7 +69,7 @@ Também pode utilizar a [extensão IoT para o Azure CLI](https://github.com/Azur
 az iot hub device-identity create -n {iothub name} -d {new device ID} --pd {existing gateway device ID}
 ```
 
-Para obter mais informações sobre os comandos Azure CLI para a criação de dispositivos e gestão dos pais/filhos, consulte o conteúdo de referência para comandos [de identidade de dispositivo az iot hub.](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest)
+Para obter mais informações sobre os comandos Azure CLI para a criação de dispositivos e gestão dos pais/filhos, consulte o conteúdo de referência para comandos [de identidade de dispositivo az iot hub.](/cli/azure/ext/azure-iot/iot/hub/device-identity)
 
 Em seguida, [recupere e modifique a cadeia de ligação](#retrieve-and-modify-connection-string) para que o seu dispositivo saiba ligar através do seu gateway.
 
@@ -126,7 +126,7 @@ Também pode utilizar a [extensão IoT para o Azure CLI](https://github.com/Azur
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_thumbprint --ptp {primary thumbprint} --stp {secondary thumbprint}
 ```
 
-Para obter mais informações sobre os comandos Azure CLI para a criação de dispositivos, geração de certificados e gestão dos pais e filhos, consulte o conteúdo de referência para comandos [de identidade de dispositivo az iot hub.](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest)
+Para obter mais informações sobre os comandos Azure CLI para a criação de dispositivos, geração de certificados e gestão dos pais e filhos, consulte o conteúdo de referência para comandos [de identidade de dispositivo az iot hub.](/cli/azure/ext/azure-iot/iot/hub/device-identity)
 
 Em seguida, [recupere e modifique a cadeia de ligação](#retrieve-and-modify-connection-string) para que o seu dispositivo saiba ligar através do seu gateway.
 
@@ -172,7 +172,7 @@ Também pode utilizar a [extensão IoT para o Azure CLI](https://github.com/Azur
 az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway device ID} --am x509_ca
 ```
 
-Para obter mais informações, consulte o conteúdo de referência do Azure CLI para comandos [de identidade de dispositivo az iot hub.](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/hub/device-identity?view=azure-cli-latest)
+Para obter mais informações, consulte o conteúdo de referência do Azure CLI para comandos [de identidade de dispositivo az iot hub.](/cli/azure/ext/azure-iot/iot/hub/device-identity)
 
 Em seguida, [recupere e modifique a cadeia de ligação](#retrieve-and-modify-connection-string) para que o seu dispositivo saiba ligar através do seu gateway.
 
@@ -182,15 +182,23 @@ Depois de criar uma identidade do dispositivo IoT no portal, pode recuperar as s
 
 As cadeias de ligação para dispositivos a jusante necessitam dos seguintes componentes:
 
-* O hub IoT a que o dispositivo se conecta:`Hostname={iothub name}.azure-devices.net`
-* O ID do dispositivo registado no centro:`DeviceID={device ID}`
-* Ou a chave primária ou secundária:`SharedAccessKey={key}`
-* O dispositivo de gateway através do dispositivo. Fornecer o valor do **nome do anfitrião** a partir do ficheiro config.yaml do dispositivo de gateway IoT Edge:`GatewayHostName={gateway hostname}`
+* O hub IoT a que o dispositivo se conecta: `Hostname={iothub name}.azure-devices.net`
+* O ID do dispositivo registado no centro: `DeviceID={device ID}`
+* O método de autenticação, seja a chave simétrica ou os certificados X.509
+  * Se utilizar a autenticação simétrica da chave, forneça a chave primária ou secundária: `SharedAccessKey={key}`
+  * Se utilizar a autenticação do certificado X.509, forneça uma bandeira: `x509=true`
+* O dispositivo de gateway através do dispositivo. Fornecer o valor do **nome do anfitrião** a partir do ficheiro config.yaml do dispositivo de gateway IoT Edge: `GatewayHostName={gateway hostname}`
 
 Tudo junto, parece:
 
 ```
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
+```
+
+Ou:
+
+```
+HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice
 ```
 
 Se estabelecer uma relação pai/filho para este dispositivo a jusante, então pode simplificar a cadeia de ligação chamando o gateway diretamente como anfitrião de ligação. As relações entre pais e filhos são necessárias para a autenticação X.509, mas opcionais para a autenticação da chave simétrica. Por exemplo:

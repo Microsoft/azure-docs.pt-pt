@@ -5,15 +5,15 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/22/2020
 ms.author: memildin
-ms.openlocfilehash: 065c6661ffc9f618a5dfd32a9f45d26569a56003
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: db042a6112944e1c825177506782758d0a96b390
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89278178"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448393"
 ---
 # <a name="using-custom-security-policies"></a>Usando políticas de segurança personalizadas
 
@@ -52,7 +52,7 @@ Como discutido na [documentação da Política Azure,](https://docs.microsoft.co
     1. Insira a localização e o nome da definição.
     1. Selecione as políticas para incluir e clique **Em Adicionar**.
     1. Introduza os parâmetros desejados.
-    1. Clique em **Guardar**.
+    1. Clique em **Save** (Guardar).
     1. Na página De iniciativas personalizadas Adicionar, clique em atualização. A sua nova iniciativa será mostrada como disponível.
     1. Clique **em Adicionar** e atribua-o à sua subscrição.
 

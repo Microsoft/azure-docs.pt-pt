@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: e422b019dd17c8c56ba99b5826e9f6215459c382
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: f7268f698dcc26dbe99b517c9dd4584be67c3a82
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825366"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448466"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução Mapa de Serviços no Azure
 
@@ -169,7 +169,7 @@ Certos processos servem papéis específicos em máquinas: servidores web, servi
 
 As ligações falhadas são mostradas nos mapas do Mapa de Serviço para processos e computadores, com uma linha vermelha tracejada indicando que um sistema de clientes não está a conseguir chegar a um processo ou porta. As ligações falhadas são reportadas a partir de qualquer sistema com um agente do Mapa de Serviço implantado se esse sistema for o único a tentar a ligação falhada. O Mapa de Serviço mede este processo observando tomadas TCP que não estabelecem uma ligação. Esta falha pode resultar de uma firewall, de uma configuração errada no cliente ou servidor ou de um serviço remoto indisponível.
 
-![Ligações falhadas](media/service-map/failed-connections.png)
+![Screenshot de uma parte de um Mapa de Serviço realçando uma linha vermelha tracejada que indica uma ligação falhada entre o processo backup.pl e o Porto 4475.](media/service-map/failed-connections.png)
 
 Compreender as ligações falhadas pode ajudar na resolução de problemas, validação de migração, análise de segurança e compreensão arquitetónica geral. As ligações falhadas são por vezes inofensivas, mas muitas vezes apontam diretamente para um problema, como um ambiente de falha súbita tornando-se subitamente inacessível, ou dois níveis de aplicação incapazes de falar após uma migração em nuvem.
 
@@ -189,11 +189,11 @@ Os Grupos de Portas do Servidor são caixas que representam portas de servidores
 
 ![Grupos de porta de servidor](media/service-map/server-port-groups.png)
 
-## <a name="context-menu"></a>Menu Contexto
+## <a name="context-menu"></a>Menu de contexto
 
 Clicar na elipse (...) no canto superior direito de qualquer servidor exibe o menu de contexto para esse servidor.
 
-![Ligações falhadas](media/service-map/context-menu.png)
+![Screenshot mostrando o menu de contexto aberto para um servidor no Mapa de Serviço. O menu tem as opções Carregar mapa do servidor e mostrar auto-ligações.](media/service-map/context-menu.png)
 
 ### <a name="load-server-map"></a>Mapa do servidor de carga
 
@@ -258,7 +258,7 @@ A integração do Mapa de Serviço com o Change Tracking é automática quando a
 
 O **painel de rastreio de mudança de máquina** lista todas as alterações, com a primeira mais recente, juntamente com um link para perfurar para registar procurar detalhes adicionais.
 
-![Painel de rastreio de mudança de máquina](media/service-map/change-tracking.png)
+![Screenshot do painel de rastreio de mudança de máquina no mapa de serviço.](media/service-map/change-tracking.png)
 
 A imagem a seguir é uma visão detalhada de um evento ConfigurationChange que poderá ver depois de selecionar **Show in Log Analytics**.
 
@@ -300,7 +300,7 @@ A integração do Mapa de Serviço com a Gestão de Atualização é automática
 
 O **painel de atualizações** da máquina exibe dados da solução de Gestão de Atualização para o servidor selecionado. O painel lista um resumo de quaisquer atualizações em falta para o servidor durante o intervalo de tempo selecionado.
 
-![Painel de rastreio de mudança de máquina](media/service-map/machine-updates.png)
+![Screenshot do painel de atualizações da máquina no mapa de serviço.](media/service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Registos do Log Analytics
 
@@ -548,7 +548,7 @@ A Microsoft recolhe automaticamente dados de utilização e desempenho através 
 
 Para obter mais informações sobre a recolha e utilização de dados, consulte a [Declaração de Privacidade dos Serviços Online da Microsoft](https://go.microsoft.com/fwlink/?LinkId=512132).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [pesquisas de registo](../log-query/log-query-overview.md) no Log Analytics para recuperar dados recolhidos pelo Mapa de Serviços.
 

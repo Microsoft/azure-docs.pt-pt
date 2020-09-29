@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: a108459985f235f0280354ef7b4fa0cb181f5dda
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: b23783080e976f70ba8c5e02f67dcee36bbc9c34
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90054250"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444957"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>Conectividade SSL/TLS na Base de Dados Azure para MariaDB
 A Azure Database for MariaDB suporta ligar o seu servidor de base de dados a aplicações de clientes utilizando a Camada de Tomadas Seguras (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
@@ -56,6 +56,17 @@ Por exemplo, definir o valor da versão de definição mínima de TLS para TLS 1
 > Uma vez executada uma versão TLS mínima, não pode desativar a aplicação mínima da versão.
 
 Para aprender a configurar a definição de TLS para a sua Base de Dados Azure para MariaDB, consulte como [configurar a definição de TLS](howto-tls-configurations.md).
+
+## <a name="cipher-support-by-azure-database-for-mariadb"></a>Cipher support by Azure Database for MariaDB
+
+Como parte da comunicação SSL/TLS, as suítes cifra são validadas e apenas os fatos de cifra de suporte são autorizados a comunicar ao serer da base de dados. A validação da suíte cifra é controlada na camada de [gateway](concepts-connectivity-architecture.md#connectivity-architecture) e não explicitamente no próprio nó. Se as suítes de cifra não corresponderem a uma das suites listadas abaixo, as ligações ao cliente recebidas serão rejeitadas.
+
+### <a name="cipher-suite-supported"></a>Suíte cifra apoiada
+
+*   TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+*   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="next-steps"></a>Próximos passos
 - Saiba mais sobre [as regras de firewall do servidor](concepts-firewall-rules.md)

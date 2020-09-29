@@ -1,24 +1,25 @@
 ---
-title: Como instalar e executar contentores - Visão de Computador
+title: Instale e execute os recipientes Docker para a API de Leitura de Visão de Computador
 titleSuffix: Azure Cognitive Services
-description: Como descarregar, instalar e executar recipientes para Visão de Computador neste tutorial walkthrough.
+description: Utilize o recipiente Docker para a Visão de Computador Ler API para detetar e extrair texto de imagens, no local.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/28/2020
 ms.author: aahi
-ms.custom: seodec18
-ms.openlocfilehash: 2c21c872649e3b171f2658ef6bdb0476552f0e59
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.custom: seodec18, cog-serv-seo-aug-2020
+keywords: no local, Docker, contentor
+ms.openlocfilehash: 17aa0050ed3e2a2f5a2cc83964d032caa4b8c098
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397199"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460446"
 ---
-# <a name="install-and-run-read-containers-preview"></a>Instalar e executar Recipientes de leitura (pré-visualização)
+# <a name="install-and-run-docker-containers-for-the-read-api-preview"></a>Instale e execute os recipientes Docker para a API de leitura (pré-visualização) 
 
 [!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 
@@ -508,7 +509,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 > [!IMPORTANT]
 > Os recipientes dos Serviços Cognitivos não estão licenciados para funcionar sem estarem ligados ao Azure para a medição. Os clientes precisam de permitir que os contentores comuniquem informações de faturação com o serviço de medição em todos os momentos. Os recipientes de Serviços Cognitivos não enviam dados do cliente (por exemplo, a imagem ou texto que está a ser analisado) para a Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Rever recipientes de configuração](computer-vision-resource-container-config.md) para configurações de configuração
 * Reveja [a visão geral da Visão computacional](overview.md) para saber mais sobre o reconhecimento de texto impresso e manuscrito

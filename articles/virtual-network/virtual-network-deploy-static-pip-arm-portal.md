@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: allensu
-ms.openlocfilehash: 745b12e2278c487ed49a9d2d726a760a7df8f276
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9e06e4079a5118e0aa9dedb1fca719f0b28e5716
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84703172"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448633"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-the-azure-portal"></a>Criar uma máquina virtual com um endereço IP público estático utilizando o portal Azure
 
@@ -38,7 +38,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     |---|---|
     |Nome|myVM|
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
-    |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe deve ter pelo menos 12 caracteres de comprimento e satisfazer os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Utilizar existente** e selecione **myResourceGroup**.|
     |Localização| Selecione **E.U.A. Leste**.|
@@ -60,18 +60,18 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 9. Assim que a máquina virtual for implantada, insira o *myPublicIpAddress* na caixa de pesquisa no topo do portal. Quando **o meuPublicIpAddress** aparecer nos resultados da pesquisa, selecione-o.
 10. Pode visualizar o endereço IP público que é atribuído e que o endereço é atribuído à máquina virtual **myVM,** como mostra a seguinte imagem:
 
-    ![Ver endereço IP público](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-overview.png)
+    ![A screenshot mostra o painel de endereços Public I P com o endereço I P e o nome chamado. ](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-overview.png)
 
     O Azure atribuiu um endereço IP público a partir de endereços utilizados na região em que criou a máquina virtual. Pode transferir a lista de intervalos (prefixos) das clouds [Pública](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062) e [Alemanha](https://www.microsoft.com/download/details.aspx?id=57064) do Azure.
 
 11. Selecione **Configuração** para confirmar que a atribuição é **estática.**
 
-    ![Ver endereço IP público](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-configuration.png)
+    ![A screenshot mostra o painel de endereços Public I P com o item de Configuração selecionado.](./media/virtual-network-deploy-static-pip-arm-portal/public-ip-configuration.png)
 
 > [!WARNING]
 > Não modifique as definições do endereço IP dentro do sistema operativo da máquina virtual. O sistema operativo desconhece os endereços IP públicos do Azure. Embora possa adicionar definições privadas de endereço IP ao sistema operativo, recomendamos que não o faça a menos que seja necessário, e só depois de ler [Adicione um endereço IP privado a um sistema operativo](virtual-network-network-interface-addresses.md#private).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos e todos os recursos contidos no mesmo:
 

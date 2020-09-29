@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 0e29b25f5d846cae1563ea90271cf007d02e248c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a17546f11db881ecacd39986bcd80d9d63b24644
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324272"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448209"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Quickstart: Monitorize um recurso Azure com o Azure Monitor
 [O Azure Monitor](../overview.md) começa a recolher dados dos recursos da Azure no momento em que são criados. Este quickstart fornece uma breve passagem pelos dados que são automaticamente recolhidos para um recurso e como vê-lo no portal Azure para um determinado recurso. Mais tarde, pode adicionar configuração para recolher dados adicionais e pode ir ao menu Azure Monitor para usar as mesmas ferramentas para aceder aos dados recolhidos para todos os recursos da sua subscrição.
@@ -40,11 +40,11 @@ O registo de Atividade fornece informações sobre as operações de cada recurs
 1. No topo do menu para o seu recurso, selecione **Registo de atividade**.
 2. O filtro atual está definido para eventos relacionados com o seu recurso. Se não vir nenhum evento, tente alterar o **Timespan** para aumentar o tempo.
 
-    ![Registo de atividades](media/quick-monitor-azure-resource/activity-log-resource.png)
+    ![Screenshot de um recurso Activity Log in Azure portal mostrando uma lista de operações para o recurso gerado usando os critérios de filtro predefinidos.](media/quick-monitor-azure-resource/activity-log-resource.png)
 
 4. Se pretender ver eventos de outros recursos na sua subscrição, altere os critérios no filtro ou até remova as propriedades do filtro.
 
-    ![Registo de atividades](media/quick-monitor-azure-resource/activity-log-all.png)
+    ![Screenshot de um recurso Activity Log in Azure portal mostrando uma lista de operações para o recurso gerado usando critérios de filtro modificados.](media/quick-monitor-azure-resource/activity-log-all.png)
 
 
 
@@ -54,19 +54,19 @@ As métricas são valores numéricos que descrevem algum aspeto do seu recurso n
 1. Na secção **de Monitorização** do menu do seu recurso, selecione **Métricas**. Isto abre métricas de explorador com o âmbito definido para o seu recurso.
 2. Clique **em Adicionar métrica** para adicionar uma métrica ao gráfico.
    
-   ![Explorador de Métricas](media/quick-monitor-azure-resource/metrics-explorer-01.png)
+   ![Screenshot do explorador de métricas no portal Azure mostrando as métricas para um recurso. A queda métrica está aberta para adicionar novas métricas.](media/quick-monitor-azure-resource/metrics-explorer-01.png)
    
 4. Selecione uma **métrica** da lista de abandono e, em **seguida, uma agregação**. Isto define como os valores recolhidos serão amostrados ao longo de cada intervalo de tempo.
 
-    ![Explorador de Métricas](media/quick-monitor-azure-resource/metrics-explorer-02.png)
+    ![Screenshot do explorador de métricas no portal Azure mostrando as métricas para um recurso. O dropdown de agregação está aberto e Avg é selecionado.](media/quick-monitor-azure-resource/metrics-explorer-02.png)
 
 5. Clique **em Adicionar métrica** para adicionar combinações métricas e agregações adicionais ao gráfico.
 
-    ![Explorador de Métricas](media/quick-monitor-azure-resource/metrics-explorer-03.png)
+    ![Screenshot do explorador de métricas no portal Azure mostrando as métricas para um recurso.](media/quick-monitor-azure-resource/metrics-explorer-03.png)
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste arranque rápido, viu o registo de atividade e as métricas de um recurso Azure que são automaticamente recolhidos pelo Azure Monitor. Continue até ao próximo quickstart que lhe mostra como recolher o login de Atividade num espaço de trabalho log Analytics onde podem ser [analisados](../log-query/log-query-overview.md)através de consultas de registo .
 
 > [!div class="nextstepaction"]

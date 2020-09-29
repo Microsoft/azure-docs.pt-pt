@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp
-ms.openlocfilehash: 353ed321ce3b6161b28bf67d852a81f809880603
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d7ff9efcedc1a6a5f92555a62e429be0431f2098
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "81733017"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91448508"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutorial: Configurar um dispositivo IoT Edge
 
@@ -167,7 +167,7 @@ Em seguida, execute o script para criar a máquina virtual para o seu dispositiv
     * Crie o grupo de recursos se já não existir
     * Criar a máquina virtual
     * Adicione exceções NSG para o VM para as portas 22 (SSH), 5671 (AMQP), 5672 (AMPQ) e 443 (TLS)
-    * Instalar o [Azure CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
+    * Instale o [Azure CLI](/cli/azure/install-azure-cli-apt)
 
 7. O script produz a cadeia de ligação SSH para a ligação ao VM. Copie a cadeia de ligação para o próximo passo.
 
@@ -295,7 +295,7 @@ Em seguida, atualizaremos os certificados e o nome anfitrião editando diretamen
     journalctl -u iotedge --no-pager --no-full
     ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Acabamos de configurar um Azure VM como Azure IoT Edge Transparent Gateway. Começamos por gerar certificados de teste que enviamos para o Cofre da Chave Azure. Em seguida, usamos um modelo de script e gestor de recursos para implementar o VM com a imagem "Ubuntu Server 16.04 LTS + Azure IoT Edge runtime" do Mercado Azure. Com o VM em funcionamento, ligámos via SSH, assinámos no Azure e descarregamos certificados do Key Vault. Fizemos várias atualizações para a configuração do IoT Edge Runtime atualizando o ficheiro config.yaml.
 

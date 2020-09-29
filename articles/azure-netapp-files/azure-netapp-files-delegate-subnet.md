@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: da7aa0889940c560df705e3c47f5ccb1960aee2c
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: bed1375631c017d23ed53b6102c424533237099e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361029"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447555"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegar uma sub-rede para os Azure NetApp Files 
 
@@ -33,7 +33,8 @@ Tem de delegar uma sub-rede para ficheiros Azure NetApp.   Quando cria um volume
    Só pode ter uma única sub-rede delegada num VNet. Uma conta NetApp pode implantar volumes em vários VNets, cada um com a sua própria sub-rede delegada.  
 * Não é possível designar um grupo de segurança de rede ou ponto final de serviço na sub-rede delegada. Ao fazê-lo, a delegação da sub-rede falha.
 * O acesso a um volume a partir de uma rede virtual globalmente espreitada não é suportado atualmente.
-* A criação [de rotas personalizadas definidas pelo utilizador](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) nas sub-redes VM com prefixo de endereço (destino) para uma sub-rede delegada no Azure NetApp Files não é suportada. Ao fazê-lo, terá impacto na conectividade VM. O Azure NetApp Files cria uma rota de sistema para a sub-rede delegada. A rota é mostrada em **rotas eficazes** na tabela de rotas se precisar dela para a resolução de problemas.
+* [As rotas definidas pelo utilizador](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) (UDRs) e os grupos de segurança da rede (NSGs) não são suportados em sub-redes delegadas para ficheiros Azure NetApp. No entanto, pode aplicar UDRs e NSGs a outras sub-redes, mesmo dentro do mesmo VNet que a sub-rede delegada nos Ficheiros Azure NetApp.  
+   O Azure NetApp Files cria uma rota de sistema para a sub-rede delegada. A rota é mostrada em **rotas eficazes** na tabela de rotas se precisar dela para a resolução de problemas.
 
 ## <a name="steps"></a>Passos
 
@@ -50,7 +51,7 @@ Tem de delegar uma sub-rede para ficheiros Azure NetApp.   Quando cria um volume
     
 Também pode criar e delegar uma sub-rede quando [criar um volume para ficheiros Azure NetApp](azure-netapp-files-create-volumes.md). 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar um volume para o Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Conheça a integração de redes virtuais para serviços Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)

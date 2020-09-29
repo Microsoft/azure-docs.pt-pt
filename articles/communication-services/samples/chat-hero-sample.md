@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fe5fe29a66483934ae47f70512a310a4ae6bb1b1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b97b80927739d9a8658213a00b415c0bf321528b
+ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91303250"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91460565"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Começa com a amostra de herói de chat de grupo
 
@@ -42,11 +42,11 @@ Aqui está o aspeto da amostra:
 
 Quando carrega no botão "Iniciar um Chat", a aplicação web requer um token de acesso do utilizador a partir da aplicação do lado do servidor. Este token é então usado para ligar a app do cliente aos Serviços de Comunicação Azure. Assim que o sinal for recuperado, serão solicitados a especificar o seu nome e emoji que o representarão no chat. 
 
-:::image type="content" source="./media/chat/pre-chat.png" alt-text="Screenshot mostrando o ecrã pré-chat da aplicação.":::
+:::image type="content" source="./media/chat/pre-chat.png" alt-text="Screenshot mostrando a página de aterragem da aplicação da amostra.":::
 
 Assim que configurar o nome do ecrã e o emoji, pode juntar-se à sessão de chat. Agora você verá a tela principal de chat onde vive a experiência de chat principal.
 
-:::image type="content" source="./media/chat/main-app.png" alt-text="Screenshot mostrando o ecrã principal da aplicação da amostra.":::
+:::image type="content" source="./media/chat/main-app.png" alt-text="Screenshot mostrando a página de aterragem da aplicação da amostra.":::
 
 Componentes do ecrã principal do chat:
 
@@ -61,7 +61,7 @@ Abaixo encontrará mais informações sobre pré-requisitos e passos para config
 - Crie uma conta Azure com uma subscrição ativa. Para mais detalhes, consulte [Criar uma conta gratuitamente.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Node.js (8.11.2 ou superior)](https://nodejs.org/en/download/)
 - [Estúdio Visual (2017 e acima)](https://visualstudio.microsoft.com/vs/)
-- [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2) (Certifique-se de instalar versão que corresponda à sua instância de estúdio visual, 32 vs 64 bit)
+- [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Certifique-se de instalar versão que corresponda à sua instância de estúdio visual, 32 vs 64 bit)
 - Criar um recurso Azure Communication Services. Para mais detalhes, consulte [Criar um Recurso de Comunicação Azure](../quickstarts/create-communication-resource.md). Terá de gravar a **sua cadeia de ligação** de recursos para este arranque rápido.
 
 ## <a name="locally-deploying-the-service--client-app"></a>Implantação local do serviço & app de clientes
@@ -101,7 +101,7 @@ Pode testar a amostra localmente abrindo várias sessões de navegador com o URL
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../quickstarts/create-communication-resource.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 >[!div class="nextstepaction"] 
 >[Faça o download da amostra do GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Chat%20Hero%20Sample/Web/Chat)

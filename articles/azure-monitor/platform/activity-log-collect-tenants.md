@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: 7718bd5cbc3c3fc3c9632818f769c05cd1617361
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: cd0a510480673c48f23b25f48ead5d75e2d05c84
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321875"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91447640"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Colete os registos de atividades do Azure no Azure Monitor através dos inquilinos do Azure Ative Directory (legado)
 
@@ -102,7 +102,7 @@ A aplicação lógica inclui o seguinte:
 - Uma [ação Compose](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) (Compor) para converter o JSON num objeto.
 - Um [Log Analytics envia o conector de dados](/connectors/azureloganalyticsdatacollector/) para publicar os dados no espaço de trabalho do Log Analytics.
 
-   ![imagem da adição do acionador do hub de eventos nas aplicações lógicas.](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
+   ![Screenshot do Logic App Designer mostrando os passos para recolher registos de atividade do centro de eventos e escrevê-los para o espaço de trabalho Log Analytics.](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
 ### <a name="logic-app-requirements"></a>Requisitos da Aplicação Lógica
 Antes de criar a sua aplicação lógica, confirme que tem as seguintes informações dos passos anteriores:
@@ -145,7 +145,7 @@ O Estruturador de Aplicações Lógicas mostra-lhe agora os conectores disponív
 
 1. Na caixa de pesquisa do Estruturador da Aplicação Lógica, escreva *hubs de eventos* como filtro. Selecione o acionador **Event Hubs - When events are available in Event Hub** (Hubs de Eventos - quando estiverem disponíveis eventos no Hub de Eventos).
 
-   ![imagem da adição do acionador do hub de eventos nas aplicações lógicas.](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-trigger.png)
+   ![Screenshot do Logic App Designer com o gatilho "Event Hubs - Quando os eventos estão disponíveis no Event Hub" disparado selecionado para o serviço Desempresa.](media/collect-activity-logs-subscriptions/logic-apps-event-hub-add-trigger.png)
 
 2. Quando lhe forem pedidas as credenciais, ligue-se ao espaço de nomes do Hub de Eventos. Introduza um nome para a ligação e, depois, introduza a cadeia de ligação que copiou.  Selecione **Criar**.
 
@@ -315,14 +315,14 @@ Com o fluxo de trabalho concluído, pode testar no designer para verificar se es
 
 No Estruturador de Aplicações Lógicas, selecione, clique em **Run** para testar a aplicação lógica. Cada passo na aplicação lógica mostra um ícone de estado, com uma marca de verificação branca num círculo verde que indica êxito.
 
-   ![testar a aplicação lógica](media/collect-activity-logs-subscriptions/test-logic-app.png)
+   ![Screenshot do Logic App Designer depois de um teste ter sido executado. Cada passo da Aplicação Lógica tem uma marca de verificação que indica o sucesso.](media/collect-activity-logs-subscriptions/test-logic-app.png)
 
 Para ver informações detalhadas sobre cada passo, clique nos nomes dos mesmos para expandi-los. Clique em **Show raw inputs** (Mostrar entradas não processadas) e em **Show raw outputs** (Mostrar saídas não processadas) para ver mais informações sobre os dados recebidos e enviados em cada um dos passos.
 
 ## <a name="step-5---view-azure-activity-log-in-log-analytics"></a>Passo 5 - Ver o Registo de Atividades do Azure no Log Analytics
 O último passo é verificar a área de trabalho do Log Analytics, para confirmar que os dados estão a ser recolhidos conforme esperado.
 
-1. No portal do Azure, clique em **Todos os serviços**, que se encontra no canto superior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Log Analytics**.
+1. No portal do Azure, clique em **Todos os serviços**, que se encontra no canto superior esquerdo. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione o **Log Analytics**.
 2. Na lista de áreas de trabalho do Log Analytics, selecione a sua área de trabalho.
 3.  Clique no mosaico **Pesquisa de Registos**, no painel Pesquisa de Registos, no tipo de campo de consulta `AzureActivity_CL` e, em seguida, prima Enter ou clique no botão de pesquisa à direita do campo de consulta. Se não tiver dado o nome *AzureActivity* ao seu registo personalizado, escreva o nome que escolheu e acrescente `_CL`.
 
@@ -333,9 +333,9 @@ O último passo é verificar a área de trabalho do Log Analytics, para confirma
 > Os registos de atividades são escritos numa tabela personalizada e não aparecem na [solução Registo de Atividades](./activity-log.md).
 
 
-![testar a aplicação lógica](media/collect-activity-logs-subscriptions/log-analytics-results.png)
+![Screenshot de uma pesquisa por AzureActivity_CL no painel de pesquisa de log mostrando uma tabela de resultados com um resultado expandido para mostrar detalhes de atividade.](media/collect-activity-logs-subscriptions/log-analytics-results.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, criou uma aplicação lógica para ler Registos de Atividades Azure a partir de um Centro de Eventos e enviá-los para o espaço de trabalho Log Analytics para análise. Para saber mais sobre a visualização de dados num espaço de trabalho, incluindo a criação de dashboards, reveja o tutorial para visualizar dados.
 

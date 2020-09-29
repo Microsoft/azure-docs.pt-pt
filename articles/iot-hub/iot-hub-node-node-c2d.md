@@ -13,12 +13,12 @@ ms.custom:
 - amqp
 - mqtt
 - devx-track-js
-ms.openlocfilehash: 2956c06614d6c374df6b073567bf7de688ee67c7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e398138f12c38e5235a0004679d9574dbde607db
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91315988"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446882"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>Envie mensagens nuvem-para-dispositivo com IoT Hub (Node.js)
 
@@ -77,11 +77,20 @@ Nesta secção, modifica a aplicação de dispositivo simulado criada em [Enviar
     });
     ```
 
-    Neste exemplo, o dispositivo invoca a função **completa** para notificar o IoT Hub de que processou a mensagem. A chamada para **completar** não é necessária se estiver a utilizar o transporte MQTT e puder ser omitida. É necessário para HTTPS e AMQP.
+Neste exemplo, o dispositivo invoca a função **completa** para notificar o IoT Hub de que processou a mensagem e que pode ser removido com segurança da fila do dispositivo. A chamada para **completar** não é necessária se estiver a utilizar o transporte MQTT e puder ser omitida. É necessário para AMQP e HTTPS.
+
+Com AMQP e HTTPS, mas não MQTT, o dispositivo também pode:
+
+* Abandone uma mensagem, o que resulta em IoT Hub manter a mensagem na fila do dispositivo para consumo futuro.
+* Rejeite uma mensagem que remova permanentemente a mensagem da fila do dispositivo.
+
+Se algo acontecer que impeça o dispositivo de completar, abandonar ou rejeitar a mensagem, o IoT Hub irá, após um período de tempo fixo, fazer fila para a entrega novamente. Por este motivo, a lógica de processamento de mensagens na aplicação do dispositivo deve ser *idempotente*– de modo a que receber a mesma mensagem várias vezes produza o mesmo resultado.
+
+Para obter informações mais detalhadas sobre como o IoT Hub processa mensagens nuvem-dispositivo, incluindo detalhes do ciclo de vida da mensagem nuvem-para-dispositivo, consulte [Enviar mensagens cloud-to-device a partir de um hub IoT](iot-hub-devguide-messages-c2d.md).
   
-   > [!NOTE]
-   > Se utilizar HTTPS em vez de MQTT ou AMQP como transporte, o exemplo **de DeviceClient** verifica frequentemente as mensagens do IoT Hub (menos de 25 minutos). Para obter mais informações sobre as diferenças entre o suporte MQTT, AMQP e HTTPS e o estrangulamento do IoT Hub, consulte o guia de desenvolvimento do [IoT Hub.](iot-hub-devguide-messaging.md)
-   >
+> [!NOTE]
+> Se utilizar HTTPS em vez de MQTT ou AMQP como transporte, o **exemplo de DeviceClient** verifica frequentemente as mensagens do IoT Hub (um mínimo de cada 25 minutos). Para obter mais informações sobre as diferenças entre suporte MQTT, AMQP e HTTPS, consulte [a orientação de comunicações Cloud-to-device](iot-hub-devguide-c2d-guidance.md) e [Escolha um protocolo de comunicação](iot-hub-devguide-protocols.md).
+>
 
 ## <a name="get-the-iot-hub-connection-string"></a>Obtenha a cadeia de conexão do hub IoT
 
@@ -191,7 +200,7 @@ Pode agora executar as aplicações.
    > Para simplificar, este tutorial não implementa nenhuma política de retenção. No código de produção, deve implementar políticas de reequipante (como o backoff exponencial), como sugerido no artigo, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
    >
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a enviar e receber mensagens cloud-to-device.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: f75853a66c43c69ec191f28951f8f6ffc4353f93
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6b166e46c8ebb640e15c005e2ddae3161e141f10
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330167"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91446778"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Quais são os alvos de computação em Azure Machine Learning? 
 
@@ -102,11 +102,25 @@ Consulte a tabela seguinte para saber mais sobre séries e restrições apoiadas
 
 Embora a Azure Machine Learning suporte estas séries VM, podem não estar disponíveis em todas as regiões do Azure. Pode consultar as séries VM: [Produtos disponíveis por Região.](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)
 
+### <a name="compute-isolation"></a>Isolamento computacional
+
+O Azure Machine Learning Compute oferece tamanhos de máquinas virtuais que são isolados a um tipo de hardware específico e dedicados a um único cliente. Os tamanhos de máquinas virtuais isolados são mais adequados para cargas de trabalho que requerem um alto grau de isolamento das cargas de trabalho de outros clientes por razões que incluem o cumprimento dos requisitos de conformidade e regulamentação. Utilizar um tamanho isolado garante que a sua máquina virtual será a única a funcionar nessa instância específica do servidor.
+
+As atuais ofertas de máquinas virtuais isoladas incluem:
+* Standard_M128ms
+* Standard_F72s_v2
+* Standard_NC24s_v3
+* Standard_NC24rs_v3*
+
+*Com capacidade RDMA
+
+Consulte aqui para saber mais sobre [o Isolamento na Nuvem Pública do Azure.](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices)
+
 ## <a name="unmanaged-compute"></a>Computação não gerido
 
 Um alvo computacional não gerido *não* é gerido pela Azure Machine Learning. Você cria este tipo de meta de computação fora do Azure Machine Learning e, em seguida, anexá-lo ao seu espaço de trabalho. Os recursos computacional não geridos podem exigir medidas adicionais para manter ou melhorar o desempenho das cargas de trabalho de aprendizagem automática.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Aprenda a:
 * [Use um alvo computacional para treinar o seu modelo](how-to-set-up-training-targets.md)
