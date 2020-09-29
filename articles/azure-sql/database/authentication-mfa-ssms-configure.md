@@ -7,17 +7,17 @@ ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: has-adal-ref, sqldbrb=3
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 8f72b9e9dfc2aa35960f9f81219a4c8973e2fe5b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2aac6979839d630645b4a05a029ce4c32037547b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91277929"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444221"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configure a autenticação multi-factor para SQL Server Management Studio e AZure AD
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -74,7 +74,7 @@ Os passos a seguir mostram como ligar utilizando o SSMS mais recente.
 
 Quando a verificação está concluída, o SSMS liga-se normalmente presumindo credenciais válidas e acesso a firewall.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma visão geral da autenticação multi-factor, consulte [a Autenticação Universal com Base de Dados SQL, SQL Managed Instance e Azure Synapse (suporte SSMS para MFA)](../database/authentication-mfa-ssms-overview.md).  
 - Concede acesso à sua base de dados: [Autenticação e Autorização de Dados sql: Concessão de Acesso](logins-create-manage.md)  

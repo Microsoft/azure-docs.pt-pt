@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2020
 ms.author: duau
-ms.openlocfilehash: 349c00b312ba7c3f18bab04fb059199732b4f1b3
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: edeaaf97c818831aa1eda5823ea491110f784549
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89398754"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442355"
 ---
 # <a name="wildcard-domains"></a>Domínios wildcard
 
@@ -72,7 +72,7 @@ Se não quiser que uma política da WAF seja executada por um subdomínio, pode 
 Ao configurar uma regra de encaminhamento, pode selecionar um domínio wildcard como anfitrião frontal. Você também pode ter diferentes comportamentos de rota para domínios wildcard e subdomínios. Como descrito em [Como Azure Front Door faz a correspondência](front-door-route-matching.md)de rota, a correspondência mais específica para o domínio através de diferentes regras de encaminhamento é escolhida em tempo de execução.
 
 > [!IMPORTANT]
-> Deve ter padrões de caminho correspondentes nas suas regras de encaminhamento, ou os seus clientes verão falhas. Por exemplo, tem duas regras de encaminhamento como a Route 1 `*.foo.com/*` (mapeada para a piscina traseira A) e a Rota 2 `bar.foo.com/somePath/*` (mapeada para a piscina b traseira). Em seguida, um pedido chega para `bar.foo.com/anotherPath/*` . A Azure Front Door seleciona a Rota 2 com base numa correspondência de domínio mais específica, apenas para não encontrar padrões de caminho correspondentes nas rotas.
+> Deve ter padrões de caminho correspondentes nas suas regras de encaminhamento, ou os seus clientes verão falhas. Por exemplo, tem duas regras de encaminhamento como a Route 1 `*.foo.com/*` (mapeada para a piscina traseira A) e a Rota 2 `/bar.foo.com/somePath/*` (mapeada para a piscina b traseira). Em seguida, um pedido chega para `bar.foo.com/anotherPath/*` . A Azure Front Door seleciona a Rota 2 com base numa correspondência de domínio mais específica, apenas para não encontrar padrões de caminho correspondentes nas rotas.
 
 ## <a name="next-steps"></a>Próximos passos
 

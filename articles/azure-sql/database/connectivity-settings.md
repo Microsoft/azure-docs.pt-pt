@@ -4,17 +4,17 @@ description: Este documento explica a escolha da versão de Segurança da Camada
 services: sql-database
 ms.service: sql-database
 titleSuffix: Azure SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse)
-ms.topic: conceptual
+ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: 431d7ff2631f9b4a0a20db82c40b512c41209b7e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: eab9004b37da83b5d571ff700c32215354286c94
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91325373"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443853"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Definições de Conectividade do SQL do Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -217,7 +217,7 @@ az resource show --ids %sqlserverid%
 az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma visão geral de como a conectividade funciona na Base de Dados Azure SQL, consulte a [Arquitetura de Conectividade](connectivity-architecture.md)
 - Para obter informações sobre como alterar a política de ligação de um servidor, consulte [a política de conn](https://docs.microsoft.com/cli/azure/sql/server/conn-policy).

@@ -15,12 +15,12 @@ ms.date: 09/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: e504a3ed2d9193bdc85fc08b3ea91c4f4f2c160c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2f96e48d0c7b14178185f751b8c708e75ab3f322
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329509"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441827"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Resolução de problemas Azure RBAC
 
@@ -63,7 +63,7 @@ $ras.Count
 
     Há duas formas de resolver este erro. A primeira forma é atribuir o papel de Leitores de [Diretório](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) ao diretor de serviço para que possa ler dados no diretório.
 
-    A segunda forma de resolver este erro é criar a atribuição de funções utilizando o `--assignee-object-id` parâmetro em vez de `--assignee` . Ao utilizar `--assignee-object-id` , o Azure CLI saltará a procura Azure AD. Terá de obter o ID do objeto do utilizador, grupo ou aplicação a que pretende atribuir a função. Para obter mais informações, consulte [Adicionar ou remover atribuições de funções Azure utilizando O Azure CLI](role-assignments-cli.md#new-service-principal).
+    A segunda forma de resolver este erro é criar a atribuição de funções utilizando o `--assignee-object-id` parâmetro em vez de `--assignee` . Ao utilizar `--assignee-object-id` , o Azure CLI saltará a procura Azure AD. Terá de obter o ID do objeto do utilizador, grupo ou aplicação a que pretende atribuir a função. Para obter mais informações, consulte [Adicionar ou remover atribuições de funções Azure utilizando O Azure CLI](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope).
 
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
@@ -150,7 +150,7 @@ Da mesma forma, se enumerar esta tarefa de função usando o Azure CLI, poderá 
 }
 ```
 
-Não é um problema deixar estas atribuições de papéis onde o diretor de segurança foi apagado. Se quiser, pode remover estas atribuições de funções usando passos semelhantes a outras atribuições de funções. Para obter informações sobre como remover atribuições de funções, consulte [o portal Azure,](role-assignments-portal.md#remove-a-role-assignment) [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)ou [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
+Não é um problema deixar estas atribuições de papéis onde o diretor de segurança foi apagado. Se quiser, pode remover estas atribuições de funções usando passos semelhantes a outras atribuições de funções. Para obter informações sobre como remover atribuições de funções, consulte [o portal Azure,](role-assignments-portal.md#remove-a-role-assignment) [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)ou [Azure CLI](role-assignments-cli.md#remove-role-assignment)
 
 No PowerShell, se tentar remover as atribuições de funções utilizando o iD do objeto e o nome de definição de função, e mais do que uma atribuição de funções corresponde aos seus parâmetros, receberá a mensagem de erro: "As informações fornecidas não mapeiam para uma atribuição de funções". A seguinte saída mostra um exemplo da mensagem de erro:
 
@@ -245,7 +245,7 @@ Algumas [funcionalidades das Funções Azure](../azure-functions/functions-overv
 
 Um leitor pode clicar no separador **funcionalidades** da Plataforma e, em seguida, clicar **em Todas as definições** para visualizar algumas definições relacionadas com uma aplicação de função (semelhante a uma aplicação web), mas não consegue modificar nenhuma destas definições. Para aceder a estas funcionalidades, necessitará da função [Colaboradora.](built-in-roles.md#contributor)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Resolução de problemas para utilizadores convidados](role-assignments-external-users.md#troubleshoot)
 - [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](role-assignments-portal.md)

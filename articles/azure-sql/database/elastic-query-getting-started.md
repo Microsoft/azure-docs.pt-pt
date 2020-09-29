@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
-ms.openlocfilehash: e743d557f70aaa92e464244d0198debbc25a1e46
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 10be0fc28b53d114a8ff87f01980513ce1759dec
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956904"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443317"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Relatório através de bases de dados de nuvem escalonadas (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -133,7 +133,7 @@ Todas as linhas da tabela **Clientes,** armazenadas em fragmentos diferentes pov
 
 Agora pode utilizar as poderosas funções de visualização de dados do Excel. Pode utilizar a cadeia de ligação com o nome do servidor, nome da base de dados e credenciais para ligar o seu BI e ferramentas de integração de dados à base de dados de consultas elásticas. Certifique-se de que o SQL Server é suportado como fonte de dados para a sua ferramenta. Pode consultar a base de dados de consultas elásticas e as tabelas externas, tal como qualquer outra base de dados do SQL Server e as tabelas sql Server a que se ligaria à sua ferramenta.
 
-### <a name="cost"></a>Custo
+### <a name="cost"></a>Cost
 Não existe qualquer custo adicional para a utilização da função de consulta de base de dados elástica.
 
 Para obter informações sobre preços consulte [detalhes de preços da base de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).

@@ -1,18 +1,18 @@
 ---
 title: 'Ligue um computador a uma rede virtual utilizando a autenticação Point-to-Site e RADIUS: PowerShell Rio Azure'
-description: Ligue os clientes Windows e Mac OS X de forma segura a uma rede virtual utilizando a autenticação P2S e RADIUS.
+description: Ligue os clientes Windows e OS X de forma segura a uma rede virtual utilizando a autenticação P2S e RADIUS.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 2a93f612f5aeb5c2d3a4b83d580b9548f45e4c05
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c8d7ae3cd40f118399e5ff60fa0738b07249c5ef
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91329164"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442410"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configure uma ligação ponto-a-local a um VNet utilizando a autenticação RADIUS: PowerShell
 
@@ -28,7 +28,7 @@ Uma ligação VPN P2S é iniciada a partir dos dispositivos Windows e Mac. Os cl
 
 Este artigo ajuda-o a configurar uma configuração P2S com autenticação utilizando o servidor RADIUS. Se pretender autenticar utilizando certificados gerados e autenticação de certificados nativos de gateway VPN, consulte [configurar uma ligação ponto-a-local a um VNet utilizando a autenticação de certificados nativos de gateway VPN](vpn-gateway-howto-point-to-site-rm-ps.md) ou [Criar um inquilino do Diretório Ativo Azure para ligações de protocolo P2S OpenVPN](openvpn-azure-ad-tenant.md) para autenticação do Azure Ative Directory.
 
-![Diagrama de ligação - RADIUS](./media/point-to-site-how-to-radius-ps/p2sradius.png)
+![Diagrama que mostra a configuração P2S com autenticação utilizando um servidor RADIUS.](./media/point-to-site-how-to-radius-ps/p2sradius.png)
 
 As ligações Ponto a Site não precisam de nenhum dispositivo VPN ou endereço IP destinado ao público. O P2S cria a ligação VPN sobre o SSTP (Secure Socket Tunneling Protocol), OpenVPN ou IKEv2.
 
@@ -65,7 +65,7 @@ Verifique se tem uma subscrição do Azure. Se ainda não tiver uma subscrição
 
 ### <a name="working-with-azure-powershell"></a>Trabalhar com a Azure PowerShell
 
-[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ### <a name="example-values"></a><a name="example"></a>Valores de exemplo
 
@@ -286,6 +286,6 @@ Este FAQ aplica-se a P2S usando a autenticação RADIUS
 
 [!INCLUDE [Point-to-Site RADIUS FAQ](../../includes/vpn-gateway-faq-p2s-radius-include.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Assim que a ligação estiver concluída, pode adicionar máquinas virtuais às redes virtuais. Para obter mais informações, veja [Máquinas Virtuais](https://docs.microsoft.com/azure/). Para compreender melhor o funcionamento em rede e as máquinas virtuais, veja [Descrição geral da rede VM do Azure e Linux](../virtual-machines/linux/azure-vm-network-overview.md).

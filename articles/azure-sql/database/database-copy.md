@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sashan
 ms.reviewer: ''
 ms.date: 07/29/2020
-ms.openlocfilehash: f6a3ccbcdb3d29434b196dbf75dc61c4177de271
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 45544d246f1390271300d5ffa1fff1fdc5d9317f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284297"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443792"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copie uma cópia transaccionalmente consistente de uma base de dados na Base de Dados Azure SQL
 
@@ -26,7 +26,10 @@ A Azure SQL Database fornece vários métodos para criar uma cópia de uma base 
 
 ## <a name="overview"></a>Descrição geral
 
-Uma cópia de base de dados é uma imagem transaccionalmente consistente da base de dados de origem a partir de um ponto no tempo após o pedido de cópia ser iniciado. Pode selecionar o mesmo servidor ou um servidor diferente para a cópia. Também pode optar por manter o nível de serviço e o tamanho do cálculo da base de dados de origem, ou utilizar um tamanho de cálculo diferente dentro do mesmo nível de serviço ou de um nível de serviço diferente. Após a cópia estar completa, torna-se uma base de dados totalmente funcional e independente. Os logins, utilizadores e permissões na base de dados copiada são geridos independentemente da base de dados de origem. A cópia é criada utilizando a tecnologia de geo-replicação. Após a conclusão da propagação da réplica, a ligação da georreplicação será encerrada automaticamente. Todos os requisitos para utilizar a georreplicação se aplicam à operação da cópia da base de dados. Consulte [a visão geral da replicação de geo-replicação ativa](active-geo-replication-overview.md) para obter mais detalhes.
+Uma cópia de base de dados é uma imagem transaccionalmente consistente da base de dados de origem a partir de um ponto no tempo após o pedido de cópia ser iniciado. Pode selecionar o mesmo servidor ou um servidor diferente para a cópia. Também pode optar por manter o tamanho de redundância de backup, nível de serviço e tamanho de cálculo da base de dados de origem, ou utilizar um tamanho de armazenamento de backup diferente e/ou tamanho de cálculo dentro do mesmo ou de um nível de serviço diferente. Após a cópia estar completa, torna-se uma base de dados totalmente funcional e independente. Os logins, utilizadores e permissões na base de dados copiada são geridos independentemente da base de dados de origem. A cópia é criada utilizando a tecnologia de geo-replicação. Após a conclusão da propagação da réplica, a ligação da georreplicação será encerrada automaticamente. Todos os requisitos para utilizar a georreplicação se aplicam à operação da cópia da base de dados. Consulte [a visão geral da replicação de geo-replicação ativa](active-geo-replication-overview.md) para obter mais detalhes.
+
+> [!NOTE]
+> Azure SQL Database Configurable Backup Storage Despedimento está atualmente disponível em pré-visualização pública apenas na região do Sudeste Asiático Azure. Na pré-visualização, se a base de dados de origem for criada com redundância de armazenamento de backup redundante local ou redundante, a cópia da base de dados para um servidor numa região de Azure diferente não é suportada. 
 
 ## <a name="logins-in-the-database-copy"></a>Logins na cópia da base de dados
 
@@ -84,6 +87,9 @@ Comece a copiar a base de dados de origem com a [BASE DE DADOS CREATE ... COMO C
 > [!NOTE]
 > O encerramento da declaração T-SQL não encerra a operação de cópia da base de dados. Para terminar a operação, deixe cair a base de dados do alvo.
 >
+
+> [!IMPORTANT]
+> Selecionando redundância de armazenamento de backup ao utilizar a base de dados T-SQL CREATE ... AS COPY OF Command ainda não está suportado. 
 
 ### <a name="copy-to-the-same-server"></a>Copiar para o mesmo servidor
 
@@ -187,7 +193,7 @@ Os seguintes erros podem ser encontrados ao copiar uma base de dados na Base de 
 | 40570 |16 |A cópia da base de dados falhou devido a um erro interno. Por favor, largue a base de dados do alvo e tente de novo mais tarde. |
 | 40571 |16 |A cópia da base de dados falhou devido a um erro interno. Por favor, largue a base de dados do alvo e tente de novo mais tarde. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para obter informações sobre logins, consulte [Gerir logins](logins-create-manage.md) e como gerir a segurança da Base de [Dados Azure SQL após a recuperação de desastres.](active-geo-replication-security-configure.md)
 * Para exportar uma base de dados, consulte [exporte a base de dados para um BACPAC.](database-export.md)

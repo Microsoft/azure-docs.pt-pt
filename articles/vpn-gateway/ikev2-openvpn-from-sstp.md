@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: aec5a08bf56cd9a9ba18159ffc28a129163571b0
-ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
+ms.openlocfilehash: c7f71d24ab516044a0ce48ad40f78bc659268866
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89426287"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442179"
 ---
 # <a name="transition-to-openvpn-protocol-or-ikev2-from-sstp"></a>Transição para protocolo OpenVPN ou IKEv2 da SSTP
 
@@ -47,7 +47,7 @@ Adicionar o IKEv2 a um gateway SSTP VPN existente não afetará os clientes exis
 
 Para adicionar O IKEv2 a um gateway existente, basta ir ao separador "configuração ponto-a-local" no portal virtual Network Gateway e selecionar **IKEv2 e SSTP (SSL)** a partir da caixa de entrega.
 
-![ponto a local](./media/ikev2-openvpn-from-sstp/sstptoikev2.png "IKEv2")
+![Screenshot que mostra a página "Configuração ponto-a-local" com o "tipo de túnel" aberto, e "IKEv2 e SSTP(SSTP)" selecionados.](./media/ikev2-openvpn-from-sstp/sstptoikev2.png "IKEv2")
 
 
 ### <a name="option-2---remove-sstp-and-enable-openvpn-on-the-gateway"></a>Opção 2 - Remover SSTP e ativar o OpenVPN no Gateway

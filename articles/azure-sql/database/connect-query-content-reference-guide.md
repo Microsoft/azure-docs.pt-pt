@@ -7,17 +7,17 @@ ms.service: sql-database
 ms.subservice: service
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: quickstart
+ms.topic: guide
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: 2a6aa0aa22fce5ba0f763f98fec37f607d0ce8a1
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 4d0be745ef076ececbc5719a221f49b69d46c2ff
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441779"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443922"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Azure SQL Database e Azure SQL Managed Instance connect and consultaer artigos
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,7 +26,7 @@ O documento que se segue inclui links para exemplos Azure que mostram como conec
 
 ## <a name="quickstarts"></a>Guias de Início Rápido
 
-| Início Rápido | Description |
+| Início Rápido | Descrição |
 |---|---|
 |[O SQL Server Management Studio](connect-query-ssms.md)|Este quickstart demonstra como utilizar o SSMS para ligar a uma base de dados e, em seguida, utilizar declarações Transact-SQL para consultar, inserir, atualizar e apagar dados na base de dados.|
 |[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|Este quickstart demonstra como usar o Azure Data Studio para se conectar a uma base de dados e, em seguida, usar declarações de Transact-SQL (T-SQL) para criar o TutorialDB usado nos tutoriais do Azure Data Studio.|
@@ -80,11 +80,11 @@ A tabela que se segue lista exemplos de quadros de mapeamento relacional de obje
 | Java | Windows, Linux, macOS |[Operação de hibernação](https://hibernate.org/orm)|
 | PHP | Windows, Linux, macOS | [Laravel (Eloquente)](https://laravel.com/docs/eloquent)<br>[Doutrina](https://www.doctrine-project.org/projects/orm.html) |
 | Node.js | Windows, Linux, macOS | [Orm de sequelaização](https://sequelize.org/) |
-| Python | Windows, Linux, macOS |[Rio Django](https://www.djangoproject.com/) |
+| Python | Windows, Linux, macOS |[Django](https://www.djangoproject.com/) |
 | Ruby | Windows, Linux, macOS | [Rubi nos trilhos](https://rubyonrails.org/) |
 ||||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter informações sobre a arquitetura de conectividade, veja [Arquitetura de Conectividade de Base de Dados SQL do Azure](connectivity-architecture.md).
 - Encontre [controladores SQL Server](/sql/connect/sql-connection-libraries/) que são usados para se conectarem a partir de aplicações do cliente.

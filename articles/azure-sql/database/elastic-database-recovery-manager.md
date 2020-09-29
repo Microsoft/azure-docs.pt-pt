@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: e86f4fe59ebf627d639dcf54255e724270b7c45d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fdd5f7d291d9c56361c17547628795b378091109
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84050136"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443443"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Utilizar a classe RecoveryManager para corrigir problemas do mapa de partições horizontais
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

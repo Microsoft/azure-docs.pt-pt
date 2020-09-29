@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: fd500b80f0c564fc0f4c7e311483790a83a4101a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c1e9e3d63e8a4f7fe461e2d33603da91d3d9bec6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923743"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441776"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com Azure Data Lake Storage Gen2
 
@@ -113,11 +113,9 @@ A definição para dias de retenção ainda não está suportada, mas pode elimi
 
 ### <a name="lifecycle-management-policies"></a>Políticas de gestão do ciclo de vida
 
-- As políticas de gestão do ciclo de vida ainda não são suportadas em contas premium de armazenamento BlockBlobStorage. 
+- As políticas de gestão do ciclo de vida são suportadas apenas nas contas v2 para fins gerais. Ainda não são suportados em contas de armazenamento premium BlockBlobStorage.
+- Os dados não podem ser transferidos do nível premium para os níveis mais baixos.
 
-- Os dados não podem ser transferidos do nível premium para os níveis mais baixos. 
-
-- Atualmente, a ação **Delete Blob** não está suportada. 
 
 ### <a name="hdinsight-support"></a>Suporte HDInsight
 

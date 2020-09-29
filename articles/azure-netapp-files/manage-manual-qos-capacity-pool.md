@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 09/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 1bbd6ad9e33aab8d3564865b86485d70df5a108f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d2abb66684738e97ade2a2e67309a4e7b53c4734
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91345507"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442085"
 ---
-# <a name="manage-a-manual-qos-capacity-pool"></a>Gerir um pool manual de capacidade QoS
+# <a name="manage-a-manual-qos-capacity-pool"></a>Gerir um conjunto de capacidade QoS manual
 
 Este artigo descreve como gerir uma piscina de capacidade que utiliza o tipo QoS manual.  
 
@@ -84,9 +84,18 @@ Se um volume estiver contido num pool manual de capacidade QoS, pode modificar a
 
     ![Alterar produção QoS](../media/azure-netapp-files/change-qos-throughput.png)
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 * [Configurar um conjunto de capacidade](azure-netapp-files-set-up-capacity-pool.md)
 * [Métricas do Azure NetApp Files](azure-netapp-files-metrics.md)
 * [Considerações de desempenho para o Azure NetApp Files](azure-netapp-files-performance-considerations.md)
 * [Problemas de capacidade de resolução de problemas](troubleshoot-capacity-pools.md)
+* [Hierarquia de armazenamento do Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Níveis de serviços do Azure NetApp Files](azure-netapp-files-service-levels.md)
+* [Modelo de custo para os Azure NetApp Files](azure-netapp-files-cost-model.md)
+* [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)
+* [Criar um volume NFS](azure-netapp-files-create-volumes.md)
+* [Criar um volume SMB](azure-netapp-files-create-volumes-smb.md)
+* [Criar um volume de protocolo duplo](create-volumes-dual-protocol.md)
+
+

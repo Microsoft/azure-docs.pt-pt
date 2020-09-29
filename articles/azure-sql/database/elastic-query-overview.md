@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: overview
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 12/05/2019
-ms.openlocfilehash: 0497356e536632d179f4f64a6a9df8551a7a1897
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a4a666423c6f5a76d69f572f6d8b86a022bf3e30
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557867"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443144"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Visão geral da consulta elástica Azure SQL Database (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -133,7 +133,7 @@ Pode utilizar as cadeias regulares de ligação do SQL Server para ligar as suas
 > [!IMPORTANT]
 > A autenticação utilizando o Azure Ative Directory com consultas elásticas não é suportada atualmente.
 
-## <a name="cost"></a>Custo
+## <a name="cost"></a>Cost
 
 A consulta elástica está incluída no custo da Base de Dados Azure SQL. Note que as topologias onde as suas bases de dados remotas estão num centro de dados diferente do ponto final de consulta elástica são suportadas, mas a saída de dados de bases de dados remotas é cobrada regularmente [taxas de Azure](https://azure.microsoft.com/pricing/details/data-transfers/).
 

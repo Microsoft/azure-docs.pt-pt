@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/17/2020
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 75d8b63328f71df2f8de22a95c106c5cc18dc28f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d9f7778d1dda159f3ab0c4548912370c85f94eff
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91275218"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441876"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilizar o serviço Importar/Exportar do Microsoft Azure para exportar dados do Armazenamento de blobs do Azure
 
@@ -119,7 +119,7 @@ Quando o painel de instrumentos informa que o trabalho está concluído, os disc
 1. Depois de receber as unidades com dados exportados, precisa de obter as teclas BitLocker para desbloquear as unidades. Vá para o trabalho de exportação no portal Azure. Clique no **separador Importação/Exportação.**
 2. Selecione e clique no seu trabalho de exportação da lista. Vá à **Encriptação** e copie as chaves.
 
-   ![Ver chaves BitLocker para trabalho de exportação](./media/storage-import-export-data-from-blobs/export-from-blob7.png)
+   ![Ver chaves BitLocker para trabalho de exportação](./media/storage-import-export-data-from-blobs/export-from-blob-7.png)
 
 3. Utilize as teclas BitLocker para desbloquear os discos.
 
@@ -153,7 +153,7 @@ Este passo *opcional* ajuda-o a determinar o número de unidades necessárias pa
 
     Os parâmetros são descritos no quadro seguinte:
 
-    |Parâmetro de linha de comando|Description|  
+    |Parâmetro de linha de comando|Descrição|  
     |--------------------------|-----------------|  
     |**/logdir:**|Opcional. O diretório de registos. Os ficheiros de registo verboso são escritos neste diretório. Se não for especificado, o diretório atual é utilizado como diretório de registo.|  
     |**/sn:**|Necessário. O nome do armazém é responsável pelo trabalho de exportação.|  
@@ -207,7 +207,7 @@ Number of drives needed:        3
 
 A tabela a seguir mostra exemplos de caminhos de bolhas válidos:
 
-   | Seletor | Caminho da Bolha | Description |
+   | Seletor | Caminho da Bolha | Descrição |
    | --- | --- | --- |
    | Começa com |/ |Exporta todas as bolhas na conta de armazenamento |
    | Começa com |/$root/ |Exporta todas as bolhas no recipiente raiz |
@@ -217,7 +217,7 @@ A tabela a seguir mostra exemplos de caminhos de bolhas válidos:
    | Igual a |$root/logo.bmp |Exportações blob **logo.bmp** no recipiente raiz |
    | Igual a |vídeos/story.mp4 |Exportações blob **story.mp4** em **vídeos** de contentores |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Ver o estado do trabalho e da unidade](storage-import-export-view-drive-status.md)
 - [Rever os requisitos de importação/exportação](storage-import-export-requirements.md)

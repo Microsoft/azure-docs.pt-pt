@@ -7,17 +7,17 @@ ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse, has-adal-ref, sqldbrb=2
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 08/17/2020
-ms.openlocfilehash: f354cb25c93826b50c0094e75ef7a1756f7625b7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d7b0f2bb479154fa10a18cd07a65b9f7287fc97c
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91278180"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444482"
 ---
 # <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configure e gere a autenticação AD AD com Azure SQL
 
@@ -190,7 +190,7 @@ Para obter um administrador AD Azure, execute os seguintes comandos Azure PowerS
 
 Os cmdlets utilizados para a prestação e gestão do administrador AdD Ad para a sua SQL Managed Instance estão listados na tabela seguinte:
 
-| Nome do cmdlet | Description |
+| Nome do cmdlet | Descrição |
 | --- | --- |
 | [Set-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlinstanceactivedirectoryadministrator) |Disposições um administrador AD Azure para a SQL Managed Instance na subscrição atual. (Deve ser da subscrição atual)|
 | [Remove-AzSqlInstanceActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlinstanceactivedirectoryadministrator) |Remove um administrador AD Azure para a SqL Managed Instance na subscrição atual. |
@@ -279,7 +279,7 @@ Para executar os cmdlets PowerShell, é necessário ter o Azure PowerShell insta
 
 Cmdlets utilizados para a prestação e gestão do administrador AZure AD para a Base de Dados SQL e Azure Synapse:
 
-| Nome do cmdlet | Description |
+| Nome do cmdlet | Descrição |
 | --- | --- |
 | [Set-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/set-azsqlserveractivedirectoryadministrator) |Disposições um administrador do Azure Ative Directory para o servidor que hospeda a Base de Dados SQL ou Azure Synapse. (Deve ser da subscrição atual) |
 | [Remove-AzSqlServerActiveDirectoryAdministrator](/powershell/module/az.sql/remove-azsqlserveractivedirectoryadministrator) |Remove um administrador do Azure Ative Directory para o servidor que hospeda a Base de Dados SQL ou Azure Synapse.|
@@ -532,7 +532,7 @@ sqlcmd -S Target_DB_or_DW.testsrv.database.windows.net -U bob@contoso.com -P MyA
 
 As orientações sobre problemas de resolução de problemas com a autenticação AZure AD podem ser encontradas no seguinte blog: <https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para uma visão geral de logins, utilizadores, funções de base de dados e permissões na Base de Dados SQL, consulte [Logins, utilizadores, funções de base de dados e contas de utilizador.](logins-create-manage.md)
 - Para obter mais informações sobre os principais de bases de dados, veja [Principals (Principais)](https://msdn.microsoft.com/library/ms181127.aspx).

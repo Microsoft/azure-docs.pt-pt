@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: migration
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/08/2020
-ms.openlocfilehash: 7d36984e7117305b22381e4266575e998c080ae5
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 9b34a2435486a905923e783153ccae97628193a2
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91360196"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443745"
 ---
 # <a name="import-or-export-an-azure-sql-database-without-allowing-azure-services-to-access-the-server"></a>Importar ou exportar uma Base de Dados Azure SQL sem permitir que os serviços da Azure acedam ao servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -151,7 +151,7 @@ Para carregar ou descarregar . Ficheiros BACPAC, ver [dados de transferência co
 
 Dependendo do seu ambiente, poderá necessitar de [configurar firewalls de armazenamento Azure e redes virtuais.](../../storage/common/storage-network-security.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para aprender a ligar e consultar uma base de dados SQL importada, consulte [Quickstart: Azure SQL Database: Use SQL Server Management Studio para ligar e consultar dados](connect-query-ssms.md).
 - Para saber mais sobre a migração com ficheiros BACPAC num blogue da Equipa de Aconselhamento ao Cliente do SQL Server, consulte [Migrating from SQL Server to Azure SQL Database using BACPAC Files (Migrar a partir do SQL Server para a Base de Dados SQL do Azure com Ficheiros BACPAC)](https://techcommunity.microsoft.com/t5/DataCAT/Migrating-from-SQL-Server-to-Azure-SQL-Database-using-Bacpac/ba-p/305407).

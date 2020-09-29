@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
-ms.openlocfilehash: b53e37384ba85770b445f834c440075cd35b6eb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8eafd99f07c64c20565a954216341f3dea9541b0
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84041876"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442655"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>Biblioteca de clientes de base de dados elástica com enquadramento de entidade
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

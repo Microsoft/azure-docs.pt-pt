@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 62f7f93b4baeeb4132e867a90e4f911187967f42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50e7e597a4fb02919739633529abdbf772bcecea
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84047595"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443053"
 ---
 # <a name="adding-a-shard-using-elastic-database-tools"></a>Adicionar um fragmento usando ferramentas elásticas de base de dados
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

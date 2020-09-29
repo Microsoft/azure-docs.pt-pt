@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: azure-synapse, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, sstein
 ms.date: 04/23/2020
-ms.openlocfilehash: 8221c77c0e6adeabe869a088089733d289a2f6ca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d90cc76da20861ae9eca7aaf59a49e5f3e866c92
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91277951"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444433"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Utilize a autenticação do Diretório Ativo Azure
 
@@ -161,7 +161,7 @@ Os seguintes métodos de autenticação são suportados para os principais servi
 - A autenticação Azure AD é suportada para Azure SQL Database e Azure Synapse utilizando o portal Azure **Import Database** e as lâminas **de base de dados de exportação.** A importação e exportação utilizando a autenticação Azure AD também é suportada por um comando PowerShell.
 - A autenticação AZure AD é suportada para base de dados SQL, SQL Managed Instance e Azure Synapse com a utilização do CLI. Para obter mais informações, consulte [a autenticação Configure E gere a autenticação AD do Azure com base de dados SQL ou Azure Synapse](authentication-aad-configure.md) e [SQL Server - servidor az sql](https://docs.microsoft.com/cli/azure/sql/server).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para aprender a criar e povoar uma instância AD Azure e, em seguida, configugá-la com Azure SQL Database, SQL Managed Instance, ou Azure Synapse, ver [Configurar e gerir a autenticação do Azure Ative Directory com base de dados SQL, SQL Managed Instance ou Azure Synapse](authentication-aad-configure.md).
 - Para um tutorial de utilização de principais servidores AD (logins) com SQL Managed Instance, consulte [os principais dos servidores AD do Azure (logins) com sql Managed Instance](../managed-instance/aad-security-configure-tutorial.md)

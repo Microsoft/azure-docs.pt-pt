@@ -7,17 +7,17 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: operations
 ms.devlang: PowerShell
-ms.topic: conceptual
+ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, amagarwa, maboja, jrasnick, vanto
 ms.date: 05/14/2019
-ms.openlocfilehash: 3acbdd5c933bc2010a26e2039ece378774055d30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1006cce4125adf67b9e3009bf8e27c0123acfd1
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84050402"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443627"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>PowerShell para DNS Alias para Azure SQL Database
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -103,7 +103,7 @@ Os comandos utilizados são os seguintes:
 - [az sql servidor dns-alias set](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Modifica o nome do servidor a que o pseudónimo está configurado para se referir, do servidor 1 ao servidor 2.
 - [az sql servidor dns-alias delete](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remova o pseudónimo do servidor 2, utilizando o nome do pseudónimo.
 
-Para instalar ou atualizar, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli).
+Para instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ```azurecli-interactive
 $subscriptionName = '<subscriptionName>';

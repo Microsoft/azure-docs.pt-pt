@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 95964064200064dcc43449e1d939c1cdfd78cdb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: daa1bbbace55281f81e04c4639b083b3e934b9f8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84048456"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443083"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Consulta através de bases de dados em nuvem com esquemas diferentes (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

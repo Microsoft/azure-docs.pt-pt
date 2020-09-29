@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: 3bc575dfd815ce4d967fb4328a0a412fce1e8d81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 657ddc9f772d31e8845631501e72175ecfbc78d7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829504"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442695"
 ---
 # <a name="upgrade-an-app-to-use-the-latest-elastic-database-client-library"></a>Atualize uma aplicação para usar a mais recente biblioteca de clientes de base de dados elástica
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -48,8 +48,8 @@ A realização destes passos de forma a garantir que as versões antigas da bibl
 ***Opção 1: Atualizar metadados utilizando o PowerShell***
 
 1. Descarregue o mais recente utilitário de linha de comando para NuGet a partir [daqui](https://nuget.org/nuget.exe) e guarde para uma pasta.
-2. Abra uma solicitação de comando, navegue para a mesma pasta e emita o comando:`nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
-3. Navegue para a sub-página que contém a versão DLL do novo cliente que acaba de descarregar, por exemplo:`cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`
+2. Abra uma solicitação de comando, navegue para a mesma pasta e emita o comando: `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
+3. Navegue para a sub-página que contém a versão DLL do novo cliente que acaba de descarregar, por exemplo: `cd .\Microsoft.Azure.SqlDatabase.ElasticScale.Client.1.0.0\lib\net45`
 4. Descarregue o script de atualização de clientes de base de dados elástica do [Script Center](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-Elastic-6442e6a9)e guarde-o na mesma pasta que contém o DLL.
 5. A partir dessa pasta, executar "PowerShell .\upgrade.ps1" a partir da pronta de comando e siga as indicações.
 

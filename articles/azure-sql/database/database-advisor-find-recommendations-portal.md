@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 12/19/2018
-ms.openlocfilehash: e96db18993dbb18ebf51d0b30e9172901d10df5b
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 0b7aab13871f1450a3c6907b30b446869b2fefa7
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91398277"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443893"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Encontre e aplique recomendações de desempenho
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -39,7 +39,7 @@ As recomendações de desempenho são apresentadas na tabela semelhantes às apr
 
 As recomendações são ordenadas pelo seu impacto potencial no desempenho nas seguintes categorias:
 
-| Impacto | Description |
+| Impacto | Descrição |
 |:--- |:--- |
 | Alto |Recomendações de alto impacto devem proporcionar o impacto de desempenho mais significativo. |
 | Médio |Recomendações de impacto médio devem melhorar o desempenho, mas não substancialmente. |
@@ -160,7 +160,7 @@ Depois de as recomendações serem implementadas com sucesso (atualmente, opera�
 
 A Azure SQL Database fornece recomendações para melhorar o desempenho da base de dados. Ao fornecer scripts T-SQL, obtém assistência na otimização da sua base de dados e, em última análise, na melhoria do desempenho da consulta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Monitorize as suas recomendações e continue a aplicá-las para aperfeiçoar o desempenho. As cargas de trabalho da base de dados são dinâmicas e mudam continuamente. A Azure SQL Database continua a monitorizar e a fornecer recomendações que podem potencialmente melhorar o desempenho da sua base de dados.
 
@@ -172,4 +172,4 @@ Monitorize as suas recomendações e continue a aplicá-las para aperfeiçoar o 
 
 * [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) (Arquivo de Consultas)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md)
+* [Controlo de acesso baseado em funções do Azure (RBAC do Azure)](../../role-based-access-control/overview.md)

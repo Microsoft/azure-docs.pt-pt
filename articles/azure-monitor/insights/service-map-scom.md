@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/12/2019
-ms.openlocfilehash: 049c30613c358bf22616eaa2042a7fd6e42b9f61
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 489b4bfee1eaa2c381b16e88dbcc0bcb7fd8555f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326040"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441513"
 ---
 # <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>Integrar gestor de operações do Centro de Sistema com Monitor Azure para funcionalidade de Mapa de VMs
 
@@ -73,11 +73,11 @@ Para configurar o Monitor Azure para a integração do Mapa VMs, faça o seguint
 
 6. Opcional: Selecione o Pool de Recursos de Todos os Servidores de Gestão para comunicar com o Log Analytics e, em seguida, clique em **Adicionar Espaço de Trabalho**.
 
-    ![O conjunto de recursos de configuração do gestor de operações](media/service-map-scom/scom-config-pool.png)
+    ![Screenshot do ecrã do Pool do Servidor no Adicionar espaço de trabalho da Suite de Gestão de Operações da Microsoft com todos os servidores de gestão selecionados.](media/service-map-scom/scom-config-pool.png)
 
     Pode levar um minuto para configurar e registar o espaço de trabalho Log Analytics. Depois de configurado, o Gestor de Operações inicia a primeira sincronização do Mapa.
 
-    ![O conjunto de recursos de configuração do gestor de operações](media/service-map-scom/scom-config-success.png)
+    ![Screenshot do ecrã De conclusão no Add Microsoft Operations Management Suite Workspace confirmando que o Espaço de Trabalho foi adicionado.](media/service-map-scom/scom-config-success.png)
 
 ## <a name="monitor-integration"></a>Monitorização da integração
 
@@ -98,11 +98,11 @@ A pasta Mapa de Serviço tem quatro nóns:
 
 * **Pontos de vista de dependência do grupo de máquinas**: Lista todos os grupos de máquinas que estão sincronizados a partir da funcionalidade Mapa. Pode clicar em qualquer grupo para ver o seu diagrama de aplicação distribuído.
 
-    ![O Gestor de Operações distribuiu o diagrama de aplicação](media/service-map-scom/scom-group-dad.png)
+    ![Screenshot do Mapa de Serviço mostrando um diagrama com imagens para cada grupo de máquinas e linhas que indicam as dependências entre eles.](media/service-map-scom/scom-group-dad.png)
 
 * **Visões de dependência do servidor**: Lista todos os servidores que estão sincronizados a partir da funcionalidade Mapa. Pode clicar em qualquer servidor para ver o diagrama de aplicação distribuído.
 
-    ![O Gestor de Operações distribuiu o diagrama de aplicação](media/service-map-scom/scom-dad.png)
+    ![Screenshot do Mapa de Serviço mostrando um diagrama com imagens para cada servidor e linhas que indicam as dependências entre eles.](media/service-map-scom/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Editar ou apagar o espaço de trabalho
 

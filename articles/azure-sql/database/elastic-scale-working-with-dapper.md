@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: b1bba5c4ff71806ac054b4d16585881570cf589a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 617ecc6b2eccab3a123f4d3cbc2fb96a40d15f11
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85829368"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442675"
 ---
 # <a name="using-the-elastic-database-client-library-with-dapper"></a>Usando a biblioteca de clientes de base de dados elástica com Dapper
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

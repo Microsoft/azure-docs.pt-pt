@@ -4,12 +4,12 @@ description: Saiba como descobrir servidores físicos no local com a Avaliação
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: 0436ce3a02b6e271a62fe827d1a2d9a8b77dbfbe
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 00fb4073bc8a7b1375f92202b5a6bd0a59a23816
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90600743"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442298"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Tutorial: Descubra servidores físicos com avaliação do servidor
 
@@ -37,7 +37,7 @@ Antes de iniciar este tutorial, verifique se tem estes pré-requisitos no lugar.
 
 **Requisito** | **Detalhes**
 --- | ---
-**Aparelho** | Precisa de uma máquina para executar o aparelho Azure Migrate. A máquina deve ter:<br/><br/> - Windows Server 2016 instalado. A execução do aparelho numa máquina com o Windows Server 2019 não é suportada.<br/><br/> - RAM de 16 GB, 8 vCPUs, cerca de 80 GB de armazenamento de disco e um interruptor virtual externo.<br/><br/> - Um endereço IP estático ou dinâmico, com acesso à Internet, diretamente ou através de um representante.
+**Aparelho** | Precisa de uma máquina para executar o aparelho Azure Migrate. A máquina deve ter:<br/><br/> - Windows Server 2016 instalado. _(Atualmente, a implementação do aparelho só é suportada no Windows Server 2016.)_<br/><br/> - RAM 16-GB, 8 vCPUs, cerca de 80 GB de armazenamento em disco<br/><br/> - Um endereço IP estático ou dinâmico, com acesso à Internet, diretamente ou através de um representante.
 **Servidores Windows** | Permitir ligações de entrada na porta WinRM 5985 (HTTP), para que o aparelho possa puxar os metadados de configuração e desempenho.
 **Servidores Linux** | Permitir ligações de entrada na porta 22 (TCP).
 
@@ -47,7 +47,7 @@ Para criar um projeto Azure Migrate e registar o aparelho Azure Migrate, precisa
 - Permissões de colaborador ou proprietário numa subscrição do Azure.
 - Permissões para registar aplicações do Azure Ative Directory.
 
-Se acabou de criar uma conta Azure gratuita, é o proprietário da sua subscrição. Se não for o proprietário da subscrição, trabalhe com o proprietário para atribuir as permissões da seguinte forma:
+Se acabou de criar uma conta gratuita do Azure, é o proprietário da sua subscrição. Se não for o proprietário da subscrição, trabalhe com o proprietário para atribuir as permissões da seguinte forma:
 
 1. No portal Azure, procure por "subscrições", e em **Serviços,** **selecione Subscrições**.
 
@@ -69,7 +69,7 @@ Se acabou de criar uma conta Azure gratuita, é o proprietário da sua subscriç
 
     ![Verifique nas Definições do Utilizador que os utilizadores podem registar aplicações de Ative Directory](./media/tutorial-discover-physical/register-apps.png)
 
-
+9. Em alternativa, o inquilino/administrador global pode atribuir o papel **de Desenvolvedor de Aplicações** a uma conta para permitir o registo de App(s) AAD. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-physical-servers"></a>Preparar servidores físicos
 
@@ -113,7 +113,7 @@ Para configurar o aparelho:
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Gere a chave do projeto Azure Migrate
 
-1. In **Migration Goals**  >  **Servers**  >  **Azure Migrate: Server Assessment**, select **Discover**.
+1. Em **Objetivos de Migração** > **Servidores** > **Azure Migrate: Avaliação do Servidor**, selecione **Detetar**.
 2. In **Discover machines**  >  **Are your machines virtualized?** **Physical or other (AWS, GCP, Xen, etc.)**
 3. Na **tecla de projeto 1:Generate Azure Migrate,** forneça um nome para o aparelho Azure Migrate que irá configurar para a descoberta de servidores físicos ou virtuais. O nome deve ser alfanumérico com 14 caracteres ou menos.
 1. Clique na **chave Gerar** para iniciar a criação dos recursos Azure necessários. Por favor, não feche a página das máquinas Discover durante a criação de recursos.
@@ -139,13 +139,13 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 
         **Cenário** | **Baixar*** | **Valor de hash**
         --- | --- | ---
-        Físico (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140334) | 207157bab39303dca1c2b93562d6f1deaa0aaa7c92f480138e1797761163fb
+        Físico (85,8 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140334) | ce5e6f0507936def8020eb7b3109173dad60fc51d39cd23099bc9baabe29
 
     - Para o Governo de Azure:
 
         **Cenário** | **Baixar*** | **Valor de hash**
         --- | --- | ---
-        Físico (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe2113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
+        Físico (85,8 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e5862276
  
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Executar o script do instalador Azure Migrate
@@ -239,9 +239,9 @@ Isto começa a ser descoberto. Leva aproximadamente 2 minutos por servidor para 
 
 Após o fim da descoberta, pode verificar se os servidores aparecem no portal.
 
-1. Abra o painel Azure Migrate.
+1. Abra o dashboard do Azure Migrate.
 2. Em **Azure Migrate - Servidores**  >  **Azure Migrate:** Página de Avaliação do servidor, clique no ícone que exibe a contagem para **servidores descobertos**.
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Avaliar servidores físicos](tutorial-assess-physical.md) para migração para VMs Azure.
 - [Reveja os dados](migrate-appliance.md#collected-data---physical) que o aparelho recolhe durante a descoberta.

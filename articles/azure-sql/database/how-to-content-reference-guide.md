@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: guide
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 01/14/2020
-ms.openlocfilehash: fa79af1047862e8694fa6342942ffd0793bafcb6
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9b151e566f0cc3e086277c101a796e7dde059ef9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91335012"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442571"
 ---
 # <a name="configure-and-manage-content-reference---azure-sql-database"></a>Configurar e gerir referência de conteúdo - Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -134,6 +134,6 @@ Neste artigo pode encontrar uma referência de conteúdo de vários guias, scrip
 - [Indexador de vídeos de SaaS](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
 - [Segurança de aplicação SaaS](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [como fazer guias para Azure SQL Managed Instance](../managed-instance/how-to-content-reference-guide.md)

@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: tutorial
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 06/19/2019
-ms.openlocfilehash: 23b78acb226b0d4de637dc653e6edb3bb4177219
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5fca46e7bf80504632e0894deefa1805a080b3b9
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91263594"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442727"
 ---
 # <a name="tutorial-add-an-azure-sql-database-to-an-autofailover-group"></a>Tutorial: Adicione uma Base de Dados Azure SQL a um grupo de autofailover
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -427,7 +427,7 @@ Não existem scripts disponíveis para o portal Azure.
 
 Pode encontrar aqui outros scripts da Base de Dados Azure SQL: [Azure PowerShell](powershell-script-content-guide.md) e [Azure CLI](az-cli-script-samples-content-guide.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, adicionou uma base de dados na Base de Dados Azure SQL a um grupo de failover, e testou o failover. Aprendeu a:
 

@@ -4,12 +4,12 @@ description: Saiba como descobrir VMware VMs no local com a ferramenta de avalia
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: cbe1561f58af8f65285ffb005b0232bff8225d3b
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: f39ad3cbc357575f735b963346c8a8b0cc95e7c8
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604058"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442233"
 ---
 # <a name="tutorial-discover-vmware-vms-with-server-assessment"></a>Tutorial: Descubra VMware VMs com avaliação do servidor
 
@@ -50,7 +50,7 @@ Para criar um projeto Azure Migrate e registar o aparelho Azure Migrate, precisa
 - Permissões de colaborador ou proprietário numa subscrição do Azure.
 - Permissões para registar aplicações do Azure Ative Directory.
 
-Se acabou de criar uma conta Azure gratuita, é o proprietário da sua subscrição. Se não for o proprietário da subscrição, trabalhe com o proprietário para atribuir as permissões da seguinte forma:
+Se acabou de criar uma conta gratuita do Azure, é o proprietário da sua subscrição. Se não for o proprietário da subscrição, trabalhe com o proprietário para atribuir as permissões da seguinte forma:
 
 1. No portal Azure, procure por "subscrições", e em **Serviços,** **selecione Subscrições**.
 
@@ -72,6 +72,7 @@ Se acabou de criar uma conta Azure gratuita, é o proprietário da sua subscriç
 
     ![Verifique nas Definições do Utilizador que os utilizadores podem registar aplicações de Ative Directory](./media/tutorial-discover-vmware/register-apps.png)
 
+9. Em alternativa, o inquilino/administrador global pode atribuir o papel **de Desenvolvedor de Aplicações** a uma conta para permitir o registo de App(s) AAD. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-vmware"></a>Preparar VMware
 
@@ -144,7 +145,7 @@ Para configurar o aparelho utilizando um modelo OVA:
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Gere a chave do projeto Azure Migrate
 
-1. In **Migration Goals**  >  **Servers**  >  **Azure Migrate: Server Assessment**, select **Discover**.
+1. Em **Objetivos de Migração** > **Servidores** > **Azure Migrate: Avaliação do Servidor**, selecione **Detetar**.
 2. In **Discover machines**  >  **Are your machines virtualized?** **Yes, with VMware vSphere hypervisor**
 3. Na **tecla de projeto 1:Generate Azure Migrate,** forneça um nome para o aparelho Azure Migrate que irá configurar para a descoberta de VMware VMs.O nome deve ser alfanumérico com 14 caracteres ou menos.
 1. Clique na **chave Gerar** para iniciar a criação dos recursos Azure necessários. Por favor, não feche a página das máquinas Discover durante a criação de recursos.
@@ -165,7 +166,7 @@ Verifique se o ficheiro OVA está seguro, antes de o implementar:
   
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
    
-   Utilização de exemplo: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+   Utilização de exemplo: ```C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256```
 
 3. Verifique as versões mais recentes do aparelho e os valores do haxixe:
 
@@ -173,13 +174,13 @@ Verifique se o ficheiro OVA está seguro, antes de o implementar:
     
         **Algoritmo** | **Transferência** | **SHA256**
         --- | --- | ---
-        VMware (11.6 GB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae8108328e8f3a7933d7835ecd871d1b17f367621ce3c74
+        VMware (11.9 GB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140333) | bd5c19eec93a62d52cc507a6b408d07f33f92b72b72b7d39b8a1e3dfec4ec62830d7
 
     - Para o Governo de Azure:
     
         **Algoritmo** | **Transferência** | **SHA256**
         --- | --- | ---
-        VMware (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140337) | 47179f47eba284237bbe533c424dd156baccdcf68b1d87b71a5a4280108c2
+        VMware (85.8 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140337) | 2daaa2a59302bf911e8ef195d7d7c83527a9af0b860e2a627979085ca
 
 
 
@@ -265,7 +266,7 @@ A descoberta funciona da seguinte forma:
 - A descoberta de aplicações, funções e funcionalidades instaladas leva algum tempo. A duração depende do número de VMs descobertos. Para 500 VMs, leva aproximadamente uma hora para o inventário da aplicação aparecer no portal Azure Migrate.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Avaliar VMware VMs](tutorial-assess-vmware.md) para migração para VMs Azure.
 - [Reveja os dados](migrate-appliance.md#collected-data---vmware) que o aparelho recolhe durante a descoberta.

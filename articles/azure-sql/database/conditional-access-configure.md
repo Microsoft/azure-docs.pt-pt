@@ -5,19 +5,19 @@ titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.topic: conceptual
+ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 04/28/2020
 tag: azure-synpase
-ms.openlocfilehash: 67fef7b192caf064cd7c3b4b6af8923b153ee5b1
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: ad80f68c1ab3b3583c5a22de49b77211571f345e
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985351"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443980"
 ---
 # <a name="conditional-access-with-azure-sql-database-and-azure-synapse-analytics"></a>Acesso Condicional com Base de Dados Azure SQL e Azure Synapse Analytics
 

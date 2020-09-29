@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
-ms.openlocfilehash: 8dcaecb1e4eb91ee01e3ccb39000e087b3455ba2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ced546f8f4375433d9fcd59f7ce46f9604f72921
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832360"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443131"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Reportagem em bases de dados de nuvem escalonadas (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

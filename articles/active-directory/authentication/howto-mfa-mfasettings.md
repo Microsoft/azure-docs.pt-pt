@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 50f7af3bb1ad543dea0263304b82287225500a21
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 29187ef99ce6628359819739ab5e4b34213eeb8a
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526889"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441623"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurar Definições do Multi-Factor Authentication do Azure
 
@@ -31,7 +31,7 @@ As seguintes definições de autenticação multi-factor Azure estão disponíve
 | [Utilizadores de bloco/desbloqueio](#block-and-unblock-users) | Impedir que utilizadores específicos possam receber pedidos de autenticação multi-factor Azure. Todas as tentativas de autenticação de utilizadores bloqueados são automaticamente negadas. Os utilizadores permanecem bloqueados durante 90 dias a partir do momento em que estão bloqueados ou desbloqueados manualmente. |
 | [Alerta de fraudes](#fraud-alert) | Configurar configurações que permitem aos utilizadores reportar pedidos de verificação fraudulentos. |
 | [Notificações](#notifications) | Ativar notificações de eventos a partir do MFA Server. |
-| [Fichas do OATH](concept-authentication-oath-tokens.md) | Usado em ambientes Azure MFA baseados em nuvem para gerir tokens OATH para utilizadores. |
+| [Tokens OATH](concept-authentication-oath-tokens.md) | Usado em ambientes Azure MFA baseados em nuvem para gerir tokens OATH para utilizadores. |
 | [Definições de chamadas telefónicas](#phone-call-settings) | Configurar configurações relacionadas com chamadas telefónicas e saudações para ambientes em nuvem e no local. |
 | Fornecedores | Isto irá mostrar quaisquer fornecedores de autenticação existentes que possa ter associado à sua conta. Novos fornecedores de autenticação não podem ser criados a partir de 1 de setembro de 2018 |
 
@@ -57,7 +57,7 @@ Para configurar as definições de bloqueio de conta, complete as seguintes defi
 
 ## <a name="block-and-unblock-users"></a>Bloquear e desbloquear utilizadores
 
-Se o dispositivo de um utilizador tiver sido perdido ou roubado, pode bloquear tentativas de autenticação para a conta associada. Todas as tentativas de autenticação de utilizadores bloqueados são automaticamente negadas. Os utilizadores permanecem bloqueados durante 90 dias a partir do momento em que são bloqueados.
+Se o dispositivo de um utilizador tiver sido perdido ou roubado, pode bloquear as tentativas de autenticação multi-factor do Azure para a conta associada. Quaisquer tentativas de autenticação multi-factor Azure para utilizadores bloqueados são automaticamente negadas. Os utilizadores permanecem bloqueados durante 90 dias a partir do momento em que são bloqueados.
 
 ### <a name="block-a-user"></a>Bloquear um utilizador
 
@@ -85,7 +85,7 @@ A funcionalidade de alerta de fraude permite que os utilizadores relatem tentati
 
 Estão disponíveis as seguintes opções de configuração de alerta de fraude:
 
-* **Bloquear automaticamente os utilizadores que denunciam fraude**: Se um utilizador reportar fraude, a sua conta fica bloqueada durante 90 dias ou até que um administrador desbloqueie a sua conta. Um administrador pode rever as inscrições utilizando o relatório de inscrição e tomar as medidas adequadas para evitar futuras fraudes. Um administrador pode então [desbloquear](#unblock-a-user) a conta do utilizador.
+* **Bloquear automaticamente os utilizadores que denunciam fraude**: Se um utilizador reportar fraude, as tentativas de autenticação Azure MFA para a conta de utilizador são bloqueadas durante 90 dias ou até que um administrador desbloqueie a sua conta. Um administrador pode rever as inscrições utilizando o relatório de inscrição e tomar as medidas adequadas para evitar futuras fraudes. Um administrador pode então [desbloquear](#unblock-a-user) a conta do utilizador.
 * **Código para denunciar fraude durante a saudação inicial**: Quando os utilizadores recebem uma chamada telefónica para efetuar a autenticação de vários fatores, normalmente pressionam **#** para confirmar a sua entrada. Para denunciar a fraude, o utilizador introduz um código antes de premir **#** . Este código é **0** por padrão, mas pode personalizá-lo.
 
    > [!NOTE]
@@ -115,7 +115,7 @@ Para configurar notificações de alerta de fraude, complete as seguintes defini
 1. Para remover um endereço de e-mail existente, selecione a opção **...** ao lado do endereço de e-mail pretendido e, em seguida, selecione **Delete**.
 1. Quando estiver pronto, **selecione Guardar**.
 
-## <a name="oath-tokens"></a>Fichas do OATH
+## <a name="oath-tokens"></a>Tokens OATH
 
 A Azure AD suporta a utilização de fichas OATH-TOTP SHA-1 que atualizam códigos a cada 30 ou 60 segundos. Os clientes podem comprar estes tokens ao fornecedor à sua escolha.
 
@@ -332,7 +332,7 @@ Para permitir ou desativar os métodos de verificação, complete as seguintes e
 1. Selecione **Multi-Factor Authentication**.
 1. Em Autenticação Multi-Factor, selecione **as definições de serviço**.
 1. Na página **Definições de Serviço,** nas **opções de verificação,** selecione/desescolte os métodos a fornecer aos seus utilizadores.
-1. Clique em **Guardar**.
+1. Clique em **Save** (Guardar).
 
 ## <a name="remember-multi-factor-authentication"></a>Lembre-se da autenticação multi-factor
 
@@ -374,6 +374,6 @@ Para permitir e configurar a opção de os utilizadores se lembrarem do seu esta
 
 Depois de ativar a funcionalidade de autenticação multi-factor de ressaltação, os utilizadores podem marcar um dispositivo como confiável quando iniciarem sação selecionando a opção para **Não voltar a perguntar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre os métodos disponíveis para utilização na Autenticação Multi-Factor Azure, consulte que métodos de [autenticação e verificação estão disponíveis no Diretório Ativo Azure?](concept-authentication-methods.md)

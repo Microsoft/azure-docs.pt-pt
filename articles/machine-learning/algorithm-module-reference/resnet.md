@@ -8,19 +8,23 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 05/26/2020
-ms.openlocfilehash: 5d8806b8c93f5a8cbceaa6efa16dfff978dda42e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/26/2020
+ms.openlocfilehash: bd0431a8e503605c6137d948cf207c1bd2fa45b4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905209"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442028"
 ---
 # <a name="resnet"></a>ResNet
 
 Este artigo descreve como usar o módulo **ResNet** no designer Azure Machine Learning, para criar um modelo de classificação de imagem usando o algoritmo ResNet..  
 
-Este algoritmo de classificação é um método de aprendizagem supervisionado, e requer um conjunto de dados rotulado. Consulte o módulo [De Conversão para Diretório de Imagem](convert-to-image-directory.md) para obter mais informações sobre como obter um diretório de imagem rotulado. Pode treinar o modelo fornecendo um modelo e um diretório de imagem rotulado como entradas para [o Modelo Train Pytorch.](train-pytorch-model.md) O modelo treinado pode então ser utilizado para prever valores para os novos exemplos de entrada utilizando o [Modelo de Imagem de Pontuação](score-image-model.md).
+Este algoritmo de classificação é um método de aprendizagem supervisionado, e requer um conjunto de dados rotulado. 
+> [!NOTE]
+> Este módulo não suporta conjunto de dados rotulado gerado a partir da Rotulagem de *Dados* no estúdio, mas apenas suporta o diretório de imagem rotulado gerado a partir do módulo [Converte para Diretório de Imagem.](convert-to-image-directory.md) 
+
+Pode treinar o modelo fornecendo um modelo e um diretório de imagem rotulado como entradas para [o Modelo Train Pytorch.](train-pytorch-model.md) O modelo treinado pode então ser utilizado para prever valores para os novos exemplos de entrada utilizando o [Modelo de Imagem de Pontuação](score-image-model.md).
 
 ### <a name="more-about-resnet"></a>Mais sobre a ResNet
 
@@ -58,6 +62,6 @@ Após a execução do gasoduto, para utilizar o modelo para pontuação, ligue o
 | --------------- | ----------------------- | ---------------------------------------- |
 | Modelo destreinado | Não treinadoModelDirect | Um modelo resNet destreinado que pode ser ligado ao Modelo Train Pytorch. |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

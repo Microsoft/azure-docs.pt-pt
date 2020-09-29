@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 1cd03814e1590abebb74db490a2692d492a9207d
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 02ec24677519902c299babb72e089f75dcf8b34b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064949"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443037"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Implementar um serviço de fusão dividida para mover dados entre bases de dados de fragmentos
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -141,7 +141,7 @@ Por favor, note que para implementações de produção devem ser utilizados cer
 
 ## <a name="deploy-your-service"></a>Implemente o seu serviço
 
-1. Vá ao [portal Azure](https://portal.azure.com)
+1. Aceda ao [Portal do Azure](https://portal.azure.com)
 2. Selecione o serviço de nuvem que criou anteriormente.
 3. Clique em **Descrição geral**.
 4. Escolha o ambiente de encenação e, em seguida, clique em **Upload**.
@@ -182,7 +182,7 @@ Os ficheiros de script incluídos são:
 1. *SetupSampleSplitMergeEnvironment.ps1* - estabelece um nível de dados de teste para split/merge (ver tabela abaixo para descrição detalhada)
 2. *ExecuteSampleSplitMerge.ps1* - executa operações de ensaio no nível dos dados de ensaio (ver quadro abaixo para descrição detalhada)
 3. *GetMappings.ps1* - script de amostra de nível superior que imprime o estado atual dos mapeamentos de fragmentos.
-4. *ShardManagement.psm1* - script de ajudante que envolve a API de ShardManagement
+4. *ShardManagement.psm1*  - script de ajudante que envolve a API de ShardManagement
 5. *SqlDatabaseHelpers.psm1* - script helper para criar e gerir bases de dados na Base de Dados SQL
 
    <table style="width:100%">
@@ -240,7 +240,7 @@ Os ficheiros de script incluídos são:
 
    Certifique-se de que o servidor está configurado para permitir o acesso a partir do endereço IP da máquina que executa estes scripts. Pode encontrar esta definição no servidor SQL / Firewalls e redes virtuais / endereços IP do Cliente.
 
-3. Execute *o*SetupSampleSplitMergeEnvironment.ps1script para criar o ambiente de amostragem.
+3. Execute * o *SetupSampleSplitMergeEnvironment.ps1script para criar o ambiente de amostragem.
 
    A execução deste script eliminará quaisquer estruturas de dados de gestão de mapas de fragmentos existentes na base de dados do gestor de mapas de fragmentos e nos fragmentos. Pode ser útil refazer o script se desejar re-inicializar o mapa de fragmentos ou fragmentos.
 

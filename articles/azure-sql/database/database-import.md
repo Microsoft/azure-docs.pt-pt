@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: migrate
 ms.custom: sqldbrb=1, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 574bc4721f83d60fdd8c75b4fedb824522968822
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5f7aad271f04bcb4eb63472716ea2fe9f98a0e33
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070051"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443700"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Quickstart: Importe um ficheiro BACPAC para uma base de dados na Base de Dados Azure SQL ou na Azure SQL Gerenciada Instância
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -147,6 +147,10 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 - A importação para uma base de dados num conjunto elástico não é suportada. Pode importar dados para uma única base de dados e, em seguida, mover a base de dados para um conjunto elástico.
 - O Serviço de Exportação de Importações não funciona quando o acesso aos serviços Azure está definido para OFF. No entanto, pode contornar o problema executando manualmente sqlpackage.exe a partir de um VM Azure ou realizando a exportação diretamente no seu código utilizando a API DACFx.
+- A Importação não suporta especificar uma redundância de armazenamento de backup enquanto cria uma nova base de dados e cria com o despedimento de armazenamento de backup geo-redundante padrão. Para uma solução alternativa, primeiro crie uma base de dados vazia com a redundância de armazenamento de backup desejada usando o portal Azure ou PowerShell e, em seguida, importe o BACPAC para esta base de dados vazia. 
+
+> [!NOTE]
+> Azure SQL Database Configurable Backup Storage Despedimento está atualmente disponível em pré-visualização pública apenas na região do Sudeste Asiático Azure.
 
 ## <a name="import-using-wizards"></a>Importar usando assistentes
 
@@ -155,7 +159,7 @@ Também pode utilizar estes assistentes.
 - [Assistente de aplicação de nível de dados de importação no SQL Server Management Studio](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database#using-the-import-data-tier-application-wizard).
 - [Sql Server Import and Export Wizard](https://docs.microsoft.com/sql/integration-services/import-export-data/start-the-sql-server-import-and-export-wizard).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber como ligar e consultar uma base de dados na Base de Dados Azure SQL, consulte [Quickstart: Azure SQL Database: Use SQL Server Management Studio para ligar e consultar dados](connect-query-ssms.md).
 - Para saber mais sobre a migração com ficheiros BACPAC num blogue da Equipa de Aconselhamento ao Cliente do SQL Server, consulte [Migrating from SQL Server to Azure SQL Database using BACPAC Files (Migrar a partir do SQL Server para a Base de Dados SQL do Azure com Ficheiros BACPAC)](https://techcommunity.microsoft.com/t5/DataCAT/Migrating-from-SQL-Server-to-Azure-SQL-Database-using-Bacpac/ba-p/305407).

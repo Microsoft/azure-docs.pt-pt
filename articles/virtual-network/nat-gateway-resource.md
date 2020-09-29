@@ -13,19 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2020
+ms.date: 09/28/2020
 ms.author: allensu
-ms.openlocfilehash: ef1f8966497492f5a4969aca594c43abdf80945c
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 62c1b323899f03a043904f4b10d5fe3bb551e0f4
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612905"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441761"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Projetar redes virtuais com recursos de gateway NAT
 
-Os recursos de gateway NAT fazem parte da [Rede Virtual NAT](nat-overview.md) e fornecem conectividade de saída à Internet para uma ou mais sub-redes de uma rede virtual. A sub-rede da rede virtual indica quais o gateway NAT que será utilizado. A NAT fornece tradução de endereço de rede de origem (SNAT) para uma sub-rede.  Os recursos de gateway NAT especificam quais endereços IP estáticos utilizam máquinas virtuais ao criar fluxos de saída. Os endereços IP estáticos provêm de recursos de endereços IP públicos, recursos prefixos IP públicos, ou ambos. Se for utilizado um recurso prefixo IP público, todos os endereços IP de todo o recurso prefixo IP público são consumidos por um recurso de gateway NAT. Um recurso de gateway NAT pode usar um total de até 16 endereços IP estáticos de qualquer um dos dois.
-
+Os recursos de gateway NAT fazem parte da [Rede Virtual NAT](nat-overview.md) e fornecem conectividade de saída à Internet para uma ou mais sub-redes de uma rede virtual. A sub-rede da rede virtual indica quais o gateway NAT que será utilizado. A NAT fornece tradução de endereço de rede de origem (SNAT) para uma sub-rede.  Os recursos de gateway NAT especificam quais endereços IP estáticos utilizam máquinas virtuais ao criar fluxos de saída. Os endereços IP estáticos provêm de recursos de endereços IP públicos (PIP), recursos prefixos IP públicos, ou ambos. Se for utilizado um recurso prefixo IP público, todos os endereços IP de todo o recurso prefixo IP público são consumidos por um recurso de gateway NAT. Um recurso de gateway NAT pode usar um total de até 16 endereços IP estáticos de qualquer um dos dois.
 
 <p align="center">
   <img src="media/nat-overview/flow-direction1.svg" alt="Figure depicts a NAT gateway resource that consumes all IP addresses for a public IP prefix and directs that traffic to and from two subnets of virtual machines and a virtual machine scale set." width="256" title="Rede Virtual NAT para saída para a Internet">
@@ -231,7 +230,7 @@ Embora o cenário pareça funcionar, o seu modelo de saúde e modo de falha é i
 
 Cada recurso de gateway NAT pode fornecer até 50 Gbps de produção. Pode dividir as suas implementações em várias sub-redes e atribuir a cada sub-rede ou grupos de sub-redes uma porta de entrada NAT para escalar.
 
-Cada gateway NAT pode suportar 64.000 ligações por endereço IP de saída atribuído.  Reveja a seguinte secção sobre tradução de endereços de rede de origem (SNAT) para obter mais informações, bem como o [artigo de resolução de problemas](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat) para obter orientações específicas de resolução de problemas.
+Cada gateway NAT pode suportar 64.000 fluxos para TCP e UDP, respectivamente, por endereço IP de saída atribuído.  Reveja a seguinte secção sobre tradução de endereços de rede de origem (SNAT) para obter mais informações, bem como o [artigo de resolução de problemas](https://docs.microsoft.com/azure/virtual-network/troubleshoot-nat) para obter orientações específicas de resolução de problemas.
 
 ## <a name="source-network-address-translation"></a>Tradução de endereço de rede de origem
 
@@ -239,27 +238,39 @@ A tradução de endereços de rede de origem (SNAT) reescreve a origem de um flu
 
 ### <a name="fundamentals"></a>Fundamentos
 
-Vejamos um exemplo de quatro fluxos para explicar o conceito básico.  O gateway NAT está a utilizar o recurso de endereço IP público 65.52.0.2.
+Vejamos um exemplo de quatro fluxos para explicar o conceito básico.  O gateway NAT está a utilizar o recurso de endereço IP público 65.52.1.1 e o VM está a fazer ligações a 65.52.0.1.
 
 | Fluxo | Tuple de origem | Tuple destino |
 |:---:|:---:|:---:|
 | 1 | 192.168.0.16:4283 | 65.52.0.1:80 |
 | 2 | 192.168.0.16:4284 | 65.52.0.1:80 |
 | 3 | 192.168.0.17.5768 | 65.52.0.1:80 |
-| 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
 
 Estes fluxos podem parecer assim depois da PAT ter ocorrido:
 
 | Fluxo | Tuple de origem | Tuple fonte SNAT'ed | Tuple destino | 
 |:---:|:---:|:---:|:---:|
-| 1 | 192.168.0.16:4283 | 65.52.0.2:234 | 65.52.0.1:80 |
-| 2 | 192.168.0.16:4284 | 65.52.0.2:235 | 65.52.0.1:80 |
-| 3 | 192.168.0.17.5768 | 65.52.0.2:236 | 65.52.0.1:80 |
-| 4 | 192.168.0.16:4285 | 65.52.0.2:237 | 65.52.0.2:80 |
+| 1 | 192.168.0.16:4283 | **65.52.1.1:1234** | 65.52.0.1:80 |
+| 2 | 192.168.0.16:4284 | **65.52.1.1:1235** | 65.52.0.1:80 |
+| 3 | 192.168.0.17.5768 | **65.52.1.1:1236** | 65.52.0.1:80 |
 
-O destino verá a origem do caudal como 65.52.0.2 (tuple fonte SNAT) com a porta atribuída mostrada.  Pat, como mostrado na tabela anterior, também é chamado de SNAT disfarçado de porta.  Várias fontes privadas estão mascaradas atrás de um IP e porto.
+O destino verá a fonte do fluxo como 65.52.0.1 (tuple fonte SNAT) com a porta atribuída mostrada.  Pat, como mostrado na tabela anterior, também é chamado de SNAT disfarçado de porta.  Várias fontes privadas estão mascaradas atrás de um IP e porto.  
 
-Não tenha uma dependência da forma específica como as portas de origem são atribuídas.  O anterior é apenas uma ilustração do conceito fundamental.
+#### <a name="source-snat-port-reuse"></a>reutilização portuária de fonte (SNAT)
+
+Gateways NAT oportunisticamente reutilizam portas de origem (SNAT).  O seguinte ilustra este conceito como um fluxo adicional para o conjunto de fluxos pré-cessindo.  O VM no exemplo é um fluxo para 65.52.0.2.
+
+| Fluxo | Tuple de origem | Tuple destino |
+|:---:|:---:|:---:|
+| 4 | 192.168.0.16:4285 | 65.52.0.2:80 |
+
+Um gateway NAT provavelmente traduzirá o fluxo 4 para uma porta que pode ser usada para outros destinos também.  Consulte [o Dimensionamento](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#scaling) para obter uma discussão adicional sobre o dimensionamento correto do fornecimento do seu endereço IP.
+
+| Fluxo | Tuple de origem | Tuple fonte SNAT'ed | Tuple destino | 
+|:---:|:---:|:---:|:---:|
+| 4 | 192.168.0.16:4285 | 65.52.1.1:**1234** | 65.52.0.2:80 |
+
+Não assuma uma dependência da forma específica como as portas de origem são atribuídas no exemplo acima.  O anterior é apenas uma ilustração do conceito fundamental.
 
 O SNAT fornecido pela NAT é diferente do [Balanceador](../load-balancer/load-balancer-outbound-connections.md) de Carga em vários aspetos.
 
@@ -292,7 +303,12 @@ O dimensionamento do NAT é principalmente uma função de gestão do inventári
 
 O SNAT mapeia endereços privados para um ou mais endereços IP públicos, reescrita de endereço de origem e porta de origem nos processos. Um recurso de gateway NAT utilizará 64.000 portas (portas SNAT) por endereço IP público configurado para esta tradução. Os recursos de gateway NAT podem escalar até 16 endereços IP e portas SNAT de 1M. Se for fornecido um recurso de prefixo IP público, cada endereço IP dentro do prefixo está a fornecer o inventário portuário SNAT. E adicionar mais endereços IP públicos aumenta as portas SNAT de inventário disponível. TCP e UDP são inventários portuários SNAT separados e não relacionados.
 
-Os recursos de gateway DA NAT reutilizam oportunisticamente os portos de origem. Para fins de escala, deve assumir que cada fluxo requer uma nova porta SNAT e escalar o número total de endereços IP disponíveis para tráfego de saída.
+Os recursos de gateway NAT reutilizam oportunisticamente as portas de origem (SNAT). Como orientação de design para fins de escala, deve assumir que cada fluxo requer uma nova porta SNAT e escalar o número total de endereços IP disponíveis para tráfego de saída.  Deve considerar cuidadosamente a escala para a qual está a desenhar e providenciar quantidades de endereços IP em conformidade.
+
+As portas SNAT para diferentes destinos são mais prováveis de serem reutilizadas quando possível. E à medida que a exaustão portuária SNAT se aproxima, os fluxos podem não ter sucesso.  
+
+Consulte [os fundamentos do SNAT,](https://docs.microsoft.com/azure/virtual-network/nat-gateway-resource#source-network-address-translation) por exemplo.
+
 
 ### <a name="protocols"></a>Protocolos
 
@@ -344,11 +360,9 @@ Queremos saber como podemos melhorar o serviço. Falta-lhe uma capacidade? Faça
   - [Modelo](./quickstart-create-nat-gateway-template.md)
 * Saiba mais sobre o recurso nat gateway API
   - [API REST](https://docs.microsoft.com/rest/api/virtualnetwork/natgateways)
-  - [CLI do Azure](https://docs.microsoft.com/cli/azure/network/nat/gateway?view=azure-cli-latest)
+  - [CLI do Azure](https://docs.microsoft.com/cli/azure/network/nat/gateway)
   - [PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway)
 * Saiba mais [sobre as zonas de disponibilidade.](../availability-zones/az-overview.md)
 * Saiba mais sobre o [balanceador de carga padrão](../load-balancer/load-balancer-standard-overview.md).
 * Saiba mais sobre [as zonas de disponibilidade e o balanceador de carga padrão.](../load-balancer/load-balancer-standard-availability-zones.md)
 * [Diga-nos o que construir a seguir para o NAT de Rede Virtual no UserVoice](https://aka.ms/natuservoice).
-
-

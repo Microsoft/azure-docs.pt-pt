@@ -6,17 +6,17 @@ ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 12/03/2019
-ms.openlocfilehash: dfd21a38c46238dbd9d58d3eae5b3f9414d3c5fc
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 35fc4b18ee5a98270f715a969354df2be5000150
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91284504"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91444085"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Permitir a sintonização automática no portal Azure para monitorizar consultas e melhorar o desempenho da carga de trabalho
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -125,7 +125,7 @@ Para utilizar a sintonização automática, a permissão mínima necessária par
 
 Consulte o guia [de notificações por e-mail de afinação automática.](automatic-tuning-email-notifications-configure.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Leia o [artigo de afinação automática](automatic-tuning-overview.md) para saber mais sobre a sintonização automática e como pode ajudá-lo a melhorar o seu desempenho.
 - Consulte [as recomendações](database-advisor-implement-performance-recommendations.md) de desempenho para uma visão geral das recomendações de desempenho da Base de Dados Azure SQL.

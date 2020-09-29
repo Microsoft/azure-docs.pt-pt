@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 78668eaadca872d7c25ab909fad5b9838bbc01d3
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 0a368e54c940ff580b7e8f49dd108fafddde5b17
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90894810"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91441476"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - Perguntas sobre recolha de dados, agentes e espaços de trabalho
 
@@ -166,7 +166,7 @@ Pode desativar o fornecimento automático para as suas subscrições na polític
 
 1. Se a sua subscrição tiver o Azure Defender ativado, abra a política de segurança para essa subscrição e selecione **o Azure Defender fora**.
 
-   ![Escalão de preço][1]
+    :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Ativar ou desativar o Azure Defender":::
 
 1. Em seguida, desligue o provisionamento automático selecionando **off** na política de Segurança – página **de recolha de dados.**
    ![Recolha de dados][2]
@@ -200,7 +200,7 @@ Instale manualmente a extensão do agente Log Analytics para que o Security Cent
 
 Pode ligar o agente a qualquer espaço de trabalho personalizado ou ao Centro de Segurança criado. Se um espaço de trabalho personalizado não tiver as soluções 'Security' ou 'SecurityCenterFree' ativadas, então terá de aplicar uma solução. Para se candidatar, selecione o espaço de trabalho personalizado ou subscrição e aplique um nível de preços através da política de Segurança – página **de nível de preços.**
 
-   ![Escalão de preço][1]
+:::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Ativar ou desativar o Azure Defender":::
 
 O Centro de Segurança permitirá a solução correta no espaço de trabalho com base no nível de preços selecionado.
 
@@ -271,7 +271,6 @@ O agente consome uma quantidade nominal de recursos do sistema e deve ter pouco 
 
 
 <!--Image references-->
-[1]: ./media/security-center-platform-migration-faq/pricing-tier.png
 [2]: ./media/security-center-platform-migration-faq/data-collection.png
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/use-another-workspace.png

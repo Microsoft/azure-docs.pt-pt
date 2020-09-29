@@ -3,12 +3,12 @@ title: Apoio à migração de Hiper-V em Azure Migrate
 description: Saiba mais sobre o suporte à migração hiper-V com a Azure Migrate.
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: 0054b6983e7d11dd36a92f21cd1cb20314fb9408
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4ba8b8cea784167ad045c5635ce512a68b48d897
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318233"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442306"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Matriz de suporte para migração hiper-V
 
@@ -38,7 +38,7 @@ Pode selecionar até 10 VMs de uma só vez para replicação. Se quiser migrar m
 | :----------------------------- | :------------------- |
 | **Sistema operativo** | Todos os sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](../virtual-machines/linux/endorsed-distros.md) que são suportados pelo Azure. |
 **Windows Server 2003** | Para os VMs que executam o Windows Server 2003, é necessário [instalar serviços de integração de Hiper-V](prepare-windows-server-2003-migration.md) antes da migração. | 
-**Linux VMs em Azure** | Alguns VMs podem necessitar de alterações para que possam ser executados em Azure.<br/><br/> Para o Linux, a Azure Migrate faz as alterações automaticamente para estes sistemas operativos:<br/> - Red Hat Enterprise Linux 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> - Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> Para outros sistemas operativos, es faça as [alterações necessárias](prepare-for-migration.md#verify-required-changes-before-migrating) manualmente.
+**Linux VMs em Azure** | Alguns VMs podem necessitar de alterações para que possam ser executados em Azure.<br/><br/> Para o Linux, a Azure Migrate faz as alterações automaticamente para estes sistemas operativos:<br/> - Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> - Cent OS 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> Para outros sistemas operativos, es faça as [alterações necessárias](prepare-for-migration.md#verify-required-changes-before-migrating) manualmente.
 | **Alterações necessárias para o Azure** | Alguns VMs podem necessitar de alterações para que possam ser executados em Azure. Faça ajustes manualmente antes da migração. Os artigos relevantes contêm instruções sobre como fazê-lo. |
 | **Bota Linux**                 | Se o arranque estiver numa divisória dedicada, deve residir no disco OS e não ser espalhado por vários discos.<br/> Se /boot é parte da raiz (/) partição, então a partição '/' deve estar no disco DE, e não abranger outros discos. |
 | **Bota UEFI**                  | Suportado. Os VMs baseados na UEFI serão migrados para a geração Azure 2 VMs.  |
@@ -54,7 +54,7 @@ Pode selecionar até 10 VMs de uma só vez para replicação. Se quiser migrar m
 | **IPv6** | Não suportado.|
 | **Equipa nic** | Não suportado.|
 | **Azure Site Recovery** | Não é possível replicar usando a migração do servidor Azure Migrate se o VM estiver ativado para replicação com recuperação do site Azure.|
-| **Portas** | Ligações de saída na porta HTTPS 443 para enviar dados de replicação VM.|
+| **Portos** | Ligações de saída na porta HTTPS 443 para enviar dados de replicação VM.|
 
 ### <a name="url-access-public-cloud"></a>Acesso a URL (nuvem pública)
 
@@ -100,6 +100,6 @@ o nome da VM | De 1 a 63 caracteres.<br/> Limitado a letras, números e hífenes
 Conecte-se após a migração-Windows | Para ligar aos VMs Azure que executam o Windows após a migração:<br/><br/> - Antes da migração, permita pDR nas VM no local. Confirme que são adicionadas regras de TCP e UDP ao perfil **Público** e que o protocolo RDP é permitido em **Firewall do Windows** > **Aplicações Permitidas** para todos os perfis.<br/><br/> - Para acesso local-a-site VPN, ative o **Windows Firewall**RDP e permita que RDP em  ->  **aplicações e funcionalidades permitidas** pelo Windows Firewall e para redes **de domínio e privado.** Além disso, verifique se a política SAN do sistema operativo está definida para **OnlineAll**. [Saiba mais](prepare-for-migration.md). |
 Conecte-se após migração-Linux | Para ligar aos VMs Azure após a migração utilizando SSH:<br/><br/> - Antes da migração, na máquina no local, verifique se o serviço Secure Shell está programado para iniciar e que as regras de firewall permitem uma ligação SSH.<br/><br/> - Após a migração, no Azure VM, permita a entrada de ligações à porta SSH para as regras do grupo de segurança da rede sobre o falhado sobre o VM, e para a sub-rede Azure à qual está ligada. Além disso, adicione um endereço IP público para o VM. |  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Migrar VMs Hiper-V](tutorial-migrate-hyper-v.md) para migração.

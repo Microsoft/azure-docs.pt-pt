@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: johnpaulkee
 ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: a1f9e392ddb7b5a79b01459925fe711707db97b5
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: e8c222d7cdcdb203cd323cde38818e5b51643159
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121192"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443377"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs-preview"></a>Migrar para os novos trabalhos de Base de Dados Elásticas (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -145,7 +145,7 @@ Para migrar as suas credenciais, execute o seguinte comando passando no `$agent`
 Migrate-Credentials $agent
 ```
 
-Resultado da amostra
+Saída de exemplo
 
 ```powershell
 # You should see similar output after executing the above
@@ -628,7 +628,7 @@ Para quaisquer trabalhos que estivessem a funcionar num horário, lembre-se de h
 $jobs | Set-AzSqlElasticJob -Enable
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar e gerir Tarefas Elásticas com o PowerShell](elastic-jobs-powershell-create.md)
 - [Criar e gerir Tarefas Elásticas com o Transact-SQL (T-SQL)](elastic-jobs-tsql-create-manage.md)

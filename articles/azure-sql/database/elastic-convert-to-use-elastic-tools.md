@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 42a2d571c04d08b5ec868bbd06cd521bfcda24bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95afd0b9117caca4b531c453417217d8a8de7c7f
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84050206"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91443480"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrar as bases de dados existentes para escalar
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

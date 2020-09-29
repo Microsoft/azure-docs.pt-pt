@@ -4,17 +4,17 @@ description: Executar consultas através de fragmentos usando a biblioteca de cl
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: sqldbrb=1
 author: stevestein
 ms.author: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: fe8b977d3385f8ef4e4ceaac4dde7c0ac6a79839
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3843b7dff0f987fa53336056cdcb82af00336a7b
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84047511"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442716"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>Consulta multi-fragmentos usando ferramentas de base de dados elásticas
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

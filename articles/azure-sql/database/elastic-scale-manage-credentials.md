@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: cd33e202a76a5ae55a68d902bb4812dcaaf348aa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51439edd1d8c7094a5b857821f632ace9e2dea53
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84047539"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442771"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Credenciais utilizadas para aceder à biblioteca de clientes elastic Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

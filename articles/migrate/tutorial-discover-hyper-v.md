@@ -4,12 +4,12 @@ description: Saiba como descobrir em locais Hiper-VMs com a ferramenta Azure Mig
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: eb17ba9fc1b68f09f60e857cd20a3f0885bfdb05
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: e62effc31ab5dbc687e0509617b89561c5f2a3b6
+ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90603956"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91442328"
 ---
 # <a name="tutorial-discover-hyper-v-vms-with-server-assessment"></a>Tutorial: Descubra VMs hiper-V com avaliação do servidor
 
@@ -39,7 +39,7 @@ Antes de iniciar este tutorial, verifique se tem estes pré-requisitos no lugar.
 **Requisito** | **Detalhes**
 --- | ---
 **Anfitrião Hyper-V** | Os anfitriões hiper-V nos quais os VMs estão localizados podem ser autónomos, ou num cluster.<br/><br/> O anfitrião deve estar a executar o Windows Server 2019, o Windows Server 2016 ou o Windows Server 2012 R2.<br/><br/> Verifique se as ligações de entrada são permitidas na porta WinRM 5985 (HTTP), para que o aparelho possa ligar-se para retirar metadados VM e dados de desempenho, utilizando uma sessão de Modelo de Informação Comum (CIM).
-**Implantação do aparelho** | vCenter Server precisa de recursos para alocar um VM para o aparelho:<br/><br/> - Windows Server 2016<br/><br/> -32 GB de RAM<br/><br/> - Oito vCPUs<br/><br/> - Cerca de 80 GB de armazenamento de disco.<br/><br/> - Um interruptor virtual externo.<br/><br/> - Acesso à Internet para o VM, diretamente ou através de um representante.
+**Implantação do aparelho** | O hospedeiro Hiper-V necessita de recursos para alocar um VM para o aparelho:<br/><br/> - Windows Server 2016<br/><br/> -16 GB de RAM<br/><br/> - Oito vCPUs<br/><br/> - Cerca de 80 GB de armazenamento de disco.<br/><br/> - Um interruptor virtual externo.<br/><br/> - Acesso à Internet para o VM, diretamente ou através de um representante.
 **VMs** | Os VMs podem estar a executar qualquer sistema operativo Windows ou Linux. 
 
 Antes de começar, pode [rever os dados](migrate-appliance.md#collected-data---hyper-v) que o aparelho recolhe durante a descoberta.
@@ -50,7 +50,7 @@ Para criar um projeto Azure Migrate e registar o aparelho Azure Migrate, precisa
 - Permissões de colaborador ou proprietário numa subscrição do Azure.
 - Permissões para registar aplicações do Azure Ative Directory.
 
-Se acabou de criar uma conta Azure gratuita, é o proprietário da sua subscrição. Se não for o proprietário da subscrição, trabalhe com o proprietário para atribuir as permissões da seguinte forma:
+Se acabou de criar uma conta gratuita do Azure, é o proprietário da sua subscrição. Se não for o proprietário da subscrição, trabalhe com o proprietário para atribuir as permissões da seguinte forma:
 
 
 1. No portal Azure, procure por "subscrições", e em **Serviços,** **selecione Subscrições**.
@@ -72,6 +72,8 @@ Se acabou de criar uma conta Azure gratuita, é o proprietário da sua subscriç
 8. Nas **definições do Utilizador,** verifique se os utilizadores de Ad Azure podem registar aplicações (definidas para **Sim** por predefinição).
 
     ![Verifique nas Definições do Utilizador que os utilizadores podem registar aplicações de Ative Directory](./media/tutorial-discover-hyper-v/register-apps.png)
+
+9. Em alternativa, o inquilino/administrador global pode atribuir o papel **de Desenvolvedor de Aplicações** a uma conta para permitir o registo de App(s) AAD. [Saiba mais](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## <a name="prepare-hyper-v-hosts"></a>Preparar anfitriões Hiper-V
 
@@ -115,7 +117,7 @@ Este tutorial configura o aparelho num Hiper-V VM, da seguinte forma:
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Gere a chave do projeto Azure Migrate
 
-1. In **Migration Goals**  >  **Servers**  >  **Azure Migrate: Server Assessment**, select **Discover**.
+1. Em **Objetivos de Migração** > **Servidores** > **Azure Migrate: Avaliação do Servidor**, selecione **Detetar**.
 2. In **Discover machines**  >  **Are your machines virtualized?** **Yes, with Hyper-V**
 3. Na **tecla de projeto 1:Generate Azure Migrate**, forneça um nome para o aparelho Azure Migrate que irá configurar para a descoberta de VMs Hiper-V.O nome deve ser alfanumérico com 14 caracteres ou menos.
 1. Clique na **chave Gerar** para iniciar a criação dos recursos Azure necessários. Por favor, não feche a página das máquinas Discover durante a criação de recursos.
@@ -135,7 +137,7 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 
 2. Executar o seguinte comando PowerShell para gerar o haxixe para o ficheiro ZIP
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
-    - Utilização de exemplo: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
+    - Utilização de exemplo: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
 3.  Verifique as versões mais recentes do aparelho e os valores do haxixe:
 
@@ -143,13 +145,13 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 
         **Cenário** | **Transferência** | **SHA256**
         --- | --- | ---
-        Hiper-V (10,4 GB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140422) |  79c151588de049cc10f61b910d6136e02324dc8d8a14f47772351b46d9127
+        Hiper-V (8,91 GB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140422) |  40a037987777179428b1c6ebee2614b092e69ac56d48a2bbc75eeef86c99a
 
     - Para o Governo de Azure:
 
         **Cenário*** | **Transferência** | **SHA256**
         --- | --- | ---
-        Hiper-V (85 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140424) |  0769c5f8df1e8c1c4f685296f96f9ee18e1ca63e4a11d9aaaaaa4e6982e069df430d7
+        Hiper-V (85,8 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140424) |  cfed44bb52c9ab3024a628dc7a5d0df8c624f156ec1ecc350716bae30b257f
 
 ### <a name="create-the-appliance-vm"></a>Criar o aparelho VM
 
@@ -214,7 +216,7 @@ Se estiver a executar VHDs em SMBs, deve ativar a delegação de credenciais do 
 1. No aparelho VM, este comando. HyperVHost1/HyperVHost2 são nomes de anfitriões exemplo.
 
     ```
-    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com, HyperVHost2.contoso.com, HyperVHost1, HyperVHost2 -Force
     ```
 
 2. Em alternativa, faça-o no Editor de Política do Grupo Local sobre o aparelho:
@@ -252,10 +254,10 @@ Isto começa a ser descoberto. Leva aproximadamente 2 minutos por anfitrião par
 
 Após o fim da descoberta, pode verificar se os VMs aparecem no portal.
 
-1. Abra o painel Azure Migrate.
+1. Abra o dashboard do Azure Migrate.
 2. Em **Azure Migrate - Servidores**  >  **Azure Migrate:** Página de Avaliação do servidor, clique no ícone que exibe a contagem para **servidores descobertos**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Avaliar VMs hiper-V](tutorial-assess-hyper-v.md) para migração para VMs Azure.
 - [Reveja os dados](migrate-appliance.md#collected-data---hyper-v) que o aparelho recolhe durante a descoberta.
