@@ -3,20 +3,18 @@ title: Armazenamento de dados - LUIS
 titleSuffix: Azure Cognitive Services
 description: A LUIS armazena dados encriptados numa loja de dados Azure correspondente à região especificada pela chave.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: diberry
-ms.openlocfilehash: e3028a9f046edb4013d8a2d6ec88d8c3cb2ca489
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: b74621f357613bc60457ab4846b58f6f85009401
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84691718"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541888"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Armazenamento e remoção de dados em Serviços Cognitivos de Compreensão linguística (LUIS)
 A LUIS armazena dados encriptados numa loja de dados Azure correspondente à região especificada pela chave. Estes dados são armazenados por 30 dias. 
@@ -64,7 +62,7 @@ Para efeitos de retenção e eliminação de dados, uma aplicação LUIS inativa
 * Não tem uma chave atual atribuída.
 * Não teve um sinal de utilizador.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre exportação e eliminação de uma app](luis-how-to-start-new-app.md)

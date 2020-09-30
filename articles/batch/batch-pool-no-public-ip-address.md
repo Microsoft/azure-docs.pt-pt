@@ -3,15 +3,15 @@ title: Criar um conjunto do Azure Batch sem endereços IP públicos
 description: Saiba como criar uma piscina sem endereços IP públicos
 author: pkshultz
 ms.topic: how-to
-ms.date: 09/25/2020
+ms.date: 09/28/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 9b36c769c70792e47464c2704e1912dbb2d744dd
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 6c6207e7f52e49b88dc8dc99e0bd20a2c774339d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91367942"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541905"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Criar um conjunto do Azure Batch sem endereços IP públicos
 
@@ -24,7 +24,7 @@ Por predefinição, todos os nós de computação num conjunto de configuração
 Para restringir o acesso a estes nós e reduzir a descoberta destes nós a partir da internet, pode providenciar a piscina sem endereços IP públicos.
 
 > [!IMPORTANT]
-> O apoio a piscinas sem endereços IP públicos em Azure Batch é atualmente uma pré-visualização pública para todas as regiões, exceto China East, China East 2, China North, e China North 2.
+> O apoio a piscinas sem endereços IP públicos em Azure Batch está atualmente em pré-visualização pública para as seguintes regiões: França Central, Ásia Oriental, Centro Ocidental dos EUA, Centro-Oeste dos EUA, Eua Ocidental 2, Leste dos EUA, Norte da Europa, Leste DOS EUA 2, Eua Central, Europa Ocidental.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -113,7 +113,7 @@ Numa piscina sem endereços IP públicos, as suas máquinas virtuais não poder�
 
 Outra forma de fornecer conectividade de saída é usar uma rota definida pelo utilizador (UDR). Isto permite-lhe encaminhar o tráfego para uma máquina de procuração que tem acesso público à Internet.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre [a criação de piscinas numa rede virtual.](batch-virtual-network.md)
 - Saiba como [utilizar pontos finais privados com contas Batch](private-connectivity.md).

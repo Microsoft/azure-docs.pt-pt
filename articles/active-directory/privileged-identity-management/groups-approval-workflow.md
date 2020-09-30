@@ -15,12 +15,12 @@ ms.date: 07/27/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3fbb92c2e3623f5fd9571cd94ae521a41139dd6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0a3b6dad33ce678478a201dc8b7b612f4b8507c0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87505864"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536992"
 ---
 # <a name="approve-activation-requests-for-privileged-access-group-members-and-owners-preview"></a>Aprovar pedidos de ativação para membros e proprietários privilegiados do grupo de acesso (pré-visualização)
 
@@ -46,7 +46,7 @@ Como um aprovador delegado, receberá uma notificação por e-mail quando um ped
 
 1. Encontre e selecione o pedido que pretende aprovar e selecione **Aprovar.**
 
-    ![Aprovar pedidos - aprovar ou negar painel com detalhes e caixa de justificação](./media/groups-approval-workflow/groups-confirm-approval.png)
+    ![Screenshot que mostra a página "Aprovar pedidos" com os botões "Aprovar" e "Confirmar" realçados.](./media/groups-approval-workflow/groups-confirm-approval.png)
 
 1. Na caixa **de justificação,** insira a justificação do negócio.
 
@@ -73,7 +73,7 @@ Aqui estão algumas informações sobre notificações de fluxo de trabalho:
 >[!Note]
 >Um administrador que acredite que um utilizador aprovado não deve estar ativo pode remover a atribuição do grupo ativo na Gestão de Identidade Privilegiada. Embora os administradores de recursos não sejam notificados de pedidos pendentes a menos que sejam um aprovador, podem visualizar e cancelar pedidos pendentes para todos os utilizadores, visualizando pedidos pendentes na Gestão de Identidade Privilegiada.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Alargar ou renovar atribuições de grupos em Gestão de Identidade Privilegiada](pim-resource-roles-renew-extend.md)
 - [Notificações de email em Gestão de Identidade Privilegiada](pim-email-notifications.md)

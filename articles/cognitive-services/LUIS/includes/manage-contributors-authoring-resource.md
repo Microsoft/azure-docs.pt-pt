@@ -2,20 +2,18 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.date: 02/14/2020
 ms.subservice: language-understanding
 ms.topic: include
-ms.author: diberry
-ms.openlocfilehash: 1684c76e1f00e6b2debca9166ec614cccde8dc02
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 74509b161c4c20a4d7681b9803332434e47f3242
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87374927"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536052"
 ---
 Se as suas aplicações precisarem de ser da autoria de outras pessoas, tem de adicionar os endereços de e-mail associados no recurso de autoria do portal Azure.
 

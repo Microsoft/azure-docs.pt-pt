@@ -1,5 +1,5 @@
 ---
-title: Experimente uma solução de manutenção preditiva baseada em nuvem - Azure [ Azure ] Microsoft Docs
+title: Experimente uma solução de manutenção preditiva IoT baseada na nuvem - Azure Microsoft Docs
 description: Neste início rápido, vai implementar o acelerador de soluções de IoT do Azure de Manutenção Preditiva, iniciar sessão e utilizar o dashboard de soluções.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: cecf23d61d6a12c20aa3e64e4ee0ddacddbe7823
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7266f110069155e2a9f7804d53c6e1088768ec8d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "62106818"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541854"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Início Rápido: Experimentar uma solução baseada na cloud para executar uma análise de manutenção preditiva nos meus dispositivos ligados
 
@@ -26,7 +26,7 @@ Os motores das aeronaves da Fabrikam são equipados com sensores que controlam o
 
 Para concluir este início rápido, precisa de uma subscrição ativa do Azure.
 
-Se não tiver uma subscrição Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="deploy-the-solution"></a>Implementar a solução
 
@@ -52,9 +52,9 @@ Quando a implementação na sua subscrição do Azure estiver concluída, verá 
 
 Na página **Soluções aprovisionadas**, clique no novo acelerador de soluções de Manutenção Preditiva.
 
-![Painel de soluções](./media/quickstart-predictive-maintenance-deploy/solution.png)
+![Screenshot que mostra a página "Soluções A provisionadas" com o acelerador de solução "Manutenção Preditiva" em destaque.](./media/quickstart-predictive-maintenance-deploy/solution.png)
 
- Pode ver informações sobre o acelerador de soluções na página que aparece. Escolha **ir ao acelerador de soluções** para visualizar o seu acelerador de solução de manutenção preditiva:
+ Pode ver informações sobre o acelerador de solução na página que aparece. Escolha **Ir ao seu acelerador de solução** para ver o seu acelerador de solução de manutenção preditiva:
 
 ![Painel de soluções](./media/quickstart-predictive-maintenance-deploy/solutionpaneldetails.png)
 
@@ -76,7 +76,7 @@ A simulação é executada através do conjunto de dados completos para 148 cicl
 
 Pode parar a simulação a qualquer momento mas, se clicar em **Iniciar Simulação**, a simulação partirá novamente do início do conjunto de dados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se quiser explorar ainda mais, deixe o acelerador de soluções de Manutenção Preditiva implementado.
 
@@ -84,7 +84,7 @@ Se já não precisar do acelerador de soluções, elimine-o na página [Soluçõ
 
 ![Eliminar solução](media/quickstart-predictive-maintenance-deploy/deletesolution.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, implementou o acelerador de soluções de Manutenção Preditiva e executou uma simulação.
 

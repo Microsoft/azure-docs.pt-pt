@@ -1,28 +1,26 @@
 ---
-title: Entidade Pré-construída número - LUIS
+title: Número Entidade pré-construída - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém informações de entidades pré-construídas em Compreensão linguística (LUIS).
+description: Este artigo contém informação de entidade pré-incorporada em Informação de Línguas (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: 85e3589d7467691e2b9a11879510ab980bbd875a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 13594886b83d4474ee2531185db5868a5198ca64
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78273470"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541968"
 ---
-# <a name="number-prebuilt-entity-for-a-luis-app"></a>Número de entidade pré-construída para uma app LUIS
-Há muitas maneiras pelas quais os valores numéricos são usados para quantificar, expressar e descrever pedaços de informação. Este artigo abrange apenas alguns dos exemplos possíveis. Luis interpreta as variações nas expressões dos utilizadores e devolve valores numéricos consistentes. Como esta entidade já está treinada, não precisa de adicionar declarações de exemplo contendo número às intenções de aplicação.
+# <a name="number-prebuilt-entity-for-a-luis-app"></a>Entidade pré-incorporada para uma aplicação LUIS
+Há muitas maneiras pelas quais os valores numéricos são usados para quantificar, expressar e descrever peças de informação. Este artigo abrange apenas alguns dos exemplos possíveis. A LUIS interpreta as variações nas expressões dos utilizadores e devolve valores numéricos consistentes. Como esta entidade já está treinada, não precisa de adicionar palavras de exemplo que contenham número às intenções da aplicação.
 
 ## <a name="types-of-number"></a>Tipos de número
-O número é gerido a partir do repositório GitHub [de texto de reconhecimento](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml)
+O número é gerido a partir do repositório GitHub [de texto recognisers](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml)
 
 ## <a name="examples-of-number-resolution"></a>Exemplos de resolução de números
 
@@ -38,7 +36,7 @@ O número é gerido a partir do repositório GitHub [de texto de reconhecimento]
 | ```buy two dozen eggs```    | ```"two dozen"``` | ```"24"``` |
 
 
-A LUIS inclui o **`builtin.number`** valor `resolution` reconhecido de uma entidade no campo da resposta da JSON que devolve.
+A LUIS inclui o valor reconhecido de uma **`builtin.number`** entidade no campo da resposta `resolution` JSON que devolve.
 
 ## <a name="resolution-for-prebuilt-number"></a>Resolução para número pré-construído
 
@@ -48,7 +46,7 @@ Os seguintes objetos de entidade são devolvidos para consulta:
 
 #### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O seguinte JSON `verbose` está com `false`o parâmetro definido para:
+O seguinte JSON é com o `verbose` parâmetro definido `false` para:
 
 ```json
 "entities": {
@@ -59,7 +57,7 @@ O seguinte JSON `verbose` está com `false`o parâmetro definido para:
 ```
 #### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
 
-O seguinte JSON `verbose` está com `true`o parâmetro definido para:
+O seguinte JSON é com o `verbose` parâmetro definido `true` para:
 
 ```json
 "entities": {
@@ -85,7 +83,7 @@ O seguinte JSON `verbose` está com `true`o parâmetro definido para:
 ```
 #### <a name="v2-response"></a>[Resposta V2](#tab/V2)
 
-O exemplo que se segue mostra uma resposta da JSON da LUIS, que inclui a resolução do valor 24, para a expressão "duas dezenas".
+O exemplo a seguir mostra uma resposta JSON da LUÍS, que inclui a resolução do valor 24, para a expressão "duas dúzias".
 
 ```json
 "entities": [
@@ -103,8 +101,8 @@ O exemplo que se segue mostra uma resposta da JSON da LUIS, que inclui a resolu�
 ```
 * * *
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final de [previsão V3](luis-migration-api-v3.md).
 
-Conheça a [moeda,](luis-reference-prebuilt-currency.md) [ordinal](luis-reference-prebuilt-ordinal.md)e [percentagem](luis-reference-prebuilt-percentage.md).
+Conheça a [moeda](luis-reference-prebuilt-currency.md), [ordinal](luis-reference-prebuilt-ordinal.md), e [percentagem](luis-reference-prebuilt-percentage.md).

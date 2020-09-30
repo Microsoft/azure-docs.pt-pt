@@ -2,13 +2,13 @@
 title: Importar imagens de contentor
 description: Importar imagens de contentores para um registo de contentores Azure utilizando APIs Azure, sem necessidade de executar comandos Docker.
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: 66c3a8b19e2288c1f8720dd4fe79f348a11f052e
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.date: 09/18/2020
+ms.openlocfilehash: 2c99d3c32bf6dad3a1950da56b29f47d2a988161
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660500"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541582"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importar imagens de contentores para um registo de contentores
 
@@ -18,7 +18,7 @@ O Registo de Contentores Azure lida com uma série de cenários comuns para copi
 
 * Importação de um registo público
 
-* Importação de outro registo de contentores Azure, na mesma ou numa subscrição Azure diferente
+* Importação de outro registo de contentores Azure, na mesma ou numa subscrição ou inquilino Azure diferente
 
 * Importação de um registo de contentores privados não-Azure
 
@@ -28,7 +28,7 @@ A importação de imagem para um registo de contentores Azure tem os seguintes b
 
 * Quando importa imagens multi-arquitetura (como imagens oficiais do Docker), imagens para todas as arquiteturas e plataformas especificadas na lista de manifestos são copiadas.
 
-* O acesso à fonte e aos registos-alvo não tem de usar os pontos finais públicos dos registos.
+* O acesso ao registo-alvo não tem de usar o ponto final público do registo.
 
 Para importar imagens de contentores, este artigo requer que você execute o Azure CLI em Azure Cloud Shell ou localmente (versão 2.0.55 ou posteriormente recomendado). Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli].
 
@@ -83,9 +83,9 @@ az acr import \
 --image servercore:ltsc2019
 ```
 
-## <a name="import-from-another-azure-container-registry"></a>Importação de outro registo de contentores Azure
+## <a name="import-from-an-azure-container-registry-in-the-same-ad-tenant"></a>Importação de um registo de contentores Azure no mesmo inquilino da AD
 
-Pode importar uma imagem de outro registo de contentores Azure utilizando permissões integradas do Azure Ative Directory.
+Você pode importar uma imagem de um registro de contentores Azure no mesmo inquilino AD usando permissões integradas do Azure Ative Directory.
 
 * A sua identidade deve ter permissões do Azure Ative Directory para ler a partir do registo de origem (função do leitor) e para importar para o registo-alvo (função de contribuinte, ou um [papel personalizado](container-registry-roles.md#custom-roles) que permite a ação de importagensImage).
 
@@ -136,7 +136,20 @@ az acr import \
 
 ### <a name="import-from-a-registry-using-service-principal-credentials"></a>Importação de um registo utilizando credenciais principais de serviço
 
-Para importar de um registo que não pode aceder usando permissões de Ative Directory, pode utilizar credenciais principais de serviço (se disponível). Forneça o appID e a palavra-passe de um diretor de serviço de [Diretório](container-registry-auth-service-principal.md) Ativo que tenha acesso ACRPull ao registo de origem. A utilização de um principal de serviço é útil para construir sistemas e outros sistemas sem supervisão que precisam de importar imagens para o seu registo.
+Para importar de um registo que não pode aceder usando permissões integradas de Diretório Ativo, pode utilizar credenciais principais de serviço (se disponíveis) para o registo de origem. Forneça o appID e a palavra-passe de um diretor de serviço de [Diretório](container-registry-auth-service-principal.md) Ativo que tenha acesso ACRPull ao registo de origem. A utilização de um principal de serviço é útil para construir sistemas e outros sistemas sem supervisão que precisam de importar imagens para o seu registo.
+
+```azurecli
+az acr import \
+  --name myregistry \
+  --source sourceregistry.azurecr.io/sourcerrepo:tag \
+  --image targetimage:tag \
+  --username <SP_App_ID> \
+  –-password <SP_Passwd>
+```
+
+## <a name="import-from-an-azure-container-registry-in-a-different-ad-tenant"></a>Importação de um registo de contentores Azure em um inquilino de AD diferente
+
+Para importar de um registo de contentores Azure num inquilino diferente do Azure Ative Directory, especifique o registo de origem pelo nome do servidor de login e forneça credenciais de nome de utilizador e palavra-passe que permitam o acesso ao registo. Por exemplo, use um token e senha [com âmbito de repositório,](container-registry-repository-scoped-permissions.md) ou o appID e a palavra-passe de um diretor de [serviço](container-registry-auth-service-principal.md) de Diretório Ativo que tenha acesso ACRPull ao registo de origem. 
 
 ```azurecli
 az acr import \
@@ -149,7 +162,7 @@ az acr import \
 
 ## <a name="import-from-a-non-azure-private-container-registry"></a>Importação de um registo de contentores privados não-Azure
 
-Importe uma imagem de um registo privado especificando credenciais que permitem o acesso ao registo. Por exemplo, retire uma imagem de um registo privado do Docker: 
+Importe uma imagem de um registo privado não-Azure especificando credenciais que permitem o acesso ao registo. Por exemplo, retire uma imagem de um registo privado do Docker: 
 
 ```azurecli
 az acr import \
@@ -160,7 +173,7 @@ az acr import \
   --password <password>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, você aprendeu sobre a importação de imagens de contentores para um registo de contentores Azure a partir de um registo público ou outro registo privado. Para opções adicionais de importação de imagem, consulte a referência do comando [de importação az acr.][az-acr-import] 
 

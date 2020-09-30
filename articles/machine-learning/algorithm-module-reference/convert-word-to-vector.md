@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 1c2aa9023a7081387d38b9f7c6cfe8323300ad6e
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 5fad3e4862b0c40c9edd00a5b9d47b245e529396
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90898610"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536737"
 ---
 # <a name="convert-word-to-vector-module"></a>Converter palavra para módulo vetorial
 
@@ -27,9 +27,9 @@ Este módulo usa a biblioteca Gensim. Para mais informações sobre o Gensim, co
 
 ### <a name="more-about-converting-words-to-vectors"></a>Mais sobre converter palavras em vetores
 
-De um modo geral, converter palavras em vetores, ou vectorização de palavras, é um processo de processamento de linguagem natural (NLP). O processo usa modelos ou técnicas linguísticas para mapear palavras no espaço vetorial, isto é, para representar cada palavra por um vetor de números reais. Entretanto, permite que palavras com significados semelhantes tenham representações semelhantes.
+Converter palavras em vetores, ou vectorização de palavras, é um processo de processamento de linguagem natural (NLP). O processo usa modelos linguísticos para mapear palavras no espaço vetorial. Um espaço vetorial representa cada palavra por um vetor de números reais. Também permite que palavras com significados semelhantes tenham representações semelhantes.
 
-As incorporações de palavras podem ser usadas como entrada inicial para tarefas a jusante de NLP, tais como classificação de texto e análise de sentimento.
+Utilize incorporações de palavras como entrada inicial para tarefas a jusante de NLP, tais como classificação de texto e análise de sentimento.
 
 Entre várias tecnologias de incorporação de palavras, neste módulo, implementámos três métodos amplamente utilizados. Dois, Word2Vec e FastText, são modelos de treino online. O outro é um modelo pré-treinado, luva-wiki-gigaword-100. 
 
@@ -37,9 +37,9 @@ Os modelos de treino online são treinados nos seus dados de entrada. Os modelos
 
 Aqui está uma informação sobre os métodos:
 
-+ O Word2Vec é uma das técnicas mais populares para aprender incorporações de palavras usando uma rede neural rasa. A teoria é discutida neste artigo, disponível como um download PDF: [Estimativa eficiente de representações de palavras no espaço vetorial, por Mikolov, Tomas, et al](https://arxiv.org/pdf/1301.3781.pdf). A implementação neste módulo baseia-se na [biblioteca Gensim para o Word2Vec.](https://radimrehurek.com/gensim/models/word2vec.html)
++ O Word2Vec é uma das técnicas mais populares para aprender incorporações de palavras usando uma rede neural rasa. A teoria é discutida neste artigo, disponível como um download PDF: [Estimativa eficiente de representações de palavras no espaço vetorial.](https://arxiv.org/pdf/1301.3781.pdf) A implementação neste módulo baseia-se na [biblioteca Gensim para o Word2Vec.](https://radimrehurek.com/gensim/models/word2vec.html)
 
-+ A teoria FastText é explicada neste artigo, disponível como um download PDF: [Vetores de palavras enriquecedores com Informação de Subword, por Bojanowski, Piotr, et al](https://arxiv.org/pdf/1607.04606.pdf). A implementação neste módulo baseia-se na [biblioteca Gensim para FastText.](https://radimrehurek.com/gensim/models/fasttext.html)
++ A teoria FastText é explicada neste artigo, disponível como um download PDF: [Vetores de palavras enriquecedores com informação de sub-palavras.](https://arxiv.org/pdf/1607.04606.pdf) A implementação neste módulo baseia-se na [biblioteca Gensim para FastText.](https://radimrehurek.com/gensim/models/fasttext.html)
 
 + O modelo pré-treinado gloVe é luva-wiki-gigaword-100. É uma coleção de vetores pré-treinados baseados num corpus de texto da Wikipédia, que contém 5,6 mil milhões de fichas e 400.000 palavras de vocabulário não cobertas. Um download PDF está disponível: [GloVe: Vetores Globais para Representação de Palavras.](https://nlp.stanford.edu/pubs/glove.pdf)
 
@@ -71,13 +71,13 @@ Este módulo requer um conjunto de dados que contenha uma coluna de texto. Texto
 
         O tamanho da janela padrão é 5.
 
-    + Para **o número de épocas, especifique**o número de épocas (iterações) sobre o corpus. Esta definição corresponde ao `iter` parâmetro em Gensim.
+    + Para **o número de épocas, especifique**o número de épocas (iterações) sobre o corpus. Corresponde ao `iter` parâmetro em Gensim.
 
         O número de época padrão é 5.
 
 6. Para **o tamanho máximo do vocabulário,** especifique o número máximo de palavras no vocabulário gerado.
 
-    Se há palavras mais únicas do que esta, poda as mais raras.
+    Se houver palavras mais únicas do que o tamanho máximo, poda as mais raras.
 
     O tamanho do vocabulário padrão é de 10.000.
 
@@ -93,11 +93,11 @@ O módulo tem uma saída:
 
 + **Vocabulário com incorporações**: Contém o vocabulário gerado, juntamente com a incorporação de cada palavra. Uma dimensão ocupa uma coluna.
 
-O exemplo a seguir ilustra como funciona o módulo Converte palavra para vetor. Aplica este módulo com as definições predefinidas ao conjunto de dados pré-processado Wikipedia SP 500 fornecido no Azure Machine Learning.
+O exemplo a seguir mostra como funciona o módulo Converte palavra para vetor. Utiliza o Converter Palavra a Vetor com definições predefinidas para o conjunto de dados pré-processado Da Wikipédia SP 500.
 
 ### <a name="source-dataset"></a>Conjunto de dados de origem
 
-O conjunto de dados contém uma coluna de categoria, juntamente com o texto completo recolhido da Wikipédia. Esta tabela apresenta apenas alguns exemplos representativos.
+O conjunto de dados contém uma coluna de categoria, juntamente com o texto completo recolhido da Wikipédia. A tabela que se segue mostra alguns exemplos representativos.
 
 |Texto|
 |----------|
@@ -136,16 +136,16 @@ Esta secção contém dicas e respostas para perguntas frequentes.
 
     Neste módulo Converte word to Vetor, fornecemos três estratégias diferentes: dois modelos de formação online e um modelo pré-treinado. Os modelos de formação on-line usam o seu conjunto de dados de entrada como dados de treino, e geram vetores de vocabulário e palavra durante o treino. O modelo pré-treinado já é treinado por um corpus de texto muito maior, como wikipédia ou texto do Twitter. O modelo pré-treinado é na verdade uma coleção de pares de palavras/incorporação.  
 
-    Se o modelo pré-treinado gloVe for escolhido como a estratégia de vectorização da palavra, resume um vocabulário a partir do conjunto de dados de entrada e gera um vetor incorporado para cada palavra a partir do modelo pré-treinado. Sem formação online, o uso de um modelo pré-treinado pode poupar tempo de treino. Tem um melhor desempenho, especialmente quando o tamanho do conjunto de dados de entrada é relativamente pequeno.
+    O modelo pré-treinado GloVe resume um vocabulário a partir do conjunto de dados de entrada e gera um vetor incorporado para cada palavra a partir do modelo pré-treinado. Sem formação online, o uso de um modelo pré-treinado pode poupar tempo de treino. Tem um melhor desempenho, especialmente quando o tamanho do conjunto de dados de entrada é relativamente pequeno.
 
 + Tamanho de incorporação:
 
-    Em geral, o comprimento da incorporação de palavras está definido para algumas centenas (por exemplo, 100, 200, 300) para alcançar um bom desempenho. A razão é que um pequeno tamanho incorporado significa um pequeno espaço vetorial, que pode causar colisões de incorporação de palavras.  
+    Em geral, o comprimento da incorporação de palavras está definido para algumas centenas. Por exemplo, 100, 200, 300. Um pequeno tamanho incorporado significa um pequeno espaço vetorial, que pode causar colisões de incorporação de palavras.  
 
-    Para os modelos pré-treinados, o comprimento das incorporações de palavras é fixado. Nesta implementação, o tamanho incorporado de luva-wiki-gigaword-100 é de 100.
+    O comprimento das incorporações de palavras é fixado para modelos pré-treinados. Neste exemplo, o tamanho incorporado de luva-wiki-gigaword-100 é de 100.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
 

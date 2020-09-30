@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 1be04c0617dc4ed235cc3f3bc29aa58f4c2cb1d2
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 7361355a81de019af90e908f11c4d283b7f16cc9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902149"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542126"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database para encriptação de dados de servidor único postgresQL com uma chave gerida pelo cliente
 
@@ -79,7 +79,7 @@ Quando está a utilizar a encriptação de dados utilizando uma chave gerida pel
 * Certifique-se de que o Cofre-Chave e a Base de Dados Azure para servidor Single PostgreSQL residem na mesma região, para garantir um acesso mais rápido para o invólucro DEK e desembrulhar operações.
 * Bloqueie o Azure KeyVault apenas para **o ponto final privado e redes selecionadas** e permita apenas serviços *confiáveis* da Microsoft para garantir os recursos.
 
-    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="serviço de confiança com AKV":::
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Diagrama que mostra uma visão geral de Bring Your Own Key":::
 
 Aqui estão as recomendações para configurar uma chave gerida pelo cliente:
 
@@ -121,9 +121,9 @@ Para monitorizar o estado da base de dados e para permitir alertar para a perda 
 
 Depois de a Base de Dados Azure para o servidor PostgreSQL Single ser encriptada com a chave gerida de um cliente armazenada no Key Vault, qualquer cópia recém-criada do servidor também é encriptada. Pode fazer esta nova cópia através de uma operação local ou de geo-restauro, ou através de réplicas de leitura. No entanto, a cópia pode ser alterada para refletir a chave gerida por um novo cliente para encriptação. Quando a tecla gerida pelo cliente é alterada, as cópias de segurança antigas do servidor começam a utilizar a tecla mais recente.
 
-Para evitar problemas durante a configuração da encriptação de dados gerida pelo cliente durante a criação de réplicas restauradas ou lidas, é importante seguir estes passos nos servidores master e restaurados/replicados:
+Para evitar problemas durante a configuração da encriptação de dados gerida pelo cliente durante a criação de réplicas restauradas ou lidas, é importante seguir estes passos nos servidores primários e restaurados/replicados:
 
-* Inicie o processo de criação de réplicas ou leitura a partir da base de dados Azure master para servidor Single PostgreSQL.
+* Inicie o processo de criação de réplicas ou restauros a partir da base de dados primária do Azure para servidor Single PostgreSQL.
 * Mantenha o servidor recém-criado (restaurado/replicado) num estado inacessível, porque a sua identidade única ainda não foi dada permissões ao Key Vault.
 * No servidor restaurado/replicado, revalincie a chave gerida pelo cliente nas definições de encriptação de dados. Isto garante que o servidor recém-criado recebe permissões de embrulho e desembrulhar a chave armazenada no Key Vault.
 
@@ -140,7 +140,7 @@ Para a Base de Dados Azure para PostgreSQL, o suporte para encriptação de dado
 
 * A encriptação só é suportada com a chave criptográfica RSA 2048.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como configurar a [encriptação de dados com uma chave gerida pelo cliente para a sua base de dados Azure para o servidor Single PostgreSQL utilizando o portal Azure](howto-data-encryption-portal.md).
 

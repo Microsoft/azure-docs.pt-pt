@@ -2,19 +2,17 @@
 title: Obtenha intenção com a chamada REST em Python
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: include
 ms.date: 06/03/2020
-ms.author: diberry
-ms.openlocfilehash: 9bbc7640bec404358ee0d0fb64ae19e52decc1ab
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: bc266cba20e72edea54a71028dc98b75dbd77cd9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316363"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91544972"
 ---
 [Documentação de referência](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview/operations/5890b47c39e2bb052c5b9c08)  |  [Amostra](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/python-predict-with-rest/predict.py)
 
@@ -227,7 +225,7 @@ Use Python para consultar o [ponto final](https://aka.ms/luis-apim-v3-prediction
 
 Quando terminar com este arranque rápido, elimine o ficheiro do sistema de ficheiros.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Adicione expressões e comboio](../get-started-get-model-rest-apis.md)

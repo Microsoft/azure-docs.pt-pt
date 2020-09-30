@@ -1,7 +1,7 @@
 ---
-title: Instale e execute os recipientes Docker para a API de Leitura de Visão de Computador
+title: Instalar recipientes de OCR Docker da Visão de Computador
 titleSuffix: Azure Cognitive Services
-description: Utilize o recipiente Docker para a Visão de Computador Ler API para detetar e extrair texto de imagens, no local.
+description: Utilize os recipientes Read OCR Docker da Visão de Computador para extrair texto de imagens e doumentos, no local.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,22 +11,23 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
-keywords: no local, Docker, contentor
-ms.openlocfilehash: 17aa0050ed3e2a2f5a2cc83964d032caa4b8c098
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+keywords: no local, OCR, Docker, contentor
+ms.openlocfilehash: acf6a391965dcba20a2dabc18648076b88c5e7c5
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91460446"
+ms.locfileid: "91536380"
 ---
-# <a name="install-and-run-docker-containers-for-the-read-api-preview"></a>Instale e execute os recipientes Docker para a API de leitura (pré-visualização) 
+# <a name="install-read-ocr-docker-containers-preview"></a>Instalar Ler recipientes OCR Docker (Pré-visualização) 
 
 [!INCLUDE [container hosting on the Microsoft Container Registry](../containers/includes/gated-container-hosting.md)]
 
-Os contentores permitem-lhe executar as APIs de Imagem Digitalizada no seu próprio ambiente. Os contentores são ótimos para requisitos específicos de governação de dados e segurança. Neste artigo, ficará a saber como transferir, instalar e executar um contentor de Imagem Digitalizada.
+Os contentores permitem-lhe executar as APIs de Imagem Digitalizada no seu próprio ambiente. Os contentores são ótimos para requisitos específicos de governação de dados e segurança. Neste artigo você vai aprender a descarregar, instalar e executar recipientes de Visão de Computador.
 
-O recipiente *Ler* permite detetar e extrair *texto impresso* a partir de imagens de vários objetos com diferentes superfícies e fundos, tais como recibos, cartazes e cartões de visita. Além disso, o recipiente *Ler* deteta *texto manuscrito* em imagens e fornece suporte de ficheiros PDF, TIFF e multi-páginas. Para mais informações, consulte a documentação da [API de leitura.](concept-recognizing-text.md#read-api)
+O recipiente *Read* OCR permite extrair texto impresso e manuscrito de imagens e documentos com suporte para formatos de ficheiro JPEG, PNG, BMP, PDF e TIFF. Para mais informações, consulte a documentação da [API de leitura.](concept-recognizing-text.md#read-api)
 
+## <a name="read-3x-containers"></a>Ler recipientes 3.x
 Existem duas versões dos recipientes 3.x disponíveis na pré-visualização. Ambas as versões proporcionam uma precisão adicional e características sobre o recipiente anterior.
 
 O recipiente de pré-visualização Ler 3.0 fornece:

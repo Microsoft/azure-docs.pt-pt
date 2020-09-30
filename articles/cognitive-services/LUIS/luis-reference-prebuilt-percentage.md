@@ -1,30 +1,28 @@
 ---
-title: Percentagem Entidade Pré-construída - LUIS
+title: Percentagem de entidade pré-construída - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém informações percentuais sobre entidades pré-construídas em Compreensão linguística (LUIS).
+description: Este artigo contém informação de entidade pré-construída percentual na Compreensão de Línguas (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: 31ea1c36139abcb1e102161ad76a203073ba4dfd
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: bb64a32e2bdd3976fba3ce63433b13eb4891afc7
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270499"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541701"
 ---
-# <a name="percentage-prebuilt-entity-for-a-luis-app"></a>Percentagem de entidade pré-construída para uma app LUIS
-Os números percentuais `3 1/2`podem aparecer como `2%`frações, ou em percentagem, . Como esta entidade já está treinada, não precisa de adicionar declarações de exemplo contendo percentagem às intenções de aplicação. A entidade percentual é apoiada em [muitas culturas.](luis-reference-prebuilt-entities.md)
+# <a name="percentage-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída percentual para uma app LUIS
+Os números percentuais podem aparecer como `3 1/2` frações, ou em percentagem, `2%` . Como esta entidade já está treinada, não precisa de adicionar palavras de exemplo contendo percentagem às intenções de candidatura. A entidade percentual é apoiada em [muitas culturas.](luis-reference-prebuilt-entities.md)
 
 ## <a name="types-of-percentage"></a>Tipos de percentagem
-A percentagem é gerida a partir do repositório GitHub [de texto de reconhecimento](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114)
+A percentagem é gerida a partir do repositório GitHub [do texto Recognisers](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114)
 
-## <a name="resolution-for-prebuilt-percentage-entity"></a>Resolução para entidade de percentagem pré-construída
+## <a name="resolution-for-prebuilt-percentage-entity"></a>Resolução para entidade percentual pré-construída
 
 Os seguintes objetos de entidade são devolvidos para consulta:
 
@@ -32,7 +30,7 @@ Os seguintes objetos de entidade são devolvidos para consulta:
 
 #### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O seguinte JSON `verbose` está com `false`o parâmetro definido para:
+O seguinte JSON é com o `verbose` parâmetro definido `false` para:
 
 ```json
 "entities": {
@@ -42,7 +40,7 @@ O seguinte JSON `verbose` está com `false`o parâmetro definido para:
 }
 ```
 #### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
-O seguinte JSON `verbose` está com `true`o parâmetro definido para:
+O seguinte JSON é com o `verbose` parâmetro definido `true` para:
 
 ```json
 "entities": {
@@ -68,7 +66,7 @@ O seguinte JSON `verbose` está com `true`o parâmetro definido para:
 ```
 #### <a name="v2-response"></a>[Resposta V2](#tab/V2)
 
-O exemplo seguinte mostra a resolução da entidade **incorporada.percentual.**
+O exemplo a seguir mostra a resolução da entidade **incorporada.percentagem.**
 
 ```json
 "entities": [
@@ -85,8 +83,8 @@ O exemplo seguinte mostra a resolução da entidade **incorporada.percentual.**
 ```
 * * *
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final de [previsão V3](luis-migration-api-v3.md).
 
-Conheça as entidades [de ordinal,](luis-reference-prebuilt-ordinal.md) [número](luis-reference-prebuilt-number.md)e [temperatura.](luis-reference-prebuilt-temperature.md)
+Conheça as [entidades ordinais,](luis-reference-prebuilt-ordinal.md) [número](luis-reference-prebuilt-number.md)e [temperatura.](luis-reference-prebuilt-temperature.md)

@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
-ms.openlocfilehash: feb79a2a077f819cce22925f23f5ed640d05e8d3
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5ddfa2adbc9ec39949d7352903445407ff8e8881
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91296676"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542160"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Conecte-se aos dados com o estúdio Azure Machine Learning
 
@@ -24,7 +24,7 @@ Neste artigo, aprenda a aceder aos seus dados com o [estúdio Azure Machine Lear
 
 A tabela a seguir define e resume os benefícios das datas-tores e conjuntos de dados. 
 
-|Objeto|Description| Benefícios|   
+|Objeto|Descrição| Benefícios|   
 |---|---|---|
 |Arquivos de dados| Ligue-se de forma segura ao seu serviço de armazenamento no Azure, armazenando as suas informações de conexão, como o seu ID de subscrição e a autorização simbólica no seu [Cofre-Chave](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho | Porque a sua informação está armazenada de forma segura, <br><br> <li> Não &nbsp; coloque &nbsp; em risco credenciais de autenticação &nbsp; ou &nbsp; &nbsp; fontes de &nbsp; dados originais. <li> Já não precisas de os codificar nos teus scripts.
 |Conjuntos de dados| Ao criar um conjunto de dados, cria uma referência para a localização da origem de dados, juntamente com uma cópia dos metadados. Com conjuntos de dados pode, <br><br><li> Aceder aos dados durante o treino de modelo.<li> Partilhe dados e colabore com outros utilizadores.<li> Alavancar bibliotecas de código aberto, como pandas, para exploração de dados. | Como os conjuntos de dados são avaliados preguiçosamente, e os dados permanecem na sua localização existente, <br><br><li>Guarde uma única cópia de dados no seu armazenamento.<li> Incorrer sem custos de armazenamento extra <li> Não se arrisque a alterar involuntariamente as suas fontes de dados originais.<li>Melhorar as velocidades de desempenho do fluxo de trabalho ML. 
@@ -112,7 +112,7 @@ Especificamente, o perfil de dados do conjunto de dados de aprendizagem automát
 >[!NOTE]
 > As entradas em branco aparecem para funcionalidades com tipos irrelevantes.
 
-|Estatística|Description
+|Estatística|Descrição
 |------|------
 |Funcionalidade| Nome da coluna que está a ser resumida.
 |Perfil| Visualização em linha com base no tipo inferido. Por exemplo, cordas, booleanas e datas terão contagens de valor, enquanto decimais (numéricos) têm histogramas aproximados. Isto permite-lhe obter uma compreensão rápida da distribuição dos dados.
@@ -166,10 +166,10 @@ Para o recipiente blob Azure e o armazenamento do Azure Data Lake Gen 2, certifi
 
 Utilize os seus conjuntos de dados nas suas experiências de aprendizagem automática para treinar modelos ML. [Saiba mais sobre como treinar com conjuntos de dados](how-to-train-with-datasets.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Um exemplo passo-a-passo de formação com OsDatasets Tabular e a aprendizagem automática de máquinas.](tutorial-first-experiment-automated-ml.md)
 
-* [Treine um modelo.](how-to-train-ml-models.md)
+* [Treine um modelo.](how-to-set-up-training-targets.md)
 
 * Para obter mais exemplos de formação de conjuntos de dados, consulte os [cadernos](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/)da amostra .

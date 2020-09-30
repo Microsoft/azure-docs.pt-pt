@@ -3,14 +3,13 @@ title: Criar uma aplicação de recipiente Linux no Tecido de Serviço em Azure
 description: Neste início rápido, irá criar uma imagem do Docker com a sua aplicação, enviá-la para um registo de contentor e, em seguida, implementar o contentor para um cluster do Service Fabric.
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 652c5b7c2df4e1f8bd379390451886914628505d
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 27a21a685d8dc4aa92585ce49b21d1986a54209f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854974"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541514"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Início rápido: Implementar contentores do Linux no Service Fabric
 
@@ -183,7 +182,7 @@ Se tiver terminado de trabalhar com o cluster, pode remover o certificado do arq
 - No Mac: utilize a aplicação Keychain.
 - No Ubuntu: siga os passos utilizados para ver os certificados e remova o certificado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, implementou uma aplicação de contentor do Linux num cluster do Service Fabric do Azure, efetuou a ativação pós-falha na aplicação e dimensionou a aplicação no cluster. Para saber mais sobre como trabalhar com contentores do Linux no Service Fabric, avance para o tutorial para aplicações de contentor do Linux.
 

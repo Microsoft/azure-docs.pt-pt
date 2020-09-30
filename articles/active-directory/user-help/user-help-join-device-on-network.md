@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 08/03/2018
 ms.author: curtand
 ms.reviewer: jairoc
-ms.openlocfilehash: 146b867f1075a7eac1b6817f5fc8dbcd7ba04b02
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: efb3ee24add847baf8264eccdf71278be5ee9496
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91333414"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536975"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Junte-se ao seu dispositivo de trabalho na rede da sua organização
 Junte-se ao seu dispositivo windows 10 de propriedade laboral na rede da sua organização para que possa aceder a recursos potencialmente restritos.
@@ -48,7 +48,7 @@ Se o seu dispositivo for novo e ainda não tiver sido configurado, pode passar p
 
 4. No seu dispositivo móvel, aprove o seu dispositivo para que possa aceder à sua conta. 
 
-    ![Tela de notificação móvel](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
+    ![Screenshot que mostra o ecrã de notificação "Insira a sua palavra-passe".](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
 
 5. Preencha o processo OOBE, incluindo a definição das suas definições de privacidade e a configuração do Windows Hello (se necessário).
 
@@ -63,7 +63,7 @@ Pode certificar-se de que está unido olhando para as suas definições.
 
 2. Selecione **Access work ou escola**, e certifique-se de ver texto que diz algo como, Ligado a ** *\<your_organization>* AD AZure**.
 
-    ![Trabalho de acesso ou tela escolar com conta contoso conectada](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
+    ![Screenshot que mostra a janela "Access work or school" com a conta "Connected to (your organization) AD" selecionada.](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
 
 ## <a name="to-join-an-already-configured-windows-10-device"></a>Para aderir a um dispositivo já configurado Do Windows 10
@@ -110,7 +110,7 @@ Pode certificar-se de que está unido olhando para as suas definições.
 
     ![Trabalho de acesso ou tela escolar com conta contoso conectada](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Depois de se juntar ao seu dispositivo na rede da sua organização, deverá poder aceder a todos os seus recursos utilizando a informação da sua conta de trabalho ou da sua escola.
 
 - Se a sua organização quiser que registe o seu dispositivo pessoal, como o seu telemóvel, consulte [registar o seu dispositivo pessoal na rede da sua organização.](user-help-register-device-on-network.md)

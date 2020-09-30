@@ -3,15 +3,14 @@ title: Extração de dados - LUIS
 description: Extrair dados do texto de expressão com intenções e entidades. Saiba que tipo de dados podem ser extraídos da Compreensão da Língua (LUIS).
 ms.service: cognitive-services
 ms.subservice: language-understanding
-author: diberry
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: c69971b36bf945086d1a8f398043444071acea5c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 9bcc3d08fa29109cf4178f8eb0c3efe661323ef0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91324829"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541786"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados do texto de expressão com intenções e entidades
 O LUIS dá-lhe a capacidade de obter informações a partir das expressões de linguagem natural de um utilizador. A informação é extraída de forma a que possa ser usada por um programa, aplicação ou chat bot para tomar medidas. Nas secções seguintes, saiba quais os dados devolvidos de intenções e entidades com exemplos de JSON.
@@ -73,7 +72,7 @@ Saiba mais sobre o ponto final de [previsão V3](luis-migration-api-v3.md).
 
 |Objeto de dados|Tipo de Dados|Localização de Dados|Valor|
 |--|--|--|--|
-|Intenção|Cadeia|topScoringIntent.intent|"GetStoreInfo"|
+|Intenção|String|topScoringIntent.intent|"GetStoreInfo"|
 
 Se o seu chatbot ou app LUIS-call tomar uma decisão com base em mais de uma pontuação de intenção, devolva todas as pontuações das intenções.
 
@@ -135,8 +134,8 @@ As intenções são ordenadas da pontuação mais alta para a menor.
 
 |Objeto de dados|Tipo de Dados|Localização de Dados|Valor|Resultado|
 |--|--|--|--|:--|
-|Intenção|Cadeia|intenções[0].intenção|"GetStoreInfo"|0.984749258|
-|Intenção|Cadeia|intenções[1].intenção|"Nenhum"|0.0168218873|
+|Intenção|String|intenções[0].intenção|"GetStoreInfo"|0.984749258|
+|Intenção|String|intenções[1].intenção|"Nenhum"|0.0168218873|
 
 Se adicionar domínios pré-construídos, o nome de intenção indica o domínio, tais como `Utilties` ou bem como a `Communication` intenção:
 
@@ -196,9 +195,9 @@ Saiba mais sobre o ponto final de [previsão V3](luis-migration-api-v3.md).
 
 |Domínio|Objeto de dados|Tipo de Dados|Localização de Dados|Valor|
 |--|--|--|--|--|
-|Utilitários|Intenção|Cadeia|intenções[0].intenção|"<b>Utilities</b>. ShowNext"|
-|Comunicação|Intenção|Cadeia|intenções[1].intenção|<b>Comunicação</b>. StartOver"|
-||Intenção|Cadeia|intenções[2].intenção|"Nenhum"|
+|Utilitários|Intenção|String|intenções[0].intenção|"<b>Utilities</b>. ShowNext"|
+|Comunicação|Intenção|String|intenções[1].intenção|<b>Comunicação</b>. StartOver"|
+||Intenção|String|intenções[2].intenção|"Nenhum"|
 
 
 ## <a name="data-from-entities"></a>Dados de entidades
@@ -265,6 +264,6 @@ Se uma palavra ou frase corresponder a mais de uma entidade de lista, a consulta
 
 Para a consulta `when is the best time to go to red rock?` , e a app tem a palavra em mais de uma `red` lista, a LUIS reconhece todas as entidades e devolve um conjunto de entidades como parte da resposta do ponto final da JSON.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte [entidades Add](luis-how-to-add-entities.md) para saber mais sobre como adicionar entidades à sua app LUIS.
