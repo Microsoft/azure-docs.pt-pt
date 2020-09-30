@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 09/30/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: f84298c2c43afbb9e0379516be1e83002a7e3926
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: d25a44aa70b9638017856595c7431e897d035c33
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228686"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576120"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Recursos de armazenamento blob disponíveis no Azure Data Lake Storage Gen2
 
@@ -50,6 +50,7 @@ Esta tabela lista as funcionalidades de armazenamento Blob que pode utilizar com
 |Rio Blobfuse|Pré-visualizar|Ainda não suportado|[Como montar o armazenamento Blob como um sistema de ficheiros com blobfuse](storage-how-to-mount-container-linux.md)|
 |Falha na conta|Ainda não suportado|Ainda não suportado|[Recuperação de desastres e falha na conta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Recipiente blob ACL|Ainda não suportado<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Ainda não suportado<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|[Conjunto de recipiente ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
+|Chaves geridas pelo cliente|Ainda não suportado|Ainda não suportado|[Chaves geridas pelo cliente para encriptação de armazenamento Azure](../common/customer-managed-keys-overview.md)|
 |Domínios personalizados|Ainda não suportado|Ainda não suportado|[Mapear um domínio personalizado para um ponto final de armazenamento Azure Blob](storage-custom-domain-name.md)|
 |Âmbitos de encriptação|Ainda não suportado|Ainda não suportado|[Criar e gerir os âmbitos de encriptação (pré-visualização)](encryption-scope-manage.md)|
 |Feed de alterações|Ainda não suportado|Ainda não suportado|[Alterar suporte de alimentação no armazenamento Azure Blob](storage-blob-change-feed.md)|

@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 24bb7a1fcb1569922fb34034fb3c0d003cdd7061
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9447cec55c53861ca57d5416a91ffefd35fdd20b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67184726"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91571989"
 ---
 ## <a name="repeatability-during-copy"></a>Repetibilidade durante a cópia
 Ao copiar dados para O Azure SQL/SQL Server de outras lojas de dados, é necessário ter em mente a repetibilidade para evitar resultados não intencionais. 
@@ -74,7 +74,7 @@ Nada de novo tinha de ser feito. A atividade da cópia executou o script de limp
 
 ### <a name="mechanism-2"></a>Mecanismo 2
 > [!IMPORTANT]
-> sliceIdentifierColumnName não é suportado para Azure SQL Data Warehouse neste momento. 
+> sliceIdentifierColumnName não é suportado para Azure Synapse Analytics neste momento. 
 
 Outro mecanismo para obter a repetibilidade é ter uma coluna dedicada **(sliceIdentifierColumnName**) na tabela-alvo. Esta coluna seria utilizada pela Azure Data Factory para garantir que a origem e o destino permanecessem sincronizados. Esta abordagem funciona quando há flexibilidade na alteração ou definição do esquema de tabela SQL de destino. 
 

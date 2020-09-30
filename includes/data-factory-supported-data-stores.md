@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 3ead267ee11cba65e20f3df2fb76d9138a080bfb
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: e600af10d2393bcd59317b4b918b7458cc63df31
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "73850454"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91571862"
 ---
 | Categoria | Arquivo de dados | Suportado como origem | Suportado como sink |
 |:--- |:--- |:--- |:--- |
@@ -17,7 +17,7 @@ ms.locfileid: "73850454"
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/v1/data-factory-azure-documentdb-connector.md) |✓ |✓ |
 | &nbsp; |[Armazenamento do Azure Data Lake Ger1](../articles/data-factory/v1/data-factory-azure-datalake-connector.md) |✓ |✓ |
 | &nbsp; |[Base de Dados SQL do Azure](../articles/data-factory/v1/data-factory-azure-sql-connector.md) |✓ |✓ |
-| &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/v1/data-factory-azure-sql-data-warehouse-connector.md) |✓ |✓ |
+| &nbsp; |[Azure Synapse Analytics](../articles/data-factory/v1/data-factory-azure-sql-data-warehouse-connector.md) |✓ |✓ |
 | &nbsp; |[Índice de Pesquisa Cognitiva Azure](../articles/data-factory/v1/data-factory-azure-search-connector.md) | |✓ |
 | &nbsp; |[Armazenamento de tabelas do Azure](../articles/data-factory/v1/data-factory-azure-table-connector.md) |✓ |✓ |
 | **Bases de dados** |[Amazon Redshift](../articles/data-factory/v1/data-factory-amazon-redshift-connector.md) |✓ | |
