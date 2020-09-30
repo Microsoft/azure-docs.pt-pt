@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
-ms.openlocfilehash: 6fafb668ecc2ae36dbe5a6bbc3d1e1d501545b50
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c7c43e02e6bdf75c9551ccdbb9dd8f75bf37a806
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056810"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534986"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de conversão de texto em voz
 
@@ -33,6 +33,9 @@ Antes de utilizar esta API, compreenda:
 
 * A API DE REPOUSO text-to-speech requer um cabeçalho de autorização. Isto significa que você precisa completar uma troca simbólica para aceder ao serviço. Para obter mais informações, veja [Autenticação](#authentication).
 
+> [!TIP]
+> Consulte a [documentação](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) do governo Azure para os pontos finais da nuvem governamental (FairFax).
+
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
 ## <a name="get-a-list-of-voices"></a>Obtenha uma lista de vozes
@@ -41,7 +44,7 @@ O `voices/list` ponto final permite-lhe obter uma lista completa de vozes para u
 
 ### <a name="regions-and-endpoints"></a>Regiões e pontos finais
 
-| Região | Ponto final |
+| Region | Ponto final |
 |--------|----------|
 | Leste da Austrália | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sul do Brasil | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
@@ -69,7 +72,7 @@ Esta tabela lista os cabeçalhos necessários e opcionais para pedidos de texto-
 
 | Cabeçalho | Descrição | Obrigatório / Opcional |
 |--------|-------------|---------------------|
-| `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Obrigatório |
+| `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Necessário |
 
 ### <a name="request-body"></a>Corpo do pedido
 
@@ -169,10 +172,10 @@ Esta tabela lista os cabeçalhos necessários e opcionais para pedidos de texto-
 
 | Cabeçalho | Descrição | Obrigatório / Opcional |
 |--------|-------------|---------------------|
-| `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Obrigatório |
-| `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Valor aceite: `application/ssml+xml` . | Obrigatório |
-| `X-Microsoft-OutputFormat` | Especifica o formato de saída de áudio. Para obter uma lista completa dos valores aceites, consulte [as saídas de áudio](#audio-outputs). | Obrigatório |
-| `User-Agent` | O nome da aplicação. O valor fornecido deve ser inferior a 255 caracteres. | Obrigatório |
+| `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Necessário |
+| `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Valor aceite: `application/ssml+xml` . | Necessário |
+| `X-Microsoft-OutputFormat` | Especifica o formato de saída de áudio. Para obter uma lista completa dos valores aceites, consulte [as saídas de áudio](#audio-outputs). | Necessário |
+| `User-Agent` | O nome da aplicação. O valor fornecido deve ser inferior a 255 caracteres. | Necessário |
 
 ### <a name="audio-outputs"></a>Saídas de áudio
 
@@ -233,13 +236,13 @@ O código de estado HTTP para cada resposta indica sucesso ou erros comuns.
 | 400 | Pedido Incorreto | Falta um parâmetro necessário, vazio ou nulo. Ou, o valor passado para um parâmetro necessário ou opcional é inválido. Uma questão comum é um cabeçalho que é demasiado longo. |
 | 401 | Não autorizado | O pedido não está autorizado. Verifique se a chave de subscrição ou o token são válidos e na região correta. |
 | 413 | Entidade de pedido muito grande | A entrada SSML é superior a 1024 caracteres. |
-| 415 | Tipo de mídia não suportado | É possível que o erro `Content-Type` tenha sido fornecido. `Content-Type`deve ser definido para `application/ssml+xml` . |
+| 415 | Tipo de mídia não suportado | É possível que o erro `Content-Type` tenha sido fornecido. `Content-Type` deve ser definido para `application/ssml+xml` . |
 | 429 | Muitos pedidos | Excedeu a quota ou taxa de pedidos permitidos para a sua subscrição. |
 | 502 | Bad Gateway    | Problema do lado da rede ou do servidor. Pode também indicar cabeçalhos inválidos. |
 
 Se o estado HTTP `200 OK` for, o corpo da resposta contém um ficheiro áudio no formato solicitado. Este ficheiro pode ser reproduzido à medida que é transferido, guardado para um tampão, ou guardado num ficheiro.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma conta do Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
 - [Síntese assíncronea para áudio de forma longa](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)

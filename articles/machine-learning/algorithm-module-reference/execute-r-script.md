@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: d5ef8d6a9b0c0039b500ce9d0238609e8a8edc93
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 252ea54cf6be9dd381648d67e56a7a5ff2c7acc6
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90908011"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542293"
 ---
 # <a name="execute-r-script-module"></a>Executar módulo de script R
 
 Este artigo descreve como usar o módulo Execut R Script para executar código R no seu pipeline de designer de aprendizagem de máquinas Azure.
 
-Com R, pode executar tarefas que os módulos existentes não suportam atualmente, tais como: 
+Com R, pode fazer tarefas que não são suportadas por módulos existentes, tais como: 
 - Criar transformações de dados personalizadas
 - Use as suas próprias métricas para avaliar previsões
 - Construa modelos usando algoritmos que não são implementados como módulos autónomos no designer
@@ -137,7 +137,7 @@ Pode consultar o seguinte código de amostra para [aceder aos conjuntos de dados
 
 ## <a name="how-to-configure-execute-r-script"></a>Como configurar executar executar o script R
 
-O módulo executo R Script contém o código de amostra que pode usar como ponto de partida. Para configurar o módulo Executar R Script, forneça um conjunto de entradas e código para executar.
+O módulo executo R Script contém o código de amostra como ponto de partida.
 
 ![Diagrama de entradas para um módulo R](media/module/execute-r-script.png)
 
@@ -194,9 +194,12 @@ Os conjuntos de dados armazenados no designer são automaticamente convertidos p
     > [!NOTE]
     > O código R existente pode necessitar de pequenas alterações para ser executado num oleoduto de design. Por exemplo, os dados de entrada que fornece no formato CSV devem ser explicitamente convertidos para um conjunto de dados antes de poder usá-lo no seu código. Os tipos de dados e colunas utilizados na língua R também diferem de algumas formas dos tipos de dados e colunas utilizados no designer.
 
-    Se o seu script for maior que 16KB, utilize a porta **script Bundle** para evitar erros como *o CommandLine excede o limite de 16597 caracteres*. 
+    Se o seu script for maior que 16 KB, utilize a porta **script Bundle** para evitar erros como *o CommandLine excede o limite de 16597 caracteres*. 
     
-    Embrulhe o script e outros recursos personalizados para um ficheiro zip e faça o upload do ficheiro zip como um **Conjunto de Dados de Ficheiros** para o estúdio. Em seguida, pode arrastar o módulo de conjunto de dados da lista *My datasets* no painel do módulo esquerdo na página de autoria do designer. Ligue o módulo de conjunto de dados à porta do Pacote de **Scripts** do módulo **executo R Script.**
+    1. Embrulhe o script e outros recursos personalizados para um ficheiro zip.
+    1. Faça o upload do ficheiro zip como um **conjunto de dados de ficheiro** para o estúdio. 
+    1. Arraste o módulo de conjunto de dados da lista *My datasets* no painel do módulo esquerdo na página de autoria do designer. 
+    1. Ligue o módulo de conjunto de dados à porta do Pacote de **Scripts** do módulo **executo R Script.**
     
     Segue-se o código de amostra para consumir o script no pacote de scripts:
 
@@ -219,7 +222,7 @@ Os conjuntos de dados armazenados no designer são automaticamente convertidos p
 
 ## <a name="results"></a>Resultados
 
-Executar os módulos R Script podem devolver várias saídas, mas devem ser fornecidos como quadros de dados R. Os quadros de dados são automaticamente convertidos em conjuntos de dados no designer para compatibilidade com outros módulos.
+Executar os módulos R Script podem devolver várias saídas, mas devem ser fornecidos como quadros de dados R. O designer converte automaticamente quadros de dados em conjuntos de dados para compatibilidade com outros módulos.
 
 Mensagens padrão e erros de R são devolvidos ao registo do módulo.
 
@@ -236,7 +239,7 @@ O módulo Execut R Script suporta ficheiros de script r arbitrários como entrad
 
 1. Para carregar um ficheiro .zip que contenha código R para o seu espaço de trabalho, aceda à página de ativos **datasets.** Selecione **Criar conjunto de dados**e, em seguida, selecione **A partir do ficheiro local** e da opção do tipo de conjunto de dados **de ficheiro.**  
 
-1. Verifique se o ficheiro zipped está disponível na lista **My Datasets** na categoria **Datasets** na árvore do módulo esquerdo.
+1. Verifique se o ficheiro com fecho aparece nos **meus conjuntos de dados** na categoria **Datasets** na árvore do módulo esquerdo.
 
 1.  Ligue o conjunto de dados à porta de entrada **do Pacote script.**
 
@@ -500,6 +503,6 @@ Os seguintes pacotes R pré-instalados estão atualmente disponíveis:
 | zeallot      | 0.1.0      | 
 | zoo          | 1.8-6      | 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 

@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 09/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d83c4ffe4e60ef2896e16b97e1ec34d71a022b9b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f953d87c53bc13af623c2bfd49ceb953280f8f2a
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91279013"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540715"
 ---
-# <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implantação DBMS de máquinas virtuais Azure para carga de trabalho SAP
+# <a name="azure-virtual-machines-oracle-dbms-deployment-for-sap-workload"></a>Azure Virtual Machines Oracle DBMS implantação para carga de trabalho SAP
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -409,7 +409,7 @@ Se forem necessários mais IOPS em caso de armazenamento premium Azure, recomend
 Para os VMs da Série M de Azure, a escrita de latência nos registos de redo online pode ser reduzida por fatores quando comparada com o armazenamento premium Azure. Ativar o Acelerador de Escrita Azure para os discos (VHDs) com base no Azure Premium Storage que são utilizados para ficheiros de registo de redo on-line. Para obter mais informações, consulte [o Write Accelerator](../../how-to-enable-write-accelerator.md). Ou utilize o disco Azure Ultra para o volume de registo de redo on-line.
 
 
-### <a name="backuprestore"></a>Backup/restauro
+### <a name="backuprestore"></a>Cópia de segurança/restauro
 Para a funcionalidade de backup/restauro, as ferramentas SAP BR*para o Oráculo são suportadas da mesma forma que estão nos sistemas operativos standard do Windows Server. O Oracle Recovery Manager (RMAN) também é suportado para cópias de segurança para o disco e restauros a partir do disco.
 
 Também pode utilizar o Azure Backup para executar uma cópia de segurança VM consistente com aplicações. O artigo [Planeie a sua infraestrutura de backup VM em Azure](../../../backup/backup-azure-vms-introduction.md) explica como o Azure Backup utiliza a funcionalidade VSS do Windows para executar backups consistentes com aplicações. As versões Oracle DBMS suportadas no Azure pela SAP podem alavancar a funcionalidade VSS para cópias de segurança. Para mais informações, consulte a documentação oracle [Conceitos básicos de backup e recuperação de bases de dados com VSS.](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/ntqrf/basic-concepts-of-database-backup-and-recovery-with-vss.html#GUID-C085101B-237F-4773-A2BF-1C8FD040C701)
@@ -422,7 +422,7 @@ Para obter mais informações sobre a recuperação de desastres para bases de d
 
 ### <a name="accelerated-networking"></a>Redes aceleradas
 Para as implementações da Oracle no Windows, recomendamos vivamente uma rede acelerada, tal como descrito em [rede acelerada Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/). Considere também as recomendações que são feitas em [Considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md). 
-### <a name="other"></a>Outro
+### <a name="other"></a>Outros
 [Considerações para a implementação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md) descreve outros conceitos importantes relacionados com implementações de VMs com Oracle Database, incluindo conjuntos de disponibilidade de Azure e monitorização SAP.
 
 ## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Especificidades para a Oracle Database em Oracle Linux
@@ -505,7 +505,7 @@ Se forem necessários mais IOPS ao utilizar o armazenamento premium Azure, recom
 Para os VMs da série M azul, quando utilizar o Acelerador de Escrita Azure, a escrita de latência nos registos de redo online pode ser reduzida por fatores ao utilizar o armazenamento premium Azure. Ativar o Acelerador de Escrita Azure para os discos (VHDs) com base no Azure Premium Storage que são utilizados para ficheiros de registo de redo on-line. Para obter mais informações, consulte [o Write Accelerator](../../how-to-enable-write-accelerator.md). Ou utilize o disco Azure Ultra para o volume de registo de redo on-line.
 
 
-### <a name="backuprestore"></a>Backup/restauro
+### <a name="backuprestore"></a>Cópia de segurança/restauro
 Para a funcionalidade de backup/restauro, as ferramentas SAP BR*para o oráculo são suportadas da mesma forma que estão em metal nu e Hiper-V. O Oracle Recovery Manager (RMAN) também é suportado para cópias de segurança para o disco e restauros a partir do disco.
 
 Para obter mais informações sobre como pode utilizar os serviços de Backup e Recuperação do Azure para fazer backup e recuperar bases de dados da Oracle, consulte [Back up e recupere uma base de dados oracle Database 12c numa máquina virtual Azure Linux](../oracle/oracle-backup-recovery.md).
@@ -527,7 +527,7 @@ sudo curl -so /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules https://raw.gi
 </code></pre>
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Leia o artigo 
 
 - [Considerações para a implantação de DBMS de máquinas virtuais Azure para a carga de trabalho SAP](dbms_guide_general.md)

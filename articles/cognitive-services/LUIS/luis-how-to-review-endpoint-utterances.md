@@ -3,24 +3,22 @@ title: Rever declarações de utilizador - LUIS
 titleSuffix: Azure Cognitive Services
 description: Rever as expressões capturadas pela aprendizagem ativa para selecionar as intenções e marcar entidades para declarações de mundo de leitura; aceitar mudanças, treinar e publicar.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/07/2020
-ms.author: diberry
-ms.openlocfilehash: 58674bf38ec1efb970fa8e79f7d970ecefb36712
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 9777e4f9b2205d2f6cdf6158b035e2a18403d69f
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055618"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541463"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Como melhorar a app LUIS através da revisão das expressões de ponto final
 
-O processo de revisão das proclamações de ponto final para previsões corretas chama-se [Aprendizagem Ativa](luis-concept-review-endpoint-utterances.md). A aprendizagem ativa captura consultas de ponto final e seleciona as expressões de ponto final do utilizador de que não tem a certeza. Você revê estas expressões para selecionar as intenções e marcar entidades para estas expressões do mundo real. Aceite estas alterações nas suas declarações de exemplo e depois treine e publique. Luis identifica então as expressões com mais precisão.
+O processo de revisão das proclamações de ponto final para previsões corretas chama-se [Aprendizagem Ativa](luis-concept-review-endpoint-utterances.md). A aprendizagem ativa captura consultas de ponto final e seleciona as expressões de ponto final do utilizador de que não tem a certeza. Você revê estas expressões para selecionar as intenções e marcar entidades para estas expressões do mundo real. Aceite estas alterações nas expressões de exemplo e, em seguida, prepare e publique. Luis identifica então as expressões com mais precisão.
 
 ## <a name="enable-active-learning"></a>Permitir a aprendizagem ativa
 
@@ -34,7 +32,7 @@ Utilize o portal LUIS para construir a consulta correta do ponto final.
 1. Para o recurso de previsão atribuído, selecione **Alterar parâmetros de consulta**.
 
     > [!div class="mx-imgBorder"]
-    > ![Utilize o portal LUIS para guardar registos, que são necessários para a aprendizagem ativa.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+    > ![A screenshot mostra a ligação de parâmetros de consulta De alteração.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
 
 1. Guardar **registos** e guardar selecionando **Feito**.
 

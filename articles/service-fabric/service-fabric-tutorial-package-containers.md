@@ -1,17 +1,15 @@
 ---
 title: Embalar e instalar contentores
 description: Neste tutorial, saiba como gerar uma definição de aplicação do Azure Service Fabric com o Yeoman e como compactar a aplicação.
-author: suhuruli
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 8cab2e3490703cbf955ed1ed5c6e753a3ccfc753
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 5840539b6c51a0070a98f03dbda3c596fd5c2516
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361437"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539882"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutorial: Compactar e implementar contentores como uma aplicação do Service Fabric com o Yeoman
 
@@ -395,7 +393,7 @@ Utilize o script de desinstalação fornecido no modelo para eliminar a instânc
  </ServiceManifest>
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, foram agrupados vários contentores numa aplicação do Service Fabric com o Yeoman. Depois, a aplicação foi implementada e executada num cluster do Service Fabric. Foram efetuados os seguintes passos:
 

@@ -3,12 +3,12 @@ title: Descrição Geral do Azure Blueprints
 description: Compreenda como o serviço Azure Blueprints lhe permite criar, definir e implantar artefactos no seu ambiente Azure.
 ms.date: 08/27/2020
 ms.topic: overview
-ms.openlocfilehash: a687bcbaff56fa1229794b6977e3565070c56e2a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 499f2c4afa55913b6af714d20ec1d52e2ecbbc47
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302677"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541769"
 ---
 # <a name="what-is-azure-blueprints"></a>O que é o Azure Blueprints?
 
@@ -47,7 +47,7 @@ Uma política pode ser incluída como um dos _muitos artefactos_ numa definiçã
 
 Um esquema é composto por _artefactos_. A Azure Blueprints suporta atualmente os seguintes recursos como artefactos:
 
-|Recurso  | Opções de hierarquia| Description  |
+|Recurso  | Opções de hierarquia| Descrição  |
 |---------|---------|---------|
 |Grupos de Recursos | Subscrição | Crie um novo grupo de recursos para utilização por outros artefactos no esquema.  Estes grupos de recursos de espaço reservado permitem-lhe organizar recursos exatamente da forma como os quer estruturados e fornece um limitador de âmbito para artefactos de design de política e função incluídos e modelos ARM. |
 |Modelo ARM | Subscrição, Grupo de Recursos | Modelos, incluindo modelos aninhados e ligados, são usados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, a Configuração de Estado da Automatização do Azure ou uma área de trabalho do Log Analytics. |
@@ -78,7 +78,7 @@ Cada **versão** **publicada** de uma planta pode ser atribuída (com um comprim
 
 ## <a name="permissions-in-azure-blueprints"></a>Permissões no Azure Blueprints
 
-Para utilizar esquemas, tem de ter permissões concedidas através do [Controlo de acesso baseado em funções](../../role-based-access-control/overview.md) (RBAC). Para ler ou ver uma planta no portal Azure, a sua conta deve ter lido o acesso ao âmbito onde está localizada a definição de planta.
+Para utilizar plantas, deve ser-lhe concedidas permissões através do [controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md). Para ler ou ver uma planta no portal Azure, a sua conta deve ter lido o acesso ao âmbito onde está localizada a definição de planta.
 
 Para criar esquemas, a sua conta necessita das seguintes permissões:
 
@@ -105,7 +105,7 @@ Para atribuir ou anular a atribuição de um esquema, a sua conta necessita das 
 
 Estão disponíveis as seguintes funções incorporadas:
 
-|Função do Azure | Description |
+|Função do Azure | Descrição |
 |-|-|
 |[Proprietário](../../role-based-access-control/built-in-roles.md#owner) | Além de outras permissões, inclui todas as permissões relacionadas com a Azure Blueprint. |
 |[Contribuinte](../../role-based-access-control/built-in-roles.md#contributor) | Além de outras permissões, pode criar e apagar definições de planta, mas não tem permissões de design. |
@@ -134,7 +134,7 @@ A seguinte visão geral da Azure Blueprints é da Azure Fridays. Para download d
 
 > [!VIDEO https://www.youtube.com/embed/cQ9D-d6KkMY]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma planta - Portal](./create-blueprint-portal.md).
 - [Criar uma planta - PowerShell](./create-blueprint-powershell.md).

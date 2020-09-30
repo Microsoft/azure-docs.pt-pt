@@ -1,14 +1,14 @@
 ---
 title: Iso 27001 CONTROLOs de amostra de amostra de carga de carga DE TRABALHO ISO 27001
-description: Controlo do mapeamento do sistema iso 27001 App Service Environment/SQL Database amostra de amostra de carga de trabalho para Azure Policy e RBAC.
+description: Controlo do mapeamento do sistema iso 27001 App Service Environment/SQL Database amostra de amostra de carga de trabalho para Azure Policy e Azure RBAC.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 4b15b5407f749eb53e264eb14c5e50b7afc21ee5
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 1d537a3447f794c501ac3a33caf6eb01b17bc470
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87920743"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541225"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Mapeamento de controlo da amostra de projeto de carga de trabalho DA ISO 27001 ASE/SQL
 
@@ -47,10 +47,10 @@ Compreender os recursos que estão a violar estas políticas pode ajudá-lo a to
 
 ## <a name="a923-management-of-privileged-access-rights"></a>A.9.2.3 Gestão de direitos de acesso privilegiados
 
-Este projeto ajuda-o a restringir e a controlar os direitos de acesso privilegiados, atribuindo quatro definições [de Política Azure](../../../policy/overview.md) para auditar contas externas com o proprietário e/ou escrever permissões e contas com o proprietário e/ou escrever permissões que não têm autenticação de vários fatores ativadas. O Azure implementa o controlo de acesso baseado em funções (RBAC) para gerir quem tem acesso aos recursos da Azure. Esta planta também atribui três definições de Política Azure para auditar a utilização da autenticação do Azure Ative Directory para servidores SQL e Tecido de Serviço. A utilização da autenticação do Azure Ative Directory permite uma gestão simplificada da permissão e uma gestão centralizada da identidade dos utilizadores de bases de dados e outros serviços da Microsoft. Este projeto também atribui uma definição de Política Azure para auditar o uso de regras RBAC personalizadas. Compreender onde as regras personalizadas do RBAC são implementadas pode ajudá-lo a verificar necessidades e implementação adequada, uma vez que as regras personalizadas do RBAC são propensas a erros.
+Este projeto ajuda-o a restringir e a controlar os direitos de acesso privilegiados, atribuindo quatro definições [de Política Azure](../../../policy/overview.md) para auditar contas externas com o proprietário e/ou escrever permissões e contas com o proprietário e/ou escrever permissões que não têm autenticação de vários fatores ativadas. O controlo de acesso baseado em funções Azure (Azure RBAC) ajuda a gerir quem tem acesso aos recursos Azure. Esta planta também atribui três definições de Política Azure para auditar a utilização da autenticação do Azure Ative Directory para servidores SQL e Tecido de Serviço. A utilização da autenticação do Azure Ative Directory permite uma gestão simplificada da permissão e uma gestão centralizada da identidade dos utilizadores de bases de dados e outros serviços da Microsoft. Esta planta também atribui uma definição de Política Azure para auditar o uso de regras Azure RBAC personalizadas. Compreender onde as regras Azure RBAC personalizadas são implementadas pode ajudá-lo a verificar necessidades e implementação adequada, uma vez que as regras personalizadas do Azure RBAC são propensas a erros.
 
 - O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
-- MFA deve ser ativado contas com permissões de escrita na sua subscrição
+- A MFA deve ser ativada em contas com permissões de escrita na sua subscrição
 - As contas externas com permissões do proprietário devem ser removidas da sua subscrição
 - As contas externas com permissões de escrita devem ser removidas da sua subscrição
 - Um administrador do Azure Ative Directory deve ser a provisionado para servidores SQL
@@ -63,7 +63,7 @@ Este projeto atribui três definições [de Política Azure](../../../policy/ove
 
 - O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
 - MFA deve ser ativado em contas com permissões de leitura na sua subscrição
-- MFA deve ser ativado contas com permissões de escrita na sua subscrição
+- A MFA deve ser ativada em contas com permissões de escrita na sua subscrição
 - Mostre os resultados da auditoria dos VMs Linux que não têm as permissões de ficheiros passwd definidas para 0644
 - Implementar pré-requisitos para auditar Os VMs do Linux que não têm as permissões de ficheiros passwd definidas para 0644
 
@@ -78,7 +78,7 @@ A Azure implementa [o controlo de acesso baseado em funções (Azure RBAC) para 
 
 ## <a name="a926-removal-or-adjustment-of-access-rights"></a>A.9.2.6 Remoção ou ajustamento dos direitos de acesso
 
-A Azure implementa [o controlo de acesso baseado em funções (Azure RBAC) para ajudá-lo](../../../../role-based-access-control/overview.md) a gerir quem tem acesso a recursos em Azure. Utilizando [o Azure Ative Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) e o RBAC, pode atualizar as funções dos utilizadores para refletir as alterações organizacionais. Quando necessário, as contas podem ser bloqueadas de iniciar sessão (ou removida), o que elimina imediatamente os direitos de acesso aos recursos da Azure. Este projeto atribui duas definições [da Política Azure](../../../policy/overview.md) à auditoria de conta amortizada que deve ser considerada para remoção.
+A Azure implementa [o controlo de acesso baseado em funções (Azure RBAC) para ajudá-lo](../../../../role-based-access-control/overview.md) a gerir quem tem acesso a recursos em Azure. Utilizando [o Azure Ative Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) e o Azure RBAC, pode atualizar as funções dos utilizadores para refletir as alterações organizacionais. Quando necessário, as contas podem ser bloqueadas de iniciar sessão (ou removida), o que elimina imediatamente os direitos de acesso aos recursos da Azure. Este projeto atribui duas definições [da Política Azure](../../../policy/overview.md) à auditoria de conta amortizada que deve ser considerada para remoção.
 
 - As contas preprecadas devem ser removidas da sua subscrição
 - Contas pregridadas com permissões do proprietário devem ser removidas da sua subscrição
@@ -89,7 +89,7 @@ Este projeto atribui três definições de Política Azure a contas de auditoria
 
 - O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
 - MFA deve ser ativado em contas com permissões de leitura na sua subscrição
-- MFA deve ser ativado contas com permissões de escrita na sua subscrição
+- A MFA deve ser ativada em contas com permissões de escrita na sua subscrição
 
 ## <a name="a943-password-management-system"></a>Sistema de gestão de palavras-passe A.9.4.3
 
@@ -193,7 +193,7 @@ O plano ajuda-o a garantir que a transferência de informação com os serviços
 - Apenas devem ser ativadas ligações seguras à sua Cache Azure para Redis
 - A transferência segura para contas de armazenamento deve ser ativada
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que reviu o mapeamento de controlo da amostra de projeto de projeto de projeto de carga de trabalho do Serviço de Aplicações ISO 27001/ SQL Database, visite os seguintes artigos para saber sobre a arquitetura e como implementar esta amostra:
 

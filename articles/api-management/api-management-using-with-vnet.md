@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: ee23b2bc58f8c1f15a7e51b05dee954c1e584293
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5b96ac9cf43782764e88039d736ba61454d65911
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489627"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539202"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como utilizar a Gestão de API do Azure com redes virtuais
 As Redes Virtuais (VNETs) do Azure permitem-lhe colocar quaisquer recursos do Azure numa rede encaminhável sem Internet para a qual controla o acesso. Estas redes podem então ser ligadas às suas redes no local utilizando várias tecnologias VPN. Para saber mais sobre as Redes Virtuais Azure comece com a informação aqui: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
@@ -203,7 +203,7 @@ Cada unidade de escala adicional da Gestão da API requer mais dois endereços I
 
 ## <a name="control-plane-ip-addresses"></a><a name="control-plane-ips"> </a> Endereços IP do plano de controlo
 
-Os endereços IP são divididos pelo **Azure Environment**. Ao permitir pedidos de entrada, o endereço IP marcado com **a Global** deve ser whitelist, juntamente com o Endereço IP específico da **Região.**
+Os endereços IP são divididos pelo **Azure Environment**. Ao permitir pedidos de entrada, o endereço IP marcado com **a Global** deve ser permitido juntamente com o Endereço IP específico da **Região.**
 
 | **Ambiente Azure**|   **Região**|  **Endereço IP**|
 |-----------------|-------------------------|---------------|
@@ -229,7 +229,7 @@ Os endereços IP são divididos pelo **Azure Environment**. Ao permitir pedidos 
 | Azure Público| Sul da Coreia do Sul| 40.80.232.185|
 | Azure Público| Índia Central| 13.71.49.1|
 | Azure Público| E.U.A. Oeste| 13.64.39.16|
-| Azure Público| Austrália Sudeste| 20.40.160.107|
+| Azure Público| Sudeste da Austrália| 20.40.160.107|
 | Azure Público| Austrália Central| 20.37.52.67|
 | Azure Público| Sul da Índia| 20.44.33.246|
 | Azure Público| E.U.A. Central| 13.86.102.66|

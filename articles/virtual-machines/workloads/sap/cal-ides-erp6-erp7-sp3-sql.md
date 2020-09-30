@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: 3efd92226b7c69590f3960458ffec49b63b8364f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56f5072c90a699270a92af317976c8f56bd3e2cb
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77616694"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536533"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Implementar SAP IDES EHP7 SP3 para SAP ERP 6.0 em Azure
 Este artigo descreve como implementar um sistema SAP IDES em funcionamento com o SQL Server e o sistema operativo Windows em Azure através da Sap Cloud Appliance Library (SAP CAL) 3.0. As imagens mostram o processo passo a passo. Para implementar uma solução diferente, siga os mesmos passos.
@@ -54,11 +54,11 @@ Depois de iniciar solução para o SAP CAL, a primeira página normalmente leva-
 
     b. **O Microsoft Azure** é o novo modelo de implementação do Gestor de Recursos.
 
-    ![Contas SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
+    ![O Screenshot mostra as contas S A P CAL com o Microsoft Azure chamado.](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
 
     Para implementar no modelo gestor de recursos, selecione **Microsoft Azure**.
 
-    ![Contas SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
+    ![A screenshot mostra contas S A P CAL.](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic3c.PNG)
 
 1. Introduza o **ID de subscrição Azure** que pode ser encontrado no portal Azure. 
 
@@ -105,7 +105,7 @@ Criou com sucesso uma conta SAP CAL que é capaz de:
 
     ![Modo Básico SAP CAL: Criar instância](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
-1. Clique em **Criar**. Após algum tempo, dependendo do tamanho e complexidade da solução (a SAP CAL fornece uma estimativa), o estado é mostrado como ativo e pronto a ser utilizado: 
+1. Clique em **Create** (Criar). Após algum tempo, dependendo do tamanho e complexidade da solução (a SAP CAL fornece uma estimativa), o estado é mostrado como ativo e pronto a ser utilizado: 
 
     ![Casos SAP CAL](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic12a.png)
 

@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e4d25637498bec223e294eecf2be6dc88fa2aa0d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1726f3a1ddc62cbb76a65f1d284793e57ea2f2a8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997171"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538250"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Autenticação e autorização para âncoras espaciais Azure
 
@@ -22,7 +22,7 @@ Nesta secção, cobriremos as várias formas de autenticar as Âncoras Espaciais
 
 ## <a name="overview"></a>Descrição geral
 
-![Uma visão geral da autenticação para âncoras espaciais Azure](./media/spatial-anchors-authentication-overview.png)
+![Diagrama que mostra uma visão geral da autenticação para âncoras espaciais Azure.](./media/spatial-anchors-authentication-overview.png)
 
 Para aceder a uma determinada conta Azure Spatial Anchors, os clientes precisam primeiro de obter um token de acesso do Azure Mixed Reality Security Token Service (STS). Os tokens obtidos a partir de STS vivem durante 24 horas, e contêm informações para os serviços de Âncoras Espaciais para tomar decisões de autorização na conta, e garantir que apenas os principais autorizados podem aceder a essa conta.
 
@@ -39,7 +39,7 @@ Os tokens de autenticação AD AZure podem ser obtidos de duas formas:
 
 Usar chaves de conta para aceder à sua conta Azure Spatial Anchors é a forma mais simples de começar. Encontrará as chaves da sua conta no portal Azure. Navegue na sua conta e selecione o separador "Chaves".
 
-![Uma visão geral da autenticação para âncoras espaciais Azure](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
+![Screenshot que mostra a página "Keys" com o botão "Copiar" para a "chave primária" realçada.](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
 
 São disponibilizadas duas chaves, ambas simultaneamente válidas para acesso à conta Das Âncoras Espaciais. Recomenda-se que atualize regularmente a chave que utiliza para aceder à conta; ter duas teclas válidas separadas permite tais atualizações sem tempo de inatividade; basta atualizar alternativamente a chave primária e a chave secundária.
 
@@ -175,7 +175,7 @@ O token de acesso Azure AD é recuperado através da [biblioteca MSAL](../../act
         1.  No portal Azure, navegue para **o Azure Ative Directory**e selecione **registos de aplicações**
         2.  Selecione **novo registo de candidaturas**
         3.  Introduza o nome da sua aplicação, selecione **Web app /API** como o tipo de aplicação e insira o URL auth para o seu serviço. Em seguida, bata **em Criar**.
-        4.  Nessa aplicação, acerte **As Definições,** em seguida, selecione o separador **Certificados e Segredos.** Criar um novo segredo de cliente, selecionar uma duração e bater **Add**. Certifique-se de guardar o valor secreto, pois terá de o incluir no código do seu serviço web.
+        4.  Nessa aplicação, acerte **As Definições**e, em seguida, selecione o **separador Certificados e Segredos.** Crie um novo segredo de cliente, selecione uma duração e atinja **Add.** Certifique-se de guardar o valor secreto, pois terá de o incluir no código do seu serviço web.
     2.  Conceder à sua aplicação e/ou ao acesso dos utilizadores ao seu recurso:
         1.  Navegue para o seu recurso De Âncoras Espaciais no portal Azure
         2.  Mudar para o **separador Controlo de Acesso (IAM)**
@@ -260,7 +260,7 @@ Para ajudar a controlar o nível de acesso concedido a aplicações, serviços o
 - **Contribuinte de Conta De Âncoras Espaciais**: aplicações ou utilizadores com esta função são capazes de criar âncoras espaciais, consulta para elas, mas não podem eliminá-las.
 - **Leitor de contas de âncoras espaciais**: aplicações ou utilizadores com esta função só podem consultar âncoras espaciais, mas não podem criar novas, eliminar as existentes ou atualizar metadados em âncoras espaciais. Isto é normalmente usado para aplicações onde alguns utilizadores curam o ambiente, enquanto outros só podem recordar âncoras anteriormente colocadas nesse ambiente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Crie a sua primeira aplicação com âncoras espaciais Azure.
 

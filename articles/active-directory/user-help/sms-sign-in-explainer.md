@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 864225238c10ab2fda96e95448790201cc8a16ae
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a4dcb6774990c03ce3d55fb6c519b0600a1086f9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423002"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536890"
 ---
 # <a name="use-your-phone-number-as-a-user-name-preview"></a>Use o seu número de telefone como nome de utilizador (pré-visualização)
 
@@ -52,7 +52,7 @@ Se já estiver a utilizar um número de telefone com uma organização e utiliza
 
 1. Quando o sing-in POR SMS está disponível, é apresentado um banner perguntando se gostaria de ativar o número de telefone para o sôm-in POR SMS:
 
-    [![Banner para ativar o sing-in POR SMS para um número de telefone.](media/sms-sign-in-explainer/sms-sign-in-banner.png)](media/sms-sign-in-explainer/sms-sign-in-banner.png#lightbox)
+    :::image type="content" source="media/sms-sign-in-explainer/sms-sign-in-banner.png" alt-text="Screenshot que mostra o banner para ativar o sing-in DE SMS para um número de telefone com a ação 'Enable' selecionada." lightbox="media/sms-sign-in-explainer/sms-sign-in-banner.png":::
 
 1. Além disso, aparece um botão **Enable** se selecionar o cuidado no azulejo do método do telefone:
 

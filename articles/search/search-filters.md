@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4d1e120073e5bf4306c89628fc4e2e9c9f7ed2cf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 6c46dfb3f36c3ef7f67ce2f3b52c2ffe4c805a61
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002424"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534799"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtros em Pesquisa Cognitiva Azure 
 
@@ -138,7 +138,7 @@ Acompanhe estes artigos para uma orientação abrangente sobre casos específico
 
 Na API REST, filtrado é *por* defeito para campos simples. Os campos filtrados aumentam o tamanho do índice; certifique-se de definir `"filterable": false` para campos que não pretende realmente usar em um filtro. Para obter mais informações sobre as definições de campo, consulte [Criar Índice](/rest/api/searchservice/create-index).
 
-No .NET SDK, o filtrado está *desligado* por defeito. Pode tornar um campo filtrado definindo a [propriedade IsFilterable](/dotnet/api/microsoft.azure.search.models.field.isfilterable?view=azure-dotnet) do objeto [de campo](/dotnet/api/microsoft.azure.search.models.field?view=azure-dotnet) correspondente para `true` . Também pode fazê-lo declarativamente utilizando o [atributo IsFilterable](/dotnet/api/microsoft.azure.search.isfilterableattribute). No exemplo abaixo, o atributo é definido na `BaseRate` propriedade de uma classe modelo que mapeia para a definição de índice.
+No .NET SDK, o filtrado está *desligado* por defeito. Pode tornar um campo filtrado definindo a [propriedade IsFilterable](/dotnet/api/microsoft.azure.search.models.field.isfilterable) do objeto [de campo](/dotnet/api/microsoft.azure.search.models.field) correspondente para `true` . Também pode fazê-lo declarativamente utilizando o [atributo IsFilterable](/dotnet/api/microsoft.azure.search.isfilterableattribute). No exemplo abaixo, o atributo é definido na `BaseRate` propriedade de uma classe modelo que mapeia para a definição de índice.
 
 ```csharp
     [IsFilterable, IsSortable, IsFacetable]
@@ -169,7 +169,7 @@ Os campos numéricos não estão `searchable` no contexto da pesquisa completa p
 
 Os documentos que contêm campos numéricos (preço, tamanho, SKU, ID) fornecem esses valores nos resultados de pesquisa se o campo estiver marcado `retrievable` . A questão aqui é que a pesquisa completa por texto em si não é aplicável aos tipos de campo numérico.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Primeiro, tente pesquisar o **explorador** no portal para submeter consultas com **$filter** parâmetros. O [índice de amostra imobiliária](search-get-started-portal.md) fornece resultados interessantes para as seguintes consultas filtradas quando as colam na barra de pesquisa:
 
@@ -196,7 +196,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 
 Para trabalhar com mais exemplos, consulte [a sintaxe de expressão do filtro OData > Exemplos](./search-query-odata-filter.md#examples).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 
 + [Como funciona a pesquisa em texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Search Documents REST API](/rest/api/searchservice/search-documents) (Pesquisar Documentos com a API REST)

@@ -1,17 +1,15 @@
 ---
 title: Depurar a sua aplicação no Eclipse
 description: Melhore a fiabilidade e o desempenho dos seus serviços desenvolvendo-os e depurando-os em Eclipse num cluster de desenvolvimento local.
-author: suhuruli
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.custom: devx-track-java
-ms.author: suhuruli
-ms.openlocfilehash: 32472c6caafe62d629ee3a5ffb8c758624228efd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: d321e0c10b66a15e6cb309cefe711602fa12957c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87316618"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91534115"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Depurar a sua aplicação Java Service Fabric usando o Eclipse
 > [!div class="op_single_selector"]
@@ -40,7 +38,7 @@ ms.locfileid: "87316618"
 
 Se a aplicação estiver em queda, também poderá querer ativar as coredumps. Execute `ulimit -c` numa concha e se voltar a 0, então as coredumps não estão ativadas. Para ativar as coredumps ilimitadas, execute o seguinte comando: `ulimit -c unlimited` . Também pode verificar o estado utilizando o comando `ulimit -a` .  Se quiser atualizar o caminho da geração coredump, execute `echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern` . 
 
-### <a name="next-steps"></a>Passos seguintes
+### <a name="next-steps"></a>Próximos passos
 
 * [Recolher registos utilizando diagnósticos Linux Azure](./service-fabric-diagnostics-event-aggregation-lad.md).
 * [Monitorizar e diagnosticar serviços localmente.](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)

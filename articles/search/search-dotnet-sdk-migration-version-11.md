@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5c943de87cbf53d4971e5cbf58768221bf2cf248
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: f6953f145621e11506a009fa59d67a5f40508a13
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462263"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539576"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-11"></a>Upgrade para Azure Cognitive Search .NET SDK versão 11
 
@@ -39,7 +39,7 @@ A versão 11 consolida vários pacotes e bibliotecas num só. Após a migração
 
 + [Azure.Search.Docpacote de uments](https://www.nuget.org/packages/Azure.Search.Documents/)
 
-+ [Referência da API para a biblioteca do cliente](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet)
++ [Referência da API para a biblioteca do cliente](/dotnet/api/overview/azure/search.documents-readme)
 
 ## <a name="client-differences"></a>Diferenças de clientes
 
@@ -196,4 +196,4 @@ Em termos de atualizações da versão de serviço, em que as alterações de c�
 
 + [Azure.Search.Docpacote de uments](https://www.nuget.org/packages/Azure.Search.Documents/)
 + [Exemplos no GitHub](https://github.com/azure/azure-sdk-for-net/tree/Azure.Search.Documents_11.0.0/sdk/search/Azure.Search.Documents/samples)
-+ [ referênciaAzure.Search.DocAPI](/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet)
++ [ referênciaAzure.Search.DocAPI](/dotnet/api/overview/azure/search.documents-readme)

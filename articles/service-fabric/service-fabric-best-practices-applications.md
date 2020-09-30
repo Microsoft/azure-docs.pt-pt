@@ -1,16 +1,14 @@
 ---
 title: Azure Service Fabric design de boas práticas
 description: Boas práticas e considerações de design para o desenvolvimento de aplicações e serviços utilizando o Azure Service Fabric.
-author: markfussell
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.author: mfussell
-ms.openlocfilehash: 742cd9b1e7480fcc510b61d8987e42b499a1ff20
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ddf846e9e3ac6add7cf3f584b702de5accfb22af
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261189"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91538503"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Azure Service Fabric design de boas práticas
 
@@ -77,7 +75,7 @@ Service Fabric Reliable Actors permite-lhe criar facilmente atores virtuais e im
 Seja minucioso sobre a adição [de registo de aplicações](./service-fabric-diagnostics-event-generation-app.md) em chamadas de serviço. Vai ajudá-lo a diagnosticar cenários em que os serviços se chamam uns aos outros. Por exemplo, quando a chamada B chama C chama D, a chamada pode falhar em qualquer lugar. Se não tiver registos suficientes, falhas são difíceis de diagnosticar. Se os serviços estiverem a registar demasiado devido aos volumes de chamadas, certifique-se de que, pelo menos, regista erros e avisos.
 
 ## <a name="iot-and-messaging-applications"></a>IoT e aplicações de mensagens
-Quando estiver a ler mensagens do [Azure IoT Hub](../iot-hub/index.yml) ou [dos Azure Event Hubs,](../event-hubs/index.yml)utilize [o ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/ServiceFabricProcessor). O ServiceFabricProcessor integra-se com serviços de serviços fiáveis para manter o estado de leitura das divisórias do centro do evento e empurra novas mensagens para os seus serviços através do `IEventProcessor::ProcessEventsAsync()` método.
+Quando estiver a ler mensagens do [Azure IoT Hub](../iot-hub/index.yml) ou [dos Azure Event Hubs,](../event-hubs/index.yml)utilize  [o ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/ServiceFabricProcessor). O ServiceFabricProcessor integra-se com serviços de serviços fiáveis para manter o estado de leitura das divisórias do centro do evento e empurra novas mensagens para os seus serviços através do `IEventProcessor::ProcessEventsAsync()` método.
 
 
 ## <a name="design-guidance-on-azure"></a>Orientação de design em Azure

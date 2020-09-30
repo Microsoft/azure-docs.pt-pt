@@ -3,20 +3,18 @@ title: Painel de instrumentos - Compreensão linguística - LUIS
 titleSuffix: Azure Cognitive Services
 description: Corrija intenções e entidades com o painel de instrumentos da sua aplicação treinada. O dashboard exibe informações gerais da aplicação, com destaque para as intenções que devem ser corrigidas.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 11/08/2019
-ms.author: diberry
-ms.openlocfilehash: 0ff59819c3bfda6e19d14cbe2deaea43e1694375
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 4867a065a85fab1e4abc7f19401239e5b76e1da4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84345245"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541412"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Como utilizar o Dashboard para melhorar a sua aplicação
 
@@ -33,8 +31,8 @@ Os três problemas abordados no painel de instrumentos são:
 |Problema|Cor de gráfico|Explicação|
 |--|--|--|
 |Desequilíbrio de dados|-|Isto ocorre quando a quantidade de palavras de exemplo varia significativamente. Todas as intenções precisam de ter _aproximadamente_ o mesmo número de palavras de exemplo - exceto a intenção de Nenhum. Deve ter apenas 10%-15% da quantidade total de declarações na app.<br><br> Se os dados forem desequilibrados, mas a precisão da intenção estiver acima de determinado limiar, este desequilíbrio não é reportado como um problema.<br><br>**Comece por esta questão - pode ser a causa principal das outras questões.**|
-|Previsões pouco claras|Orange|Isto ocorre quando a intenção superior e as pontuações da próxima intenção estão perto o suficiente para que possam virar no próximo treino, devido a [amostragem negativa](luis-how-to-train.md#train-with-all-data) ou mais palavras de exemplo adicionadas à intenção. |
-|Previsões incorretas|Vermelho|Isto ocorre quando não se prevê uma expressão de exemplo para a intenção rotulada (a intenção em que se encontra).|
+|Previsões pouco claras|Laranja|Isto ocorre quando a intenção superior e as pontuações da próxima intenção estão perto o suficiente para que possam virar no próximo treino, devido a [amostragem negativa](luis-how-to-train.md#train-with-all-data) ou mais palavras de exemplo adicionadas à intenção. |
+|Previsões incorretas|Red|Isto ocorre quando não se prevê uma expressão de exemplo para a intenção rotulada (a intenção em que se encontra).|
 
 As previsões corretas são representadas com a cor azul.
 
@@ -130,11 +128,11 @@ O gráfico seguinte mostra uma aplicação bem equilibrada, quase sem problemas 
 
 O gráfico seguinte mostra uma aplicação mal equilibrada com muitos problemas para corrigir.
 
-![O gráfico seguinte mostra uma aplicação bem equilibrada, quase sem problemas para corrigir.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
+![A screenshot mostra previsões por intenção com vários resultados não claros ou incorretamente previstos.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
 
 Passe por cima do bar de cada intenção para obter informações sobre a intenção.
 
-![O gráfico seguinte mostra uma aplicação bem equilibrada, quase sem problemas para corrigir.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
+![A screenshot mostra previsões por intenção com detalhes de resultados não claros ou incorretamente previstos.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
 
 Utilize o **'Ordenar' por** recurso para organizar as intenções por tipo de problema para que possa focar-se nas intenções mais problemáticas com esse problema.
 

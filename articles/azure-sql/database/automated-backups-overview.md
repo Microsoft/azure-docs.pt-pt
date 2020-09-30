@@ -7,16 +7,16 @@ ms.service: sql-db-mi
 ms.subservice: backup-restore
 ms.custom: references_regions
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, carlrab, danil
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma, stevestein, danil
 ms.date: 09/25/2020
-ms.openlocfilehash: b28c175656b0951980f861198c93ccd794605839
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 93370050b503875d670283b720088b0871377c09
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91444274"
+ms.locfileid: "91535105"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados - Azure SQL Database & SQL Managed Instance
 
@@ -415,6 +415,9 @@ Set-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -DatabaseName "Database01
 
 Para mais detalhes visite [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
 
+> [!NOTE]
+> Para utilizar o parâmetro -BackupStorageRedundancy com a restauração da base de dados, cópia de base de dados ou criar operações secundárias, utilize a versão Az.Sql 2.Sql 2.11.0 da Azure PowerShell. 
+
 
 #### <a name="sql-managed-instance"></a>[Instância Gerida do SQL](#tab/managed-instance)
 
@@ -425,6 +428,8 @@ New-AzSqlInstance -Name managedInstance2 -ResourceGroupName ResourceGroup01 -Loc
 ```
 
 Para mais detalhes visite [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance).
+
+---
 
 ## <a name="use-azure-policy-to-enforce-backup-storage-redundancy"></a>Use a política da Azure para impor a redundância de armazenamento de backup
 
@@ -440,11 +445,13 @@ São adicionadas novas políticas incorporadas, que podem ser atribuídas ao ní
 
 Uma lista completa das definições de política incorporada para a Base de Dados SQL e instância gerida pode ser [consultada aqui.](https://docs.microsoft.com/azure/azure-sql/database/policy-reference)
 
-Para impor os requisitos de residência de dados a nível organizacional, estas políticas podem ser atribuídas a uma subscrição. Depois de atribuídos a um nível de subscrição, os utilizadores na subscrição dada não serão capazes de criar uma base de dados ou uma instância gerida com armazenamento de backup geo-redundante através do portal Azure ou da Azure PowerShell. Note que as políticas Azure não são aplicadas ao criar uma base de dados via T-SQL. 
+Para impor os requisitos de residência de dados a nível organizacional, estas políticas podem ser atribuídas a uma subscrição. Depois de atribuídos a um nível de subscrição, os utilizadores na subscrição dada não serão capazes de criar uma base de dados ou uma instância gerida com armazenamento de backup geo-redundante através do portal Azure ou da Azure PowerShell. 
+
+> [!IMPORTANT]
+> As políticas de Azure não são aplicadas ao criar uma base de dados via T-SQL. Para impor a residência de dados ao criar uma base de dados utilizando o T-SQL, [utilize 'LOCAL' ou 'ZONE' como entrada para BACKUP_STORAGE_REDUNDANCY paramater na declaração CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups).
 
 Saiba como atribuir políticas utilizando o [portal Azure](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) ou [Azure PowerShell](https://docs.microsoft.com/azure/governance/policy/assign-policy-powershell)
 
----
 
 ## <a name="next-steps"></a>Próximos passos
 

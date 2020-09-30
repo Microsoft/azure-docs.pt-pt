@@ -1,27 +1,25 @@
 ---
 title: Entidade pré-construída - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém informações de entidadepré-construída pré-construída sintetmente em Compreensão linguística (LUIS).
+description: Este artigo contém informações de entidade pré-construídas em Informação de Línguas (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: 53be1b13f1e2744e143a4be0777e3a8e3135460e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 02a48c8d106795b970d573bb71f52ba92e0a90ac
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270532"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541990"
 ---
-# <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>keyPhrase entidade pré-construída para uma app LUIS
-A entidade keyPhrase extrai uma variedade de frases-chave de uma expressão. Não é necessário adicionar frases de exemplo contendo o tecladoPhrase à aplicação. A entidade keyPhrase é suportada em [muitas culturas](luis-language-support.md#languages-supported) como parte das funcionalidades de análise de [texto.](../text-analytics/overview.md)
+# <a name="keyphrase-prebuilt-entity-for-a-luis-app"></a>entidade pré-construída keyPhrase para uma aplicação LUIS
+A entidade-chavePhrase extrai uma variedade de frases-chave de uma expressão. Não é necessário adicionar palavras de exemplo que contenham a chavePhrase à aplicação. A entidade-chavePhrase é suportada em [muitas culturas](luis-language-support.md#languages-supported) como parte das funcionalidades de análise de [texto.](../text-analytics/overview.md)
 
-## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Resolução para entidade chave pré-construída
+## <a name="resolution-for-prebuilt-keyphrase-entity"></a>Resolução para entidade-chave de assinatura pré-construída
 
 Os seguintes objetos de entidade são devolvidos para consulta:
 
@@ -29,7 +27,7 @@ Os seguintes objetos de entidade são devolvidos para consulta:
 
 #### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O seguinte JSON `verbose` está com `false`o parâmetro definido para:
+O seguinte JSON é com o `verbose` parâmetro definido `false` para:
 
 ```json
 "entities": {
@@ -40,7 +38,7 @@ O seguinte JSON `verbose` está com `false`o parâmetro definido para:
 }
 ```
 #### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
-O seguinte JSON `verbose` está com `true`o parâmetro definido para:
+O seguinte JSON é com o `verbose` parâmetro definido `true` para:
 
 ```json
 "entities": {
@@ -78,7 +76,7 @@ O seguinte JSON `verbose` está com `true`o parâmetro definido para:
 ```
 #### <a name="v2-response"></a>[Resposta V2](#tab/V2)
 
-O exemplo seguinte mostra a resolução da entidade **builtin.keyPhrase.**
+O exemplo a seguir mostra a resolução da entidade **builtin.keyPhrase.**
 
 ```json
 "entities": [
@@ -98,8 +96,8 @@ O exemplo seguinte mostra a resolução da entidade **builtin.keyPhrase.**
 ```
 * * *
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final de [previsão V3](luis-migration-api-v3.md).
 
-Conheça a [percentagem](luis-reference-prebuilt-percentage.md), [número](luis-reference-prebuilt-number.md)e as entidades [etárias.](luis-reference-prebuilt-age.md)
+Saiba mais sobre a [percentagem,](luis-reference-prebuilt-percentage.md) [número](luis-reference-prebuilt-number.md)e entidades [etárias.](luis-reference-prebuilt-age.md)

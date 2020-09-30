@@ -1,28 +1,26 @@
 ---
 title: Tipo de entidade composta - LUIS
 titleSuffix: Azure Cognitive Services
-description: Uma entidade composta é constituída por outras entidades, como entidades pré-construídas, expressão simples, regular e entidades de lista. As entidades separadas formam uma entidade inteira.
+description: Uma entidade composta é constituída por outras entidades, como entidades pré-construídas, expressão simples, regular e entidades de lista. As entidades separadas formam toda uma entidade.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.author: diberry
-ms.openlocfilehash: 81299751affe5f59e1132950ccb80844fcc1fae3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 97bd079034a39f158e3ca438c484929cb6f00363
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83681387"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542262"
 ---
 # <a name="composite-entity"></a>Entidade composta
 
-Uma entidade composta é constituída por outras entidades, como entidades pré-construídas, expressão simples, regular e entidades de lista. As entidades separadas formam uma entidade inteira.
+Uma entidade composta é constituída por outras entidades, como entidades pré-construídas, expressão simples, regular e entidades de lista. As entidades separadas formam toda uma entidade.
 
 > [!CAUTION]
-> Esta entidade está **depreciada.** Por favor, emilique para a [entidade de aprendizagem automática.](reference-entity-machine-learned-entity.md)
+> Esta entidade é **depreciada.** Por favor, migrar para a [entidade de aprendizagem automática.](reference-entity-machine-learned-entity.md)
 
 **Esta entidade é um bom ajuste quando os dados:**
 
@@ -40,13 +38,13 @@ Considere uma entidade composta de pré-construído `number` e com a seguinte `L
 
 `book 2 tickets to cairo`
 
-Note `2` que, o número, e `cairo` o ToLocation têm palavras entre eles que não fazem parte de nenhuma das entidades. O sublinhado verde, usado numa expressão rotulada no site da [LUIS,](luis-reference-regions.md) indica uma entidade composta.
+Note-se `2` que, o número, e `cairo` , a ToLocation têm palavras entre eles que não fazem parte de nenhuma das entidades. O sublinhado verde, usado numa expressão rotulada no site da [LUIS,](luis-reference-regions.md) indica uma entidade composta.
 
 ![Entidade Composta](./media/luis-concept-data-extraction/composite-entity.png)
 
-#### <a name="v2-prediction-endpoint-response"></a>[Resposta final de previsão V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Resposta do ponto final da previsão V2](#tab/V2)
 
-As entidades compostas são devolvidas numa `compositeEntities` matriz e todas as entidades dentro do composto também são devolvidas na `entities` matriz:
+As entidades compostas são devolvidas num `compositeEntities` conjunto e todas as entidades dentro do compósito são também devolvidas no `entities` conjunto:
 
 ```JSON
   "entities": [
@@ -92,9 +90,9 @@ As entidades compostas são devolvidas numa `compositeEntities` matriz e todas a
   ]
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[Resposta final de previsão V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Resposta do ponto final de previsão V3](#tab/V3)
 
-Este é o JSON se estiver definido na corda de `verbose=false` consulta:
+Este é o JSON se `verbose=false` for definido na cadeia de consulta:
 
 ```json
 "entities": {
@@ -111,7 +109,7 @@ Este é o JSON se estiver definido na corda de `verbose=false` consulta:
 }
 ```
 
-Este é o JSON se estiver definido na corda de `verbose=true` consulta:
+Este é o JSON se `verbose=true` for definido na cadeia de consulta:
 
 ```json
 "entities": {
@@ -177,10 +175,10 @@ Este é o JSON se estiver definido na corda de `verbose=true` consulta:
 
 |Objeto de dados|Nome da entidade|Valor|
 |--|--|--|
-|Entidade Pré-Construída - número|"builtin.number"|"2"|
-|Entidade Pré-Construída - GeografiaV2|"Localização::Localização"|"Cairo"|
+|Entidade Pré-construída - número|"builtin.number"|"2"|
+|Entidade Pré-construída - GeografiaV2|"Localização::ToLocation"|"Cairo"|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre as entidades:
 

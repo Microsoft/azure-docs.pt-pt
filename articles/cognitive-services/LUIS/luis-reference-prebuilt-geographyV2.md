@@ -1,25 +1,23 @@
 ---
 title: Entidade pré-construída de Geografia V2 - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém informações de entidades pré-construídas de geografiaV2 em Compreensão linguística (LUIS).
+description: Este artigo contém informação de entidade pré-construída de geografiaV2 na Compreensão de Línguas (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/04/2019
-ms.author: diberry
-ms.openlocfilehash: b2b2b0781abce59628660b669f43110bf91b15e6
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: ad6fd62178ec8e987e1e3b6e05cc961bbe15e377
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78273497"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541969"
 ---
-# <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída geografiaV2 para uma app LUIS
-A entidade de geografia pré-construídaV2 deteta lugares. Como esta entidade já está treinada, não precisa de adicionar declarações de exemplo contendo GeografiaV2 às intenções de aplicação. A entidade GeographyV2 é apoiada na [cultura](luis-reference-prebuilt-entities.md)inglesa.
+# <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída de GeografiaV2 para uma app LUIS
+A entidade de geografia pré-construídaV2 deteta lugares. Como esta entidade já está treinada, não precisa de adicionar palavras de exemplo que contenham GeografiaV2 às intenções de candidatura. A entidade de GeografiaV2 é apoiada na [cultura](luis-reference-prebuilt-entities.md)inglesa.
 
 ## <a name="subtypes"></a>Subtipos
 As localizações geográficas têm subtipos:
@@ -28,12 +26,12 @@ As localizações geográficas têm subtipos:
 |--|--|
 |`poi`|ponto de interesse|
 |`city`|nome da cidade|
-|`countryRegion`|nome de país ou região|
+|`countryRegion`|nome do país ou região|
 |`continent`|nome do continente|
-|`state`|nome de estado ou província|
+|`state`|nome do Estado ou província|
 
 
-## <a name="resolution-for-geographyv2-entity"></a>Resolução para entidade De GeografiaV2
+## <a name="resolution-for-geographyv2-entity"></a>Resolução para entidade de GeografiaV2
 
 Os seguintes objetos de entidade são devolvidos para consulta:
 
@@ -41,7 +39,7 @@ Os seguintes objetos de entidade são devolvidos para consulta:
 
 #### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O seguinte JSON `verbose` está com `false`o parâmetro definido para:
+O seguinte JSON é com o `verbose` parâmetro definido `false` para:
 
 ```json
 "entities": {
@@ -70,11 +68,11 @@ O seguinte JSON `verbose` está com `false`o parâmetro definido para:
 }
 ```
 
-No JSON anterior, `poi` é uma abreviatura de **Point of Interest**.
+No JSON anterior, `poi` é uma abreviatura para **o Ponto de Interesse**.
 
 #### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
 
-O seguinte JSON `verbose` está com `true`o parâmetro definido para:
+O seguinte JSON é com o `verbose` parâmetro definido `true` para:
 
 ```json
 "entities": {
@@ -163,7 +161,7 @@ O seguinte JSON `verbose` está com `true`o parâmetro definido para:
 ```
 #### <a name="v2-response"></a>[Resposta V2](#tab/V2)
 
-O exemplo seguinte mostra a resolução da entidade **builtin.geographyV2.**
+O exemplo a seguir mostra a resolução da entidade **builtin.geographyV2.**
 
 ```json
 "entities": [
@@ -207,8 +205,8 @@ O exemplo seguinte mostra a resolução da entidade **builtin.geographyV2.**
 ```
 * * *
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final de [previsão V3](luis-migration-api-v3.md).
 
-Conheça o [e-mail](luis-reference-prebuilt-email.md), [número,](luis-reference-prebuilt-number.md)e entidades [ordinárias.](luis-reference-prebuilt-ordinal.md)
+Saiba mais sobre o [email,](luis-reference-prebuilt-email.md) [número](luis-reference-prebuilt-number.md)e entidades [ordinais.](luis-reference-prebuilt-ordinal.md)

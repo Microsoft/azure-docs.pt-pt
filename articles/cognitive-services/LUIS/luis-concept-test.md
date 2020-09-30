@@ -2,7 +2,6 @@
 title: Teste o seu aplicativo LUIS
 titleSuffix: Azure Cognitive Services
 description: O teste é o processo de fornecer expressões de amostras ao LUIS e obter uma resposta de intenções e entidades reconhecidas pela LUIS.
-author: diberry
 manager: nitinme
 services: cognitive-services
 ms.custom: seodec18
@@ -10,13 +9,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.author: diberry
-ms.openlocfilehash: ccd732c644cf0a5641099a9731f65dd7b03bf374
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ef63bf68fec592b768986a1329663508443c514b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316414"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535853"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Teste de palavras de exemplo em LUIS
 
@@ -56,6 +54,6 @@ Lembre-se de [treinar](luis-how-to-train.md) o LUIS depois de fazer alterações
 ## <a name="best-practices"></a>Melhores práticas
 Aprenda as [melhores práticas.](luis-concept-best-practices.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [testar](luis-interactive-test.md) as suas expressões.

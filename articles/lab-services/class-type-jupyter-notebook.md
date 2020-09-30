@@ -3,14 +3,14 @@ title: Criar um laboratório para ensinar ciência de dados com pítons e cadern
 description: Aprenda a criar um laboratório para ensinar ciência de dados usando os cadernos Python e Jupyter.
 author: emaher
 ms.topic: article
-ms.date: 06/26/2020
+ms.date: 09/29/2020
 ms.author: enewman
-ms.openlocfilehash: 25fd090f76c0aa11617b34503ea18d1b45a0e1ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bbf4c9d4bc83b48b8ecc62946fa9bffa8af50bc
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445020"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91533525"
 ---
 # <a name="set-up-a-lab-to-teach-data-science-with-python-and-jupyter-notebooks"></a>Crie um laboratório para ensinar ciência de dados com pítons e cadernos jupyter
 Este artigo descreve como configurar uma máquina virtual modelo (VM) nos Serviços de Laboratório com as ferramentas necessárias para ensinar os alunos a usar [os Cadernos Jupyter,](http://jupyter-notebook.readthedocs.io/)e como os alunos podem ligar-se aos seus cadernos nas suas máquinas virtuais (VMs).

@@ -1,19 +1,19 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/07/2020
+ms.date: 09/25/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 66380e0bab0a83d086ebebb5e595908cecd11643
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 9f5a1010959658e75dcc809b2ee1d6d9222af056
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664656"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540015"
 ---
 Este artigo ajuda a clarificar o desempenho do disco e como funciona quando combina Máquinas Virtuais Azure e Discos Azure. Também descreve como pode diagnosticar estrangulamentos para o seu IO do disco e as alterações que pode fazer para otimizar o desempenho.
 

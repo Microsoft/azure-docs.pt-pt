@@ -14,12 +14,12 @@ ms.date: 02/28/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cedd6d019005a4c55bbabf6070c6d864da90f40a
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 4ab3ae459d5719e965be668c529eacf0ab86d19b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055491"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541140"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Configurar definições de papel de AD Azure na Gestão de Identidade Privilegiada
 
@@ -196,7 +196,7 @@ Se quiser delegar a aprovação necessária para ativar uma função, siga estes
 
 1. Desa **estação de homologação Require** para **Ativação**. O painel expande-se com opções para selecionar aprovadores.
 
-    ![Funções AD AZure - Definições - Requer aprovação](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+    ![Screenshot que mostra o interruptor "Exigir aprovação" com "Enable" selecionado.](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     Se não especificar quaisquer aprovadores, o administrador de função Privilegeed torna-se o aprovador por defeito e é então obrigado a aprovar todos os pedidos de ativação para esta função.
 

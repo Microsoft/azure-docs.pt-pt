@@ -10,12 +10,12 @@ ms.author: minxia
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: b6d4ac2727e558ed3d4538b6d325b7304d7928f8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2ed8910db8b903dab3b81d9db6c9b5798d2b6b69
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91250883"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542058"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualizar corridas e métricas de experimentação com TensorBoard e Azure Machine Learning
 
@@ -39,8 +39,8 @@ A forma como lança o TensorBoard com experiências de Aprendizagem automática 
     * Exemplo de computação Azure Machine Learning - sem transferências ou instalação necessárias
         * Complete o [Tutorial: Ambiente de configuração e espaço de trabalho](tutorial-1st-experiment-sdk-setup.md) para criar um servidor de caderno dedicado pré-carregado com o SDK e o repositório de amostras.
         * Na pasta de amostras do servidor de portátil, encontre dois cadernos completos e expandidos navegando para estes diretórios:
-            * **como usar-azureml > formação com aprendizagem profunda > exportação-run-run-história-a-tensorboard > exportação-run-history-to-tensorboard.ipynb**
-            * **como-usar-azureml > experiências de rastreio e monitorização > tensorboard.ipynb**
+            * **como-usar-azureml > experiências de > tensorboard > exportação-run-run-história-a-tensorboard > exportação-run-run-history-to-tensorboard.ipynb**
+            * **como-usar-azureml > experiências de > tensorboard > tensorboard > tensorboard.ipynb**
     * O seu próprio servidor de cadernos Juptyer
        * [Instale o Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) com o `tensorboard` extra
         * Criar um espaço de trabalho para [aprendizagem automática Azure.](how-to-manage-workspace.md)  
@@ -291,7 +291,7 @@ Quando terminar, certifique-se de ligar para o método [stop()](https://docs.mic
 tb.stop()
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste como-para-você, criou duas experiências e aprendeu a lançar o TensorBoard contra as suas histórias de execução para identificar áreas para potenciais afinações e reconversão. 
 

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: e15ac501a0598ae81a295d5a04074beb33c860f6
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 6e41109c65a047990577d1f2c77bdcd5219b6ed3
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86085723"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537461"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Carregue gradualmente os dados do Azure SQL Managed Instance para O Azure Storage utilizando a captura de dados de alteração (CDC)
 
@@ -124,13 +124,13 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
     Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).  
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 6. Des-select **Enable GIT**.     
-7. Clique em **Criar**.
+7. Clique em **Create** (Criar).
 8. Uma vez concluída a implementação, clique em **Ir ao recurso**
 
-   ![Home page da fábrica de dados](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
+   ![A screenshot mostra uma mensagem de que a sua implementação está completa e uma opção para ir para o recurso.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-deploy-complete.png)
 9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
 
-   ![Home page da fábrica de dados](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
+   ![A screenshot mostra a fábrica de dados que implementou.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/data-factory-home-page.png)
 10. Clique no mosaico **Criar e Monitorizar** para iniciar a interface de utilizador (IU) do Azure Data Factory num separador à parte.
 11. Na página **introdução**, mude para o separador **Editar**, no painel do lado esquerdo, conforme mostrado na imagem abaixo:
 
@@ -152,7 +152,7 @@ Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dado
 
    1. Introduza **AzureStorageLinkedService** em **Nome**.
    2. Selecione a sua conta de Armazenamento Azure para **o nome da conta de armazenamento**.
-   3. Clique em **Guardar**.
+   3. Clique em **Save** (Guardar).
 
    ![Definições da Conta de Armazenamento do Azure](./media/tutorial-incremental-copy-change-data-capture-feature-portal/azure-storage-linked-service-settings.png)
 
@@ -221,7 +221,7 @@ Neste passo, cria um conjunto de dados para representar os dados que são copiad
 ## <a name="create-a-pipeline-to-copy-the-changed-data"></a>Criar um pipeline para copiar os dados alterados
 Neste passo, cria-se um gasoduto que verifica primeiro o número de registos alterados presentes na tabela de mudanças utilizando uma **atividade de procuração**. Uma atividade de condição IF verifica se o número de registos alterados é superior a zero e executa uma **atividade de cópia** para copiar os dados inseridos/atualizados/eliminados da Base de Dados Azure SQL para o Armazenamento de Blob Azure. Por último, um gatilho da janela caindo é configurado e os tempos de início e fim serão passados para as atividades como parâmetros de janela de início e fim. 
 
-1. Na UI da Fábrica de Dados, mude para o separador **Editar.** Clique **+ (mais)** no painel esquerdo e clique em **Pipeline**.
+1. Na UI da Fábrica de Dados, mude para o **separador Editar.** Clique **+ (mais)** no painel esquerdo e clique em **Pipeline**.
 
     ![Menu Novo pipeline](./media/tutorial-incremental-copy-change-data-capture-feature-portal/new-pipeline-menu.png)
 2. Verá um separador novo para configurar o pipeline. Também verá o pipeline na vista de árvore. Na janela **Propriedades**, altere o nome do pipeline para **IncrementalCopyPipeline**.
@@ -289,10 +289,10 @@ Neste passo, cria-se um gasoduto que verifica primeiro o número de registos alt
 
 11. Clique em pré-visualização para verificar se a consulta devolve corretamente as linhas alteradas.
 
-    ![Atividade Copy - definições do sink](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png)
+    ![A screenshot mostra a pré-visualização para verificar a consulta.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-source-preview.png)
 12. Mude para o **separador Sink** e especifique o conjunto de dados de armazenamento Azure para o campo **Conjunto de Dados de Sumidouro.**
 
-    ![Atividade Copy - definições do sink](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png)
+    ![A imagem mostra a conta da Pia.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/copy-sink-settings.png)
 13. Clique de volta para a tela do gasoduto principal e ligue a atividade **de Lookup** à atividade **Se Condition,** uma a uma. Arraste o botão **verde** ligado à atividade **De procurar** para a atividade **'Se Estiver'.**
 
     ![Ligar as atividades Lookup e Copy](./media/tutorial-incremental-copy-change-data-capture-feature-portal/connect-lookup-if.png)
@@ -322,7 +322,7 @@ Neste passo, cria-se um gatilho de janela para executar o trabalho num horário 
     SELECT count(1) changecount FROM cdc.fn_cdc_get_all_changes_dbo_customers(@from_lsn, @to_lsn, ''all'')')
     ```
 
-3. Navegue para a atividade **Copiar** no caso verdadeiro da atividade **Se Estiver em Condições** e clique no separador **'Origem.'** Copie o seguinte na consulta:
+3. Navegue para a atividade **Copiar** no caso Verdadeiro da atividade **Se Condicionar** e clique no separador **'Fonte'.** Copie o seguinte na consulta:
     ```sql
     @concat('DECLARE @begin_time datetime, @end_time datetime, @from_lsn binary(10), @to_lsn binary(10); 
     SET @begin_time = ''',pipeline().parameters.triggerStartTime,''';
@@ -333,7 +333,7 @@ Neste passo, cria-se um gatilho de janela para executar o trabalho num horário 
     ```
 4. Clique no **separador 'Afundar'** da atividade **Copy** e clique em **Abrir** para editar as propriedades do conjunto de dados. Clique no separador **Parâmetros** e adicione um novo parâmetro chamado **triggerStart**    
 
-    ![Configuração do conjunto de dados do afundanço-3](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png)
+    ![A screenshot mostra a adição de um novo parâmetro ao separador Parâmetros.](./media/tutorial-incremental-copy-change-data-capture-feature-portal/sink-dataset-configuration-2.png)
 5. Em seguida, configurar as propriedades do conjunto de dados para armazenar os dados num **subdiretório/subdiretório incremental** com divisórias baseadas em datas.
    1. Clique no **separador 'Ligação'** das propriedades do conjunto de dados e adicione conteúdo dinâmico tanto para as secções **Do Diretório** como para o **Ficheiro.** 
    2. Introduza a seguinte expressão na secção **Diretório** clicando no link de conteúdo dinâmico na caixa de texto:
@@ -409,7 +409,7 @@ Vai ver um segundo ficheiro na pasta `customers/incremental/YYYY/MM/DD` do conte
 ![Ficheiro de saída a partir da cópia incremental](media/tutorial-incremental-copy-change-data-capture-feature-portal/incremental-copy-pipeline-run.png)
  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Avance para o seguinte tutorial para aprender sobre a cópia de novos ficheiros e alterados apenas com base no seu Último Anomodified:
 
 > [!div class="nextstepaction"]

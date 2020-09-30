@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 09/27/2020
-ms.openlocfilehash: f6527a0c5712d68756310b699d214013e89f38e1
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: feb186fbe216305039fcc0a23a10419c44fd0483
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 09/29/2020
-ms.locfileid: "91449582"
+ms.locfileid: "91535615"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Notas de lançamento do Azure HDInsight
 
@@ -28,8 +28,8 @@ O Azure HDInsight é um dos serviços mais populares entre os clientes empresari
 Esta versão aplica-se tanto para HDInsight 3.6 como HDInsight 4.0. O lançamento hdInsight é disponibilizado a todas as regiões ao longo de vários dias. A data de lançamento aqui indica a primeira data de lançamento da região. Se não vir alterações abaixo, aguarde que o lançamento seja transmitido ao vivo na sua região dentro de vários dias.
 
 ## <a name="new-features"></a>Novas funcionalidades
-### <a name="llap-cluster-auto-scale-general-available"></a>Escala automática de cluster LLAP Disponível
-A escala automática para o tipo de cluster LLAP está agora disponível geral (GA). Todos os clusters LLAP criados após 27 de agosto de 2020 terão suporte AG para a escala automática.
+### <a name="autoscale-for-interactive-query-with-hdinsight-40-is-now-generally-available"></a>Autoescala para Consulta Interativa com HDInsight 4.0 está agora geralmente disponível
+A escala automática para o tipo de cluster de consulta interativa está agora disponível geral (GA) para HDInsight 4.0. Todos os clusters Interactive Query 4.0 criados após 27 de agosto de 2020 terão suporte de GA para a escala automática.
 
 ### <a name="hbase-cluster-supports-premium-adls-gen2"></a>Cluster HBase suporta Premium ADLS Gen2
 O HDInsight agora suporta o Premium ADLS Gen2 como conta de armazenamento primário para os clusters HDInsight HBase 3.6 e 4.0. Juntamente com [As Escritas Aceleradas,](./hbase/apache-hbase-accelerated-writes.md)pode obter um melhor desempenho para os seus clusters HBase.

@@ -3,21 +3,18 @@ title: Modelo para criar alertas de saúde de recursos
 description: Crie alertas programáticamente que o notifiquem quando os seus recursos Azure ficarem indisponíveis.
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: 399c37f123d06e251514d0cafc3c1c4918ce3edd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3859bb0ce2497b1c1f547c3750e53745ef6d6f28
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037938"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91537434"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurar alertas de estado de funcionamento dos recursos com os modelos do Resource Manager
 
 Este artigo irá mostrar-lhe como criar alertas de registo de atividade de saúde de recursos programáticamente usando modelos de Gestor de Recursos Azure e Azure PowerShell.
 
 A Azure Resource Health mantém-no informado sobre o estado de saúde atual e histórico dos seus recursos Azure. Os alertas de Saúde do Recurso Azure podem notificá-lo em quase tempo real quando estes recursos têm uma mudança no seu estado de saúde. Criar alertas de Saúde de Recursos permite programaticamente que os utilizadores criem e personalizem alertas a granel.
-
-> [!NOTE]
-> Os alertas de saúde de recursos estão atualmente em pré-visualização.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -446,7 +443,7 @@ Utilizando os diferentes ajustes descritos na secção anterior, aqui está um m
 
 No entanto, saberá melhor quais as configurações que são eficazes para si, por isso use as ferramentas que lhe são ensinadas nesta documentação para fazer a sua própria personalização.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre a Saúde dos Recursos:
 -  [Visão geral da Saúde dos Recursos Azure](Resource-health-overview.md)

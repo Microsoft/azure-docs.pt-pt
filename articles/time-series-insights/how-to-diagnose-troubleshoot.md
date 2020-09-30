@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: d9a4f7aa270aa4ed2b02e61da984e14379a241a9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 106600b608586175cbab1098cf0eb7ac6fad94fa
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289931"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91540307"
 ---
 # <a name="diagnose-and-troubleshoot-an-azure-time-series-insights-gen2-environment"></a>Diagnosticar e resolver problemas num ambiente Azure Time Series Insights Gen2
 
@@ -81,11 +81,11 @@ Este problema ocorre quando a chave fornecida ao criar a sua fonte de evento já
 
 Para atualizar o ambiente da Time Series Insights Gen2 com a nova chave abra o seu recurso hub no portal Azure e copie a nova chave. Navegue para o seu recurso TSI e clique em Fontes de Evento. 
 
-   [![Chave de atualização.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
+   [![O screenshot mostra o recurso T S I com o item do menu 'Sources' chamado.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
 
 Selecione as fontes de evento(s) que têm de onde a ingestão parou, cole na nova tecla e clique em Guardar.
 
-   [![Chave de atualização.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
+   [![A screenshot mostra T S I recurso com i o T hub chave política introduzido.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
 
 ## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problema: O nome da propriedade da minha fonte de eventos Timestamp não funciona
 
@@ -129,11 +129,11 @@ Este problema pode ocorrer se o seu ambiente não tiver uma hierarquia do Modelo
 
 Este problema pode ocorrer se não estiver a utilizar a versão mais recente do Conector Power BI no Power BI Desktop.
 
-[![Casos não-parados apresentarão um aviso.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
+[![A screenshot mostra a caixa de diálogo incapaz de ligar.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
 
 * Verifique a versão do seu Power BI Desktop e certifique-se de que está a utilizar a versão julho 2020. Caso contrário, atualize o seu Power BI Desktop e volte a executar o conector. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Leia sobre como [trabalhar com modelos de séries de tempo.](/azure/time-series-insights/time-series-insights-overview)
 

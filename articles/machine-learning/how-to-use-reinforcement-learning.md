@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: f4003f8cd78a20e2ed40c6d874d50ffcd49b704e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6221b36263b55f54faef18d6596f97c5b3798d3d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91302263"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541718"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Aprendizagem de reforço (pré-visualização) com Azure Machine Learning
 
@@ -215,7 +215,7 @@ else:
 
 Nesta secção, você aprende a usar o [ReforçoLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true) para submeter um trabalho de formação ao Azure Machine Learning.
 
-A Azure Machine Learning usa aulas de estimador para encapsular informações de configuração de execução. Isto permite especificar facilmente como configurar uma execução de script. Para obter mais informações sobre o padrão do estimador Azure Machine Learning, consulte [Como treinar modelos utilizando estimadores](how-to-train-ml-models.md).
+A Azure Machine Learning usa aulas de estimador para encapsular informações de configuração de execução. Isto permite especificar facilmente como configurar uma execução de script. 
 
 ### <a name="define-a-worker-configuration"></a>Definir uma configuração de trabalhador
 
@@ -431,6 +431,6 @@ Se navegar em registos da execução da criança, pode ver os resultados da aval
 
 Em pouco trabalho, aprendeu a configurar múltiplos recursos computacional para formar um agente de aprendizagem de reforço para jogar Pong muito bem.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a treinar um agente de aprendizagem de reforço usando um agente de aprendizagem IMPALA. Para ver exemplos adicionais, vá ao [repositório de aprendizagem do GitHub do Azure Machine Learning.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/reinforcement-learning/README.md)

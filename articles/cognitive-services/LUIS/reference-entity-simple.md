@@ -3,23 +3,21 @@ title: Tipo de entidade simples - LUIS
 titleSuffix: Azure Cognitive Services
 description: Uma entidade simples descreve um único conceito do contexto de aprendizagem automática. Adicione uma lista de frases ao utilizar uma entidade simples para melhorar os resultados.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
-ms.author: diberry
-ms.openlocfilehash: 1b5754be3c9941101a53f332841ace93caf9acdd
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 384d3df2de551e7c79f13a0fe47ffb26c7825f1b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684553"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539291"
 ---
 # <a name="simple-entity"></a>Entidade simples
 
-Uma entidade simples é uma entidade genérica que descreve um único conceito e é aprendida com o contexto de aprendizagem automática. Como as entidades simples são geralmente nomes como nomes de empresa, nomes de produtos ou outras categorias de nomes, adicionam uma lista de [frases](luis-concept-feature.md) quando se usa uma entidade simples para impulsionar o sinal dos nomes utilizados.
+Uma entidade simples é uma entidade genérica que descreve um único conceito e é aprendida a partir do contexto de aprendizagem automática. Como as entidades simples são geralmente nomes como nomes de empresas, nomes de produtos ou outras categorias de nomes, adicione uma lista de [frases](luis-concept-feature.md) quando utilizar uma entidade simples para aumentar o sinal dos nomes utilizados.
 
 **A entidade é um bom ajuste quando:**
 
@@ -33,9 +31,9 @@ Uma entidade simples é uma entidade genérica que descreve um único conceito e
 
 Na expressão anterior, `Bob Jones` é rotulado como uma entidade `Customer` simples.
 
-Os dados devolvidos do ponto final incluem o nome da entidade, o texto descoberto da expressão, a localização do texto descoberto e a pontuação:
+Os dados devolvidos do ponto final incluem o nome da entidade, o texto descoberto a partir da expressão, a localização do texto descoberto e a pontuação:
 
-#### <a name="v2-prediction-endpoint-response"></a>[Resposta final de previsão V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Resposta do ponto final da previsão V2](#tab/V2)
 
 ```JSON
 "entities": [
@@ -49,9 +47,9 @@ Os dados devolvidos do ponto final incluem o nome da entidade, o texto descobert
 ]
 ```
 
-#### <a name="v3-prediction-endpoint-response"></a>[Resposta final de previsão V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Resposta do ponto final de previsão V3](#tab/V3)
 
-Este é o JSON se estiver definido na corda de `verbose=false` consulta:
+Este é o JSON se `verbose=false` for definido na cadeia de consulta:
 
 ```json
 "entities": {
@@ -92,7 +90,7 @@ This is the JSON if `verbose=true` is set in the query string:
 |--|--|--|
 |Entidade Simples|`Customer`|`bob jones`|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Aprenda sintaxe de padrão](reference-pattern-syntax.md)

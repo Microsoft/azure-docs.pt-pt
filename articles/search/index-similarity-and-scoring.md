@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: d980764b7151183b61657434afa6c472e5058d18
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5bd1a9111528146224561995feaecf54612a1c78
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662270"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91535666"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Semelhança e pontuação na Pesquisa Cognitiva Azure
 
@@ -107,6 +107,4 @@ Pode consumir estes pontos de dados em [soluções de pontuação personalizadas
 
 ## <a name="see-also"></a>Veja também
 
- [Perfis de pontuação](index-add-scoring-profiles.md) [REST Referência API](/rest/api/searchservice/)   
- [Documentos de Pesquisa API](/rest/api/searchservice/search-documents)   
- [Pesquisa Cognitiva Azure .NET SDK](/dotnet/api/overview/azure/search?view=azure-dotnet)
+ [Perfis de pontuação REST](index-add-scoring-profiles.md) [API Reference](/rest/api/searchservice/) Search Documents [API](/rest/api/searchservice/search-documents) [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search)

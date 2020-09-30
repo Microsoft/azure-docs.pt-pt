@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: contperfq1
 ms.date: 08/21/2020
-ms.openlocfilehash: cfdb02b0a5942536a608fbc957ed69d1efd97e8e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: deda7644d29fce5deb8d6c76f93da0caf0b22ff8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88756899"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91536924"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Tutorial: Criar uma aplicação Scala Maven para Apache Spark em HDInsight usando IntelliJ
 
@@ -98,7 +98,7 @@ Faça os seguintes passos para instalar o plugin Scala:
 
 5. A partir da lista de arquétipos, selecione **`org.scala-tools.archetypes:scala-archetype-simple`** . Este arquétipo cria a estrutura de diretório certo e descarrega as dependências padrão necessárias para escrever o programa Scala.
 
-    !['IntelliJ IDEA cria projeto Maven'](./media/apache-spark-create-standalone-application/intellij-project-create-maven.png)
+    ![A screenshot mostra o arquétipo selecionado na janela New Project.](./media/apache-spark-create-standalone-application/intellij-project-create-maven.png)
 
 6. Selecione **Seguinte**.
 
@@ -107,7 +107,7 @@ Faça os seguintes passos para instalar o plugin Scala:
     - **GroupId:** com.microsoft.spark.exemplo
     - **Artefactoid:** SparkSimpleApp
 
-    !['IntelliJ IDEA cria projeto Maven'](./media/apache-spark-create-standalone-application/intellij-artifact-coordinates.png)
+    ![A screenshot mostra a opção De Coordenadas de Artefacto na janela do Novo Projeto.](./media/apache-spark-create-standalone-application/intellij-artifact-coordinates.png)
 
 8. Selecione **Seguinte**.
 
@@ -179,7 +179,7 @@ Faça os seguintes passos para instalar o plugin Scala:
 
     Guarde as alterações ao pom.xml.
 
-22. Crie o ficheiro .jar. O IntelliJ IDEA permite a criação do JAR como um artefacto de um projeto. Faça os seguintes passos.
+22. Crie o ficheiro .jar. O IntelliJ IDEA permite a criação do JAR como um artefacto de um projeto. Siga os passos seguintes.
 
     1. No menu **'Arquivo',** selecione **Project Structure...**.
 
@@ -215,7 +215,7 @@ Para executar a aplicação no cluster, pode utilizar as seguintes abordagens:
 
 * **Use a Apache Livy para submeter um trabalho de candidatura remotamente** ao cluster Spark. Os clusters do Spark no HDInsight incluem o Livy que expõe os pontos finais de REST para submeter remotamente trabalhos do Spark. Para obter mais informações, consulte [os trabalhos de Submissão de Apache Spark remotamente utilizando apache Livy com clusters Spark em HDInsight](apache-spark-livy-rest-interface.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se não continuar a utilizar esta aplicação, elimine o cluster que criou com os seguintes passos:
 

@@ -1,34 +1,32 @@
 ---
 title: Tipo de entidade de aprendizagem automática - LUIS
 titleSuffix: Azure Cognitive Services
-description: A entidade de machine-learning é a entidade preferida para a construção de aplicações LUIS.
+description: A entidade de aprendizagem automática é a entidade preferida para a construção de aplicações LUIS.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/30/2020
-ms.author: diberry
-ms.openlocfilehash: ddaf5c921f92aeaefd8a8b0cb13602bc70a4dd5d
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: f16f3ec445af777c3bde1cb2ab0735df4b6614f8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83684571"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542245"
 ---
 # <a name="machine-learning-entity"></a>Entidade de aprendizagem automática
 
-A entidade de machine-learning é a entidade preferida para a construção de aplicações LUIS.
+A entidade de aprendizagem automática é a entidade preferida para a construção de aplicações LUIS.
 
 
 ## <a name="example-json"></a>Exemplo JSON
 
-Suponha que a aplicação recebe encomendas de pizza, como o tutorial de [entidade descompável.](tutorial-machine-learned-entity.md) Cada encomenda pode incluir várias pizzas diferentes, incluindo diferentes tamanhos.
+Suponha que a aplicação recebe encomendas de pizza, como o tutorial da [entidade decomposição.](tutorial-machine-learned-entity.md) Cada encomenda pode incluir várias pizzas diferentes, incluindo diferentes tamanhos.
 
 Entre as expressões de exemplo incluem-se:
 
-|Exemplo de pronunciações para app de pizza|
+|Palavras de exemplo para app de pizza|
 |--|
 |`Can I get a pepperoni pizza and a can of coke please`|
 |`can I get a small pizza with onions peppers and olives`|
@@ -36,15 +34,15 @@ Entre as expressões de exemplo incluem-se:
 
 
 
-#### <a name="v3-prediction-endpoint-response"></a>[Resposta final de previsão V3](#tab/V3)
+#### <a name="v3-prediction-endpoint-response"></a>[Resposta do ponto final de previsão V3](#tab/V3)
 
-Como uma entidade de machine-learning pode ter muitas subentidades com funcionalidades necessárias, este é apenas um exemplo. Deve ser considerado um guia para o que a sua entidade irá devolver.
+Como uma entidade de aprendizagem automática pode ter muitas subentidades com características necessárias, este é apenas um exemplo. Deve ser considerado um guia para o que a sua entidade irá devolver.
 
 Considere a consulta:
 
 `deliver 1 large cheese pizza on thin crust and 2 medium pepperoni pizzas on deep dish crust`
 
-Este é o JSON se estiver definido na corda de `verbose=false` consulta:
+Este é o JSON se `verbose=false` for definido na cadeia de consulta:
 
 ```json
 "entities": {
@@ -102,7 +100,7 @@ Este é o JSON se estiver definido na corda de `verbose=false` consulta:
 
 ```
 
-Este é o JSON se estiver definido na corda de `verbose=true` consulta:
+Este é o JSON se `verbose=true` for definido na cadeia de consulta:
 
 ```json
 "entities": {
@@ -341,13 +339,13 @@ Este é o JSON se estiver definido na corda de `verbose=true` consulta:
     }
 }
 ```
-#### <a name="v2-prediction-endpoint-response"></a>[Resposta final de previsão V2](#tab/V2)
+#### <a name="v2-prediction-endpoint-response"></a>[Resposta do ponto final da previsão V2](#tab/V2)
 
 Esta entidade não está disponível no tempo de execução da previsão V2.
 * * *
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre a entidade de machine-learning, incluindo um [tutorial,](tutorial-machine-learned-entity.md) [conceitos](luis-concept-entity-types.md#design-entities-for-decomposition)e [como guiar.](luis-how-to-add-entities.md#create-a-machine-learned-entity)
+Saiba mais sobre a entidade de aprendizagem automática, incluindo um [tutorial,](tutorial-machine-learned-entity.md) [conceitos](luis-concept-entity-types.md#design-entities-for-decomposition)e [como guiar.](luis-how-to-add-entities.md#create-a-machine-learned-entity)
 
-Conheça a entidade [da lista](reference-entity-list.md) e a entidade de [expressão regular.](reference-entity-regular-expression.md)
+Conheça a entidade de [lista](reference-entity-list.md) e entidade [de expressão regular.](reference-entity-regular-expression.md)

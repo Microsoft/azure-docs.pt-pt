@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: 00cd291824eabfe8e1b43f35bc3618bfd793077d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7c095aa710d97292afc7d2d8f633058c21fa4d0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568969"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91539236"
 ---
 # <a name="move-an-azure-database-for-azure-database-for-postgresql---single-server-to-another-region-by-using-the-azure-portal"></a>Mover uma base de dados Azure para a base de dados de Azure para PostgreSQL - Servidor Único para outra região utilizando o portal Azure
 
@@ -33,7 +33,7 @@ Você pode usar uma base de dados Azure para [a réplica de leitura de região p
 
 Para preparar o servidor de origem para a replicação utilizando o portal Azure, utilize os seguintes passos: 
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 1. Selecione a base de dados Azure existente para o servidor PostgreSQL que pretende utilizar como servidor de origem. Esta ação abre a página **de visão geral.**
 1. A partir do menu do servidor, selecione **Replication**. Se o suporte de replicação do Azure estiver definido para pelo menos **replica,** pode criar réplicas de leitura. 
 1. Se o suporte de replicação do Azure não estiver definido para, pelo menos, **replicar,** desate-o. Selecione **Guardar**.
@@ -47,11 +47,11 @@ Para criar um servidor de réplica de leitura transversal na região alvo utiliz
 1. Selecione **a replicação** do menu, em **DEFINIÇÕES**.
 1. Selecione **Adicionar Réplica**.
 1. Introduza um nome para o servidor de réplica.
-1. Selecione a localização para o servidor de réplica. A localização padrão é a mesma do servidor principal. Verifique se selecionou o local do alvo onde pretende que a réplica seja implantada.
+1. Selecione a localização para o servidor de réplica. A localização predefinida é a mesma do servidor primário. Verifique se selecionou o local do alvo onde pretende que a réplica seja implantada.
 1. Selecione **OK** para confirmar a criação da réplica. Durante a criação de réplicas, os dados são copiados do servidor de origem para a réplica. Criar tempo pode durar vários minutos ou mais, proporcionalmente ao tamanho do servidor de origem.
 
 >[!NOTE]
-> Quando cria uma réplica, não herda as regras de firewall e os pontos finais de serviço VNet do servidor principal. Estas regras devem ser criadas de forma independente para a réplica.
+> Quando cria uma réplica, não herda as regras de firewall e os pontos finais de serviço VNet do servidor primário. Estas regras devem ser criadas de forma independente para a réplica.
 
 ## <a name="move"></a>Mover
 
@@ -69,7 +69,7 @@ Para impedir a replicação da réplica do portal Azure, utilize os seguintes pa
 
 ## <a name="clean-up-source-server"></a>Limpar servidor de fonte
 
-Pode querer eliminar a base de dados Azure de origem para o servidor PostgreSQL. Para fazê-lo, siga os seguintes passos:
+Pode querer eliminar a base de dados Azure de origem para o servidor PostgreSQL. Para isso, siga os seguintes passos:
 
 1. Uma vez criada a réplica, localize e selecione a sua Base de Dados Azure para o servidor de origem PostgreSQL.
 1. Na janela **'Vista Geral',** selecione **Delete**.

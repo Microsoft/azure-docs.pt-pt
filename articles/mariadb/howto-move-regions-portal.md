@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: abb692f71a3ed69c6779b6141c9098dc94c75c4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2e4bc71a0883c6fef6f0115080a79a74ced92b0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85569106"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542432"
 ---
 # <a name="move-an-azure-database-for-mariadb-server-to-another-region-by-using-the-azure-portal"></a>Mover uma base de dados Azure para o servidor MariaDB para outra região utilizando o portal Azure
 
@@ -33,16 +33,16 @@ Você pode usar uma base de dados Azure para [réplica de leitura de região mar
 
 Para criar um servidor de réplica de leitura transversal na região alvo utilizando o portal Azure, utilize os seguintes passos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 1. Selecione a Base de Dados Azure existente para o servidor MariaDB que pretende utilizar como servidor de origem. Esta ação abre a página **de visão geral.**
 1. Selecione **a replicação** do menu, em **DEFINIÇÕES**.
 1. Selecione **Adicionar Réplica**.
 1. Introduza um nome para o servidor de réplica.
-1. Selecione a localização para o servidor de réplica. A localização padrão é a mesma do servidor principal. Verifique se selecionou o local do alvo onde pretende que a réplica seja implantada.
+1. Selecione a localização para o servidor de réplica. A localização padrão é a mesma que a do servidor de origem. Verifique se selecionou o local do alvo onde pretende que a réplica seja implantada.
 1. Selecione **OK** para confirmar a criação da réplica. Durante a criação de réplicas, os dados são copiados do servidor de origem para a réplica. Criar tempo pode durar vários minutos ou mais, proporcionalmente ao tamanho do servidor de origem.
 
 >[!NOTE]
-> Quando se cria uma réplica, não herda os pontos finais de serviço VNet do servidor principal. Estas regras devem ser criadas de forma independente para a réplica.
+> Quando cria uma réplica, não herda os pontos finais de serviço VNet do servidor de origem. Estas regras devem ser criadas de forma independente para a réplica.
 
 ## <a name="move"></a>Mover
 
@@ -60,7 +60,7 @@ Parar a replicação no servidor de réplicas faz com que se torne um servidor a
 
 ## <a name="clean-up-source-server"></a>Limpar servidor de fonte
 
-Pode querer eliminar a base de dados Azure de origem para o servidor MariaDB. Para fazê-lo, siga os seguintes passos:
+Pode querer eliminar a base de dados Azure de origem para o servidor MariaDB. Para isso, siga os seguintes passos:
 
 1. Uma vez criada a réplica, localize e selecione a sua Base de Dados Azure para o servidor de origem MariaDB.
 1. Na janela **'Vista Geral',** selecione **Delete**.

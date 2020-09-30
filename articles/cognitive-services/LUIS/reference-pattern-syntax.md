@@ -5,13 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 04/14/2020
-ms.author: diberry
-ms.openlocfilehash: 533dc87e50abc5a689d1157b294070ece39dab9f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3caccd6766226ce68b371856b081b052c1033f71
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91322823"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91542194"
 ---
 # <a name="pattern-syntax"></a>Sintaxe de padrão
 
@@ -58,8 +57,8 @@ Uma combinação de **agrupamento** com sintaxe **opcional** tem um limite de 3 
 
 |Permitido|Exemplo|
 |--|--|
-|Yes|[ [ test1 &#x7c; test2 ] ] &#x7c; test3 )|
-|No|[ [ [ test1 ] &#x7c; test2 ] ] &#x7c; test3 )|
+|Sim|[ [ test1 &#x7c; test2 ] ] &#x7c; test3 )|
+|Não|[ [ [ test1 ] &#x7c; test2 ] ] &#x7c; test3 )|
 
 ## <a name="nesting-limits-for-groups-with-or-ing-syntax"></a>Limites de nidificação para grupos com sintaxe ou de ing
 
@@ -67,8 +66,8 @@ Uma combinação de **agrupamento** com sintaxe **ou-ing** tem um limite de 2 ba
 
 |Permitido|Exemplo|
 |--|--|
-|Yes|( ensaio 1 &#x7c; &#x7c; de ensaio (ensaio 3 &#x7c; 4)|
-|No|( ensaio 1 &#x7c; teste 2 &#x7c; teste3 &#x7c; (ensaio 4 &#x7c; teste5 ) |
+|Sim|( ensaio 1 &#x7c; &#x7c; de ensaio (ensaio 3 &#x7c; 4)|
+|Não|( ensaio 1 &#x7c; teste 2 &#x7c; teste3 &#x7c; (ensaio 4 &#x7c; teste5 ) |
 
 ## <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Sintaxe para adicionar uma entidade a um modelo de padrão
 Para adicionar uma entidade ao modelo de padrão, rodeie o nome da entidade com aparelhos encaracolados, tais como `Who does {Employee} manage?` .
@@ -133,7 +132,7 @@ Marque o texto opcional na expressão utilizando a sintaxe do suporte quadrado d
 
 As marcas de pontuação devem `?` `!` ser `.` ignoradas e é necessário ignorá-las utilizando a sintaxe quadrada dos suportes em padrões.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre padrões:
 

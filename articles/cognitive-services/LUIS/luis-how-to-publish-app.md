@@ -3,20 +3,18 @@ title: Publicar app - LUIS
 titleSuffix: Azure Cognitive Services
 description: Quando terminar de construir e testar a sua aplicação LUIS ativa, disponibilize-a para a aplicação do seu cliente publicando-a no ponto final.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 05/17/2020
-ms.author: diberry
-ms.openlocfilehash: e9c8b607b1dc3f7f67ee1fdad353d15023318947
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: b72f1fd64cca0fa77ebc486670a512c5228e1146
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84340696"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91541480"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publique a sua app ativa e treinada para um ponto final de encenação ou produção
 
@@ -37,7 +35,7 @@ Quando terminar de construir, treinar e testar a sua aplicação LUIS ativa, dis
 
 Selecione a ranhura correta quando a janela pop-up aparecer:
 
-* Processo de teste
+* Transição
 * Produção
 
 Ao utilizar ambas as ranhuras de publicação, isto permite-lhe ter duas versões diferentes da sua aplicação disponíveis nos pontos finais publicados ou a mesma versão em dois pontos finais diferentes.
