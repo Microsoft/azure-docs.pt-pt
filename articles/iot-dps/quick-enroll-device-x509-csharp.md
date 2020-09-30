@@ -3,18 +3,18 @@ title: 'Quickstart - Inscreva o dispositivo X.509 no Serviço de Provisionamento
 description: Este início rápido utiliza inscrições em grupo. Neste arranque rápido, inscreva os dispositivos X.509 no Serviço de Provisionamento de Dispositivos Azure IoT Hub (DPS) utilizando C#.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 09/28/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.devlang: csharp
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: d8d6c9e2276b2368e09cdb0697a37e34dcf487b5
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 618b2c6acb8792382adb4c067aa8f33003227091
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330269"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532589"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>Início Rápido: Inscrever dispositivos X.509 no Serviço de Aprovisionamento de Dispositivos com C#
 
@@ -159,12 +159,15 @@ Esta secção mostra como criar uma aplicação de consola .NET Core que adicion
    }
    ```
 
-1. Por último, substitua o corpo do `Main` método pelas seguintes linhas:
+1. Por último, substitua o `Main` método pelas seguintes linhas:
 
    ```csharp
-   RunSample().GetAwaiter().GetResult();
-   Console.WriteLine("\nHit <Enter> to exit ...");
-   Console.ReadLine();
+    static async Task Main(string[] args)
+    {
+        await RunSample();
+        Console.WriteLine("\nHit <Enter> to exit ...");
+        Console.ReadLine();
+    }
    ```
 
 1. Compilar a solução.
@@ -189,7 +192,7 @@ Se planeia explorar a amostra de serviço C#, não limpe os recursos criados nes
 
 1. A partir do seu serviço de Provisionamento de Dispositivos no portal Azure, selecione **Certificados,** escolha o certificado que carregou para este arranque rápido e prima **Apagar** no topo dos **Dados**do Certificado .  
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste quickstart, criou um grupo de inscrições para um certificado DE CA intermédio ou raiz X.509 utilizando o Serviço de Provisionamento de Dispositivos Azure IoT Hub. Para ficar a conhecer aprofundadamente o aprovisionamento de dispositivos, prossiga no tutorial para a configuração do Serviço Aprovisionamento de Dispositivos no portal do Azure.
 

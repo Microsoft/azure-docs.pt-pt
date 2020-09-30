@@ -10,16 +10,19 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9fa47c81aede9de5d083f16f9e1705f687ad39a4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e89189b22b144d9e92ee8315bc6fd9aabe699eec
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046435"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531654"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights-gen1"></a>Monitorize e mitige o estrangulamento para reduzir a latência em Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> Este é um artigo da Gen1.
 
 Quando a quantidade de dados de entrada exceder a configuração do seu ambiente, poderá experimentar latência ou estrangulamento em Azure Time Series Insights.
 
@@ -74,17 +77,17 @@ Os alertas podem ajudá-lo a diagnosticar e mitigar problemas de latência que o
 
 ## <a name="throttling-and-ingress-management"></a>Gestão de estrangulamento e de entrada
 
-* Se estiver a ser estrangulado, será registado um valor para o *Ingress Received Message Time Lag* informando-o sobre quantos segundos atrás do ambiente Azure Time Series Insights é a partir do momento em que a mensagem chega à fonte do evento (excluindo o tempo de indexação do appx. 30-60 segundos).  
+- Se estiver a ser estrangulado, será registado um valor para o *Ingress Received Message Time Lag* informando-o sobre quantos segundos atrás do ambiente Azure Time Series Insights é a partir do momento em que a mensagem chega à fonte do evento (excluindo o tempo de indexação do appx. 30-60 segundos).  
 
   *Ingress Received Message Count Lag* também deve ter um valor, permitindo-lhe determinar quantas mensagens estão atrás de si.  A maneira mais fácil de ser apanhado é aumentar a capacidade do seu ambiente para um tamanho que lhe permitirá superar a diferença.  
 
   Por exemplo, se o seu ambiente S1 estiver a demonstrar um atraso de 5.000.000 mensagens, poderá aumentar o tamanho do seu ambiente para seis unidades durante cerca de um dia para ser apanhado.  Pode aumentar ainda mais para recuperar mais rápido. O período de recuperação é uma ocorrência comum quando inicialmente fornece um ambiente, especialmente quando o conecta a uma fonte de eventos que já tem eventos nele ou quando carrega muitos dados históricos.
 
-* Outra técnica é definir um alerta **de Eventos Armazenados de Ingress** >= um limiar ligeiramente abaixo da capacidade total do ambiente por um período de 2 horas.  Este alerta pode ajudá-lo a entender se está constantemente na capacidade, o que indica uma alta probabilidade de latência. 
+- Outra técnica é definir um alerta **de Eventos Armazenados de Ingress** >= um limiar ligeiramente abaixo da capacidade total do ambiente por um período de 2 horas.  Este alerta pode ajudá-lo a entender se está constantemente na capacidade, o que indica uma alta probabilidade de latência.
 
   Por exemplo, se tiver três unidades S1 a formos (ou 2100 eventos por minuto de capacidade de entrada), pode definir um alerta **de Eventos Armazenados ingress** para >= 1900 eventos durante 2 horas. Se estiver constantemente a exceder este limiar e, portanto, desencadeando o seu alerta, é provável que esteja sub-a provisionado.  
 
-* Se suspeitar que está a ser estrangulado, pode comparar as suas **Mensagens Recebidas de Entrada** com as mensagens emitidas pela fonte do evento.  Se a entrada no seu Centro de Eventos for maior do que as **mensagens recebidas de Ingress,** as suas Inzure Time Series Insights estão provavelmente a ser estranguladas.
+- Se suspeitar que está a ser estrangulado, pode comparar as suas **Mensagens Recebidas de Entrada** com as mensagens emitidas pela fonte do evento.  Se a entrada no seu Centro de Eventos for maior do que as **mensagens recebidas de Ingress,** as suas Inzure Time Series Insights estão provavelmente a ser estranguladas.
 
 ## <a name="improving-performance"></a>Melhorar o desempenho
 
@@ -92,7 +95,7 @@ Para reduzir a aceleração ou a gravidez, a melhor maneira de corrigi-la é aum
 
 Pode evitar a latência e a aceleração configurando corretamente o seu ambiente para a quantidade de dados que pretende analisar. Para obter mais informações sobre como adicionar capacidade ao seu ambiente, leia [Escalar o seu ambiente](time-series-insights-how-to-scale-your-environment.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Leia sobre [diagnosticar e resolver problemas no ambiente Azure Time Series Insights](time-series-insights-diagnose-and-solve-problems.md).
 

@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 09/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: ccc10327d4de4134dd15e0ed936f6b938cbe31dd
-ms.sourcegitcommit: dc68a2c11bae2e9d57310d39fbed76628233fd7f
+ms.openlocfilehash: 7714ec29b3cbe17c7700b48111ea2b455aa18b7e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91403675"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532232"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades na Pesquisa Cognitiva Azure
 
@@ -77,7 +77,7 @@ Crie uma identidade para um serviço de pesquisa no Azure Ative Directory e, em 
 
 |Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrição | Disponibilidade  |
 |---------|------------------|-------------|---------------|
-| [**Deteção pii (pré-visualização)**](cognitive-search-skill-pii-detection.md) | Melhoramento de IA | Uma nova habilidade cognitiva usada durante a indexação que extrai informações pessoalmente identificáveis de um texto de entrada e lhe dá a opção de mascar a partir desse texto de várias maneiras. | Pré-visualização pública. </br> Utilize o portal ou [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) ou REST API 2019-05-06-Preview. |
+| [**Deteção pii (pré-visualização)**](cognitive-search-skill-pii-detection.md) | Melhoramento de IA | Uma nova habilidade cognitiva usada durante a indexação que extrai informações pessoais de um texto de entrada e lhe dá a opção de mascar a partir desse texto de várias maneiras. | Pré-visualização pública. </br> Utilize o portal ou [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) ou REST API 2019-05-06-Preview. |
 | [**Procura de Entidade Personalizada (pré-visualização)**](cognitive-search-skill-custom-entity-lookup.md )| Melhoramento de IA | Uma nova habilidade cognitiva que procura texto a partir de uma lista personalizada, definida pelo utilizador de palavras e frases. Utilizando esta lista, rotula todos os documentos com quaisquer entidades correspondentes. A habilidade também suporta um grau de correspondência difusa que pode ser aplicada para encontrar fósforos que são semelhantes, mas não exatos. | Pré-visualização pública. </br> Utilize o portal ou [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) ou REST API 2019-05-06-Preview. |
 
 ## <a name="january-2020"></a>Janeiro de 2020

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5c44f72021fa46352ae6ded8fe671ea4f1a4d60
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: a94d1a4fa717bbee9974f7218e704ba06dad530d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88797178"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531535"
 ---
 # <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Criar ou atualizar um grupo dinâmico no Azure Ative Directory
 
@@ -40,7 +40,7 @@ Aqui estão alguns exemplos de regras avançadas ou sintaxe para as quais recome
 > [!NOTE]
 > O construtor de regras pode não ser capaz de exibir algumas regras construídas na caixa de texto. Pode ver uma mensagem quando o construtor de regras não é capaz de mostrar a regra. O construtor de regras não altera a sintaxe, validação ou processamento de regras dinâmicas do grupo de qualquer forma.
 
-![Adicionar regra de adesão para um grupo dinâmico](./media/groups-create-rule/update-dynamic-group-rule.png)
+![Screenshot que mostra a página "Regras de adesão dinâmicas" com a ação "Adicionar expressão" no separador "Regras de Configuração" selecionadas.](./media/groups-create-rule/update-dynamic-group-rule.png)
 
 Por exemplo, sintaxe, propriedades suportadas, operadores e valores para uma regra de adesão, consulte [regras de adesão dinâmica para grupos no Azure Ative Directory](groups-dynamic-membership.md).
 
@@ -54,7 +54,7 @@ Por exemplo, sintaxe, propriedades suportadas, operadores e valores para uma reg
 
 1. Na página **do Grupo,** insira um nome e descrição para o novo grupo. Selecione um **tipo de adesão** para utilizadores ou dispositivos e, em seguida, selecione **Adicionar consulta dinâmica**. O construtor de regras suporta até cinco expressões. Para adicionar mais de cinco expressões, deve utilizar a caixa de texto.
 
-   ![Adicionar regra de adesão para um grupo dinâmico](./media/groups-create-rule/add-dynamic-group-rule.png)
+   ![Screenshot que mostra a página "Todos os grupos" com a ação "Novo grupo" selecionada.](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 1. Para ver as propriedades de extensão personalizadas disponíveis para a sua consulta de adesão:
    1. Selecione **Obtenha propriedades de extensão personalizadas**

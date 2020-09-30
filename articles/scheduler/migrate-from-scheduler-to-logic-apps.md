@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 02/29/2020
-ms.openlocfilehash: dd61ac9751010d57cbf5b742a5081beb3ac560e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5d161b287f9706473c96d25684fa23a2c94b8c3e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83826065"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532158"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrar tarefas do Azure Scheduler para o Azure Logic Apps
 
@@ -96,7 +96,7 @@ Você pode executar vários trabalhos únicos criando apenas uma única aplicaç
 
    Por exemplo, pode incluir uma ação HTTP que envia um pedido para um URL, ou ações que funcionam com filas de armazenamento, filas de autocarros de serviço ou tópicos de Service Bus:
 
-   ![Ação HTTP](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
+   ![A screenshot mostra um atraso até que a ação seguida por uma ação H T T P com um método POST.](./media/migrate-from-scheduler-to-logic-apps/request-http-action.png)
 
 1. Quando terminar, guarde a sua aplicação lógica.
 
@@ -127,7 +127,7 @@ Depois de enviar a chamada, a resposta da sua aplicação lógica aparece na cai
 
 > [!IMPORTANT]
 >
-> Se pretender cancelar o trabalho mais tarde, selecione **x-ms-workflow-run-id** o **separador Cabeçalhos.** 
+> Se pretender cancelar o trabalho mais tarde, selecione o **separador Cabeçalhos.** Encontre e copie o valor do cabeçalho **x-ms-workflow-run-id** na resposta. 
 >
 > ![Resposta](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
 
@@ -155,7 +155,7 @@ Em Logic Apps, cada trabalho único executa como uma única instância de execu�
 
    Por exemplo, pode incluir uma ação HTTP que envia um pedido para um URL, ou ações que funcionam com filas de armazenamento, filas de autocarros de serviço ou tópicos de Service Bus:
 
-   ![Ação HTTP](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
+   ![A screenshot mostra uma ação H T T P com um método POST.](./media/migrate-from-scheduler-to-logic-apps/recurrence-http-action.png)
 
 1. Quando terminar, guarde a sua aplicação lógica.
 
@@ -165,7 +165,7 @@ Em Logic Apps, cada trabalho único executa como uma única instância de execu�
 
 Aqui estão outras formas de personalizar os seus trabalhos.
 
-### <a name="retry-policy"></a>Política de repetição
+### <a name="retry-policy"></a>Política de Repetição
 
 Para controlar a forma como uma ação tenta refazer a sua aplicação lógica quando ocorrerem falhas intermitentes, pode definir a [política de repetição](../logic-apps/logic-apps-exception-handling.md#retry-policies) nas definições de cada ação, por exemplo:
 

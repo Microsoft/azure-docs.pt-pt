@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30a51f4b07f62b6e3491f74de78ea0d04bbb1775
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 0797ff744dbbf9fb139503d73be7d60118762ac2
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399978"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530736"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Permitir que os utilizadores desbloqueiem a sua conta ou repôs palavras-passe utilizando o reset da palavra-passe de autosserviço do Azure Ative Directory
 
@@ -116,7 +116,7 @@ Se os utilizadores precisarem de ajuda adicional com o processo SSPR, pode perso
 Com sSPR ativado e configurado, teste o processo SSPR com um utilizador que faz parte do grupo que selecionou na secção anterior, como o *Test-SSPR-Group*. No exemplo seguinte, utiliza-se a conta *testuser.* Forneça a sua própria conta de utilizador que faz parte do grupo que ativou para a SSPR na primeira secção deste tutorial.
 
 > [!NOTE]
-> Quando testar o reset da palavra-passe de autosserviço, utilize uma conta não administradora. Os administradores estão sempre ativados para reiniciar a palavra-passe de autosserviço e são obrigados a utilizar dois métodos de autenticação para redefinir a sua palavra-passe.
+> Quando testar o reset da palavra-passe de autosserviço, utilize uma conta não administradora. Por predefinição, os administradores estão ativados para reiniciar a palavra-passe de autosserviço e são obrigados a utilizar dois métodos de autenticação para redefinir a sua palavra-passe. Para obter mais informações, consulte [as diferenças de política de reposição do administrador](concept-sspr-policy.md#administrator-reset-policy-differences).
 
 1. Para ver o processo de registo manual, abra uma nova janela do navegador no modo InPrivate ou incógnito e navegue para [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup) . Os utilizadores devem ser direcionados para este portal de registo quando iniciarem a sua próxima s inscrição.
 1. Inscreva-se com um utilizador de teste não administrador, como *testuser,* e registe os seus métodos de autenticação informações de contacto.

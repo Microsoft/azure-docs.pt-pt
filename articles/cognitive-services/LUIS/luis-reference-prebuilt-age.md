@@ -1,28 +1,26 @@
 ---
-title: Entidade Pré-construída idade - LUIS
+title: Idade Entidade pré-construída - LUIS
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém informações sobre entidades pré-construídas de idade em Compreensão da Língua (LUIS).
+description: Este artigo contém informação de entidade pré-construída em Compreensão de Línguas (LUIS).
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/04/2019
-ms.author: diberry
-ms.openlocfilehash: 1607b80276a9c35bf0ac2f0a00bd2226e2c07f97
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 4e1a6b1b6fb99a2786de06e89960e8480a5e1338
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "78270800"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532929"
 ---
 # <a name="age-prebuilt-entity-for-a-luis-app"></a>Entidade pré-construída para uma app LUIS
-A entidade etária pré-construída captura o valor da idade tanto numericamente como em termos de dias, semanas, meses e anos. Como esta entidade já está treinada, não precisa de adicionar declarações de exemplo contendo idade às intenções de aplicação. A entidade etária é apoiada em [muitas culturas.](luis-reference-prebuilt-entities.md)
+A entidade etária pré-construída capta o valor da idade tanto numericamente como em termos de dias, semanas, meses e anos. Como esta entidade já está treinada, não precisa de adicionar palavras de exemplo que contenham idade às intenções de aplicação. A entidade etária é apoiada em [muitas culturas.](luis-reference-prebuilt-entities.md)
 
 ## <a name="types-of-age"></a>Tipos de idade
-A idade é gerida a partir do repositório GitHub [de texto de reconhecimento](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3)
+A idade é gerida a partir do repositório GitHub [do texto Recognisers](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L3)
 
 ## <a name="resolution-for-prebuilt-age-entity"></a>Resolução para entidade etária pré-construída
 
@@ -30,7 +28,7 @@ A idade é gerida a partir do repositório GitHub [de texto de reconhecimento](h
 
 #### <a name="v3-response"></a>[Resposta V3](#tab/V3)
 
-O seguinte JSON `verbose` está com `false`o parâmetro definido para:
+O seguinte JSON é com o `verbose` parâmetro definido `false` para:
 
 ```json
 "entities": {
@@ -43,7 +41,7 @@ O seguinte JSON `verbose` está com `false`o parâmetro definido para:
 }
 ```
 #### <a name="v3-verbose-response"></a>[Resposta verbosa V3](#tab/V3-verbose)
-O seguinte JSON `verbose` está com `true`o parâmetro definido para:
+O seguinte JSON é com o `verbose` parâmetro definido `true` para:
 
 ```json
 "entities": {
@@ -69,7 +67,7 @@ O seguinte JSON `verbose` está com `true`o parâmetro definido para:
 ```
 #### <a name="v2-response"></a>[Resposta V2](#tab/V2)
 
-O exemplo seguinte mostra a resolução da entidade **builtin.age.**
+O exemplo a seguir mostra a resolução da entidade **builtin.age.**
 
 ```json
   "entities": [
@@ -86,8 +84,8 @@ O exemplo seguinte mostra a resolução da entidade **builtin.age.**
 ```
 * * *
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Saiba mais sobre o ponto final da [previsão V3](luis-migration-api-v3.md).
+Saiba mais sobre o ponto final de [previsão V3](luis-migration-api-v3.md).
 
-Conheça a [moeda,](luis-reference-prebuilt-currency.md) [datav2,](luis-reference-prebuilt-datetimev2.md)e entidades [dimensionais.](luis-reference-prebuilt-dimension.md)
+Conheça a [moeda,](luis-reference-prebuilt-currency.md) [dataV2](luis-reference-prebuilt-datetimev2.md)e entidades [de dimensão.](luis-reference-prebuilt-dimension.md)

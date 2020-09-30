@@ -14,12 +14,12 @@ ms.date: 01/07/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a5a20498ccd0a133c6e02d366af690acf2665e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe2f464791995b9168868f1661a3c303d46f7987
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84742271"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530124"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-privileged-identity-management"></a>Ver histórico de auditoria para funções de Azure AD em Gestão de Identidade Privilegiada
 
@@ -32,7 +32,7 @@ A partir de novembro de 2019, a parte de funções da AZure AD da Gestão de Ide
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) com um utilizador que esteja na [função de administrador](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) privilegiado.
 1. Open **Azure AD Gestão de Identidade Privilegiada.** Se tiver um banner no topo da página geral, siga as instruções no separador **Nova versão** deste artigo. Caso contrário, siga as instruções no separador **versão anterior.**
 
-    [![Azure AD funções nova versão](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Selecione o separador para a sua versão")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
+    [![Screenshot que mostra a página "Azure AD roles - Directory roles audit history".](media/pim-how-to-use-audit-log/directory-roles-audit-history.png "Selecione o separador para a sua versão")](media/pim-how-to-use-audit-log/directory-roles-audit-history.png)
 
 # <a name="new-version"></a>[Nova versão](#tab/new)
 
@@ -123,11 +123,11 @@ Siga estes passos para ver o histórico de auditoria para as funções de Azure 
     - Consulte o motivo de um evento de auditoria na coluna **Status Reason.**
     - Consulte o aprovador na coluna **Iniciada por (ator)** para o evento "adicionar membro ao pedido de função aprovado".
 
-    [![Azure AD funções nova versão](media/pim-how-to-use-audit-log/filter-audit-logs.png "Filtrar o registo de auditoria para o serviço PIM")](media/pim-how-to-use-audit-log/filter-audit-logs.png)
+    [![Screenshot que mostra a página "registos de auditoria" com o menu "Iniciado por (ator) aberto e "PIM" selecionado.](media/pim-how-to-use-audit-log/filter-audit-logs.png "Filtrar o registo de auditoria para o serviço PIM")](media/pim-how-to-use-audit-log/filter-audit-logs.png)
 
 1. Selecione um evento de registo de auditoria para ver o número do bilhete no separador **Atividade** do painel **De detalhes.**
   
-    [![Azure AD funções nova versão](media/pim-how-to-use-audit-log/audit-event-ticket-number.png "Verifique o número do bilhete para o evento de auditoria")](media/pim-how-to-use-audit-log/audit-event-ticket-number.png)
+    [![Screenshot que mostra a página "Registos de Auditoria" com o número do bilhete realçado no painel "Detalhes".](media/pim-how-to-use-audit-log/audit-event-ticket-number.png "Verifique o número do bilhete para o evento de auditoria")](media/pim-how-to-use-audit-log/audit-event-ticket-number.png)
 
 1. Pode ver o solicitador (pessoa que ativa a função) no **separador Alvos** do painel **De detalhes** para um evento de auditoria. Existem dois tipos-alvo para funções AD Azure:
 

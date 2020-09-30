@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 04/07/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: bf31ad3311d6cbfd82ad1071d28bb7fee1bb9d2b
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: bb2fff699b31d8b3b311180c4b85e2bfd1da892c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876789"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530158"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Use ferramentas de colmeia spark & para código de estúdio visual
 
@@ -29,7 +29,7 @@ São necessários os seguintes itens para completar as etapas deste artigo:
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Mono.](https://www.mono-project.com/docs/getting-started/install/) Mono é necessário apenas para Linux e macOS.
 - [Um ambiente interativo PySpark para Código de Estúdio Visual.](set-up-pyspark-interactive-environment.md)
-- Um diretório local. Este artigo utiliza **C:\HD\HDexample**.
+- Um diretório local. Este artigo utiliza  **C:\HD\HDexample**.
 
 ## <a name="install-spark--hive-tools"></a>Instalar ferramentas de colmeia & faísca
 
@@ -199,11 +199,11 @@ Utilizando o comando interativo PySpark para submeter as consultas, siga estes p
 
 4. O pedido de instalação do núcleo PySpark é apresentado no canto inferior direito da janela. Pode clicar no botão **Instalar** para proceder às instalações do PySpark; ou clique no botão **Saltar** para saltar este passo.
 
-   ![instalar o núcleo de pyspark](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
+   ![A screenshot mostra uma opção para saltar a instalação PySpark.](./media/hdinsight-for-vscode/install-the-pyspark-kernel.png)
 
 5. Se precisar de o instalar mais tarde, pode navegar para definições de preferência de **ficheiro**  >  **Preference**  >  , em seguida,**desmarque** **a visão Hdin: Ative a instalação Skip Pyspark** nas definições. 
     
-    ![instalar o núcleo de pyspark](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
+    ![A screenshot mostra a opção de Ativar a Instalação Skip Pyspark.](./media/hdinsight-for-vscode/enable-skip-pyspark-installation.png)
 
 6. Se a instalação for bem sucedida no passo 4, a caixa de mensagens "PySpark instalada com sucesso" é exibida no canto inferior direito da janela. Clique no botão **Recarregar** para recarregar a janela.
     ![pyspark instalado com sucesso](./media/hdinsight-for-vscode/pyspark-kernel-installed-successfully.png)
@@ -214,7 +214,7 @@ Utilizando o comando interativo PySpark para submeter as consultas, siga estes p
 
     ![menu de contexto interativo pyspark](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
-9. Selecione o cluster, se não tiver especificado um cluster predefinido. Após alguns momentos, os resultados da **Python Interactive** aparecem num novo separador. Clique no PySpark para mudar o kernel para **PySpark**, e o código será executado com sucesso. As ferramentas também permitem submeter um bloco de código em vez de todo o ficheiro de script, utilizando o menu de contexto:
+9. Selecione o cluster, se não tiver especificado um cluster predefinido. Após alguns momentos, os resultados da **Python Interactive** aparecem num novo separador. Clique no PySpark para mudar o núcleo para **PySpark**, e o código será executado com sucesso. As ferramentas também permitem submeter um bloco de código em vez de todo o ficheiro de script, utilizando o menu de contexto:
 
    ![pyspark janela interativa python](./media/hdinsight-for-vscode/pyspark-interactive-python-interactive-window.png)
 
@@ -473,6 +473,6 @@ A partir da barra de menu, vá à **Paleta de**Comando  >  **Ver,** e depois ins
 
 ![questões conhecidas](./media/hdinsight-for-vscode/known-issue.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para um vídeo que demonstre a utilização de Spark & Hive para Visual Studio Code, consulte [Spark & Hive for Visual Studio Code](https://go.microsoft.com/fwlink/?linkid=858706).

@@ -1,7 +1,7 @@
 ---
-title: Migrando do recipiente de leitura v2 para v3
+title: Migrar para os recipientes de OCR de Leitura v3.x
 titleSuffix: Azure Cognitive Services
-description: Saiba como migrar para o recipiente v3 Ler
+description: Saiba como migrar para os recipientes V3 Read OCR
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,17 +10,16 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 09/21/2020
 ms.author: aahi
-ms.openlocfilehash: 7f701af86f2bca856169f6dcf0689d59930306f2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 714a4709eceea875798940de962716d34437f2a9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91349130"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530464"
 ---
-# <a name="migrate-to-the-read-v3x-container"></a>Migrar para o recipiente Ler v3.x
+# <a name="migrate-to-the-read-v3x-ocr-containers"></a>Migrar para os recipientes de OCR de Leitura v3.x
 
-Se estiver a utilizar a versão 2 do recipiente De Leitura de Visão de Computador, utilize este artigo para saber como atualizar a sua aplicação para utilizar a versão 3.x do recipiente. 
-
+Se estiver a utilizar a versão 2 do recipiente OCR de Leitura de Visão de Computador, utilize este artigo para saber como atualizar a sua aplicação para utilizar a versão 3.x do recipiente. 
 
 
 ## <a name="configuration-changes"></a>Alterações de configuração
@@ -90,7 +89,7 @@ Ajuste o temporizador com `Queue:Azure:QueueVisibilityTimeoutInMilliseconds` , o
 | 30000 |   120000 |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Rever recipientes de configuração](computer-vision-resource-container-config.md) para configurações de configuração
 * Reveja [a visão geral da Visão computacional](overview.md) para saber mais sobre o reconhecimento de texto impresso e manuscrito

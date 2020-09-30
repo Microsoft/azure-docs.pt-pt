@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 49eea969f987a72872cda58ae6a7c41e50a14c10
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2cda79e1b08e67e10d42acb5093230ce8450d67d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830286"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530923"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorize o desempenho com a Loja de Consultas
 
@@ -90,20 +90,20 @@ As seguintes opções estão disponíveis para configurar parâmetros da Loja de
 
 | **Parâmetro** | **Descrição** | **Predefinição** | **Alcance**|
 |---|---|---|---|
-| pg_qs.query_capture_mode | Conjuntos que declarações são rastreadas. | nenhum | ninguém, em cima, todos os |
-| pg_qs.max_query_text_length | Define o comprimento máximo de consulta que pode ser guardado. Consultas mais longas serão truncadas. | 6000 | 100 - 10K |
-| pg_qs.retention_period_in_days | Define o período de retenção. | 7 | 1 - 30 |
+| pg_qs.consulta_capture_mode | Conjuntos que declarações são rastreadas. | nenhum | ninguém, em cima, todos os |
+| pg_qs.max_consulta_text_length | Define o comprimento máximo de consulta que pode ser guardado. Consultas mais longas serão truncadas. | 6000 | 100 - 10K |
+| pg_qs.retenção_period_in_days | Define o período de retenção. | 7 | 1 - 30 |
 | pg_qs.track_utility | Define se os comandos de utilidade são rastreados | em | em, fora |
 
 As seguintes opções aplicam-se especificamente às estatísticas de espera.
 
 | **Parâmetro** | **Descrição** | **Predefinição** | **Alcance**|
 |---|---|---|---|
-| pgms_wait_sampling.query_capture_mode | Conjuntos que declarações são rastreadas para estatísticas de espera. | nenhum | nenhum, todos os|
+| pgms_wait_sampling.consulta_capture_mode | Conjuntos que declarações são rastreadas para estatísticas de espera. | nenhum | nenhum, todos os|
 | Pgms_wait_sampling.history_period | Desa ajuste a frequência, em milissegundos, em que os eventos de espera são amostrados. | 100 | 1-600000 |
 
 > [!NOTE] 
-> **pg_qs.query_capture_mode** substitui **pgms_wait_sampling,query_capture_mode**. Se pg_qs.query_capture_mode não for NENHUM, a definição de pgms_wait_sampling.query_capture_mode não tem efeito.
+> **pg_qs.query_capture_mode** substitui **pgms_wait_sampling.query_capture_mode**. Se pg_qs.query_capture_mode for NONE, a definição pgms_wait_sampling.query_capture_mode não tem qualquer efeito.
 
 
 Utilize o [portal Azure](howto-configure-server-parameters-using-portal.md) ou [O CLI Azure](howto-configure-server-parameters-using-cli.md) para obter ou definir um valor diferente para um parâmetro.
@@ -146,7 +146,7 @@ Esta vista devolve todos os dados na Loja de Consultas. Há uma linha para cada 
 |blk_read_time  |dupla precisão    || Tempo total do tempo gasto blocos de leitura, em milissegundos (se track_io_timing estiver ativado, caso contrário zero)|
 |blk_write_time |dupla precisão    || Tempo total a declaração gasta blocos de escrita, em milissegundos (se track_io_timing estiver ativado, caso contrário zero)|
     
-### <a name="query_storequery_texts_view"></a>query_store.query_texts_view
+### <a name="query_storequery_texts_view"></a>query_store.consulta_texts_view
 Esta vista devolve dados de texto de consulta na Loja de Consultas. Há uma linha para cada query_text distinto.
 
 |**Nome**|  **Tipo**|   **Descrição**|
@@ -168,13 +168,13 @@ Esta vista devolve os dados dos eventos de espera na Loja de Consultas. Há uma 
 
 
 ### <a name="functions"></a>Funções
-Query_store.qs_reset() devolução do nulo
+Query_store.qs_reset() devolução do vazio
 
-`qs_reset`descarta todas as estatísticas recolhidas até agora pela Query Store. Esta função só pode ser executada pela função de administração do servidor.
+`qs_reset` descarta todas as estatísticas recolhidas até agora pela Query Store. Esta função só pode ser executada pela função de administração do servidor.
 
-Query_store.staging_data_reset() devolução do nulo
+Query_store.staging_data_reset() devolução do vazio
 
-`staging_data_reset`descarta todas as estatísticas recolhidas na memória pela Query Store (isto é, os dados na memória que ainda não foram lavados na base de dados). Esta função só pode ser executada pela função de administração do servidor.
+`staging_data_reset` descarta todas as estatísticas recolhidas na memória pela Query Store (isto é, os dados na memória que ainda não foram lavados na base de dados). Esta função só pode ser executada pela função de administração do servidor.
 
 
 ## <a name="azure-monitor"></a>Azure Monitor
@@ -250,7 +250,7 @@ As tabelas seguintes descrevem os campos para os dois tipos de troncos. Dependen
 ## <a name="limitations-and-known-issues"></a>Problemas e limitações conhecidos
 - Se um servidor PostgreSQL tiver o parâmetro default_transaction_read_only ligado, a Loja de Consultas não pode capturar dados.
 - A funcionalidade de Consulta Store pode ser interrompida se encontrar longas consultas unicode (>= 6000 bytes).
-- [Leia réplicas](concepts-read-replicas.md) replicam dados da Loja de Consultas a partir do servidor principal. Isto significa que a Loja de Consultas de uma réplica de uma réplica não fornece estatísticas sobre consultas executadas na réplica de leitura.
+- [Leia réplicas](concepts-read-replicas.md) replicam dados da Loja de Consultas a partir do servidor primário. Isto significa que a Loja de Consultas de uma réplica de uma réplica não fornece estatísticas sobre consultas executadas na réplica de leitura.
 
 
 ## <a name="next-steps"></a>Próximos passos

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: d57b230ceecc8e676eea6a1ab0855761e78f723b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: fdd046a855c4e2114e96e7911a928165f808710c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86242751"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530549"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Grelha de evento de função Azure desencadeia depuração local
 
@@ -52,7 +52,7 @@ ngrok http -host-header=localhost 7071
 ```
 À medida que o utilitário é configurado, a janela de comando deve ser semelhante à seguinte imagem:
 
-![Iniciar ngrok](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
+![Screenshot que mostra o Pedido de Comando depois de iniciar o utilitário "ngrok".](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
 
 Copie o **URL HTTPS** gerado quando *o ngrok* é executado. Este valor é utilizado ao configurar o ponto final do evento da grelha de evento.
 
@@ -105,7 +105,7 @@ Uma vez que a Grelha de Eventos reconheça que um novo ficheiro é enviado para 
 
 Para limpar os recursos criados neste artigo, elimine o recipiente **de teste** na sua conta de armazenamento.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Automatizar o redimensionamento de imagens carregadas com o Event Grid](../event-grid/resize-images-on-storage-blob-upload-event.md)
 - [Gatilho da grelha de evento para funções Azure](./functions-bindings-event-grid.md)

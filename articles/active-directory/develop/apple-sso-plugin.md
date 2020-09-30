@@ -13,12 +13,12 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e43ce318ca9e9b14ad059dd296799667653e0f95
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: ec0ab4601e15129ecd8917e0e750a3e1661dc558
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90561351"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530702"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Microsoft Enterprise SSO plug-in para dispositivos Apple (Preview)
 
@@ -38,7 +38,7 @@ O plug-in Microsoft Enterprise SSO para dispositivos Apple oferece os seguintes 
 - Fornece contas SSO para Azure AD em todas as aplicações que suportam a funcionalidade Enterprise Single Sign-On da Apple.
 - Entregue automaticamente no Microsoft Authenticator e pode ser ativado por qualquer solução de gestão de dispositivos móveis (MDM).
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 Para utilizar o plug-in Microsoft Enterprise SSO para dispositivos Apple:
 
@@ -93,7 +93,7 @@ Não precisa de adicionar aplicações que utilizem a MSAL ou ASWebAuthenticatio
 
 Por predefinição, o plug-in Microsoft Enterprise SSO fornece SSO para aplicações autorizadas apenas quando o plug-in SSO já tem uma credencial partilhada. O plug-in Microsoft Enterprise SSO pode adquirir uma credencial partilhada quando é chamada por outra aplicação baseada em ADAL ou MSAL durante a aquisição de token. A maioria das aplicações da Microsoft usam o Microsoft Authenticator ou o SSO plug-in. Isto significa que, por padrão, o SSO fora dos fluxos de aplicações nativos é o melhor esforço.  
 
-Ativar `browser_sso_interaction_enabled` a bandeira permite que aplicações não-MSAL e navegador Safari façam a primeira sapatilha e obtenham uma credencial partilhada. Se o plug-in microsoft Enterprise SSO ainda não tiver uma credencial partilhada, tentará obter uma sempre que um teste de sessão for solicitado a partir de um URL AD AD Azure dentro do navegador Safari, ASWebAuthenticationSession, SafariViewController ou outra aplicação nativa whitelist.  
+Ativar `browser_sso_interaction_enabled` a bandeira permite que aplicações não-MSAL e navegador Safari façam a primeira sapatilha e obtenham uma credencial partilhada. Se o plug-in microsoft Enterprise SSO ainda não tiver uma credencial partilhada, tentará obter uma sempre que um teste de sessão for solicitado a partir de um URL AD AD Azure dentro do navegador Safari, ASWebAuthenticationSession, SafariViewController ou outra aplicação nativa permitida.  
 
 - **Chave:**`browser_sso_interaction_enabled`
 - **Tipo:**`Integer`
@@ -154,6 +154,6 @@ Para suportar SSO para aplicações não MSAL, o plug-in SSO implementa um proto
 
 Em comparação com as aplicações baseadas no MSAL, o plug-in SSO atua de forma mais transparente para aplicações não MSAL, integrando-se com a experiência de login do navegador existente que as aplicações fornecem. O utilizador final veria a sua experiência familiar, com o benefício de não ter de realizar insusimentos adicionais em cada uma das aplicações. Por exemplo, em vez de exibir o selecionador de contas nativo, o plug-in SSO adiciona sessões SSO à experiência de picker de conta baseada na web. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o modo de dispositivo partilhado no iOS, consulte [o modo de dispositivo partilhado para dispositivos iOS](msal-ios-shared-devices.md).

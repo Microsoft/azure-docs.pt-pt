@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/17/2020
+ms.date: 9/29/2020
 ms.author: yohaddad
-ms.openlocfilehash: bb2b9da291bf75542c942d785d995018b597f742
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: bdcf9417aca6ece24e5ef577620734eeb48d9362
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024303"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531161"
 ---
 # <a name="azure-guest-os"></a>Hóspede Azure OS
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao Azure Guest OS. Pes faça uma pesquisa neste artigo para determinar se uma determinada atualização se aplica ao so-os convidado que está a utilizar. As atualizações são sempre transmitidas para a [família][family-explain] em particular em que foram introduzidas.
@@ -47,11 +47,9 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 |  Rel 20-09 |  [4569778]  |  Quadro NET 4.5.2 Rollup de segurança e qualidade | 2.102 | 8 de set, 2020 |
 |  Rel 20-09 |  [4578013]  |  Atualização de Segurança | 2.102 | 8 de set, 2020 |
 |  Rel 20-09 |  [4576750]  |  Atualização de Stack de Manutenção | 5.47 | 8 de set, 2020 |
-|  Rel 20-09 |  [4576479]  |  Quadro NET 4.8 Rollup de segurança e qualidade | 5.47 | 8 de set, 2020 |
 |  Rel 20-09 |  [4494175]  |  Microcódigo | 5.47 | 8 de set, 2020 |
 |  Rel 20-09 |  [4570332]  |  Atualização de Stack de Manutenção | 6.23 | 8 de set, 2020 |
 |  Rel 20-09 |  [4570720]  |  .Net Framework 3.5 e 4.7.2 Atualização Cumulativa | 6.23 | 8 de set, 2020 |
-|  Rel 20-09 |  [4576483]  |  .NET Quadro 4.8 Rollup de segurança e qualidade | 6.23 | 8 de set, 2020 |
 |  Rel 20-09 |  [4494174]  |  Microcódigo | 6.23 | 8 de set, 2020 |
 
 [4577010]: https://support.microsoft.com/kb/4577010
@@ -72,11 +70,9 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4569778]: https://support.microsoft.com/kb/4569778
 [4578013]: https://support.microsoft.com/kb/4578013
 [4576750]: https://support.microsoft.com/kb/4576750
-[4576479]: https://support.microsoft.com/kb/4576479
 [4494175]: https://support.microsoft.com/kb/4494175
 [4570332]: https://support.microsoft.com/kb/4570332
 [4570720]: https://support.microsoft.com/kb/4570720
-[4576483]: https://support.microsoft.com/kb/4576483
 [4494174]: https://support.microsoft.com/kb/4494174
 
 ## <a name="august-2020-guest-os"></a>Os convidados de agosto de 2020
@@ -84,29 +80,26 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 
 | Product Category (Categoria de Produto) | Artigo KB dos pais | Descrição da Vulnerabilidade | SO convidado | Data Introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-|  Rel 20-08 |  [4571687]  |  IE Atualização Cumulativa | 2.101, 3.88, 4.81 | 11 de agosto de 2020 |
-|  Rel 20-08 |  [4561600]  |  Atualização flash | 3.88, 4.81, 5.46, 6.22 | Jun 9, 2020 |
-|  Rel 20-08 |  [4571694]  |  Última atualização cumulativa | 6.22 | 11 de agosto de 2020 |
-|  Rel 20-08 |  [4565349]  |  Última atualização cumulativa | 5.46 | 11 de agosto de 2020 |
-|  Rel 20-08 |  [4570673]  |  Atualização da pilha de manutenção | 2.101 | 11 de agosto de 2020 |
-|  Rel 20-08 |  [4571729]  |  Rollup mensal | 2.101 | 11 de agosto de 2020 |
-|  Rel 20-08 |  [4569767]  |  .Net Framework 3.5.1 Rollup de segurança e qualidade | 2.101 | 11 de agosto de 2020 |
-|  Rel 20-08 |  [4569780]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 2.101 | 11 de agosto de 2020 |
-|  Rel 20-08 |  [4569765]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 3.88 | 11 de agosto de 2020 |
-|  Rel 20-08 |  [4569779]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 3.88 | 11 de agosto de 2020 |
-|  Rel 20-08 |  [4566426]  |  Atualização da pilha de manutenção | 3.88 | 14 de julho de 2020 |
-|  Rel 20-08 |  [4571736]  |  Rollup mensal | 3.88 | 11 de agosto de 2020 |
-|  Rel 20-08 |  [4566425]  |  Atualização da pilha de manutenção | 4.81 | 14 de julho de 2020 |
-|  Rel 20-08 |  [4571703]  |  Rollup mensal | 4.81 | 11 de agosto de 2020 |
-|  Rel 20-08 |  [4569768]  |  .Net Framework 3.5 Rollup de segurança e qualidade | 4.81 | 11 de agosto de 2020 |
-|  Rel 20-08 |  [4569778]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | 4.81 | 11 de agosto de 2020 |
-|  Rel 20-08 |  [4494175]  |  Microcódigo | 5.46 | 25 de fevereiro de 2020 |
-|  Rel 20-08 |  [4565912]  |  Atualização da pilha de manutenção | 5.46 | 14 de julho de 2020 |
-|  Rel 20-08 |  [4569746]  |  .NET Quadro 4.8 Rollup de segurança e qualidade | 5.46 | 11 de agosto de 2020 |
-|  Rel 20-08 |  [4569776]  |  .Net Framework 3.5 e 4.7.2 Atualização Cumulativa | 6.22 | 11 de agosto de 2020 |
-|  Rel 20-08 |  [4569750]  |  .Net Framework 3.5 e 4.8 Atualização Cumulativa | 6.22 | 11 de agosto de 2020 |
-|  Rel 20-08 |  [4566424]  |  Atualização da pilha de manutenção | 6.22 | 11 de agosto de 2020 |
-
+|  Rel 20-08 |  [4571687]  |  IE Atualização Cumulativa | [2.101], [3.88], [4.81] | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4561600]  |  Atualização flash | [3.88], [4.81], [5.46], [6.22] | Jun 9, 2020 |
+|  Rel 20-08 |  [4571694]  |  Última atualização cumulativa | [6.22] | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4565349]  |  Última atualização cumulativa | [5.46] | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4570673]  |  Atualização da pilha de manutenção | [2.101] | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4571729]  |  Rollup mensal | [2.101] | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4569767]  |  .Net Framework 3.5.1 Rollup de segurança e qualidade | [2.101] | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4569780]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | [2.101] | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4569765]  |  .Net Framework 3.5 Rollup de segurança e qualidade | [3.88] | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4569779]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | [3.88] | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4566426]  |  Atualização da pilha de manutenção | [3.88] | 14 de julho de 2020 |
+|  Rel 20-08 |  [4571736]  |  Rollup mensal | [3.88] | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4566425]  |  Atualização da pilha de manutenção | [4.81] | 14 de julho de 2020 |
+|  Rel 20-08 |  [4571703]  |  Rollup mensal | [4.81] | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4569768]  |  .Net Framework 3.5 Rollup de segurança e qualidade | [4.81] | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4569778]  |  .Net Framework 4.5.2 Rollup de segurança e qualidade | [4.81] | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4494175]  |  Microcódigo | [5.46] | 25 de fevereiro de 2020 |
+|  Rel 20-08 |  [4565912]  |  Atualização da pilha de manutenção | [5.46] | 14 de julho de 2020 |
+|  Rel 20-08 |  [4569776]  |  .Net Framework 3.5 e 4.7.2 Atualização Cumulativa | [6.22] | 11 de agosto de 2020 |
+|  Rel 20-08 |  [4566424]  |  Atualização da pilha de manutenção | [6.22] | 11 de agosto de 2020 |
 
 
 [4571687]: https://support.microsoft.com/kb/4571687
@@ -127,10 +120,13 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4569778]: https://support.microsoft.com/kb/4569778
 [4494175]: https://support.microsoft.com/kb/4494175
 [4565912]: https://support.microsoft.com/kb/4565912
-[4569746]: https://support.microsoft.com/kb/4569746
 [4569776]: https://support.microsoft.com/kb/4569776
-[4569750]: https://support.microsoft.com/kb/4569750
 [4566424]: https://support.microsoft.com/kb/4566424
+[2.101]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[3.88]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[4.81]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[5.46]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[6.22]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
 
 
 ## <a name="july-2020-guest-os"></a>Os convidados de julho de 2020
@@ -740,8 +736,6 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 |  N/D  |  [4499151]  |  Maio de 19 Não-Segurança  |  4.67  |  14 de maio de 2019  |
 |  N/D  |  [4495608]  |  Maio '19 .NET 3.5 Não-Segurança  |  4.67  |  14 de maio de 2019  |
 |  N/D  |  [4495592]  |  Maio '19 .NET 4.5.2 Não-Segurança  |  4.67  |  14 de maio de 2019  |
-|  N/D  |  [4495610]  |  Maio '19 .NET 4.8 Cumulativo  |  6.8  |  14 de maio de 2019  |
-|  N/D  |  [4495618]  |  Maio'19 .NET 4.8 Cumulativo  |  6.8  |  14 de maio de 2019  |
 |  N/D  |  [4501226]  |  Atualizações do DST Timezone para Marrocos e a Autoridade Palestiniana  |  2.87, 3.74, 4.67  |  23 de maio de 2019  |
 |  N/D  |  [4490128]  |  Atualizações do DST Timezone para São Tomé e Príncipe e Qyzylorda  |  2.87, 3.74, 4.67  |  17 de abril de 2019  |
 
@@ -763,8 +757,6 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 [4499151]: https://support.microsoft.com/kb/KB4499151
 [4495608]: https://support.microsoft.com/kb/KB4495608
 [4495592]: https://support.microsoft.com/kb/KB4495592
-[4495610]: https://support.microsoft.com/kb/KB4495610
-[4495618]: https://support.microsoft.com/kb/KB4495618
 [4501226]: https://support.microsoft.com/kb/KB4501226
 [4490128]: https://support.microsoft.com/kb/KB4490128
 

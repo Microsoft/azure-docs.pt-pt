@@ -1,17 +1,15 @@
 ---
 title: Simular falhas em aplicações de tecido de serviço Azure
 description: Saiba como endurecer os seus serviços de Tecido de Serviço Azure contra falhas graciosas e ingraças.
-author: anmolah
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.author: anmola
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c193ef00d56b2d2fc7ad806cc795dcbe360db548
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c714ae30c64ea073cbac521eac5e15a8d968b7ea
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022110"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531315"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simular falhas durante as cargas de trabalho de serviço
 Os cenários de testabilidade no Azure Service Fabric permitem aos desenvolvedores não se preocupar em lidar com falhas individuais. Há cenários, no entanto, em que uma interligagem explícita da carga de trabalho e das falhas do cliente pode ser necessária. A interligagem da carga de trabalho e das falhas do cliente garante que o serviço está realmente a realizar alguma ação quando a falha acontece. Dado o nível de controlo que a capacidade de teste proporciona, estes podem estar em pontos precisos da execução da carga de trabalho. Esta indução de falhas em diferentes estados da aplicação pode encontrar bugs e melhorar a qualidade.

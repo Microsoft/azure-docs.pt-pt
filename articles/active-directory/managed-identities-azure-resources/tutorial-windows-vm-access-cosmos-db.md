@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2020
+ms.date: 09/29/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17cdebb1291f78706178e129a62b932d45f38537
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 6b571b2b8e0d334a02631e3f443ec54398117ee9
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89263080"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532674"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Tutorial: Utilizar uma identidade gerida atribuída pelo sistema numa VM do Windows, para aceder ao Azure Cosmos DB
 
@@ -59,7 +59,7 @@ Se ainda não tiver uma, crie uma conta do Cosmos DB. Pode ignorar este passo e 
 3. Introduza um **ID** para a conta do Cosmos DB, que irá utilizar mais tarde.  
 4. A **API** deve ser definida como "SQL". A abordagem descrita neste tutorial pode ser utilizada com os outros tipos de API disponíveis, mas os passos neste tutorial são para a API de SQL.
 5. Certifique-se de que a **Subscrição** e o **Grupo de Recursos** correspondem aos perfis que especificou quando criou a VM no passo anterior.  Selecione uma **Localização** em que o Cosmos DB esteja disponível.
-6. Clique em **Criar**.
+6. Clique em **Create** (Criar).
 
 ### <a name="create-a-collection"></a>Criar uma coleção 
 
@@ -80,6 +80,10 @@ Para conceder o acesso de identidade gerida atribuída pelo sistema da VM do Win
 $spID = (Get-AzVM -ResourceGroupName myRG -Name myVM).identity.principalid
 New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Reader Role" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>"
 ```
+
+>[!NOTE]
+> Tenha em mente que, se não conseguir realizar uma operação, poderá não ter as permissões certas. Se quiser escrever acesso a teclas, tem de utilizar uma função RBAC, como o Colaborador de Conta DocumentDB ou criar uma função personalizada. Para mais informações, revisão [do controlo de acesso baseado em funções em Azure Cosmos DB](../../cosmos-db/role-based-access-control.md)
+
 ## <a name="access-data"></a>Aceder a dados
 
 Esta secção mostra como ligar para o Azure Resource Manager utilizando um token de acesso para a identidade gerida atribuída pelo sistema Windows VM. No resto do tutorial, iremos trabalhar a partir da VM que criámos anteriormente. 
@@ -199,7 +203,7 @@ Este comando da CLI devolve os detalhes da coleção:
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, aprendeu a utilizar uma identidade atribuída ao sistema da VM do Windows para aceder ao Cosmos DB.  Para saber mais sobre o Cosmos DB, veja:
 

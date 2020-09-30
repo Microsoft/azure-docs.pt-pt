@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: eb3096cadc8197aeda9258bd3123c2eb760a44af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 948e4f74763efd641bc0f089c679cdaf7c2f784e
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540286"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530073"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Tutorial: Estabelecer acesso ao site privado Azure Functions
 
@@ -67,13 +67,13 @@ O primeiro passo neste tutorial é criar uma nova máquina virtual dentro de uma
     | _Subscrição_ | A sua subscrição | A subscrição sob a qual os seus recursos são criados. |
     | [_Grupo de recursos_](../azure-resource-manager/management/overview.md) | myResourceGroup | Escolha o grupo de recursos para conter todos os recursos para este tutorial.  A utilização do mesmo grupo de recursos facilita a limpeza dos recursos quando termina este tutorial. |
     | _Nome da máquina virtual_ | myVM | O nome VM tem de ser único no grupo de recursos |
-    | [_Região_](https://azure.microsoft.com/regions/) | (EUA) Centro-Norte dos EUA | Escolha uma região perto de si ou perto das funções a aceder. |
+    | [_Region_](https://azure.microsoft.com/regions/) | (EUA) Centro-Norte dos EUA | Escolha uma região perto de si ou perto das funções a aceder. |
     | _Portas de entrada públicas_ | Nenhum | **Selecione Nenhum** para garantir que não existe conectividade de entrada para o VM a partir da internet. O acesso remoto ao VM será configurado através do serviço Azure Bastion. |
 
 1. Escolha o _separador 'Rede'_ e selecione **Criar novo** para configurar uma nova rede virtual.
 
     >[!div class="mx-imgBorder"]
-    >![Criar uma nova rede virtual para o novo VM](./media/functions-create-private-site-access/create-vm-networking.png)
+    >![Screenshot que mostra o separador "Networking" com a ação "Criar novo" realçado na secção "Rede Virtual".](./media/functions-create-private-site-access/create-vm-networking.png)
 
 1. Na _configuração da rede virtual,_ utilize as definições na tabela abaixo da imagem:
 

@@ -9,16 +9,19 @@ manager: diviso
 ms.reviewer: v-mamcge
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 06/30/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0630e4dfcfc01e5c20fa6fcc3a516dbea6f6f53b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 231f2e4df1445c60378ac06aab0d0e56f410c1c8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046451"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530141"
 ---
 # <a name="diagnose-and-solve-issues-in-your-azure-time-series-insights-gen1-environment"></a>Diagnosticar e resolver problemas no seu ambiente Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> Este é um artigo da Gen1.
 
 Este artigo descreve problemas que poderá encontrar no seu ambiente Azure Time Series Insights. O artigo oferece potenciais causas e soluções para a resolução.
 
@@ -66,8 +69,8 @@ Por exemplo, se tiver 5 milhões de eventos numa fonte de evento quando se conec
 
 Se tiver eventos antigos na sua fonte de evento, pode aproximar-se do estrangulamento de duas maneiras:
 
-- Altere os limites de retenção da fonte do evento para ajudar a remover eventos antigos que não quer aparecer no Azure Time Series Insights.
-- Provisão de um tamanho de ambiente maior (número de unidades) para aumentar a produção de eventos antigos. No exemplo anterior, se aumentar o mesmo ambiente S1 para cinco unidades por um dia, o ambiente deve ser apanhado dentro de um dia. Se a sua produção de eventos em estado constante for de 1 milhão ou menos eventos por dia, pode reduzir a capacidade do evento para uma unidade depois de a Azure Time Series Insights se encontrar.
+* Altere os limites de retenção da fonte do evento para ajudar a remover eventos antigos que não quer aparecer no Azure Time Series Insights.
+* Provisão de um tamanho de ambiente maior (número de unidades) para aumentar a produção de eventos antigos. No exemplo anterior, se aumentar o mesmo ambiente S1 para cinco unidades por um dia, o ambiente deve ser apanhado dentro de um dia. Se a sua produção de eventos em estado constante for de 1 milhão ou menos eventos por dia, pode reduzir a capacidade do evento para uma unidade depois de a Azure Time Series Insights se encontrar.
 
 O limite de estrangulamento forçado baseia-se no tipo e capacidade SKU do ambiente. Todas as fontes de eventos do ambiente partilham esta capacidade. Se a fonte de evento para o seu hub IoT ou centro de eventos empurrar os dados para além dos limites impostos, você vai experimentar estrangulamento e um atraso.
 
@@ -128,12 +131,12 @@ O primeiro cabeçalho da coluna deve ser o nome da propriedade do seu tempotando
 
 Os seguintes valores não serão apresentados:
 
-- *Indica*que a Azure Time Series Insights está a ler os valores de dados como cordas.
-- *Ícone do calendário*: Indica que o Azure Time Series Insights está a ler os valores dos dados como valores de data.
-- *#*: Indica que a Azure Time Series Insights está a ler os valores de dados como inteiros.
+* *Indica*que a Azure Time Series Insights está a ler os valores de dados como cordas.
+* *Ícone do calendário*: Indica que o Azure Time Series Insights está a ler os valores dos dados como valores de data.
+* *#*: Indica que a Azure Time Series Insights está a ler os valores de dados como inteiros.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- Leia sobre [como mitigar a latência em Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
+* Leia sobre [como mitigar a latência em Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
 
-- Saiba [como escalar o ambiente Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+* Saiba [como escalar o ambiente Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).

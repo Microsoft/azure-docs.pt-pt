@@ -6,17 +6,14 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: a2f319f7bbd3fa0c6c4efb7e225bfc85a76002f2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c087d5eea88a3329d5486afdd2158e80f7ebf778
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919714"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531031"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Base de dados Azure para infraestrutura MySQL dupla encriptação
-
-> [!NOTE]
-> Neste momento, deve solicitar o acesso para utilizar esta capacidade. Para tal, AskAzureDBforMySQL@service.microsoft.com contacte.
 
 A Azure Database for MySQL utiliza encriptação de armazenamento [de dados em repouso](concepts-security.md#at-rest) para dados usando as chaves geridas da Microsoft. Os dados, incluindo cópias de segurança, são encriptados no disco e esta encriptação está sempre acesa e não pode ser desativada. A encriptação utiliza o módulo criptográfico validado FIPS 140-2 e uma cifra AES de 256 bits para a encriptação de armazenamento Azure.
 
@@ -74,6 +71,6 @@ Para a base de dados Azure para o MySQL, o suporte para a dupla encriptação de
     > - Todos os **novos** servidores MySQL criados nas regiões acima listadas também suportam encriptação de dados com chaves de gestor de clientes. Neste caso, os servidores criados através de restauro pontual (PITR) ou réplicas de leitura não se qualificam como "novos".
     > - Para validar se o seu servidor a provisionado suporta até 16 TB, pode ir à lâmina de nível de preços no portal e ver se o slider de armazenamento pode ser movido até 16 TB. Se só conseguir mover o slider até 4 TB, o seu servidor poderá não suportar a encriptação com as teclas geridas pelo cliente; no entanto, os dados são criptografados usando chaves geridas pelo serviço em todos os momentos. Por favor, contacte AskAzureDBforMySQL@service.microsoft.com se tiver alguma pergunta.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como configurar a [encriptação dupla infraestrutura para a base de dados Azure para o MySQL](howto-double-encryption.md).

@@ -3,12 +3,12 @@ title: Guia de protocolo de conexões híbridas Azure Relay / Microsoft Docs
 description: Este artigo descreve as interações do lado do cliente com o relé Conexões Híbridas para ligar clientes em funções de ouvinte e remetente.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: fec021d961a17102f8d979c61ee46af6b938f073
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 893092124961ffa9df2535ca6de75def2930b797
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272014"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531450"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de conexões híbridas Azure Relay
 
@@ -55,7 +55,7 @@ As informações codificadas só são válidas por um curto período de tempo, e
 
 Além das ligações WebSocket, o ouvinte também pode receber quadros de pedido HTTP de um remetente, se esta capacidade estiver explicitamente ativada na Ligação Híbrida.
 
-Os ouvintes que se ligam às Ligações Híbridas com suporte HTTP DEVEM lidar com o `request` gesto. Um ouvinte que não lida `request` e, portanto, causa erros de tempo limite repetidos enquanto está ligado pode ser listado na lista negra pelo serviço no futuro.
+Os ouvintes que se ligam às Ligações Híbridas com suporte HTTP DEVEM lidar com o `request` gesto. Um ouvinte que não lida `request` e, portanto, causa erros de tempo limite repetidos durante a ligação pode ser bloqueado pelo serviço no futuro.
 
 Os metadados de cabeçalho de quadro HTTP são traduzidos em JSON para um manuseamento mais simples pela estrutura do ouvinte, também porque as bibliotecas de análise de cabeçalho HTTP são mais raras do que os párocos JSON. Os metadados HTTP que só são relevantes para a relação entre o remetente e o gateway HTTP do Relé, incluindo informações de autorização, não são reencaminhados. Os corpos de pedido HTTP são transferidos de forma transparente como quadros binários do WebSocket.
 
@@ -326,7 +326,7 @@ O conteúdo do JSON `request` é o seguinte:
 
 ##### <a name="responding-to-requests"></a>Respondendo a pedidos
 
-O recetor DEVE responder. O incumprimento repetido dos pedidos, mantendo a ligação, pode resultar na colocação na lista negra do ouvinte.
+O recetor DEVE responder. O incumprimento repetido dos pedidos, mantendo a ligação, pode resultar no bloqueio do ouvinte.
 
 As respostas podem ser enviadas em qualquer encomenda, mas cada pedido deve ser respondido no prazo de 60 segundos ou a entrega será reportada como tendo falhado. O prazo de 60 segundos é contado até que o `response` quadro tenha sido recebido pelo serviço. Uma resposta contínua com várias molduras binárias não pode ficar inativa por mais de 60 segundos ou é terminada.
 
@@ -496,7 +496,7 @@ Se houver um erro, o serviço pode responder da seguinte forma. Se a resposta te
 | 503  | Bad Gateway     | O pedido não podia ser encaminhado para nenhum ouvinte.
 | 504  | Tempo de gateway | O pedido foi encaminhado para um ouvinte, mas o ouvinte não reconheceu o recibo no tempo necessário.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [FAQ de Reencaminhamento](relay-faq.md)
 * [Criar um espaço de nomes](relay-create-namespace-portal.md)

@@ -1,17 +1,15 @@
 ---
 title: Configuure Jenkins para uma aplicação Java em Tecido de Serviço em Azure
 description: Neste tutorial, saiba como configurar a integração contínua com Jenkins para implementar uma aplicação Java Service Fabric.
-author: suhuruli
 ms.topic: tutorial
 ms.date: 08/27/2018
-ms.author: suhuruli
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 42efc13d37ccfdaf60896f338b1a38384ef06568
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4e29104f0586a8e18afb7a640903c57ce988b692
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320719"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531977"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Tutorial: Configurar um ambiente Jenkins para ativar o CI/CD para uma aplicação Java no Service Fabric
 
@@ -109,7 +107,7 @@ Pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As ins
 
     Também tem de indicar os detalhes adicionais utilizados para implementar a aplicação. Veja a captura de ecrã seguinte para obter um exemplo dos detalhes da aplicação:
 
-    ![Ação de Compilação do Jenkins do Service Fabric](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
+    ![Diálogo de ações pós-construção com opções adicionais de implementação de projetos de tecido de serviço](./media/service-fabric-tutorial-java-jenkins/sfjenkins.png)
 
     > [!NOTE]
     > Este cluster seria igual ao que aloja a aplicação de contentor do Jenkins, no caso de estar a utilizar o Service Fabric para implementar a imagem de contentor do Jenkins.
@@ -178,7 +176,7 @@ Pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. As ins
 
     ![Atualização em curso](./media/service-fabric-tutorial-create-java-app/upgradejava.png)
 
-1. Se tiver acesso **http:// \<Host-IP> :8080,** a aplicação de voto com funcionalidade completa está agora em funcionamento.
+1. Se tiver acesso **http:// \<Host-IP> :8080,**  a aplicação de voto com funcionalidade completa está agora em funcionamento.
 
     ![Aplicação de Voto Local](./media/service-fabric-tutorial-java-jenkins/votingv2.png)
 

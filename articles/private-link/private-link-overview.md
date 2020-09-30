@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/03/2020
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: bee3d265554367b816c744ed892975ed60712f8b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c8d4696f2e7d181783d62df2e414329eaa246dce
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318114"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529862"
 ---
 # <a name="what-is-azure-private-link"></a>O que é a Ligação Privada do Azure? 
 O Azure Private Link permite-lhe aceder aos Serviços Azure PaaS (por exemplo, Azure Storage e SQL Database) e à Azure aloja serviços de propriedade do cliente/parceiro sobre um [ponto final privado](private-endpoint-overview.md) na sua rede virtual.
@@ -68,7 +68,7 @@ A Azure Private Link proporciona os seguintes benefícios:
 | Azure IoT Hub | Todas as regiões públicas    |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Azure SignalR | LESTE DE NÓS, CENTRO-SUL DE NÓS,<br/>OESTE EUA 2, Todas as regiões da China      |  | Pré-visualizar   <br/> [Saiba mais](https://aka.ms/asrs/privatelink)   |
 | Azure Monitor <br/>(Log Analytics & Application Insights) | Todas as regiões públicas      |  | GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security)   | 
-| Azure Batch | CENTRAL DOS EUA, NORTE-AMERICANO, CENTRO-SUL DOS EUA, CENTRO-OESTE DOS EUA, LESTE DOS EUA, LESTE DOS EUA, OESTE DOS EUA 2, LESTE DA ÁSIA, FRANÇA CENTRAL, REINO UNIDO SUL, EUROPA DO NORTE, EUROPA OCIDENTAL, JAPÃO LESTE, JAPÃO OESTE, AUSTRÁLIA LESTE <br/> Todas as regiões do Governo  | | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/batch/private-connectivity) |
+| Azure Batch | Todas as regiões públicas, com exceção: ALEMANHA CENTRAL, ALEMANHA NORDESTE <br/> Todas as regiões do Governo  | | GA <br/> [Saiba mais](https://docs.microsoft.com/azure/batch/private-connectivity) |
 |Azure Data Factory | Todas as regiões públicas<br/> Todas as regiões do Governo<br/>Todas as regiões da China    | As credenciais precisam de ser armazenadas num cofre de chaves Azure.| GA   <br/> [Saiba mais](https://docs.microsoft.com/azure/data-factory/data-factory-private-link)   |
 
 
@@ -81,7 +81,7 @@ A Azure Private Link tem integração com o Azure Monitor. Esta combinação per
 
  - Arquivo de registos para uma conta de armazenamento.
  - Streaming de eventos para o seu Centro de Eventos.
- - Registo do Monitor Azure.
+ - Registos do Azure Monitor.
 
 Pode aceder às seguintes informações no Azure Monitor: 
 - **Ponto final privado:** 
@@ -103,7 +103,7 @@ Para limites, consulte [os limites da Ligação Privada Azure](../azure-resource
 ## <a name="service-level-agreement"></a>Acordo de Nível de Serviço
 Para sLA, consulte [sLA para Azure Private Link](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Quickstart: Criar um ponto final privado utilizando o portal Azure](create-private-endpoint-portal.md)
 - [Quickstart: Criar um serviço de ligação privada utilizando o portal Azure](create-private-link-service-portal.md)

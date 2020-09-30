@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 3/5/2020
 ms.author: matjazl
-ms.openlocfilehash: 7ed4e471764fbf8ecc9b82a7d614ae52b97360f1
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e4adceea5c2cd2a36d7a867ca9b9d2ad7c33c155
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267263"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529988"
 ---
 # <a name="configure-export-setting-and-set-up-the-storage-account"></a>Configurar a definição de exportação e configurar a conta de armazenamento
 
@@ -40,11 +40,11 @@ O próximo passo na exportação é atribuir autorização para a Azure API para
 
 Depois de criarmos uma conta de armazenamento, navegue para a lâmina do Controlo de Acesso (IAM) na conta de armazenamento e selecione Atribuições de Função adicionar
 
-![Ativar identidade gerida](media/export-data/fhir-export-role-assignment.png)
+![Atribuição de funções de exportação](media/export-data/fhir-export-role-assignment.png)
 
 Aqui adicionamos função Storage Blob Data Contributor ao nosso nome de serviço.
 
-![Ativar identidade gerida](media/export-data/fhir-export-role-add.png)
+![Adicionar papel](media/export-data/fhir-export-role-add.png)
 
 Agora estamos prontos para o próximo passo onde podemos selecionar a conta de armazenamento em Azure API para FHIR como uma conta de armazenamento padrão para $export.
 
@@ -52,7 +52,7 @@ Agora estamos prontos para o próximo passo onde podemos selecionar a conta de a
 
 O passo final é atribuir a conta de armazenamento Azure que a AZure API utilizará para exportar os dados para. Para isso, navegue para a lâmina de integração em Azure API para o serviço FHIR no portal Azure e selecione a conta de armazenamento
 
-![Ativar identidade gerida](media/export-data/fhir-export-storage.png)
+![Armazenamento de exportação FHIR](media/export-data/fhir-export-storage.png)
 
 Depois disso, estamos prontos para exportar os dados usando $export comando.
 

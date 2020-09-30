@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fe4d42fd74b4efd67a01f32611bd170862ec84d0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a20b6509973c7dc7e54d2e4f702175ad61e88da8
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007133"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532505"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapeamentos e transformações de campo usando indexantes de pesquisa cognitiva Azure
 
@@ -201,7 +201,7 @@ A Azure Cognitive Search suporta duas codificações base64 diferentes. Deve uti
 
 A Azure Cognitive Search suporta codificação de base 64 e codificação base normal64. Uma cadeia que é base64 codificada durante a indexação deve ser descodificada mais tarde com as mesmas opções de codificação, ou então o resultado não corresponderá ao original.
 
-Se os `useHttpServerUtilityUrlTokenEncode` parâmetros ou `useHttpServerUtilityUrlTokenDecode` parâmetros para codificação e descodificamento respectivamente forem definidos para `true` , então `base64Encode` comporta-se como [HttpServerUtility.UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode?view=netframework-4.8) e `base64Decode` comporta-se como [HttpServerUtility.urlTokenDecode](/dotnet/api/system.web.httpserverutility.urltokendecode?view=netframework-4.8).
+Se os `useHttpServerUtilityUrlTokenEncode` parâmetros ou `useHttpServerUtilityUrlTokenDecode` parâmetros para codificação e descodificamento respectivamente forem definidos para `true` , então `base64Encode` comporta-se como [HttpServerUtility.UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode) e `base64Decode` comporta-se como [HttpServerUtility.urlTokenDecode](/dotnet/api/system.web.httpserverutility.urltokendecode).
 
 > [!WARNING]
 > Se `base64Encode` for utilizado para produzir valores-chave, deve ser definido como `useHttpServerUtilityUrlTokenEncode` verdadeiro. Apenas a codificação base 64 segura por URL pode ser utilizada para valores-chave. Consulte [as regras de nomeação &#40;&#41;de pesquisa cognitiva Azure ](/rest/api/searchservice/naming-rules) para o conjunto completo de restrições sobre caracteres em valores-chave.
@@ -210,7 +210,7 @@ As bibliotecas .NET em Azure Cognitive Search assumem o quadro completo .NET, qu
 
 A tabela seguinte compara diferentes codificações base64 da `00>00?00` cadeia. Para determinar o processamento adicional necessário (se houver) para as suas funções base64, aplique a função de codificação da sua biblioteca na cadeia `00>00?00` e compare a saída com a saída prevista `MDA-MDA_MDA` .
 
-| Encoding | Saída de codificação Base64 | Processamento adicional após codificação da biblioteca | Processamento adicional antes da descodagem da biblioteca |
+| Codificação | Saída de codificação Base64 | Processamento adicional após codificação da biblioteca | Processamento adicional antes da descodagem da biblioteca |
 | --- | --- | --- | --- |
 | Base64 com estofamento | `MDA+MDA/MDA=` | Use caracteres seguros de URL e remova o estofamento | Use caracteres base64 padrão e adicione estofamento |
 | Base64 sem enchimento | `MDA+MDA/MDA` | Use caracteres seguros url | Use caracteres base64 padrão |

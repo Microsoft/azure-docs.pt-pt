@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.author: juliako
-ms.openlocfilehash: 52ce8a359f63004393e191d1d6a8f991fba1e9f6
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.date: 09/29/2020
+ms.author: inhenkel
+ms.openlocfilehash: 826fda62f9c5c97d045f6dc31189b26255e72f33
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260803"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532708"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Execute o streaming ao vivo usando os Media Services para criar streams multi-bitrate com o portal Azure
 
@@ -39,6 +39,7 @@ Este tutorial explica-lhe os passos da criação de um **Canal** que recebe uma 
 Para obter mais informações conceptuais relacionadas com Canais ativados para Live Encoding, consulte [Transmissão em fluxo em direto através dos Media Services do Azure para criar transmissões com velocidade de transmissão múltipla](media-services-manage-live-encoder-enabled-channels.md).
 
 ## <a name="common-live-streaming-scenario"></a>Cenário Comum de Transmissão em Fluxo em Direto
+
 Os seguintes são passos gerais referentes à criação de aplicações comuns de transmissão em fluxo em direto.
 
 > [!NOTE]
@@ -50,25 +51,25 @@ Os seguintes são passos gerais referentes à criação de aplicações comuns d
 1. Inicie e configure um codificador em direto no local que possa enviar uma transmissão de velocidade de transmissão única através de um dos seguintes protocolos: RTMP ou Smooth Streaming. Para obter mais informações, consulte [Suporte RTMP dos Media Services do Azure e Codificadores em Direto](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Confira também este blog: [Produção de streaming ao vivo com OBS](https://link.medium.com/ttuwHpaJeT).
 
     Este passo também pode ser realizado depois de criar o Canal.
-1. Crie e inicie um Canal. 
-1. Obtenha o URL de inserção do Canal. 
+1. Crie e inicie um Canal.
+1. Obtenha o URL de inserção do Canal.
 
     O URL de inserção é utilizado pelo codificador em direto para enviar a transmissão para o Canal.
-1. Obtenha o URL de pré-visualização do Canal. 
+1. Obtenha o URL de pré-visualização do Canal.
 
     Utilize este URL para verificar se o canal está a receber corretamente a transmissão em fluxo em direto.
-1. Crie um evento/programa (que também irá criar um elemento). 
-1. Publique o evento (que criará um localizador OnDemand para o elemento associado).    
+1. Crie um evento/programa (que também irá criar um elemento).
+1. Publique o evento (que criará um localizador OnDemand para o elemento associado).
 1. Inicie o evento quando estiver pronto para começar a transmissão em fluxo e o arquivamento.
 1. Opcionalmente, o codificador em direto pode ser indicado para iniciar um anúncio. O anúncio é inserido na transmissão de saída.
 1. Pare o evento sempre que pretender interromper a transmissão em fluxo e arquivar o evento.
-1. Elimine o evento (e, opcionalmente, elimine o elemento).   
+1. Elimine o evento (e, opcionalmente, elimine o elemento).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O seguinte é necessário para concluir o tutorial.
 
-* Para concluir este tutorial, precisa de uma conta do Azure. Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos. 
+* Para concluir este tutorial, precisa de uma conta do Azure. Se não tiver uma conta, pode criar uma de avaliação gratuita em apenas alguns minutos.
   Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Uma conta dos Media Services. Para criar uma conta dos Media Services, consulte [Criar Conta](media-services-portal-create-account.md).
 * Uma câmara Web e um codificador que possa enviar uma transmissão de velocidade de transmissão única.
@@ -95,26 +96,25 @@ O seguinte é necessário para concluir o tutorial.
         Para uma explicação mais detalhada sobre cada protocolo, consulte [Transmissão em fluxo em direto utilizando os Media Services do Azure para criar transmissões em fluxo com velocidade de transmissão múltipla](media-services-manage-live-encoder-enabled-channels.md).
 
         Não é possível alterar a opção de protocolo enquanto o Canal ou os seus evento/programas associados estiverem em execução. Se necessitar de protocolos diferentes, deve criar canais separados para cada protocolo de transmissão em fluxo.  
-   2. Pode aplicar restrição de IP na ingestão. 
+   2. Pode aplicar restrição de IP na ingestão.
 
        Pode definir os endereços IP que estão autorizados a ingerir um vídeo neste canal. Os endereços IP autorizados podem ser especificados como um único endereço IP (por exemplo, '10.0.0.1'), uma gama IP utilizando um endereço IP e uma máscara de sub-rede CIDR (por exemplo. «10.0.0.1/22»), ou uma gama DEP utilizando um endereço IP e uma máscara de sub-rede decimal pontilhada (por exemplo, '10.0.0.1(255.255.252.0)»).
 
        Se não for especificado qualquer endereço IP e não existir nenhuma definição de regra, então, não será permitido qualquer endereço IP. Para permitir um endereço IP, crie uma regra e defina 0.0.0.0/0.
 6. No separador **ré-visualização**, aplique de restrição de IP na pré-visualização.
-7. No separador **Encoding**, especifique a configuração predefinida de codificação. 
+7. No separador **Encoding**, especifique a configuração predefinida de codificação.
 
-    Atualmente, a única predefinição do sistema que pode selecionar é **720p Padrão**. Para especificar uma configuração predefinida, abra um pedido de suporte da Microsoft. Em seguida, introduza o nome da configuração predefinida criada para si. 
+    Atualmente, a única predefinição do sistema que pode selecionar é **720p Padrão**. Para especificar uma configuração predefinida, abra um pedido de suporte da Microsoft. Em seguida, introduza o nome da configuração predefinida criada para si.
 
 > [!NOTE]
 > Atualmente, o arranque do Canal pode demorar até 30 minutos. A reposição do canal pode demorar até 5 minutos.
-> 
-> 
 
-Uma vez criado o Canal, pode clicar no canal e selecionar **Definições** onde pode ver as configurações dos canais. 
+Uma vez criado o Canal, pode clicar no canal e selecionar **Definições** onde pode ver as configurações dos canais.
 
 Para obter mais informações, consulte [Transmissão em fluxo em direto utilizando os Media Services do Azure para criar transmissões em fluxo com velocidade de transmissão múltipla](media-services-manage-live-encoder-enabled-channels.md).
 
 ## <a name="get-ingest-urls"></a>Obter URLs de inserção
+
 Assim que o canal seja criado, pode obter os URLs de inserção que fornecerá ao codificador em direto. O codificador utiliza estes URLs para exibir uma transmissão um fluxo direto.
 
 ![inger urls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
@@ -122,6 +122,7 @@ Assim que o canal seja criado, pode obter os URLs de inserção que fornecerá a
 ## <a name="create-and-manage-events"></a>Criar e gerir eventos
 
 ### <a name="overview"></a>Descrição geral
+
 Um canal está associado a eventos/programas que permitem controlar a publicação e armazenamento de segmentos numa transmissão em fluxo em direto. Os canais gerem eventos/programas. A relação entre o Canal e o Programa é muito semelhante à multimédia tradicional onde um canal tem uma transmissão em fluxo constante de conteúdo e um programa está confinado a alguns eventos temporizados nesse canal.
 
 Pode especificar o número de horas que pretenda manter o conteúdo gravado para o evento através da configuração da duração da **Janela de Arquivo**. Este valor pode ser definido a partir de um mínimo de 5 minutos até um máximo de 25 horas. A duração da janela de arquivo dita também o tempo máximo que os clientes podem recuar a partir da posição atual em direto. Os eventos podem ser executados durante o período de tempo especificado, contudo, o conteúdo que não respeitar essa duração da janela é continuamente descartado. O valor desta propriedade também determina durante quanto tempo os manifestos dos clientes podem aumentar.
@@ -132,21 +133,22 @@ Um canal suporta até três eventos em execução em simultâneo para que possa 
 
 Não deve reutilizar programas existentes para novos eventos. Em vez disso, crie e inicie um novo programa para cada evento.
 
-Inicie um evento/programa quando estiver pronto para começar a transmissão em fluxo e o arquivamento. Pare o evento sempre que pretender interromper a transmissão em fluxo e arquivar o evento. 
+Inicie um evento/programa quando estiver pronto para começar a transmissão em fluxo e o arquivamento. Pare o evento sempre que pretender interromper a transmissão em fluxo e arquivar o evento.
 
-Para eliminar conteúdo arquivado, pare e elimine o evento e, em seguida, elimine o elemento associado. Não é possível eliminar um elemento se este é utilizado pelo evento; o evento deve ser eliminado primeiro. 
+Para eliminar conteúdo arquivado, pare e elimine o evento e, em seguida, elimine o elemento associado. Não é possível eliminar um elemento se este é utilizado pelo evento; o evento deve ser eliminado primeiro.
 
 Mesmo depois de parar e eliminar o evento, os utilizadores conseguirão transmitir o seu conteúdo arquivado como um vídeo a pedido, desde que não elimine o elemento.
 
 Se pretende manter o conteúdo arquivado, mas não o quer manter disponível para transmissão em fluxo, elimine o localizador de transmissão em fluxo.
 
 ### <a name="createstartstop-events"></a>Criar/iniciar/parar eventos
-Assim que a transmissão em fluxo esteja a ser enviada para o Canal, pode começar o evento de transmissão em fluxo através da criação de um Elemento, Programa e Localizador de Transmissão em Fluxo. Isto irá arquivar a transmissão em fluxo e torná-la disponível para os espetadores através do Ponto Final de Transmissão em Fluxo. 
+
+Assim que a transmissão em fluxo esteja a ser enviada para o Canal, pode começar o evento de transmissão em fluxo através da criação de um Elemento, Programa e Localizador de Transmissão em Fluxo. Isto irá arquivar a transmissão em fluxo e torná-la disponível para os espetadores através do Ponto Final de Transmissão em Fluxo.
 
 >[!NOTE]
->Quando a sua conta AMS é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à sua conta no estado **Parado**. Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**. 
+>Quando a sua conta AMS é criada, é adicionado um ponto final de transmissão em fluxo **predefinido** à sua conta no estado **Parado**. Para começar a transmitir o seu conteúdo em fluxo e a tirar partido do empacotamento e encriptação dinâmicos, o ponto final de transmissão em fluxo a partir do qual quer transmitir conteúdo tem de estar no estado **Em execução**.
 
-Existem duas formas de iniciar o evento: 
+Existem duas formas de iniciar o evento:
 
 1. Na página **Canal**, prima **Evento em Direto** para adicionar um novo evento.
 
@@ -163,18 +165,20 @@ Existem duas formas de iniciar o evento:
 
     O programa é denominado **predefinido** e a janela de arquivo está definida para 8 horas.
 
-Pode ver o evento publicado a partir da página **Evento em direto**. 
+Pode ver o evento publicado a partir da página **Evento em direto**.
 
-Se clicar em **Off Air**, parará todos os eventos em direto. 
+Se clicar em **Off Air**, parará todos os eventos em direto.
 
 ## <a name="watch-the-event"></a>Ver o evento
-Para ver o evento, clique em **Ver** no Portal do Azure ou copie o URL de transmissão em fluxo e utilize um leitor da sua preferência. 
+
+Para ver o evento, clique em **Ver** no Portal do Azure ou copie o URL de transmissão em fluxo e utilize um leitor da sua preferência.
 
 ![Criado](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-play-event.png)
 
 O evento em direto converte automaticamente os eventos para conteúdo a pedido quando parado.
 
 ## <a name="clean-up"></a>Limpeza
+
 Se terminar a transmissão em fluxo de eventos e pretende limpar os recursos aprovisionados anteriormente, siga o procedimento seguinte.
 
 * Termine o envio da transmissão em fluxo do codificador.
@@ -182,20 +186,27 @@ Se terminar a transmissão em fluxo de eventos e pretende limpar os recursos apr
 * Pode parar o seu Ponto Final de Transmissão em Fluxo, a menos que pretenda continuar a fornecer o arquivo do seu evento em direto como uma transmissão em fluxo a pedido. Se o canal estiver num estado parado, não será cobrado qualquer custo.
 
 ## <a name="view-archived-content"></a>Ver conteúdo arquivado
-Mesmo depois de parar e eliminar o evento, os utilizadores conseguirão transmitir o seu conteúdo arquivado como um vídeo a pedido, desde que não elimine o elemento. Não é possível eliminar um elemento se este é utilizado por um evento; o evento deve ser eliminado primeiro. 
+
+Mesmo depois de parar e eliminar o evento, os utilizadores conseguirão transmitir o seu conteúdo arquivado como um vídeo a pedido, desde que não elimine o elemento.
+
+> [!WARNING]
+> Um ativo **não deve** ser eliminado se for utilizado por um evento; o evento deve ser apagado primeiro.
 
 Para gerir os seus elementos, selecione **Definição** e clique em **Elementos**.
 
 ![Elementos](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-assets.png)
 
 ## <a name="considerations"></a>Considerações
+
 * Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amshelp@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
 * Certifique-se de que o ponto final de transmissão em fluxo a partir do qual quer transmitir o seu conteúdo está no estado **Em execução**.
 
-## <a name="next-step"></a>Passo seguinte
+## <a name="next-steps"></a>Próximos passos
+
 Rever os percursos de aprendizagem dos Serviços de Multimédia
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Enviar comentários
+
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

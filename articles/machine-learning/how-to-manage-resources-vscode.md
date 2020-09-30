@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
-ms.date: 09/03/2020
-ms.openlocfilehash: abdd04f59ee820585d58817297d161f68bd952f0
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.date: 09/30/2020
+ms.openlocfilehash: 1120a3636b7ce24dde0d33c213f9063f910123c4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90897392"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530634"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gerir os recursos de aprendizagem automática Azure com a extensão do código VS (pré-visualização)
 
@@ -201,6 +201,7 @@ Para mais informações, consulte [as experiências.](concept-azure-machine-lear
 1. Expanda o nó **experimentos** dentro do seu espaço de trabalho.
 1. Clique com a direita na experiência que deseja executar.
 1. Selecione o ícone **Run Experiment** na barra de atividade.
+1. Selecione se deseja executar a sua experiência localmente ou remotamente. Consulte o [guia de depuragem](how-to-debug-visual-studio-code.md) para obter mais informações sobre experiências de corrida e depuragem localmente.
 1. Escolha a sua subscrição.
 1. Escolha o espaço de trabalho Azure ML para executar a experiência.
 1. Escolha a sua experiência.
@@ -423,6 +424,6 @@ Além de criar e eliminar implementações, pode visualizar e editar as definiç
         - Um ficheiro de configuração para a sua implantação aparece no editor. Se estiver satisfeito com a sua configuração, **selecione Save and continue** ou abra a paleta de comando VS Code **(Ver > Paleta de Comando)** e **digite Azure ML: Save and Continue**.
     - Para visualizar as definições de configuração da implementação, selecione **Ver as propriedades do serviço**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Treine um modelo de classificação de imagem](tutorial-train-deploy-image-classification-model-vscode.md) com a extensão do Código VS.

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
-ms.openlocfilehash: f84dc17c6c074fc4dbda8a13fad3586a397fdf10
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0361ba7bc67948c25b842a3fb7406d2999fdd725
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87055421"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530617"
 ---
 # <a name="azure-functions-deployment-slots"></a>Slots de implementação de funções Azure
 
@@ -73,15 +73,15 @@ Utilize os seguintes passos para criar uma definição de implantação:
 
 1. Selecione **Configuração**e, em seguida, selecione o nome de definição que pretende manter-se na ranhura atual.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Configurar a definição de aplicação para uma ranhura no portal Azure." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-configure-deployment-slot.png" alt-text="Encontre slots no portal Azure." border="true":::
 
 1. Selecione **a definição de ranhura de implementação**e, em seguida, selecione **OK**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Configure a definição da ranhura de colocação." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-setting.png" alt-text="Encontre slots no portal Azure." border="true":::
 
 1. Uma vez que a secção de definição desaparece, **selecione Guardar** para manter as alterações
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Guarde a definição da ranhura de implantação." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-save-deployment-slot-setting.png" alt-text="Encontre slots no portal Azure." border="true":::
 
 ## <a name="deployment"></a>Implementação
 
@@ -102,11 +102,11 @@ Pode adicionar uma ranhura através do [CLI](/cli/azure/functionapp/deployment/s
 
 1. Selecione **slots de implementação**e, em seguida, selecione **+ Adicionar ranhura**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Adicione a ranhura de implementação de Funções Azure." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add.png" alt-text="Encontre slots no portal Azure." border="true":::
 
 1. Digite o nome da ranhura e selecione **Adicionar**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Nomeie a ranhura de implantação de Funções Azure." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slots-add-name.png" alt-text="Encontre slots no portal Azure." border="true":::
 
 ## <a name="swap-slots"></a>Trocar slots
 
@@ -115,11 +115,11 @@ Pode trocar slots através do [CLI](/cli/azure/functionapp/deployment/slot?view=
 1. Navegue para a aplicação de função.
 1. Selecione **slots de implementação**e, em seguida, selecione **Swap**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Troque a ranhura de implantação." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-swap-deployment-slot.png" alt-text="Encontre slots no portal Azure." border="true":::
 
 1. Verifique as definições de configuração para a sua troca e selecione **Swap**
     
-    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Troque a ranhura de implantação." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png" alt-text="Encontre slots no portal Azure." border="true":::
 
 A operação pode demorar um momento enquanto a operação de troca está a ser executada.
 
@@ -137,15 +137,15 @@ Pode remover uma ranhura através do [CLI](/cli/azure/functionapp/deployment/slo
 
 1. Selecione **Eliminar**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Elimine a ranhura de implantação no portal Azure." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot.png" alt-text="Encontre slots no portal Azure." border="true":::
 
 1. Digite o nome da ranhura de implantação que pretende eliminar e, em seguida, **selecione Delete**.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Elimine a ranhura de implantação no portal Azure." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-delete-deployment-slot-details.png" alt-text="Encontre slots no portal Azure." border="true":::
 
 1. Feche o painel de confirmação de eliminação.
 
-    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="A abertura da ranhura elimina a confirmação." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/functions-deployment-slot-deleted.png" alt-text="Encontre slots no portal Azure." border="true":::
 
 ## <a name="automate-slot-management"></a>Automatizar a gestão de slots
 
@@ -174,7 +174,7 @@ Utilize os seguintes passos para alterar o plano de Serviço de Aplicações de 
 
 1. Selecione o plano para o quais pretende atualizar ou criar um novo plano.
 
-    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Alterar o plano de Serviço de Aplicações no portal Azure." border="true":::
+    :::image type="content" source="./media/functions-deployment-slots/azure-functions-deployment-slots-change-app-service-apply.png" alt-text="Encontre slots no portal Azure." border="true":::
 
 1. Selecione **OK**.
 
@@ -202,6 +202,6 @@ Existem dois níveis de suporte para slots de implantação:
 | Linux Premium             | Disponibilidade geral  |
 | Linux Dedicado           | Disponibilidade geral |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Tecnologias de implantação em Funções Azure](./functions-deployment-technologies.md)

@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 3148f8ba84674c79764d0fc69acdbc02e7a12dc4
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: e7608196c962a6918a90b91457f856f3e11b04f0
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798997"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530906"
 ---
 # <a name="back-up-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Fazer o back up e recuperar as credenciais de conta usando a app Microsoft Authenticator
 
@@ -83,21 +83,21 @@ Para contas pessoais da Microsoft, pode provar a sua identidade introduzindo a s
 
 1. No ecrã **contas** da aplicação Microsoft Authenticator, toque na conta que pretende recuperar para abrir a vista completa do ecrã da conta.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png" alt-text="App Microsoft Authenticator, mostrando os azulejos de conta disponíveis" border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-arrow.png" alt-text="Screenshot que mostra a aplicação Microsoft Authenticator com os azulejos de conta disponíveis." border="true":::
 
 1. Toque no azulejo para a conta que está a recuperar e toque na opção de iniciar sing para recuperar. Introduza a sua palavra-passe e, em seguida, confirme o seu endereço de e-mail ou número de telefone como verificação adicional.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Autenticador apresenta uma senha única como código de verificação" border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/backup-and-recovery-codes.png" alt-text="Screenshot que mostra a aplicação Microsoft Authenticator com os azulejos de conta disponíveis." border="true":::
 
 ### <a name="to-provide-more-verification-for-work-or-school-accounts"></a>Para fornecer mais verificação para contas de trabalho ou escola
 
 1. No ecrã **contas** da aplicação Microsoft Authenticator, toque na conta que pretende recuperar para abrir a vista completa do ecrã da conta.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="App Microsoft Authenticator, mostrando os azulejos de conta disponíveis" border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-arrow.png" alt-text="Screenshot que mostra a aplicação Microsoft Authenticator com os azulejos de conta disponíveis." border="true":::
 
 1. Na vista completa do ecrã, toque na opção de digitalizar um código QR para recuperar totalmente.
 
-    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="Autenticador apresenta uma senha única como código de verificação" border="true":::
+    :::image type="content" source="media/user-help-auth-app-backup-recovery/work-or-school-recovery-qr-code.png" alt-text="Screenshot que mostra a aplicação Microsoft Authenticator com os azulejos de conta disponíveis." border="true":::
 
 >[!NOTE]
 >Para obter mais informações sobre os códigos QR e como obter um, consulte [Começar com a aplicação Microsoft Authenticator](./user-help-auth-app-download-install.md) ou [configurar informações de segurança para utilizar uma aplicação autenticadora](./security-info-setup-auth-app.md), com base no facto de o seu administrador ter ligado as informações de segurança.
@@ -120,7 +120,7 @@ Existem algumas razões pelas quais o seu backup pode não estar disponível
 
 - **A cópia de segurança está desatualizada**: Se as suas informações de backup estiverem desatualizadas, poderá ser-lhe pedido que reacmem as informações, insinuá-la novamente na sua conta de Recuperação da Microsoft. A sua conta de recuperação é a conta pessoal da Microsoft que usou inicialmente para armazenar a sua cópia de segurança. Se for necessário um início de sposição, verá um ponto vermelho no seu menu ou barra de ação, ou verá um ícone de marca de exclamação que o leva a iniciar sposição para terminar a restauração da cópia de segurança. Depois de selecionar o ícone apropriado, será solicitado que faça sedudas novamente para atualizar as suas informações.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que fez o back up e recuperou as credenciais da sua conta para o seu novo dispositivo, pode continuar a utilizar a aplicação Microsoft Authenticator para verificar a sua identidade. Para obter mais informações, consulte [iniciar sôm nas suas contas utilizando a aplicação Microsoft Authenticator](user-help-sign-in.md).
 

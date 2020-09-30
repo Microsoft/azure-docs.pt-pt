@@ -5,21 +5,21 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 08/17/2020
+ms.date: 09/29/2020
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 57ead9636b7218ecfc7d72bb605b469d6a7d1ac6
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: da983719dc66656aa28cab4aea0bae558c2a7162
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536365"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530426"
 ---
 # <a name="configuring-azure-spatial-anchors-in-a-unity-project"></a>Configurar âncoras espaciais Azure num projeto de unidade
 
 Este guia irá mostrar-lhe como começar com o Azure Spatial Anchors SDK no seu projeto De unidade.
 
-## <a name="requirements"></a>Requisitos
+## <a name="requirements"></a>Requirements
 
 A Azure Spatial Anchors suporta atualmente a Unidade 2019.4 (LTS) com as seguintes configurações.
 
@@ -57,7 +57,7 @@ A azure Spatial Anchors for Unitity é atualmente distribuído usando pacotes De
 1. Ir para **editar**  >  **o leitor de definições de**  >  **projeto**.
 2. No **Painel de Inspetor** para **Definições de Jogadores,** selecione o ícone **Android.**
 3. Na secção **Build,** consulte a caixa de verificação **do Modelo de Gradle Principal personalizado** para gerar um modelo de gradle personalizado em `Assets\Plugins\Android\mainTemplate.gradle` .
-4. Abra o seu `mainTemplate.gradle` arquivo num editor de texto. 
+4. Abra o seu `mainTemplate.gradle` arquivo num editor de texto.
 5. Na `dependencies` secção, cole as seguintes dependências:
 
     ```gradle
@@ -72,10 +72,10 @@ Quando tudo estiver feito, a sua `dependencies` secção deve ser assim:
 ### <a name="import-the-asset-package"></a>[Importar o pacote de ativos](#tab/UnityAssetPackage)
 
 > [!WARNING]
-> A distribuição do Pacote de Ativos de Unidade do Azure Spatial Anchors SDK será depreciada após a versão SDK 2.5.0.
+> A distribuição do Pacote de Ativos de Unidade do Azure Spatial Anchors SDK foi depreciada na versão 2.5.0 e já não está disponível a partir de 2.6.0.
 
-1. Descarregue o `AzureSpatialAnchors.unitypackage` ficheiro para a versão que pretende ser alvo a partir das [versões](https://github.com/Azure/azure-spatial-anchors-samples/releases)do GitHub . 
-2. Siga as instruções [aqui](https://docs.unity3d.com/Manual/AssetPackagesImport.html) para importar o pacote de ativos da Unidade para o seu projeto.    
+1. Descarregue o `AzureSpatialAnchors.unitypackage` ficheiro para a versão que pretende ser alvo a partir das [versões](https://github.com/Azure/azure-spatial-anchors-samples/releases)do GitHub .
+2. Siga as instruções [aqui](https://docs.unity3d.com/Manual/AssetPackagesImport.html) para importar o pacote de ativos da Unidade para o seu projeto.
 
 ---
 

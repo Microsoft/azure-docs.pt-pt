@@ -3,12 +3,12 @@ title: Problemas de rede de resolução de problemas com registo
 description: Sintomas, causas e resolução de problemas comuns ao aceder a um registo de contentores Azure numa rede virtual ou atrás de uma firewall
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: 227eeeadb2aef4b4d3feb7923a198b129a6267d3
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 06c5b65537fd7d256010260bb3a93888721f643b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88227464"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532453"
 ---
 # <a name="troubleshoot-network-issues-with-registry"></a>Problemas de rede de resolução de problemas com registo
 
@@ -32,7 +32,7 @@ Pode incluir um ou mais dos seguintes:
 * Uma firewall de cliente ou procuração impede o acesso - [solução](#configure-client-firewall-access)
 * Regras públicas de acesso à rede no registo impedem o acesso - [solução](#configure-public-access-to-registry)
 * A configuração da rede virtual impede o acesso - [solução](#configure-vnet-access)
-* Você tenta integrar o Azure Security Center com um registo que tem um ponto final privado ou ponto final de serviço - [solução](#configure-image-scanning-solution)
+* Você tenta integrar o Azure Security Center ou certos outros serviços Azure com um registo que tem um ponto final privado, ponto final de serviço ou regras públicas de acesso IP - [solução](#configure-service-access)
 
 ## <a name="further-diagnosis"></a>Diagnóstico adicional 
 
@@ -96,17 +96,22 @@ Links relacionados:
 * [Kubernetes: Resolução DNS de depurar](https://kubernetes.io/docs/tasks/administer-cluster/dns-debugging-resolution/)
 * [Tags de serviço de rede virtual](../virtual-network/service-tags-overview.md)
 
-### <a name="configure-image-scanning-solution"></a>Configure a solução de digitalização de imagem
+### <a name="configure-service-access"></a>Configure acesso ao serviço
 
-Se o seu registo estiver configurado com um ponto final privado ou ponto final de serviço, não pode atualmente integrar-se com o Azure Security Center para digitalização de imagens. Opcionalmente, configurar outras soluções de digitalização de imagem disponíveis no Azure Marketplace, incluindo:
+Atualmente, o Azure Security Center não pode realizar [a verificação de vulnerabilidade de imagem](../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json) num registo que restringe o acesso a pontos finais privados, sub-redes selecionadas ou endereços IP. Além disso, os recursos dos seguintes serviços não podem aceder a um registo de contentores com restrições de rede:
 
-* [Plataforma de Segurança Nativa Aqua Cloud](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security)
-* [Edição Empresarial Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock)
+* Serviços de DevOps do Azure 
+* Azure Container Instances
+* Tarefas do Azure Container Registry
+
+Se for necessário aceder ou integração destes serviços Azure com o seu registo de contentores, remova a restrição de rede. Por exemplo, remova os pontos finais privados do registo ou remova ou modifique as regras de acesso público do registo.
 
 Links relacionados:
 
 * [Digitalização da imagem do registo do contentor Azure pelo Centro de Segurança](../security-center/azure-container-registry-integration.md)
 * Fornecer [feedback](https://feedback.azure.com/forums/347535-azure-security-center/suggestions/41091577-enable-vulnerability-scanning-for-images-that-are)
+* [Configurar regras públicas de rede IP](container-registry-access-selected-networks.md)
+* [Conecte-se privadamente a um registo de contentores Azure usando a Azure Private Link](container-registry-private-link.md)
 
 
 ## <a name="advanced-troubleshooting"></a>Resolução de problemas avançados
@@ -126,7 +131,7 @@ Se não resolver o seu problema aqui, consulte as seguintes opções.
 
 * Outros tópicos de resolução de problemas do registo incluem:
   * [Login de registo de resolução de problemas](container-registry-troubleshoot-login.md) 
-  * [Desempenho do registo de resolução de problemas](container-registry-troubleshoot-performance.md)
+  * [Resolver problemas de desempenho de registo](container-registry-troubleshoot-performance.md)
 * [Opções de apoio comunitário](https://azure.microsoft.com/support/community/)
 * [Perguntas e Respostas da Microsoft](https://docs.microsoft.com/answers/products/)
 * [Abrir um pedido de suporte](https://azure.microsoft.com/support/create-ticket/)

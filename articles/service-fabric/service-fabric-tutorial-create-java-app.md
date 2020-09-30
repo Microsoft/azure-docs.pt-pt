@@ -1,17 +1,15 @@
 ---
 title: 'Tutorial: Criar uma aplicação Java no Azure Service Fabric'
 description: Neste tutorial, vai aprender a criar uma aplicação Java de serviço fiável com um front-end, a criar um back-end com estado de serviços fiáveis e a implementar a aplicação num cluster.
-author: suhuruli
 ms.topic: tutorial
 ms.date: 09/01/2018
-ms.author: suhuruli
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, devx-track-js
-ms.openlocfilehash: a3e58ae01fa3f30f0b13ffb176becb76371ed158
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: d1f66177b1939d612a5ee80c99109c397b56cb37
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326359"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532198"
 ---
 # <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>Tutorial: Crie uma aplicação com um serviço frontal java API e um serviço de back-end imponente no Azure Service Fabric
 
@@ -904,7 +902,7 @@ Neste momento, a aplicação está pronta para ser implementada num cluster do S
 5. Na janela **'Aplicação de publicação',** selecione **Local.js** a partir do dropdown e selecione **Publicar**.
 6. Vá ao seu navegador web e aceda http: \/ /localhost:8080 para ver a sua aplicação de execução no cluster de Tecido de Serviço local. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Nesta parte do tutorial, ficou a saber como:
 

@@ -1,17 +1,15 @@
 ---
 title: Monitorize as suas aplicações em Tecido de Serviço usando ELK in Azure
 description: Neste tutorial, saiba como configurar o ELK e monitorizar as suas aplicações do Service Fabric.
-author: suhuruli
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: suhuruli
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 5825c7d751781181794900cecab1487ed44a997f
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 5faf26230618161a5b908c9a544a43ec5c33b807
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91361454"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532027"
 ---
 # <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>Tutorial: Monitorizar as aplicações do Service Fabric com o ELK
 

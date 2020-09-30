@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 76809a41400502ec48c2dd674f8976bb168ec9f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 40af9ac692a226b12f984db447db9635cba655e4
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83735995"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530260"
 ---
 # <a name="set-up-a-mobile-device-as-your-two-factor-verification-method"></a>Crie um dispositivo móvel como o seu método de verificação de dois fatores
 
@@ -30,7 +30,7 @@ Pode configurar o seu dispositivo móvel para funcionar como o seu método de ve
 
 2. Selecione **Enviar-me um código por mensagem** de texto a partir da área **Método** e, em seguida, selecione **Seguinte**.
 
-    ![Página adicional de verificação de segurança, com telefone de autenticação e mensagem de texto](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message.png)
+    ![Screenshot que mostra a página "Verificação adicional de segurança", com "Telefone de autenticação" e "Enviar-me um código por mensagem de texto" selecionado.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message.png)
 
 3. Digite o código de verificação da mensagem de texto enviada pela Microsoft para o **Passo 2: Enviámos uma mensagem de texto para a sua** área de telefone e, em seguida, selecione **Verificar**.
 
@@ -43,7 +43,7 @@ Pode configurar o seu dispositivo móvel para funcionar como o seu método de ve
     >[!Note]
     >Para obter informações sobre como usar a palavra-passe da aplicação com as suas aplicações mais antigas, consulte [Gerir as palavras-passe da aplicação.](multi-factor-authentication-end-user-app-passwords.md) Só precisa de usar palavras-passe de aplicações se continuar a utilizar aplicações mais antigas que não suportam a verificação de dois fatores.
 
-5. Selecione **Done** (Concluído).
+5. Selecione **Concluído**.
 
 ## <a name="set-up-your-mobile-device-to-receive-a-phone-call"></a>Configurar o seu dispositivo móvel para receber uma chamada telefónica
 
@@ -64,9 +64,9 @@ Pode configurar o seu dispositivo móvel para funcionar como o seu método de ve
     >[!Note]
     >Para obter informações sobre como usar a palavra-passe da aplicação com as suas aplicações mais antigas, consulte [Gerir as palavras-passe da aplicação.](multi-factor-authentication-end-user-app-passwords.md) Só precisa de usar palavras-passe de aplicações se continuar a utilizar aplicações mais antigas que não suportam a verificação de dois fatores.
 
-5. Selecione **Done** (Concluído).
+5. Selecione **Concluído**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de configurar o seu método de verificação de dois fatores, pode adicionar métodos adicionais, gerir as suas definições e senhas de aplicação, iniciar sposição ou obter ajuda com alguns problemas comuns relacionados com a verificação de dois fatores.
 

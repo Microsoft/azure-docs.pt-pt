@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: f3ac2f82882dfd7eb1e15e9a5287cf1d6f5b32d2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 87c16207f312479dcfe083ad9494d75b3538e18c
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91301538"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532555"
 ---
 # <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>Isentar um recurso de recomendações e pontuação segura
 
@@ -32,8 +32,8 @@ O recurso será listado como não aplicável e a razão será mostrada como "ise
 |----|:----|
 |Estado de libertação:|Pré-visualizar|
 |Preços:|Esta é uma capacidade de política premium Azure que é oferecida para os clientes Azure Defender sem custos adicionais. Para outros utilizadores, os encargos podem ser aplicados no futuro.|
-|Funções e permissões necessárias:|**Proprietário de assinatura** ou **colaborador de política** para criar uma isenção<br>Para criar uma regra, precisa de permissões para editar políticas na Política Azure.<br>Saiba mais em [Permissões RBAC na Política Azure](../governance/policy/overview.md#rbac-permissions-in-azure-policy).|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Funções e permissões necessárias:|**Proprietário de assinatura** ou **colaborador de política** para criar uma isenção<br>Para criar uma regra, precisa de permissões para editar políticas na Política Azure.<br>Saiba mais nas [permissões Azure RBAC na Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -45,7 +45,7 @@ O recurso será listado como não aplicável e a razão será mostrada como "ise
 
     O painel de isenção de criação abre.
 
-    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="Criar painel de isenção":::
+    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="Criar opção de isenção do menu de contexto":::
 
 1. Insira os seus critérios e selecione um critério para que este recurso seja isento:
     - **Mitigado** - Este problema não é relevante para o recurso porque foi tratado por uma ferramenta ou processo diferente daquele que está sendo sugerido
@@ -56,11 +56,11 @@ O recurso será listado como não aplicável e a razão será mostrada como "ise
     - O recurso está listado no separador **Não aplicável** da página de detalhes da recomendação
     - A tira de informação no topo da página de detalhes da recomendação lista o número de recursos isentos:
         
-        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Número de recursos isentos":::
+        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Criar opção de isenção do menu de contexto":::
 
 1. Para rever os seus recursos isentos, abra o **separador Não aplicável.**
 
-    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modificação de uma isenção":::
+    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Criar opção de isenção do menu de contexto":::
 
     A razão de cada isenção está incluída na tabela (1).
 
@@ -73,11 +73,11 @@ As regras de isenção utilizam a política Azure para criar uma isenção para 
 
 Pode utilizar a Política Azure para acompanhar toda a sua isenção na página **isenção:**
 
-:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Página de isenção da Azure Policy":::
+:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Criar opção de isenção do menu de contexto":::
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a isentar um recurso de uma recomendação para que não tenha impacto na sua pontuação segura. Para obter mais informações sobre a pontuação segura, consulte:
 

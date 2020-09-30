@@ -11,23 +11,26 @@ ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 874978288a38ff56ce220dd13cb6f3dfec902b2d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 98c42a61e65935446f948e35cb08ed2893dd0b7b
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934587"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91532522"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de voz em texto
 
 Como alternativa ao [SDK](speech-sdk.md)de discurso, o serviço Discurso permite converter discurso-texto usando uma API REST. Cada ponto final acessível está associado a uma região. A sua aplicação requer uma chave de subscrição para o ponto final que pretende utilizar. A API rest é muito limitada, e só deve ser usada em casos em que o [SDK de discurso](speech-sdk.md) não pode.
 
-Antes de utilizar a API REST de discurso-a-texto, compreenda:
+Antes de utilizar a API REST de discurso-a-texto, considere o seguinte:
 
 * Os pedidos que utilizam a API REST e transmitem áudio diretamente só podem conter até 60 segundos de áudio.
 * A API rest de expressão em texto apenas devolve os resultados finais. Os resultados parciais não são fornecidos.
 
 Se o envio de áudio mais longo for um requisito para a sua aplicação, considere utilizar o [SDK de fala](speech-sdk.md) ou uma API REST baseada em ficheiros, como [a transcrição do lote](batch-transcription.md).
+
+> [!TIP]
+> Consulte a [documentação](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure) do governo Azure para os pontos finais da nuvem governamental (FairFax).
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
@@ -52,7 +55,7 @@ Estes parâmetros podem ser incluídos na sequência de consulta do pedido REST.
 
 | Parâmetro | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
-| `language` | Identifica a língua falada que está a ser reconhecida. Ver [línguas suportadas.](language-support.md#speech-to-text) | Obrigatório |
+| `language` | Identifica a língua falada que está a ser reconhecida. Ver [línguas suportadas.](language-support.md#speech-to-text) | Necessário |
 | `format` | Especifica o formato de resultado. Os valores aceites são `simple` `detailed` e. Os resultados simples `RecognitionStatus` `DisplayText` incluem, `Offset` `Duration` e. As respostas detalhadas incluem quatro representações diferentes do texto do visor. A predefinição é `simple`. | Opcional |
 | `profanity` | Especifica como lidar com a profanação nos resultados do reconhecimento. Os `masked` valores aceites são , que substitui a profanação por asteriscos, que `removed` removem toda a profanação do resultado, ou `raw` , que inclui a profanação no resultado. A predefinição é `masked`. | Opcional |
 | `cid` | Ao utilizar o [portal Discurso Personalizado](how-to-custom-speech.md) para criar modelos personalizados, pode utilizar modelos personalizados através do seu **ID Endpoint** encontrado na página **De implementação.** Utilize o **ID endpoint** como argumento para o parâmetro de `cid` cadeia de consulta. | Opcional |
@@ -66,7 +69,7 @@ Esta tabela lista os cabeçalhos necessários e opcionais para pedidos de discur
 | `Ocp-Apim-Subscription-Key` | A chave de subscrição do serviço de discurso. | Ou este cabeçalho ou `Authorization` é necessário. |
 | `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Ou este cabeçalho ou `Ocp-Apim-Subscription-Key` é necessário. |
 | `Pronunciation-Assessment` | Especifica os parâmetros para mostrar pontuações de pronúncia nos resultados do reconhecimento, que avaliam a qualidade de pronúncia da entrada da fala, com indicadores de precisão, fluência, completude, etc. Este parâmetro é um json codificado base64 contendo vários parâmetros detalhados. Consulte os parâmetros de [avaliação da pronúncia](#pronunciation-assessment-parameters) para construir este cabeçalho. | Opcional |
-| `Content-type` | Descreve o formato e o codec dos dados áudio fornecidos. Os valores aceites são `audio/wav; codecs=audio/pcm; samplerate=16000` `audio/ogg; codecs=opus` e. | Obrigatório |
+| `Content-type` | Descreve o formato e o codec dos dados áudio fornecidos. Os valores aceites são `audio/wav; codecs=audio/pcm; samplerate=16000` `audio/ogg; codecs=opus` e. | Necessário |
 | `Transfer-Encoding` | Especifica que os dados de áudio em pedaços estão a ser enviados, em vez de um único ficheiro. Utilize apenas este cabeçalho se os dados áudio em pedaços. | Opcional |
 | `Expect` | Se utilizar uma transferência em pedaços, envie `Expect: 100-continue` . O serviço Discurso reconhece o pedido inicial e aguarda dados adicionais.| Necessário se enviar dados áudio em pedaços. |
 | `Accept` | Se for fornecido, deve `application/json` ser. O serviço Discurso fornece resultados em JSON. Alguns quadros de pedido fornecem um valor padrão incompatível. É uma boa prática incluir `Accept` sempre. | Opcional, mas recomendado. |
@@ -89,7 +92,7 @@ Esta tabela lista os parâmetros necessários e opcionais para a avaliação da 
 
 | Parâmetro | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
-| Texto de Referência | O texto contra o que a pronúncia será avaliado. | Obrigatório |
+| Texto de Referência | O texto contra o que a pronúncia será avaliado. | Necessário |
 | Sistema de Classificação | O sistema de pontos para a calibração da pontuação. Os valores aceites são `FivePoint` `HundredMark` e. A predefinição é `FivePoint`. | Opcional |
 | Granularidade | A granularidade de avaliação. Os valores aceites são `Phoneme` , que mostram a pontuação no nível completo do texto, palavra e fon de texto, que mostra a `Word` pontuação no texto completo e no nível de palavra, `FullText` que mostra a pontuação apenas no nível de texto completo. A predefinição é `Phoneme`. | Opcional |
 | Dimensão | Define os critérios de saída. Os valores aceites são `Basic` , que mostram apenas a pontuação de precisão, `Comprehensive` mostra pontuações em mais dimensões (por exemplo, pontuação de fluência e pontuação de completude no nível de texto completo, tipo de erro no nível de palavra). Consulte [os parâmetros de resposta](#response-parameters) para ver definições de diferentes dimensões de pontuação e tipos de erros de palavras. A predefinição é `Basic`. | Opcional |
@@ -301,7 +304,7 @@ Uma resposta típica para o reconhecimento com avaliação da pronúncia:
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma conta do Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)

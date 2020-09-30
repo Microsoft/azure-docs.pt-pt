@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 4b729e975ddc9c184c1b0f39a6d3be548211cdfc
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 990d8ef275982b6d70c51819e47b33f543345023
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052720"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531280"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições de conta no Azure Ative Directory
 
@@ -47,7 +47,7 @@ A política de palavra-passe não se aplica às contas de utilizador sincronizad
 
 São definidas as seguintes opções de política de senha:
 
-| Propriedade | Requisitos |
+| Propriedade | Requirements |
 | --- | --- |
 | Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li># $ % ^ & * - _ ! + = { { } &#124; \ : '' . ? / \` ~ " ( ) ;</li> <li>espaço em branco</li></ul> |
 | Caracteres não são permitidos | Caracteres unicódigo. |
@@ -61,7 +61,7 @@ São definidas as seguintes opções de política de senha:
 
 ## <a name="administrator-reset-policy-differences"></a>Administrator reset policy differences (Diferenças da política de reposição de administrador)
 
-A Microsoft aplica uma forte política de reset de senha *de dois prazos* para qualquer função de administrador do Azure. Esta política pode ser diferente da que definiu para os seus utilizadores, e esta política não pode ser alterada. Deve sempre testar a funcionalidade de reset da palavra-passe como utilizador sem quaisquer funções de administrador Azure atribuídas.
+Por padrão, as contas do administrador são ativadas para o reset da palavra-passe *de autosserviço* e uma forte política de reset de senha de dois prazos por defeito é aplicada. Esta política pode ser diferente da que definiu para os seus utilizadores, e esta política não pode ser alterada. Deve sempre testar a funcionalidade de reset da palavra-passe como utilizador sem quaisquer funções de administrador Azure atribuídas.
 
 Com uma política de dois portões, os administradores não têm a capacidade de usar questões de segurança.
 
@@ -93,6 +93,8 @@ A política de dois portões requer duas peças de dados de autenticação, como
 * Se tiverem decorrido 30 dias de subscrição experimental; ou
 * Um domínio personalizado foi configurado para o seu inquilino AD Azure, como *contoso.com;* ou
 * Azure AD Connect está sincronizando identidades do seu diretório no local
+
+Pode desativar a utilização de SSPR para contas de administrador utilizando o [cmdlet PowerShell set-MsolCompanySettings.](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) O `-SelfServePasswordResetEnabled $False` parâmetro desativa a SSPR para administradores.
 
 ### <a name="exceptions"></a>Exceções
 

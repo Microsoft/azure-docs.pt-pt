@@ -6,37 +6,37 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: f093d9b1a67d5e6836fc7f760b0336c9923f5186
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: d1fa99d0954177e2804039fc71c2ba010b94bd50
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90902076"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530945"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Leia réplicas na Base de Dados Azure para PostgreSQL - Servidor Único
 
-A funcionalidade de réplica de leitura permite-lhe replicar dados de uma Base de Dados Azure para servidor PostgreSQL para um servidor apenas de leitura. Pode replicar do servidor mestre para até cinco réplicas. As réplicas são atualizadas assincronamente com a tecnologia de replicação nativa do PostgreSQL.
+A funcionalidade de réplica de leitura permite-lhe replicar dados de uma Base de Dados Azure para servidor PostgreSQL para um servidor apenas de leitura. Pode replicar-se do servidor primário até cinco réplicas. As réplicas são atualizadas assincronamente com a tecnologia de replicação nativa do PostgreSQL.
 
 As réplicas são novos servidores que gere, à semelhança dos servidores da Base de Dados do Azure para PostgreSQL normais. Para cada réplica de leitura, você é cobrado para o cálculo provisionado em vCores e armazenamento em GB/mês.
 
 Saiba como [criar e gerir réplicas.](howto-read-replicas-portal.md)
 
 ## <a name="when-to-use-a-read-replica"></a>Quando usar uma réplica de leitura
-A funcionalidade de réplica de leitura ajuda a melhorar o desempenho e a escala das cargas de trabalho intensivas de leitura. As cargas de trabalho de leitura podem ser isoladas às réplicas e as cargas de trabalho de escrita podem ser encaminhadas para o servidor mestre.
+A funcionalidade de réplica de leitura ajuda a melhorar o desempenho e a escala das cargas de trabalho intensivas de leitura. As cargas de trabalho de leitura podem ser isoladas às réplicas, enquanto as cargas de trabalho de escrita podem ser direcionadas para as primárias.
 
 Um cenário comum é fazer com que as cargas de trabalho bi e analíticas utilizem a réplica de leitura como fonte de dados para reportar.
 
-Como as réplicas são apenas de leitura, não reduzem diretamente os encargos de capacidade de escrita para o mestre. Esta funcionalidade não está direcionada para cargas de trabalho de escrita intensa.
+Como as réplicas são apenas de leitura, não reduzem diretamente os encargos de capacidade de escrita nas primárias. Esta funcionalidade não está direcionada para cargas de trabalho de escrita intensa.
 
-A funcionalidade de réplica de leitura utiliza a replicação assíncronea postgresQL. A funcionalidade não se destina a cenários de replicação sincronizados. Haverá um atraso mensurável entre o mestre e a réplica. Os dados sobre a réplica eventualmente tornam-se consistentes com os dados do mestre. Utilize esta funcionalidade para cargas de trabalho que possam acomodar este atraso.
+A funcionalidade de réplica de leitura utiliza a replicação assíncronea postgresQL. A funcionalidade não se destina a cenários de replicação sincronizados. Haverá um atraso mensurável entre as primárias e a réplica. Os dados sobre a réplica eventualmente tornam-se consistentes com os dados sobre o primário. Utilize esta funcionalidade para cargas de trabalho que possam acomodar este atraso.
 
 ## <a name="cross-region-replication"></a>Replicação entre regiões
-Pode criar uma réplica de leitura numa região diferente do seu servidor principal. A replicação transversal pode ser útil para cenários como o planeamento de recuperação de desastres ou a aproximação de dados aos seus utilizadores.
+Pode criar uma réplica de leitura numa região diferente do seu servidor primário. A replicação transversal pode ser útil para cenários como o planeamento de recuperação de desastres ou a aproximação de dados aos seus utilizadores.
 
 >[!NOTE]
 > Os servidores de nível básico só suportam a replicação da mesma região.
 
-Pode ter um servidor principal em qualquer [Base de Dados Azure para a região postgreSQL.](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql) Um servidor principal pode ter uma réplica na sua região emparelhada ou nas regiões universais de réplicas. A imagem abaixo mostra quais as regiões réplicas disponíveis dependendo da sua região principal.
+Pode ter um servidor primário em qualquer [Base de Dados Azure para a região postgreSQL.](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql) Um servidor primário pode ter uma réplica na sua região emparelhada ou nas regiões réplicas universais. A imagem abaixo mostra quais as regiões réplicas disponíveis dependendo da sua região primária.
 
 [:::image type="content" source="media/concepts-read-replica/read-replica-regions.png" alt-text="Ler regiões réplicas":::](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
@@ -46,7 +46,7 @@ Pode sempre criar uma réplica de leitura em qualquer uma das seguintes regiões
 Austrália Leste, Austrália Sudeste, Eua Central, Leste da Ásia, Leste dos EUA, Leste dos EUA 2, Japão Leste, Japão Oeste, Coreia Central, Coreia do Sul, Norte Central dos EUA, Norte da Europa, Sudeste Asiático, Reino Unido Sul, Reino Unido Oeste, Europa Ocidental, Eua Ocidental, Eua Ocidental 2, West Central EUA.
 
 ### <a name="paired-regions"></a>Regiões emparelhadas
-Além das regiões universais de réplicas, pode criar uma réplica de leitura na região emparelhada Azure do seu servidor principal. Se não conhece o par da sua região, pode aprender mais com o [artigo Azure Paired Regions](../best-practices-availability-paired-regions.md).
+Além das regiões de réplica universal, pode criar uma réplica de leitura na região emparelhada Azure do seu servidor primário. Se não conhece o par da sua região, pode aprender mais com o [artigo Azure Paired Regions](../best-practices-availability-paired-regions.md).
 
 Se estiver a utilizar réplicas transversais para o planeamento de recuperação de desastres, recomendamos que crie a réplica na região emparelhada em vez de uma das outras regiões. As regiões emparelhadas evitam atualizações simultâneas e priorizam o isolamento físico e a residência de dados.  
 
@@ -55,11 +55,11 @@ Existem limitações a considerar:
 * Disponibilidade regional: A Azure Database for PostgreSQL está disponível em France Central, UAE North e Germany Central. No entanto, as suas regiões emparelhadas não estão disponíveis.
     
 * Pares unidirecionais: Algumas regiões azures são emparelhadas apenas numa direção. Estas regiões incluem a Índia Ocidental, Brasil Sul. 
-   Isto significa que um servidor principal na Índia Ocidental pode criar uma réplica no Sul da Índia. No entanto, um servidor principal no Sul da Índia não pode criar uma réplica na Índia Ocidental. Isto porque a região secundária da Índia Ocidental é a Índia do Sul, mas a região secundária do Sul da Índia não é a Índia Ocidental.
+   Isto significa que um servidor primário na Índia Ocidental pode criar uma réplica no Sul da Índia. No entanto, um servidor primário no Sul da Índia não pode criar uma réplica na Índia Ocidental. Isto porque a região secundária da Índia Ocidental é a Índia do Sul, mas a região secundária do Sul da Índia não é a Índia Ocidental.
 
 
 ## <a name="create-a-replica"></a>Criar uma réplica
-Quando inicia o fluxo de trabalho de réplicas, é criada uma Base de Dados Azure em branco para servidor PostgreSQL. O novo servidor está cheio dos dados que estavam no servidor principal. O tempo de criação depende da quantidade de dados sobre o mestre e do tempo desde o último backup completo semanal. O tempo pode variar entre alguns minutos e várias horas.
+Quando inicia o fluxo de trabalho de réplicas, é criada uma Base de Dados Azure em branco para servidor PostgreSQL. O novo servidor está cheio dos dados que estavam no servidor primário. O tempo de criação depende da quantidade de dados sobre o primário e o tempo desde o último backup completo semanal. O tempo pode variar entre alguns minutos e várias horas.
 
 Todas as réplicas estão ativadas para o armazenamento [de crescimento automático.](concepts-pricing-tiers.md#storage-auto-grow) A funcionalidade de crescimento automático permite que a réplica acompanhe os dados replicados e evite uma rutura na replicação causada por erros de armazenamento.
 
@@ -68,9 +68,9 @@ A funcionalidade de réplica de leitura utiliza a replicação física postgreSQ
 Saiba como [criar uma réplica de leitura no portal Azure.](howto-read-replicas-portal.md)
 
 ## <a name="connect-to-a-replica"></a>Ligar-se a uma réplica
-Quando cria uma réplica, não herda as regras de firewall ou o ponto final de serviço VNet do servidor principal. Estas regras devem ser criadas de forma independente para a réplica.
+Quando cria uma réplica, não herda as regras de firewall ou o ponto final de serviço VNet do servidor primário. Estas regras devem ser criadas de forma independente para a réplica.
 
-A réplica herda a conta de administração do servidor principal. Todas as contas de utilizador no servidor principal são replicadas nas réplicas de leitura. Só é possível ligar-se a uma réplica de leitura utilizando as contas de utilizador que estão disponíveis no servidor principal.
+A réplica herda a conta de administração do servidor primário. Todas as contas de utilizador no servidor primário são replicadas nas réplicas de leitura. Só é possível ligar-se a uma réplica de leitura utilizando as contas de utilizador que estão disponíveis no servidor primário.
 
 Pode ligar-se à réplica utilizando o seu nome de anfitrião e uma conta de utilizador válida, como faria numa base de dados Azure regular para servidor PostgreSQL. Para um servidor chamado **minha réplica** com o nome de utilizador de administração **myadmin,** pode ligar-se à réplica utilizando psql:
 
@@ -83,9 +83,9 @@ A pedido, introduza a palavra-passe para a conta de utilizador.
 ## <a name="monitor-replication"></a>Monitorizar a replicação
 A Azure Database for PostgreSQL fornece duas métricas para monitorização da replicação. As duas métricas são **Max Lag Através de Réplicas** e Replica **Lag**. Para aprender a ver estas métricas, consulte o **Monitor uma** secção réplica do artigo de réplica [de leitura](howto-read-replicas-portal.md).
 
-A métrica **Max Lag Across Replicas** mostra o desfasamento nos bytes entre o mestre e a réplica mais atrasada. Esta métrica está disponível apenas no servidor principal.
+A métrica **Max Lag Across Replicas** mostra o desfasamento nos bytes entre a réplica primária e a réplica mais atrasada. Esta métrica está disponível apenas no servidor primário.
 
-A métrica **Replica Lag** mostra o tempo desde a última transação reproduzida. Se não houver transações no seu servidor principal, a métrica reflete este desfasamento temporal. Esta métrica está disponível apenas para servidores de réplicas. O Lag de réplica é calculado a partir da `pg_stat_wal_receiver` vista:
+A métrica **Replica Lag** mostra o tempo desde a última transação reproduzida. Se não houver transações no seu servidor primário, a métrica reflete este desfasamento temporal. Esta métrica está disponível apenas para servidores de réplicas. O Lag de réplica é calculado a partir da `pg_stat_wal_receiver` vista:
 
 ```SQL
 EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
@@ -93,7 +93,7 @@ EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 
 Desaça um alerta para informá-lo quando o lag da réplica atingir um valor que não é aceitável para a sua carga de trabalho. 
 
-Para obter informações adicionais, consultar o servidor principal diretamente para obter o lag de replicação em bytes em todas as réplicas.
+Para obter informações adicionais, consultar o servidor primário diretamente para obter o lag de replicação em bytes em todas as réplicas.
 
 Na versão 10 do PostgreSQL:
 
@@ -110,34 +110,34 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 ```
 
 > [!NOTE]
-> Se um servidor principal ou uma réplica de leitura recomeçarem, o tempo que leva para reiniciar e recuperar é refletido na métrica Replica Lag.
+> Se um servidor primário ou uma réplica de leitura recomeçarem, o tempo necessário para reiniciar e recuperar é refletido na métrica Replica Lag.
 
 ## <a name="stop-replication"></a>Parar replicação
-Pode parar a replicação entre um mestre e uma réplica. A ação de paragem faz com que a réplica reinicie e remova as suas definições de replicação. Após a replicação ser interrompida entre um servidor principal e uma réplica de leitura, a réplica torna-se um servidor autónomo. Os dados no servidor autónomo são os dados disponíveis na réplica no momento em que o comando de replicação de paragem foi iniciado. O servidor autónomo não alcança o servidor principal.
+Pode parar a replicação entre uma primária e uma réplica. A ação de paragem faz com que a réplica reinicie e remova as suas definições de replicação. Após a replicação ser interrompida entre um servidor primário e uma réplica de leitura, a réplica torna-se um servidor autónomo. Os dados no servidor autónomo são os dados disponíveis na réplica no momento em que o comando de replicação de paragem foi iniciado. O servidor autónomo não alcança o servidor primário.
 
 > [!IMPORTANT]
 > O servidor autónomo não pode ser transformado numa réplica novamente.
 > Antes de parar a replicação numa réplica de leitura, certifique-se de que a réplica tem todos os dados necessários.
 
-Quando paras de replicar, a réplica perde todas as ligações com o seu mestre anterior e outras réplicas.
+Quando paras de replicação, a réplica perde todas as ligações com as suas réplicas primárias anteriores e outras.
 
 Aprenda a parar a [replicação a uma réplica.](howto-read-replicas-portal.md)
 
 ## <a name="failover"></a>Ativação pós-falha
-Não existe uma falha automatizada entre servidores mestre e réplica. 
+Não existe falha automatizada entre servidores primários e réplicas. 
 
-Como a replicação é assíncronea, há um desfasamento entre o mestre e a réplica. A quantidade de lag pode ser influenciada por uma série de fatores como o peso da carga de trabalho que funciona no servidor principal e a latência entre centros de dados. Na maioria dos casos, o atraso da réplica varia entre alguns segundos e alguns minutos. Pode rastrear o seu lag de replicação real usando o *Lag métrico de Réplica,* que está disponível para cada réplica. Esta métrica mostra o tempo desde a última transação reproduzida. Recomendamos que identifique qual é o seu atraso médio observando o seu atraso de réplica durante um período de tempo. Pode definir um alerta no lag de réplica, para que, se for fora do alcance esperado, possa tomar medidas.
+Como a replicação é assíncronea, há um desfasamento entre a primária e a réplica. A quantidade de lag pode ser influenciada por uma série de fatores como o peso da carga de trabalho que funciona no servidor primário e a latência entre centros de dados. Na maioria dos casos, o atraso da réplica varia entre alguns segundos e alguns minutos. Pode rastrear o seu lag de replicação real usando o *Lag métrico de Réplica,* que está disponível para cada réplica. Esta métrica mostra o tempo desde a última transação reproduzida. Recomendamos que identifique qual é o seu atraso médio observando o seu atraso de réplica durante um período de tempo. Pode definir um alerta no lag de réplica, para que, se for fora do alcance esperado, possa tomar medidas.
 
 > [!Tip]
-> Se falhar na réplica, o atraso no momento em que desvincular a réplica do mestre indicará quantos dados são perdidos.
+> Se falhar na réplica, o lag no momento em que desvincular a réplica da primária indicará quantos dados são perdidos.
 
 Uma vez que tenha decidido que quer falhar para uma réplica, 
 
 1. Pare a replicação na réplica<br/>
-   Este passo é necessário para que o servidor de réplica seja capaz de aceitar escritas. Como parte deste processo, o servidor de réplica reiniciará e será desvinculado do mestre. Uma vez iniciado a replicação stop, o processo de backend normalmente demora cerca de 2 minutos a ser concluído. Consulte a secção de replicação de [paragem](#stop-replication) deste artigo para entender as implicações desta ação.
+   Este passo é necessário para que o servidor de réplica seja capaz de aceitar escritas. Como parte deste processo, o servidor de réplica reiniciará e será desvinculado da primária. Uma vez iniciado a replicação stop, o processo de backend normalmente demora cerca de 2 minutos a ser concluído. Consulte a secção de replicação de [paragem](#stop-replication) deste artigo para entender as implicações desta ação.
     
 2. Aponte a sua aplicação para a (antiga) réplica<br/>
-   Cada servidor tem uma cadeia de ligação única. Atualize a sua aplicação para apontar para a (antiga) réplica em vez do mestre.
+   Cada servidor tem uma cadeia de ligação única. Atualize a sua aplicação para apontar para a (antiga) réplica em vez da primária.
     
 Uma vez que a sua aplicação esteja a processar com sucesso as leituras e as escritas, completou o failover. A quantidade de tempo de inatividade das suas experiências de aplicação dependerá de quando detetar um problema e completar os passos 1 e 2 acima.
 
@@ -161,9 +161,9 @@ O servidor precisa de ser reiniciado após uma alteração deste parâmetro. Int
 Uma réplica de leitura é criada como uma nova Base de Dados Azure para servidor PostgreSQL. Um servidor existente não pode ser transformado numa réplica. Não se pode criar uma réplica de outra réplica lida.
 
 ### <a name="replica-configuration"></a>Configuração de réplica
-Uma réplica é criada utilizando as mesmas definições de computação e armazenamento que o mestre. Após a criação de uma réplica, várias configurações podem ser alteradas, incluindo o período de armazenamento e retenção de backup.
+Uma réplica é criada utilizando as mesmas definições de computação e armazenamento que as primárias. Após a criação de uma réplica, várias configurações podem ser alteradas, incluindo o período de armazenamento e retenção de backup.
 
-As regras de firewall, as regras de rede virtual e as definições de parâmetros não são herdadas do servidor principal para a réplica quando a réplica é criada ou posteriormente.
+As regras de firewall, as regras de rede virtual e as definições de parâmetros não são herdadas do servidor primário para a réplica quando a réplica é criada ou posteriormente.
 
 ### <a name="scaling"></a>Dimensionamento
 Escalar vCores ou entre Propósito Geral e Memória Otimizada:
@@ -181,14 +181,14 @@ Armazenamento de escalonamento:
 Os servidores de nível básico só suportam a replicação da mesma região.
 
 ### <a name="max_prepared_transactions"></a>max_prepared_transactions
-[PostgreSQL exige que](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) o valor do `max_prepared_transactions` parâmetro na réplica de leitura seja maior ou igual ao valor principal; caso contrário, a réplica não arranca. Se queres mudar `max_prepared_transactions` no mestre, muda-o primeiro nas réplicas.
+[PostgreSQL exige que](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) o valor do `max_prepared_transactions` parâmetro na réplica de leitura seja maior ou igual ao valor primário; caso contrário, a réplica não será iniciada. Se quiser mudar `max_prepared_transactions` nas primárias, primeiro altere-a nas réplicas.
 
 ### <a name="stopped-replicas"></a>Réplicas paradas
-Se parar a replicação entre um servidor principal e uma réplica de leitura, a réplica reinicia para aplicar a alteração. A réplica parada torna-se um servidor autónomo que aceita tanto as leituras como as escritas. O servidor autónomo não pode ser transformado numa réplica novamente.
+Se parar a replicação entre um servidor primário e uma réplica de leitura, a réplica reinicia para aplicar a alteração. A réplica parada torna-se um servidor autónomo que aceita tanto as leituras como as escritas. O servidor autónomo não pode ser transformado numa réplica novamente.
 
-### <a name="deleted-master-and-standalone-servers"></a>Servidores mestre e autónomos apagados
-Quando um servidor principal é eliminado, todas as suas réplicas de leitura tornam-se servidores autónomos. As réplicas são reiniciadas para refletir esta mudança.
+### <a name="deleted-primary-and-standalone-servers"></a>Servidores primários e autónomos eliminados
+Quando um servidor primário é eliminado, todas as suas réplicas de leitura tornam-se servidores autónomos. As réplicas são reiniciadas para refletir esta mudança.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * Saiba como [criar e gerir réplicas de leitura no portal Azure.](howto-read-replicas-portal.md)
 * Saiba como [criar e gerir réplicas de leitura na ALI Azure e NA API REST.](howto-read-replicas-cli.md)

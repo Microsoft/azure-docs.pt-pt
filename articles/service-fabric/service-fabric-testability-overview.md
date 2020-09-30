@@ -1,16 +1,14 @@
 ---
 title: Visão geral do Serviço de Análise de Falhas
 description: Este artigo descreve o Serviço de Análise de Falhas no Tecido de Serviço por induzir falhas e executar cenários de teste contra os seus serviços.
-author: anmolah
 ms.topic: conceptual
 ms.date: 06/15/2017
-ms.author: anmola
-ms.openlocfilehash: d5c770a4d823ebe9b2700b081c407c54dd1d18a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e879b0b39d58f115b4661d47cf2ae564ba14e5d
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75465567"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531382"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introdução ao Serviço de Análise de Falhas
 O Serviço de Análise de Falhas foi concebido para serviços de testes construídos no Microsoft Azure Service Fabric. Com o Serviço de Análise de Falhas pode induzir falhas significativas e executar cenários de teste completos contra as suas aplicações. Estas falhas e cenários exercitam e validam os inúmeros estados e transições que um serviço irá experimentar ao longo da sua vida, tudo de forma controlada, segura e consistente.

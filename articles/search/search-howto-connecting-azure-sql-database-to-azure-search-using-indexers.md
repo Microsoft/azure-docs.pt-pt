@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 631f5afbac4337cd0852f46ac4a336107f042397
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: b1ad4ead83c9e07966f921a5b192f2791838e6ef
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91331646"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530566"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Ligue e indexe o conteúdo Azure SQL usando um indexador de pesquisa cognitiva Azure
 
@@ -39,7 +39,7 @@ Um indexador único só pode consumir uma tabela ou uma vista, mas pode criar v�
 Pode configurar e configurar um indexador Azure SQL utilizando:
 
 * Assistente de dados de importação no [portal Azure](https://portal.azure.com)
-* Pesquisa Cognitiva Azure [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
+* Pesquisa Cognitiva Azure [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer)
 * Azure Cognitive Search [REST API](/rest/api/searchservice/indexer-operations)
 
 Neste artigo, usaremos a API REST para criar **indexantes** e **fontes de dados.**
@@ -178,7 +178,7 @@ A Azure Cognitive Search usa **indexação incremental** para evitar ter que rei
 ### <a name="sql-integrated-change-tracking-policy"></a>Política integrada de rastreio de alterações DA SQL
 Se a sua base de dados SQL suportar o rastreio de [alterações,](/sql/relational-databases/track-changes/about-change-tracking-sql-server)recomendamos a utilização **da Política integrada de rastreio de alterações SQL.** Esta é a política mais eficiente. Além disso, permite que a Azure Cognitive Search identifique linhas eliminadas sem ter de adicionar uma coluna explícita de "soft delete" à sua mesa.
 
-#### <a name="requirements"></a>Requisitos 
+#### <a name="requirements"></a>Requirements 
 
 + Requisitos de versão da base de dados:
   * SQL Server 2012 SP3 e mais tarde, se estiver a utilizar o SQL Server em VMs Azure.
@@ -214,7 +214,7 @@ Ao utilizar a política integrada de rastreio de alterações SQL, não especifi
 
 Esta política de deteção de alterações baseia-se numa coluna de "marca de água elevada" que captura a versão ou hora em que uma linha foi atualizada pela última vez. Se estiver a usar uma vista, deve usar uma política de marca de água elevada. A coluna de alta marca de água deve satisfazer os seguintes requisitos.
 
-#### <a name="requirements"></a>Requisitos 
+#### <a name="requirements"></a>Requirements 
 
 * Todos os inserções especificam um valor para a coluna.
 * Todas as atualizações para um item também alteram o valor da coluna.

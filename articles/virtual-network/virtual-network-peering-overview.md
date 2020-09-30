@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: kumud
-ms.openlocfilehash: 6ba0caa2546fdb9d4845e2c7adf87a06d906dd12
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 61617777efa8241c93b2b5ffe42fc1d914b6ebcf
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87265165"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531875"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
-O espreitamento de rede virtual permite-lhe ligar sem problemas as redes na [Rede Virtual Azure.](virtual-networks-overview.md) As redes virtuais aparecem como uma para fins de conectividade. O tráfego entre máquinas virtuais utiliza a infraestrutura da espinha dorsal da Microsoft. Tal como o tráfego entre máquinas virtuais na mesma rede, o tráfego é encaminhado apenas através da rede *privada* da Microsoft.
+O espreitamento de rede virtual permite-lhe ligar perfeitamente duas ou mais [Redes Virtuais](virtual-networks-overview.md) em Azure. As redes virtuais aparecem como uma para fins de conectividade. O tráfego entre máquinas virtuais em redes virtuais espreitadas utiliza a infraestrutura da espinha dorsal da Microsoft. Tal como o tráfego entre máquinas virtuais na mesma rede, o tráfego é encaminhado apenas através da rede *privada* da Microsoft.
 
 O Azure suporta os seguintes tipos de espreguiçadamento:
 
@@ -76,7 +76,7 @@ O trânsito de gateway entre redes virtuais criados através de diferentes model
 
 Quando se percorre redes virtuais que partilham uma única ligação Azure ExpressRoute, o tráfego entre eles passa pela relação de espreitar. O tráfego usa a rede de espinha dorsal Azure. Pode continuar a utilizar gateways locais em cada rede virtual para ligar ao circuito no local. Caso contrário, pode utilizar um gateway partilhado e configurar o trânsito para a conectividade no local.
 
-## <a name="troubleshoot"></a>Resolução de problemas
+## <a name="troubleshoot"></a>Resolver Problemas
 
 Para confirmar que as redes virtuais são espreitadas, pode verificar rotas eficazes. Verifique as rotas de uma interface de rede em qualquer sub-rede de uma rede virtual. Se um peering de rede virtual existe, todas as sub-redes na rede virtual têm rotas com o tipo de salto seguinte *VNet peering*, para cada espaço de endereços em cada virtual rede peered. Para obter mais informações, consulte [diagnosticar um problema de encaminhamento de máquinas virtuais](diagnose-network-routing-problem.md).
 
@@ -106,7 +106,7 @@ Gateway Transit é uma propriedade que permite a uma rede virtual utilizar uma p
 >[!NOTE]
 > Uma versão anterior deste documento declarou que as taxas de observação da rede virtual não seriam aplicadas no VNet falado (ou VNet não de gateway) com o Gateway Transit. Reflete agora preços precisos na página de preços.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Pode criar um espreitamento entre duas redes virtuais. As redes podem pertencer à mesma subscrição, diferentes modelos de implementação na mesma subscrição ou subscrições diferentes. Conclua um tutorial para um dos cenários seguintes:
 

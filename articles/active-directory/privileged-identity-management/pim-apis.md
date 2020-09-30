@@ -14,12 +14,12 @@ ms.date: 01/02/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95b0b026b75b9b77c94451245ac4f18d487fc2e4
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: bb102c23d80095b8eb79fc25d1c1fd9d7f374fce
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783523"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529699"
 ---
 # <a name="microsoft-graph-apis-for-privileged-identity-management-preview"></a>APIs do Gráfico da Microsoft para Gestão de Identidade Privilegiada (Pré-visualização)
 
@@ -51,7 +51,7 @@ Se estiver a utilizar o Graph Explorer para testar as suas chamadas, pode especi
 
 1. Clique **em modificar permissões.**
 
-    ![Graph Explorer - modificar permissões](./media/pim-apis/graph-explorer.png)
+    ![Screenshot que mostra a página "Graph Explorer" com a ação "modificar permissões" selecionada.](./media/pim-apis/graph-explorer.png)
 
 1. Selecione as caixas de verificação ao lado das permissões que pretende incluir. `PrivilegedAccess.ReadWrite.AzureAD` ainda não está disponível no Graph Explorer.
 
@@ -59,6 +59,6 @@ Se estiver a utilizar o Graph Explorer para testar as suas chamadas, pode especi
 
 1. Clique **em Modificar Permissões** para aplicar as alterações de permissão.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Referência da Azure AD Gestão de Identidade Privilegiada API](/graph/api/resources/privilegedidentitymanagement-root?view=graph-rest-beta)

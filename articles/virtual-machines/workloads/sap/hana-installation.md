@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae4a7dc400b347a963e07a8c696e7581e2dcd703
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 60d889b232857ae69372df8ebabbd0edd01a2f17
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507850"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529835"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar o SAP HANA (Grandes Instâncias) em Azure
 
@@ -35,7 +35,7 @@ Valide o seguinte antes de iniciar a instalação HANA:
 - [Unidades HLI](#validate-the-hana-large-instance-units)
 - [Configuração do sistema operativo](#operating-system)
 - [Configuração de rede](#networking)
-- [Configuração de armazenamento](#storage)
+- [Configuração do armazenamento](#storage)
 
 
 ## <a name="validate-the-hana-large-instance-units"></a>Validar a unidade HANA Large Instance(s)
@@ -69,7 +69,7 @@ Especificamente, verifique os seguintes parâmetros e, eventualmente, ajuste-se 
 Começando pelo SLES12 SP1 e PELO RHEL 7.2, estes parâmetros devem ser definidos num ficheiro de configuração no diretório /etc/sysctl.d. Por exemplo, deve ser criado um ficheiro de configuração com o nome 91-NetApp-HANA.conf. Para as versões SLES e RHEL mais antigas, estes parâmetros devem ser definidos em/etc/sysctl.conf.
 
 Para todos os lançamentos RHEL a partir de RHEL 6.3, tenha em mente: 
-- O parâmetro sunrpc.tcp_slot_table_entries = 128 deve ser definido em/etc//modprobe.d/sunrpc-local.conf. Se o ficheiro não existir, é necessário criá-lo primeiro adicionando a entrada: 
+- O sunrpc.tcp_slot_table_entries = parâmetro 128 deve ser definido em/etc//modprobe.d/sunrpc-local.conf. Se o ficheiro não existir, é necessário criá-lo primeiro adicionando a entrada: 
     - opções sunrpc tcp_max_slot_table_entries=128
 
 O **quinto passo** é verificar o tempo do sistema da sua unidade HANA Large Instance. As ocorrências são implantadas com um fuso horário do sistema. Este fuso horário representa a localização da região de Azure em que está localizado o carimbo HANA Large Instance. Pode alterar o tempo do sistema ou o fuso horário das instâncias que possui. 
@@ -179,7 +179,7 @@ Estes pontos de montagem são configurados em /etc/fstab como mostrado nos segui
 
 A saída do comando df -h numa unidade de Grande Instância S72m HANA parece:
 
-![fstab de volumes montados na unidade HANA Large Instance](./media/hana-installation/image2_df_output.PNG)
+![A screenshot mostra a saída do comando para a unidade HANA Large Instance.](./media/hana-installation/image2_df_output.PNG)
 
 
 O controlador de armazenamento e os nós nos selos de Grande Instância são sincronizados com servidores NTP. Quando sincroniza as unidades SAP HANA em Azure (Grandes Instâncias) e VMs Azure contra um servidor NTP, não deverá haver uma deriva significativa entre a infraestrutura e as unidades de cálculo em selos Azure ou Large Instance.

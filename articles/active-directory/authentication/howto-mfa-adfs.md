@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf57bea87fcb5e1d1f1bde4eada5a79d2fef52c8
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 555673d1496ac33642e04c09233ba554ee2cca95
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90706324"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91531246"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Proteger recursos da nuvem com o Multi-Factor Authentication do Azure e o AD FS
 
@@ -38,12 +38,12 @@ Para proteger o recurso da cloud, configure uma regra de afirmações para que o
 
 5. No Assistente para Adicionar Regra de Afirmação de Transformação, selecione **Passar ou Filtrar uma Afirmação de Entrada** no menu pendente e clique em **Seguinte**.
 
-   ![Assistente para Adicionar Regra de Afirmação de Transformação](./media/howto-mfa-adfs/trustedip3.png)
+   ![A screenshot mostra adicionar o Assistente de Regra de Reclamação de Transformação onde seleciona um modelo de regra de reclamação.](./media/howto-mfa-adfs/trustedip3.png)
 
 6. Dê um nome à sua regra. 
 7. Selecione **Referências de Métodos de Autenticação** como o tipo de Afirmação de entrada.
 8. Selecione **Passar todos os valores de afirmação**.
-    ![Assistente para Adicionar Regra de Afirmação de Transformação](./media/howto-mfa-adfs/configurewizard.png)
+    ![A screenshot mostra adicionar o Assistente de Regra de Reclamação de Transformação onde seleciona Passar por todos os valores de reclamação.](./media/howto-mfa-adfs/configurewizard.png)
 9. Clique em **Concluir**. Feche a consola de Gestão do AD FS.
 
 ## <a name="trusted-ips-for-federated-users"></a>IPs Fidedignos para utilizadores federados
@@ -63,7 +63,7 @@ A primeira coisa a fazer é configurar as afirmações do AD FS. Crie duas regra
 4. Nas Regras de Transformação de Emissão, clique em **Adicionar Regra.** 
     ![ Adicionar uma regra de reclamação](./media/howto-mfa-adfs/trustedip2.png)
 5. No Assistente para Adicionar Regra de Afirmação de Transformação, selecione **Passar ou Filtrar uma Afirmação de Entrada** no menu pendente e clique em **Seguinte**.
-   ![Assistente para Adicionar Regra de Afirmação de Transformação](./media/howto-mfa-adfs/trustedip3.png)
+   ![A screenshot mostra adicionar o Assistente de Regra de Reclamação de Transformação onde seleciona Passar ou filtrar uma reclamação de entrada.](./media/howto-mfa-adfs/trustedip3.png)
 6. Na caixa junto ao nome da regra de afirmação, atribua um nome à regra. Por exemplo: InsideCorpNet.
 7. A partir do drop-down, ao lado do tipo de reclamação Incoming, selecione **Inside Corporate Network**.
    ![Adicionar reclamação de rede corporativa interna](./media/howto-mfa-adfs/trustedip4.png)

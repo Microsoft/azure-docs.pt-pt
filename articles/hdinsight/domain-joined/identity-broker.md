@@ -6,13 +6,13 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 12/12/2019
-ms.openlocfilehash: 12d98406b21ed9a3ea27f9aa4abc0db6f536468d
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.date: 09/23/2020
+ms.openlocfilehash: 8f1e0a6aecc9702552a3dd66acc8dc7eb5bf1d85
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91251920"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91529946"
 ---
 # <a name="azure-hdinsight-id-broker-preview"></a>Azure HDInsight ID Broker (pré-visualização)
 
@@ -30,11 +30,13 @@ A HIB fornece a infraestrutura de autenticação que permite a transição proto
 
 O seguinte diagrama mostra o fluxo moderno de autenticação baseada em OAuth para todos os utilizadores, incluindo utilizadores federados, após o ID Broker ser ativado:
 
-![Fluxo de autenticação com corretor de ID](./media/identity-broker/identity-broker-architecture.png)
+:::image type="content" source="media/identity-broker/identity-broker-architecture.png" alt-text="Fluxo de autenticação com corretor de ID":::
 
 Neste diagrama, o cliente (ou seja, navegador ou apps) precisa adquirir primeiro o token OAuth e, em seguida, apresentar o token para gateway num pedido HTTP. Se já assinou contrato com outros serviços Azure, como o portal Azure, pode iniciar sômposição no seu cluster HDInsight com uma única experiência de sso de assinatura.
 
 Ainda pode haver muitas aplicações antigas que apenas suportam a autenticação básica (isto é, nome de utilizador/senha). Para estes cenários, ainda pode utilizar a autenticação básica HTTP para ligar aos gateways de cluster. Nesta configuração, deve garantir a conectividade da rede desde os nós de gateway até ao ponto final da federação (ponto final ADFS) para garantir uma linha de visão direta a partir dos nós de gateway.
+
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Fluxo de autenticação com corretor de ID":::
 
 Utilize a seguinte tabela para determinar a melhor opção de autenticação com base nas necessidades da sua organização:
 
@@ -129,7 +131,7 @@ Depois de adquirir o token OAuth, pode usá-lo no cabeçalho de autorização do
 curl -k -v -H "Authorization: Bearer Access_TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By:<username@domain.com>"
 ``` 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Configure um cluster HDInsight com pacote de segurança empresarial utilizando os serviços de domínio do diretório ativo Azure](apache-domain-joined-configure-using-azure-adds.md)
 * [Sincronizar utilizadores do Azure Active Directory num cluster do HDInsight](../hdinsight-sync-aad-users-to-cluster.md)

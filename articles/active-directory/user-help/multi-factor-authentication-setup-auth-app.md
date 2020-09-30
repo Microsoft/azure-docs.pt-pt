@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 08/12/2019
 ms.author: curtand
-ms.openlocfilehash: 953f74a18ae7874c8772cdc8179e5e5bdd1a86d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10b6b788077eccda522c9e8c6e631939ca1819fc
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83738647"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530345"
 ---
 # <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>Crie uma aplicação autenticadora como o seu método de verificação de dois fatores
 
@@ -33,7 +33,7 @@ Pode configurar uma aplicação autenticadora para enviar uma notificação para
 
 2. **Selecione Receber notificações para verificação** a partir da forma como pretende utilizar a área **da aplicação móvel** e, em seguida, selecione **Configurar**.
 
-    ![Página adicional de verificação de segurança, com aplicação móvel e opção de notificações](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification.png)
+    ![Screenshot que mostra a página "Verificação adicional de segurança", com "aplicação móvel" e "Receber notificações para verificação" selecionadas.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification.png)
 
     Aparece a página **de aplicações móveis Configure.**
 
@@ -48,7 +48,7 @@ Pode configurar uma aplicação autenticadora para enviar uma notificação para
 
 5. Volte ao seu computador e à página **de verificação de segurança adicional,** certifique-se de que recebe a mensagem que diz que a sua configuração foi bem sucedida e, em seguida, selecione **Next**.
 
-    ![Página adicional de verificação de segurança, com mensagem de sucesso](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification-confirm.png)
+    ![Screenshot que mostra a página "Verificação adicional de segurança", com a "aplicação móvel foi configurada..." mensagem de sucesso realçada.](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-notification-confirm.png)
 
     A aplicação autenticadora enviará uma notificação para o seu dispositivo móvel como teste.
 
@@ -65,7 +65,7 @@ Pode configurar uma aplicação autenticadora para enviar uma notificação para
     >[!Note]
     >Para obter informações sobre como usar a palavra-passe da aplicação com as suas aplicações mais antigas, consulte [Gerir as palavras-passe da aplicação.](multi-factor-authentication-end-user-app-passwords.md) Só precisa de usar palavras-passe de aplicações se continuar a utilizar aplicações mais antigas que não suportam a verificação de dois fatores.
 
-9. Selecione **Done** (Concluído).
+9. Selecione **Concluído**.
 
 ## <a name="set-up-the-microsoft-authenticator-app-to-use-verification-codes"></a>Configurar a app Microsoft Authenticator para utilizar códigos de verificação
 
@@ -107,9 +107,9 @@ Pode configurar uma aplicação autenticadora para enviar uma notificação para
     >[!Note]
     >Para obter informações sobre como usar a palavra-passe da aplicação com as suas aplicações mais antigas, consulte [Gerir as palavras-passe da aplicação.](multi-factor-authentication-end-user-app-passwords.md) Só precisa de usar palavras-passe de aplicações se continuar a utilizar aplicações mais antigas que não suportam a verificação de dois fatores.
 
-9. Selecione **Done** (Concluído).
+9. Selecione **Concluído**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Depois de configurar o seu método de verificação de dois fatores, pode adicionar métodos adicionais, gerir as suas definições e senhas de aplicação, iniciar sposição ou obter ajuda com alguns problemas comuns relacionados com a verificação de dois fatores.
 

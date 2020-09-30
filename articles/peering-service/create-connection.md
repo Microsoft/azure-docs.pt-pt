@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/2/2020
 ms.author: derekol
 Customer intent: With Azure Peering service enhancing the customer connectivity to Microsoft cloud services .
-ms.openlocfilehash: f04ae0d2e541be0a7984e944298fa8d7b47fd126
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: f8f0ee71a8dd00498d868bb6dc11b3fa083df766
+ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84872702"
+ms.lasthandoff: 09/29/2020
+ms.locfileid: "91530223"
 ---
 # <a name="tutorial-create-a-peering-service-connection"></a>Tutorial: Criar uma conexão de serviço de peering
 
@@ -43,13 +43,13 @@ Este tutorial mostra-lhe como criar um recurso de Serviço de Peering e como con
 
 1. Selecione **a Chave Prefixo** e adicione a Chave prefixo que lhe foi dada pelo seu fornecedor (ISP ou IXP). Esta chave permite aos Ms validar o prefixo e o fornecedor que alocou o seu prefixo IP.
 
-    ![Registar separador de configuração do Serviço de Pares](./media/peering-service-portal/peering-serviceconfiguration.png)
+    ![A screenshot mostra o separador Configuração da página de ligação de serviço de espreitar onde pode introduzir a tecla Prefix.](./media/peering-service-portal/peering-serviceconfiguration.png)
 
 1. Selecione o botão **'Rever +'** no lado inferior esquerdo da página. Aparece a página **Review + create** e o Azure valida a sua configuração.
 
  1. Quando vir a mensagem **de validação passada** como mostrado, selecione **Criar**.
 
-> ![Registar separador de configuração do Serviço de Pares](./media/peering-service-portal/peering-service-prefix.png)
+> ![Screenshot mostra o separador Review + criar uma página de conexão de serviço de espreitar.](./media/peering-service-portal/peering-service-prefix.png)
 
 1. Depois de registar uma ligação de Serviço de Peering, é realizada uma validação adicional nos prefixos incluídos. Pode rever o estado de validação na secção **Prefixos** do nome do recurso. Se a validação falhar, é apresentada uma das seguintes mensagens de erro:
 
@@ -69,7 +69,7 @@ Selecione a elipse (...) ao lado do prefixo listado e selecione a opção **Elim
 ### <a name="delete-a-peering-service-connection"></a>Eliminar uma ligação de Serviço de Peering
 
 Na página **Todos os Recursos,** selecione a caixa de verificação no Serviço de Observação e selecione a opção **Eliminar** no topo da página.
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre a ligação do Serviço de Peering, consulte [a ligação do Serviço de Peering](connection.md).
 - Para saber mais sobre a telemetria de conexão peering Service, consulte [a telemetria de conexão peering service](connection-telemetry.md).
