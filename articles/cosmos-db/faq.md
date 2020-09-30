@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: f6b2d081b0dc475e0950b12de31bab83cbe7da8b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4bd29ce3bf2cc7cd69f86dbf172d3cd9a2044e79
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213096"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570364"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Perguntas mais frequentes sobre as diferentes APIs no Azure Cosmos DB
 
@@ -34,7 +34,7 @@ A Azure Cosmos DB tem um motor de indexação agnóstico de esquema capaz de ind
 
 ### <a name="can-i-use-multiple-apis-to-access-my-data"></a>Posso usar várias APIs para aceder aos meus dados?
 
-Azure Cosmos DB é o serviço de base de dados multi-modelo da Microsoft distribuído globalmente. Onde multi-modelo significa Azure Cosmos DB suporta várias APIs e vários modelos de dados, diferentes APIs usam diferentes formatos de dados para armazenamento e protocolo de fio. Por exemplo, a SQL utiliza JSON, a MongoDB usa BSON, a Table usa EDM, a Cassandra usa o CQL, a Gremlin usa o formato JSON. Como resultado, recomendamos a utilização da mesma API para todos os acessos aos dados numa determinada conta.
+O Azure Cosmos DB é o serviço de base de dados com múltiplos modelos e distribuído globalmente da Microsoft. Onde multi-modelo significa Azure Cosmos DB suporta várias APIs e vários modelos de dados, diferentes APIs usam diferentes formatos de dados para armazenamento e protocolo de fio. Por exemplo, a SQL utiliza JSON, a MongoDB usa BSON, a Table usa EDM, a Cassandra usa o CQL, a Gremlin usa o formato JSON. Como resultado, recomendamos a utilização da mesma API para todos os acessos aos dados numa determinada conta.
 
 Cada API opera de forma independente, com exceção da API Gremlin e SQL, que são interoperáveis.
 
@@ -85,7 +85,7 @@ Experimente as subscrições DB do Azure Cosmos aparecem no portal Azure a segui
 
 As seguintes condições aplicam-se às subscrições da Try Azure Cosmos DB:
 
-* O acesso à conta pode ser concedido a contas pessoais da Microsoft (MSA). Evite utilizar contas ou contas de Ative Directory (AAD) pertencentes a inquilinos da AAD corporativa, podem ter limitações no lugar que podem bloquear a concessão de acesso.
+* O acesso à conta pode ser concedido a contas pessoais da Microsoft (MSA). Evite utilizar contas ou contas do Azure Ative Directory (Azure AD) pertencentes a inquilinos da AD Azure, que possam ter limitações que possam bloquear a concessão de acesso.
 * Um [contentor de produção provisido](./set-throughput.md#set-throughput-on-a-container) por subscrição para contas SQL, Gremlin API e Table.
 * Até três [cobranças de produção previstas](./set-throughput.md#set-throughput-on-a-container) por subscrição para contas MongoDB.
 * Uma [base de dados de produção](./set-throughput.md#set-throughput-on-a-database) por subscrição. As bases de dados previstas para o rendimento podem conter qualquer número de contentores no seu interior.
@@ -102,9 +102,9 @@ As seguintes condições aplicam-se às subscrições da Try Azure Cosmos DB:
 
 AZure Cosmos DB está disponível no portal Azure. Primeiro, inscreva-se para uma assinatura Azure. Depois de se inscrever, pode adicionar uma conta DB da Azure Cosmos à sua assinatura Azure.
 
-### <a name="what-is-a-master-key"></a>O que é uma chave mestra?
+### <a name="what-is-a-primary-key"></a>O que é uma chave primária?
 
-Uma chave mestra é um token de segurança para aceder a todos os recursos de uma conta. Os indivíduos com a chave leram e escreveram acesso a todos os recursos na conta de base de dados. Tenha cuidado quando distribuir as teclas principais. A chave principal principal e a chave master secundária estão disponíveis na lâmina **de Chaves** do [portal Azure.][azure-portal] Para mais informações sobre chaves, consulte [Ver, copiar e voltar a gerar chaves de acesso](manage-with-cli.md#list-account-keys).
+Uma chave primária é um sinal de segurança para aceder a todos os recursos para uma conta. Os indivíduos com a chave leram e escreveram acesso a todos os recursos na conta de base de dados. Tenha cuidado quando distribuir as teclas primárias. A chave primária primária primária e a chave primária secundária estão disponíveis na lâmina de **Chaves** do [portal Azure][azure-portal]. Para mais informações sobre chaves, consulte [Ver, copiar e voltar a gerar chaves de acesso](manage-with-cli.md#list-account-keys).
 
 ### <a name="what-are-the-regions-that-preferredlocations-can-be-set-to"></a>Quais são as regiões que as PreferênciasLocações podem definir?
 
@@ -212,7 +212,7 @@ A criação de permissões utilizando o ResourceTokens é permitida ao nível do
 [azure-portal]: https://portal.azure.com
 [query]: sql-api-sql-query.md
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender sobre perguntas frequentes noutras APIs, consulte:
 

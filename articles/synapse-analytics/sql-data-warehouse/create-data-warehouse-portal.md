@@ -1,5 +1,5 @@
 ---
-title: Criar e consultar uma piscina Sinapse SQL (portal Azure)
+title: 'Quickstart: Criar e consultar uma piscina Sinapse SQL (portal Azure)'
 description: Criar e consultar uma piscina Sinapse SQL utilizando o portal Azure
 services: synapse-analytics
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 19de7900cf46a5c372b051fc76d594fd4b4dfb8f
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 878b272e2a1a0e1d5a00a9c2028a6803b6d95383
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91369642"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568958"
 ---
 # <a name="quickstart-create-and-query-a-synapse-sql-pool-using-the-azure-portal"></a>Quickstart: Criar e consultar uma piscina Sinapse SQL utilizando o portal Azure
 

@@ -8,15 +8,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3dd7df738f49b14a16be8a9741fb2c82ed3bf97c
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 5537b70f9852f5b5a17362c13e2c9b8e8e9fc43c
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409014"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570611"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Pontos finais regionais para conta DB de Azure Cosmos
-A base de dados do Azure Cosmos DB Graph é [distribuída globalmente](distribute-data-globally.md) para que as aplicações possam usar vários pontos finais de leitura. As aplicações que precisam de escrever acesso em vários locais devem permitir a capacidade [multi-master.](how-to-multi-master.md)
+A base de dados do Azure Cosmos DB Graph é [distribuída globalmente](distribute-data-globally.md) para que as aplicações possam usar vários pontos finais de leitura. As aplicações que precisam de escrever acesso em vários locais devem permitir a capacidade [de escrita de várias regiões.](how-to-multi-master.md)
 
 Razões para escolher mais do que uma região:
 1. **Escalabilidade de leitura horizontal** - à medida que a carga de aplicação aumenta, pode ser prudente fazer a leitura do tráfego para diferentes regiões de Azure.

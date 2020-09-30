@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/08/2020
+ms.date: 09/29/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: cf7719487d4f03b8d9524234e1a58cf792a4843b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: e1cb4555b1eab930286e7a27988b3b372b109070
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90899756"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570896"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Tutorial: Prepare-se para implementar Azure Stack Edge Pro com GPU 
 
@@ -32,7 +32,7 @@ Neste tutorial, ficará a saber como:
 
 Para a implementação do Azure Stack Edge Pro, tem de preparar primeiro o seu ambiente. Uma vez que o ambiente esteja pronto, siga as etapas necessárias e, se necessário, etapas e procedimentos opcionais para implantar totalmente o dispositivo. As instruções de colocação passo a passo indicam quando deve executar cada uma destas etapas necessárias e opcionais.
 
-| Passo | Descrição |
+| Passo | Description |
 | --- | --- |
 | **Preparação** |Estes passos devem ser concluídos em preparação para a próxima implantação. |
 | **[Lista de verificação de configuração de implementação](#deployment-configuration-checklist)** |Utilize esta lista de verificação para recolher e registar informações antes e durante a implementação. |
@@ -66,14 +66,16 @@ Seguem-se os pré-requisitos de configuração para o seu recurso Azure Stack Ed
 
 Antes de começar, certifique-se de que:
 
-- A sua subscrição microsoft Azure está ativada para um recurso Azure Stack Edge. Certifique-se de que utilizou uma subscrição suportada, como [o Microsoft Enterprise Agreement (EA),](https://azure.microsoft.com/overview/sales-number/)o Cloud Solution Provider [(CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)ou [o Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Não são suportadas subscrições Pay as you go.
+- A sua subscrição microsoft Azure está ativada para um recurso Azure Stack Edge. Certifique-se de que utilizou uma subscrição suportada, como [o Microsoft Enterprise Agreement (EA),](https://azure.microsoft.com/overview/sales-number/)o Cloud Solution Provider [(CSP)](https://docs.microsoft.com/partner-center/azure-plan-lp)ou [o Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Não são suportadas subscrições Pay as you go. Para identificar o tipo de subscrição Azure que tem, veja [o que é uma oferta Azure?](../cost-management-billing/manage/switch-azure-offer.md#what-is-an-azure-offer)
 - Tem acesso ao proprietário ou colaborador a nível de grupo de recursos para os recursos Azure Stack Edge Pro/Data Box Gateway, IoT Hub e Azure Storage.
 
-    - Para criar qualquer recurso Azure Stack Edge / Data Box Gateway, deverá ter permissões como contribuinte (ou superior) a nível de grupo de recursos. Também tem de se certificar de que o `Microsoft.DataBoxEdge` fornecedor está registado. Para obter informações sobre como realizar o registo, aceda a [Registar fornecedor de recursos](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
-    - Para criar qualquer recurso IoT Hub, certifique-se de que o fornecedor microsoft.devices está registado. Para obter informações sobre como realizar o registo, aceda a [Registar fornecedor de recursos](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - Para criar qualquer recurso Azure Stack Edge / Data Box Gateway, deverá ter permissões como contribuinte (ou superior) a nível de grupo de recursos. 
+    - Também tem de se certificar de que o `Microsoft.DataBoxEdge` fornecedor está registado. Para criar qualquer recurso IoT Hub, `Microsoft.Devices` o fornecedor deve ser registado. 
+        - Para registar um fornecedor de recursos, no portal Azure, vá às **Subscrições de > Domiciliária > os fornecedores de recursos > de subscrição.** 
+        - Procure `Microsoft.DataBoxEdge` e registe o fornecedor de recursos. 
     - Para criar um recurso de conta de Armazenamento, mais uma vez precisa de um contribuinte ou de um acesso mais elevado ao nível do grupo de recursos. O Azure Storage é, por defeito, um fornecedor de recursos registado.
-- Tem acesso administrativo ou utilizador à Azure Ative Directory Graph API. Para mais informações, consulte [a Azure Ative Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
-- Tem a conta do Storage do Microsoft Azure com credenciais de acesso.
+- Tem acesso a administrador ou utilizador à Azure Ative Directory Graph API para gerar chave de ativação ou operações credenciais, como criação de ações que utiliza uma conta de armazenamento. Para mais informações, consulte [a Azure Ative Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+
 
 ### <a name="for-the-azure-stack-edge-pro-device"></a>Para o dispositivo Azure Stack Edge Pro
 

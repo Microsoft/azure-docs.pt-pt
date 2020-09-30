@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2ebe4fbf776ffb3b4568f996f20ba721b0cc5fca
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: c158bc176c329fb46d0acde64b043b1b3e669e18
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91330519"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570679"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gerir políticas de resolução de conflitos em Azure Cosmos DB
 
@@ -513,9 +513,9 @@ while conflict:
 Conheça os seguintes conceitos Azure Cosmos DB:
 
 - [Distribuição global - em segundo plano](global-dist-under-the-hood.md)
-- [Como configurar multi-mestre nas suas aplicações](how-to-multi-master.md)
+- [Como configurar várias regiões escreve nas suas aplicações](how-to-multi-master.md)
 - [Configurar clientes para multihoming](how-to-manage-database-account.md#configure-multiple-write-regions)
 - [Adicione ou remova regiões da sua conta DB Azure Cosmos](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
-- [Como configurar multi-mestre nas suas aplicações](how-to-multi-master.md).
+- [Como configurar a região-região escreve nas suas aplicações](how-to-multi-master.md).
 - [Criação de partições e distribuição de dados](partition-data.md)
 - [Indexação no Azure Cosmos DB](indexing-policies.md)

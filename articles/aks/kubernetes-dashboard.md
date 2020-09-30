@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: mlearned
-ms.openlocfilehash: 35424c0a9e566a9dfa780c524e23945348335040
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 8fda67bea75e973b42aa7f1a9f32be906b1d3e83
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225993"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570820"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Aceda ao painel web Kubernetes no Serviço Azure Kubernetes (AKS)
 
@@ -36,7 +36,7 @@ Também precisa da versão Azure CLI 2.6.0 ou posteriormente instalada e configu
 
 O addon kube-dashboard é **ativado por padrão em clusters mais antigos que K8s 1.18**. O addon pode ser desativado executando o seguinte comando.
 
-``` azure-cli
+``` azurecli
 az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
 ```
 
@@ -190,7 +190,7 @@ Leva alguns momentos para que as novas cápsulas sejam criadas dentro de um conj
 
 ![Ver informações sobre o conjunto de réplicas](./media/kubernetes-dashboard/view-replica-set.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o dashboard Kubernetes, consulte o [Painel de Instrumentos web da Kubernetes.][kubernetes-dashboard]
 

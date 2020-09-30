@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 8d795624097877d20f98a6fd205fb7136cf38007
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 11278f558f94fe358be94c914ecfeae6cfd5461e
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069129"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570752"
 ---
 # <a name="spring-data-azure-cosmos-db-v2-for-core-sql-api-release-notes-and-resources"></a>Dados de primavera Azure Cosmos DB v2 para Core (SQL) API: Notas de lançamento e recursos
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Pode utilizar o Spring Data Azure Cosmos DB nas suas aplicações [Azure Spring 
 > * [Spring Data Gremlin com Azure Cosmos DB](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db)
 >
 > Quer ir rápido?
-> 1. Instale o [tempo de execução java suportado mínimo, JDK 8,](/java/azure/jdk/?view=azure-java-stable)para que possa utilizar o SDK.
+> 1. Instale o [tempo de execução java suportado mínimo, JDK 8,](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)para que possa utilizar o SDK.
 > 2. Crie uma aplicação DB de Dados de primavera Azure Cosmos utilizando o [arranque](https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db). É fácil!
 > 3. Trabalhe através do [guia de desenvolvedores da Spring Data Azure Cosmos DB,](https://docs.microsoft.com/azure/developer/java/spring-framework/how-to-guides-spring-data-cosmosdb)que percorre os pedidos básicos de DB do Azure Cosmos.
 >

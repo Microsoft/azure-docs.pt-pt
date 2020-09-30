@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 406690eb1303a25002d3d787e746bd091dd83fc6
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 6db0965c0b5e28ac1e70da2cbeea276728f29822
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586138"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569926"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK para API SQL: Lançar notas e recursos
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "88586138"
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
 > * [Dados da primavera v2](sql-api-sdk-java-spring-v2.md)
 > * [Dados da primavera v3](sql-api-sdk-java-spring-v3.md)
-> * [Conector de faíscas](sql-api-sdk-java-spark.md)
+> * [Spark Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](/rest/api/cosmos-db-resource-provider/)
@@ -49,12 +49,12 @@ Este é o Azure Cosmos DB Sync Java SDK v2 para a SQL API que suporta operaçõe
 |**Contribuir para a SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
 |**Introdução**|[Começa com o Java SDK](sql-api-java-get-started.md)|
 |**Tutorial de aplicativo web**|[Desenvolvimento de aplicações web com Azure Cosmos DB](sql-api-java-application.md)|
-|**Tempo mínimo suportado**|[Kit de Desenvolvimento de Java (JDK) 7+](/java/azure/jdk/?view=azure-java-stable)|
+|**Tempo mínimo suportado**|[Kit de Desenvolvimento de Java (JDK) 7+](/java/azure/jdk/?view=azure-java-stable&preserve-view=true)|
 
 ## <a name="release-notes"></a>Notas de versão
 
 ### <a name="251"></a><a name="2.5.1"></a>2.5.1
-* Corrige a emissão de cache de partição principal na consulta documentCollection.
+* Corrige a emissão de cache de partição primária na consulta documentCollection.
 
 ### <a name="250"></a><a name="2.5.0"></a>2.5.0
 * Suporte adicionado para 449 retíria configuração personalizada.

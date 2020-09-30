@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 6485df342bbe0b2378a67b90e448b2bd98c5e283
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 310fee91ed98409e5a724d1be8de7bc9ccb5601b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400405"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570928"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Backup on-line e restauro de dados on-demand em Azure Cosmos DB
 
@@ -26,7 +26,7 @@ Com a Azure Cosmos DB, não só os seus dados, mas também os backups dos seus d
 
 * A Azure Cosmos DB armazena estas cópias de segurança no armazenamento da Azure Blob, enquanto os dados reais residem localmente dentro do Azure Cosmos DB.
 
-* Para garantir a baixa latência, o instantâneo da cópia de segurança é armazenado no Armazenamento de blobs do Azure na mesma região que a região de escrita atual (ou **uma** das regiões de escrita, caso tenha uma configuração multimestre). Para obter resiliência face a desastres regionais, cada instantâneo dos dados de cópia de segurança no Armazenamento de blobs do Azure é replicado de novo para outra região através do armazenamento georredundante (GRS). A região para a qual a cópia de segurança é replicada depende da região de origem e do par regional associado a essa região. Para saber mais, consulte a [lista de pares geo-redundantes das regiões Azure.](../best-practices-availability-paired-regions.md) Não pode aceder diretamente a esta cópia de segurança. A equipa do Azure Cosmos DB restaurará a cópia de segurança quando pedir através de um pedido de suporte.
+* Para garantir a baixa latência, o instantâneo da sua cópia de segurança é armazenado no armazenamento Azure Blob na mesma região que a atual região de escrita (ou **uma das** regiões de escrita, caso tenha uma configuração de escrita multi-região). Para obter resiliência face a desastres regionais, cada instantâneo dos dados de cópia de segurança no Armazenamento de blobs do Azure é replicado de novo para outra região através do armazenamento georredundante (GRS). A região para a qual a cópia de segurança é replicada depende da região de origem e do par regional associado a essa região. Para saber mais, consulte a [lista de pares geo-redundantes das regiões Azure.](../best-practices-availability-paired-regions.md) Não pode aceder diretamente a esta cópia de segurança. A equipa do Azure Cosmos DB restaurará a cópia de segurança quando pedir através de um pedido de suporte.
 
    A imagem a seguir mostra como um contentor Azure Cosmos com todas as três divisórias físicas primárias no Oeste dos EUA é apoiado numa conta remota de Armazenamento Azure Blob no Oeste dos EUA e depois replicado para os EUA Orientais:
 
@@ -59,11 +59,11 @@ Utilize os seguintes passos para alterar as opções de backup predefinidas para
 
    * **Cópias dos dados retidos** - Por padrão, duas cópias de backup dos seus dados são oferecidas gratuitamente. Há uma taxa adicional se precisar de mais de duas cópias. Veja a secção Armazenamento Consumido na [página de Preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para saber o preço exato das cópias adicionais.
 
-   :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Configurar intervalo de backup e retenção para uma conta Azure Cosmos existente" border="true":::
+   :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Backups periódicos completos de todas as entidades da Cosmos DB no Armazenamento GRS Azure" border="true":::
 
 Se configurar opções de backup durante a criação da conta, pode configurar a **política de Backup**, que é **periódica** ou **contínua**. A política periódica permite-lhe configurar o intervalo de backup e a retenção de backup. A política contínua está atualmente disponível apenas por inscrição. A equipa DB da Azure Cosmos avaliará a sua carga de trabalho e aprovará o seu pedido.
 
-:::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="Configure a política de backup periódica ou contínua para novas contas da Azure Cosmos" border="true":::
+:::image type="content" source="./media/online-backup-and-restore/configure-periodic-continuous-backup-policy.png" alt-text="Backups periódicos completos de todas as entidades da Cosmos DB no Armazenamento GRS Azure" border="true":::
 
 ## <a name="restore-data-from-an-online-backup"></a>Restaurar dados a partir de uma cópia de segurança online
 

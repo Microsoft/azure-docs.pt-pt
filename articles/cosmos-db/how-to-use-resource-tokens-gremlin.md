@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/06/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 45771f16b7587392a68ea88a05467fc4f30079c8
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: df25ab4b0f5593ab21336d002ad2f9f10795bdcc
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91408948"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570559"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Use fichas de recursos DB da Azure Cosmos com o Gremlin SDK
 
@@ -37,7 +37,7 @@ Um símbolo de recurso utiliza o seguinte formato: `"type=resource&ver=1&sig=<ba
 // Notice that document client is created against .NET SDK endpoint, rather than Gremlin.
 DocumentClient client = new DocumentClient(
   new Uri("https://contoso.documents.azure.com:443/"), 
-  "<master key>", 
+  "<primary key>", 
   new ConnectionPolicy 
   {
     EnableEndpointDiscovery = false, 
@@ -63,7 +63,7 @@ Você pode usar fichas de recursos diretamente como uma propriedade "password" q
 // You can obtain the token for a given permission by using the Azure Cosmos DB SDK, or you can pass it into the application as a command line argument or configuration value.
 string resourceToken = GetResourceToken();
 
-// Configure the Gremlin server to use a resource token rather than a master key.
+// Configure the Gremlin server to use a resource token rather than a primary key.
 GremlinServer server = new GremlinServer(
   "contoso.gremlin.cosmosdb.azure.com",
   port: 443,

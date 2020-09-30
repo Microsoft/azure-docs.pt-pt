@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4590a881fbc42467d55c3440d09f4770f447e97f
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 2b5fa5211ad8d4de01f2b63e8267e297e13c4485
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563391"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570013"
 ---
 # <a name="what-is-azure-files"></a>O que são os Ficheiros do Azure?
 O Azure Files oferece ações de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo padrão do [Bloco de Mensagens do Servidor (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) da indústria ou [do protocolo do Sistema de Ficheiros de Rede (NFS).](https://en.wikipedia.org/wiki/Network_File_System) As ações de ficheiros Azure podem ser montadas simultaneamente por implementações em nuvem ou no local. As ações de ficheiros SMB da Azure Files estão acessíveis a partir de clientes Windows, Linux e macOS. As ações de ficheiros Azure Files NFS estão acessíveis a clientes Linux ou macOS. Além disso, as ações de ficheiroS SMB do Azure Files podem ser colocadas em cache nos Servidores do Windows com o Azure File Sync para um acesso rápido perto do local onde os dados estão a ser utilizados.
@@ -56,6 +56,7 @@ As partilhas de ficheiros do Azure podem ser utilizadas para:
 * **Programabilidade familiar.** As aplicações que são executadas no Azure podem aceder a dados na partilha através das [APIs de E/S de sistema de ficheiros](https://msdn.microsoft.com/library/system.io.file.aspx). Os programadores, por conseguinte, podem tirar partido do respetivo código existente e competências para migrar as aplicações existentes. Para além das APIs de E/S de Sistema, pode utilizar as [Bibliotecas de Cliente do Armazenamento do Azure](https://msdn.microsoft.com/library/azure/dn261237.aspx) ou da [API REST do Armazenamento do Azure](/rest/api/storageservices/file-service-rest-api).
 
 ## <a name="next-steps"></a>Passos Seguintes
+* [Conheça os protocolos de partilha de ficheiros disponíveis](storage-files-compare-protocols.md)
 * [Criar a partilha de ficheiros Azure](storage-how-to-create-file-share.md)
 * [Conecte e monte uma partilha SMB no Windows](storage-how-to-use-files-windows.md)
 * [Conecte e monte uma partilha SMB no Linux](storage-how-to-use-files-linux.md)

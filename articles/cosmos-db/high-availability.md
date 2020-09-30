@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 3f882375197fa45cfbc74ff7a80ed33fd33f33a3
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 1f2e90f9391654d10332b9f1a21c56fd22e2307b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91400303"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570807"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Como é que a Azure Cosmos DB fornece alta disponibilidade? 
 
@@ -30,7 +30,7 @@ Se a sua conta Azure Cosmos estiver distribuída pelas regiões *N* Azure, haver
 
 ## <a name="slas-for-availability"></a>SLAs para disponibilidade
 
-Como uma base de dados distribuída globalmente, a Azure Cosmos DB fornece SLAs abrangentes que englobam a produção, latência no percentil 99, consistência e alta disponibilidade. O quadro abaixo mostra as garantias de elevada disponibilidade fornecidas pela Azure Cosmos DB para contas individuais e multi-regiões. Para uma elevada disponibilidade, configuure sempre as suas contas Azure Cosmos para ter várias regiões de escrita (também chamadas multi-master).
+Como uma base de dados distribuída globalmente, a Azure Cosmos DB fornece SLAs abrangentes que englobam a produção, latência no percentil 99, consistência e alta disponibilidade. O quadro abaixo mostra as garantias de elevada disponibilidade fornecidas pela Azure Cosmos DB para contas individuais e multi-regiões. Para uma elevada disponibilidade, configuure sempre as suas contas Azure Cosmos para ter várias regiões de escrita.
 
 |Tipo de operação  | Região única |Multi-região (escreve uma única região)|Multi-região (escreve várias regiões) |
 |---------|---------|---------|-------|
@@ -46,7 +46,7 @@ Para os raros casos de paragem regional, a Azure Cosmos DB garante que a sua bas
 
 - Com a Azure Cosmos DB, antes de uma operação de escrita ser reconhecida ao cliente, os dados são duramente cometidos por um quórum de réplicas dentro da região que aceita as operações de escrita.
 
-- As contas multi-regiões configuradas com regiões de escrita múltipla/multi-mestre estarão altamente disponíveis tanto para escritas como para leituras. As falhas regionais são instantâneas e não requerem alterações na aplicação.
+- As contas multi-regiões configuradas com regiões de escrita múltipla estarão altamente disponíveis tanto para as gravações como para as leituras. As falhas regionais são instantâneas e não requerem alterações na aplicação.
 
 - As contas de uma região única podem perder disponibilidade na sequência de uma paragem regional. É sempre recomendado criar **pelo menos duas regiões** (de preferência, pelo menos duas regiões de escrita) com a sua conta Azure Cosmos para garantir uma elevada disponibilidade em todos os momentos.
 
@@ -125,7 +125,7 @@ az cosmosdb create \
 
 Pode ativar Zonas de Disponibilidade utilizando o portal Azure ao criar uma conta Azure Cosmos. Ao criar uma conta, certifique-se de ativar a **Geo-redundância**, **Multi-região Writes**, e escolha uma região onde as Zonas de Disponibilidade são suportadas:
 
-:::image type="content" source="./media/high-availability/enable-availability-zones-using-portal.png" alt-text="Ativar zonas de disponibilidade usando o portal Azure"::: 
+:::image type="content" source="./media/high-availability/enable-availability-zones-using-portal.png" alt-text="Partição física"::: 
 
 ## <a name="building-highly-available-applications"></a>Construir aplicações altamente disponíveis
 

@@ -4,16 +4,16 @@ description: Saiba mais sobre a partilha de discos geridos Azure em vários VMs.
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 09/30/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 0f51c8fe3bf92526bc7e132275255e116381ba06
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6384a39ec7d57254dff8498a0a41e05464e28b13
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88689699"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570037"
 ---
 # <a name="azure-shared-disks"></a>Discos partilhados do Azure
 

@@ -10,12 +10,12 @@ ms.date: 08/11/2020
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: b8d3472eeedab72644456b4278d3b9f3625c5850
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 4a0c2813a45fab497173d0101f87b30288e93884
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88078209"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568897"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorizar um runtime de integração no Azure Data Factory
 
@@ -52,7 +52,7 @@ A tabela a seguir fornece descrições das propriedades devolvidas pelo cmdlet p
 | Localização | Localização do tempo de funcionamento da integração do Azure. Para obter detalhes sobre a localização de um tempo de execução da integração Azure, consulte [Introdução ao tempo de execução da integração.](concepts-integration-runtime.md) |
 | DataFactoryName | Nome da fábrica de dados a que pertence o tempo de integração do Azure. | 
 | ResourceGroupName | Nome do grupo de recursos a que pertence a fábrica de dados.  |
-| Descrição | Descrição do tempo de execução da integração.  |
+| Description | Descrição do tempo de execução da integração.  |
 
 ### <a name="status"></a>Estado
 
@@ -175,7 +175,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 
 O quadro seguinte fornece descrições das propriedades devolvidas pelo cmdlet acima para um Azure-SSIS IR.
 
-| Propriedade/Estado              | Descrição                  |
+| Propriedade/Estado              | Description                  |
 | ---------------------------- | ---------------------------- |
 | Criar Tempo                   | O tempo UTC quando o seu Azure-SSIS IR foi criado. |
 | Nós                        | Os nós atribuídos/disponíveis do seu Azure-SSIS IR com estatutos específicos do nó (início/disponível/reciclagem/indisponível) e erros acccionáveis. |
@@ -191,19 +191,19 @@ O quadro seguinte fornece descrições das propriedades devolvidas pelo cmdlet a
 | CatalogAdminPassword         | A palavra-passe de administração do seu servidor de base de dados Azure SQL existente ou instância gerida. |
 | CatalogPricingTier           | O nível de preços do SSISDB hospedado pelo servidor Azure SQL Database.  Não aplicável à Azure SQL Managed Instance que hospeda O SSISDB. |
 | VNetId                       | O ID de recursos de rede virtual para a sua Azure-SSIS IR aderir. |
-| Subrede                       | O nome da sub-rede para o seu Azure-SSIS IR para aderir. |
+| Sub-rede                       | O nome da sub-rede para o seu Azure-SSIS IR para aderir. |
 | ID                           | A identificação de recursos do seu Azure-SSIS IR. |
 | Tipo                         | O tipo de IR (Gerido/Auto-hospedado) do seu Azure-SSIS IR. |
 | ResourceGroupName            | O nome do seu Grupo de Recursos Azure, no qual foram criados os seus ADF e Azure-SSIS IR. |
 | DataFactoryName              | O nome da sua ADF. |
 | Name                         | O nome do seu Azure-SSIS IR. |
-| Descrição                  | A descrição do seu Azure-SSIS IR. |
+| Description                  | A descrição do seu Azure-SSIS IR. |
   
 #### <a name="status-per-azure-ssis-ir-node"></a>Estado (por nó IR Azure-SSIS)
 
 O quadro a seguir fornece os estatutos possíveis de um nó IR Azure-SSIS:
 
-| Estado específico do nó | Descrição |
+| Estado específico do nó | Description |
 | -------------------- | ----------- | 
 | A iniciar             | Este nó está a ser preparado. |
 | Disponível            | Este nó está pronto para implementar/executar pacotes SSIS. |
@@ -214,7 +214,7 @@ O quadro a seguir fornece os estatutos possíveis de um nó IR Azure-SSIS:
 
 O quadro seguinte fornece possíveis estatutos globais de um Azure-SSIS IR. O estatuto geral, por sua vez, depende dos estatutos combinados de todos os nós que pertencem ao Azure-SSIS IR. 
 
-| Estado geral | Descrição | 
+| Estado geral | Description | 
 | -------------- | ----------- | 
 | Initial (Inicial)        | Os nós do seu Azure-SSIS IR não foram atribuídos/preparados. | 
 | A iniciar       | Os nós do seu Azure-SSIS IR estão a ser atribuídos/preparados e a faturação já começou. |
@@ -258,13 +258,13 @@ Se se juntar ao seu Azure-SSIS IR a um VNet, verá o azulejo **VNET / SUBNET val
 
 No azulejo de **CONECTIVIDADE DIAGNOSTICO** da sua página de monitorização Azure-SSIS IR, pode selecionar a **ligação de ligação de Teste** para aparecer uma janela, onde pode verificar as ligações entre o seu Azure-SSIS IR e as lojas de pacote/configuração/dados relevantes, bem como serviços de gestão, através do seu nome de domínio totalmente qualificado (FQDN)/endereço IP e porta designada (ver [ligações de teste a partir do seu Azure-SSIS IR).](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-diagnose-connectivity-faq)
 
-![Monitorize o seu Azure-SSIS IR - Diagnosticar azulejos](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+![Screenshot que mostra onde pode testar as ligações entre o seu Azure-SSIS IR e as lojas de pacote/configuração/dados relevantes.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
 #### <a name="static-public-ip-addresses-tile"></a>ENDEREÇOS IP PÚBLICOS ESTÁTICOS
 
 Se trouxer os seus próprios endereços IP públicos estáticos para Azure-SSIS IR, verá o azulejo **ESTÁTICO ENDEREÇOS IP NA** sua página de monitorização do Azure-SSIS IR (ver [Trazer os seus próprios endereços IP públicos estáticos para Azure-SSIS IR).](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#publicIP) Neste azulejo, pode selecionar links que designam os seus endereços IP públicos estáticos de primeira/segunda para Azure-SSIS IR para abrir uma janela, onde pode copiar o seu ID de recursos `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress` () a partir de uma caixa de texto. Na janela pop-up, também pode selecionar o link **de configurações de endereço IP público estático de primeira/segunda** para gerir o seu primeiro/segundo endereço IP público estático no portal Azure.
 
-![Monitorize o seu Azure-SSIS IR - Diagnosticar azulejos](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+![Screenshot que mostra onde pode designar os seus primeiros/segundos endereços IP públicos estáticos.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
 
 #### <a name="package-stores-tile"></a>Azulejo de lojas de pacotes
 

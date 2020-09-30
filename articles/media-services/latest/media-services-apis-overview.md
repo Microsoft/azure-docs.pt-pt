@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 371cfdc8bf2b09f703e1c7bd0153a433ff60ad16
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 4d1c68ba1e0b7db8afefa64abefc671d51e78bd4
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89298968"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569506"
 ---
 # <a name="develop-with-media-services-v3-apis"></a>Programar com as APIs dos Serviços de Multimédia v3
 
@@ -41,7 +41,7 @@ Em vez de criar um principal de serviço, considere utilizar identidades geridas
 
 ### <a name="azure-ad-service-principal"></a>Diretor de serviço AZure AD
 
-Se está a criar uma aplicação AD Azure e um diretor de serviço, a aplicação tem de estar no seu próprio inquilino. Depois de criar a app, dê à app o acesso da função **Contribuinte** ou **Proprietário** à conta dos Serviços de Media.
+A app Azure AD e o diretor de serviço devem estar no mesmo inquilino. Depois de criar a app, dê à app o acesso da função **Contribuinte** ou **Proprietário** à conta dos Serviços de Media.
 
 Se não tem a certeza se tem permissões para criar uma aplicação AD Azure, consulte [permissões necessárias.](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app)
 
@@ -129,7 +129,7 @@ Apenas uma operação de longa duração é suportada para um determinado Evento
 |[SDK Go](https://aka.ms/ams-v3-go-sdk) |[Referência a Go](https://aka.ms/ams-v3-go-ref)|
 |[SDK Ruby](https://aka.ms/ams-v3-ruby-sdk)||
 
-### <a name="see-also"></a>Veja também
+### <a name="see-also"></a>Ver também
 
 - [EventGrid .NET SDK que inclui eventos de Media Service](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definições de eventos de Serviços de Mídia](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
@@ -148,11 +148,11 @@ Consulte [a filtragem, encomenda, paging de entidades da Azure Media Services](e
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 Para obter todos os valores necessários, consulte [a Access Azure Media Services API](./access-api-howto.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ligue-se aos Serviços de Comunicação Social com a Java](configure-connect-java-howto.md)
 * [Ligar aos Serviços de Mídia com .NET](configure-connect-dotnet-howto.md)

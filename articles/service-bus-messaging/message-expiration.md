@@ -2,13 +2,13 @@
 title: Azure Service Bus - expiração da mensagem
 description: Este artigo explica sobre a expiração e tempo para viver das mensagens do Azure Service Bus. Após tal prazo, a mensagem já não é entregue.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 41711428711533a6ecac449f59d415e86474545b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.date: 09/29/2020
+ms.openlocfilehash: 47f8bdb4440adfeb5197f90cdad5358a442ce6a7
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064728"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569909"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiração de mensagem (TTL)
 
@@ -29,7 +29,7 @@ Todas as mensagens enviadas para uma fila ou tópico estão sujeitas a uma expir
 > [!NOTE]
 > O valor padrão [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) para uma mensagem intermediada é [TimeSpan.Max](/dotnet/api/system.timespan.maxvalue) se não for especificado de outra forma.
 >
-> Para as entidades de mensagens (filas e tópicos), o tempo de validade padrão também é [TimeSpan.Max](/dotnet/api/system.timespan.maxvalue) para padrão de Service Bus e níveis premium.  Para o nível básico, o prazo de validade padrão é de 14 dias.
+> Para as entidades de mensagens (filas e tópicos), o tempo de validade padrão também é [TimeSpan.Max](/dotnet/api/system.timespan.maxvalue) para padrão de Service Bus e níveis premium. Para o nível **básico,** o prazo de validade (também máximo) é **de 14 dias**.
 
 As mensagens expiradas podem opcionalmente ser transferidas para uma [fila de letras mortas,](service-bus-dead-letter-queues.md) definindo a propriedade [EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) ou verificando a respetiva caixa no portal. Se a opção for deixada desativada, as mensagens caducadas são retiradas. As mensagens caducadas transferidas para a fila de cartas mortas podem ser distinguidas de outras mensagens com letras mortas, avaliando a propriedade [DeadletterReason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) que o corretor armazena na secção de propriedades do utilizador; o valor é [TTLExpiredException](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) neste caso.
 

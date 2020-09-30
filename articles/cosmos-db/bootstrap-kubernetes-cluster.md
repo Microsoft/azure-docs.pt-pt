@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: 31c3c02f2b32594e5b20450d0bb519f4cdf82807
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b9e6e1388465542e9fb3ac69540c981a1fd70d4b
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497765"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570125"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Como utilizar Azure Kubernetes com Azure Cosmos DB (pré-visualização)
 
-A API etcd em Azure Cosmos DB permite-lhe usar a Azure Cosmos DB como loja de backend para Azure Kubernetes. A Azure Cosmos DB implementa o protocolo de fio etcd, que permite que os servidores API do nó principal utilizem o Azure Cosmos DB tal como acederia a um etcd instalado localmente. etcD API em Azure Cosmos DB está atualmente em pré-visualização. Quando utiliza a Azure Cosmos etcd API como loja de apoio para Kubernetes, obtém os seguintes benefícios: 
+A API etcd em Azure Cosmos DB permite-lhe usar a Azure Cosmos DB como loja de backend para Azure Kubernetes. A Azure Cosmos DB implementa o protocolo de fio etcd, que permite que os servidores API do nó primário utilizem o Azure Cosmos DB tal como acederia a um etcd instalado localmente. etcD API em Azure Cosmos DB está atualmente em pré-visualização. Quando utiliza a Azure Cosmos etcd API como loja de apoio para Kubernetes, obtém os seguintes benefícios: 
 
 * Não é necessário configurar manualmente e gerir etc.
 * Alta disponibilidade de etcd, garantida pela Cosmos (99,99% na região única, 99,999% em várias regiões).
@@ -27,7 +27,7 @@ Para saber mais sobre a API etcd em Azure Cosmos DB, consulte o artigo [geral.](
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Instale a versão mais recente do [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). Pode baixar o Azure CLI específico para o seu sistema operativo e instalar.
+1. Instale a versão mais recente do [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Pode baixar o Azure CLI específico para o seu sistema operativo e instalar.
 
 1. Instale a [versão mais recente](https://github.com/Azure/aks-engine/releases) do Motor Azure Kubernetes. As instruções de instalação de diferentes sistemas operativos estão disponíveis na página [do Motor Azure Kubernetes.](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) Só precisa dos passos da secção de **motor AKS** do doc ligado. Depois de descarregar, extraia o ficheiro zip.
 
@@ -179,7 +179,7 @@ O grupo de recursos agora contém recursos como máquina virtual, conta Azure Co
 
 O nome da conta Azure Cosmos corresponderá ao prefixo DNS especificado anexado com k8s. A sua conta Azure Cosmos será automaticamente abastada com uma base de dados chamada **EtcdDB** e um contentor chamado **EtcdData**. O recipiente armazenará todos os dados relacionados com etc. O contentor é a provisionado com um certo número de unidades de pedido e pode [escalar (aumentar/diminuir) a produção](scaling-throughput.md) com base na sua carga de trabalho. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como trabalhar com a [base de dados, contentores e itens da Azure Cosmos](databases-containers-items.md)
 * Saiba como [otimizar os custos de produção a provisionados](optimize-cost-throughput.md)

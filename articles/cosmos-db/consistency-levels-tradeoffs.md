@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 5046e40ea15a27e80f4e92ebf36488dedeee1821
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 3c82edd73921e11cd2f43a0d609624267af81575
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91396013"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570076"
 ---
 # <a name="latency-availability-and-performance-tradeoffs-with-different-azure-cosmos-db-consistency-levels"></a>Trocas de latência, disponibilidade e desempenho com diferentes níveis de consistência do Azure Cosmos DB
 
@@ -76,14 +76,14 @@ O quadro abaixo define a relação entre o modelo de consistência e a durabilid
 
 *T* = O intervalo de tempo *"T"* desde a última atualização.
 
-## <a name="strong-consistency-and-multi-master"></a>Forte consistência e multi-mestre
+## <a name="strong-consistency-and-multiple-write-regions"></a>Forte consistência e múltiplas regiões de escrita
 
-As contas cosmos configuradas para multi-mestre não podem ser configuradas para uma forte consistência, uma vez que não é possível que um sistema distribuído forneça um RPO de zero e um RTO de zero. Além disso, não existem benefícios de latência para utilizar uma forte consistência com o multi-mestre, uma vez que qualquer escrita em qualquer região deve ser replicada e comprometida com todas as regiões configuradas dentro da conta. Isto resulta na mesma latência escrita que uma única conta principal.
+As contas cosmos configuradas com múltiplas regiões de escrita não podem ser configuradas para uma forte consistência, uma vez que não é possível que um sistema distribuído forneça um RPO de zero e um RTO de zero. Além disso, não existem benefícios de latência de escrita na utilização de uma forte consistência com múltiplas regiões de escrita, porque o pedido de escrita a qualquer região deve ser replicado e comprometido com todas as regiões configuradas dentro da conta. Isto resulta na mesma latência escrita que uma única conta de uma região de escrita.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre distribuição global e trocas de consistência geral em sistemas distribuídos. Consulte os seguintes artigos:
 
 - [Tradeoffs de consistência no design moderno de sistemas de base de dados distribuídos](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
-- [Alta disponibilidade](high-availability.md)
+- [Elevada disponibilidade](high-availability.md)
 - [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

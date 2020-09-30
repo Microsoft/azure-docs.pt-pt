@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6b506f3ad184e5b7f0b56fe6cf26ffc9d8f9844a
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 3b577127013252f03e7a617e7f2b9c8d2c4c9188
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91334451"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570388"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Quickstart: Construa uma aplicação de consola .NET para gerir os recursos API API da Azure Cosmos DB SQL
 
@@ -36,7 +36,7 @@ O Azure Cosmos DB é um serviço de bases de dados com vários modelos e distrib
 * Consultar os dados 
 * Eliminar a base de dados
 
-[Documentação de](/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet)  |  referência da API [Código fonte da biblioteca](https://github.com/Azure/azure-cosmos-dotnet-v3)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
+[Documentação de](/dotnet/api/microsoft.azure.cosmos?view=azure-dotnet&preserve-view=true)  |  referência da API [Código fonte da biblioteca](https://github.com/Azure/azure-cosmos-dotnet-v3)  |  [Pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Cosmos)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -71,7 +71,7 @@ az group create \
     --name $resourceGroupName \
     --location $location
 
-# Create a SQL API Cosmos DB account with session consistency and multi-master enabled
+# Create a SQL API Cosmos DB account with session consistency and multi-region writes enabled
 az cosmosdb create \
     --resource-group $resourceGroupName \
     --name $accountName \
@@ -167,19 +167,18 @@ Antes de começar a construir a aplicação, vamos olhar para a hierarquia de re
 
 Para saber mais sobre a hierarquia de diferentes entidades, consulte o [trabalho com bases de dados, contentores e itens no artigo da Azure Cosmos DB.](databases-containers-items.md) Utilizará as seguintes classes .NET para interagir com estes recursos:
 
-* [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient?view=azure-dotnet) - Esta classe proporciona uma representação lógica do lado do cliente para o serviço DB Azure Cosmos. O objeto cliente é usado para configurar e executar pedidos contra o serviço.
+* [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient?view=azure-dotnet&preserve-view=true) - Esta classe proporciona uma representação lógica do lado do cliente para o serviço DB Azure Cosmos. O objeto cliente é usado para configurar e executar pedidos contra o serviço.
 
-* [CreateDatabaseIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync?view=azure-dotnet) - Este método cria (se não existir) ou obtém (se já existe) um recurso de base de dados como uma operação assíncrono. 
+* [CreateDatabaseIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.cosmosclient.createdatabaseifnotexistsasync?view=azure-dotnet&preserve-view=true) - Este método cria (se não existir) ou obtém (se já existe) um recurso de base de dados como uma operação assíncrono. 
 
-* [CreateContainerIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet)- - Este método cria (se não existir) ou obtém (se já existe) um recipiente como uma operação assíncrona. Pode verificar o código de estado da resposta para determinar se o recipiente foi recém-criado (201) ou se foi devolvido um contentor existente (200). 
-* [CreateItemAsync](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet) - Este método cria um item dentro do recipiente. 
+* [CreateContainerIfNotExistsAsync](/dotnet/api/microsoft.azure.cosmos.database.createcontainerifnotexistsasync?view=azure-dotnet&preserve-view=true)- - Este método cria (se não existir) ou obtém (se já existe) um recipiente como uma operação assíncrona. Pode verificar o código de estado da resposta para determinar se o recipiente foi recém-criado (201) ou se foi devolvido um contentor existente (200). 
+* [CreateItemAsync](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet&preserve-view=true) - Este método cria um item dentro do recipiente. 
 
-* [UpsertItemAsync](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync?view=azure-dotnet) - Este método cria um item dentro do recipiente se já não existir ou substituir o item se já existir. 
+* [UpsertItemAsync](/dotnet/api/microsoft.azure.cosmos.container.upsertitemasync?view=azure-dotnet&preserve-view=true) - Este método cria um item dentro do recipiente se já não existir ou substituir o item se já existir. 
 
-* [GetItemQueryIterator](/dotnet/api/microsoft.azure.cosmos.container.GetItemQueryIterator?view=azure-dotnet
-) - Este método cria uma consulta para itens debaixo de um recipiente numa base de dados do Azure Cosmos utilizando uma declaração SQL com valores parametrizados. 
+* [GetItemQueryIterator](/dotnet/api/microsoft.azure.cosmos.container.GetItemQueryIterator?view=azure-dotnet&preserve-view=true) - Este método cria uma consulta para itens debaixo de um recipiente numa base de dados do Azure Cosmos utilizando uma declaração SQL com valores parametrizados. 
 
-* [DeleteAsync](/dotnet/api/microsoft.azure.cosmos.database.deleteasync?view=azure-dotnet) - Elimina a base de dados especificada da sua conta Azure Cosmos. `DeleteAsync` método apenas elimina a base de dados. A eliminação do `Cosmosclient` caso deve ocorrer separadamente (o que acontece no método DeleteDatabaseAndCleanUpAsync. 
+* [DeleteAsync](/dotnet/api/microsoft.azure.cosmos.database.deleteasync?view=azure-dotnet&preserve-view=true) - Elimina a base de dados especificada da sua conta Azure Cosmos. `DeleteAsync` método apenas elimina a base de dados. A eliminação do `Cosmosclient` caso deve ocorrer separadamente (o que acontece no método DeleteDatabaseAndCleanUpAsync. 
 
  ## <a name="code-examples"></a><a id="code-examples"></a>Exemplos de código
 

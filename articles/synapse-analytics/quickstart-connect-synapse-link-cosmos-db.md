@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 56b018326e8673e6ac9e625a5732a08238f982fd
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: ed717c2423b5336824bccd256bf43654c31a4c8a
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274327"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568954"
 ---
-# <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Ligue-se à Ligação Azure Synapse para Azure Cosmos DB
+# <a name="quickstart-connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Quickstart: Ligue-se à Ligação Sinapse Azure para Azure Cosmos DB
 
 Este artigo descreve como aceder a uma base de dados DB Azure Cosmos do estúdio Azure Synapse Analytics com Synapse Link. 
 
@@ -44,7 +44,7 @@ A partir do Data Object Explorer, pode ligar diretamente uma base de dados DB Az
 1. Selecione ***+*** ícone perto de Dados
 2. Selecione **Ligar aos dados externos**
 3. Selecione a API a que pretende ligar: SQL ou MongoDB
-4. ***Selecione Continuar***
+4. Selecione ***Continuar***
 5. Diga o nome do serviço ligado. O nome será apresentado no Object Explorer e utilizado pela Synapse para ligar à base de dados e aos contentores. Recomendamos a utilização de um nome amigável.
 6. Selecione o nome da conta e **nome da base de dados** **cosmos DB**
 7. (Opcional) Se nenhuma região for especificada, as operações de tempo de execução da Synapse serão encaminhadas para a região mais próxima, onde a loja analítica está ativada. No entanto, pode definir manualmente qual a região a que os seus utilizadores pretendem aceder à loja analítica Cosmos DB. Selecione **propriedades de ligação adicionais** e, em seguida, **Nova**. Em **Nome da Propriedade,** escreva ***As Regiões Preferenciais*** e descreva o **Valor** para a região desejada (exemplo: WestUS2, não há espaço entre palavras e números)

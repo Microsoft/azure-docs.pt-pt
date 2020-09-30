@@ -9,16 +9,19 @@ manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 09/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: ea243ffd125a527949c4a264177e78de04a22aae
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 546c53334b7700ab73c22edb2d82b324bfad61a9
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87046419"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569442"
 ---
 # <a name="plan-your-azure-time-series-insights-gen1-environment"></a>Planeie o seu ambiente Azure Time Series Insights Gen1
+
+> [!CAUTION]
+> Este é um artigo da Gen1.
 
 Este artigo descreve como planear o seu ambiente Azure Time Series Insights Gen1 com base na sua taxa de entrada esperada e nos seus requisitos de retenção de dados.
 
@@ -48,12 +51,12 @@ Por predefinição, a Azure Time Series Insights retém dados com base na quanti
 
 ## <a name="data-retention"></a>Retenção de dados
 
-Pode alterar a definição do **tempo de retenção** de dados no ambiente Azure Time Series Insights. Pode ativar até 400 dias de retenção. 
+Pode alterar a definição do **tempo de retenção** de dados no ambiente Azure Time Series Insights. Pode ativar até 400 dias de retenção.
 
 Azure Time Series Insights tem dois modos:
 
-* Um modo otimiza para os dados mais atualizados. Aplica uma política de **purga de dados antigos** deixando dados recentes disponíveis com o caso. Este modo está ligado, por defeito. 
-* O outro otimiza os dados para permanecer abaixo dos limites de retenção configurados. **A pausa** impede que novos dados sejam ingressados quando são selecionados, uma vez que o **limite de armazenamento excede o comportamento**.
+- Um modo otimiza para os dados mais atualizados. Aplica uma política de **purga de dados antigos** deixando dados recentes disponíveis com o caso. Este modo está ligado, por defeito.
+- O outro otimiza os dados para permanecer abaixo dos limites de retenção configurados. **A pausa** impede que novos dados sejam ingressados quando são selecionados, uma vez que o **limite de armazenamento excede o comportamento**.
 
 Pode ajustar a retenção e alternar entre os dois modos na página de configuração do ambiente no portal Azure.
 
@@ -83,7 +86,7 @@ A segunda área em que se concentrar para planear o seu ambiente Azure Time Seri
 
 Pode aumentar a capacidade de um S1 ou S2 SKU para 10 unidades num único ambiente. Não se pode migrar de um ambiente S1 para um S2. Não se pode migrar de um ambiente S2 para um S1.
 
-Para a capacidade de entrada, primeiro determine a entrada total que necessita numa base mensal. Em seguida, determine quais são as suas necessidades por minuto. 
+Para a capacidade de entrada, primeiro determine a entrada total que necessita numa base mensal. Em seguida, determine quais são as suas necessidades por minuto.
 
 A agitação e a latência desempenham um papel na capacidade por minuto. Se tiver um pico na sua entrada de dados que dure menos de 24 horas, a Azure Time Series Insights pode "recuperar" a uma taxa de entrada de duas vezes superior às taxas listadas na tabela anterior.
 

@@ -1,19 +1,19 @@
 ---
-title: Roteiro PowerShell para mudar prioridade de failover para uma conta Azure Cosmos de um único mestre
-description: Amostra de script Azure PowerShell - Alterar prioridade de failover ou desencadear falha para uma conta de um mono-master da Azure Cosmos
+title: Roteiro PowerShell para mudar prioridade de failover para uma conta Azure Cosmos com região de escrita única
+description: Amostra de script Azure PowerShell - Alterar prioridade de failover ou desencadear falha de falha para uma conta Azure Cosmos com uma única região de escrita
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 03/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: a81938675e72d9ec3a18c920121951e38580b91e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 07561de8236a06a3ac34aa8867a07890aaf0656f
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87506797"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570595"
 ---
-# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-db-single-master-account-using-powershell"></a>Alterar a prioridade de failover ou desencadear o failover para uma conta de um único-master da Azure Cosmos usando o PowerShell
+# <a name="change-failover-priority-or-trigger-failover-for-an-azure-cosmos-account-with-single-write-region-by-using-powershell"></a>Alterar a prioridade de failover ou desencadear o failover para uma conta Azure Cosmos com uma única região de escrita utilizando o PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -42,7 +42,7 @@ Este script utiliza os seguintes comandos. Cada comando na tabela liga à docume
 
 | Comando | Notas |
 |---|---|
-|**Azure Cosmos DB**| |
+|**BD do Cosmos para o Azure**| |
 | [Get-AzCosmosDBAccount](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbaccount) | Lista contas de DB cosmos ou obtém uma conta de DB cosmos especificada. |
 | [Atualização-AzCosmosDBAccountFailoverPriority](https://docs.microsoft.com/powershell/module/az.cosmosdb/update-azcosmosdbaccountfailoverpriority) | Atualize a ordem prioritária de falha das regiões de uma conta de DB cosmos. |
 |**Grupos de Recursos Azure**| |

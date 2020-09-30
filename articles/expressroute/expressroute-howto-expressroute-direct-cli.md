@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e8c305da074f3090ced0dfc16b4a3faa4c757699
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 0bdf2c4dda3e272ae04681f886f6e4da31dcebd8
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91440218"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569827"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configure ExpressRoute Direct usando o Azure CLI
 
@@ -217,6 +217,8 @@ Insira o nome de recurso ExpressRoute Direct recentemente criado, nome de grupo 
 az network express-route port generate-loa -n Contoso-Direct -g Contoso-Direct-rg --customer-name Contoso --destination C:\Users\SampleUser\Downloads\LOA.pdf
 ```
 
+## <a name="change-adminstate-for-links"></a><a name="state"></a>Alterar AdminState para links
+
 Utilize este processo para realizar um teste de camada 1. Certifique-se de que cada ligação cruzada está corretamente remendada em cada router nas portas primárias e secundárias.
 
 1. Definir links para **Ativado**. Repita este passo para definir cada ligação para **Ativado**.
@@ -339,6 +341,6 @@ Criar um circuito no recurso ExpressRoute Direct:
   }  
   ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre o ExpressRoute Direct, consulte a [visão geral.](expressroute-erdirect-about.md)

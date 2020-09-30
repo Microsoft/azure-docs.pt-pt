@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 7e315a7366793d355967f777cbc1dda0f9277087
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c86207af51ebd1a9442afe6fa609598ec917bf15
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955918"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570436"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribuição global de dados com Azure Cosmos DB - sob o capot
 
@@ -30,7 +30,7 @@ Quando uma aplicação que utiliza o Cosmos DB escala elasticamente a produção
 
 Como mostra a seguinte imagem, os dados dentro de um contentor são distribuídos ao longo de duas dimensões - dentro de uma região e de regiões, em todo o mundo:  
 
-:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="divisórias físicas" border="false":::
+:::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="Topologia do Sistema" border="false":::
 
 Uma partição física é implementada por um grupo de réplicas, chamada *réplica-set*. Cada máquina acolhe centenas de réplicas que correspondem a várias divisórias físicas dentro de um conjunto fixo de processos, como mostrado na imagem acima. As réplicas correspondentes às divisórias físicas são colocadas dinamicamente e a carga equilibrada através das máquinas dentro de um cluster e centros de dados dentro de uma região.  
 
@@ -52,7 +52,7 @@ Uma partição física é materializada como um grupo de réplicas auto-gerido e
 
 Um grupo de divisórias físicas, uma de cada uma das configuradas com as regiões de base de dados cosmos, é composta para gerir o mesmo conjunto de chaves replicadas em todas as regiões configuradas. Esta coordenação superior primitiva é chamada *de conjunto de partição* - uma sobreposição dinâmica geograficamente distribuída de divisórias físicas gerindo um determinado conjunto de chaves. Enquanto uma determinada partição física (um conjunto de réplicas) é definida dentro de um cluster, um conjunto de divisões pode abranger aglomerados, centros de dados e regiões geográficas, como mostrado na imagem abaixo:  
 
-:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Conjuntos de partição" border="false":::
+:::image type="content" source="./media/global-dist-under-the-hood/dynamic-overlay-of-resource-partitions.png" alt-text="Topologia do Sistema" border="false":::
 
 Pode pensar num conjunto de partição como um "super conjunto de réplicas" geograficamente disperso, que é composto por múltiplos conjuntos de réplicas que possuem o mesmo conjunto de teclas. Semelhante a um conjunto de réplicas, a adesão de um conjunto de divisórias também é dinâmica – flutua com base em operações implícitas de gestão de partição física para adicionar/remover novas divisórias de/para um determinado conjunto de partição (por exemplo, quando escala a produção num recipiente, adiciona/remove uma região à sua base de dados Cosmos, ou quando ocorrem falhas). Em virtude de cada uma das divisórias (de um conjunto de partição) gerir a filiação do conjunto de partição dentro do seu próprio conjunto de réplicas, a adesão é totalmente descentralizada e altamente disponível. Durante a reconfiguração de um conjunto de partição, a topologia da sobreposição entre divisórias físicas também é estabelecida. A topologia é selecionada dinamicamente com base no nível de consistência, distância geográfica e largura de banda disponível entre a fonte e as divisórias físicas-alvo.  
 
@@ -62,7 +62,7 @@ O serviço permite-lhe configurar as suas bases de dados cosmos com uma única r
 
 O nosso design para a propagação de atualização, resolução de conflitos e rastreio de causalidade é inspirado no trabalho prévio sobre [algoritmos epidémicos](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) e o sistema [Bayou.](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf) Embora os núcleos das ideias tenham sobrevivido e fornecendo um conveniente quadro de referência para comunicar o design do sistema cosmos DB, eles também sofreram uma transformação significativa à medida que as aplicamos ao sistema Cosmos DB. Isto era necessário, porque os sistemas anteriores não foram concebidos nem com a governação dos recursos nem com a escala a que a Cosmos DB precisa de operar, nem para fornecer as capacidades (por exemplo, a consistência limitada) e as SLAs rigorosas e abrangentes que a Cosmos DB fornece aos seus clientes.  
 
-Lembre-se que um conjunto de divisórias é distribuído por várias regiões e segue o protocolo de replicação cosmos DBs (multi-mestre) para replicar os dados entre as divisórias físicas que compreendem um determinado conjunto de partição. Cada divisória física (de um conjunto de divisórias) aceita escritas e serve leituras tipicamente para os clientes que são locais para aquela região. As gravações aceites por uma partição física dentro de uma região são duramente comprometidas e disponibilizadas altamente dentro da partição física antes de serem reconhecidas ao cliente. Estas são escritas provisórias e são propagadas a outras divisórias físicas dentro do conjunto de partição usando um canal anti-entropia. Os clientes podem solicitar escritos provisórios ou comprometidos, passando um cabeçalho de pedido. A propagação anti-entropia (incluindo a frequência de propagação) é dinâmica, baseada na topologia do conjunto de partição, na proximidade regional das divisórias e no nível de consistência configurado. Dentro de um conjunto de partição, Cosmos DB segue um esquema de compromisso primário com uma partição de árbitros selecionado dinamicamente. A seleção do árbitro é dinâmica e é parte integrante da reconfiguração do conjunto de partição com base na topologia da sobreposição. As escritas comprometidas (incluindo atualizações multi-linha/lotadas) são garantidas para serem encomendadas. 
+Lembre-se que um conjunto de divisórias é distribuído por várias regiões e segue o protocolo de replicação de Cosmos DBs (multi-região escreve) para replicar os dados entre as divisórias físicas que compreendem um determinado conjunto de divisórias. Cada divisória física (de um conjunto de divisórias) aceita escritas e serve leituras tipicamente para os clientes que são locais para aquela região. As gravações aceites por uma partição física dentro de uma região são duramente comprometidas e disponibilizadas altamente dentro da partição física antes de serem reconhecidas ao cliente. Estas são escritas provisórias e são propagadas a outras divisórias físicas dentro do conjunto de partição usando um canal anti-entropia. Os clientes podem solicitar escritos provisórios ou comprometidos, passando um cabeçalho de pedido. A propagação anti-entropia (incluindo a frequência de propagação) é dinâmica, baseada na topologia do conjunto de partição, na proximidade regional das divisórias e no nível de consistência configurado. Dentro de um conjunto de partição, Cosmos DB segue um esquema de compromisso primário com uma partição de árbitros selecionado dinamicamente. A seleção do árbitro é dinâmica e é parte integrante da reconfiguração do conjunto de partição com base na topologia da sobreposição. As escritas comprometidas (incluindo atualizações multi-linha/lotadas) são garantidas para serem encomendadas. 
 
 Empregamos relógios vetoriais codificados (contendo ID de região e relógios lógicos correspondentes a cada nível de consenso no conjunto de réplicas e partição, respectivamente) para rastreio de causalidade e vetores de versão para detetar e resolver conflitos de atualização. A topologia e o algoritmo de seleção de pares são projetados para garantir o armazenamento fixo e mínimo e a sobrecarga mínima de rede de vetores de versão. O algoritmo garante a estrita propriedade de convergência.  
 
@@ -79,7 +79,7 @@ A consistência limitada garante que todas as leituras estarão dentro dos prefi
 
 A semântica dos cinco modelos de consistência em Cosmos DB são descritas [aqui,](consistency-levels.md)e matematicamente descritas usando uma especificação TLA+ de alto nível [aqui](https://github.com/Azure/azure-cosmos-tla).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, aprenda a configurar a distribuição global utilizando os seguintes artigos:
 

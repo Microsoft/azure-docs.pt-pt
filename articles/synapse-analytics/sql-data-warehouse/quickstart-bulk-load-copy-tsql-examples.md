@@ -4,17 +4,17 @@ description: Delineia os mecanismos de autenticação para os dados de carga em 
 services: synapse-analytics
 author: kevinvngo
 ms.service: synapse-analytics
-ms.topic: overview
+ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 07/10/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6f54a8993b602110e35c410338b6f0a51109738f
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: e3b22b831deca47eece70d337a99346ae472c7ee
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88603893"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569482"
 ---
 # <a name="securely-load-data-using-synapse-sql"></a>Carregar de forma segura dados usando O SQL de Sinapse
 
@@ -76,7 +76,7 @@ A autenticação de identidade gerida é necessária quando a sua conta de armaz
 3. Deve ter **permitido que serviços fidedignos da Microsoft acedam a esta conta de armazenamento** ligados no menu de firewalls da conta de armazenamento Azure e redes **virtuais.** Para obter mais informações, veja este [guia](../../storage/common/storage-network-security.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#exceptions).
 #### <a name="steps"></a>Passos
 
-1. No PowerShell, **registe o seu servidor SQL** com o Azure Ative Directory (AAD):
+1. No PowerShell, **registe o seu servidor SQL** com o Azure Ative Directory:
 
    ```powershell
    Connect-AzAccount
@@ -110,10 +110,10 @@ A autenticação de identidade gerida é necessária quando a sua conta de armaz
     )
     ```
 
-## <a name="d-azure-active-directory-authentication-aad"></a>D. Autenticação do Diretório Ativo Azure (AAD)
+## <a name="d-azure-active-directory-authentication"></a>D. Autenticação do Azure Active Directory
 #### <a name="steps"></a>Passos
 
-1. Na sua conta de armazenamento, navegue para **Access Control (IAM)** e selecione **Adicionar a atribuição de funções**. Atribua o papel **de Proprietário, Colaborador ou Azure do Leitor** de Armazenamento ao utilizador AAD. 
+1. Na sua conta de armazenamento, navegue para **Access Control (IAM)** e selecione **Adicionar a atribuição de funções**. Atribua o papel **de Proprietário, Colaborador ou Leitor** Azure ao seu utilizador Azure AD. 
 
     > [!IMPORTANT]
     > Especifique a função De Proprietário de **Dados blob** **de armazenamento,** colaborador ou leitor Azure. Estes papéis são diferentes dos papéis incorporados do Azure de Proprietário, Colaborador e Leitor.
@@ -136,11 +136,11 @@ A autenticação de identidade gerida é necessária quando a sua conta de armaz
 ## <a name="e-service-principal-authentication"></a>E. Autenticação do Principal de Serviço
 #### <a name="steps"></a>Passos
 
-1. [Criar uma aplicação Azure Ative Directory (AAD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)
+1. [Criar uma aplicação de Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)
 2. [Obtenha iD de aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)
 3. [Obtenha a chave de autenticação](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-a-new-application-secret)
 4. [Obtenha o V1 OAuth 2.0 token ponto final](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications)
-5. [Atribua permissões de leitura, escrita e execução à sua aplicação AAD](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) na sua conta de armazenamento
+5. [Atribua permissões de leitura, escrita e execução à sua aplicação AZure AD](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder) na sua conta de armazenamento
 6. Pode agora executar a declaração COPY:
 
     ```sql

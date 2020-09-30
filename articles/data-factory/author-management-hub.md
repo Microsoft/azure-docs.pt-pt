@@ -9,12 +9,12 @@ author: djpmsft
 ms.author: daperlov
 manager: anandsub
 ms.date: 06/02/2020
-ms.openlocfilehash: bba49014fd6b082ea015da259402a8e87bf4afff
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: df5a13b3d7c3fea98cd571a241b9d25e36ffeea6
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851997"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570625"
 ---
 # <a name="management-hub-in-azure-data-factory"></a>Centro de gestão na Azure Data Factory
 
@@ -56,7 +56,7 @@ Para anular os parâmetros do modelo gerados do Gestor de Recursos ao publicar a
 
 Os gatilhos determinam quando deve ser iniciada uma conduta. Atualmente, os gatilhos podem estar no horário do relógio de parede, operar num intervalo periódico ou depender de um evento. Para mais informações, saiba sobre [a execução do gatilho.](concepts-pipeline-execution-triggers.md#trigger-execution) No centro de gestão, pode criar, editar, excluir ou ver o estado atual de um gatilho.
 
-![Gerir params personalizados](media/author-management-hub/management-hub-triggers.png)
+![Screenshot que mostra onde criar, editar, excluir, nem ver o estado atual de um gatilho.](media/author-management-hub/management-hub-triggers.png)
 
 ### <a name="global-parameters"></a>Parâmetros globais
 

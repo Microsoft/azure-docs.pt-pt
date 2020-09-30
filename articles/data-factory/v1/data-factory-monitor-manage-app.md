@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: de56ba1281d0f20c8be838fa1bc9ebc24905b26c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e378c1e25fb434e689eadd91e9e8562ffe7e61fd
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846901"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570086"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorize e gere os oleodutos da Azure Data Factory utilizando a app de monitorização e gestão
 > [!div class="op_single_selector"]
@@ -124,7 +124,7 @@ Pode clicar numa janela de atividade para ver detalhes na janela **Propriedades*
 
 No painel direito, mude para o **separador Activity Window Explorer** para ver mais detalhes.
 
-![Explorador de janelas de atividade](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
+![Screenshot que mostra como aceder ao separador Activity Window Explorer.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer.png)
 
 Também vê **variáveis resolvidas** para cada tentativa de execução de uma atividade na secção **Tentativas.**
 
@@ -159,10 +159,10 @@ As janelas de atividade podem estar num dos seguintes estados:
 
 <table>
 <tr>
-    <th align="left">Estado</th><th align="left">Subtátuo</th><th align="left">Descrição</th>
+    <th align="left">Estado</th><th align="left">Subtátuo</th><th align="left">Description</th>
 </tr>
 <tr>
-    <td rowspan="8">A aguardar</td><td>Horário</td><td>Não chegou a hora da janela de atividade funcionar.</td>
+    <td rowspan="8">Em espera</td><td>Horário</td><td>Não chegou a hora da janela de atividade funcionar.</td>
 </tr>
 <tr>
 <td>DatasetDependencies</td><td>As dependências a montante não estão prontas.</td>
@@ -193,7 +193,7 @@ As janelas de atividade podem estar num dos seguintes estados:
 <td>A janela de atividade está a ser processada.</td>
 </tr>
 <tr>
-<td rowspan="4">Falhou</td><td>TimedOut</td><td>A execução da atividade demorou mais do que o permitido pela atividade.</td>
+<td rowspan="4">Com falhas</td><td>TimedOut</td><td>A execução da atividade demorou mais do que o permitido pela atividade.</td>
 </tr>
 <tr>
 <td>Cancelado</td><td>A janela de atividade foi cancelada pela ação do utilizador.</td>
@@ -210,14 +210,14 @@ As janelas de atividade podem estar num dos seguintes estados:
 <td>Ignorado</td><td>-</td><td>A janela de atividade não foi processada.</td>
 </tr>
 <tr>
-<td>Nenhuma</td><td>-</td><td>Uma janela de atividade costumava existir com um estado diferente, mas foi reposta.</td>
+<td>Nenhum</td><td>-</td><td>Uma janela de atividade costumava existir com um estado diferente, mas foi reposta.</td>
 </tr>
 </table>
 
 
 Quando clica numa janela de atividade da lista, vê detalhes sobre o mesmo no **Activity Windows Explorer** ou na janela **Propriedades** à direita.
 
-![Explorador de janelas de atividade](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
+![Screenshot que mostra como ver detalhes sobre uma janela de atividade.](./media/data-factory-monitor-manage-app/ActivityWindowExplorer-2.png)
 
 ### <a name="refresh-activity-windows"></a>Atualizar janelas de atividade
 Os detalhes não são automaticamente atualizados, por isso utilize o botão de atualização (o segundo botão) na barra de comando para atualizar manualmente a lista de janelas de atividade.  

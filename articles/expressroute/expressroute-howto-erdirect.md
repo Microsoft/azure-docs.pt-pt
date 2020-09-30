@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: duau
-ms.openlocfilehash: 1748db76aa2d1f65ea21046bcff2fff43ca732b0
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: a450c4057b4639206fd1db4b7f44d27c69441f7f
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91450189"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569854"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Como configurar o ExpressRoute Direct
 
@@ -166,9 +166,12 @@ Faça referência ao recurso ExpressRoute Direct recentemente criado, insira um 
 
    ```powershell
    Written Letter of Authorization To: C:\Users\SampleUser\Downloads\LOA.pdf
+   ```
 
-  This process should be used to conduct a Layer 1 test, ensuring that each cross-connection is properly patched into each router for primary and secondary.
-1. Get ExpressRoute Direct details.
+## <a name="change-admin-state-of-links"></a><a name="state"></a>Alterar Estado de Administração de ligações
+   
+Este processo deve ser utilizado para realizar um teste da Camada 1, certificando-se de que cada ligação cruzada está corretamente remendada em cada router para o primário e secundário.
+1. Obtenha detalhes diretos expressRoute.
 
    ```powershell
    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
@@ -285,6 +288,6 @@ Crie um circuito no recurso ExpressRoute Direct.
   GatewayManagerEtag     
   ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para mais informações sobre o ExpressRoute Direct, consulte a [Visão Geral.](expressroute-erdirect-about.md)

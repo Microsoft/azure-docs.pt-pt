@@ -3,14 +3,14 @@ title: Perguntas mais frequentes
 description: Respostas para perguntas frequentes relacionadas com o serviço de Registo de Contentores Azure
 author: sajayantony
 ms.topic: article
-ms.date: 03/18/2020
+ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 02facedda206a5621cabe62a07520303635dc3ff
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 499ef509fc9f8d9365d8db3f7058d12352db9bb2
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88245371"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570516"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registo de Contentores Azure
 
@@ -19,7 +19,7 @@ Este artigo aborda perguntas frequentes e questões conhecidas sobre o Registo d
 Para orientação de resolução de problemas de registo, consulte:
 * [Login de registo de resolução de problemas](container-registry-troubleshoot-login.md)
 * [Problemas de rede de resolução de problemas com registo](container-registry-troubleshoot-access.md)
-* [Desempenho do registo de resolução de problemas](container-registry-troubleshoot-performance.md)
+* [Resolver problemas de desempenho de registo](container-registry-troubleshoot-performance.md)
 
 ## <a name="resource-management"></a>Gestão de recursos
 
@@ -33,11 +33,11 @@ Para orientação de resolução de problemas de registo, consulte:
 
 ### <a name="can-i-create-an-azure-container-registry-using-a-resource-manager-template"></a>Posso criar um registo de contentores Azure utilizando um modelo de Gestor de Recursos?
 
-Yes. Aqui está [um modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) que pode usar para criar um registo.
+Sim. Aqui está [um modelo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry) que pode usar para criar um registo.
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Existe vulnerabilidade de segurança à procura de imagens em ACR?
 
-Yes. Consulte a documentação do [Azure Security Center](../security-center/azure-container-registry-integration.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) e [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Sim. Consulte a documentação do [Azure Security Center](../security-center/azure-container-registry-integration.md), [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) e [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Como posso configurar Kubernetes com registo de contentores Azure?
 
@@ -261,8 +261,8 @@ A quarentena de imagem é atualmente uma característica de pré-visualização 
 
 A criação de um registo de contentores Azure para acesso anónimo (público) é atualmente uma funcionalidade de pré-visualização. Se tiver algum [mapa de âmbito (utilizador) ou recursos simbólicos](https://aka.ms/acr/repo-permissions) no seu registo, por favor, apague-os antes de levantar um bilhete de apoio (os mapas de âmbito do sistema podem ser ignorados). Para permitir o acesso ao público, abra um bilhete de apoio em https://aka.ms/acr/support/create-ticket . Para mais detalhes, consulte o [Azure Feedback Forum](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
-
-
+> [!NOTE]
+> Apenas as APIs necessárias para retirar uma imagem conhecida podem ser acedidas anonimamente. Nenhuma outra APIs para operações como lista de tags ou lista de repositórios está acessível anonimamente.
 
 ## <a name="diagnostics-and-health-checks"></a>Diagnósticos e exames de saúde
 
@@ -443,7 +443,7 @@ Entre em contato com o administrador de rede ou verifique a configuração e con
 ### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>Porque é que o meu pedido de puxar ou empurrar falha com uma operação proibida?
 
 Eis alguns cenários em que as operações podem ser proibidas:
-* Os registos clássicos já não são suportados. Por favor, atualize para um [nível de serviço](https://aka.ms/acr/skus) suportado usando [a atualização az acr](/cli/azure/acr?view=azure-cli-latest#az-acr-update) ou o portal Azure.
+* Os registos clássicos já não são suportados. Por favor, atualize para um [nível de serviço](https://aka.ms/acr/skus) suportado usando [a atualização az acr](/cli/azure/acr#az-acr-update) ou o portal Azure.
 * A imagem ou repositório talvez bloqueado para que não possa ser apagado ou atualizado. Pode utilizar o comando [de repositório az acr show](./container-registry-image-lock.md) para visualizar os atributos atuais.
 * Algumas operações são proibidas se a imagem estiver em quarentena. Saiba mais sobre [a quarentena.](https://github.com/Azure/acr/tree/master/docs/preview/quarantine)
 * O seu registo pode ter atingido o [limite de armazenamento.](container-registry-skus.md#service-tier-features-and-limits)
@@ -508,10 +508,10 @@ Atualmente, não apoiamos o GitLab para os gatilhos de origem.
 
 | Serviço git | Contexto de origem | Construção manual | Construção automática através do gatilho de comprometimento |
 |---|---|---|---|
-| GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | Sim | Sim |
-| Repositórios do Azure | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | Sim | Sim |
-| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Sim | Não |
-| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Sim | Não |
+| GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | Sim | Yes |
+| Repositórios do Azure | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | Yes | Yes |
+| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Yes | No |
+| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Yes | No |
 
 ## <a name="run-error-message-troubleshooting"></a>Executar resolução de problemas de mensagem de erro
 

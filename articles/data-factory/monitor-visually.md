@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: b65b5b847712ce32c6723d725be9cf2ed1f99050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcbf48081484941fd93f209bee21eb14c2c38310
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801541"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570131"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Monitorizar visualmente o Azure Data Factory
 
@@ -46,7 +46,7 @@ A visão de monitorização predefinida é a lista de gasodutos executados no pe
 
 É necessário selecionar manualmente o botão **Refresh** para atualizar a lista de gasodutos e de execuções de atividade. A autorefresh não está atualmente apoiada.
 
-![Botão de atualização](media/monitor-visually/refresh.png)
+![Botão Atualizar](media/monitor-visually/refresh.png)
 
 ## <a name="monitor-activity-runs"></a>Monitorização de execuções de atividade
 
@@ -136,7 +136,7 @@ Também pode ver a história da repetição para uma determinada corrida de gaso
 
 Pode ver os recursos consumidos por um oleoduto executado clicando no ícone de consumo ao lado da corrida. 
 
-![Monitorizar o consumo](media/monitor-visually/monitor-consumption-1.png)
+![Screenshot que mostra onde você pode ver os recursos consumidos por um oleoduto.](media/monitor-visually/monitor-consumption-1.png)
 
 Clicar no ícone abre um relatório de consumo dos recursos utilizados por esse gasoduto. 
 
@@ -190,7 +190,7 @@ Para uma introdução e demonstração de sete minutos desta funcionalidade, vej
 
     ![Caixa para critérios-alvo](media/monitor-visually/add-criteria-1.png)
 
-    ![Lista de critérios](media/monitor-visually/add-criteria-2.png)
+    ![Screenshot que mostra onde seleciona uma métrica para configurar a condição de alerta.](media/monitor-visually/add-criteria-2.png)
 
     ![Lista de critérios](media/monitor-visually/add-criteria-3.png)
 
@@ -210,6 +210,6 @@ Para uma introdução e demonstração de sete minutos desta funcionalidade, vej
 
     ![Opções para criar uma regra de alerta](media/monitor-visually/create-alert-rule.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender sobre a monitorização e gestão de gasodutos, consulte o [Monitor e gere os oleodutos programáticamente.](https://docs.microsoft.com/azure/data-factory/monitor-programmatically)

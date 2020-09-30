@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: peshultz
 ms.custom: references_regions
-ms.openlocfilehash: 6c6207e7f52e49b88dc8dc99e0bd20a2c774339d
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: e6922abb48e19157e6905d9ceb71817cfbaff767
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91541905"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570877"
 ---
 # <a name="create-an-azure-batch-pool-without-public-ip-addresses"></a>Criar um conjunto do Azure Batch sem endereços IP públicos
 
@@ -34,8 +34,11 @@ Para restringir o acesso a estes nós e reduzir a descoberta destes nós a parti
 - **Um Azure VNet.** Se estiver a criar a sua piscina numa [rede virtual,](batch-virtual-network.md)siga estes requisitos e configurações. Para preparar um VNet com uma ou mais sub-redes com antecedência, pode utilizar o portal Azure PowerShell, a Interface da Linha de Comando Azure (CLI) ou outros métodos.
   - A VNet tem de estar na mesma subscrição e região da conta do Batch utilizada para criar o conjunto.
   - A sub-rede especificada para o conjunto deve ter endereços IP não atribuídos suficientes para acomodar o número de VMs direcionadas para o conjunto; ou seja, a soma de propriedades `targetDedicatedNodes` e `targetLowPriorityNodes` do conjunto. Se a sub-rede não tiver endereços IP não atribuídos suficientes, o conjunto atribui parcialmente os nós de computação e ocorre um erro de redimensionamento.
-  - Tem de desativar as políticas de serviço de ligação privada e de rede de pontos finais. Isto pode ser feito utilizando O Azure CLI: ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
-  
+  - Tem de desativar as políticas de serviço de ligação privada e de rede de pontos finais. Isto pode ser feito utilizando O Azure CLI:
+    ```azurecli
+    az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies
+    ```
+
 > [!IMPORTANT]
 > Para cada 100 nós dedicados ou de baixa prioridade, o Batch atribui um serviço de ligação privada e um equilibrador de carga. Estes recursos estão limitados pelas [quotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) da subscrição. Para piscinas grandes, você pode precisar [solicitar um aumento de quota](batch-quota-limit.md#increase-a-quota) para um ou mais destes recursos. Além disso, não devem ser aplicados bloqueios de recursos a qualquer recurso criado pelo Batch, uma vez que tal impede a limpeza de recursos como resultado de ações iniciadas pelo utilizador, tais como a eliminação de uma piscina ou a redimensionamento para zero.
 
@@ -113,7 +116,7 @@ Numa piscina sem endereços IP públicos, as suas máquinas virtuais não poder�
 
 Outra forma de fornecer conectividade de saída é usar uma rota definida pelo utilizador (UDR). Isto permite-lhe encaminhar o tráfego para uma máquina de procuração que tem acesso público à Internet.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a criação de piscinas numa rede virtual.](batch-virtual-network.md)
 - Saiba como [utilizar pontos finais privados com contas Batch](private-connectivity.md).

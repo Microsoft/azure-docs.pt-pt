@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 051f6e6ef15cc94e2b607c74e666bae9c91c1160
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 75344204e03920c96d0868ad584b8701813fabf0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401627"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569529"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Linha de Base de Segurança Azure para Cosmos DB
 
@@ -290,7 +290,7 @@ A Azure Cosmos DB fornece RBAC incorporado para cenários comuns de gestão em A
 
 Também pode utilizar o módulo Azure AD PowerShell para realizar consultas de adhoc para descobrir contas que são membros de grupos administrativos. 
 
-Além disso, algumas ações em Azure Cosmos DB podem ser controladas com Azure Ative Directory e chaves master específicas de conta.  Utilize a definição de conta 'DisableKeyBasedMetadataWriteAccess' para controlar o acesso à chave.
+Além disso, algumas ações em Azure Cosmos DB podem ser controladas com O Diretório Ativo Azure e chaves primárias específicas para a conta.  Utilize a definição de conta 'DisableKeyBasedMetadataWriteAccess' para controlar o acesso à chave.
 
 Compreenda o controlo de acesso baseado em funções na Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
@@ -298,9 +298,9 @@ Construa os seus próprios papéis personalizados utilizando ações de DB Azure
 
 Criar um novo papel no Azure Ative Directory: https://docs.microsoft.com/azure/role-based-access-control/custom-roles
 
-Como obter um papel de diretório no Azure Ative Directory com a PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+Como obter um papel de diretório no Azure Ative Directory com a PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&preserve-view=true
 
-Como obter membros de um papel de diretório no Azure Ative Directory com a PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+Como obter membros de um papel de diretório no Azure Ative Directory com a PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&preserve-view=true
 
 Restringir o acesso do utilizador apenas às operações de dados: https://docs.microsoft.com/azure/cosmos-db/how-to-restrict-user-data
 
@@ -310,7 +310,7 @@ Restringir o acesso do utilizador apenas às operações de dados: https://docs.
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: Alterar palavras-passe padrão quando aplicável
 
-**Orientação**: O conceito de palavras-passe padrão ou em branco não existe em relação a Azure AD ou Azure Cosmos DB. Em vez disso, a Azure Cosmos DB utiliza dois tipos de chaves para autenticar os utilizadores e fornecer acesso aos seus dados e recursos; chaves principais e fichas de recursos. As chaves podem ser regeneradas a qualquer momento.
+**Orientação**: O conceito de palavras-passe padrão ou em branco não existe em relação a Azure AD ou Azure Cosmos DB. Em vez disso, a Azure Cosmos DB utiliza dois tipos de chaves para autenticar os utilizadores e fornecer acesso aos seus dados e recursos; chaves primárias e fichas de recursos. As chaves podem ser regeneradas a qualquer momento.
 
 Compreensão do acesso seguro aos dados em Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data
 
@@ -640,7 +640,7 @@ Embora os recursos clássicos do Azure possam ser descobertos através do Gráfi
 
 Como criar consultas com gráfico de recursos Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-Como ver as suas Subscrições Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+Como ver as suas Subscrições Azure: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0&preserve-view=true
 
 Compreender o controlo de acesso baseado em funções da Azure: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -792,7 +792,7 @@ Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recurso
 
 - Cosmos DB deve usar um ponto final de serviço de rede virtual
 
-Como visualizar pseudónimos disponíveis da Política Azure: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+Como visualizar pseudónimos disponíveis da Política Azure: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0&preserve-view=true
 
 Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -834,7 +834,7 @@ Compreenda os efeitos da política do Azure: https://docs.microsoft.com/azure/go
 
 **Orientação**: Se utilizar definições personalizadas da Política Azure para o seu Cosmos DB ou recursos relacionados, utilize a Azure Repos para armazenar e gerir o seu código de forma segura.
 
-Documentação Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devopshttps://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+Documentação Azure Repos: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops&preserve-view=truehttps://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -1003,7 +1003,7 @@ https://docs.microsoft.com/azure/cosmos-db/how-to-backup-and-restore
 
 Como restaurar os segredos do cofre da chave Azure:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true
 
 **Monitorização do Centro de Segurança Azure**: Não aplicável
 
@@ -1110,7 +1110,7 @@ Pode encontrar mais informações sobre a estratégia e execução da Red Teamin
 
 **Responsabilidade**: Compartilhado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o [Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
 - Saiba mais sobre [as Linhas de Base de Segurança Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)

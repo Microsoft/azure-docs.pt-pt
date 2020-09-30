@@ -6,12 +6,12 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 20b0bcfe5043d4767199c36796fa1123ed779363
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87112af870100859ae008f77eefc4b58eac1b0fb
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791151"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570731"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Criar contentores e bases de dados da Azure Cosmos com produção de escala automática
 
@@ -61,7 +61,7 @@ O ponto de entrada para a potência máxima de autoescala `Tmax` começa em 4000
 
 Utilize o [portal Azure](how-to-provision-autoscale-throughput.md#enable-autoscale-on-existing-database-or-container) para permitir a autoescalação numa base de dados ou num recipiente existente. Pode alternar entre a potência de autoescala e a produção normalizada (manual) a qualquer momento. Consulte esta [documentação](autoscale-faq.md#how-does-the-migration-between-autoscale-and-standard-manual-provisioned-throughput-work) para obter mais informações. Atualmente, para todos os APIs, só é possível utilizar o portal Azure para permitir uma autoescalação dos recursos existentes.
 
-## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a>Limites de produção e armazenamento para autoescalação
+## <a name="throughput-and-storage-limits-for-autoscale"></a><a id="autoscale-limits"></a> Limites de produção e armazenamento para autoescalação
 
 Por qualquer `Tmax` valor, a base de dados ou o contentor podem armazenar um total de `0.01 * Tmax GB` . Depois de atingir esta quantidade de armazenamento, a RU/s máxima aumenta automaticamente com base no novo valor de armazenamento, sem afetar a aplicação. 
 
@@ -77,10 +77,10 @@ Para obter mais detalhes, consulte esta [documentação](how-to-choose-offer.md)
 | **Produção provisão (RU/s)** | A provisionado manualmente. | Escalado automaticamente e instantaneamente com base nos padrões de utilização da carga de trabalho. |
 | **Limitação das taxas de pedidos/operações (429)**  | Pode acontecer, se o consumo exceder a capacidade a provisionada. | Não acontecerá se consumir RU/s dentro da gama de produção de escala automática que definiu.    |
 | **Planeamento da capacidade** |  Tens de fazer planeamento de capacidades e providenciar o rendimento exato de que precisas. |    O sistema cuida automaticamente do planeamento de capacidades e da gestão da capacidade. |
-| **Preços** | Paga-se os RU/s manualmente a provisionados por hora, utilizando a [taxa standard (manual) RU/s por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). | Paga-se por hora o maior RU/s que o sistema aumentou até dentro de uma hora. <br/><br/> Para contas de uma única região de escrita, você paga os RU/s utilizados por hora, utilizando a [taxa de RU/s de escala automática por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>Para contas com várias regiões de escrita, não há qualquer custo extra para a autoescala. Você paga a produção usada por hora usando o mesmo [r/s multi-mestre por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). |
+| **Preços** | Paga-se os RU/s manualmente a provisionados por hora, utilizando a [taxa standard (manual) RU/s por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). | Paga-se por hora o maior RU/s que o sistema aumentou até dentro de uma hora. <br/><br/> Para contas de uma única região de escrita, você paga os RU/s utilizados por hora, utilizando a [taxa de RU/s de escala automática por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). <br/><br/>Para contas com várias regiões de escrita, não há qualquer custo extra para a autoescala. Você paga a produção usada por hora usando a mesma [taxa de escrita de várias regiões RU/s por hora](https://azure.microsoft.com/pricing/details/cosmos-db/). |
 | **Mais adequado para tipos de carga de trabalho** |  Cargas de trabalho previsíveis e estáveis|   Cargas de trabalho imprevisíveis e variáveis  |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Reveja as [FAQ de escala automática.](autoscale-faq.md)
 * Saiba como escolher entre a [produção manual e autoescala.](how-to-choose-offer.md)

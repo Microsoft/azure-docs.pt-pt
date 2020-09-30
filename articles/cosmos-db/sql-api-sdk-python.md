@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-python
-ms.openlocfilehash: e9f9daea2c0d570efb81603784ee730b11668426
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 03c8f5acfc10738401f61de099f946c33497d705
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585989"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569814"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK para API SQL: Lançar notas e recursos
 
@@ -29,7 +29,7 @@ ms.locfileid: "88585989"
 > * [SDK v2 Java síncrono](sql-api-sdk-java.md)
 > * [Dados da primavera v2](sql-api-sdk-java-spring-v2.md)
 > * [Dados da primavera v3](sql-api-sdk-java-spring-v3.md)
-> * [Conector de faíscas](sql-api-sdk-java-spark.md)
+> * [Spark Connector](sql-api-sdk-java-spark.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](/rest/api/cosmos-db/)
 > * [Fornecedor de Recursos REST](/rest/api/cosmos-db-resource-provider/)
@@ -40,7 +40,7 @@ ms.locfileid: "88585989"
 | |  |
 |---|---|
 |**Baixar SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**Documentação da API**|[Documentação de referência da Python API](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python)|
+|**Documentação da API**|[Documentação de referência da Python API](https://docs.microsoft.com/python/api/azure-cosmos/?view=azure-python&preserve-view=true)|
 |**Instruções de instalação da SDK**|[Instruções de instalação python SDK](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Introdução**|[Começa com o Python SDK](create-sql-api-python.md)|
 |**Plataforma suportada atual**|[Python 2.7](https://www.python.org/downloads/) e [Python 3.5.3+](https://www.python.org/downloads/)|
@@ -126,7 +126,7 @@ ms.locfileid: "88585989"
 
 * O construtor foi `CosmosClient` atualizado:
 
-  * O `auth` parâmetro foi renomeado e irá agora tomar `credential` um tipo de autenticação diretamente. Isto significa que o valor chave principal, um dicionário de fichas de recursos, ou uma lista de permissões podem ser passadas. No entanto, o antigo formato do dicionário ainda é suportado.
+  * O `auth` parâmetro foi renomeado e irá agora tomar `credential` um tipo de autenticação diretamente. Isto significa que o valor principal da chave, um dicionário de fichas de recursos, ou uma lista de permissões podem ser passados. No entanto, o antigo formato do dicionário ainda é suportado.
 
   * O `connection_policy` parâmetro foi feito apenas um parâmetro de palavra-chave, e enquanto ainda é suportado, cada um dos atributos individuais da política pode agora ser passado como argumentos explícitos de palavra-chave:
 

@@ -3,12 +3,12 @@ title: Modelo de dados para eventos de diagnóstico de backup Azure
 description: Este modelo de dados faz referência ao Modo Específico de Recurso de envio de eventos de diagnóstico para Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: adc1442b674b9a6e947ef65967a2c2f1359e7d8a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c2c5d37596be104c4b1dc7e865586a4728a27bae
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017588"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569598"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modelo de dados para eventos de diagnóstico de backup Azure
 
@@ -38,9 +38,9 @@ Esta tabela fornece informações sobre entidades de backup fundamentais, tais c
 | BackupManagementServerOSVersion   | Texto          | Versão OS do Servidor de Gestão de Cópias de Segurança                   |
 | BackupManagementServerVersion     | Texto          | Versão do Servidor de Gestão de Cópias de Segurança                      |
 | ÚltimaRecoveryPointLocation       | Texto          | Localização do último ponto de recuperação para o item de backup    |
-| ÚltimaRecoveryPointTime           | DateTime      | Data do último ponto de recuperação para o item de backup   |
+| ÚltimaRecoveryPointTime           | Data e Hora      | Data do último ponto de recuperação para o item de backup   |
 | Mais antigoRecoveryPointLocation       | Texto          | Localização do ponto de recuperação mais antigo para o item de backup    |
-| Mais antigoRecoveryPointTime           | DateTime      | Data do último ponto de recuperação para o item de backup   |
+| Mais antigoRecoveryPointTime           | Data e Hora      | Data do último ponto de recuperação para o item de backup   |
 | PolicyUniqueId                    | Texto          | ID único para identificar a política                             |
 | Nome ProtetorContainerFriendlyName    | Texto          | Nome amigável do servidor protegido                        |
 | Proteção DaLocação        | Texto          | Se o Contentor Protegido está localizado no local ou em Azure |
@@ -74,7 +74,7 @@ Esta tabela fornece detalhes sobre campos relacionados com alerta.
 | Categoria                       | Texto          | Categoria de dados de diagnóstico empurrados para registos do Monitor Azure - AddonAzureBackupAlerts |
 | Código de Alerta                      | Texto          | Código para identificar de forma única um tipo de alerta                     |
 | AlertaConsolidaçãoStatus       | Texto          | Identifique se o alerta é um alerta consolidado ou não         |
-| AlertOccurrenceDateTime        | DateTime      | Data e hora em que o alerta foi criado                     |
+| AlertOccurrenceDateTime        | Data e Hora      | Data e hora em que o alerta foi criado                     |
 | Alerta Elevado                  | Texto          | Tipo de entidade em que o alerta é levantado                        |
 | Alertaseverity                  | Texto          | Gravidade do alerta. Por exemplo, Critical                 |
 | AlertaStatus                    | Texto          | Estado do alerta. Por exemplo, Ative                     |
@@ -130,12 +130,12 @@ Esta tabela fornece detalhes sobre campos relacionados com o emprego.
 | JobFailureCode                 | Texto          | Cadeia de código de falha por causa da falha de trabalho    |
 | JobOperation                   | Texto          | Operação para que trabalho é executado por exemplo, Backup, Restaurar, Configurar Backup |
 | JobOperationSubType            | Texto          | Sub tipo de operação de trabalho. Por exemplo, 'Log', no caso do Trabalho de Backup de Registo |
-| Tempo de TrabalhoStartDate               | DateTime      | Data e hora quando o trabalho começou a correr                       |
+| Tempo de TrabalhoStartDate               | Data e Hora      | Data e hora quando o trabalho começou a correr                       |
 | Estado da Tarefa                      | Texto          | Estado do trabalho acabado, por exemplo, Concluído, Falhado   |
 | JobUniqueId                    | Texto          | ID único para identificar o trabalho                                |
 | ProtectedContainerUniqueId     | Texto          | Identificador único do servidor protegido associado ao trabalho |
 | RecuperaçãoJobDestination         | Texto          | Destino de um trabalho de recuperação, onde os dados são recuperados   |
-| RecuperaçãoJobRPDateTime          | DateTime      | A data, hora em que o ponto de recuperação que está a ser recuperado foi criado |
+| RecuperaçãoJobRPDateTime          | Data e Hora      | A data, hora em que o ponto de recuperação que está a ser recuperado foi criado |
 | RecuperaçãoJobLocation            | Texto          | O local onde o ponto de recuperação que está a ser recuperado foi armazenado |
 | RecoveryLocationType           | Texto          | Tipo de Localização de Recuperação                                |
 | SchemaVersão                  | Texto          | Versão atual do esquema, por exemplo **V2**            |
@@ -217,6 +217,29 @@ Esta tabela fornece detalhes sobre campos relacionados com armazenamento.
 | VaultUniqueId                  | Texto          | ID único usado para identificar o cofre relacionado com a entidade de armazenamento |
 | VolumeFriendlyName             | Texto          | Nome amigável do volume de armazenamento                          |
 | SourceSystem                   | Texto          | Sistema de origem dos dados atuais - Azure                    |
+
+## <a name="valid-operation-names-for-each-table"></a>Nomes de operação válidos para cada tabela
+
+Cada registo nas tabelas acima tem um **Nome de Operação**associado . Um Nome de Operação descreve o tipo de registo (e também indica quais os campos na tabela que estão povoados para esse registo). Cada tabela (categoria) suporta um ou mais nomes de operação distintos. Abaixo está um resumo dos nomes de operação suportados para cada uma das tabelas acima.
+
+| **Nome de mesa / Categoria**                   | **Nomes de operação apoiados** | **Descrição**              |
+| ------------------------------------------- | ------------------------------|----------------------------- |
+| CoreAzureBackup | BackupItem | Representa um registo que contém todos os detalhes de um determinado item de backup, tais como ID, nome, tipo, etc. |
+| CoreAzureBackup | BackupItemAssociation | Representa um mapeamento entre um item de reserva e o seu recipiente protegido associado (se aplicável). |
+| CoreAzureBackup | BackupItemFrontEndSizeConsumption | Representa um mapeamento entre um item de reserva e o seu tamanho frontal. |
+| CoreAzureBackup | Protegido | Representa um registo que contém todos os detalhes de um determinado recipiente protegido, tais como ID, nome, tipo, etc. |
+| CoreAzureBackup | Proteção DaAssociação DoContainer | Representa um mapeamento entre um recipiente protegido e o cofre utilizado para a sua cópia de segurança. |
+| CoreAzureBackup | Cofre | Representa um registo que contém todos os detalhes de um dado cofre, por exemplo. ID, nome, etiquetas, localização, etc. |
+| CoreAzureBackup | Ponto de Recuperação | Representa um registo que contém o ponto de recuperação mais antigo e mais recente para um determinado item de reserva. |
+| AddonAzureBackupJobs | Tarefa |  Representa um registo que contém todos os detalhes de um dado trabalho. Por exemplo, operação de trabalho, hora de início, estado, etc. |
+| AddonAzureBackupAlerts | Alerta | Representa um registo que contém todos os detalhes de um dado alerta. Por exemplo, alertar o tempo de criação, a gravidade, o estado, etc.  |
+| AddonAzureBackupstorage | Armazenamento | Representa um registo que contém todos os detalhes de uma determinada entidade de armazenamento. Por exemplo, nome de armazenamento, tipo etc. |
+| AddonAzureBackupstorage | ArmazenamentoAssociação | Representa um mapeamento entre um item de backup e o armazenamento total de nuvem consumido pelo item de backup. |
+| AddonAzureBackupProtectedInstance | Proteção | Representa um registo que contém a contagem de exemplos protegida para cada recipiente ou elemento de reserva. Para a cópia de segurança Azure VM, a contagem de casos protegidos está disponível ao nível do item de reserva, para outras cargas de trabalho que está disponível ao nível do recipiente protegido. |
+| AddonAzureBackupPolicy | Política |  Representa um registo que contém todos os detalhes de uma política de backup e retenção. Por exemplo, ID, nome, definições de retenção, etc. |
+| AddonAzureBackupPolicy | PolíticaAssociação | Representa um mapeamento entre um item de backup e a política de backup aplicada ao mesmo. |   
+
+Muitas vezes, terá de realizar juntas entre diferentes tabelas, bem como diferentes conjuntos de registos que fazem parte da mesma tabela (diferenciada pelo Nome da Operação) para obter todos os campos necessários para a sua análise. Consulte as [consultas de amostra](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries) para começar. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

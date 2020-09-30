@@ -7,12 +7,12 @@ ms.author: jpalma
 ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
-ms.openlocfilehash: 67eeb181f64f5924a90fd2c03e39e1be9887dd2e
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 33355251a06ba076be3677b84e383793f9f25193
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91397169"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570371"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlo tráfego de saídas para nós de cluster no Serviço Azure Kubernetes (AKS)
 
@@ -49,11 +49,11 @@ As regras de rede exigidas e as dependências de endereços IP são:
 
 | Ponto final de destino                                                             | Protocolo | Porta    | Utilização  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Ou* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Ou* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Ou* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Para uma comunicação segura entre os nós e o avião de controlo. |
-| **`*:9000`** <br/> *Ou* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Ou* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Ou* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Para uma comunicação segura entre os nós e o avião de controlo. |
+| **`*:1194`** <br/> *Ou* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Ou* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Ou* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Para uma comunicação segura entre os nós e o avião de controlo. Isto não é necessário para [aglomerados privados](private-clusters.md)|
+| **`*:9000`** <br/> *Ou* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Ou* <br/> [CIDRs regionais](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Ou* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Para uma comunicação segura entre os nós e o avião de controlo. Isto não é necessário para [aglomerados privados](private-clusters.md) |
 | **`*:123`** ou **`ntp.ubuntu.com:123`** (se utilizar as regras da rede Azure Firewall)  | UDP      | 123     | Requerido para sincronização de tempo do Protocolo de Tempo de Rede (NTP) nos nós Linux.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Se estiver a utilizar servidores DNS personalizados, deve certificar-se de que estão acessíveis pelos nós do cluster. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Necessários se as cápsulas/implementações que acedam ao Servidor API, essas cápsulas/implementações utilizariam o IP API.  |
+| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Necessários se as cápsulas/implementações que acedam ao Servidor API, essas cápsulas/implementações utilizariam o IP API. Isto não é necessário para [aglomerados privados](private-clusters.md)  |
 
 ### <a name="azure-global-required-fqdn--application-rules"></a>AZure Global exigiu regras fQDN /aplicação 
 

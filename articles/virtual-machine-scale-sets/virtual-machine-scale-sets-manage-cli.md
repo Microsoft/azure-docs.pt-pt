@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 02f868417ef9feea1771174e62152708c1257425
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d954f7cdda4cae65f822489828226e0364d0fc29
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502907"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570523"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Gerir uma balança de máquina virtual definida com o Azure CLI
 Ao longo do ciclo de vida dos conjuntos de dimensionamento de máquinas virtuais, poderá ter de executar uma ou mais tarefas de gestão. Além disso, pode querer criar scripts que automatizam várias tarefas do ciclo de vida. Este artigo detalha alguns dos comandos comuns do Azure CLI que lhe permitem executar estas tarefas.
@@ -49,6 +49,20 @@ az vmss get-instance-view \
     --instance-id 0
 ```
 
+Também pode obter informações detalhadas *de exemploVer* informações para todas as instâncias numa chamada da API, o que pode ajudar a evitar o estrangulamento da API para grandes instalações. Forneça os seus próprios valores para `--resource-group` `--subscription` , e `--name` .
+
+```azurecli
+az vmss list-instances \
+    --expand instanceView \
+    --select instanceView \
+    --resource-group <resourceGroupName> \
+    --subscription <subID> \
+    --name <vmssName>
+```
+
+```rest
+GET "https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSSName>/virtualMachines?api-version=2019-03-01&%24expand=instanceView"
+```
 
 ## <a name="list-connection-information-for-vms"></a>Listar informações de ligação para VMs
 Para ligar aos VMs num conjunto de escala, é SSH ou RDP a um endereço IP público atribuído e número de porta. Por predefinição, as regras de tradução de endereços de rede (NAT) são adicionadas ao equilibrador de carga Azure que encaminha o tráfego de ligação remota para cada VM. Para listar o endereço e as portas para ligar a instâncias VM num conjunto de escala, utilize [a lista az vmss lista-informação de conexão .](/cli/azure/vmss) O exemplo a seguir lista as informações de ligação para instâncias VM no conjunto de escala denominado *myScaleSet* e no grupo de recursos *myResourceGroup.* Forneça os seus próprios valores para estes nomes:

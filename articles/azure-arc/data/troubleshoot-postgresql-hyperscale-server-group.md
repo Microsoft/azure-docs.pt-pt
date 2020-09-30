@@ -9,15 +9,15 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 8d1c9027b6a9a7b295ce83e26281832beca1bc33
-ms.sourcegitcommit: f5580dd1d1799de15646e195f0120b9f9255617b
+ms.openlocfilehash: 8e91a611084d201e6609f7e203eaa08c81e19a00
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91531960"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570003"
 ---
 # <a name="troubleshooting-postgresql-hyperscale-server-groups"></a>Resolução de problemas Grupos de servidores de hiperescala postgresQL
-Este artigo descreve algumas técnicas que pode utilizar para resolver problemas no seu grupo de servidor. Além deste artigo, pode querer ler como usar [Kibana](monitor-grafana-kibana.md) para seachar os registos ou usar [Grafana](monitor-grafana-kibana.md) para visualizar métricas sobre o seu grupo de servidores. 
+Este artigo descreve algumas técnicas que pode utilizar para resolver problemas no seu grupo de servidor. Além deste artigo, pode querer ler como usar [Kibana](monitor-grafana-kibana.md) para pesquisar os registos ou usar [Grafana](monitor-grafana-kibana.md) para visualizar métricas sobre o seu grupo de servidores. 
 
 ## <a name="getting-more-details-about-the-execution-of-an-azdata-command"></a>Obter mais detalhes sobre a execução de um comando azdata
 Pode adicionar o parâmetro **--depurar** a qualquer comando azdata que execute. Ao fazê-lo, apresentar-se-ão à sua consola informações adicionais sobre a execução desse comando. Deve achar útil obter detalhes para ajudá-lo a entender o comportamento desse comando.

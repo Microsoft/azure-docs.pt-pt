@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: vs-azure
 ms.date: 01/22/2018
-ms.openlocfilehash: f3c6364226288ffb6796664e89d0b7c2cc4dadf6
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 65309bbd70a6fda2bf725ce96cc5595cd9b55083
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543151"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569064"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Criar uma fábrica de dados com o Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -91,7 +91,7 @@ Com o serviço ligado do HDInsight a pedido, o cluster do HDInsight é criado au
 #### <a name="create-azure-storage-linked-service"></a>Criar o serviço ligado do Storage do Azure
 1. Clique com o botão direito do rato em **Serviços Ligados** no explorador de soluções, aponte para **Adicionar** e, em seguida, clique em **Novo Item**.      
 2. Na caixa de diálogo **Adicionar Novo Item**, selecione **Serviço Ligado do Storage do Azure** na lista e clique em **Adicionar**.
-    ![Serviço Ligado do Armazenamento do Azure](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
+    ![Screenshot que destaca o Azure Storage Linked Service na lista.](./media/data-factory-build-your-first-pipeline-using-vs/new-azure-storage-linked-service.png)
 3. Substitua `<accountname>` e `<accountkey>` pelo nome da sua conta de armazenamento do Azure e pela respetiva chave. Para aprender a obter a chave de acesso ao armazenamento, consulte [as teclas de acesso à conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
     ![Serviço Ligado do Armazenamento do Azure](./media/data-factory-build-your-first-pipeline-using-vs/azure-storage-linked-service.png)
 4. Guarde o ficheiro **AzureStorageLinkedService1.json**.
@@ -368,7 +368,7 @@ Neste passo, monitoriza o pipeline com a Vista de Diagrama da fábrica de dados.
 7. Clique em **X** para fechar o painel **AzureBlobInput**.
 8. Na **Vista de Diagrama**, faça duplo clique no conjunto de dados **AzureBlobOutput**. Verá o setor que está atualmente a ser processado.
 
-   ![Conjunto de dados](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
+   ![Screenshot que realça o conjunto de dados AzureBlobOut.](./media/data-factory-build-your-first-pipeline-using-vs/dataset-blade.png)
 9. Quando o processamento terminar, verá o setor no estado **Pronto**.
 
    > [!IMPORTANT]
@@ -563,7 +563,7 @@ Pode encadear duas atividades (executar uma atividade após a outra) ao definir 
 
 ## <a name="see-also"></a>Consulte também
 
-| Tópico | Descrição |
+| Tópico | Description |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo ajuda-o a compreender os pipelines e as atividades no Azure Data Factory e como os utilizar para construir fluxos de dados condicionados por dados para o seu cenário ou empresa. |
 | [Conjuntos de dados](data-factory-create-datasets.md) |Este artigo ajuda-o a compreender os conjuntos de dados no Azure Data Factory. |

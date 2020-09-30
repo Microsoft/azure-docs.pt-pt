@@ -1,5 +1,5 @@
 ---
-title: Pausa e retomar o cálculo na piscina Sinaapse SQL com Azure PowerShell
+title: 'Quickstart: Pausa e retomar o cálculo na piscina Synapse SQL com Azure PowerShell'
 description: Pode utilizar o Azure PowerShell para fazer uma pausa e retomar a piscina Synapse SQL (armazém de dados). recursos compute.
 services: synapse-analytics
 author: kevinvngo
@@ -11,12 +11,12 @@ ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse, devx-track-azurepowershell
-ms.openlocfilehash: 9adc994ef9ac3f43f593da010b35ada4a83e424e
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 08ddb6077887043d798af9790a7b66f1b8ebb95c
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078967"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570693"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-synapse-sql-pool-with-azure-powershell"></a>Quickstart: Pausa e retomar o cálculo na piscina Synapse SQL com Azure PowerShell
 
@@ -55,7 +55,7 @@ Localize o nome da base de dados, o nome do servidor e o grupo de recursos para 
 
 Siga estes passos para encontrar informações de localização para a sua piscina SQL:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Clique em **Azure Synapse Analytics (anteriormente SQL DW)** na página esquerda do portal Azure.
 1. Selecione **mySampleDataWarehouse** a partir da página **Azure Synapse Analytics (anteriormente SQL DW).** A piscina SQL abre.
 

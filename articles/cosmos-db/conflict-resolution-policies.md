@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 91054318d4b030d9b2cb9bb80424ade80aeeca85
-ms.sourcegitcommit: 4313e0d13714559d67d51770b2b9b92e4b0cc629
+ms.openlocfilehash: 49400ad0da86eddf7bbbd51dd92101084cdf1ee1
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2020
-ms.locfileid: "91395843"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570099"
 ---
 # <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>Tipos de conflitos e políticas de resolução ao utilizar várias regiões de escrita
 
@@ -50,6 +50,6 @@ A Azure Cosmos DB oferece um mecanismo flexível orientado pela política para r
 
 Saiba como configurar políticas de resolução de conflitos:
 
-* [Como configurar multi-mestre nas suas aplicações](how-to-multi-master.md)
+* [Como configurar várias regiões de escrita para as suas aplicações](how-to-multi-master.md)
 * [Como gerir políticas de resolução de conflitos](how-to-manage-conflicts.md)
 * [Como ler a partir dos conflitos alimentam-se](how-to-manage-conflicts.md#read-from-conflict-feed)

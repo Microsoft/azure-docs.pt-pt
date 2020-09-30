@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 09/23/2020
 ms.custom: devx-track-java
 ms.author: anfeldma
-ms.openlocfilehash: 66677a80c2b58a87bc4a9312570d88a5f735cd72
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 8910983ea5946c88d3d560c0cf0a321f8bd2c4ab
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91326716"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569963"
 ---
 # <a name="azure-cosmos-db-sql-api-java-sdk-v4-examples"></a>Azure Cosmos DB SQL API: Java SDK v4 exemplos
 
@@ -76,7 +76,7 @@ Pode executar as amostras utilizando um IDE (Eclipse, IntelliJ ou VSCODE) ou a p
 Estas variáveis ambientais devem ser definidas
 
 ```
-ACCOUNT_HOST=your account hostname;ACCOUNT_KEY=your account master key
+ACCOUNT_HOST=your account hostname;ACCOUNT_KEY=your account primary key
 ```
 
 a fim de dar às amostras acesso de leitura/escrita à sua conta.

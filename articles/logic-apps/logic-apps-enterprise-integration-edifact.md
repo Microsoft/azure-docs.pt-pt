@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/22/2020
-ms.openlocfilehash: dfe48a1348929bbe8d4af6793d94d52514df9d74
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b0df55e59bd519a816c4022f2434edfcd4460780
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001541"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570765"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens EDIFACT para a integração empresarial B2B no Azure Logic Apps com o Enterprise Integration Pack
 
@@ -247,7 +247,7 @@ Quando se completa cada linha de validação, outra é automaticamente adicionad
 
 2.  Também pode ver os seus acordos na sua conta de integração. No menu da sua conta de integração, escolha **o Resumo**e, em seguida, selecione o azulejo **dos Contratos.** 
 
-    ![Escolha azulejos "Acordos"](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
+    ![Screenshot que mostra o azulejo dos Acordos.](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
 ## <a name="connector-reference"></a>Referência do conector
 

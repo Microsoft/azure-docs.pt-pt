@@ -1,5 +1,5 @@
 ---
-title: Crie um modelo de gestor de recursos Azure Synapse Azure
+title: 'Quickstart: Criar um modelo de gestor de recursos Azure Synapse Azure'
 description: Aprenda a criar um espaço de trabalho synapse utilizando o modelo de Gestor de Recursos Azure.
 services: azure-resource-manager
 author: julieMSFT
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: jrasnick
 ms.date: 08/07/2020
-ms.openlocfilehash: c64f3d835eeede79f937bbaadb0a54992176438d
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: dc6d36f2316e0ae19ce8b813fa9eb127b1a9cf1f
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500937"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91568993"
 ---
 # <a name="quickstart-create-an-azure-synapse-workspace-using-a-deployment-template"></a>Quickstart: Criar um espaço de trabalho Azure Synapse usando um modelo de implantação
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Pode rever o modelo selecionando o **link Visualize** da seguinte forma:
 
-[![Visualização](../media/template-deployments/template-visualize-button.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
+[![Visualização](../media/template-deployments/template-visualize-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2FSynapse%2Fmaster%2FManage%2FDeployWorkspace%2Fazuredeploy.json)
 
 O modelo define dois recursos:
 

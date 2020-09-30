@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: mjbrown
-ms.openlocfilehash: e65c17be47cdc59f929aa539071cf1c758e271f7
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 10713b264429b5588826421231e45194ebed33f0
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91320885"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569193"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Controlo de acesso baseado em funções no Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Seguem-se os papéis integrados apoiados pela Azure Cosmos DB:
 |[Operador de DB cosmos](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Pode providenciar contas, bases de dados e contentores da Azure Cosmos. Não é possível aceder a nenhum dado ou utilizar o Data Explorer.|
 
 > [!IMPORTANT]
-> O suporte da RBAC em Azure Cosmos DB aplica-se apenas às operações de controlo do avião. As operações de plano de dados são protegidas usando chaves principais ou fichas de recursos. Para saber mais, consulte [acesso seguro aos dados em Azure Cosmos DB](secure-access-to-data.md)
+> O suporte da RBAC em Azure Cosmos DB aplica-se apenas às operações de controlo do avião. As operações de planos de dados são protegidas usando chaves primárias ou fichas de recursos. Para saber mais, consulte [acesso seguro aos dados em Azure Cosmos DB](secure-access-to-data.md)
 
 ## <a name="identity-and-access-management-iam"></a>Gestão de identidade e acesso (IAM)
 

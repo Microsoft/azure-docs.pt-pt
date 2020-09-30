@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: ff6bd1a52e05d55d43969644141f39aed8c8eb63
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 62c3d4533dd04dbb5a2ce0c73afa52b81d433913
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072658"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91570789"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformar XML com mapas em Azure Logic Apps com Enterprise Integration Pack
 
@@ -69,7 +69,7 @@ Não precisa de uma aplicação lógica ao criar e adicionar mapas. No entanto, 
 
 1. Depois de abrir a página **de Montagem,** escolha **Adicionar**.
 
-   ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
+   ![Screenshot que realça o botão Adicionar na página Conjuntos.](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
 
 Com base no tamanho do seu ficheiro de montagem, siga os passos para o upload de um conjunto que seja [até 2 MB](#smaller-assembly) ou [mais de 2 MB, mas apenas até 8 MB](#larger-assembly).
 Para limites nas quantidades de montagem nas contas de integração, consulte [Limites e configuração para Apps Lógicas Azure](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits).
