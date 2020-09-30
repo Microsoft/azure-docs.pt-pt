@@ -9,18 +9,18 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 8c792ae1b6ac43ead15fd4f27d2468c517153354
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 3c42db58017dc3a692c227f6eb454cf7b597e77b
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684818"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91297589"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Resolver saldo em dívida na subscrição do Azure
 
 Este artigo aplica-se aos clientes que se inscreveram no Azure online com um cartão de crédito e que têm uma conta de faturação do Programa de Serviços Online da Microsoft. Saiba como [verificar o tipo de conta de faturação](#check-the-type-of-your-account). Se tiver uma conta de faturação do Contrato de Cliente Microsoft, veja [Pagar a fatura do Microsoft Azure](../understand/pay-bill.md).
 
-Se o pagamento não for recebido ou se não o conseguirmos processar, receberá um e-mail e verá um alerta no portal do Azure a informar de que o pagamento da sua subscrição está atrasado. Se o seu método de pagamento predefinido for cartão de crédito, o [Administrador da Conta](billing-subscription-transfer.md#whoisaa) pode liquidar os custos vencidos no portal do Azure. Se pagar por fatura (cheque/transferência bancária), envie o pagamento para a localização apresentada no final da fatura.
+Se o pagamento não for recebido ou se não o conseguirmos processar, receberá um e-mail e verá um alerta no portal do Azure a informar de que o pagamento da sua subscrição está atrasado. Se o seu método de pagamento predefinido for cartão de crédito, o [Administrador da Conta](../understand/subscription-transfer.md#whoisaa) pode liquidar os custos vencidos no portal do Azure. Se pagar por fatura (cheque/transferência bancária), envie o pagamento para a localização apresentada no final da fatura.
 
 > [!IMPORTANT]
 > * Se tiver várias subscrições que utilizam o mesmo cartão de crédito e todas estiverem vencidas, deverá pagar todo o saldo pendente de uma só vez.

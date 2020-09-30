@@ -9,18 +9,18 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: banders
-ms.openlocfilehash: 0f1b4751ae2448b519387d57e4dbfa1eecf8a576
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 8366c0681f1ac29d9e265225dfaeeab44aa4b8ca
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90984316"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91252974"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Adicionar ou atualizar um cartão de crédito do Azure
 
 Este documento aplica-se aos clientes que se inscreveram no Azure online com um cartão de crédito.
 
-No portal do Azure, pode alterar o método de pagamento predefinido para um novo cartão de crédito e atualizar os dados do seu cartão de crédito. Tem de ser um [Administrador de Conta](billing-subscription-transfer.md#whoisaa) para fazer estas alterações.
+No portal do Azure, pode alterar o método de pagamento predefinido para um novo cartão de crédito e atualizar os dados do seu cartão de crédito. Tem de ser um [Administrador de Conta](../understand/subscription-transfer.md#whoisaa) para fazer estas alterações.
 
 Se pretender eliminar um cartão de crédito, consulte [Eliminar um método de pagamento da faturação do Azure](delete-azure-payment-method.md).
 
@@ -116,7 +116,7 @@ Para editar um cartão de crédito, siga estes passos:
    ![Captura de ecrã que mostra os métodos de pagamento no menu](./media/change-credit-card/payment-methods-tab-mca.png)
 1. Na secção **Os seus cartões de crédito**, localize o cartão de crédito que pretende editar.
 1. Selecione as reticências (`...`) no fim da linha.  
-    :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="Captura de ecrã que mostra as reticências" :::
+    :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="Captura de ecrã que mostra a opção Substituir" :::
 1. Para editar os dados do seu cartão de crédito, selecione **Editar** no menu de contexto.
 
 ## <a name="troubleshooting"></a>Resolução de problemas

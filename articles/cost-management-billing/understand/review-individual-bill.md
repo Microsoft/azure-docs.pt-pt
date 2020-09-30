@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: a91f3781b490ee6f724e7d28a6be9a96c853426f
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 0c93375abd57ff5e96906ef7befbbb546a3a1caf
+ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684631"
+ms.lasthandoff: 09/25/2020
+ms.locfileid: "91270530"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Tutorial: Analisar a fatura individual do Azure
 
@@ -22,7 +22,7 @@ Este artigo ajuda a compreender e a analisar a fatura do Azure. Normalmente, rec
 
 Este tutorial aplica-se apenas aos clientes do Azure com uma subscrição individual. As subscrições individuais comuns do Azure são as subscrições com tarifas pay as you go compradas diretamente no site do Azure.
 
-Se precisar de ajuda para compreender custos inesperados, veja [Analisar custos inesperados](https://docs.microsoft.com/azure/cost-management-billing/manage/getting-started#analyze-unexpected-charges). Em alternativa, se precisar de cancelar a sua subscrição do Azure, veja [Cancelar a sua subscrição do Azure](../manage/cancel-azure-subscription.md).
+Se precisar de ajuda para compreender custos inesperados, veja [Analisar custos inesperados](analyze-unexpected-charges.md). Em alternativa, se precisar de cancelar a sua subscrição do Azure, veja [Cancelar a sua subscrição do Azure](../manage/cancel-azure-subscription.md).
 
 Neste tutorial, ficará a saber como:
 
