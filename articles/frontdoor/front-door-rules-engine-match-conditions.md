@@ -1,5 +1,5 @@
 ---
-title: Regras da porta dianteira Azure Condições de jogo do motor
+title: Regras da porta dianteira Azure Os motores combinam com as condições
 description: Este artigo fornece uma lista das várias condições de jogo disponíveis com o Motor das Regras da Porta Frontal Azure.
 services: frontdoor
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: 1b2b891a0b6b67efef38005d3a4d67eecf41afbd
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 0e874ae3d29f4143a4f8a9275d5ffcde48d08e6d
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531870"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569765"
 ---
-# <a name="azure-front-door-rules-engine-match-conditions"></a>Condições de Correspondência do Motor de Regras do Azure Front Door
+# <a name="azure-front-door-rules-engine-match-conditions"></a>Regras da porta dianteira Azure Condições de jogo do motor
 
-No [MOTOR de Regras AFD](front-door-rules-engine.md) uma regra consiste em zero ou mais condições de correspondência e uma ação. Este artigo fornece descrições detalhadas das condições de jogo que pode utilizar no MOTOR de Regras DA AFD.
+No [MOTOR DE Regras AFD,](front-door-rules-engine.md)uma regra consiste em zero ou mais condições de correspondência e uma ação. Este artigo fornece descrições detalhadas das condições de jogo que pode utilizar no MOTOR de Regras DA AFD.
 
-A primeira parte de uma regra é uma condição de jogo ou um conjunto de condições de jogo. Uma regra pode consistir em até 10 condições de jogo. Uma condição de correspondência identifica tipos específicos de pedidos para os quais são realizadas ações definidas. Se utilizar várias condições de correspondência, as condições de jogo são agrupadas utilizando a lógica E. Para todas as condições de correspondência que suportam múltiplos valores (abaixo como "separados pelo espaço"), assume-se o operador "OR".
+A primeira parte de uma regra é uma condição de jogo ou um conjunto de condições de jogo. Uma regra pode consistir em até 10 condições de jogo. Uma condição de correspondência identifica tipos específicos de pedidos para os quais são feitas ações definidas. Se utilizar várias condições de correspondência, as condições de jogo são agrupadas utilizando a lógica E. Para todas as condições de correspondência que suportam múltiplos valores (notados como "separados pelo espaço"), assume-se o operador "OR".
 
 Por exemplo, pode utilizar uma condição de correspondência para:
 
@@ -84,7 +84,7 @@ Não jogo IP | Endereço IP (separado pelo espaço)
   - **IPv6 exemplo**: *1:2:3:4:5:6:7:8 10:20:30:40:60:70:80* corresponde a qualquer pedido que chegam de qualquer endereço 1:2:3:4:5:6:7:8 ou 10:20:30:40:50:60:70:80.
 - A sintaxe para um bloco de endereços IP é o endereço IP base seguido de um corte dianteiro e o tamanho do prefixo. Por exemplo:
   - **IPv4 exemplo:** *5.5.5.64/26* corresponde a quaisquer pedidos que cheguem dos endereços 5.5.5.64 até 5.5.5.127.
-  - **IPv6 exemplo**: *1:2:3:/48* corresponde a qualquer pedido que chegue de endereços 1:2:3:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:0:01:2:3:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff.ff:
+  - **IPv6 exemplo**: *1:2:3:/48* corresponde a qualquer pedido que chegue de endereços 1:2:3:0:0:0:0:0:0:0:0:0:0:0:0:0:0:3: ffff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff:ff.ff.ff.ff.ff.ff.
 
 ## <a name="request-body"></a>Corpo do pedido
 
@@ -204,11 +204,11 @@ Para as regras que aceitam valores da lista de operadores padrão, os seguintes 
 - Não maior do que
 - Não maior do que ou igual
 
-Para operadores numéricos como *Menos do que* e Maior do que ou *iguais,* a comparação utilizada baseia-se no comprimento. Neste caso, o valor na condição de jogo deve ser um número inteiro que seja igual ao comprimento que se quer comparar. 
+Para operadores numéricos como *Menos do que* e Maior do que ou *iguais,* a comparação utilizada baseia-se no comprimento. O valor na condição de jogo deve ser um inteiro que seja igual ao comprimento que se quer comparar. 
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como configurar a sua primeira [configuração do Motor de Regras](front-door-tutorial-rules-engine.md). 
+- Saiba como configurar o seu primeiro [Motor de Regras.](front-door-tutorial-rules-engine.md) 
 - Saiba mais sobre [as ações do Regimento de Máquinas](front-door-rules-engine-actions.md)
 - Saiba mais sobre [o motor das regras da porta da frente Azure](front-door-rules-engine.md)

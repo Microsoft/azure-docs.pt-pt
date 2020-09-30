@@ -10,20 +10,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2020
+ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: e1893c32ed486772e56432f6263626d0ee1a65df
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: ff61af192471bcfc9bdb9f1ce3970d5c22f39579
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90531887"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569773"
 ---
 # <a name="azure-front-door-rules-engine-actions"></a>Ações do Motor de Regras do Azure Front Door
 
-No [MOTOR de Regras AFD](front-door-rules-engine.md) uma regra consiste em zero ou mais condições e ações de correspondência. Este artigo fornece descrições detalhadas das ações que pode usar no MOTOR de Regras DA AFD.
+No [MOTOR DE Regras AFD,](front-door-rules-engine.md)uma regra consiste em zero ou mais condições e ações de correspondência. Este artigo fornece descrições detalhadas das ações que pode usar no MOTOR de Regras DA AFD.
 
-Uma ação define o comportamento que é aplicado ao tipo de pedido que uma condição de correspondência ou conjunto de condições de jogo identifica. No MOTOR DE Regras AFD, uma regra pode conter até cinco ações, apenas uma das quais pode ser uma ação de substituição de configuração de rota (para a frente ou redirecionamento).
+Uma ação define o comportamento que é aplicado ao tipo de pedido que uma condição de correspondência ou conjunto de condições de jogo identifica. No MOTOR DE Regras AFD, uma regra pode conter até cinco ações. Apenas uma das quais pode ser uma ação de substituição da configuração da rota (para a frente ou redirecionamento).
 
 As seguintes ações estão disponíveis para usar no motor de regras da Porta Frontal Azure.  
 
@@ -37,7 +37,7 @@ Ação | Nome do cabeçalho HTTP | Valor
 -------|------------------|------
 Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor é anexado ao valor existente. | String
 Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado ao pedido com o valor especificado. Se o cabeçalho já estiver presente, o valor especificado substitui o valor existente. | String
-Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado do pedido. | String
+Eliminar | Quando esta opção é selecionada com regras de correspondência e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado do pedido. | String
 
 ## <a name="modify-response-header"></a>Modificar o cabeçalho de resposta
 
@@ -49,7 +49,7 @@ Ação | Nome do cabeçalho HTTP | Valor
 -------|------------------|------
 Acrescentar | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** é anexado ao valor existente. | String
 Overwrite | Quando esta opção é selecionada e a regra corresponde, o cabeçalho especificado no **nome cabeçalho** é adicionado à resposta utilizando o **Valor**especificado . Se o cabeçalho já estiver presente, **o valor** substitui o valor existente. | String
-Eliminar | Quando esta opção é selecionada, a regra corresponde e o cabeçalho especificado na regra está presente, o cabeçalho é eliminado da resposta. | String
+Eliminar | Quando esta opção é selecionada e a regra corresponde ao cabeçalho especificado na regra, o cabeçalho é eliminado da resposta. | String
 
 ## <a name="route-configuration-overrides"></a>Substituições da configuração de rotas 
 
@@ -75,10 +75,10 @@ Use esta ação para encaminhar os clientes para um novo URL. Esta ação també
 
 Campo | Descrição 
 ------|------------
-Conjunto de back-end | Selecione a piscina de backend para substituir e sirva os pedidos de. Isto mostrará todas as suas piscinas pré-configuradas backend atualmente no seu perfil da porta da frente. 
+Conjunto de back-end | Selecione a piscina de backend para substituir e servir os pedidos, isto também mostrará todas as suas piscinas de backend pré-configuradas atualmente no seu perfil da porta da frente. 
 Protocolo de encaminhamento | PEDIDO DE CORRESPONDÊNCIA, HTTP, HTTPS.
-Reescrever URL | Use esta ação para reescrever o caminho de um pedido que está a caminho da sua origem. Se ativado, consulte abaixo os campos adicionais necessários
-Colocação em cache | Ativado, incapacitado. Consulte abaixo os campos adicionais necessários, se ativados. 
+Reescrever URL | Use esta ação para reescrever o caminho de um pedido que está a caminho da sua origem. Se ativado, consulte os seguintes campos adicionais necessários
+Colocação em cache | Ativado, incapacitado. Consulte os seguintes campos adicionais necessários se ativado. 
 
 #### <a name="url-rewrite"></a>Reescrever URL
 
@@ -90,23 +90,23 @@ Caminho de encaminhamento personalizado | Defina o caminho para encaminhar os pe
 
 #### <a name="caching"></a>Colocação em cache
 
-Utilize estas definições para controlar a forma como os ficheiros são cached para pedidos que contenham cadeias de consulta e se cache o seu conteúdo com base em todos os parâmetros ou em parâmetros selecionados. Pode utilizar definições adicionais para substituir o valor do tempo de vida (TTL) para controlar quanto tempo o conteúdo permanece em cache para pedidos que as regras correspondem às condições especificam. Para forçar o caching como uma ação, coloque o campo de caching em "Habilitado". Quando o faz, aparecem as seguintes opções: 
+Utilize estas definições para controlar como os ficheiros ficam em cache para pedidos que contenham cadeias de consulta. Se cache o seu conteúdo com base em todos os parâmetros ou em parâmetros selecionados. Pode utilizar definições adicionais para substituir o valor do tempo de vida (TTL) para controlar quanto tempo o conteúdo permanece em cache. Para forçar o caching como uma ação, coloque o campo de caching em "Habilitado". Quando se força a caching, aparecem as seguintes opções: 
 
-Comportamento da cache |  Description              
+Comportamento da cache |  Descrição              
 ---------------|----------------
-Ignorar cadeias de consulta | Uma vez que o ativo esteja em cache, todos os pedidos subsequentes ignoram as cordas de consulta até que o ativo em cache expire.
+Ignorar cadeias de consulta | Uma vez que o ativo é em cache, todos os pedidos subsequentes ignoram as cordas de consulta até que o ativo em cache expire.
 Colocar em cache todos os URLs exclusivos | Cada pedido com um URL único, incluindo a cadeia de consulta, é tratado como um ativo único com a sua própria cache.
 Ignore as cadeias de consulta especificadas | Solicitam que as cadeias de consulta de URL listadas na definição "Parâmetros de consulta" sejam ignoradas para caching.
 Incluir cadeias de consulta especificadas | Solicitam cadeias de consulta de URL listadas na definição "Parâmetros de consulta" para o caching.
 
-Campos adicionais |  Description 
+Campos adicionais |  Descrição 
 ------------------|---------------
 Compressão dinâmica | A Porta frontal pode comprimir dinamicamente o conteúdo na borda, resultando numa resposta menor e mais rápida.
-Parâmetros de consulta | Uma lista separada de vírgula de parâmetros permitidos (ou não autorizados) para usar como base para o caching.
+Parâmetros de consulta | Uma lista separada por vírgula de parâmetros permitidos (ou não autorizados) para utilizar como base para o caching.
 Duração da cache | Duração de validade da cache em Dias, Horas, Minutos, Segundos. Todos os valores devem ser Int. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como configurar a sua primeira [configuração do Motor de Regras](front-door-tutorial-rules-engine.md). 
+- Saiba como configurar o seu primeiro [Motor de Regras.](front-door-tutorial-rules-engine.md) 
 - Saiba mais sobre [as condições de jogo do Motor de Regras](front-door-rules-engine-match-conditions.md)
 - Saiba mais sobre [o motor das regras da porta da frente Azure](front-door-rules-engine.md)

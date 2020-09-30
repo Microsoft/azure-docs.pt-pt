@@ -1,6 +1,6 @@
 ---
-title: Backup e Restauro para Base de Dados de Azure para grupos de servidores de hiperescala postgresQL
-description: Backup e Restauro para Base de Dados de Azure para grupos de servidores de hiperescala postgresQL
+title: Cópia de Segurança e Restauro para grupos de servidores da Base de Dados do Azure para PostgreSQL Hyperscale
+description: Cópia de Segurança e Restauro para grupos de servidores da Base de Dados do Azure para PostgreSQL Hyperscale
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: d300f3e02d2a1a83410d5b7d981298a4743fb223
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: dde4db7f3eb476b7645e910504e48fea8bb6df0c
+ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90939788"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91569720"
 ---
 # <a name="backup-and-restore-for-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Backup e restauro para Azure Arc ativado grupos de servidores de hiperescala postgreSQL
 
@@ -52,7 +52,7 @@ Veja a secção de armazenamento da saída:
     }
 ...
 ```
-Se vir uma secção de "backups", significa que o seu grupo de servidor foi configurado para utilizar uma classe de armazenamento de backup e está pronto para fazer backups e fazer restauros. Se não vir uma secção de "backups", tem de eliminar e recriar o seu grupo de servidor para configurar a classe de armazenamento de backup. Neste momento, ainda não é possível configurar uma classe de armazenamento de backup após a criação do grupo de servidor.
+Se vir o nome de uma classe de armazenamento indicada na secção "backups" da saída desse comando, significa que o seu grupo de servidor foi configurado para utilizar uma classe de armazenamento de backup e está pronto para fazer cópias de segurança e fazer restauros. Se não vir uma secção de "backups", tem de eliminar e recriar o seu grupo de servidor para configurar a classe de armazenamento de backup. Neste momento, ainda não é possível configurar uma classe de armazenamento de backup após a criação do grupo de servidor.
 
 >[!IMPORTANT]
 >Se o seu grupo de servidor já estiver configurado para utilizar uma classe de armazenamento de backup, salte o passo seguinte e vá diretamente para o passo "Leve a cópia de segurança manual".
@@ -117,7 +117,7 @@ Quando a cópia de segurança terminar, a identificação, nome e estado da cóp
 > - Agendar backups automáticos
 > - Mostre o progresso de um backup enquanto está sendo tomada
 
-## <a name="list-backups"></a>Backups de listas
+## <a name="list-backups"></a>Listar cópias de segurança
 
 Enuma as cópias de segurança que estão disponíveis para restaurar.
 
@@ -134,10 +134,12 @@ azdata arc postgres backup list --server-name postgres01
 
 Devolverá uma saída como:
 ```console
-ID                                Name                      State
---------------------------------  ------------------------  -------
-d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done
+ID                                Name                      State    Timestamp
+--------------------------------  ------------------------  -------  ------------------------------
+d134f51aa87f4044b5fb07cf95cf797f  MyBackup_Aug31_0730amPST  Done     2020-08-31 14:30:00:00+00:00
 ```
+
+O calendário indica o ponto no tempo utc no qual a cópia de segurança foi tomada.
 
 ## <a name="restore-a-backup"></a>Restaurar uma cópia de segurança
 
