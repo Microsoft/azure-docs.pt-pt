@@ -7,12 +7,12 @@ ms.service: databox
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 1b3f0faa2b5f67a23317935f0ad868e3872cf86e
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 337c0c4434eb768ee45429d9b2d23536db4c3fc7
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055968"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575457"
 ---
 # <a name="update-your-azure-data-box-gateway"></a>Atualize o seu Gateway de Caixa de Dados Azure
 
@@ -35,41 +35,41 @@ Recomendamos que instale atualizações através do portal Azure. O dispositivo 
 
 1. Quando as atualizações estão disponíveis para o seu dispositivo, vê uma notificação. Selecione a notificação ou a partir da barra de comando superior, **dispositivo de atualização**. Isto permitir-lhe-á aplicar atualizações de software de dispositivos.
 
-    ![Versão de software após atualização](./media/data-box-gateway-apply-updates/portal-apply-update-01a.png)
+    ![Screenshot da página inicial da Caixa de Dados de Edge da Pilha de Azure com as opções do dispositivo de visão geral e atualização chamadas.](./media/data-box-gateway-apply-updates/portal-apply-update-01a.png)
 
 2. Na lâmina de atualização do **Dispositivo,** verifique se reviu os termos da licença associados a novas funcionalidades nas notas de lançamento.
 
     Pode optar por **descarregar e instalar** as atualizações ou simplesmente **descarregar** as atualizações. Pode optar por instalar estas atualizações mais tarde.
 
-    ![Versão de software após atualização](./media/data-box-gateway-apply-updates/portal-apply-update-02.png)
+    ![Screenshot do Dispositivo atualiza a caixa de diálogo com as opções Aceitar e Compreender e a opção descarregar e instalar chamada.](./media/data-box-gateway-apply-updates/portal-apply-update-02.png)
 
     Se pretender descarregar e instalar as atualizações, verifique a opção que as atualizações instalam automaticamente após o download estar concluído.
 
-    ![Versão de software após atualização](./media/data-box-gateway-apply-updates/portal-apply-update-03.png)
+    ![Screenshot do Dispositivo atualiza a caixa de diálogo com a opção Aceitar e a opção Download chamada.](./media/data-box-gateway-apply-updates/portal-apply-update-03.png)
 
 3. O download de atualizações começa. Você vê uma notificação de que o download está em andamento.
 
-    ![Versão de software após atualização](./media/data-box-gateway-apply-updates/portal-apply-update-05.png)
+    ![Screenshot da notificação que diz: "Descarregue e instale atualizações em andamento."](./media/data-box-gateway-apply-updates/portal-apply-update-05.png)
 
     Um banner de notificação também é exibido no portal Azure. Isto indica o progresso do download.
 
-    ![Versão de software após atualização](./media/data-box-gateway-apply-updates/portal-apply-update-08a.png)
+    ![Screenshot da página inicial da Caixa de Dados de Edge da Pilha de Azure com a opção Overview e o banner de notificação de atualizações de descarregamento chamados.](./media/data-box-gateway-apply-updates/portal-apply-update-08a.png)
 
     Pode selecionar esta notificação ou selecionar **o dispositivo Update** para ver o estado detalhado da atualização.
 
-    ![Versão de software após atualização](./media/data-box-gateway-apply-updates/portal-apply-update-09.png)
+    ![Screenshot do Download e instalação de atualizações caixa de diálogo com a mensagem Status: Em curso e a mensagem de atualizações de Descarregamento chamada.](./media/data-box-gateway-apply-updates/portal-apply-update-09.png)
 
 4. Após o download estar concluído, o banner de notificação atualiza para indicar a conclusão. Se optar por descarregar e instalar as atualizações, a instalação começará automaticamente.
 
-    ![Versão de software após atualização](./media/data-box-gateway-apply-updates/portal-apply-update-10a.png)
+    ![Screenshot da página inicial da Caixa de Dados de Edge da Pilha de Azure com a opção Overview e o banner de notificação de atualizações descarregadas chamados.](./media/data-box-gateway-apply-updates/portal-apply-update-10a.png)
 
-    Se optar por descarregar apenas atualizações, selecione a notificação para abrir a lâmina **de atualizações** do Dispositivo. Selecione **Instalar**.
+    Se optar por descarregar apenas atualizações, selecione a notificação para abrir a lâmina **de atualizações** do Dispositivo. Selecione **Install** (Instalar).
   
-    ![Versão de software após atualização](./media/data-box-gateway-apply-updates/portal-apply-update-11a.png)
+    ![A screenshot do dispositivo atualiza a caixa de diálogo com a opção de instalação chamada.](./media/data-box-gateway-apply-updates/portal-apply-update-11a.png)
 
 5. Vê uma notificação de que a instalação está em andamento.
 
-    ![Versão de software após atualização](./media/data-box-gateway-apply-updates/portal-apply-update-12a.png)
+    ![Screenshot da página inicial da Caixa de Dados de Edge da Pilha de Azure com a opção Overview e a mensagem de descarregamento e instalação chamada.](./media/data-box-gateway-apply-updates/portal-apply-update-12a.png)
 
     O portal também apresenta um alerta informativo para indicar que a instalação está em andamento. <!-- The device goes offline and is in maintenance mode.-->
 
@@ -77,19 +77,19 @@ Recomendamos que instale atualizações através do portal Azure. O dispositivo 
 
 6. Uma vez que se trata de um dispositivo de nó de 1, o dispositivo reiniciará após a instalação das atualizações. O alerta crítico durante o reinício indicará que o batimento cardíaco do dispositivo está perdido.
 
-    ![Versão de software após atualização](./media/data-box-gateway-apply-updates/portal-apply-update-19a.png)
+    ![Screenshot da página inicial da Caixa de Dados de Edge da Pilha de Azure com a opção Overview e o banner de notificação de alerta crítico chamado.](./media/data-box-gateway-apply-updates/portal-apply-update-19a.png)
 
     Selecione o alerta para ver o evento do dispositivo correspondente.
 
-    ![Versão de software após atualização](./media/data-box-gateway-apply-updates/portal-apply-update-20a.png)
+    ![Screenshot da secção de eventos do Dispositivo com o batimento cardíaco perdido do evento do seu dispositivo chamado.](./media/data-box-gateway-apply-updates/portal-apply-update-20a.png)
 
 7. O estado do dispositivo atualiza-se para **Online** após a instalação das atualizações.
 
-    ![Versão de software após atualização](./media/data-box-gateway-apply-updates/portal-apply-update-23a.png)
+    ![Screenshot da página inicial da Caixa de Dados de Edge da Pilha de Azure com a opção Overview e o estado online chamado.](./media/data-box-gateway-apply-updates/portal-apply-update-23a.png)
 
     A partir da barra de comando superior, selecione **atualizações do Dispositivo**. Verifique se a atualização foi instalada com sucesso e a versão do software do dispositivo reflete isso.
 
-    ![Versão de software após atualização](./media/data-box-gateway-apply-updates/portal-apply-update-24.png)
+    ![Screenshot do Dispositivo atualiza a caixa de diálogo com a secção de versão de software instalada chamada.](./media/data-box-gateway-apply-updates/portal-apply-update-24.png)
 
 ## <a name="use-the-local-web-ui"></a>Use a uI web local
 
@@ -108,17 +108,17 @@ Faça os seguintes passos para descarregar a atualização a partir do Catálogo
 
 1. Inicie o navegador e navegue para [https://catalog.update.microsoft.com](https://catalog.update.microsoft.com) .
 
-   ![Catálogo de pesquisa](./media/data-box-gateway-apply-updates/download-update-1.png)
+   ![Screenshot do Catálogo de Atualização do Microsoft numa janela do navegador com data box gateway digitado na caixa de texto de pesquisa. Tanto a barra de endereços do navegador como a caixa de texto 'Procurar' são chamadas.](./media/data-box-gateway-apply-updates/download-update-1.png)
 
 2. Na caixa de pesquisa do Catálogo de Atualizações da Microsoft, insira o número de Base de Conhecimento (KB) do hotfix ou termos para a atualização que pretende descarregar. Por exemplo, insira **o Gateway da Caixa de Dados Azure**e, em seguida, clique em **Procurar**.
 
    A lista geminada de atualização aparece como **Azure Data Box Gateway 1911**.
 
-   ![Catálogo de pesquisa](./media/data-box-gateway-apply-updates/download-update-2.png)
+   ![Screenshot do Catálogo de Atualização do Microsoft numa janela do navegador com os resultados de pesquisa do Data Box Gateway apresentados e chamados.](./media/data-box-gateway-apply-updates/download-update-2.png)
 
 3. Selecione **Transferir**. Existe um único ficheiro para descarregar chamado *SoftwareUpdatePackage.exe* que corresponde à atualização do software do dispositivo. Descarregue o ficheiro para uma pasta no sistema local. Também pode copiar a pasta para uma partilha de rede que seja acessível a partir do dispositivo.
 
-   ![Catálogo de pesquisa](./media/data-box-gateway-apply-updates/download-update-3.png)
+   ![Screenshot da caixa de diálogo de descarregamento com o link para o ficheiro do ponto E X E do pacote de atualização de software chamado.](./media/data-box-gateway-apply-updates/download-update-3.png)
 
 ### <a name="install-the-update-or-the-hotfix"></a>Instale a atualização ou o hotfix
 
@@ -127,31 +127,31 @@ Antes da atualização ou instalação do hotfix, certifique-se de que:
 - Tem a atualização ou o hotfix descarregado localmente no seu anfitrião ou acessível através de uma partilha de rede.
 - O estado do seu dispositivo é saudável, como mostra a página **geral** da UI web local.
 
-   ![atualizar o dispositivo](./media/data-box-gateway-apply-updates/local-ui-update-1.png)
+   ![Screenshot da web local De Gateway de Dados U I com a opção Dashboard e o estado do Software: Mensagem saudável chamada.](./media/data-box-gateway-apply-updates/local-ui-update-1.png)
 
 Este procedimento leva cerca de 20 minutos para ser concluído. Execute os seguintes passos para instalar a atualização ou hotfix.
 
 1. Na uI web local, **Maintenance**aceda à  >  **atualização do Software**de Manutenção . Tome nota da versão de software que está a executar.
 
-   ![atualizar o dispositivo](./media/data-box-gateway-apply-updates/local-ui-update-2.png)
+   ![Screenshot da web local Descaixa de Dados Gateway U I com a opção de atualização de Software e a mensagem de versão de software Atual chamada.](./media/data-box-gateway-apply-updates/local-ui-update-2.png)
 
 2. Fornecer o caminho para o ficheiro de atualização. Também pode navegar no ficheiro de instalação da atualização se for colocado numa partilha de rede. Selecione o ficheiro de atualização de software com *SoftwareUpdatePackage.exe* sufixo.
 
-   ![atualizar o dispositivo](./media/data-box-gateway-apply-updates/local-ui-update-3.png)
+   ![Screenshot do Explorador de Ficheiros com o ficheiro do ponto E X E do pacote de atualização de software.](./media/data-box-gateway-apply-updates/local-ui-update-3.png)
 
 3. Selecione **Aplicar**.
 
-   ![atualizar o dispositivo](./media/data-box-gateway-apply-updates/local-ui-update-4.png)
+   ![Screenshot da web local de Data Box Gateway U I com a opção de atualização de software, a caixa de texto do caminho do ficheiro Update e a opção ''Apply Update' chamada.](./media/data-box-gateway-apply-updates/local-ui-update-4.png)
 
 4. Quando solicitado para confirmação, selecione **Sim** para prosseguir. Dado que o dispositivo é um único dispositivo de nó, após a aplicação da atualização, o dispositivo reinicia e há tempo de inatividade.
-   ![atualizar o dispositivo](./media/data-box-gateway-apply-updates/local-ui-update-5.png)
+   ![Screenshot da caixa de diálogo de atualização de software com a opção Sim realçada.](./media/data-box-gateway-apply-updates/local-ui-update-5.png)
 
 5. A atualização começa. Depois de o dispositivo ser atualizado com sucesso, reinicia-o. A UI local não é acessível nesta duração.
 
 6. Após o reinício, é levado para a página **Signo.** Para verificar se o software do dispositivo foi atualizado, **Maintenance**na UI web local, aceda à  >  **atualização do Software**de Manutenção . A versão de software apresentada neste exemplo é **1.6.1049.786**.
 
-   ![atualizar o dispositivo](./media/data-box-gateway-apply-updates/local-ui-update-6.png)
+   ![Screenshot da web local Descaixa de Dados Gateway U I com a opção de atualização de Software e a mensagem atualizada da versão do software Current chamada.](./media/data-box-gateway-apply-updates/local-ui-update-6.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a administração do seu Gateway Azure Data Box](data-box-gateway-manage-users.md).

@@ -3,22 +3,22 @@ title: IoT Plug and Play architecture Microsoft Docs
 description: Como construtor de soluções, compreenda os principais elementos arquitetónicos do IoT Plug and Play.
 author: ridomin
 ms.author: rmpablos
-ms.date: 07/06/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: f656de0bb2e5244e137ae21a6d7af88f3430b12c
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 32e67bd7f30fecee3449935a35235844a047957b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475690"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574331"
 ---
-# <a name="iot-plug-and-play-preview-architecture"></a>Arquitetura de Pré-visualização do IoT Plug and Play
+# <a name="iot-plug-and-play-architecture"></a>IoT Plug e Play arquitetura
 
-O IoT Plug e o Play Preview permitem aos construtores de soluções integrar dispositivos inteligentes com as suas soluções sem qualquer configuração manual. No núcleo do IoT Plug and Play, está um _modelo_ de dispositivo que descreve as capacidades de um dispositivo para uma aplicação IoT Plug e Play. Este modelo é estruturado como um conjunto de interfaces que definem:
+O IoT Plug and Play permite aos construtores de soluções integrar dispositivos inteligentes com as suas soluções sem qualquer configuração manual. No núcleo do IoT Plug and Play, está um _modelo_ de dispositivo que descreve as capacidades de um dispositivo para uma aplicação IoT Plug e Play. Este modelo é estruturado como um conjunto de interfaces que definem:
 
 - _Propriedades_ que representam o estado apenas de leitura ou de um dispositivo ou de outra entidade. Por exemplo, um número de série do dispositivo pode ser uma propriedade apenas de leitura e uma temperatura-alvo num termóstato pode ser uma propriedade writável.
 - _Telemetria_ que são os dados emitidos por um dispositivo, se os dados são um fluxo regular de leituras de sensores, um erro ocasional ou uma mensagem de informação.
@@ -43,12 +43,30 @@ O repositório de modelos utiliza o RBAC para permitir limitar o acesso às defi
 Um construtor de dispositivos implementa o código para executar num dispositivo inteligente IoT utilizando um dos [SDKs do dispositivo Azure IoT](./libraries-sdks.md). Os SDKs do dispositivo ajudam o construtor do dispositivo a:
 
 - Ligue-se de forma segura a um hub IoT.
-- Registe o dispositivo com o seu hub IoT e anuncie o ID do modelo que identifica a coleção de interfaces que o dispositivo implementa.
-- Atualizar as propriedades definidas nas interfaces DTDL que o dispositivo implementa. Estas propriedades são implementadas usando gémeos digitais que gerem a sincronização com o seu hub IoT.
-- Adicione os controladores para os comandos definidos nas interfaces DTDL que o dispositivo implementa.
+- Registe o dispositivo com o seu hub IoT e anuncie o ID do modelo que identifica a coleção de interfaces DTDL que o dispositivo implementa.
+- Sincronizar as propriedades definidas nas interfaces DTDL entre o dispositivo e o seu hub IoT.
+- Adicione os controladores para os comandos definidos nas interfaces DTDL.
 - Envie telemetria para o centro de IoT.
 
-## <a name="iot-hub"></a>IoT Hub
+## <a name="iot-edge-gateway"></a>Gateway IoT Edge
+
+Um gateway IoT Edge funciona como um intermediário para ligar dispositivos IoT Plug e Play que não podem ligar-se diretamente a um hub IoT. Para saber mais, consulte [como um dispositivo IoT Edge pode ser usado como porta de entrada](../iot-edge/iot-edge-as-gateway.md).
+
+## <a name="iot-edge-modules"></a>Módulos do IoT Edge
+
+Um _módulo IoT Edge_ permite-lhe implementar e gerir a lógica de negócio no limite. Os módulos Azure IoT Edge são a unidade de computação mais pequena gerida pela IoT Edge, e podem conter serviços Azure (como a Azure Stream Analytics) ou o seu próprio código específico de solução.
+
+O _hub IoT Edge_ é um dos módulos que compõem o tempo de execução Azure IoT Edge. Atua como um representante local para o IoT Hub expondo os mesmos pontos finais do protocolo que o IoT Hub. Esta consistência significa que os clientes (sejam dispositivos ou módulos) podem ligar-se ao tempo de funcionaamento do IoT Edge tal como fariam com o IoT Hub.
+
+Os SDKs do dispositivo ajudam um construtor de módulos a:
+
+- Utilize o hub IoT Edge para ligar de forma segura ao seu hub IoT.
+- Registe o módulo com o seu hub IoT e anuncie o ID do modelo que identifica a coleção de interfaces DTDL que o dispositivo implementa.
+- Sincronizar as propriedades definidas nas interfaces DTDL entre o dispositivo e o seu hub IoT.
+- Adicione os controladores para os comandos definidos nas interfaces DTDL.
+- Envie telemetria para o centro de IoT.
+
+## <a name="iot-hub"></a>Hub IoT
 
 [O IoT Hub](../iot-hub/about-iot-hub.md) é um serviço hospedado na nuvem que funciona como um centro de mensagens central para a comunicação bidis entre a sua solução IoT e os dispositivos que gere.
 
@@ -80,4 +98,4 @@ Agora que tem uma visão geral da arquitetura de uma solução IoT Plug and Play
 
 - [O repositório modelo](./concepts-model-repository.md)
 - [Integração de modelos gémeos digitais](./concepts-model-discovery.md)
-- [Desenvolvimento para IoT Plug e Play](./concepts-developer-guide.md)
+- [Desenvolvimento para IoT Plug e Play](./concepts-developer-guide-device-csharp.md)

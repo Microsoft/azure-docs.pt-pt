@@ -3,14 +3,14 @@ title: Tutorial do Kubernetes no Azure - Atualizar uma aplicação
 description: Neste tutorial do Azure Kubernetes Service (AKS), saiba como atualizar uma implementação de aplicação existente no AKS com uma nova versão do código da aplicação.
 services: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 09/30/2020
 ms.custom: mvc
-ms.openlocfilehash: e9981f9df31f6de21262aedc9790dbf1a7725fc7
-ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
+ms.openlocfilehash: 6619d7c9f7d2b0cd78f3941ce431e80342b6f563
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2020
-ms.locfileid: "90985351"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576443"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutorial: Atualizar uma aplicação no Serviço Kubernetes do Azure (AKS)
 
@@ -79,7 +79,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 Utilize a [etiqueta do docker][docker-tag] para etiquetar a imagem. Substitua `<acrLoginServer>` pelo nome do servidor de início de sessão do ACR ou pelo nome de anfitrião do registo público e atualize a versão da imagem para *:v2* da seguinte forma:
 
 ```console
-docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
+docker tag mcr.microsoft.com/azuredocs/azure-vote-front:v1 <acrLoginServer>/azure-vote-front:v2
 ```
 
 Agora, utilize [docker push][docker-push] para carregar a imagem para o registo. Substitua `<acrLoginServer>` pelo nome do servidor de início de sessão do ACR.
@@ -145,7 +145,7 @@ kubectl get service azure-vote-front
 
 Agora abra um navegador web local para o endereço IP do seu serviço:
 
-:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="Screenshot mostrando um exemplo da aplicação atualizada Azure Vote App abriu em um navegador web local.":::
+:::image type="content" source="media/container-service-kubernetes-tutorials/vote-app-updated-external.png" alt-text="Screenshot mostrando um exemplo da aplicação de voto azure de imagem de recipiente atualizada abriu com um navegador local e anfitrião local.":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

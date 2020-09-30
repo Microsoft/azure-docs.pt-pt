@@ -1,18 +1,18 @@
 ---
-title: Obtenha informações sobre conversões
-description: Obtenha informações sobre conversões
+title: Obter informações sobre conversões
+description: Obter informações sobre conversões
 author: malcolmtyrrell
 ms.author: matyrr
 ms.date: 03/05/2020
 ms.topic: how-to
-ms.openlocfilehash: 529bfb61b3af7040f3656c04071683841f5abe86
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 89ec0ad40822785457e988cf9e0f9bd6d00ed81f
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870294"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576630"
 ---
-# <a name="get-information-about-conversions"></a>Obtenha informações sobre conversões
+# <a name="get-information-about-conversions"></a>Obter informações sobre conversões
 
 ## <a name="information-about-a-conversion-the-result-file"></a>Informação sobre uma conversão: O ficheiro de resultados
 
@@ -65,6 +65,10 @@ Aqui está um ficheiro de *informação* de exemplo produzido através da conver
         "numMeshUsagesInScene": 236,
         "maxNodeDepth": 3
     },
+    "materialOverrides": {
+        "numOverrides": 4,
+        "numOverriddenMaterials": 4
+    },
     "outputInfo": {
         "conversionToolVersion": "3b28d840de9916f9d628342f474d38c3ab949590",
         "conversionHash": "CCDB1F7A4C09F565"
@@ -114,6 +118,13 @@ Esta secção regista informações sobre o formato de ficheiro de origem.
 * `sourceAssetFormat`: Uma descrição do formato do ficheiro de origem.
 * `sourceAssetFormatVersion`: A versão do formato de ficheiro de origem.
 * `sourceAssetGenerator`: O nome da ferramenta que gerou o ficheiro de origem, se disponível.
+
+### <a name="the-materialoverrides-section"></a>A secção *materialOverrides*
+
+Esta secção fornece informações sobre [material sobrepor-se](override-materials.md) quando um ficheiro de sobreposição de material foi fornecido ao serviço de conversão.
+Contém as seguintes informações:
+* `numOverrides`: O número de entradas de substituição lidas a partir do ficheiro de substituição de material.
+* `numOverriddenMaterials`: O número de materiais que foram ultrapassados.
 
 ### <a name="the-inputstatistics-section"></a>A secção *de inputStatistics*
 

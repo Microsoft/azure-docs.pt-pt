@@ -3,16 +3,16 @@ title: Conceitos - Interconectividade da rede
 description: Conheça os principais aspetos e utilize casos de networking e interconectividade na Azure VMware Solution.
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 4ffcdd8ea42df127ee1480927f4fdf2eb8f137b8
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: f8e9ed143d53afe2f7a24c832c69390c6ffcb36b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316903"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575763"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Conceitos de networking e interconectividade Azure VMware Solution
 
-[!INCLUDE [avs-networking-description](includes/avs-networking-description.md)]
+[!INCLUDE [avs-networking-description](includes/azure-vmware-solution-networking-description.md)]
 
 Uma perspetiva útil sobre interconectividade é considerar os dois tipos de implementações em nuvem privada Azure VMware Solution:
 
@@ -53,7 +53,7 @@ O diagrama abaixo mostra as instalações para a interconectividade da nuvem pri
 * Hot/Cold Cross-vCenter vMotion
 * Acesso de gestão de nuvem privada Azure VMware Solution
 
-:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Rede virtual e conectividade de nuvem privada completa" border="false":::
+:::image type="content" source="media/concepts/adjacency-overview-drawing-double.png" alt-text="Rede virtual básica para conectividade em nuvem privada" border="false":::
 
 Para uma interconectividade total com a sua nuvem privada, ative o ExpressRoute Global Reach e, em seguida, solicite uma chave de autorização e iD de observação privada para o Alcance Global no portal Azure. A chave de autorização e iD de espreitar são usadas para estabelecer o Global Reach entre um circuito ExpressRoute na sua subscrição e o circuito ExpressRoute para a sua nova nuvem privada. Uma vez ligados, os dois circuitos ExpressRoute encaminham o tráfego de rede entre os ambientes no local e a sua nuvem privada.  Consulte o [tutorial para criar um ExpressRoute Global Reach olhando para uma nuvem privada](tutorial-expressroute-global-reach-private-cloud.md) para os procedimentos solicitarem e usarem a chave de autorização e o ID de espreitar.
 

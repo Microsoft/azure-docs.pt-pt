@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/30/2018
 ms.author: twooley
-ms.openlocfilehash: 8ef3d7400b64617df8d81c7b84e680496776b5bd
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 4c289ecb1d8471a7b99f1d4c85a0163de4d0c593
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192150"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576222"
 ---
 # <a name="stream-data-from-azure-storage-blob-into-azure-data-lake-storage-gen1-using-azure-stream-analytics"></a>Transmita os dados da Azure Storage Blob para a Azure Data Lake Storage Gen1 usando a Azure Stream Analytics
 Neste artigo, você aprende a usar Azure Data Lake Storage Gen1 como uma saída para um trabalho Azure Stream Analytics. Este artigo demonstra um cenário simples que lê dados a partir de uma bolha de armazenamento Azure (entrada) e escreve os dados para data lake storage gen1 (saída).
@@ -42,11 +42,11 @@ Começa por criar um trabalho stream Analytics que inclui uma fonte de entrada e
 
 1. Abra a página para o trabalho Stream Analytics, a partir do painel esquerdo clique no separador **Entradas** e, em seguida, clique em **Adicionar**.
 
-    ![Adicione uma entrada ao seu trabalho](./media/data-lake-store-stream-analytics/create.input.1.png "Adicione uma entrada ao seu trabalho")
+    ![Screenshot da lâmina de trabalho stream Analytics com a opção Inputs e a opção de entrada de fluxo adicionar chamada.](./media/data-lake-store-stream-analytics/create.input.1.png "Adicione uma entrada ao seu trabalho")
 
 2. Na nova lâmina **de entrada,** forneça os seguintes valores.
 
-    ![Adicione uma entrada ao seu trabalho](./media/data-lake-store-stream-analytics/create.input.2.png "Adicione uma entrada ao seu trabalho")
+    ![Screenshot do armazenamento Blob - nova lâmina de entrada.](./media/data-lake-store-stream-analytics/create.input.2.png "Adicione uma entrada ao seu trabalho")
 
    * Para **inserir pseudónimo, insira**um nome único para a entrada de trabalho.
    * Para **o tipo de Origem**, selecione Data **stream**.
@@ -58,25 +58,25 @@ Começa por criar um trabalho stream Analytics que inclui uma fonte de entrada e
    * Para **Delimiter**, **selecione separador**.
    * Para **codificação,** selecione **UTF-8**.
 
-     Clique em **Criar**. O portal adiciona agora a entrada e testa a ligação ao mesmo.
+     Clique em **Create** (Criar). O portal adiciona agora a entrada e testa a ligação ao mesmo.
 
 
 ## <a name="create-a-data-lake-storage-gen1-output-for-the-job"></a>Criar uma saída gen1 de armazenamento de data lake para o trabalho
 
 1. Abra a página para o trabalho stream Analytics, clique no separador **Saídas,** clique em **Adicionar**e selecione **Data Lake Storage Gen1**.
 
-    ![Adicione uma saída ao seu trabalho](./media/data-lake-store-stream-analytics/create.output.1.png "Adicione uma saída ao seu trabalho")
+    ![Screenshot da lâmina stream Analytics Job com a opção Outputs, Adicionar opção e Data Lake Storage Gen 1 chamada.](./media/data-lake-store-stream-analytics/create.output.1.png "Adicione uma saída ao seu trabalho")
 
 2. Na lâmina **de saída Nova,** forneça os seguintes valores.
 
-    ![Adicione uma saída ao seu trabalho](./media/data-lake-store-stream-analytics/create.output.2.png "Adicione uma saída ao seu trabalho")
+    ![Screenshot da Data Lake Storage Gen 1 - nova lâmina de saída com a opção Authorize chamada.](./media/data-lake-store-stream-analytics/create.output.2.png "Adicione uma saída ao seu trabalho")
 
     * Para **o pseudónimo de saída, insira**um nome único para a saída do trabalho. Este é um nome amigável usado em consultas para direcionar a saída de consulta para esta conta de Data Lake Storage Gen1.
     * Será solicitado que autorize o acesso à conta Gen1 de armazenamento de data lake. Clique **em Autorizor**.
 
 3. Na **lâmina de saída Nova,** continue a fornecer os seguintes valores.
 
-    ![Adicione uma saída ao seu trabalho](./media/data-lake-store-stream-analytics/create.output.3.png "Adicione uma saída ao seu trabalho")
+    ![Screenshot do Data Lake Storage Gen 1 - nova lâmina de saída.](./media/data-lake-store-stream-analytics/create.output.3.png "Adicione uma saída ao seu trabalho")
 
    * Para **o nome da conta,** selecione a conta Desasusição gen1 de Armazenamento de Dados que já criou para onde pretende que a saída do trabalho seja enviada.
    * Para **o padrão de prefixo path,** insira um caminho de ficheiro utilizado para escrever os seus ficheiros dentro da conta gen1 de armazenamento de datas especificada.
@@ -86,7 +86,7 @@ Começa por criar um trabalho stream Analytics que inclui uma fonte de entrada e
    * Para **Delimiter**, **selecione separador**.
    * Para **codificação,** selecione **UTF-8**.
     
-     Clique em **Criar**. O portal adiciona agora a saída e testa a ligação ao mesmo.
+     Clique em **Create** (Criar). O portal adiciona agora a saída e testa a ligação ao mesmo.
     
 ## <a name="run-the-stream-analytics-job"></a>Executar a tarefa do Stream Analytics
 

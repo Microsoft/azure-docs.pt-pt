@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.author: mahain
-ms.openlocfilehash: 3469b612081f9cb96beec98a065e0827d1c04b4c
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 400c2d91383b5f21fcd40fdbbe279bd83fcef51a
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88261842"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576545"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vmware-solution"></a>Visão geral da avaliação do servidor (migrar para a Solução VMware Azure)
 
@@ -28,14 +28,14 @@ As avaliações que cria com a Avaliação do Servidor são uma imagem pontual d
 
 **Tipo de Avaliação** | **Detalhes**
 --- | --- 
-**VM do Azure** | Avaliações para migrar os seus servidores no local para máquinas virtuais Azure. <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md)no local, [VMs hiper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para Azure utilizando este tipo de avaliação. [Saiba mais](concepts-assessment-calculation.md)
-**Solução VMware no Azure (AVS)** | Avaliações para migrar os seus servidores no local para [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md) no local para migração para Azure VMware Solution (AVS) utilizando este tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
+**VM do Azure** | Avaliações para migrar os seus servidores no local para máquinas virtuais do Azure. <br/><br/> Pode avaliar os seus [VMS VMware](how-to-set-up-appliance-vmware.md)no local, [VMs hiper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para Azure utilizando este tipo de avaliação. [Saiba mais](concepts-assessment-calculation.md)
+**Solução VMware no Azure (AVS)** | Avaliações para migrar os seus servidores no local para o [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> Pode avaliar as [VMs VMware](how-to-set-up-appliance-vmware.md) no local para a migração para o Azure VMware Solution (AVS) com este tipo de avaliação.[Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
 
 A avaliação da Solução VMware (AVS) em Avaliação do Servidor fornece duas opções de critérios de dimensionamento:
 
 **Avaliação** | **Detalhes** | **Dados**
 --- | --- | ---
-**Baseado no desempenho** | Avaliações baseadas em dados de desempenho recolhidos de VMs no local. | **Tamanho recomendado do nó**: Com base em dados de utilização da CPU e da memória, juntamente com o tipo de nó, o tipo de armazenamento e a definição de FTT que seleciona para a avaliação.
+**Com base no desempenho** | Avaliações baseadas em dados de desempenho recolhidos de VMs no local. | **Tamanho recomendado do nó**: Com base em dados de utilização da CPU e da memória, juntamente com o tipo de nó, o tipo de armazenamento e a definição de FTT que seleciona para a avaliação.
 **Como no local** | Avaliações baseadas no dimensionamento no local. | **Tamanho do nó recomendado**: Com base no tamanho VM no local, juntamente com o tipo de nó, tipo de armazenamento e definição FTT que seleciona para a avaliação.
 
 ## <a name="how-do-i-run-an-assessment"></a>Como faço uma avaliação?
@@ -256,7 +256,7 @@ Note que como a Azure VMware Solution (AVS) está em Pré-visualização, os pre
 ## <a name="migration-tool-guidance"></a>Orientação da ferramenta de migração
 
 No relatório de preparação para o Azure da avaliação do Azure VMware Solution (AVS), pode ver as seguintes ferramentas sugeridas: 
-- **VMware HCX ou Enterprise**: Para máquinas VMware, a solução VMware Hybrid Cloud Extension (HCX) é a ferramenta de migração sugerida para migrar a sua carga de trabalho no local para a sua nuvem privada Azure VMware Solution (AVS). [Saiba Mais](../azure-vmware/hybrid-cloud-extension-installation.md).
+- **VMware HCX ou Enterprise**: Para máquinas VMware, a solução VMware Hybrid Cloud Extension (HCX) é a ferramenta de migração sugerida para migrar a sua carga de trabalho no local para a sua nuvem privada Azure VMware Solution (AVS). [Saiba Mais](../azure-vmware/tutorial-deploy-vmware-hcx.md).
 - **Desconhecida**: para as máquinas virtuais importadas através de um ficheiro CSV, a ferramenta de migração predefinida é desconhecida. Embora para máquinas VMware, é aconselhável utilizar a solução VMware Hybrid Cloud Extension (HCX).
 
 ## <a name="next-steps"></a>Passos seguintes

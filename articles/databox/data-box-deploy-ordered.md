@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: c2d971c2c9375f58fd5f41a46716fac4bff29f88
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 3181b88b0cf49516eb5230585460d0cc91bb4042
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604313"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575304"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Encomendar o Azure Data Box
 
@@ -215,11 +215,11 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
 1. Utilize as suas credenciais do Microsoft Azure para iniciar sessão neste URL: [https://portal.azure.com](https://portal.azure.com).
 2. Selecione **+ Criar um recurso** e procure *Azure Data Box*. Selecione **Azure Data Box**.
 
-   ![Selecione caixa de dados Azure](media/data-box-deploy-ordered/select-data-box-import-02.png)
+   ![Screenshot da nova secção com Azure Data Box no campo de pesquisa.](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
 3. Selecione **Criar**.
 
-   ![Selecione caixa de dados Azure](media/data-box-deploy-ordered/select-data-box-import-03.png)
+   ![Screenshot da secção Caixa de Dados Azure com a opção Criar chamada.](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
 4. Verifique se o serviço Data Box está disponível na sua região. Introduza ou selecione as seguintes informações e selecione **Aplicar**.
 
@@ -235,7 +235,7 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
 
 5. Selecione **Data Box**. A capacidade máxima utilizável para uma única encomenda é de 80 TB. Pode criar várias encomendas para tamanhos de dados maiores.
 
-    ![Selecione Data Box opção 1](media/data-box-deploy-ordered/select-data-box-import-05.png)
+    ![Screenshot dos diferentes tamanhos de dados que estão disponíveis para seleção: Data Box Disk 40 terabytes, Data Box 100 terabytes, Data Box Heavy, 1000 terabytes e Enviar os seus próprios discos 1 terabyte.](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
 6. Em **Ordem,** vá ao separador **Básico.** Introduza ou selecione as seguintes informações e selecione **Seguinte: Destino de dados>**.
 
@@ -245,7 +245,7 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
     |Grupo de recursos    | O grupo de recursos que selecionou anteriormente. |
     |Nome da ordem de importação | Forneça um nome amigável para controlar a encomenda. <br> O nome pode ter entre 3 e 24 carateres que podem ser letras, números e hífenes. <br> O nome tem de começar e terminar com uma letra ou um número.    |
 
-    ![Selecione Data Box opção 1](media/data-box-deploy-ordered/select-data-box-import-06.png)
+    ![Screenshot do assistente da Ordem mostrando o passo básico do assistente com a informação correta preenchida.](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
     Por predefinição, a palavra-passe desbloqueada do dispositivo é encriptada utilizando uma chave gerida pela Microsoft. Depois de completar a encomenda, pode adicionar uma chave gerida pelo cliente. Uma chave gerida pelo cliente permite-lhe utilizar a sua própria chave a partir de uma chave de cofre Azure Key para proteger o seu dispositivo desbloquear a palavra-passe. Para obter mais informações, consulte [as teclas geridas pelo cliente no Cofre de Chaves Azure para a Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 
@@ -265,7 +265,7 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
     |---------|---------|
     |Grupos de recursos     | Crie novos grupos de recursos se quiser criar discos geridos a partir dos VHDs no local. Só pode utilizar um grupo de recursos existente se o grupo de recursos tiver sido criado anteriormente ao criar uma encomenda de Caixa de Dados para o disco gerido pelo serviço Data Box. <br> Especifique vários grupos de recursos separados por ponto e vírgula. É suportado um máximo de 10 grupos de recursos.|
 
-    ![Pedido de caixa de dados para disco gerido](media/data-box-deploy-ordered/select-data-box-import-07b.png)
+    ![Screenshot do assistente da Ordem mostrando o passo de destino de Dados do assistente com a informação correta preenchida.](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     A conta de armazenamento especificada para os discos geridos é utilizada como uma conta de armazenamento de teste. O serviço Data Box carrega os VHDs como blobs de páginas na conta de armazenamento de teste antes de os converter em discos geridos e de os mover para os grupos de recursos. Para obter mais informações, veja [Verificar o carregamento de dados no Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
    > [!NOTE]
@@ -286,11 +286,11 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
 
 8. Em **detalhes de contato**, selecione **+ Adicionar endereço de envio**.
 
-    ![Pedido de caixa de dados para disco gerido](media/data-box-deploy-ordered/select-data-box-import-08a.png)
+    ![Screenshot do assistente de Encomenda mostrando o passo de contato do assistente com a opção 'Endereço de envio' "Adicionar" chamada.](media/data-box-deploy-ordered/select-data-box-import-08a.png)
 
 9. No separador **Endereço para envio**, forneça o seu nome próprio e apelido, o nome e o endereço postal da empresa e um número de telefone válido. Selecione **Validar endereço**. O serviço valida o endereço de envio relativamente à disponibilidade do serviço. Se o serviço estiver disponível para o endereço de envio especificado, receberá uma notificação para o efeito.
 
-   ![Pedido de caixa de dados para disco gerido](media/data-box-deploy-ordered/select-data-box-import-10.png)
+   ![Screenshot da caixa de diálogo do endereço de envio de envio com o Navio usando opções e a opção de endereço de envio Adicionar chamada.](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
    Se selecionar o envio auto-gerido, receberá uma notificação de e-mail após a encomenda ser feita com sucesso. Para obter mais informações sobre o transporte auto-gerido, consulte [use o envio auto-gerido](data-box-portal-customer-managed-shipping.md).
 
@@ -300,13 +300,13 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
 
     Recomendamos que utilize um e-mail de grupo para continuar a receber notificações se um administrador sair do grupo.
 
-    ![Pedido de caixa de dados para disco gerido](media/data-box-deploy-ordered/select-data-box-import-08c.png)
+    ![Screenshot da secção de email do passo de contacto do assistente de encomenda com a caixa de texto de email e a opção Seguinte: Revisão e Ordem chamada.](media/data-box-deploy-ordered/select-data-box-import-08c.png)
 
 12. Reveja as informações em **Review + Order** relacionadas com os termos de encomenda, contacto, notificação e privacidade. Selecione a caixa correspondente ao contrato de termos de privacidade.
 
 13. Selecione **Encomendar**. A encomenda demora alguns minutos a ser criada.
 
-    ![Pedido de caixa de dados para disco gerido](media/data-box-deploy-ordered/select-data-box-import-11.png)
+    ![Screenshot do assistente da Ordem mostrando o passo de Revisão e Ordem e a opção Ordem chamada.](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -314,7 +314,7 @@ Faça os seguintes passos utilizando o Azure CLI para encomendar um dispositivo:
 
 1. Anote as suas definições para a sua encomenda de Caixa de Dados. Estas definições incluem as suas informações pessoais/empresariais, nome de subscrição, informações do dispositivo e informações de envio. Terá de utilizar estas definições como parâmetros ao executar o comando CLI para criar a ordem Caixa de Dados. A tabela a seguir mostra as definições de parâmetros utilizadas `az databox job create` para:
 
-   | Definição (parâmetro) | Description |  Valor da amostra |
+   | Definição (parâmetro) | Descrição |  Valor da amostra |
    |---|---|---|
    |resource-group| Utilize um grupo de recursos existente ou crie um novo. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
    |name| O nome da ordem que está a criar. | "mydataboxorder"|
@@ -433,7 +433,7 @@ Faça os seguintes passos utilizando a Azure PowerShell para encomendar um dispo
 
 2. Anote as suas definições para a sua encomenda de Caixa de Dados. Estas definições incluem as suas informações pessoais/empresariais, nome de subscrição, informações do dispositivo e informações de envio. Terá de utilizar estas definições como parâmetros ao executar o comando PowerShell para criar a ordem Caixa de Dados. A tabela seguinte mostra as definições de parâmetros utilizadas para [o New-AzDataBoxJob](https://docs.microsoft.com/powershell/module/az.databox/New-AzDataBoxJob).
 
-    | Definição (parâmetro) | Description |  Valor da amostra |
+    | Definição (parâmetro) | Descrição |  Valor da amostra |
     |---|---|---|
     |Nome do Grupo de Recursos [Obrigatório]| Utilize um grupo de recursos existente. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
     |Nome [Obrigatório]| O nome da ordem que está a criar. | "mydataboxorder"|

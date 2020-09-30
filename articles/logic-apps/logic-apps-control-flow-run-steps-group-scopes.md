@@ -6,20 +6,20 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: ef8862ebbcdd1ee79178af56b7c6cc81c7a68a43
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1ee8c7eabd33ad2d8773d55041fcdf54a7dd489b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91269289"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575015"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Executar ações com base no estado de grupo utilizando âmbitos em Azure Logic Apps
 
 Para executar ações apenas depois de outro grupo de ações ter sucesso ou falhar, agrupar essas ações dentro de um *âmbito*. Esta estrutura é útil quando se pretende organizar ações como um grupo lógico, avaliar o estado desse grupo e realizar ações baseadas no estado do âmbito. Depois de todas as ações num âmbito final, o âmbito também obtém o seu próprio estatuto. Por exemplo, pode utilizar âmbitos quando pretende implementar [exceções e tratamento de erros](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
-Para verificar o estado de um âmbito, pode utilizar os mesmos critérios que utiliza para determinar o estado de funcionação de uma aplicação lógica, como "Bem-sucedido", "Falhado", "Cancelado", etc. Por defeito, quando todas as ações do âmbito são bem sucedidas, o estado do âmbito está marcado como "Bem sucedido". Mas quando qualquer ação no âmbito falha ou é cancelada, o estado do âmbito está marcado como "Falhado". Para limites de âmbitos, consulte [Limites e config](../logic-apps/logic-apps-limits-and-config.md). 
+Para verificar o estado de um âmbito, pode utilizar os mesmos critérios que utiliza para determinar o estado de funcionação de uma aplicação lógica, como **O Sucesso,** **Falhado,** **Cancelado,** e assim por diante. Por defeito, quando todas as ações do âmbito forem bem **sucedidas,** o estado do âmbito é marcado como Bem Sucedido . Mas quando qualquer ação no âmbito falha ou é cancelada, o estado do âmbito está marcado **como Falhado**. Para limites de âmbitos, consulte [Limites e config](../logic-apps/logic-apps-limits-and-config.md). 
 
-Por exemplo, aqui está uma aplicação lógica de alto nível que usa um âmbito para executar ações específicas e uma condição para verificar o estado do âmbito. Se quaisquer ações no âmbito falharem ou terminarem inesperadamente, o âmbito está marcado como "Falhado" ou "Abortado", respectivamente, e a aplicação lógica envia uma mensagem "Scope failed". Se todas as ações âmbitodas forem bem sucedidas, a aplicação lógica envia uma mensagem "Scope succeeded".
+Por exemplo, aqui está uma aplicação lógica de alto nível que usa um âmbito para executar ações específicas e uma condição para verificar o estado do âmbito. Se quaisquer ações no âmbito falharem ou terminarem inesperadamente, o âmbito está marcado **Falhado** ou **Abortado** respectivamente, e a aplicação lógica envia uma mensagem "Scope failed". Se todas as ações âmbitodas forem bem sucedidas, a aplicação lógica envia uma mensagem "Scope succeeded".
 
 ![O diagrama mostra o fluxo de âmbito da aplicação lógica com exemplos de "Scope failed" e "Scope succeeded".](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
@@ -192,7 +192,7 @@ Em seguida, adicione um âmbito para que possa agrupar ações específicas e av
    
       `result('Scope')[0]['status']`
 
-      ![Screenshot que mostra a janela "Adicionar expressão" com a expressão de resultado realçada.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
+      ![Screenshot que mostra a caixa "Expression" com a expressão de resultado realçada.](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
    1. Para ambas as linhas, a seleção **é igual à** do operador. 
    

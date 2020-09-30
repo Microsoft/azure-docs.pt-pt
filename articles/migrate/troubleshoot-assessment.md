@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: afc7e6c1ed41661c835a811a7cbcaa6f7771328e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a7b463394a6919dee56e0448997dbd6c59ac9cc6
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89645640"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576596"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Resolver problemas de avaliação/visualização de dependência
 
@@ -52,7 +52,7 @@ Protocolo de Internet pronto condicionalmente | Apenas aplicável às avaliaçõ
 
 ## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Ferramenta de migração sugerida na avaliação de AVS baseada em importações marcada como desconhecida
 
-Para as máquinas importadas através de um ficheiro CSV, a ferramenta de migração padrão dentro e a avaliação AVS é desconhecida. No entanto, para máquinas VMware, recomenda-se a utilização da solução VMware Hybrid Cloud Extension (HCX). [Saiba Mais](../azure-vmware/hybrid-cloud-extension-installation.md).
+Para as máquinas importadas através de um ficheiro CSV, a ferramenta de migração padrão dentro e a avaliação AVS é desconhecida. No entanto, para máquinas VMware, recomenda-se a utilização da solução VMware Hybrid Cloud Extension (HCX). [Saiba Mais](../azure-vmware/tutorial-deploy-vmware-hcx.md).
 
 ## <a name="linux-vms-are-conditionally-ready-in-an-azure-vm-assessment"></a>Os VMs do Linux estão "condicionadomente prontos" numa avaliação do Azure VM
 
@@ -222,6 +222,6 @@ Recolher registos de tráfego de rede da seguinte forma:
 - Para os VMs Hiper-V, os dados do sistema operativo são recolhidos a partir do anfitrião Hyper-V
 - Para servidores físicos, é recolhido do servidor.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar](how-to-create-assessment.md) ou [personalizar](how-to-modify-assessment.md) uma avaliação.

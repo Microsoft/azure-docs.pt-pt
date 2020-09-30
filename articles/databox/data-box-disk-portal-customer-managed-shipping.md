@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 05/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 7b069d1bf16e8cbf4dfc245fbb3c66863cd0b994
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: c4b3479e5728c32e66bc40f950bc948bf61dce42
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90055581"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575168"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Utilize o envio auto-gerido para o disco Azure Data Box no portal Azure
 
@@ -37,13 +37,13 @@ Quando escamoteia uma encomenda de disco de caixa de dados, pode escolher a opç
 
 1. Na sua encomenda de disco Azure Data Box, nos **dados**de Contacto , selecione **+ Adicionar Endereço de Envio**.
 
-   ![Envio gerido automaticamente](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
+   ![Screenshot do assistente de Encomenda mostrando o passo dos dados de contacto com a opção 'Endereço de Envio' "Adicionar" chamada.](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-1.png)
 
 2. Ao escolher o tipo de envio, selecione a opção **de envio auto-gerida.** Esta opção só está disponível se estiver numa região apoiada, conforme descrito nos pré-requisitos.
 
 3. Depois de ter fornecido o seu endereço de envio, terá de o validar e completar a sua encomenda.
 
-   ![Envio gerido automaticamente](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
+   ![Screenshot da caixa de diálogo do endereço de envio de envio com o Navio usando opções e a opção de endereço de envio Adicionar chamada.](media\data-box-portal-customer-managed-shipping\choose-self-managed-shipping-2.png)
 
 4. Uma vez preparado o dispositivo e recebeu uma notificação por e-mail, pode agendar uma recolha. Na sua encomenda de disco Azure Data Box, vá ao **Overview** e, em seguida, **selecione Agendar pick-up**.
 
@@ -55,7 +55,7 @@ Quando escamoteia uma encomenda de disco de caixa de dados, pode escolher a opç
 
 6. Depois de ter programado a recolha do seu dispositivo, poderá ver o seu código de autorização na  **recolha do Agenda para Azure**.
 
-   ![Visualização do seu código de autorização](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
+   ![Screenshot da lista de levantamento para caixa de diálogo Azure com o código de autorização para caixa de texto pickup chamado.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-01b.png)
 
    Tome nota deste código de **Autorização.**
 
@@ -78,7 +78,7 @@ Quando escamoteia uma encomenda de disco de caixa de dados, pode escolher a opç
 
 9. Se recebeu uma marcação para entrega, a encomenda deve estar agora no Ready para receber no estado do **datacenter Azure** no portal Azure.
 
-   ![Visualização do seu código de autorização](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
+   ![Screenshot da caixa de diálogo do Endereço de Envio de Adicionar com o Navio utilizando opções para fora e a opção de endereço de envio Adicionar chamada.](media\data-box-disk-portal-customer-managed-shipping\data-box-disk-authcode-dropoff-02b.png)
 
 10. Depois de verificado o seu ID e código de autorização e ter deixado o dispositivo no centro de dados, o estado da encomenda deve ser **recebido**.
 
@@ -86,6 +86,6 @@ Quando escamoteia uma encomenda de disco de caixa de dados, pode escolher a opç
 
 11. Uma vez que o dispositivo é recebido, a cópia de dados continuará. Quando a cópia terminar, a encomenda está completa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Quickstart: Implementar disco de caixa de dados Azure utilizando o portal Azure](data-box-disk-quickstart-portal.md)

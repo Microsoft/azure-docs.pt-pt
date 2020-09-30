@@ -7,12 +7,12 @@ ms.date: 07/07/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: c4a32a5c929e74332e85ceb6f4cff787e237e385
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: e7b24dd9cdbd11b56545f85ac233665f8fa4adfe
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069650"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574284"
 ---
 # <a name="iot-plug-and-play-components-in-models"></a>Componentes IoT Plug e Play nos modelos
 
@@ -56,7 +56,7 @@ O exemplo a seguir mostra parte de um modelo simples que não utiliza componente
 ...
 ```
 
-Embora o modelo não defina explicitamente um componente, comporta-se como se houvesse um único componente com todas as definições de telemetria, propriedade e comando.
+Embora o modelo não defina explicitamente um componente, comporta-se como se existisse um _único componente padrão_, com todas as definições de telemetria, propriedade e comando.
 
 A imagem que se segue mostra como o modelo aparece na ferramenta exploradora Azure IoT:
 
@@ -64,9 +64,12 @@ A imagem que se segue mostra como o modelo aparece na ferramenta exploradora Azu
 
 O ID do modelo é armazenado numa propriedade gémea do dispositivo, como mostra a seguinte imagem:
 
-:::image type="content" source="media/concepts-components/twin-model-id.png" alt-text="ID modelo em propriedade digital twin":::
+:::image type="content" source="media/concepts-components/twin-model-id.png" alt-text="Componente padrão no explorador Azure IoT":::
 
-Um modelo DTDL sem componentes é uma simplificação útil para um dispositivo com um único conjunto de telemetria, propriedades e comandos. Um modelo que não utiliza componentes facilita a migração de um dispositivo existente para ser um dispositivo IoT Plug and Play - cria um modelo DTDL que descreve o seu dispositivo real sem a necessidade de definir quaisquer componentes.
+Um modelo DTDL sem componentes é uma simplificação útil para um dispositivo ou módulo IoT Edge com um único conjunto de telemetria, propriedades e comandos. Um modelo que não utilize componentes facilita a migração de um dispositivo ou módulo existente para ser um dispositivo ou módulo IoT Plug and Play - cria um modelo DTDL que descreve o seu dispositivo ou módulo real sem a necessidade de definir quaisquer componentes.
+
+> [!TIP]
+> Um módulo pode ser um dispositivo [módulo](.. /iot-hub/iot-hub-devguide-module-twins.md ou um [módulo IoT Edge](../iot-edge/about-iot-edge.md).
 
 ## <a name="multiple-components"></a>Múltiplos componentes
 
@@ -109,11 +112,12 @@ Para um modelo DTDL com vários componentes, existem duas ou mais secções comp
 ...
 ```
 
-Este modelo tem três componentes definidos na secção de conteúdos - dois `Thermostat` componentes e um `DeviceInformation` componente. Há também um componente de raiz padrão.
+Este modelo tem três componentes definidos na secção de conteúdos - dois `Thermostat` componentes e um `DeviceInformation` componente. Há também um componente padrão.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu sobre componentes de modelos, aqui estão alguns recursos adicionais:
 
+- [Instale e utilize as ferramentas de autoria DTDL](howto-use-dtdl-authoring-tools.md)
 - [Linguagem de definição de gémeos digitais v2 (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [Repositórios de modelos](./concepts-model-repository.md)

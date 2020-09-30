@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 282ac6f87d5ecff75e77b075ee1092f79b4923ad
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: bcc561cd5eea4372d798fff4580362ba0879c3a4
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192870"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574199"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analise os dados em Azure Data Lake Storage Gen1 utilizando o Power BI
 Neste artigo, aprende a usar o Power BI Desktop para analisar e visualizar dados armazenados na Azure Data Lake Storage Gen1.
@@ -27,7 +27,7 @@ Antes de começar este tutorial, tem de ter o seguinte:
 1. Lançar Power BI Desktop no seu computador.
 2. A partir da fita **Home,** clique em **Obter Dados**e, em seguida, clique em Mais. Na caixa de diálogo **Get Data,** clique em **Azure,** clique em **Azure Data Lake Store**e, em seguida, clique em **Connect**.
    
-    ![Ligue-se à Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Ligue-se à Data Lake Storage Gen1")
+    ![Screenshot da caixa de diálogo Get Data com a opção Azure Data Lake Store realçada e a opção Connect chamada.](./media/data-lake-store-power-bi/get-data-lake-store-account.png "Ligue-se à Data Lake Storage Gen1")
 3. Se vir uma caixa de diálogo sobre o conector estar em fase de desenvolvimento, opte por continuar.
 4. Na caixa de diálogo **Azure Data Lake Store,** forneça o URL para a sua conta Desíduo De Armazenamento de Dados Gen1 e, em seguida, clique **em OK**.
    
@@ -37,7 +37,7 @@ Antes de começar este tutorial, tem de ter o seguinte:
     ![Inscreva-se na Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-signin.png "Inscreva-se na Data Lake Storage Gen1")
 6. Depois de ter assinado com sucesso, clique em **Connect**.
    
-    ![Ligue-se à Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Ligue-se à Data Lake Storage Gen1")
+    ![Screenshot da caixa de diálogo Azure Data Lake Store com a opção Connect chamada.](./media/data-lake-store-power-bi/get-data-lake-store-account-connect.png "Ligue-se à Data Lake Storage Gen1")
 7. A próxima caixa de diálogo mostra o ficheiro que fez para a sua conta de Data Lake Storage Gen1. Verifique a informação e, em seguida, clique em **Carregar**.
    
     ![Carregar dados da Data Lake Storage Gen1](./media/data-lake-store-power-bi/get-data-lake-store-account-load.png "Carregar dados da Data Lake Storage Gen1")
@@ -52,19 +52,19 @@ Antes de começar este tutorial, tem de ter o seguinte:
     Nos próximos passos, atualizaremos a consulta para converter os dados importados no formato pretendido.
 9. A partir da fita **Home,** clique **em Editar Consultas.**
    
-    ![Editar consultas](./media/data-lake-store-power-bi/edit-queries.png "Editar consultas")
+    ![Screenshot da fita Home com a opção EditAr Consultas chamada.](./media/data-lake-store-power-bi/edit-queries.png "Editar consultas")
 10. No Editor de Consulta, sob a coluna **Conteúdo,** clique em **Binário**.
     
-    ![Editar consultas](./media/data-lake-store-power-bi/convert-query1.png "Editar consultas")
+    ![Screenshot do Editor de Consulta com a coluna de conteúdo chamado.](./media/data-lake-store-power-bi/convert-query1.png "Editar consultas")
 11. Verá um ícone de ficheiro que representa o ** ficheiroDrivers.txt** que carregou. Clique com o botão direito no ficheiro e clique em **CSV**.    
     
-    ![Editar consultas](./media/data-lake-store-power-bi/convert-query2.png "Editar consultas")
+    ![Screenshot do Editor de Consulta com a opção CSV chamada.](./media/data-lake-store-power-bi/convert-query2.png "Editar consultas")
 12. Deve ver uma saída como mostrado abaixo. Os seus dados estão agora disponíveis num formato que pode utilizar para criar visualizações.
     
-    ![Editar consultas](./media/data-lake-store-power-bi/convert-query3.png "Editar consultas")
+    ![Screenshot do Editor de Consulta com a saída exibida como esperado.](./media/data-lake-store-power-bi/convert-query3.png "Editar consultas")
 13. A partir da fita **Home,** clique **em Fechar e Aplicar,** e depois clique em **Fechar e Aplicar**.
     
-    ![Editar consultas](./media/data-lake-store-power-bi/load-edited-query.png "Editar consultas")
+    ![Screenshot da fita Home com a opção close and Apply chamada.](./media/data-lake-store-power-bi/load-edited-query.png "Editar consultas")
 14. Uma vez que a consulta é atualizada, o separador **Fields** mostrará os novos campos disponíveis para visualização.
     
     ![Campos atualizados](./media/data-lake-store-power-bi/updated-query-fields.png "Campos atualizados")

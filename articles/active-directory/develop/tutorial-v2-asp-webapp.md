@@ -1,7 +1,7 @@
 ---
-title: Adicione o sismo à plataforma de identidade microsoft ASP.NET aplicação web
+title: 'Tutorial: Criar uma ASP.NET aplicação web que utiliza a plataforma de identidade da Microsoft para autenticação Rio Azure'
 titleSuffix: Microsoft identity platform
-description: Implementar o teste de sção da Microsoft numa solução ASP.NET utilizando uma aplicação tradicional baseada no navegador web e padrão OpenID Connect
+description: Neste tutorial, você constrói uma aplicação web ASP.NET que utiliza a plataforma de identidade microsoft e o middleware OWIN para permitir o login do utilizador.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 740d62136393cf0c9cf31d367735bffed1c05276
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 6a5fb517b3ea6626a929da10954bd58cc8e39ef0
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165588"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574233"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Adicione o acesso à Microsoft a uma aplicação web ASP.NET
 
@@ -25,10 +25,18 @@ Este guia demonstra como implementar o início de sção na Microsoft através d
 
 Quando tiver concluído este guia, a sua candidatura poderá aceitar inscrições de contas pessoais de outlook.com e live.com. Além disso, contas de trabalho e escola de qualquer empresa ou organização que esteja integrada com a plataforma de identidade da Microsoft poderão iniciar scontabilidade na sua app.
 
-> Este guia requer o Microsoft Visual Studio 2019.  Não o tem?  [Baixe gratuitamente o Visual Studio 2019](https://www.visualstudio.com/downloads/).
+Neste tutorial:
 
->[!NOTE]
-> Se é novo na plataforma de identidade da Microsoft, recomendamos que comece com o início da [plataforma de identidade Add Microsoft para uma aplicação web ASP.NET](quickstart-v2-aspnet-webapp.md).
+> [!div class="checklist"]
+> * Criar um projeto *de aplicação web ASP.NET* no Estúdio Visual
+> * Adicione a Interface Web Aberta para componentes de middleware .NET (OWIN)
+> * Adicione código para suportar a inscrição do utilizador e a s inscrição
+> * Registe a app no portal Azure
+> * Testar a aplicação
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) com a ASP.NET e a carga de trabalho de **desenvolvimento web** instalada
 
 ## <a name="how-the-sample-app-generated-by-this-guide-works"></a>Como funciona a aplicação de amostras gerada por este guia
 
@@ -264,7 +272,7 @@ No Visual Studio, crie uma nova visão para adicionar o botão de iniciar sessã
     ```
 
 ### <a name="more-information"></a>Mais informações
- Esta página adiciona um botão de início de sessão no formato SVG com um fundo preto:<br/>![Iniciar sessão com a Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para obter mais botões de inscrição, aceda às [diretrizes de Branding](./howto-add-branding-in-azure-ad-apps.md "Diretrizes de imagem corporativa").
+ Esta página adiciona um botão de início de sessão no formato SVG com um fundo preto:<br/>![Iniciar sação com o botão Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> Para obter mais botões de inscrição, aceda às [diretrizes de Branding](./howto-add-branding-in-azure-ad-apps.md "Diretrizes de imagem corporativa").
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Adicione um controlador para mostrar as reclamações do utilizador
 Este controlador demonstra as utilizações do atributo `[Authorize]` para proteger um controlador. Este atributo restringe o acesso ao controlador, permitindo apenas utilizadores autenticados. O seguinte código faz uso do atributo para exibir as alegações do utilizador que foram recuperadas como parte da inscrição:
@@ -353,7 +361,7 @@ Para registar a sua candidatura e adicionar as informações de registo da sua c
 
 Para registar rapidamente a sua candidatura, siga estes passos:
 
-1. Aceda ao novo [portal Azure - Painel de inscrições](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) da App.
+1. Aceda ao novo  [portal Azure - Painel de inscrições](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs) da App.
 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 1. Siga as instruções para descarregar e configurar automaticamente a sua nova aplicação num único clique.
 
@@ -392,7 +400,7 @@ Para testar a sua aplicação no Visual Studio, prima F5 para executar o seu pro
 
 Quando estiver pronto para executar o seu teste, utilize uma conta AD Azure (trabalho ou conta escolar) ou uma conta pessoal da Microsoft<span>(ao vivo.</span> com ou <span>outlook.</span> com) para iniciar sinsu.
 
-![Iniciar sessão com a Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
+![Iniciar sposição com o botão Microsoft mostrado na página do início do navegador no navegador](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
 <br/><br/>
 ![Inscreva-se na sua conta Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
@@ -470,20 +478,11 @@ Você pode restringir o acesso de entrada a apenas as contas de utilizador que e
 
 Pode implementar um método personalizado para validar emitentes utilizando o parâmetro **EmiterValidator.** Para obter mais informações sobre como utilizar este parâmetro, consulte a classe [TokenValidationParameters.](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters)
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como as aplicações web podem chamar APIs web.
-
-### <a name="learn-how-to-create-the-application-used-in-this-quickstart"></a>Saiba como criar a aplicação utilizada neste arranque rápido
-
-Saiba mais sobre aplicações web que chamam APIs web com a plataforma de identidade da Microsoft:
+Saiba como ligar para apis web protegidos a partir de aplicações web com a plataforma de identidade da Microsoft:
 
 > [!div class="nextstepaction"]
 > [Aplicativos web chamando APIs web](scenario-web-app-sign-user-overview.md)
-
-Saiba como construir aplicações web chamando Microsoft Graph:
-
-> [!div class="nextstepaction"]
-> [Microsoft Graph ASP.NET tutorial](/graph/tutorials/aspnet)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

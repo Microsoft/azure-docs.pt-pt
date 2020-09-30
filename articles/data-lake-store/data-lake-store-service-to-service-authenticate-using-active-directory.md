@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 03a32b37f5ca29c6a0dd6b810b4e097379c6c32e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9dc195f98310e63cbde06885effe86ea3c239249
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515146"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576103"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticação de serviço-a-serviço com Azure Data Lake Storage Gen1 utilizando diretório ativo Azure
 > [!div class="op_single_selector"]
@@ -65,12 +65,12 @@ Ao iniciar sessão programática, precisa do ID para a sua aplicação. Se a apl
     ![Adicionar um grupo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.3.png "Adicionar um grupo")
 6. Clique **em 'Selecionar Permissões',** selecione as permissões e se pretende atribuir as permissões como ACL predefinido, aceda a ACL ou ambas. Clique em **OK**.
    
-    ![Atribuir permissões ao grupo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "Atribuir permissões ao grupo")
+    ![Screenshot da lâmina de acesso personalizado adicionar com a opção 'Selecionar permissões' chamada e a lâmina 'Selecionar permissões' com a opção OK chamada.](./media/data-lake-store-authenticate-using-active-directory/adl.acl.4.png "Atribuir permissões ao grupo")
    
     Para obter mais informações sobre permissões em Data Lake Storage Gen1 e ACLs predefinidos/acesso, consulte [o Controlo de Acesso na Data Lake Storage Gen1](data-lake-store-access-control.md).
 7. Na lâmina **de acesso personalizado,** clique em **OK**. Os grupos recém-adicionados, com as permissões associadas, estão listados na lâmina **de acesso.**
    
-    ![Atribuir permissões ao grupo](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Atribuir permissões ao grupo")
+    ![Screenshot da lâmina Access com o grupo recém-adicionado chamado na secção Acesso Personalizado.](./media/data-lake-store-authenticate-using-active-directory/adl.acl.5.png "Atribuir permissões ao grupo")
 
 > [!NOTE]
 > Se planeia restringir a sua aplicação Azure Ative Directory a uma pasta específica, também terá de dar essa mesma aplicação de diretório Azure Ative **Execute** permissão à raiz para permitir o acesso à criação de ficheiros através do .NET SDK.
@@ -88,13 +88,13 @@ Ao iniciar sessão programática, precisa do ID para a sua aplicação. Se a apl
 
 3. A partir do topo da lâmina de registos da App, clique em **Pontos finais.**
 
-    ![Ponto final simbólico OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "Ponto final simbólico OAuth")
+    ![Screenshot do Ative Directory com a opção de registos da App e a opção Endpoints chamada.](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint.png "Ponto final simbólico OAuth")
 
 4. Da lista de pontos finais, copie o ponto final simbólico OAuth 2.0.
 
-    ![Ponto final simbólico OAuth](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Ponto final simbólico OAuth")   
+    ![Screenshot da lâmina Endpoints com o ícone de cópia O AUTH 2 ponto O TOKEN ENDPOINT chamado.](./media/data-lake-store-authenticate-using-active-directory/oauth-token-endpoint-1.png "Ponto final simbólico OAuth")   
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, criou uma aplicação web Azure AD e recolheu as informações de que necessita nas aplicações do seu cliente que você autoriza usando .NET SDK, Java, Python, REST API, etc. Pode agora proceder aos seguintes artigos que falam sobre como usar a aplicação nativa AZURE AD para primeiro autenticar com data lake storage gen1 e, em seguida, realizar outras operações na loja.
 
 * [Autenticação de serviço-a-serviço com Data Lake Storage Gen1 usando Java](data-lake-store-service-to-service-authenticate-java.md)

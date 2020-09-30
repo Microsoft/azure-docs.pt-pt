@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 5494c2dd57220888ad846aaf69fde2f7a59353e4
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 5c3f87620c8a2a2d2438d7a5630541c0f76f9f17
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90053059"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575576"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Tutorial: Criar ordem de exportação para Azure Data Box (Pré-visualização)
 
@@ -159,34 +159,34 @@ Execute os passos seguintes no Portal do Azure para encomendar um dispositivo.
 Se selecionar **O ficheiro Utilizar o ficheiro XML,** pode especificar recipientes e bolhas específicas (página e bloco) que pretende exportar. Terá de seguir as especificações da [tabela de ficheiros Sample XML](#sample-xml-file) para formatar o seu XML. Os passos abaixo mostram-lhe como utilizar um ficheiro XML para exportar os seus dados:
 
 1. Para **o tipo de exportação**, selecione Use **XML file**. Este é o seu ficheiro XML que especifica blobs específicos e ficheiros Azure que pretende exportar. Para adicionar o ficheiro XML, **selecione Clique aqui para selecionar um ficheiro XML**.
-     ![Ficheiro XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-01.png)
+     ![Screenshot da opção 'Selecione' com o Click aqui para selecionar uma opção de ficheiro X M L chamada.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-01.png)
 
 2. Selecione **+ Recipiente** para criar um recipiente.
-    ![Ficheiro XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
+    ![Screenshot da secção de contentores.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
 
 3. No **separador New Container** que sai do lado direito do portal Azure, adicione um nome para o recipiente. O nome deve ser em minúscula e pode incluir números e traços '-'. Em seguida, selecione o **nível** de acesso público a partir da caixa de lista de retirada. Recomendamos que escolha **Acesso Privado (não anónimo)** para evitar que outros acedam aos seus dados. Para obter mais informações sobre os níveis de acesso ao contentor, consulte [as permissões de acesso ao contentor.](../storage/blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs)
 
-   ![Ficheiro XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
+   ![Screenshot do separador novo recipiente mostrando a opção Private (sem acesso anónimo) selecionada.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
 
 4. Selecione **Criar**.
 
-   ![Ficheiro XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
+   ![Screenshot do separador novo recipiente com a opção Criar chamado.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
 
    Se o seu recipiente for criado com sucesso, receberá a seguinte mensagem:
 
-   ![Ficheiro XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-09.png)
+   ![Screenshot da mensagem que diz: "Com sucesso criou o recipiente de armazenamento."](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-09.png)
 
 5. Selecione o recipiente que criou e clique duas vezes nele.
 
-   ![Ficheiro XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-08.png)
+   ![Screenshot da secção de contentores com o meu contentor de teste privado chamado.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-08.png)
 
 6. Clicar duas vezes no recipiente trará a vista das propriedades do contentor. Pretende agora anexar (ou navegar) o seu ficheiro XML que contém a sua lista de blobs e/ou ficheiros Azure que pretende exportar. Selecione **Carregar**.
 
-   ![Ficheiro XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-10c.png)
+   ![Screenshot da caixa de diálogo blob upload com a opção Upload chamada.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-10c.png)
 
 7. Adicionou com sucesso o ficheiro XML ao recipiente. Apenas blobs e ficheiros Azure especificados neste XML serão exportados.
 
-   ![Ficheiro XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-12.png)
+   ![Screenshot do assistente da Ordem com a seguinte: Opção de segurança chamada.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-12.png)
 
 ## <a name="track-the-order"></a>Controlar a encomenda
 

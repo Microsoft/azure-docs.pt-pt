@@ -1,6 +1,7 @@
 ---
-title: Começa com a plataforma de identidade da Microsoft UWP Rio Azure
-description: Como as aplicações da Universal Windows Platform (UWP) podem chamar uma API que requer acesso a tokens pelo ponto final da plataforma de identidade da Microsoft.
+title: 'Tutorial: Criar uma aplicação Universal Windows Platform (UWP) que utiliza a plataforma de identidade da Microsoft para autenticação Rio Azure'
+titleSuffix: Microsoft identity platform
+description: Neste tutorial, você constrói uma aplicação UWP que utiliza a plataforma de identidade da Microsoft para assinar nos utilizadores e obter um token de acesso para ligar para a Microsoft Graph API em seu nome.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -11,26 +12,31 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: acdc23c664f84882916b91b8f8698ee36b1e6cd3
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: bee6f832476537a6d7dba3db98d9aada6c61a476
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165554"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574250"
 ---
-# <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Ligue para a Microsoft Graph API a partir de uma aplicação Universal Windows Platform (XAML)
-
-> [!div renderon="docs"]
+# <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Chame a Microsoft Graph API a partir de uma aplicação da Plataforma Universal do Windows (UWP)
 
 Este guia explica como uma aplicação nativa da Universal Windows Platform (UWP) pode solicitar um token de acesso. A aplicação chama então a API do Gráfico microsoft. O guia aplica-se também a outras APIs que requerem acesso a tokens a partir do ponto final da plataforma de identidade da Microsoft.
 
 No final deste guia, a sua aplicação chama uma API protegida utilizando contas pessoais. Exemplos são outlook.com, live.com, e outros. A sua aplicação também chama contas de trabalho e escola de qualquer empresa ou organização que tenha diretório Azure Ative (Azure AD).
 
->[!NOTE]
-> Este guia requer o desenvolvimento do Visual Studio com a Plataforma Universal Windows instalada. Para obter instruções para descarregar e configurar o Visual Studio para desenvolver aplicações da Plataforma Universal Windows, consulte [a configuração](/windows/uwp/get-started/get-set-up).
+Neste tutorial:
 
->[!NOTE]
-> Se for novo na plataforma de identidade da Microsoft, comece com [a Chamada API do Microsoft Graph API a partir de um quickstart de aplicação universal Windows Platform (UWP).](quickstart-v2-uwp.md)
+> [!div class="checklist"]
+> * Criar um projeto *Universal Windows Platform (UWP)* em Estúdio Visual
+> * Registe a inscrição no portal Azure
+> * Adicione código para suportar a inscrição do utilizador e a s inscrição
+> * Adicione código para ligar para a Microsoft Graph API
+> * Testar a aplicação
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) com a carga de trabalho [de desenvolvimento da Plataforma Universal Windows](/windows/uwp/get-started/get-set-up) instalada
 
 ## <a name="how-this-guide-works"></a>Como funciona este guia
 
@@ -115,7 +121,7 @@ Esta secção mostra como usar a Microsoft Authentication Library para obter um 
     ```csharp
     public sealed partial class MainPage : Page
     {
-       
+
         //Set the scope for API call to user.read
         private string[] scopes = new string[] { "user.read" };
 
@@ -316,7 +322,7 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 
 #### <a name="more-information"></a>Mais informações<a name="more-information-1"></a>
 
-Os tokens de ID adquiridos através do **OpenID Connect** também contêm um pequeno subconjunto de informação pertinente ao utilizador. `DisplayBasicTokenInfo`exibe informações básicas contidas no token. Esta informação inclui o nome de exibição do utilizador e o ID. Também inclui a data de validade do token e a cadeia que representa o próprio símbolo de acesso. Se selecionar várias vezes o botão **API do Gráfico de Chamada Microsoft,** verá que o mesmo token foi reutilizado para pedidos posteriores. Também pode ver a data de validade estendida quando a Microsoft Authentication Library decidir que é hora de renovar o token.
+Os tokens de ID adquiridos através do **OpenID Connect** também contêm um pequeno subconjunto de informação pertinente ao utilizador. `DisplayBasicTokenInfo` exibe informações básicas contidas no token. Esta informação inclui o nome de exibição do utilizador e o ID. Também inclui a data de validade do token e a cadeia que representa o próprio símbolo de acesso. Se selecionar várias vezes o botão **API do Gráfico de Chamada Microsoft,** verá que o mesmo token foi reutilizado para pedidos posteriores. Também pode ver a data de validade estendida quando a Microsoft Authentication Library decidir que é hora de renovar o token.
 
 ### <a name="display-message"></a>Mensagem de exibição
 
@@ -427,16 +433,15 @@ Na amostra atual, o `WithRedirectUri("https://login.microsoftonline.com/common/o
             }
            ...
     }
-  
+
     ```
 
-    Executar a aplicação e, em seguida, copiar o valor de quando o ponto de `redirectUri` rutura é atingido. O valor deve ser semelhante ao seguinte valor:  
-    `ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/`
+    Executar a aplicação e, em seguida, copiar o valor de quando o ponto de `redirectUri` rutura é atingido. O valor deve ser semelhante ao seguinte valor: `ms-app://s-1-15-2-1352796503-54529114-405753024-3540103335-3203256200-511895534-1429095407/`
 
-    Em seguida, pode remover a linha de código porque é necessário apenas uma vez, para obter o valor. 
+    Em seguida, pode remover a linha de código porque é necessário apenas uma vez, para obter o valor.
 
 3. No portal de registo de aplicações, adicione o valor devolvido em **RedirectUri** no painel **de autenticação.**
-   
+
 ## <a name="test-your-code"></a>Teste o seu código
 
 Para testar a sua aplicação, selecione a chave **F5** para executar o seu projeto no Visual Studio. A sua janela principal aparece:
@@ -496,3 +501,10 @@ Permite a [autenticação integrada em domínios federados](#enable-integrated-a
 **Solução alternativa:** Selecione **Iniciar sção com outras opções**. Em seguida, **selecione Iniciar sômata com um nome de utilizador e senha**. **Selecione Forneça a sua palavra-passe**. Em seguida, passe pelo processo de autenticação do telefone.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+## <a name="next-steps"></a>Passos seguintes
+
+Saiba mais sobre a utilização da Biblioteca de Autenticação do Microsoft (MSAL) para autorização e autenticação em aplicações .NET:
+
+> [!div class="nextstepaction"]
+> [Visão geral da Biblioteca de Autenticação da Microsoft (MSAL)](msal-overview.md)

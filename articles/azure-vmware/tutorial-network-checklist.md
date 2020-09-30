@@ -3,12 +3,12 @@ title: Tutorial - Lista de verificação de planeamento de rede
 description: Saiba mais sobre os pré-requisitos de prescrição de rede e detalhes sobre conectividade de rede e portas de rede para Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: c9a3c18d69cb81ed2810c0516820a9ef348402f1
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 5538f9c5d6543ca312835f4ef6437e413dea231b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91254402"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576682"
 ---
 # <a name="networking-planning-checklist-for-azure-vmware-solution"></a>Lista de verificação de planeamento de rede para Solução VMware Azure 
 
@@ -21,8 +21,6 @@ Neste tutorial, ficará a conhecer:
 > * Requisitos de encaminhamento e sub-rede
 > * Portas de rede necessárias para comunicar com os serviços
 > * DhCP e DNS considerações na Azure VMware Solution
-
-
 
 ## <a name="virtual-network-and-expressroute-circuit-considerations"></a>Considerações de rede virtual e circuito ExpressRoute
 Quando cria uma ligação de rede virtual na sua subscrição, o circuito ExpressRoute é estabelecido através do estorte, utiliza uma chave de autorização e um ID de esprevamento que solicita no portal Azure. O espreitamento é uma ligação privada, um a um entre a sua nuvem privada e a rede virtual.
@@ -53,7 +51,7 @@ As sub-redes:
 
 ## <a name="required-network-ports"></a>Portas de rede necessárias
 
-| Origem | Destino | Protocolo | Porta | Description  | 
+| Origem | Destino | Protocolo | Porta | Descrição  | 
 | ------ | ----------- | :------: | :---:| ------------ | 
 | Servidor privado de DNS em nuvem | Servidor DNS nas instalações | UDP | 53 | CLIENTE DNS - Pedidos a prazo do PC vCenter para quaisquer consultas DNS no local (ver secção DNS abaixo) |  
 | Servidor DNS no local   | Servidor privado de DNS em nuvem | UDP | 53 | CLIENTE DNS - Encaminhar pedidos de serviços no local para servidores DNS private Cloud (ver secção DNS abaixo) |  

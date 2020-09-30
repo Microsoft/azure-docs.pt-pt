@@ -12,16 +12,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/05/2020
 ms.author: alkohli
-ms.openlocfilehash: 1c9d4747b227c7ff83e4c43292badd65836edfef
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 5b9958f3dd497aa612a92947b8d968439ef9d0e4
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052176"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575967"
 ---
 # <a name="install-update-51-on-your-storsimple-device"></a>Instale a atualização 5.1 no seu dispositivo StorSimple
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tutorial explica como instalar o Update 5.1 num dispositivo StorSimple que executa uma versão de software anterior através do portal Azure. <!--The hotfix method is used when you are trying to install Update 5.1 on a device running pre-Update 3 versions. The hotfix method is also used when a gateway is configured on a network interface other than DATA 0 of the StorSimple device and you are trying to update from a pre-Update 1 software version.-->
 
@@ -60,15 +60,15 @@ Execute os seguintes passos para atualizar o seu dispositivo para [atualizar 5.1
 
 2. Navegue para **as definições do dispositivo**As  >  **atualizações do dispositivo**.
 
-    ![Clique em atualizações do dispositivo](./media/storsimple-8000-install-update-51/update2.png)
+    ![Screenshot da lâmina de Definições com a opção de atualização do dispositivo chamada.](./media/storsimple-8000-install-update-51/update2.png)
 
 3. Uma notificação aparece se novas atualizações estiverem disponíveis. Em alternativa, na lâmina de atualização do **dispositivo,** clique em **'Actualizar' 'Scan's**. É criada uma tarefa para procurar as atualizações disponíveis. É notificado quando a tarefa for concluída com êxito.
 
-    ![Clique em atualizações do dispositivo](./media/storsimple-8000-install-update-51/update3.png)
+    ![A screenshot da lâmina de Definições com a opção de atualizações do Dispositivo chamada e a lâmina de atualização do dispositivo com as novas atualizações regulares estão disponíveis mensagens chamadas.](./media/storsimple-8000-install-update-51/update3.png)
 
 4. Recomendamos que reveja as notas de versão antes de aplicar uma atualização ao seu dispositivo. Para aplicar atualizações, clique **em Instalar atualizações**. Na lâmina **de atualizações regulares Confirm,** reveja os pré-requisitos para completar antes de aplicar atualizações. Selecione a caixa de verificação para indicar que está pronto para atualizar o dispositivo e, em seguida, clique em **Instalar**.
 
-    ![Clique em atualizações do dispositivo](./media/storsimple-8000-install-update-51/update4.png)
+    ![Screenshot do dispositivo atualiza a lâmina com a opção de atualizações de instalação chamada e as atualizações regulares confirmam as atualizações regulares com a opção "Acordar" e a opção de instalação chamada.](./media/storsimple-8000-install-update-51/update4.png)
 
 5. Um conjunto de verificações de pré-requisitos é iniciado. Estas verificações incluem:
    
@@ -80,17 +80,17 @@ Execute os seguintes passos para atualizar o seu dispositivo para [atualizar 5.1
 
 7. Após a conclusão dos pré-testes com sucesso, é criado um trabalho de atualização. Será notificado quando a tarefa de atualização for criada com êxito.
    
-    ![Criação de tarefa de atualização](./media/storsimple-8000-install-update-51/update6.png)
+    ![Screenshot da Notificação que diz: "Iniciar o trabalho de atualizações de software."](./media/storsimple-8000-install-update-51/update6.png)
    
     A atualização é então aplicada ao seu dispositivo.
 
 9. A atualização demora algumas horas a ser concluída. Selecione a tarefa de atualização e clique em **Detalhes** para ver os detalhes da tarefa em qualquer altura.
 
-    ![Criação de tarefa de atualização](./media/storsimple-8000-install-update-51/update8.png)
+    ![Screenshot do dispositivo atualiza a lâmina com o Download e instalação de atualizações de software em curso chamadas e a lâmina de atualizações de instalação.](./media/storsimple-8000-install-update-51/update8.png)
 
      Também pode monitorizar o progresso do trabalho de atualização a partir das **definições**do Dispositivo > Jobs . Na lâmina **Jobs,** pode ver o progresso da atualização.
 
-     ![Criação de tarefa de atualização](./media/storsimple-8000-install-update-51/update7.png)
+     ![Screenshot da lâmina De Definições com Jobs chamada e a lâmina Jobs mostrando o progresso da atualização.](./media/storsimple-8000-install-update-51/update7.png)
 
 10. Depois de concluído o trabalho, navegue para as definições do **dispositivo > atualizações do dispositivo**. A versão do software deve agora ser atualizada.
 
@@ -166,6 +166,6 @@ Perform the following steps to download and install the hotfixes.
 [!INCLUDE [storsimple-8000-install-troubleshooting](../../includes/storsimple-8000-install-troubleshooting.md)]
 -->
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a [versão Update 5.1](storsimple-update51-release-notes.md).

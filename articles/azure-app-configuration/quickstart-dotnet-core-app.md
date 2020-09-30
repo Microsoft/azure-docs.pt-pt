@@ -6,14 +6,14 @@ author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.date: 1/9/2019
+ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 57202752a965ad0405a04b2eba4cdf42070c94bf
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 83da47ce27d452fd77fab3905c9ce48944c42ffb
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319513"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575066"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Quickstart: Criar uma aplicação .NET Core com Configuração de Aplicações
 
@@ -21,7 +21,7 @@ Neste arranque rápido, incorpora a Configuração de Aplicações Azure numa ap
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
+- Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/dotnet)
 - [.NET Core SDK](https://dotnet.microsoft.com/download) - também disponível na [Azure Cloud Shell](https://shell.azure.com).
 
 ## <a name="create-an-app-configuration-store"></a>Criar uma loja de configuração de aplicativos
@@ -122,7 +122,7 @@ Utiliza a [interface de linha de comando .NET Core (CLI)](https://docs.microsoft
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste quickstart, criou uma nova loja de Configuração de Aplicações e utilizou-a com uma aplicação de consola .NET Core através do fornecedor de Configuração de [Aplicações.](https://go.microsoft.com/fwlink/?linkid=2074664) Para aprender a configurar a sua aplicação .NET Core para atualizar dinamicamente as definições de configuração, continue até ao próximo tutorial.
 

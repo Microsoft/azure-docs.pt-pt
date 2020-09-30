@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: d264ead87e7fa638830bf25fdb07983b164334b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10f2b44d00361885778a523109a8fcb05dabe9dd
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83698661"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91574352"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Aceder ao Azure Cosmos DB a partir de redes virtuais (VNet)
 
@@ -20,13 +20,13 @@ Pode configurar a conta Azure Cosmos para permitir o acesso apenas a partir de u
 
 Por padrão, uma conta Azure Cosmos está acessível a partir de qualquer fonte se o pedido for acompanhado de um token de autorização válido. Quando adicionar uma ou mais sub-redes dentro de VNets, apenas os pedidos originários dessas sub-redes terão uma resposta válida. Os pedidos originários de qualquer outra fonte receberão uma resposta 403 (Proibida). 
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 Aqui estão algumas perguntas frequentes sobre a configuração do acesso a partir de redes virtuais:
 
-### <a name="are-notebooks-and-mongo-shell-currently-compatible-with-virtual-network-enabled-accounts"></a>Os Cadernos e a Mongo Shell são atualmente compatíveis com contas de Rede Virtual ativadas?
+### <a name="are-notebooks-and-mongocassandra-shell-currently-compatible-with-virtual-network-enabled-accounts"></a>Os Cadernos e a Mongo/Cassandra Shell são atualmente compatíveis com contas de Rede Virtual ativadas?
 
-De momento, a integração da [Mongo shell no Cosmos DB Data Explorer](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) e no serviço [Jupyter Notebooks](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks) não são suportados com acesso VNET. Isto encontra-se atualmente em desenvolvimento ativo.
+De momento, as integrações da [concha de Mongo](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) e [da Cassandra](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) no Cosmos DB Data Explorer, e o [serviço Jupyter Notebooks,](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks)não são suportados com acesso VNET. Isto encontra-se atualmente em desenvolvimento ativo.
 
 ### <a name="can-i-specify-both-virtual-network-service-endpoint-and-ip-access-control-policy-on-an-azure-cosmos-account"></a>Posso especificar tanto o ponto final do serviço de rede virtual como a política de controlo de acesso IP numa conta Azure Cosmos? 
 
@@ -69,7 +69,7 @@ Não, apenas as redes virtuais do Azure Resource Manager podem ter o ponto final
 Isto só é necessário quando pretende que a sua conta DB Azure Cosmos seja acedida por outros serviços de primeira festa da Azure, como a fábrica de Dados Azure, a Azure Cognitive Search ou qualquer serviço que seja implantado na região de Azure.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como limitar o acesso da conta Azure Cosmos a sub-redes dentro de redes virtuais](how-to-configure-vnet-service-endpoint.md)
 * [Como configurar firewall IP para a sua conta Azure Cosmos](how-to-configure-firewall.md)

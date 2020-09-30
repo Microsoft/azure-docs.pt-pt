@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/28/2020
-ms.openlocfilehash: 469620456fecb7c0cb398988c4a4fc25da97f863
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 82a109dd5c2813861e21e11aa40774b6b868cfe3
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91357714"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91576205"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilize grupos de falha automática para permitir a falha transparente e coordenada de várias bases de dados
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -76,9 +76,9 @@ Para alcançar a continuidade real do negócio, adicionar redundância de base d
   
 - **Sementeira inicial**
 
-  Ao adicionar bases de dados, piscinas elásticas ou casos geridos a um grupo de failover, existe uma fase inicial de sementeira antes do início da replicação de dados. A fase inicial de sementeira é a operação mais longa e cara. Uma vez concluída a sementeira inicial, os dados são sincronizados e apenas as alterações de dados subsequentes são replicadas. O tempo que a semente inicial leva a completar depende do tamanho dos seus dados, do número de bases de dados replicadas e da velocidade da ligação entre as entidades do grupo de failover. Em circunstâncias normais, a velocidade típica de sementeira é de 50-500 GB por hora para a Base de Dados SQL, e 18-35 GB por hora para uma SQL Managed Instance. A sementeira é realizada para todas as bases de dados em paralelo. Pode utilizar a velocidade de sementeira indicada, juntamente com o número de bases de dados e o tamanho total dos dados para estimar quanto tempo demorará a fase inicial de sementeira antes do início da replicação dos dados.
+  Ao adicionar bases de dados, piscinas elásticas ou casos geridos a um grupo de failover, existe uma fase inicial de sementeira antes do início da replicação de dados. A fase inicial de sementeira é a operação mais longa e cara. Uma vez concluída a sementeira inicial, os dados são sincronizados e apenas as alterações de dados subsequentes são replicadas. O tempo que a semente inicial leva a completar depende do tamanho dos seus dados, do número de bases de dados replicadas e da velocidade da ligação entre as entidades do grupo de failover. Em circunstâncias normais, a velocidade de sementeira possível é de até 500 GB por hora para a Base de Dados SQL, e até 360 GB por hora para SQL Managed Instance. A sementeira é realizada para todas as bases de dados em paralelo.
 
-  Para a SQL Managed Instance, a velocidade da ligação da Rota Expressa entre as duas instâncias também deve ser considerada ao estimar o tempo da fase inicial de sementeira. Se a velocidade da ligação entre as duas instâncias for mais lenta do que o necessário, é provável que o tempo de semente seja notavelmente afetado. Pode utilizar a velocidade de sementeira declarada, o número de bases de dados, o tamanho total dos dados e a velocidade da ligação para estimar quanto tempo demorará a fase inicial de sementeira antes do início da replicação dos dados. Por exemplo, para uma única base de dados de 100 GB, a fase inicial de sementes demoraria entre 2,8 e 5,5 horas se a ligação fosse capaz de empurrar 35 GB por hora. Se o link só puder transferir 10 GB por hora, então a sementeira de uma base de dados de 100 GB demorará cerca de 10 horas. Se existirem múltiplas bases de dados para replicar, a sementeira será executada em paralelo e, quando combinada com uma velocidade de ligação lenta, a fase inicial de sementeira pode demorar consideravelmente mais tempo, especialmente se a sementeira paralela de dados de todas as bases de dados exceder a largura de banda de ligação disponível. Se a largura de banda da rede entre duas instâncias for limitada e estiver a adicionar múltiplas instâncias geridas a um grupo de failover, considere adicionar várias instâncias geridas ao grupo de failover sequencialmente, uma a uma.
+  Para a SQL Managed Instance, considere a velocidade da ligação da Rota Expressa entre as duas instâncias ao estimar o tempo da fase inicial de sementeira. Se a velocidade da ligação entre as duas instâncias for mais lenta do que o necessário, é provável que o tempo de semente seja notavelmente afetado. Pode utilizar a velocidade de sementeira declarada, o número de bases de dados, o tamanho total dos dados e a velocidade da ligação para estimar quanto tempo demorará a fase inicial de sementeira antes do início da replicação dos dados. Por exemplo, para uma única base de dados de 100 GB, a fase inicial das sementes demoraria cerca de 1,2 horas se o link fosse capaz de empurrar 84 GB por hora, e se não existissem outras bases de dados semeadas. Se o link só puder transferir 10 GB por hora, então a sementeira de uma base de dados de 100 GB demorará cerca de 10 horas. Se existirem múltiplas bases de dados para replicar, a sementeira será executada em paralelo e, quando combinada com uma velocidade de ligação lenta, a fase inicial de sementeira pode demorar consideravelmente mais tempo, especialmente se a sementeira paralela de dados de todas as bases de dados exceder a largura de banda de ligação disponível. Se a largura de banda da rede entre duas instâncias for limitada e estiver a adicionar múltiplas instâncias geridas a um grupo de failover, considere adicionar várias instâncias geridas ao grupo de failover sequencialmente, uma a uma. Dado um gateway de tamanho adequado SKU entre as duas instâncias geridas, e se a largura de banda da rede corporativa permitir, é possível atingir velocidades até 360 GB por hora.  
 
 - **Zona DNS**
 
@@ -232,6 +232,10 @@ Para garantir a conectividade não interrompida à primeira sql Gestd Instance a
 > A primeira instância gerida criada na sub-rede determina a zona de DNS para todas as instâncias subsequentes na mesma sub-rede. Isto significa que duas instâncias da mesma sub-rede não podem pertencer a diferentes zonas dns.
 
 Para obter mais informações sobre a criação da instância gerida secundária do SQL na mesma zona de DNS que a instância primária, consulte [Criar um caso secundário gerido](../managed-instance/failover-group-add-instance-tutorial.md#create-a-secondary-managed-instance).
+
+### <a name="using-geo-paired-regions"></a>Utilizando regiões geo emparelhadas
+
+Implementar ambas as instâncias geridas em [regiões emparelhadas](../../best-practices-availability-paired-regions.md) por razões de desempenho. Os casos geridos que residem em regiões geo-emparelhadas têm um desempenho muito melhor em comparação com as regiões não remuneradas. 
 
 ### <a name="enabling-replication-traffic-between-two-instances"></a>Permitir o tráfego de replicação entre duas instâncias
 
@@ -474,7 +478,7 @@ Tal como discutido anteriormente, os grupos de auto-failover e a geo-replicaçã
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para tutoriais detalhados, consulte
   - [Adicione a Base de Dados SQL a um grupo de failover](failover-group-add-single-database-tutorial.md)

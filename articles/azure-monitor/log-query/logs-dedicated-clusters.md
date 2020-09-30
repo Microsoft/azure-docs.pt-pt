@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 4ad3aa7169fcf7eeda6e56a2eab6669b8783d77d
-ms.sourcegitcommit: a0c4499034c405ebc576e5e9ebd65084176e51e4
+ms.openlocfilehash: 714a43ec197ac150488d4443c1eb6fe1be1da232
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91461466"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575525"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor Logs Clusters Dedicados
 
@@ -19,7 +19,7 @@ Azure Monitor Logs Clusters Dedicados são uma opção de implementação que es
 
 Além do suporte para o volume elevado, existem outros benefícios de utilizar clusters dedicados:
 
-- **Limite de taxa** - Um cliente pode ter limites de taxa de ingestão mais elevados apenas em cluster dedicado.
+- **Limite de taxa** - Um cliente pode ter [limites de taxa de ingestão mais elevados apenas](../service-limits.md#data-ingestion-volume-rate) em cluster dedicado.
 - **Funcionalidades** - Certas funcionalidades da empresa só estão disponíveis em clusters dedicados - especificamente teclas geridas pelo cliente (CMK) e suporte lockBox. 
 - **Consistência** - Os clientes têm os seus próprios recursos dedicados e por isso não há influência de outros clientes que executam na mesma infraestrutura partilhada.
 - **Eficiência de custos** - Pode ser mais rentável utilizar cluster dedicado, uma vez que os níveis de reserva de capacidade atribuídos têm em conta toda a ingestão de clusters e se aplicam a todos os seus espaços de trabalho, mesmo que alguns deles sejam pequenos e não elegíveis para desconto de reserva de capacidade.
@@ -38,14 +38,23 @@ Uma vez criado o cluster, pode ser configurado e espaços de trabalho ligados a 
 
 Todas as operações ao nível do cluster requerem a `Microsoft.OperationalInsights/clusters/write` permissão de ação no cluster. Esta permissão poderia ser concedida através do Proprietário ou Contribuinte que contenha a `*/write` ação ou através da função de Contribuinte Log Analytics que contenha a `Microsoft.OperationalInsights/*` ação. Para obter mais informações sobre permissões do Log Analytics, consulte [Gerir o acesso aos dados de registo e espaços de trabalho no Azure Monitor.](../platform/manage-access.md) 
 
-## <a name="billing"></a>Faturação
 
-Os clusters dedicados são suportados apenas para espaços de trabalho que utilizam planos por GB com ou sem níveis de reserva de capacidade. Os clusters dedicados não têm qualquer custo adicional para os clientes que se comprometam a ingerir mais de 1 TB para tal cluster. "Comprometer-se a ingerir" significa que atribuíram um nível de reserva de capacidade de, pelo menos, 1 TB/dia ao nível do cluster. Enquanto a reserva de capacidade é anexada ao nível do cluster, existem duas opções para o carregamento real para os dados:
+## <a name="cluster-pricing-model"></a>Modelo de preços de cluster
 
-- *Cluster* (padrão) - Os custos de reserva de capacidade do seu cluster são atribuídos ao recurso *cluster.*
-- *Espaços de trabalho* - Os custos de reserva de capacidade do seu cluster são atribuídos proporcionalmente aos espaços de trabalho do cluster. O recurso *cluster* é faturado parte do uso se os dados totais ingeridos do dia estiverem sob a reserva de capacidade. Consulte [Os Clusters Dedicados log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) para saber mais sobre o modelo de preços cluster.
+Log Analytics Clusters Dedicados usam um modelo de preços de reserva de capacidade que de, pelo menos, 1000 GB/dia. Qualquer utilização acima do nível de reserva será faturada na tarifa Pay-As-You-Go.  A informação sobre preços da reserva de capacidade está disponível na página de preços do [Azure Monitor]( https://azure.microsoft.com/pricing/details/monitor/).  
 
-Para obter mais informações sobre a faturação de clusters dedicados, consulte [Log AnalyticsDicated Cluster Billing](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters).
+O nível de reserva de capacidade do cluster é configurado programáticamente com o Azure Resource Manager usando o `Capacity` parâmetro em `Sku` . O `Capacity` é especificado em unidades de GB e pode ter valores de 1000 GB/dia ou mais em incrementos de 100 GB/dia.
+
+Existem dois modos de faturação para uso num cluster. Estes podem ser especificados pelo `billingType` parâmetro ao configurar o seu cluster. 
+
+1. **Cluster**: neste caso (que é o padrão), a faturação dos dados ingeridos é feita ao nível do cluster. As quantidades de dados ingeridas de cada espaço de trabalho associado a um cluster são agregadas para calcular a fatura diária do cluster. 
+
+2. **Espaços de trabalho**: os custos de reserva de capacidade para o seu Cluster são atribuídos proporcionalmente aos espaços de trabalho no Cluster (após contabilização das dotações por nó do Centro de [Segurança Azure](https://docs.microsoft.com/azure/security-center/) para cada espaço de trabalho.)
+
+Note que se o seu espaço de trabalho estiver a utilizar o nível de preços por nó, quando estiver ligado a um cluster, será faturado com base em dados ingeridos contra a Reserva de Capacidade do cluster, e não mais por nó. As alocações de dados por nó do Centro de Segurança Azure continuarão a ser aplicadas.
+
+Mais detalhes são faturação para clusters dedicados Log Analytics estão disponíveis [aqui.]( https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters)
+
 
 ## <a name="creating-a-cluster"></a>Criar um cluster
 
@@ -155,8 +164,8 @@ Depois de criar o seu recurso *Cluster* e estiver totalmente aprovisionado, pode
 
 - **keyVaultProperties**: Usado para configurar o Cofre de Chaves Azure utilizado para a provisionar uma [chave gerida pelo cliente Azure Monitor](../platform/customer-managed-keys.md#cmk-provisioning-procedure). Contém os seguintes parâmetros:  *KeyVaultUri,* *KeyName,* *KeyVersion*. 
 - **billingType** - A propriedade *do'singType* determina a atribuição de faturação para o recurso *cluster* e seus dados:
-- **Cluster** (predefinido) - Os custos de Reserva de Capacidade do seu Cluster são atribuídos ao recurso *Cluster.*
-- **Espaços de trabalho** - Os custos de Reserva de Capacidade do seu Cluster são atribuídos proporcionalmente aos espaços de trabalho no Cluster, com o recurso *Cluster* a ser faturado parte da utilização se os dados totais ingeridos do dia estiverem sob reserva de capacidade. Consulte [Os Clusters Dedicados log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) para saber mais sobre o modelo de preços cluster. 
+  - **Cluster** (predefinido) - Os custos de Reserva de Capacidade do seu Cluster são atribuídos ao recurso *Cluster.*
+  - **Espaços de trabalho** - Os custos de Reserva de Capacidade do seu Cluster são atribuídos proporcionalmente aos espaços de trabalho no Cluster, com o recurso *Cluster* a ser faturado parte da utilização se os dados totais ingeridos do dia estiverem sob reserva de capacidade. Consulte [Os Clusters Dedicados log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) para saber mais sobre o modelo de preços cluster. 
 
 > [!NOTE]
 > A propriedade *'faturação'Type* não é suportada no PowerShell.
@@ -185,7 +194,7 @@ Content-type: application/json
 {
    "sku": {
      "name": "capacityReservation",
-     "capacity": 1000
+     "capacity": <capacity-reservation-amount-in-GB>
      },
    "properties": {
     "billingType": "cluster",
@@ -265,8 +274,6 @@ Como qualquer operação de cluster, a ligação de um espaço de trabalho só p
 > [!WARNING]
 > Ligar um espaço de trabalho a um cluster requer sincronizar múltiplos componentes de backend e assegurar a hidratação da cache. Esta operação pode demorar até duas horas para ser concluída. Recomendamos que o faças com assincronizado.
 
-
-### <a name="link-operations"></a>Operações de ligação
 
 **PowerShell**
 
@@ -366,9 +373,38 @@ Pode desvincular um espaço de trabalho de um aglomerado. Depois de desvincular 
 
 ## <a name="delete-a-dedicated-cluster"></a>Excluir um cluster dedicado
 
-Um recurso de cluster dedicado pode ser eliminado. Deve desvincular todos os espaços de trabalho do cluster antes de o eliminar. Uma vez eliminado o recurso de cluster, o cluster físico entra num processo de purga e eliminação. A eliminação de um cluster elimina todos os dados que foram armazenados no cluster. Os dados podem ser de espaços de trabalho que estavam ligados ao cluster no passado.
+Um recurso de cluster dedicado pode ser eliminado. Deve desvincular todos os espaços de trabalho do cluster antes de o eliminar. Precisa de permissões de "escrever" no recurso *Cluster* para realizar esta operação. 
 
-## <a name="next-steps"></a>Próximos passos
+Uma vez eliminado o recurso de cluster, o cluster físico entra num processo de purga e eliminação. A eliminação de um cluster elimina todos os dados que foram armazenados no cluster. Os dados podem ser de espaços de trabalho que estavam ligados ao cluster no passado.
+
+Um recurso *cluster* que foi eliminado nos últimos 14 dias está em estado de eliminação suave e pode ser recuperado com os seus dados. Uma vez que todos os espaços de trabalho foram dissociados do recurso *Cluster* com a eliminação de recursos *do Cluster,* é necessário reagrupar os seus espaços de trabalho após a recuperação. A operação de recuperação não pode ser realizada pelo utilizador, contacte o seu canal Microsoft ou suporte para pedidos de recuperação.
+
+Nos 14 dias seguintes à eliminação, o nome do recurso cluster é reservado e não pode ser utilizado por outros recursos.
+
+**PowerShell**
+
+Utilize o seguinte comando PowerShell para eliminar um cluster:
+
+  ```powershell
+  Remove-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name"
+  ```
+
+**REST**
+
+Utilize a seguinte chamada REST para eliminar um cluster:
+
+  ```rst
+  DELETE https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2020-08-01
+  Authorization: Bearer <token>
+  ```
+
+  **Response**
+
+  200 OK
+
+
+
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a faturação dedicada do cluster do Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
 - Conheça o [design adequado dos espaços de trabalho do Log Analytics](../platform/design-logs-deployment.md)

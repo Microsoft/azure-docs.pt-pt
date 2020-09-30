@@ -1,6 +1,7 @@
 ---
-title: Criar um inquilino do Azure Active Directory
-description: Saiba como criar um inquilino do Azure AD para registar e criar aplicações.
+title: 'Quickstart: Criar um inquilino do Azure Ative Directory'
+titleSuffix: Microsoft identity platform
+description: Neste quickstart, você aprende a criar um inquilino do Azure Ative Directory para uso no desenvolvimento de aplicações que usam a plataforma de identidade microsoft para autenticação e autorização.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +13,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: df873e49e1bc581a32bcb4e4b40b2b24db98cee5
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 60d789c4297c400b812cd6c5c19c8c6148cb347d
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120818"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575984"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Início Rápido: Configurar um inquilino
 
@@ -26,6 +27,10 @@ A plataforma de identidade da Microsoft permite que os programadores criem aplic
 Um inquilino é uma representação de uma organização. É uma instância dedicada do Azure AD que uma organização ou um programador de aplicações recebe quando a organização ou o programador de aplicações cria uma relação com o Microsoft – como inscrever-se no Azure, no Microsoft Intune ou no Microsoft 365.
 
 Cada inquilino do Azure AD é distinto e separado dos outros inquilinos do Azure AD e tem sua própria representação de identidades profissionais e escolares, de identidades de consumidor (se for um inquilino do Azure AD B2C) e registos de aplicações. Um registo de aplicações dentro do seu inquilino pode permitir autenticações de contas apenas no seu inquilino ou em todos os inquilinos.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
 ## <a name="determining-environment-type"></a>Determinar o tipo de ambiente
 
@@ -71,6 +76,5 @@ Para começar a criar aplicações que iniciem sessão nas contas de redes socia
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Registe uma aplicação](quickstart-register-app.md) e integre-a com a plataforma de identidade da Microsoft. 
-* Aprenda o [básico da autenticação.](./authentication-vs-authorization.md)
-* Consulte [Associate ou adicione uma subscrição Azure ao seu inquilino Azure Ative Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) para obter detalhes sobre a relação entre subscrições e um inquilino AZure AD.
+> [!div class="nextstepaction"]
+> [Registe uma aplicação](quickstart-register-app.md) para integrar-se na plataforma de identidade da Microsoft.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: b60798ad1fab0ed66f3d4a39b2fd7faf79fd515e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 1d452406b05a3ad6b2be2e31bce1063f20e6c622
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91268075"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575950"
 ---
 # <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Correlação de alerta inteligente em nuvem no Centro de Segurança Azure (incidentes)
 
@@ -35,6 +35,9 @@ O Centro de Segurança aproveita a Matriz de Ataque MITRE para associar alertas 
 Como os ataques ocorrem frequentemente em diferentes inquilinos, o Security Center pode combinar algoritmos de IA para analisar sequências de ataque que são reportadas em cada subscrição. Esta técnica identifica as sequências de ataque como padrões de alerta predominantes, em vez de serem acidentalmente associadas umas às outras.
 
 Durante uma investigação de um incidente, os analistas muitas vezes precisam de um contexto extra para chegar a um veredicto sobre a natureza da ameaça e como atenuá-la. Por exemplo, mesmo quando uma anomalia de rede é detetada, sem entender o que mais está acontecendo na rede ou no que diz respeito ao recurso direcionado, é difícil entender que ações tomar a seguir. Para ajudar, um incidente de segurança pode incluir artefactos, eventos relacionados e informações. As informações adicionais disponíveis para incidentes de segurança variam, dependendo do tipo de ameaça detetada e da configuração do seu ambiente. 
+
+> [!TIP]
+> Para obter uma lista de alertas de incidentes de segurança que podem ser produzidos pela análise de fusão, consulte a [tabela de alertas de referência](alerts-reference.md#alerts-fusion).
 
 ![Relatório detetado por incidente de segurança](./media/security-center-alerts-cloud-smart/security-incident.png)
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2020
 ms.author: memildin
-ms.openlocfilehash: e1cf6cb839d610fbf6e6188d257b2588d01f4df9
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.openlocfilehash: 0e02a13db441bd4934bd84f66111924a77d0154f
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91448449"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91575321"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança - um guia de referência
 
@@ -391,11 +391,30 @@ Na parte inferior desta página, há uma tabela descrevendo a cadeia de morte do
 
 [Mais detalhes e notas](other-threat-protections.md#azure-ddos)
 
-| Alerta                                   | Descrição                                                          | Intenção[(Saiba mais)](#intentions) | Gravidade |
+| Alerta                                   | Descrição                                                          | Intenção<br>(Saiba[mais)](#intentions) | Gravidade |
 |-----------------------------------------|----------------------------------------------------------------------|:----------------------------------:|----------|
 | **Ataque DDoS detetado para IP público**  | Ataque DDoS detetado para IP Público (endereço IP) e sendo atenuado. | Pesquisa                            | Alto     |
 | **Ataque de DDoS atenuado para IP público** | Ataque DDoS atenuado para IP público (endereço IP).                    | Pesquisa                            | Baixo      |
 |                                         |                                                                      |                                    |          |
+
+
+
+
+
+## <a name="security-incident-alerts"></a><a name="alerts-fusion"></a>Alertas de incidentes de segurança
+
+[Mais detalhes e notas](security-center-alerts-cloud-smart.md)
+
+
+| Alerta                                   | Descrição                                                          | Intenção<br>(Saiba[mais)](#intentions) | Gravidade |
+|-----------------------------------------|----------------------------------------------------------------------|:----------------------------------:|----------|
+|**Incidente de segurança com processo partilhado detetado**|O incidente que começou em {Start Time (UTC)} e recentemente detetado em {Detected Time (UTC)} indica que um intruso tem {Action taken} o seu recurso {Host}|-|Alto|
+|**Incidente de segurança detetado em vários recursos**|O incidente que começou em {Start Time (UTC)} e recentemente detetado em {Detected Time (UTC)} indica que métodos de ataque semelhantes foram realizados nos seus recursos de nuvem {Host}|-|Médio|
+|**Incidente de segurança detetado pela mesma fonte**|O incidente que começou em {Start Time (UTC)} e recentemente detetado em {Detected Time (UTC)} indica que um intruso tem {Action taken} o seu recurso {Host}|-|Alto|
+|**Incidente de segurança detetado em várias máquinas**|O incidente que começou em {Start Time (UTC)} e recentemente detetado em {Detected Time (UTC)} indica que um intruso tem {Action taken} os seus recursos {Host}|-|Médio|
+
+
+
 
 ## <a name="intentions"></a>Intenções
 
@@ -423,7 +442,7 @@ As intenções de cadeia de morte apoiadas pelo Security Center baseiam-se na [ 
 |                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre os alertas, consulte o seguinte:
 
 - [Alertas de segurança no Centro de Segurança do Azure](security-center-alerts-overview.md)
