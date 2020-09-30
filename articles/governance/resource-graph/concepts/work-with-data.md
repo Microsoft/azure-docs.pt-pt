@@ -1,15 +1,15 @@
 ---
 title: Trabalhar com grandes conjuntos de dados
 description: Entenda como obter, formato, página e saltar registos em grandes conjuntos de dados enquanto trabalha com o Azure Resource Graph.
-ms.date: 08/10/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f3073986e424c641d884e1c2427d3d519658d37
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ee552908696aa652931bf3555391adcfec0fc6d3
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005943"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578500"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabalhar com grandes conjuntos de dados de recursos Azure
 
@@ -48,7 +48,7 @@ O controlo _mais restritivo_ vencerá. Por exemplo, se a sua consulta utilizar o
 A próxima opção para trabalhar com grandes conjuntos de dados é o controlo **Skip.** Este controlo permite que a sua consulta salte ou salte o número definido de registos antes de devolver os resultados. **Skip** é útil para consultas que tipo resultados de uma forma significativa onde a intenção é obter em registros em algum lugar no meio do conjunto de resultados. Se os resultados necessários estiverem no final do conjunto de dados devolvidos, é mais eficiente utilizar uma configuração de tipo diferente e recuperar os resultados do topo do conjunto de dados.
 
 > [!NOTE]
-> Ao utilizar **skip,** é aconselhável encomendar os resultados por pelo menos uma coluna com `asc` ou `desc` . Sem triagem, os resultados devolvidos são aleatórios e não repetíveis.
+> Ao utilizar **skip,** é aconselhável encomendar os resultados por pelo menos uma coluna com `asc` ou `desc` . Sem triagem, os resultados devolvidos são aleatórios e não repetíveis. Se `limit` ou for utilizado na `take` consulta, **skip** é ignorado.
 
 Os exemplos a seguir mostram como saltar os primeiros _10_ registos que uma consulta resultaria, em vez de iniciar o conjunto de resultados devolvidos com o 11º recorde:
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
 ms.custom: has-adal-ref
-ms.openlocfilehash: ac585f1c215e5eb7ad5a6628ac85b70e7c76b14e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0dd5d1da41c5fcc596e4c70f797e75c30997ce0b
+ms.sourcegitcommit: a422b86148cba668c7332e15480c5995ad72fa76
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85511309"
+ms.lasthandoff: 09/30/2020
+ms.locfileid: "91578551"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticação de utilizador final com Azure Data Lake Storage Gen1 usando O Diretório Ativo Azure
 > [!div class="op_single_selector"]
@@ -97,21 +97,21 @@ Para recuperar o URI de redirecionamento, faça os seguintes passos.
 
 2. A partir da lâmina **Definições** para a aplicação, clique nas **permissões necessárias**e, em seguida, clique em **Adicionar**.
 
-    ![ID de cliente](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
+    ![Screenshot da lâmina de Definições com a opção Redirecionamento U R I chamada e a lâmina de redirecionamento U R I com o verdadeiro U R que chamei.](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-1.png)
 
 3. Na lâmina **add API Access,** clique em **Selecionar uma API,** clique em **Azure Data Lake**e, em seguida, clique em **Select**.
 
-    ![ID de cliente](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
+    ![Screenshot da lâmina de acesso Add API com a opção Select aPI chamada e a lâmina API Select com a opção Azure Data Lake e a opção Select chamada.](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-2.png)
 
 4.  Na lâmina **add API Access,** clique em **Selecionar permissões,** selecione a caixa de verificação para dar **acesso total à Data Lake Store**e, em seguida, clique em **Select**.
 
-    ![ID de cliente](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
+    ![Screenshot da lâmina de acesso Add API com a opção Desempção Select chamada e a lâmina De Acesso Ativa com a ter acesso total à opção de serviço Azure Data Lake e a opção Select chamada.](./media/data-lake-store-end-user-authenticate-using-active-directory/aad-end-user-auth-set-permission-3.png)
 
-    Clique em **Concluído**.
+    Clique em **Done** (Concluído).
 
 5. Repita os dois últimos passos para conceder permissões para **a API de Gestão de Serviços windows Azure.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, criou uma aplicação nativa AZure AD e recolheu as informações de que necessita nas aplicações do seu cliente que você autoriza usando .NET SDK, Java SDK, REST API, etc. Pode agora proceder aos seguintes artigos que falam sobre como usar a aplicação web AZure AD para primeiro autenticar com data lake storage gen1 e, em seguida, realizar outras operações na loja.
 
 * [Autenticação final do utilizador com data lake storage gen1 usando Java SDK](data-lake-store-end-user-authenticate-java-sdk.md)
